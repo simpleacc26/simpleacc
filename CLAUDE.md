@@ -6,21 +6,30 @@ mais de uma pessoa, em máquinas diferentes.
 
 ## Estrutura
 
-- `clientes/<cliente>/<projeto>/` — entregas de clientes (sites, quizzes, apps,
-  automações). Cada projeto é autocontido (tem seu próprio `package.json`,
-  build e deploy).
+- `clientes/<cliente>/` — **base de conhecimento + entregas** de cada cliente,
+  com subpastas `contexto/`, `estrategia/`, `copy/`, `roteiros/`, `funis/`, um
+  `aprendizados.md` e um `CLAUDE.md` próprio. Os funis/landing/quiz ficam em
+  `funis/` (autocontidos, com seu próprio build/deploy).
 - `clientes/0-interno-simpleacc-inova/` — coisas da própria SimpleAcc (fica no
   topo da lista pelo prefixo `0-`).
+- `prompts/` — prompts mestres reutilizáveis; viram comandos em `.claude/commands/`.
 - `docs/` — manual e convenções. **Leia `docs/MANUAL.md`.**
 - `_modelo/` — modelos para criar cliente/projeto novo.
+
+## Memória = Git
+
+A sessão é descartável; **a memória que permanece são os arquivos no Git**. Ao
+trabalhar para um cliente, **leia `contexto/` e `aprendizados.md` antes de criar**
+e **registre aprendizados** depois. Para gerar funil/página/anúncios, use `/funil`.
 
 ## Regras ao trabalhar aqui
 
 1. **Escopo da sessão = uma pasta.** Antes de mexer, confirme em qual
-   `clientes/<cliente>/<projeto>/` a tarefa vive.
+   `clientes/<cliente>/` a tarefa vive.
    Não altere arquivos de outros clientes na mesma sessão.
 2. **Comandos rodam dentro da pasta do projeto.** `npm install`, `npm run dev`,
-   build, etc. são executados no diretório do projeto, não na raiz.
+   build, etc. são executados no diretório do projeto (ex.: dentro de `funis/<projeto>`),
+   não na raiz.
 3. **Branch por trabalho** e **PR sempre** (veja o padrão no manual).
 4. **Nunca commitar segredos.** `.env` é ignorado; use `.env.example`.
 5. **Cada projeto tem um `README.md`** explicando o que é, como rodar, onde faz
