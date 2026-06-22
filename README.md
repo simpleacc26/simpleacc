@@ -1,60 +1,43 @@
-# Quiz | ALIVANCE CLUB
+# SimpleAcc — Hub de Trabalho
 
-Quiz de diagnóstico para mentores, coaches e consultores (Rafael Granella /
-Alivance Club). Migração do app originalmente publicado no **Figma Make**
-(`quiz.rafaelgranella.com.br`) para um app **React + Vite** pronto para deploy
-na **Vercel**.
+Repositório central da SimpleAcc. Aqui ficam, organizados por pasta, **os
+trabalhos de clientes** e as **ações internas** do nosso negócio. A ideia é ter
+**um único ambiente remoto** que mais de uma pessoa pode usar, de qualquer
+máquina, mantendo cada assunto no seu lugar.
 
-## Fluxo
+> 📖 **Antes de começar, leia o [Manual de Operação](docs/MANUAL.md).**
+> Ele explica como rodar sessões remotas, as convenções de pastas/branches e as
+> boas práticas para trabalharmos juntos sem bagunça.
 
-1. **Landing** — headline + primeira pergunta (perfil).
-2. **Perguntas** — 7 perguntas no total, com barra de progresso e botão "Voltar".
-3. **Captura de lead** — nome, WhatsApp (com máscara) e e-mail, com validação.
-   No envio, os dados + respostas + UTMs são enviados via `POST` para o webhook
-   do Make.
-4. **Relatório** — diagnóstico personalizado gerado a partir das respostas, com
-   CTAs para a sessão estratégica (`lp.rafaelgranella.com.br`).
+## Como está organizado
 
-## Stack
-
-- React 18 + TypeScript
-- Vite
-- Tailwind CSS
-- lucide-react (ícones)
-
-## Rastreamento
-
-Configurado em `index.html` / `src/analytics.ts`:
-
-- Google Tag Manager (`GTM-MVWPJF6H`)
-- Microsoft Clarity (`wv9oirj7do`)
-- Facebook Pixel (eventos `PageView`, `CompleteRegistration`, `ViewContent`,
-  `InitiateCheckout`, `Lead`) — o `fbq` é carregado via GTM.
-
-## Desenvolvimento
-
-```bash
-npm install
-npm run dev      # ambiente local em http://localhost:5173
-npm run build    # gera a build de produção em dist/
-npm run preview  # pré-visualiza a build
+```
+.
+├── README.md            ← você está aqui (visão geral)
+├── CLAUDE.md            ← contexto que toda sessão do Claude Code lê
+├── docs/                ← manual, convenções e playbooks
+│   └── MANUAL.md
+├── clientes/            ← um diretório por cliente
+│   └── <cliente>/
+│       └── <projeto>/   ← cada projeto/entrega do cliente
+├── interno/             ← ações próprias do negócio (site, automações, etc.)
+└── _modelo/             ← modelos para criar cliente/projeto novo
+    ├── cliente/
+    └── projeto/
 ```
 
-## Variáveis de ambiente
+## Onde colocar cada coisa
 
-| Variável            | Descrição                                      |
-| ------------------- | ---------------------------------------------- |
-| `VITE_WEBHOOK_URL`  | URL do webhook do Make (opcional; há fallback) |
+| Tipo de trabalho                         | Onde vai                                  |
+| ---------------------------------------- | ----------------------------------------- |
+| Site, landing, quiz, app de um cliente   | `clientes/<cliente>/<projeto>/`           |
+| Automação (Make), integração de cliente  | `clientes/<cliente>/<projeto>/`           |
+| Site/ferramenta/automação da SimpleAcc   | `interno/<projeto>/`                      |
+| Documento, anotação, playbook geral      | `docs/`                                   |
 
-Veja `.env.example`.
+## Começar um trabalho novo
 
-## Deploy na Vercel
-
-O projeto já vem com `vercel.json` (preset `vite` + rewrite de SPA). Basta:
-
-1. Importar o repositório na Vercel.
-2. Framework detectado automaticamente: **Vite**.
-   - Build command: `npm run build`
-   - Output directory: `dist`
-3. (Opcional) Definir `VITE_WEBHOOK_URL` em *Environment Variables*.
-4. Deploy.
+1. Leia o [Manual](docs/MANUAL.md).
+2. Copie `_modelo/cliente/` ou `_modelo/projeto/` para o lugar certo.
+3. Preencha o `README.md` do projeto (o que é, links, deploy, contatos).
+4. Trabalhe numa branch (veja o padrão de branches no manual) e abra um PR.

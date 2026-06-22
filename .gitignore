@@ -1,39 +1,19 @@
-# Dependencies
-node_modules
-.pnp
-.pnp.js
+# Dependências (qualquer projeto dentro do monorepo)
+**/node_modules/
 
-# Build output
-dist
-dist-ssr
-*.local
+# Builds
+**/dist/
+**/build/
+**/.vercel/
+**/.next/
 
-# Logs
-logs
-*.log
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
+# Ambiente / segredos — NUNCA commitar
+**/.env
+**/.env.local
+**/.env.*.local
 
-# Editor / OS
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# Env
-.env
-.env.local
-.env.*.local
-
-# Vercel
-.vercel
-
-# TS build info
-*.tsbuildinfo
+# Logs e caches
+**/*.log
+**/.cache/
+**/.DS_Store
+**/Thumbs.db
