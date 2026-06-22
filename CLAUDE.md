@@ -9,14 +9,15 @@ mais de uma pessoa, em máquinas diferentes.
 - `clientes/<cliente>/<projeto>/` — entregas de clientes (sites, quizzes, apps,
   automações). Cada projeto é autocontido (tem seu próprio `package.json`,
   build e deploy).
-- `interno/<projeto>/` — coisas da própria SimpleAcc.
+- `clientes/0-interno-simpleacc-inova/` — coisas da própria SimpleAcc (fica no
+  topo da lista pelo prefixo `0-`).
 - `docs/` — manual e convenções. **Leia `docs/MANUAL.md`.**
 - `_modelo/` — modelos para criar cliente/projeto novo.
 
 ## Regras ao trabalhar aqui
 
 1. **Escopo da sessão = uma pasta.** Antes de mexer, confirme em qual
-   `clientes/<cliente>/<projeto>/` ou `interno/<projeto>/` a tarefa vive.
+   `clientes/<cliente>/<projeto>/` a tarefa vive.
    Não altere arquivos de outros clientes na mesma sessão.
 2. **Comandos rodam dentro da pasta do projeto.** `npm install`, `npm run dev`,
    build, etc. são executados no diretório do projeto, não na raiz.

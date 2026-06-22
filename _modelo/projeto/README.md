@@ -1,7 +1,7 @@
 <!--
 MODELO DE PROJETO — copie esta pasta para o lugar certo:
-  clientes/<cliente>/<projeto>/   (projeto de cliente)
-  interno/<projeto>/              (projeto interno)
+  clientes/<cliente>/<projeto>/                      (projeto de cliente)
+  clientes/0-interno-simpleacc-inova/<projeto>/      (projeto interno)
 Preencha e apague estes comentários.
 -->
 
@@ -31,7 +31,7 @@ Copie `.env.example` para `.env` e preencha. (Nunca commitar `.env`.)
 ## Deploy
 
 - Plataforma:
-- **Root Directory** (se na Vercel): `clientes/<cliente>/<projeto>` ou `interno/<projeto>`
+- **Root Directory** (se na Vercel): `clientes/<cliente>/<projeto>`
 - URL de produção:
 
 ## Status e próximos passos

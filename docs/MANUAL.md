@@ -19,14 +19,16 @@ e o trabalho fica versionado e organizado no Git.
 ## 2. Estrutura de pastas
 
 ```
-clientes/<cliente>/<projeto>/   → entregas de clientes
-interno/<projeto>/              → coisas da própria SimpleAcc
-docs/                           → manual, convenções, playbooks
-_modelo/                        → modelos para copiar ao criar algo novo
+clientes/<cliente>/<projeto>/        → entregas de clientes
+clientes/0-interno-simpleacc-inova/  → coisas da própria SimpleAcc (no topo: 0-)
+docs/                                → manual, convenções, playbooks
+_modelo/                             → modelos para copiar ao criar algo novo
 ```
 
 Regra de ouro: **um assunto = uma pasta**. Se está na dúvida entre dois lugares,
-é sinal de que talvez sejam dois projetos.
+é sinal de que talvez sejam dois projetos. As coisas internas da SimpleAcc ficam
+em `clientes/0-interno-simpleacc-inova/` — o prefixo `0-` mantém o interno no
+topo da lista.
 
 ---
 
@@ -42,7 +44,8 @@ Regra de ouro: **um assunto = uma pasta**. Se está na dúvida entre dois lugare
 
 ## 4. Como começar um trabalho novo
 
-1. Decida: é de **cliente** (`clientes/`) ou **interno** (`interno/`)?
+1. Decida: é de **cliente** ou **interno**? Os dois ficam em `clientes/` — o
+   interno em `clientes/0-interno-simpleacc-inova/`.
 2. Copie o modelo:
    - Cliente novo: copie `_modelo/cliente/` para `clientes/<cliente>/`.
    - Projeto novo de um cliente que já existe: copie `_modelo/projeto/` para
@@ -61,7 +64,7 @@ pessoas não se atrapalham e fica fácil revisar.
 
 ```
 cliente/<cliente>/<assunto>      ex.: cliente/rafael-granella/ajuste-relatorio
-interno/<assunto>                ex.: interno/site-institucional
+interno/<assunto>                ex.: interno/site-institucional (trabalho interno)
 ```
 
 **Fluxo:**
@@ -117,7 +120,7 @@ a Vercel detecta sozinha. Documente o link do deploy no `README.md` do projeto.
 
 ## 9. Checklist de "trabalho pronto"
 
-- [ ] Está na pasta certa (`clientes/...` ou `interno/...`).
+- [ ] Está na pasta certa em `clientes/...` (interno em `clientes/0-interno-simpleacc-inova/`).
 - [ ] `README.md` do projeto preenchido/atualizado.
 - [ ] Sem segredos commitados (`.env` fora do Git).
 - [ ] Trabalhei numa branch com nome no padrão.

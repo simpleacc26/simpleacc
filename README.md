@@ -17,10 +17,9 @@ máquina, mantendo cada assunto no seu lugar.
 ├── CLAUDE.md            ← contexto que toda sessão do Claude Code lê
 ├── docs/                ← manual, convenções e playbooks
 │   └── MANUAL.md
-├── clientes/            ← um diretório por cliente
+├── clientes/            ← um diretório por cliente (Interno fica no topo: 0-...)
 │   └── <cliente>/
 │       └── <projeto>/   ← cada projeto/entrega do cliente
-├── interno/             ← ações próprias do negócio (site, automações, etc.)
 └── _modelo/             ← modelos para criar cliente/projeto novo
     ├── cliente/
     └── projeto/
@@ -32,7 +31,7 @@ máquina, mantendo cada assunto no seu lugar.
 | ---------------------------------------- | ----------------------------------------- |
 | Site, landing, quiz, app de um cliente   | `clientes/<cliente>/<projeto>/`           |
 | Automação (Make), integração de cliente  | `clientes/<cliente>/<projeto>/`           |
-| Site/ferramenta/automação da SimpleAcc   | `interno/<projeto>/`                      |
+| Site/ferramenta/automação da SimpleAcc   | `clientes/0-interno-simpleacc-inova/<projeto>/` |
 | Documento, anotação, playbook geral      | `docs/`                                   |
 
 ## Começar um trabalho novo
