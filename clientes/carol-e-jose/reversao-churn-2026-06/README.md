@@ -13,6 +13,8 @@ seguinte.
 
 | Arquivo | O que é |
 | --- | --- |
+| [`relatorio.html`](./relatorio.html) | **Relatório visual (identidade Simple)** — abrir no navegador. |
+| [`RELATORIO-COMPLETO.md`](./RELATORIO-COMPLETO.md) | Mesmo conteúdo em Markdown (tudo num doc). |
 | [`01-resumo-da-situacao.md`](./01-resumo-da-situacao.md) | Resumo executivo da situação e do plano. |
 | [`02-tarefas-em-aberto.md`](./02-tarefas-em-aberto.md) | Ata: todas as tarefas em aberto com responsável (ou "a definir"). |
 | [`03-expectativas-jose.md`](./03-expectativas-jose.md) | O que o José espera e o que precisamos entregar. |
@@ -28,11 +30,12 @@ seguinte.
 
 ## Achado central (resumo de uma linha)
 
-Os **76 leads de maior valor (>R$1M) já deixaram WhatsApp e e-mail**, mas o
-contato deles é capturado num **segundo conjunto de campos do quiz que não chega
-ao GHL** — por isso o comercial só recebe lead de baixo valor. Problema
-**técnico (mapeamento de campos + integração InLead→GHL)**, não de volume nem de
-"lead que não responde". Os 76 são o ativo imediato para reativar.
+Existem **76 MQLs reais (>R$1M, 66 no ICP)** com nome, e-mail e WhatsApp já
+capturados — mas que **nunca chegaram ao GHL / nunca foram contatados**. O
+gargalo é o **handoff/integração** (contato gravado num conjunto de campos não
+mapeado para o GHL), não a geração de lead. Os 76 são o ativo imediato para
+reativar. Base autoritativa: a lista dos 76 (o export de 200+ tem campos
+faltantes e não é base de conclusão).
 
 ## Referências externas (do grupo interno)
 

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relatório — Reversão de churn · Carol e José (ÚNICOS Club)</title>
+<style>
+  :root{
+    --midnight:#0A1626; --navy:#0E2138; --navy-2:#122B4A;
+    --blue:#3E5C8A; --blue-soft:#7d99c4; --blue-link:#34527D;
+    --steel:#8197B6; --ice:#EEF3FA; --white:#FFFFFF;
+    --ink:#16202f; --ink-soft:#3a4656; --muted:#6f7f95;
+    --line-light:#e1e8f1;
+    --green:#2f7a55; --green-bg:#eef5f0; --green-line:#d3e4d8;
+    --red:#a85a4f; --red-bg:#faf1f0; --red-line:#ecdada;
+    --amber:#9a6a1f; --amber-bg:#fbf3e6;
+    /* tipografia legível (adaptação do brandbook para leitura) */
+    --text:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --display:"Didot","Bodoni 72","Hoefler Text",Georgia,"Times New Roman",serif;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--text);color:var(--ink);background:#fff;line-height:1.7;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-size:17px}
+  .wrap{max-width:960px;margin:0 auto}
+  .label{font-family:var(--text);text-transform:uppercase;letter-spacing:.18em;font-size:11.5px;font-weight:700}
+  a{color:var(--blue-link)}
+
+  /* COVER */
+  .cover{color:#fff;padding:72px 7vw 60px;
+    background:
+      radial-gradient(900px 380px at 14% 6%, rgba(120,150,210,.16), transparent 58%),
+      radial-gradient(620px 460px at 6% 96%, rgba(60,92,138,.14), transparent 62%),
+      linear-gradient(135deg,#0e2138 0%,#0a1626 60%,#070f1b 100%);}
+  .cover .topbar{display:flex;justify-content:space-between;color:#9fb1cc;flex-wrap:wrap;gap:8px}
+  .cover .mark{font-family:var(--display);font-size:40px;letter-spacing:14px;margin:46px 0 6px}
+  .cover .flare{height:1px;width:200px;background:linear-gradient(90deg,var(--steel),transparent);opacity:.6;margin:16px 0}
+  .cover h1{font-weight:700;font-size:clamp(26px,4.5vw,40px);line-height:1.15;margin:18px 0 10px;letter-spacing:-.01em}
+  .cover .sub{color:#bccadf;font-size:18px;max-width:680px}
+  .cover .foot{display:flex;gap:28px;color:#7e90ab;flex-wrap:wrap;margin-top:34px}
+
+  /* TL;DR box */
+  .tldr{background:var(--midnight);color:#eaf0fa;padding:30px 7vw}
+  .tldr .inner{max-width:960px;margin:0 auto}
+  .tldr .h{color:var(--blue-soft);font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:12px;margin-bottom:12px}
+  .tldr p{font-size:18px;line-height:1.6;color:#dbe5f4}
+  .tldr b{color:#fff}
+
+  section{padding:56px 7vw;border-bottom:1px solid var(--line-light)}
+  .sec-num{color:var(--blue);font-weight:700;letter-spacing:.18em;font-size:12px;text-transform:uppercase}
+  h2{font-size:clamp(24px,3.6vw,32px);font-weight:700;line-height:1.15;margin:8px 0 16px;letter-spacing:-.01em}
+  h3{font-size:20px;font-weight:700;margin:30px 0 12px}
+  p{margin-bottom:14px;color:var(--ink-soft)}
+  p.lead{font-size:18.5px;color:var(--ink);max-width:760px}
+  strong{color:var(--ink)}
+  ul{margin:0 0 14px 0;padding-left:22px}
+  li{margin-bottom:7px;color:var(--ink-soft)}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .card{border:1px solid var(--line-light);border-radius:var(--radius);padding:24px 26px;background:#fff}
+  .card.dark{background:var(--midnight);color:#eaf0fa;border:none}
+  .card.dark p{color:#cfdaec}
+  .card .k{font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:11.5px;color:var(--blue);margin-bottom:10px}
+  .card.dark .k{color:var(--blue-soft)}
+
+  /* stat tiles */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:8px 0 4px}
+  .stat{border:1px solid var(--line-light);border-radius:12px;padding:20px;text-align:center;background:var(--ice)}
+  .stat .n{font-size:34px;font-weight:800;color:var(--midnight);line-height:1}
+  .stat .l{font-size:12.5px;color:var(--muted);margin-top:8px;line-height:1.35}
+  .stat.accent{background:var(--midnight)}
+  .stat.accent .n{color:#fff}
+  .stat.accent .l{color:#b9c7dd}
+
+  table{width:100%;border-collapse:collapse;margin:14px 0 18px;font-size:15.5px}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line-light);vertical-align:top}
+  th{background:var(--ice);color:var(--midnight);font-weight:700;font-size:13px;letter-spacing:.04em;text-transform:uppercase}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  .resp{font-weight:700;color:var(--blue-link);white-space:nowrap}
+  .resp.todo{color:var(--red)}
+
+  .badge{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    padding:3px 9px;border-radius:20px;white-space:nowrap}
+  .b-open{background:var(--ice);color:var(--blue-link)}
+  .b-prio{background:#fdeceb;color:var(--red)}
+  .b-done{background:var(--green-bg);color:var(--green)}
+  .b-prog{background:var(--amber-bg);color:var(--amber)}
+
+  .callout{border-left:4px solid var(--blue);background:var(--ice);padding:16px 20px;border-radius:0 10px 10px 0;margin:16px 0}
+  .callout.note{border-color:var(--steel)}
+  .callout p:last-child{margin-bottom:0}
+
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}
+  .ba .col{border-radius:12px;padding:16px 18px;font-size:15.5px}
+  .ba .no{background:var(--red-bg);border:1px solid var(--red-line);color:#5b3a34}
+  .ba .yes{background:var(--green-bg);border:1px solid var(--green-line);color:#284a39}
+  .ba .h{font-weight:700;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+  .ba .no .h{color:var(--red)} .ba .yes .h{color:var(--green)}
+
+  .step{font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:12.5px;color:#fff;
+    background:var(--blue);display:inline-block;padding:5px 12px;border-radius:6px;margin:22px 0 4px}
+  .step.s2{background:var(--navy-2)} .step.s3{background:var(--midnight)} .step.gov{background:var(--steel)}
+
+  footer{background:linear-gradient(135deg,#0e2138,#0a1626);color:#9fb1cc;padding:48px 7vw}
+  footer .big{font-family:var(--display);color:#fff;font-size:24px;letter-spacing:6px;margin-bottom:8px}
+  footer p{color:#9fb1cc}
+
+  @media(max-width:820px){
+    .grid2,.grid3,.ba{grid-template-columns:1fr}
+    .stats{grid-template-columns:1fr 1fr}
+    table{font-size:14px} th,td{padding:9px 10px}
+  }
+  @media print{ .cover,.tldr{-webkit-print-color-adjust:exact;print-color-adjust:exact} section{padding:30px 24px} }
+</style>
+</head>
+<body>
+
+<!-- CAPA -->
+<header class="cover">
+  <div class="wrap">
+    <div class="topbar">
+      <span class="label">Relatório de tratativa</span>
+      <span class="label">Confidencial · Uso interno</span>
+    </div>
+    <div class="mark">SIMPLE ACC</div>
+    <div class="flare"></div>
+    <h1>Reversão de churn — Carol e José</h1>
+    <p class="sub">ÚNICOS Club · Diagnóstico, plano de ação e alocação de tarefas a partir das reuniões de 17/06 e 23/06 e do plano de 3 passos do CEO.</p>
+    <div class="foot">
+      <span class="label">Cliente: Caroline Batista &amp; José</span>
+      <span class="label">23 de junho de 2026</span>
+      <span class="label">Risco: ~R$ 40 mil</span>
+    </div>
+  </div>
+</header>
+
+<!-- TL;DR -->
+<div class="tldr">
+  <div class="inner">
+    <div class="h">O essencial em 30 segundos</div>
+    <p>O cliente está <b>frustrado, mas não decidido a cancelar</b>: 6º mês, ~R$ 40 mil investidos, zero venda.
+    Mas o diagnóstico mostra que <b>o gargalo não é gerar lead qualificado</b> — existem <b>76 MQLs reais (acima de R$ 1M), 66 dentro do ICP,
+    todos com nome, e-mail e WhatsApp</b> que <b>nunca chegaram ao comercial / ao GHL</b>. O problema é o <b>handoff/integração</b>, e isso é
+    resolvível. O plano: corrigir a entrega dos leads, rodar uma ação de caixa rápido com os 76 e a base, e ajustar o funil para o público certo —
+    tudo com <b>ata, prazos e responsáveis</b>, entregue a Carol e José na manhã seguinte.</p>
+  </div>
+</div>
+
+<!-- 01 SITUAÇÃO -->
+<section class="wrap">
+  <span class="sec-num">01 — Situação</span>
+  <h2>Resumo da situação</h2>
+  <p class="lead">A reunião de hoje teve duas fases: primeiro com o cliente (José, um desabafo sobre a falta de resultado) e depois interna (Daniel, Carlos e Renan) para definir o plano de ação.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="n">R$ 40k</div><div class="l">investidos desde 18/02 (mídia + plataforma + horas)</div></div>
+    <div class="stat"><div class="n">0</div><div class="l">vendas no período</div></div>
+    <div class="stat"><div class="n">6º mês</div><div class="l">metade do contrato</div></div>
+    <div class="stat accent"><div class="n">~R$ 40k</div><div class="l">risco de chargeback se houver churn</div></div>
+  </div>
+
+  <div class="grid2" style="margin-top:24px">
+    <div class="card">
+      <div class="k">A dor do José</div>
+      <ul>
+        <li>Leads fora do ICP: cargos operacionais que marcam o faturamento da empresa onde <em>trabalham</em>.</li>
+        <li>Menos de 1% responde; o WhatsApp dele foi <strong>bloqueado</strong> de tanto forçar contato.</li>
+        <li>Ajustes demoram demais (10–15 dias para uma campanha simples).</li>
+        <li>Falhas de processo: leads que nunca entraram no GHL, mensagens "não enviadas", sem <strong>ata</strong> com prazos e responsáveis.</li>
+        <li>Quer clareza: <strong>o quê, como, o que se espera e quando.</strong></li>
+      </ul>
+    </div>
+    <div class="card dark">
+      <div class="k">O plano do Daniel — 3 passos</div>
+      <ul>
+        <li><strong style="color:#fff">1. Diagnóstico</strong> — métricas de tráfego, comercial e base (estilo "Fernanda Face").</li>
+        <li><strong style="color:#fff">2. Caixa rápido</strong> — rentabilizar a base e os clientes atuais.</li>
+        <li><strong style="color:#fff">3. Ajuste de funil</strong> — nova comunicação/quiz para executivo/dono.</li>
+      </ul>
+      <p style="margin-top:12px;font-size:15px">Entrega a Carol e José <strong style="color:#fff">amanhã de manhã</strong>. Base interna até <strong style="color:#fff">20h de hoje</strong>.</p>
+    </div>
+  </div>
+
+  <div class="callout note" style="margin-top:18px">
+    <p><strong>Histórico (17/06):</strong> já havia sido identificada a falha de integração InLead→GHL, decidido redirecionar quem fatura &lt; R$ 1M para a comunidade gratuita e planejada a reativação da base. O tema vem sendo discutido há semanas — daí a urgência de <strong>sair do diagnóstico para a execução, com ata e responsáveis.</strong></p>
+  </div>
+</section>
+
+<!-- 02 DIAGNÓSTICO -->
+<section class="wrap">
+  <span class="sec-num">02 — Diagnóstico de dados</span>
+  <h2>O achado central</h2>
+  <p class="lead">Base autoritativa: a lista dos <strong>76 MQLs</strong> (faturamento acima de R$ 1M, com contato completo). O export de 200+ leads tem muitos campos faltantes e <strong>não foi usado como base de conclusão</strong>.</p>
+
+  <div class="callout">
+    <p><strong>Veredito:</strong> o gargalo <strong>não é gerar lead qualificado</strong>. Existem <strong>76 MQLs reais (acima de R$ 1M)</strong> que já deixaram nome, e-mail e WhatsApp e clicaram para receber o diagnóstico — <strong>66 dentro do ICP</strong> (a Carol não atende indústria). Pela queixa do José, <strong>esses leads nunca foram contatados / nunca chegaram ao GHL</strong>. O problema é o <strong>handoff/integração</strong>: lead bom capturado que não chega ao comercial.</p>
+  </div>
+
+  <div class="stats" style="margin-top:22px">
+    <div class="stat accent"><div class="n">76</div><div class="l">MQLs &gt; R$ 1M com contato completo</div></div>
+    <div class="stat"><div class="n">66</div><div class="l">dentro do ICP (fora da indústria)</div></div>
+    <div class="stat"><div class="n">26</div><div class="l">ICP <em>e</em> decisor — alvo prioritário</div></div>
+    <div class="stat"><div class="n">100%</div><div class="l">com nome, e-mail e WhatsApp</div></div>
+  </div>
+
+  <h3>Os 76 MQLs em números</h3>
+  <div class="grid3">
+    <div class="card" style="padding:20px 22px">
+      <div class="k">Faturamento</div>
+      <table style="margin:0;font-size:15px">
+        <tr><td>Acima de R$ 5M</td><td class="num">33</td></tr>
+        <tr><td>R$ 1M – 3M</td><td class="num">28</td></tr>
+        <tr><td>R$ 3M – 5M</td><td class="num">15</td></tr>
+      </table>
+    </div>
+    <div class="card" style="padding:20px 22px">
+      <div class="k">Setor</div>
+      <table style="margin:0;font-size:15px">
+        <tr><td>Serviços</td><td class="num">37</td></tr>
+        <tr><td>Comércio</td><td class="num">29</td></tr>
+        <tr><td>Indústria <span class="muted">(excluir)</span></td><td class="num">10</td></tr>
+      </table>
+    </div>
+    <div class="card" style="padding:20px 22px">
+      <div class="k">Cargo</div>
+      <table style="margin:0;font-size:15px">
+        <tr><td>Gestor c/ autonomia parcial</td><td class="num">27</td></tr>
+        <tr><td>Promovido / pouca autonomia</td><td class="num">19</td></tr>
+        <tr><td>Diretor c/ autonomia</td><td class="num">15</td></tr>
+        <tr><td>Dono ou sócio</td><td class="num">15</td></tr>
+      </table>
+    </div>
+  </div>
+  <p style="margin-top:10px"><strong>30 decisores</strong> (dono/sócio + diretor com autonomia); <strong>26 são, ao mesmo tempo, ICP e decisor</strong> — começar por eles. Distribuição nacional, concentrada no eixo Sul-Sudeste.</p>
+
+  <h3>A pista do "porquê não chegou"</h3>
+  <p>No arquivo dos 76, o contato está gravado nos campos <code>e02yKB / Oen6ic / UX3WQn</code> e <strong>nenhum</strong> dos 76 usou o campo de contato primário. Isso sugere que o formulário do público acima de R$ 1M grava o contato num <strong>conjunto de campos que não está mapeado para o GHL</strong> — o que explica os "leads que nunca receberam mensagem" e bate com a falha InLead→GHL de 17/06. <strong>É a verificação técnica nº 1.</strong></p>
+
+  <div class="callout note">
+    <p><strong>Ressalvas honestas:</strong> faturamento é autodeclarado e por faixa — parte de quem marca "acima de R$ 5M" pode ser funcionário reportando o faturamento da empresa, ou perfil sem rastro. Por isso priorizamos por <strong>cargo</strong> (decisor) e validamos uma <strong>amostra</strong> antes de qualquer ação em massa.</p>
+  </div>
+</section>
+
+<!-- 03 TAREFAS -->
+<section class="wrap">
+  <span class="sec-num">03 — Plano de ação</span>
+  <h2>Todas as tarefas em aberto (ata)</h2>
+  <p class="lead">Responsável já definido aparece ao lado; sem dono ainda = <strong>A definir</strong>. Time Simple: Carlos (gestão de conta), Renan (tráfego/dados/GHL), Daniel (CEO). Cliente: Carol, José.</p>
+
+  <span class="step">Passo 1 — Diagnóstico</span>
+  <table>
+    <tr><th>Tarefa</th><th>Responsável</th><th>Status</th></tr>
+    <tr><td>Diagnóstico de métricas de tráfego + comercial (estilo "Fernanda Face")</td><td class="resp">Carlos + Renan</td><td><span class="badge b-open">Até 20h</span></td></tr>
+    <tr><td>Análise estatística da base (já adiantada neste relatório; validar)</td><td class="resp">Renan</td><td><span class="badge b-prog">Adiantada</span></td></tr>
+    <tr><td>Mapear o ICP real cruzando transcrições + clientes que já compraram</td><td class="resp">O grupo</td><td><span class="badge b-open">Aberta</span></td></tr>
+    <tr><td>Comparar transcrições das reuniões (prometido × feito)</td><td class="resp">Carlos</td><td><span class="badge b-open">Aberta</span></td></tr>
+    <tr><td>Diagnóstico final fundamentado + redação para o cliente</td><td class="resp">Daniel</td><td><span class="badge b-open">Amanhã</span></td></tr>
+  </table>
+
+  <span class="step s2">Passo 2 — Caixa rápido</span>
+  <table>
+    <tr><th>Tarefa</th><th>Responsável</th><th>Status</th></tr>
+    <tr><td>Workshop com a base para vender um <strong>curso gravado</strong></td><td class="resp">Carol</td><td><span class="badge b-open">Aberta</span></td></tr>
+    <tr><td>Oferta de <strong>expansão de valor</strong> para clientes ativos</td><td class="resp">Carol</td><td><span class="badge b-open">Aberta</span></td></tr>
+    <tr><td>Ação de <strong>indicação</strong> (modelo Fusseus)</td><td class="resp">Carol + Carlos</td><td><span class="badge b-open">Aberta</span></td></tr>
+    <tr><td>Reativação dos <strong>76 MQLs</strong> (têm WhatsApp/e-mail) + clientes ativos</td><td class="resp">Renan + Carol</td><td><span class="badge b-open">Aberta</span></td></tr>
+    <tr><td>Priorizar por cargo (26 ICP+decisor); validar amostra antes de escalar</td><td class="resp">Carol</td><td><span class="badge b-open">Aberta</span></td></tr>
+  </table>
+
+  <span class="step s3">Passo 3 — Ajuste de funil</span>
+  <table>
+    <tr><th>Tarefa</th><th>Responsável</th><th>Status</th></tr>
+    <tr><td>Pesquisa concorrencial (biblioteca de anúncios)</td><td class="resp">O grupo</td><td><span class="badge b-open">Aberta</span></td></tr>
+    <tr><td>1ª versão do <strong>novo quiz</strong> focado em executivo/dono</td><td class="resp">O grupo</td><td><span class="badge b-open">Até 20h</span></td></tr>
+    <tr><td>Reescrever comunicação excluindo não-decisor na abertura</td><td class="resp">Carlos + Renan</td><td><span class="badge b-open">Aberta</span></td></tr>
+    <tr><td>Ancorar a pergunta de faturamento à <strong>posição do respondente</strong></td><td class="resp">Renan</td><td><span class="badge b-open">Aberta</span></td></tr>
+    <tr><td>Redirecionar &lt; R$ 1M para a comunidade gratuita</td><td class="resp">Renan</td><td><span class="badge b-open">17/06</span></td></tr>
+    <tr><td>Novos criativos com corte de público 2M+</td><td class="resp">Renan</td><td><span class="badge b-prog">Em produção</span></td></tr>
+    <tr><td>Revisar Diagnóstico de Maturidade (estética + análise das respostas)</td><td class="resp">Carlos / José</td><td><span class="badge b-open">Aberta</span></td></tr>
+    <tr><td>Lead scoring — validar pontuação</td><td class="resp">Carlos</td><td><span class="badge b-open">Aberta</span></td></tr>
+    <tr><td>Redirecionamento para WhatsApp ao concluir o diagnóstico</td><td class="resp">O grupo</td><td><span class="badge b-open">17/06</span></td></tr>
+    <tr><td>Revisar follow-up de 14 dias + templates (IA)</td><td class="resp">Carol / Carlos</td><td><span class="badge b-open">Aberta</span></td></tr>
+  </table>
+
+  <span class="step gov">Governança e operação</span>
+  <table>
+    <tr><th>Tarefa</th><th>Responsável</th><th>Status</th></tr>
+    <tr><td>Criar <strong>ata padrão</strong> (prazo + responsável) — este relatório é o início</td><td class="resp todo">A definir</td><td><span class="badge b-open">Aberta</span></td></tr>
+    <tr><td>Investigar por que o contato dos &gt;1M <strong>não chega ao GHL</strong> + corrigir integração</td><td class="resp">Renan</td><td><span class="badge b-prio">Prioridade</span></td></tr>
+    <tr><td>Subir os <strong>76 MQLs</strong> ao GHL com tag de origem</td><td class="resp">Renan</td><td><span class="badge b-open">Aberta</span></td></tr>
+    <tr><td>Unificar a captura de contato do quiz num campo só mapeado</td><td class="resp">Renan</td><td><span class="badge b-open">Aberta</span></td></tr>
+    <tr><td>Setar o <strong>GHL completo</strong> (automações, tags, funil, integrações)</td><td class="resp todo">A definir</td><td><span class="badge b-open">Aberta</span></td></tr>
+    <tr><td>Acordar <strong>SLA de implementação</strong> (acabar com os 10–15 dias)</td><td class="resp todo">A definir / Carlos</td><td><span class="badge b-open">Aberta</span></td></tr>
+    <tr><td>Verificar crédito de R$ 2.000 (indicação Rafael Miranela)</td><td class="resp">Carlos</td><td><span class="badge b-open">Aberta</span></td></tr>
+    <tr><td>Carol enviar histórico de conversas testadas</td><td class="resp">Carol</td><td><span class="badge b-open">Aberta</span></td></tr>
+  </table>
+  <p class="muted" style="font-size:14px"><strong>Já resolvidas:</strong> exportar/compartilhar a planilha de leads; auditoria export × GHL (17/06, confirmou a falha de integração).</p>
+</section>
+
+<!-- 04 EXPECTATIVAS -->
+<section class="wrap">
+  <span class="sec-num">04 — Cliente</span>
+  <h2>O que o José espera — e o que entregamos</h2>
+
+  <table>
+    <tr><th>Expectativa do José</th><th>O que entregamos</th><th>Onde no plano</th></tr>
+    <tr><td>Estratégia clara, com prazos</td><td>Diagnóstico em dados + plano com donos e datas (este relatório)</td><td>Passo 1 + seção 03</td></tr>
+    <tr><td>Lead dentro do ICP</td><td>Novo quiz mirando executivo/dono; corrigir captura; ancorar faturamento</td><td>Passo 3</td></tr>
+    <tr><td>Velocidade</td><td>Quiz + criativos até 20h; acordar SLA de implementação</td><td>Passo 3 + Gov.</td></tr>
+    <tr><td>A casa setada pela agência</td><td>Corrigir integração, trazer os 76, tags e automações no GHL</td><td>Governança</td></tr>
+    <tr><td>Governança / ata</td><td>Adotar este relatório como ata-modelo, com dono do processo</td><td>Governança</td></tr>
+    <tr><td>Sustentação, não só paliativo</td><td>Funil que captura e <em>entrega</em> o contato do ICP ao comercial</td><td>Passo 3</td></tr>
+    <tr><td>Caixa agora</td><td>Workshop/curso, oferta de expansão, indicação, reativar os 76</td><td>Passo 2</td></tr>
+  </table>
+
+  <h3>Leitura honesta para alinhar internamente</h3>
+  <div class="ba">
+    <div class="col yes">
+      <div class="h">A favor</div>
+      A maior parte das expectativas é <strong>legítima e resolvível</strong>: o contato do ICP <strong>já existe</strong>, falta destravar a entrega/integração. É o "b.o simples de resolver" do Daniel.
+    </div>
+    <div class="col no">
+      <div class="h">Atenção</div>
+      O ponto mais sensível <strong>não é técnico, é de confiança</strong>: atrasos + falta de ata + integração quebrada corroeram a percepção. Entregar <strong>clareza, prazo e dono</strong> vale tanto quanto o ajuste de mídia.
+    </div>
+  </div>
+  <p>A ação de caixa rápido tem que sair <strong>junto</strong> com a promessa de funil — sozinha, o José já avisou que não segura o contrato.</p>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="big">SIMPLE ACC</div>
+    <p>Relatório de tratativa — Carol e José (ÚNICOS Club) · 23/06/2026 · Confidencial, uso interno.</p>
+    <p style="margin-top:8px;font-size:13px;color:#7d8fa9">Fontes: reuniões de 17/06 (Pit Stop) e 23/06 (Alinhamento), lista autoritativa dos 76 MQLs e plano de 3 passos do CEO. Dados reproduzíveis em <code>materiais/analise-leads.py</code>.</p>
+  </div>
+</footer>
+
+</body>
+</html>

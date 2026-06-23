@@ -48,55 +48,43 @@ urgência de **sair do diagnóstico para a execução, com ata e responsáveis**
 
 ## 2. Diagnóstico de dados — o achado central
 
-Base: **472 leads** do quiz + recorte **"só os 76"** (>R$1M).
+**Base autoritativa:** a lista dos **76 MQLs** (>R$1M, com contato completo). O
+export de 200+ leads tem muitos campos faltantes e **não é base de conclusão**.
 Reprodução: `python3 materiais/analise-leads.py`.
 
 ### Veredito
 
-Os **76 leads de maior valor (>R$1M) JÁ deixaram WhatsApp e e-mail** — mas o
-contato deles é capturado num **segundo conjunto de campos do quiz que não chega
-ao GHL/comercial**. Por isso o José só consegue abordar lead de baixo valor: o
-contato do ICP **existe, mas está silado**. É majoritariamente um problema
-**técnico (mapeamento de campos + integração InLead→GHL)**, não de "lead que não
-responde".
+Existem **76 MQLs reais (>R$1M)** que **já deixaram nome, e-mail e WhatsApp** e
+clicaram para receber o diagnóstico — **66 deles no ICP** (a Carol não atende
+indústria). Pela queixa do José, **esses leads nunca foram contatados / nunca
+chegaram ao GHL**. O gargalo **não é gerar lead qualificado** — ele já entrou,
+com contato completo. O gargalo é o **handoff/integração**: lead bom capturado
+que não chega ao comercial.
 
-### A prova: cada faixa de faturamento usa um campo diferente
+### Os 76 MQLs em números (todos com nome + e-mail + WhatsApp)
 
-| Faturamento | Campo primário (`whatsapp`) | Campo secundário (`UX3WQn`) |
-| --- | ---: | ---: |
-| Até R$ 500 mil | 37 | 0 |
-| R$ 500 mil – 1M | 38 | 0 |
-| R$ 1M – 3M | 4 | 28 |
-| R$ 3M – 5M | 1 | 15 |
-| Acima de R$ 5M | 1 | 33 |
+| Faturamento | Leads | Setor | Leads | Cargo | Leads |
+| --- | ---: | --- | ---: | --- | ---: |
+| Acima de R$ 5M | 33 | Serviços | 37 | Gestor c/ autonomia parcial | 27 |
+| R$ 1M – 3M | 28 | Comércio | 29 | Promovido / pouca autonomia | 19 |
+| R$ 3M – 5M | 15 | Indústria (excluir) | 10 | Diretor c/ autonomia | 15 |
+| | | | | Dono ou sócio | 15 |
 
-Quem fatura **≤ R$ 1M cai no campo primário** (que o José vê); quem fatura
-**> R$ 1M cai no campo secundário** (os 76, silados).
+- **66 MQLs no ICP** (fora da indústria).
+- **30 decisores** (dono/sócio + diretor c/ autonomia); **26 são ICP + decisor**
+  = alvo prioritário.
 
-### A contatabilidade NÃO é o gargalo
+### A pista do "porquê não chegou"
 
-Auditando os dois campos juntos, a taxa de quem deixa WhatsApp é parecida em
-todas as faixas (56–72%). O ICP deixa contato tanto quanto o público de baixo
-valor — total de **193 contatáveis** (117 primário + 76 secundário). O problema
-nunca foi "o ICP não deixa telefone"; foi **para onde esse telefone vai**.
+No arquivo dos 76, o contato está gravado nos campos `e02yKB/Oen6ic/UX3WQn` e
+**nenhum** dos 76 usou o campo de contato primário. Isso sugere que o formulário
+do público > R$ 1M grava o contato num **conjunto de campos que não está mapeado
+para o GHL** — explica os "leads que nunca receberam mensagem" e bate com a falha
+InLead→GHL de 17/06. **Verificação técnica nº 1.**
 
-### Os 76 MQLs (ativo para reativar agora)
-
-- **Faturamento:** 33 acima de R$ 5M · 28 entre 1–3M · 15 entre 3–5M.
-- **Setor:** 37 serviços · 29 comércio · **10 indústria** (excluir) → **66 no ICP**.
-- **Cargo:** 27 gestor c/ autonomia parcial · 19 promovido há pouco · 15
-  diretor/gerente c/ autonomia · **15 dono/sócio**.
-- Todos têm WhatsApp + e-mail e clicaram para receber o diagnóstico; muitos
-  **nunca receberam mensagem**.
-
-> Ressalva: o José já validou que parte de quem marca ">5M" é funcionário ou
-> perfil sem rastro. Priorizar por cargo (dono/sócio, diretor c/ autonomia) e
-> validar uma amostra antes da ação em massa.
-
-> Correção registrada: uma leitura inicial (só o campo primário) sugeria "só 3
-> ICP contatáveis / contatabilidade invertida". Auditando os dois campos, são
-> **69 dos 114 ICP contatáveis**. Fica o lembrete de auditar o dado antes de
-> concluir.
+> Ressalva: faturamento é autodeclarado e por faixa (parte de quem marca ">5M" é
+> funcionário ou sem rastro). Por isso priorizamos por **cargo** e validamos uma
+> **amostra** antes da ação em massa.
 
 ---
 

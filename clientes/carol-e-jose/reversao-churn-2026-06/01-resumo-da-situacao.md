@@ -37,14 +37,17 @@ A call de hoje teve duas partes:
 
 ## O que o diagnóstico de dados confirma
 
-(Ver `04-diagnostico-dados.md` — análise da base.) **O problema não é volume nem
-"MQL%", e nem é "o ICP não deixa contato".** Os **76 leads de maior valor
-(>R$1M) JÁ deixaram WhatsApp e e-mail** — mas o contato deles é capturado num
-**segundo conjunto de campos do quiz que não chega ao GHL/comercial**. O split é
-exato na faixa de R$ 1M: quem fatura ≤1M cai no campo que o José vê; quem fatura
->1M cai no campo silado. Por isso o José só consegue abordar lead de baixo valor.
-É majoritariamente um problema **técnico (mapeamento de campos + integração
-InLead→GHL)**, alinhado com a falha já levantada em 17/06.
+(Ver `04-diagnostico-dados.md` — base autoritativa: a lista dos **76 MQLs**.)
+**O problema não é gerar lead qualificado.** Existem **76 MQLs reais (>R$1M),
+todos com nome, e-mail e WhatsApp** e que clicaram para receber o diagnóstico —
+**66 dentro do ICP**. Pela queixa do José, **esses leads nunca foram contatados /
+nunca chegaram ao GHL**. O contato deles foi gravado num **conjunto de campos do
+quiz que provavelmente não está mapeado para o GHL** — o que explica os "leads
+que nunca receberam mensagem" e bate com a falha de integração InLead→GHL
+levantada em 17/06. Ou seja: o gargalo é o **handoff/integração**, não o tráfego.
+
+> A lista completa (200+) tem muitos campos faltantes e **não é base de
+> conclusão** — o diagnóstico se apoia nos 76.
 
 ## O plano do Daniel (3 passos) — a espinha dorsal da resposta
 
