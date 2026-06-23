@@ -30,7 +30,7 @@ sobrecarregada em um negócio à prova de crises.
 
 | Projeto | Pasta | Status | Deploy |
 | ------- | ----- | ------ | ------ |
-|         |       |        |        |
+| Reversão de churn (jun/2026) | [`reversao-churn-2026-06/`](./reversao-churn-2026-06/) | ativo | — |
 
 ## Materiais
 
