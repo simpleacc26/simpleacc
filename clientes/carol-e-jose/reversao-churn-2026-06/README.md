@@ -13,8 +13,10 @@ seguinte.
 
 | Arquivo | O que é |
 | --- | --- |
-| [`relatorio.html`](./relatorio.html) | **Relatório visual (identidade Simple)** — abrir no navegador. |
-| [`RELATORIO-COMPLETO.md`](./RELATORIO-COMPLETO.md) | Mesmo conteúdo em Markdown (tudo num doc). |
+| [`relatorio.html`](./relatorio.html) | **Relatório completo (visual, identidade Simple)** — abrir no navegador. |
+| [`RELATORIO-COMPLETO.md`](./RELATORIO-COMPLETO.md) | Relatório completo em Markdown. |
+| [`relatorio-daniel.html`](./relatorio-daniel.html) | **Material para o Daniel** — só os 3 passos (visual). |
+| [`RELATORIO-DANIEL.md`](./RELATORIO-DANIEL.md) | Material para o Daniel em Markdown. |
 | [`01-resumo-da-situacao.md`](./01-resumo-da-situacao.md) | Resumo executivo da situação e do plano. |
 | [`02-tarefas-em-aberto.md`](./02-tarefas-em-aberto.md) | Ata: todas as tarefas em aberto com responsável (ou "a definir"). |
 | [`03-expectativas-jose.md`](./03-expectativas-jose.md) | O que o José espera e o que precisamos entregar. |
