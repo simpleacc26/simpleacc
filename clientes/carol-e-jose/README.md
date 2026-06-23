@@ -1,18 +1,21 @@
 # Carol e José
 
-Cliente SimpleAcc. **Caroline Batista** (Carol) e **José** — à frente do
-**ÚNICOS Club** (Únicos Leadership Club), um ecossistema de mentoria de alta
-performance para líderes e donos de negócio. Produto high ticket (R$ 20k–54k).
+Cliente SimpleAcc. **Caroline Batista** (Carol) e **José** — casados e
+**sócios-proprietários** do **ÚNICOS Club** (Únicos Leadership Club), um
+ecossistema de mentoria de alta performance para líderes e donos de negócio.
+Produto high ticket (R$ 20k–54k).
 Promessa: escalar margem de lucro e liberdade, transformando uma operação
 sobrecarregada em um negócio à prova de crises.
 
 ## Contatos
 
-| Papel       | Nome             | Contato |
-| ----------- | ---------------- | ------- |
-| Principal   | Caroline Batista | [@carolbatista](https://www.instagram.com/carolbatista/) |
-| Sócio       | José             |         |
-| WhatsApp    | Atendimento      | +55 55 9146-6065 |
+| Papel                | Nome             | Contato |
+| -------------------- | ---------------- | ------- |
+| Sócia-proprietária   | Caroline Batista | [@carolbatista](https://www.instagram.com/carolbatista/) |
+| Sócio-proprietário   | José             |         |
+| WhatsApp             | Atendimento      | +55 55 9146-6065 |
+
+> Carol e José são casados e sócios-proprietários do ÚNICOS Club.
 
 ## Links úteis
 
