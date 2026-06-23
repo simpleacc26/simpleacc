@@ -23,8 +23,8 @@
 | 2.1 | Workshop com a base atual para vender um **curso gravado** | Carol (cliente) | Aberta |
 | 2.2 | Oferta personalizada de **expansão de valor** para a base de **clientes ativos** | Carol (cliente) | Aberta |
 | 2.3 | Ação de **indicação** de clientes (modelo mapeado com o pessoal da Fusseus) | Carol (cliente) + Carlos (modelo) | Aberta |
-| 2.4 | Desenhar a oferta/abordagem de **reativação** dos leads (topo/meio/fundo) — lembrando que os 111 ICP **não têm WhatsApp**, então via remarketing/conteúdo | Renan | Aberta (vem do Pit Stop) |
-| 2.5 | Definir quais leads entram na ação por WhatsApp (priorizar os **34 dono/sócio** contatáveis) | Renan + Carol | Aberta |
+| 2.4 | Desenhar a oferta/abordagem de **reativação** dos **76 MQLs** (>1M, com WhatsApp/e-mail capturados) + base de clientes ativos | Renan + Carol | Aberta (vem do Pit Stop) |
+| 2.5 | Priorizar a abordagem por cargo: **15 dono/sócio + 15 diretor c/ autonomia** dos 76; validar amostra antes da ação em massa | Carol | Aberta |
 
 ## Passo 3 — Ajuste de funil
 
@@ -46,9 +46,10 @@
 | # | Tarefa | Responsável | Status / prazo |
 | --- | --- | --- | --- |
 | G.1 | Criar **ata de reunião** padrão (prazo + responsável) para toda call — este documento é o início | A DEFINIR (dono do processo) | Aberta |
-| G.2 | Corrigir a **integração InLead → GHL** (leads não estão sendo transportados) | Renan | Aberta — **prioridade máxima** |
-| G.3 | Subir os leads da planilha (os "76") para o GHL com tag de origem | Renan | Aberta |
-| G.4 | Criar tag **"leads perdidos"** no GHL para os não integrados | Renan | Aberta |
+| G.2 | **Investigar por que o contato do campo secundário** (`e02yKB/Oen6ic/UX3WQn`, usado pelos >1M) **não chega ao GHL** e corrigir o mapeamento da integração InLead→GHL | Renan | Aberta — **prioridade máxima** |
+| G.3 | Subir os **76 MQLs** para o GHL com tag de origem (já têm WhatsApp/e-mail) | Renan | Aberta |
+| G.4 | Unificar a captura de contato do quiz num **único campo mapeado** (eliminar os dois conjuntos) | Renan | Aberta |
+| G.5b | Criar tag **"leads perdidos"** no GHL para os não integrados | Renan | Aberta |
 | G.5 | **Setar o GHL completo** (automações, tags, funil, integrações Meta/Google) — "vir pronto da agência" | A DEFINIR (Simple) | Aberta |
 | G.6 | Reduzir o **tempo de implementação** (criativo simples não pode levar 10–15 dias) — acordar SLA | A DEFINIR (Carlos) | Aberta |
 | G.7 | Verificar crédito de **R$ 2.000** (indicação do Rafael Miranela) | Carlos | Aberta (vem do Pit Stop) |

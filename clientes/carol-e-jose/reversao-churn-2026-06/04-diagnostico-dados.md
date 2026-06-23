@@ -1,97 +1,127 @@
 # Diagnóstico de dados — base de leads do quiz (ÚNICOS Club)
 
-> Base analisada: `materiais/leads-organizados.csv` (export do quiz/InLead).
+> Bases analisadas: `materiais/leads-organizados.csv` (export completo, 472
+> leads) e `materiais/leads-76-mqls.csv` (recorte "só os 76", >R$1M).
 > Reprodução: `python3 materiais/analise-leads.py`.
 > Alimenta o **Passo 1 (Diagnóstico)** do plano do Daniel.
 
 ## Veredito
 
-O funil **não tem um problema de volume nem de "MQL%"** — tem um problema de
-**contatabilidade invertida**: quem deixa o contato é majoritariamente quem está
-**fora** do ICP, e quem está dentro do ICP **não deixa contato**. A métrica de
-"40% de MQL" que o tráfego reporta é uma **métrica de vaidade**: mede quem
-*marcou* faturamento alto, não quem o José *consegue trabalhar*.
+Os **76 leads de maior valor (faturamento > R$ 1M) JÁ deixaram WhatsApp e
+e-mail** — mas o contato deles foi capturado num **segundo conjunto de campos do
+quiz** que **não chega ao comercial / ao GHL**. É por isso que o José só
+"enxerga" e só consegue abordar lead de baixo valor: o contato do ICP existe,
+mas está **silado** num formulário paralelo. Isto é majoritariamente um problema
+**técnico/de funil (mapeamento de campos + integração InLead→GHL)**, não de
+"lead que não responde".
 
-## Os números
+> Correção de uma análise anterior: olhando só o conjunto de campos primário
+> (`field: whatsapp`), parecia que só 3 leads do ICP eram contatáveis. **Isso
+> estava errado** — o ICP preenche o conjunto secundário. Auditando os dois
+> campos, **69 dos 114 leads do ICP são contatáveis**. Fica registrado como
+> lembrete de auditar o dado antes de concluir.
 
-Base: **472 leads** no arquivo. Apenas **117 (25%)** deixaram nome + WhatsApp
-(ou seja, clicaram para receber o diagnóstico). Os outros 75% abandonaram antes
-do contato (217 nem responderam o faturamento).
+## A prova: cada faixa de faturamento preenche um campo diferente
 
-### O achado central — contatabilidade cai conforme o faturamento sobe
+O quiz tem **dois conjuntos de campos de contato**:
 
-| Faturamento declarado | Total | Deixaram WhatsApp | % contatável |
+- **Primário:** `field: nome` / `field: email` / `field: whatsapp`
+- **Secundário:** `field: e02yKB` / `field: Oen6ic` / `field: UX3WQn`
+
+E o preenchimento **se divide exatamente na faixa de R$ 1M** (é uma ramificação/
+versão de formulário diferente para cada faixa):
+
+| Faturamento | Usou campo primário | Usou campo secundário |
+| --- | ---: | ---: |
+| Até R$ 500 mil | 37 | 0 |
+| R$ 500 mil – 1M | 38 | 0 |
+| R$ 1M – 3M | 4 | 28 |
+| R$ 3M – 5M | 1 | 15 |
+| Acima de R$ 5M | 1 | 33 |
+
+Ou seja: quem fatura **≤ R$ 1M cai no campo primário**; quem fatura **> R$ 1M
+cai no campo secundário** (os 76). Como só o conjunto primário parece estar
+chegando ao GHL, o comercial recebe quase exclusivamente o público de baixo
+valor — o "balconista / líder de mercearia" que o José relatou.
+
+## A contatabilidade NÃO é o gargalo
+
+Auditando os **dois** campos juntos, a taxa de quem deixa WhatsApp é parecida em
+todas as faixas — o ICP deixa contato tanto quanto o público de baixo valor:
+
+| Faturamento | Total | Contatável (qualquer campo) | % |
 | --- | ---: | ---: | ---: |
-| Até R$ 500 mil | 66 | 37 | **56,1%** |
-| R$ 500 mil – 1M | 53 | 38 | **71,7%** |
-| R$ 1M – 3M | 48 | 4 | 8,3% |
-| R$ 3M – 5M | 29 | 1 | 3,4% |
-| Acima de R$ 5M | 60 | 1 | **1,7%** |
+| Até R$ 500 mil | 66 | 37 | 56,1% |
+| R$ 500 mil – 1M | 53 | 38 | 71,7% |
+| R$ 1M – 3M | 48 | 32 | 66,7% |
+| R$ 3M – 5M | 29 | 16 | 55,2% |
+| Acima de R$ 5M | 60 | 34 | 56,7% |
 | (em branco) | 217 | 36 | 16,6% |
 
-Lê-se de cima para baixo: **quanto maior o faturamento, menor a chance de o lead
-deixar contato.** O público abaixo de R$ 1M deixa WhatsApp em 56–72% dos casos;
-o público acima de R$ 5M, em **1,7%**.
+Total: **193 leads contatáveis** (117 no campo primário + 76 no secundário, sem
+sobreposição). O problema nunca foi "o ICP não deixa telefone" — foi **para onde
+esse telefone vai**.
 
-### A consequência prática
+## Os 76 MQLs (o ativo para reativar agora)
 
-- **ICP real** (faturamento > R$ 1M **e** não-indústria): **114 leads** na base.
-- Desses 114, **apenas 3** deixaram contato. Os outros **111 estão "presos"** na
-  base sem telefone/e-mail para o comercial trabalhar.
-- Dos **117 contatáveis** que o José efetivamente consegue abordar, **só 3** são
-  ICP. O resto (≈97%) é abaixo de R$ 1M ou em branco — exatamente os
-  "balconista de farmácia / líder de mercearia" que ele relatou.
+O arquivo "só os 76" = todos os leads **> R$ 1M com contato capturado** (no campo
+secundário). Composição:
 
-Por cargo, entre os 117 contatáveis: 34 "dono/sócio", 33 "promovido há pouco /
-pouca autonomia", 26 "gestor com autonomia parcial", 24 "diretor/gerente". Ou
-seja, mesmo entre os contatáveis o decisor real (dono/sócio) é minoria.
+- **Faturamento:** 33 acima de R$ 5M · 28 entre 1–3M · 15 entre 3–5M.
+- **Setor:** 37 prestação de serviços · 29 comércio/e-commerce · **10 indústria**
+  (que a Carol não atende → excluir) → sobram **66 MQLs no ICP**.
+- **Cargo:** 27 gestor c/ autonomia parcial · 19 promovido há pouco (pouca
+  autonomia) · 15 diretor/gerente c/ autonomia · **15 dono/sócio**.
 
-### Faturamento declarado — por que a média engana
+**Todos os 76 têm WhatsApp e e-mail** e clicaram para receber o diagnóstico — e,
+pela queixa do José, muitos **nunca receberam uma mensagem sequer**. São o alvo
+imediato da ação de reativação/caixa rápido.
 
-Proxy pelo ponto médio de cada faixa (N=256 que responderam): média R$ 2,69 mi,
-mediana R$ 2,0 mi, desvio R$ 2,64 mi. **Parece ótimo** — e é justamente a
-armadilha. A média/mediana altas escondem que o faturamento declarado **não tem
-correlação com o lead ser abordável nem real**. José já validou no Perplexity/
-Comet que vários que marcaram R$ 5M "não existem" online ou são funcionários que
-preencheram o faturamento *da empresa onde trabalham*, não o próprio.
+> Ressalva de qualificação (válida): o José já checou no Perplexity/Comet que
+> parte de quem marca ">R$ 5M" é funcionário reportando o faturamento *da
+> empresa onde trabalha*, ou perfil sem rastro (possível fake). Então dos 66 nem
+> todos converterão — mas têm contato e estão dentro do critério declarado.
+> Priorizar por cargo (dono/sócio e diretor c/ autonomia) e por rastreabilidade.
 
-## Hipóteses (a confirmar, em ordem de força)
+## Faturamento declarado — a média engana
 
-1. **Autosseleção comportamental (mais forte).** Curioso/funcionário de baixo
-   ticket não tem nada a perder e entrega o WhatsApp; o dono de empresa real é
-   cético, protege o contato e abandona no passo de captura. O funil está
-   filtrando *a favor* do perfil errado exatamente na etapa do contato.
-2. **Comunicação aberta demais.** Anúncio e quiz falam com "líder" de forma
-   genérica e atraem cargo operacional. Falta excluir quem não é decisor logo na
-   abertura (modelar pelo concorrente que já vende para esse público).
-3. **Faturamento autodeclarado sem âncora.** A pergunta deixa o lead reportar o
-   faturamento *da empresa* sem amarrar à posição dele — infla a faixa e
-   contamina o "MQL".
-4. **Resíduo técnico (a descartar com dado).** A falha de integração InLead→GHL
-   discutida em 17/06 explica leads "perdidos", mas **neste export os 111 ICP
-   simplesmente não deixaram WhatsApp no próprio quiz** — então o gap é
-   majoritariamente de funil/comportamento, não só de integração. Vale conferir
-   se algum ICP deixou contato e se perdeu na integração.
+Proxy pelo ponto médio das faixas (N=256 que responderam): média ≈ R$ 2,69 mi,
+mediana R$ 2,0 mi, desvio R$ 2,64 mi. Número "bonito" que não diz nada sozinho —
+o que importa é que o valor declarado **não está amarrado à posição** de quem
+responde, o que infla as faixas altas.
+
+## Hipóteses (em ordem de força)
+
+1. **Mapeamento de campos / integração (mais forte, e acionável já).** O
+   formulário do ICP grava contato em campos (`e02yKB/Oen6ic/UX3WQn`) que não
+   estão mapeados para o GHL. Bate com a falha InLead→GHL de 17/06 e com "leads
+   com mensagem não enviada / que nunca receberam nada".
+2. **Quiz com duas versões/ramos.** O split limpo em R$ 1M indica dois caminhos
+   de captura. Unificar/auditar o formulário para que todo contato caia num só
+   lugar mapeado.
+3. **Qualificação autodeclarada sem âncora.** Ancorar faturamento à posição do
+   respondente (dono vs. funcionário) para limpar as faixas altas.
+4. **Comunicação aberta demais (funil).** Modelar pelo concorrente e excluir
+   não-decisor na abertura — relevante para o Passo 3, mas não é a causa de o
+   contato do ICP não chegar.
 
 ## O que o dado NÃO permite concluir ainda
 
-- Qual **criativo/campanha** específico traz o lead ruim (o CSV tem `utm_term`/
-  `utm_campaign` — dá para quebrar por anúncio, mas exige cruzar com gasto por
-  campanha do gerenciador, que não está neste arquivo).
-- Se os 111 ICP sem contato são **reativáveis** (precisaria de e-mail/pixel para
-  remarketing — WhatsApp não há).
+- **Por que** o campo secundário não chega ao GHL (precisa ver a config do
+  InLead + automação do GHL). É a verificação nº 1 a fazer.
+- Qual **criativo/campanha** traz lead ruim (há `utm_campaign`/`utm_term` no CSV,
+  mas falta o gasto por campanha do gerenciador para cruzar CAC).
+- Quantos dos 76 são realmente alcançáveis (validar amostra antes da ação em
+  massa, para não queimar a régua de novo).
 
 ## Implicações diretas para o plano
 
-- **Passo 2 (caixa rápido):** a base abordável por WhatsApp são os **117
-  contatáveis** (priorizar os 34 dono/sócio) + a base de **clientes ativos** —
-  não os 111 ICP (sem telefone). Reativação dos ICP é via remarketing/conteúdo.
-- **Passo 3 (ajuste de funil):** o problema a resolver é **capturar contato do
-  ICP**, não gerar mais volume. Travar/excluir quem não é decisor na abertura,
-  ancorar a pergunta de faturamento à posição do respondente, e reposicionar a
-  oferta do quiz para o executivo/dono.
-
-> Nota sobre "os 76 MQLs": o arquivo recebido (`...corrigidos...`) tem 472 leads
-> / 117 contatáveis. O número "76" citado em reunião parece ser do export
-> anterior (menor). **Confirmar com o time qual recorte corresponde aos 76**
-> para não misturar bases ao montar a ação de reativação.
+- **Prioridade nº 1 (técnica):** descobrir por que o contato do campo secundário
+  não chega ao GHL e **trazer os 76 para o GHL com tag de origem** — isso
+  sozinho destrava o ICP que já entrou.
+- **Passo 2 (caixa rápido):** os 76 (66 no ICP) têm WhatsApp/e-mail → são o alvo
+  direto de reativação, além da base de clientes ativos. Priorizar dono/sócio +
+  diretor c/ autonomia.
+- **Passo 3 (ajuste de funil):** unificar a captura de contato num campo só
+  mapeado, ancorar faturamento à posição, reposicionar comunicação para o
+  executivo/dono.

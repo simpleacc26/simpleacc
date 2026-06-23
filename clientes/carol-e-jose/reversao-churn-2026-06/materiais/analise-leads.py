@@ -21,8 +21,15 @@ def g(row, key):
 
 
 def contatavel(row):
-    """Deixou nome E whatsapp (= clicou para receber diagnóstico)."""
-    return bool(g(row, "field: nome") and g(row, "field: whatsapp"))
+    """Deixou WhatsApp em QUALQUER um dos dois conjuntos de campos do quiz.
+
+    ATENÇÃO: o quiz captura contato em DOIS conjuntos de campos distintos:
+      - primário:   field: nome / field: email / field: whatsapp
+      - secundário: field: e02yKB / field: Oen6ic / field: UX3WQn
+    Leads <= R$1M caem no primário; leads > R$1M caem no secundário.
+    Considerar só um dos conjuntos subestima os contatáveis do ICP.
+    """
+    return bool(g(row, "field: whatsapp") or g(row, "field: UX3WQn"))
 
 
 def main():
@@ -30,7 +37,17 @@ def main():
         rows = list(csv.DictReader(f))
 
     print(f"Total de leads: {len(rows)}")
-    print(f"Contatáveis (nome + whatsapp): {sum(1 for r in rows if contatavel(r))}")
+    print(f"Contatáveis (qualquer campo de WhatsApp): {sum(1 for r in rows if contatavel(r))}")
+    print(f"  WhatsApp no campo primário: {sum(1 for r in rows if g(r, 'field: whatsapp'))}")
+    print(f"  WhatsApp no campo secundário (>1M): {sum(1 for r in rows if g(r, 'field: UX3WQn'))}")
+
+    print("\n=== Que campo cada faixa de faturamento preenche ===")
+    for b in ["Até R$500 mil", "Entre R$500 mil e R$ 1M", "Entre R$ 1M e R$ 3M",
+              "Entre R$ 3M e R$ 5M", "Acima de R$ 5M"]:
+        tot = [r for r in rows if g(r, "options: faturamento") == b]
+        p = sum(1 for r in tot if g(r, "field: whatsapp"))
+        s = sum(1 for r in tot if g(r, "field: UX3WQn"))
+        print(f"  {b:26s} | primário {p:3d} | secundário {s:3d}")
 
     print("\n=== Cruzamento Faturamento x Contatável ===")
     buckets = [

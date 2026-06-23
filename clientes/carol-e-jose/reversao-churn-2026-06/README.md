@@ -22,15 +22,17 @@ seguinte.
 
 - `materiais/reuniao-2026-06-23-alinhamento-gemini.pdf` — anotações + transcrição da reunião de hoje.
 - `materiais/reuniao-2026-06-17-pitstop-gemini.md` — anotações + transcrição do Pit Stop anterior.
-- `materiais/leads-organizados.csv` — base de leads do quiz analisada.
+- `materiais/leads-organizados.csv` — base completa de leads do quiz (472).
+- `materiais/leads-76-mqls.csv` — recorte dos 76 MQLs (>R$1M, com contato).
 - `materiais/analise-leads.py` — script que reproduz o diagnóstico de dados.
 
 ## Achado central (resumo de uma linha)
 
-O funil sofre de **contatabilidade invertida**: quanto maior o faturamento, menor
-a chance de o lead deixar contato (acima de R$ 5M, só **1,7%** deixam WhatsApp).
-Há **114 leads no ICP**, mas só **3** são abordáveis. O problema é de
-**captura/funil**, não de volume.
+Os **76 leads de maior valor (>R$1M) já deixaram WhatsApp e e-mail**, mas o
+contato deles é capturado num **segundo conjunto de campos do quiz que não chega
+ao GHL** — por isso o comercial só recebe lead de baixo valor. Problema
+**técnico (mapeamento de campos + integração InLead→GHL)**, não de volume nem de
+"lead que não responde". Os 76 são o ativo imediato para reativar.
 
 ## Referências externas (do grupo interno)
 
