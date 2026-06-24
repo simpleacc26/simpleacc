@@ -8,6 +8,9 @@ máquina, mantendo cada assunto no seu lugar.
 > 📖 **Antes de começar, leia o [Manual de Operação](docs/MANUAL.md).**
 > Ele explica como rodar sessões remotas, as convenções de pastas/branches e as
 > boas práticas para trabalharmos juntos sem bagunça.
+>
+> 🚀 **Novo no time?** Comece pelo guia rápido **[Como usar o hub](docs/COMO-USAR.md)**
+> (versão visual: abra `docs/COMO-USAR.html` no navegador).
 
 ## Como está organizado
 
