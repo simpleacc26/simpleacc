@@ -17,6 +17,8 @@ seguinte.
 | [`RELATORIO-COMPLETO.md`](./RELATORIO-COMPLETO.md) | Relatório completo em Markdown. |
 | [`relatorio-daniel.html`](./relatorio-daniel.html) | **Material para o Daniel** — só os 3 passos (visual). |
 | [`RELATORIO-DANIEL.md`](./RELATORIO-DANIEL.md) | Material para o Daniel em Markdown. |
+| [`relatorio-icp-comprador.html`](./relatorio-icp-comprador.html) | **Quem realmente compra** — ICP do feedback do Daniel (visual). |
+| [`05-quem-compra-icp.md`](./05-quem-compra-icp.md) | Quem realmente compra em Markdown. |
 | [`01-resumo-da-situacao.md`](./01-resumo-da-situacao.md) | Resumo executivo da situação e do plano. |
 | [`02-tarefas-em-aberto.md`](./02-tarefas-em-aberto.md) | Ata: todas as tarefas em aberto com responsável (ou "a definir"). |
 | [`03-expectativas-jose.md`](./03-expectativas-jose.md) | O que o José espera e o que precisamos entregar. |
@@ -25,7 +27,9 @@ seguinte.
 ## Materiais de origem
 
 - `materiais/reuniao-2026-06-23-alinhamento-gemini.pdf` — anotações + transcrição da reunião de hoje.
-- `materiais/reuniao-2026-06-17-pitstop-gemini.md` — anotações + transcrição do Pit Stop anterior.
+- `materiais/reuniao-2026-06-17-pitstop-gemini.md` — anotações + transcrição do Pit Stop de 17/06.
+- `materiais/reuniao-2026-04-30-pitstop-gemini.md` — anotações + transcrição do Pit Stop de 30/04 (rica em voz do comprador).
+- `materiais/diagnostico-enviado-ao-daniel.html` — versão refinada enviada ao Daniel (a que recebeu o feedback).
 - `materiais/leads-organizados.csv` — base completa de leads do quiz (472).
 - `materiais/leads-76-mqls.csv` — recorte dos 76 MQLs (>R$1M, com contato).
 - `materiais/analise-leads.py` — script que reproduz o diagnóstico de dados.

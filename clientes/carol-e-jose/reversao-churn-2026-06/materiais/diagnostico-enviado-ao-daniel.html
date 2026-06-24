@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diagnóstico Completo v2 — Únicos | Carol & José</title>
+<style>
+  :root {
+    --preto: #0f0f0f;
+    --branco: #ffffff;
+    --cinza-escuro: #1e1e1e;
+    --cinza-medio: #2d2d2d;
+    --cinza-claro: #f5f5f5;
+    --cinza-texto: #888;
+    --vermelho: #e03b3b;
+    --verde: #2db36a;
+    --amarelo: #f0c040;
+    --azul: #2563eb;
+    --laranja: #e07b2a;
+    --fonte-titulo: 'Georgia', serif;
+    --fonte-corpo: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--fonte-corpo); background: var(--cinza-claro); color: var(--preto); line-height: 1.7; font-size: 15px; }
+
+  /* CAPA */
+  .capa { background: var(--preto); color: var(--branco); padding: 72px 60px; }
+  .capa .badge { display: inline-block; background: var(--vermelho); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 4px 12px; border-radius: 2px; margin-bottom: 20px; }
+  .capa .urgencia { display: inline-block; background: #f0c040; color: #0f0f0f; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 4px 12px; border-radius: 2px; margin-bottom: 20px; margin-left: 8px; }
+  .capa h1 { font-family: var(--fonte-titulo); font-size: 40px; font-weight: 400; line-height: 1.2; margin-bottom: 14px; max-width: 680px; }
+  .capa .subtitulo { color: #aaa; font-size: 14px; max-width: 580px; margin-bottom: 32px; }
+  .capa .meta { display: flex; gap: 40px; border-top: 1px solid #333; padding-top: 22px; flex-wrap: wrap; }
+  .capa .meta-item { font-size: 12px; color: #aaa; }
+  .capa .meta-item strong { display: block; color: #fff; font-size: 13px; margin-top: 2px; }
+  .capa .alerta-capa { background: rgba(224,59,59,0.15); border: 1px solid rgba(224,59,59,0.4); border-radius: 6px; padding: 14px 20px; margin-bottom: 28px; color: #ff8080; font-size: 14px; max-width: 640px; }
+  .capa .alerta-capa strong { color: #ffb0b0; }
+
+  /* NAV */
+  .nav-topo { background: var(--cinza-escuro); position: sticky; top: 0; z-index: 100; padding: 0 60px; display: flex; gap: 0; overflow-x: auto; border-bottom: 2px solid #333; }
+  .nav-topo a { color: #aaa; text-decoration: none; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 15px 18px; white-space: nowrap; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all .2s; }
+  .nav-topo a:hover { color: #fff; border-bottom-color: var(--vermelho); }
+
+  /* LAYOUT */
+  .container { max-width: 900px; margin: 0 auto; padding: 0 40px; }
+  section { padding: 56px 0; border-bottom: 1px solid #ddd; }
+  section:last-child { border-bottom: none; }
+  .section-label { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--vermelho); margin-bottom: 8px; }
+  .section-label .num { background: var(--vermelho); color: #fff; width: 20px; height: 20px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 10px; }
+  h2 { font-family: var(--fonte-titulo); font-size: 28px; font-weight: 400; line-height: 1.25; margin-bottom: 6px; }
+  .section-intro { color: var(--cinza-texto); margin-bottom: 28px; font-size: 14px; max-width: 680px; border-left: 3px solid #ddd; padding-left: 14px; }
+
+  /* VEREDITO */
+  .veredito { background: var(--preto); color: var(--branco); border-radius: 8px; padding: 30px 34px; margin-bottom: 36px; }
+  .veredito .titulo { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--vermelho); margin-bottom: 10px; font-weight: 700; }
+  .veredito p { font-size: 16px; line-height: 1.65; }
+  .veredito strong { color: var(--amarelo); }
+
+  /* METRICAS */
+  .metricas-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 14px; margin-bottom: 36px; }
+  .metrica-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 18px; border-top: 3px solid var(--cinza-texto); }
+  .metrica-card.vermelho { border-top-color: var(--vermelho); }
+  .metrica-card.verde { border-top-color: var(--verde); }
+  .metrica-card.amarelo { border-top-color: var(--amarelo); }
+  .metrica-card.azul { border-top-color: var(--azul); }
+  .metrica-card.laranja { border-top-color: var(--laranja); }
+  .metrica-card .label { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--cinza-texto); margin-bottom: 5px; }
+  .metrica-card .valor { font-size: 26px; font-weight: 700; font-family: var(--fonte-titulo); }
+  .metrica-card .sub { font-size: 11px; color: var(--cinza-texto); margin-top: 3px; }
+
+  /* TABELA */
+  .tabela { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
+  .tabela th { background: var(--preto); color: #fff; padding: 11px 15px; text-align: left; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; font-weight: 600; }
+  .tabela td { padding: 11px 15px; border-bottom: 1px solid #e8e8e8; vertical-align: top; }
+  .tabela tr:nth-child(even) td { background: #fafafa; }
+
+  .tag { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 11px; font-weight: 700; }
+  .tag.critico { background: #fde8e8; color: #c0392b; }
+  .tag.atencao { background: #fef3cd; color: #8a6914; }
+  .tag.ok { background: #d4edda; color: #155724; }
+
+  /* PASSOS */
+  .passos { display: flex; flex-direction: column; gap: 20px; }
+  .passo { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 26px 30px; display: grid; grid-template-columns: 44px 1fr; gap: 22px; align-items: start; }
+  .passo-num { width: 44px; height: 44px; background: var(--preto); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 700; flex-shrink: 0; margin-top: 2px; }
+  .passo.urgente { border-left: 4px solid var(--vermelho); }
+  .passo.urgente .passo-num { background: var(--vermelho); }
+  .passo-conteudo h3 { font-size: 16px; font-weight: 700; margin-bottom: 8px; }
+  .passo-conteudo p { font-size: 14px; color: #444; margin-bottom: 10px; }
+  .passo-conteudo .destaque { background: var(--cinza-claro); border-left: 3px solid var(--preto); padding: 10px 15px; border-radius: 0 4px 4px 0; font-size: 13px; color: #333; margin: 10px 0; }
+  .passo-conteudo .alerta { background: #fff8e1; border-left: 3px solid var(--amarelo); padding: 10px 15px; border-radius: 0 4px 4px 0; font-size: 13px; color: #555; margin: 10px 0; }
+  .passo-conteudo .perigo { background: #fdecea; border-left: 3px solid var(--vermelho); padding: 10px 15px; border-radius: 0 4px 4px 0; font-size: 13px; color: #555; margin: 10px 0; }
+  ul.lista { padding-left: 18px; margin: 8px 0; }
+  ul.lista li { font-size: 14px; color: #444; margin-bottom: 5px; }
+
+  /* QUIZ */
+  .quiz-wrapper { background: #fff; border-radius: 12px; border: 1px solid #e0e0e0; overflow: hidden; }
+  .quiz-header { background: var(--preto); color: #fff; padding: 34px 38px; }
+  .quiz-header .quiz-tag { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #aaa; margin-bottom: 8px; }
+  .quiz-header h3 { font-family: var(--fonte-titulo); font-size: 22px; font-weight: 400; margin-bottom: 8px; }
+  .quiz-header p { color: #ccc; font-size: 14px; max-width: 540px; }
+  .quiz-filtros { background: #fdecea; border-bottom: 1px solid #f5c6c6; padding: 14px 38px; display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .quiz-filtros .filtro-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--vermelho); }
+  .quiz-filtros .filtro-item { background: #fff; border: 1px solid #f5c6c6; border-radius: 20px; padding: 3px 11px; font-size: 12px; color: #c0392b; font-weight: 600; }
+  .quiz-body { padding: 0 38px 38px; }
+  .quiz-fase { margin-top: 30px; }
+  .quiz-fase-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 2px solid #f0f0f0; }
+  .quiz-fase-badge { padding: 4px 11px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; flex-shrink: 0; color: #fff; }
+  .quiz-fase-badge.filtro { background: var(--vermelho); }
+  .quiz-fase-badge.diagnostico { background: var(--azul); }
+  .quiz-fase-badge.captura { background: var(--verde); }
+  .quiz-fase-titulo { font-weight: 700; font-size: 15px; }
+  .quiz-fase-sub { font-size: 12px; color: #888; }
+  .quiz-pergunta { background: #f9f9f9; border: 1px solid #ebebeb; border-radius: 8px; padding: 18px 22px; margin-bottom: 14px; }
+  .quiz-pergunta .p-num { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--cinza-texto); margin-bottom: 5px; }
+  .quiz-pergunta .p-texto { font-size: 16px; font-weight: 700; color: var(--preto); margin-bottom: 12px; line-height: 1.4; }
+  .quiz-pergunta .p-nota { font-size: 12px; color: var(--azul); font-style: italic; margin-bottom: 10px; }
+  .quiz-opcao { display: flex; align-items: flex-start; gap: 10px; padding: 9px 13px; margin: 5px 0; border-radius: 6px; border: 1px solid #e0e0e0; background: #fff; font-size: 14px; }
+  .quiz-opcao .opcao-letra { width: 22px; height: 22px; border-radius: 50%; background: #eee; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+  .quiz-opcao.desqualifica { border-color: #f5c6c6; background: #fff8f8; }
+  .quiz-opcao.desqualifica .opcao-letra { background: #fde8e8; color: var(--vermelho); }
+  .quiz-opcao.desqualifica:after { content: '← SAIR'; margin-left: auto; font-size: 10px; font-weight: 700; color: var(--vermelho); letter-spacing: 1px; white-space: nowrap; }
+  .quiz-opcao.otimo .opcao-letra { background: #d4edda; color: #155724; }
+  .quiz-logica { background: #fffbf0; border: 1px dashed #e0c060; border-radius: 6px; padding: 10px 14px; font-size: 12px; color: #7a6020; margin-top: 8px; }
+  .quiz-redirect { background: #fdecea; border-radius: 8px; padding: 18px 22px; margin: 20px 0; border: 1px solid #f5c6c6; }
+  .quiz-redirect .redirect-titulo { font-weight: 700; font-size: 14px; color: var(--vermelho); margin-bottom: 5px; }
+  .quiz-redirect p { font-size: 13px; color: #555; }
+
+  /* CRIATIVOS */
+  .criativos-grid { display: flex; flex-direction: column; gap: 22px; }
+  .criativo-card { background: #fff; border: 1px solid #e0e0e0; border-radius: 10px; overflow: hidden; }
+  .criativo-header { background: var(--cinza-escuro); color: #fff; padding: 13px 22px; display: flex; align-items: center; gap: 12px; }
+  .criativo-num { width: 30px; height: 30px; background: var(--vermelho); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; }
+  .criativo-nome { font-size: 13px; font-weight: 700; }
+  .criativo-angulo { font-size: 11px; color: #aaa; }
+  .criativo-corpo { padding: 26px; }
+  .criativo-corpo .headline { font-family: var(--fonte-titulo); font-size: 22px; font-weight: 700; color: var(--preto); line-height: 1.3; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 2px solid #f0f0f0; }
+  .criativo-corpo .corpo-texto { font-size: 14px; color: #333; line-height: 1.75; margin-bottom: 18px; white-space: pre-line; }
+  .criativo-corpo .cta { display: inline-block; background: var(--preto); color: #fff; padding: 11px 22px; border-radius: 6px; font-size: 13px; font-weight: 700; letter-spacing: 0.5px; margin-bottom: 18px; }
+  .criativo-notas { background: #f5f5f5; border-top: 1px solid #e8e8e8; padding: 14px 26px; }
+  .criativo-notas .nota-titulo { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--cinza-texto); margin-bottom: 7px; }
+  .criativo-notas ul { padding-left: 16px; }
+  .criativo-notas li { font-size: 12px; color: #555; margin-bottom: 4px; }
+
+  /* LIMITAÇÕES */
+  .limitacoes { background: #fffbf0; border: 1px solid #e0c040; border-radius: 8px; padding: 22px 26px; margin-top: 36px; }
+  .limitacoes h3 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #8a6914; margin-bottom: 10px; }
+  .limitacoes li { font-size: 14px; color: #555; margin-bottom: 7px; padding-left: 18px; }
+  .limitacoes ul { list-style: none; }
+  .limitacoes li::before { content: "→ "; color: #8a6914; font-weight: 700; }
+
+  /* TIMELINE */
+  .timeline { display: flex; flex-direction: column; gap: 0; margin: 20px 0; }
+  .timeline-item { display: flex; gap: 20px; padding-bottom: 20px; position: relative; }
+  .timeline-item:not(:last-child)::before { content: ''; position: absolute; left: 19px; top: 40px; bottom: 0; width: 2px; background: #e0e0e0; }
+  .timeline-dot { width: 40px; height: 40px; border-radius: 50%; background: #eee; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 12px; font-weight: 700; color: #666; z-index: 1; }
+  .timeline-dot.critico { background: var(--vermelho); color: #fff; }
+  .timeline-dot.ok { background: var(--verde); color: #fff; }
+  .timeline-content { flex: 1; padding-top: 8px; }
+  .timeline-content strong { display: block; font-size: 14px; color: var(--preto); margin-bottom: 3px; }
+  .timeline-content span { font-size: 13px; color: #666; }
+
+  footer { background: var(--preto); color: #555; text-align: center; padding: 28px; font-size: 12px; }
+  footer strong { color: #aaa; }
+  .small-text { font-size: 12px; color: var(--cinza-texto); }
+
+  @media (max-width: 680px) {
+    .capa { padding: 36px 20px; }
+    .capa h1 { font-size: 26px; }
+    .container { padding: 0 18px; }
+    .nav-topo { padding: 0 18px; }
+    .passo { grid-template-columns: 1fr; }
+    .quiz-body, .quiz-header, .quiz-filtros { padding-left: 18px; padding-right: 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- CAPA -->
+<div class="capa">
+  <div>
+    <span class="badge">Diagnóstico & Plano de Ação — v2</span>
+    <span class="urgencia">Atualizado pós-reunião 23/06</span>
+  </div>
+  <h1>Únicos Leadership Club<br>— Carol & José</h1>
+  <div class="alerta-capa">
+    <strong>Contexto crítico:</strong> R$ 40.000 investidos (mídia + plataforma + operação) desde 18/02/2026 — mês 5 de contrato. Zero vendas via funil. Zero reuniões com lead qualificado. A reunião de 23/06 foi um ponto de inflexão: o cliente sinalizou risco de ruptura. Este documento é o plano de virada.
+  </div>
+  <p class="subtitulo">Documento interno SimpleAcc — diagnóstico completo, plano de caixa rápido, ajuste de funil, novo quiz focado em dono de empresa e 5 ângulos de criativos reformulados.</p>
+  <div class="meta">
+    <div class="meta-item">Data<strong>23 de Junho de 2026</strong></div>
+    <div class="meta-item">Cliente<strong>Caroline Batista & José Westphalen</strong></div>
+    <div class="meta-item">Contrato desde<strong>18 de Fevereiro de 2026</strong></div>
+    <div class="meta-item">Ticket HT<strong>R$ 54.000 / R$ 20.000</strong></div>
+    <div class="meta-item">Prazo de entrega<strong>Até 20h de hoje</strong></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="nav-topo">
+  <a href="#resumo">Resumo</a>
+  <a href="#diagnostico">1. Diagnóstico</a>
+  <a href="#caixa">2. Plano de Caixa</a>
+  <a href="#funil">3. Ajuste de Funil</a>
+  <a href="#quiz">4. Novo Quiz</a>
+  <a href="#criativos">5. Criativos</a>
+</nav>
+
+<!-- RESUMO EXECUTIVO -->
+<div id="resumo" style="background:#fff;">
+  <div class="container">
+    <section>
+      <div class="section-label">Fernanda Face — Diagnóstico</div>
+      <h2>Resumo Executivo</h2>
+      <p class="section-intro">O que os números dizem, sem filtro. Atualizado com os dados da reunião de 23/06.</p>
+
+      <div class="veredito">
+        <div class="titulo">Veredito</div>
+        <p><strong>R$ 40.000 investidos em 5 meses. Zero reais de receita vinda deste funil. ROAS = 0.</strong><br><br>
+        O problema não é o produto. O problema é que o funil fala com o cargo errado. A palavra "líder" nos criativos e no quiz atrai gerente operacional de empresa grande — que responde "R$ 5 milhões de faturamento" porque esse é o faturamento do empregador, não o dele. O ICP real é <strong>dono de empresa</strong>, não líder. Essa troca de uma palavra muda o funil inteiro — do criativo ao quiz.<br><br>
+        Em paralelo: a base de 76 leads nunca foi carregada no GHL. As automações de follow-up quebraram por desconexão de WhatsApp. E o José teve o WhatsApp bloqueado pelo Meta por tentar contatar leads que não respondiam. Falha técnica + falha de comunicação + falha operacional em simultâneo.</p>
+      </div>
+
+      <div class="metricas-grid">
+        <div class="metrica-card vermelho">
+          <div class="label">Investimento Total Projeto</div>
+          <div class="valor">R$ 40k</div>
+          <div class="sub">Mídia + plataforma + operação, desde fev/26</div>
+        </div>
+        <div class="metrica-card vermelho">
+          <div class="label">Investimento só em Mídia</div>
+          <div class="valor">R$ 6.627</div>
+          <div class="sub">Abr–Jun/26, Meta Ads</div>
+        </div>
+        <div class="metrica-card vermelho">
+          <div class="label">Receita do Funil</div>
+          <div class="valor">R$ 0</div>
+          <div class="sub">ROAS = 0 em todo o período</div>
+        </div>
+        <div class="metrica-card amarelo">
+          <div class="label">Leads Totais</div>
+          <div class="valor">205</div>
+          <div class="sub">Sistema, sem verificação de qualidade</div>
+        </div>
+        <div class="metrica-card vermelho">
+          <div class="label">Reuniões com MQL Real</div>
+          <div class="valor">0</div>
+          <div class="sub">Nenhum lead qualificado chegou à reunião</div>
+        </div>
+        <div class="metrica-card laranja">
+          <div class="label">Meses de Contrato</div>
+          <div class="valor">5</div>
+          <div class="sub">Contrato fechado em 18/02/2026</div>
+        </div>
+      </div>
+
+      <h3 style="font-size:15px; font-weight:700; margin-bottom:14px; color:var(--preto);">Diagnóstico por Camada</h3>
+      <table class="tabela">
+        <thead>
+          <tr><th>Camada</th><th>Status</th><th>Root Cause</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Linguagem do criativo</strong></td><td><span class="tag critico">Crítico</span></td><td>Usa "líder" — atrai empregado operacional, não dono de empresa</td></tr>
+          <tr><td><strong>Filtro do quiz</strong></td><td><span class="tag critico">Crítico</span></td><td>Pergunta de faturamento é a #11, sem lógica condicional implementada</td></tr>
+          <tr><td><strong>Pergunta de faturamento</strong></td><td><span class="tag critico">Crítico</span></td><td>Não especifica "da SUA empresa" — lead interpreta como faturamento do empregador</td></tr>
+          <tr><td><strong>Integração inlead → GHL</strong></td><td><span class="tag critico">Crítico</span></td><td>76 leads da planilha nunca foram carregados no GHL; leads sem mensagem inicial</td></tr>
+          <tr><td><strong>Definição de MQL</strong></td><td><span class="tag critico">Crítico</span></td><td>Sistema conta como MQL lead que declarou faturamento alto, sem verificar se é dono</td></tr>
+          <tr><td><strong>Revenue</strong></td><td><span class="tag critico">Crítico</span></td><td>R$ 0 em 5 meses — funil nunca gerou nenhuma venda</td></tr>
+        </tbody>
+      </table>
+
+      <div class="alerta" style="margin-top:20px; background:#fff8e1; border-left:3px solid #f0c040; padding:14px 18px; border-radius:0 6px 6px 0; font-size:13px; color:#555;">
+        <strong>Aviso sobre dados das planilhas:</strong> Os valores "51 comparecimentos" e "10 vendas" nas abas Comercial são placeholders do template — aparecem idênticos nos 3 meses e não representam dados reais. Dados reais de comparecimento e vendas do funil: zero.
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- DIAGNÓSTICO -->
+<div id="diagnostico">
+  <div class="container">
+    <section>
+      <div class="section-label"><span class="num">1</span>Diagnóstico</div>
+      <h2>Passo a Passo de Diagnóstico</h2>
+      <p class="section-intro">Quatro passos, em ordem de prioridade. Executar antes de tomar qualquer decisão de investimento em mídia.</p>
+
+      <div class="passos">
+
+        <div class="passo urgente">
+          <div class="passo-num">1</div>
+          <div class="passo-conteudo">
+            <h3>Confirmar: o problema é comunicação, não tráfego</h3>
+            <p>A reunião de 23/06 revelou que o José identificou leads como "líder de mercearia" (salário R$ 2.300), "balconista de farmácia virou gerente" (salário R$ 5.000) e um candidato a vereador em 2012, hoje desempregado — todos marcando faturamento de R$ 3M–R$ 5M porque marcaram o faturamento da <em>empresa em que trabalham</em>, não o próprio.</p>
+            <div class="perigo"><strong>Root cause confirmado:</strong> A palavra "líder" no criativo atrai qualquer pessoa com título de liderança operacional — de supervisor de loja a gerente de setor. Para atrair o dono de empresa, a linguagem precisa mudar de "líder" para "dono", "empresário" ou "founder". São públicos completamente diferentes.</div>
+            <p><strong>Teste de validação:</strong> Pegar os últimos 30 leads do GHL e pesquisar cada um no LinkedIn, Instagram, Google e base de CNPJ. Se menos de 30% aparecem como donos de empresa, o problema de comunicação é confirmado como root cause primário.</p>
+          </div>
+        </div>
+
+        <div class="passo urgente">
+          <div class="passo-num">2</div>
+          <div class="passo-conteudo">
+            <h3>Mapear quem realmente compra o produto da Carol hoje</h3>
+            <p>Antes de construir qualquer funil novo, precisamos saber: quem são os clientes que já compraram o Únicos? Quais são as características reais desses compradores — cargo, setor, faturamento, localidade, como chegaram até a Carol?</p>
+            <div class="destaque"><strong>Por que isso importa:</strong> O Canvas do ICP descreve quem eles acham que compra. Mas se o comprador real tem um perfil diferente, qualquer funil construído sobre o Canvas errado vai continuar gerando o lead errado. Os dados de compradores reais são mais valiosos do que qualquer framework de ICP.</div>
+            <p><strong>Como fazer:</strong> Carol lista os últimos 15–20 clientes que compraram (qualquer ticket). Para cada um: nome, cargo, setor, faturamento estimado, como chegou (indicação, evento, orgânico, anúncio), o que disse que estava sentindo antes de comprar. Esse é o mapa do ICP real.</p>
+          </div>
+        </div>
+
+        <div class="passo">
+          <div class="passo-num">3</div>
+          <div class="passo-conteudo">
+            <h3>Mapear o cemitério de leads: quem entrou e nunca foi contatado</h3>
+            <p>O José identificou na reunião que há "muitos leads dentro do GHL com mensagem não enviada" — eles preencheram o formulário e nunca receberam nada. Precisamos saber o volume exato.</p>
+            <div class="destaque"><strong>Como verificar no GHL:</strong> Filtrar contatos por status "mensagem inicial não enviada" ou "sem atividade de automação". Essa lista representa leads que expressaram interesse e foram completamente ignorados por falha técnica — são candidatos à reativação imediata.</div>
+          </div>
+        </div>
+
+        <div class="passo">
+          <div class="passo-num">4</div>
+          <div class="passo-conteudo">
+            <h3>Corrigir o pixel antes de qualquer novo investimento</h3>
+            <p>O Meta está otimizando com base em conversões de pessoas que se identificam como "líderes" — ou seja, está aprendendo a buscar mais perfis de gestores operacionais, não donos de empresa. Cada real investido está treinando o algoritmo na direção errada.</p>
+            <ul class="lista">
+              <li>Pausar as campanhas atuais enquanto o novo quiz não estiver no ar com filtros corretos</li>
+              <li>Configurar evento customizado no pixel que dispara <strong>apenas</strong> para leads que passaram nos 3 filtros de qualificação do novo quiz</li>
+              <li>Configurar UTMs no GHL para rastrear origem por campanha/anúncio</li>
+              <li>Alimentar o pixel com lista de clientes reais (lookalike) antes de retomar campanhas</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- PLANO DE CAIXA -->
+<div id="caixa" style="background:#fff;">
+  <div class="container">
+    <section>
+      <div class="section-label"><span class="num">2</span>Plano de Caixa</div>
+      <h2>Plano de Caixa Rápido — Passo a Passo</h2>
+      <p class="section-intro">Três frentes definidas na reunião de 23/06 pelo Daniel + duas frentes adicionais de tráfego. Ordem de execução: do que gera caixa mais rápido sem depender do funil de anúncio para o que estrutura o funil novo.</p>
+
+      <div class="veredito" style="margin-bottom:28px;">
+        <div class="titulo">Unit Economics — se o funil funcionar</div>
+        <p>Com custo por MQL real de ~R$ 380 (maio) e close rate de 10%: <strong>CAC = R$ 3.800</strong>. Em ticket Access (R$ 20k) → ROAS 5,3x. Em ticket Business (R$ 54k) → ROAS 14,2x. O modelo funciona — mas só depois que a comunicação estiver correta e o comercial estiver operando.</p>
+      </div>
+
+      <div class="passos">
+
+        <div class="passo urgente">
+          <div class="passo-num">1</div>
+          <div class="passo-conteudo">
+            <h3>Carol: Workshop com a base atual → venda de curso gravado</h3>
+            <p>Frente 1 definida na reunião de 23/06. A Carol faz um workshop online para a base de leads e clientes existente, entregando valor antecipado — e ao final faz uma oferta de um produto de menor barreira (curso gravado ou acesso entry-level).</p>
+            <div class="destaque">
+              <strong>Lógica:</strong> A base atual tem leads que expressaram interesse mas não compraram o produto principal. Um produto de menor ticket (R$ 3k–R$ 10k) com entrega imediata captura quem está interessado mas não estava pronto para o ticket de R$ 54k. Isso gera caixa rápido e cria uma régua de relacionamento para oferta maior no futuro.
+            </div>
+            <p><strong>Execução:</strong> Selecionar data nas próximas 2 semanas. Convidar toda a base via WhatsApp (incluindo os 76 da planilha que ainda não receberam contato). Workshop de 90 minutos. Oferta ao vivo no final.</p>
+          </div>
+        </div>
+
+        <div class="passo urgente">
+          <div class="passo-num">2</div>
+          <div class="passo-conteudo">
+            <h3>Carol: Oferta de expansão de valor para clientes atuais</h3>
+            <p>Frente 2 definida na reunião de 23/06. A Carol mapeia a base de clientes que já compraram (qualquer produto) e cria propostas personalizadas de expansão — upgrade de plano, inclusão de sessões individuais, acesso a módulos específicos.</p>
+            <div class="destaque">
+              <strong>Por que funciona:</strong> Vender para quem já comprou é 5–7x mais barato do que adquirir cliente novo. Um cliente no Access (R$ 20k) que faz upgrade para o Business (R$ 54k) = R$ 34k de receita incremental sem nenhum gasto em mídia. Com 3–5 clientes na base, o impacto potencial é de R$ 100k–R$ 170k em caixa.
+            </div>
+            <p><strong>Execução:</strong> Listar todos os clientes ativos e ex-clientes. Para cada um: qual etapa da jornada está, qual produto tem, o que faria sentido como próximo passo. Abordar com ligação ou reunião presencial/online personalizada — não mensagem genérica.</p>
+          </div>
+        </div>
+
+        <div class="passo urgente">
+          <div class="passo-num">3</div>
+          <div class="passo-conteudo">
+            <h3>Carol: Ativação de programa de indicações</h3>
+            <p>Frente 3 definida na reunião de 23/06. Clientes satisfeitos têm network de outros donos de empresa com o mesmo perfil. Um processo estruturado de indicação — com incentivo claro para quem indica — é o canal de menor CAC possível para produto de alto ticket.</p>
+            <div class="alerta">
+              <strong>Estrutura básica:</strong> Para cada cliente ativo, perguntar diretamente: "Você conhece algum outro empresário que poderia se beneficiar do que você está vivendo aqui? Se ele se tornar cliente, você ganha [benefício — desconto, sessão extra, crédito]." A Carol já tem relacionamento de confiança — esse canal está inexplorado.
+            </div>
+            <p><strong>Meta realista:</strong> 2 indicações convertidas = R$ 40k em ticket Access ou R$ 108k em ticket Business. Custo da ação: zero em mídia.</p>
+          </div>
+        </div>
+
+        <div class="passo">
+          <div class="passo-num">4</div>
+          <div class="passo-conteudo">
+            <h3>Reativação manual de leads qualificados do GHL</h3>
+            <p>Depois de auditar os 76 leads da planilha (Passo 3 do Diagnóstico), contatar manualmente apenas os que foram verificados como donos de empresa. Abordagem personalizada no WhatsApp, não automação.</p>
+            <div class="destaque">
+              <strong>Mensagem âncora:</strong><br>
+              "Olá [Nome], vi que você fez nosso diagnóstico de liderança. Quero entender melhor o momento da sua empresa e ver se faz sentido conversar — sem compromisso. Tenho 30 minutos essa semana, se quiser."
+            </div>
+            <p class="small-text">Não é para o WhatsApp do José — é para a Carol fazer esse primeiro contato, o que cria muito mais credibilidade com o perfil de dono de empresa.</p>
+          </div>
+        </div>
+
+        <div class="passo">
+          <div class="passo-num">5</div>
+          <div class="passo-conteudo">
+            <h3>Evento presencial de setembro como meta de caixa estruturada</h3>
+            <p>O Únicos Day gerou 6 agendamentos confirmados no evento de maio — enquanto 5 meses de anúncio geraram zero. O modelo de evento funciona. Setembro é a data âncora.</p>
+            <div class="destaque"><strong>Meta do evento:</strong> 30–50 inscritos qualificados (donos de empresa) → 12–15 presentes → 3–5 vendas. Com ticket Access: R$ 60k–R$ 100k. Com ticket Business: R$ 162k–R$ 270k. Essa única ação pode recuperar todo o investimento do projeto.</div>
+            <p><strong>Funil para o evento:</strong> Anúncio com filtro explícito de perfil ("para donos de empresas de R$ 1M–R$ 10M") → página de inscrição → confirmação WhatsApp → pré-aquecimento com conteúdo até o dia.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- AJUSTE DE FUNIL -->
+<div id="funil">
+  <div class="container">
+    <section>
+      <div class="section-label"><span class="num">3</span>Ajuste de Funil</div>
+      <h2>Ajuste de Funil — Passo a Passo</h2>
+      <p class="section-intro">O funil atual captura leads antes de qualificá-los e usa linguagem de "líder" quando deveria usar linguagem de "dono". Esses dois problemas juntos explicam a totalidade dos leads fora do ICP. Executar na ordem.</p>
+
+      <div class="passos">
+
+        <div class="passo urgente">
+          <div class="passo-num">1</div>
+          <div class="passo-conteudo">
+            <h3>Mudar toda a linguagem de "líder" para "dono de empresa"</h3>
+            <p>Esta é a mudança mais importante e mais urgente. Em todos os criativos, em todo o quiz, em todas as automações: substituir "líder" por "dono", "empresário", "sócio-fundador" ou "executivo dono".</p>
+            <div class="perigo"><strong>Por quê:</strong> "Líder" é um cargo que existe em qualquer empresa, de qualquer tamanho, em qualquer nível hierárquico. "Dono de empresa" filtra automaticamente. O José disse textualmente na reunião: "Não tá vindo o líder executivo. O líder executivo no Rio Grande do Sul ganha R$ 15k–R$ 20k. O cara que vem ganha R$ 2.300."</div>
+            <div class="destaque">
+              <strong>Linguagem que filtra:</strong> "dono de empresa", "sócio-fundador", "executivo", "diretor", "você tem um negócio", "sua empresa", "você comanda uma equipe que responde para você"<br><br>
+              <strong>Linguagem que não filtra:</strong> "líder", "gestão de pessoas", "sua equipe", "você está numa posição de liderança"
+            </div>
+          </div>
+        </div>
+
+        <div class="passo urgente">
+          <div class="passo-num">2</div>
+          <div class="passo-conteudo">
+            <h3>Mover os 3 filtros duros para as primeiras 3 perguntas</h3>
+            <p>A pergunta de faturamento está na posição 11 — depois da captura de contato. O lead já entrou no CRM antes de ser qualificado. Isso precisa ser invertido.</p>
+            <table class="tabela" style="margin:12px 0;">
+              <thead><tr><th>Nova posição</th><th>Pergunta</th><th>Ação se desqualifica</th></tr></thead>
+              <tbody>
+                <tr><td>Pergunta 1</td><td>Você é dono, sócio, fundador ou executivo/diretor com autonomia de decisão?</td><td>Gestor ou líder operacional → sai para comunidade gratuita</td></tr>
+                <tr><td>Pergunta 2</td><td>Qual é o faturamento anual da SUA empresa?</td><td>&lt; R$ 1M → sai para comunidade gratuita</td></tr>
+                <tr><td>Pergunta 3</td><td>Qual é o setor da sua empresa?</td><td>Indústria/Manufatura → sai para comunidade gratuita</td></tr>
+              </tbody>
+            </table>
+            <div class="alerta"><strong>Expectativa:</strong> Volume de leads vai cair. CPL vai subir. Custo por MQL real vai cair. Taxa de conversão em reunião vai subir. Isso é o resultado correto — não é um problema.</div>
+          </div>
+        </div>
+
+        <div class="passo">
+          <div class="passo-num">3</div>
+          <div class="passo-conteudo">
+            <h3>Adicionar campo "Nome da empresa" como obrigatório</h3>
+            <p>Sugestão do próprio José na reunião: "talvez travar e botar como obrigação o nome da empresa". Isso resolve dois problemas de uma vez: (1) força o lead a declarar que tem uma empresa, e (2) permite verificação rápida via CNPJ/Google pelo time comercial antes de investir tempo na conversa.</p>
+            <div class="destaque"><strong>Posição sugerida:</strong> Junto com a captura de contato (nome, e-mail, WhatsApp). Campo: "Nome da sua empresa" — obrigatório. Um lead que não tem empresa própria vai ter dificuldade de preencher de forma convincente.</div>
+          </div>
+        </div>
+
+        <div class="passo">
+          <div class="passo-num">4</div>
+          <div class="passo-conteudo">
+            <h3>Implementar lógica condicional de redirecionamento para desqualificados</h3>
+            <p>Apenas leads que passam nos 3 filtros chegam à captura de contato. Todos os outros são redirecionados para a página da Comunidade Gratuita — com mensagem clara e acolhedora (não rejeição):</p>
+            <div class="destaque">
+              <strong>Texto da página de saída:</strong><br>
+              "O Únicos Leadership Club Business foi desenvolvido especificamente para donos e sócios de empresas acima de R$ 1M. Para aproveitar ao máximo essa jornada, é importante que você tenha autonomia total sobre as decisões da sua empresa. Mas isso não significa que você fica sem recurso — temos uma comunidade gratuita com conteúdo de alto nível para líderes em desenvolvimento."<br><br>
+              <strong>CTA:</strong> [Acessar Comunidade Gratuita]
+            </div>
+            <p class="small-text">Benefício adicional: a comunidade gratuita cria um banco de leads de perfil menor que pode ser monetizado futuramente com produto de menor ticket.</p>
+          </div>
+        </div>
+
+        <div class="passo">
+          <div class="passo-num">5</div>
+          <div class="passo-conteudo">
+            <h3>Inserir página de resultado entre o quiz e o agendamento</h3>
+            <p>Após o lead passar pelos filtros e submeter o contato, antes de mostrar o calendário de agendamento, mostrar uma página de resultado personalizado com: diagnóstico do estágio dele, prova social específica para esse estágio, e o que a conversa vai resolver.</p>
+            <div class="destaque">Produto de R$ 54k não se vende no primeiro clique. A página de resultado é onde o lead se vê no diagnóstico e decide que quer a solução. É a etapa que converte curiosidade em intenção.</div>
+          </div>
+        </div>
+
+        <div class="passo">
+          <div class="passo-num">6</div>
+          <div class="passo-conteudo">
+            <h3>Pós-agendamento: redirecionamento direto para WhatsApp</h3>
+            <p>Aprovado na reunião de 17/06, ainda não implementado. Após confirmar o agendamento, redirecionar para link de WhatsApp com mensagem pré-preenchida:</p>
+            <div class="destaque">
+              "Olá! Confirmei minha sessão de diagnóstico para [data/hora]. Sou [Nome], dono da [Empresa], setor [Setor], faturamento [Faixa]. Aguardo o contato."
+            </div>
+            <p>Lead que abre o WhatsApp e manda mensagem tem comprometimento muito maior. Show rate estimado: de ~40% para 65–75%.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- NOVO QUIZ -->
+<div id="quiz" style="background:#fff;">
+  <div class="container">
+    <section>
+      <div class="section-label"><span class="num">4</span>Novo Quiz</div>
+      <h2>Novo Quiz — Versão "Dono de Empresa"</h2>
+      <p class="section-intro">Versão reformulada com base na reunião de 23/06. Linguagem muda de "líder" para "dono de empresa". Filtros duros nas 3 primeiras perguntas. Campo de nome da empresa obrigatório. Fala com o dono, sócio e executivo/diretor com autonomia de decisão. Repele gestor operacional, CLT e líderes sem responsabilidade sobre o negócio.</p>
+
+      <div class="quiz-wrapper">
+
+        <div class="quiz-header">
+          <div class="quiz-tag">Únicos Leadership Club Business</div>
+          <h3>Diagnóstico de Maturidade do Negócio</h3>
+          <p>Para donos, sócios e executivos de empresas acima de R$ 1M. Em 9 perguntas você descobre o que está impedindo o seu negócio de escalar margem sem depender da sua presença constante — e o que os empresários que resolveram esse problema fizeram diferente.</p>
+        </div>
+
+        <div class="quiz-filtros">
+          <span class="filtro-label">Filtra e repele:</span>
+          <span class="filtro-item">Empregados CLT</span>
+          <span class="filtro-item">Gestores assalariados</span>
+          <span class="filtro-item">Líderes operacionais</span>
+          <span class="filtro-item">Empresas &lt; R$ 1M</span>
+          <span class="filtro-item">Setor Industrial</span>
+        </div>
+
+        <div class="quiz-body">
+
+          <!-- FASE 1 -->
+          <div class="quiz-fase">
+            <div class="quiz-fase-header">
+              <span class="quiz-fase-badge filtro">Fase 1 — Filtro</span>
+              <div>
+                <div class="quiz-fase-titulo">Qualificação Inicial (perguntas 1–3)</div>
+                <div class="quiz-fase-sub">Respostas marcadas com ← SAIR redirecionam para a comunidade gratuita e encerram o quiz imediatamente</div>
+              </div>
+            </div>
+
+            <!-- P1 -->
+            <div class="quiz-pergunta">
+              <div class="p-num">Pergunta 1 de 9</div>
+              <div class="p-texto">Você é dono, sócio ou cofundador de uma empresa?</div>
+              <div class="quiz-opcao otimo"><span class="opcao-letra">A</span> Sim — sou o dono ou sócio fundador. O negócio é meu.</div>
+              <div class="quiz-opcao otimo"><span class="opcao-letra">B</span> Sim — sou sócio com participação acionária real e poder de decisão.</div>
+              <div class="quiz-opcao"><span class="opcao-letra">C</span> Sou executivo, diretor ou C-level contratado, com autonomia de decisão e responsabilidade por resultados da empresa.</div>
+              <div class="quiz-opcao desqualifica"><span class="opcao-letra">D</span> Não — sou gestor, gerente ou líder de equipe dentro de uma empresa.</div>
+              <div class="quiz-logica"><strong>Lógica:</strong> Resposta D → redirecionar para Comunidade Gratuita imediatamente. Respostas A, B ou C → Pergunta 2 (o faturamento e o setor definem a qualificação).</div>
+            </div>
+
+            <!-- P2 -->
+            <div class="quiz-pergunta">
+              <div class="p-num">Pergunta 2 de 9</div>
+              <div class="p-texto">Qual é o faturamento anual da SUA empresa?</div>
+              <div class="p-nota">⚠ Estamos perguntando sobre o faturamento do negócio que é seu — não da empresa em que você trabalha ou já trabalhou.</div>
+              <div class="quiz-opcao desqualifica"><span class="opcao-letra">A</span> Minha empresa fatura até R$ 500 mil por ano</div>
+              <div class="quiz-opcao desqualifica"><span class="opcao-letra">B</span> Minha empresa fatura entre R$ 500 mil e R$ 1 milhão por ano</div>
+              <div class="quiz-opcao"><span class="opcao-letra">C</span> Minha empresa fatura entre R$ 1 milhão e R$ 3 milhões por ano</div>
+              <div class="quiz-opcao otimo"><span class="opcao-letra">D</span> Minha empresa fatura entre R$ 3 milhões e R$ 10 milhões por ano</div>
+              <div class="quiz-opcao otimo"><span class="opcao-letra">E</span> Minha empresa fatura acima de R$ 10 milhões por ano</div>
+              <div class="quiz-logica"><strong>Lógica:</strong> Respostas A ou B → Comunidade Gratuita. Respostas C, D ou E → Pergunta 3.</div>
+            </div>
+
+            <!-- P3 -->
+            <div class="quiz-pergunta">
+              <div class="p-num">Pergunta 3 de 9</div>
+              <div class="p-texto">Qual é o setor principal da sua empresa?</div>
+              <div class="quiz-opcao otimo"><span class="opcao-letra">A</span> Prestação de Serviços (consultoria, saúde, tecnologia, educação, financeiro, etc.)</div>
+              <div class="quiz-opcao otimo"><span class="opcao-letra">B</span> Comércio (atacado, varejo ou e-commerce)</div>
+              <div class="quiz-opcao otimo"><span class="opcao-letra">C</span> Construção Civil, Imobiliário ou Incorporação</div>
+              <div class="quiz-opcao desqualifica"><span class="opcao-letra">D</span> Indústria ou Manufatura</div>
+              <div class="quiz-logica"><strong>Lógica:</strong> Resposta D → Comunidade Gratuita. Respostas A, B ou C → Fase 2.</div>
+            </div>
+
+            <div class="quiz-redirect">
+              <div class="redirect-titulo">Página de Saída (Desqualificados)</div>
+              <p><strong>Título:</strong> "O Únicos Leadership Club Business foi desenvolvido para donos e sócios de empresas acima de R$ 1M."<br><br>
+              <strong>Texto:</strong> "Para aproveitar ao máximo essa jornada, é fundamental que você seja o dono do negócio e tenha autonomia total para tomar decisões estratégicas. Se esse não é o seu momento ainda, temos uma comunidade gratuita com conteúdo de alto nível para líderes em desenvolvimento."<br><br>
+              <strong>CTA:</strong> [Acessar Comunidade Gratuita de Liderança] — link da comunidade de WhatsApp</p>
+            </div>
+          </div>
+
+          <!-- FASE 2 -->
+          <div class="quiz-fase">
+            <div class="quiz-fase-header">
+              <span class="quiz-fase-badge diagnostico">Fase 2 — Diagnóstico</span>
+              <div>
+                <div class="quiz-fase-titulo">Mapeamento de Maturidade do Negócio (perguntas 4–8)</div>
+                <div class="quiz-fase-sub">Todas as respostas são válidas. As escolhas geram o diagnóstico personalizado por estágio.</div>
+              </div>
+            </div>
+
+            <!-- P4 -->
+            <div class="quiz-pergunta">
+              <div class="p-num">Pergunta 4 de 9</div>
+              <div class="p-texto">Olhando para os últimos 30 dias: como você descreveria a sua agenda como dono do negócio?</div>
+              <div class="quiz-opcao"><span class="opcao-letra">A</span> Boa parte do tempo resolvendo operacional — problemas, urgências e decisões que deveriam vir dos outros</div>
+              <div class="quiz-opcao"><span class="opcao-letra">B</span> Equilibrando operação e estratégia, mas com mais operação do que eu queria</div>
+              <div class="quiz-opcao"><span class="opcao-letra">C</span> Revisando e validando decisões do time mais do que tomando decisões estratégicas eu mesmo</div>
+              <div class="quiz-opcao otimo"><span class="opcao-letra">D</span> Dedicando a maior parte do tempo a pensar crescimento, novos mercados e direcionamento de longo prazo</div>
+            </div>
+
+            <!-- P5 -->
+            <div class="quiz-pergunta">
+              <div class="p-num">Pergunta 5 de 9</div>
+              <div class="p-texto">Se você tirasse 30 dias de férias e desligasse o celular completamente — o que aconteceria com a sua empresa?</div>
+              <div class="quiz-opcao"><span class="opcao-letra">A</span> A operação travaria em poucos dias — sou o único que resolve os problemas críticos</div>
+              <div class="quiz-opcao"><span class="opcao-letra">B</span> O básico continuaria rodando, mas as decisões importantes ficariam represadas esperando meu retorno</div>
+              <div class="quiz-opcao"><span class="opcao-letra">C</span> O time tocaria, mas com perda de qualidade e velocidade nas decisões estratégicas</div>
+              <div class="quiz-opcao otimo"><span class="opcao-letra">D</span> A empresa seguiria crescendo — tenho lideranças preparadas para sustentar a operação sem mim</div>
+            </div>
+
+            <!-- P6 -->
+            <div class="quiz-pergunta">
+              <div class="p-num">Pergunta 6 de 9</div>
+              <div class="p-texto">Quando você olha para o seu time hoje, o que mais define a relação deles com o negócio?</div>
+              <div class="quiz-opcao"><span class="opcao-letra">A</span> Executam bem o que é pedido, mas raramente tomam iniciativa ou se responsabilizam pelos resultados</div>
+              <div class="quiz-opcao"><span class="opcao-letra">B</span> Tomam decisões operacionais, mas travam em qualquer coisa que envolva estratégia ou risco maior</div>
+              <div class="quiz-opcao"><span class="opcao-letra">C</span> Têm autonomia razoável, mas falta o senso de dono — não tratam o negócio como se fosse deles</div>
+              <div class="quiz-opcao otimo"><span class="opcao-letra">D</span> Lideram com maturidade, tomam decisões com responsabilidade e sustentam a evolução do negócio</div>
+            </div>
+
+            <!-- P7 -->
+            <div class="quiz-pergunta">
+              <div class="p-num">Pergunta 7 de 9</div>
+              <div class="p-texto">Sobre faturamento e margem nos últimos 12 meses — qual cenário melhor descreve o seu negócio?</div>
+              <div class="quiz-opcao"><span class="opcao-letra">A</span> Crescemos em faturamento, mas a margem não acompanhou — trabalho mais para lucrar proporcionalmente o mesmo</div>
+              <div class="quiz-opcao"><span class="opcao-letra">B</span> A margem depende da minha presença — se eu me afasto da operação ou das vendas, ela cai</div>
+              <div class="quiz-opcao"><span class="opcao-letra">C</span> Temos estrutura, mas ainda há ineficiências que consomem margem sem necessidade visível</div>
+              <div class="quiz-opcao otimo"><span class="opcao-letra">D</span> Crescemos com saúde — faturamento e margem evoluem juntos com o negócio cada vez mais independente de mim</div>
+            </div>
+
+            <!-- P8 -->
+            <div class="quiz-pergunta">
+              <div class="p-num">Pergunta 8 de 9</div>
+              <div class="p-texto">Qual é o maior gargalo do crescimento da sua empresa hoje?</div>
+              <div class="quiz-opcao"><span class="opcao-letra">A</span> Excesso de centralização — tudo passa por mim e isso limita a velocidade do negócio</div>
+              <div class="quiz-opcao"><span class="opcao-letra">B</span> Baixa autonomia do time — tenho boas pessoas, mas elas não tratam o negócio como se fosse delas</div>
+              <div class="quiz-opcao"><span class="opcao-letra">C</span> Dificuldade em formar novas lideranças — quem substitui os postos-chave quando precisar?</div>
+              <div class="quiz-opcao"><span class="opcao-letra">D</span> Desalinhamento entre cultura, pessoas e estratégia — cada área puxa para um lado diferente</div>
+            </div>
+          </div>
+
+          <!-- FASE 3 -->
+          <div class="quiz-fase">
+            <div class="quiz-fase-header">
+              <span class="quiz-fase-badge captura">Fase 3 — Captura</span>
+              <div>
+                <div class="quiz-fase-titulo">Última pergunta + dados de contato (pergunta 9)</div>
+                <div class="quiz-fase-sub">Apenas donos de empresa qualificados chegam até aqui</div>
+              </div>
+            </div>
+
+            <!-- P9 -->
+            <div class="quiz-pergunta">
+              <div class="p-num">Pergunta 9 de 9</div>
+              <div class="p-texto">Você já tentou resolver esse gargalo antes? O que aconteceu?</div>
+              <div class="quiz-opcao"><span class="opcao-letra">A</span> Investi em cursos, MBAs ou treinamentos de gestão — funcionaram parcialmente, mas não resolveram o problema estrutural</div>
+              <div class="quiz-opcao"><span class="opcao-letra">B</span> Contratei pessoas melhores — o problema continua porque está na liderança, não nos liderados</div>
+              <div class="quiz-opcao"><span class="opcao-letra">C</span> Já tive consultoria ou mentoria — avançamos, mas ainda não chegamos onde preciso estar</div>
+              <div class="quiz-opcao"><span class="opcao-letra">D</span> Ainda não busquei ajuda formal — sei que o problema existe mas ainda não tomei a decisão</div>
+            </div>
+
+            <div class="quiz-pergunta" style="background:#f0f5ff; border-color:#bdd0f0;">
+              <div class="p-num" style="color:var(--azul);">Captura de Contato</div>
+              <div class="p-texto">Para onde enviamos seu diagnóstico personalizado?</div>
+              <div style="display:grid; gap:9px; margin:8px 0;">
+                <div style="background:#fff; border:1px solid #ddd; border-radius:6px; padding:11px 15px; font-size:14px; color:#aaa;">Seu nome completo</div>
+                <div style="background:#fff; border:1px solid #ddd; border-radius:6px; padding:11px 15px; font-size:14px; color:#aaa;">Nome da sua empresa <span style="color:var(--vermelho); font-size:12px; font-weight:700;">* obrigatório</span></div>
+                <div style="background:#fff; border:1px solid #ddd; border-radius:6px; padding:11px 15px; font-size:14px; color:#aaa;">Seu e-mail</div>
+                <div style="background:#fff; border:1px solid #ddd; border-radius:6px; padding:11px 15px; font-size:14px; color:#aaa;">Seu WhatsApp com DDD</div>
+              </div>
+              <div style="margin-top:14px; background:var(--preto); color:#fff; padding:13px 20px; border-radius:6px; text-align:center; font-weight:700; font-size:15px;">
+                Quero receber meu diagnóstico →
+              </div>
+              <p style="font-size:11px; color:#888; text-align:center; margin-top:7px;">Seus dados são confidenciais. Não compartilhamos com terceiros.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<!-- CRIATIVOS -->
+<div id="criativos">
+  <div class="container">
+    <section>
+      <div class="section-label"><span class="num">5</span>Criativos</div>
+      <h2>5 Ângulos de Copy para Criativos Estáticos</h2>
+      <p class="section-intro">Versão reformulada pós-reunião de 23/06. Zero uso da palavra "líder". Todo copy parte do pressuposto de que o leitor é dono de uma empresa — e usa isso como filtro natural. Quem não é dono não se sente representado e não clica.</p>
+
+      <div class="criativos-grid">
+
+        <!-- C1 -->
+        <div class="criativo-card">
+          <div class="criativo-header">
+            <div class="criativo-num">1</div>
+            <div>
+              <div class="criativo-nome">O Espelho do Dono</div>
+              <div class="criativo-angulo">Ângulo: Identificação imediata. O dono se reconhece na primeira linha e não consegue parar de ler.</div>
+            </div>
+          </div>
+          <div class="criativo-corpo">
+            <div class="headline">Você construiu uma empresa que fatura acima de R$ 2 milhões — e ainda é o maior gargalo dela.</div>
+            <div class="corpo-texto">Não é culpa sua. É um estágio.
+
+Todo empresário chega em um ponto onde o que o fez crescer até aqui — presença constante, controle, centralização — começa a ser exatamente o que impede o próximo nível.
+
+O negócio não trava por falta de estratégia.
+Trava porque o modelo de como você desenvolve as pessoas ao redor não evoluiu junto.
+
+Isso tem nome. Tem diagnóstico. E tem solução.
+
+Responda o diagnóstico abaixo em 3 minutos e descubra em qual estágio está o seu negócio — e o que os donos de empresa que resolveram esse gargalo fizeram diferente.</div>
+            <div class="cta">Quero fazer o diagnóstico →</div>
+          </div>
+          <div class="criativo-notas">
+            <div class="nota-titulo">Notas de implementação</div>
+            <ul>
+              <li>"Você construiu uma empresa" na primeira linha — filtra imediatamente empregados e gestores assalariados</li>
+              <li>"R$ 2 milhões" é âncora de faturamento — cria identificação com o ICP e repele quem não está nesse nível</li>
+              <li>Visual: empresário de 40-52 anos, escritório moderno, olhar cansado mas confiante — sem gravata, sem formalidade excessiva</li>
+              <li>Melhor plataforma: feed do Instagram e Facebook, Sul-Sudeste, masculino 38–55</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- C2 -->
+        <div class="criativo-card">
+          <div class="criativo-header">
+            <div class="criativo-num">2</div>
+            <div>
+              <div class="criativo-nome">O Teste dos 30 Dias</div>
+              <div class="criativo-angulo">Ângulo: Medo de dependência. Ativa a ansiedade mais profunda do dono — a empresa não funciona sem ele.</div>
+            </div>
+          </div>
+          <div class="criativo-corpo">
+            <div class="headline">Se você tirar 30 dias de férias e desligar o celular agora — o que acontece com a sua empresa?</div>
+            <div class="corpo-texto">Se a resposta te deu frio na barriga, você não está sozinho.
+
+A maioria dos donos de empresa entre R$ 1M e R$ 10M não consegue responder essa pergunta com segurança.
+
+E o problema não está nos processos.
+Está em como o negócio foi construído — com você no centro de todas as decisões que importam.
+
+Isso não é modelo de empresa. É refém de empresa.
+
+A boa notícia: outros donos já resolveram isso. Não trabalhando mais. Não contratando pessoas melhores. Fazendo uma coisa diferente na forma de desenvolver quem está ao redor.
+
+Se você tem uma empresa própria acima de R$ 1M, faça o diagnóstico abaixo. 3 minutos. Sem enrolação.</div>
+            <div class="cta">Descobrir onde está o gargalo →</div>
+          </div>
+          <div class="criativo-notas">
+            <div class="nota-titulo">Notas de implementação</div>
+            <ul>
+              <li>"Se você tirar 30 dias" — qualquer empregado entende que não é para ele. O próprio copy filtra.</li>
+              <li>"A maioria dos donos de empresa entre R$ 1M e R$ 10M" — qualifica e ancora o ticket implicitamente</li>
+              <li>Visual: dono olhando para uma praia ou destino de férias com celular na mão — não consegue largar</li>
+              <li>Excelente para topo de funil frio — apela ao medo universalmente compartilhado pelo ICP</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- C3 -->
+        <div class="criativo-card">
+          <div class="criativo-header">
+            <div class="criativo-num">3</div>
+            <div>
+              <div class="criativo-nome">O Problema de Escala</div>
+              <div class="criativo-angulo">Ângulo: Paradoxo do crescimento. Quanto mais a empresa cresce, mais o dono trabalha — e isso não deveria ser assim.</div>
+            </div>
+          </div>
+          <div class="criativo-corpo">
+            <div class="headline">Sua empresa cresceu. Sua margem não acompanhou. Sua jornada de trabalho aumentou. Isso não é crescimento — é armadilha.</div>
+            <div class="corpo-texto">Um empresário me mostrou os números do negócio dele.
+
+R$ 160 mil de faturamento bruto por mês.
+Impostos, folha, custos, fornecedores.
+Sobrando R$ 28 mil para ele.
+
+Trabalho de 60 horas por semana.
+Dois funcionários que precisam de aprovação para quase tudo.
+Última férias de verdade: há 3 anos.
+
+Isso acontece quando uma empresa cresce sem que a estrutura de liderança ao redor do dono cresça junto.
+
+O problema não é faturamento. É modelo.
+
+Se você é dono de uma empresa acima de R$ 1M e reconhece esse cenário, o diagnóstico abaixo mostra em qual estágio você está — e o que precisa mudar.</div>
+            <div class="cta">Fazer diagnóstico gratuito →</div>
+          </div>
+          <div class="criativo-notas">
+            <div class="nota-titulo">Notas de implementação</div>
+            <ul>
+              <li>Storytelling de terceiro (empresário) — evita que pareça acusatório, mas o ICP se vê no personagem</li>
+              <li>Números reais do Canvas do ICP (R$ 160k faturamento bruto, R$ 28-30k líquido) criam identificação imediata</li>
+              <li>Visual: tabela simples de faturamento vs. lucro vs. horas — o contraste visual choca</li>
+              <li>Funciona bem em formato carrossel no Instagram: cada slide um problema, último slide o CTA</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- C4 -->
+        <div class="criativo-card">
+          <div class="criativo-header">
+            <div class="criativo-num">4</div>
+            <div>
+              <div class="criativo-nome">O Segredo dos R$ 5M</div>
+              <div class="criativo-angulo">Ângulo: Aspiracional. Donos que já escalaram fizeram algo diferente — e não é o que você pensa.</div>
+            </div>
+          </div>
+          <div class="criativo-corpo">
+            <div class="headline">Donos de empresa acima de R$ 5M não trabalham mais horas do que você. Desenvolvem pessoas de um jeito que você provavelmente nunca aprendeu.</div>
+            <div class="corpo-texto">Não é sorte.
+Não é capital.
+Não é ter encontrado os "funcionários certos".
+
+É uma habilidade específica que a maioria dos donos de empresa entre R$ 1M e R$ 3M ainda não desenvolveu:
+
+Fazer o time pensar como dono — não por motivação, não por bônus, mas por um processo estruturado de desenvolvimento que muda como as pessoas decidem e se responsabilizam.
+
+Quando você tem isso, a empresa escala sem que você precise estar presente em cada decisão.
+Quando você não tem, você cresce no faturamento e não cresce na liberdade.
+
+Se você tem um negócio próprio acima de R$ 1M e quer entender onde está nesse caminho, o diagnóstico abaixo leva 3 minutos.</div>
+            <div class="cta">Fazer diagnóstico →</div>
+          </div>
+          <div class="criativo-notas">
+            <div class="nota-titulo">Notas de implementação</div>
+            <ul>
+              <li>Aspiracional sem prometer "ficar rico" — fala em liberdade e escala, não em ostentação (alinhado com ICP)</li>
+              <li>Evitar linguagem de "guru" ou coach de vida — o ICP odeia. Tom de empresário para empresário.</li>
+              <li>Visual: antes/depois implícito — agenda caótica vs. dono em reunião estratégica com clareza</li>
+              <li>Funciona bem como segundo toque (remarketing para quem viu o criativo 1 ou 2 mas não converteu)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- C5 -->
+        <div class="criativo-card">
+          <div class="criativo-header">
+            <div class="criativo-num">5</div>
+            <div>
+              <div class="criativo-nome">O Inimigo que Não Funciona</div>
+              <div class="criativo-angulo">Ângulo: Valida a frustração com soluções anteriores. Fala com o dono que já tentou e está cético.</div>
+            </div>
+          </div>
+          <div class="criativo-corpo">
+            <div class="headline">MBA, curso de gestão e consultoria de processos não resolvem o problema de um empresário que ainda é o maior gargalo do próprio negócio. Você provavelmente já sabe disso.</div>
+            <div class="corpo-texto">Eles foram construídos para quem trabalha em empresa.
+Não para quem tem empresa.
+
+Quando você é o dono, o problema não é falta de framework, ferramenta ou metodologia.
+
+É que o negócio foi construído ao redor de você.
+Cada decisão que importa passa por você.
+Cada crise que aparece depende de você.
+
+E isso não se resolve em módulo, em workshop ou contratando um gerente "mais sênior".
+
+O que resolve é mudar como as pessoas ao redor pensam e decidem — não o que elas fazem.
+
+Isso é o que o Únicos faz. E não é para qualquer dono de empresa — é para quem já fatura acima de R$ 1M, já tentou outras coisas e sabe que o problema está em outro lugar.
+
+Se esse é o seu momento, faça o diagnóstico abaixo. 3 minutos.</div>
+            <div class="cta">Quero o diagnóstico →</div>
+          </div>
+          <div class="criativo-notas">
+            <div class="nota-titulo">Notas de implementação</div>
+            <ul>
+              <li>Melhor para remarketing de quem visitou a página mas não converteu — lead mais quente, mais cético</li>
+              <li>"Você provavelmente já sabe disso" — valida a inteligência do ICP, que odeia ser tratado como leigo</li>
+              <li>"Não é para qualquer dono" — cria exclusividade e reforça o filtro de R$ 1M+</li>
+              <li>Visual: texto sobre fundo escuro, sem imagem — deixa a copy trabalhar. Fonte grande, clean.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="limitacoes" style="margin-top:36px;">
+        <h3>O que este documento não cobre / próximos passos necessários</h3>
+        <ul>
+          <li>Mapear os compradores reais históricos da Carol (Passo 2 do Diagnóstico) — esse dado pode refinar ou contradizer o ICP atual e deve ser feito antes de escalar qualquer campanha nova.</li>
+          <li>Pesquisa de biblioteca de anúncios de concorrentes (G4, Craft, Empire Club) — o Daniel pediu isso na reunião interna pós-cliente para modelar a narrativa certa.</li>
+          <li>Validar se o produto se vende via anúncio — ainda nenhuma venda via funil em 5 meses. Antes de escalar verba, o funil corrigido precisa gerar 3 vendas para confirmar o modelo.</li>
+          <li>Definir o produto de menor ticket para o workshop (Plano de Caixa Passo 1) — qual é o curso gravado, qual é o preço, qual é a entrega? Isso precisa ser definido pela Carol antes de marcar o workshop.</li>
+          <li>Configurar GHL corretamente antes de qualquer nova campanha — tags, automações, UTMs, pixel. Baseado na reunião, o José já iniciou esse processo sozinho. A agência precisa assumir isso formalmente.</li>
+        </ul>
+      </div>
+
+    </section>
+  </div>
+</div>
+
+<footer>
+  <strong>SimpleAcc</strong> &nbsp;|&nbsp; Documento v2 — atualizado pós-reunião de 23/06/2026 &nbsp;|&nbsp; Cliente: Únicos Leadership Club — Carol & José &nbsp;|&nbsp; Interno — uso exclusivo da equipe SimpleAcc
+</footer>
+
+</body>
+</html>
