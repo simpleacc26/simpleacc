@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Como usar o hub — Simple Acc</title>
+<style>
+  :root{
+    --midnight:#0A1626; --navy:#0E2138; --navy-2:#122B4A;
+    --blue:#3E5C8A; --blue-link:#34527D; --steel:#8197B6;
+    --ice:#EEF3FA; --white:#fff; --ink:#16202f; --ink-soft:#3a4656;
+    --muted:#6f7f95; --line-light:#e1e8f1;
+    /* TIPOGRAFIA LEGÍVEL — sans no corpo, serifa legível (Georgia) nos títulos */
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --serif:Georgia,"Iowan Old Style","Times New Roman",serif;
+    --label:"Helvetica Neue",Arial,sans-serif;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:#fff;line-height:1.7;font-size:17px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:920px;margin:0 auto}
+  .label{font-family:var(--label);text-transform:uppercase;letter-spacing:.22em;font-size:11px;font-weight:700;color:var(--blue)}
+  section{padding:54px 6vw;border-bottom:1px solid var(--line-light)}
+  .sec-num{font-family:var(--label);text-transform:uppercase;letter-spacing:.22em;font-size:11px;font-weight:700;color:var(--blue)}
+  h2{font-family:var(--serif);font-size:clamp(26px,4vw,38px);font-weight:400;line-height:1.15;margin:10px 0 6px;color:var(--midnight)}
+  h3{font-family:var(--serif);font-weight:400;font-size:21px;margin:26px 0 10px;color:var(--midnight)}
+  .lead{font-size:18px;color:var(--ink-soft);max-width:760px;margin-top:8px}
+  p{margin-top:10px}
+  a{color:var(--blue-link)}
+  strong{color:var(--midnight)}
+
+  /* COVER */
+  .cover{min-height:62vh;color:#fff;display:flex;flex-direction:column;justify-content:space-between;
+    padding:7vw 6vw;border-bottom:none;
+    background:radial-gradient(900px 380px at 14% 6%, rgba(120,150,210,.16), transparent 58%),
+      linear-gradient(135deg,#0e2138 0%,#0a1626 60%,#070f1b 100%);}
+  .cover .topbar{display:flex;justify-content:space-between;color:#9fb1cc}
+  .cover .topbar .label{color:#9fb1cc}
+  .cover .brand{font-family:var(--serif);letter-spacing:10px;font-size:30px;color:#fff;margin-bottom:18px}
+  .cover .flare{height:1px;width:200px;background:linear-gradient(90deg,var(--steel),transparent);opacity:.6;margin:14px 0 22px}
+  .cover h1{font-family:var(--serif);font-weight:400;font-size:clamp(30px,6vw,52px);line-height:1.1;color:#fff;max-width:760px}
+  .cover .sub{max-width:640px;color:#bccadf;font-size:18px;margin-top:16px}
+  .cover .foot{display:flex;gap:30px;color:#7e90ab;flex-wrap:wrap;margin-top:30px}
+  .cover .foot .label{color:#7e90ab}
+
+  /* tabela */
+  table{width:100%;border-collapse:collapse;margin-top:18px;font-size:16px}
+  th,td{text-align:left;padding:13px 14px;border-bottom:1px solid var(--line-light);vertical-align:top}
+  th{font-family:var(--label);text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--blue);font-weight:700}
+  tr:last-child td{border-bottom:none}
+  td strong{color:var(--midnight)}
+
+  /* cards */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px}
+  .card{border:1px solid var(--line-light);border-radius:var(--radius);padding:24px 26px;background:#fff}
+  .card.dark{background:var(--midnight);color:#dfe7f2;border:none}
+  .card.dark h3,.card.dark strong{color:#fff}
+  .card .k{font-family:var(--label);text-transform:uppercase;letter-spacing:.16em;font-size:11px;color:var(--blue);font-weight:700}
+  .card.dark .k{color:#9db6dd}
+  .card h3{margin:8px 0 8px}
+  .card p{font-size:15.5px;color:var(--ink-soft)}
+  .card.dark p{color:#c3d0e4}
+
+  /* passos */
+  ol.steps{margin:18px 0 0 0;padding:0;counter-reset:s;list-style:none}
+  ol.steps li{position:relative;padding:12px 0 12px 52px;border-bottom:1px solid var(--line-light);font-size:16.5px}
+  ol.steps li:last-child{border-bottom:none}
+  ol.steps li::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:10px;
+    width:34px;height:34px;border-radius:50%;background:var(--ice);color:var(--blue-link);
+    font-family:var(--label);font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center}
+
+  code,pre{font-family:"SF Mono",Menlo,Consolas,monospace}
+  code{background:var(--ice);color:var(--blue-link);padding:2px 7px;border-radius:5px;font-size:14px}
+  pre{background:var(--midnight);color:#dfe7f2;border-radius:var(--radius);padding:22px 24px;overflow:auto;margin-top:16px;font-size:13.5px;line-height:1.6}
+  pre .c{color:#8aa2c4}
+
+  .pill{display:inline-block;background:var(--ice);border:1px solid var(--line-light);border-radius:30px;
+    padding:7px 15px;font-family:var(--label);font-size:12px;letter-spacing:.06em;color:var(--blue-link);font-weight:600;margin:6px 8px 0 0}
+  .note{background:var(--ice);border-left:3px solid var(--blue);border-radius:0 10px 10px 0;padding:16px 20px;margin-top:18px;font-size:15.5px;color:var(--ink-soft)}
+  .rules li{padding:10px 0;border-bottom:1px solid var(--line-light);font-size:16.5px;list-style:none}
+  .rules{padding:0;margin-top:14px}
+  .rules li:last-child{border-bottom:none}
+  .rules b{color:var(--blue-link)}
+
+  footer{background:linear-gradient(135deg,#0e2138,#0a1626);color:#9fb1cc;padding:50px 6vw;border:none}
+  footer .big{font-family:var(--serif);color:#fff;font-size:24px;font-weight:400;margin-bottom:8px}
+  footer a{color:#9db6dd}
+
+  @media(max-width:760px){ .grid2{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="wrap" style="width:100%">
+    <div class="topbar">
+      <span class="label">Simple Acc</span>
+      <span class="label">Guia do time</span>
+    </div>
+    <div style="margin:40px 0">
+      <div class="brand">SIMPLE ACC</div>
+      <div class="flare"></div>
+      <h1>Como usar o hub</h1>
+      <p class="sub">Onde mora o nosso trabalho, como achar os arquivos e como começar uma tarefa — em qualquer máquina, com todo o time no mesmo lugar.</p>
+    </div>
+    <div class="foot">
+      <span class="label">Versão 1.0</span>
+      <span class="label">Uso interno</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<section>
+  <span class="sec-num">00 — Em uma frase</span>
+  <h2>O essencial</h2>
+  <p class="lead">O nosso trabalho mora no <strong>GitHub</strong> (um "armário online"), organizado em <strong>pastas por cliente</strong>. Você trabalha em <strong>sessões</strong> do Claude Code, e o que vale fica <strong>salvo nos arquivos</strong> — a memória é o Git, não a conversa. Por isso qualquer pessoa continua de onde a outra parou.</p>
+</section>
+
+<section>
+  <span class="sec-num">01 — Vocabulário</span>
+  <h2>Os níveis (o que cada nome significa)</h2>
+  <table>
+    <tr><th>Nível</th><th>É tipo…</th><th>O que é</th></tr>
+    <tr><td><strong>Ambiente</strong></td><td>a sala equipada</td><td>"Simple Acc" — traz ferramentas e acessos prontos. Quase nunca se mexe.</td></tr>
+    <tr><td><strong>Repositório</strong></td><td>o armário</td><td><code>simpleacc</code> — guarda tudo versionado (com histórico).</td></tr>
+    <tr><td><strong>Branch</strong></td><td>cópia de trabalho</td><td><code>main</code> é a versão oficial. Cada tarefa cria uma cópia; quando aprova, junta na <code>main</code>.</td></tr>
+    <tr><td><strong>Pasta</strong></td><td>a gaveta</td><td>cada cliente e cada tipo de material (contexto, copy, roteiros…).</td></tr>
+    <tr><td><strong>Sessão</strong></td><td>uma reunião</td><td>a conversa onde você dá a tarefa. É descartável — o que vale fica nos arquivos.</td></tr>
+  </table>
+  <p style="margin-top:16px"><span class="pill">commit = salvar</span><span class="pill">push = enviar pro GitHub</span><span class="pill">PR = pedido de aprovação</span><span class="pill">merge = juntar na oficial</span></p>
+</section>
+
+<section>
+  <span class="sec-num">02 — Acesso</span>
+  <h2>Como achar os arquivos</h2>
+  <p class="lead">Os arquivos não ficam "dentro do chat" — moram no GitHub. Há duas formas:</p>
+  <div class="grid2">
+    <div class="card">
+      <span class="k">Para ver / ler</span>
+      <h3>Pelo site do GitHub</h3>
+      <p>Como um Google Drive. Acesse <a href="https://github.com/simpleacc26/simpleacc">github.com/simpleacc26/simpleacc</a>, clique nas pastas (<code>clientes/</code> → cliente → <code>estrategia/</code>) e leia. Deixe a branch em <code>main</code>.</p>
+    </div>
+    <div class="card dark">
+      <span class="k">Para criar / alterar</span>
+      <h3>Numa sessão do Claude Code</h3>
+      <p>Abra <strong>New session</strong> no modo <strong>Code</strong>, selecione <strong>Simple Acc → simpleacc → main</strong> e diga o cliente na 1ª mensagem. A IA trabalha e abre um PR.</p>
+    </div>
+  </div>
+  <div class="note"><strong>Regra simples:</strong> GitHub = ver/ler. Sessão do Claude Code = criar/alterar.</div>
+</section>
+
+<section>
+  <span class="sec-num">03 — Mapa</span>
+  <h2>Estrutura de pastas</h2>
+<pre>simpleacc/                      <span class="c">← o armário (repositório) da Simple</span>
+├── clientes/                   <span class="c">← uma pasta por cliente</span>
+│   ├── 0-interno-simpleacc-inova/   <span class="c">(coisas da Simple, fica no topo)</span>
+│   ├── sense-clinic/
+│   │   ├── CLAUDE.md           <span class="c">← "ficha" do cliente (a IA lê sozinha)</span>
+│   │   ├── contexto/           <span class="c">← quem é, oferta, público, mercado</span>
+│   │   ├── estrategia/         <span class="c">← estratégias e diagnósticos</span>
+│   │   ├── copy/               <span class="c">← textos de páginas e anúncios</span>
+│   │   ├── roteiros/           <span class="c">← roteiros de vídeo</span>
+│   │   ├── funis/              <span class="c">← páginas, quizzes, landing pages</span>
+│   │   └── aprendizados.md     <span class="c">← o que funciona / não funciona</span>
+│   └── ...(os outros clientes, mesma estrutura)
+├── prompts/                    <span class="c">← prompts mestres (ex.: o do /funil)</span>
+├── docs/                       <span class="c">← manual e este guia</span>
+└── _modelo/                    <span class="c">← modelo para criar cliente novo</span></pre>
+</section>
+
+<section>
+  <span class="sec-num">04 — Mãos à obra</span>
+  <h2>Passo a passo para começar</h2>
+  <ol class="steps">
+    <li><strong>New session</strong> (Nova sessão), no modo <strong>Code</strong>.</li>
+    <li>No seletor, escolha <strong>Simple Acc → simpleacc → main</strong>.</li>
+    <li>Diga o cliente e a tarefa: <em>"Trabalhar em <code>clientes/sense-clinic</code>: criar a landing."</em></li>
+    <li>Peça para <strong>ler <code>contexto/</code> e <code>aprendizados.md</code></strong> do cliente antes de criar nada.</li>
+    <li>Para gerar funil / página / anúncios, use o comando <strong><code>/funil</code></strong>.</li>
+    <li>Ao terminar, a IA salva e abre um <strong>PR</strong> → revisar → <strong>merge</strong>.</li>
+    <li><strong>Registre o aprendizado</strong> em <code>aprendizados.md</code> do cliente.</li>
+  </ol>
+</section>
+
+<section>
+  <span class="sec-num">05 — Comando</span>
+  <h2>O comando <code>/funil</code></h2>
+  <p class="lead">Em qualquer sessão, digite <code>/funil</code>. Ele assume o papel do nosso prompt mestre e conduz: <strong>diagnóstico → aprofundamento → resumo → geração</strong> (página em HTML puro ou copy de anúncios). Dentro da pasta de um cliente, já usa o contexto dele.</p>
+  <p class="muted" style="color:var(--muted);font-size:15px">Outros comandos virão (ex.: <code>/roteiro</code>, <code>/copy</code>) conforme cadastrarmos os prompts mestres em <code>prompts/</code>.</p>
+</section>
+
+<section>
+  <span class="sec-num">06 — Organização</span>
+  <h2>Onde colocar cada coisa</h2>
+  <table>
+    <tr><th>O que é</th><th>Onde vai</th></tr>
+    <tr><td>Estratégia, diagnóstico</td><td><code>clientes/&lt;cliente&gt;/estrategia/</code></td></tr>
+    <tr><td>Copy de página ou anúncio</td><td><code>clientes/&lt;cliente&gt;/copy/</code></td></tr>
+    <tr><td>Roteiro de vídeo</td><td><code>clientes/&lt;cliente&gt;/roteiros/</code></td></tr>
+    <tr><td>Funil, landing, quiz</td><td><code>clientes/&lt;cliente&gt;/funis/</code></td></tr>
+    <tr><td>Contexto / pesquisa de mercado</td><td><code>clientes/&lt;cliente&gt;/contexto/</code></td></tr>
+    <tr><td>Coisa da própria Simple</td><td><code>clientes/0-interno-simpleacc-inova/</code></td></tr>
+    <tr><td>Documento / playbook geral</td><td><code>docs/</code></td></tr>
+  </table>
+</section>
+
+<section>
+  <span class="sec-num">07 — Disciplina</span>
+  <h2>Regras de ouro</h2>
+  <ul class="rules">
+    <li><b>1.</b> Uma sessão = um cliente/assunto. Nunca misturar dois clientes na mesma conversa.</li>
+    <li><b>2.</b> Sempre <code>main</code> no seletor — é a versão oficial.</li>
+    <li><b>3.</b> Leia antes de criar: <code>contexto/</code> e <code>aprendizados.md</code> do cliente.</li>
+    <li><b>4.</b> Salve e registre: commit/push + aprendizado no <code>aprendizados.md</code>.</li>
+    <li><b>5.</b> Nunca commitar segredos (senhas, tokens). Use <code>.env</code> (ignorado pelo Git).</li>
+    <li><b>6.</b> Em dúvida, leia o <a href="MANUAL.md">Manual</a>.</li>
+  </ul>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="big">Simple Acc — Como usar o hub</div>
+    <p>Guia interno do time. Identidade visual conforme o Brandbook da Simple (navy · azul aço · branco), com tipografia ajustada para leitura. Versão completa de regras no <a href="MANUAL.md">Manual de Operação</a>.</p>
+  </div>
+</footer>
+
+</body>
+</html>
