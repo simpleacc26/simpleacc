@@ -19,6 +19,8 @@ seguinte.
 | [`RELATORIO-DANIEL.md`](./RELATORIO-DANIEL.md) | Material para o Daniel em Markdown. |
 | [`relatorio-icp-comprador.html`](./relatorio-icp-comprador.html) | **Quem realmente compra** — ICP do feedback do Daniel (visual). |
 | [`05-quem-compra-icp.md`](./05-quem-compra-icp.md) | Quem realmente compra em Markdown. |
+| [`mapa-estrategico.html`](./mapa-estrategico.html) | **Mapa Estratégico** — 3 estratégias + comunicação + Big Idea (visual). |
+| [`06-mapa-estrategico.md`](./06-mapa-estrategico.md) | Mapa Estratégico em Markdown (entregável da Weekly, 18h). |
 | [`01-resumo-da-situacao.md`](./01-resumo-da-situacao.md) | Resumo executivo da situação e do plano. |
 | [`02-tarefas-em-aberto.md`](./02-tarefas-em-aberto.md) | Ata: todas as tarefas em aberto com responsável (ou "a definir"). |
 | [`03-expectativas-jose.md`](./03-expectativas-jose.md) | O que o José espera e o que precisamos entregar. |
