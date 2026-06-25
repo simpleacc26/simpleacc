@@ -16,11 +16,24 @@ não é vender tráfego.
 
 ## Contatos
 
-| Papel               | Nome          | Contato                        |
-| ------------------- | ------------- | ------------------------------ |
-| Cliente (decisora)  | Pâmella Mello | _a preencher_                  |
-| Closer (negociação) | Daniel        | daniel@simpleacc.com.br        |
-| Estratégia/Onboard. | Carlos Durães | carlos.duraes@simpleacc.com.br |
+**Cliente (clínica):**
+
+| Papel                       | Nome           | Contato       |
+| --------------------------- | -------------- | ------------- |
+| Proprietária/decisora       | Pâmella Mello  | _a preencher_ |
+| Terapeuta (psicóloga)       | Sheila Oliveira| _a preencher_ |
+| Recepção / atende leads     | Ana            | _a preencher_ |
+| Gestor de tráfego (externo) | Bruno Faria Doria | _a preencher_ |
+
+- Instagram: [@pamellam.hipnoterapeuta](https://www.instagram.com/pamellam.hipnoterapeuta/)
+
+**Time Simple Acc:**
+
+| Papel                    | Nome          | Contato                         |
+| ------------------------ | ------------- | ------------------------------- |
+| Closer (negociação)      | Daniel        | daniel@simpleacc.com.br         |
+| Operações/entrega        | Carlos Durães | carlos.duraes@simpleacc.com.br  |
+| Tráfego e performance    | Renan Martini | renan.martini@simpleacc.com.br  |
 
 ## Links úteis
 
@@ -35,16 +48,34 @@ não é vender tráfego.
 > Acessos de plataformas (Meta Ads, GHL, Google, site etc.) ficam na **Planilha
 > de Acessos** no Drive — **nunca** neste repositório.
 
+## Materiais já produzidos
+
+Guardados em [`materiais/`](./materiais/):
+
+- **Cadências de Reativação — "Última Gota da Laranja" (UGDL)** · WhatsApp ·
+  reativação da base de avaliações que não fecharam. Cadência 1 (leads frios) e
+  Cadência 2 (leads mornos). *Quick win da Fase 1.* — versão de trabalho no
+  [Drive](https://drive.google.com/file/d/1cZjDqFjVItAIZyvl6ngVMwwrv9HGxTaT/view).
+- [**Cadências de Indicação — "Quem Você Levaria Junto"**](./materiais/cadencias-indicacao-quem-voce-levaria-junto.pdf)
+  · WhatsApp · indicação como gesto de cuidado, disparada por gatilho da
+  terapeuta. Cadência 1 (pacientes em transformação, 3 toques/~12d) e Cadência 2
+  (pacientes que concluíram, 4 toques/~14d). Presente = Sessão de Avaliação
+  (R$150) por conta da clínica; toda indicação entra no CRM com tag
+  `ORIGEM: INDICAÇÃO`.
+- [**Onboarding 12/06/2026 — notas e transcrição (Gemini)**](./materiais/onboarding-2026-06-12-notas-e-transcricao.md)
+  · participantes, decisões e próximos passos da call de onboarding.
+
 ## Projetos
 
 Engajamento de growth/comercial em **3 fases (90 dias)**, cada fase só avança com
 a anterior medida:
 
-| Projeto                          | Pasta | Status      | Deploy |
-| -------------------------------- | ----- | ----------- | ------ |
-| Cadências de Reativação (UGDL)   | —     | em execução | —      |
-| Painel de métricas (Fase 1)      | —     | planejado   | —      |
-| Quiz de qualificação (Fase 2)    | —     | planejado   | —      |
+| Projeto                          | Pasta                | Status      | Deploy |
+| -------------------------------- | -------------------- | ----------- | ------ |
+| Cadências de Reativação (UGDL)   | `materiais/`         | entregue    | —      |
+| Cadências de Indicação           | `materiais/`         | entregue    | —      |
+| Painel de métricas (Fase 1)      | —                    | planejado   | —      |
+| Quiz de qualificação (Fase 2)    | —                    | planejado   | —      |
 
 - **Fase 1 (0–30d):** visibilidade + quick win → painel de métricas (CAC, ROI,
   conversão, origem), estruturar follow-up e **reativação de base**.
@@ -77,7 +108,22 @@ qualificação/rastreio); 38 avaliações → 12 fechamentos (~31,5%); follow-up
 (1x/semana). **Meta:** sair de ~R$30k/mês para R$80–90k/mês majoritariamente por
 eficiência, não por mais gasto.
 
+**Dados confirmados no onboarding (12/06):**
+- Preços: tratamento de **3 meses** (carro-chefe, ~90% do faturamento) — R$3.700
+  com a Pâmella / R$3.100 com a Sheila. Tratamento de **1 mês** (~10%) — R$1.780 /
+  R$1.490. Avaliação inicial R$150.
+- **Sem CRM** — gestão por planilha manual (avaliações marcadas/realizadas e
+  tratamentos fechados); leads de WhatsApp sem nenhum controle.
+- Atendimento ~**70% presencial / 30% online**; raio de ~40–50 km. Tráfego hoje
+  roda só no bairro; expansão de geolocalização precisa ser gradual.
+- **Pixel não instalado** no WhatsApp → otimização "às cegas" (só custo por
+  conversa). Renan dá suporte de traqueamento.
+- Base de reativação disponível **desde fev/2026**; a clínica já disparou áudios
+  para quem não fechou — falta filtrar quem respondeu/por que não fechou.
+- Pâmella quer **reduzir volume de atendimentos** sem baixar faturamento (focar
+  alto valor + outros projetos, ex.: curso online).
+
 **Pendências de diagnóstico (a confirmar com a cliente):** unit economics real
-(parcelamento, MRR vs. caixa, ticket dos últimos 3 meses, margem/CAC máximo),
-volume de base para reativação, ferramenta comercial (CRM ou WhatsApp solto),
-acesso ao Gerenciador de Anúncios, e o prazo/meta reais (contratado vs. caixa).
+(parcelamento, MRR vs. caixa, margem/CAC máximo), volume exato da base de
+reativação, acesso ao Gerenciador de Anúncios, e o prazo/meta reais (contratado
+vs. caixa). Próximo passo combinado: apresentação do **roadmap/estratégia**.
