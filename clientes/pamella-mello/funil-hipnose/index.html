@@ -1,44 +1,49 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="dark light" />
-    <meta name="robots" content="noindex" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Leitura Emocional · Pâmella Mello</title>
+  <meta name="description" content="Descubra a origem emocional do que te trava — e o caminho para resolver de vez. Hipnoterapia clínica + neurociência. Contagem/BH e online." />
+  <!-- CSS crítico mínimo (evita flash antes do styles.css) -->
+  <style>
+    :root{--bg:#F4F0F7;--text:#2C2438}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <!-- Quando tiver o arquivo, troque tudo abaixo por:
+             <img class="logo-img" src="logo.png" alt="Pâmella Mello · Hipnoterapia Clínica"> -->
+        <span class="brand-name">Pâmella Mello</span>
+        <span class="brand-tag">Hipnoterapia Clínica</span>
+      </div>
+    </div>
+  </header>
 
-    <title>Leitura Emocional · Pâmella Mello — Hipnoterapia Clínica</title>
-    <meta
-      name="description"
-      content="Descubra a origem emocional do que te trava — e o caminho para resolver de vez. 7 perguntas, ~2 minutos, leitura personalizada."
-    />
-    <meta property="og:title" content="Leitura Emocional · Pâmella Mello" />
-    <meta
-      property="og:description"
-      content="Descubra a origem emocional do que te trava — e o caminho para resolver de vez."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Pâmella Mello — Hipnoterapia Clínica" />
+  <!-- Barra de progresso (só aparece durante as perguntas) -->
+  <div class="progress-wrap" id="progress" hidden>
+    <div class="container">
+      <div class="progress-meta">
+        <span id="progress-label">Passo 1 de 9</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+    </div>
+  </div>
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap"
-      rel="stylesheet"
-    />
+  <main class="container">
+    <div id="app" aria-live="polite"><!-- as telas são renderizadas aqui --></div>
+  </main>
 
-    <!-- ==========================================================
-         RASTREAMENTO — colar aqui quando a cliente liberar os IDs:
-         - Google Tag Manager (GTM-XXXXXXX)
-         - Microsoft Clarity
-         - Facebook Pixel (carregado via GTM). O helper fbqTrack()
-           em src/analytics.ts dispara: PageView, CompleteRegistration,
-           ViewContent, InitiateCheckout, Lead — e é no-op enquanto o
-           pixel não estiver instalado.
-         ========================================================== -->
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <p class="foot">Clínica Pâmella Mello · Hipnoterapia Clínica + Neurociência · Contagem/MG e online</p>
+
+  <script src="flow.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
 </html>
