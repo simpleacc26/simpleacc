@@ -11,6 +11,15 @@ verdade** (um arquivo `.md` nesta pasta) e um **comando** correspondente em
 | --------- | -------------------------- | -------- |
 | `/funil`  | `prompts/funil-html.md`    | Criar funil/página completa em HTML puro ou anúncios (copy + criativo). Conduz diagnóstico → aprofundamento → geração. |
 
+## Skills disponíveis
+
+Skills ficam em `.claude/skills/` e são acionadas automaticamente pela IA quando
+a tarefa combina (ou você pode pedir pelo nome).
+
+| Skill (nome interno)            | Para quê |
+| ------------------------------- | -------- |
+| `estrategia-completa-clientes`  | **Estratégia Completa para Clientes** — a partir do onboarding (transcrição/notas), gera o documento de estratégia de 8 seções e entrega como Google Doc formatado na pasta do cliente no Drive. |
+
 ## Como usar
 
 Em qualquer sessão, digite o comando (ex.: **`/funil`**) e o agente assume o papel
