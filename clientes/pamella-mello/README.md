@@ -70,12 +70,12 @@ Guardados em [`materiais/`](./materiais/):
 Engajamento de growth/comercial em **3 fases (90 dias)**, cada fase só avança com
 a anterior medida:
 
-| Projeto                          | Pasta                | Status      | Deploy |
-| -------------------------------- | -------------------- | ----------- | ------ |
-| Cadências de Reativação (UGDL)   | `materiais/`         | entregue    | —      |
-| Cadências de Indicação           | `materiais/`         | entregue    | —      |
-| Painel de métricas (Fase 1)      | —                    | planejado   | —      |
-| Quiz de qualificação (Fase 2)    | —                    | planejado   | —      |
+| Projeto                          | Pasta              | Status              | Deploy        |
+| -------------------------------- | ------------------ | ------------------- | ------------- |
+| Cadências de Reativação (UGDL)   | `materiais/`       | entregue            | —             |
+| Cadências de Indicação           | `materiais/`       | entregue            | —             |
+| Funil de Hipnose (quiz/landing)  | `funil-hipnose/`   | dev (aguarda deploy)| Vercel (Vite) |
+| Painel de métricas (Fase 1)      | —                  | planejado           | —             |
 
 - **Fase 1 (0–30d):** visibilidade + quick win → painel de métricas (CAC, ROI,
   conversão, origem), estruturar follow-up e **reativação de base**.
