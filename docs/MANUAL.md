@@ -29,7 +29,7 @@ clientes/<cliente>/        → base de conhecimento + entregas de cada cliente
   └── aprendizados.md      → o que funciona/não funciona (memória do cliente)
 clientes/0-interno-simpleacc-inova/  → coisas da própria SimpleAcc (no topo: 0-)
 prompts/                   → prompts mestres (padrões reutilizáveis p/ todos)
-.claude/commands/          → comandos (ex.: /funil) que rodam os prompts mestres
+.claude/commands/          → comandos (ex.: /prompt-mestre) que rodam os prompts mestres
 docs/                      → manual, convenções, playbooks
 _modelo/                   → modelos para copiar ao criar algo novo
 ```
@@ -137,9 +137,9 @@ Os **padrões reutilizáveis** (a "inteligência de especialistas") ficam em
 
 | Comando  | Para quê |
 | -------- | -------- |
-| `/funil` | Criar funil/página completa em HTML ou anúncios. Conduz diagnóstico → aprofundamento → geração. |
+| `/prompt-mestre` | Criar funil/página completa em HTML ou anúncios. Conduz diagnóstico → aprofundamento → geração. |
 
-- Digite o comando (ex.: **`/funil`**) e o agente assume o papel do prompt mestre.
+- Digite o comando (ex.: **`/prompt-mestre`**) e o agente assume o papel do prompt mestre.
   Se você estiver na pasta de um cliente, ele já usa o contexto daquele cliente.
 - **Para editar/melhorar** um prompt: edite o arquivo em `prompts/` — a melhoria
   vale para **todos os clientes** de uma vez (não copie por cliente).

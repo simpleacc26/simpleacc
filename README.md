@@ -20,7 +20,7 @@ máquina, mantendo cada assunto no seu lugar.
 ├── CLAUDE.md            ← contexto que toda sessão do Claude Code lê
 ├── docs/                ← manual, convenções e playbooks
 │   └── MANUAL.md
-├── prompts/             ← prompts mestres reutilizáveis (ex.: /funil)
+├── prompts/             ← prompts mestres reutilizáveis (ex.: /prompt-mestre)
 ├── .claude/commands/    ← comandos que rodam os prompts mestres
 ├── clientes/            ← um diretório por cliente (Interno fica no topo: 0-...)
 │   └── <cliente>/       ← base de conhecimento do cliente:
@@ -49,7 +49,7 @@ máquina, mantendo cada assunto no seu lugar.
 
 ## Gerar funil / página / anúncios
 
-Em qualquer sessão, rode **`/funil`** — o prompt mestre conduz diagnóstico →
+Em qualquer sessão, rode **`/prompt-mestre`** — o prompt mestre conduz diagnóstico →
 aprofundamento → geração (HTML puro ou copy de anúncios). Dentro da pasta de um
 cliente, ele já usa o contexto daquele cliente.
 

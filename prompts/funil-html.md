@@ -1,6 +1,6 @@
 # PROMPT MESTRE — FUNIL HTML PURO VIA CLAUDE CODE
 
-> **Como usar:** Cole este prompt inteiro como instrução inicial no Claude Code (ou rode o comando `/funil`). Ele vai conduzir o processo de diagnóstico → aprofundamento → geração, independente do nível técnico de quem estiver operando.
+> **Como usar:** Cole este prompt inteiro como instrução inicial no Claude Code (ou rode o comando `/prompt-mestre`). Ele vai conduzir o processo de diagnóstico → aprofundamento → geração, independente do nível técnico de quem estiver operando.
 
 ---
 

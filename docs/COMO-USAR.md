@@ -61,7 +61,7 @@ simpleacc/                      ← o armário (repositório) da Simple
 │   │   ├── funis/              ← páginas, quizzes, landing pages
 │   │   └── aprendizados.md     ← o que funciona / não funciona
 │   └── ...(os outros clientes, mesma estrutura)
-├── prompts/                    ← prompts mestres (ex.: o do /funil)
+├── prompts/                    ← prompts mestres (ex.: o do /prompt-mestre)
 ├── docs/                       ← manual e este guia
 └── _modelo/                    ← modelo para criar cliente novo
 ```
@@ -74,15 +74,15 @@ simpleacc/                      ← o armário (repositório) da Simple
 2. Selecione **Simple Acc → simpleacc → main**.
 3. Diga o cliente e a tarefa na 1ª mensagem.
 4. Peça para **ler `contexto/` e `aprendizados.md`** do cliente antes de criar nada.
-5. Para gerar funil / página / anúncios, use o comando **`/funil`**.
+5. Para gerar funil / página / anúncios, use o comando **`/prompt-mestre`**.
 6. Ao terminar, a IA salva e abre um **PR** → revisar → **merge**.
 7. **Registre o aprendizado** em `aprendizados.md` do cliente.
 
 ---
 
-## 5. O comando `/funil`
+## 5. O comando `/prompt-mestre`
 
-Em qualquer sessão, digite **`/funil`**. Ele assume o papel do nosso prompt mestre
+Em qualquer sessão, digite **`/prompt-mestre`**. Ele assume o papel do nosso prompt mestre
 e conduz: **diagnóstico → aprofundamento → resumo → geração** (página em HTML puro
 ou copy de anúncios). Dentro da pasta de um cliente, ele já usa o contexto dele.
 
