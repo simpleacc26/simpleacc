@@ -187,10 +187,32 @@
 </section>
 
 <section>
-  <span class="sec-num">05 — Comando</span>
-  <h2>O comando <code>/prompt-mestre</code></h2>
-  <p class="lead">Em qualquer sessão, digite <code>/prompt-mestre</code>. Ele assume o papel do nosso prompt mestre e conduz: <strong>diagnóstico → aprofundamento → resumo → geração</strong> (página em HTML puro ou copy de anúncios). Dentro da pasta de um cliente, já usa o contexto dele.</p>
-  <p class="muted" style="color:var(--muted);font-size:15px">Outros comandos virão (ex.: <code>/roteiro</code>, <code>/copy</code>) conforme cadastrarmos os prompts mestres em <code>prompts/</code>.</p>
+  <span class="sec-num">05 — Comandos e Skills</span>
+  <h2>O que já existe e o que cada um faz</h2>
+  <p class="lead">Os <strong>comandos</strong> você digita (começam com <code>/</code>). As <strong>skills</strong> a IA aciona sozinha quando a tarefa combina (ou você pede pelo nome).</p>
+  <table>
+    <tr><th>Nome</th><th>O que é</th><th>O que faz</th><th>Como acionar</th></tr>
+    <tr>
+      <td><strong><code>/prompt-mestre</code></strong></td>
+      <td>Comando<br>(funil/copy)</td>
+      <td>Vira um especialista em <strong>copy de resposta direta + estratégia de funil + front-end</strong>. Conduz: diagnóstico → aprofundamento → confirmação → geração. Entrega <strong>página/funil em HTML puro</strong> e/ou <strong>copy de anúncios</strong> (ângulos, headlines, hooks). Pergunta o que falta, não inventa.</td>
+      <td>Digite <code>/prompt-mestre</code> em qualquer sessão. Na pasta de um cliente, já usa o contexto dele.</td>
+    </tr>
+    <tr>
+      <td><strong>Estratégia Completa para Clientes</strong><br><code>estrategia-completa-clientes</code></td>
+      <td>Skill<br>(automática)</td>
+      <td>Pega o <strong>onboarding</strong> (transcrição, notas, áudio, resumo) e gera o <strong>documento de estratégia de 8 seções</strong> (Big Idea, Quiz, Página de Aplicação, Anúncios, Diagnóstico, Cadência 12 dias, Tarefas, Recomendações). Entrega como <strong>Google Doc formatado</strong> no Drive e salva a fonte em <code>clientes/&lt;cliente&gt;/estrategia/</code>.</td>
+      <td>Peça: <em>"transforma esse onboarding do cliente X em documento de estratégia"</em>.</td>
+    </tr>
+    <tr>
+      <td><strong>Gerar Quiz + Diagnóstico + Página Pós-Quiz</strong><br><code>gerar-quiz-diag-pag-pos-quiz</code></td>
+      <td>Skill<br>(automática)</td>
+      <td>Pega a <strong>copy aprovada</strong> e <strong>coloca o funil no ar</strong>: quiz + página pós-quiz (diagnóstico + PDF + WhatsApp) na identidade do cliente, <strong>publica na Vercel</strong>, cria a <strong>planilha de leads</strong> no Drive e testa a integração. <strong>Confirma a conta da Simple</strong> antes de publicar (nunca conta pessoal).</td>
+      <td>Peça: <em>"monta/implementa o funil do cliente X"</em> ou <em>"sobe a página na Vercel"</em>.</td>
+    </tr>
+  </table>
+  <div class="note"><strong>Como se encaixam:</strong> Onboarding → <em>Estratégia Completa</em> (gera o doc + copy) → <em>Gerar Quiz…</em> (publica o funil + leads). O <code>/prompt-mestre</code> é o coringa para páginas/anúncios avulsos.</div>
+  <p class="muted" style="color:var(--muted);font-size:15px;margin-top:14px">Outros comandos virão (ex.: <code>/roteiro</code>, <code>/copy</code>) conforme cadastrarmos novos prompts mestres em <code>prompts/</code>.</p>
 </section>
 
 <section>
