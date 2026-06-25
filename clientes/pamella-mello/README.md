@@ -74,7 +74,7 @@ a anterior medida:
 | -------------------------------- | ------------------ | ------------------- | ------------- |
 | Cadências de Reativação (UGDL)   | `materiais/`       | entregue            | —             |
 | Cadências de Indicação           | `materiais/`       | entregue            | —             |
-| Funil de Hipnose (quiz/landing)  | `funil-hipnose/`   | dev (aguarda deploy)| Vercel (Vite) |
+| Funil de Hipnose (quiz/landing)  | `funil-hipnose/`   | no ar               | [Vercel](https://funil-pamella-mello.vercel.app) |
 | Painel de métricas (Fase 1)      | —                  | planejado           | —             |
 
 - **Fase 1 (0–30d):** visibilidade + quick win → painel de métricas (CAC, ROI,

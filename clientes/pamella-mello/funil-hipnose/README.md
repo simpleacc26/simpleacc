@@ -68,4 +68,7 @@ Projeto **estático** (framework "Other"), publicado como projeto próprio na co
 Vercel da Simple Acc — padrão dos demais funis (deploy direto da pasta, sem
 git connect).
 
-- **URL de produção:** _a definir após o primeiro deploy_
+- **Projeto Vercel:** `funil-pamella-mello` (team `simpleacc`)
+- **URL de produção:** https://funil-pamella-mello.vercel.app
+- **Redeploy:** `vercel deploy --prod --yes --scope simpleacc` de dentro da pasta
+  (precisa de um token Vercel — nunca commitar o token).
