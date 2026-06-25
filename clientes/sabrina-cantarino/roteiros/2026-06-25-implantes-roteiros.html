@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Roteiros — Frente 2 — Implantes e Reabilitação Oral — Instituto Sabrina Siqueira</title>
+<style>
+:root{
+  --midnight:#0A1626; --navy:#0E2138; --navy2:#122B4A; --blue:#3E5C8A;
+  --steel:#8197B6; --ice:#EEF3FA; --white:#fff; --ink:#16202f; --ink-soft:#3a4656; --muted:#6f7f95;
+  --line-light:#e1e8f1;
+  --serif:Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+@page{ size:A4; margin:15mm 14mm; }
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:var(--sans);color:var(--ink);font-size:11pt;line-height:1.6}
+.lbl{font-family:var(--sans);text-transform:uppercase;letter-spacing:.14em;font-size:8pt;font-weight:700;color:var(--blue);display:block;margin-bottom:5px}
+
+/* CAPA */
+.cover{
+  position:relative;color:#fff;border-radius:0;
+  margin:-15mm -14mm 0; padding:34mm 18mm; min-height:267mm;
+  display:flex;flex-direction:column;justify-content:space-between;
+  page-break-after:always;
+  background:
+    radial-gradient(700px 320px at 14% 8%, rgba(120,150,210,.18), transparent 60%),
+    radial-gradient(520px 380px at 92% 96%, rgba(62,92,138,.20), transparent 62%),
+    linear-gradient(150deg,#0e2138 0%,#0a1626 62%,#070f1b 100%);
+}
+.cover-top{display:flex;justify-content:space-between;align-items:center}
+.wordmark{font-family:var(--serif);letter-spacing:.32em;font-size:13pt;color:#fff;font-weight:700}
+.cover-conf{font-family:var(--sans);text-transform:uppercase;letter-spacing:.2em;font-size:8pt;color:#9fb1cc}
+.cover-center{margin-top:auto;margin-bottom:auto}
+.cover-eyebrow{font-family:var(--sans);text-transform:uppercase;letter-spacing:.22em;font-size:9pt;font-weight:700;color:var(--steel)}
+.cover-title{font-family:var(--serif);font-size:40pt;line-height:1.05;font-weight:700;margin:14px 0 0;color:#fff}
+.cover-rule{height:2px;width:96px;background:linear-gradient(90deg,var(--steel),transparent);margin:22px 0 24px}
+.cover-bigidea{font-family:var(--serif);font-style:italic;font-size:18pt;line-height:1.45;color:#dbe5f3;max-width:150mm}
+.cover-foot{display:flex;justify-content:space-between;font-family:var(--sans);text-transform:uppercase;letter-spacing:.14em;font-size:8pt;color:#7e90ab;border-top:1px solid #1c3354;padding-top:14px}
+
+/* INTRO */
+.intro{padding:4mm 0 0;page-break-after:always}
+.intro-nota{font-size:11pt;color:var(--ink-soft);background:var(--ice);border-left:3px solid var(--blue);padding:14px 18px;border-radius:0 8px 8px 0;margin:6px 0 22px}
+.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.intro-card{border:1px solid var(--line-light);border-radius:10px;padding:16px 18px}
+.intro-card .ic-h{font-family:var(--sans);font-weight:700;font-size:9.5pt;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);margin-bottom:7px}
+.intro-card p{font-size:10pt;color:var(--ink-soft);line-height:1.55}
+
+/* SEÇÕES */
+.sec-kicker{font-family:var(--sans);text-transform:uppercase;letter-spacing:.2em;font-size:8.5pt;font-weight:700;color:var(--blue)}
+.sec-title{font-family:var(--serif);font-size:26pt;font-weight:700;line-height:1.1;margin:8px 0 0;color:var(--midnight)}
+.sec-desc{font-size:10.5pt;color:var(--muted);margin-top:8px;max-width:160mm}
+.group{padding-top:2mm}
+.group .sec-head{page-break-after:avoid;margin-bottom:14px;padding-top:2mm}
+
+/* ROTEIRO */
+.rt{border:1px solid var(--line-light);border-radius:12px;padding:20px 22px;margin-bottom:14px;page-break-inside:avoid;background:#fff}
+.rt-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.rt-n{font-family:var(--serif);font-weight:700;font-size:15pt;color:#fff;background:var(--midnight);width:auto;padding:4px 12px;border-radius:6px;letter-spacing:.04em}
+.rt-dur{font-family:var(--sans);text-transform:uppercase;letter-spacing:.1em;font-size:8pt;font-weight:600;color:var(--muted)}
+.rt-title{font-family:var(--serif);font-size:17pt;font-weight:700;color:var(--midnight);line-height:1.15;margin-bottom:8px}
+.rt-obj{font-size:9.5pt;color:var(--ink-soft);margin-bottom:14px;line-height:1.5}
+.rt-obj .lbl{display:inline;margin-right:8px}
+
+.block-label{font-family:var(--sans);text-transform:uppercase;letter-spacing:.12em;font-size:8pt;font-weight:700;color:var(--steel);margin-bottom:8px}
+.fala{background:var(--ice);border-radius:9px;padding:16px 20px;margin-bottom:14px}
+.fala p{font-size:12.5pt;line-height:1.72;color:var(--ink);margin-bottom:11px}
+.fala p:last-child{margin-bottom:0}
+
+.blocos{margin-bottom:14px}
+.bloco{padding:11px 0;border-bottom:1px dashed var(--line-light)}
+.bloco:last-child{border-bottom:none}
+.bloco-label{font-family:var(--sans);text-transform:uppercase;letter-spacing:.1em;font-size:8pt;font-weight:700;color:var(--blue);margin-bottom:5px}
+.bloco-fala{font-size:11.5pt;line-height:1.6;color:var(--ink)}
+.bloco-dir{font-size:9pt;color:var(--muted);font-style:italic;margin-top:5px}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.note{border:1px solid var(--line-light);border-radius:8px;padding:12px 14px;font-size:9.5pt;color:var(--ink-soft);line-height:1.5}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.chip{display:inline-block;background:var(--midnight);color:#dbe5f3;font-size:8.5pt;padding:5px 11px;border-radius:20px;line-height:1.3}
+
+.cta{background:var(--navy2);color:#eaf1fb;border-radius:9px;padding:14px 18px;font-size:10.5pt;line-height:1.5;margin-top:2px}
+.cta .lbl{color:#9db6dd}
+.cta-link{display:block;margin-top:6px;font-family:var(--sans);font-size:9pt;font-weight:600;letter-spacing:.04em;color:#9db6dd}
+
+/* FIM */
+.end{margin:8mm -14mm -15mm;padding:24mm 18mm;color:#9fb1cc;background:linear-gradient(150deg,#0e2138,#0a1626);page-break-inside:avoid}
+.end-mark{font-family:var(--serif);letter-spacing:.3em;font-size:14pt;color:#fff;font-weight:700;margin-bottom:10px}
+.end p{font-size:9pt;line-height:1.6}
+</style></head>
+<body>
+
+<!-- CAPA -->
+<header class="cover">
+  <div class="cover-top">
+    <span class="wordmark">SIMPLE ACC</span>
+    <span class="cover-conf">Instituto Sabrina Siqueira</span>
+  </div>
+  <div class="cover-center">
+    <span class="cover-eyebrow">Frente 2 — Implantes e Reabilitação Oral</span>
+    <h1 class="cover-title">Roteiros para gravar</h1>
+    <div class="cover-rule"></div>
+    <p class="cover-bigidea">Você não está sem alguns dentes.<br>Você está se escondendo do espelho, da foto e da própria gargalhada.</p>
+  </div>
+  <div class="cover-foot">
+    <span>9 roteiros · 3 curtos · 3 médios · 3 longos</span>
+    <span>Dra. Sabrina Siqueira · 2026-06-25</span>
+  </div>
+</header>
+
+<!-- COMO USAR -->
+<section class="intro">
+  <span class="sec-kicker">Como usar</span>
+  <h2 class="sec-title">Antes de gravar</h2>
+  <p class="intro-nota">A objeção real não é preço — é <b>medo e confiança</b>. Eixo: "<b>planejamento, não pressa</b>". Reabilitação séria começa antes da furadeira (avaliação, plano, expectativa alinhada, acompanhamento), o oposto da "fábrica de sorriso". Nunca prometer resultado garantido.</p>
+  <div class="intro-grid">
+    <div class="intro-card"><div class="ic-h">Formato</div><p>Todos verticais (9:16), pra Reels, TikTok e Shorts. Talking head: você falando direto pra câmera, sem precisar de equipe.</p></div>
+    <div class="intro-card"><div class="ic-h">Curtos · 15–30s</div><p>Fala escrita por extenso (teleprompter). É só ler como se fosse uma conversa — não como locução de propaganda.</p></div>
+    <div class="intro-card"><div class="ic-h">Médios e longos</div><p>Roteiro em blocos (gancho → desenvolvimento → CTA), com as falas-chave prontas. Pode falar com naturalidade, sem decorar.</p></div>
+    <div class="intro-card"><div class="ic-h">Sempre termina no quiz</div><p>Todo vídeo fecha mandando pro <b>quiz de Implantes</b> (institutosabrinasiqueira-implantes.vercel.app) — o mesmo funil dos anúncios.</p></div>
+    <div class="intro-card"><div class="ic-h">Tom</div><p>Acolhedor, humano e direto. Fala de gente pra gente. Nada mecânico, nada de "promessa milagrosa".</p></div>
+    <div class="intro-card"><div class="ic-h">Cuidado</div><p>Nunca prometa resultado garantido. Cenas de pacientes são representativas — só publique caso real com consentimento.</p></div>
+  </div>
+</section>
+
+<!-- CURTOS -->
+<section class="group">
+  
+  <div class="sec-head">
+    <span class="sec-kicker">Bloco 1 · 15–30s</span>
+    <h2 class="sec-title">Vídeos curtos</h2>
+    <p class="sec-desc">Pra parar o scroll. Um gancho forte, uma ideia só, e o CTA. Fala literal — leia como conversa.</p>
+  </div>
+  
+  <article class="rt">
+    <div class="rt-head">
+      <span class="rt-n">C1</span>
+      <span class="rt-dur">15–30s · vertical 9:16 · fala literal</span>
+    </div>
+    <h3 class="rt-title">Não é sobre o dente</h3>
+    <p class="rt-obj"><span class="lbl">Objetivo</span>Entregar a big idea: o problema não é o dente, é se esconder.</p>
+    <div class="block-label">Fala — teleprompter (lê como conversa, não como locução)</div>
+    <div class="fala"><p>Você acha que o problema é que falta um dente. Ou alguns.</p><p>Mas não é isso que te incomoda de verdade, é?</p><p>O que incomoda é colocar a mão na frente da boca quando você ri. É fugir das fotos. É comer de um lado só.</p><p>Você não está sem alguns dentes. Você está se escondendo do espelho, da foto e da sua própria gargalhada.</p></div>
+    <div class="grid2">
+      <div class="note"><span class="lbl">Cena</span>Talking head, tom direto e acolhedor. Corte seco na abertura.</div>
+      <div class="note"><span class="lbl">Texto na tela</span><div class="chips"><span class="chip">Não é sobre o dente.</span><span class="chip">É sobre parar de se esconder.</span></div></div>
+    </div>
+    <div class="cta"><span class="lbl">CTA</span>Isso tem solução fixa. Faz o teste rápido no link que eu te explico o caminho. <span class="cta-link">→ quiz de Implantes · institutosabrinasiqueira-implantes.vercel.app</span></div>
+  </article>
+  <article class="rt">
+    <div class="rt-head">
+      <span class="rt-n">C2</span>
+      <span class="rt-dur">20–30s · vertical 9:16 · fala literal</span>
+    </div>
+    <h3 class="rt-title">Não é o preço, é o medo</h3>
+    <p class="rt-obj"><span class="lbl">Objetivo</span>Nomear a objeção real (medo, não dinheiro) e abrir caminho pro planejamento.</p>
+    <div class="block-label">Fala — teleprompter (lê como conversa, não como locução)</div>
+    <div class="fala"><p>Deixa eu adivinhar por que você ainda não resolveu seus dentes.</p><p>Você acha que é o dinheiro. Mas se aparecesse o valor amanhã, você marcaria hoje? Provavelmente não.</p><p>O que te trava não é o preço. É o medo. Medo de dor, medo de não dar certo, medo de cair numa fábrica de sorriso.</p><p>E olha: esse medo é justo. Mas ele tem solução — e a solução começa com um plano, não com uma furadeira.</p></div>
+    <div class="grid2">
+      <div class="note"><span class="lbl">Cena</span>Talking head. Tom de quem fala uma verdade que ninguém teve coragem de dizer.</div>
+      <div class="note"><span class="lbl">Texto na tela</span><div class="chips"><span class="chip">Não é o preço.</span><span class="chip">É o medo. E medo tem solução.</span></div></div>
+    </div>
+    <div class="cta"><span class="lbl">CTA</span>Faz o teste no link. Em dois minutos eu entendo o seu caso. <span class="cta-link">→ quiz de Implantes · institutosabrinasiqueira-implantes.vercel.app</span></div>
+  </article>
+  <article class="rt">
+    <div class="rt-head">
+      <span class="rt-n">C3</span>
+      <span class="rt-dur">20–30s · vertical 9:16 · fala literal</span>
+    </div>
+    <h3 class="rt-title">Fábrica de sorriso</h3>
+    <p class="rt-obj"><span class="lbl">Objetivo</span>Diferenciar pelo planejamento e plantar desconfiança do orçamento no susto.</p>
+    <div class="block-label">Fala — teleprompter (lê como conversa, não como locução)</div>
+    <div class="fala"><p>Se algum lugar te passou orçamento de implante em dez minutos, sem te examinar direito… corre.</p><p>Implante sério não é venda no susto. Reabilitação de verdade começa com avaliação, planejamento e expectativa alinhada.</p><p>A fábrica de sorriso faz o orçamento rápido e some depois. Eu faço o contrário: planejo o seu caso e acompanho até o fim.</p></div>
+    <div class="grid2">
+      <div class="note"><span class="lbl">Cena</span>Talking head, tom firme e protetor (de quem cuida). A palavra "corre" pode aparecer grande na tela.</div>
+      <div class="note"><span class="lbl">Texto na tela</span><div class="chips"><span class="chip">Orçamento em 10 minutos?</span><span class="chip">Corre.</span></div></div>
+    </div>
+    <div class="cta"><span class="lbl">CTA</span>Quer um plano de verdade pro seu sorriso? Começa pelo teste no link. <span class="cta-link">→ quiz de Implantes · institutosabrinasiqueira-implantes.vercel.app</span></div>
+  </article>
+</section>
+
+<!-- MÉDIOS -->
+<section class="group">
+  
+  <div class="sec-head">
+    <span class="sec-kicker">Bloco 2 · 45–60s</span>
+    <h2 class="sec-title">Vídeos médios</h2>
+    <p class="sec-desc">Pra explicar e gerar autoridade. Estrutura em blocos com as falas-chave; fale com naturalidade.</p>
+  </div>
+  
+  <article class="rt">
+    <div class="rt-head">
+      <span class="rt-n">M1</span>
+      <span class="rt-dur">45–60s · vertical 9:16 · roteiro em blocos</span>
+    </div>
+    <h3 class="rt-title">Implante bom começa antes da furadeira</h3>
+    <p class="rt-obj"><span class="lbl">Objetivo</span>Educar sobre o mecanismo: o que faz dar certo acontece no planejamento.</p>
+    <div class="blocos">
+      
+        <div class="bloco">
+          <div class="bloco-label">Gancho</div>
+          <p class="bloco-fala">Todo mundo pensa no implante como o parafuso. Mas o que faz dar certo acontece antes da furadeira.</p>
+          <p class="bloco-dir">▸ Corte seco.</p>
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Desenvolvimento</div>
+          <p class="bloco-fala">Antes de qualquer coisa, eu avalio osso, gengiva, mordida e a sua saúde como um todo. Depois eu planejo o caso inteiro: quantos implantes, onde, em quanto tempo. E alinho com você o que é real esperar.</p>
+          
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Virada</div>
+          <p class="bloco-fala">Quando alguém pula essa parte, é aí que dá errado. Implante que falha quase sempre foi implante sem planejamento.</p>
+          
+        </div>
+    </div>
+    <div class="note"><span class="lbl">Direção de cena</span>Talking head. Pode mostrar de leve um raio-x/planejamento na tela como apoio (sem dado de paciente real).</div>
+    <div class="cta"><span class="lbl">CTA</span>Se você quer ser avaliado de verdade, faz o teste no link primeiro. É o ponto de partida. <span class="cta-link">→ quiz de Implantes · institutosabrinasiqueira-implantes.vercel.app</span></div>
+  </article>
+  <article class="rt">
+    <div class="rt-head">
+      <span class="rt-n">M2</span>
+      <span class="rt-dur">50–60s · vertical 9:16 · roteiro em blocos</span>
+    </div>
+    <h3 class="rt-title">Medo de dor ou medo de não dar certo?</h3>
+    <p class="rt-obj"><span class="lbl">Objetivo</span>Quebrar a objeção do medo mostrando que confiança se constrói com clareza.</p>
+    <div class="blocos">
+      
+        <div class="bloco">
+          <div class="bloco-label">Gancho</div>
+          <p class="bloco-fala">Quando alguém adia o implante por anos, eu pergunto: você tem medo da dor, ou medo de não dar certo? Quase sempre é o segundo.</p>
+          <p class="bloco-dir">▸ Tom de conversa franca.</p>
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Desenvolvimento</div>
+          <p class="bloco-fala">Dor hoje a gente controla — anestesia e tecnologia evoluíram muito. O que tira o sono é o "e se não funcionar". Por isso eu não começo prometendo sorriso. Eu começo mostrando o plano: o que vai ser feito, em quanto tempo, e como eu acompanho cada fase.</p>
+          
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Virada</div>
+          <p class="bloco-fala">Confiança não se pede, se constrói. Quando você entende cada passo, o medo diminui sozinho.</p>
+          
+        </div>
+    </div>
+    <div class="note"><span class="lbl">Direção de cena</span>Talking head, ritmo calmo. Olhar firme na parte da confiança.</div>
+    <div class="cta"><span class="lbl">CTA</span>Quer entender o seu caso passo a passo? Faz o teste no link. <span class="cta-link">→ quiz de Implantes · institutosabrinasiqueira-implantes.vercel.app</span></div>
+  </article>
+  <article class="rt">
+    <div class="rt-head">
+      <span class="rt-n">M3</span>
+      <span class="rt-dur">50–60s · vertical 9:16 · roteiro em blocos</span>
+    </div>
+    <h3 class="rt-title">Voltar a comer o que você evita</h3>
+    <p class="rt-obj"><span class="lbl">Objetivo</span>Ativar o desejo concreto (mastigar, viver) — transformação, não estética.</p>
+    <div class="blocos">
+      
+        <div class="bloco">
+          <div class="bloco-label">Gancho</div>
+          <p class="bloco-fala">Faz uma lista mental rápido: quantas coisas você deixou de comer porque seus dentes não deixam?</p>
+          <p class="bloco-dir">▸ Pergunta direta pra câmera, deixar 1s pro espectador pensar.</p>
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Desenvolvimento</div>
+          <p class="bloco-fala">A carne no restaurante. A maçã inteira. O pão mais durinho. A pipoca no cinema. Você foi cortando, cortando — e nem percebeu o tanto que abriu mão.</p>
+          
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Virada</div>
+          <p class="bloco-fala">Reabilitação fixa devolve isso. Não é só estética. É voltar a mastigar dos dois lados, sem dor, sem prótese que solta no pior momento.</p>
+          
+        </div>
+    </div>
+    <div class="note"><span class="lbl">Direção de cena</span>Talking head. Pode listar os alimentos com texto na tela aparecendo um a um.</div>
+    <div class="cta"><span class="lbl">CTA</span>Quer saber o que dá pra fazer no seu caso? Faz o teste no link. <span class="cta-link">→ quiz de Implantes · institutosabrinasiqueira-implantes.vercel.app</span></div>
+  </article>
+</section>
+
+<!-- LONGOS -->
+<section class="group">
+  
+  <div class="sec-head">
+    <span class="sec-kicker">Bloco 3 · 90–120s</span>
+    <h2 class="sec-title">Vídeos longos</h2>
+    <p class="sec-desc">Pra aprofundar, emocionar e converter. Roteiro em blocos do gancho ao CTA.</p>
+  </div>
+  
+  <article class="rt">
+    <div class="rt-head">
+      <span class="rt-n">L1</span>
+      <span class="rt-dur">90–120s · vertical 9:16 · roteiro em blocos</span>
+    </div>
+    <h3 class="rt-title">O passo a passo de uma reabilitação séria</h3>
+    <p class="rt-obj"><span class="lbl">Objetivo</span>Mostrar o processo completo e dar segurança antes da decisão.</p>
+    <div class="blocos">
+      
+        <div class="bloco">
+          <div class="bloco-label">Gancho</div>
+          <p class="bloco-fala">Você merece saber exatamente como funciona antes de decidir. Então deixa eu te mostrar o caminho de uma reabilitação feita com seriedade — do primeiro dia ao sorriso pronto.</p>
+          <p class="bloco-dir">▸ Tom de quem guia, não vende.</p>
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Etapa 1 · Avaliação</div>
+          <p class="bloco-fala">Primeiro a gente avalia tudo: osso, gengiva, mordida, a sua saúde. Sem isso, qualquer orçamento é chute.</p>
+          
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Etapa 2 · Planejamento</div>
+          <p class="bloco-fala">Depois eu monto o plano do seu caso. Quantos implantes, em que ordem, em quanto tempo e quanto custa — tudo na mesa, sem surpresa no meio do caminho.</p>
+          
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Etapa 3 · Execução</div>
+          <p class="bloco-fala">A gente executa por fases, com calma e segurança. Você sabe o que esperar em cada uma.</p>
+          
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Etapa 4 · Acompanhamento</div>
+          <p class="bloco-fala">E quando o sorriso fica pronto, eu não sumo. Implante precisa de manutenção, e eu acompanho pra durar.</p>
+          
+        </div>
+    </div>
+    <div class="note"><span class="lbl">Direção de cena</span>Talking head com nome da etapa aparecendo na tela. Ritmo firme e tranquilo.</div>
+    <div class="cta"><span class="lbl">CTA</span>Se é assim que você quer ser tratado, começa pelo teste no link. Em dois minutos eu entendo o seu caso. <span class="cta-link">→ quiz de Implantes · institutosabrinasiqueira-implantes.vercel.app</span></div>
+  </article>
+  <article class="rt">
+    <div class="rt-head">
+      <span class="rt-n">L2</span>
+      <span class="rt-dur">90–120s · vertical 9:16 · roteiro em blocos</span>
+    </div>
+    <h3 class="rt-title">Quem adiou por anos</h3>
+    <p class="rt-obj"><span class="lbl">Objetivo</span>Identificação emocional com quem posterga e reposicionamento (confiança, não preço).</p>
+    <div class="blocos">
+      
+        <div class="bloco">
+          <div class="bloco-label">Gancho</div>
+          <p class="bloco-fala">Eu já perdi a conta de quantas pessoas chegaram aqui dizendo a mesma frase: "Dra., eu adio isso há anos".</p>
+          <p class="bloco-dir">▸ Tom de conversa, sem pressa.</p>
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Desenvolvimento</div>
+          <p class="bloco-fala">Anos rindo de boca fechada. Anos fugindo da foto de família. Anos comendo de um lado só, escolhendo restaurante pelo que dá pra mastigar. E sempre aquele "mês que vem eu resolvo" — que nunca chega.</p>
+          
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Virada</div>
+          <p class="bloco-fala">E sabe o que quase todo mundo fala depois que termina? "Eu deveria ter feito isso há muito tempo." Não pela vaidade. Pela liberdade de viver sem se esconder.</p>
+          
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Reposicionamento</div>
+          <p class="bloco-fala">O que segurou nunca foi o dinheiro. Foi não ter encontrado alguém em quem confiar. Eu trabalho pra ser essa pessoa: com plano, com clareza, com acompanhamento.</p>
+          
+        </div>
+    </div>
+    <div class="note"><span class="lbl">Direção de cena</span>Talking head íntimo. Deixar a frase "eu deveria ter feito isso há muito tempo" respirar.</div>
+    <div class="cta"><span class="lbl">CTA</span>Se você se reconheceu, talvez seja a hora. Faz o teste no link, sem compromisso, e a gente conversa sobre o seu caso. <span class="cta-link">→ quiz de Implantes · institutosabrinasiqueira-implantes.vercel.app</span></div>
+  </article>
+  <article class="rt">
+    <div class="rt-head">
+      <span class="rt-n">L3</span>
+      <span class="rt-dur">90–120s · vertical 9:16 · roteiro em blocos</span>
+    </div>
+    <h3 class="rt-title">5 perguntas antes de colocar implante</h3>
+    <p class="rt-obj"><span class="lbl">Objetivo</span>Conteúdo útil e salvável que separa quem faz sério de quem só vende.</p>
+    <div class="blocos">
+      
+        <div class="bloco">
+          <div class="bloco-label">Gancho</div>
+          <p class="bloco-fala">Antes de colocar implante em qualquer lugar, faz essas cinco perguntas. Elas separam quem faz sério de quem só quer vender.</p>
+          <p class="bloco-dir">▸ Numerar na tela. Tom de conselho.</p>
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Pergunta 1</div>
+          <p class="bloco-fala">Um: "Vocês me avaliam antes de passar o orçamento?" Se o preço vem antes do exame, desconfie.</p>
+          
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Pergunta 2</div>
+          <p class="bloco-fala">Dois: "Qual é o plano completo do meu caso?" Você tem que entender quantos implantes, onde e em quanto tempo.</p>
+          
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Pergunta 3</div>
+          <p class="bloco-fala">Três: "O que pode dar errado, e o que vocês fazem nesse caso?" Quem é honesto fala dos riscos, não só do sorriso.</p>
+          
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Pergunta 4</div>
+          <p class="bloco-fala">Quatro: "Tem acompanhamento depois?" Implante sem manutenção é meio caminho pro problema.</p>
+          
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Pergunta 5</div>
+          <p class="bloco-fala">Cinco: "Eu vou falar com a mesma profissional do começo ao fim?" Reabilitação é relação, não é esteira.</p>
+          
+        </div>
+    </div>
+    <div class="note"><span class="lbl">Direção de cena</span>Talking head com cada pergunta grande na tela. Vídeo feito pra ser salvo.</div>
+    <div class="cta"><span class="lbl">CTA</span>Se você quer um sim pras cinco, faz o teste no link. É o primeiro passo. <span class="cta-link">→ quiz de Implantes · institutosabrinasiqueira-implantes.vercel.app</span></div>
+  </article>
+</section>
+
+<footer class="end">
+  <div class="end-mark">SIMPLE ACC</div>
+  <p>Roteiros produzidos para o Instituto Sabrina Siqueira · Frente 2 — Implantes e Reabilitação Oral · 2026-06-25.<br>Destino de todos os CTAs: institutosabrinasiqueira-implantes.vercel.app</p>
+</footer>
+
+</body></html>

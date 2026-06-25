@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Roteiros — Frente 1 — Odontologia Inclusiva — Instituto Sabrina Siqueira</title>
+<style>
+:root{
+  --midnight:#0A1626; --navy:#0E2138; --navy2:#122B4A; --blue:#3E5C8A;
+  --steel:#8197B6; --ice:#EEF3FA; --white:#fff; --ink:#16202f; --ink-soft:#3a4656; --muted:#6f7f95;
+  --line-light:#e1e8f1;
+  --serif:Georgia,"Times New Roman",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+@page{ size:A4; margin:15mm 14mm; }
+html{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{font-family:var(--sans);color:var(--ink);font-size:11pt;line-height:1.6}
+.lbl{font-family:var(--sans);text-transform:uppercase;letter-spacing:.14em;font-size:8pt;font-weight:700;color:var(--blue);display:block;margin-bottom:5px}
+
+/* CAPA */
+.cover{
+  position:relative;color:#fff;border-radius:0;
+  margin:-15mm -14mm 0; padding:34mm 18mm; min-height:267mm;
+  display:flex;flex-direction:column;justify-content:space-between;
+  page-break-after:always;
+  background:
+    radial-gradient(700px 320px at 14% 8%, rgba(120,150,210,.18), transparent 60%),
+    radial-gradient(520px 380px at 92% 96%, rgba(62,92,138,.20), transparent 62%),
+    linear-gradient(150deg,#0e2138 0%,#0a1626 62%,#070f1b 100%);
+}
+.cover-top{display:flex;justify-content:space-between;align-items:center}
+.wordmark{font-family:var(--serif);letter-spacing:.32em;font-size:13pt;color:#fff;font-weight:700}
+.cover-conf{font-family:var(--sans);text-transform:uppercase;letter-spacing:.2em;font-size:8pt;color:#9fb1cc}
+.cover-center{margin-top:auto;margin-bottom:auto}
+.cover-eyebrow{font-family:var(--sans);text-transform:uppercase;letter-spacing:.22em;font-size:9pt;font-weight:700;color:var(--steel)}
+.cover-title{font-family:var(--serif);font-size:40pt;line-height:1.05;font-weight:700;margin:14px 0 0;color:#fff}
+.cover-rule{height:2px;width:96px;background:linear-gradient(90deg,var(--steel),transparent);margin:22px 0 24px}
+.cover-bigidea{font-family:var(--serif);font-style:italic;font-size:18pt;line-height:1.45;color:#dbe5f3;max-width:150mm}
+.cover-foot{display:flex;justify-content:space-between;font-family:var(--sans);text-transform:uppercase;letter-spacing:.14em;font-size:8pt;color:#7e90ab;border-top:1px solid #1c3354;padding-top:14px}
+
+/* INTRO */
+.intro{padding:4mm 0 0;page-break-after:always}
+.intro-nota{font-size:11pt;color:var(--ink-soft);background:var(--ice);border-left:3px solid var(--blue);padding:14px 18px;border-radius:0 8px 8px 0;margin:6px 0 22px}
+.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.intro-card{border:1px solid var(--line-light);border-radius:10px;padding:16px 18px}
+.intro-card .ic-h{font-family:var(--sans);font-weight:700;font-size:9.5pt;text-transform:uppercase;letter-spacing:.1em;color:var(--blue);margin-bottom:7px}
+.intro-card p{font-size:10pt;color:var(--ink-soft);line-height:1.55}
+
+/* SEÇÕES */
+.sec-kicker{font-family:var(--sans);text-transform:uppercase;letter-spacing:.2em;font-size:8.5pt;font-weight:700;color:var(--blue)}
+.sec-title{font-family:var(--serif);font-size:26pt;font-weight:700;line-height:1.1;margin:8px 0 0;color:var(--midnight)}
+.sec-desc{font-size:10.5pt;color:var(--muted);margin-top:8px;max-width:160mm}
+.group{padding-top:2mm}
+.group .sec-head{page-break-after:avoid;margin-bottom:14px;padding-top:2mm}
+
+/* ROTEIRO */
+.rt{border:1px solid var(--line-light);border-radius:12px;padding:20px 22px;margin-bottom:14px;page-break-inside:avoid;background:#fff}
+.rt-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.rt-n{font-family:var(--serif);font-weight:700;font-size:15pt;color:#fff;background:var(--midnight);width:auto;padding:4px 12px;border-radius:6px;letter-spacing:.04em}
+.rt-dur{font-family:var(--sans);text-transform:uppercase;letter-spacing:.1em;font-size:8pt;font-weight:600;color:var(--muted)}
+.rt-title{font-family:var(--serif);font-size:17pt;font-weight:700;color:var(--midnight);line-height:1.15;margin-bottom:8px}
+.rt-obj{font-size:9.5pt;color:var(--ink-soft);margin-bottom:14px;line-height:1.5}
+.rt-obj .lbl{display:inline;margin-right:8px}
+
+.block-label{font-family:var(--sans);text-transform:uppercase;letter-spacing:.12em;font-size:8pt;font-weight:700;color:var(--steel);margin-bottom:8px}
+.fala{background:var(--ice);border-radius:9px;padding:16px 20px;margin-bottom:14px}
+.fala p{font-size:12.5pt;line-height:1.72;color:var(--ink);margin-bottom:11px}
+.fala p:last-child{margin-bottom:0}
+
+.blocos{margin-bottom:14px}
+.bloco{padding:11px 0;border-bottom:1px dashed var(--line-light)}
+.bloco:last-child{border-bottom:none}
+.bloco-label{font-family:var(--sans);text-transform:uppercase;letter-spacing:.1em;font-size:8pt;font-weight:700;color:var(--blue);margin-bottom:5px}
+.bloco-fala{font-size:11.5pt;line-height:1.6;color:var(--ink)}
+.bloco-dir{font-size:9pt;color:var(--muted);font-style:italic;margin-top:5px}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px}
+.note{border:1px solid var(--line-light);border-radius:8px;padding:12px 14px;font-size:9.5pt;color:var(--ink-soft);line-height:1.5}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.chip{display:inline-block;background:var(--midnight);color:#dbe5f3;font-size:8.5pt;padding:5px 11px;border-radius:20px;line-height:1.3}
+
+.cta{background:var(--navy2);color:#eaf1fb;border-radius:9px;padding:14px 18px;font-size:10.5pt;line-height:1.5;margin-top:2px}
+.cta .lbl{color:#9db6dd}
+.cta-link{display:block;margin-top:6px;font-family:var(--sans);font-size:9pt;font-weight:600;letter-spacing:.04em;color:#9db6dd}
+
+/* FIM */
+.end{margin:8mm -14mm -15mm;padding:24mm 18mm;color:#9fb1cc;background:linear-gradient(150deg,#0e2138,#0a1626);page-break-inside:avoid}
+.end-mark{font-family:var(--serif);letter-spacing:.3em;font-size:14pt;color:#fff;font-weight:700;margin-bottom:10px}
+.end p{font-size:9pt;line-height:1.6}
+</style></head>
+<body>
+
+<!-- CAPA -->
+<header class="cover">
+  <div class="cover-top">
+    <span class="wordmark">SIMPLE ACC</span>
+    <span class="cover-conf">Instituto Sabrina Siqueira</span>
+  </div>
+  <div class="cover-center">
+    <span class="cover-eyebrow">Frente 1 — Odontologia Inclusiva</span>
+    <h1 class="cover-title">Roteiros para gravar</h1>
+    <div class="cover-rule"></div>
+    <p class="cover-bigidea">O seu filho não tem medo de dentista.<br>Ele tem medo de quem nunca aprendeu a atender ele.</p>
+  </div>
+  <div class="cover-foot">
+    <span>9 roteiros · 3 curtos · 3 médios · 3 longos</span>
+    <span>Dra. Sabrina Siqueira · 2026-06-25</span>
+  </div>
+</header>
+
+<!-- COMO USAR -->
+<section class="intro">
+  <span class="sec-kicker">Como usar</span>
+  <h2 class="sec-title">Antes de gravar</h2>
+  <p class="intro-nota">Frente de propósito real (a Dra. Sabrina é mãe de uma criança autista). Falar de mãe para mãe — nunca tratar como "nicho". Eixo: <b>manejo</b> (ambiente preparado, tempo da criança, dessensibilização, vínculo) — o oposto de conter ou sedar.</p>
+  <div class="intro-grid">
+    <div class="intro-card"><div class="ic-h">Formato</div><p>Todos verticais (9:16), pra Reels, TikTok e Shorts. Talking head: você falando direto pra câmera, sem precisar de equipe.</p></div>
+    <div class="intro-card"><div class="ic-h">Curtos · 15–30s</div><p>Fala escrita por extenso (teleprompter). É só ler como se fosse uma conversa — não como locução de propaganda.</p></div>
+    <div class="intro-card"><div class="ic-h">Médios e longos</div><p>Roteiro em blocos (gancho → desenvolvimento → CTA), com as falas-chave prontas. Pode falar com naturalidade, sem decorar.</p></div>
+    <div class="intro-card"><div class="ic-h">Sempre termina no quiz</div><p>Todo vídeo fecha mandando pro <b>quiz da Inclusão</b> (institutosabrinasiqueira.vercel.app) — o mesmo funil dos anúncios.</p></div>
+    <div class="intro-card"><div class="ic-h">Tom</div><p>Acolhedor, humano e direto. Fala de gente pra gente. Nada mecânico, nada de "promessa milagrosa".</p></div>
+    <div class="intro-card"><div class="ic-h">Cuidado</div><p>Nunca prometa resultado garantido. Cenas de pacientes são representativas — só publique caso real com consentimento.</p></div>
+  </div>
+</section>
+
+<!-- CURTOS -->
+<section class="group">
+  
+  <div class="sec-head">
+    <span class="sec-kicker">Bloco 1 · 15–30s</span>
+    <h2 class="sec-title">Vídeos curtos</h2>
+    <p class="sec-desc">Pra parar o scroll. Um gancho forte, uma ideia só, e o CTA. Fala literal — leia como conversa.</p>
+  </div>
+  
+  <article class="rt">
+    <div class="rt-head">
+      <span class="rt-n">C1</span>
+      <span class="rt-dur">15–30s · vertical 9:16 · fala literal</span>
+    </div>
+    <h3 class="rt-title">"Vamos ter que conter"</h3>
+    <p class="rt-obj"><span class="lbl">Objetivo</span>Parar o scroll da mãe, nomear a dor que ela já ouviu e apresentar o manejo como caminho.</p>
+    <div class="block-label">Fala — teleprompter (lê como conversa, não como locução)</div>
+    <div class="fala"><p>Se algum dentista já olhou pro seu filho e disse "vamos ter que conter" ou "volta quando ele estiver maior"… respira. Porque eu preciso te falar uma coisa.</p><p>Seu filho não precisa ser segurado à força pra cuidar dos dentes. Ele precisa de um lugar preparado pra ele e de alguém que respeite o tempo dele.</p><p>Isso tem nome: manejo. E é o oposto de contenção.</p><p>Eu atendo crianças autistas todo dia aqui em Valadares. E a maioria chega depois de ouvir que "não colabora". Não é verdade.</p></div>
+    <div class="grid2">
+      <div class="note"><span class="lbl">Cena</span>Talking head, perto da câmera, fundo calmo do consultório. Corte seco já na primeira frase — sem "oi, gente".</div>
+      <div class="note"><span class="lbl">Texto na tela</span><div class="chips"><span class="chip">"Vamos ter que conter"</span><span class="chip">Existe outro caminho: MANEJO</span></div></div>
+    </div>
+    <div class="cta"><span class="lbl">CTA</span>Faz o teste rápido no link e descobre se o meu jeito de atender é pro seu filho. <span class="cta-link">→ quiz da Inclusão · institutosabrinasiqueira.vercel.app</span></div>
+  </article>
+  <article class="rt">
+    <div class="rt-head">
+      <span class="rt-n">C2</span>
+      <span class="rt-dur">20–30s · vertical 9:16 · fala literal</span>
+    </div>
+    <h3 class="rt-title">Ele não tem medo de dentista</h3>
+    <p class="rt-obj"><span class="lbl">Objetivo</span>Entregar a big idea da frente de forma direta e memorável.</p>
+    <div class="block-label">Fala — teleprompter (lê como conversa, não como locução)</div>
+    <div class="fala"><p>Vou te falar uma frase que pode mudar a forma como você vê o dentista do seu filho.</p><p>Seu filho não tem medo de dentista. Ele tem medo de quem nunca aprendeu a atender ele.</p><p>Barulho, luz forte, pressa, uma mão estranha na boca sem aviso — claro que ele reage. Qualquer um reagiria.</p><p>Quando o ambiente respeita ele, e alguém constrói confiança antes de qualquer procedimento, a criança colabora. Eu vejo isso acontecer toda semana.</p></div>
+    <div class="grid2">
+      <div class="note"><span class="lbl">Cena</span>Close, tom de conversa baixa e firme. Olhar direto na câmera.</div>
+      <div class="note"><span class="lbl">Texto na tela</span><div class="chips"><span class="chip">Ele não tem medo de dentista.</span><span class="chip">Tem medo de quem nunca aprendeu a atender ele.</span></div></div>
+    </div>
+    <div class="cta"><span class="lbl">CTA</span>Quer saber se o seu filho se daria bem aqui? Tem um teste rápido no link — começa por ele. <span class="cta-link">→ quiz da Inclusão · institutosabrinasiqueira.vercel.app</span></div>
+  </article>
+  <article class="rt">
+    <div class="rt-head">
+      <span class="rt-n">C3</span>
+      <span class="rt-dur">25–30s · vertical 9:16 · fala literal</span>
+    </div>
+    <h3 class="rt-title">Antes de dentista, sou mãe</h3>
+    <p class="rt-obj"><span class="lbl">Objetivo</span>Ativar o propósito e a identificação mãe-com-mãe (autoridade vivida, não teórica).</p>
+    <div class="block-label">Fala — teleprompter (lê como conversa, não como locução)</div>
+    <div class="fala"><p>Antes de ser a dentista do seu filho, eu sou mãe de uma menina autista.</p><p>Então quando você me conta que saiu de uma consulta com a criança chorando e você se sentindo culpada… eu não preciso imaginar. Eu já vivi isso.</p><p>Foi por causa da minha filha que eu transformei o consultório inteiro pra atender quem é como ela.</p><p>Não foi estratégia. Foi necessidade. E hoje é o que eu mais amo fazer.</p></div>
+    <div class="grid2">
+      <div class="note"><span class="lbl">Cena</span>Tom íntimo, mais pausado. Pode estar sentada. Silêncio de 1s depois de "eu já vivi isso".</div>
+      <div class="note"><span class="lbl">Texto na tela</span><div class="chips"><span class="chip">Sou dentista.</span><span class="chip">E sou mãe de uma criança autista.</span></div></div>
+    </div>
+    <div class="cta"><span class="lbl">CTA</span>Se você procura alguém que entende por dentro, faz o teste no link. Eu te explico como funciona. <span class="cta-link">→ quiz da Inclusão · institutosabrinasiqueira.vercel.app</span></div>
+  </article>
+</section>
+
+<!-- MÉDIOS -->
+<section class="group">
+  
+  <div class="sec-head">
+    <span class="sec-kicker">Bloco 2 · 45–60s</span>
+    <h2 class="sec-title">Vídeos médios</h2>
+    <p class="sec-desc">Pra explicar e gerar autoridade. Estrutura em blocos com as falas-chave; fale com naturalidade.</p>
+  </div>
+  
+  <article class="rt">
+    <div class="rt-head">
+      <span class="rt-n">M1</span>
+      <span class="rt-dur">45–60s · vertical 9:16 · roteiro em blocos</span>
+    </div>
+    <h3 class="rt-title">O que é manejo, em 4 pontos</h3>
+    <p class="rt-obj"><span class="lbl">Objetivo</span>Educar sobre o mecanismo único — sair do "odontologia inclusiva" genérico para algo concreto.</p>
+    <div class="blocos">
+      
+        <div class="bloco">
+          <div class="bloco-label">Gancho (0–5s)</div>
+          <p class="bloco-fala">Todo mundo fala em "odontologia inclusiva". Quase ninguém explica o que de fato muda. Então deixa eu te mostrar em 4 pontos.</p>
+          <p class="bloco-dir">▸ Corte seco, sem trilha, sem introdução.</p>
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">1 · Ambiente</div>
+          <p class="bloco-fala">Primeiro, o ambiente. Menos luz forte, menos barulho, menos espera. Um lugar pensado pra não desregular o seu filho.</p>
+          
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">2 · Tempo</div>
+          <p class="bloco-fala">Segundo, o tempo é da criança, não meu. Se hoje a gente só consegue sentar na cadeira e se conhecer, ótimo. Isso já é trabalho feito.</p>
+          
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">3 · Vínculo</div>
+          <p class="bloco-fala">Terceiro, eu construo vínculo antes de qualquer procedimento. A criança colabora porque se sente segura — não porque foi forçada.</p>
+          
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">4 · Continuidade</div>
+          <p class="bloco-fala">E quarto, é contínuo. Eu acompanho. A criança que não sentava na cadeira começa a entrar sozinha.</p>
+          
+        </div>
+    </div>
+    <div class="note"><span class="lbl">Direção de cena</span>Talking head. Marcar cada ponto com um leve corte/jump cut. Número aparece grande na tela a cada bloco.</div>
+    <div class="cta"><span class="lbl">CTA</span>Se isso faz sentido pro seu filho, tem um teste rápido no link. Começa por ele que eu te mostro o próximo passo. <span class="cta-link">→ quiz da Inclusão · institutosabrinasiqueira.vercel.app</span></div>
+  </article>
+  <article class="rt">
+    <div class="rt-head">
+      <span class="rt-n">M2</span>
+      <span class="rt-dur">50–60s · vertical 9:16 · roteiro em blocos</span>
+    </div>
+    <h3 class="rt-title">Por que conter não deveria ser a primeira resposta</h3>
+    <p class="rt-obj"><span class="lbl">Objetivo</span>Quebrar a objeção "mas às vezes precisa segurar" e diferenciar manejo de contenção.</p>
+    <div class="blocos">
+      
+        <div class="bloco">
+          <div class="bloco-label">Gancho</div>
+          <p class="bloco-fala">Conter e sedar não são errados em si. O problema é quando viram a primeira resposta — porque é a única que aquele profissional conhece.</p>
+          <p class="bloco-dir">▸ Tom firme, sem julgar a mãe.</p>
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Desenvolvimento</div>
+          <p class="bloco-fala">Quando você segura uma criança à força, você até termina o procedimento de hoje. Mas você ensina o corpo dela que dentista é perigo. E aí o próximo é pior. E o próximo. Até virar um trauma que dura anos.</p>
+          
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Virada</div>
+          <p class="bloco-fala">Manejo dá mais trabalho, sim. Leva mais sessões no começo. Mas constrói o contrário: cada visita fica mais fácil que a anterior.</p>
+          
+        </div>
+    </div>
+    <div class="note"><span class="lbl">Direção de cena</span>Talking head, ritmo mais lento na parte do trauma. Pausa antes da virada.</div>
+    <div class="cta"><span class="lbl">CTA</span>Se você quer que cada consulta seja mais tranquila que a última, faz o teste no link. É por aí que a gente começa. <span class="cta-link">→ quiz da Inclusão · institutosabrinasiqueira.vercel.app</span></div>
+  </article>
+  <article class="rt">
+    <div class="rt-head">
+      <span class="rt-n">M3</span>
+      <span class="rt-dur">50–60s · vertical 9:16 · roteiro em blocos</span>
+    </div>
+    <h3 class="rt-title">De "não senta na cadeira" a "entra sozinha"</h3>
+    <p class="rt-obj"><span class="lbl">Objetivo</span>Mostrar a transformação (continuidade) com uma cena concreta e emocional.</p>
+    <div class="blocos">
+      
+        <div class="bloco">
+          <div class="bloco-label">Gancho</div>
+          <p class="bloco-fala">Tem uma cena que eu nunca canso de ver no meu consultório.</p>
+          <p class="bloco-dir">▸ Sorriso leve, tom de quem vai contar algo bom.</p>
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Desenvolvimento</div>
+          <p class="bloco-fala">Uma criança que na primeira vez não passava nem da porta. Chorava, fugia, a mãe pedindo desculpa o tempo todo. A gente foi devagar: uma visita só pra conhecer, depois só pra sentar, depois só pra contar os dentes.</p>
+          
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Virada</div>
+          <p class="bloco-fala">Semanas depois, essa mesma criança entra no consultório sozinha. Senta. Abre a boca. E a mãe filma porque não acredita no que tá vendo.</p>
+          
+        </div>
+    </div>
+    <div class="note"><span class="lbl">Direção de cena</span>Talking head. Falar como quem relembra — pessoal, sem exagero. Cena representativa: não citar nome real nem prometer o mesmo resultado.</div>
+    <div class="cta"><span class="lbl">CTA</span>Isso não é sorte, é método. Faz o teste no link pra ver se cabe pro seu filho. <span class="cta-link">→ quiz da Inclusão · institutosabrinasiqueira.vercel.app</span></div>
+  </article>
+</section>
+
+<!-- LONGOS -->
+<section class="group">
+  
+  <div class="sec-head">
+    <span class="sec-kicker">Bloco 3 · 90–120s</span>
+    <h2 class="sec-title">Vídeos longos</h2>
+    <p class="sec-desc">Pra aprofundar, emocionar e converter. Roteiro em blocos do gancho ao CTA.</p>
+  </div>
+  
+  <article class="rt">
+    <div class="rt-head">
+      <span class="rt-n">L1</span>
+      <span class="rt-dur">90–120s · vertical 9:16 · roteiro em blocos</span>
+    </div>
+    <h3 class="rt-title">Tudo que acontece antes de eu encostar no seu filho</h3>
+    <p class="rt-obj"><span class="lbl">Objetivo</span>Reduzir o medo do trauma mostrando, passo a passo, a primeira experiência.</p>
+    <div class="blocos">
+      
+        <div class="bloco">
+          <div class="bloco-label">Gancho</div>
+          <p class="bloco-fala">Eu sei que a sua maior pergunta não é o preço. É: "será que vai ser mais um trauma?". Então deixa eu te contar exatamente o que acontece antes de eu encostar um dedo no seu filho.</p>
+          <p class="bloco-dir">▸ Tom acolhedor, olhando na câmera.</p>
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Passo 1 · Conhecer</div>
+          <p class="bloco-fala">A primeira visita pode não ter procedimento nenhum. É só pra criança conhecer o lugar, os sons, e me conhecer. Sem surpresa, sem força.</p>
+          
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Passo 2 · Dessensibilizar</div>
+          <p class="bloco-fala">A gente apresenta cada coisa aos poucos. O espelhinho, a cadeira que sobe, o barulhinho do aspirador. Tudo no tempo dele.</p>
+          
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Passo 3 · Vínculo</div>
+          <p class="bloco-fala">Eu não sou uma estranha de máscara que aparece e já mexe na boca. Quando a gente chega no procedimento de verdade, já existe confiança ali.</p>
+          
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Passo 4 · Você junto</div>
+          <p class="bloco-fala">E você fica perto. Você conhece o seu filho melhor que ninguém. Eu trabalho com você, não contra você.</p>
+          
+        </div>
+    </div>
+    <div class="note"><span class="lbl">Direção de cena</span>Talking head, pode intercalar com pausa entre os passos. Texto do passo aparece pequeno no rodapé da tela.</div>
+    <div class="cta"><span class="lbl">CTA</span>Se é isso que você procurava, o link tem um teste rápido. Responde que eu te mostro como a gente começa. <span class="cta-link">→ quiz da Inclusão · institutosabrinasiqueira.vercel.app</span></div>
+  </article>
+  <article class="rt">
+    <div class="rt-head">
+      <span class="rt-n">L2</span>
+      <span class="rt-dur">90–120s · vertical 9:16 · roteiro em blocos</span>
+    </div>
+    <h3 class="rt-title">A culpa não é sua</h3>
+    <p class="rt-obj"><span class="lbl">Objetivo</span>Acolher a mãe que sai dos consultórios se sentindo culpada e reposicionar — alta carga emocional.</p>
+    <div class="blocos">
+      
+        <div class="bloco">
+          <div class="bloco-label">Gancho</div>
+          <p class="bloco-fala">Se você já saiu de um consultório com seu filho chorando e você se sentindo a pior mãe do mundo — esse vídeo é pra você.</p>
+          <p class="bloco-dir">▸ Voz baixa. Pausa após o gancho.</p>
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">A verdade</div>
+          <p class="bloco-fala">Eu preciso te dizer uma coisa: a culpa não é sua. E não é do seu filho. Ele não é "difícil". Ele só foi colocado num lugar que não foi feito pra ele, com alguém que não aprendeu a atender ele.</p>
+          
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Reconhecimento</div>
+          <p class="bloco-fala">Você já fez muito. Você rodou consultório, gastou, pesquisou, insistiu. Isso não é fracasso. Isso é uma mãe que não desiste.</p>
+          
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Propósito</div>
+          <p class="bloco-fala">Eu falo isso porque sou mãe de uma criança autista. Eu já estive na cadeira do lado, segurando o choro. Hoje eu uso isso pra atender o seu filho de um jeito diferente.</p>
+          
+        </div>
+    </div>
+    <div class="note"><span class="lbl">Direção de cena</span>O mais íntimo dos vídeos. Sentada, luz suave, sem cortes rápidos. Deixar o silêncio respirar.</div>
+    <div class="cta"><span class="lbl">CTA</span>Quando você estiver pronta, o link tem um teste rápido pra eu entender o caso do seu filho. Sem pressa. No seu tempo. <span class="cta-link">→ quiz da Inclusão · institutosabrinasiqueira.vercel.app</span></div>
+  </article>
+  <article class="rt">
+    <div class="rt-head">
+      <span class="rt-n">L3</span>
+      <span class="rt-dur">90–120s · vertical 9:16 · roteiro em blocos</span>
+    </div>
+    <h3 class="rt-title">4 perguntas antes de escolher o dentista do seu filho</h3>
+    <p class="rt-obj"><span class="lbl">Objetivo</span>Conteúdo útil e salvável que posiciona a Dra. Sabrina como a resposta certa.</p>
+    <div class="blocos">
+      
+        <div class="bloco">
+          <div class="bloco-label">Gancho</div>
+          <p class="bloco-fala">Antes de marcar com qualquer dentista pro seu filho autista ou neurodivergente, faz essas 4 perguntas. Elas te poupam de um trauma.</p>
+          <p class="bloco-dir">▸ Tom de conselho de quem entende. Numerar na tela.</p>
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Pergunta 1</div>
+          <p class="bloco-fala">Um: "O ambiente é adaptado?" Dá pra reduzir luz, barulho e espera? Se a resposta for "é igual pra todo mundo", acende o alerta.</p>
+          
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Pergunta 2</div>
+          <p class="bloco-fala">Dois: "Vocês trabalham com manejo ou com contenção?" Se a primeira saída deles for segurar ou sedar, procura outro.</p>
+          
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Pergunta 3</div>
+          <p class="bloco-fala">Três: "Posso fazer uma visita só pra ele conhecer, sem procedimento?" Quem entende de verdade diz sim na hora.</p>
+          
+        </div>
+        <div class="bloco">
+          <div class="bloco-label">Pergunta 4</div>
+          <p class="bloco-fala">Quatro: "Vocês acompanham ao longo do tempo?" Inclusão não é uma consulta avulsa. É continuidade.</p>
+          
+        </div>
+    </div>
+    <div class="note"><span class="lbl">Direção de cena</span>Talking head com cada pergunta aparecendo grande na tela. Vídeo feito pra ser salvo e compartilhado em grupos de mães.</div>
+    <div class="cta"><span class="lbl">CTA</span>Se você quer um lugar que responde sim pras quatro, faz o teste no link. É aqui. <span class="cta-link">→ quiz da Inclusão · institutosabrinasiqueira.vercel.app</span></div>
+  </article>
+</section>
+
+<footer class="end">
+  <div class="end-mark">SIMPLE ACC</div>
+  <p>Roteiros produzidos para o Instituto Sabrina Siqueira · Frente 1 — Odontologia Inclusiva · 2026-06-25.<br>Destino de todos os CTAs: institutosabrinasiqueira.vercel.app</p>
+</footer>
+
+</body></html>
