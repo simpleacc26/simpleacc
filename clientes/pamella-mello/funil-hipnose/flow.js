@@ -1,8 +1,9 @@
 /* ============================================================
-   FLOW — Funil de Hipnose · Pâmella Mello
+   FLOW. Funil de Hipnose · Pâmella Mello
    Toda a copy do quiz e do relatório vive aqui.
    Conteúdo da ESTRATÉGIA aprovada pela cliente. Para editar
    perguntas/textos, mexa só neste arquivo.
+   Padrão de escrita: nunca usar travessões (traço longo).
    ============================================================ */
 window.FLOW = {
   config: {
@@ -14,16 +15,16 @@ window.FLOW = {
   marca: {
     nome: "Pâmella Mello",
     expert: "Pâmella Mello",
-    // Número no formato internacional, só dígitos (ex: 5531999999999)
-    whatsapp: "5531000000000",
+    // Número no formato internacional, só dígitos
+    whatsapp: "5531993196471",
     // O {nome} é trocado pelo primeiro nome de quem respondeu
     whatsappMsg:
       "Oi! Sou {nome}, acabei de fazer a leitura emocional no site e quero falar sobre a Sessão de Avaliação.",
   },
 
   hero: {
-    selo: "Hipnoterapia clínica + neurociência · Contagem/BH e online",
-    titulo: "Descubra a origem emocional do que te trava — e o caminho para resolver de vez.",
+    selo: "Hipnose Clínica · Leis Biológicas · Neurociência",
+    titulo: "Descubra a origem emocional do que te trava e o caminho para resolver de vez.",
     subtitulo:
       "Responda algumas perguntas rápidas e receba uma leitura personalizada do seu cenário emocional e do acompanhamento que faz sentido pra você.",
     tempo: "Leva ~2 minutos · 100% confidencial",
@@ -53,7 +54,7 @@ window.FLOW = {
       etapa: "Problema",
       pergunta: "O que mais pesa no seu dia a dia?",
       options: [
-        { value: "mente", label: "Não consigo desligar a mente / não descanso de verdade",
+        { value: "mente", label: "Não consigo desligar a mente, não descanso de verdade",
           report: "não conseguir desligar a mente e não descansar de verdade" },
         { value: "cobranca", label: "Me cobro demais e nunca está bom o suficiente",
           report: "se cobrar demais, sentindo que nunca está bom o suficiente" },
@@ -70,7 +71,7 @@ window.FLOW = {
       options: [
         { value: "recente", label: "Começou recentemente (últimos meses)", report: "alguns meses" },
         { value: "ano", label: "Mais de 1 ano", report: "mais de um ano" },
-        { value: "anos", label: "Vários anos — virou parte de como eu funciono", report: "vários anos" },
+        { value: "anos", label: "Vários anos, virou parte de como eu funciono", report: "vários anos" },
         { value: "sempre", label: 'Desde sempre, parece que é "do meu jeito"', report: "praticamente a vida toda" },
       ],
     },
@@ -80,8 +81,8 @@ window.FLOW = {
       pergunta: "Como isso já afetou o que importa pra você?",
       options: [
         { value: "relacionamentos", label: "Meus relacionamentos", report: "os seus relacionamentos" },
-        { value: "trabalho", label: "Meu trabalho / minha renda", report: "o seu trabalho e a sua renda" },
-        { value: "saude", label: "Minha saúde (sono, corpo, energia)", report: "a sua saúde — sono, corpo, energia" },
+        { value: "trabalho", label: "Meu trabalho e minha renda", report: "o seu trabalho e a sua renda" },
+        { value: "saude", label: "Minha saúde (sono, corpo, energia)", report: "a sua saúde, no sono, no corpo e na energia" },
         { value: "tudo", label: "Tudo isso ao mesmo tempo", report: "tudo isso ao mesmo tempo" },
       ],
     },
@@ -90,7 +91,7 @@ window.FLOW = {
       etapa: "O que já tentou",
       pergunta: "O que você já tentou para melhorar?",
       options: [
-        { value: "terapia", label: "Terapia convencional — ajudou, mas não resolveu a raiz",
+        { value: "terapia", label: "Terapia convencional, que ajudou mas não resolveu a raiz",
           report: "fazer terapia convencional, que ajudou mas não resolveu a raiz" },
         { value: "medicacao", label: "Medicação", report: "recorrer à medicação" },
         { value: "autoajuda", label: "Conteúdo, autoajuda, força de vontade",
@@ -104,7 +105,7 @@ window.FLOW = {
       etapa: "Objetivo",
       pergunta: "Se você pudesse mudar uma coisa nos próximos meses, seria:",
       options: [
-        { value: "paz", label: "Parar de viver em estado de alerta / ter paz",
+        { value: "paz", label: "Parar de viver em estado de alerta e ter paz",
           report: "parar de viver em estado de alerta e ter paz" },
         { value: "padroes", label: "Quebrar os padrões que eu repito",
           report: "quebrar os padrões que se repetem" },
@@ -120,7 +121,7 @@ window.FLOW = {
       pergunta: "Este atendimento é para:",
       options: [
         { value: "mim", label: "Mim" },
-        { value: "filho", label: "Meu filho(a) / adolescente" },
+        { value: "filho", label: "Meu filho(a) ou adolescente" },
         { value: "parceiro", label: "Meu parceiro(a) ou familiar" },
         { value: "naosei", label: "Ainda não sei" },
       ],
@@ -130,7 +131,7 @@ window.FLOW = {
       etapa: "Onde você está",
       pergunta: "De onde você é? Atendemos Contagem/BH presencialmente e o Brasil todo no online.",
       options: [
-        { value: "bh", label: "Contagem / Belo Horizonte e região (posso ir presencialmente)" },
+        { value: "bh", label: "Contagem, Belo Horizonte e região (posso ir presencialmente)" },
         { value: "mg", label: "Em Minas, mas fora da região metropolitana" },
         { value: "online", label: "Em outro estado (faria por atendimento online)" },
         { value: "fora", label: "Fora do Brasil", foraDeArea: true },
@@ -140,11 +141,11 @@ window.FLOW = {
       id: "prontidao",
       etapa: "O próximo passo",
       pergunta:
-        "Você está buscando um processo terapêutico estruturado e definitivo — mesmo que represente um investimento maior do que uma sessão avulsa?",
+        "Você busca um processo terapêutico estruturado e definitivo, mesmo que represente um investimento maior do que uma sessão avulsa?",
       options: [
         { value: "sim", label: "Sim, quero resolver de vez e entendo que isso é um investimento" },
         { value: "entender", label: "Sim, mas preciso entender melhor como funciona antes" },
-        { value: "pontual", label: "No momento, busco algo mais pontual / de menor custo", nutrir: true },
+        { value: "pontual", label: "No momento, busco algo mais pontual ou de menor custo", nutrir: true },
         { value: "pesquisando", label: "Só estou pesquisando por enquanto", nutrir: true },
       ],
     },

@@ -1,15 +1,17 @@
 /* ============================================================
-   APP — motor do funil (render, validação, persistência, tracking)
+   APP. Motor do funil (render, validação, persistência, tracking).
    Sem dependências externas. Funciona abrindo o index.html.
+   Padrão de escrita: nunca usar travessões (traço longo).
    ============================================================ */
 
 /* ---- Tracking plugável: preencha os IDs e os eventos vão junto.
    Vazio = só loga no console. ---- */
 const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
 
-/* Planilha de leads (Google Apps Script / Make). Cole aqui a URL do endpoint e
-   republique. Vazio = não envia (só salva local + segue pro diagnóstico). */
-const LEADS_ENDPOINT = "";
+/* Planilha de leads via Make (webhook instant → Google Sheets).
+   Dispara só quando chega lead; não fica varrendo (não consome crédito à toa).
+   Planilha: "Planilha de Leads - Pâmella Mello (Funil Hipnose)". */
+const LEADS_ENDPOINT = "https://hook.us2.make.com/rp7hon9ytnlurjy6unxfjr4ne343yrnh";
 
 /* UTMs capturadas da URL no carregamento (a página do quiz não muda de URL até
    o envio, então isso preserva os parâmetros do anúncio). */
@@ -33,8 +35,17 @@ function trackEvent(name, data = {}) {
   } catch (e) { /* tracking nunca quebra o funil */ }
 }
 
-/* Envia o lead pro endpoint. Manda as respostas já em texto legível.
-   Fire-and-forget: nunca trava o fluxo do lead. */
+/* Classifica o lead pela prontidão e geografia (mesma régua do diagnóstico).
+   Qualifica por intenção, não por pergunta crua de renda. */
+function classificarLead(a) {
+  if (a.geografia === "fora") return "fora";
+  if (a.prontidao === "pontual" || a.prontidao === "pesquisando") return "nutrir";
+  return "qualificado";
+}
+
+/* Envia o lead pro webhook do Make (formato padrão da casa: name/email/
+   whatsapp + meta + utms + answers q1..q9). Fire-and-forget: nunca trava o
+   fluxo do lead. O Make grava a linha na planilha. */
 function enviarLead() {
   if (!LEADS_ENDPOINT) return;
   const a = state.answers;
@@ -44,13 +55,23 @@ function enviarLead() {
     return o ? o.label : "";
   };
   const lead = {
-    data: new Date().toISOString(),
-    nome: a.nomeResp || "", whatsapp: a.whatsapp || "", email: a.email || "",
-    situacao: label("situacao"), problema: label("problema"), tempo: label("tempo"),
-    impacto: label("impacto"), necessidade: label("necessidade"), objetivo: label("objetivo"),
-    perfil: label("perfil"), geografia: label("geografia"), prontidao: label("prontidao"),
-    frente: (F.config && F.config.frente) || "Hipnose", origem: document.referrer || location.href,
-    ...URL_UTMS,
+    name: a.nomeResp || "",
+    email: a.email || "",
+    whatsapp: a.whatsapp || "",
+    qualificacao: classificarLead(a),
+    frente: (F.config && F.config.frente) || "Hipnose",
+    answers: {
+      q1: label("situacao"), q2: label("problema"), q3: label("tempo"),
+      q4: label("impacto"), q5: label("necessidade"), q6: label("objetivo"),
+      q7: label("perfil"), q8: label("geografia"), q9: label("prontidao"),
+    },
+    utms: URL_UTMS,
+    meta: {
+      timestamp: new Date().toISOString(),
+      page_url: location.href,
+      referrer: document.referrer || "",
+      user_agent: navigator.userAgent || "",
+    },
   };
   try {
     fetch(LEADS_ENDPOINT, { method: "POST", mode: "no-cors",

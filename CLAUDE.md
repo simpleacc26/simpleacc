@@ -30,3 +30,12 @@ mais de uma pessoa, em máquinas diferentes.
 
 - Pastas em minúsculas, sem acento, com hífen: `rafael-granella`, `quiz-alivance`.
 - Branches: `cliente/<cliente>/<assunto>` ou `interno/<assunto>`.
+
+## Convenção de escrita (vale para TODOS os materiais)
+
+- **Nunca usar travessões (traço longo).** Nada de "—" nem "–" em copy, textos
+  de site, comentários de código, READMEs, docs, mensagens. Travessão deixa o
+  texto com cara de IA. Use vírgula, ponto, dois-pontos, parênteses ou reescreva
+  a frase. Para faixas, use "de X a Y" (ex.: "R$3.500 a R$4.000"), não "X–Y".
+- Hífen comum em palavras compostas (ex.: "follow-up", "pós-expansão") é normal
+  e permitido; o proibido é o traço longo usado como pausa.

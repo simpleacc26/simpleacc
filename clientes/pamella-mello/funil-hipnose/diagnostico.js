@@ -1,6 +1,7 @@
 /* ============================================================
-   DIAGNÓSTICO — monta a leitura emocional a partir das respostas
+   DIAGNÓSTICO. Monta a leitura emocional a partir das respostas
    do quiz (sessionStorage) e habilita o CTA de WhatsApp.
+   Padrão de escrita: nunca usar travessões (traço longo).
    ============================================================ */
 const STORE_KEY = "pamella_funil_hipnose";
 const F = window.FLOW;
@@ -37,7 +38,6 @@ if (!a._completedAt && !a.problema) {
   const objetivo = frase("objetivo") || "uma vida mais leve";
 
   const foraDeArea = valor("geografia") === "fora";
-  const online = valor("geografia") !== "bh";
   const prontidaoVal = valor("prontidao");
   const nutrir = prontidaoVal === "pontual" || prontidaoVal === "pesquisando";
   const modalidade = valor("geografia") === "bh" ? "presencial em Contagem/BH" : "online";
@@ -46,15 +46,15 @@ if (!a._completedAt && !a.problema) {
   let ctaLabel, ctaExtra, clube;
   if (foraDeArea) {
     ctaLabel = "Falar com a equipe da clínica";
-    ctaExtra = '<p class="hint">O atendimento é presencial em Contagem/BH e online para todo o Brasil. Me chama que a gente vê o que é possível pra você. 💜</p>';
+    ctaExtra = '<p class="hint">O atendimento é presencial em Contagem/BH e online para todo o Brasil. Me chama que a gente vê o que é possível pra você. 💛</p>';
     clube = "";
   } else if (nutrir) {
     ctaLabel = "Quero entender melhor como funciona";
-    ctaExtra = "<p class=\"hint\">Sem compromisso. A equipe te explica o método e tira suas dúvidas no seu tempo.</p>";
-    clube = '<p class="clube">Quando fizer sentido pra você, o primeiro passo é a <strong>Sessão de Avaliação</strong> — um mapeamento do seu cenário, sem compromisso de seguir.</p>';
+    ctaExtra = '<p class="hint">Sem compromisso. A equipe te explica o método e tira suas dúvidas no seu tempo.</p>';
+    clube = '<p class="clube">Quando fizer sentido pra você, o primeiro passo é a <strong>Sessão de Avaliação</strong>: um mapeamento do seu cenário, sem compromisso de seguir.</p>';
   } else {
     ctaLabel = "Quero agendar minha Sessão de Avaliação";
-    ctaExtra = `<p class="hint">Atendimento ${modalidade}, individual e confidencial. A avaliação já te entrega clareza — decida ou não seguir.</p>`;
+    ctaExtra = `<p class="hint">Atendimento ${modalidade}, individual e confidencial. A avaliação já te entrega clareza, decida ou não seguir.</p>`;
     clube = '<p class="clube">A partir da avaliação, conduzimos o <strong>protocolo terapêutico individual</strong>, pensado pro seu caso.</p>';
   }
 
@@ -67,9 +67,9 @@ if (!a._completedAt && !a.problema) {
 
     <div class="etapa">
       <h3>Antes de tudo</h3>
-      <p>Oi, ${nome}! Aqui é da equipe da Pâmella. 💜 Li com atenção tudo o que você
+      <p>Oi, ${nome}! Aqui é da equipe da Pâmella. 💛 Li com atenção tudo o que você
       respondeu. E quero começar com uma coisa que talvez ninguém tenha te dito:
-      <strong>o que você vive não é falta de esforço, nem "frescura".</strong> Tem uma explicação —
+      <strong>o que você vive não é falta de esforço, nem "frescura".</strong> Tem uma explicação,
       e tem caminho.</p>
     </div>
 
@@ -84,7 +84,7 @@ if (!a._completedAt && !a.problema) {
     <div class="etapa">
       <h3>Por que não resolveu até agora</h3>
       <p>Você já chegou a <strong>${tentativa}</strong>, e mesmo assim o padrão voltou. Faz
-      sentido: a maioria das abordagens trabalha o que você <em>sente hoje</em>. O alívio vem — e
+      sentido: a maioria das abordagens trabalha o que você <em>sente hoje</em>. O alívio vem, e
       por isso parece estar funcionando. Mas a origem emocional, os gatilhos e memórias guardados
       no inconsciente, continua intacta. <strong>Não é recaída sua; é a causa que não foi acessada.</strong></p>
     </div>
@@ -105,21 +105,22 @@ if (!a._completedAt && !a.problema) {
 
     <div class="etapa">
       <h3>Como o método trabalha</h3>
-      <p>Hipnoterapia clínica + neurociência, num acompanhamento individual e estruturado, em
-      quatro etapas:</p>
+      <p>Hipnose Clínica, Leis Biológicas e Neurociência, num acompanhamento individual e
+      estruturado, em quatro etapas:</p>
       <ol class="metodo">
-        <li><strong>Investigação da origem</strong> — os gatilhos, memórias e crenças que sustentam o padrão.</li>
-        <li><strong>Consciência</strong> — enxergar com clareza o que operava no automático.</li>
-        <li><strong>Ressignificação</strong> — reorganizar as experiências que alimentam o sofrimento.</li>
-        <li><strong>Reprogramação emocional</strong> — novas respostas, de forma sustentável.</li>
+        <li><strong>Investigação da origem:</strong> os gatilhos, memórias e crenças que sustentam o padrão.</li>
+        <li><strong>Consciência:</strong> enxergar com clareza o que operava no automático.</li>
+        <li><strong>Ressignificação:</strong> reorganizar as experiências que alimentam o sofrimento.</li>
+        <li><strong>Reprogramação emocional:</strong> novas respostas, de forma sustentável.</li>
       </ol>
+      <p class="hint">É um processo com data pra começar e pra terminar. A maioria dos casos evolui em até 3 meses.</p>
     </div>
 
     <div class="etapa">
       <h3>O que precisa acontecer agora</h3>
       <p>O caminho começa por uma <strong>Sessão de Avaliação</strong>: um mapeamento completo do
       seu histórico e dos seus padrões, com a definição de um plano individual. Você sai dela
-      entendendo exatamente o que está acontecendo. O que você deseja — <strong>${objetivo}</strong> —
+      entendendo exatamente o que está acontecendo. O que você deseja, <strong>${objetivo}</strong>,
       é totalmente possível. A gente faz isso todos os dias.</p>
     </div>
 
@@ -132,7 +133,7 @@ if (!a._completedAt && !a.problema) {
 
     <div class="cta-box">
       <h2 style="margin-top:0">O próximo passo, ${nome}</h2>
-      <p>Dar o primeiro passo é simples — e no seu tempo.</p>
+      <p>Dar o primeiro passo é simples, e no seu tempo.</p>
       ${ctaExtra}
       <div class="actions" style="justify-content:center">
         <button class="btn btn-primary" id="whatsapp-2">${ctaLabel}</button>

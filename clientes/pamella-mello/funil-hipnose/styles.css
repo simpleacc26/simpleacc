@@ -1,32 +1,34 @@
 /* ============================================================
    PÂMELLA MELLO · Funil de Hipnose
-   Identidade: ametista/lilás sobre off-white quente · hipnoterapia
-   clínica + neurociência. Calma, acolhimento, transformação.
-   PALETA PROVISÓRIA — ajustar quando vier o brand kit/logo da clínica.
+   Identidade: dourado/champagne + espresso sobre marfim quente,
+   serifa elegante. Espelha o feed (@pamellam.hipnoterapeuta):
+   hipnoterapia clínica + neurociência, sofisticado e acolhedor.
+   Paleta provisória de marca; ajustar ao brand kit/logo oficiais.
    ============================================================ */
 :root {
-  --bg:          #F4F0F7;  /* lilás-marfim (fundo) */
-  --bg-2:        #ECE5F2;  /* um tom abaixo */
-  --surface:     #FFFFFF;  /* cartões */
-  --text:        #2C2438;  /* ameixa profunda (texto principal) */
-  --muted:       #786C88;  /* texto secundário */
+  --bg:          #F3EEE6;  /* marfim quente (fundo) */
+  --bg-2:        #ECE3D5;  /* um tom abaixo */
+  --surface:     #FFFDF9;  /* cartões (off-white quente) */
+  --text:        #2A2420;  /* espresso quase preto (texto) */
+  --muted:       #8A7B66;  /* texto secundário (taupe) */
 
-  /* tons da marca (usados também pelo relatório) */
-  --primary:     #6E4FA1;  /* ametista da marca */
-  --primary-700: #543C80;  /* ametista escuro (hover/realce) */
-  --accent-soft: #EFE7F7;  /* lilás suave (pílulas/seleção) */
+  /* dourado da marca (usado também pelo relatório) */
+  --primary:     #B0843A;  /* dourado */
+  --primary-700: #8A6526;  /* dourado escuro (realce) */
+  --accent-soft: #F1E7D1;  /* champagne suave (pílulas/seleção) */
 
-  --action:      #5B3E94;  /* botão principal (contraste AA sobre branco) */
-  --action-700:  #472F75;  /* hover do botão */
+  --action:      #2A2420;  /* botão principal (espresso, contraste AA) */
+  --action-700:  #100D0B;  /* hover do botão */
+  --on-action:   #FBF6EC;  /* texto sobre o botão (creme) */
 
-  --border:      #E4DAEE;  /* bordas (lilás dessaturado) */
-  --ring:        #6E4FA1;  /* foco de teclado */
+  --border:      #E6D8C0;  /* bordas (champagne dessaturado) */
+  --ring:        #B0843A;  /* foco de teclado */
   --err:         #B4452B;  /* erros (contraste AA sobre claro) */
 
   --radius:      18px;
   --radius-sm:   12px;
-  --shadow:      0 1px 3px rgba(44,36,56,.06), 0 10px 28px rgba(110,79,161,.10);
-  --shadow-lg:   0 2px 6px rgba(44,36,56,.08), 0 22px 54px rgba(110,79,161,.16);
+  --shadow:      0 1px 3px rgba(42,36,32,.06), 0 10px 28px rgba(138,101,38,.10);
+  --shadow-lg:   0 2px 6px rgba(42,36,32,.08), 0 22px 54px rgba(138,101,38,.16);
   --maxw:        600px;
 
   --font:        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -55,7 +57,7 @@ img { max-width: 100%; display: block; }
 .brand .brand-name {
   font-family: var(--font-serif); font-size: 23px; font-weight: 700; letter-spacing: .04em;
   color: var(--primary-700);
-  background: linear-gradient(92deg, var(--primary-700), var(--primary) 55%, var(--primary-700));
+  background: linear-gradient(92deg, var(--primary-700), #D8B566 55%, var(--primary-700));
   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
 }
 .brand .brand-tag { font-size: 10.5px; letter-spacing: .42em; text-transform: uppercase; color: var(--primary); padding-left: .42em; }
@@ -64,9 +66,9 @@ img { max-width: 100%; display: block; }
 /* ---------- progresso ---------- */
 .progress-wrap { position: sticky; top: 0; z-index: 20; background: linear-gradient(180deg, var(--bg) 70%, transparent); padding: 10px 0 8px; }
 .progress-meta { display: flex; justify-content: space-between; font-size: 13px; color: var(--primary-700); font-weight: 600; margin: 0 2px 7px; }
-.progress-track { height: 7px; background: #E0D5EC; border-radius: 99px; overflow: hidden; }
+.progress-track { height: 7px; background: #E4D6BC; border-radius: 99px; overflow: hidden; }
 .progress-bar { height: 100%; width: 0; border-radius: 99px; transition: width .45s cubic-bezier(.16,1,.3,1);
-  background: linear-gradient(90deg, var(--primary), #9A7BD0); }
+  background: linear-gradient(90deg, var(--primary), #D8B566); }
 
 /* ---------- cartão / telas ---------- */
 .card {
@@ -134,14 +136,14 @@ h2 { font-size: 25px; line-height: 1.25; margin: 0 0 16px; }
 /* ---------- botões ---------- */
 .actions { display: flex; gap: 12px; align-items: center; margin-top: 24px; }
 .btn { font: inherit; font-weight: 700; cursor: pointer; border: none; border-radius: 99px; padding: 16px 26px; transition: background .2s, transform .12s, box-shadow .2s, opacity .2s; }
-.btn-primary { background: var(--action); color: #FFFFFF; box-shadow: 0 8px 20px rgba(91,62,148,.28); }
+.btn-primary { background: var(--action); color: var(--on-action); box-shadow: 0 8px 20px rgba(42,36,32,.26); }
 .btn-primary:hover { background: var(--action-700); transform: translateY(-1px); }
 .btn-primary:disabled { opacity: .55; cursor: not-allowed; transform: none; box-shadow: none; }
 .btn-ghost { background: transparent; color: var(--muted); padding: 16px 14px; }
 .btn-ghost:hover { color: var(--text); }
 .btn-block { width: 100%; justify-content: center; display: flex; }
 .btn:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
-.spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(255,255,255,.5); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; vertical-align: -3px; margin-right: 8px; }
+.spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(251,246,236,.5); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; vertical-align: -3px; margin-right: 8px; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
 /* ---------- resume banner ---------- */
