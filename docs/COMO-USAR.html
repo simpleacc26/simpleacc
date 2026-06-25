@@ -167,7 +167,7 @@
 │   │   ├── funis/              <span class="c">← páginas, quizzes, landing pages</span>
 │   │   └── aprendizados.md     <span class="c">← o que funciona / não funciona</span>
 │   └── ...(os outros clientes, mesma estrutura)
-├── prompts/                    <span class="c">← prompts mestres (ex.: o do /funil)</span>
+├── prompts/                    <span class="c">← prompts mestres (ex.: o do /prompt-mestre)</span>
 ├── docs/                       <span class="c">← manual e este guia</span>
 └── _modelo/                    <span class="c">← modelo para criar cliente novo</span></pre>
 </section>
@@ -180,7 +180,7 @@
     <li>No seletor, escolha <strong>Simple Acc → simpleacc → main</strong>.</li>
     <li>Diga o cliente e a tarefa: <em>"Trabalhar em <code>clientes/sense-clinic</code>: criar a landing."</em></li>
     <li>Peça para <strong>ler <code>contexto/</code> e <code>aprendizados.md</code></strong> do cliente antes de criar nada.</li>
-    <li>Para gerar funil / página / anúncios, use o comando <strong><code>/funil</code></strong>.</li>
+    <li>Para gerar funil / página / anúncios, use o comando <strong><code>/prompt-mestre</code></strong>.</li>
     <li>Ao terminar, a IA salva e abre um <strong>PR</strong> → revisar → <strong>merge</strong>.</li>
     <li><strong>Registre o aprendizado</strong> em <code>aprendizados.md</code> do cliente.</li>
   </ol>
@@ -188,8 +188,8 @@
 
 <section>
   <span class="sec-num">05 — Comando</span>
-  <h2>O comando <code>/funil</code></h2>
-  <p class="lead">Em qualquer sessão, digite <code>/funil</code>. Ele assume o papel do nosso prompt mestre e conduz: <strong>diagnóstico → aprofundamento → resumo → geração</strong> (página em HTML puro ou copy de anúncios). Dentro da pasta de um cliente, já usa o contexto dele.</p>
+  <h2>O comando <code>/prompt-mestre</code></h2>
+  <p class="lead">Em qualquer sessão, digite <code>/prompt-mestre</code>. Ele assume o papel do nosso prompt mestre e conduz: <strong>diagnóstico → aprofundamento → resumo → geração</strong> (página em HTML puro ou copy de anúncios). Dentro da pasta de um cliente, já usa o contexto dele.</p>
   <p class="muted" style="color:var(--muted);font-size:15px">Outros comandos virão (ex.: <code>/roteiro</code>, <code>/copy</code>) conforme cadastrarmos os prompts mestres em <code>prompts/</code>.</p>
 </section>
 

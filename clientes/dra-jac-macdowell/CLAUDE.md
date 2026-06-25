@@ -16,7 +16,7 @@ onde o outro parou (o Git é a memória compartilhada).
 ## Ao trabalhar para este cliente
 
 1. **Antes de criar**, leia `contexto/` e `aprendizados.md` para não recomeçar do zero.
-2. Para gerar funil/página/anúncios, rode **`/funil`** — ele já usa o contexto daqui.
+2. Para gerar funil/página/anúncios, rode **`/prompt-mestre`** — ele já usa o contexto daqui.
 3. Salve os entregáveis na pasta certa (acima) e **registre o aprendizado** em `aprendizados.md`.
 4. Trabalhe numa branch `cliente/dra-jac-macdowell/<assunto>` e abra PR.
 

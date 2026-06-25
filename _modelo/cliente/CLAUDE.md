@@ -12,7 +12,7 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
 
 ## Ao trabalhar para este cliente
 1. Leia `contexto/` e `aprendizados.md` antes de criar.
-2. Rode `/funil` para gerar funil/página/anúncios.
+2. Rode `/prompt-mestre` para gerar funil/página/anúncios.
 3. Salve na pasta certa e registre o aprendizado.
 4. Branch `cliente/<slug>/<assunto>` + PR.
 

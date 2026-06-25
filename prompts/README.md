@@ -9,7 +9,7 @@ verdade** (um arquivo `.md` nesta pasta) e um **comando** correspondente em
 
 | Comando   | Fonte                      | Para quê |
 | --------- | -------------------------- | -------- |
-| `/funil`  | `prompts/funil-html.md`    | Criar funil/página completa em HTML puro ou anúncios (copy + criativo). Conduz diagnóstico → aprofundamento → geração. |
+| `/prompt-mestre`  | `prompts/funil-html.md`    | Criar funil/página completa em HTML puro ou anúncios (copy + criativo). Conduz diagnóstico → aprofundamento → geração. |
 
 ## Skills disponíveis
 
@@ -22,7 +22,7 @@ a tarefa combina (ou você pode pedir pelo nome).
 
 ## Como usar
 
-Em qualquer sessão, digite o comando (ex.: **`/funil`**) e o agente assume o papel
+Em qualquer sessão, digite o comando (ex.: **`/prompt-mestre`**) e o agente assume o papel
 do prompt mestre. Se você estiver na pasta de um cliente, ele já puxa o contexto
 daquele cliente antes de começar.
 
@@ -30,7 +30,7 @@ daquele cliente antes de começar.
 
 1. Crie o conteúdo em `prompts/<nome>.md` (a fonte de verdade, editável por todos).
 2. Crie o comando em `.claude/commands/<nome>.md` apontando para esse arquivo
-   (use o `funil.md` como modelo).
+   (use o `prompt-mestre.md` como modelo).
 3. Adicione uma linha na tabela acima.
 
 > Editar o prompt = editar o arquivo em `prompts/`. O comando só aponta para ele,

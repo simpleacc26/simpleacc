@@ -20,7 +20,7 @@ mais de uma pessoa, em máquinas diferentes.
 
 A sessão é descartável; **a memória que permanece são os arquivos no Git**. Ao
 trabalhar para um cliente, **leia `contexto/` e `aprendizados.md` antes de criar**
-e **registre aprendizados** depois. Para gerar funil/página/anúncios, use `/funil`.
+e **registre aprendizados** depois. Para gerar funil/página/anúncios, use `/prompt-mestre`.
 
 ## Regras ao trabalhar aqui
 
