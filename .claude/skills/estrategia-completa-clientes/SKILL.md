@@ -33,6 +33,7 @@ O valor está em três coisas que o time costuma errar quando faz na mão:
 1. EXTRAÇÃO   → ler o onboarding e preencher o mapa estratégico
 2. GERAÇÃO    → escrever as 8 seções no modelo, adaptadas ao cliente
 3. ENTREGA    → virar Google Doc formatado na pasta do cliente no Drive
+4. VERSIONAR  → salvar a fonte (.md) em clientes/<cliente>/estrategia/ no repo
 ```
 
 Não pule a extração. Gerar copy sem entender o ICP, as frentes e o gargalo é o
@@ -97,6 +98,25 @@ importação de HTML aplica a formatação real. Depois, limpar os arquivos
 intermediários. O playbook tem o passo a passo, os comandos e os erros a evitar
 (não tente subir `.docx` local — é rejeitado/grande demais).
 
+### Passo 4 — Versionar no repositório (memória = Git)
+
+Além do Google Doc, **salve a fonte do documento no repositório**, para que a
+estratégia fique versionada junto com o resto do conhecimento do cliente (a
+memória que permanece é o Git, não o Drive).
+
+1. Salve o conteúdo em Markdown em:
+   `clientes/<cliente>/estrategia/AAAA-MM-DD-estrategia.md`
+   (use o `<cliente>` no padrão de pasta — minúsculas, sem acento, com hífen;
+   ex.: `clientes/sense-clinic/estrategia/2026-06-25-estrategia.md`).
+2. No topo do arquivo, inclua: data, autor, link do Google Doc gerado e as
+   premissas assumidas.
+3. Registre uma linha em `clientes/<cliente>/aprendizados.md` (data + "estratégia
+   inicial criada" + link do Doc).
+4. Faça commit numa branch `cliente/<cliente>/estrategia` e abra um PR.
+
+> Assim, da próxima vez que alguém for evoluir a estratégia, lê a versão anterior
+> no repo e cria a próxima (`-v2`), em vez de recomeçar do zero.
+
 ---
 
 ## Checklist antes de entregar
@@ -107,5 +127,6 @@ intermediários. O playbook tem o passo a passo, os comandos e os erros a evitar
 - [ ] Voz/tom pedidos pelo cliente respeitados (principalmente na cadência)
 - [ ] Entregue como **Google Doc formatado** (títulos, negrito, listas) — não texto cru
 - [ ] Doc na **pasta certa** do cliente no Drive
+- [ ] **Fonte (.md) salva em `clientes/<cliente>/estrategia/`** e aprendizado registrado (memória no Git)
 - [ ] Arquivos intermediários (HTML/teste) removidos; sem duplicado de nome igual
 - [ ] Link do Doc final informado à pessoa
