@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quem realmente compra — ICP · Carol e José</title>
+<style>
+  :root{
+    --midnight:#0A1626; --navy:#0E2138; --navy-2:#122B4A;
+    --blue:#3E5C8A; --blue-soft:#7d99c4; --blue-link:#34527D;
+    --steel:#8197B6; --ice:#EEF3FA; --white:#FFFFFF;
+    --ink:#16202f; --ink-soft:#3a4656; --muted:#6f7f95;
+    --line-light:#e1e8f1;
+    --green:#2f7a55; --green-bg:#eef5f0; --green-line:#d3e4d8;
+    --red:#a85a4f; --red-bg:#faf1f0; --red-line:#ecdada;
+    --amber:#9a6a1f; --amber-bg:#fbf3e6;
+    --text:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --display:"Didot","Bodoni 72","Hoefler Text",Georgia,"Times New Roman",serif;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--text);color:var(--ink);background:#fff;line-height:1.7;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-size:17px}
+  .wrap{max-width:960px;margin:0 auto}
+  .label{text-transform:uppercase;letter-spacing:.18em;font-size:11.5px;font-weight:700}
+
+  .cover{color:#fff;padding:72px 7vw 56px;
+    background:
+      radial-gradient(900px 380px at 14% 6%, rgba(120,150,210,.16), transparent 58%),
+      radial-gradient(620px 460px at 6% 96%, rgba(60,92,138,.14), transparent 62%),
+      linear-gradient(135deg,#0e2138 0%,#0a1626 60%,#070f1b 100%);}
+  .cover .topbar{display:flex;justify-content:space-between;color:#9fb1cc;flex-wrap:wrap;gap:8px}
+  .cover .mark{font-family:var(--display);font-size:38px;letter-spacing:13px;margin:44px 0 6px}
+  .cover .flare{height:1px;width:200px;background:linear-gradient(90deg,var(--steel),transparent);opacity:.6;margin:16px 0}
+  .cover h1{font-weight:700;font-size:clamp(25px,4.4vw,38px);line-height:1.15;margin:16px 0 10px;letter-spacing:-.01em}
+  .cover .sub{color:#bccadf;font-size:18px;max-width:720px}
+  .cover .foot{display:flex;gap:26px;color:#7e90ab;flex-wrap:wrap;margin-top:30px}
+
+  .tldr{background:var(--midnight);color:#eaf0fa;padding:28px 7vw}
+  .tldr .inner{max-width:960px;margin:0 auto}
+  .tldr .h{color:var(--blue-soft);font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:12px;margin-bottom:10px}
+  .tldr p{font-size:18px;line-height:1.6;color:#dbe5f4} .tldr b{color:#fff}
+
+  section{padding:50px 7vw;border-bottom:1px solid var(--line-light)}
+  .sec-num{color:var(--blue);font-weight:700;letter-spacing:.18em;font-size:12px;text-transform:uppercase}
+  h2{font-size:clamp(23px,3.4vw,30px);font-weight:700;line-height:1.15;margin:8px 0 14px;letter-spacing:-.01em}
+  h3{font-size:19px;font-weight:700;margin:24px 0 10px}
+  p{margin-bottom:13px;color:var(--ink-soft)}
+  p.lead{font-size:18px;color:var(--ink);max-width:780px}
+  strong{color:var(--ink)}
+  ul{margin:0 0 14px 0;padding-left:22px} li{margin-bottom:9px;color:var(--ink-soft)}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .card{border:1px solid var(--line-light);border-radius:var(--radius);padding:22px 24px;background:#fff}
+  .card.dark{background:var(--midnight);color:#eaf0fa;border:none}
+  .card.dark p,.card.dark li{color:#cfdaec}
+  .card .k{font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:11.5px;color:var(--blue);margin-bottom:10px}
+  .card.dark .k{color:var(--blue-soft)}
+
+  .quotes{margin:14px 0}
+  .quote{border-left:4px solid var(--blue);background:var(--ice);padding:14px 20px;border-radius:0 10px 10px 0;
+    margin:12px 0;font-size:18px;font-style:italic;color:var(--midnight)}
+  .quote .src{display:block;font-style:normal;font-size:12.5px;letter-spacing:.04em;color:var(--muted);margin-top:6px;text-transform:uppercase;font-weight:700}
+
+  .callout{border-left:4px solid var(--blue);background:var(--ice);padding:16px 20px;border-radius:0 10px 10px 0;margin:16px 0}
+  .callout.warn{border-color:var(--amber);background:var(--amber-bg)} .callout.note{border-color:var(--steel)}
+  .callout p:last-child{margin-bottom:0}
+
+  ol.big{counter-reset:i;list-style:none;padding:0}
+  ol.big>li{position:relative;padding:0 0 14px 44px;margin-bottom:6px;color:var(--ink-soft)}
+  ol.big>li::before{counter-increment:i;content:counter(i);position:absolute;left:0;top:0;
+    width:30px;height:30px;border-radius:8px;background:var(--ice);color:var(--blue-link);
+    font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px}
+
+  table{width:100%;border-collapse:collapse;margin:12px 0 16px;font-size:15.5px}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--line-light);vertical-align:top}
+  th{background:var(--ice);color:var(--midnight);font-weight:700;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase}
+  tr:last-child td{border-bottom:none}
+
+  .pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .pill{border:1px solid var(--line-light);border-radius:30px;padding:7px 15px;font-size:13px;font-weight:600;color:#2c3a4d;background:#fff}
+
+  footer{background:linear-gradient(135deg,#0e2138,#0a1626);color:#9fb1cc;padding:44px 7vw}
+  footer .big{font-family:var(--display);color:#fff;font-size:23px;letter-spacing:6px;margin-bottom:8px}
+  footer p{color:#9fb1cc}
+
+  @media(max-width:820px){ .grid2{grid-template-columns:1fr} table{font-size:14px} th,td{padding:9px 10px} }
+  @media print{ .cover,.tldr{-webkit-print-color-adjust:exact;print-color-adjust:exact} section{padding:28px 24px} }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="wrap">
+    <div class="topbar">
+      <span class="label">Resposta ao feedback do CEO</span>
+      <span class="label">"Faltou o principal: quem compra"</span>
+    </div>
+    <div class="mark">SIMPLE ACC</div>
+    <div class="flare"></div>
+    <h1>Quem realmente compra</h1>
+    <p class="sub">O ICP montado a partir de quem fecha — o que a Carol e o José dizem que os clientes deles querem. A base que faltava para acertar a comunicação.</p>
+    <div class="foot">
+      <span class="label">ÚNICOS Club</span>
+      <span class="label">Fontes: reuniões 30/04, 17/06, 23/06 + canvas</span>
+    </div>
+  </div>
+</header>
+
+<div class="tldr">
+  <div class="inner">
+    <div class="h">Para o Daniel</div>
+    <p>O comprador é o <b>dono de negócio em crescimento, fatura acima de R$ 2M, com equipe (30–40 pessoas) e estrutura de liderança</b> — e que já percebeu
+    que <b>pode ser o próprio gargalo</b>. Ele compra <b>"crescimento com margem via mentalidade, pessoas, cultura e estratégia"</b>. As dores que destravam o "sim":
+    <b>formar líderes</b> e <b>executar a estratégia</b>. Hoje fecha por <b>indicação/relacionamento</b>, não por tráfego — é isso que precisamos replicar.
+    <b>Média/mediana reais</b> dependem da lista de clientes que já compraram (seção 6).</p>
+  </div>
+</div>
+
+<!-- 1 -->
+<section class="wrap">
+  <span class="sec-num">01 — Perfil</span>
+  <h2>Quem é o comprador</h2>
+  <p class="lead">Dono de negócio <strong>em crescimento</strong>, faturamento acima de R$ 1M — <strong>os que fecham faturam acima de R$ 2M</strong> (palavra da Carol). Já tem <strong>equipe (às vezes 30–40 pessoas) e estrutura de liderança</strong>.</p>
+  <div class="grid2">
+    <div class="card">
+      <div class="k">Como ele chegou até aqui</div>
+      <p>Empreendedor criativo, com poder de execução. <strong>Cresceu pela execução, não pela gestão de pessoas</strong> — e bateu no teto disso. Quando passou de ~8 liderados, o controle direto quebrou.</p>
+    </div>
+    <div class="card dark">
+      <div class="k">O nível de consciência</div>
+      <p><strong style="color:#fff">Já percebeu que pode ser o próprio gargalo.</strong> Sabe que, sem cuidar de pessoas e liderança, vai travar ou decair. Consciente do problema — falta diagnosticar certo e executar.</p>
+    </div>
+  </div>
+  <div class="callout note"><p><strong>Origem de quem já fechou:</strong> indicação, relacionamento e networking — ainda <strong>não</strong> o tráfego. Destravar isso no tráfego é o objetivo do projeto.</p></div>
+</section>
+
+<!-- 2 -->
+<section class="wrap">
+  <span class="sec-num">02 — Voz do cliente</span>
+  <h2>O que ele fala que quer</h2>
+  <p class="lead">Falas que a Carol ouve nas vendas e na imersão — ouro para a copy do anúncio e do quiz.</p>
+  <div class="quotes">
+    <div class="quote">Mentalidade, pessoas e cultura para mim hoje é essencial — é o que mais me tira o sono.<span class="src">Cliente, relatado por Carol</span></div>
+    <div class="quote">Pessoas, cultura e estratégia é o meu negócio; hoje eu estou focado nisso, é isso que eu preciso.<span class="src">Cliente, relatado por Carol</span></div>
+    <div class="quote">Faço um MBA caro e teórico, vejo um monte de coisa que não me interessa e que conecta pouco com o meu dia a dia.<span class="src">Cliente (IBMEC/FGV/Dom Cabral), relatado por Carol</span></div>
+  </div>
+  <div class="callout"><p><strong>A oferta que ele compra:</strong> "crescimento com margem através do alinhamento de <strong>mentalidade, pessoas, cultura e estratégia</strong>" — e ele entende que <strong>mentalidade vem antes</strong> de investir em competência técnica da equipe.</p></div>
+</section>
+
+<!-- 3 -->
+<section class="wrap">
+  <span class="sec-num">03 — Dores</span>
+  <h2>As dores profundas (onde a comunicação tem que bater)</h2>
+  <ol class="big">
+    <li><strong>Formar e duplicar líderes.</strong> "O dono nem sabe liderar direito" — cresceu sozinho e, na hora de se multiplicar em 2–3 líderes, não tem a lógica.</li>
+    <li><strong>Inteligência de execução.</strong> Tem estratégia; a falha é transformá-la em prática. Fica preso no "redemoinho" do dia a dia e só percebe quando o faturamento cai.</li>
+    <li><strong>Ver a oportunidade passar.</strong> Enxerga oportunidades que não consegue endereçar e vê o concorrente pegar o que era dele.</li>
+    <li><strong>A nova lógica de gestão.</strong> "As coisas mudam mais rápido que nunca; onde eu aprendo a gerir pessoas e negócio nessa nova lógica? Em nenhum lugar."</li>
+  </ol>
+</section>
+
+<!-- 4 -->
+<section class="wrap">
+  <span class="sec-num">04 — Anti-ICP</span>
+  <h2>Quem NÃO é o comprador (o funil precisa excluir)</h2>
+  <table>
+    <tr><th>Sinal</th><th>Por quê não compra</th></tr>
+    <tr><td>Faturamento &lt; R$ 1M (sobretudo produto/indústria)</td><td>Margem baixíssima, retira R$ 2–3 mil/mês — não tem como pagar o high ticket.</td></tr>
+    <tr><td>Nível de inconsciência</td><td>Não sabe que o gargalo é liderança/pessoas; acha que precisa de "consultoria de vendas". Equipe 100% operacional, negócio depende do braço dele.</td></tr>
+    <tr><td>Comportamento de curioso no quiz</td><td>Preenche só nome/telefone/e-mail "para receber o diagnóstico" e não responde o resto.</td></tr>
+  </table>
+</section>
+
+<!-- 5 -->
+<section class="wrap">
+  <span class="sec-num">05 — Sinais de mídia</span>
+  <h2>O que o que já rodou indica</h2>
+  <ul>
+    <li>O criativo que mais converte é <strong>foto da Carol</strong>; o público que mais clica/converte é majoritariamente <strong>mulher (~80%, estimativa do José)</strong> — confirmar com os dados de idade/gênero do gerenciador.</li>
+    <li><strong>Geolocalização:</strong> o ICP não está só em SP/RJ/BH (caros e saturados). Há dono faturando R$ 2–8M no interior/litoral — "água menos turva".</li>
+    <li><strong>O que filtra é a copy</strong>, não a estética: comunicação de alto nível de consciência (cultura, mentalidade, formar líderes) traz MQL melhor.</li>
+  </ul>
+  <div class="pills">
+    <span class="pill">Xangri-lá</span><span class="pill">Capão da Canoa</span><span class="pill">Tocantins</span><span class="pill">Goiânia</span><span class="pill">Brasília</span><span class="pill">Interior em geral</span>
+  </div>
+</section>
+
+<!-- 6 -->
+<section class="wrap">
+  <span class="sec-num">06 — O dado que falta</span>
+  <h2>Média e mediana reais — como obter</h2>
+  <p class="lead">O Daniel pediu média e mediana de <strong>quem realmente compra</strong>. Isso <strong>não</strong> sai dos leads (faturamento autodeclarado e enviesado) — precisa vir da <strong>base real de clientes</strong> da Carol e José.</p>
+
+  <div class="callout warn">
+    <p><strong>Pedir a Carol e José:</strong></p>
+    <ul style="margin-top:8px">
+      <li><strong>Lista dos clientes que já fecharam</strong> (Business R$ 54k e Access R$ 20k): faturamento anual, setor, nº de funcionários, <strong>cargo/papel</strong>, região e <strong>canal de origem</strong> (indicação / evento / tráfego).</li>
+      <li><strong>Ticket pago</strong> por cliente (para ticket médio e mix Business × Access).</li>
+      <li><strong>Transcrições/notas das calls de venda que fecharam</strong> — para extrair a dor e as palavras exatas que antecederam o "sim".</li>
+    </ul>
+  </div>
+  <p>Com isso entregamos: <strong>média e mediana de faturamento dos compradores, ticket médio e o perfil dominante</strong> — a base real para acertar a comunicação.</p>
+  <div class="callout note"><p><strong>O que já podemos afirmar</strong> (voz do cliente, sem a lista): comprador fatura <strong>acima de R$ 2M</strong>, tem <strong>equipe e liderança</strong>, dor de <strong>formar líderes + executar estratégia</strong>, e fecha hoje por <strong>indicação/relacionamento</strong>.</p></div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="big">SIMPLE ACC</div>
+    <p>Quem realmente compra — ICP a partir de quem fecha · Carol e José (ÚNICOS Club).</p>
+    <p style="margin-top:8px;font-size:13px;color:#7d8fa9">Fontes: reuniões de 30/04, 17/06 e 23/06 + canvas do produto/cliente ideal. Falas relatadas pela Carol e pelo José.</p>
+  </div>
+</footer>
+
+</body>
+</html>

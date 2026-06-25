@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brandbook — Simple Acc</title>
+<style>
+  :root{
+    /* COR — tokens */
+    --midnight:#0A1626;      /* navy meia-noite — base/autoridade */
+    --navy:#0E2138;          /* navy de superfície (gradientes) */
+    --navy-2:#122B4A;        /* azul profundo — suporte */
+    --blue:#3E5C8A;          /* azul aço — destaque sóbrio, com parcimônia */
+    --blue-soft:#7d99c4;     /* azul aço claro — variante de logo opcional */
+    --blue-link:#34527D;     /* azul de link sobre claro */
+    --steel:#8197B6;         /* aço claro — hairlines, legendas */
+    --ice:#EEF3FA;           /* branco gelo */
+    --white:#FFFFFF;         /* branco puro */
+    --ink:#16202f;           /* tinta de leitura sobre claro */
+    --ink-soft:#3a4656;
+    --muted:#6f7f95;
+    --line:#1b2c46;          /* hairline sobre escuro */
+    --line-light:#e1e8f1;    /* hairline sobre claro */
+
+    /* TIPOGRAFIA — tokens */
+    --display:"Didot","Bodoni 72","Hoefler Text",Garamond,Georgia,"Times New Roman",serif;
+    --text:"Hoefler Text","Iowan Old Style",Palatino,Georgia,serif;
+    --label:"Helvetica Neue",Arial,sans-serif;
+
+    /* ESPAÇAMENTO — escala 8pt */
+    --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:48px; --s6:64px; --s7:92px;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--text);color:var(--ink);background:#fff;line-height:1.7;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  .label{font-family:var(--label);text-transform:uppercase;letter-spacing:.26em;font-size:11px;font-weight:600}
+  .serif{font-family:var(--display)}
+
+  section{padding:var(--s7) 6vw;border-bottom:1px solid var(--line-light)}
+  .sec-num{color:var(--blue);font-family:var(--label);letter-spacing:.26em;font-size:11px;font-weight:700;text-transform:uppercase}
+  h2.title{font-family:var(--display);font-size:clamp(30px,5vw,52px);font-weight:400;line-height:1.08;margin:14px 0 8px}
+  .lead{font-size:18px;color:var(--ink-soft);max-width:820px;margin-top:10px}
+  .muted{color:var(--muted)}
+  .sub-h{font-family:var(--display);font-weight:400;font-size:22px;margin:44px 0 14px}
+
+  /* COVER */
+  .cover{
+    min-height:100vh;color:#fff;display:flex;flex-direction:column;justify-content:space-between;
+    padding:8vw 6vw;border-bottom:none;
+    background:
+      radial-gradient(900px 380px at 14% 6%, rgba(120,150,210,.16), transparent 58%),
+      radial-gradient(620px 460px at 6% 96%, rgba(60,92,138,.14), transparent 62%),
+      linear-gradient(135deg,#0e2138 0%,#0a1626 60%,#070f1b 100%);
+  }
+  .cover .topbar{display:flex;justify-content:space-between;color:#9fb1cc}
+  .cover .center{display:flex;flex-direction:column;align-items:center;text-align:center;gap:26px}
+  .cover .flare{height:1px;width:220px;background:linear-gradient(90deg,transparent,var(--steel),transparent);opacity:.6}
+  .cover .sub{max-width:620px;color:#bccadf;font-size:18px;font-style:italic}
+  .cover .foot{display:flex;gap:34px;color:#7e90ab;flex-wrap:wrap;justify-content:center}
+
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .card{border:1px solid var(--line-light);border-radius:var(--radius);padding:30px;background:#fff}
+  .card.dark{background:var(--midnight);color:#fff;border:none}
+  .card h3{font-family:var(--display);font-size:24px;font-weight:400;margin-bottom:10px}
+  .pos{font-family:var(--display);font-size:clamp(22px,3.2vw,31px);line-height:1.36;font-weight:400}
+  .pos b{color:var(--blue-link)}
+  .pos.dark b{color:#9db6dd}
+
+  .adj{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+  .adj span{border:1px solid var(--line-light);border-radius:30px;padding:8px 16px;font-family:var(--label);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#2c3a4d}
+
+  /* PRINCÍPIOS */
+  .principles{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:30px}
+  .pr{border:1px solid var(--line-light);border-radius:var(--radius);padding:26px 28px;position:relative}
+  .pr .pn{font-family:var(--display);font-size:30px;color:var(--blue);line-height:1}
+  .pr h4{font-family:var(--display);font-weight:400;font-size:21px;margin:10px 0 8px}
+  .pr p{font-size:15px;color:var(--ink-soft)}
+
+  /* logo */
+  .logo-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .logo-card{border:1px solid var(--line-light);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+  .logo-stage{padding:50px 30px;display:flex;align-items:center;justify-content:center;min-height:210px}
+  .stage-dark{background:
+      radial-gradient(600px 260px at 16% 8%, rgba(120,150,210,.16), transparent 60%),
+      linear-gradient(135deg,#0e2138,#0a1626 70%,#070f1b);}
+  .stage-light{background:var(--ice)}
+  .logo-meta{padding:22px 26px;border-top:1px solid var(--line-light)}
+  .logo-meta .k{font-family:var(--label);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue)}
+  .logo-meta h4{font-family:var(--display);font-size:21px;font-weight:400;margin:5px 0 7px}
+  .logo-meta p{font-size:14.5px;color:#46535f}
+  .rec{display:inline-block;background:var(--navy-2);color:#dce8ff;font-family:var(--label);font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:3px 9px;border-radius:20px;margin-left:8px;vertical-align:middle}
+
+  .apps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .app{border:1px solid var(--line-light);border-radius:12px;overflow:hidden}
+  .app .box{height:120px;display:flex;align-items:center;justify-content:center}
+  .app .cap{padding:10px 14px;font-family:var(--label);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#566;border-top:1px solid var(--line-light)}
+  .b-navy{background:linear-gradient(135deg,#0e2138,#0a1626)}
+  .b-white{background:#fff}
+  .b-ice{background:var(--ice)}
+  .b-blue{background:var(--blue)}
+  .avatar{width:88px;height:88px;border-radius:20px;display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(120px 80px at 22% 12%, rgba(120,150,210,.22), transparent 60%),linear-gradient(135deg,#0e2138,#0a1626)}
+  .favicon{width:48px;height:48px;border-radius:11px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#0e2138,#0a1626)}
+
+  /* mockups de aplicação real */
+  .mocks{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+  .mock{border:1px solid var(--line-light);border-radius:var(--radius);overflow:hidden;background:#fff}
+  .mock .frame{height:300px;position:relative;overflow:hidden}
+  .mock .cap{padding:14px 18px;border-top:1px solid var(--line-light)}
+  .mock .cap .t{font-family:var(--label);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+  .mock .cap .d{font-size:13.5px;color:#46535f;margin-top:5px;line-height:1.5}
+  .scr{position:absolute;inset:0;color:#fff;padding:26px 24px;display:flex;flex-direction:column;
+    background:radial-gradient(420px 220px at 80% -10%,rgba(120,150,210,.20),transparent 60%),linear-gradient(150deg,#0e2138,#0a1626)}
+  .scr .brandline{font-family:var(--display);letter-spacing:6px;font-size:15px;color:#fff}
+  .scr .ey{font-family:var(--label);font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--steel);margin-bottom:14px}
+  .scr .hl{font-family:var(--display);font-size:23px;line-height:1.22;margin-top:auto;color:#fff}
+  .scr .hl em{font-style:italic;color:#aebfdb}
+  .scr .ct{margin-top:16px;align-self:flex-start;border:1px solid var(--steel);color:#dfe8f6;font-family:var(--label);font-size:9px;letter-spacing:.18em;text-transform:uppercase;padding:8px 14px;border-radius:3px}
+  .scr .hair{height:1px;background:linear-gradient(90deg,var(--steel),transparent);opacity:.5;margin:10px 0}
+
+  .misuse{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .mis{border:1px solid #ecdada;border-radius:12px;overflow:hidden}
+  .mis .box{height:110px;display:flex;align-items:center;justify-content:center;background:var(--ice)}
+  .mis .cap{padding:10px 12px;font-family:var(--label);font-size:11px;letter-spacing:.05em;color:#a85a4f;border-top:1px solid #ecdada;text-transform:uppercase}
+  .mis .cap::before{content:"x   ";font-weight:700}
+
+  .pal{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+  .sw{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line-light)}
+  .sw .chip{height:130px}
+  .sw .info{padding:14px 16px}
+  .sw .nm{font-family:var(--display);font-size:18px}
+  .sw .hex{font-family:var(--label);font-size:12px;letter-spacing:.06em;color:#566;margin-top:3px}
+  .sw .use{font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.4}
+
+  .ratio{display:flex;height:46px;border-radius:8px;overflow:hidden;margin-top:22px;border:1px solid var(--line-light)}
+  .ratio span{display:flex;align-items:center;justify-content:center;font-family:var(--label);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+
+  .specimen{border:1px solid var(--line-light);border-radius:16px;padding:34px;margin-top:8px}
+  .scale-row{display:flex;align-items:baseline;gap:18px;border-bottom:1px dashed var(--line-light);padding:16px 0}
+  .scale-row:last-child{border-bottom:none}
+  .scale-row .tag{font-family:var(--label);font-size:11px;letter-spacing:.14em;color:var(--blue);width:150px;flex:none;text-transform:uppercase}
+  .scale-row .ex{font-family:var(--display);line-height:1.1}
+  .scale-row .px{font-family:var(--label);font-size:11px;color:var(--muted);margin-left:auto;flex:none}
+
+  .mood{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:210px;gap:16px}
+  .tile{border-radius:16px;overflow:hidden;position:relative;color:#fff;padding:22px;display:flex;flex-direction:column;justify-content:flex-end;border:1px solid var(--line)}
+  .tile .tlab{font-family:var(--label);font-size:10px;letter-spacing:.2em;text-transform:uppercase;opacity:.85}
+  .tile .tt{font-family:var(--display);font-size:21px;margin-top:6px;line-height:1.18}
+  .tile .td{font-size:12.5px;margin-top:8px;opacity:.78;line-height:1.5}
+  .tile.span2{grid-column:span 2}
+  .t-midnight{background:radial-gradient(420px 220px at 18% 10%,rgba(120,150,210,.22),transparent 60%),linear-gradient(135deg,#0e2138,#0a1626)}
+  .t-speed{background:linear-gradient(115deg,#070f1b 0%,#0e2138 55%,#23426e 130%);position:relative}
+  .t-speed::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(118deg,transparent 0 34px,rgba(255,255,255,.035) 34px 36px)}
+  .t-grid{background:#0c1c33;background-image:linear-gradient(rgba(129,151,182,.14) 1px,transparent 1px),linear-gradient(90deg,rgba(129,151,182,.14) 1px,transparent 1px);background-size:28px 28px}
+  .t-serif{background:var(--ice);color:#0a1626;border:1px solid var(--line-light)}
+  .t-serif .tlab{opacity:.7}
+  .t-serif .td{opacity:.6}
+  .t-blue{background:linear-gradient(150deg,#27406a,#3E5C8A)}
+  .t-white{background:#fff;color:#0a1626;border:1px solid var(--line-light)}
+  .t-white .td{opacity:.6}
+  .t-steel{background:linear-gradient(150deg,#24364f,#34507a)}
+
+  .slider{margin:20px 0}
+  .slider .ends{display:flex;justify-content:space-between;font-family:var(--label);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#566;margin-bottom:10px}
+  .track{height:6px;background:var(--ice);border-radius:6px;position:relative}
+  .track .dot{position:absolute;top:50%;width:18px;height:18px;border-radius:50%;background:var(--blue);transform:translate(-50%,-50%);box-shadow:0 0 0 4px rgba(62,92,138,.18)}
+  .track .val{position:absolute;top:-26px;transform:translateX(-50%);font-family:var(--label);font-size:11px;color:var(--blue);font-weight:700}
+  .slider .why{font-size:13.5px;color:var(--muted);margin-top:12px}
+
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:14px}
+  .ba .col{border-radius:12px;padding:20px 22px;font-size:16px}
+  .ba .no{background:#faf1f0;border:1px solid #ecdada}
+  .ba .yes{background:#eef5f0;border:1px solid #d3e4d8}
+  .ba .h{font-family:var(--label);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+  .ba .no .h{color:#a85a4f}
+  .ba .yes .h{color:#2f7a55}
+
+  .words{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .words ul{list-style:none}
+  .words li{padding:9px 0;border-bottom:1px solid var(--line-light);font-size:15.5px}
+  .words li:last-child{border:none}
+
+  .icp{background:var(--midnight);border-radius:var(--radius);padding:30px 34px;margin-top:24px}
+  .icp .h{font-family:var(--label);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--steel);margin-bottom:16px}
+  .icp p{font-family:var(--display);font-style:italic;color:#dfe7f2;font-size:18px;line-height:1.5;padding:8px 0;border-bottom:1px solid #1c3354}
+  .icp p:last-child{border:none}
+  .icp p::before{content:"“"}.icp p::after{content:"”"}
+
+  .journey{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .stage-card{border:1px solid var(--line-light);border-radius:var(--radius);padding:24px}
+  .stage-card .st{font-family:var(--label);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+  .stage-card .sw-aware{font-family:var(--label);font-size:10px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;display:block;margin-top:4px}
+  .stage-card h4{font-family:var(--display);font-size:22px;font-weight:400;margin:8px 0 10px}
+  .stage-card p{font-size:15px;color:#46535f}
+  .stage-card .msg{margin-top:14px;font-family:var(--display);font-style:italic;font-size:17px;color:#0a1626;border-left:3px solid var(--blue);padding-left:14px}
+
+  .gloss div{border-bottom:1px solid var(--line-light);padding:16px 0}
+  .gloss .term{font-family:var(--display);font-size:19px}
+  .gloss .def{font-size:15px;color:#46535f;margin-top:3px}
+
+  .never{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .never .n{background:#faf1f0;border:1px solid #ecdada;border-radius:12px;padding:16px 18px;font-size:15px}
+  .never .n b{color:#a85a4f}
+
+  /* tokens */
+  .tok{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+  .tok .box{border:1px solid var(--line-light);border-radius:var(--radius);padding:24px 26px}
+  .tok .box .hh{font-family:var(--label);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+  .tok code{font-family:var(--label);font-size:12.5px;color:#2c3a4d;display:block;padding:7px 0;border-bottom:1px solid var(--line-light);letter-spacing:.02em}
+  .tok code:last-child{border:none}
+  .tok code b{color:var(--blue-link);font-weight:600}
+
+  footer{background:linear-gradient(135deg,#0e2138,#0a1626);color:#9fb1cc;padding:64px 6vw;border:none}
+  footer .big{font-family:var(--display);color:#fff;font-size:26px;font-weight:400;margin-bottom:10px}
+
+  @media(max-width:860px){
+    .two,.logo-grid,.ba,.words,.never,.principles{grid-template-columns:1fr}
+    .apps,.misuse{grid-template-columns:1fr 1fr}
+    .pal,.mood,.tok{grid-template-columns:1fr 1fr}
+    .three,.journey,.mocks{grid-template-columns:1fr}
+    .tile.span2{grid-column:span 1}
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<header class="cover">
+  <div class="topbar">
+    <span class="label">Brandbook</span>
+    <span class="label">Arsenal de Funis com I.A.</span>
+  </div>
+  <div class="center">
+    <svg viewBox="0 0 760 150" width="100%" style="max-width:600px" role="img" aria-label="Simple Acc">
+      <text x="380" y="86" text-anchor="middle" font-family="Didot,'Bodoni 72','Hoefler Text',Georgia,serif" font-size="76" letter-spacing="20" fill="#ffffff">SIMPLE ACC</text>
+      <line x1="250" y1="116" x2="510" y2="116" stroke="#8197b6" stroke-width="1" stroke-opacity=".55"/>
+      <text x="380" y="142" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="13" letter-spacing="12" fill="#9fb1cc">FUNIL DE LEAD DINÂMICO</text>
+    </svg>
+    <div class="flare"></div>
+    <p class="sub serif">A engenharia que faz o lead certo se revelar sozinho — e transforma tráfego high ticket em pipeline previsível.</p>
+  </div>
+  <div class="foot">
+    <span class="label">Versão 3.0</span>
+    <span class="label">Junho 2026</span>
+    <span class="label">Confidencial</span>
+  </div>
+</header>
+
+<!-- 01 ESSÊNCIA -->
+<section>
+  <span class="sec-num">01 — Essência</span>
+  <h2 class="title">Posicionamento e propósito</h2>
+  <p class="lead">Tudo nasce de uma única tese: o problema do mentor high ticket nunca foi o tráfego — foi o lead errado que ele deixava chegar na call. A marca existe para tornar esse filtro visível, com sobriedade, inteligência e precisão. Não vendemos quiz; vendemos o sistema que faz o lead certo aparecer e o errado cair fora sozinho.</p>
+
+  <div class="two" style="margin-top:34px">
+    <div class="card">
+      <span class="label" style="color:var(--blue)">Declaração de posicionamento</span>
+      <p class="pos" style="margin-top:14px">Para o <b>empresário-especialista de alta margem que já vende</b>, mas não tem aquisição previsível, a <b>Simple Acc</b> é a implementação do <b>Funil de Lead Dinâmico</b> — o sistema que qualifica antes da call e transforma tráfego high ticket em pipeline previsível. Diferente de quem ensina "venda pelo valor", a Simple instala o mecanismo e executa junto, cobrando por número.</p>
+    </div>
+    <div class="card dark">
+      <span class="label" style="color:#9db6dd">Propósito</span>
+      <p class="pos dark" style="margin-top:14px">Enquanto o mercado pensa em <b>campanhas</b>, a Simple pensa em <b>crescimento</b>. Não entregamos mais lead. Construímos o sistema que faz o lead certo se revelar sozinho — e devolve ao founder o tempo que ele perdia com curioso.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:34px">
+    <span class="label" style="color:var(--blue)">Personalidade da marca — cinco adjetivos</span>
+    <div class="adj">
+      <span>Sofisticada</span><span>Inteligente</span><span>Veloz</span><span>Precisa</span><span>Séria</span>
+    </div>
+    <p class="muted" style="font-size:14px;margin-top:14px;max-width:780px">Sofisticação e seriedade traduzem o desejo do expert ("lobo dos altos salões": premium como vitória, não ostentação). Inteligência e precisão traduzem o método e o número que o ICP respeita. Velocidade traduz o efeito do mecanismo: o lead se qualifica na hora, não em semanas de nutrição.</p>
+  </div>
+
+  <div class="two" style="margin-top:28px">
+    <div class="card">
+      <h3>Arquétipo primário — O Sábio</h3>
+      <p class="muted" style="font-size:15px">A autoridade que enxerga o que o cliente não vê. Vence pela clareza, pelo método e pelo número — nunca pela promessa. É o oposto do guru: prova, não hipnotiza. Diz "te mostro o número", nunca "te vendo o sonho".</p>
+    </div>
+    <div class="card">
+      <h3>Arquétipo de apoio — O Soberano</h3>
+      <p class="muted" style="font-size:15px">A estética premium e o controle. Transmite sistema, ordem e poder de execução. Justifica o ticket alto (R$25k) pela percepção de seriedade e domínio — a marca de quem construiu, não de quem só fala.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 02 PRINCÍPIOS DE DESIGN -->
+<section>
+  <span class="sec-num">02 — Fundamentos</span>
+  <h2 class="title">Princípios de design</h2>
+  <p class="lead">Cinco regras que governam toda decisão visual. Antes de aprovar qualquer peça, ela passa por estes filtros. Se reprovar em um, refazer.</p>
+
+  <div class="principles">
+    <div class="pr"><span class="pn">01</span><h4>Sobriedade acima de tudo</h4><p>Nada jovial, nada de hype. A marca convence pela contenção. Quando estiver na dúvida entre adicionar ou remover, remova. O silêncio visual comunica autoridade.</p></div>
+    <div class="pr"><span class="pn">02</span><h4>Contraste e respiro</h4><p>Serifa de alto contraste sobre navy quase-preto, com muito espaço em branco ao redor. O respiro não é vazio — é o que faz a marca parecer cara.</p></div>
+    <div class="pr"><span class="pn">03</span><h4>O número é o herói</h4><p>Toda peça carrega um número, um passo de processo ou um bastidor de execução. Dado em destaque tipográfico, nunca decoração no lugar de prova.</p></div>
+    <div class="pr"><span class="pn">04</span><h4>O azul pontua, não domina</h4><p>O navy é a base; o azul aço é o detalhe que sinaliza inteligência — hairline, link, um único acento. Cor estridente está proibida. Cor com parcimônia é sinal de classe.</p></div>
+    <div class="pr"><span class="pn">05</span><h4>Editorial, não promocional</h4><p>A peça deve parecer uma página de revista séria, não um anúncio de infoproduto. Grade, hierarquia e hairlines no lugar de selos, setas e exclamação.</p></div>
+    <div class="pr"><span class="pn">06</span><h4>Indispensável, não intercambiável</h4><p>Se a peça funcionaria com qualquer concorrente no lugar da Simple, está fraca. O mecanismo (o quiz que qualifica) precisa ser o protagonista — não o rosto, não a promessa.</p></div>
+  </div>
+</section>
+
+<!-- 03 LOGO -->
+<section>
+  <span class="sec-num">03 — Identidade</span>
+  <h2 class="title">Logo</h2>
+  <p class="lead">Direção sóbria e monocromática, fiel à referência aprovada: serifa de alto contraste, tracking largo, branco sobre navy, muito espaço de respiro. Cor reduzida ao mínimo — nada jovial. O lockup horizontal é a forma oficial.</p>
+
+  <div class="logo-grid" style="margin-top:34px">
+
+    <!-- Primary -->
+    <div class="logo-card">
+      <div class="logo-stage stage-dark">
+        <svg viewBox="0 0 560 150" width="100%">
+          <text x="280" y="78" text-anchor="middle" font-family="Didot,'Hoefler Text',Georgia,serif" font-size="56" letter-spacing="14" fill="#fff">SIMPLE ACC</text>
+          <line x1="170" y1="104" x2="390" y2="104" stroke="#8197b6" stroke-width="1" stroke-opacity=".55"/>
+          <text x="280" y="130" text-anchor="middle" font-family="Helvetica Neue,Arial,sans-serif" font-size="11" letter-spacing="9" fill="#9fb1cc">FUNIL DE LEAD DINÂMICO</text>
+        </svg>
+      </div>
+      <div class="logo-meta">
+        <span class="k">Versão principal <span class="rec">Oficial</span></span>
+        <h4>Lockup horizontal monocromático</h4>
+        <p>Serifa branca, hairline e descritor espaçado. Uso primário em páginas, deck, capa e topo de funil. Sempre com bastante respiro ao redor — nunca encostar em borda ou texto.</p>
+      </div>
+    </div>
+
+    <!-- SIMPLE only -->
+    <div class="logo-card">
+      <div class="logo-stage stage-dark">
+        <svg viewBox="0 0 560 150" width="100%">
+          <text x="280" y="92" text-anchor="middle" font-family="Didot,'Hoefler Text',Georgia,serif" font-size="64" letter-spacing="18" fill="#fff">SIMPLE</text>
+        </svg>
+      </div>
+      <div class="logo-meta">
+        <span class="k">Variação reduzida</span>
+        <h4>Marca curta — "SIMPLE"</h4>
+        <p>A forma mais limpa e sofisticada. Para contextos onde a marca já é conhecida: rodapé, marca d'água, assinatura de e-mail, encerramento de vídeo.</p>
+      </div>
+    </div>
+
+    <!-- Monogram -->
+    <div class="logo-card">
+      <div class="logo-stage stage-light">
+        <svg viewBox="0 0 360 150" width="100%">
+          <rect x="120" y="20" width="120" height="110" fill="none" stroke="#0a1626" stroke-width="1.2"/>
+          <text x="180" y="100" text-anchor="middle" font-family="Didot,'Hoefler Text',Georgia,serif" font-size="58" letter-spacing="2" fill="#0a1626">SA</text>
+        </svg>
+      </div>
+      <div class="logo-meta">
+        <span class="k">Símbolo</span>
+        <h4>Monograma "SA"</h4>
+        <p>Serifa dentro de moldura fina. Para favicon, avatar, carimbo e qualquer espaço quadrado. Sóbrio, sem ornamento — a moldura é a única forma permitida.</p>
+      </div>
+    </div>
+
+    <!-- Stacked -->
+    <div class="logo-card">
+      <div class="logo-stage stage-light">
+        <svg viewBox="0 0 360 160" width="100%">
+          <line x1="86" y1="58" x2="120" y2="58" stroke="#8197b6" stroke-width="1"/>
+          <line x1="240" y1="58" x2="274" y2="58" stroke="#8197b6" stroke-width="1"/>
+          <text x="180" y="68" text-anchor="middle" font-family="Didot,'Hoefler Text',Georgia,serif" font-size="38" letter-spacing="10" fill="#0a1626">SIMPLE</text>
+          <text x="180" y="112" text-anchor="middle" font-family="Didot,'Hoefler Text',Georgia,serif" font-size="38" letter-spacing="22" fill="#0a1626">ACC</text>
+        </svg>
+      </div>
+      <div class="logo-meta">
+        <span class="k">Lockup vertical</span>
+        <h4>Selo empilhado simétrico</h4>
+        <p>"SIMPLE" sobre "ACC" entre hairlines. Versão cerimoniosa para capas, marca d'água e espaços verticais (story, slide de abertura).</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="card" style="margin-top:24px">
+    <span class="label" style="color:var(--blue)">Variante com assinatura de cor (opcional)</span>
+    <p style="margin-top:10px;font-size:15px;color:#46535f">Quando fizer sentido um único toque cromático, o "ACC" pode receber o azul aço <strong style="color:var(--blue-link)">#3E5C8A</strong> — nunca o azul vívido. É a única liberdade de cor permitida no logotipo, e deve ser usada com parcimônia, jamais como padrão.</p>
+    <div style="margin-top:16px;background:linear-gradient(135deg,#0e2138,#0a1626);border-radius:10px;padding:30px;display:flex;justify-content:center">
+      <svg viewBox="0 0 560 80" width="100%" style="max-width:420px"><text x="280" y="54" text-anchor="middle" font-family="Didot,'Hoefler Text',Georgia,serif" font-size="52" letter-spacing="14" fill="#fff">SIMPLE <tspan fill="#7d99c4">ACC</tspan></text></svg>
+    </div>
+  </div>
+</section>
+
+<!-- 04 APLICAÇÕES -->
+<section>
+  <span class="sec-num">04 — Identidade</span>
+  <h2 class="title">Aplicações do logo</h2>
+  <p class="lead">Regra mestra: máximo contraste, muito respiro, nunca poluir. O branco sobre navy é a forma preferencial em qualquer mídia.</p>
+
+  <h3 class="sub-h">Versões por fundo e formato</h3>
+  <div class="apps">
+    <div class="app">
+      <div class="box b-navy"><svg viewBox="0 0 240 40" width="170"><text x="120" y="28" text-anchor="middle" font-family="Didot,serif" font-size="26" letter-spacing="6" fill="#fff">SIMPLE ACC</text></svg></div>
+      <div class="cap">Positivo — sobre navy</div>
+    </div>
+    <div class="app">
+      <div class="box b-white" style="border-bottom:1px solid var(--line-light)"><svg viewBox="0 0 240 40" width="170"><text x="120" y="28" text-anchor="middle" font-family="Didot,serif" font-size="26" letter-spacing="6" fill="#0a1626">SIMPLE ACC</text></svg></div>
+      <div class="cap">Negativo — sobre branco</div>
+    </div>
+    <div class="app">
+      <div class="box b-ice"><svg viewBox="0 0 240 40" width="170"><text x="120" y="28" text-anchor="middle" font-family="Didot,serif" font-size="26" letter-spacing="6" fill="#16202f">SIMPLE ACC</text></svg></div>
+      <div class="cap">Monocromático claro</div>
+    </div>
+    <div class="app">
+      <div class="box b-blue"><svg viewBox="0 0 240 40" width="170"><text x="120" y="28" text-anchor="middle" font-family="Didot,serif" font-size="26" letter-spacing="6" fill="#fff">SIMPLE ACC</text></svg></div>
+      <div class="cap">Sobre azul aço</div>
+    </div>
+  </div>
+
+  <div class="apps" style="margin-top:18px">
+    <div class="app">
+      <div class="box b-ice"><div class="avatar"><span style="font-family:var(--display);color:#fff;font-size:34px;letter-spacing:1px">SA</span></div></div>
+      <div class="cap">Avatar / redes</div>
+    </div>
+    <div class="app">
+      <div class="box b-ice"><div class="favicon"><span style="font-family:var(--display);color:#fff;font-size:22px">S</span></div></div>
+      <div class="cap">Favicon</div>
+    </div>
+    <div class="app">
+      <div class="box b-white" style="border-bottom:1px solid var(--line-light)"><svg viewBox="0 0 200 50" width="150"><rect x="2" y="4" width="196" height="42" fill="none" stroke="#cdd8e6" stroke-dasharray="3 3"/><text x="100" y="32" text-anchor="middle" font-family="Didot,serif" font-size="18" letter-spacing="4" fill="#0a1626">SIMPLE ACC</text></svg></div>
+      <div class="cap">Área de respiro (= altura do "S")</div>
+    </div>
+    <div class="app">
+      <div class="box b-white" style="border-bottom:1px solid var(--line-light)"><svg viewBox="0 0 140 24" width="92"><text x="70" y="18" text-anchor="middle" font-family="Didot,serif" font-size="13" letter-spacing="2" fill="#0a1626">SIMPLE ACC</text></svg></div>
+      <div class="cap">Tamanho mínimo (24px)</div>
+    </div>
+  </div>
+
+  <h3 class="sub-h">Casos de uso reais</h3>
+  <div class="mocks">
+
+    <!-- Anúncio feed -->
+    <div class="mock">
+      <div class="frame">
+        <div class="scr">
+          <div class="brandline">SIMPLE ACC</div>
+          <div class="hair"></div>
+          <div class="ey" style="margin-top:14px">Anúncio — Meta Ads</div>
+          <div class="hl" style="margin-top:auto">O problema nunca foi o seu <em>tráfego</em>. Foi o lead que ele deixava chegar na sua agenda.</div>
+          <div class="ct">Ver o mecanismo</div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">Anúncio de feed</div><div class="d">Logo curto no topo, headline da Big Idea em serifa, um único CTA em hairline. Sem selo, sem seta, sem exclamação.</div></div>
+    </div>
+
+    <!-- Story 9:16 -->
+    <div class="mock">
+      <div class="frame">
+        <div class="scr" style="align-items:center;text-align:center">
+          <div class="ey">Story · 9:16</div>
+          <svg viewBox="0 0 240 70" width="155" style="margin:auto 0 14px"><text x="120" y="30" text-anchor="middle" font-family="Didot,serif" font-size="24" letter-spacing="8" fill="#fff">SIMPLE</text><text x="120" y="56" text-anchor="middle" font-family="Didot,serif" font-size="24" letter-spacing="16" fill="#fff">ACC</text></svg>
+          <div class="hl" style="margin:0 0 auto;font-size:20px;text-align:center">"Quero pipeline menor, <em>porém melhor</em>."</div>
+          <div class="ct" style="align-self:center">13 · 06</div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">Story / vertical</div><div class="d">Lockup vertical centralizado, frase literal do ICP em itálico, data do workshop como assinatura. Composição cerimoniosa.</div></div>
+    </div>
+
+    <!-- Página de captura -->
+    <div class="mock">
+      <div class="frame">
+        <div class="scr" style="background:#fff;color:var(--ink)">
+          <svg viewBox="0 0 240 30" width="120"><text x="0" y="22" font-family="Didot,serif" font-size="18" letter-spacing="5" fill="#0a1626">SIMPLE ACC</text></svg>
+          <div style="height:1px;background:var(--line-light);margin:14px 0"></div>
+          <div class="ey" style="color:var(--blue)">Página de aplicação</div>
+          <div class="hl" style="color:#0a1626;font-size:22px">O funil que faz o lead se qualificar sozinho antes de chegar em você.</div>
+          <div style="margin-top:14px;background:var(--midnight);color:#dfe8f6;font-family:var(--label);font-size:9px;letter-spacing:.18em;text-transform:uppercase;padding:9px 14px;border-radius:3px;align-self:flex-start">Aplicar para a call</div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">Página / topo de funil</div><div class="d">Logo negativo sobre branco, hairline divisória, botão sólido navy. Editorial e arejado, clareza acima de decoração.</div></div>
+    </div>
+
+    <!-- Assinatura de e-mail -->
+    <div class="mock">
+      <div class="frame">
+        <div class="scr" style="background:#fff;color:var(--ink);justify-content:center">
+          <div class="ey" style="color:var(--muted)">Assinatura de e-mail</div>
+          <div style="border-left:2px solid var(--blue);padding-left:16px;margin-top:8px">
+            <div style="font-family:var(--display);font-size:19px;letter-spacing:3px;color:#0a1626">SIMPLE</div>
+            <div style="font-family:var(--label);font-size:11px;color:#0a1626;font-weight:600;margin-top:10px">Daniel Souza</div>
+            <div style="font-family:var(--label);font-size:10px;letter-spacing:.06em;color:var(--muted);margin-top:3px">Founder · Funil de Lead Dinâmico</div>
+            <div style="font-family:var(--label);font-size:10px;letter-spacing:.06em;color:var(--blue-link);margin-top:6px">simpleacc.com</div>
+          </div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">Assinatura de e-mail</div><div class="d">Marca curta "SIMPLE", barra de azul aço como acento, dados em micro-rótulo sans. Sóbria e compacta.</div></div>
+    </div>
+
+    <!-- Slide / deck -->
+    <div class="mock">
+      <div class="frame">
+        <div class="scr">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span class="ey" style="margin:0">Workshop · 13/06</span>
+            <span style="font-family:var(--display);letter-spacing:4px;font-size:12px;color:#9fb1cc">SIMPLE ACC</span>
+          </div>
+          <div class="hl" style="margin-top:auto;font-size:21px">+R$2 mi <em>em 6 meses</em><br>com R$50 mil em ads.</div>
+          <div class="hair" style="margin-top:14px"></div>
+          <div style="font-family:var(--label);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--steel)">Número próprio · sem audiência grande</div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">Slide / deck</div><div class="d">Marca discreta no canto, número como herói em serifa de alto contraste, hairline e legenda técnica. Prova, não promessa.</div></div>
+    </div>
+
+    <!-- Capa de carrossel -->
+    <div class="mock">
+      <div class="frame">
+        <div class="scr" style="justify-content:center;align-items:center;text-align:center">
+          <span class="ey" style="position:absolute;top:24px;left:0;right:0">Carrossel · capa</span>
+          <div class="hl" style="margin:0;font-size:26px;text-align:center">Seu funil<br><em>deveria recusar</em><br>gente.</div>
+          <div style="position:absolute;bottom:22px;left:0;right:0;font-family:var(--display);letter-spacing:5px;font-size:12px;color:#9fb1cc">SIMPLE ACC</div>
+        </div>
+      </div>
+      <div class="cap"><div class="t">Capa de carrossel</div><div class="d">Afirmação contraintuitiva centralizada, marca na base. Tipografia faz todo o trabalho — sem imagem competindo.</div></div>
+    </div>
+
+  </div>
+
+  <h3 class="sub-h">Usos incorretos</h3>
+  <div class="misuse">
+    <div class="mis"><div class="box"><svg viewBox="0 0 200 60" width="170"><text x="100" y="42" text-anchor="middle" font-family="Didot,serif" font-size="30" fill="#0a1626" transform="scale(1.7,0.7) translate(-41,14)">SIMPLE</text></svg></div><div class="cap">Distorcer proporção</div></div>
+    <div class="mis"><div class="box"><svg viewBox="0 0 200 60" width="150"><text x="100" y="40" text-anchor="middle" font-family="Didot,serif" font-size="24" letter-spacing="3" fill="#c2491f">SIMPLE <tspan fill="#13a">ACC</tspan></text></svg></div><div class="cap">Cor fora da paleta</div></div>
+    <div class="mis"><div class="box" style="background:#6f7f95"><svg viewBox="0 0 200 60" width="150"><text x="100" y="40" text-anchor="middle" font-family="Didot,serif" font-size="24" letter-spacing="3" fill="#5b6a7e">SIMPLE ACC</text></svg></div><div class="cap">Baixo contraste</div></div>
+    <div class="mis"><div class="box"><svg viewBox="0 0 200 60" width="150"><text x="100" y="40" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" letter-spacing="0" fill="#0a1626" font-weight="800">SIMPLE ACC</text></svg></div><div class="cap">Sans pesada / arredondada</div></div>
+  </div>
+</section>
+
+<!-- 05 PALETA -->
+<section>
+  <span class="sec-num">05 — Cor</span>
+  <h2 class="title">Paleta cromática</h2>
+  <p class="lead">Azul e branco sobre base navy quase-preta. O azul é sóbrio e dessaturado — sinaliza inteligência sem gritar. O branco traz clareza; o navy carrega a autoridade. Nenhuma cor quente, nenhum dourado de guru.</p>
+
+  <div class="pal" style="margin-top:30px">
+    <div class="sw"><div class="chip" style="background:#0A1626"></div><div class="info"><div class="nm">Navy Meia-Noite</div><div class="hex">#0A1626 · base</div><div class="use">Fundo principal, autoridade, atmosfera.</div></div></div>
+    <div class="sw"><div class="chip" style="background:#122B4A"></div><div class="info"><div class="nm">Azul Profundo</div><div class="hex">#122B4A · suporte</div><div class="use">Blocos escuros, gradientes, profundidade.</div></div></div>
+    <div class="sw"><div class="chip" style="background:#3E5C8A"></div><div class="info"><div class="nm">Azul Aço</div><div class="hex">#3E5C8A · destaque</div><div class="use">Detalhe, links, o "filtro". Sóbrio, pontua.</div></div></div>
+    <div class="sw"><div class="chip" style="background:#EEF3FA;border-bottom:1px solid var(--line-light)"></div><div class="info"><div class="nm">Branco Gelo</div><div class="hex">#EEF3FA · neutro</div><div class="use">Fundos claros, blocos de leitura.</div></div></div>
+    <div class="sw"><div class="chip" style="background:#FFFFFF;border-bottom:1px solid var(--line-light)"></div><div class="info"><div class="nm">Branco Puro</div><div class="hex">#FFFFFF · clareza</div><div class="use">Texto sobre navy, respiro, contraste.</div></div></div>
+  </div>
+  <p class="muted" style="margin-top:18px;font-size:14px;max-width:840px">Apoio: Aço Claro <strong style="color:#8197B6">#8197B6</strong> para hairlines, legendas técnicas e descritores. Sobre claro, links em <strong style="color:var(--blue-link)">#34527D</strong> para contraste de leitura.</p>
+
+  <div class="ratio">
+    <span style="background:#0A1626;color:#fff;flex:0 0 60%">Navy / escuro · 60%</span>
+    <span style="background:#EEF3FA;color:#16202f;flex:0 0 18%">Branco · 18%</span>
+    <span style="background:#FFFFFF;color:#16202f;flex:0 0 14%;border-left:1px solid var(--line-light)">Branco · 14%</span>
+    <span style="background:#3E5C8A;color:#fff;flex:0 0 8%">Azul · 8%</span>
+  </div>
+  <p class="muted" style="margin-top:12px;font-size:13.5px">Proporção de uso: o navy domina, o branco abre respiro e leitura, o azul aço aparece só como acento. O azul nunca preenche grandes áreas — ele é o detalhe que sinaliza o "filtro".</p>
+</section>
+
+<!-- 06 TIPOGRAFIA -->
+<section>
+  <span class="sec-num">06 — Tipografia</span>
+  <h2 class="title">Sistema tipográfico</h2>
+  <p class="lead">Serifa de alto contraste para títulos (seriedade e sofisticação) e serifa de leitura para texto. Sans apenas em micro-rótulos técnicos. Nunca serifa arredondada ou slab pesada — o alto contraste é a assinatura.</p>
+
+  <div class="specimen">
+    <div class="scale-row"><span class="tag">Display / Didot</span><span class="ex" style="font-size:52px">Aa — Sofisticação</span><span class="px">48–80px · tracking .02em</span></div>
+    <div class="scale-row"><span class="tag">H1 / título</span><span class="ex" style="font-size:38px">Inteligência aplicada ao funil</span><span class="px">32–52px</span></div>
+    <div class="scale-row"><span class="tag">H2 / subtítulo</span><span class="ex" style="font-size:27px">O filtro antes da call</span><span class="px">24–32px</span></div>
+    <div class="scale-row"><span class="tag">Texto / corpo</span><span class="ex" style="font-size:19px;font-family:var(--text)">O lead certo se qualifica sozinho antes da call.</span><span class="px">17–19px · 1.7</span></div>
+    <div class="scale-row"><span class="tag">Itálico / ênfase</span><span class="ex" style="font-size:24px;font-style:italic">Enquanto o mercado pensa em campanhas.</span><span class="px">cit. e ICP</span></div>
+    <div class="scale-row"><span class="tag">Rótulo / sans</span><span class="ex" style="font-family:var(--label);font-size:13px;letter-spacing:.24em">FUNIL DE LEAD DINÂMICO</span><span class="px">11–13px · caixa-alta</span></div>
+  </div>
+
+  <div class="two" style="margin-top:22px">
+    <div class="card">
+      <span class="label" style="color:var(--blue)">Famílias</span>
+      <p style="margin-top:10px;font-size:15.5px"><strong>Títulos:</strong> Didot / Bodoni 72 / Hoefler Text (nativas no Mac). Alternativa web livre, sem @import obrigatório: <em>Playfair Display</em> ou <em>Cormorant Garamond</em>.<br><br><strong>Texto:</strong> Hoefler Text / Iowan Old Style / Palatino / Georgia (todas com fallback nativo).<br><br><strong>Rótulos:</strong> Helvetica Neue / Arial em caixa-alta, tracking largo — só etiquetas curtas e números.</p>
+    </div>
+    <div class="card">
+      <span class="label" style="color:var(--blue)">Regras de uso</span>
+      <p style="margin-top:10px;font-size:15.5px">Títulos com tracking generoso e muito espaço em branco ao redor.<br><br>Alto contraste sempre; nunca slab, nunca serifa "fofa", nunca sans em título.<br><br>Sans só em rótulos, números, dados e legendas — nunca em texto corrido.<br><br>Itálico reservado a citações e à fala literal do ICP — dá voz humana sem quebrar a sobriedade.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 07 MOODBOARD -->
+<section>
+  <span class="sec-num">07 — Direção visual</span>
+  <h2 class="title">Moodboard</h2>
+  <p class="lead">A tradução visual do trio sofisticação · inteligência · velocidade — em registro sóbrio. Navy profundo, facho de luz contido, grade de precisão e serifa editorial. A atmosfera do "lobo dos altos salões": séria, premium, silenciosa. Sem cor estridente, sem stock genérico.</p>
+
+  <div class="mood" style="margin-top:30px">
+    <div class="tile t-midnight span2"><span class="tlab">Atmosfera</span><span class="tt serif">Navy profundo com luz contida</span><span class="td">Ambiente escuro, premium e silencioso. Uma única fonte de luz desenha o sujeito; o resto desaparece no navy. É a sala de quem joga sério.</span></div>
+    <div class="tile t-serif"><span class="tlab">Tipografia</span><span class="tt serif">Aa</span><span class="td">Serifa de alto contraste como elemento gráfico em si.</span></div>
+    <div class="tile t-grid"><span class="tlab">Inteligência</span><span class="tt serif">Precisão e dado</span><span class="td">Grade fina, número em destaque. A ordem visível do sistema.</span></div>
+    <div class="tile t-speed"><span class="tlab">Velocidade</span><span class="tt serif">Movimento discreto</span><span class="td">Linhas diagonais sutis sugerem aceleração contida — nunca pressa.</span></div>
+    <div class="tile t-steel"><span class="tlab">Material</span><span class="tt serif">Aço escovado, premium</span><span class="td">Textura fria e sólida. Luxo como vitória, não como brilho.</span></div>
+    <div class="tile t-white"><span class="tlab">Respiro</span><span class="tt serif">Espaço em branco</span><span class="td">O vazio é deliberado. Respiro é o que faz parecer caro.</span></div>
+    <div class="tile t-midnight"><span class="tlab">Profundidade</span><span class="tt serif">Camadas e foco</span><span class="td">Planos sobrepostos, um único ponto nítido. Atenção dirigida.</span></div>
+    <div class="tile t-blue"><span class="tlab">Detalhe</span><span class="tt serif">O azul que pontua</span><span class="td">O único acento de cor. Marca o "filtro" e nada mais.</span></div>
+  </div>
+
+  <div class="two" style="margin-top:26px">
+    <div class="card">
+      <span class="label" style="color:var(--blue)">Direção fotográfica</span>
+      <p style="margin-top:10px;font-size:15.5px;color:#46535f">Fundo escuro com uma única luz direcional, tom frio e leve granulação cinematográfica. Cenas reais de bastidor: Daniel diante de telas com números, gerenciador de anúncios, reunião comercial, o quiz rodando ao vivo no workshop. Enquadramento contido, pouca profundidade de campo, o sujeito recortado pela luz. Materiais premium discretos (mesa escura, aço, vidro) sem ostentação vazia. Proibido: stock sorridente, pose artificial, carro, relógio em close, dourado.</p>
+    </div>
+    <div class="card">
+      <span class="label" style="color:var(--blue)">Direção de layout</span>
+      <p style="margin-top:10px;font-size:15.5px;color:#46535f">Minimalista e arejado, com cara de revista séria — não de página de venda. Muito navy, muito branco, pouquíssimos elementos. Hairlines em aço claro para dividir (nunca caixas pesadas). Números em destaque tipográfico ocupando o protagonismo. Grade de 12 colunas, composição assimétrica e contida. Um único acento de azul por tela. Clareza e hierarquia acima de qualquer decoração; selos, setas e exclamações estão banidos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 08 TOM DE VOZ -->
+<section>
+  <span class="sec-num">08 — Voz e tom</span>
+  <h2 class="title">Como a marca fala</h2>
+  <p class="lead">Voz de engenheiro de aquisição, não de guru. Direta, técnica quando precisa, ancorada em número. O ICP despreza hype e promessa vazia — responde a clareza, método e prova. A calibragem pende para o sério, o técnico e o autoritário, sem perder acessibilidade. "Te mostro o número, não te vendo o sonho."</p>
+
+  <div style="margin-top:30px;max-width:780px">
+    <div class="slider"><div class="ends"><span>Formal</span><span>Casual</span></div><div class="track"><div class="dot" style="left:40%"><div class="val" style="left:0">40</div></div></div><div class="why">Profissional, mas conversa de igual para igual com empresário — não engessado.</div></div>
+    <div class="slider"><div class="ends"><span>Sério</span><span>Divertido</span></div><div class="track"><div class="dot" style="left:26%"><div class="val" style="left:0">26</div></div></div><div class="why">Sério por princípio. Nada de meme, trocadilho ou leveza forçada.</div></div>
+    <div class="slider"><div class="ends"><span>Técnico</span><span>Acessível</span></div><div class="track"><div class="dot" style="left:46%"><div class="val" style="left:0">46</div></div></div><div class="why">Técnico o bastante para soar competente; claro o bastante para o founder entender de primeira.</div></div>
+    <div class="slider"><div class="ends"><span>Autoritário</span><span>Amigável</span></div><div class="track"><div class="dot" style="left:38%"><div class="val" style="left:0">38</div></div></div><div class="why">Empatia dura: acolhe a dor do ICP, mas devolve a responsabilidade. Não bajula.</div></div>
+  </div>
+
+  <h3 class="sub-h">Antes e depois</h3>
+  <p class="muted" style="font-size:14px">A mesma mensagem, errada e certa. O "certo" sempre carrega número, mecanismo ou a fala literal do ICP.</p>
+
+  <div class="ba">
+    <div class="col no"><div class="h">Evite</div>"Transforme sua vida e fature MUITO com nosso método infalível de vendas!"</div>
+    <div class="col yes"><div class="h">Use</div>"Seu funil deveria recusar gente. É assim que se vende high ticket com ROAS acima de 8."</div>
+  </div>
+  <div class="ba">
+    <div class="col no"><div class="h">Evite</div>"Gere mais leads e escale seu negócio para o próximo nível!"</div>
+    <div class="col yes"><div class="h">Use</div>"Seu problema não é volume. É fit. O quiz entrega ao closer só quem pode pagar."</div>
+  </div>
+  <div class="ba">
+    <div class="col no"><div class="h">Evite</div>"Nossa mentoria vai te ensinar tudo sobre tráfego pago do zero."</div>
+    <div class="col yes"><div class="h">Use</div>"Não ensinamos em videoaula. Implementamos o Funil de Lead Dinâmico junto com o seu time — e o número aparece em semanas."</div>
+  </div>
+  <div class="ba">
+    <div class="col no"><div class="h">Evite</div>"Tráfego não funciona mais, o algoritmo mudou tudo."</div>
+    <div class="col yes"><div class="h">Use</div>"Seu tráfego não está caro. Está trazendo a pessoa errada. O quiz resolve isso antes da call."</div>
+  </div>
+</section>
+
+<!-- 09 VOCABULÁRIO -->
+<section>
+  <span class="sec-num">09 — Léxico</span>
+  <h2 class="title">Vocabulário da marca</h2>
+  <p class="lead">O léxico vem direto da pesquisa e das calls do ICP. Falar a língua literal do público aumenta a ressonância e prova que a marca conhece a dor por dentro.</p>
+
+  <div class="words" style="margin-top:24px">
+    <div>
+      <span class="label" style="color:#2f7a55">Palavras que a marca usa</span>
+      <ul style="margin-top:10px">
+        <li>Funil de Lead Dinâmico · Funil Ampulheta · quiz que qualifica</li>
+        <li>filtro · fit · qualificação · capacidade de compra · consciência</li>
+        <li>MQL · ROAS · MQL a menos de R$100 · previsibilidade · pipeline</li>
+        <li>lead certo · pipeline menor, porém melhor · agenda boa</li>
+        <li>implementação · execução junto · acompanhamento por número</li>
+        <li>engenharia · método · sistema · crescimento · prova · bastidor</li>
+      </ul>
+    </div>
+    <div>
+      <span class="label" style="color:#a85a4f">Palavras proibidas</span>
+      <ul style="margin-top:10px">
+        <li>"fórmula mágica", "infalível", "segredo", "hack"</li>
+        <li>"fature muito", "mude de vida", "próximo nível", "destrave"</li>
+        <li>"fácil", "rápido e sem esforço", "garantido", "do zero"</li>
+        <li>"guru", "mindset" como manchete, promessa vazia</li>
+        <li>"mais lead / mais volume" como solução (é a crença antiga)</li>
+        <li>excesso de superlativos, exclamações e verbo de guru isolado</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="icp">
+    <div class="h">Fala literal do ICP — usar como copy quase pronta</div>
+    <p>meu problema não é volume</p>
+    <p>tráfego trouxe muita gente ruim</p>
+    <p>quero gente mais qualificada, não quero desperdiçar meu time</p>
+    <p>já vendo, mas ainda está irregular</p>
+    <p>se a minha agenda está cheia de curioso, o erro está antes do closer</p>
+  </div>
+</section>
+
+<!-- 10 JORNADA -->
+<section>
+  <span class="sec-num">10 — Mensagens-chave</span>
+  <h2 class="title">Mensagem por etapa da jornada</h2>
+  <p class="lead">O ICP é predominantemente Consciente do Problema (Schwartz): sente a dor, ainda diagnostica errado. A sequência: nomear a dor com a língua dele, instalar a crença nova, provar e implementar.</p>
+
+  <div class="journey" style="margin-top:28px">
+    <div class="stage-card">
+      <span class="st">Descoberta</span>
+      <span class="sw-aware">Consciente do problema</span>
+      <h4>Nomear a dor</h4>
+      <p>Devolve ao público a frase que ele já usa nas calls. Dá nome ao inimigo: o lead sem fit, não o tráfego.</p>
+      <div class="msg">"O problema nunca foi o seu tráfego. Foi o lead que ele deixava chegar na sua agenda."</div>
+    </div>
+    <div class="stage-card">
+      <span class="st">Consideração</span>
+      <span class="sw-aware">Consciente da solução</span>
+      <h4>Instalar a crença nova</h4>
+      <p>Inverte a crença dominante: não é volume, é filtro. Apresenta o Funil de Lead Dinâmico como a virada.</p>
+      <div class="msg">"Você não precisa de mais lead. Precisa de um funil que recusa o lead errado e entrega ao closer só quem pode pagar."</div>
+    </div>
+    <div class="stage-card">
+      <span class="st">Decisão</span>
+      <span class="sw-aware">Consciente do produto</span>
+      <h4>Provar e implementar</h4>
+      <p>Prova com número próprio e diferencia pela execução junto. Tira o risco com garantia.</p>
+      <div class="msg">"Não te ensinamos. Implementamos com você — e o número aparece em semanas, não em teoria."</div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 GLOSSÁRIO -->
+<section>
+  <span class="sec-num">11 — Glossário</span>
+  <h2 class="title">Termos próprios da marca</h2>
+  <div class="gloss" style="margin-top:20px;max-width:860px">
+    <div><div class="term">Funil de Lead Dinâmico</div><div class="def">O mecanismo central: funil de quiz que qualifica e segmenta o lead antes da call, aplicado a high ticket. Nome próprio da Simple — sempre em maiúscula inicial.</div></div>
+    <div><div class="term">Funil Ampulheta</div><div class="def">A arquitetura em 4 pilares: I. Oferta · II. Funil de Quiz · III. Comercial · IV. Expansão. Da captação à expansão de LTV na base. Repetir como nome do método, no estilo "ASK Method".</div></div>
+    <div><div class="term">Lead certo / fit</div><div class="def">O lead com consciência e capacidade de compra. Oposto do "lead sem fit" — o inimigo declarado da marca.</div></div>
+    <div><div class="term">Crescimento, não campanha</div><div class="def">O mercado roda campanhas avulsas; a Simple constrói sistema de crescimento. Frase-assinatura de propósito.</div></div>
+    <div><div class="term">Execução junto</div><div class="def">A Simple implementa com o cliente (design, copy, tráfego, integrações), não entrega videoaula. Done-with-you, não do-it-yourself.</div></div>
+    <div><div class="term">Acompanhamento por número</div><div class="def">A relação é medida por métrica (MQL, ROAS, taxa de fechamento), não por motivação. "Cobro por número, não por mindset."</div></div>
+  </div>
+</section>
+
+<!-- 12 ANTI-PADRÕES -->
+<section>
+  <span class="sec-num">12 — Anti-padrões</span>
+  <h2 class="title">O que a marca nunca faz</h2>
+  <div class="never" style="margin-top:24px">
+    <div class="n"><b>Nunca</b> promete resultado sem mostrar número ou prova.</div>
+    <div class="n"><b>Nunca</b> usa estética de guru: dourado, carro, relógio, exclamação tripla.</div>
+    <div class="n"><b>Nunca</b> fala em "mais lead / mais volume" como solução — é a crença antiga.</div>
+    <div class="n"><b>Nunca</b> usa fonte sem serifa em títulos ou texto corrido.</div>
+    <div class="n"><b>Nunca</b> usa o azul vívido / royal — apenas o azul aço sóbrio, com parcimônia.</div>
+    <div class="n"><b>Nunca</b> usa emojis, gírias jovens ou linguagem infantilizada.</div>
+    <div class="n"><b>Nunca</b> entrega peça que funcionaria com qualquer concorrente no lugar.</div>
+    <div class="n"><b>Nunca</b> faz promessa de resultado garantido — o ICP pune claim exagerado.</div>
+  </div>
+</section>
+
+<!-- 13 TOKENS -->
+<section>
+  <span class="sec-num">13 — Sistema</span>
+  <h2 class="title">Tokens de aplicação</h2>
+  <p class="lead">Referência rápida para quem implementa páginas, anúncios e slides. Cores, tipos e espaçamento na mesma linguagem do design.</p>
+
+  <div class="tok">
+    <div class="box">
+      <div class="hh">Cor</div>
+      <code><b>--midnight</b> #0A1626</code>
+      <code><b>--navy-2</b> #122B4A</code>
+      <code><b>--blue</b> #3E5C8A</code>
+      <code><b>--steel</b> #8197B6</code>
+      <code><b>--ice</b> #EEF3FA</code>
+      <code><b>--white</b> #FFFFFF</code>
+    </div>
+    <div class="box">
+      <div class="hh">Tipografia</div>
+      <code><b>display</b> Didot / Bodoni 72</code>
+      <code><b>text</b> Hoefler Text / Georgia</code>
+      <code><b>label</b> Helvetica Neue (caps)</code>
+      <code><b>H1</b> 32–52px · 1.08</code>
+      <code><b>body</b> 17–19px · 1.7</code>
+      <code><b>label</b> 11–13px · .26em</code>
+    </div>
+    <div class="box">
+      <div class="hh">Espaçamento e forma</div>
+      <code><b>escala</b> 8 · 16 · 24 · 32 · 48 · 64</code>
+      <code><b>seção</b> 92px vertical</code>
+      <code><b>raio</b> 12–16px</code>
+      <code><b>hairline</b> 1px · #8197B6</code>
+      <code><b>botão</b> sólido navy / outline aço</code>
+      <code><b>proporção cor</b> 60 navy · 32 branco · 8 azul</code>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="big serif">Simple Acc — Brandbook v3.0</div>
+  <p>Documento-guia para toda comunicação visual e textual do funil. Construído a partir do Briefing Estratégico (12 blocos), da Big Idea aprovada, da Pesquisa de Mercado e do dossiê de voz do expert.</p>
+  <p style="margin-top:14px;font-size:12px;color:#7d8fa9">Logo oficial: lockup horizontal monocromático (serifa branca sobre navy). Decisões travadas preservadas: estética sóbria e premium · serifa de alto contraste · paleta navy/azul aço/branco · proibição do azul vívido · zero emojis. Próximos passos: gerar os arquivos vetoriais finais e aplicar a identidade na página do workshop de 13/06.<br>Squad Arsenal de Funis com I.A. — Foundation Estratégica.</p>
+</footer>
+
+</body>
+</html>

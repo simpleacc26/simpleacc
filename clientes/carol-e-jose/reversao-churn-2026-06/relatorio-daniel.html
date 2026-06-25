@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Material para o Daniel — os 3 passos · Carol e José</title>
+<style>
+  :root{
+    --midnight:#0A1626; --navy:#0E2138; --navy-2:#122B4A;
+    --blue:#3E5C8A; --blue-soft:#7d99c4; --blue-link:#34527D;
+    --steel:#8197B6; --ice:#EEF3FA; --white:#FFFFFF;
+    --ink:#16202f; --ink-soft:#3a4656; --muted:#6f7f95;
+    --line-light:#e1e8f1;
+    --green:#2f7a55; --green-bg:#eef5f0; --green-line:#d3e4d8;
+    --red:#a85a4f; --red-bg:#faf1f0; --red-line:#ecdada;
+    --amber:#9a6a1f; --amber-bg:#fbf3e6;
+    --text:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --display:"Didot","Bodoni 72","Hoefler Text",Georgia,"Times New Roman",serif;
+    --radius:14px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--text);color:var(--ink);background:#fff;line-height:1.7;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-size:17px}
+  .wrap{max-width:960px;margin:0 auto}
+  .label{text-transform:uppercase;letter-spacing:.18em;font-size:11.5px;font-weight:700}
+  code{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.88em;background:var(--ice);padding:2px 6px;border-radius:5px;color:var(--blue-link)}
+
+  .cover{color:#fff;padding:72px 7vw 56px;
+    background:
+      radial-gradient(900px 380px at 14% 6%, rgba(120,150,210,.16), transparent 58%),
+      radial-gradient(620px 460px at 6% 96%, rgba(60,92,138,.14), transparent 62%),
+      linear-gradient(135deg,#0e2138 0%,#0a1626 60%,#070f1b 100%);}
+  .cover .topbar{display:flex;justify-content:space-between;color:#9fb1cc;flex-wrap:wrap;gap:8px}
+  .cover .mark{font-family:var(--display);font-size:38px;letter-spacing:13px;margin:44px 0 6px}
+  .cover .flare{height:1px;width:200px;background:linear-gradient(90deg,var(--steel),transparent);opacity:.6;margin:16px 0}
+  .cover h1{font-weight:700;font-size:clamp(25px,4.4vw,38px);line-height:1.15;margin:16px 0 10px;letter-spacing:-.01em}
+  .cover .sub{color:#bccadf;font-size:18px;max-width:700px}
+  .cover .foot{display:flex;gap:26px;color:#7e90ab;flex-wrap:wrap;margin-top:30px}
+
+  .tldr{background:var(--midnight);color:#eaf0fa;padding:28px 7vw}
+  .tldr .inner{max-width:960px;margin:0 auto}
+  .tldr .h{color:var(--blue-soft);font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:12px;margin-bottom:10px}
+  .tldr p{font-size:18px;line-height:1.6;color:#dbe5f4} .tldr b{color:#fff}
+
+  section{padding:50px 7vw;border-bottom:1px solid var(--line-light)}
+  .stepnum{display:inline-flex;align-items:center;gap:12px;margin-bottom:6px}
+  .stepnum .n{font-family:var(--display);font-size:30px;color:#fff;background:var(--blue);
+    width:54px;height:54px;border-radius:12px;display:flex;align-items:center;justify-content:center}
+  .s2 .stepnum .n{background:var(--navy-2)} .s3 .stepnum .n{background:var(--midnight)}
+  .stepnum .k{font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:12px;color:var(--blue)}
+  h2{font-size:clamp(23px,3.4vw,30px);font-weight:700;line-height:1.15;margin:4px 0 14px;letter-spacing:-.01em}
+  h3{font-size:19px;font-weight:700;margin:26px 0 10px}
+  p{margin-bottom:13px;color:var(--ink-soft)}
+  p.lead{font-size:18px;color:var(--ink);max-width:780px}
+  strong{color:var(--ink)}
+  ul,ol{margin:0 0 14px 0;padding-left:22px} li{margin-bottom:8px;color:var(--ink-soft)}
+  ol.big{counter-reset:i;list-style:none;padding:0}
+  ol.big>li{position:relative;padding:0 0 14px 44px;margin-bottom:6px}
+  ol.big>li::before{counter-increment:i;content:counter(i);position:absolute;left:0;top:0;
+    width:30px;height:30px;border-radius:8px;background:var(--ice);color:var(--blue-link);
+    font-weight:800;display:flex;align-items:center;justify-content:center;font-size:15px}
+
+  .callout{border-left:4px solid var(--blue);background:var(--ice);padding:16px 20px;border-radius:0 10px 10px 0;margin:16px 0}
+  .callout.note{border-color:var(--steel)} .callout.warn{border-color:var(--red);background:var(--red-bg)}
+  .callout p:last-child{margin-bottom:0}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:18px 0}
+  .stat{border:1px solid var(--line-light);border-radius:12px;padding:18px;text-align:center;background:var(--ice)}
+  .stat .n{font-size:32px;font-weight:800;color:var(--midnight);line-height:1}
+  .stat .l{font-size:12.5px;color:var(--muted);margin-top:7px;line-height:1.35}
+  .stat.accent{background:var(--midnight)} .stat.accent .n{color:#fff} .stat.accent .l{color:#b9c7dd}
+
+  table{width:100%;border-collapse:collapse;margin:14px 0 16px;font-size:15.5px}
+  th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line-light);vertical-align:top}
+  th{background:var(--ice);color:var(--midnight);font-weight:700;font-size:12.5px;letter-spacing:.04em;text-transform:uppercase}
+  td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .card{border:1px solid var(--line-light);border-radius:var(--radius);padding:20px 22px;background:#fff}
+  .card .k{font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:11.5px;color:var(--blue);margin-bottom:8px}
+
+  footer{background:linear-gradient(135deg,#0e2138,#0a1626);color:#9fb1cc;padding:44px 7vw}
+  footer .big{font-family:var(--display);color:#fff;font-size:23px;letter-spacing:6px;margin-bottom:8px}
+  footer p{color:#9fb1cc}
+
+  @media(max-width:820px){ .grid3{grid-template-columns:1fr} .stats{grid-template-columns:1fr 1fr}
+    table{font-size:14px} th,td{padding:9px 10px} }
+  @media print{ .cover,.tldr{-webkit-print-color-adjust:exact;print-color-adjust:exact} section{padding:28px 24px} }
+</style>
+</head>
+<body>
+
+<header class="cover">
+  <div class="wrap">
+    <div class="topbar">
+      <span class="label">Material para o CEO</span>
+      <span class="label">Para lapidar e enviar ao cliente</span>
+    </div>
+    <div class="mark">SIMPLE ACC</div>
+    <div class="flare"></div>
+    <h1>Os 3 passos — Carol e José</h1>
+    <p class="sub">Diagnóstico, plano de caixa rápido e nova ideia de funil. Entrega da equipe (Carlos + Renan) para o Daniel revisar e mandar a Carol e José.</p>
+    <div class="foot">
+      <span class="label">ÚNICOS Club</span>
+      <span class="label">23/06/2026</span>
+      <span class="label">Base: lista dos 76 MQLs</span>
+    </div>
+  </div>
+</header>
+
+<div class="tldr">
+  <div class="inner">
+    <div class="h">Resumo para o Daniel</div>
+    <p>O gargalo <b>não é gerar lead</b>: entraram <b>76 MQLs (acima de R$ 1M), 66 no ICP, todos com contato completo</b> — e eles
+    <b>nunca chegaram ao comercial</b>. Causa provável: o contato é gravado num campo do quiz não mapeado ao GHL. <b>Passo 1</b> prova isso;
+    <b>Passo 2</b> usa esses 76 + a base para caixa rápido; <b>Passo 3</b> conserta a captura e mira o quiz no dono/executivo.</p>
+  </div>
+</div>
+
+<!-- PASSO 1 -->
+<section class="wrap s1">
+  <div class="stepnum"><span class="n">1</span><span class="k">Diagnóstico</span></div>
+  <h2>Onde o dinheiro está vazando</h2>
+  <p class="lead">Não é na geração de lead — é <strong>entre o quiz e o comercial</strong>. Entraram 76 MQLs reais (acima de R$ 1M), todos com nome, e-mail e WhatsApp, e eles <strong>nunca chegaram ao GHL / nunca foram contatados</strong>.</p>
+
+  <div class="stats">
+    <div class="stat accent"><div class="n">76</div><div class="l">MQLs &gt; R$ 1M com contato completo</div></div>
+    <div class="stat"><div class="n">66</div><div class="l">dentro do ICP (fora da indústria)</div></div>
+    <div class="stat"><div class="n">26</div><div class="l">ICP <em>e</em> decisor — alvo mais quente</div></div>
+    <div class="stat"><div class="n">100%</div><div class="l">com nome, e-mail e WhatsApp</div></div>
+  </div>
+
+  <div class="grid3">
+    <div class="card">
+      <div class="k">Faturamento</div>
+      <table style="margin:0;font-size:15px">
+        <tr><td>Acima de R$ 5M</td><td class="num">33</td></tr>
+        <tr><td>R$ 1M – 3M</td><td class="num">28</td></tr>
+        <tr><td>R$ 3M – 5M</td><td class="num">15</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="k">Setor</div>
+      <table style="margin:0;font-size:15px">
+        <tr><td>Serviços</td><td class="num">37</td></tr>
+        <tr><td>Comércio</td><td class="num">29</td></tr>
+        <tr><td>Indústria <span class="muted">(excluir)</span></td><td class="num">10</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <div class="k">Cargo</div>
+      <table style="margin:0;font-size:15px">
+        <tr><td>Gestor c/ autonomia parcial</td><td class="num">27</td></tr>
+        <tr><td>Promovido / pouca autonomia</td><td class="num">19</td></tr>
+        <tr><td>Diretor c/ autonomia</td><td class="num">15</td></tr>
+        <tr><td>Dono ou sócio</td><td class="num">15</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <p><strong>Causa-raiz a verificar (antes de subir campanha):</strong> nos 76, o contato está nos campos <code>e02yKB/Oen6ic/UX3WQn</code> e <strong>nenhum</strong> usou o campo primário. O formulário do público acima de R$ 1M parece gravar o contato num <strong>conjunto de campos não mapeado para o GHL</strong> — bate com a falha InLead→GHL de 17/06.</p>
+  </div>
+
+  <h3>Quem realmente compra (ICP — do canvas do cliente)</h3>
+  <p>Dono de empresa consolidada, fatura ~R$ 2M/ano, eixo Sul-Sudeste. É o <strong>"bombeiro de luxo"</strong>: negócio dependente dele, margem magra, sem tempo para a família. Quer processos que rodem sem ele e margem maior sem dobrar faturamento. <strong>É decisor (dono/sócio), não funcionário.</strong></p>
+
+  <div class="callout note">
+    <p><strong>Por que não usamos média/mediana:</strong> faturamento é autodeclarado e por faixa — parte de quem marca "acima de R$ 5M" é funcionário reportando o faturamento da empresa ou perfil sem rastro. Priorizamos por <strong>cargo</strong> (decisor) e <strong>validamos uma amostra</strong> antes de escalar. <span class="muted">(A lista de 200+ leads tem campos faltantes e não foi usada como base.)</span></p>
+  </div>
+</section>
+
+<!-- PASSO 2 -->
+<section class="wrap s2">
+  <div class="stepnum"><span class="n">2</span><span class="k">Plano de caixa rápido</span></div>
+  <h2>Quatro frentes, da mais rápida à mais estrutural</h2>
+  <ol class="big">
+    <li><strong>Reativar os 76 MQLs</strong> — começar pelos <strong>26 ICP + decisor</strong>. Têm WhatsApp e e-mail e nunca foram trabalhados. Abordagem honesta de "reabertura", com motivo concreto para a conversa. Validar uma amostra de 8–10 antes de disparar para todos.</li>
+    <li><strong>Workshop com a base → curso gravado.</strong> A Carol roda um workshop ao vivo e transforma em produto gravado de ticket menor — caixa rápido e ativo reutilizável.</li>
+    <li><strong>Oferta de expansão de valor para clientes ativos.</strong> Olhar a base de clientes de hoje e desenhar upsell/expansão personalizada (aumentar LTV de quem já confia).</li>
+    <li><strong>Indicação (modelo Fusseus).</strong> Estruturar o pedido de indicação com os clientes atuais, usando o modelo já mapeado.</li>
+  </ol>
+  <div class="callout">
+    <p>Frentes 1, 2 e 4 dependem da Carol no comercial; a Simple entrega a <strong>base tratada dos 76 no GHL</strong> e o suporte de automação/disparo.</p>
+  </div>
+</section>
+
+<!-- PASSO 3 -->
+<section class="wrap s3">
+  <div class="stepnum"><span class="n">3</span><span class="k">Nova ideia de funil</span></div>
+  <h2>Falar com o dono — e entregar o contato dele ao comercial</h2>
+  <p class="lead">Hoje o funil falha nas duas pontas: comunicação aberta demais e captura que não chega ao GHL. O que muda:</p>
+  <ol class="big">
+    <li><strong>Corrigir a captura (base de tudo):</strong> unificar o contato num <strong>único campo mapeado</strong> ao GHL e validar a integração ponta a ponta. Sem isso, tráfego novo repete o vazamento.</li>
+    <li><strong>Mirar no dono:</strong> abertura do quiz que <strong>exclui quem não é decisor</strong> já na 1ª pergunta (dono/sócio · diretor · gestor · funcionário).</li>
+    <li><strong>Ancorar o faturamento à posição:</strong> perguntar o faturamento <strong>do negócio do qual a pessoa é dona/decisora</strong> — corta o funcionário que infla a faixa.</li>
+    <li><strong>Redirecionar &lt; R$ 1M para a comunidade gratuita</strong> (não polui o pixel, não gasta tempo do comercial) — decisão já tomada em 17/06.</li>
+    <li><strong>Reposicionar a comunicação</strong> na dor real do ICP: negócio dependente do dono, margem magra, sobrecarga — não "liderança" genérica.</li>
+  </ol>
+
+  <h3>Pesquisa concorrencial (insumo)</h3>
+  <p>Olhar a <strong>biblioteca de anúncios</strong> dos concorrentes que vendem para esse público (Craft, G4, Empire Club, consultorias) e modelar gancho e narrativa a partir do que já funciona com decisor de alto faturamento.</p>
+
+  <h3>1ª versão do quiz — rascunho para o Daniel lapidar</h3>
+  <p class="muted" style="font-size:14.5px">"Diagnóstico de Maturidade do Negócio" — direção proposta:</p>
+  <table>
+    <tr><th>#</th><th>Pergunta / passo</th><th>Função</th></tr>
+    <tr><td class="num">1</td><td>Qual é o seu papel no negócio? (Dono/sócio · Diretor c/ autonomia · Gestor · Funcionário)</td><td>Filtro de decisor <span class="muted">(funcionário → comunidade)</span></td></tr>
+    <tr><td class="num">2</td><td>Qual o faturamento anual <strong>do seu negócio</strong>?</td><td>Faturamento ancorado <span class="muted">(&lt; R$ 1M → comunidade)</span></td></tr>
+    <tr><td class="num">3</td><td>Setor: Serviços · Comércio · Indústria</td><td>Segmentação <span class="muted">(indústria → trilha à parte)</span></td></tr>
+    <tr><td class="num">4–8</td><td>Dores de liderança (mantém as atuais): dependência do dono, autonomia do time, margem × crescimento, gargalo, momento da empresa</td><td>Qualificação + diagnóstico</td></tr>
+    <tr><td class="num">9</td><td>Captura única: nome + WhatsApp + e-mail num só passo</td><td><strong>Mapeada ao GHL</strong>, com tag de faixa/cargo</td></tr>
+    <tr><td class="num">10</td><td>Diagnóstico personalizado + redirecionamento ao WhatsApp</td><td>Entrega e handoff</td></tr>
+  </table>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="big">SIMPLE ACC</div>
+    <p>Material interno para o CEO — os 3 passos · Carol e José (ÚNICOS Club) · 23/06/2026.</p>
+    <p style="margin-top:8px;font-size:13px;color:#7d8fa9">Base de dados: lista autoritativa dos 76 MQLs. Reprodução em <code style="background:rgba(255,255,255,.08);color:#bcd">materiais/analise-leads.py</code>.</p>
+  </div>
+</footer>
+
+</body>
+</html>
