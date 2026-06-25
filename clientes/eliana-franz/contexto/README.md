@@ -16,19 +16,30 @@ Eliana Franz — proprietária de clínica de estética em **Chapecó e Pinhalzi
 - Sem cirurgia, sem repouso, sem atestado médico
 - Também oferece: laser e massagem (com desconto para quem faz Crio)
 
-## ICPs
+## Público
 
-### ICP Feminino (público histórico)
-Mulheres que querem eliminar gordura localizada (barriga, culote, flancos) sem cirurgia. Já tentaram academia e dieta sem resultado. Motivadas por imagem e autoestima.
+**EXCLUSIVAMENTE FEMININO.** A Eliana não atende homens.
 
-### ICP Masculino — "Ricardo" (expansão em 2025/2026)
-- 35–50 anos, empresário/gerente/liberal, renda R$ 6k–20k/mês
-- Barriga insistente que não some apesar de treino e dieta
-- **Frases que já ouviu:** "Tá com barriguinha de chope, hein?", "Você era tão mais atlético...", "Tá virando tiozão mesmo..."
-- **Não quer:** cirurgia, repouso, atestado, cinta abdominal, parar o trabalho
-- **Quer:** barriga seca, se sentir dominante e confiante, ser notado pela parceira
-- **Objeções principais:** "Isso é coisa de mulher?", "Vai funcionar no meu corpo?", "Preciso faltar trabalho?", "É seguro?"
-- **Culpa externa:** mercado que não resolve, métodos ineficazes — não é falta de esforço dele
+### ICP Feminino
+- Mulheres, 28–55 anos
+- Gordura localizada teimosa: barriga, culote, flancos, braços
+- Já tentaram: academia, dieta, low carb, jejum, massagem modeladora, criolipólise convencional
+- Resultado da frustração: parar de acreditar que vai mudar
+- Comportamentos: escolhem roupa pra esconder, evitam espelho, evitam praia/piscina
+- Motivação emocional: voltar a usar roupas que gostam, ir à praia sem se esconder, se olhar no espelho sem vergonha
+- Público movido por urgência e resultado rápido
+
+### Frases / dores reais do público (quiz SDR)
+- "Evito o espelho — a barriga me incomoda demais"
+- "Escolho roupa para esconder, não para me sentir bonita"
+- "Deixo de ir à praia ou à piscina por vergonha"
+- "Me sinto bem, mas quero aquele último ajuste no abdômen"
+
+### Objeções comuns
+- "Vai funcionar? Já tentei de tudo."
+- "Já fiz criolipólise e não vi resultado." → Resposta: protocolo completo, não sessão avulsa
+- "Vai doer?" → Não. Leve frio no início.
+- "Preciso parar minha rotina?" → Não. Sai daqui e vai direto à vida.
 
 ## Canais de tráfego
 
@@ -42,5 +53,4 @@ Avaliação 100% gratuita, sem compromisso. SDR não vende a Crio — vende a av
 
 ## Tom de voz
 
-- Para mulheres: próximo, acolhedor, emocional
-- Para homens: direto, seco, "cruel" — bate na barriga do cara. Sem suavizar. Sem linguagem técnica.
+Próximo, acolhedor, mas direto e sem suavizar a dor. Eli fala como quem conhece a realidade da mulher melhor do que ela mesma. Persuasivo e emocional — não técnico.
