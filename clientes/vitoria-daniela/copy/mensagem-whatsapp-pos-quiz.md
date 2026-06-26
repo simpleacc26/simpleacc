@@ -43,7 +43,51 @@ empolgação. Foco em *"tem lucro escapando e dá pra estruturar"* — sem deses
 
 ---
 
-## ✅ Versão A — Voz da Vitória (1ª pessoa) — RECOMENDADA
+## ⭐ VERSÃO FINAL (aprovada) — cadastrar no WhatsApp Manager / GHL
+
+**Decisões da Vitória:** assina como **time/SDR** · diagnóstico = **PDF no cabeçalho do
+template** · **genérico** (o diagnóstico é único, sem personalizar por perfil do quiz).
+
+**Configuração do template (WhatsApp Cloud API / Meta):**
+
+- **Categoria:** Marketing
+- **Idioma:** Português (BR)
+- **Header:** **Documento (PDF)** → anexar o arquivo do diagnóstico
+  (sugestão de nome: `Diagnostico-Estrategico-Vitoria-Daniela.pdf`)
+- **Body:** texto abaixo, com **1 variável** `{{1}} = primeiro nome`
+- **Botão (opcional, recomendado):** *Resposta rápida* com o texto **"Pode perguntar 👍"**
+  — ao tocar, o lead manda uma mensagem e **abre a janela de 24h** num clique.
+
+**Corpo do template (Body):**
+
+> Oi, {{1}}, tudo bem? Aqui é a [Nome], faço parte do time da **Vitória Daniela** 💜
+>
+> Esse é o seu **diagnóstico**, gerado a partir das respostas que você deu no quiz — tá
+> aqui no PDF acima 👆
+>
+> Ele já aponta onde tem **lucro escapando** do seu negócio hoje. Pra te mostrar o que dá
+> pra destravar primeiro, preciso entender um pouco do seu cenário.
+>
+> **Posso te fazer 2 ou 3 perguntas rápidas?** Leva uns 2 minutinhos 🙂
+
+> Trocar `[Nome]` pelo nome real de quem opera o WhatsApp (texto fixo — definir antes de
+> enviar para aprovação, pois template aprovado não permite editar o corpo).
+
+**Lembrete (template separado, p/ quem não respondeu — também precisa ser aprovado):**
+
+> Oi, {{1}}! Só passando pra saber se você conseguiu ver o seu diagnóstico 👀
+> Tem um ponto ali que costuma ser o que mais trava o crescimento — quer que eu te mostre
+> qual é no seu caso? Me chama aqui que eu te explico.
+
+> Disparar ~3–4h depois e, se ainda sem resposta, de novo no dia seguinte. Quando o lead
+> responder, seguir com os **scripts comerciais** (`copy/scripts-comerciais.md`) e levar à
+> **Análise Estratégica**.
+
+---
+
+## Variações de referência (não usadas — mantidas como histórico)
+
+## ✅ Versão A — Voz da Vitória (1ª pessoa)
 
 Consistente com os scripts comerciais (todos em 1ª pessoa) e com o tom da LP.
 
@@ -120,15 +164,18 @@ Se o lead não responder, a janela de 24h não abriu → o lembrete também prec
 
 ## Checklist de implementação no GHL
 
-- [ ] Criar/aprovar o(s) template(s) no WhatsApp (corpo + header de documento, se PDF).
-- [ ] Workflow: gatilho = formulário do quiz enviado → enviar template (Versão A ou B).
-- [ ] Mapear `{{1}}` (primeiro nome) e, se usar a Versão D, `{{2}}` (perfil do quiz).
-- [ ] Definir/gerar o "diagnóstico" entregue (PDF, resumo em texto ou link).
-- [ ] Lembrete automático (template) se não houver resposta em ~3–4h e em +24h.
+- [ ] Definir o `[Nome]` de quem assina (time/SDR) e travar no corpo.
+- [ ] Subir o PDF do diagnóstico e criar o template **com header de Documento** (Body
+      com `{{1}}` = primeiro nome) → enviar para **aprovação da Meta**.
+- [ ] (Opcional) Adicionar botão de resposta rápida **"Pode perguntar 👍"**.
+- [ ] Criar o template de **lembrete** (sem resposta) e enviar para aprovação.
+- [ ] Workflow GHL: gatilho = formulário do quiz enviado → enviar o template final.
+- [ ] Mapear `{{1}}` (primeiro nome) e o PDF (header) no workflow.
+- [ ] Lembrete automático se não houver resposta em ~3–4h e em +24h.
 - [ ] Ao receber resposta, atribuir a conversa ao responsável (abre janela de 24h).
 
-## Decisões pendentes (confirmar com a Vitória)
+## Decisões (definidas com a Vitória — 2026-06-26)
 
-1. **Quem assina a mensagem?** Vitória (Versão A) ou SDR/time (Versão B)?
-2. **Formato do diagnóstico** entregue no WhatsApp: PDF, resumo em texto ou link?
-3. **Personalizar pelo perfil do quiz** (Versão D) ou manter genérico?
+1. **Assinatura:** time/SDR (Versão Final). ✅
+2. **Diagnóstico:** **PDF no cabeçalho** do template aprovado pela Meta. ✅
+3. **Personalização:** **genérico** — o diagnóstico é único. ✅
