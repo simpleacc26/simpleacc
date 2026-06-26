@@ -30,7 +30,7 @@ export default function App() {
         <div className="absolute inset-0 bg-[#292859] opacity-90"></div>
         <div className="relative z-10 max-w-[1100px] mx-auto px-6 py-20 text-center">
           <div className="mb-8">
-            {/* Substitua /logo-alivance.png pela logo real na pasta public/ */}
+
             <ImageWithFallback
               src="/logo-alivance.png"
               alt="Alivance Club"
@@ -129,7 +129,7 @@ export default function App() {
       <section className="py-20 bg-[#0a0a0f]">
         <div className="max-w-[1100px] mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            {/* Substitua /rafael.png pela foto real na pasta public/ */}
+
             <div className="aspect-square rounded-2xl overflow-hidden bg-[#1a1a2e] flex items-center justify-center">
               <ImageWithFallback
                 src="/rafael.png"
@@ -157,10 +157,10 @@ export default function App() {
       <section className="py-20 bg-[#111118]">
         <div className="max-w-[1400px] mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-16 text-center">Resultados reais</h2>
-          {/* Substitua screenshot-1.png a screenshot-4.png pelas fotos reais na pasta public/ */}
+
           <div className="overflow-hidden">
             <div className="flex gap-6 animate-marquee">
-              {['/screenshot-1.png','/screenshot-2.png','/screenshot-3.png','/screenshot-4.png','/screenshot-1.png','/screenshot-2.png','/screenshot-3.png','/screenshot-4.png'].map((s,i)=>(
+              {['/screenshot-1.jpg','/screenshot-2.jpg','/screenshot-3.jpg','/screenshot-1.jpg','/screenshot-2.jpg','/screenshot-3.jpg'].map((s,i)=>(
                 <div key={i} className="flex-shrink-0 w-[350px] aspect-[4/5] rounded-xl overflow-hidden border border-[#c8b28b]/20 bg-[#1a1a2e]">
                   <ImageWithFallback src={s} alt="" className="w-full h-full object-cover"/>
                 </div>
