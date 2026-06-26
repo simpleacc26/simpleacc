@@ -7,6 +7,10 @@ const T = "DE MENTOR PARA EMPRESÁRIO DA EDUCAÇÃO · MÉTODO + MODELO + VENDAS
 export default function App() {
   const [show, setShow] = useState(false);
   const [faq, setFaq] = useState<number | null>(null);
+  const [slide, setSlide] = useState(0);
+  const screenshots = ['/screenshot-1.jpg','/screenshot-2.jpg','/screenshot-3.jpg'];
+  const prev = () => setSlide(i => (i - 1 + screenshots.length) % screenshots.length);
+  const next = () => setSlide(i => (i + 1) % screenshots.length);
 
   useEffect(() => {
     const t = setTimeout(() => {
@@ -158,12 +162,21 @@ export default function App() {
         <div className="max-w-[1400px] mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-16 text-center">Resultados reais</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {['/screenshot-1.jpg','/screenshot-2.jpg','/screenshot-3.jpg'].map((s,i)=>(
-              <div key={i} className="rounded-xl overflow-hidden border border-[#c8b28b]/20 bg-[#1a1a2e]">
-                <ImageWithFallback src={s} alt="" className="w-full h-auto block"/>
-              </div>
-            ))}
+          <div className="relative max-w-[560px] mx-auto">
+            <div className="rounded-xl overflow-hidden border border-[#c8b28b]/20 bg-[#1a1a2e]">
+              <ImageWithFallback src={screenshots[slide]} alt="" className="w-full h-auto block"/>
+            </div>
+            <button onClick={prev} aria-label="Anterior" className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-5 w-10 h-10 rounded-full bg-[#292859] border border-[#c8b28b]/40 flex items-center justify-center text-white hover:bg-[#3a3a80] transition-colors shadow-lg">
+              <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7"/></svg>
+            </button>
+            <button onClick={next} aria-label="Próximo" className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-5 w-10 h-10 rounded-full bg-[#292859] border border-[#c8b28b]/40 flex items-center justify-center text-white hover:bg-[#3a3a80] transition-colors shadow-lg">
+              <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </button>
+            <div className="flex justify-center gap-3 mt-6">
+              {screenshots.map((_,i) => (
+                <button key={i} onClick={() => setSlide(i)} className={`w-2.5 h-2.5 rounded-full transition-colors ${i===slide ? 'bg-[#c8b28b]' : 'bg-[#c8b28b]/30'}`}/>
+              ))}
+            </div>
           </div>
         </div>
       </section>
