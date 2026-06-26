@@ -161,8 +161,8 @@ export default function App() {
           <div className="overflow-hidden">
             <div className="flex gap-6 animate-marquee">
               {['/screenshot-1.jpg','/screenshot-2.jpg','/screenshot-3.jpg','/screenshot-1.jpg','/screenshot-2.jpg','/screenshot-3.jpg'].map((s,i)=>(
-                <div key={i} className="flex-shrink-0 w-[350px] aspect-[4/5] rounded-xl overflow-hidden border border-[#c8b28b]/20 bg-[#1a1a2e]">
-                  <ImageWithFallback src={s} alt="" className="w-full h-full object-cover"/>
+                <div key={i} className="flex-shrink-0 w-[350px] h-[440px] rounded-xl overflow-hidden border border-[#c8b28b]/20 bg-[#1a1a2e] flex items-center justify-center">
+                  <ImageWithFallback src={s} alt="" className="w-full h-full object-contain"/>
                 </div>
               ))}
             </div>
