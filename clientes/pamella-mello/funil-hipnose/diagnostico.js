@@ -40,7 +40,6 @@ if (!a._completedAt && !a.problema) {
   const foraDeArea = valor("geografia") === "fora";
   const prontidaoVal = valor("prontidao");
   const nutrir = prontidaoVal === "pontual" || prontidaoVal === "pesquisando";
-  const modalidade = valor("geografia") === "bh" ? "presencial em Contagem/BH" : "online";
 
   // CTA adaptado ao nível de qualificação
   let ctaLabel, ctaExtra, clube;
@@ -54,7 +53,7 @@ if (!a._completedAt && !a.problema) {
     clube = '<p class="clube">Quando fizer sentido pra você, o primeiro passo é a <strong>Sessão de Avaliação</strong>: um mapeamento do seu cenário, sem compromisso de seguir.</p>';
   } else {
     ctaLabel = "Quero agendar minha Sessão de Avaliação";
-    ctaExtra = `<p class="hint">Atendimento ${modalidade}, individual e confidencial. A avaliação já te entrega clareza, decida ou não seguir.</p>`;
+    ctaExtra = '<p class="hint">Atendimento presencial em Contagem/BH ou online para todo o Brasil, individual e confidencial. A avaliação já te entrega clareza, decida ou não seguir.</p>';
     clube = '<p class="clube">A partir da avaliação, conduzimos o <strong>protocolo terapêutico individual</strong>, pensado pro seu caso.</p>';
   }
 
