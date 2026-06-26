@@ -158,14 +158,12 @@ export default function App() {
         <div className="max-w-[1400px] mx-auto px-6">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-16 text-center">Resultados reais</h2>
 
-          <div className="overflow-hidden">
-            <div className="flex gap-6 animate-marquee">
-              {['/screenshot-1.jpg','/screenshot-2.jpg','/screenshot-3.jpg','/screenshot-1.jpg','/screenshot-2.jpg','/screenshot-3.jpg'].map((s,i)=>(
-                <div key={i} className="flex-shrink-0 w-[350px] h-[440px] rounded-xl overflow-hidden border border-[#c8b28b]/20 bg-[#1a1a2e] flex items-center justify-center">
-                  <ImageWithFallback src={s} alt="" className="w-full h-full object-contain"/>
-                </div>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {['/screenshot-1.jpg','/screenshot-2.jpg','/screenshot-3.jpg'].map((s,i)=>(
+              <div key={i} className="rounded-xl overflow-hidden border border-[#c8b28b]/20 bg-[#1a1a2e]">
+                <ImageWithFallback src={s} alt="" className="w-full h-auto block"/>
+              </div>
+            ))}
           </div>
         </div>
       </section>
