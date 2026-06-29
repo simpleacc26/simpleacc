@@ -144,32 +144,41 @@ export function DiagnosticoPage({ bucket, isQualified, leadData, onSchedule }: D
 
         {/* O próximo passo */}
         <div className="rounded-2xl p-6" style={{ backgroundColor: "rgba(169,128,47,0.06)", border: "1px solid rgba(169,128,47,0.28)" }}>
-          <p style={{ ...sans, fontSize: "0.97rem", color: NAVY, lineHeight: 1.75, marginBottom: "20px" }}>
-            <strong>O próximo passo.</strong> Em uma sessão estratégica individual, a gente mapeia exatamente onde está o seu gargalo e desenha o primeiro passo para destravar.
-          </p>
-          <div className="flex justify-center">
-            {isQualified ? (
-              <button
-                onClick={onSchedule}
-                className="inline-flex items-center gap-3 rounded-xl transition-all hover:opacity-90"
-                style={{ padding: "15px 30px", backgroundColor: GOLD, color: "#fff", ...sans, fontWeight: 700, fontSize: "0.95rem", letterSpacing: "0.03em", border: "none", cursor: "pointer", boxShadow: "0 4px 18px rgba(169,128,47,0.3)" }}
-              >
-                Quero agendar minha sessão
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            ) : (
-              <a
-                href={CTA_SALES_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 rounded-xl transition-all hover:opacity-90"
-                style={{ padding: "15px 30px", backgroundColor: GOLD, color: "#fff", ...sans, fontWeight: 700, fontSize: "0.95rem", letterSpacing: "0.03em", textDecoration: "none", boxShadow: "0 4px 18px rgba(169,128,47,0.3)" }}
-              >
-                Quero dar o próximo passo
-                <ArrowRight className="w-4 h-4" />
-              </a>
-            )}
-          </div>
+          {isQualified ? (
+            <>
+              <p style={{ ...sans, fontSize: "0.97rem", color: NAVY, lineHeight: 1.75, marginBottom: "20px" }}>
+                <strong>O próximo passo.</strong> Em uma sessão estratégica individual, a gente mapeia exatamente onde está o seu gargalo e desenha o primeiro passo para destravar.
+              </p>
+              <div className="flex justify-center">
+                <button
+                  onClick={onSchedule}
+                  className="inline-flex items-center gap-3 rounded-xl transition-all hover:opacity-90"
+                  style={{ padding: "15px 30px", backgroundColor: GOLD, color: "#fff", ...sans, fontWeight: 700, fontSize: "0.95rem", letterSpacing: "0.03em", border: "none", cursor: "pointer", boxShadow: "0 4px 18px rgba(169,128,47,0.3)" }}
+                >
+                  Quero agendar minha sessão
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <p style={{ ...sans, fontSize: "0.97rem", color: NAVY, lineHeight: 1.75, marginBottom: "20px" }}>
+                <strong>O próximo passo.</strong> A ÚNICOS tem uma solução desenvolvida especialmente para o momento em que você se encontra agora. Clique abaixo para descobrir.
+              </p>
+              <div className="flex justify-center">
+                <a
+                  href={CTA_SALES_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 rounded-xl transition-all hover:opacity-90"
+                  style={{ padding: "15px 30px", backgroundColor: GOLD, color: "#fff", ...sans, fontWeight: 700, fontSize: "0.95rem", letterSpacing: "0.03em", textDecoration: "none", boxShadow: "0 4px 18px rgba(169,128,47,0.3)" }}
+                >
+                  Quero dar o próximo passo
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </>
+          )}
         </div>
 
         {/* Assinatura Caroline */}
