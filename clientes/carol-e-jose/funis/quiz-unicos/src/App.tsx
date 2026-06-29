@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { questions } from "./data/questions";
+import { fbqTrack } from "./analytics";
 import { LandingScreen } from "./components/LandingScreen";
 import { QuestionScreen } from "./components/QuestionScreen";
 import { LeadCaptureForm, type LeadData } from "./components/LeadCaptureForm";
@@ -69,6 +70,7 @@ export default function App() {
 
   const handleLandingSelect = (value: string) => {
     setAnswers((prev) => ({ ...prev, 0: value }));
+    fbqTrack("ViewContent", { content_name: "Quiz Iniciado", content_category: "Quiz ÚNICOS" });
     setStep("question");
     setCurrentIndex(1);
   };
@@ -79,6 +81,7 @@ export default function App() {
     if (currentIndex < TOTAL_QUESTIONS - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
+      fbqTrack("InitiateCheckout", { content_name: "Captura de Lead Quiz ÚNICOS" });
       setStep("lead-capture");
     }
   };
@@ -138,8 +141,16 @@ export default function App() {
       // Não bloqueia o fluxo se o webhook falhar
     }
 
+    const qualified = calcIsQualified(answers);
+    fbqTrack("Lead", {
+      content_name: "Lead Quiz ÚNICOS",
+      content_category: qualified ? "Qualificado" : "Desqualificado",
+    });
+    if (qualified) {
+      fbqTrack("Schedule"); // evento padrão do Meta para agendamento
+    }
     setLoading(false);
-    setIsQualified(calcIsQualified(answers));
+    setIsQualified(qualified);
     setStep("agendamento");
   };
 
