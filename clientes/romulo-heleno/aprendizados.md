@@ -10,3 +10,4 @@ adicionar uma linha. É a memória que se acumula ao longo do tempo.
 | 08/06/2026 | Tráfego pago bloqueado até min. 3-5 vendas manuais. Não negociar ticket, só forma de pagamento. | Roadmap v2.0 |
 | 08/06/2026 | ICP documentado por escrito é pré-requisito para uso de IA na criação de conteúdo/copy | Call de checkpoint 08/06 |
 | 29/06/2026 | Call agendada — verificar cumprimento do checklist do Dia 14 | Próxima call |
+| 29/06/2026 | Doc de estratégia do Funil de Quiz gerado em PDF na identidade visual Pâmella Mello (Playfair+EB Garamond, capa navy, cards). Fonte e fontes versionadas em estrategia/funil-quiz-doc/. | Pedido Carlos/Daniel |
