@@ -158,7 +158,7 @@ window.FLOW = {
     campos: [
       { id: "nomeResp", label: "Seu nome", type: "text", required: true, autocomplete: "name", placeholder: "Como podemos te chamar?" },
       { id: "whatsapp", label: "Seu WhatsApp (com DDD)", type: "tel", required: true, autocomplete: "tel", placeholder: "(31) 99999-9999", mask: "phone" },
-      { id: "email", label: "Seu e-mail", type: "email", required: false, autocomplete: "email", placeholder: "voce@email.com" },
+      { id: "email", label: "Seu e-mail", type: "email", required: true, autocomplete: "email", placeholder: "voce@email.com" },
     ],
     cta: "Ver minha leitura personalizada",
     privacidade: "🔒 Seus dados são confidenciais e usados apenas para o seu atendimento. Nada de spam.",

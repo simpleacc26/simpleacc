@@ -125,8 +125,17 @@ if (!a._completedAt && !a.problema) {
 
     <div class="etapa">
       <h3>Quem já viveu isso</h3>
-      <div class="depo">[DEPOIMENTO 1]: inserir vídeo/print de paciente que tentou terapia por anos e teve resultado rápido com o método.</div>
-      <div class="depo">[DEPOIMENTO 2]: inserir relato de transformação emocional (antes e depois).</div>
+      <p>Pessoas reais que pararam de tratar o sintoma e foram na causa:</p>
+      <div class="depo-gallery">
+        <img class="depo-shot" src="depoimentos/01.jpeg" loading="lazy" alt="Avaliação 5 estrelas: fiz terapia convencional por um ano, mas a raiva continuava. Com a Pâmella foi um divisor de águas, sou uma nova mulher." />
+        <img class="depo-shot" src="depoimentos/02.jpeg" loading="lazy" alt="Avaliação 5 estrelas de Raquel Nunes: saí da clínica uma nova versão de mim, indico para todos." />
+        <img class="depo-shot" src="depoimentos/03.jpeg" loading="lazy" alt="Avaliação 5 estrelas de Marcio Ferreira: desde a primeira consulta senti enorme evolução, venci muitos medos e obstáculos." />
+        <img class="depo-shot" src="depoimentos/04.jpeg" loading="lazy" alt="Paciente: resultados já após a primeira sessão, foi libertador, uma paz que eu não imaginava ser possível." />
+        <img class="depo-shot" src="depoimentos/05.jpeg" loading="lazy" alt="Bruno: sofrimento interno que carregava há anos e achava que teria que conviver pra sempre, ressignificado." />
+        <img class="depo-shot" src="depoimentos/06.jpeg" loading="lazy" alt="Paciente: existe uma vida além da dependência emocional, você foi luz na minha vida." />
+        <img class="depo-shot" src="depoimentos/07.jpeg" loading="lazy" alt="Paciente: consegui fazer a prova do concurso com calma e serenidade, evoluí emocionalmente." />
+        <img class="depo-shot" src="depoimentos/08.jpeg" loading="lazy" alt="Paciente: a sessão foi libertadora, sinto que é o início de uma nova vida." />
+      </div>
       <p class="hint">O que essas histórias têm em comum: a pessoa parou de tratar o sintoma e foi na causa.</p>
     </div>
 
