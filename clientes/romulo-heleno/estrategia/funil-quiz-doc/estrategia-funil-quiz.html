@@ -8,144 +8,114 @@
   @font-face{ font-family:'Playfair Display'; src:url('pf600.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:block;}
   @font-face{ font-family:'Playfair Display'; src:url('pf700.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:block;}
   @font-face{ font-family:'Playfair Display'; src:url('pfi500.woff2') format('woff2'); font-weight:500; font-style:italic; font-display:block;}
-  @font-face{ font-family:'EB Garamond'; src:url('eg400.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:block;}
-  @font-face{ font-family:'EB Garamond'; src:url('eg700.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:block;}
-  @font-face{ font-family:'EB Garamond'; src:url('egi400.woff2') format('woff2'); font-weight:400; font-style:italic; font-display:block;}
+  @font-face{ font-family:'Lora'; src:url('lora400.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:block;}
+  @font-face{ font-family:'Lora'; src:url('lora500.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:block;}
+  @font-face{ font-family:'Lora'; src:url('lora600.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:block;}
+  @font-face{ font-family:'Lora'; src:url('lora700.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:block;}
+  @font-face{ font-family:'Lora'; src:url('lorai400.woff2') format('woff2'); font-weight:400; font-style:italic; font-display:block;}
   :root{
-    --ink:#232c39; --soft:#3c4856; --steel:#5f7fa6; --steeld:#3f5f86;
+    --ink:#232c39; --soft:#39454f; --steel:#5f7fa6; --steeld:#3f5f86;
     --muted:#95a2b3; --line:#e4e8ee; --callout:#eef2f8; --rose:#fbeeee; --roseb:#c97f7f;
     --navy1:#0c1827; --navy2:#1d3252; --hl:#90a8c6;
   }
   @page{ size: letter; }
   *{ box-sizing:border-box; }
-  body{ margin:0; font-family:'EB Garamond', Georgia, serif; color:var(--ink);
-        font-size:11.2px; line-height:1.62; -webkit-font-smoothing:antialiased; }
-
-  /* running header / footer repeated on every printed page */
-  .runhead, .runfoot{ position:fixed; left:56px; right:56px; display:flex; justify-content:space-between;
-        font-family:'Liberation Sans', Arial, sans-serif; font-size:7.2px; letter-spacing:2.4px;
-        color:var(--muted); text-transform:uppercase; }
-  .runhead{ top:-34px; }
-  .runfoot{ bottom:22px; }
+  body{ margin:0; font-family:'Lora', Georgia, serif; color:var(--ink);
+        font-size:13px; line-height:1.58; -webkit-font-smoothing:antialiased; }
 
   .section{ page-break-before: always; }
   .cover{ page-break-before: avoid; }
 
-  /* section label e títulos */
-  .kicker{ font-family:'Liberation Sans', Arial, sans-serif; font-size:8px; letter-spacing:3px;
-           color:var(--steel); text-transform:uppercase; font-weight:700; margin-bottom:10px; }
-  h1.title{ font-family:'Playfair Display', Georgia, serif; font-weight:700; font-size:31px;
-            line-height:1.08; color:var(--ink); margin:0 0 16px; letter-spacing:.2px; }
-  .lede{ font-size:12px; color:var(--soft); max-width:74%; margin:0 0 22px; }
-  h2.sub{ font-family:'Liberation Sans', Arial, sans-serif; font-size:8px; letter-spacing:2.6px;
+  .kicker{ font-family:'Liberation Sans', Arial, sans-serif; font-size:8.5px; letter-spacing:3px;
+           color:var(--steel); text-transform:uppercase; font-weight:700; margin-bottom:11px; }
+  h1.title{ font-family:'Playfair Display', Georgia, serif; font-weight:700; font-size:33px;
+            line-height:1.08; color:var(--ink); margin:0 0 17px; letter-spacing:.2px; }
+  .lede{ font-size:14px; color:var(--soft); max-width:78%; margin:0 0 22px; }
+  h2.sub{ font-family:'Liberation Sans', Arial, sans-serif; font-size:8.5px; letter-spacing:2.6px;
           color:var(--steel); text-transform:uppercase; font-weight:700; margin:26px 0 12px; }
 
-  p{ margin:0 0 11px; }
-  .small{ font-size:10.5px; color:var(--soft); }
+  p{ margin:0 0 12px; }
+  .small{ font-size:12px; color:var(--soft); }
 
-  /* cards de métrica */
   .grid{ display:flex; gap:14px; margin:6px 0 14px; }
-  .card{ flex:1; border:1px solid var(--line); border-radius:9px; padding:15px 16px; }
-  .card .clab{ font-family:'Liberation Sans', Arial, sans-serif; font-size:7px; letter-spacing:2px;
+  .card{ flex:1; border:1px solid var(--line); border-radius:9px; padding:16px 17px; }
+  .card .clab{ font-family:'Liberation Sans', Arial, sans-serif; font-size:7.5px; letter-spacing:2px;
         color:var(--steel); text-transform:uppercase; font-weight:700; margin-bottom:9px; }
-  .card .big{ font-family:'Playfair Display', Georgia, serif; font-size:22px; line-height:1.1; color:var(--ink); }
-  .card .big small{ font-size:11px; color:var(--muted); }
-  .card .ctxt{ font-size:10px; color:var(--soft); margin-top:7px; }
+  .card .big{ font-family:'Playfair Display', Georgia, serif; font-size:23px; line-height:1.1; color:var(--ink); }
+  .card .big small{ font-size:12px; color:var(--muted); }
+  .card .ctxt{ font-size:12px; color:var(--soft); margin-top:8px; }
 
-  /* bloco navy de citação */
   .quote{ background:linear-gradient(135deg,var(--navy1),var(--navy2)); border-radius:12px;
-          padding:26px 30px; margin:14px 0 20px; color:#eaf0f7; }
+          padding:27px 31px; margin:14px 0 20px; color:#eaf0f7; }
   .quote p{ font-family:'Playfair Display', Georgia, serif; font-style:italic; font-weight:500;
-            font-size:18px; line-height:1.5; margin:0; }
+            font-size:19px; line-height:1.5; margin:0; }
   .quote .hl{ color:var(--hl); }
-  .quote .qlab{ font-family:'Liberation Sans', Arial, sans-serif; font-size:7.5px; letter-spacing:2.5px;
+  .quote .qlab{ font-family:'Liberation Sans', Arial, sans-serif; font-size:8px; letter-spacing:2.5px;
             color:#8ba0bb; text-transform:uppercase; font-weight:700; margin-bottom:12px; }
-  .quote .qsub{ font-family:'EB Garamond',serif; font-style:normal; font-size:11px; color:#c4d0df;
-            margin-top:12px; line-height:1.55; }
-  .quote .qmeta{ font-family:'Liberation Sans', Arial, sans-serif; font-size:7px; letter-spacing:2px;
+  .quote .qsub{ font-family:'Lora',serif; font-style:normal; font-size:12.5px; color:#c4d0df;
+            margin-top:13px; line-height:1.55; }
+  .quote .qmeta{ font-family:'Liberation Sans', Arial, sans-serif; font-size:7.5px; letter-spacing:2px;
             color:#7e93af; text-transform:uppercase; margin-top:12px; }
 
-  /* callout azul claro com borda lateral */
   .callout{ background:var(--callout); border-left:3px solid var(--steeld); border-radius:0 8px 8px 0;
-            padding:14px 18px; margin:16px 0 18px; }
-  .callout .clab{ font-family:'Liberation Sans', Arial, sans-serif; font-size:7px; letter-spacing:2px;
+            padding:15px 19px; margin:16px 0 18px; }
+  .callout .clab{ font-family:'Liberation Sans', Arial, sans-serif; font-size:7.5px; letter-spacing:2px;
             color:var(--steeld); text-transform:uppercase; font-weight:700; margin-bottom:7px; }
-  .callout p{ margin:0; font-size:10.6px; color:var(--soft); }
-  .callout.rose{ background:var(--rose); border-left-color:var(--roseb); }
-  .callout.rose .clab{ color:#b06a6a; }
+  .callout p{ margin:0; font-size:12.5px; color:var(--soft); }
 
-  /* quiz */
-  .q{ margin:16px 0 4px; break-inside:avoid; }
-  .q .qk{ font-family:'Liberation Sans', Arial, sans-serif; font-size:7.5px; letter-spacing:2.4px;
-          color:var(--steel); text-transform:uppercase; font-weight:700; margin-bottom:5px; }
-  .q .qq{ font-family:'Playfair Display', Georgia, serif; font-size:15px; color:var(--ink); margin-bottom:8px; font-weight:600;}
-  .opt{ display:flex; gap:11px; padding:7px 0; border-top:1px solid var(--line); align-items:baseline; }
-  .opt .ol{ font-family:'Liberation Sans', Arial, sans-serif; font-size:8px; letter-spacing:1px;
-          color:var(--steel); font-weight:700; width:10px; flex:none; }
-  .opt .ot{ font-size:10.6px; color:var(--soft); }
+  .q{ margin:17px 0 4px; break-inside:avoid; }
+  .q .qk{ font-family:'Liberation Sans', Arial, sans-serif; font-size:8px; letter-spacing:2.4px;
+          color:var(--steel); text-transform:uppercase; font-weight:700; margin-bottom:6px; }
+  .q .qq{ font-family:'Playfair Display', Georgia, serif; font-size:17px; color:var(--ink); margin-bottom:9px; font-weight:600;}
+  .opt{ display:flex; gap:12px; padding:7.5px 0; border-top:1px solid var(--line); align-items:baseline; }
+  .opt .ol{ font-family:'Liberation Sans', Arial, sans-serif; font-size:8.5px; letter-spacing:1px;
+          color:var(--steel); font-weight:700; width:11px; flex:none; }
+  .opt .ot{ font-size:12.5px; color:var(--soft); }
 
-  /* hero do quiz (navy) */
-  .hero{ background:linear-gradient(135deg,var(--navy1),var(--navy2)); border-radius:12px; padding:24px 28px; margin:6px 0 22px; color:#eaf0f7;}
-  .hero .hk{ font-family:'Liberation Sans', Arial, sans-serif; font-size:7.5px; letter-spacing:2.5px; color:#8ba0bb; text-transform:uppercase; font-weight:700; margin-bottom:11px;}
-  .hero .hh{ font-family:'Playfair Display', Georgia, serif; font-size:19px; line-height:1.3; margin:0 0 11px; font-weight:600;}
-  .hero .hs{ font-size:11px; color:#c4d0df; margin:0;}
-  .hero .hm{ font-family:'Liberation Sans', Arial, sans-serif; font-size:7px; letter-spacing:2px; color:#7e93af; text-transform:uppercase; margin-top:12px;}
+  .hero{ background:linear-gradient(135deg,var(--navy1),var(--navy2)); border-radius:12px; padding:25px 29px; margin:6px 0 22px; color:#eaf0f7;}
+  .hero .hk{ font-family:'Liberation Sans', Arial, sans-serif; font-size:8px; letter-spacing:2.5px; color:#8ba0bb; text-transform:uppercase; font-weight:700; margin-bottom:12px;}
+  .hero .hh{ font-family:'Playfair Display', Georgia, serif; font-size:20px; line-height:1.3; margin:0 0 12px; font-weight:600;}
+  .hero .hs{ font-size:12.5px; color:#c4d0df; margin:0;}
+  .hero .hm{ font-family:'Liberation Sans', Arial, sans-serif; font-size:7.5px; letter-spacing:2px; color:#7e93af; text-transform:uppercase; margin-top:13px;}
 
-  /* mecanismo numerado */
-  .mech{ display:flex; gap:16px; padding:12px 0; border-top:1px solid var(--line); break-inside:avoid; }
-  .mech .mn{ font-family:'Playfair Display', Georgia, serif; font-size:26px; color:#c4d0dd; font-weight:700; width:38px; flex:none; line-height:1;}
-  .mech .mt{ font-family:'Playfair Display', Georgia, serif; font-size:14px; color:var(--ink); font-weight:600; margin-bottom:4px;}
-  .mech .md{ font-size:10.5px; color:var(--soft); margin:0;}
+  .mech{ display:flex; gap:16px; padding:13px 0; border-top:1px solid var(--line); break-inside:avoid; }
+  .mech .mn{ font-family:'Playfair Display', Georgia, serif; font-size:27px; color:#c4d0dd; font-weight:700; width:40px; flex:none; line-height:1;}
+  .mech .mt{ font-family:'Playfair Display', Georgia, serif; font-size:16px; color:var(--ink); font-weight:600; margin-bottom:5px;}
+  .mech .md{ font-size:12px; color:var(--soft); margin:0;}
 
-  /* listas para quem é / não é */
-  .twocol{ display:flex; gap:22px; }
+  .twocol{ display:flex; gap:24px; }
   .twocol > div{ flex:1; }
   ul.clean{ list-style:none; padding:0; margin:6px 0; }
-  ul.clean li{ font-size:10.6px; color:var(--soft); padding:4px 0 4px 16px; position:relative; }
+  ul.clean li{ font-size:12.5px; color:var(--soft); padding:4.5px 0 4.5px 17px; position:relative; }
   ul.clean li .mk{ position:absolute; left:0; font-weight:700; }
   .yes .mk{ color:#4f8a5e; } .no .mk{ color:#b06a6a; }
 
-  /* FAQ */
-  .faq{ break-inside:avoid; margin:0 0 11px; }
-  .faq .fq{ font-weight:700; color:var(--ink); font-size:11px; }
+  .faq{ break-inside:avoid; margin:0 0 12px; }
+  .faq .fq{ font-weight:700; color:var(--ink); font-size:12.5px; }
 
-  /* anúncio ângulos */
-  .angle{ margin:18px 0; break-inside:avoid; }
-  .angle .at{ font-family:'Playfair Display', Georgia, serif; font-size:16px; color:var(--ink); font-weight:600; margin-bottom:3px;}
-  .angle .ai{ font-style:italic; color:var(--steel); font-size:10.5px; margin-bottom:10px;}
-  .clab2{ font-family:'Liberation Sans', Arial, sans-serif; font-size:7px; letter-spacing:2px; color:var(--steel); text-transform:uppercase; font-weight:700; margin:10px 0 4px;}
-  .hookbox{ background:linear-gradient(135deg,var(--navy1),var(--navy2)); border-radius:9px; padding:14px 18px; margin:4px 0 10px;}
-  .hookbox p{ font-family:'Playfair Display', Georgia, serif; font-style:italic; font-size:13px; color:#eaf0f7; margin:0;}
+  .angle{ margin:19px 0; break-inside:avoid; }
+  .angle .at{ font-family:'Playfair Display', Georgia, serif; font-size:17px; color:var(--ink); font-weight:600; margin-bottom:4px;}
+  .angle .ai{ font-style:italic; color:var(--steel); font-size:12px; margin-bottom:11px;}
+  .clab2{ font-family:'Liberation Sans', Arial, sans-serif; font-size:7.5px; letter-spacing:2px; color:var(--steel); text-transform:uppercase; font-weight:700; margin:11px 0 5px;}
+  .hookbox{ background:linear-gradient(135deg,var(--navy1),var(--navy2)); border-radius:9px; padding:15px 19px; margin:4px 0 11px;}
+  .hookbox p{ font-family:'Playfair Display', Georgia, serif; font-style:italic; font-size:14px; color:#eaf0f7; margin:0;}
 
-  /* listas numeradas (headlines/hooks) */
-  ol.num{ margin:6px 0; padding-left:20px; }
-  ol.num li{ font-size:10.6px; color:var(--soft); padding:4px 0; }
+  ol.num{ margin:6px 0; padding-left:21px; }
+  ol.num li{ font-size:12.5px; color:var(--soft); padding:4.5px 0; }
   ol.num.it li{ font-style:italic; }
 
-  /* diagnóstico / cadência rows */
-  .step{ display:flex; gap:16px; padding:8.5px 0; border-top:1px solid var(--line); break-inside:avoid;}
-  .step .sn{ font-family:'Playfair Display', Georgia, serif; font-size:18px; color:var(--steel); font-weight:600; width:24px; flex:none; line-height:1.2;}
-  .step .st{ font-family:'Playfair Display', Georgia, serif; font-size:13.5px; color:var(--ink); font-weight:600; margin-bottom:4px;}
-  .step .sd{ font-size:10.5px; color:var(--soft); margin:0;}
+  .step{ display:flex; gap:16px; padding:9px 0; border-top:1px solid var(--line); break-inside:avoid;}
+  .step .sn{ font-family:'Playfair Display', Georgia, serif; font-size:19px; color:var(--steel); font-weight:600; width:25px; flex:none; line-height:1.2;}
+  .step .st{ font-family:'Playfair Display', Georgia, serif; font-size:15px; color:var(--ink); font-weight:600; margin-bottom:5px;}
+  .step .sd{ font-size:12px; color:var(--soft); margin:0;}
   .v{ color:var(--steeld); font-weight:700; }
 
   .day{ display:flex; gap:18px; padding:11px 0; border-top:1px solid var(--line); break-inside:avoid;}
-  .day .dn{ width:84px; flex:none;}
-  .day .dd{ font-family:'Playfair Display', Georgia, serif; font-size:17px; color:var(--ink); font-weight:600; line-height:1;}
-  .day .dl{ font-family:'Liberation Sans', Arial, sans-serif; font-size:6.6px; letter-spacing:1.6px; color:var(--steel); text-transform:uppercase; margin-top:4px;}
-  .day .dt{ font-size:10.6px; color:var(--soft); margin:0;}
-  .day.key .dt{ background:var(--callout); border-radius:7px; padding:10px 13px;}
-
-  .tasklab{ font-family:'Liberation Sans', Arial, sans-serif; font-size:8px; letter-spacing:2px; color:var(--steeld); text-transform:uppercase; font-weight:700; margin:16px 0 8px;}
-  ul.task{ list-style:none; padding:0; margin:0 0 8px;}
-  ul.task li{ font-size:10.6px; color:var(--soft); padding:5px 0 5px 18px; position:relative; border-top:1px solid var(--line);}
-  ul.task li:first-child{ border-top:none; }
-  ul.task li b{ color:var(--steeld); font-weight:700; }
-  ul.task li .mk{ position:absolute; left:0; color:var(--steel);}
-
-  .recblock{ margin:14px 0; break-inside:avoid;}
-  .recblock .rt{ font-family:'Playfair Display', Georgia, serif; font-size:15px; color:var(--ink); font-weight:600; margin-bottom:5px;}
-  .recblock p{ font-size:10.8px; color:var(--soft); margin:0;}
+  .day .dn{ width:90px; flex:none;}
+  .day .dd{ font-family:'Playfair Display', Georgia, serif; font-size:18px; color:var(--ink); font-weight:600; line-height:1;}
+  .day .dl{ font-family:'Liberation Sans', Arial, sans-serif; font-size:7px; letter-spacing:1.6px; color:var(--steel); text-transform:uppercase; margin-top:5px;}
+  .day .dt{ font-size:12.5px; color:var(--soft); margin:0;}
+  .day.key .dt{ background:var(--callout); border-radius:7px; padding:11px 14px;}
 
   .divider{ height:1px; background:var(--line); margin:22px 0; border:none; }
 </style>
@@ -181,13 +151,13 @@
   <p class="lede">Formação técnica em mecha para cabeleireiros, entregue como mentoria de acompanhamento individual. Esta estratégia organiza a aquisição via funil de quiz: a promessa, as perguntas que qualificam, a página, os anúncios, o diagnóstico personalizado e o follow-up até a sessão estratégica.</p>
 
   <div class="grid">
-    <div class="card"><div class="clab">Meta</div><div class="big">R$ 50.949<small> / 90d</small></div><div class="ctxt">17 vendas × R$ 2.997. Funil de quiz entra após validação manual.</div></div>
-    <div class="card"><div class="clab">Carro-chefe</div><div class="big">Mentoria · 3 meses</div><div class="ctxt">R$ 2.997 à vista ou 12x R$ 297. Sessões semanais + correção de vídeo.</div></div>
-    <div class="card"><div class="clab">Porta de Entrada</div><div class="big">Sessão · grátis</div><div class="ctxt">Sessão estratégica de 30 min após o diagnóstico do quiz.</div></div>
+    <div class="card"><div class="clab">Meta</div><div class="big">R$ 50.949<small> / 90d</small></div><div class="ctxt">17 vendas no trimestre. O funil de quiz entra após a validação manual da oferta.</div></div>
+    <div class="card"><div class="clab">Carro-chefe</div><div class="big">Mentoria · 3 meses</div><div class="ctxt">Sessões semanais individuais, correção de vídeo, banco de fichas e suporte por WhatsApp.</div></div>
+    <div class="card"><div class="clab">Porta de Entrada</div><div class="big">Sessão · grátis</div><div class="ctxt">Sessão estratégica de 30 min, agendada logo após o diagnóstico do quiz.</div></div>
   </div>
   <div class="grid">
-    <div class="card"><div class="clab">Modelo de Entrega</div><div class="ctxt" style="margin-top:0;">Mentoria de 3 meses via Google Meet (sessões semanais de 1h), correção de vídeos de atendimento gravados no salão, banco de fichas técnicas por tipo de mecha, suporte por WhatsApp. Aulas de apoio na Kiwify. Produto digital — Brasil inteiro.</div></div>
-    <div class="card"><div class="clab">Quem Conduz</div><div class="ctxt" style="margin-top:0;">Rômulo Heleno (especialista em mecha, ex-técnico de marca). Estratégia: Simple Acc · Daniel Souza (mentor) e Carlos Durães (acompanhamento). GPT de vendas ativado na primeira call real.</div></div>
+    <div class="card"><div class="clab">Modelo de Entrega</div><div class="ctxt" style="margin-top:0;">Mentoria de 3 meses via Google Meet (sessões semanais de 1h), correção de vídeos de atendimento gravados no salão, banco de fichas técnicas por tipo de mecha e suporte por WhatsApp. Aulas de apoio na Kiwify. Produto digital, atende o Brasil inteiro.</div></div>
+    <div class="card"><div class="clab">Quem Conduz</div><div class="ctxt" style="margin-top:0;">Rômulo Heleno conduz a mentoria: especialista em técnica de mecha e ex-técnico de marca, com anos formando profissionais em salões. Estratégia e acompanhamento por Simple Acc.</div></div>
   </div>
 </section>
 
@@ -196,10 +166,10 @@
   <div class="kicker">01 · Big Idea</div>
   <h1 class="title">A tese que sustenta tudo</h1>
   <div class="quote">
-    <p>"O cabeleireiro que não domina a mecha não tem problema de técnica — tem <span class="hl">problema de método</span>. E método não se aprende em vídeo: <span class="hl">se corrige na cadeira</span>."</p>
+    <p>"O cabeleireiro que não domina a mecha não tem um problema de técnica. Tem um <span class="hl">problema de método</span>. E método não se aprende em vídeo: <span class="hl">se corrige na cadeira</span>."</p>
   </div>
-  <p>O ICP do Rômulo é o profissional que já trabalha e já tentou evoluir na mecha: fez curso online, assistiu vídeo no YouTube, seguiu perfil de referência. Aprende, assimila — e na hora do atendimento real, a insegurança volta. Refaz mecha sem cobrar, perde cliente sem saber o que errou, e não se sente especialista o bastante para subir o ticket.</p>
-  <p>A virada de chave: o problema nunca foi falta de informação. É falta de alguém que veja o que você faz de errado, no seu trabalho, com o seu cabelo, e corrija na hora. Curso gravado entrega conteúdo para mil pessoas ao mesmo tempo — não enxerga o seu erro específico. A Mentoria Cabelo de Segunda entrega o que falta: prática corrigida. É por isso que custa o que custa: não é o preço de mais um curso, é o preço de parar de errar no escuro.</p>
+  <p>O cliente ideal do Rômulo é o profissional que já trabalha e já tentou evoluir na mecha. Fez curso online, assistiu vídeo no YouTube, seguiu perfil de referência. Aprende, assimila, e na hora do atendimento real a insegurança volta. Refaz mecha sem cobrar, perde cliente sem saber o que errou, e não se sente especialista o bastante para subir o ticket.</p>
+  <p>A virada de chave: o problema nunca foi falta de informação. É falta de alguém que veja o que você faz de errado, no seu próprio trabalho, com o seu cabelo, e corrija na hora. Curso gravado entrega conteúdo para mil pessoas ao mesmo tempo e não enxerga o seu erro específico. A Mentoria Cabelo de Segunda entrega o que falta: prática corrigida. É por isso que custa o que custa. Não é o preço de mais um curso, é o preço de parar de errar no escuro.</p>
   <div class="callout">
     <div class="clab">Por que resolve o "já fiz curso e não adiantou"</div>
     <p>A Big Idea qualifica na origem. Quem busca mais um conteúdo barato se autoexclui; quem está cansado de acumular erro sem correção se reconhece e aceita o investimento da mentoria.</p>
@@ -215,47 +185,47 @@
   <div class="hero">
     <div class="hk">Hero · Topo do Quiz</div>
     <div class="hh">Descubra o que está travando a sua técnica de mecha, e o que fazer agora</div>
-    <p class="hs">Responda 10 perguntas e receba um diagnóstico personalizado com o seu maior gargalo técnico — e o caminho exato para resolvê-lo.</p>
+    <p class="hs">Responda 10 perguntas e receba um diagnóstico personalizado com o seu maior gargalo técnico e o caminho exato para resolvê-lo.</p>
     <div class="hm">Leva ~3 minutos · 100% confidencial</div>
   </div>
 
   <div class="q"><div class="qk">Pergunta 01 · Situação</div><div class="qq">Há quanto tempo você trabalha como cabeleireiro(a)?</div>
-    <div class="opt"><span class="ol">A</span><span class="ot">Menos de 1 ano — ainda estou me estabelecendo</span></div>
-    <div class="opt"><span class="ol">B</span><span class="ot">Entre 1 e 3 anos — já atendo, mas ainda ganhando experiência</span></div>
-    <div class="opt"><span class="ol">C</span><span class="ot">Entre 3 e 6 anos — tenho clientela mas quero subir de nível</span></div>
-    <div class="opt"><span class="ol">D</span><span class="ot">Mais de 6 anos — experiente, buscando refinamento</span></div>
+    <div class="opt"><span class="ol">A</span><span class="ot">Menos de 1 ano, ainda estou me estabelecendo</span></div>
+    <div class="opt"><span class="ol">B</span><span class="ot">Entre 1 e 3 anos, já atendo mas ainda ganhando experiência</span></div>
+    <div class="opt"><span class="ol">C</span><span class="ot">Entre 3 e 6 anos, tenho clientela mas quero subir de nível</span></div>
+    <div class="opt"><span class="ol">D</span><span class="ot">Mais de 6 anos, profissional experiente buscando refinamento</span></div>
   </div>
 
   <div class="q"><div class="qk">Pergunta 02 · Situação</div><div class="qq">Como você descreveria a sua relação com mecha hoje?</div>
-    <div class="opt"><span class="ol">A</span><span class="ot">Ainda não faço mecha — quero começar do jeito certo</span></div>
-    <div class="opt"><span class="ol">B</span><span class="ot">Faço, mas com insegurança — cada atendimento me gera ansiedade</span></div>
-    <div class="opt"><span class="ol">C</span><span class="ot">Faço com regularidade, mas sem método fixo — dependo da intuição</span></div>
+    <div class="opt"><span class="ol">A</span><span class="ot">Ainda não faço mecha, quero começar do jeito certo</span></div>
+    <div class="opt"><span class="ol">B</span><span class="ot">Faço, mas com insegurança: cada atendimento me gera ansiedade</span></div>
+    <div class="opt"><span class="ol">C</span><span class="ot">Faço com regularidade, mas sem método fixo, dependo da intuição</span></div>
     <div class="opt"><span class="ol">D</span><span class="ot">Tenho algum método, mas sei que posso evoluir muito mais</span></div>
   </div>
 
   <div class="q"><div class="qk">Pergunta 03 · Problema</div><div class="qq">Qual é o maior travamento que você sente ao fazer uma mecha?</div>
-    <div class="opt"><span class="ol">A</span><span class="ot">Medo de errar a tonalidade — sair diferente do que a cliente pediu</span></div>
-    <div class="opt"><span class="ol">B</span><span class="ot">Insegurança na aplicação — folha, textura, timing, divisão de mechas</span></div>
+    <div class="opt"><span class="ol">A</span><span class="ot">Medo de errar a tonalidade e sair diferente do que a cliente pediu</span></div>
+    <div class="opt"><span class="ol">B</span><span class="ot">Insegurança na aplicação: folha, textura, timing, divisão de mechas</span></div>
     <div class="opt"><span class="ol">C</span><span class="ot">Dificuldade em adaptar a técnica para diferentes tipos de cabelo</span></div>
     <div class="opt"><span class="ol">D</span><span class="ot">Não me sinto especialista o bastante para cobrar um ticket alto</span></div>
   </div>
 
   <div class="q"><div class="qk">Pergunta 04 · Implicação</div><div class="qq">Quando a mecha não sai como esperado, o que normalmente acontece?</div>
-    <div class="opt"><span class="ol">A</span><span class="ot">Preciso refazer sem cobrar — prejuízo de tempo e de produto</span></div>
+    <div class="opt"><span class="ol">A</span><span class="ot">Preciso refazer sem cobrar, com prejuízo de tempo e de produto</span></div>
     <div class="opt"><span class="ol">B</span><span class="ot">A cliente não volta e eu fico sem saber o que errei</span></div>
     <div class="opt"><span class="ol">C</span><span class="ot">Fico constrangida(o) e evito indicar o procedimento</span></div>
-    <div class="opt"><span class="ol">D</span><span class="ot">Aceito qualquer resultado — não tenho parâmetro do que seria certo</span></div>
+    <div class="opt"><span class="ol">D</span><span class="ot">Aceito qualquer resultado, não tenho parâmetro do que seria certo</span></div>
   </div>
 
   <div class="q"><div class="qk">Pergunta 05 · Implicação (custo)</div><div class="qq">Se daqui a 6 meses você ainda não dominar a mecha, o que isso representa?</div>
-    <div class="opt"><span class="ol">A</span><span class="ot">Continuar com o mesmo faturamento — sem aumentar o ticket</span></div>
+    <div class="opt"><span class="ol">A</span><span class="ot">Continuar com o mesmo faturamento, sem aumentar o ticket</span></div>
     <div class="opt"><span class="ol">B</span><span class="ot">Perder clientes para quem se posiciona como especialista</span></div>
     <div class="opt"><span class="ol">C</span><span class="ot">Continuar dependendo de procedimentos mais simples e baratos</span></div>
-    <div class="opt"><span class="ol">D</span><span class="ot">A frustração aumenta — talvez eu considere mudar de área</span></div>
+    <div class="opt"><span class="ol">D</span><span class="ot">A frustração aumenta, talvez eu considere mudar de área</span></div>
   </div>
 
   <div class="q"><div class="qk">Pergunta 06 · Tentativas</div><div class="qq">O que você já tentou para dominar a técnica de mecha?</div>
-    <div class="opt"><span class="ol">A</span><span class="ot">Curso online — aprendi bastante, mas na prática trava</span></div>
+    <div class="opt"><span class="ol">A</span><span class="ot">Curso online: aprendi bastante, mas na prática trava</span></div>
     <div class="opt"><span class="ol">B</span><span class="ot">Perfis de referência e vídeos no YouTube</span></div>
     <div class="opt"><span class="ol">C</span><span class="ot">Aprendi observando colegas de salão</span></div>
     <div class="opt"><span class="ol">D</span><span class="ot">Ainda não tentei nada além da formação inicial</span></div>
@@ -264,40 +234,40 @@
   <div class="q"><div class="qk">Pergunta 07 · Objetivo</div><div class="qq">O que você quer conquistar dominando a mecha?</div>
     <div class="opt"><span class="ol">A</span><span class="ot">Aumentar o ticket médio e ganhar mais por atendimento</span></div>
     <div class="opt"><span class="ol">B</span><span class="ot">Me posicionar como especialista e atrair clientes exigentes</span></div>
-    <div class="opt"><span class="ol">C</span><span class="ot">Ter segurança e método — fazer mecha sem medo de errar</span></div>
+    <div class="opt"><span class="ol">C</span><span class="ot">Ter segurança e método, fazer mecha sem medo de errar</span></div>
     <div class="opt"><span class="ol">D</span><span class="ot">Abrir meu próprio espaço ou escalar meu salão</span></div>
   </div>
 
   <div class="q"><div class="qk">Pergunta 08 · Perfil</div><div class="qq">Qual cenário descreve melhor a sua situação hoje?</div>
     <div class="opt"><span class="ol">A</span><span class="ot">Trabalho em salão de terceiros e quero crescer</span></div>
     <div class="opt"><span class="ol">B</span><span class="ot">Tenho meu próprio salão e quero aumentar o faturamento</span></div>
-    <div class="opt"><span class="ol">C</span><span class="ot">Sou autônoma(o) — em casa, ateliê ou a domicílio</span></div>
+    <div class="opt"><span class="ol">C</span><span class="ot">Sou autônoma(o): em casa, ateliê ou a domicílio</span></div>
     <div class="opt"><span class="ol">D</span><span class="ot">Estou finalizando a formação e quero entrar certo no mercado</span></div>
   </div>
 
   <div class="q"><div class="qk">Pergunta 09 · Qualificação</div><div class="qq">Com que frequência você faz (ou quer fazer) mecha por semana?</div>
-    <div class="opt"><span class="ol">A</span><span class="ot">Ainda não faço — quero começar</span></div>
+    <div class="opt"><span class="ol">A</span><span class="ot">Ainda não faço, quero começar</span></div>
     <div class="opt"><span class="ol">B</span><span class="ot">1 a 3 atendimentos por semana</span></div>
     <div class="opt"><span class="ol">C</span><span class="ot">4 a 7 atendimentos por semana</span></div>
-    <div class="opt"><span class="ol">D</span><span class="ot">Mais de 7 — mecha já é minha principal fonte de renda</span></div>
+    <div class="opt"><span class="ol">D</span><span class="ot">Mais de 7, mecha já é minha principal fonte de renda</span></div>
   </div>
 
   <div class="q"><div class="qk">Pergunta 10 · Qualificação (sempre por último)</div><div class="qq">Se existisse um método que resolve exatamente o que te trava, você investiria em uma mentoria técnica nos próximos 30 dias?</div>
-    <div class="opt"><span class="ol">A</span><span class="ot">Sim — se eu entender que é o caminho certo para mim</span></div>
-    <div class="opt"><span class="ol">B</span><span class="ot">Talvez — dependendo do formato e do valor</span></div>
+    <div class="opt"><span class="ol">A</span><span class="ot">Sim, se eu entender que é o caminho certo para mim</span></div>
+    <div class="opt"><span class="ol">B</span><span class="ot">Talvez, dependendo do formato e do valor</span></div>
     <div class="opt"><span class="ol">C</span><span class="ot">Prefiro esperar mais um tempo</span></div>
     <div class="opt"><span class="ol">D</span><span class="ot">Não estou pronta(o) agora</span></div>
   </div>
 
   <div class="callout" style="margin-top:20px;">
     <div class="clab">Lógica de qualificação</div>
-    <p>P10 (A) + P9 (B/C/D) = lead quente → sessão. P10 (B) = nutrição via follow-up. P9 (A) + P2 (A) = iniciante puro, nutrir com conteúdo antes. O filtro é por intenção e momento, nunca por pergunta crua de renda.</p>
+    <p>P10 (A) com P9 (B/C/D) indica lead quente, vai direto para a sessão. P10 (B) entra na nutrição via follow-up. P9 (A) com P2 (A) é iniciante puro, nutrir com conteúdo antes. O filtro é por intenção e momento, nunca por pergunta crua de renda.</p>
   </div>
 
   <div class="hero" style="margin-top:6px;">
     <div class="hk">Captura de dados · após a última pergunta</div>
-    <div class="hh" style="font-size:17px;">Seu diagnóstico está pronto.</div>
-    <p class="hs">Preencha abaixo para receber o diagnóstico personalizado com o seu maior gargalo — e conversar com o Rômulo sobre o próximo passo.</p>
+    <div class="hh" style="font-size:18px;">Seu diagnóstico está pronto.</div>
+    <p class="hs">Preencha abaixo para receber o diagnóstico personalizado com o seu maior gargalo e conversar com o Rômulo sobre o próximo passo.</p>
     <div class="hm">Campos: Nome* · WhatsApp* · E-mail* · @ do Instagram (opcional) &nbsp;·&nbsp; CTA: Quero meu diagnóstico</div>
   </div>
 </section>
@@ -309,35 +279,35 @@
 
   <div class="quote">
     <div class="qlab">Headline + Subheadline</div>
-    <p style="font-size:20px;">Você já faz mecha. Mas sem método, cada atendimento é uma aposta.</p>
+    <p style="font-size:21px;">Você já faz mecha. Mas sem método, cada atendimento é uma aposta.</p>
     <div class="qsub">A Mentoria Cabelo de Segunda entrega o que cursos gravados nunca conseguiram: correção em tempo real, do que você faz de errado, no seu próprio trabalho. <b style="color:#dbe5f1;">CTA: Quero agendar minha sessão gratuita.</b></div>
   </div>
 
   <h2 class="sub">Prova social · logo após o headline</h2>
-  <div class="callout rose"><div class="clab">A preencher com os primeiros resultados</div><p>[DEPOIMENTO — de inseguro(a) a referência em mecha após a mentoria] · [DEPOIMENTO — ticket de R$ X para R$ Y por atendimento]. Sem cases reais ainda: priorizar coleta de depoimento em vídeo dos primeiros alunos.</p></div>
+  <div class="callout"><div class="clab">A preencher com os primeiros resultados</div><p>[DEPOIMENTO de profissional que saiu da insegurança para a referência em mecha após a mentoria] · [DEPOIMENTO de aumento de ticket por atendimento]. Sem cases reais ainda: priorizar a coleta de depoimento em vídeo dos primeiros alunos.</p></div>
 
-  <h2 class="sub">Bloco de dor · espelho do ICP</h2>
+  <h2 class="sub">Bloco de dor · espelho do cliente ideal</h2>
   <p class="small">Se você se reconhece nestes pontos, continue lendo:</p>
   <ul class="clean">
-    <li class="yes"><span class="mk">—</span>Cada mecha tem uma dose de ansiedade — nunca sabe exatamente como vai sair</li>
-    <li class="yes"><span class="mk">—</span>Já fez curso, vídeo, seguiu referência — e na hora do atendimento real a insegurança volta</li>
-    <li class="yes"><span class="mk">—</span>Quando não sai certa, refaz sem cobrar e sai no prejuízo de tempo, produto e confiança</li>
-    <li class="yes"><span class="mk">—</span>Sente que poderia cobrar mais, mas não se vê especialista o suficiente para isso</li>
-    <li class="yes"><span class="mk">—</span>Vê colegas se posicionando como referência e se pergunta o que elas têm que você não tem</li>
+    <li class="yes"><span class="mk">›</span>Cada mecha tem uma dose de ansiedade, nunca sabe exatamente como vai sair</li>
+    <li class="yes"><span class="mk">›</span>Já fez curso, vídeo e seguiu referência, mas na hora do atendimento real a insegurança volta</li>
+    <li class="yes"><span class="mk">›</span>Quando não sai certa, refaz sem cobrar e sai no prejuízo de tempo, produto e confiança</li>
+    <li class="yes"><span class="mk">›</span>Sente que poderia cobrar mais, mas não se vê especialista o suficiente para isso</li>
+    <li class="yes"><span class="mk">›</span>Vê colegas se posicionando como referência e se pergunta o que elas têm que você não tem</li>
   </ul>
   <p><b>O problema não é que você não tem talento. É que ninguém corrigiu o que você faz de errado.</b></p>
 
   <h2 class="sub">Reframe · por que o esforço comum não resolve</h2>
-  <p>Curso gravado te mostra o que fazer. Não corrige o que você está fazendo de errado. Você pode assistir 40 horas de conteúdo e continuar errando na folha, no timing ou na dosagem — porque o erro é seu, é específico, e ninguém está olhando pra ele. Domínio técnico vem de prática corrigida: alguém que vê, identifica o erro e te diz exatamente o que mudar.</p>
+  <p>Curso gravado te mostra o que fazer. Não corrige o que você está fazendo de errado. Você pode assistir 40 horas de conteúdo e continuar errando na folha, no timing ou na dosagem, porque o erro é seu, é específico, e ninguém está olhando pra ele. Domínio técnico vem de prática corrigida: alguém que vê, identifica o erro e te diz exatamente o que mudar.</p>
 
   <h2 class="sub">Mecanismo único · o Método Cabelo de Segunda</h2>
-  <div class="mech"><div class="mn">01</div><div><div class="mt">Sessão semanal individual (1h, Meet)</div><p class="md">Revisão do que você fez na semana, dúvidas respondidas em tempo real, ajuste de rota imediato. Não é aula — é correção.</p></div></div>
+  <div class="mech"><div class="mn">01</div><div><div class="mt">Sessão semanal individual (1h, Meet)</div><p class="md">Revisão do que você fez na semana, dúvidas respondidas em tempo real, ajuste de rota imediato. Não é aula, é correção.</p></div></div>
   <div class="mech"><div class="mn">02</div><div><div class="mt">Correção de vídeo dos seus atendimentos</div><p class="md">Você grava o procedimento no salão, manda, e recebe feedback específico do que errou e como ajustar. Isso não existe em curso nenhum.</p></div></div>
   <div class="mech"><div class="mn">03</div><div><div class="mt">Banco de fichas técnicas por tipo de mecha</div><p class="md">Os parâmetros certos para cada cabelo, textura e objetivo. Você para de improvisar e começa a replicar resultado.</p></div></div>
-  <div class="mech"><div class="mn">04</div><div><div class="mt">Suporte por WhatsApp entre sessões</div><p class="md">Dúvida que surge na cadeira antes do atendimento difícil: você manda, o Rômulo responde — sem esperar a próxima sessão.</p></div></div>
+  <div class="mech"><div class="mn">04</div><div><div class="mt">Suporte por WhatsApp entre sessões</div><p class="md">Dúvida que surge na cadeira antes do atendimento difícil: você manda, o Rômulo responde, sem esperar a próxima sessão.</p></div></div>
 
   <h2 class="sub">Autoridade · quem conduz</h2>
-  <p>Rômulo Heleno é especialista em técnica de mecha, com <span class="v">[X]</span> anos de cadeira. Foi técnico de marca — o profissional que as marcas contratam para treinar equipes de salão — visitando dezenas de salões em 2024. Conhece os erros mais comuns porque passou anos corrigindo-os em outros profissionais. <span class="v">[CREDENCIAL: anos de Embeleze, marcas, nº de profissionais treinados]</span></p>
+  <p>Rômulo Heleno é especialista em técnica de mecha, com <span class="v">[X]</span> anos de cadeira. Foi técnico de marca, o profissional que as marcas contratam para treinar equipes de salão, visitando dezenas de salões em 2024. Conhece os erros mais comuns porque passou anos corrigindo-os em outros profissionais. <span class="v">[CREDENCIAL: anos de Embeleze, marcas, nº de profissionais treinados]</span></p>
 
   <h2 class="sub">Oferta</h2>
   <div class="card" style="border-radius:9px;">
@@ -346,9 +316,9 @@
       <li class="yes"><span class="mk">✓</span>12 sessões semanais individuais de 1h via Google Meet</li>
       <li class="yes"><span class="mk">✓</span>Correção detalhada de vídeos de atendimento</li>
       <li class="yes"><span class="mk">✓</span>Banco completo de fichas técnicas por tipo de mecha</li>
-      <li class="yes"><span class="mk">✓</span>Aulas gravadas de apoio + suporte por WhatsApp</li>
+      <li class="yes"><span class="mk">✓</span>Aulas gravadas de apoio e suporte por WhatsApp</li>
     </ul>
-    <p class="small" style="margin:6px 0 0;"><b>Investimento:</b> R$ 2.997 à vista ou 12x R$ 297 no cartão. Sem Pix parcelado.</p>
+    <p class="small" style="margin:8px 0 0;">Os detalhes do investimento e das condições são apresentados na sua sessão estratégica gratuita, depois de entender o seu caso.</p>
   </div>
 
   <h2 class="sub">Para quem é / não é</h2>
@@ -361,15 +331,17 @@
     </ul></div>
     <div><ul class="clean no">
       <li><span class="mk">✗</span>Busca teoria sem compromisso com a prática</li>
-      <li><span class="mk">✗</span>Não atende clientes (nem tem previsão)</li>
+      <li><span class="mk">✗</span>Não atende clientes nem tem previsão</li>
       <li><span class="mk">✗</span>Quer solução mágica num fim de semana</li>
     </ul></div>
   </div>
 
   <h2 class="sub">FAQ</h2>
-  <div class="faq"><p class="fq">Preciso já dominar mecha para entrar?</p><p class="small">Não é exigido domínio — é exigido estar em atendimento ou com previsão imediata. A mentoria é desenvolvimento técnico para quem já está em campo.</p></div>
+  <div class="faq"><p class="fq">Preciso já dominar mecha para entrar?</p><p class="small">Não é exigido domínio. É exigido estar em atendimento ou com previsão imediata. A mentoria é desenvolvimento técnico para quem já está em campo.</p></div>
   <div class="faq"><p class="fq">Como funciona a correção de vídeo?</p><p class="small">Você grava com o celular no salão, manda pelo WhatsApp ou link, e o Rômulo devolve feedback específico: o que estava certo, o que errou e como corrigir.</p></div>
   <div class="faq"><p class="fq">Qual a diferença para um curso gravado?</p><p class="small">Curso te mostra como fazer. A mentoria corrige o que você está fazendo de errado. Um te dá informação; o outro te dá domínio.</p></div>
+
+  <div class="callout" style="margin-top:18px;"><div class="clab">CTA final</div><p>Agende a sua sessão estratégica gratuita. 30 minutos, individual, sem compromisso de compra: você apresenta o seu cenário e entende como a mentoria resolve o seu gargalo.</p></div>
 </section>
 
 <!-- ============ 04 ANÚNCIOS ============ -->
@@ -378,32 +350,32 @@
   <h1 class="title">Copy de mídia paga</h1>
 
   <h2 class="sub">Big Idea · versão anúncio</h2>
-  <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:16px; color:var(--ink); line-height:1.4;">Você não errou na mecha porque não sabe. Errou porque ninguém nunca corrigiu o que você faz de errado.</p>
+  <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:17px; color:var(--ink); line-height:1.4;">Você não errou na mecha porque não sabe. Errou porque ninguém nunca corrigiu o que você faz de errado.</p>
 
   <div class="angle">
     <div class="clab2">Ângulo 1 · Dor / Identificação</div>
     <div class="at">"Refez uma mecha sem cobrar?"</div>
-    <div class="ai">Espelhar a dor (insegurança + refazer sem cobrar) e nomear o problema real: falta de correção, não de informação.</div>
+    <div class="ai">Espelhar a dor (insegurança e refazer sem cobrar) e nomear o problema real: falta de correção, não de informação.</div>
     <div class="clab2">Hook (3s)</div>
-    <div class="hookbox"><p>"Se você já refez uma mecha sem cobrar porque não ficou certa — esse vídeo é pra você."</p></div>
+    <div class="hookbox"><p>"Se você já refez uma mecha sem cobrar porque não ficou certa, esse vídeo é pra você."</p></div>
     <div class="clab2">Curta (~50)</div>
-    <p class="small">Você não precisa de mais curso. Precisa de alguém que veja o que você faz de errado e corrija na hora. É isso que a Mentoria Cabelo de Segunda faz — correção técnica em tempo real, no seu trabalho. Agende sua sessão gratuita e descubra o seu gargalo.</p>
+    <p class="small">Você não precisa de mais curso. Precisa de alguém que veja o que você faz de errado e corrija na hora. É isso que a Mentoria Cabelo de Segunda faz: correção técnica em tempo real, no seu trabalho. Agende sua sessão gratuita e descubra o seu gargalo.</p>
     <div class="clab2">Média (~120)</div>
-    <p class="small">Toda cabeleireira que quer dominar mecha já fez curso, já assistiu vídeo, já seguiu referência. E na hora do atendimento real, a insegurança volta. O problema não é falta de informação — é que ninguém corrigiu o que você faz de errado. Curso te mostra como fazer; não vê o que você faz. Na mentoria, você grava o atendimento, manda pro Rômulo e recebe feedback específico do que errou. Sessão a sessão, o método entra. Agende uma sessão estratégica gratuita de 30 minutos.</p>
+    <p class="small">Toda cabeleireira que quer dominar mecha já fez curso, já assistiu vídeo, já seguiu referência. E na hora do atendimento real, a insegurança volta. O problema não é falta de informação. É que ninguém corrigiu o que você faz de errado. Curso te mostra como fazer; não vê o que você faz. Na mentoria, você grava o atendimento, manda pro Rômulo e recebe feedback específico do que errou. Sessão a sessão, o método entra. Agende uma sessão estratégica gratuita de 30 minutos.</p>
     <div class="clab2">Longa (~250)</div>
-    <p class="small">Você sabe fazer mecha. Mas cada atendimento ainda tem aquela dose de ansiedade — nunca sabe exatamente como vai sair. Já fez curso, vídeo no YouTube, seguiu os melhores perfis. Aprende — e na cadeira, trava. Isso não é falta de talento: informação e domínio são coisas diferentes. Domínio vem de prática corrigida, de alguém que vê o que você faz e fala "aqui, esse ponto, muda isso". Cursos não fazem isso — são gravados pra mil pessoas, não enxergam o seu erro. A Mentoria Cabelo de Segunda resolve exatamente isso: o Rômulo assiste os vídeos dos seus atendimentos e devolve feedback real. Sessão semanal, correção de vídeo, banco de fichas, suporte por WhatsApp. 3 meses de acompanhamento que a maioria nunca teve. Agende uma sessão estratégica gratuita. Sem compromisso.</p>
+    <p class="small">Você sabe fazer mecha. Mas cada atendimento ainda tem aquela dose de ansiedade, nunca sabe exatamente como vai sair. Já fez curso, vídeo no YouTube, seguiu os melhores perfis. Aprende, e na cadeira trava. Isso não é falta de talento: informação e domínio são coisas diferentes. Domínio vem de prática corrigida, de alguém que vê o que você faz e fala "aqui, esse ponto, muda isso". Cursos não fazem isso, são gravados pra mil pessoas e não enxergam o seu erro. A Mentoria Cabelo de Segunda resolve exatamente isso: o Rômulo assiste os vídeos dos seus atendimentos e devolve feedback real. Sessão semanal, correção de vídeo, banco de fichas, suporte por WhatsApp. 3 meses de acompanhamento que a maioria nunca teve. Agende uma sessão estratégica gratuita. Sem compromisso.</p>
   </div>
 
   <div class="angle">
     <div class="clab2">Ângulo 2 · Mecanismo único</div>
     <div class="at">"O que nenhum curso te dá"</div>
-    <div class="ai">Nomear o diferencial — correção de vídeo do atendimento real — como algo que não existe em curso nenhum.</div>
+    <div class="ai">Nomear o diferencial, correção de vídeo do atendimento real, como algo que não existe em curso nenhum.</div>
     <div class="clab2">Hook (3s)</div>
-    <div class="hookbox"><p>"Existe uma coisa que nenhum curso de mecha te oferece — e é a única que muda de verdade."</p></div>
+    <div class="hookbox"><p>"Existe uma coisa que nenhum curso de mecha te oferece, e é a única que muda de verdade."</p></div>
     <div class="clab2">Curta (~50)</div>
-    <p class="small">Correção em tempo real do seu próprio atendimento. Você grava a mecha no salão, manda pro mentor e recebe feedback específico do que errou — não teoria genérica. É o que separa quem aprende de quem domina. Agende sua sessão gratuita.</p>
+    <p class="small">Correção em tempo real do seu próprio atendimento. Você grava a mecha no salão, manda pro mentor e recebe feedback específico do que errou, não teoria genérica. É o que separa quem aprende de quem domina. Agende sua sessão gratuita.</p>
     <div class="clab2">Média (~120)</div>
-    <p class="small">O que nenhum curso te dá: alguém que vê o que você faz de errado no seu atendimento real e te diz exatamente o que mudar. Na Mentoria Cabelo de Segunda você grava o procedimento no salão com o celular, manda pro Rômulo, e recebe um feedback específico — esse ponto da aplicação, essa divisão de folha, esse timing. Não é conteúdo genérico: é correção do seu erro, no seu cabelo. Somado a sessões semanais e suporte por WhatsApp, é o que gera domínio real em 3 meses. Agende sua sessão gratuita.</p>
+    <p class="small">O que nenhum curso te dá: alguém que vê o que você faz de errado no seu atendimento real e te diz exatamente o que mudar. Na Mentoria Cabelo de Segunda você grava o procedimento no salão com o celular, manda pro Rômulo, e recebe um feedback específico: esse ponto da aplicação, essa divisão de folha, esse timing. Não é conteúdo genérico, é correção do seu erro, no seu cabelo. Somado a sessões semanais e suporte por WhatsApp, é o que gera domínio real em 3 meses. Agende sua sessão gratuita.</p>
   </div>
 
   <div class="angle">
@@ -411,8 +383,8 @@
     <div class="at">A transformação real</div>
     <div class="ai">Resultado concreto de aluno (ticket, segurança, clientela) como gancho. Apoiar em depoimento das redes.</div>
     <div class="clab2">Hook (3s) · usar com [depoimento]</div>
-    <div class="hookbox"><p>"[Nome] fazia mecha com insegurança e cobrava R$ [X]. Hoje cobra R$ [Y] e tem fila. Ela não mudou de profissão — mudou o método."</p></div>
-    <p class="small" style="margin-top:6px;">[DEPOIMENTO CURTO / MÉDIO / LONGO — substituir quando houver case com antes/depois de ticket ou posicionamento.]</p>
+    <div class="hookbox"><p>"[Nome] fazia mecha com insegurança e cobrava R$ [X]. Hoje cobra R$ [Y] e tem fila. Ela não mudou de profissão, mudou o método."</p></div>
+    <p class="small" style="margin-top:6px;">[DEPOIMENTO curto, médio e longo: substituir quando houver case com antes e depois de ticket ou posicionamento.]</p>
   </div>
 
   <hr class="divider">
@@ -420,14 +392,14 @@
     <div>
       <div class="clab2">10 headlines para teste A/B</div>
       <ol class="num">
-        <li>Você já faz mecha. O que falta é método — e quem corrija o que você erra.</li>
+        <li>Você já faz mecha. O que falta é método, e quem corrija o que você erra.</li>
         <li>Por que cabeleireiros experientes ainda travam na mecha.</li>
         <li>A diferença entre aprender mecha e dominar é uma só: prática corrigida.</li>
-        <li>Descubra o que trava a sua técnica de mecha — diagnóstico em 3 minutos.</li>
-        <li>Já refez uma mecha sem cobrar? Não é azar — é falta de método.</li>
+        <li>Descubra o que trava a sua técnica de mecha em um diagnóstico de 3 minutos.</li>
+        <li>Já refez uma mecha sem cobrar? Não é azar, é falta de método.</li>
         <li>Como parar de improvisar na mecha e replicar resultado toda vez.</li>
         <li>Curso te mostra como fazer. Esta mentoria corrige o que você erra.</li>
-        <li>Quem domina mecha não sabe mais que você — alguém corrigiu os erros dele.</li>
+        <li>Quem domina mecha não sabe mais que você. Alguém corrigiu os erros dele.</li>
         <li>3 meses de correção real valem mais que 3 anos de curso online.</li>
         <li>Se a sua mecha não sai como a da referência, ninguém está te vendo.</li>
       </ol>
@@ -435,10 +407,10 @@
     <div>
       <div class="clab2">5 hooks para vídeo</div>
       <ol class="num it">
-        <li>"Se você já refez uma mecha sem cobrar porque não ficou certa — esse vídeo é pra você."</li>
+        <li>"Se você já refez uma mecha sem cobrar porque não ficou certa, esse vídeo é pra você."</li>
         <li>"Existe um motivo pelo qual cabeleireiros experientes ainda travam na mecha. E não é o que você pensa."</li>
         <li>"Você pode assistir todos os cursos de mecha do mundo e continuar errando. Vou te dizer por quê."</li>
-        <li>"A diferença entre quem faz mecha e uma especialista não está no talento — está em quem corrigiu os erros dela."</li>
+        <li>"A diferença entre quem faz mecha e uma especialista não está no talento. Está em quem corrigiu os erros dela."</li>
         <li>"Aquela insegurança antes de uma mecha difícil? Não é falta de experiência. É falta de método."</li>
       </ol>
     </div>
@@ -451,18 +423,18 @@
   <h1 class="title">A leitura entregue após o quiz</h1>
   <div class="callout">
     <div class="clab">Instruções de uso</div>
-    <p>Substitua os campos <span class="v">{{ }}</span> pelas respostas do quiz. [DEPOIMENTO] = inserir prova real. Botões [AGENDAR] levam ao WhatsApp/calendário. Tom direto e técnico, sem condescendência — você fala com um profissional. Adapte a recomendação ao gargalo dominante (P3).</p>
+    <p>Substitua os campos <span class="v">{{ }}</span> pelas respostas do quiz. [DEPOIMENTO] indica onde inserir prova real. Botões [AGENDAR] levam ao WhatsApp ou calendário. Tom direto e técnico, sem condescendência: você fala com um profissional. Adapte a recomendação ao gargalo dominante (P3).</p>
   </div>
 
-  <div class="step"><div class="sn">1</div><div><div class="st">Abertura personalizada</div><p class="sd">Olá, <span class="v">{{nome}}</span>. Analisamos o seu cenário. Abaixo está o que identificamos sobre a sua situação técnica e o que fazer a partir de agora — específico para o que você respondeu, não genérico.</p></div></div>
-  <div class="step"><div class="sn">2</div><div><div class="st">Leitura do cenário</div><p class="sd">Você tem <span class="v">{{tempo_carreira}}</span> na profissão e descreve sua relação com mecha como <span class="v">"{{descricao_mecha}}"</span>. O seu maior travamento hoje é <span class="v">{{maior_travamento}}</span>, e quando um atendimento falha o impacto é <span class="v">{{impacto_erro}}</span>. Isso é mais comum do que parece — e tem causa clara.</p></div></div>
-  <div class="step"><div class="sn">3</div><div><div class="st">O mecanismo do problema</div><p class="sd">Não é falta de talento nem de experiência: é ausência de método corrigido. Alguém te mostrou como fazer, mas ninguém acompanhou o que você faz de errado no atendimento real. Você replica um padrão imperfeito toda vez. Por isso o curso não resolveu — informação você tem; falta correção específica.</p></div></div>
-  <div class="step"><div class="sn">4</div><div><div class="st">Dois cenários</div><p class="sd"><b>Continuar como está:</b> fazendo mecha com <span class="v">{{frequencia}}</span> por semana, sentindo <span class="v">{{maior_travamento}}</span>, acumulando erro sem corrigir. <b>Com método em 3 meses:</b> [DEPOIMENTO de aluno em situação similar]. A diferença não é talento — é correção técnica sistemática.</p></div></div>
-  <div class="step"><div class="sn">5</div><div><div class="st">O custo de continuar</div><p class="sd">Você disse que, sem dominar mecha em 6 meses, <span class="v">{{custo_da_inacao}}</span>. O mercado de beleza está se especializando — quem não tem método perde espaço. E atender sem método é acumular erro sem corrigir: você não melhora fazendo mais do mesmo.</p></div></div>
+  <div class="step"><div class="sn">1</div><div><div class="st">Abertura personalizada</div><p class="sd">Olá, <span class="v">{{nome}}</span>. Analisamos o seu cenário. Abaixo está o que identificamos sobre a sua situação técnica e o que fazer a partir de agora, específico para o que você respondeu, não genérico.</p></div></div>
+  <div class="step"><div class="sn">2</div><div><div class="st">Leitura do cenário</div><p class="sd">Você tem <span class="v">{{tempo_carreira}}</span> na profissão e descreve sua relação com mecha como <span class="v">"{{descricao_mecha}}"</span>. O seu maior travamento hoje é <span class="v">{{maior_travamento}}</span>, e quando um atendimento falha o impacto é <span class="v">{{impacto_erro}}</span>. Isso é mais comum do que parece, e tem causa clara.</p></div></div>
+  <div class="step"><div class="sn">3</div><div><div class="st">O mecanismo do problema</div><p class="sd">Não é falta de talento nem de experiência: é ausência de método corrigido. Alguém te mostrou como fazer, mas ninguém acompanhou o que você faz de errado no atendimento real. Você replica um padrão imperfeito toda vez. Por isso o curso não resolveu: informação você tem, falta correção específica.</p></div></div>
+  <div class="step"><div class="sn">4</div><div><div class="st">Dois cenários</div><p class="sd"><b>Continuar como está:</b> fazendo mecha com <span class="v">{{frequencia}}</span> por semana, sentindo <span class="v">{{maior_travamento}}</span>, acumulando erro sem corrigir. <b>Com método em 3 meses:</b> [DEPOIMENTO de aluno em situação similar]. A diferença não é talento, é correção técnica sistemática.</p></div></div>
+  <div class="step"><div class="sn">5</div><div><div class="st">O custo de continuar</div><p class="sd">Você disse que, sem dominar mecha em 6 meses, <span class="v">{{custo_da_inacao}}</span>. O mercado de beleza está se especializando: quem não tem método perde espaço. E atender sem método é acumular erro sem corrigir. Você não melhora fazendo mais do mesmo.</p></div></div>
   <div class="step"><div class="sn">6</div><div><div class="st">O mecanismo da solução</div><p class="sd">Você para de errar no escuro (correção de vídeo), para de improvisar (banco de fichas técnicas) e para de travar entre atendimentos (suporte por WhatsApp). Sessão a sessão, o erro vai saindo e o resultado passa a ser replicável.</p></div></div>
-  <div class="step"><div class="sn">7</div><div><div class="st">O que precisa acontecer agora</div><p class="sd">Baseado em <span class="v">{{maior_travamento}}</span>, o primeiro foco da sua mentoria seria <span class="v">{{recomendacao_por_gargalo}}</span>. <span class="small">[Ex.: "medo de tonalidade" → leitura de fio e construção de base · "insegurança na aplicação" → divisão, folha e timing por tipo de cabelo · "não se sente especialista" → consistência documentada via fichas.]</span></p></div></div>
+  <div class="step"><div class="sn">7</div><div><div class="st">O que precisa acontecer agora</div><p class="sd">Baseado em <span class="v">{{maior_travamento}}</span>, o primeiro foco da sua mentoria seria <span class="v">{{recomendacao_por_gargalo}}</span>. <span class="small">[Ex.: medo de tonalidade leva a leitura de fio e construção de base; insegurança na aplicação leva a divisão, folha e timing por tipo de cabelo; não se sente especialista leva a consistência documentada via fichas.]</span></p></div></div>
   <div class="step"><div class="sn">8</div><div><div class="st">Prova</div><p class="sd">[DEPOIMENTO de cabeleireiro(a) com o mesmo travamento de <span class="v">{{nome}}</span> que chegou ao resultado com a mentoria.]</p></div></div>
-  <div class="step"><div class="sn">9</div><div><div class="st">Convite</div><p class="sd">[AGENDAR] Quero agendar minha sessão estratégica gratuita. 30 minutos, individual, sem compromisso de compra — para confirmar que a mentoria faz sentido no seu momento.</p></div></div>
+  <div class="step"><div class="sn">9</div><div><div class="st">Convite</div><p class="sd">[AGENDAR] Quero agendar minha sessão estratégica gratuita. 30 minutos, individual, sem compromisso de compra, para confirmar que a mentoria faz sentido no seu momento.</p></div></div>
   <p class="small" style="font-style:italic; margin-top:14px;">Rodapé: este resultado é uma leitura inicial baseada nas suas respostas, não um diagnóstico técnico completo. A sessão estratégica é o passo que aprofunda o seu caso.</p>
 </section>
 
@@ -470,74 +442,31 @@
 <section class="section">
   <div class="kicker">06 · Cadência de Follow-up</div>
   <h1 class="title">12 dias de acompanhamento</h1>
-  <p class="lede">Voz do Rômulo: direto e técnico, sem forçar — especialista que fala com profissional, nunca vendedor. Todas as mensagens saem pelo WhatsApp. Personalizar com <span class="v">{{nome}}</span> e a resposta do quiz.</p>
+  <p class="lede">Voz do Rômulo: direto e técnico, sem forçar. Especialista que fala com profissional, nunca vendedor. Todas as mensagens saem pelo WhatsApp. Personalizar com <span class="v">{{nome}}</span> e a resposta do quiz.</p>
 
   <div class="callout">
     <div class="clab">Níveis de FUP</div>
     <p><b>N1</b> não respondeu o diagnóstico · <b>N2</b> engajou e parou · <b>N3</b> quer agendar e adia · <b>N4</b> no-show · <b>N5</b> fez a call e não fechou · <b>N6</b> base fria (relacionamento longo).</p>
   </div>
 
-  <div class="day"><div class="dn"><div class="dd">Dia 1</div><div class="dl">Manhã · até 2h</div></div><p class="dt"><span class="v">{{nome}}</span>, seu diagnóstico chegou. Dei uma olhada no que você respondeu — tem coisa importante aí pra conversar. Me manda uma mensagem quando puder ler com calma.</p></div>
-  <div class="day"><div class="dn"><div class="dd">Dia 2</div><div class="dl">Tarde · N1</div></div><p class="dt">👀 — e, se não responder: "Normalmente quem não responde ainda não leu com atenção — a rotina de salão é corrida. Quando puder, me fala o que achou. Tem uma coisa sobre <span class="v">{{travamento}}</span> que quero te perguntar."</p></div>
+  <div class="day"><div class="dn"><div class="dd">Dia 1</div><div class="dl">Manhã · até 2h</div></div><p class="dt"><span class="v">{{nome}}</span>, seu diagnóstico chegou. Dei uma olhada no que você respondeu e tem coisa importante aí pra conversar. Me manda uma mensagem quando puder ler com calma.</p></div>
+  <div class="day"><div class="dn"><div class="dd">Dia 2</div><div class="dl">Tarde · N1</div></div><p class="dt">👀 e, se não responder: "Normalmente quem não responde ainda não leu com atenção, a rotina de salão é corrida. Quando puder, me fala o que achou. Tem uma coisa sobre <span class="v">{{travamento}}</span> que quero te perguntar."</p></div>
   <div class="day"><div class="dn"><div class="dd">Dia 3</div><div class="dl">Tarde · check-in</div></div><p class="dt">Uma pergunta rápida, <span class="v">{{nome}}</span>: na próxima mecha difícil que você imagina fazer, qual é o ponto que ainda te dá mais ansiedade? Me fala e eu te explico o que a gente trabalharia primeiro.</p></div>
-  <div class="day"><div class="dn"><div class="dd">Dia 4</div><div class="dl">Manhã · valor</div></div><p class="dt">Vou te contar um erro técnico que aparece em quase todo cabeleireiro sem método: [DICA — ex.: timing calibrado pelo tipo de fio, não pelo relógio]. Resolve um terço dos casos. Me fala se faz sentido pro que você sente.</p></div>
-  <div class="day key"><div class="dn"><div class="dd">Dia 5</div><div class="dl">Ligação · dia-chave</div></div><p class="dt">Tenta ligar. Se não atender, áudio curto: "<span class="v">{{nome}}</span>, tentei te ligar. Não precisa ser agora — mas quando tiver um tempinho, me manda mensagem. Quero entender melhor a sua situação antes de recomendar qualquer coisa."</p></div>
-  <div class="day"><div class="dn"><div class="dd">Dia 6</div><div class="dl">Tarde · prova</div></div><p class="dt">[DEPOIMENTO] <span class="v">{{nome}}</span>, isso aqui foi o que aconteceu com alguém num cenário parecido com o seu — [travamento similar]. Se quiser conversar sobre o que faria sentido pro seu caso, é só falar.</p></div>
+  <div class="day"><div class="dn"><div class="dd">Dia 4</div><div class="dl">Manhã · valor</div></div><p class="dt">Vou te contar um erro técnico que aparece em quase todo cabeleireiro sem método: [DICA, ex.: timing calibrado pelo tipo de fio, não pelo relógio]. Resolve um terço dos casos. Me fala se faz sentido pro que você sente.</p></div>
+  <div class="day key"><div class="dn"><div class="dd">Dia 5</div><div class="dl">Ligação · dia-chave</div></div><p class="dt">Tenta ligar. Se não atender, áudio curto: "<span class="v">{{nome}}</span>, tentei te ligar. Não precisa ser agora, mas quando tiver um tempinho, me manda mensagem. Quero entender melhor a sua situação antes de recomendar qualquer coisa."</p></div>
+  <div class="day"><div class="dn"><div class="dd">Dia 6</div><div class="dl">Tarde · prova</div></div><p class="dt">[DEPOIMENTO] <span class="v">{{nome}}</span>, isso aqui foi o que aconteceu com alguém num cenário parecido com o seu, com o mesmo travamento. Se quiser conversar sobre o que faria sentido pro seu caso, é só falar.</p></div>
   <div class="day"><div class="dn"><div class="dd">Dia 7</div><div class="dl">Tarde · check-in</div></div><p class="dt">👀</p></div>
-  <div class="day"><div class="dn"><div class="dd">Dia 8</div><div class="dl">Manhã · oportunidade</div></div><p class="dt"><span class="v">{{nome}}</span>, trabalho com poucos alunos ao mesmo tempo justamente pra corrigir os vídeos de cada um com atenção — por isso as vagas são limitadas. Não é urgência artificial, é operação real. Se está considerando, faz sentido a gente conversar antes que feche.</p></div>
-  <div class="day key"><div class="dn"><div class="dd">Dia 9</div><div class="dl">Manhã · CTA</div></div><p class="dt">Se você já tentou curso sem resultado, o problema não é mais informação — é falta de quem corrija o que você erra. É isso que a mentoria faz. 30 minutos de sessão gratuita pra ver se faz sentido pro seu caso: [LINK].</p></div>
-  <div class="day"><div class="dn"><div class="dd">Dia 10</div><div class="dl">Áudio pessoal</div></div><p class="dt">Áudio de 30-40s, tom próximo: "<span class="v">{{nome}}</span>, quero entender o que ainda te segura. Pode ser que não seja o momento — e se for, prefiro que você me fale do que ficar sem resposta. Se for dúvida, é só perguntar. Tô aqui."</p></div>
+  <div class="day"><div class="dn"><div class="dd">Dia 8</div><div class="dl">Manhã · oportunidade</div></div><p class="dt"><span class="v">{{nome}}</span>, trabalho com poucos alunos ao mesmo tempo justamente pra corrigir os vídeos de cada um com atenção, por isso as vagas são limitadas. Não é urgência artificial, é operação real. Se está considerando, faz sentido a gente conversar antes que feche.</p></div>
+  <div class="day key"><div class="dn"><div class="dd">Dia 9</div><div class="dl">Manhã · CTA</div></div><p class="dt">Se você já tentou curso sem resultado, o problema não é mais informação, é falta de quem corrija o que você erra. É isso que a mentoria faz. 30 minutos de sessão gratuita pra ver se faz sentido pro seu caso: [LINK].</p></div>
+  <div class="day"><div class="dn"><div class="dd">Dia 10</div><div class="dl">Áudio pessoal</div></div><p class="dt">Áudio de 30 a 40s, tom próximo: "<span class="v">{{nome}}</span>, quero entender o que ainda te segura. Pode ser que não seja o momento, e se for, prefiro que você me fale do que ficar sem resposta. Se for dúvida, é só perguntar. Tô aqui."</p></div>
   <div class="day"><div class="dn"><div class="dd">Dia 11</div><div class="dl">Manhã · última prova</div></div><p class="dt">Se você está esperando o momento certo pra investir em formação técnica, ele geralmente é antes do próximo erro que custa mais caro que o investimento. Não é pressão, é a lógica da profissão. Me fala o que está te segurando.</p></div>
-  <div class="day"><div class="dn"><div class="dd">Dia 12</div><div class="dl">Pré break-up</div></div><p class="dt"><span class="v">{{nome}}</span>, vou deixar você seguir — entendo que pode não ser o momento e respeito isso. Só não quero sair sem perguntar de forma direta: tem alguma dúvida sobre a mentoria que ainda está travando sua decisão? Se sim, me fala agora. Senão, fico torcendo pelo seu crescimento.</p></div>
+  <div class="day"><div class="dn"><div class="dd">Dia 12</div><div class="dl">Pré break-up</div></div><p class="dt"><span class="v">{{nome}}</span>, vou deixar você seguir. Entendo que pode não ser o momento e respeito isso. Só não quero sair sem perguntar de forma direta: tem alguma dúvida sobre a mentoria que ainda está travando sua decisão? Se sim, me fala agora. Senão, fico torcendo pelo seu crescimento.</p></div>
 
   <hr class="divider">
   <div class="twocol">
-    <div class="card"><div class="clab">N5 · fez a call e não fechou</div><p class="small" style="margin-top:6px;">48h depois: "Ficou alguma dúvida que não ficou clara?" · Dia 5: "O que travou sua decisão — financeiro, timing, outra coisa? Me fala direto que posso ser mais útil." Oferecer condição/parcelamento se houver.</p></div>
+    <div class="card"><div class="clab">N5 · fez a call e não fechou</div><p class="small" style="margin-top:6px;">48h depois: "Ficou alguma dúvida que não ficou clara?" No dia 5: "O que travou sua decisão: financeiro, timing, outra coisa? Me fala direto que posso ser mais útil." Oferecer condição ou parcelamento se houver.</p></div>
     <div class="card"><div class="clab">N6 · base fria</div><p class="small" style="margin-top:6px;">Gancho de reativação com quick win imediato e relacionamento já existente (lista quente, ex-contatos). Reabrir conversa pelo valor, não pela oferta.</p></div>
   </div>
-</section>
-
-<!-- ============ 07 TAREFAS ============ -->
-<section class="section">
-  <div class="kicker">07 · Tarefas</div>
-  <h1 class="title">Onboarding &amp; primeiros movimentos</h1>
-
-  <div class="tasklab">Funil &amp; infraestrutura</div>
-  <ul class="task">
-    <li><span class="mk">▪</span><b>Simple Acc</b> · Sem. 1 — Construir o quiz (10 perguntas) em Typeform/Tally</li>
-    <li><span class="mk">▪</span><b>Simple Acc</b> · Sem. 1 — Página de diagnóstico com variáveis {{ }} ligadas às respostas</li>
-    <li><span class="mk">▪</span><b>Simple Acc</b> · Sem. 1 — Página de aplicação com a copy desta estratégia</li>
-    <li><span class="mk">▪</span><b>Simple Acc</b> · Sem. 1 — CRM (Google Sheets) + integração quiz → planilha de leads</li>
-    <li><span class="mk">▪</span><b>Rômulo</b> · Sem. 1 — Link de agendamento (Calendly/Google) testado</li>
-    <li><span class="mk">▪</span><b>Rômulo</b> · Sem. 1 — Kiwify configurada para as aulas de apoio</li>
-  </ul>
-
-  <div class="tasklab">Conteúdo &amp; criativos</div>
-  <ul class="task">
-    <li><span class="mk">▪</span><b>Rômulo</b> · Sem. 1-2 — Gravar 3 vídeos de anúncio (1 por ângulo); celular com boa luz basta</li>
-    <li><span class="mk">▪</span><b>Simple Acc</b> · Sem. 2 — 3 criativos estáticos com os hooks definidos</li>
-    <li><span class="mk">▪</span><b>Rômulo</b> · Sem. 2 — Conteúdo orgânico (ângulo dor) para aquecer a conta</li>
-  </ul>
-
-  <div class="tasklab">Comercial &amp; mídia</div>
-  <ul class="task">
-    <li><span class="mk">▪</span><b>Rômulo</b> — Adaptar a cadência de FUP para a sua voz antes de ativar</li>
-    <li><span class="mk">▪</span><b>Rômulo</b> — 1 role-play de call com o Carlos antes do 1º lead da campanha</li>
-    <li><span class="mk">▪</span><b>Simple Acc</b> · Sem. 2 — Ativar GPT de vendas (Carlos confirma quando Rômulo acionar)</li>
-    <li><span class="mk">▪</span><b>Simple Acc</b> · Sem. 2-3 — Campanha Meta, R$ 1.500-3.000/mês, sem restrição geográfica</li>
-    <li><span class="mk">▪</span><b>Simple Acc</b> · Sem. 3 — Revisar CPL, conclusão do quiz e taxa de agendamento (7 dias)</li>
-  </ul>
-</section>
-
-<!-- ============ 08 RECOMENDAÇÕES ============ -->
-<section class="section">
-  <div class="kicker">08 · Recomendações Estratégicas</div>
-  <h1 class="title">O olhar da Simple</h1>
-
-  <div class="recblock"><div class="rt">Sobre a oferta</div><p>Ticket, formato e entregáveis estão certos para o público. O risco não é o produto — é a falta de prova social. Sem depoimentos, a copy depende 100% de mecanismo e autoridade. Prioridade: fechar as primeiras vendas no manual e coletar depoimentos em vídeo ativamente. O funil de quiz escala melhor com prova.</p></div>
-  <div class="recblock"><div class="rt">Sobre o funil</div><p>Quiz para agendamento é o formato correto para R$ 2.997 — qualifica antes da call e corta quem não tem perfil. O diagnóstico personalizado já cria comprometimento antes da venda. O ponto crítico é o pós-quiz: o FUP precisa ser rápido (em até 2h) e personalizado pelo gargalo. Lead de quiz sem contato em 24h esfria.</p></div>
-  <div class="recblock"><div class="rt">Sobre conversão</div><p>O gargalo não é tráfego — é a call de vendas. Rodar com orçamento baixo (R$ 1.500/mês) nas primeiras 2 semanas, usar os leads para o Rômulo ajustar o script e mapear objeções reais. Só depois escalar a verba. Subir tráfego pesado antes de dominar a call é desperdício.</p></div>
-  <div class="recblock"><div class="rt">Visão de longo prazo</div><p>O quiz resolve o curto prazo (qualificação e volume). O diferencial de longo prazo são os resultados dos alunos. Tratar os primeiros como estudos de caso — acompanhar, documentar antes/depois, pedir depoimento em vídeo. Esses cases fazem a próxima fase do funil (tráfego com prova social) converter numa categoria acima.</p></div>
 </section>
 
 <!-- ============ FECHAMENTO ============ -->
@@ -546,8 +475,8 @@
     <div style="padding:6px 4px;">
       <div style="font-family:'Playfair Display',serif; letter-spacing:7px; font-size:20px; color:#fff;">SIMPLE ACC</div>
       <div style="width:42px; height:1px; background:#5d76a0; margin:16px 0;"></div>
-      <p style="font-family:'EB Garamond',serif; font-style:normal; font-size:12px; color:#c4d0df; line-height:1.6;">Documento de estratégia e copy do Funil de Quiz para a Mentoria Cabelo de Segunda, de Rômulo Heleno. Construído a partir do roadmap de 90 dias aprovado e da Big Idea de método corrigido. Próximos passos: aprovar a copy, montar quiz, diagnóstico e página, gravar os criativos e ativar a cadência de follow-up.</p>
-      <div class="qmeta">Confidencial · Junho 2026 · Versão 1.0</div>
+      <p style="font-family:'Lora',serif; font-style:normal; font-size:13px; color:#c4d0df; line-height:1.6;">Documento de estratégia e copy do Funil de Quiz para a Mentoria Cabelo de Segunda, de Rômulo Heleno. Construído a partir do plano de 90 dias aprovado e da tese de método corrigido. Próximos passos: aprovar a copy, montar quiz, diagnóstico e página, gravar os criativos e ativar a cadência de follow-up.</p>
+      <div class="qmeta">Confidencial · Junho 2026 · Versão 1.1</div>
     </div>
   </div>
 </section>
