@@ -282,7 +282,7 @@ function renderLoading() {
   progressEl.hidden = true;
   trackEvent("step_view", { step_id: "loading" });
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const dur = reduce ? 600 : 2400;
+  const dur = reduce ? 800 : 4700;
   const msgs = [
     "Analisando as suas respostas...",
     "Identificando a origem emocional...",
