@@ -326,10 +326,9 @@ export function AgendamentoPage({ leadData, isQualified = true }: AgendamentoPag
           <img
             src="/caroline.jpg"
             alt="Caroline Batista"
-            className="rounded-xl object-cover w-full"
+            className="rounded-xl w-full"
             style={{
-              maxHeight: "420px",
-              objectPosition: "top",
+              display: "block",
               border: "2px solid rgba(169,128,47,0.2)",
               marginBottom: "18px",
             }}

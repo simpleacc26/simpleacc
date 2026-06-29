@@ -43,11 +43,12 @@ function calcIsQualified(answers: Record<number, string>): boolean {
 }
 
 export default function App() {
-  const [step, setStep] = useState<Step>("landing");
+  const isAgendamentoRoute = window.location.pathname === "/agendamento";
+  const [step, setStep] = useState<Step>(isAgendamentoRoute ? "agendamento" : "landing");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [leadData, setLeadData] = useState<LeadData | null>(null);
-  const [isQualified, setIsQualified] = useState(false);
+  const [isQualified, setIsQualified] = useState(true);
   const [loading, setLoading] = useState(false);
   const [utm, setUtm] = useState<UtmParams>({
     utm_source: "",
@@ -152,6 +153,7 @@ export default function App() {
     setLoading(false);
     setIsQualified(qualified);
     setStep("agendamento");
+    window.history.pushState({}, "", "/agendamento");
   };
 
   if (step === "landing") {
