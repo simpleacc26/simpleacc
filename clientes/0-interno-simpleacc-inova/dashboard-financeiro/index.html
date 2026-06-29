@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard Financeiro — Innova / Simple Acc</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0A1626; --navy2:#122B4A; --navy3:#16202f;
+    --aco:#3E5C8A; --aco-claro:#8197B6; --hair:rgba(129,151,182,.18);
+    --gelo:#EEF3FA; --branco:#FFFFFF; --texto:#dfe8f6; --legenda:#9fb1cc;
+    --pos:#5b8c7b; --pos-claro:#7db39d; --neg:#a85a4f; --alerta:#c79a52;
+    --display:"Playfair Display",Georgia,serif;
+    --ui:"Inter","Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:
+      radial-gradient(1200px 600px at 80% -10%, rgba(62,92,138,.18), transparent 60%),
+      radial-gradient(900px 500px at -10% 0%, rgba(120,150,210,.10), transparent 55%),
+      var(--navy);
+    color:var(--texto); font-family:var(--ui);
+    -webkit-font-smoothing:antialiased; line-height:1.45;
+  }
+  a{color:var(--aco-claro)}
+  .wrap{max-width:1200px;margin:0 auto;padding:34px 22px 70px}
+
+  /* Header */
+  header.top{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;
+    border-bottom:1px solid var(--hair);padding-bottom:22px;margin-bottom:30px}
+  .brand{font-family:var(--ui);font-size:12px;letter-spacing:.32em;text-transform:uppercase;color:var(--aco-claro)}
+  h1{font-family:var(--display);font-weight:600;font-size:clamp(26px,4vw,40px);
+    color:var(--gelo);margin:.18em 0 .15em;letter-spacing:.01em}
+  .sub{color:var(--legenda);font-size:14px}
+  .meta{text-align:right;font-size:12.5px;color:var(--legenda);min-width:200px}
+  .meta b{color:var(--gelo);font-weight:600}
+  .dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--pos-claro);margin-right:7px;vertical-align:middle}
+
+  /* Sections */
+  section{margin:38px 0}
+  .sec-h{display:flex;align-items:baseline;gap:14px;margin:0 0 16px}
+  .sec-h h2{font-family:var(--display);font-weight:500;font-size:21px;color:var(--gelo);margin:0}
+  .sec-h .hint{font-size:12.5px;color:var(--legenda)}
+  .sec-h:before{content:"";display:block;width:26px;height:1px;background:var(--aco);align-self:center}
+
+  /* Cards grid */
+  .grid{display:grid;gap:16px}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:900px){.g4{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:1fr 1fr}.g2{grid-template-columns:1fr}}
+  @media(max-width:560px){.g4,.g3{grid-template-columns:1fr}}
+
+  .card{background:linear-gradient(180deg,rgba(18,43,74,.55),rgba(10,22,38,.4));
+    border:1px solid var(--hair);border-radius:14px;padding:18px 18px 16px;position:relative;overflow:hidden}
+  .card .label{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--aco-claro)}
+  .card .val{font-family:var(--display);font-weight:600;font-size:clamp(22px,2.4vw,30px);color:var(--gelo);margin-top:8px;line-height:1.05}
+  .card .foot{font-size:12px;color:var(--legenda);margin-top:8px}
+  .card.kpi-pos .val{color:#bfe0d2}
+  .card.kpi-neg .val{color:#e6b9b0}
+  .pill{display:inline-block;font-size:11px;padding:2px 8px;border-radius:999px;border:1px solid var(--hair);color:var(--legenda)}
+  .pill.up{color:#bfe0d2;border-color:rgba(123,179,157,.4)}
+  .pill.down{color:#e6b9b0;border-color:rgba(168,90,79,.4)}
+
+  /* Panels */
+  .panel{background:linear-gradient(180deg,rgba(18,43,74,.5),rgba(10,22,38,.35));
+    border:1px solid var(--hair);border-radius:16px;padding:20px}
+  .panel h3{margin:0 0 4px;font-family:var(--display);font-weight:500;font-size:17px;color:var(--gelo)}
+  .panel .ph{font-size:12.5px;color:var(--legenda);margin-bottom:14px}
+
+  /* Table */
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th,td{text-align:right;padding:9px 10px;border-bottom:1px solid var(--hair);white-space:nowrap}
+  th:first-child,td:first-child{text-align:left}
+  thead th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--aco-claro);font-weight:600}
+  tbody tr:hover{background:rgba(120,150,210,.06)}
+  td.pos{color:#bfe0d2}td.neg{color:#e6b9b0}
+  tfoot td{font-weight:700;color:var(--gelo);border-top:1px solid var(--aco);border-bottom:none}
+  .tag{font-size:11px;padding:2px 8px;border-radius:6px;background:rgba(120,150,210,.12);color:var(--aco-claro)}
+
+  /* Bars (category) */
+  .bars{display:flex;flex-direction:column;gap:11px}
+  .bar-row{display:grid;grid-template-columns:140px 1fr 92px;align-items:center;gap:12px;font-size:13px}
+  .bar-track{height:9px;border-radius:6px;background:rgba(120,150,210,.12);overflow:hidden}
+  .bar-fill{height:100%;border-radius:6px;background:linear-gradient(90deg,var(--aco),var(--aco-claro))}
+  .bar-val{text-align:right;color:var(--legenda)}
+
+  .empty{padding:18px;border:1px dashed var(--hair);border-radius:12px;color:var(--legenda);font-size:13px;text-align:center}
+  canvas{max-width:100%}
+  footer{margin-top:48px;border-top:1px solid var(--hair);padding-top:18px;font-size:12px;color:var(--legenda);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  .muted{color:var(--aco-claro)}
+
+  /* Gate de senha */
+  #gate{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:24px;
+    background:radial-gradient(900px 500px at 50% -10%, rgba(62,92,138,.25), transparent 60%), var(--navy)}
+  .gatebox{width:100%;max-width:380px;text-align:center;
+    background:linear-gradient(180deg,rgba(18,43,74,.6),rgba(10,22,38,.5));
+    border:1px solid var(--hair);border-radius:18px;padding:34px 28px}
+  .gatebox h1{font-size:26px}
+  #pw{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--hair);
+    background:rgba(10,22,38,.6);color:var(--gelo);font-family:var(--ui);font-size:15px;outline:none}
+  #pw:focus{border-color:var(--aco)}
+  #pwbtn{width:100%;margin-top:12px;padding:12px 14px;border-radius:10px;border:1px solid var(--aco);
+    background:var(--aco);color:#fff;font-family:var(--ui);font-size:15px;font-weight:600;cursor:pointer}
+  #pwbtn:hover{filter:brightness(1.08)}
+  .gatemsg{min-height:18px;margin-top:12px;font-size:13px;color:#e6b9b0}
+</style>
+</head>
+<body>
+<div id="gate" style="display:none">
+  <div class="gatebox">
+    <div class="brand">Simple Acc · Innova — Interno</div>
+    <h1 style="margin:.1em 0 .5em">Dashboard Financeiro</h1>
+    <p class="sub" style="margin-bottom:18px">Conteúdo confidencial. Informe a senha para acessar.</p>
+    <input id="pw" type="password" placeholder="Senha" autocomplete="current-password" spellcheck="false">
+    <button id="pwbtn">Entrar</button>
+    <div id="gatemsg" class="gatemsg"></div>
+  </div>
+</div>
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <div class="brand">Simple Acc · Innova — Interno</div>
+      <h1>Dashboard Financeiro</h1>
+      <div class="sub">Saúde financeira da empresa em um único lugar — caixa, indicadores, folha e inadimplência.</div>
+    </div>
+    <div class="meta">
+      <div><span class="dot"></span><b>Atualizado</b> <span id="m-data">—</span></div>
+      <div>Fonte: <span id="m-fonte" class="muted">planilha DFC/DRE</span></div>
+      <div>Sincronização: <b>diária (1×/dia)</b></div>
+    </div>
+  </header>
+
+  <!-- INDICADORES -->
+  <section>
+    <div class="sec-h"><h2>Indicadores</h2><span class="hint">acumulado do ano · realizado</span></div>
+    <div class="grid g4" id="kpis"></div>
+  </section>
+
+  <!-- CAIXA -->
+  <section>
+    <div class="sec-h"><h2>Caixa</h2><span class="hint">entradas e saídas · previstas vs. realizadas</span></div>
+    <div class="grid g3" id="caixa"></div>
+    <div class="panel" style="margin-top:16px">
+      <h3>Evolução mensal</h3>
+      <div class="ph">Receita recebida, despesa paga e lucro operacional por mês.</div>
+      <canvas id="chartMes" height="120"></canvas>
+    </div>
+  </section>
+
+  <!-- DRE -->
+  <section>
+    <div class="sec-h"><h2>DRE Mensal</h2><span class="hint">receita, despesas e lucro · últimos meses</span></div>
+    <div class="panel" style="overflow-x:auto">
+      <table id="dre"></table>
+    </div>
+  </section>
+
+  <!-- DESPESAS POR CATEGORIA + FOLHA -->
+  <section>
+    <div class="grid g2">
+      <div class="panel">
+        <h3>Despesas por categoria</h3>
+        <div class="ph">Onde o dinheiro saiu (pago, acumulado).</div>
+        <div class="bars" id="catBars"></div>
+      </div>
+      <div class="panel">
+        <h3>Folha de pagamento</h3>
+        <div class="ph">Colaboradores e valores (categoria Pessoas). Datas e obrigações futuras aparecem aqui quando lançadas como previsto.</div>
+        <div id="folha"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INADIMPLENCIA + ALERTAS -->
+  <section>
+    <div class="grid g2">
+      <div class="panel">
+        <h3>Inadimplência &amp; Contas a Receber</h3>
+        <div class="ph">Clientes com valor em aberto, atraso e taxa de inadimplência.</div>
+        <div class="grid g3" id="inadKpis" style="margin-bottom:14px"></div>
+        <div id="inad"></div>
+      </div>
+      <div class="panel">
+        <h3>Alertas</h3>
+        <div class="ph">Vencimentos próximos, contas a pagar e cobranças pendentes (próximos 15 dias).</div>
+        <div id="alertas"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ULTIMOS LANCAMENTOS -->
+  <section>
+    <div class="sec-h"><h2>Últimas movimentações</h2><span class="hint">entradas e saídas recentes</span></div>
+    <div class="panel" style="overflow-x:auto">
+      <table id="mov"></table>
+    </div>
+  </section>
+
+  <footer>
+    <div>Dashboard interno Simple Acc / Innova — uso restrito. Pauta fixa da Week de Gestão (segundas).</div>
+    <div id="f-fonte"></div>
+  </footer>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+const MESES=['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+const BRL=v=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0}).format(v||0);
+const BRL2=v=>new Intl.NumberFormat('pt-BR',{style:'currency',currency:'BRL'}).format(v||0);
+const PCT=v=>new Intl.NumberFormat('pt-BR',{style:'percent',maximumFractionDigits:1}).format(v||0);
+const el=(t,c,h)=>{const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;};
+const elDate=s=>{const d=new Date(s+'T00:00:00');return isNaN(d)?null:d;};
+const fmtDate=s=>{const d=elDate(s);return d?d.toLocaleDateString('pt-BR'):'—';};
+
+// ---- Gate de senha + descriptografia (AES-GCM / Web Crypto) ----
+const b64d=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+async function decrypt(enc,pw){
+  const km=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
+  const key=await crypto.subtle.deriveKey(
+    {name:'PBKDF2',salt:b64d(enc.salt),iterations:enc.iter,hash:'SHA-256'},
+    km,{name:'AES-GCM',length:256},false,['decrypt']);
+  const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:b64d(enc.iv)},key,b64d(enc.ct));
+  return JSON.parse(new TextDecoder().decode(pt));
+}
+async function abrir(){
+  let enc;
+  try{ enc=await fetch('dados.enc?v='+Date.now()).then(r=>{if(!r.ok)throw 0;return r.json()}); }
+  catch(e){ gateMsg('Não foi possível carregar os dados. Verifique a sincronização.'); return; }
+  const saved=sessionStorage.getItem('dashpw');
+  if(saved){ try{ render(await decrypt(enc,saved)); document.getElementById('gate').remove(); return; }catch(e){ sessionStorage.removeItem('dashpw'); } }
+  document.getElementById('gate').style.display='flex';
+  const tryPw=async()=>{
+    const pw=document.getElementById('pw').value;
+    try{ const D=await decrypt(enc,pw); sessionStorage.setItem('dashpw',pw); document.getElementById('gate').remove(); render(D); }
+    catch(e){ gateMsg('Senha incorreta.'); document.getElementById('pw').select(); }
+  };
+  document.getElementById('pwbtn').onclick=tryPw;
+  document.getElementById('pw').addEventListener('keydown',e=>{if(e.key==='Enter')tryPw();});
+  document.getElementById('pw').focus();
+}
+function gateMsg(m){const el=document.getElementById('gatemsg');if(el)el.textContent=m;}
+abrir();
+
+function render(D){
+  const L=D.lancamentos||[];
+  document.getElementById('m-data').textContent=new Date((D.gerado_em||'')+'T00:00:00').toLocaleDateString('pt-BR')||'—';
+  document.getElementById('m-fonte').textContent=D.fonte||'planilha DFC/DRE';
+  document.getElementById('f-fonte').textContent='Origem: '+(D.fonte||'')+' · gerado em '+(D.gerado_em||'');
+
+  const isRec=l=>l.tipo==='Receita';
+  const isDesp=l=>l.tipo==='Despesa';
+  const realizado=l=>l.status==='Recebido'||l.status==='Pago';
+  const previsto=l=>l.status==='Previsto';
+
+  // ---- Mensais ----
+  const byMonth={}; // mes -> {rec,desp}
+  for(let m=1;m<=12;m++) byMonth[m]={rec:0,desp:0,recPrev:0,despPrev:0};
+  L.forEach(l=>{const m=l.mes; if(!m)return; const b=byMonth[m];
+    if(isRec(l)){ realizado(l)?b.rec+=l.valor:previsto(l)&&(b.recPrev+=l.valor); }
+    if(isDesp(l)){ realizado(l)?b.desp+=l.valor:previsto(l)&&(b.despPrev+=l.valor); }
+  });
+  const mesesAtivos=Object.keys(byMonth).map(Number).filter(m=>byMonth[m].rec||byMonth[m].desp||byMonth[m].recPrev||byMonth[m].despPrev);
+  const ultimoMes=mesesAtivos.length?Math.max(...mesesAtivos):new Date().getMonth()+1;
+  const penultimo=mesesAtivos.filter(m=>m<ultimoMes).length?Math.max(...mesesAtivos.filter(m=>m<ultimoMes)):null;
+
+  const totRec=L.filter(l=>isRec(l)&&realizado(l)).reduce((s,l)=>s+l.valor,0);
+  const totDesp=L.filter(l=>isDesp(l)&&realizado(l)).reduce((s,l)=>s+l.valor,0);
+  const lucro=totRec-totDesp;
+  const margem=totRec?lucro/totRec:0;
+
+  // ---- KPIs ----
+  const recMes=byMonth[ultimoMes].rec, despMes=byMonth[ultimoMes].desp, lucroMes=recMes-despMes;
+  const delta=(cur,prev)=>prev?((cur-prev)/Math.abs(prev)):null;
+  const dRec=penultimo?delta(recMes,byMonth[penultimo].rec):null;
+  const kpis=[
+    {label:'Receita recebida',val:BRL(totRec),foot:'Mês de '+MESES[ultimoMes-1]+': '+BRL(recMes),trend:dRec,cls:'kpi-pos'},
+    {label:'Despesa paga',val:BRL(totDesp),foot:'Mês de '+MESES[ultimoMes-1]+': '+BRL(despMes),cls:'kpi-neg'},
+    {label:'Lucro realizado',val:BRL(lucro),foot:'Margem '+PCT(margem),cls:lucro>=0?'kpi-pos':'kpi-neg'},
+    {label:'Margem realizada',val:PCT(margem),foot:'Lucro / receita recebida'},
+  ];
+  const kc=document.getElementById('kpis');
+  kpis.forEach(k=>{
+    let trend='';
+    if(k.trend!=null){const up=k.trend>=0;trend=' <span class="pill '+(up?'up':'down')+'">'+(up?'▲':'▼')+' '+PCT(Math.abs(k.trend))+' vs mês ant.</span>';}
+    kc.appendChild(el('div','card '+(k.cls||''),
+      '<div class="label">'+k.label+'</div><div class="val">'+k.val+'</div><div class="foot">'+k.foot+trend+'</div>'));
+  });
+
+  // ---- Caixa ----
+  const recRealizado=totRec, recPrev=L.filter(l=>isRec(l)&&previsto(l)).reduce((s,l)=>s+l.valor,0);
+  const despRealizado=totDesp, despPrev=L.filter(l=>isDesp(l)&&previsto(l)).reduce((s,l)=>s+l.valor,0);
+  const saldoAtual=recRealizado-despRealizado;
+  const saldoProj=saldoAtual+recPrev-despPrev;
+  const caixa=[
+    {label:'Entradas realizadas',val:BRL(recRealizado),foot:'recebido no período'},
+    {label:'Saídas realizadas',val:BRL(despRealizado),foot:'pago no período',neg:true},
+    {label:'Saldo atual',val:BRL(saldoAtual),foot:'entradas − saídas realizadas',big:true,neg:saldoAtual<0},
+    {label:'Entradas previstas',val:BRL(recPrev),foot:recPrev?'a receber':'nenhuma prevista cadastrada'},
+    {label:'Saídas previstas',val:BRL(despPrev),foot:despPrev?'a pagar':'nenhuma prevista cadastrada',neg:true},
+    {label:'Saldo projetado',val:BRL(saldoProj),foot:'saldo + previstas',big:true,neg:saldoProj<0},
+  ];
+  const cc=document.getElementById('caixa');
+  caixa.forEach(k=>cc.appendChild(el('div','card '+(k.neg?'kpi-neg':(k.big?'kpi-pos':'')),
+    '<div class="label">'+k.label+'</div><div class="val">'+k.val+'</div><div class="foot">'+k.foot+'</div>')));
+
+  // ---- Chart mensal ----
+  const labels=mesesAtivos.map(m=>MESES[m-1]);
+  const dRecM=mesesAtivos.map(m=>byMonth[m].rec);
+  const dDespM=mesesAtivos.map(m=>byMonth[m].desp);
+  const dLucM=mesesAtivos.map(m=>byMonth[m].rec-byMonth[m].desp);
+  if(window.Chart){
+    new Chart(document.getElementById('chartMes'),{
+      type:'bar',
+      data:{labels,datasets:[
+        {label:'Receita',data:dRecM,backgroundColor:'rgba(123,179,157,.7)',borderRadius:5,maxBarThickness:34},
+        {label:'Despesa',data:dDespM,backgroundColor:'rgba(168,90,79,.7)',borderRadius:5,maxBarThickness:34},
+        {label:'Lucro',type:'line',data:dLucM,borderColor:'#9db6dd',backgroundColor:'#9db6dd',tension:.3,borderWidth:2,pointRadius:3}
+      ]},
+      options:{responsive:true,plugins:{legend:{labels:{color:'#9fb1cc',font:{family:'Inter'}}},
+        tooltip:{callbacks:{label:c=>c.dataset.label+': '+BRL(c.raw)}}},
+        scales:{x:{ticks:{color:'#9fb1cc'},grid:{display:false}},
+          y:{ticks:{color:'#9fb1cc',callback:v=>'R$ '+(v/1000)+'k'},grid:{color:'rgba(129,151,182,.12)'}}}}
+    });
+  }
+
+  // ---- DRE table (from dre_mensal if present, else compute) ----
+  buildDRE(D,byMonth,mesesAtivos);
+
+  // ---- Categorias de despesa ----
+  const catMap={};
+  L.filter(l=>isDesp(l)&&realizado(l)).forEach(l=>{catMap[l.categoria]=(catMap[l.categoria]||0)+l.valor;});
+  const cats=Object.entries(catMap).sort((a,b)=>b[1]-a[1]);
+  const maxCat=cats.length?cats[0][1]:1;
+  const cb=document.getElementById('catBars');
+  if(!cats.length){cb.appendChild(el('div','empty','Sem despesas lançadas.'));}
+  cats.forEach(([n,v])=>cb.appendChild(el('div','bar-row',
+    '<div>'+n+'</div><div class="bar-track"><div class="bar-fill" style="width:'+(v/maxCat*100)+'%"></div></div><div class="bar-val">'+BRL(v)+'</div>')));
+
+  // ---- Folha ----
+  const folhaMap={};
+  L.filter(l=>l.categoria==='Pessoas'&&isDesp(l)).forEach(l=>{
+    const k=l.parte||l.descricao||'—';
+    if(!folhaMap[k])folhaMap[k]={total:0,ult:null,prev:0};
+    if(realizado(l)){folhaMap[k].total+=l.valor; if(!folhaMap[k].ult||l.data>folhaMap[k].ult)folhaMap[k].ult=l.data;}
+    if(previsto(l))folhaMap[k].prev+=l.valor;
+  });
+  const folha=Object.entries(folhaMap).sort((a,b)=>b[1].total-a[1].total);
+  const fdiv=document.getElementById('folha');
+  if(!folha.length){fdiv.appendChild(el('div','empty','Nenhum lançamento de Pessoas.'));}
+  else{
+    const totFolha=folha.reduce((s,[,d])=>s+d.total,0);
+    let html='<table><thead><tr><th>Colaborador</th><th>Pago (acum.)</th><th>Últ. pgto</th><th>A pagar</th></tr></thead><tbody>';
+    folha.forEach(([n,d])=>html+='<tr><td>'+n+'</td><td>'+BRL(d.total)+'</td><td>'+(d.ult?fmtDate(d.ult):'—')+'</td><td>'+(d.prev?BRL(d.prev):'—')+'</td></tr>');
+    html+='</tbody><tfoot><tr><td>Total</td><td>'+BRL(totFolha)+'</td><td></td><td></td></tr></tfoot></table>';
+    fdiv.innerHTML=html;
+  }
+
+  // ---- Inadimplência (receitas previstas/atrasadas) ----
+  const hoje=new Date(); hoje.setHours(0,0,0,0);
+  const aberto=L.filter(l=>isRec(l)&&previsto(l));
+  const totAberto=aberto.reduce((s,l)=>s+l.valor,0);
+  const atrasados=aberto.filter(l=>{const d=elDate(l.data);return d&&d<hoje;});
+  const totAtraso=atrasados.reduce((s,l)=>s+l.valor,0);
+  const taxaInad=(totRec+totAberto)?totAberto/(totRec+totAberto):0;
+  const ik=document.getElementById('inadKpis');
+  [['Valor em aberto',BRL(totAberto)],['Em atraso',BRL(totAtraso)],['Taxa inadimpl.',PCT(taxaInad)]]
+    .forEach(([l,v])=>ik.appendChild(el('div','card',
+      '<div class="label">'+l+'</div><div class="val" style="font-size:20px">'+v+'</div>')));
+  const idiv=document.getElementById('inad');
+  if(!aberto.length){idiv.appendChild(el('div','empty','Nenhuma cobrança em aberto. Para acompanhar inadimplência, lance recebíveis como status <b>Previsto</b> na planilha.'));}
+  else{
+    let html='<table><thead><tr><th>Cliente</th><th>Valor</th><th>Vencimento</th><th>Atraso</th></tr></thead><tbody>';
+    aberto.sort((a,b)=>(a.data||'').localeCompare(b.data||'')).forEach(l=>{
+      const d=elDate(l.data); const dias=d?Math.floor((hoje-d)/864e5):null;
+      const atr=dias>0?'<span class="pill down">'+dias+'d</span>':'<span class="tag">no prazo</span>';
+      html+='<tr><td>'+(l.parte||l.descricao)+'</td><td>'+BRL(l.valor)+'</td><td>'+fmtDate(l.data)+'</td><td>'+atr+'</td></tr>';
+    });
+    html+='</tbody></table>';
+    idiv.innerHTML=html;
+  }
+
+  // ---- Alertas (previstos próximos 15 dias) ----
+  const lim=new Date(hoje); lim.setDate(lim.getDate()+15);
+  const prox=L.filter(l=>previsto(l)).map(l=>({...l,d:elDate(l.data)}))
+    .filter(l=>l.d&&l.d<=lim).sort((a,b)=>a.d-b.d);
+  const adiv=document.getElementById('alertas');
+  if(!prox.length){adiv.appendChild(el('div','empty','Nenhum vencimento nos próximos 15 dias. Alertas aparecem quando há contas a pagar/receber com status <b>Previsto</b>.'));}
+  else{
+    let html='<table><thead><tr><th>Compromisso</th><th>Tipo</th><th>Valor</th><th>Vence</th></tr></thead><tbody>';
+    prox.forEach(l=>{const venc=l.d<hoje?'<span class="pill down">vencido</span>':fmtDate(l.data);
+      html+='<tr><td>'+(l.descricao||l.parte)+'</td><td><span class="tag">'+l.tipo+'</span></td><td>'+BRL(l.valor)+'</td><td>'+venc+'</td></tr>';});
+    html+='</tbody></table>';
+    adiv.innerHTML=html;
+  }
+
+  // ---- Últimas movimentações ----
+  const mov=[...L].filter(l=>l.data).sort((a,b)=>b.data.localeCompare(a.data)).slice(0,15);
+  let mh='<thead><tr><th>Data</th><th>Descrição</th><th>Categoria</th><th>Parte</th><th>Status</th><th>Valor</th></tr></thead><tbody>';
+  mov.forEach(l=>{const sinal=isRec(l)?'+':'−';const cls=isRec(l)?'pos':'neg';
+    mh+='<tr><td>'+fmtDate(l.data)+'</td><td>'+(l.descricao||'—')+'</td><td>'+l.categoria+'</td><td>'+(l.parte||'—')+'</td><td><span class="tag">'+l.status+'</span></td><td class="'+cls+'">'+sinal+' '+BRL(l.valor)+'</td></tr>';});
+  mh+='</tbody>';
+  document.getElementById('mov').innerHTML=mh;
+}
+
+function buildDRE(D,byMonth,mesesAtivos){
+  const t=document.getElementById('dre');
+  // categorias de despesa por mês (a partir dos lançamentos pagos)
+  const L=D.lancamentos||[];
+  const cats={};
+  L.filter(l=>l.tipo==='Despesa'&&l.status==='Pago').forEach(l=>{
+    cats[l.categoria]=cats[l.categoria]||{}; cats[l.categoria][l.mes]=(cats[l.categoria][l.mes]||0)+l.valor;});
+  const catNames=Object.keys(cats).sort();
+  const mm=mesesAtivos;
+  let h='<thead><tr><th>Linha</th>'+mm.map(m=>'<th>'+MESES[m-1]+'</th>').join('')+'<th>Total</th></tr></thead><tbody>';
+  const rowRec=mm.map(m=>byMonth[m].rec); const totR=rowRec.reduce((a,b)=>a+b,0);
+  h+='<tr><td><b>Receita recebida</b></td>'+rowRec.map(v=>'<td class="pos">'+BRL(v)+'</td>').join('')+'<td class="pos">'+BRL(totR)+'</td></tr>';
+  catNames.forEach(c=>{
+    const vals=mm.map(m=>cats[c][m]||0); const tt=vals.reduce((a,b)=>a+b,0);
+    h+='<tr><td>(−) '+c+'</td>'+vals.map(v=>'<td>'+(v?BRL(v):'—')+'</td>').join('')+'<td>'+BRL(tt)+'</td></tr>';
+  });
+  const rowDesp=mm.map(m=>byMonth[m].desp); const totD=rowDesp.reduce((a,b)=>a+b,0);
+  h+='<tr><td><b>Despesas totais</b></td>'+rowDesp.map(v=>'<td class="neg">'+BRL(v)+'</td>').join('')+'<td class="neg">'+BRL(totD)+'</td></tr>';
+  const rowLuc=mm.map(m=>byMonth[m].rec-byMonth[m].desp); const totL=rowLuc.reduce((a,b)=>a+b,0);
+  h+='</tbody><tfoot><tr><td>Lucro operacional</td>'+rowLuc.map(v=>'<td>'+BRL(v)+'</td>').join('')+'<td>'+BRL(totL)+'</td></tr>';
+  const rowMrg=mm.map(m=>byMonth[m].rec?(byMonth[m].rec-byMonth[m].desp)/byMonth[m].rec:0);
+  h+='<tr><td>Margem</td>'+rowMrg.map(v=>'<td>'+PCT(v)+'</td>').join('')+'<td>'+PCT(totR?totL/totR:0)+'</td></tr></tfoot>';
+  t.innerHTML=h;
+}
+</script>
+</body>
+</html>
