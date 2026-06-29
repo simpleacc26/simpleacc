@@ -35,6 +35,16 @@ function trackEvent(name, data = {}) {
   } catch (e) { /* tracking nunca quebra o funil */ }
 }
 
+/* Data/hora no fuso de Brasília, formato legível: "29/06/2026 09:32:35".
+   Força America/Sao_Paulo (não depende do fuso do visitante). */
+function dataHoraBR() {
+  try {
+    const tz = { timeZone: "America/Sao_Paulo" };
+    const d = new Date();
+    return d.toLocaleDateString("pt-BR", tz) + " " + d.toLocaleTimeString("pt-BR", tz);
+  } catch (e) { return new Date().toISOString(); }
+}
+
 /* Classifica o lead pela prontidão e geografia (mesma régua do diagnóstico).
    Qualifica por intenção, não por pergunta crua de renda. */
 function classificarLead(a) {
@@ -67,7 +77,7 @@ function enviarLead() {
     },
     utms: URL_UTMS,
     meta: {
-      timestamp: new Date().toISOString(),
+      timestamp: dataHoraBR(),
       page_url: location.href,
       referrer: document.referrer || "",
       user_agent: navigator.userAgent || "",
