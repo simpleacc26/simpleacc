@@ -473,6 +473,11 @@ table.cases td.num{font-family:var(--font-display); color:#dbe2f0}
   #stage{position:static; display:block}
   #deck{transform:none!important; width:1280px; height:auto}
   .slide{position:relative!important; opacity:1!important; visibility:visible!important;
-    page-break-after:always; break-after:page; height:720px; transition:none}
+    height:720px; transition:none}
+  .slide:not(:last-child){page-break-after:always; break-after:page}
   .slide::before{opacity:.4}
+  /* evita o retângulo do background-clip:text na impressão */
+  .title,.cover .wordmark,.hero-price .big{
+    background:none!important; -webkit-text-fill-color:#eaf0fb!important; color:#eaf0fb!important}
+  .slide.light .title{-webkit-text-fill-color:#16233a!important; color:#16233a!important}
 }
