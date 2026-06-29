@@ -5,8 +5,9 @@ import { LandingScreen } from "./components/LandingScreen";
 import { QuestionScreen } from "./components/QuestionScreen";
 import { LeadCaptureForm, type LeadData } from "./components/LeadCaptureForm";
 import { AgendamentoPage } from "./pages/AgendamentoPage";
+import { DiagnosticoPage, getBucketFromSlug, getSlugFromBucket } from "./pages/DiagnosticoPage";
 
-type Step = "landing" | "question" | "lead-capture" | "agendamento";
+type Step = "landing" | "question" | "lead-capture" | "diagnostico" | "agendamento";
 
 interface UtmParams {
   utm_source: string;
@@ -36,15 +37,19 @@ function calcIsQualified(answers: Record<number, string>): boolean {
   const setor = answers[0];
   const papel = answers[5];
   const faturamento = answers[6];
-  if (papel === "4") return false; // Gestor/colaborador
-  if (faturamento === "1") return false; // Até R$50 mil
-  if (setor === "4") return faturamento === "4"; // Indústria: só qualifica Acima de R$200k
-  return ["2", "3", "4"].includes(faturamento); // Demais setores: acima de R$50k
+  if (papel === "4") return false;
+  if (faturamento === "1") return false;
+  if (setor === "4") return ["4", "5"].includes(faturamento);
+  return ["2", "3", "4", "5"].includes(faturamento);
 }
 
 export default function App() {
-  const isAgendamentoRoute = window.location.pathname === "/agendamento";
-  const [step, setStep] = useState<Step>(isAgendamentoRoute ? "agendamento" : "landing");
+  const initPath = window.location.pathname;
+  const initSlug = initPath.startsWith("/diagnostico/") ? initPath.replace("/diagnostico/", "") : null;
+  const initBucket = initSlug ? (getBucketFromSlug(initSlug) ?? "Refém da Operação") : "Refém da Operação";
+  const initStep: Step = initPath === "/agendamento" ? "agendamento" : initSlug ? "diagnostico" : "landing";
+  const [step, setStep] = useState<Step>(initStep);
+  const [bucket, setBucket] = useState<string>(initBucket);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [leadData, setLeadData] = useState<LeadData | null>(null);
@@ -150,8 +155,16 @@ export default function App() {
     if (qualified) {
       fbqTrack("Schedule"); // evento padrão do Meta para agendamento
     }
+    const bucketName = questions[1]?.options.find((o) => o.value === answers[1])?.bucket ?? "Refém da Operação";
+    const slug = getSlugFromBucket(bucketName);
     setLoading(false);
     setIsQualified(qualified);
+    setBucket(bucketName);
+    setStep("diagnostico");
+    window.history.pushState({}, "", `/diagnostico/${slug}`);
+  };
+
+  const handleSchedule = () => {
     setStep("agendamento");
     window.history.pushState({}, "", "/agendamento");
   };
@@ -185,6 +198,17 @@ export default function App() {
         onSubmit={handleLeadSubmit}
         onBack={handleLeadBack}
         loading={loading}
+      />
+    );
+  }
+
+  if (step === "diagnostico") {
+    return (
+      <DiagnosticoPage
+        bucket={bucket}
+        isQualified={isQualified}
+        leadData={leadData}
+        onSchedule={handleSchedule}
       />
     );
   }

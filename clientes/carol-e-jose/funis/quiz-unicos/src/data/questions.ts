@@ -98,8 +98,9 @@ export const questions: Question[] = [
     options: [
       { value: "1", title: "Até R$ 50 mil", qualifies: false },
       { value: "2", title: "De R$ 50 mil a R$ 100 mil", qualifies: true },
-      { value: "3", title: "De R$ 100 mil a R$ 200 mil", qualifies: true },
-      { value: "4", title: "Acima de R$ 200 mil", qualifies: true, isICP: true },
+      { value: "3", title: "De R$ 100 mil a R$ 300 mil", qualifies: true },
+      { value: "4", title: "De R$ 300 mil a R$ 500 mil", qualifies: true, isICP: true },
+      { value: "5", title: "Acima de R$ 500 mil", qualifies: true, isICP: true },
     ],
   },
 ];

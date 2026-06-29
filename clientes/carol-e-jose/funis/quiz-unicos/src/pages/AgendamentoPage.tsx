@@ -264,7 +264,7 @@ export function AgendamentoPage({ leadData, isQualified = true }: AgendamentoPag
             E se você não ajustar isso agora, vai continuar trabalhando demais,
             sem tempo para a família, com o crescimento preso ao limite da sua presença.
           </p>
-          <div className="mt-5"><CtaButton label={ctaLabel} url={ctaUrl} /></div>
+          <div className="flex justify-center mt-5"><CtaButton label={ctaLabel} url={ctaUrl} /></div>
         </Card>
 
         {/* O que acontece na sessão */}
@@ -289,7 +289,7 @@ export function AgendamentoPage({ leadData, isQualified = true }: AgendamentoPag
             Você recebe um diagnóstico da sua liderança baseado em um método
             estruturado, construído em quase 20 anos formando donos e líderes individualmente.
           </p>
-          <div className="mt-5"><CtaButton label={ctaLabel} url={ctaUrl} /></div>
+          <div className="flex justify-center mt-5"><CtaButton label={ctaLabel} url={ctaUrl} /></div>
         </Card>
 
         {/* Depoimentos */}
@@ -365,7 +365,7 @@ export function AgendamentoPage({ leadData, isQualified = true }: AgendamentoPag
               </div>
             ))}
           </div>
-          <div className="mt-5"><CtaButton label={ctaLabel} url={ctaUrl} /></div>
+          <div className="flex justify-center mt-5"><CtaButton label={ctaLabel} url={ctaUrl} /></div>
         </Card>
 
         {/* FAQ */}
@@ -389,7 +389,7 @@ export function AgendamentoPage({ leadData, isQualified = true }: AgendamentoPag
               </div>
             ))}
           </div>
-          <div className="mt-6"><CtaButton label={ctaLabel} url={ctaUrl} /></div>
+          <div className="flex justify-center mt-6"><CtaButton label={ctaLabel} url={ctaUrl} /></div>
         </Card>
 
         {/* Fechamento */}
@@ -409,7 +409,7 @@ export function AgendamentoPage({ leadData, isQualified = true }: AgendamentoPag
             Agende a sua sessão estratégica e descubra o caminho para liderar
             de um jeito novo, com o negócio rodando sem depender de você.
           </p>
-          <div className="mt-6">
+          <div className="flex justify-center mt-6">
             <CtaButton label={ctaLabel} url={ctaUrl} note="Sessão individual e gratuita. Sem compromisso." />
           </div>
           <p style={{ ...serif, fontWeight: 700, color: GOLD, fontSize: "1rem", marginTop: "22px", fontStyle: "italic" }}>
