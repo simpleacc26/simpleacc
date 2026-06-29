@@ -98,6 +98,9 @@ crédito do Make à toa); o cenário roda só quando chega lead.
   utm_source | utm_medium | utm_campaign | utm_content | utm_term | Origem`.
   Crie via Drive (CSV → Sheets). Atenção: a aba de um CSV importado costuma se
   chamar **"Untitled"** (use esse nome no módulo, não "Página1").
+  **CUIDADO:** o `addRow` referencia a aba pelo NOME. Se renomearem a aba (ex:
+  "Untitled" → "Leads"), o módulo quebra com `400 Unable to parse range` e o Make
+  desativa o cenário. Ao renomear a aba, atualize o "Sheet Name" do módulo.
 - **Cenário**: módulo `gateway:CustomWebHook` → `google-sheets:addRow` (mode
   `fromAll`, mapeando posições 0..N). Use a conexão Google compartilhada do time.
 - **Payload** que o `app.js` envia (já pronto em `enviarLead`):
