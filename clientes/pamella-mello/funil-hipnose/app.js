@@ -272,8 +272,47 @@ function renderCaptura() {
     save();
     trackEvent("funnel_complete", { answers: { ...state.answers } });
     enviarLead();
-    setTimeout(() => { window.location.href = (F.config && F.config.diagnosticoUrl) || "diagnostico.html"; }, 600);
+    renderLoading();
   });
+}
+
+/* Tela de "preparando a leitura": barra que enche + mensagens, depois redireciona.
+   O tempo extra também garante a entrega do lead antes de trocar de página. */
+function renderLoading() {
+  progressEl.hidden = true;
+  trackEvent("step_view", { step_id: "loading" });
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const dur = reduce ? 600 : 2400;
+  const msgs = [
+    "Analisando as suas respostas...",
+    "Identificando a origem emocional...",
+    "Montando a sua leitura personalizada...",
+  ];
+  const screen = el(`
+    <section class="card screen loading-card">
+      <p class="eyebrow">Quase lá</p>
+      <h2>Preparando a sua Leitura Emocional</h2>
+      <p class="lead" id="load-msg">${msgs[0]}</p>
+      <div class="load-track"><div class="load-bar" id="load-bar"></div></div>
+      <p class="hint" style="margin-top:16px">Estamos personalizando com base no que você respondeu. 💛</p>
+    </section>`);
+  app.replaceChildren(screen);
+  scrollTop();
+
+  const bar = screen.querySelector("#load-bar");
+  const msgEl = screen.querySelector("#load-msg");
+  bar.style.transition = `width ${dur}ms cubic-bezier(.4,0,.2,1)`;
+  requestAnimationFrame(() => { bar.style.width = "100%"; });
+
+  if (!reduce) {
+    let i = 1;
+    const iv = setInterval(() => {
+      if (i < msgs.length) { msgEl.textContent = msgs[i++]; } else { clearInterval(iv); }
+    }, dur / msgs.length);
+  }
+
+  const dest = (F.config && F.config.diagnosticoUrl) || "diagnostico.html";
+  setTimeout(() => { window.location.href = dest; }, dur + 350);
 }
 
 /* ---------- navegação ---------- */

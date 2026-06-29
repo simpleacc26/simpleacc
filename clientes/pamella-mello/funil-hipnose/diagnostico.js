@@ -56,6 +56,8 @@ if (!a._completedAt && !a.problema) {
     ctaExtra = '<p class="hint">Atendimento presencial em Contagem/BH ou online para todo o Brasil, individual e confidencial. A avaliação já te entrega clareza, decida ou não seguir.</p>';
     clube = '<p class="clube">A partir da avaliação, conduzimos o <strong>protocolo terapêutico individual</strong>, pensado pro seu caso.</p>';
   }
+  // CTA reutilizável, distribuído pela página (o lead clica quando se sentir pronto)
+  const ctaInline = `<div class="cta-inline"><button class="btn btn-primary cta-wpp">${ctaLabel}</button></div>`;
 
   report.innerHTML = `
     <div class="report-head">
@@ -102,6 +104,8 @@ if (!a._completedAt && !a.problema) {
       </div>
     </div>
 
+    ${ctaInline}
+
     <div class="etapa">
       <h3>Como o método trabalha</h3>
       <p>Hipnose Clínica, Leis Biológicas e Neurociência, num acompanhamento individual e
@@ -122,6 +126,8 @@ if (!a._completedAt && !a.problema) {
       entendendo exatamente o que está acontecendo. O que você deseja, <strong>${objetivo}</strong>,
       é totalmente possível. A gente faz isso todos os dias.</p>
     </div>
+
+    ${ctaInline}
 
     <div class="etapa">
       <h3>Quem já viveu isso</h3>
@@ -144,7 +150,7 @@ if (!a._completedAt && !a.problema) {
       <p>Dar o primeiro passo é simples, e no seu tempo.</p>
       ${ctaExtra}
       <div class="actions" style="justify-content:center">
-        <button class="btn btn-primary" id="whatsapp-2">${ctaLabel}</button>
+        <button class="btn btn-primary cta-wpp">${ctaLabel}</button>
       </div>
       ${clube}
     </div>`;
@@ -157,5 +163,7 @@ function abrirWhatsApp() {
   const url = `https://wa.me/${F.marca.whatsapp}?text=${encodeURIComponent(msg)}`;
   window.open(url, "_blank", "noopener");
 }
-document.getElementById("whatsapp")?.addEventListener("click", abrirWhatsApp);
-document.addEventListener("click", (e) => { if (e.target && e.target.id === "whatsapp-2") abrirWhatsApp(); });
+// qualquer CTA com a classe .cta-wpp (distribuídos pela página) abre o WhatsApp
+document.addEventListener("click", (e) => {
+  if (e.target.closest && e.target.closest(".cta-wpp")) abrirWhatsApp();
+});

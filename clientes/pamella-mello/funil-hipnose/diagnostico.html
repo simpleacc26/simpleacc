@@ -37,6 +37,8 @@
     .depo-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0 6px; }
     .depo-shot { width: 100%; height: auto; display: block; border-radius: var(--radius-sm); border: 1px solid var(--border); box-shadow: var(--shadow); background: #fff; }
     @media (max-width: 520px){ .depo-gallery { grid-template-columns: 1fr; } }
+    .cta-inline { text-align: center; margin: 22px 0; }
+    .cta-inline .btn { width: 100%; max-width: 420px; }
     .cta-box { background: color-mix(in srgb, var(--primary) 7%, var(--surface)); border: 1px solid color-mix(in srgb, var(--primary) 26%, var(--border)); border-radius: var(--radius); padding: 22px; text-align: center; margin-top: 8px; }
     .clube { font-size: 15px; color: var(--muted); margin-top: 14px; }
     .toolbar { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 4px 0 22px; }
@@ -62,9 +64,6 @@
   </header>
 
   <main class="container">
-    <div class="toolbar no-print">
-      <button class="btn btn-primary" id="whatsapp">Falar com a equipe no WhatsApp</button>
-    </div>
     <div class="card screen" id="report"><!-- preenchido por diagnostico.js --></div>
   </main>
 
