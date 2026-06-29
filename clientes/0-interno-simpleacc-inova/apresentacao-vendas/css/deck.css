@@ -398,13 +398,19 @@ table.cases td.num{font-family:var(--font-display); color:#dbe2f0}
 
 /* bio do expert */
 .bio{display:grid; grid-template-columns:.8fr 1.2fr; gap:44px; flex:1; align-items:center}
-.bio .photo{align-self:stretch; min-height:420px; border-radius:20px; border:1px solid var(--line);
+.bio .photo{align-self:stretch; min-height:420px; border-radius:20px; border:1px solid var(--line); overflow:hidden;
   background:linear-gradient(160deg,var(--panel-2),#070510); display:flex; align-items:center; justify-content:center;
   color:var(--muted-2); font-size:13px; letter-spacing:.16em; text-transform:uppercase; text-align:center; padding:20px}
+.bio .photo img{width:100%; height:100%; object-fit:cover; object-position:center 22%}
 
 /* grid de provas (fotos) */
-.proof-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; flex:1; margin-top:10px}
-.proof-grid .ph{border:1px dashed var(--line); border-radius:14px; display:flex; align-items:center; justify-content:center; color:var(--muted-2); font-size:12px; letter-spacing:.14em; text-transform:uppercase; text-align:center; padding:18px; background:var(--panel)}
+.proof-grid{display:grid; grid-template-columns:repeat(3,1fr); grid-auto-rows:1fr; gap:18px; flex:1; min-height:0; margin-top:6px}
+.proof-grid .ph{min-height:0; height:100%; border:1px dashed var(--line); border-radius:14px; display:flex; align-items:center; justify-content:center; color:var(--muted-2); font-size:12px; letter-spacing:.14em; text-transform:uppercase; text-align:center; padding:18px; background:var(--panel)}
+.proof-grid .shot{position:relative; min-height:0; height:100%; border:1px solid var(--line); border-radius:14px; overflow:hidden; margin:0}
+.proof-grid .shot img{width:100%; height:100%; object-fit:cover; display:block}
+.proof-grid .shot figcaption{position:absolute; left:0; right:0; bottom:0; padding:14px 14px 10px;
+  font-family:var(--font-display); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#eaf0fb;
+  background:linear-gradient(to top,rgba(3,4,8,.85),transparent)}
 
 /* pergunta grande */
 .slide.ask{align-items:center; justify-content:center; text-align:center}

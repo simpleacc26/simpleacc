@@ -79,7 +79,7 @@ const COMMON = [
     ]},
 
   // 3 — Sobre Daniel
-  { type:'bio', sec:'Autoridade', label:'Quem é Daniel Souza',
+  { type:'bio', sec:'Autoridade', label:'Quem é Daniel Souza', photo:'assets/daniel-retrato.jpg',
     kicker:'Quem está por trás', title:'Daniel Souza',
     lead:'Empresário, gestor de tráfego e estrategista de crescimento digital. Responsável por milhões em faturamento com campanhas focadas em performance, escala e lucratividade. Cristão, movido pela missão de escalar negócios digitais com produtos que transformam vidas.',
     marcos:[
@@ -94,8 +94,15 @@ const COMMON = [
   // 4 — Provas de credibilidade
   { type:'proof', sec:'Autoridade', label:'Provas de credibilidade',
     kicker:'Prova social', title:'Quem caminha junto',
-    lead:'Palestras, equipe, resultados e proximidade com nomes de referência do mercado.',
-    items:['Foto com Luiz Filho','Palco da mentoria','Equipe Simple Acc','Bastidores de evento','Resultados de clientes','Autoridades do mercado'] },
+    lead:'Palestras, operação e proximidade com nomes de referência do mercado.',
+    items:[
+      {img:'assets/daniel-palestra.jpg', label:'Palestra'},
+      {img:'assets/daniel-trabalhando.jpg', label:'Operação'},
+      {img:'assets/daniel-lifestyle.jpg', label:'Bastidores'},
+      {label:'Daniel + Luiz Filho'},
+      {label:'Palco da mentoria'},
+      {label:'Resultados de clientes'},
+    ]},
 
   // 5 — Trajetória
   { type:'statement', sec:'Autoridade', label:'Trajetória da Simple', grid:true, glow:true,

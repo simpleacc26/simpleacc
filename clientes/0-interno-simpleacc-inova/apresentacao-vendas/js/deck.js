@@ -33,7 +33,7 @@
 
     bio:(s)=>`${badge('Autoridade')}
       <div class="bio">
-        <div class="photo">[ FOTO DE DANIEL SOUZA ]</div>
+        <div class="photo">${s.photo?`<img src="${esc(s.photo)}" alt="Daniel Souza">`:'[ FOTO DE DANIEL SOUZA ]'}</div>
         <div>
           ${head(s)}
           ${bullets(s.marcos)}
@@ -41,7 +41,12 @@
       </div>`,
 
     proof:(s)=>`${head(s)}
-      <div class="proof-grid">${s.items.map(t=>`<div class="ph">[ ${esc(t)} ]</div>`).join('')}</div>`,
+      <div class="proof-grid">${s.items.map(it=>{
+        const o=typeof it==='string'?{label:it}:it;
+        return o.img
+          ? `<figure class="shot"><img src="${esc(o.img)}" alt="${esc(o.label||'')}"><figcaption>${esc(o.label||'')}</figcaption></figure>`
+          : `<div class="ph">[ ${esc(o.label)} ]</div>`;
+      }).join('')}</div>`,
 
     list:(s)=>{
       const tone = s.tone==='bad'?'col bad':s.tone==='good'?'col good':'';
