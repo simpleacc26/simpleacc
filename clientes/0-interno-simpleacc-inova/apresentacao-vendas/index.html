@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apresentação de Vendas — Simple Acc</title>
+  <meta name="description" content="Apresentação de vendas Simple Acc — Programa de Implementação (Funil de Lead Dinâmico).">
+  <!-- fontes auto-hospedadas (Sora + Plus Jakarta Sans, variáveis) — funciona offline -->
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="css/deck.css">
+</head>
+<body>
+  <div id="stage">
+    <div id="deck"><!-- slides injetados por js/deck.js --></div>
+  </div>
+
+  <!-- chrome / navegação -->
+  <div class="progress" id="progress"></div>
+  <div id="chrome">
+    <div class="help">← →&nbsp; navegar &nbsp;·&nbsp; M&nbsp; índice &nbsp;·&nbsp; F&nbsp; tela cheia &nbsp;·&nbsp; P&nbsp; PDF</div>
+    <div class="counter" id="counter">1 / 1</div>
+    <button class="nav-btn" id="menu-btn" title="Índice (M)" aria-label="Índice">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+    <button class="nav-btn" id="prev" title="Anterior (←)" aria-label="Anterior">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 6l-6 6 6 6"/></svg>
+    </button>
+    <button class="nav-btn" id="next" title="Próximo (→)" aria-label="Próximo">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 6l6 6-6 6"/></svg>
+    </button>
+  </div>
+
+  <!-- índice / menu -->
+  <div id="menu">
+    <button class="nav-btn" id="menu-close" style="position:fixed;top:24px;right:34px" title="Fechar (Esc)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <h2>Apresentação de Vendas · Simple Acc</h2>
+    <div class="mh">Clique para ir direto à parte comum ou a uma das ofertas.</div>
+    <div id="menu-body"></div>
+  </div>
+
+  <script src="js/slides.js"></script>
+  <script src="js/deck.js"></script>
+</body>
+</html>

@@ -11,7 +11,8 @@ da equipe, Inova). Fica no topo da lista pelo prefixo `0-`.
 
 | Projeto | Pasta | Status | Deploy |
 | ------- | ----- | ------ | ------ |
-|         |       |        |        |
+| Marca / Brandbook | `marca/` | ativo | — |
+| Apresentação de Vendas (Full Sales) | `apresentacao-vendas/` | em produção (falta inserir imagens) | Vercel (a publicar) |
 
 ## Observações
 
