@@ -21,11 +21,32 @@ const WEBHOOK_URL =
 // Índice 0 = landing (P1), índice 1..6 = P2..P7
 const TOTAL_QUESTIONS = questions.length;
 
+/**
+ * Lógica de qualificação baseada nas respostas:
+ * - P1 (idx 0): setor — "4" = Indústria requer faturamento maior
+ * - P6 (idx 5): papel — "4" = Gestor/colaborador → desqualifica sempre
+ * - P7 (idx 6): faturamento mensal
+ *   "1" = Até R$50k  → desqualifica sempre
+ *   "2" = R$50k-R$100k → qualifica serviços/digital (>R$1M/ano), não qualifica indústria
+ *   "3" = R$100k-R$200k → qualifica serviços/digital, não qualifica indústria (< R$3M/ano)
+ *   "4" = Acima de R$200k → qualifica todos (>R$2.4M/ano, único bracket acima de R$3M para indústria)
+ */
+function calcIsQualified(answers: Record<number, string>): boolean {
+  const setor = answers[0];
+  const papel = answers[5];
+  const faturamento = answers[6];
+  if (papel === "4") return false; // Gestor/colaborador
+  if (faturamento === "1") return false; // Até R$50 mil
+  if (setor === "4") return faturamento === "4"; // Indústria: só qualifica Acima de R$200k
+  return ["2", "3", "4"].includes(faturamento); // Demais setores: acima de R$50k
+}
+
 export default function App() {
   const [step, setStep] = useState<Step>("landing");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [leadData, setLeadData] = useState<LeadData | null>(null);
+  const [isQualified, setIsQualified] = useState(false);
   const [loading, setLoading] = useState(false);
   const [utm, setUtm] = useState<UtmParams>({
     utm_source: "",
@@ -118,6 +139,7 @@ export default function App() {
     }
 
     setLoading(false);
+    setIsQualified(calcIsQualified(answers));
     setStep("agendamento");
   };
 
@@ -154,5 +176,5 @@ export default function App() {
     );
   }
 
-  return <AgendamentoPage leadData={leadData} />;
+  return <AgendamentoPage leadData={leadData} isQualified={isQualified} />;
 }

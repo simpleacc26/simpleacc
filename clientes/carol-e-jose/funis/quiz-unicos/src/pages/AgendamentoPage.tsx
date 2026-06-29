@@ -4,11 +4,13 @@ import type { LeadData } from "../components/LeadCaptureForm";
 
 interface AgendamentoPageProps {
   leadData?: LeadData | null;
+  isQualified?: boolean;
 }
 
-const CTA_URL =
+// Link do WhatsApp para leads qualificados (sessão estratégica)
+const CTA_URL_QUALIFIED =
   import.meta.env.VITE_CTA_URL ||
-  "https://wa.me/5500000000000?text=Ol%C3%A1%2C+quero+agendar+minha+sess%C3%A3o+estrat%C3%A9gica";
+  "https://api.whatsapp.com/send/?phone=555591466065&text=Ol%C3%A1%21+Vim+pelo+site+e+gostaria+de+saber+mais+informa%C3%A7%C3%B5es&type=phone_number&app_absent=0";
 
 const NAVY = "#16314f";
 const CARD = "#1e3d61";
@@ -78,11 +80,19 @@ function SectionBadge({ n, title, goal }: { n: number; title: string; goal: stri
   );
 }
 
-function CtaButton({ label, note }: { label: string; note?: string }) {
+function CtaButton({
+  label,
+  note,
+  url,
+}: {
+  label: string;
+  note?: string;
+  url: string;
+}) {
   return (
     <div>
       <a
-        href={CTA_URL}
+        href={url}
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center gap-3 rounded-xl transition-all hover:opacity-90"
@@ -218,11 +228,37 @@ const STOPS = [
   "Pare de crescer o faturamento e continuar preso à operação.",
 ];
 
-export function AgendamentoPage({ leadData }: AgendamentoPageProps) {
+export function AgendamentoPage({ leadData, isQualified = true }: AgendamentoPageProps) {
   const firstName = leadData?.name?.split(" ")[0] || "";
+  const ctaUrl = CTA_URL_QUALIFIED;
+  const ctaLabel = "Quero agendar minha sessão";
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: NAVY }}>
+      {/* Banner desqualificado */}
+      {!isQualified && (
+        <div
+          style={{
+            backgroundColor: "rgba(100,60,10,0.25)",
+            borderBottom: "1px solid rgba(169,128,47,0.3)",
+            padding: "12px 22px",
+            textAlign: "center",
+          }}
+        >
+          <p
+            style={{
+              ...sans,
+              fontSize: "0.82rem",
+              color: "rgba(243,238,226,0.7)",
+            }}
+          >
+            Com base no seu perfil, a sessão estratégica individual pode não ser
+            o melhor próximo passo agora. Em breve você recebe uma indicação
+            personalizada por WhatsApp.
+          </p>
+        </div>
+      )}
+
       {/* Header */}
       <div
         style={{
@@ -282,7 +318,8 @@ export function AgendamentoPage({ leadData }: AgendamentoPageProps) {
           </p>
           <div className="flex justify-center">
             <CtaButton
-              label="Quero agendar minha sessão"
+              label={ctaLabel}
+              url={ctaUrl}
               note="Vagas limitadas, abertura semanal"
             />
           </div>
@@ -338,7 +375,7 @@ export function AgendamentoPage({ leadData }: AgendamentoPageProps) {
               presença.
             </p>
             <div className="mt-5">
-              <CtaButton label="Quero agendar minha sessão" />
+              <CtaButton label={ctaLabel} url={ctaUrl} />
             </div>
           </div>
         </div>
@@ -391,7 +428,7 @@ export function AgendamentoPage({ leadData }: AgendamentoPageProps) {
               individualmente.
             </p>
             <div className="mt-5">
-              <CtaButton label="Quero agendar minha sessão" />
+              <CtaButton label={ctaLabel} url={ctaUrl} />
             </div>
           </div>
         </div>
@@ -452,7 +489,7 @@ export function AgendamentoPage({ leadData }: AgendamentoPageProps) {
               </p>
             </div>
             <div className="mt-5">
-              <CtaButton label="Quero agendar minha sessão" />
+              <CtaButton label={ctaLabel} url={ctaUrl} />
             </div>
           </div>
         </div>
@@ -540,7 +577,7 @@ export function AgendamentoPage({ leadData }: AgendamentoPageProps) {
               ))}
             </div>
             <div className="mt-5">
-              <CtaButton label="Quero agendar minha sessão" />
+              <CtaButton label={ctaLabel} url={ctaUrl} />
             </div>
           </div>
         </div>
@@ -577,7 +614,7 @@ export function AgendamentoPage({ leadData }: AgendamentoPageProps) {
               </div>
             ))}
             <div className="mt-2">
-              <CtaButton label="Quero agendar minha sessão" />
+              <CtaButton label={ctaLabel} url={ctaUrl} />
             </div>
           </div>
         </div>
@@ -633,7 +670,8 @@ export function AgendamentoPage({ leadData }: AgendamentoPageProps) {
             </p>
             <div className="mt-6">
               <CtaButton
-                label="Quero agendar minha sessão"
+                label={ctaLabel}
+                url={ctaUrl}
                 note="Sessão individual e gratuita. Sem compromisso."
               />
             </div>
