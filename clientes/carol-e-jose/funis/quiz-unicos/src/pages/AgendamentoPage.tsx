@@ -320,38 +320,36 @@ export function AgendamentoPage({ leadData, isQualified = true }: AgendamentoPag
 
         {/* Autoridade — Caroline */}
         <Card>
-          <div className="flex gap-5 flex-wrap">
-            <img
-              src="/caroline.jpg"
-              alt="Caroline Batista"
-              className="rounded-xl flex-shrink-0 object-cover"
-              style={{
-                width: "130px",
-                height: "160px",
-                objectPosition: "top",
-                border: "2px solid rgba(169,128,47,0.2)",
-              }}
-            />
-            <div className="flex-1 min-w-0">
-              <h3 style={{ ...serif, fontSize: "1.1rem", color: NAVY, marginBottom: "10px" }}>
-                Sobre a Caroline Batista
-              </h3>
-              <p style={bodyText}>
-                A Caroline trabalha há quase 20 anos no desenvolvimento de
-                donos e líderes de empresa. São mais de 10 mil horas de
-                atendimento individual, 6 mil líderes formados e 40 empresas
-                acompanhadas de perto.
-              </p>
-              <p style={{ ...bodyText, marginTop: "8px" }}>
-                O método dela não atua em técnica nem em comportamento isolado.
-                Atua na{" "}
-                <strong style={{ color: NAVY }}>
-                  estrutura de pensamento e na identidade estratégica do dono
-                </strong>
-                , tirando o líder do operacional e levando ao integrativo, sob
-                a base da segurança psicológica.
-              </p>
-            </div>
+          <h3 style={{ ...serif, fontSize: "1.25rem", fontWeight: 700, color: NAVY, marginBottom: "18px" }}>
+            Sobre Caroline Batista
+          </h3>
+          <img
+            src="/caroline.jpg"
+            alt="Caroline Batista"
+            className="rounded-xl object-cover w-full"
+            style={{
+              maxHeight: "420px",
+              objectPosition: "top",
+              border: "2px solid rgba(169,128,47,0.2)",
+              marginBottom: "18px",
+            }}
+          />
+          <div>
+            <p style={bodyText}>
+              A Caroline trabalha há quase 20 anos no desenvolvimento de
+              donos e líderes de empresa. São mais de 10 mil horas de
+              atendimento individual, 6 mil líderes formados e 40 empresas
+              acompanhadas de perto.
+            </p>
+            <p style={{ ...bodyText, marginTop: "10px" }}>
+              O método dela não atua em técnica nem em comportamento isolado.
+              Atua na{" "}
+              <strong style={{ color: NAVY }}>
+                estrutura de pensamento e na identidade estratégica do dono
+              </strong>
+              , tirando o líder do operacional e levando ao integrativo, sob
+              a base da segurança psicológica.
+            </p>
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-5">
             {[
