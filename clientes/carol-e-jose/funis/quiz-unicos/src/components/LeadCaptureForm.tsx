@@ -277,7 +277,7 @@ export function LeadCaptureForm({ onSubmit, onBack, loading }: LeadCaptureFormPr
             onBack={onBack}
             onContinue={handleSubmit}
             canContinue={canSubmit}
-            continueText={loading ? "Enviando..." : "Ver minha sessão estratégica"}
+            continueText={loading ? "Enviando..." : "Receber meu Diagnóstico"}
             showContinue
             loading={loading}
           />
