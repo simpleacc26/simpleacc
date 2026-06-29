@@ -73,11 +73,14 @@ function enviarLead() {
       user_agent: navigator.userAgent || "",
     },
   };
+  const body = JSON.stringify(lead);
   try {
-    // keepalive: o POST sobrevive ao redirecionamento pro diagnóstico
-    // (sem isso, o navegador cancela a requisição ao trocar de página).
-    fetch(LEADS_ENDPOINT, { method: "POST", mode: "no-cors", keepalive: true,
-      headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(lead) });
+    // O webhook do Make só estrutura o lead quando recebe application/json
+    // (text/plain não é parseado). O webhook responde CORS, então o navegador
+    // pode mandar application/json em modo cors. keepalive garante que o POST
+    // sobreviva ao redirect pro diagnóstico (não é cancelado ao trocar de página).
+    fetch(LEADS_ENDPOINT, { method: "POST", keepalive: true,
+      headers: { "Content-Type": "application/json" }, body });
   } catch (e) { /* não bloqueia o lead */ }
 }
 
