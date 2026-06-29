@@ -138,6 +138,17 @@ export default function App() {
       console.error("Erro ao enviar webhook:", error);
     }
 
+    const PROBLEM_SLUG: Record<string, string> = {
+      "1": "previsibilidade",
+      "2": "ticket",
+      "3": "escala",
+      "4": "modelo",
+    };
+    const slug = PROBLEM_SLUG[answers[2]] || "diagnostico";
+    window.history.pushState(null, "", `/relatorio/${slug}`);
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: "relatorio_view", relatorio_perfil: slug });
+
     setStep("report");
   };
 
