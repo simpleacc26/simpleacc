@@ -1,4 +1,4 @@
-import { ArrowRight, CheckCircle, XCircle } from "lucide-react";
+import { ArrowRight, CheckCircle, XCircle, Star } from "lucide-react";
 import { LogoUnicos } from "../components/LogoUnicos";
 import type { LeadData } from "../components/LeadCaptureForm";
 
@@ -14,63 +14,14 @@ const CTA_URL_QUALIFIED =
 const NAVY = "#16314f";
 const GOLD = "#a9802f";
 
-const serif: React.CSSProperties = {
-  fontFamily: "'Playfair Display', Georgia, serif",
-};
-const sans: React.CSSProperties = {
-  fontFamily: "'Inter', sans-serif",
-};
+const serif: React.CSSProperties = { fontFamily: "'Playfair Display', Georgia, serif" };
+const sans: React.CSSProperties = { fontFamily: "'Inter', sans-serif" };
 const bodyText: React.CSSProperties = {
   ...sans,
   color: "rgba(22,49,79,0.65)",
   lineHeight: 1.7,
   fontSize: "0.97rem",
 };
-
-function SectionBadge({ n, title, goal }: { n: number; title: string; goal: string }) {
-  return (
-    <div className="flex items-center gap-3 flex-wrap" style={{ marginBottom: "20px" }}>
-      <span
-        style={{
-          width: "32px",
-          height: "32px",
-          borderRadius: "8px",
-          backgroundColor: "rgba(169,128,47,0.12)",
-          border: "1px solid rgba(169,128,47,0.3)",
-          color: GOLD,
-          ...serif,
-          fontWeight: 700,
-          fontSize: "0.9rem",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexShrink: 0,
-        }}
-      >
-        {n}
-      </span>
-      <span style={{ ...serif, fontWeight: 600, fontSize: "1rem", color: NAVY }}>
-        {title}
-      </span>
-      <span
-        style={{
-          ...sans,
-          fontSize: "0.7rem",
-          fontWeight: 600,
-          letterSpacing: "0.05em",
-          textTransform: "uppercase",
-          padding: "3px 10px",
-          borderRadius: "20px",
-          backgroundColor: "rgba(22,49,79,0.06)",
-          border: "1px solid rgba(22,49,79,0.12)",
-          color: "rgba(22,49,79,0.45)",
-        }}
-      >
-        {goal}
-      </span>
-    </div>
-  );
-}
 
 function CtaButton({ label, note, url }: { label: string; note?: string; url: string }) {
   return (
@@ -104,26 +55,17 @@ function CtaButton({ label, note, url }: { label: string; note?: string; url: st
   );
 }
 
-function Card({ children, n, title, goal }: { children: React.ReactNode; n: number; title: string; goal: string }) {
+function Card({ children }: { children: React.ReactNode }) {
   return (
     <div
-      className="rounded-2xl overflow-hidden"
+      className="rounded-2xl p-6"
       style={{
         backgroundColor: "#ffffff",
         border: "1px solid rgba(169,128,47,0.15)",
         boxShadow: "0 4px 24px rgba(22,49,79,0.07)",
       }}
     >
-      <div
-        className="px-6 py-4"
-        style={{
-          backgroundColor: "rgba(169,128,47,0.05)",
-          borderBottom: "1px solid rgba(169,128,47,0.15)",
-        }}
-      >
-        <SectionBadge n={n} title={title} goal={goal} />
-      </div>
-      <div className="p-6">{children}</div>
+      {children}
     </div>
   );
 }
@@ -149,6 +91,39 @@ function PainCard({ tag, title, desc }: { tag: string; title: string; desc: stri
   );
 }
 
+function StarsRow() {
+  return (
+    <div className="flex gap-1 mb-3">
+      {[1, 2, 3, 4, 5].map((i) => (
+        <Star key={i} className="w-4 h-4" style={{ fill: GOLD, color: GOLD }} />
+      ))}
+    </div>
+  );
+}
+
+function TestimonialCard({ quote, name, role }: { quote: string; name: string; role: string }) {
+  return (
+    <div
+      className="rounded-xl p-5 flex flex-col justify-between"
+      style={{
+        backgroundColor: "#ffffff",
+        border: "1px solid rgba(169,128,47,0.2)",
+        boxShadow: "0 2px 12px rgba(22,49,79,0.06)",
+      }}
+    >
+      <div>
+        <StarsRow />
+        <p style={{ ...sans, fontSize: "0.88rem", color: "rgba(22,49,79,0.75)", lineHeight: 1.6, fontStyle: "italic" }}>
+          "{quote}"
+        </p>
+      </div>
+      <p style={{ ...sans, fontSize: "0.8rem", color: NAVY, fontWeight: 600, marginTop: "16px" }}>
+        — {name}{role ? `, ${role}` : ""}
+      </p>
+    </div>
+  );
+}
+
 const PAINS = [
   { tag: "Refém da operação", title: "Tudo passa por você", desc: "Quase nenhuma decisão anda sem a sua aprovação. Se você tira três dias, a empresa começa a desandar. Você virou o gargalo do que construiu." },
   { tag: "Time sem dono", title: "Ninguém assume a entrega", desc: "Você tem gente boa, mas ninguém cuida do resultado como você cuidaria. Toda decisão volta para a sua mesa e a sobrecarga só cresce." },
@@ -161,6 +136,13 @@ const SESSION_DELIVERS = [
   "Por que o seu time ainda não assume responsabilidade, e como mudar isso com método, não com discurso.",
   "O que ajustar para ter mais tempo, menos correria e um crescimento que não dependa só de você empurrar.",
   "O caminho para deixar de ser o líder operacional e passar a ser o líder integrativo do seu negócio.",
+];
+
+const TESTIMONIALS = [
+  { quote: "O treinamento foi enriquecedor para entender como estou sendo como líder e o que preciso mudar. Tenho aplicado os ensinamentos no dia a dia e os resultados são visíveis na equipe.", name: "Ligia Manica", role: "Gerente Administrativo Financeiro, Agência Sicredi" },
+  { quote: "O programa me trouxe coragem pra fazer diferente, sair da mesmice. Foi um divisor de águas na minha forma de liderar.", name: "Rosane Brito", role: "Supervisora de Produção" },
+  { quote: "A Carol está à frente de dois projetos aqui: transformação cultural e segurança psicológica. O nível de conhecimento dela faz com que dialogue com todos os níveis hierárquicos, reduzindo resistências e gerando adesão real. Estamos muito satisfeitos com os resultados conquistados.", name: "Francielle Reis", role: "Gerente de Relações Humanas, Bem Brasil" },
+  { quote: "Estou há 15 anos em corporações de alto nível e já participei de muitos treinamentos de liderança. Este foi o melhor. Trouxe reflexões que permanecem — e transformam.", name: "Mayckon Aires Cardoso", role: "Coordenador de Logística, Mix Alimentos" },
 ];
 
 const FAQ = [
@@ -202,7 +184,7 @@ export function AgendamentoPage({ leadData, isQualified = true }: AgendamentoPag
         </div>
       )}
 
-      {/* Header */}
+      {/* Header hero */}
       <div
         style={{
           backgroundColor: "#ffffff",
@@ -212,10 +194,7 @@ export function AgendamentoPage({ leadData, isQualified = true }: AgendamentoPag
         }}
       >
         <div className="max-w-3xl mx-auto">
-          <div
-            className="flex justify-center mb-8 pb-6"
-            style={{ borderBottom: "1px solid rgba(169,128,47,0.15)" }}
-          >
+          <div className="flex justify-center mb-8 pb-6" style={{ borderBottom: "1px solid rgba(169,128,47,0.15)" }}>
             <LogoUnicos size="md" />
           </div>
 
@@ -263,11 +242,13 @@ export function AgendamentoPage({ leadData, isQualified = true }: AgendamentoPag
 
       <div className="max-w-3xl mx-auto px-5 py-10 flex flex-col gap-6">
 
-        {/* Seção 2: As 4 dores */}
-        <Card n={2} title="Identificação" goal="reconhecimento">
-          <p style={{ ...serif, fontSize: "1.05rem", color: NAVY, marginBottom: "18px", lineHeight: 1.4 }}>
-            Se você já tem escala, mas sente que o negócio continua dependendo
-            de você, provavelmente está vivendo uma destas situações:
+        {/* As 4 dores */}
+        <Card>
+          <h2 style={{ ...serif, fontSize: "1.15rem", fontWeight: 700, color: NAVY, marginBottom: "6px" }}>
+            Se você já tem escala mas o negócio continua dependendo de você...
+          </h2>
+          <p style={{ ...bodyText, marginBottom: "18px" }}>
+            Provavelmente está vivendo uma destas situações:
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
             {PAINS.map((p) => <PainCard key={p.tag} {...p} />)}
@@ -281,20 +262,21 @@ export function AgendamentoPage({ leadData, isQualified = true }: AgendamentoPag
           </p>
           <p style={{ ...bodyText, marginTop: "10px" }}>
             E se você não ajustar isso agora, vai continuar trabalhando demais,
-            sem tempo para a família, com o crescimento preso ao limite da sua
-            presença.
+            sem tempo para a família, com o crescimento preso ao limite da sua presença.
           </p>
           <div className="mt-5"><CtaButton label={ctaLabel} url={ctaUrl} /></div>
         </Card>
 
-        {/* Seção 3: O que acontece na sessão */}
-        <Card n={3} title="A oferta" goal="clareza do entregável">
-          <p style={{ ...serif, fontSize: "1.05rem", color: NAVY, marginBottom: "12px", lineHeight: 1.4 }}>
-            Nesta sessão estratégica, a gente analisa junto a sua forma de
-            liderar hoje, onde a sua decisão está centralizada e o que falta
-            para o negócio rodar sem você.
+        {/* O que acontece na sessão */}
+        <Card>
+          <h2 style={{ ...serif, fontSize: "1.15rem", fontWeight: 700, color: NAVY, marginBottom: "12px" }}>
+            O que acontece na sessão estratégica
+          </h2>
+          <p style={{ ...bodyText, marginBottom: "16px" }}>
+            A gente analisa junto a sua forma de liderar hoje, onde a sua
+            decisão está centralizada e o que falta para o negócio rodar sem
+            você. No final da conversa, você sai com clareza sobre:
           </p>
-          <p style={{ ...bodyText, marginBottom: "16px" }}>No final da conversa, você sai com clareza sobre:</p>
           <ul className="space-y-3 mb-5">
             {SESSION_DELIVERS.map((item) => (
               <li key={item} className="flex items-start gap-3">
@@ -305,64 +287,51 @@ export function AgendamentoPage({ leadData, isQualified = true }: AgendamentoPag
           </ul>
           <p style={bodyText}>
             Você recebe um diagnóstico da sua liderança baseado em um método
-            estruturado, construído em quase 20 anos formando donos e líderes
-            individualmente.
+            estruturado, construído em quase 20 anos formando donos e líderes individualmente.
           </p>
           <div className="mt-5"><CtaButton label={ctaLabel} url={ctaUrl} /></div>
         </Card>
 
-        {/* Seção 4: Escassez + prova social */}
-        <Card n={4} title="Escassez e prova social" goal="confiança">
-          <p style={bodyText}>
-            Toda semana, a Caroline abre alguns horários para sessões
-            estratégicas com donos e executivos que já têm escala, mas sentem
-            que continuam reféns da própria operação.
-          </p>
-          <p style={{ ...bodyText, marginTop: "10px" }}>
-            Por ser uma conversa individual e analisada caso a caso, as vagas
-            são limitadas.
-          </p>
-          <p style={{ ...serif, fontSize: "1.05rem", color: NAVY, marginTop: "18px", marginBottom: "12px" }}>
-            Veja o que diz quem já passou pelo método:
-          </p>
-          <div
-            className="rounded-xl p-5"
+        {/* Depoimentos */}
+        <div>
+          <h2
             style={{
-              backgroundColor: "#faf8f4",
-              border: "1px dashed rgba(169,128,47,0.3)",
+              ...serif,
+              fontSize: "1.3rem",
+              fontWeight: 700,
+              color: NAVY,
+              textAlign: "center",
+              marginBottom: "20px",
+              textTransform: "uppercase",
+              letterSpacing: "0.03em",
             }}
           >
-            <p style={{ ...sans, fontSize: "0.82rem", color: "rgba(22,49,79,0.4)", fontStyle: "italic" }}>
-              Espaço para depoimentos reais (prints de WhatsApp, vídeos curtos
-              ou cards de resultado). Priorizar donos que saíram da
-              centralização e voltaram a ter tempo.
-            </p>
+            Veja os resultados de quem já passou por essa sessão:
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {TESTIMONIALS.map((t) => (
+              <TestimonialCard key={t.name} {...t} />
+            ))}
           </div>
-          <div className="mt-5"><CtaButton label={ctaLabel} url={ctaUrl} /></div>
-        </Card>
+          <div className="flex justify-center mt-6">
+            <CtaButton label={ctaLabel} url={ctaUrl} />
+          </div>
+        </div>
 
-        {/* Seção 5: Autoridade */}
-        <Card n={5} title="Autoridade" goal="quem conduz e por quê">
+        {/* Autoridade — Caroline */}
+        <Card>
           <div className="flex gap-5 flex-wrap">
-            <div
-              className="rounded-xl flex-shrink-0"
+            <img
+              src="/caroline.jpg"
+              alt="Caroline Batista"
+              className="rounded-xl flex-shrink-0 object-cover"
               style={{
-                width: "110px",
-                height: "130px",
-                background: "linear-gradient(135deg, #e8e2d8, #d4ccbe)",
-                border: "1px solid rgba(169,128,47,0.2)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "0.7rem",
-                color: "rgba(22,49,79,0.4)",
-                textAlign: "center",
-                padding: "8px",
-                ...sans,
+                width: "130px",
+                height: "160px",
+                objectPosition: "top",
+                border: "2px solid rgba(169,128,47,0.2)",
               }}
-            >
-              foto da Caroline
-            </div>
+            />
             <div className="flex-1 min-w-0">
               <h3 style={{ ...serif, fontSize: "1.1rem", color: NAVY, marginBottom: "10px" }}>
                 Sobre a Caroline Batista
@@ -402,8 +371,11 @@ export function AgendamentoPage({ leadData, isQualified = true }: AgendamentoPag
           <div className="mt-5"><CtaButton label={ctaLabel} url={ctaUrl} /></div>
         </Card>
 
-        {/* Seção 6: FAQ */}
-        <Card n={6} title="Perguntas frequentes" goal="quebrar objeções">
+        {/* FAQ */}
+        <Card>
+          <h2 style={{ ...serif, fontSize: "1.15rem", fontWeight: 700, color: NAVY, marginBottom: "20px" }}>
+            Perguntas frequentes
+          </h2>
           <div className="flex flex-col gap-5">
             {FAQ.map((item, i) => (
               <div
@@ -419,15 +391,15 @@ export function AgendamentoPage({ leadData, isQualified = true }: AgendamentoPag
                 <p style={bodyText}>{item.a}</p>
               </div>
             ))}
-            <div className="mt-2"><CtaButton label={ctaLabel} url={ctaUrl} /></div>
           </div>
+          <div className="mt-6"><CtaButton label={ctaLabel} url={ctaUrl} /></div>
         </Card>
 
-        {/* Seção 7: Fechamento */}
-        <Card n={7} title="Fechamento" goal="decisão agora">
-          <h3 style={{ ...serif, fontSize: "1.2rem", color: NAVY, marginBottom: "16px" }}>
+        {/* Fechamento */}
+        <Card>
+          <h2 style={{ ...serif, fontSize: "1.2rem", fontWeight: 700, color: NAVY, marginBottom: "16px" }}>
             A hora de parar de ser refém da própria operação é agora.
-          </h3>
+          </h2>
           <ul className="space-y-3 mb-6">
             {STOPS.map((item) => (
               <li key={item} className="flex items-start gap-3">
@@ -447,15 +419,13 @@ export function AgendamentoPage({ leadData, isQualified = true }: AgendamentoPag
             Aqui não falta grana. Falta uma nova maneira de liderar.
           </p>
         </Card>
+
       </div>
 
       {/* Footer */}
       <div
         className="text-center py-8 px-5"
-        style={{
-          borderTop: "1px solid rgba(169,128,47,0.15)",
-          backgroundColor: "#ffffff",
-        }}
+        style={{ borderTop: "1px solid rgba(169,128,47,0.15)", backgroundColor: "#ffffff" }}
       >
         <LogoUnicos size="sm" className="mx-auto mb-3" />
         <p style={{ ...sans, fontSize: "0.78rem", color: "rgba(22,49,79,0.35)" }}>
