@@ -8,8 +8,6 @@ interface LandingScreenProps {
   onSelectAnswer: (value: string) => void;
 }
 
-const NAVY_CARD = "#1e3d61";
-
 export function LandingScreen({
   question,
   selectedAnswer,
@@ -18,7 +16,7 @@ export function LandingScreen({
   return (
     <div
       className="min-h-screen flex flex-col items-center justify-start p-5 pb-12"
-      style={{ backgroundColor: "#16314f" }}
+      style={{ backgroundColor: "#faf8f4" }}
     >
       {/* Header com logo */}
       <div
@@ -49,7 +47,7 @@ export function LandingScreen({
               fontFamily: "'Playfair Display', Georgia, serif",
               fontSize: "clamp(1.6rem, 4vw, 2.1rem)",
               fontWeight: 700,
-              color: "#f3eee2",
+              color: "#16314f",
               lineHeight: 1.25,
               marginBottom: "14px",
             }}
@@ -60,7 +58,7 @@ export function LandingScreen({
             style={{
               fontFamily: "'Inter', sans-serif",
               fontSize: "1rem",
-              color: "rgba(243,238,226,0.75)",
+              color: "rgba(22,49,79,0.65)",
               lineHeight: 1.6,
               maxWidth: "520px",
               margin: "0 auto",
@@ -76,8 +74,8 @@ export function LandingScreen({
           <div
             className="rounded-xl p-4"
             style={{
-              backgroundColor: "rgba(31,107,79,0.12)",
-              border: "1px solid rgba(31,107,79,0.35)",
+              backgroundColor: "rgba(31,107,79,0.06)",
+              border: "1px solid rgba(31,107,79,0.25)",
             }}
           >
             <p
@@ -85,7 +83,7 @@ export function LandingScreen({
                 fontSize: "0.7rem",
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
-                color: "#4db88a",
+                color: "#1f6b4f",
                 fontWeight: 700,
                 marginBottom: "8px",
               }}
@@ -101,9 +99,9 @@ export function LandingScreen({
                 <li
                   key={item}
                   className="flex items-start gap-2"
-                  style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.8)" }}
+                  style={{ fontSize: "0.85rem", color: "rgba(22,49,79,0.75)" }}
                 >
-                  <span style={{ color: "#4db88a", flexShrink: 0, marginTop: "1px" }}>
+                  <span style={{ color: "#1f6b4f", flexShrink: 0, marginTop: "1px" }}>
                     ✓
                   </span>
                   {item}
@@ -114,8 +112,8 @@ export function LandingScreen({
           <div
             className="rounded-xl p-4"
             style={{
-              backgroundColor: "rgba(157,47,47,0.1)",
-              border: "1px solid rgba(157,47,47,0.3)",
+              backgroundColor: "rgba(157,47,47,0.05)",
+              border: "1px solid rgba(157,47,47,0.2)",
             }}
           >
             <p
@@ -123,7 +121,7 @@ export function LandingScreen({
                 fontSize: "0.7rem",
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
-                color: "#e07070",
+                color: "#9d2f2f",
                 fontWeight: 700,
                 marginBottom: "8px",
               }}
@@ -139,9 +137,9 @@ export function LandingScreen({
                 <li
                   key={item}
                   className="flex items-start gap-2"
-                  style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.8)" }}
+                  style={{ fontSize: "0.85rem", color: "rgba(22,49,79,0.75)" }}
                 >
-                  <span style={{ color: "#e07070", flexShrink: 0, marginTop: "1px" }}>
+                  <span style={{ color: "#9d2f2f", flexShrink: 0, marginTop: "1px" }}>
                     ✕
                   </span>
                   {item}
@@ -153,8 +151,12 @@ export function LandingScreen({
 
         {/* Card Q1 */}
         <div
-          className="rounded-2xl p-7 shadow-xl"
-          style={{ backgroundColor: NAVY_CARD }}
+          className="rounded-2xl p-7 shadow-sm"
+          style={{
+            backgroundColor: "#ffffff",
+            border: "1px solid rgba(169,128,47,0.15)",
+            boxShadow: "0 4px 24px rgba(22,49,79,0.08)",
+          }}
         >
           <p
             style={{
@@ -174,7 +176,7 @@ export function LandingScreen({
               fontFamily: "'Playfair Display', Georgia, serif",
               fontSize: "1.25rem",
               fontWeight: 600,
-              color: "#f3eee2",
+              color: "#16314f",
               marginBottom: "20px",
               lineHeight: 1.3,
             }}
@@ -195,7 +197,7 @@ export function LandingScreen({
             style={{
               fontFamily: "'Inter', sans-serif",
               fontSize: "0.78rem",
-              color: "rgba(243,238,226,0.4)",
+              color: "rgba(22,49,79,0.35)",
               textAlign: "center",
               marginTop: "18px",
             }}
@@ -210,7 +212,7 @@ export function LandingScreen({
             fontFamily: "'Playfair Display', Georgia, serif",
             fontSize: "0.9rem",
             fontStyle: "italic",
-            color: "rgba(169,128,47,0.7)",
+            color: "rgba(169,128,47,0.8)",
             textAlign: "center",
             marginTop: "28px",
           }}

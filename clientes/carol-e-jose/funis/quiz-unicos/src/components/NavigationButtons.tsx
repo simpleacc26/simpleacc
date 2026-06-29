@@ -24,7 +24,7 @@ export function NavigationButtons({
           onClick={onBack}
           className="flex items-center gap-2 transition-opacity hover:opacity-80"
           style={{
-            color: "rgba(255,255,255,0.5)",
+            color: "rgba(22,49,79,0.45)",
             fontFamily: "'Inter', sans-serif",
             fontSize: "0.875rem",
             background: "none",

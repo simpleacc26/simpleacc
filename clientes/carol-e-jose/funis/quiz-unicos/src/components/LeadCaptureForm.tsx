@@ -37,9 +37,9 @@ const INPUT_BASE: React.CSSProperties = {
   width: "100%",
   padding: "13px 16px",
   borderRadius: "12px",
-  border: "2px solid rgba(169,128,47,0.3)",
-  backgroundColor: "rgba(255,255,255,0.04)",
-  color: "#f3eee2",
+  border: "2px solid rgba(22,49,79,0.15)",
+  backgroundColor: "#faf8f4",
+  color: "#16314f",
   fontFamily: "'Inter', sans-serif",
   fontSize: "0.95rem",
   outline: "none",
@@ -63,7 +63,7 @@ function Field({
           fontFamily: "'Inter', sans-serif",
           fontSize: "0.85rem",
           fontWeight: 500,
-          color: "rgba(243,238,226,0.8)",
+          color: "rgba(22,49,79,0.75)",
           marginBottom: "6px",
         }}
       >
@@ -75,7 +75,7 @@ function Field({
           style={{
             marginTop: "4px",
             fontSize: "0.78rem",
-            color: "rgba(255,100,100,0.85)",
+            color: "#c0392b",
           }}
         >
           {error}
@@ -107,13 +107,16 @@ export function LeadCaptureForm({ onSubmit, onBack, loading }: LeadCaptureFormPr
   return (
     <div
       className="min-h-screen flex flex-col items-center justify-start p-5 pb-12"
-      style={{ backgroundColor: "#16314f" }}
+      style={{ backgroundColor: "#faf8f4" }}
     >
-      <div className="w-full flex justify-center pt-6 pb-5">
+      <div
+        className="w-full flex justify-center pt-6 pb-5"
+        style={{ borderBottom: "1px solid rgba(169,128,47,0.15)" }}
+      >
         <LogoUnicos size="sm" />
       </div>
 
-      <div className="max-w-xl w-full">
+      <div className="max-w-xl w-full mt-6">
         <div className="mb-6">
           <ProgressBar current={7} total={7} />
           <div
@@ -121,7 +124,8 @@ export function LeadCaptureForm({ onSubmit, onBack, loading }: LeadCaptureFormPr
             style={{
               fontFamily: "'Inter', sans-serif",
               fontSize: "0.78rem",
-              color: "rgba(169,128,47,0.8)",
+              color: "#a9802f",
+              fontWeight: 500,
             }}
           >
             Quase lá, última etapa
@@ -129,15 +133,19 @@ export function LeadCaptureForm({ onSubmit, onBack, loading }: LeadCaptureFormPr
         </div>
 
         <div
-          className="rounded-2xl p-7 shadow-xl"
-          style={{ backgroundColor: "#1e3d61" }}
+          className="rounded-2xl p-7"
+          style={{
+            backgroundColor: "#ffffff",
+            border: "1px solid rgba(169,128,47,0.15)",
+            boxShadow: "0 4px 24px rgba(22,49,79,0.08)",
+          }}
         >
           <h2
             style={{
               fontFamily: "'Playfair Display', Georgia, serif",
               fontSize: "1.55rem",
               fontWeight: 700,
-              color: "#f3eee2",
+              color: "#16314f",
               lineHeight: 1.25,
               marginBottom: "8px",
             }}
@@ -148,7 +156,7 @@ export function LeadCaptureForm({ onSubmit, onBack, loading }: LeadCaptureFormPr
             style={{
               fontFamily: "'Inter', sans-serif",
               fontSize: "0.95rem",
-              color: "rgba(243,238,226,0.65)",
+              color: "rgba(22,49,79,0.55)",
               marginBottom: "24px",
               lineHeight: 1.55,
             }}
@@ -172,15 +180,15 @@ export function LeadCaptureForm({ onSubmit, onBack, loading }: LeadCaptureFormPr
                   ...INPUT_BASE,
                   borderColor:
                     touched.name && !valid.name
-                      ? "rgba(255,100,100,0.5)"
-                      : "rgba(169,128,47,0.3)",
+                      ? "rgba(192,57,43,0.5)"
+                      : "rgba(22,49,79,0.15)",
                 }}
                 onFocus={(e) => (e.target.style.borderColor = "#a9802f")}
                 onBlurCapture={(e) =>
                   (e.target.style.borderColor =
                     touched.name && !valid.name
-                      ? "rgba(255,100,100,0.5)"
-                      : "rgba(169,128,47,0.3)")
+                      ? "rgba(192,57,43,0.5)"
+                      : "rgba(22,49,79,0.15)")
                 }
               />
             </Field>
@@ -204,15 +212,15 @@ export function LeadCaptureForm({ onSubmit, onBack, loading }: LeadCaptureFormPr
                   ...INPUT_BASE,
                   borderColor:
                     touched.phone && !valid.phone
-                      ? "rgba(255,100,100,0.5)"
-                      : "rgba(169,128,47,0.3)",
+                      ? "rgba(192,57,43,0.5)"
+                      : "rgba(22,49,79,0.15)",
                 }}
                 onFocus={(e) => (e.target.style.borderColor = "#a9802f")}
                 onBlurCapture={(e) =>
                   (e.target.style.borderColor =
                     touched.phone && !valid.phone
-                      ? "rgba(255,100,100,0.5)"
-                      : "rgba(169,128,47,0.3)")
+                      ? "rgba(192,57,43,0.5)"
+                      : "rgba(22,49,79,0.15)")
                 }
               />
             </Field>
@@ -233,15 +241,15 @@ export function LeadCaptureForm({ onSubmit, onBack, loading }: LeadCaptureFormPr
                   ...INPUT_BASE,
                   borderColor:
                     touched.email && !valid.email
-                      ? "rgba(255,100,100,0.5)"
-                      : "rgba(169,128,47,0.3)",
+                      ? "rgba(192,57,43,0.5)"
+                      : "rgba(22,49,79,0.15)",
                 }}
                 onFocus={(e) => (e.target.style.borderColor = "#a9802f")}
                 onBlurCapture={(e) =>
                   (e.target.style.borderColor =
                     touched.email && !valid.email
-                      ? "rgba(255,100,100,0.5)"
-                      : "rgba(169,128,47,0.3)")
+                      ? "rgba(192,57,43,0.5)"
+                      : "rgba(22,49,79,0.15)")
                 }
               />
             </Field>
@@ -252,7 +260,7 @@ export function LeadCaptureForm({ onSubmit, onBack, loading }: LeadCaptureFormPr
             style={{
               fontFamily: "'Inter', sans-serif",
               fontSize: "0.78rem",
-              color: "rgba(243,238,226,0.45)",
+              color: "rgba(22,49,79,0.4)",
             }}
           >
             <Lock
