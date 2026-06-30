@@ -28,6 +28,13 @@ funis da Sabrina, espelhando o modelo aprovado da **Carol e José - V2**.
 4. **WhatsApp é placeholder** (`5533000000000`) nos dois `flow.js`. O "Botão
    WhatsApp" só funciona com o número real (trocar em `flow.js → marca.whatsapp`).
 
+## Decisões confirmadas (Daniel, 2026-06-30)
+- **Mesma location GoHighLevel** para os 2 funis (conexão `6040053`).
+- **1 pipeline só**, com **tag por funil**: `quiz-inclusao` (institucional) e
+  `quiz-implantes`.
+- **WhatsApp real:** `(33) 99866-8858` → no código: **`5533998668858`**
+  (trocar `marca.whatsapp` nos 2 `flow.js`).
+
 ## Conexões a reaproveitar (do cenário antigo)
 - **GoHighLevel (location da Sabrina):** connection id `6040053`.
 - **Google (Sheets):** connection id `5139463` (ssouzadaniel.ads@gmail.com).
@@ -124,8 +131,9 @@ Crie em *Settings → Custom Fields* (tipo Texto) e anote o ID de cada um:
 
 ### Passo 0 — Preparar antes do Make
 - [ ] No GoHighLevel: criar os custom fields acima (1 vez, serve p/ os 2 funis).
-- [ ] No GoHighLevel: definir o **pipeline** e o **stage** de entrada dos leads
-      de paciente (pode ser 1 pipeline com tag por funil).
+- [ ] No GoHighLevel: definir **1 pipeline** e o **stage** de entrada dos leads
+      de paciente. A separação dos funis é feita por **tag** (`quiz-inclusao` /
+      `quiz-implantes`), não por pipeline.
 - [ ] No Google Sheets: criar **1 planilha** com **2 abas** (ex.:
       `Institucional` e `Implantes`), com cabeçalho na linha 1.
 
@@ -174,9 +182,9 @@ Crie em *Settings → Custom Fields* (tipo Texto) e anote o ID de cada um:
 1. Pegue a **URL do webhook** (Passo 1).
 2. No código do funil, em **`app.js`**, troque:
    `const LEADS_ENDPOINT = "";` → `const LEADS_ENDPOINT = "URL_DO_WEBHOOK";`
-3. (Mesmo arquivo / `flow.js`) troque o WhatsApp placeholder
-   `marca.whatsapp: "5533000000000"` pelo número real (só dígitos, ex.:
-   `5533999999999`).
+3. Em `flow.js`, troque o WhatsApp placeholder
+   `marca.whatsapp: "5533000000000"` pelo número real `"5533998668858"`
+   (nos 2 funis).
 4. **Publique de novo na Vercel.**
 
 > O código dos funis hoje mora na Vercel (sem repositório Git). Para versionar e
@@ -192,10 +200,10 @@ Crie em *Settings → Custom Fields* (tipo Texto) e anote o ID de cada um:
 ---
 
 ## Status / pendências
-- [ ] Confirmar se o funil de **implantes** usa a **mesma location GHL** (6040053)
-      ou outra sub-conta.
+- [x] Implantes usa a **mesma location GHL** (6040053). ✓
 - [ ] Criar custom fields no GHL e anotar IDs (tabela acima).
-- [ ] Definir pipeline + stage dos leads de paciente.
+- [ ] Criar **1 pipeline** + stage de entrada; tags `quiz-inclusao` /
+      `quiz-implantes`.
 - [ ] Criar planilha única com abas `Institucional` e `Implantes` + cabeçalhos.
 - [ ] Criar os 2 webhooks e colar as URLs nos respectivos `app.js` (LEADS_ENDPOINT).
 - [ ] Trocar o WhatsApp real nos 2 `flow.js` e republicar.
