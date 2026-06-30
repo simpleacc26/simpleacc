@@ -97,36 +97,52 @@ Se você se reconheceu, faz a leitura emocional gratuita clicando em Saiba mais.
 
 ---
 
-## C) 3 roteiros para vídeo (Reels, ~30 a 45s)
+## C) 3 roteiros para vídeo (fala corrida, pra câmera)
 
-### Vídeo 1 — Talking head empático (Pâmella falando pra câmera)
+Público já saturado de anúncio: a primeira frase tem que parar o dedo, e o texto
+tem que segurar até o fim. Falar olho no olho, sem pressa, com pausas reais.
 
-- **Gancho (0 a 3s), olhando pra câmera:** "Se você já tentou de tudo pra parar de se sentir assim e nada durou, escuta isso."
-- **Desenvolvimento:** "A ansiedade que não desliga, a autossabotagem, aquele vazio... não é falta de força de vontade. É uma origem emocional que nunca foi tocada. E enquanto a raiz continua lá, o padrão volta. Sempre."
-- **Virada:** "A hipnoterapia clínica faz diferente: vai na causa, ressignifica e reprograma. Na maioria dos casos, em até 3 meses."
-- **CTA:** "Faz a leitura emocional gratuita no link. Em 2 minutos você entende o que está por trás do que sente."
-- *Texto na tela:* "Leitura emocional gratuita 👉 link"
+### Roteiro 1
 
----
+Você não está cansada de fazer alguma coisa. Você está exausta de fingir que está tudo bem.
 
-### Vídeo 2 — Educacional / mecanismo (com legendas e b-roll)
+Por fora, você dá conta. Responde todo mundo, resolve, sorri, segura a casa, segura o trabalho, segura todo mundo. E ninguém imagina que, por dentro, você acorda com o peito apertado e vai dormir com a cabeça a mil, ensaiando conversa que nem aconteceu.
 
-- **Gancho (0 a 3s):** "Por que a terapia às vezes ajuda, mas não resolve de vez?"
-- **Desenvolvimento (visual sintoma x raiz):** "Porque a maioria das abordagens trabalha o que você sente HOJE. O alívio vem, parece que funcionou. Mas os gatilhos e memórias guardados no inconsciente continuam intactos. Aí o padrão volta."
-- **Virada:** "A hipnoterapia clínica acessa essa raiz. Investiga a origem, ressignifica e reprograma a resposta emocional. Um processo com começo, meio e fim, pra não recomeçar do zero."
-- **CTA:** "Quer descobrir o que ainda não foi tratado em você? Faz a leitura emocional gratuita no link."
+Você aprendeu a viver no automático. Aprendeu que pedir ajuda é incomodar, que sentir é frescura, que descansar é preguiça. Então você segue. Mas tem dias que bate um vazio do nada, mesmo quando, no papel, está tudo certo.
 
----
+Eu preciso te dizer uma coisa que talvez ninguém tenha te dito: isso não é falta de força de vontade, e não vai passar só com mais esforço. O seu corpo está em estado de alerta há tanto tempo que ele esqueceu como é se sentir seguro. E isso tem uma origem, quase sempre uma origem emocional que ficou guardada e nunca foi acessada.
 
-### Vídeo 3 — História de transformação (pattern interrupt)
+É exatamente nesse lugar que eu trabalho, aqui na clínica em Contagem e também online: a gente vai na raiz, ressignifica o que sustenta esse padrão e ensina o seu sistema nervoso a sair do modo sobrevivência. Na maioria dos casos, em até 3 meses.
 
-> Baseado num tema real de depoimento. Manter genérico, sem nome real. Se quiser,
-> pode casar com o print do depoimento na edição.
+Se isso aí tocou em alguma coisa dentro de você, faz a leitura emocional gratuita no link. São 2 minutos. Pode ser a primeira vez que você se sente de verdade entendida.
 
-- **Gancho (0 a 3s):** "Ela fez terapia por um ano. As explosões de raiva continuavam, e ela não sabia por quê."
-- **Desenvolvimento:** "Quando veio pra hipnoterapia, a gente foi na origem daquilo. Já na primeira sessão, o que parecia ser 'do jeito dela' começou a sair. Hoje ela diz que é uma nova mulher."
-- **Ponto-chave:** "Não mudou a pessoa. Mudou o que estava sendo tratado: a causa, não o sintoma."
-- **CTA:** "Se você se reconhece nessa história, faz a leitura emocional gratuita no link. Pode ser o seu divisor de águas."
+### Roteiro 2
+
+Para de se culpar por não ter "dado certo" com terapia, com remédio, com força de vontade. O problema nunca foi você.
+
+Você fez tudo certo. Foi na terapia, falou, entendeu, leu os livros, fez os exercícios, tentou pensar diferente. E até melhorou por um tempo. Mas aí, do nada, a ansiedade voltou. A autossabotagem voltou. Aquele mesmo padrão que você jurou que tinha resolvido, voltou.
+
+E você se pega pensando: "será que é comigo? Será que tem alguma coisa errada em mim que não tem conserto?"
+
+Não tem. E presta atenção nessa parte, porque é ela que muda tudo: a maioria das abordagens trabalha o que você sente hoje, o sintoma. Por isso o alívio vem e parece que resolveu. Mas a causa, os gatilhos e as memórias que ficaram guardadas no seu inconsciente, continua intacta lá no fundo. E enquanto a raiz não é tocada, o padrão sempre dá um jeito de voltar.
+
+Não é recaída sua. É a causa que nunca foi acessada.
+
+A hipnoterapia clínica trabalha justamente onde a força de vontade não alcança. A gente acessa essa origem, ressignifica e reprograma a sua resposta emocional, num processo com começo, meio e fim. Pra você não ter que recomeçar do zero nunca mais.
+
+Se você está cansada de recomeçar, faz a leitura emocional gratuita no link. Em 2 minutos você entende o que ainda não foi tratado em você.
+
+### Roteiro 3
+
+Você jura que dessa vez vai ser diferente. E de novo se pega fazendo exatamente o que prometeu pra si mesma que não ia mais fazer.
+
+Às vezes é a relação que você sabe que te machuca, e mesmo assim você fica. Às vezes é o trabalho, a comida, o celular, a forma como você se cobra até não sobrar nada de você. Aí você se olha no espelho e pergunta: "por que eu faço isso comigo? Por que, sabendo de tudo, eu continuo no mesmo lugar?"
+
+Vou te responder de um jeito que talvez te dê um alívio: não é porque você é fraca, indisciplinada ou "complicada demais". É porque existe uma parte de você, lá no inconsciente, que aprendeu há muito tempo que esse padrão te protegia de alguma coisa. E essa parte continua rodando no automático, sem você perceber, sabotando justamente o que você mais quer.
+
+Você não precisa dar conta disso sozinha. E não dá pra mudar no grito uma coisa que foi gravada tão fundo. Mas dá pra acessar essa raiz, ressignificar e reprogramar. É isso que a hipnoterapia clínica faz, e é por isso que, na maioria dos casos, a pessoa sente mudança de verdade em até 3 meses.
+
+Eu atendo aqui em Contagem e região, e também online pro Brasil inteiro. Se você se cansou de prometer e depois se decepcionar com você mesma, faz a leitura emocional gratuita no link. Pode ser o começo de você finalmente sair desse ciclo.
 
 ---
 
