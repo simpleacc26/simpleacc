@@ -21,10 +21,15 @@ em 90 dias. Mentor estratégico: Daniel Souza. Contexto completo em `contexto/pe
 
 | Projeto | Pasta | Status | Deploy |
 | ------- | ----- | ------ | ------ |
-| Roadmap 90 dias (R$4k→R$20k) | `estrategia/roadmap-90-dias.md` | Em execução | [Vercel](https://deploystella.vercel.app/) |
+| Roadmap 90 dias (R$4k→R$20k) | `estrategia/roadmap-90-dias.md` | Ajustado (ver checkpoint 25/06) | [Vercel](https://deploystella.vercel.app/) |
 | Auditoria da apresentação comercial | `estrategia/auditoria-apresentacao-comercial.md` | Entregue | — |
-| Script de prospecção | `copy/script-prospeccao.md` | Em uso | — |
-| 1º Checkpoint (pauta + doc cliente) | `estrategia/` | Jun/2026 | — |
+| Script de prospecção | `copy/script-prospeccao.md` | Em standby (prospecção adiada) | — |
+| 1º Checkpoint (25/06) — pauta + doc cliente | `estrategia/checkpoint-2026-06-25.md` + PDFs | Realizado | — |
+| Funil de quiz (aquisição) | `funis/` | A montar (envio até 29/06) | — |
+| Funil curso Estilo Têxtil (recorrência) | `funis/` | A planejar (Renan) | — |
+
+> **Direção atual (pós-checkpoint 25/06):** tráfego pago + funil de quiz como motor principal;
+> SDR/prospecção ativa adiados. Detalhe em `estrategia/checkpoint-2026-06-25.md`.
 
 ## Observações
 

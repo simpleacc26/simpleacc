@@ -496,9 +496,10 @@ def build_checkpoint():
     e += cover(
         "Acompanhamento Estratégico · Simple Acc",
         "Checkpoint",
-        "Stella Grützmann — Registro do 1º Checkpoint<br/>Roadmap 90 dias (R$4k → R$20k/mês)",
-        ["Mentor: Daniel Souza  ·  Junho 2026",
-         "Documento de acompanhamento — Simple Acc"])
+        "Stella Grützmann — Registro do 1º Checkpoint · 25/06/2026<br/>"
+        "Ajuste de rota: tráfego pago + funil de quiz",
+        ["Conduzido por Carlos Durães (COO) · Daniel Souza (mentor) · Renan (tráfego)",
+         "Simple Acc · Junho 2026"])
     e.append(NextPageTemplate("body"))
     e.append(PageBreak())
 
@@ -506,111 +507,104 @@ def build_checkpoint():
     e.append(Spacer(1, 8))
     e.append(Paragraph(
         "Stella, este documento registra o nosso 1º checkpoint e organiza os próximos passos. "
-        "Você saiu na frente: já estruturou a oferta, produziu a apresentação comercial, criou o "
-        "workbook e está com o script de prospecção em mãos. O foco agora é <b>transformar esse "
-        "material em caixa</b> — e o caminho mais curto para isso é a <b>ativação da base</b> e a "
-        "<b>decisão da SDR</b>.", S["body"]))
+        "Antes de tudo: <b>parabéns pela novidade</b> — é uma alegria. Diante do seu momento atual "
+        "e da necessidade de <b>acelerar as vendas neste período</b>, revisamos o roadmap juntos e "
+        "decidimos <b>ajustar a rota</b> para um caminho de aquisição mais rápido e que faça sentido "
+        "para você agora: <b>tráfego pago + funil de quiz</b>. A prospecção ativa não é abandonada — "
+        "ela passa a ser uma frente paralela, para retomarmos quando fizer sentido.", S["body"]))
     e.append(Spacer(1, 10))
     e.append(Callout(
-        "<b>A regra que sustenta o trimestre:</b> apresentar sempre o <b>Premium (R$ 6.000)</b> "
-        "com convicção, como opção única. O R$ 2.997 só entra quando a cliente disser, com "
-        "todas as letras, que está fora do orçamento.", cw))
+        "<b>Decisão central deste checkpoint:</b> priorizar <b>tráfego pago e o funil de quiz</b> "
+        "como motor principal de aquisição agora. A contratação de SDR / prospecção ativa fica "
+        "adiada e será reavaliada caso o tráfego não traga volume suficiente.", cw))
 
     e.append(Spacer(1, 16))
-    e.append(section("02", "Pontos alinhados na call"))
-    e.append(Spacer(1, 6))
-    e.append(Paragraph(
-        "<i>(Preencher/ajustar após a conversa — registro do que foi acordado.)</i>", S["muted_i"]))
+    e.append(section("02", "O que mudou — plano original × novo caminho"))
+    e.append(Spacer(1, 9))
+    e.append(gold_table(
+        ["FRENTE", "PLANO ORIGINAL", "NOVO CAMINHO"],
+        [
+            ["Aquisição principal", "Prospecção ativa na base quente", "Tráfego pago + funil de quiz"],
+            ["SDR", "Contratar logo no início", "Adiar; reavaliar se o tráfego não bastar"],
+            ["Tráfego pago", "Bloqueado até validar vendas", "Liberado agora (frente principal)"],
+            ["Geração de caixa", "Vendas manuais 1 a 1", "Volume via anúncios + agendamento"],
+            ["Pós-90 dias", "—", "Funil para o curso Estilo Têxtil (recorrência)"],
+        ],
+        [cw * 0.22, cw * 0.39, cw * 0.39], bold_first=True))
+
+    e.append(Spacer(1, 16))
+    e.append(section("03", "Como o funil de quiz vai funcionar"))
     e.append(Spacer(1, 8))
     e += bullets([
-        "Oferta dupla confirmada: Premium R$6k como principal, R$2.997 como exceção sob objeção.",
-        "Prioridade do trimestre: <b>ativar a base</b> (caixa) antes de estruturar tráfego pago.",
-        "SDR é a contratação-chave — destrava o volume de abordagens sem sobrecarregar a Stella.",
-        "Ativação da base sempre por <b>áudio/vídeo no WhatsApp</b>, nunca por mensagem de texto.",
-        "Apresentação comercial: ajustar a narrativa (não o visual) na ordem de prioridade definida.",
+        "<b>Anúncio → página do quiz</b>: o lead chega e responde um quiz curto, de forma gamificada.",
+        "<b>Qualificação + pré-diagnóstico</b>: ao final, ela recebe na hora um primeiro diagnóstico (um “primeiro alívio” — a solução completa vem na reunião com você).",
+        "<b>Agendamento</b>: direciona para o seu calendário <i>ou</i> para o WhatsApp — definimos qual conforme o seu nicho.",
+        "<b>Planilha / CRM</b>: os leads caem numa planilha (template Simple Acc) com origem, campanha, público e respostas do quiz — você e nós acompanhamos juntos.",
     ])
 
     e.append(Spacer(1, 14))
-    e.append(section("03", "Suas tarefas — próximos 14 dias"))
+    e.append(section("04", "Tráfego pago — ajustes com o Renan"))
     e.append(Spacer(1, 8))
-    e.append(Paragraph("Comercial / SDR", S["sub"]))
-    e.append(Spacer(1, 4))
-    e += checklist([
-        "Abrir a vaga de SDR e iniciar o processo de seleção.",
-        "Fechar a lista de <b>80–150 contatos</b> (ex-clientes, leads dos últimos 18 meses, seguidoras).",
-        "Ativar <b>20–30 contatos/dia</b> por áudio ou vídeo no WhatsApp.",
-        "Registrar tudo na planilha de controle (oportunidades + indicadores).",
-    ])
-    e.append(Spacer(1, 6))
-    e.append(Paragraph("Oferta e apresentação", S["sub"]))
-    e.append(Spacer(1, 4))
-    e += checklist([
-        "Aplicar na apresentação: promessa no início + dor/consequências + contraste de cenários.",
-        "Reordenar a narrativa para Problema → Consequência → Desejo → Transformação → Método.",
-        "Manter as 2 ofertas documentadas e o roteiro de venda em 1 página à mão.",
-    ])
-    e.append(Spacer(1, 6))
-    e.append(Paragraph("Conteúdo e disciplina", S["sub"]))
-    e.append(Spacer(1, 4))
-    e += checklist([
-        "Manter o “Turbinar” do carrossel ativo (R$20/dia, público mulheres 35+).",
-        "Enviar os <b>números toda sexta-feira</b> ao grupo (reuniões, vendas, mix R$6k/R$2k, travas).",
+    e += bullets([
+        "Nesta fase, o tráfego vai para o seu <b>perfil no Instagram</b> — <b>não</b> para site ou link externo. O site entra depois, quando o quiz estiver pronto (aí usamos o link do quiz).",
+        "O <b>Renan</b> vai ajustar a <b>configuração de público</b> para evitar leads fora do perfil (o impulsionamento anterior trouxe gente fora do alvo).",
+        "Vamos <b>expandir a segmentação</b>: sair do “só Sul” e incluir estados-chave do Brasil, olhando ticket e aderência.",
+        "Melhor <b>configuração de campanha</b> (não depender só do criativo). Você já pode publicar o post aprovado pela parceira — a config de público a gente revê junto.",
     ])
 
     e.append(PageBreak())
 
-    e.append(section("04", "Nossa parte — Simple Acc"))
+    e.append(section("05", "Curso Estilo Têxtil — receita recorrente"))
     e.append(Spacer(1, 8))
     e += bullets([
-        "Entregar o <b>modelo de remuneração da SDR</b> + critérios de qualificação de lead.",
-        "Revisar as <b>primeiras gravações de reunião</b> e refinar o roteiro de venda com você.",
-        "Conduzir a direção dos <b>ajustes da apresentação</b> (auditoria Full Sales).",
-        "Preparar o <b>quiz funnel</b> e os criativos para a Fase V (tráfego pago em teste).",
-        "Analisar seus números toda semana e apontar o gargalo a destravar.",
+        "Vamos criar um <b>funil para vender o seu curso gravado</b> (Estilo Têxtil), garantindo caixa entrando mesmo após os 90 dias de consultoria.",
+        "O <b>funil de quiz pode ser adaptado</b> para isso — mesmo público, com redirecionamento para a venda do curso ao final.",
+        "O <b>Renan</b> vai analisar as suas <b>campanhas anteriores</b> do curso (os vídeos que não converteram) e sugerir um novo funil + criativos mais simples.",
     ])
 
     e.append(Spacer(1, 14))
-    e.append(section("05", "Metas por marco"))
+    e.append(section("06", "Prospecção ativa — fica em paralelo"))
     e.append(Spacer(1, 8))
-    e.append(gold_table(
-        ["MARCO", "META", "FATURAMENTO"],
-        [
-            ["Dia 14", "SDR em contratação · base ativada · 2–4 vendas", "R$ 6–15k em caixa"],
-            ["Dia 30", "SDR com 20+ reuniões qualificadas · rotina estável", "R$ 15–25k · 5–7 vendas"],
-            ["Dia 60", "Outbound ativo (30–50/dia) · mix 40%+ Premium", "R$ 15–20k/mês"],
-            ["Dia 90", "Quiz + tráfego em teste · operação previsível", "> R$ 20.000/mês"],
-        ],
-        [cw * 0.16, cw * 0.55, cw * 0.29], bold_first=True))
-
-    e.append(Spacer(1, 10))
-    e.append(Paragraph("Cenários de mix (5–6 vendas/mês)", S["sub"]))
-    e.append(Spacer(1, 6))
-    e.append(gold_table(
-        ["CENÁRIO", "R$ 2k", "R$ 6k", "TICKET MÉDIO", "TOTAL"],
-        [
-            ["Defensivo", "3–4", "2–3", "R$ 3.600", "R$ 21.600 (6)"],
-            ["Esperado", "2–3", "2–3", "R$ 4.000", "R$ 20.000 (5)"],
-            ["Otimista", "1–2", "3–4", "R$ 4.800", "R$ 24.000 (5)"],
-        ],
-        [cw * 0.22, cw * 0.14, cw * 0.14, cw * 0.25, cw * 0.25], bold_first=True))
+    e.append(Paragraph(
+        "Não é abandono, é sequência. Registramos o aprendizado para quando retomarmos:", S["body_l"]))
+    e.append(Spacer(1, 5))
+    e += bullets([
+        "Prospecção exige <b>volume e persistência</b> — o sucesso costuma vir por volta do <b>5º ponto de contato</b>, com cadência e follow-up. Falar com ~7 pessoas é uma amostra pequena demais.",
+        "Por isso o <b>modelo de SDR</b>: R$ 500 fixo + comissão, podendo chegar a <b>R$ 2.000</b> ao bater a meta — alguém “blindado” para o volume, sem sobrecarregar você.",
+        "Retomamos essa frente em paralelo assim que o tráfego estiver rodando.",
+    ])
 
     e.append(Spacer(1, 16))
-    e.append(section("06", "Alertas"))
+    e.append(section("07", "Próximos passos"))
+    e.append(Spacer(1, 9))
+    e.append(gold_table(
+        ["RESPONSÁVEL", "ENTREGA", "PRAZO"],
+        [
+            ["Simple Acc · Carlos", "Doc de estratégia + copy das páginas + criativos para validação", "até 26/06 (sex)"],
+            ["Simple Acc", "Funil de quiz montado e enviado para aprovação", "até 29/06 (seg)"],
+            ["Renan", "Configuração de público dos anúncios + segmentação por estados", "em andamento"],
+            ["Renan", "Análise das campanhas do curso + proposta de funil (Estilo Têxtil)", "em andamento"],
+            ["Stella", "Publicar o post aprovado e aprovar os materiais enviados", "a partir de 26/06"],
+            ["Simple Acc", "Planilha / CRM (template) para acompanhamento dos leads", "com o funil"],
+        ],
+        [cw * 0.22, cw * 0.56, cw * 0.22], bold_first=True))
+
+    e.append(Spacer(1, 14))
+    e.append(section("08", "Para esse caminho dar certo"))
     e.append(Spacer(1, 8))
     e += bullets([
-        "<b>SDR é o gargalo nº 1.</b> Se não bater 20 reuniões em 30 dias, a prospecção volta pra você e o trimestre trava — avaliamos no dia 15.",
-        "<b>Convicção no Premium.</b> Ir direto pro R$2.997 derruba o ticket. Gravar as 10 primeiras reuniões para revisarmos.",
-        "<b>Sobrecarga na entrega.</b> Bloquear 3h/dia só para entrega; se passar de 12 clientes ativas, pausar vendas.",
-        "<b>Disciplina de medir.</b> Sem os números de sexta, ajustamos no escuro. Segunda falta vira pauta urgente.",
+        "<b>Aprovação rápida</b> dos materiais (cópias e quiz) para não perder a janela — quanto antes aprovar, antes ativamos.",
+        "Tráfego focado no <b>perfil</b> até o quiz no ar; público sempre revisado com o Renan para não voltar a entrar lead fora do alvo.",
+        "Acompanhar os leads na <b>planilha</b> — é o que nos deixa ajustar a campanha com dados, não no escuro.",
     ], marker="!", color=GOLD)
 
     e.append(Spacer(1, 14))
     e.append(HBar(cw, color=GOLD_DIM, thickness=0.8))
     e.append(Spacer(1, 8))
     e.append(Paragraph(
-        "“Daqui a 90 dias seu negócio estará em um lugar completamente diferente — mas só se o "
-        "plano for seguido linha por linha. Cada fase prepara a próxima. Você não está sozinha; "
-        "a execução é sua, o acompanhamento é nosso.”", S["muted_i"]))
+        "Ajustamos o caminho para o seu momento — mais rápido e mais leve para você. O foco agora é "
+        "colocar o tráfego e o quiz no ar e fazer os leads entrarem. Qualquer dúvida, é só chamar; "
+        "seguimos juntos nessa.", S["muted_i"]))
 
     doc.build(e)
     return doc.filename
