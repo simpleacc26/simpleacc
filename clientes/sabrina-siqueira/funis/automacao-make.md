@@ -29,9 +29,13 @@ funis da Sabrina, espelhando o modelo aprovado da **Carol e José - V2**.
    WhatsApp" só funciona com o número real (trocar em `flow.js → marca.whatsapp`).
 
 ## Decisões confirmadas (Daniel, 2026-06-30)
-- **Mesma location GoHighLevel** para os 2 funis (conexão `6040053`).
-- **1 pipeline só**, com **tag por funil**: `quiz-inclusao` (institucional) e
-  `quiz-implantes`.
+- **Mesma location GoHighLevel** para os 2 funis (conexão `6040053`;
+  location "Sabrina s cantarino's", id `xjmQeTDpbkAomQ52IPwU`).
+- **GHL enxuto (Opção 1):** o contato leva só **nome, WhatsApp, e-mail + tag**.
+  As 7 respostas + UTMs vão **só para a planilha**. (Custom fields no GHL ficam
+  para depois — ver seção "Opção 2 (adiada)".)
+- **Pipeline:** usar o existente **"Funil de Marketing"**, 1º stage **"Novo lead"**.
+- **Tag por funil:** `quiz-inclusao` (institucional) e `quiz-implantes`.
 - **WhatsApp real:** `(33) 99866-8858` → no código: **`5533998668858`**
   (trocar `marca.whatsapp` nos 2 `flow.js`).
 
@@ -103,8 +107,11 @@ evita travar se o contato já existir.
 
 ---
 
-## Custom fields a CRIAR no GoHighLevel (uma vez)
-Crie em *Settings → Custom Fields* (tipo Texto) e anote o ID de cada um:
+## Opção 2 (adiada) — Custom fields no GoHighLevel
+> **Não usados agora** (escolhemos a Opção 1: respostas só na planilha). Se um
+> dia quiser as respostas visíveis em cada contato no GHL, crie estes campos em
+> *Settings → Custom Fields* (tipo Texto), anote os IDs e ligue no Create a
+> Contact. Não exige refazer nada do resto.
 
 | Campo do payload | Sugestão de nome no GHL          | ID (anotar) |
 | ---------------- | -------------------------------- | ----------- |
@@ -153,16 +160,15 @@ Crie em *Settings → Custom Fields* (tipo Texto) e anote o ID de cada um:
    - **First Name** = `{{nome}}`
    - **Email** = `{{email}}`
    - **Phone** = `{{whatsapp}}`
-   - **Custom Fields:** ligue `situacao, problema, implicacao, necessidade,
-     objetivo, perfil, qualificacao, frente` e os `utm_*` aos campos criados.
-   - **Tags:** uma tag por funil (ex.: `quiz-inclusao` / `quiz-implantes`) —
-     ou use `{{frente}}` na tag.
+   - **Tags:** a tag do funil — `quiz-inclusao` (institucional) ou
+     `quiz-implantes`.
+   - **Custom Fields:** *nenhum* (Opção 1 — respostas só na planilha).
 3. **Error handler (o "Skip"):** botão direito no módulo → *Add error handler*
    → **`Ignore`**.
 
 ### Passo 3 — GoHighLevel → Create an Opportunity
 1. **Connection:** a mesma.
-2. **Pipeline / Stage:** os definidos no Passo 0.
+2. **Pipeline:** "Funil de Marketing". **Stage:** "Novo lead".
 3. **Select a Method:** *Use an existing contact* → **Contact ID** = `{{ID do
    Create a Contact}}`.
 4. **Status:** `Open`. **Opportunity Name:** `{{nome}}`.
@@ -201,9 +207,9 @@ Crie em *Settings → Custom Fields* (tipo Texto) e anote o ID de cada um:
 
 ## Status / pendências
 - [x] Implantes usa a **mesma location GHL** (6040053). ✓
-- [ ] Criar custom fields no GHL e anotar IDs (tabela acima).
-- [ ] Criar **1 pipeline** + stage de entrada; tags `quiz-inclusao` /
-      `quiz-implantes`.
+- [x] GHL enxuto (Opção 1) — sem custom fields por enquanto. ✓
+- [x] Pipeline "Funil de Marketing" / stage "Novo lead" (já existem). ✓
+- [ ] Tags `quiz-inclusao` / `quiz-implantes` (criadas no Create a Contact).
 - [ ] Criar planilha única com abas `Institucional` e `Implantes` + cabeçalhos.
 - [ ] Criar os 2 webhooks e colar as URLs nos respectivos `app.js` (LEADS_ENDPOINT).
 - [ ] Trocar o WhatsApp real nos 2 `flow.js` e republicar.
