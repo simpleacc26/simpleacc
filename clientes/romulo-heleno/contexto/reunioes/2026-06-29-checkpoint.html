@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  @font-face{ font-family:'Playfair Display'; src:url('pf400.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:block;}
+  @font-face{ font-family:'Playfair Display'; src:url('pf500.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:block;}
+  @font-face{ font-family:'Playfair Display'; src:url('pf600.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:block;}
+  @font-face{ font-family:'Playfair Display'; src:url('pf700.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:block;}
+  @font-face{ font-family:'Playfair Display'; src:url('pfi500.woff2') format('woff2'); font-weight:500; font-style:italic; font-display:block;}
+  @font-face{ font-family:'Lora'; src:url('lora400.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:block;}
+  @font-face{ font-family:'Lora'; src:url('lora500.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:block;}
+  @font-face{ font-family:'Lora'; src:url('lora600.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:block;}
+  @font-face{ font-family:'Lora'; src:url('lora700.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:block;}
+  @font-face{ font-family:'Lora'; src:url('lorai400.woff2') format('woff2'); font-weight:400; font-style:italic; font-display:block;}
+  :root{
+    --ink:#232c39; --soft:#39454f; --steel:#5f7fa6; --steeld:#3f5f86;
+    --muted:#95a2b3; --line:#e4e8ee; --callout:#eef2f8;
+    --navy1:#0c1827; --navy2:#1d3252; --hl:#90a8c6;
+  }
+  @page{ size: letter; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; font-family:'Lora', Georgia, serif; color:var(--ink);
+        font-size:13px; line-height:1.58; -webkit-font-smoothing:antialiased; }
+
+  .section{ page-break-before: always; }
+  .cover{ page-break-before: avoid; }
+
+  .kicker{ font-family:'Liberation Sans', Arial, sans-serif; font-size:8.5px; letter-spacing:3px;
+           color:var(--steel); text-transform:uppercase; font-weight:700; margin-bottom:11px; }
+  h1.title{ font-family:'Playfair Display', Georgia, serif; font-weight:700; font-size:33px;
+            line-height:1.08; color:var(--ink); margin:0 0 17px; letter-spacing:.2px; }
+  .lede{ font-size:14px; color:var(--soft); max-width:80%; margin:0 0 22px; }
+  h2.sub{ font-family:'Liberation Sans', Arial, sans-serif; font-size:8.5px; letter-spacing:2.6px;
+          color:var(--steel); text-transform:uppercase; font-weight:700; margin:26px 0 12px; }
+
+  p{ margin:0 0 12px; }
+  .small{ font-size:12px; color:var(--soft); }
+
+  .grid{ display:flex; gap:14px; margin:6px 0 14px; }
+  .card{ flex:1; border:1px solid var(--line); border-radius:9px; padding:16px 17px; }
+  .card .clab{ font-family:'Liberation Sans', Arial, sans-serif; font-size:7.5px; letter-spacing:2px;
+        color:var(--steel); text-transform:uppercase; font-weight:700; margin-bottom:9px; }
+  .card .big{ font-family:'Playfair Display', Georgia, serif; font-size:19px; line-height:1.15; color:var(--ink); }
+  .card .ctxt{ font-size:12px; color:var(--soft); margin-top:8px; }
+
+  .quote{ background:linear-gradient(135deg,var(--navy1),var(--navy2)); border-radius:12px;
+          padding:27px 31px; margin:14px 0 20px; color:#eaf0f7; }
+  .quote p{ font-family:'Playfair Display', Georgia, serif; font-style:italic; font-weight:500;
+            font-size:19px; line-height:1.5; margin:0; }
+  .quote .hl{ color:var(--hl); }
+  .quote .qlab{ font-family:'Liberation Sans', Arial, sans-serif; font-size:8px; letter-spacing:2.5px;
+            color:#8ba0bb; text-transform:uppercase; font-weight:700; margin-bottom:12px; }
+  .quote .qsub{ font-family:'Lora',serif; font-style:normal; font-size:12.5px; color:#c4d0df;
+            margin-top:13px; line-height:1.55; }
+  .quote .qmeta{ font-family:'Liberation Sans', Arial, sans-serif; font-size:7.5px; letter-spacing:2px;
+            color:#7e93af; text-transform:uppercase; margin-top:12px; }
+
+  .callout{ background:var(--callout); border-left:3px solid var(--steeld); border-radius:0 8px 8px 0;
+            padding:15px 19px; margin:16px 0 18px; }
+  .callout .clab{ font-family:'Liberation Sans', Arial, sans-serif; font-size:7.5px; letter-spacing:2px;
+            color:var(--steeld); text-transform:uppercase; font-weight:700; margin-bottom:7px; }
+  .callout p{ margin:0; font-size:12.5px; color:var(--soft); }
+
+  .mech{ display:flex; gap:16px; padding:13px 0; border-top:1px solid var(--line); break-inside:avoid; }
+  .mech .mn{ font-family:'Playfair Display', Georgia, serif; font-size:24px; color:#c4d0dd; font-weight:700; width:38px; flex:none; line-height:1;}
+  .mech .mt{ font-family:'Playfair Display', Georgia, serif; font-size:15.5px; color:var(--ink); font-weight:600; margin-bottom:5px;}
+  .mech .md{ font-size:12px; color:var(--soft); margin:0;}
+
+  ul.task{ list-style:none; padding:0; margin:6px 0;}
+  ul.task li{ font-size:12.5px; color:var(--soft); padding:8px 0 8px 26px; position:relative; border-top:1px solid var(--line);}
+  ul.task li:first-child{ border-top:none;}
+  ul.task li b{ color:var(--steeld); font-weight:700;}
+  ul.task li .bx{ position:absolute; left:0; top:7px; width:14px; height:14px; border:1.5px solid var(--steel); border-radius:3px;}
+
+  ul.clean{ list-style:none; padding:0; margin:6px 0; }
+  ul.clean li{ font-size:12.5px; color:var(--soft); padding:5px 0 5px 18px; position:relative; }
+  ul.clean li .mk{ position:absolute; left:0; color:var(--steel); font-weight:700; }
+
+  .divider{ height:1px; background:var(--line); margin:22px 0; border:none; }
+</style>
+</head>
+<body>
+
+<!-- ============ CAPA ============ -->
+<section class="cover">
+  <div class="quote" style="padding:0;">
+    <div style="padding:34px 38px 30px;">
+      <div style="display:flex; justify-content:space-between;">
+        <span class="qlab" style="margin:0;">Documento de Checkpoint</span>
+        <span class="qlab" style="margin:0;">Confidencial</span>
+      </div>
+      <div style="text-align:center; padding:74px 10px 80px;">
+        <div style="font-family:'Playfair Display',serif; letter-spacing:9px; font-size:27px; color:#fff;">SIMPLE ACC</div>
+        <div class="qlab" style="margin:14px 0 0;">Checkpoint</div>
+        <div style="width:46px; height:1px; background:#5d76a0; margin:18px auto;"></div>
+        <div style="font-family:'Playfair Display',serif; font-size:34px; line-height:1.15; color:#fff; margin-bottom:18px;">Reunião de<br>Acompanhamento</div>
+        <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:14px; color:#c4d0df; max-width:82%; margin:0 auto 26px;">O balanço dos últimos 20 dias e o foco para destravar a Fase 1 e ligar o funil.</p>
+        <div class="qlab" style="margin:0 0 6px;">Rômulo Heleno</div>
+        <div style="font-family:'Liberation Sans',Arial; font-size:8px; letter-spacing:2.5px; color:#7e93af; text-transform:uppercase;">Mentoria Cabelo de Segunda · Técnica de Mecha</div>
+      </div>
+      <div style="text-align:center;" class="qmeta">29 de Junho de 2026 &nbsp;·&nbsp; Preparado por Simple Acc &nbsp;·&nbsp; Versão 1.0</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 00 CONTEXTO ============ -->
+<section class="section">
+  <div class="kicker">00 · Contexto da Reunião</div>
+  <h1 class="title">O balanço dos 20 dias</h1>
+  <p class="lede">Call de acompanhamento realizada em 29/06/2026, cerca de 20 dias após o último checkpoint. O objetivo foi revisar a evolução do projeto, validar a estratégia do funil de quiz e definir o foco para destravar o que ficou pendente. Participantes: Rômulo Heleno e Carlos Durães (Simple Acc).</p>
+
+  <div class="grid">
+    <div class="card"><div class="clab">O que andou</div><div class="big">Conteúdo</div><div class="ctxt">Postagens diárias mantidas e um dia inteiro de filmagem com modelo. Produção consistente.</div></div>
+    <div class="card"><div class="clab">O que travou</div><div class="big">PDF e curso</div><div class="ctxt">O PDF de vendas e o esboço do curso não saíram. A gestão de tempo foi o principal obstáculo.</div></div>
+    <div class="card"><div class="clab">Decisão-chave</div><div class="big">Validar antes</div><div class="ctxt">Validar a estratégia atual e as pendências antes de abrir tráfego pago.</div></div>
+  </div>
+  <div class="callout">
+    <div class="clab">Foco até o próximo checkpoint</div>
+    <p>Finalizar o PDF de vendas, assistir às aulas, validar o documento de estratégia e começar as abordagens com suporte de social selling. Com isso fechado, a Simple monta o quiz e liga o funil.</p>
+  </div>
+</section>
+
+<!-- ============ 01 AVANÇOS ============ -->
+<section class="section">
+  <div class="kicker">01 · Onde Você Avançou</div>
+  <h1 class="title">O que já está rodando</h1>
+
+  <h2 class="sub">Conteúdo orgânico</h2>
+  <p>A produção de conteúdo foi o que mais evoluiu. Você manteve postagens diárias, fez um dia dedicado de filmagem com modelo (processo e resultado) e trouxe de volta conteúdos antigos, todos com produção, não material caseiro. Esse é exatamente o ritmo que a Fase 1 pede. Mantenha a frequência.</p>
+
+  <h2 class="sub">Prova social</h2>
+  <p>Os conteúdos que mostram resultado são os mais importantes. Eles são a base da prova social, que na página de aplicação aparece logo no início, antes de qualquer texto de venda, porque é visual e decide a percepção de autoridade. Continue soltando os atendimentos com antes e depois e guarde os melhores para a página.</p>
+
+  <div class="callout">
+    <div class="clab">Próximo passo do conteúdo</div>
+    <p>Selecionar, entre o que você já gravou, os atendimentos com resultado mais forte. Esses viram a prova social da página e dos criativos. Quantidade não falta; o foco agora é curar os melhores.</p>
+  </div>
+</section>
+
+<!-- ============ 02 DESTRAVAR ============ -->
+<section class="section">
+  <div class="kicker">02 · Onde Precisa Destravar</div>
+  <h1 class="title">As pendências da Fase 1</h1>
+  <p class="lede">Três entregas seguram o avanço. Nenhuma é grande, todas dependem de reservar tempo dedicado. A boa notícia: dá para acelerar todas com apoio de IA.</p>
+
+  <div class="mech"><div class="mn">01</div><div><div class="mt">PDF de apresentação de vendas</div><p class="md">Use a base que está no grupo. Ela não é só para substituir texto: é a estrutura completa, com o que cada slide precisa ter. Caminho rápido: mande essa estrutura para o GPT e peça a copy adaptada ao seu produto, slide a slide. Depois, use a IA para montar a apresentação em PDF. O foco do conteúdo é valor emocional e transformação, não a parte técnica.</p></div></div>
+  <div class="mech"><div class="mn">02</div><div><div class="mt">Esboço do curso</div><p class="md">Você já tem o curso mapeado na cabeça. Coloque no papel a estrutura: módulos, aulas ao vivo, acompanhamentos e o passo a passo. Não precisa ser detalhado dia a dia, só o suficiente para a equipe avaliar e te dar sugestão de sequência.</p></div></div>
+  <div class="mech"><div class="mn">03</div><div><div class="mt">Aulas de outbound e call</div><p class="md">Estão na plataforma (Kiwify). Assistir as duas fundamenta a abordagem e a condução da sessão de vendas. Sem elas, a primeira call vira improviso, e improviso na frente da venda queima lead bom.</p></div></div>
+
+  <div class="callout">
+    <div class="clab">O que estava travando</div>
+    <p>Não foi falta de informação nem de capacidade: foi tempo dedicado. Reserve blocos fixos na agenda para essas três entregas, do mesmo jeito que você reservou o dia da filmagem. Qualquer dúvida no caminho, manda no grupo na hora, sem esperar a próxima call.</p>
+  </div>
+</section>
+
+<!-- ============ 03 PROSPECÇÃO ============ -->
+<section class="section">
+  <div class="kicker">03 · Prospecção</div>
+  <h1 class="title">A lista mudou de figura</h1>
+
+  <p>Ao revisar a lista do evento Beleza e Movimento, ficou claro que ela caiu bastante. Como o evento era aberto à área da beleza, e não só a cabeleireiros, a quantidade real de profissionais do perfil ideal é bem menor que os ~120 estimados. Isso muda a estratégia de prospecção: além da lista quente, você vai abordar pessoas que ainda não te conhecem.</p>
+
+  <h2 class="sub">Social selling para leads frios</h2>
+  <p>Abordar quem não te conhece exige um método diferente. As primeiras mensagens são inofensivas: um elogio sincero ao trabalho, uma pergunta simples, algo que quebre a barreira inicial sem cara de venda. A conversa vem primeiro; a oferta vem depois. Não busca conversão rápida, busca relacionamento. Exige resiliência e trabalho em vários canais.</p>
+
+  <div class="callout">
+    <div class="clab">Suporte da Simple</div>
+    <p>A Simple vai conectar você com a Maria Cecília, da Inova, especialista em social selling. Ela vai te passar as dicas específicas de abordagem assertiva para leads frios. Assim que a agenda dela alinhar, você recebe o contato.</p>
+  </div>
+</section>
+
+<!-- ============ 04 FUNIL DE QUIZ ============ -->
+<section class="section">
+  <div class="kicker">04 · Funil de Quiz</div>
+  <h1 class="title">O funil está validado</h1>
+  <p class="lede">A estratégia do funil de quiz foi apresentada e validada. Ela qualifica o lead, repele quem não é do perfil e leva quem é direto para a sua agenda de sessões.</p>
+
+  <h2 class="sub">Como funciona</h2>
+  <ul class="clean">
+    <li><span class="mk">›</span>O quiz tem 10 perguntas, sempre com 4 alternativas, pensadas para qualificar e repelir quem não é público.</li>
+    <li><span class="mk">›</span>O formato engaja: a pessoa quer seguir preenchendo, e ao final deixa os dados.</li>
+    <li><span class="mk">›</span>Entrega um diagnóstico personalizado, que bate com a dor que ela marcou, e leva ao WhatsApp para agendar a sessão gratuita.</li>
+    <li><span class="mk">›</span>Roda nos dois canais: orgânico (link na bio) e tráfego pago com criativos segmentados, que é o objetivo principal.</li>
+  </ul>
+
+  <h2 class="sub">Cadência de follow-up</h2>
+  <p>A cadência também já está validada em vários clientes. A maioria dos leads volta a responder a partir do quinto dia, porque as pessoas recebem a mensagem, se distraem e esquecem. Seguir a cadência é o que recupera esse contato e sustenta a conversão. O documento cobre inclusive quem fez a call e não fechou e a base fria.</p>
+
+  <div class="callout">
+    <div class="clab">Sua ação: validar o documento</div>
+    <p>Leia o documento de estratégia no detalhe: a copy, as 10 perguntas do quiz, a abordagem e a cadência. Veja se as perguntas filtram bem e se a linguagem está fiel ao seu público. Nada está escrito na pedra. Traga sugestões e, quando estiver de acordo, dê o OK no grupo. A partir daí a Simple monta o quiz com a sua copy e identidade visual e entrega o link pronto para ativar.</p>
+  </div>
+</section>
+
+<!-- ============ 05 METODOLOGIA ============ -->
+<section class="section">
+  <div class="kicker">05 · Metodologia de Vendas</div>
+  <h1 class="title">Vende-se a transformação</h1>
+  <div class="quote">
+    <p>"A pessoa não está comprando a parte técnica do curso. Está comprando a <span class="hl">transformação</span> e o benefício do seu método. <span class="hl">Não se vende pela técnica, se vende pelo emocional</span>."</p>
+  </div>
+  <p>Esse é o ajuste mais importante de comunicação para a próxima fase. Tanto a apresentação de vendas quanto a call precisam focar na dor do cliente e na transformação que o método entrega, não no detalhamento técnico das aulas. O erro mais comum é montar um material que descreve o produto por dentro; o que move a compra é a pessoa visualizar o resultado e se sentir preparada emocionalmente para decidir.</p>
+  <p>Por isso o modelo de PDF que a Simple te passou foca tanto no processo comercial: ele aumenta o nível de consciência, trabalha a dor e prepara a compra. Use essa pegada ao adaptar a sua apresentação.</p>
+</section>
+
+<!-- ============ 06 TAREFAS ============ -->
+<section class="section">
+  <div class="kicker">06 · Próximos Passos</div>
+  <h1 class="title">Suas tarefas até o próximo checkpoint</h1>
+
+  <ul class="task">
+    <li><span class="bx"></span><b>Finalizar o PDF de vendas</b> usando o modelo do grupo, com foco em valor emocional e transformação (apoio de GPT e IA).</li>
+    <li><span class="bx"></span><b>Assistir às aulas de outbound e call</b> na plataforma, para fundamentar a abordagem.</li>
+    <li><span class="bx"></span><b>Validar o documento de estratégia</b> (copy, quiz, abordagem e cadência) e enviar o feedback para o Carlos.</li>
+    <li><span class="bx"></span><b>Criar o esboço estruturado do curso</b> (módulos, aulas ao vivo, acompanhamentos) para a equipe avaliar.</li>
+    <li><span class="bx"></span><b>Manter a frequência de conteúdo</b> e selecionar os atendimentos com resultado para a prova social.</li>
+  </ul>
+
+  <h2 class="sub">Ação da Simple</h2>
+  <ul class="clean">
+    <li><span class="mk">›</span>Conectar a Maria Cecília (Inova) para o suporte em social selling.</li>
+    <li><span class="mk">›</span>Após o seu OK no documento: montar o quiz com a sua copy e identidade visual, entregar o link pronto e apoiar a ativação.</li>
+    <li><span class="mk">›</span>Tráfego pago: reavaliar a entrada em paralelo assim que a estratégia estiver validada e as pendências fechadas.</li>
+  </ul>
+
+  <div class="callout">
+    <div class="clab">A sequência que destrava tudo</div>
+    <p>Validar o documento é o que libera a Simple para construir e ligar o funil. Por isso ele é a prioridade: assim que você der o OK no grupo, a página entra em produção e o projeto sai do papel.</p>
+  </div>
+</section>
+
+<!-- ============ FECHAMENTO ============ -->
+<section class="section">
+  <div class="quote">
+    <div style="padding:6px 4px;">
+      <div style="font-family:'Playfair Display',serif; letter-spacing:7px; font-size:20px; color:#fff;">SIMPLE ACC</div>
+      <div style="width:42px; height:1px; background:#5d76a0; margin:16px 0;"></div>
+      <p style="font-family:'Lora',serif; font-style:normal; font-size:13px; color:#c4d0df; line-height:1.6;">Checkpoint da reunião de 29 de junho de 2026, da Mentoria Cabelo de Segunda, de Rômulo Heleno. O conteúdo está no ritmo certo; o foco agora é destravar o PDF de vendas, as aulas e a validação da estratégia para ligar o funil de quiz. Próximo passo do seu lado: validar o documento e dar o OK no grupo.</p>
+      <div class="qmeta">Confidencial · 29 de Junho de 2026 · Versão 1.0</div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

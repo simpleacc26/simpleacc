@@ -11,3 +11,6 @@ adicionar uma linha. É a memória que se acumula ao longo do tempo.
 | 08/06/2026 | ICP documentado por escrito é pré-requisito para uso de IA na criação de conteúdo/copy | Call de checkpoint 08/06 |
 | 29/06/2026 | Call agendada — verificar cumprimento do checklist do Dia 14 | Próxima call |
 | 29/06/2026 | Doc de estratégia do Funil de Quiz gerado em PDF na identidade visual Pâmella Mello (Playfair+EB Garamond, capa navy, cards). Fonte e fontes versionadas em estrategia/funil-quiz-doc/. | Pedido Carlos/Daniel |
+| 29/06/2026 | Checkpoint: conteúdo avançou (postagens diárias + filmagem com modelo); travaram PDF de vendas e esboço do curso por gestão de tempo. | Call 29/06 |
+| 29/06/2026 | Lista do evento Beleza e Movimento caiu muito (evento aberto, nem só cabeleireiros) → entra social selling para leads frios, com apoio da Maria Cecília (Inova). | Call 29/06 |
+| 29/06/2026 | Vender pela transformação/emocional, não pela técnica do curso. Tráfego pago só após validar a estratégia. | Call 29/06 |
