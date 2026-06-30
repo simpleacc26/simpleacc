@@ -8,181 +8,194 @@ funis da Sabrina, espelhando o modelo aprovado da **Carol e José - V2**.
 > e cuida de **CRM (GoHighLevel) + planilha (Google Sheets)**.
 
 ## Decisões desta montagem
-- Relatório é gerado **na própria página** (não no Make). → o cenário **não**
-  usa OpenAI nem Google Docs.
+- Relatório gerado **na própria página** → cenário **sem** OpenAI/Google Docs.
 - **2 cenários separados**, 1 por funil (institucional e implantes).
+- **1 planilha só, com 1 aba por funil.**
 - Daniel monta manualmente; este doc é o roteiro.
 
 ---
 
-## A estrutura-alvo (igual Carol e José - V2)
+## ⚠️ Fatos importantes (lidos no código dos funis em 2026-06-30)
+
+1. **Os funis no ar são PARA PACIENTES**, não para dentistas. O cenário antigo
+   "[Simple] Sabrina" (id 3310938) era de um funil B2B (vendia método p/
+   dentistas) — **custom fields, pipeline e planilha dele NÃO servem**. Só
+   reaproveitamos as **conexões**.
+2. **Os dois quizzes mandam o MESMO conjunto de campos** (mudam só os textos das
+   respostas e o `frente`). Isso deixa o mapeamento idêntico nos 2 cenários.
+3. **`LEADS_ENDPOINT` está vazio** no `app.js` dos dois funis → hoje **nada é
+   enviado**. Tem que colar a URL do webhook do Make ali e publicar (Passo 5).
+4. **WhatsApp é placeholder** (`5533000000000`) nos dois `flow.js`. O "Botão
+   WhatsApp" só funciona com o número real (trocar em `flow.js → marca.whatsapp`).
+
+## Conexões a reaproveitar (do cenário antigo)
+- **GoHighLevel (location da Sabrina):** connection id `6040053`.
+- **Google (Sheets):** connection id `5139463` (ssouzadaniel.ads@gmail.com).
+
+> Pipeline, stage, custom fields e planilha: **criar novos** para os funis de
+> paciente (ver passos abaixo).
+
+---
+
+## Estrutura-alvo (igual Carol e José - V2)
 
 ```
 [1] Webhook (Custom webhook)
-      │
+      │   (se os campos não vierem separados, ver "Gotcha JSON" no Passo 1)
       ▼
-[2] GoHighLevel → Create a Contact      (com tratamento de erro: Ignore)
+[2] GoHighLevel → Create a Contact      (com error handler: Ignore = o "Skip")
       │
       ▼
 [3] GoHighLevel → Create an Opportunity  (usa o Contact ID do passo 2)
       │
       ▼
-[4] Google Sheets → Add a Row            (registra o lead na planilha)
+[4] Google Sheets → Add a Row            (registra o lead na aba do funil)
 ```
 
-O ramo **"Skip"** que aparece no print da Carol e José é só o **tratamento de
-erro** do módulo *Create a Contact*: um módulo **`Ignore`** ligado em
-*right-click no módulo → Add error handler*. Serve para a automação **não
-travar** se o contato já existir / der erro — ele ignora e segue.
+O **"Skip"** do print da Carol e José é só o **error handler** `Ignore` do
+*Create a Contact* (botão direito no módulo → *Add error handler* → `Ignore`):
+evita travar se o contato já existir.
 
 ---
 
-## Dados já existentes (reaproveitar) — Funil INSTITUCIONAL / Autismo
+## Payload que CADA quiz envia (idêntico nos dois)
 
-Recuperados do cenário **"[Simple] Sabrina"** (id 3310938) que já roda esse
-funil. Dá para **clonar esse cenário e só remover os módulos de OpenAI + Google
-Docs**, deixando Webhook → Contact → Opportunity → Sheets.
-
-- **Conexão GoHighLevel (location da Sabrina):** connection id `6040053`
-- **Pipeline (Create Opportunity):** `JZRPFoyQXKKFUM2DM2FU`
-- **Stage (Create Opportunity):** `63d0e786-4c1d-4651-9e23-23be4440047c`
-- **Conexão Google (Sheets):** connection id `5139463` (ssouzadaniel.ads@gmail.com)
-- **Planilha:** `1XbK1GiWFqFMvy9QtSh-Gc66dwWJG9-t-MArlhHWvNSY`
-  - Aba: `V01 Descubra quanto você poderia faturar`
-
-**Payload que o quiz institucional manda no webhook:**
 ```json
 {
+  "data": "2026-06-30T12:00:00.000Z",
   "nome": "...",
+  "whatsapp": "(33) 99999-9999",
   "email": "...",
-  "whatsapp": "(19) 98218-2890",
-  "respostas": {
-    "pergunta1_area_atuacao": "...",
-    "pergunta2_tipo_consultorio": "...",
-    "pergunta3_faturamento_mensal": "...",
-    "pergunta4_atendimento_autistas": "...",
-    "pergunta5_objetivo_principal": "..."
-  },
+  "situacao": "texto da opção escolhida",
+  "problema": "texto da opção escolhida",
+  "implicacao": "texto da opção escolhida",
+  "necessidade": "texto da opção escolhida",
+  "objetivo": "texto da opção escolhida",
+  "perfil": "texto da opção escolhida",
+  "qualificacao": "texto da opção escolhida",
+  "frente": "Inclusão",          // institucional. No de implantes: "Implantes"
+  "origem": "https://...",
   "utm_source": "...", "utm_medium": "...", "utm_campaign": "...",
-  "utm_content": "...", "utm_term": "...", "utm_origem": "...",
-  "data_envio": "2025-11-23T23:24:30.255Z"
+  "utm_content": "...", "utm_term": "..."
 }
 ```
 
-**Custom fields do GoHighLevel (Create a Contact) — institucional:**
+### As 7 perguntas (rótulos SPIN) — mesmas chaves nos 2 funis
+| Chave         | Institucional (autismo)                | Implantes                          |
+| ------------- | -------------------------------------- | ---------------------------------- |
+| `situacao`    | Como são hoje as idas ao dentista…     | Como está sua boca hoje?           |
+| `problema`    | Maior dificuldade na consulta…         | O que mais te incomoda nisso hoje? |
+| `implicacao`  | Como isso afeta vocês hoje?            | Como isso afeta o seu dia a dia?   |
+| `necessidade` | O que você já tentou…                  | O que você já tentou até aqui?     |
+| `objetivo`    | O que mais deseja para a relação…      | O que você quer alcançar?          |
+| `perfil`      | Me conta sobre seu filho (autista…)    | Qual opção combina mais com você…  |
+| `qualificacao`| De onde vocês são?                     | De onde você fala?                 |
 
-| Campo do quiz                         | Custom Field ID (GHL)    |
-| ------------------------------------- | ------------------------ |
-| respostas.pergunta1_area_atuacao      | `VUlFALZxLIN3ZTTop5ot`   |
-| respostas.pergunta2_tipo_consultorio  | `krsPQH1ICbL4Gx0O4Lt7`   |
-| respostas.pergunta3_faturamento_mensal| `FsXeWF8rDMVNdWOkNxVy`   |
-| respostas.pergunta4_atendimento_autistas | `G71x2rbIdsvIpwT6nKmO`|
-| respostas.pergunta5_objetivo_principal| `HCw70DrYTsmg021MTogd`   |
-| utm_source                            | `XpWeq93qhcw4c3eAxPlj`   |
-| utm_medium                            | `oW1yXIceGVdWFam7QbNy`   |
-| utm_campaign                          | `zeKg336jWQZCGc5OsHFE`   |
-| utm_content                           | `AB8SPLek59wRhpCLEcWh`   |
-| utm_term                              | `iDy4FuxbkRuX6wOGnfhu`   |
+### Campos de captura (final do quiz)
+`nomeResp` (nome), `whatsapp`, `email`. (No payload, `nomeResp` vai como `nome`.)
 
-**Colunas da planilha (Add a Row) — institucional:**
+---
 
-| Col | Conteúdo                               |
-| --- | -------------------------------------- |
-| A   | nome                                   |
-| B   | whatsapp                               |
-| C   | email                                  |
-| D   | respostas.pergunta1_area_atuacao       |
-| E   | respostas.pergunta2_tipo_consultorio   |
-| F   | respostas.pergunta3_faturamento_mensal |
-| G   | respostas.pergunta4_atendimento_autistas |
-| H   | respostas.pergunta5_objetivo_principal |
-| I   | utm_source                             |
-| J   | utm_medium                             |
-| K   | utm_campaign                           |
-| L   | utm_term                               |
-| M   | utm_content                            |
+## Custom fields a CRIAR no GoHighLevel (uma vez)
+Crie em *Settings → Custom Fields* (tipo Texto) e anote o ID de cada um:
+
+| Campo do payload | Sugestão de nome no GHL          | ID (anotar) |
+| ---------------- | -------------------------------- | ----------- |
+| situacao         | Diag - Situação                  |             |
+| problema         | Diag - Problema                  |             |
+| implicacao       | Diag - Implicação                |             |
+| necessidade      | Diag - O que já tentou           |             |
+| objetivo         | Diag - Objetivo                  |             |
+| perfil           | Diag - Perfil/Momento            |             |
+| qualificacao     | Diag - Localização               |             |
+| frente           | Funil (Inclusão/Implantes)       |             |
+| utm_source       | utm_source                       |             |
+| utm_medium       | utm_medium                       |             |
+| utm_campaign     | utm_campaign                     |             |
+| utm_content      | utm_content                      |             |
+| utm_term         | utm_term                         |             |
+
+> Os mesmos custom fields servem para os 2 funis (payload idêntico). Para
+> separar os funis no CRM, use o campo `frente` e/ou uma **tag por funil**.
 
 ---
 
 ## Passo a passo (faça para CADA funil)
 
-### Passo 0 — Preparar antes de abrir o Make
-- [ ] Confirmar a **location/sub-conta no GoHighLevel** de cada funil.
-      (Institucional já usa a connection `6040053`.)
-- [ ] Para o funil de **implantes**: criar no GHL os **custom fields** das
-      perguntas do quiz de implantes (1 campo por pergunta) e anotar os IDs.
-      Criar/confirmar o **pipeline** e o **stage** de entrada.
-- [ ] Criar **uma planilha Google** por funil (ou uma aba por funil) e anotar o
-      Spreadsheet ID. Colocar o cabeçalho na linha 1 (A1:…).
+### Passo 0 — Preparar antes do Make
+- [ ] No GoHighLevel: criar os custom fields acima (1 vez, serve p/ os 2 funis).
+- [ ] No GoHighLevel: definir o **pipeline** e o **stage** de entrada dos leads
+      de paciente (pode ser 1 pipeline com tag por funil).
+- [ ] No Google Sheets: criar **1 planilha** com **2 abas** (ex.:
+      `Institucional` e `Implantes`), com cabeçalho na linha 1.
 
 ### Passo 1 — Webhook (gatilho)
-1. Novo cenário → primeiro módulo **Webhooks → Custom webhook**.
-2. **Add** → dê um nome claro (ex.: `Sabrina Institucional` /
-   `Sabrina Implantes`) → **Save**.
-3. **Copie a URL do webhook.** É ela que vai no funil (ver Passo 5).
-4. Clique em **Redetermine data structure** e **dispare um envio de teste do
-   quiz** (ou cole um JSON de exemplo) para o Make aprender os campos
-   (`nome`, `email`, `whatsapp`, `respostas.*`, `utm_*`).
+1. Novo cenário → módulo **Webhooks → Custom webhook** → **Add** → nome claro
+   (`Sabrina Institucional` / `Sabrina Implantes`) → **Save**.
+2. **Copie a URL do webhook** (vai no funil, Passo 5).
+3. **Redetermine data structure** e dispare um envio de teste do quiz.
+4. **Gotcha JSON:** o funil envia com `Content-Type: text/plain` (necessário
+   pelo `mode: no-cors`). Se o Make **não** separar os campos automaticamente,
+   adicione logo após o webhook um módulo **JSON → Parse JSON** apontando para o
+   corpo bruto, e mapeie os passos seguintes a partir do Parse JSON.
 
 ### Passo 2 — GoHighLevel → Create a Contact
-1. Adicione **GoHighLevel → Create a Contact** depois do webhook.
-2. **Connection:** a da location da Sabrina (institucional = `6040053`).
-3. Mapeie:
+1. **Connection:** `6040053` (location da Sabrina).
+2. Mapeie:
    - **First Name** = `{{nome}}`
    - **Email** = `{{email}}`
    - **Phone** = `{{whatsapp}}`
-   - **Custom Fields:** ligue cada pergunta ao seu custom field (tabela acima
-     para o institucional; criar os do implantes).
-   - (Opcional) **Tags:** se o quiz mandar um campo de **resultado/balde**,
-     adicione uma tag tipo `Quiz Sabrina <resultado>` — assim você segmenta no
-     GHL como na Carol e José. Se não mandar, pode deixar uma tag fixa por funil
-     (ex.: `quiz-institucional` / `quiz-implantes`).
-4. **Tratamento de erro (o "Skip"):** clique com o botão direito no módulo
-   *Create a Contact* → **Add error handler** → escolha **`Ignore`**. Isso evita
-   travar quando o contato já existe.
+   - **Custom Fields:** ligue `situacao, problema, implicacao, necessidade,
+     objetivo, perfil, qualificacao, frente` e os `utm_*` aos campos criados.
+   - **Tags:** uma tag por funil (ex.: `quiz-inclusao` / `quiz-implantes`) —
+     ou use `{{frente}}` na tag.
+3. **Error handler (o "Skip"):** botão direito no módulo → *Add error handler*
+   → **`Ignore`**.
 
 ### Passo 3 — GoHighLevel → Create an Opportunity
-1. Adicione **GoHighLevel → Create an Opportunity**.
-2. **Connection:** a mesma do Passo 2.
-3. Mapeie:
-   - **Pipeline:** o pipeline do funil (institucional = `JZRPFoyQXKKFUM2DM2FU`).
-   - **Stage:** o estágio de entrada (institucional = `63d0e786-4c1d-4651-9e23-23be4440047c`).
-   - **Select a Method:** *Use an existing contact*.
-   - **Contact ID:** `{{ID do passo 2 / Create a Contact}}`.
-   - **Status:** `Open`.
-   - **Opportunity Name:** `{{nome}}`.
+1. **Connection:** a mesma.
+2. **Pipeline / Stage:** os definidos no Passo 0.
+3. **Select a Method:** *Use an existing contact* → **Contact ID** = `{{ID do
+   Create a Contact}}`.
+4. **Status:** `Open`. **Opportunity Name:** `{{nome}}`.
 
 ### Passo 4 — Google Sheets → Add a Row
-1. Adicione **Google Sheets → Add a Row**.
-2. **Connection:** Google `5139463` (ou a conta do cliente).
-3. **Spreadsheet / Sheet:** a planilha e aba do funil.
-4. **Values:** mapeie coluna a coluna (tabela do institucional acima; montar a
-   equivalente para o implantes). Dica: a última coluna pode receber `{{now}}`
-   para registrar a data/hora.
+1. **Connection:** `5139463`.
+2. **Spreadsheet:** a planilha única. **Sheet:** a aba do funil
+   (`Institucional` ou `Implantes`).
+3. **Values** (sugestão de colunas):
+   A=`{{nome}}` · B=`{{whatsapp}}` · C=`{{email}}` · D=`{{situacao}}` ·
+   E=`{{problema}}` · F=`{{implicacao}}` · G=`{{necessidade}}` ·
+   H=`{{objetivo}}` · I=`{{perfil}}` · J=`{{qualificacao}}` · K=`{{frente}}` ·
+   L=`{{utm_source}}` · M=`{{utm_medium}}` · N=`{{utm_campaign}}` ·
+   O=`{{utm_content}}` · P=`{{utm_term}}` · Q=`{{data}}`
 
-### Passo 5 — Ligar o funil ao webhook
+### Passo 5 — Ligar o funil ao webhook (na Vercel)
 1. Pegue a **URL do webhook** (Passo 1).
-2. No funil (Vercel), configure essa URL como destino do POST do quiz —
-   normalmente uma **variável de ambiente** (ex.: `WEBHOOK_URL` /
-   `VITE_WEBHOOK_URL`) em **Vercel → Project → Settings → Environment
-   Variables** e **redeploy**.
-3. Garanta que o quiz envia o JSON no formato esperado (mesmos nomes de campo).
+2. No código do funil, em **`app.js`**, troque:
+   `const LEADS_ENDPOINT = "";` → `const LEADS_ENDPOINT = "URL_DO_WEBHOOK";`
+3. (Mesmo arquivo / `flow.js`) troque o WhatsApp placeholder
+   `marca.whatsapp: "5533000000000"` pelo número real (só dígitos, ex.:
+   `5533999999999`).
+4. **Publique de novo na Vercel.**
+
+> O código dos funis hoje mora na Vercel (sem repositório Git). Para versionar e
+> a SimpleAcc conseguir manter, o ideal é trazer o código para
+> `clientes/sabrina-siqueira/funis/<projeto>/` num próximo passo.
 
 ### Passo 6 — Testar e ativar
-1. Faça um envio real pelo quiz (dados de teste).
-2. Confira no Make a execução: Contato criado no GHL, Oportunidade no pipeline,
-   linha na planilha.
-3. **Scheduling:** `Immediately`. **Ative** o cenário (toggle ON).
-4. Repita tudo para o segundo funil.
+1. Envio real pelo quiz (dados de teste).
+2. Conferir no Make: Contato no GHL, Oportunidade no pipeline, linha na aba.
+3. **Scheduling:** `Immediately` → **Ativar** o cenário.
+4. Repetir para o segundo funil.
 
 ---
 
-## Pendências para o funil de IMPLANTES (a preencher)
-- [ ] Location/sub-conta GHL (mesma da Sabrina ou outra?).
-- [ ] Perguntas do quiz de implantes + custom fields criados (IDs).
-- [ ] Pipeline + stage de entrada.
-- [ ] Spreadsheet ID + cabeçalho das colunas.
-- [ ] Webhook criado e URL colada no funil da Vercel.
-
-> Quando esses dados existirem, registre-os aqui (mesmo formato da seção do
-> institucional) para a próxima sessão já encontrar tudo pronto.
+## Status / pendências
+- [ ] Confirmar se o funil de **implantes** usa a **mesma location GHL** (6040053)
+      ou outra sub-conta.
+- [ ] Criar custom fields no GHL e anotar IDs (tabela acima).
+- [ ] Definir pipeline + stage dos leads de paciente.
+- [ ] Criar planilha única com abas `Institucional` e `Implantes` + cabeçalhos.
+- [ ] Criar os 2 webhooks e colar as URLs nos respectivos `app.js` (LEADS_ENDPOINT).
+- [ ] Trocar o WhatsApp real nos 2 `flow.js` e republicar.
