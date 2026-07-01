@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diagnóstico de Reabilitação · Instituto Sabrina Siqueira</title>
+  <meta name="description" content="Descubra o caminho para voltar a mastigar de tudo e sorrir sem se esconder. Implantes e reabilitação oral com planejamento em Governador Valadares e região." />
+  <!-- CSS crítico mínimo (evita flash antes do styles.css) -->
+  <style>
+    :root{--bg:#FBF6F0;--text:#38302B}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  </style>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <!-- Quando tiver o arquivo, troque tudo abaixo por:
+             <img class="logo-img" src="/logo.png" alt="Instituto Sabrina Siqueira · Odontologia Humanizada"> -->
+        <span class="brand-name">Instituto Sabrina Siqueira</span>
+        <span class="brand-tag">Odontologia Humanizada</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Barra de progresso (só aparece durante as perguntas) -->
+  <div class="progress-wrap" id="progress" hidden>
+    <div class="container">
+      <div class="progress-meta">
+        <span id="progress-label">Passo 1 de 7</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div id="app" aria-live="polite"><!-- as telas são renderizadas aqui --></div>
+  </main>
+
+  <p class="foot">Instituto Sabrina Siqueira · Governador Valadares/MG</p>
+
+  <script src="/flow.js" defer></script>
+  <script src="/app.js" defer></script>
+</body>
+</html>

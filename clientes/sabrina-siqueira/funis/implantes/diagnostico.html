@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sua orientação · Instituto Sabrina Siqueira</title>
+  <style>
+    :root{--bg:#FBF6F0;--text:#38302B}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  </style>
+  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    /* --- específico do relatório --- */
+    .report-head { text-align: center; padding: 20px 0 6px; }
+    .report-head .selo { margin-bottom: 12px; }
+    .report-head h1 { font-size: 26px; }
+    .etapa { margin: 0 0 16px; }
+    .etapa h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--primary); margin: 0 0 8px; }
+    .etapa p { margin: 0 0 10px; }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 8px 0; }
+    .compare .col { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px; background: var(--surface); }
+    .compare .col h4 { margin: 0 0 8px; font-size: 14px; }
+    .compare .col.bad h4 { color: var(--muted); }
+    .compare .col.good { background: color-mix(in srgb, var(--primary) 6%, var(--surface)); border-color: color-mix(in srgb, var(--primary) 30%, var(--border)); }
+    .compare ul { margin: 0; padding-left: 18px; font-size: 15px; color: var(--muted); }
+    .compare .good ul { color: var(--text); }
+    .depo { background: var(--accent-soft); border: 1px dashed #E6B79F; border-radius: var(--radius-sm); padding: 14px; margin: 8px 0; font-size: 15px; color: var(--primary-700); }
+    .cta-box { background: color-mix(in srgb, var(--primary) 7%, var(--surface)); border: 1px solid color-mix(in srgb, var(--primary) 26%, var(--border)); border-radius: var(--radius); padding: 22px; text-align: center; margin-top: 8px; }
+    .clube { font-size: 15px; color: var(--muted); margin-top: 14px; }
+    .toolbar { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 4px 0 22px; }
+    @media (max-width: 520px){ .compare { grid-template-columns: 1fr; } }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #fff; }
+      .card { box-shadow: none; border-color: #ddd; margin: 0; }
+      .topbar, .foot { color: #000; }
+      .etapa, .compare .col, .cta-box, .depo { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <!-- Quando tiver o arquivo, troque por: <img class="logo-img" src="/logo.png" alt="Instituto Sabrina Siqueira"> -->
+        <span class="brand-name">Instituto Sabrina Siqueira</span>
+        <span class="brand-tag">Odontologia Humanizada</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="toolbar no-print">
+      <button class="btn btn-primary" id="whatsapp">Falar com a equipe no WhatsApp</button>
+    </div>
+    <div class="card screen" id="report"><!-- preenchido por diagnostico.js --></div>
+  </main>
+
+  <p class="foot">Orientação elaborada pela equipe do Instituto Sabrina Siqueira · uso exclusivo do paciente</p>
+
+  <script src="/flow.js" defer></script>
+  <script src="/diagnostico.js" defer></script>
+</body>
+</html>
