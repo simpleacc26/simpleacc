@@ -15,3 +15,4 @@ adicionar uma linha. É a memória que se acumula ao longo do tempo.
 | 2026-06-25 | Novo pedido: **funil para o curso Estilo Têxtil** (gravado) → receita recorrente pós-90 dias. Quiz pode ser adaptado p/ isso. | 1º checkpoint |
 | 2026-06-25 | Impulsionamento trouxe **leads fora do perfil**. Regra: tráfego para o **perfil** (não site) até o quiz pronto; público revisado com o Renan; expandir do Sul p/ estados-chave. | 1º checkpoint |
 | 2026-06-25 | Modelo de SDR oferecido: **R$ 500 fixo + comissão, até R$ 2.000** ao bater meta. | 1º checkpoint |
+| 2026-07-01 | **Estratégia completa criada** (funil de quiz, modelo Pâmella/Rômulo, versão cliente sem partes internas). Tese: imagem é problema de *tradução*, resolve com estratégia, não com mais roupa. Ver `estrategia/2026-07-01-estrategia.md` + PDF. | Estratégia inicial |

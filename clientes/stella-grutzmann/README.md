@@ -25,6 +25,7 @@ em 90 dias. Mentor estratégico: Daniel Souza. Contexto completo em `contexto/pe
 | Auditoria da apresentação comercial | `estrategia/auditoria-apresentacao-comercial.md` | Entregue | — |
 | Script de prospecção | `copy/script-prospeccao.md` | Em standby (prospecção adiada) | — |
 | 1º Checkpoint (25/06) — pauta + doc cliente | `estrategia/checkpoint-2026-06-25.md` + PDFs | Realizado | — |
+| Estratégia completa (funil de quiz) | `estrategia/2026-07-01-estrategia.md` + PDF | Entregue | — |
 | Funil de quiz (aquisição) | `funis/` | A montar (envio até 29/06) | — |
 | Funil curso Estilo Têxtil (recorrência) | `funis/` | A planejar (Renan) | — |
 
