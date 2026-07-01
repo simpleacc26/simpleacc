@@ -385,8 +385,8 @@ class Doc(BaseDocTemplate):
              align="r")
 
         px, pw = MARGIN, CW
-        ptop = PAGE_H - MARGIN - 24
-        pbot = PAGE_H * 0.335
+        ptop = PAGE_H - MARGIN - 22
+        pbot = PAGE_H * 0.40
         ph = ptop - pbot
         c.setFillColor(NAVY)
         c.roundRect(px, pbot, pw, ph, 8, fill=1, stroke=0)
@@ -396,33 +396,47 @@ class Doc(BaseDocTemplate):
         caps(c, px + pw - 22, ptop - 26, d["tag_r"], 7.5, PANEL_HL, tr=1.8,
              align="r")
 
-        y = ptop - 96
-        caps(c, cx, y, "SIMPLE ACC", 20, WHITE, font=DISP, tr=6, align="c")
-        y -= 30
-        caps(c, cx, y, d["eyebrow"], 9, PANEL_HL, tr=3, align="c")
-        y -= 16
-        c.setStrokeColor(PANEL_HL)
-        c.setLineWidth(1)
-        c.line(cx - 26, y, cx + 26, y)
-        y -= 44
-        c.setFillColor(WHITE)
-        c.setFont(DISP, 38)
-        for line in d["title"]:
-            c.drawCentredString(cx, y, line)
-            y -= 42
-        y -= 2
+        # medir o subtitulo e a altura total do bloco central
         sub = Paragraph(
             d["subtitle"],
             ParagraphStyle("s", fontName=BODY_I, textColor=PANEL_TX,
                            fontSize=12.5, leading=18, alignment=TA_CENTER))
         sw, sh = sub.wrap(pw * 0.74, 999)
-        sub.drawOn(c, cx - pw * 0.37, y - sh)
-        y -= sh + 30
-        caps(c, cx, y, d["name"], 10.5, WHITE, tr=3, align="c")
-        y -= 16
-        caps(c, cx, y, d["sub_caps"], 7.5, PANEL_HL, tr=2, align="c")
+        n_title = len(d["title"])
 
-        caps(c, cx, pbot + 34, d["meta"], 8, PANEL_HL, tr=2, align="c")
+        g_wm_eb, g_eb_rule, g_rule_t = 26, 15, 34
+        g_t_sub, g_sub_name, g_name_sc = 28, 28, 14
+        h_wm, h_eb, h_title, h_name, h_sc = 22, 12, 42, 14, 10
+        block_h = (h_wm + g_wm_eb + h_eb + g_eb_rule + g_rule_t
+                   + h_title * n_title + g_t_sub + sh + g_sub_name
+                   + h_name + g_name_sc + h_sc)
+
+        region_top = ptop - 48
+        region_bot = pbot + 56          # acima da linha de meta
+        cur = (region_top + region_bot) / 2 + block_h / 2
+
+        caps(c, cx, cur - 16, "SIMPLE ACC", 20, WHITE, font=DISP, tr=6,
+             align="c")
+        cur -= h_wm + g_wm_eb
+        caps(c, cx, cur - 9, d["eyebrow"], 9, PANEL_HL, tr=3, align="c")
+        cur -= h_eb + g_eb_rule
+        c.setStrokeColor(PANEL_HL)
+        c.setLineWidth(1)
+        c.line(cx - 26, cur, cx + 26, cur)
+        cur -= g_rule_t
+        c.setFillColor(WHITE)
+        c.setFont(DISP, 38)
+        for line in d["title"]:
+            c.drawCentredString(cx, cur - 30, line)
+            cur -= h_title
+        cur -= g_t_sub
+        sub.drawOn(c, cx - sw / 2, cur - sh)
+        cur -= sh + g_sub_name
+        caps(c, cx, cur - 10, d["name"], 10.5, WHITE, tr=3, align="c")
+        cur -= h_name + g_name_sc
+        caps(c, cx, cur - 8, d["sub_caps"], 7.5, PANEL_HL, tr=2, align="c")
+
+        caps(c, cx, pbot + 28, d["meta"], 8, PANEL_HL, tr=2, align="c")
 
 
 def start(doc_flow):
@@ -435,7 +449,7 @@ def build_pauta():
     doc = Doc(
         os.path.join(HERE, "Pauta_Call_Stella_Grutzmann.pdf"),
         cover=dict(
-            tag_l="PAUTA DE CONDUCAO", tag_r="USO INTERNO",
+            tag_l="PAUTA DE CONDUÇÃO", tag_r="USO INTERNO",
             eyebrow="1º CHECKPOINT", title=["Pauta de Call"],
             subtitle="Roteiro para conduzir a call de execução com a Stella, "
                      "revisar o roadmap e destravar o que ficou pendente.",
