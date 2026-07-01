@@ -64,7 +64,7 @@ export function LandingScreen({
               margin: "0 auto",
             }}
           >
-            Empresários que constroem negócios reais chegam a um ponto em que trabalham mais e crescem menos, porque a liderança ainda funciona no mesmo padrão de quando tudo dependia de uma pessoa. Responda 7 perguntas e descubra com precisão onde sua forma de liderar está freando o crescimento que sua empresa já tem capacidade de alcançar.
+            Há um momento em que você trabalha mais e cresce menos — porque a liderança ainda opera no padrão de quando tudo dependia de uma pessoa. Responda 7 perguntas e descubra onde isso está freando o crescimento da sua empresa.
           </p>
         </div>
 
