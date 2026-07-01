@@ -829,27 +829,6 @@ def build():
         "aplicável) e o relacionamento já existente. Reabrir pela troca de valor, "
         "não pela oferta. Oferecer condição se houver."))
 
-    # ----------------------------------------------------- FECHAMENTO
-    e.append(PageBreak())
-    e.append(Spacer(1, 40))
-    e.append(Paragraph(
-        f'<font name="{DISP}" color="{hx(INK)}" size="20">Simple Acc</font>',
-        mk("cl", leading=24)))
-    e.append(Spacer(1, 10))
-    e.append(HRule(width=CW * 0.12, color=ACCENT, t=1.2))
-    e.append(Spacer(1, 12))
-    e.append(Paragraph(
-        "Documento de estratégia e copy do Funil de Quiz para a consultoria de "
-        "imagem e estilo de Stella Grützmann. Construído a partir do "
-        "posicionamento de imagem como estratégia (não moda) e da arquitetura do "
-        "funil de quiz. Próximos passos: aprovar a copy, montar o quiz, o "
-        "diagnóstico e a página, subir os criativos com a observação de "
-        "compliance da Meta e ativar a cadência de follow-up.", S["body"]))
-    e.append(Spacer(1, 14))
-    e.append(Paragraph(
-        f'<font name="{UI_B}" color="{hx(MUTE)}" size="8">'
-        f'CONFIDENCIAL · JUNHO DE 2026 · VERSÃO 1.0</font>', mk("m", leading=11)))
-
     doc.build(e)
     return doc.filename
 

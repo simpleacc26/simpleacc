@@ -406,14 +406,14 @@ class Doc(BaseDocTemplate):
 
         g_wm_eb, g_eb_rule, g_rule_t = 26, 15, 34
         g_t_sub, g_sub_name, g_name_sc = 28, 28, 14
-        h_wm, h_eb, h_title, h_name, h_sc = 22, 12, 42, 14, 10
+        g_sc_meta = 30
+        h_wm, h_eb, h_title, h_name, h_sc, h_meta = 22, 12, 42, 14, 10, 10
         block_h = (h_wm + g_wm_eb + h_eb + g_eb_rule + g_rule_t
                    + h_title * n_title + g_t_sub + sh + g_sub_name
-                   + h_name + g_name_sc + h_sc)
+                   + h_name + g_name_sc + h_sc + g_sc_meta + h_meta)
 
-        region_top = ptop - 48
-        region_bot = pbot + 56          # acima da linha de meta
-        cur = (region_top + region_bot) / 2 + block_h / 2
+        # bloco inteiro (wordmark ... meta) centralizado no meio do painel
+        cur = (ptop + pbot) / 2 + block_h / 2
 
         caps(c, cx, cur - 16, "SIMPLE ACC", 20, WHITE, font=DISP, tr=6,
              align="c")
@@ -435,8 +435,8 @@ class Doc(BaseDocTemplate):
         caps(c, cx, cur - 10, d["name"], 10.5, WHITE, tr=3, align="c")
         cur -= h_name + g_name_sc
         caps(c, cx, cur - 8, d["sub_caps"], 7.5, PANEL_HL, tr=2, align="c")
-
-        caps(c, cx, pbot + 28, d["meta"], 8, PANEL_HL, tr=2, align="c")
+        cur -= h_sc + g_sc_meta
+        caps(c, cx, cur - 8, d["meta"], 8, PANEL_HL, tr=2, align="c")
 
 
 def start(doc_flow):
