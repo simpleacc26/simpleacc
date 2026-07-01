@@ -92,8 +92,14 @@ if (!a._completedAt && !a.problema) {
 
     <div class="etapa">
       <h3>Quem já viveu isso</h3>
-      <div class="depo">[DEPOIMENTO 1]: inserir vídeo/print de uma família: criança que antes precisava ser contida e hoje entra sozinha na cadeira.</div>
-      <div class="depo">[DEPOIMENTO 2]: inserir caso de família que viajava sem achar atendimento e encontrou referência na região.</div>
+      <div class="depo">
+        <p style="margin:0 0 10px">"Dra. Sabrina, estou sem palavras. Nunca imaginei ver o Miguel sentado na cadeira do dentista, realizando um tratamento e até recebendo anestesia com tanta tranquilidade que avanço. Obrigada pela sua paciência, pelo carinho e pelo manejo tão humanizado. Hoje meu coração se encheu de alegria ao ver o Miguel conquistando algo que antes parecia impossível. Gratidão por todo o cuidado e acolhimento. Você faz a diferença na vida das nossas crianças e das nossas famílias."</p>
+        <p style="margin:0;font-size:13px;opacity:.75">— Mãe do Miguel</p>
+      </div>
+      <div class="depo">
+        <p style="margin:0 0 10px">"Você é sensacional! Quero deixar minha gratidão por todo acolhimento, desde a recepção até o atendimento. Dá pra ver o carinho em cada detalhe. Como mãe atípica, eu sei o quanto isso faz diferença. A gente se sente realmente acolhida. Parabéns a você e a toda equipe! Vocês merecem esse reconhecimento."</p>
+        <p style="margin:0;font-size:13px;opacity:.75">— Mãe atípica, paciente do Instituto</p>
+      </div>
       <p class="hint">O que essas histórias têm em comum: não mudou a criança. Mudou o atendimento.</p>
     </div>
 
