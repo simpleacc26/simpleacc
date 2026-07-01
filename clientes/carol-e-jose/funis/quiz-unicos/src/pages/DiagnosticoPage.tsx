@@ -8,8 +8,7 @@ const serif: React.CSSProperties = { fontFamily: "'Playfair Display', Georgia, s
 const sans: React.CSSProperties = { fontFamily: "'Inter', sans-serif" };
 const bodyText: React.CSSProperties = { ...sans, color: "rgba(22,49,79,0.68)", lineHeight: 1.75, fontSize: "0.95rem" };
 
-// Placeholder — URL da página de vendas para leads desqualificados (a ser preenchida)
-const CTA_SALES_URL = "#vendas";
+const CTA_WHATSAPP_URL = "https://chat.whatsapp.com/B6rtIEWe7jcHseToLdfSBE";
 
 interface DiagnosisData {
   slug: string;
@@ -163,17 +162,17 @@ export function DiagnosticoPage({ bucket, isQualified, leadData, onSchedule }: D
           ) : (
             <>
               <p style={{ ...sans, fontSize: "0.97rem", color: NAVY, lineHeight: 1.75, marginBottom: "20px" }}>
-                <strong>O próximo passo.</strong> A ÚNICOS tem uma solução desenvolvida especialmente para o momento em que você se encontra agora. Clique abaixo para descobrir.
+                <strong>O próximo passo.</strong> Continue sua jornada de liderança ao lado de empresários que estão construindo negócios sólidos. Entre na comunidade gratuita da ÚNICOS e acesse conteúdo, encontros e conversas com quem está no mesmo caminho.
               </p>
               <div className="flex justify-center">
                 <a
-                  href={CTA_SALES_URL}
+                  href={CTA_WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 rounded-xl transition-all hover:opacity-90"
                   style={{ padding: "15px 30px", backgroundColor: GOLD, color: "#fff", ...sans, fontWeight: 700, fontSize: "0.95rem", letterSpacing: "0.03em", textDecoration: "none", boxShadow: "0 4px 18px rgba(169,128,47,0.3)" }}
                 >
-                  Quero dar o próximo passo
+                  Entrar na comunidade
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>

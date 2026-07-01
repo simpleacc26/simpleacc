@@ -5,7 +5,7 @@ const GOLD = "#a9802f";
 const serif: React.CSSProperties = { fontFamily: "'Playfair Display', Georgia, serif" };
 const sans: React.CSSProperties = { fontFamily: "'Inter', sans-serif" };
 
-const WHATSAPP_URL = "#whatsapp";
+const WHATSAPP_URL = "https://chat.whatsapp.com/B6rtIEWe7jcHseToLdfSBE";
 
 export function GateBlockPage() {
   return (
