@@ -64,7 +64,7 @@ export function LandingScreen({
               margin: "0 auto",
             }}
           >
-            Há um momento em que você trabalha mais e cresce menos — porque a liderança ainda opera no padrão de quando tudo dependia de uma pessoa. Responda 7 perguntas e descubra onde isso está freando o crescimento da sua empresa.
+            Há um momento em que você trabalha mais e cresce menos, porque a liderança ainda opera no padrão de quando tudo dependia de uma pessoa. Responda 7 perguntas e descubra onde isso está freando o crescimento da sua empresa.
           </p>
         </div>
 
