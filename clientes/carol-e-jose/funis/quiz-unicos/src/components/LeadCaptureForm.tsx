@@ -93,19 +93,20 @@ export function LeadCaptureForm({ onSubmit, onBack, loading }: LeadCaptureFormPr
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [company, setCompany] = useState("");
-  const [touched, setTouched] = useState({ name: false, phone: false, email: false });
+  const [touched, setTouched] = useState({ name: false, phone: false, email: false, company: false });
 
   const valid = {
     name: isValidName(name),
     phone: isValidPhone(phone),
     email: isValidEmail(email),
+    company: company.trim().length >= 3,
   };
-  const canSubmit = valid.name && valid.phone && valid.email;
+  const canSubmit = valid.name && valid.phone && valid.email && valid.company;
 
   const handleSubmit = () => {
-    setTouched({ name: true, phone: true, email: true });
+    setTouched({ name: true, phone: true, email: true, company: true });
     if (!canSubmit) return;
-    onSubmit({ name: name.trim(), phone, email: email.trim(), company: company.trim() || undefined });
+    onSubmit({ name: name.trim(), phone, email: email.trim(), company: company.trim() });
   };
 
   return (
@@ -258,15 +259,25 @@ export function LeadCaptureForm({ onSubmit, onBack, loading }: LeadCaptureFormPr
               />
             </Field>
 
-            <Field label="Nome da empresa" optional>
+            <Field
+              label="Nome da empresa"
+              error={touched.company && !valid.company ? "Nome da empresa deve ter ao menos 3 caracteres" : undefined}
+            >
               <input
                 type="text"
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
+                onBlur={() => setTouched((t) => ({ ...t, company: true }))}
                 placeholder="Razão social ou nome fantasia"
-                style={{ ...INPUT_BASE, borderColor: "rgba(22,49,79,0.15)" }}
+                style={{
+                  ...INPUT_BASE,
+                  borderColor: touched.company && !valid.company ? "rgba(192,57,43,0.5)" : "rgba(22,49,79,0.15)",
+                }}
                 onFocus={(e) => (e.target.style.borderColor = "#a9802f")}
-                onBlurCapture={(e) => (e.target.style.borderColor = "rgba(22,49,79,0.15)")}
+                onBlurCapture={(e) =>
+                  (e.target.style.borderColor =
+                    touched.company && !valid.company ? "rgba(192,57,43,0.5)" : "rgba(22,49,79,0.15)")
+                }
               />
             </Field>
           </div>
