@@ -8,6 +8,7 @@ export interface LeadData {
   name: string;
   phone: string;
   email: string;
+  company?: string;
 }
 
 interface LeadCaptureFormProps {
@@ -50,10 +51,12 @@ function Field({
   label,
   children,
   error,
+  optional,
 }: {
   label: string;
   children: React.ReactNode;
   error?: string;
+  optional?: boolean;
 }) {
   return (
     <div>
@@ -67,7 +70,7 @@ function Field({
           marginBottom: "6px",
         }}
       >
-        {label} <span style={{ color: "#a9802f" }}>*</span>
+        {label} {!optional && <span style={{ color: "#a9802f" }}>*</span>}
       </label>
       {children}
       {error && (
@@ -89,6 +92,7 @@ export function LeadCaptureForm({ onSubmit, onBack, loading }: LeadCaptureFormPr
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const [company, setCompany] = useState("");
   const [touched, setTouched] = useState({ name: false, phone: false, email: false });
 
   const valid = {
@@ -101,7 +105,7 @@ export function LeadCaptureForm({ onSubmit, onBack, loading }: LeadCaptureFormPr
   const handleSubmit = () => {
     setTouched({ name: true, phone: true, email: true });
     if (!canSubmit) return;
-    onSubmit({ name: name.trim(), phone, email: email.trim() });
+    onSubmit({ name: name.trim(), phone, email: email.trim(), company: company.trim() || undefined });
   };
 
   return (
@@ -251,6 +255,18 @@ export function LeadCaptureForm({ onSubmit, onBack, loading }: LeadCaptureFormPr
                       ? "rgba(192,57,43,0.5)"
                       : "rgba(22,49,79,0.15)")
                 }
+              />
+            </Field>
+
+            <Field label="Nome da empresa" optional>
+              <input
+                type="text"
+                value={company}
+                onChange={(e) => setCompany(e.target.value)}
+                placeholder="Razão social ou nome fantasia"
+                style={{ ...INPUT_BASE, borderColor: "rgba(22,49,79,0.15)" }}
+                onFocus={(e) => (e.target.style.borderColor = "#a9802f")}
+                onBlurCapture={(e) => (e.target.style.borderColor = "rgba(22,49,79,0.15)")}
               />
             </Field>
           </div>

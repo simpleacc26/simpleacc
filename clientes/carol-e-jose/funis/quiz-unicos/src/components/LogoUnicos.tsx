@@ -21,7 +21,7 @@ export function LogoUnicos({ className = "", size = "md" }: LogoUnicosProps) {
             fontFamily: "'Playfair Display', 'Times New Roman', Georgia, serif",
             fontSize: cfg.font,
             fontWeight: 700,
-            color: "#16314f",
+            color: "#2d1008",
             letterSpacing: "0.04em",
             lineHeight: 1,
           }}
@@ -39,7 +39,7 @@ export function LogoUnicos({ className = "", size = "md" }: LogoUnicosProps) {
         >
           <path
             d="M10 0.5 C10 0.5 11.5 7.5 19.5 10 C11.5 12.5 10 19.5 10 19.5 C10 19.5 8.5 12.5 0.5 10 C8.5 7.5 10 0.5 10 0.5Z"
-            fill="#a9802f"
+            fill="#d4601a"
           />
         </svg>
       </div>
@@ -49,7 +49,7 @@ export function LogoUnicos({ className = "", size = "md" }: LogoUnicosProps) {
           fontSize: cfg.sub,
           fontWeight: 400,
           fontStyle: "italic",
-          color: "rgba(22,49,79,0.5)",
+          color: "rgba(45,16,8,0.5)",
           letterSpacing: cfg.spacing,
           marginTop: `${cfg.gap}px`,
         }}

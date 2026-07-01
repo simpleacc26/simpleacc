@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { questions } from "./data/questions";
+import { questions, calcScore, calcTier } from "./data/questions";
 import { fbqTrack } from "./analytics";
 import { LandingScreen } from "./components/LandingScreen";
 import { QuestionScreen } from "./components/QuestionScreen";
 import { LeadCaptureForm, type LeadData } from "./components/LeadCaptureForm";
 import { AgendamentoPage } from "./pages/AgendamentoPage";
 import { DiagnosticoPage, getBucketFromSlug, getSlugFromBucket } from "./pages/DiagnosticoPage";
+import { GateBlockPage } from "./pages/GateBlockPage";
 
-type Step = "landing" | "question" | "lead-capture" | "diagnostico" | "agendamento";
+type Step = "landing" | "question" | "lead-capture" | "gate-block" | "diagnostico" | "agendamento";
 
 interface UtmParams {
   utm_source: string;
@@ -23,24 +24,8 @@ const WEBHOOK_URL =
 // Índice 0 = landing (P1), índice 1..6 = P2..P7
 const TOTAL_QUESTIONS = questions.length;
 
-/**
- * Lógica de qualificação baseada nas respostas:
- * - P1 (idx 0): setor — "4" = Indústria requer faturamento maior
- * - P6 (idx 5): papel — "4" = Gestor/colaborador → desqualifica sempre
- * - P7 (idx 6): faturamento mensal
- *   "1" = Até R$50k  → desqualifica sempre
- *   "2" = R$50k-R$100k → qualifica serviços/digital (>R$1M/ano), não qualifica indústria
- *   "3" = R$100k-R$200k → qualifica serviços/digital, não qualifica indústria (< R$3M/ano)
- *   "4" = Acima de R$200k → qualifica todos (>R$2.4M/ano, único bracket acima de R$3M para indústria)
- */
 function calcIsQualified(answers: Record<number, string>): boolean {
-  const setor = answers[0];
-  const papel = answers[5];
-  const faturamento = answers[6];
-  if (papel === "4") return false;
-  if (faturamento === "1") return false;
-  if (setor === "4") return ["4", "5"].includes(faturamento);
-  return ["2", "3", "4", "5"].includes(faturamento);
+  return calcScore(answers) >= 35;
 }
 
 export default function App() {
@@ -87,8 +72,13 @@ export default function App() {
     if (currentIndex < TOTAL_QUESTIONS - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      fbqTrack("InitiateCheckout", { content_name: "Captura de Lead Quiz ÚNICOS" });
-      setStep("lead-capture");
+      // Q7 = faturamento gate: < R$1M → gate-block without lead form
+      if (value === "1") {
+        setStep("gate-block");
+      } else {
+        fbqTrack("InitiateCheckout", { content_name: "Captura de Lead Quiz ÚNICOS" });
+        setStep("lead-capture");
+      }
     }
   };
 
@@ -116,15 +106,21 @@ export default function App() {
     };
 
     const getBucket = () => {
-      const opt = questions[1]?.options.find((o) => o.value === answers[1]);
+      const opt = questions[3]?.options.find((o) => o.value === answers[3]);
       return opt?.bucket || "";
     };
+
+    const score = calcScore(answers);
+    const tier = calcTier(score);
 
     const payload = new URLSearchParams();
     payload.append("nome", data.name);
     payload.append("email", data.email);
     payload.append("whatsapp", data.phone);
+    payload.append("empresa", data.company || "");
     payload.append("balde", getBucket());
+    payload.append("pontuacao", score.toString());
+    payload.append("tier", tier);
     questions.forEach((question, index) => {
       payload.append(`pergunta_${index + 1}`, question.question);
       payload.append(`resposta_${index + 1}`, getAnswerText(index));
@@ -153,9 +149,9 @@ export default function App() {
       content_category: qualified ? "Qualificado" : "Desqualificado",
     });
     if (qualified) {
-      fbqTrack("Schedule"); // evento padrão do Meta para agendamento
+      fbqTrack("Schedule");
     }
-    const bucketName = questions[1]?.options.find((o) => o.value === answers[1])?.bucket ?? "Refém da Operação";
+    const bucketName = questions[3]?.options.find((o) => o.value === answers[3])?.bucket ?? "Refém da Operação";
     const slug = getSlugFromBucket(bucketName);
     setLoading(false);
     setIsQualified(qualified);
@@ -190,6 +186,10 @@ export default function App() {
         onBack={handleBack}
       />
     );
+  }
+
+  if (step === "gate-block") {
+    return <GateBlockPage />;
   }
 
   if (step === "lead-capture") {

@@ -40,7 +40,7 @@ export function LandingScreen({
               marginBottom: "12px",
             }}
           >
-            Diagnóstico de Liderança
+            Diagnóstico de Maturidade do Negócio
           </p>
           <h1
             style={{
@@ -52,7 +52,7 @@ export function LandingScreen({
               marginBottom: "14px",
             }}
           >
-            Você levou sua empresa aos 7 dígitos.
+            Você cresceu, mas a empresa ainda para quando você para.
           </h1>
           <p
             style={{
@@ -64,8 +64,7 @@ export function LandingScreen({
               margin: "0 auto",
             }}
           >
-            Em 2 minutos, descubra o gargalo invisível que te mantém refém da
-            operação, mesmo faturando alto.
+            Empresários que constroem negócios reais chegam a um ponto em que trabalham mais e crescem menos, porque a liderança ainda funciona no mesmo padrão de quando tudo dependia de uma pessoa. Responda 7 perguntas e descubra com precisão onde sua forma de liderar está freando o crescimento que sua empresa já tem capacidade de alcançar.
           </p>
         </div>
 

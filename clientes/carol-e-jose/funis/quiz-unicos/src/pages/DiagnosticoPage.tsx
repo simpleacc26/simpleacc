@@ -26,7 +26,7 @@ export const DIAGNOSES: Record<string, DiagnosisData> = {
     gargaloTitle: "Você virou o ponto de aprovação de quase tudo.",
     subtitle: "O negócio cresceu, passou dos 7 dígitos, mas continua dependendo da sua cabeça para cada decisão importante.",
     significa: "A forma como você lidera ainda é a mesma do dia em que fundou a empresa. Quando você não está presente, tudo desacelera. O custo disso não aparece no balanço. Aparece na sua agenda que nunca abre e nas vezes em que você tentou se afastar e o negócio começou a travar.",
-    naoResolveu: "Você provavelmente já investiu em processo, em ferramenta e até em consultoria. Nada disso muda o eixo da decisão. Enquanto cada aprovação passar por você, o gargalo continua sendo a centralização, e não a ferramenta.",
+    naoResolveu: "Você provavelmente já investiu em processo, em ferramenta e até em consultoria. Nada disso muda o eixo da decisão. Enquanto cada aprovação passar por você, o freio continua sendo a centralização, e não a ferramenta.",
     caminho: "Sair de líder operacional para líder integrativo. Distribuir decisão com critério, sob segurança psicológica, para que o negócio rode sem depender da sua presença. Isso não é treinamento de equipe. É uma mudança na forma como você lidera.",
   },
   "Time sem Dono": {
@@ -42,7 +42,7 @@ export const DIAGNOSES: Record<string, DiagnosisData> = {
     gargaloTitle: "A sua empresa estagnou, e o problema atacado é o errado.",
     subtitle: "Você já passou dos 7 dígitos, vê o concorrente avançar, e a sua reação tem sido reforçar comercial, tráfego e time de vendas. O resultado não vem na mesma proporção.",
     significa: "Na maioria das vezes, o que trava o próximo salto não é venda. É gestão, e a pessoa certa no lugar certo. O negócio cresceu, e a sua forma de liderar não acompanhou esse novo tamanho. Isso não é falta de capacidade. É que o modelo de gestão que te trouxe até aqui não é o que te leva ao próximo nível.",
-    naoResolveu: "Colocar mais venda em cima de uma estrutura que já está no limite só aumenta o atrito. Mais leads chegam, mas a operação não dá conta, e o crescimento não se sustenta. O gargalo está na liderança e na estrutura, não no topo do funil.",
+    naoResolveu: "Colocar mais venda em cima de uma estrutura que já está no limite só aumenta o atrito. Mais leads chegam, mas a operação não dá conta, e o crescimento não se sustenta. O freio está na liderança e na estrutura, não no topo do funil.",
     caminho: "Destravar a sua liderança e a estrutura que sustenta o crescimento, para voltar a crescer com previsibilidade. É colocar a pessoa certa no lugar certo e liderar de um jeito que aguente o próximo patamar.",
   },
   "O Frustrado": {
@@ -126,7 +126,7 @@ export function DiagnosticoPage({ bucket, isQualified, leadData, onSchedule }: D
         {/* Gargalo + seções */}
         <div className="rounded-2xl p-6" style={{ backgroundColor: "#ffffff", border: "1px solid rgba(169,128,47,0.15)", boxShadow: "0 4px 20px rgba(22,49,79,0.06)" }}>
           <p style={{ ...sans, fontSize: "0.65rem", letterSpacing: "0.16em", textTransform: "uppercase", color: GOLD, fontWeight: 700, marginBottom: "10px" }}>
-            O SEU GARGALO
+            SEU PRINCIPAL FREIO
           </p>
           <h2 style={{ ...serif, fontSize: "clamp(1.25rem, 3.5vw, 1.6rem)", fontWeight: 700, color: NAVY, lineHeight: 1.28, marginBottom: "12px" }}>
             {d.gargaloTitle}
@@ -147,7 +147,7 @@ export function DiagnosticoPage({ bucket, isQualified, leadData, onSchedule }: D
           {isQualified ? (
             <>
               <p style={{ ...sans, fontSize: "0.97rem", color: NAVY, lineHeight: 1.75, marginBottom: "20px" }}>
-                <strong>O próximo passo.</strong> Em uma sessão estratégica individual, a gente mapeia exatamente onde está o seu gargalo e desenha o primeiro passo para destravar.
+                <strong>O próximo passo.</strong> Em uma sessão estratégica individual, a gente mapeia exatamente onde está o seu freio e desenha o primeiro passo para destravar.
               </p>
               <div className="flex justify-center">
                 <button
