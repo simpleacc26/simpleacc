@@ -68,6 +68,12 @@
   ul.plain{margin:0; padding-left:20px}
   ul.plain li{margin:0 0 8px; color:#3c342b; font-size:14.5px}
 
+  .subh{font-weight:700; font-size:13.5px; color:var(--gold-deep); margin:18px 0 8px; letter-spacing:.02em}
+  ol.steps{margin:0; padding-left:22px}
+  ol.steps li{margin:0 0 9px; color:#3c342b; font-size:14.5px}
+  ol.steps li b{color:var(--text)}
+  ol.steps li em{color:var(--gold-deep); font-style:italic}
+
   .foot{margin-top:50px; padding-top:18px; border-top:1px solid var(--border); font-size:12px; color:var(--faint); display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap}
 
   @media (max-width:640px){
@@ -189,6 +195,58 @@
       <li>Não foi possível associar criativos a resultados individuais devido à nomenclatura numérica dos anúncios e à ausência da coluna de campanha no export de anúncios.</li>
       <li>Portanto, com base exclusivamente nos dados fornecidos, o desempenho do período pode ser descrito em termos de custo por conversa reportado e de configuração da conta, mas não em termos de leads reais, custo por lead ou retorno.</li>
     </ul>
+  </section>
+
+  <section>
+    <span class="eyebrow">8 · Plano de ação recomendado</span>
+    <h2>Prioridades para o próximo ciclo</h2>
+    <p>O plano parte da limitação central (seções 2 e 7): sem mensuração dos leads reais, não é possível otimizar por resultado de negócio. A prioridade é instalar a régua de medição antes de escalar investimento.</p>
+
+    <div class="subh">Mensuração e controle de leads (base para todo o resto)</div>
+    <ul class="plain">
+      <li><b>Ativar o funil de qualificação (quiz) como destino do tráfego</b>, no lugar do WhatsApp direto. O funil filtra o lead antes do atendimento, registra cada contato com origem e UTM, e permite medir o volume real de leads, e não apenas as conversas reportadas pela plataforma.</li>
+      <li><b>Instalar Pixel e CAPI</b> no funil e marcar os eventos da jornada (visita, quiz concluído, lead, avaliação agendada), passando a otimizar por lead qualificado.</li>
+      <li><b>Reconciliar semanalmente</b> conversas reportadas, leads reais, avaliações agendadas e fechamentos, para obter custo por lead e CAC reais.</li>
+    </ul>
+
+    <div class="subh">Estrutura de campanha</div>
+    <ul class="plain">
+      <li>Consolidar as 12 campanhas em poucas, com orçamento no nível de campanha (CBO), eliminando as duplicatas, para sair da fase de aprendizado.</li>
+      <li>Desativar a opção "Somente quando conectado a uma rede Wi-Fi".</li>
+      <li>Separar a geografia em duas linhas: presencial (Contagem e raio) e online (Brasil), aproveitando o atendimento online e a base de seguidores.</li>
+      <li>Ativar públicos personalizados (retargeting de quem engajou no Instagram, assistiu aos vídeos, enviou mensagem ou visitou o funil) e público semelhante a partir de quem agendou avaliação.</li>
+      <li>Ajustar a faixa etária ao perfil do tratamento e revisar as 5 exclusões de posicionamento (liberando Reels e Stories para vídeo).</li>
+    </ul>
+
+    <div class="subh">Criativo</div>
+    <ul class="plain">
+      <li>Rotação de criativos e entrada de vídeo (formato hoje ausente), com variação de ângulos por dor.</li>
+      <li>Padronizar a nomenclatura de campanhas, conjuntos e anúncios, para permitir a leitura de criativo por resultado.</li>
+      <li>Ajustar a linguagem à política de saúde do Meta (remover o termo "cura" e as listas de condições).</li>
+    </ul>
+  </section>
+
+  <section>
+    <span class="eyebrow">9 · Direcionamento de execução (gestão de tráfego)</span>
+    <h2>Sequência recomendada para a operação da conta</h2>
+    <p>As ações abaixo são de execução direta no Gerenciador. Os itens em destaque dependem da camada de mensuração e do funil, fornecidos pela Simple Acc.</p>
+    <ol class="steps">
+      <li>Desativar "Somente Wi-Fi" em todos os conjuntos.</li>
+      <li>Consolidar as campanhas em estrutura CBO e pausar as duplicatas.</li>
+      <li><b>Alterar o destino dos anúncios para o funil de qualificação</b> (link com UTMs), no lugar do WhatsApp direto. <em>A Simple Acc fornece o link e a estrutura de captura.</em></li>
+      <li>Criar os públicos personalizados e semelhantes. <em>A Simple Acc fornece as definições de evento assim que o Pixel/CAPI estiver ativo.</em></li>
+      <li>Padronizar a nomenclatura de campanhas, conjuntos e anúncios.</li>
+      <li>Revisar posicionamentos, faixa etária e a separação geográfica (presencial e online).</li>
+      <li>Ajustar os textos de anúncio e de mensagem para conformidade com a política do Meta.</li>
+    </ol>
+  </section>
+
+  <section>
+    <span class="eyebrow">10 · Nota sobre a operação</span>
+    <div class="panel">
+      <p>A execução do tráfego e a camada de mensuração, funil e registro de leads estão, hoje, sob responsáveis distintos. A efetividade das otimizações depende da coordenação entre essas duas frentes: o ciclo "ajuste no anúncio, leitura do resultado real, novo ajuste" só se fecha quando as duas conversam de forma contínua.</p>
+      <p>Operações em que tráfego, funil, rastreamento e registro de leads são conduzidos de forma integrada tendem a apresentar ciclos de otimização mais curtos e resultados mais previsíveis, por eliminarem o ponto cego entre o clique e o lead descrito na seção 2.</p>
+    </div>
   </section>
 
   <div class="foot">

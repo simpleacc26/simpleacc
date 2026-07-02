@@ -99,3 +99,67 @@ de anúncios e de restrição da conta.
 - Com base exclusivamente nos dados fornecidos, o desempenho do período pode ser
   descrito em termos de custo por conversa reportado e de configuração da conta,
   mas não em termos de leads reais, custo por lead ou retorno.
+
+## 8. Plano de ação recomendado
+
+O plano parte da limitação central (seções 2 e 7): sem mensuração dos leads
+reais, não é possível otimizar por resultado de negócio. A prioridade é instalar
+a régua de medição antes de escalar investimento.
+
+**Mensuração e controle de leads (base para todo o resto)**
+- Ativar o funil de qualificação (quiz) como destino do tráfego, no lugar do
+  WhatsApp direto. O funil filtra o lead antes do atendimento, registra cada
+  contato com origem e UTM, e permite medir o volume real de leads, e não apenas
+  as conversas reportadas.
+- Instalar Pixel e CAPI no funil e marcar os eventos da jornada (visita, quiz
+  concluído, lead, avaliação agendada), otimizando por lead qualificado.
+- Reconciliar semanalmente conversas reportadas, leads reais, avaliações
+  agendadas e fechamentos, para obter custo por lead e CAC reais.
+
+**Estrutura de campanha**
+- Consolidar as 12 campanhas em poucas, com orçamento no nível de campanha (CBO),
+  eliminando duplicatas, para sair da fase de aprendizado.
+- Desativar a opção "Somente quando conectado a uma rede Wi-Fi".
+- Separar a geografia em duas linhas: presencial (Contagem e raio) e online
+  (Brasil), aproveitando o atendimento online e a base de seguidores.
+- Ativar públicos personalizados (retargeting de quem engajou no Instagram,
+  assistiu aos vídeos, enviou mensagem ou visitou o funil) e público semelhante a
+  partir de quem agendou avaliação.
+- Ajustar a faixa etária ao perfil do tratamento e revisar as 5 exclusões de
+  posicionamento (liberando Reels e Stories para vídeo).
+
+**Criativo**
+- Rotação de criativos e entrada de vídeo (formato hoje ausente), com variação de
+  ângulos por dor.
+- Padronizar a nomenclatura de campanhas, conjuntos e anúncios.
+- Ajustar a linguagem à política de saúde do Meta (remover "cura" e listas de
+  condições).
+
+## 9. Direcionamento de execução (gestão de tráfego)
+
+Ações de execução direta no Gerenciador. Os itens em destaque dependem da camada
+de mensuração e do funil, fornecidos pela Simple Acc.
+
+1. Desativar "Somente Wi-Fi" em todos os conjuntos.
+2. Consolidar as campanhas em estrutura CBO e pausar as duplicatas.
+3. **Alterar o destino dos anúncios para o funil de qualificação** (link com
+   UTMs), no lugar do WhatsApp direto. *A Simple Acc fornece o link e a estrutura
+   de captura.*
+4. Criar os públicos personalizados e semelhantes. *A Simple Acc fornece as
+   definições de evento assim que o Pixel/CAPI estiver ativo.*
+5. Padronizar a nomenclatura de campanhas, conjuntos e anúncios.
+6. Revisar posicionamentos, faixa etária e a separação geográfica.
+7. Ajustar os textos de anúncio e de mensagem para conformidade.
+
+## 10. Nota sobre a operação
+
+A execução do tráfego e a camada de mensuração, funil e registro de leads estão,
+hoje, sob responsáveis distintos. A efetividade das otimizações depende da
+coordenação entre essas duas frentes: o ciclo "ajuste no anúncio, leitura do
+resultado real, novo ajuste" só se fecha quando as duas conversam de forma
+contínua.
+
+Operações em que tráfego, funil, rastreamento e registro de leads são conduzidos
+de forma integrada tendem a apresentar ciclos de otimização mais curtos e
+resultados mais previsíveis, por eliminarem o ponto cego entre o clique e o lead
+descrito na seção 2.
