@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diagnóstico da sua mecha · Mentoria Cabelo de Segunda</title>
+  <meta name="description" content="Descubra em 3 minutos o que está travando a sua técnica de mecha e o caminho exato para dominá-la. Diagnóstico personalizado com o Rômulo Heleno." />
+  <!-- CSS crítico mínimo (evita flash antes do styles.css) -->
+  <style>
+    :root{--bg:#F5F1EA;--text:#232C39}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <!-- Quando tiver o arquivo, troque tudo abaixo por:
+             <img class="logo-img" src="logo.png" alt="Rômulo Heleno · Mentoria Cabelo de Segunda"> -->
+        <span class="brand-name">Rômulo Heleno</span>
+        <span class="brand-tag">Mentoria Cabelo de Segunda</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Barra de progresso (só aparece durante as perguntas) -->
+  <div class="progress-wrap" id="progress" hidden>
+    <div class="container">
+      <div class="progress-meta">
+        <span id="progress-label">Começando</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div id="app" aria-live="polite"><!-- as telas são renderizadas aqui --></div>
+  </main>
+
+  <p class="foot">Rômulo Heleno · Mentoria Cabelo de Segunda · Formação técnica em mecha</p>
+
+  <script src="flow.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
