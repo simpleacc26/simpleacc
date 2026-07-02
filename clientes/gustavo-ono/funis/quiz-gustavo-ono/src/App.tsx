@@ -4,9 +4,10 @@ import { fbqTrack } from "./analytics";
 import { LandingScreen } from "./components/LandingScreen";
 import { QuestionScreen } from "./components/QuestionScreen";
 import { LeadCaptureForm, type LeadData } from "./components/LeadCaptureForm";
+import { LoadingScreen } from "./components/LoadingScreen";
 import { ReportScreen } from "./components/ReportScreen";
 
-type Step = "landing" | "question" | "lead-capture" | "report";
+type Step = "landing" | "question" | "lead-capture" | "loading" | "report";
 
 interface UtmParams {
   utm_source: string;
@@ -122,7 +123,7 @@ export default function App() {
       console.error("Erro ao enviar webhook:", error);
     }
 
-    setStep("report");
+    setStep("loading");
   };
 
   if (step === "landing") {
@@ -150,6 +151,10 @@ export default function App() {
 
   if (step === "lead-capture") {
     return <LeadCaptureForm onSubmit={handleLeadSubmit} onBack={handleLeadBack} />;
+  }
+
+  if (step === "loading") {
+    return <LoadingScreen onComplete={() => setStep("report")} />;
   }
 
   if (step === "report" && leadData) {
