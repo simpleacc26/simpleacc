@@ -6,3 +6,6 @@
 
 # Vercel
 .vercel
+
+# preview publicado (derivado)
+preview_artifact.html

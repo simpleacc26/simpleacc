@@ -12,8 +12,8 @@ window.FLOW = {
   marca: {
     nome: "Stella Grützmann",
     expert: "Stella Grützmann",
-    // Número internacional, só dígitos. PENDENTE: confirmar o WhatsApp da Stella.
-    whatsapp: "5500000000000",
+    // WhatsApp da Stella (+55 46 9938-7066). Formato internacional, só dígitos.
+    whatsapp: "5546999387066",
     whatsappMsg: "Oi Stella! Sou {nome}, acabei de fazer a leitura de imagem no seu site e quero falar sobre a avaliação estratégica.",
   },
 
