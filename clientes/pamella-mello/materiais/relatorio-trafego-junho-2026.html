@@ -1,106 +1,82 @@
 <style>
   :root{
-    --bg:#F4EFE7; --bg2:#EFE7D9; --surface:#FFFDF9;
-    --text:#2A2420; --muted:#7C6E5C; --faint:#A2937E;
-    --gold:#B0843A; --gold-deep:#8A6526; --gold-lite:#D8B566;
-    --border:#E7DAC2; --border-soft:#EFE6D6;
-    --pos:#5E7A52; --pos-bg:#EDF0E5;
-    --att:#A9702C; --att-bg:#F6ECD9;
-    --risk:#A8442B; --risk-bg:#F5E4DD;
+    --bg:#F5F1EA; --bg2:#EEE8DC; --surface:#FFFFFF;
+    --text:#241F1A; --muted:#6E6455; --faint:#948875;
+    --gold:#9B742F; --gold-deep:#7A5A22; --gold-lite:#C6A461;
+    --border:#E4D9C6; --border-soft:#ECE3D3;
+    --att:#8A5A1E; --att-bg:#F3E9D6;
+    --risk:#9C3E27; --risk-bg:#F2E1DA;
+    --obs:#5C5344; --obs-bg:#EFE9DD;
     --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,"Hoefler Text",Georgia,"Times New Roman",serif;
     --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    --maxw:820px;
+    --maxw:800px;
   }
   *{box-sizing:border-box}
   .doc{
     font-family:var(--sans); color:var(--text);
-    background:
-      radial-gradient(120% 60% at 100% -10%, rgba(216,181,102,.14), transparent 60%),
-      linear-gradient(180deg,var(--bg) 0%, var(--bg2) 100%);
-    background-attachment:fixed;
-    line-height:1.62; font-size:16.5px;
-    padding:clamp(20px,4vw,56px) 20px 64px;
-    -webkit-font-smoothing:antialiased;
+    background:linear-gradient(180deg,var(--bg) 0%, var(--bg2) 100%); background-attachment:fixed;
+    line-height:1.62; font-size:16px;
+    padding:clamp(20px,4vw,56px) 20px 64px; -webkit-font-smoothing:antialiased;
   }
   .wrap{max-width:var(--maxw); margin:0 auto}
   .doc :is(h1,h2,h3){font-family:var(--serif); font-weight:700; color:var(--text); text-wrap:balance; letter-spacing:-.01em}
-  .eyebrow{font-size:11.5px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--gold-deep)}
+  .eyebrow{font-size:11px; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:var(--gold-deep)}
   .num{font-variant-numeric:tabular-nums}
 
-  /* header */
-  .head{border-bottom:1px solid var(--border); padding-bottom:26px; margin-bottom:34px}
-  .brandline{display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:22px}
-  .brand{font-family:var(--serif); font-weight:700; font-size:19px; letter-spacing:.02em;
-    background:linear-gradient(92deg,var(--gold-deep),var(--gold-lite) 55%,var(--gold-deep));
-    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
-  .brand small{display:block; font-family:var(--sans); -webkit-text-fill-color:var(--faint); color:var(--faint); font-size:10px; font-weight:700; letter-spacing:.34em; text-transform:uppercase; margin-top:3px}
-  .head h1{font-size:clamp(30px,5vw,44px); line-height:1.05; margin:8px 0 6px}
-  .head .sub{font-family:var(--serif); font-size:19px; color:var(--gold-deep)}
-  .meta{display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:18px; font-size:13px; color:var(--muted)}
-  .meta span{display:inline-flex; gap:7px}
+  .head{border-bottom:2px solid var(--gold-deep); padding-bottom:22px; margin-bottom:34px}
+  .brandline{display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:24px}
+  .brand{font-family:var(--serif); font-weight:700; font-size:17px; letter-spacing:.02em; color:var(--gold-deep)}
+  .brand small{display:block; color:var(--faint); font-family:var(--sans); font-size:9.5px; font-weight:700; letter-spacing:.32em; text-transform:uppercase; margin-top:3px}
+  .head h1{font-size:clamp(27px,4.5vw,38px); line-height:1.08; margin:6px 0 6px}
+  .head .sub{font-family:var(--serif); font-size:18px; color:var(--muted)}
+  .meta{display:grid; grid-template-columns:1fr 1fr; gap:6px 24px; margin-top:20px; font-size:12.5px; color:var(--muted)}
   .meta b{color:var(--text); font-weight:600}
 
-  section{margin:40px 0}
-  section > .eyebrow{display:block; margin-bottom:8px}
-  h2{font-size:24px; margin:0 0 16px; line-height:1.2}
-  p{margin:0 0 14px; max-width:66ch}
-  .lead{font-size:18px; color:#3a3128}
-  .lead b{color:var(--gold-deep)}
+  section{margin:38px 0}
+  section > .eyebrow{display:block; margin-bottom:9px}
+  h2{font-size:22px; margin:0 0 14px; line-height:1.22}
+  p{margin:0 0 13px; max-width:70ch; color:#332c24}
+  .doc a{color:var(--gold-deep)}
 
-  /* KPI grid */
-  .kpis{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
-  .kpi{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px 18px 16px}
-  .kpi .k{font-size:11px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--faint)}
-  .kpi .v{font-family:var(--serif); font-size:30px; line-height:1.1; margin-top:8px; font-variant-numeric:tabular-nums}
-  .kpi .n{font-size:12.5px; color:var(--muted); margin-top:4px}
-  .kpi.star{background:linear-gradient(180deg,#2E2620,#241d18); border-color:#3a2f22}
-  .kpi.star .k{color:var(--gold-lite)}
-  .kpi.star .v{color:#FBF3E2}
-  .kpi.star .n{color:#C9B79A}
+  table.kpi{width:100%; border-collapse:collapse; font-variant-numeric:tabular-nums}
+  table.kpi td{border:1px solid var(--border); background:var(--surface); padding:14px 16px; vertical-align:top; width:33.33%}
+  table.kpi .k{font-size:10.5px; font-weight:700; letter-spacing:.11em; text-transform:uppercase; color:var(--faint)}
+  table.kpi .v{font-family:var(--serif); font-size:26px; line-height:1.15; margin-top:6px}
+  table.kpi .n{font-size:11.5px; color:var(--muted); margin-top:3px}
 
-  /* callout */
-  .callout{background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--gold); border-radius:12px; padding:18px 20px}
-  .callout p:last-child{margin-bottom:0}
+  .panel{background:var(--surface); border:1px solid var(--border); border-top:3px solid var(--gold-deep); padding:20px 22px}
+  .panel h2{margin-top:0}
+  .panel p:last-child{margin-bottom:0}
 
-  /* good list */
-  .good{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px}
-  .good li{display:flex; gap:12px; align-items:flex-start; background:var(--surface); border:1px solid var(--border-soft); border-radius:11px; padding:13px 15px}
-  .good li .dot{flex:0 0 auto; width:20px; height:20px; border-radius:50%; background:var(--pos-bg); color:var(--pos); display:grid; place-items:center; font-size:12px; font-weight:700; margin-top:1px}
-  .good li p{margin:0}
+  dl.facts{margin:0; display:flex; flex-direction:column; gap:0; border:1px solid var(--border); background:var(--surface)}
+  dl.facts > div{display:grid; grid-template-columns:210px 1fr; gap:0; border-bottom:1px solid var(--border-soft)}
+  dl.facts > div:last-child{border-bottom:0}
+  dl.facts dt{padding:12px 16px; font-weight:600; font-size:13.5px; color:var(--text); background:#FBF7EF; border-right:1px solid var(--border-soft)}
+  dl.facts dd{padding:12px 16px; margin:0; font-size:14px; color:#3c342b}
 
-  /* findings */
-  .finds{display:flex; flex-direction:column; gap:14px}
-  .find{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px 20px}
-  .find .top{display:flex; align-items:center; gap:12px; margin-bottom:7px; flex-wrap:wrap}
-  .find .idx{font-family:var(--serif); font-weight:700; color:var(--gold-deep); font-size:15px; font-variant-numeric:tabular-nums}
-  .find .t{font-weight:700; font-size:16px; color:var(--text); margin-right:auto}
-  .find p{margin:0; color:#463c31; font-size:15px}
-  .chip{font-size:10.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:4px 10px; border-radius:999px; white-space:nowrap}
-  .chip.opp{background:var(--att-bg); color:var(--att)}
+  .obsgrid{display:flex; flex-direction:column; gap:12px}
+  .obs{background:var(--surface); border:1px solid var(--border); padding:15px 18px}
+  .obs .top{display:flex; align-items:center; gap:12px; margin-bottom:6px; flex-wrap:wrap}
+  .obs .idx{font-family:var(--serif); font-weight:700; color:var(--gold-deep); font-variant-numeric:tabular-nums; font-size:14px}
+  .obs .t{font-weight:700; font-size:15px; margin-right:auto}
+  .obs p{margin:0; font-size:14px; color:#3c342b}
+  .chip{font-size:10px; font-weight:700; letter-spacing:.07em; text-transform:uppercase; padding:4px 9px; border-radius:2px; white-space:nowrap}
   .chip.att{background:var(--att-bg); color:var(--att)}
   .chip.risk{background:var(--risk-bg); color:var(--risk)}
-  .chip.pos{background:var(--pos-bg); color:var(--pos)}
+  .chip.obs{background:var(--obs-bg); color:var(--obs)}
 
-  /* creatives */
-  .crea{display:grid; grid-template-columns:1fr 1fr; gap:12px}
-  .crea .c{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:16px 18px}
-  .crea .c h3{font-size:16px; margin:0 0 6px}
-  .crea .c p{font-size:14px; margin:0; color:var(--muted)}
-  .crea .tagrow{margin-top:12px; display:flex; gap:8px; flex-wrap:wrap}
+  ul.plain{margin:0; padding-left:20px}
+  ul.plain li{margin:0 0 8px; color:#3c342b; font-size:14.5px}
 
-  /* fronts */
-  .fronts{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:6px}
-  .front{display:flex; gap:14px; align-items:flex-start; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:16px 18px}
-  .front .fn{font-family:var(--serif); font-size:26px; color:var(--gold-lite); line-height:1; font-variant-numeric:tabular-nums}
-  .front .ft{font-weight:700; margin:0 0 3px}
-  .front .fd{margin:0; font-size:14px; color:var(--muted)}
-
-  .foot{margin-top:52px; padding-top:20px; border-top:1px solid var(--border); font-size:12.5px; color:var(--faint); display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap}
+  .foot{margin-top:50px; padding-top:18px; border-top:1px solid var(--border); font-size:12px; color:var(--faint); display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap}
 
   @media (max-width:640px){
-    .kpis{grid-template-columns:1fr 1fr}
-    .crea,.fronts{grid-template-columns:1fr}
-    .head h1{font-size:30px}
+    table.kpi, table.kpi tbody, table.kpi tr, table.kpi td{display:block; width:100%}
+    table.kpi td{border-bottom:0}
+    table.kpi tr{border-bottom:0}
+    dl.facts > div{grid-template-columns:1fr}
+    dl.facts dt{border-right:0; border-bottom:1px solid var(--border-soft)}
+    .meta{grid-template-columns:1fr}
   }
   @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
@@ -111,117 +87,108 @@
   <header class="head">
     <div class="brandline">
       <div class="brand">Simple Acc<small>Growth &amp; Performance</small></div>
-      <div class="eyebrow">Relatório mensal · Confidencial</div>
+      <div class="eyebrow">Documento confidencial</div>
     </div>
-    <div class="eyebrow">Análise de Tráfego Pago</div>
-    <h1>Relatório de Tráfego</h1>
+    <div class="eyebrow">Relatório de Análise · Tráfego Pago</div>
+    <h1>Relatório de Tráfego Pago</h1>
     <div class="sub">Pâmella Mello · Junho de 2026</div>
     <div class="meta">
       <span>Conta:&nbsp;<b>Pâmella Mello 01</b></span>
-      <span>Período:&nbsp;<b class="num">01 a 30/06/2026</b></span>
-      <span>Objetivo:&nbsp;<b>Mensagens (WhatsApp)</b></span>
-      <span>Atribuição:&nbsp;<b>7 dias clique / 1 dia visualização</b></span>
+      <span>Período:&nbsp;<b class="num">01 a 30 de junho de 2026</b></span>
+      <span>Objetivo das campanhas:&nbsp;<b>Mensagens (WhatsApp)</b></span>
+      <span>Janela de atribuição:&nbsp;<b>7 dias clique / 1 dia visualização</b></span>
     </div>
   </header>
 
   <section>
-    <span class="eyebrow">1 · Panorama do mês</span>
-    <div class="kpis">
-      <div class="kpi"><div class="k">Investimento</div><div class="v">R$ 1.699,52</div><div class="n">no mês</div></div>
-      <div class="kpi"><div class="k">Conversas iniciadas</div><div class="v">178</div><div class="n">no WhatsApp</div></div>
-      <div class="kpi star"><div class="k">Custo por conversa</div><div class="v">R$ 9,55</div><div class="n">competitivo para o nicho</div></div>
-      <div class="kpi"><div class="k">Alcance</div><div class="v">56.291</div><div class="n">pessoas</div></div>
-      <div class="kpi"><div class="k">Frequência</div><div class="v">1,71</div><div class="n">baixa (audiência fresca)</div></div>
-      <div class="kpi"><div class="k">CTR no link</div><div class="v">~0,6%</div><div class="n">CPM R$ 17,63</div></div>
+    <span class="eyebrow">1 · Dados de veiculação</span>
+    <h2>Números reportados no período</h2>
+    <table class="kpi"><tbody>
+      <tr>
+        <td><div class="k">Investimento</div><div class="v">R$ 1.699,52</div><div class="n">total no período</div></td>
+        <td><div class="k">Conversas iniciadas (reportadas)</div><div class="v">178</div><div class="n">métrica da plataforma, ver seção 2</div></td>
+        <td><div class="k">Custo por conversa (reportado)</div><div class="v">R$ 9,55</div><div class="n">não equivale a custo por lead</div></td>
+      </tr>
+      <tr>
+        <td><div class="k">Alcance</div><div class="v">56.291</div><div class="n">pessoas</div></td>
+        <td><div class="k">Impressões</div><div class="v">96.402</div><div class="n">frequência 1,71</div></td>
+        <td><div class="k">CTR no link / CPM</div><div class="v">~0,6%</div><div class="n">CPM R$ 17,63; CPC ~R$ 2,70</div></td>
+      </tr>
+    </tbody></table>
+  </section>
+
+  <section>
+    <span class="eyebrow">2 · Divergência entre conversas reportadas e leads reais</span>
+    <div class="panel">
+      <h2>Ressalva metodológica central</h2>
+      <p>O Gerenciador reportou <b>178 conversas iniciadas por mensagem</b> no período, a um custo médio reportado de R$ 9,55. Essa métrica contabiliza o início de conversa atribuído pela plataforma dentro da janela de 7 dias de clique / 1 dia de visualização. Ela não corresponde, necessariamente, ao número de leads que efetivamente chegam e são atendidos.</p>
+      <p>A divergência entre esse número e o volume real de contatos ocorre por fatores como cliques que não geram mensagem, contatos sem conteúdo ou duplicados, e critérios de atribuição da própria plataforma. Essa diferença costuma ser relevante.</p>
+      <p>A operação não dispõe de rastreamento próprio (Pixel/CAPI) nem de registro estruturado dos leads recebidos (CRM). Dessa forma, <b>a diferença entre as conversas reportadas e os leads reais não é mensurável com os dados atuais</b>.</p>
+      <p>Consequência factual: o custo real por lead é <b>igual ou superior</b> a R$ 9,55 e não pode ser determinado com os dados disponíveis. O valor de 178 deve ser interpretado como indicador reportado pela plataforma, e não como quantidade de leads reais.</p>
     </div>
   </section>
 
   <section>
-    <span class="eyebrow">2 · Leitura geral</span>
-    <h2>A base é saudável. O crescimento está na eficiência, não em gastar mais.</h2>
-    <div class="callout">
-      <p>O custo para gerar uma conversa está <b>competitivo (R$ 9,55)</b>, o que mostra que a demanda responde bem aos anúncios. A maior oportunidade de crescimento não está em aumentar o orçamento, e sim em <b>qualificar e medir melhor o que acontece depois do clique</b> e em <b>modernizar a estrutura e os criativos</b>.</p>
-    </div>
-  </section>
-
-  <section>
-    <span class="eyebrow">3 · O que está funcionando</span>
-    <h2>Pontos fortes a preservar</h2>
-    <ul class="good">
-      <li><span class="dot">✓</span><p>Custo por conversa baixo e volume consistente ao longo do mês.</p></li>
-      <li><span class="dot">✓</span><p>Melhor recorte geográfico (Contagem) a <b>R$ 8,34 por conversa</b>; a melhor campanha isolada chegou a <b>R$ 5,34</b>.</p></li>
-      <li><span class="dot">✓</span><p>O criativo de qualificação ("Procuro por...") chama o público certo e traz prova social (avaliação 4,9/5).</p></li>
-      <li><span class="dot">✓</span><p>Mensagem central forte e verdadeira: "tratamos a causa, não só o sintoma" e "resultados em até 3 meses".</p></li>
+    <span class="eyebrow">3 · Estrutura da conta</span>
+    <h2>Configuração das campanhas observada</h2>
+    <ul class="plain">
+      <li>12 campanhas no período, das quais 8 nomeadas "ELDORADO — Cópia". Apenas 1 campanha ativa ao fim do período; as demais inativas ou sem veiculação.</li>
+      <li>Orçamentos diários de R$ 10 (campanhas "ELDORADO") e R$ 20 por conjunto (conjuntos "MINAS - REGRA EM CONTAGEM"), com conjuntos duplicados.</li>
+      <li>Custo por conversa reportado variou de R$ 5,34 a R$ 21,28 entre campanhas. CTR no link entre ~0,35% e ~1,3% (média ~0,6%). Frequência entre 1,10 e 1,71.</li>
+      <li>Anúncios nomeados de forma numérica (1, 2, 3...), e o export no nível de anúncio não contém a coluna de campanha/conjunto, o que impede associar cada criativo ao seu resultado.</li>
     </ul>
   </section>
 
   <section>
-    <span class="eyebrow">4 · Pontos de atenção e oportunidades</span>
-    <h2>Onde mora o crescimento</h2>
-    <p>Cada ponto abaixo é uma alavanca que pode melhorar o resultado <b>com o mesmo investimento</b>.</p>
-    <div class="finds">
-      <div class="find">
-        <div class="top"><span class="idx">4.1</span><span class="t">Tráfego vai direto ao WhatsApp, sem qualificar nem rastrear</span><span class="chip opp">Oportunidade</span></div>
-        <p>Hoje o anúncio abre uma conversa crua: não há filtro de quem realmente busca (e tem condições de investir no) tratamento, nem rastreamento do que converte. Direcionar para um funil de avaliação e instalar Pixel/CAPI permite otimizar por lead qualificado, e não apenas por conversa.</p>
+    <span class="eyebrow">4 · Segmentação e configuração de entrega</span>
+    <h2>Parâmetros aplicados (comuns a todos os conjuntos)</h2>
+    <dl class="facts">
+      <div><dt>Localização</dt><dd>Raio de aproximadamente 5 km (Eldorado, Contagem/MG).</dd></div>
+      <div><dt>Idade / gênero / idioma</dt><dd>18 a 65+; todos os gêneros; todos os idiomas.</dd></div>
+      <div><dt>Públicos personalizados</dt><dd>Nenhum. Sem retargeting e sem público semelhante.</dd></div>
+      <div><dt>Direcionamento detalhado</dt><dd>Todos os interesses e comportamentos (amplo). Advantage+ de público ativado.</dd></div>
+      <div><dt>Posicionamentos</dt><dd>Advantage+ de posicionamento desativado. 6 posicionamentos incluídos, 5 excluídos manualmente.</dd></div>
+      <div><dt>Dispositivos</dt><dd>Apenas dispositivos móveis, com a opção "Somente quando conectado a uma rede Wi-Fi" ativada.</dd></div>
+      <div><dt>Plataformas</dt><dd>Facebook e Instagram.</dd></div>
+    </dl>
+  </section>
+
+  <section>
+    <span class="eyebrow">5 · Criativos</span>
+    <h2>Formato e classificação observados</h2>
+    <div class="obsgrid">
+      <div class="obs">
+        <div class="top"><span class="idx">5.1</span><span class="t">Predominância de imagem estática</span><span class="chip obs">Observação</span></div>
+        <p>O período foi veiculado quase inteiramente em imagem estática. Apenas 2 anúncios registraram reproduções de vídeo, com volume marginal. Os 2 criativos de melhor desempenho reportado são estáticos e, segundo informação do gestor, encontram-se em saturação.</p>
       </div>
-      <div class="find">
-        <div class="top"><span class="idx">4.2</span><span class="t">Uma configuração está limitando a entrega</span><span class="chip att">Atenção</span></div>
-        <p>A opção "Somente quando conectado a uma rede Wi-Fi" está ativada em todos os conjuntos. Ela restringe fortemente o alcance e distorce o público atingido. Ajustar tende a melhorar volume e custo de imediato.</p>
+      <div class="obs">
+        <div class="top"><span class="idx">5.2</span><span class="t">Classificação de qualidade</span><span class="chip att">Atenção</span></div>
+        <p>15 de 44 linhas de anúncio (34%) apresentaram classificação de qualidade "Abaixo da média" no Gerenciador. Classificação abaixo da média tende a elevar o CPM e reduzir a entrega.</p>
       </div>
-      <div class="find">
-        <div class="top"><span class="idx">4.3</span><span class="t">Estrutura pulverizada em muitas campanhas pequenas</span><span class="chip att">Atenção</span></div>
-        <p>São 12 campanhas, várias duplicadas, com orçamentos de R$ 10 a R$ 20 por dia. Orçamentos pequenos e espalhados dificultam sair da fase de aprendizado do Meta, o que encarece o resultado. Consolidar tende a estabilizar e baratear a entrega.</p>
-      </div>
-      <div class="find">
-        <div class="top"><span class="idx">4.4</span><span class="t">Alcance geográfico muito restrito</span><span class="chip opp">Oportunidade</span></div>
-        <p>A segmentação está num raio de cerca de 5 km (Eldorado/Contagem). Faz sentido para o presencial, mas deixa de fora o atendimento online para o Brasil todo e a base de 25,7 mil seguidores do Instagram.</p>
-      </div>
-      <div class="find">
-        <div class="top"><span class="idx">4.5</span><span class="t">Sem reengajamento de quem já demonstrou interesse</span><span class="chip opp">Oportunidade</span></div>
-        <p>Não há retargeting nem público semelhante (públicos personalizados: nenhum). Quem já assistiu aos vídeos, visitou o perfil ou chamou no WhatsApp não é reimpactado. Esse é o público mais barato de converter, e hoje está sem uso.</p>
-      </div>
-      <div class="find">
-        <div class="top"><span class="idx">4.6</span><span class="t">Criativos concentrados em estático e já saturando</span><span class="chip att">Atenção</span></div>
-        <p>Os dois criativos de melhor desempenho já dão sinais de saturação, e o mês foi quase todo em imagem estática (vídeo praticamente não testado). Renovar ângulos e entrar com vídeo reduz a fadiga em um público local que já viu muitos anúncios.</p>
-      </div>
-      <div class="find">
-        <div class="top"><span class="idx">4.7</span><span class="t">Risco de política do Meta (categoria saúde)</span><span class="chip risk">Risco</span></div>
-        <p>Alguns textos usam termos como "cura emocional" e listas longas de sintomas e condições. A categoria saúde do Meta é sensível a isso e pode gerar reprovações ou restrição da conta. Ajustar a linguagem protege a veiculação.</p>
+      <div class="obs">
+        <div class="top"><span class="idx">5.3</span><span class="t">Destino e mensagem</span><span class="chip obs">Observação</span></div>
+        <p>Chamada para ação "Enviar mensagem pelo WhatsApp", sem página de destino (zero visualização de página no período). O modelo de conversa inclui mensagem de boas-vindas com o termo "cura emocional".</p>
       </div>
     </div>
   </section>
 
   <section>
-    <span class="eyebrow">5 · Leitura dos criativos</span>
-    <h2>Boa proposta, formato único, em fadiga</h2>
-    <div class="crea">
-      <div class="c">
-        <h3>"Procuro por..."</h3>
-        <p>Melhor desempenho do mês. Forte porque chama o público ideal e já filtra ("quem já tentou outras abordagens sem resultado", "pronto para uma transformação"). Formato estático.</p>
-        <div class="tagrow"><span class="chip pos">Melhor performance</span><span class="chip att">Saturando</span></div>
-      </div>
-      <div class="c">
-        <h3>"Hipnose Clínica · até 3 meses"</h3>
-        <p>Comunica bem a promessa e as aplicações, mas é mais genérico e também estático. Ganharia em segmentar por dor específica e migrar para vídeo.</p>
-        <div class="tagrow"><span class="chip att">Genérico / estático</span></div>
-      </div>
+    <span class="eyebrow">6 · Conformidade com a política do Meta</span>
+    <h2>Categoria saúde</h2>
+    <div class="obs">
+      <div class="top"><span class="idx">6.1</span><span class="t">Linguagem sujeita a restrição</span><span class="chip risk">Risco</span></div>
+      <p>Textos de anúncio e de mensagem utilizam o termo "cura" e listas extensas de sintomas e condições (ansiedade, pânico, depressão, insônia, entre outros). A política do Meta para a categoria saúde restringe a atribuição de condições ao usuário e promessas de resultado. Essa linguagem representa risco de reprovação de anúncios e de restrição da conta.</p>
     </div>
   </section>
 
   <section>
-    <span class="eyebrow">6 · Conclusão</span>
-    <h2>O potencial está em direcionar melhor, com o mesmo orçamento</h2>
-    <div class="fronts">
-      <div class="front"><span class="fn">1</span><div><p class="ft">Qualificar e medir</p><p class="fd">Funil de avaliação + Pixel/CAPI para otimizar por lead, não por conversa.</p></div></div>
-      <div class="front"><span class="fn">2</span><div><p class="ft">Consolidar e ajustar</p><p class="fd">Menos campanhas, corrigir a config de Wi-Fi, separar local e online.</p></div></div>
-      <div class="front"><span class="fn">3</span><div><p class="ft">Reengajar</p><p class="fd">Retargeting e público semelhante a partir da base e dos seguidores.</p></div></div>
-      <div class="front"><span class="fn">4</span><div><p class="ft">Renovar o criativo</p><p class="fd">Rotação de ângulos e vídeo à frente, para vencer a saturação.</p></div></div>
-    </div>
-  </section>
-
-  <section>
-    <span class="eyebrow">7 · Para aprofundar no próximo ciclo</span>
-    <p>Para transformar "custo por conversa" em <b>custo por cliente</b> (CAC e ROI reais), vamos cruzar os dados do tráfego com as avaliações agendadas e os tratamentos fechados vindos do pago, além do unit economics (ticket, margem, parcelamento). Com isso, definimos o CAC máximo saudável e a meta de escala.</p>
+    <span class="eyebrow">7 · Limitações dos dados e considerações finais</span>
+    <ul class="plain">
+      <li>A ausência de Pixel/CAPI e de registro estruturado dos leads (CRM) impede mensurar leads reais, a conversão de conversa para avaliação e para fechamento, o CAC e o ROI.</li>
+      <li>Com o objetivo "Mensagens" e sem página de destino, o único indicador de resultado disponível é o custo por conversa reportado, que, conforme a seção 2, não representa custo por lead real nem por cliente.</li>
+      <li>Não foi possível associar criativos a resultados individuais devido à nomenclatura numérica dos anúncios e à ausência da coluna de campanha no export de anúncios.</li>
+      <li>Portanto, com base exclusivamente nos dados fornecidos, o desempenho do período pode ser descrito em termos de custo por conversa reportado e de configuração da conta, mas não em termos de leads reais, custo por lead ou retorno.</li>
+    </ul>
   </section>
 
   <div class="foot">
