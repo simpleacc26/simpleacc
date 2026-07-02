@@ -341,7 +341,9 @@ export function AgendamentoPage({ leadData, isQualified = true }: AgendamentoPag
               { num: "+40", label: "empresas acompanhadas" },
             ].map((s) => (
               <div key={s.num} className="rounded-xl p-4 text-center" style={{ backgroundColor: "#faf8f4", border: "1px solid rgba(169,128,47,0.15)" }}>
-                <p style={{ ...serif, fontSize: "1.2rem", fontWeight: 700, color: GOLD }}>{s.num}</p>
+                <p style={{ ...serif, fontSize: "1.2rem", fontWeight: 700, color: GOLD }}>
+                  <span style={{ color: NAVY }}>+</span>{s.num.slice(1)}
+                </p>
                 <p style={{ ...sans, fontSize: "0.75rem", color: "rgba(22,49,79,0.6)", marginTop: "2px" }}>{s.label}</p>
               </div>
             ))}
