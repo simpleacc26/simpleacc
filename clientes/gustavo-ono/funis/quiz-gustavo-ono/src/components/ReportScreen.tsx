@@ -18,102 +18,6 @@ function getLabel(qIdx: number, value: string): string {
   return answerLabels[qIdx]?.[idx] || "";
 }
 
-// ─── Depoimentos ────────────────────────────────────────────────────────────
-
-const TESTIMONIALS = [
-  {
-    name: "Aluna",
-    initials: "A",
-    time: "hoje",
-    messages: [
-      "Vendi bastante, muitos pedidos nos últimos dias, foi uma correria enorme, mais deu certo, cliente satisfeito e pix caindo kkk 😄",
-    ],
-  },
-  {
-    name: "Carla",
-    initials: "C",
-    time: "16:03",
-    messages: [
-      "Boa tarde!! Acabando de ver o curso agora! Que coisa mais rica! Obrigada, Gu e equipe, por esse material maravilhoso! Eee... mãos a obra! 🙏🙌",
-    ],
-  },
-  {
-    name: "Aluna",
-    initials: "A",
-    time: "11:56",
-    messages: [
-      "O Gustavo tem um único problema, a gente fica viciada nas aulas e conteúdos dele... rsrssss... menino de ouro ❤️❤️❤️",
-    ],
-  },
-  {
-    name: "Sara",
-    initials: "S",
-    time: "20:29",
-    messages: [
-      "Muito feliz por ter aprendido o método ono 🍫 Muito obrigada @gustavo. Já estava quase desistindo do chocolate.",
-      "Já fiz vários cursos mas o seu é libertador. Parabéns 😊",
-    ],
-  },
-];
-
-function WhatsAppBubble({
-  name,
-  initials,
-  time,
-  messages,
-}: (typeof TESTIMONIALS)[0]) {
-  return (
-    <div
-      className="rounded-2xl overflow-hidden"
-      style={{ backgroundColor: "#111", border: "1px solid rgba(255,255,255,0.07)" }}
-    >
-      {/* Header */}
-      <div
-        className="flex items-center gap-3 px-4 py-3"
-        style={{ backgroundColor: "#1F1F1F" }}
-      >
-        <div
-          className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-semibold flex-shrink-0"
-          style={{ backgroundColor: ROSE, color: "#fff" }}
-        >
-          {initials}
-        </div>
-        <div>
-          <div className="text-sm font-medium" style={{ color: "#FBF1EE" }}>
-            {name}
-          </div>
-          <div className="text-xs" style={{ color: "rgba(251,241,238,0.4)" }}>
-            online
-          </div>
-        </div>
-      </div>
-      {/* Chat area */}
-      <div className="p-4 space-y-2" style={{ backgroundColor: "#0D0D0D" }}>
-        {messages.map((msg, i) => (
-          <div key={i} className="flex justify-end">
-            <div
-              className="max-w-xs px-4 py-2.5 rounded-2xl rounded-tr-sm text-sm"
-              style={{
-                backgroundColor: "#1A5C38",
-                color: "rgba(255,255,255,0.92)",
-                lineHeight: 1.55,
-              }}
-            >
-              {msg}
-              <div
-                className="text-right mt-1 text-xs"
-                style={{ color: "rgba(255,255,255,0.4)" }}
-              >
-                {time} ✓✓
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
 // ─── CTA Button ──────────────────────────────────────────────────────────────
 
 function CtaBlock({ note }: { note?: string }) {
@@ -124,7 +28,7 @@ function CtaBlock({ note }: { note?: string }) {
         className="text-center px-5 py-2 rounded-full text-sm font-semibold"
         style={{ backgroundColor: "rgba(200,123,117,0.15)", color: ROSE, border: `1px solid ${ROSE}` }}
       >
-        🎉 Cupom de desconto aplicado — ECONOMIZE R$ 100
+        🎉 Cupom de desconto aplicado: ECONOMIZE R$ 100
       </div>
       {/* Price */}
       <div className="text-center">
@@ -141,7 +45,7 @@ function CtaBlock({ note }: { note?: string }) {
           R$ 97
         </div>
         <div className="text-xs mt-0.5" style={{ color: "rgba(251,241,238,0.5)" }}>
-          à vista — acesso imediato
+          à vista · acesso imediato
         </div>
       </div>
       {/* Button */}
@@ -244,7 +148,6 @@ const IMPEDIMENT_BRIDGE: Record<string, string> = {
 
 export function ReportScreen({ leadData, answers }: ReportScreenProps) {
   const firstName = leadData.name.split(" ")[0];
-  const profile = getLabel(0, answers[0]);
   const frustration = getLabel(4, answers[4]);
   const impediment = getLabel(6, answers[6]);
 
@@ -261,12 +164,6 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
 
         {/* ── 1. Header personalizado ── */}
         <Section>
-          <p
-            className="text-xs font-semibold tracking-widest uppercase mb-4"
-            style={{ color: ROSE, letterSpacing: "0.15em" }}
-          >
-            Gustavo Ono · Diagnóstico
-          </p>
           <h1
             style={{ ...headlineStyle, fontSize: "clamp(1.5rem, 4vw, 2rem)", marginBottom: "1rem" }}
           >
@@ -275,8 +172,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
             <em style={{ color: ROSE }}>ainda essa semana.</em>
           </h1>
           <p style={bodyText}>
-            Você disse que <Rose>{profile}</Rose> e que o que mais te frustra é{" "}
-            <Rose>{frustration.toLowerCase()}</Rose>. {frustrationBridge}
+            {frustrationBridge}
           </p>
           <p className="mt-4" style={bodyText}>
             {impedimentBridge}
@@ -307,7 +203,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
         {/* ── 3. Foto do Gustavo ── */}
         <Section className="!p-0 overflow-hidden">
           <img
-            src="/fotos/gustavo.jpg"
+            src="/fotos/gustavo.png"
             alt="Gustavo Ono — Chocolatier"
             className="w-full"
             style={{ display: "block", maxHeight: "480px", objectFit: "cover", objectPosition: "top" }}
@@ -319,16 +215,13 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
             >
               Gustavo Ono
             </p>
-            <p className="text-center mt-1 text-sm" style={{ color: "rgba(251,241,238,0.55)" }}>
-              Chocolatier profissional · Professor da Formação Chocolatier
-            </p>
           </div>
         </Section>
 
         {/* ── 4. Foto do produto ── */}
         <Section className="!p-0 overflow-hidden">
           <img
-            src="/fotos/produto.jpg"
+            src="/fotos/produto.png"
             alt="Bombom Artístico de Morango, Baunilha, Cumaru e Praliné de Avelãs"
             className="w-full"
             style={{ display: "block", maxHeight: "440px", objectFit: "cover" }}
@@ -339,9 +232,6 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
               style={{ ...headlineStyle, fontSize: "1rem" }}
             >
               Bombom Artístico de Morango, Baunilha, Cumaru e Praliné de Avelãs
-            </p>
-            <p className="mt-1 text-sm" style={{ color: "rgba(251,241,238,0.55)" }}>
-              O produto que você vai dominar do zero neste treinamento
             </p>
           </div>
         </Section>
@@ -360,9 +250,10 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
             <span style={{ color: ROSE }}>reagindo</span>
           </h2>
           <div className="space-y-4">
-            {TESTIMONIALS.map((t, i) => (
-              <WhatsAppBubble key={i} {...t} />
-            ))}
+            <img src="/fotos/dep1.png" alt="Depoimento 1" className="w-full rounded-2xl" />
+            <img src="/fotos/dep2.png" alt="Depoimento 2" className="w-full rounded-2xl" />
+            <img src="/fotos/dep3.png" alt="Depoimento 3" className="w-full rounded-2xl" />
+            <img src="/fotos/dep4.png" alt="Depoimento 4" className="w-full rounded-2xl" />
           </div>
         </Section>
 

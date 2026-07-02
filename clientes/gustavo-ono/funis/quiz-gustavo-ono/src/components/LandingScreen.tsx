@@ -47,17 +47,6 @@ export function LandingScreen({
             <em style={{ color: "#C87B75" }}>nível profissional</em> que você
             merece.
           </h1>
-          <p
-            className="text-center mb-10"
-            style={{
-              color: "rgba(251, 241, 238, 0.6)",
-              fontSize: "0.95rem",
-              marginTop: "0.75rem",
-            }}
-          >
-            Diagnóstico gratuito · Resultado em 2 minutos
-          </p>
-
           {/* Pergunta de perfil */}
           <div>
             <h2
