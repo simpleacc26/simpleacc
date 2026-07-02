@@ -333,6 +333,19 @@ export function AgendamentoPage({ leadData, isQualified = true }: AgendamentoPag
               marginBottom: "18px",
             }}
           />
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-5">
+            {[
+              { num: "+20 anos", label: "de experiência" },
+              { num: "+10 mil", label: "horas de atendimento" },
+              { num: "+6 mil", label: "líderes desenvolvidos" },
+              { num: "+40", label: "empresas acompanhadas" },
+            ].map((s) => (
+              <div key={s.num} className="rounded-xl p-4 text-center" style={{ backgroundColor: "#faf8f4", border: "1px solid rgba(169,128,47,0.15)" }}>
+                <p style={{ ...serif, fontSize: "1.2rem", fontWeight: 700, color: GOLD }}>{s.num}</p>
+                <p style={{ ...sans, fontSize: "0.75rem", color: "rgba(22,49,79,0.6)", marginTop: "2px" }}>{s.label}</p>
+              </div>
+            ))}
+          </div>
           <div>
             <p style={bodyText}>
               A Caroline trabalha há quase 20 anos no desenvolvimento de
@@ -412,9 +425,6 @@ export function AgendamentoPage({ leadData, isQualified = true }: AgendamentoPag
           <div className="flex justify-center mt-6">
             <CtaButton label={ctaLabel} url={ctaUrl} note="Sessão individual e gratuita. Sem compromisso." />
           </div>
-          <p style={{ ...serif, fontWeight: 700, color: GOLD, fontSize: "1rem", marginTop: "22px", fontStyle: "italic" }}>
-            Aqui não falta grana. Falta uma nova maneira de liderar.
-          </p>
         </Card>
 
       </div>
@@ -426,7 +436,7 @@ export function AgendamentoPage({ leadData, isQualified = true }: AgendamentoPag
       >
         <LogoUnicos size="sm" className="mx-auto mb-3" />
         <p style={{ ...sans, fontSize: "0.78rem", color: "rgba(22,49,79,0.35)" }}>
-          Caroline Batista e José · ÚNICOS Leadership Club · Fábrica de Quiz Simple Acc
+          Caroline Batista e José Westphalen · ÚNICOS Leadership Club
         </p>
       </div>
     </div>
