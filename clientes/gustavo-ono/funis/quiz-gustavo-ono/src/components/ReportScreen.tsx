@@ -1,533 +1,603 @@
-import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Check, X, ShieldCheck } from "lucide-react";
 import { answerLabels } from "../data/questions";
 import type { LeadData } from "./LeadCaptureForm";
 
 const ROSE = "#C87B75";
-const CARD_BG = "#2D1108";
-const CARD_BG_LIGHT = "#3A1510";
-const CTA_URL =
-  "https://pay.hotmart.com/X104749935I?bid=1778078139368";
+const CARD = "#2D1108";
+const CARD2 = "#3A1510";
+const BG = "#1A0900";
+const CTA_URL = "https://pay.hotmart.com/X104749935I?bid=1778078139368";
 
 interface ReportScreenProps {
   leadData: LeadData;
   answers: Record<number, string>;
 }
 
-const sectionTitle: React.CSSProperties = {
-  fontFamily: "Lora, Georgia, serif",
-  fontSize: "clamp(1.4rem, 3vw, 1.9rem)",
-  fontWeight: 600,
-  lineHeight: 1.25,
-  color: "#FBF1EE",
+function getLabel(qIdx: number, value: string): string {
+  const idx = parseInt(value) - 1;
+  return answerLabels[qIdx]?.[idx] || "";
+}
+
+// ─── Depoimentos ────────────────────────────────────────────────────────────
+
+const TESTIMONIALS = [
+  {
+    name: "Aluna",
+    initials: "A",
+    time: "hoje",
+    messages: [
+      "Vendi bastante, muitos pedidos nos últimos dias, foi uma correria enorme, mais deu certo, cliente satisfeito e pix caindo kkk 😄",
+    ],
+  },
+  {
+    name: "Carla",
+    initials: "C",
+    time: "16:03",
+    messages: [
+      "Boa tarde!! Acabando de ver o curso agora! Que coisa mais rica! Obrigada, Gu e equipe, por esse material maravilhoso! Eee... mãos a obra! 🙏🙌",
+    ],
+  },
+  {
+    name: "Aluna",
+    initials: "A",
+    time: "11:56",
+    messages: [
+      "O Gustavo tem um único problema, a gente fica viciada nas aulas e conteúdos dele... rsrssss... menino de ouro ❤️❤️❤️",
+    ],
+  },
+  {
+    name: "Sara",
+    initials: "S",
+    time: "20:29",
+    messages: [
+      "Muito feliz por ter aprendido o método ono 🍫 Muito obrigada @gustavo. Já estava quase desistindo do chocolate.",
+      "Já fiz vários cursos mas o seu é libertador. Parabéns 😊",
+    ],
+  },
+];
+
+function WhatsAppBubble({
+  name,
+  initials,
+  time,
+  messages,
+}: (typeof TESTIMONIALS)[0]) {
+  return (
+    <div
+      className="rounded-2xl overflow-hidden"
+      style={{ backgroundColor: "#111", border: "1px solid rgba(255,255,255,0.07)" }}
+    >
+      {/* Header */}
+      <div
+        className="flex items-center gap-3 px-4 py-3"
+        style={{ backgroundColor: "#1F1F1F" }}
+      >
+        <div
+          className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-semibold flex-shrink-0"
+          style={{ backgroundColor: ROSE, color: "#fff" }}
+        >
+          {initials}
+        </div>
+        <div>
+          <div className="text-sm font-medium" style={{ color: "#FBF1EE" }}>
+            {name}
+          </div>
+          <div className="text-xs" style={{ color: "rgba(251,241,238,0.4)" }}>
+            online
+          </div>
+        </div>
+      </div>
+      {/* Chat area */}
+      <div className="p-4 space-y-2" style={{ backgroundColor: "#0D0D0D" }}>
+        {messages.map((msg, i) => (
+          <div key={i} className="flex justify-end">
+            <div
+              className="max-w-xs px-4 py-2.5 rounded-2xl rounded-tr-sm text-sm"
+              style={{
+                backgroundColor: "#1A5C38",
+                color: "rgba(255,255,255,0.92)",
+                lineHeight: 1.55,
+              }}
+            >
+              {msg}
+              <div
+                className="text-right mt-1 text-xs"
+                style={{ color: "rgba(255,255,255,0.4)" }}
+              >
+                {time} ✓✓
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ─── CTA Button ──────────────────────────────────────────────────────────────
+
+function CtaBlock({ note }: { note?: string }) {
+  return (
+    <div className="flex flex-col items-center gap-3 py-4">
+      {/* Discount badge */}
+      <div
+        className="text-center px-5 py-2 rounded-full text-sm font-semibold"
+        style={{ backgroundColor: "rgba(200,123,117,0.15)", color: ROSE, border: `1px solid ${ROSE}` }}
+      >
+        🎉 Cupom de desconto aplicado — ECONOMIZE R$ 100
+      </div>
+      {/* Price */}
+      <div className="text-center">
+        <div
+          className="text-sm line-through"
+          style={{ color: "rgba(251,241,238,0.4)" }}
+        >
+          De: R$ 197
+        </div>
+        <div
+          className="text-4xl font-bold"
+          style={{ color: "#FBF1EE", fontFamily: "Lora, Georgia, serif" }}
+        >
+          R$ 97
+        </div>
+        <div className="text-xs mt-0.5" style={{ color: "rgba(251,241,238,0.5)" }}>
+          à vista — acesso imediato
+        </div>
+      </div>
+      {/* Button */}
+      <a
+        href={CTA_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl w-full max-w-sm justify-center transition-all hover:opacity-90 shadow-lg"
+        style={{
+          backgroundColor: ROSE,
+          color: "#fff",
+          fontWeight: 700,
+          fontSize: "1.05rem",
+          textDecoration: "none",
+          letterSpacing: "-0.01em",
+        }}
+      >
+        ATIVAR MEU CONTEÚDO
+        <ArrowRight className="w-5 h-5" />
+      </a>
+      {/* Payment icons placeholder */}
+      <p className="text-xs text-center" style={{ color: "rgba(251,241,238,0.4)" }}>
+        💳 Pix · Cartão de crédito · Boleto · Parcelamento disponível
+      </p>
+      {note && (
+        <p className="text-xs text-center" style={{ color: "rgba(251,241,238,0.5)" }}>
+          {note}
+        </p>
+      )}
+    </div>
+  );
+}
+
+// ─── Section wrapper ──────────────────────────────────────────────────────────
+
+function Section({
+  children,
+  className = "",
+  bg = CARD,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  bg?: string;
+}) {
+  return (
+    <div
+      className={`rounded-3xl p-7 md:p-10 mb-5 shadow-xl ${className}`}
+      style={{ backgroundColor: bg }}
+    >
+      {children}
+    </div>
+  );
+}
+
+const bodyText: React.CSSProperties = {
+  color: "rgba(251, 241, 238, 0.82)",
+  lineHeight: 1.75,
 };
 
-const body: React.CSSProperties = {
-  color: "rgba(251, 241, 238, 0.8)",
-  lineHeight: 1.75,
+const headlineStyle: React.CSSProperties = {
+  fontFamily: "Lora, Georgia, serif",
+  fontWeight: 700,
+  color: "#FBF1EE",
+  lineHeight: 1.25,
 };
 
 const Rose = ({ children }: { children: React.ReactNode }) => (
   <strong style={{ color: ROSE }}>{children}</strong>
 );
 
-function ScenarioBox({ label, value }: { label: string; value: string }) {
-  return (
-    <div
-      className="p-4 rounded-xl"
-      style={{
-        backgroundColor: "rgba(200, 123, 117, 0.07)",
-        border: "1px solid rgba(200, 123, 117, 0.2)",
-      }}
-    >
-      <div className="text-xs mb-1 font-semibold tracking-wider uppercase" style={{ color: ROSE }}>
-        {label}
-      </div>
-      <div style={{ color: "#FBF1EE", lineHeight: 1.5 }}>{value}</div>
-    </div>
-  );
-}
+// ─── PERSONALIZAÇÃO ───────────────────────────────────────────────────────────
 
-function CtaButton({ label, note }: { label: string; note: string }) {
-  return (
-    <div className="flex flex-col items-center gap-3 mt-6">
-      <a
-        href={CTA_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl transition-all shadow-lg hover:shadow-xl hover:opacity-90"
-        style={{
-          backgroundColor: ROSE,
-          color: "#fff",
-          fontWeight: 600,
-          fontSize: "1rem",
-          letterSpacing: "-0.01em",
-          textDecoration: "none",
-        }}
-      >
-        {label}
-        <ArrowRight className="w-5 h-5" />
-      </a>
-      <p className="text-sm text-center" style={{ color: "rgba(200, 123, 117, 0.7)" }}>
-        {note}
-      </p>
-    </div>
-  );
-}
-
-const FRUSTRATION_COPY: Record<string, string> = {
-  "Não consigo cobrar o que meu trabalho realmente vale":
-    "cobrar o que seu trabalho realmente vale — mas sem o produto certo para justificar esse preço, você fica presa em negociações que drenam sua energia e sua margem",
-  "Meus produtos não têm aparência profissional suficiente":
-    "elevar a aparência dos seus chocolates para um nível profissional — porque você sabe que a compra começa com os olhos, e o que você produz merece ser visto como arte",
-  "Não tenho clientes em quantidade suficiente ou constante":
-    "ter uma clientela consistente que volta e indica — porque sem isso, cada semana é uma incerteza e você nunca consegue planejar seu crescimento",
-  "Não me diferencio das outras confeiteiras no mercado":
-    "se destacar em um mercado saturado — porque hoje qualquer pessoa com um molde e chocolate derretido se chama confeiteira, e você precisa de algo que mostre claramente que o seu nível é diferente",
+const FRUSTRATION_BRIDGE: Record<string, string> = {
+  "Falta de segurança técnica":
+    "A insegurança técnica é exatamente o que impede a maioria das confeiteiras de cobrar mais — porque sem dominar a execução, fica impossível vender com confiança.",
+  "Não saber cobrar preço":
+    "Não saber cobrar não é um problema de autoestima — é um problema de produto. Quando o produto justifica visualmente o preço, a negociação some.",
+  "Falta de padrão nos produtos":
+    "A falta de padrão tem uma causa direta: não existe um método técnico consolidado. Com o método certo, cada bombom sai igual ao anterior.",
+  "Medo de errar e perder material":
+    "O medo de errar vem de não ter dominado a técnica completamente. Com o processo ensinado passo a passo, o desperdício cai drasticamente.",
 };
 
-const IMPEDIMENT_COPY: Record<string, string> = {
-  "Falta de técnica específica em bombons artísticos de alto padrão":
-    "a técnica — a diferença entre um bombom que parece artesanal e um que parece de vitrine de chocolateria europeia está em detalhes que ninguém te ensinou ainda",
-  "Não sei como precificar e posicionar meus produtos corretamente":
-    "o posicionamento — você produz com cuidado e atenção, mas não sabe como comunicar esse valor de forma que o cliente entenda e pague sem questionar",
-  "Não tenho tempo para aprender novas técnicas":
-    "o tempo — e é exatamente por isso que o que você aprende precisa ser rápido de dominar e imediatamente aplicável, sem curvas longas de aprendizado",
-  "Tenho medo de investir em algo novo e não ter retorno":
-    "a incerteza — e eu entendo isso completamente. Por isso o primeiro passo precisa ser algo com risco próximo de zero e resultado visível no mesmo fim de semana",
+const IMPEDIMENT_BRIDGE: Record<string, string> = {
+  "Ter tempo de focar nas vendas, pois fico presa na produção":
+    "Quando o produto tem alta percepção de valor, você vende menos unidades por mais dinheiro — e sai do ciclo de produção intensa por margem baixa.",
+  "Falta de estrutura para crescer":
+    "Estrutura começa com produto certo no portfólio. Um bombom artístico que se destaca vira o âncora que organiza toda a operação ao redor.",
+  "Concorrência alta e desleal":
+    "Concorrência só é problema quando você está jogando o mesmo jogo que as outras. Bombons artísticos criam uma categoria própria — sem concorrentes diretos.",
+  "Imprevisibilidade nas vendas":
+    "A imprevisibilidade cai quando você tem um produto que as pessoas pedem por indicação — porque viram, quiseram e não encontraram em outro lugar.",
+  "Falta de demanda na minha região":
+    "Demanda local pode ser limitada, mas demanda online não tem fronteira. Um produto fotogênico como o bombom artístico foi feito para vender pelo Instagram.",
+  "Outro":
+    "Independente do obstáculo específico, o ponto de alavanca é sempre o mesmo: ter um produto que se diferencia antes mesmo de você abrir a boca para vender.",
 };
 
-const OBJECTIVE_COPY: Record<string, string> = {
-  "Lançar uma coleção de bombons assinados com identidade própria":
-    "lançar uma coleção de bombons com a sua identidade — produtos que quando alguém vê, sabe imediatamente que são seus",
-  "Triplicar minha renda com chocolates artesanais":
-    "triplicar sua renda — e isso começa com um produto de maior percepção de valor que justifica um ticket mais alto",
-  "Ser reconhecida como referência na minha cidade":
-    "ser a referência em chocolates finos na sua cidade — e isso começa com um produto que causa admiração imediata",
-  "Criar um negócio de chocolates online escalável":
-    "construir um negócio de chocolates online — e para isso você precisa de um produto fotogênico, exclusivo e de alto valor percebido",
-};
+// ─── COMPONENTE PRINCIPAL ─────────────────────────────────────────────────────
 
 export function ReportScreen({ leadData, answers }: ReportScreenProps) {
-  const getLabel = (questionIndex: number, value: string) => {
-    const idx = parseInt(value) - 1;
-    return answerLabels[questionIndex]?.[idx] || "";
-  };
-
+  const firstName = leadData.name.split(" ")[0];
   const profile = getLabel(0, answers[0]);
   const frustration = getLabel(4, answers[4]);
   const impediment = getLabel(6, answers[6]);
-  const objective = getLabel(7, answers[7]);
-  const revenue = getLabel(8, answers[8]);
 
-  const frustrationCopy =
-    FRUSTRATION_COPY[frustration] ||
-    "elevar sua confeitaria para um nível profissional que você sabe que é possível";
-  const impedimentCopy =
-    IMPEDIMENT_COPY[impediment] ||
-    "algo que está travando esse crescimento — e que é possível resolver";
-  const objectiveCopy =
-    OBJECTIVE_COPY[objective] || "conquistar o próximo nível no seu negócio de chocolates";
-
-  const firstName = leadData.name.split(" ")[0];
+  const frustrationBridge =
+    FRUSTRATION_BRIDGE[frustration] ||
+    "Isso que você sente é o sintoma mais claro de que o produto certo ainda não entrou no seu portfólio.";
+  const impedimentBridge =
+    IMPEDIMENT_BRIDGE[impediment] ||
+    "O caminho para superar isso passa por um produto que faz o trabalho de atração e convencimento antes mesmo da venda.";
 
   return (
-    <div className="min-h-screen p-4 md:p-6" style={{ backgroundColor: "#1A0900" }}>
-      <div className="max-w-3xl mx-auto pb-16">
+    <div className="min-h-screen" style={{ backgroundColor: BG }}>
+      <div className="max-w-2xl mx-auto px-4 py-8 pb-16">
 
-        {/* Header */}
-        <div
-          className="rounded-3xl p-8 md:p-12 mb-5 shadow-2xl"
-          style={{ backgroundColor: CARD_BG }}
-        >
-          <p
-            className="text-xs font-semibold tracking-widest uppercase mb-3"
-            style={{ color: ROSE, letterSpacing: "0.15em" }}
-          >
-            Gustavo Ono · Diagnóstico Personalizado
-          </p>
-          <h1
-            className="mb-3"
-            style={{
-              fontFamily: "Lora, Georgia, serif",
-              fontSize: "clamp(1.6rem, 4vw, 2.4rem)",
-              fontWeight: 700,
-              lineHeight: 1.2,
-              color: "#FBF1EE",
-            }}
-          >
-            O diagnóstico do seu negócio de chocolates está aqui, {firstName}.
-          </h1>
-          <p style={{ color: "rgba(251, 241, 238, 0.6)", fontSize: "0.9rem" }}>
-            Elaborado com base nas suas respostas · {new Date().toLocaleDateString("pt-BR", { day: "numeric", month: "long", year: "numeric" })}
-          </p>
-        </div>
-
-        {/* Intro personalizada */}
-        <div
-          className="rounded-3xl p-8 md:p-10 mb-5 shadow-xl"
-          style={{ backgroundColor: CARD_BG }}
-        >
-          <h2 className="mb-6" style={sectionTitle}>
-            Olá, {firstName}.
-          </h2>
-          <div className="space-y-4" style={body}>
-            <p>
-              Analisei suas respostas e tenho algo importante para compartilhar com você — algo que a maioria das
-              confeiteiras nunca ouve de forma clara.
-            </p>
-            <p>
-              Você se definiu como: <Rose>{profile}</Rose>. E sua maior frustração hoje é{" "}
-              <Rose>{frustrationCopy}</Rose>.
-            </p>
-            <p>
-              O que está na frente dessa conquista? <Rose>{impedimentCopy}</Rose>.
-            </p>
-            <p>
-              Isso não é coincidência. É um padrão que aparece repetidamente entre confeiteiras
-              talentosas que ainda não descobriram o produto certo para dar o salto.
-            </p>
-            <p>
-              Este diagnóstico foi montado especificamente para o seu momento. Leia com atenção —
-              o que você vai encontrar aqui vai nomear algo que você já sentia, mas ainda não tinha
-              conseguido colocar em palavras.
-            </p>
-          </div>
-        </div>
-
-        {/* Cenário atual */}
-        <div
-          className="rounded-3xl p-8 md:p-10 mb-5 shadow-xl"
-          style={{ backgroundColor: CARD_BG }}
-        >
-          <h2 className="mb-6" style={sectionTitle}>
-            Leitura do seu cenário atual
-          </h2>
-          <p className="mb-5" style={body}>
-            Com base no que você respondeu, esse é o retrato do seu negócio hoje:
-          </p>
-          <div className="space-y-3 mb-8">
-            <ScenarioBox label="Seu perfil" value={profile} />
-            <ScenarioBox label="O que mais te frustra" value={frustration} />
-            <ScenarioBox label="O que te impede de crescer" value={impediment} />
-            <ScenarioBox label="Seu objetivo principal" value={objective} />
-            {revenue && <ScenarioBox label="Sua renda mensal atual" value={revenue} />}
-          </div>
-          <div className="space-y-4" style={body}>
-            <p>Quando olho para esse conjunto, vejo algo muito específico:</p>
-            <p>
-              Você não tem um problema de talento. Não tem um problema de dedicação. Não tem um problema de amor
-              pelo que faz.
-            </p>
-            <p>
-              <Rose>Você tem um problema de produto âncora.</Rose>
-            </p>
-            <p>
-              Seu portfólio atual não tem um produto que cause admiração imediata — um produto que quando alguém
-              vê na vitrine, nas fotos, na mesa de festa, não consegue ignorar. Um produto que justifica um preço
-              premium sem que você precise explicar por quê.
-            </p>
-            <p>
-              E sem esse produto, você fica presa numa guerra de preço com outras confeiteiras que cobram menos
-              porque entregam menos — mas o cliente não sabe distinguir.
-            </p>
-            <p>
-              <Rose>Até agora.</Rose>
-            </p>
-          </div>
-        </div>
-
-        {/* O problema raiz */}
-        <div
-          className="rounded-3xl p-8 md:p-10 mb-5 shadow-xl"
-          style={{ backgroundColor: CARD_BG }}
-        >
-          <h2 className="mb-6" style={sectionTitle}>
-            Por que o esforço sozinho não resolve
-          </h2>
-          <div className="space-y-4" style={body}>
-            <p>
-              Deixa eu te contar o que acontece no mercado de chocolates artesanais que ninguém fala abertamente:
-            </p>
-            <p>
-              <Rose>
-                Existe uma diferença fundamental entre a confeiteira que vende chocolate e a chocolateira que
-                vende experiência.
-              </Rose>
-            </p>
-            <p>
-              A confeiteira vende produto. A chocolateira de alto padrão vende uma peça de arte comestível —
-              algo que as pessoas fotografam antes de comer, que guardam a caixinha vazia, que pedem de presente
-              em datas especiais.
-            </p>
-            <p>
-              Essa diferença não está nos ingredientes. Não está nos equipamentos. Está na técnica de construção
-              do produto — e especificamente, na técnica do bombom artístico.
-            </p>
-            <p>
-              O bombom artístico é o produto mais fotografável, mais presenteável e com maior margem do mercado de
-              chocolates finos. Mas ele exige uma combinação específica de habilidades que a maioria dos cursos
-              genéricos nunca ensina de forma integrada:
-            </p>
-            <div className="space-y-2 pl-4 mt-4">
-              {[
-                "A temperagem perfeita que garante o brilho espelhado",
-                "A técnica de pintura interna que cria a cor na casca sem sugar",
-                "O recheio com textura e sabor que fazem as pessoas fecharem os olhos",
-                "A combinação de flavors que surpreende e fica na memória",
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <div
-                    className="w-1.5 h-1.5 rounded-full mt-2.5 flex-shrink-0"
-                    style={{ backgroundColor: ROSE }}
-                  />
-                  <p style={{ color: "rgba(251, 241, 238, 0.85)" }}>{item}</p>
-                </div>
-              ))}
-            </div>
-            <p className="mt-4">
-              Quando esses elementos se combinam no mesmo produto, acontece algo diferente:{" "}
-              <Rose>o cliente não questiona o preço.</Rose>
-            </p>
-            <p>
-              E você para de competir. Começa a ser procurada.
-            </p>
-          </div>
-        </div>
-
-        {/* Comparação antes/depois */}
-        <div
-          className="rounded-3xl p-8 md:p-10 mb-5 shadow-xl"
-          style={{ backgroundColor: CARD_BG }}
-        >
-          <h2 className="mb-6" style={sectionTitle}>
-            Dois cenários — você escolhe em qual quer estar
-          </h2>
-          <div className="grid md:grid-cols-2 gap-4">
-            <div
-              className="p-6 rounded-2xl"
-              style={{
-                backgroundColor: "rgba(200, 123, 117, 0.06)",
-                border: "1px solid rgba(200, 123, 117, 0.15)",
-              }}
-            >
-              <h3 className="text-base font-semibold mb-4" style={{ color: "rgba(251,241,238,0.6)" }}>
-                Sem o produto certo
-              </h3>
-              <div className="space-y-2.5" style={{ color: "rgba(251, 241, 238, 0.65)", lineHeight: 1.6, fontSize: "0.9rem" }}>
-                <p>— Compete por preço com quem cobra menos</p>
-                <p>— Produz muito, margem pequena</p>
-                <p>— Cliente não percebe diferença no que você entrega</p>
-                <p>— Precisa explicar por que seu chocolate vale mais</p>
-                <p>— Cada venda depende de você convencer</p>
-                <p>— Fotos bonitas, mas nada que cause impacto real</p>
-              </div>
-            </div>
-            <div
-              className="p-6 rounded-2xl"
-              style={{
-                backgroundColor: "rgba(200, 123, 117, 0.12)",
-                border: "2px solid rgba(200, 123, 117, 0.35)",
-              }}
-            >
-              <h3 className="text-base font-semibold mb-4" style={{ color: ROSE }}>
-                Com o bombom artístico no portfólio
-              </h3>
-              <div className="space-y-2.5" style={{ color: "rgba(251, 241, 238, 0.85)", lineHeight: 1.6, fontSize: "0.9rem" }}>
-                <p>— O produto fala por si só — sem precisar explicar</p>
-                <p>— Ticket médio sobe sem aumentar o volume</p>
-                <p>— Clientes pedem como presente para pessoas que importam</p>
-                <p>— Fotos geram compartilhamento orgânico</p>
-                <p>— Você vira referência — não por marketing, por produto</p>
-                <p>— A diferença é visível. O preço premium é aceito.</p>
-              </div>
-            </div>
-          </div>
-          <p className="mt-6 text-center" style={{ ...body, fontSize: "1rem" }}>
-            A diferença não está nos ingredientes, nos equipamentos nem nas redes sociais.{" "}
-            <Rose>Está na técnica do produto.</Rose>
-          </p>
-        </div>
-
-        {/* O custo de continuar */}
-        <div
-          className="rounded-3xl p-8 md:p-10 mb-5 shadow-xl"
-          style={{ backgroundColor: CARD_BG }}
-        >
-          <h2 className="mb-6" style={sectionTitle}>
-            O custo de continuar como está
-          </h2>
-          <div className="space-y-4 mb-8" style={body}>
-            <p>
-              Preciso ser honesto com você, {firstName}.
-            </p>
-            <p>
-              <Rose>
-                Cada semana que passa sem o produto certo no portfólio é uma semana de margem abaixo do que
-                você poderia ter.
-              </Rose>
-            </p>
-            <p>
-              Não porque você não se esforça. Porque o esforço está sendo aplicado no produto errado para
-              o posicionamento que você quer ter.
-            </p>
-            <div
-              className="p-5 rounded-2xl my-6"
-              style={{
-                backgroundColor: "rgba(200, 123, 117, 0.08)",
-                border: "1px solid rgba(200, 123, 117, 0.25)",
-              }}
-            >
-              <p className="mb-3" style={{ color: "rgba(251, 241, 238, 0.9)" }}>
-                Uma caixa de bombons artísticos de 6 unidades pode ser vendida entre <Rose>R$80 e R$180</Rose>,
-                dependendo do posicionamento e acabamento.
-              </p>
-              <p style={{ color: "rgba(251, 241, 238, 0.9)" }}>
-                Uma caixa de trufas convencionais do mesmo tamanho: entre <Rose>R$35 e R$60</Rose>.
-              </p>
-              <p className="mt-3" style={{ color: "rgba(251, 241, 238, 0.7)", fontSize: "0.9rem" }}>
-                A diferença não é de custo de ingrediente. <Rose>É de técnica e percepção de valor.</Rose>
-              </p>
-            </div>
-            <p>
-              Mas tem um custo que não aparece em planilha: o custo de continuar competindo num mercado onde
-              o cliente não te vê como referência. Onde você precisa se justificar. Onde o "tá caro"
-              acontece com frequência.
-            </p>
-            <p>
-              <Rose>Esse custo é invisível. Mas ele é real.</Rose>
-            </p>
-          </div>
-          <CtaButton
-            label="Quero aprender a técnica do bombom artístico"
-            note="Acesso imediato · R$97 · Garantia de 7 dias"
-          />
-        </div>
-
-        {/* A solução */}
-        <div
-          className="rounded-3xl p-8 md:p-10 mb-5 shadow-xl"
-          style={{ backgroundColor: CARD_BG }}
-        >
+        {/* ── 1. Header personalizado ── */}
+        <Section>
           <p
             className="text-xs font-semibold tracking-widest uppercase mb-4"
             style={{ color: ROSE, letterSpacing: "0.15em" }}
           >
-            A solução
+            Gustavo Ono · Diagnóstico
           </p>
-          <h2 className="mb-6" style={sectionTitle}>
-            Bombom Artístico de Morango, Baunilha, Cumaru e Praliné de Avelãs
+          <h1
+            style={{ ...headlineStyle, fontSize: "clamp(1.5rem, 4vw, 2rem)", marginBottom: "1rem" }}
+          >
+            {firstName}, com base nas suas respostas, aqui está o que está
+            travando seu negócio de chocolates — e o que você pode fazer{" "}
+            <em style={{ color: ROSE }}>ainda essa semana.</em>
+          </h1>
+          <p style={bodyText}>
+            Você disse que <Rose>{profile}</Rose> e que o que mais te frustra é{" "}
+            <Rose>{frustration.toLowerCase()}</Rose>. {frustrationBridge}
+          </p>
+          <p className="mt-4" style={bodyText}>
+            {impedimentBridge}
+          </p>
+        </Section>
+
+        {/* ── 2. Headline do curso ── */}
+        <Section bg={CARD2}>
+          <h2
+            style={{
+              ...headlineStyle,
+              fontSize: "clamp(1.3rem, 3.5vw, 1.75rem)",
+              marginBottom: "0.75rem",
+            }}
+          >
+            Aprenda a produzir bombons artísticos alto padrão e adicione ao seu
+            cardápio um produto que pode render{" "}
+            <span style={{ color: ROSE }}>até R$ 50 por caixa</span> — ou mais.
           </h2>
-          <div className="space-y-4 mb-8" style={body}>
-            <p>
-              O Gustavo Ono desenvolveu esse módulo para ensinar exatamente o que está entre você e o produto
-              que transforma um portfólio comum em uma marca de confeitaria de alto padrão.
+          <p style={{ ...bodyText, fontSize: "0.95rem" }}>
+            Com base nas suas respostas, ficou claro que você não falta talento nem
+            dedicação. O que falta é <Rose>um produto com percepção de valor alta o
+            suficiente</Rose> para justificar preços que fazem diferença no seu
+            faturamento.
+          </p>
+        </Section>
+
+        {/* ── 3. Foto do Gustavo ── */}
+        <Section className="!p-0 overflow-hidden">
+          <img
+            src="/fotos/gustavo.jpg"
+            alt="Gustavo Ono — Chocolatier"
+            className="w-full"
+            style={{ display: "block", maxHeight: "480px", objectFit: "cover", objectPosition: "top" }}
+          />
+          <div className="p-6">
+            <p
+              className="text-center font-semibold"
+              style={{ ...headlineStyle, fontSize: "1.1rem" }}
+            >
+              Gustavo Ono
             </p>
-            <p>
-              Não é teoria genérica. É a receita completa — do zero — de um bombom artístico com quatro
-              componentes de sabor que se complementam: a acidez do morango, a cremosidade da baunilha, o
-              toque exótico do cumaru e a crocância do praliné de avelãs.
-            </p>
-            <p>
-              Um produto com esse nível de construção de sabor e acabamento visual coloca você imediatamente
-              num outro patamar — o das chocolateiras que as pessoas <Rose>procuram</Rose>, não das que precisam
-              correr atrás de cliente.
+            <p className="text-center mt-1 text-sm" style={{ color: "rgba(251,241,238,0.55)" }}>
+              Chocolatier profissional · Professor da Formação Chocolatier
             </p>
           </div>
+        </Section>
 
-          {/* O que você vai aprender */}
-          <div
-            className="p-6 rounded-2xl mb-8"
-            style={{ backgroundColor: CARD_BG_LIGHT, border: `1px solid rgba(200,123,117,0.2)` }}
+        {/* ── 4. Foto do produto ── */}
+        <Section className="!p-0 overflow-hidden">
+          <img
+            src="/fotos/produto.jpg"
+            alt="Bombom Artístico de Morango, Baunilha, Cumaru e Praliné de Avelãs"
+            className="w-full"
+            style={{ display: "block", maxHeight: "440px", objectFit: "cover" }}
+          />
+          <div className="p-6 text-center">
+            <p
+              className="font-semibold"
+              style={{ ...headlineStyle, fontSize: "1rem" }}
+            >
+              Bombom Artístico de Morango, Baunilha, Cumaru e Praliné de Avelãs
+            </p>
+            <p className="mt-1 text-sm" style={{ color: "rgba(251,241,238,0.55)" }}>
+              O produto que você vai dominar do zero neste treinamento
+            </p>
+          </div>
+        </Section>
+
+        {/* ── 5. Depoimentos ── */}
+        <Section>
+          <h2
+            style={{
+              ...headlineStyle,
+              fontSize: "clamp(1.2rem, 3vw, 1.5rem)",
+              marginBottom: "1.5rem",
+              textAlign: "center",
+            }}
           >
-            <h3 className="text-base font-semibold mb-5" style={{ color: ROSE }}>
-              O que você vai dominar
-            </h3>
-            <div className="space-y-3">
-              {[
-                "Temperagem profissional e o segredo do brilho espelhado",
-                "Técnica de pintura na casca — criando cor e arte sem sugar o chocolate",
-                "Ganache de morango com equilíbrio perfeito de acidez e doçura",
-                "Creme de baunilha suave e cremoso que complementa sem sobrepor",
-                "Uso do cumaru — o ingrediente que faz as pessoas perguntarem o que é aquele sabor",
-                "Praliné de avelãs crocante — textura que transforma a experiência de comer",
-                "Fechamento e acabamento de nível profissional",
-                "Precificação e posicionamento do bombom artístico no seu portfólio",
-              ].map((item) => (
-                <div key={item} className="flex items-start gap-3">
-                  <CheckCircle2
-                    className="w-4 h-4 mt-0.5 flex-shrink-0"
-                    style={{ color: ROSE }}
-                  />
-                  <p style={{ color: "rgba(251, 241, 238, 0.85)", fontSize: "0.9rem" }}>{item}</p>
-                </div>
-              ))}
+            Veja como nossas alunas estão{" "}
+            <span style={{ color: ROSE }}>reagindo</span>
+          </h2>
+          <div className="space-y-4">
+            {TESTIMONIALS.map((t, i) => (
+              <WhatsAppBubble key={i} {...t} />
+            ))}
+          </div>
+        </Section>
+
+        {/* ── 6. O que está incluso ── */}
+        <Section bg={CARD2}>
+          <h2
+            style={{
+              ...headlineStyle,
+              fontSize: "clamp(1.2rem, 3vw, 1.5rem)",
+              marginBottom: "1.25rem",
+            }}
+          >
+            O que você vai aprender no treinamento
+          </h2>
+          <div className="space-y-3">
+            {[
+              "A produção completa do Bombom de Morango, Baunilha, Cumaru e Praliné de Avelã",
+              "Técnica de temperagem correta que garante brilho e estabilidade no produto final",
+              "Como pintar a casca por dentro — criando cores e arte sem sugar o chocolate",
+              "Ganache de morango com equilíbrio perfeito de acidez e doçura",
+              "Creme de baunilha suave e o toque exótico do cumaru",
+              "Praliné de avelãs crocante que transforma a textura e o sabor",
+              "Fechamento e acabamento em nível de chocolateria europeia",
+              "Como precificar e posicionar o bombom artístico no seu cardápio",
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-3">
+                <Check
+                  className="w-4 h-4 mt-0.5 flex-shrink-0"
+                  style={{ color: ROSE }}
+                />
+                <p style={{ color: "rgba(251,241,238,0.85)", fontSize: "0.9rem", lineHeight: 1.55 }}>
+                  {item}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Section>
+
+        {/* ── 7. 1º CTA ── */}
+        <Section>
+          <CtaBlock note="Acesso imediato após a confirmação do pagamento" />
+        </Section>
+
+        {/* ── 8. O que o treinamento vai fazer na sua vida ── */}
+        <Section bg={CARD2}>
+          <h2
+            style={{
+              ...headlineStyle,
+              fontSize: "clamp(1.2rem, 3vw, 1.6rem)",
+              marginBottom: "1.25rem",
+              textAlign: "center",
+            }}
+          >
+            O que este treinamento é capaz de{" "}
+            <span style={{ color: ROSE }}>fazer na sua vida</span>
+          </h2>
+          <div className="space-y-3">
+            {[
+              "Um bombom artístico premium no seu cardápio, do zero",
+              "Produto com alto valor percebido que justifica preços sem negociação",
+              "Fotos que geram compartilhamento e viralizam no Instagram",
+              "Clientes pedindo por indicação porque viram e ficaram impressionados",
+              "Mais margem com menos volume — saindo da corrida de produção intensa",
+              "Confiança técnica para cobrar o que seu trabalho vale",
+            ].map((item) => (
+              <div key={item} className="flex items-start gap-3">
+                <Check
+                  className="w-4 h-4 mt-0.5 flex-shrink-0"
+                  style={{ color: ROSE }}
+                />
+                <p style={{ color: "rgba(251,241,238,0.85)", fontSize: "0.9rem", lineHeight: 1.55 }}>
+                  {item}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Section>
+
+        {/* ── 9. 2º CTA ── */}
+        <Section>
+          <CtaBlock />
+        </Section>
+
+        {/* ── 10. Tabela comparativa ── */}
+        <Section bg={CARD2}>
+          <h2
+            style={{
+              ...headlineStyle,
+              fontSize: "clamp(1.1rem, 3vw, 1.4rem)",
+              marginBottom: "1.25rem",
+              textAlign: "center",
+            }}
+          >
+            Com o treinamento × sem o treinamento
+          </h2>
+          <div className="grid grid-cols-2 gap-3 mb-4">
+            <div
+              className="py-2 px-3 rounded-xl text-center text-sm font-semibold"
+              style={{ backgroundColor: "rgba(200,123,117,0.15)", color: ROSE }}
+            >
+              Sem o treinamento
+            </div>
+            <div
+              className="py-2 px-3 rounded-xl text-center text-sm font-semibold"
+              style={{ backgroundColor: "rgba(200,123,117,0.25)", color: "#FBF1EE" }}
+            >
+              Com o treinamento
             </div>
           </div>
+          {[
+            ["Bombons genéricos sem identidade", "Chocolates técnicos, saborosos e especializados"],
+            ["Produto que parece amador", "Bombons que vendem só pela foto"],
+            ["Cliente questiona o preço", "Cliente paga sem negociar"],
+            ["Depende de datas sazonais", "Vendas constantes o ano todo"],
+            ["Copia o que vê no mercado", "Cria receitas com método próprio"],
+            ["Margem apertada e muito trabalho", "Mais lucro com menos volume"],
+          ].map(([sem, com], i) => (
+            <div key={i} className="grid grid-cols-2 gap-3 mb-3">
+              <div
+                className="flex items-start gap-2 p-3 rounded-xl text-sm"
+                style={{
+                  backgroundColor: "rgba(255,80,80,0.06)",
+                  border: "1px solid rgba(255,80,80,0.12)",
+                  color: "rgba(251,241,238,0.6)",
+                  lineHeight: 1.45,
+                }}
+              >
+                <X className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-red-400" />
+                {sem}
+              </div>
+              <div
+                className="flex items-start gap-2 p-3 rounded-xl text-sm"
+                style={{
+                  backgroundColor: "rgba(200,123,117,0.08)",
+                  border: "1px solid rgba(200,123,117,0.2)",
+                  color: "rgba(251,241,238,0.85)",
+                  lineHeight: 1.45,
+                }}
+              >
+                <Check className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: ROSE }} />
+                {com}
+              </div>
+            </div>
+          ))}
+        </Section>
 
-          <CtaButton
-            label="Quero acesso ao Bombom Artístico"
-            note="Clique e garanta agora · R$97 · Acesso imediato na Hotmart"
-          />
-        </div>
-
-        {/* Próximo passo */}
+        {/* ── 11. Urgência ── */}
         <div
-          className="rounded-3xl p-8 md:p-10 mb-5 shadow-xl"
-          style={{ backgroundColor: CARD_BG }}
+          className="rounded-3xl p-7 md:p-10 mb-5 shadow-xl text-center"
+          style={{ backgroundColor: ROSE }}
         >
-          <h2 className="mb-6" style={sectionTitle}>
-            {firstName}, o que precisa acontecer agora
+          <h2
+            style={{
+              fontFamily: "Lora, Georgia, serif",
+              fontWeight: 700,
+              fontSize: "clamp(1.3rem, 4vw, 1.8rem)",
+              color: "#fff",
+              lineHeight: 1.25,
+              marginBottom: "0.75rem",
+            }}
+          >
+            Participe agora do Treinamento Bombom Artístico
           </h2>
-          <div className="space-y-4 mb-8" style={body}>
-            <p>
-              Com base no diagnóstico, o próximo passo lógico para você é:{" "}
-              <Rose>{objectiveCopy}</Rose>.
-            </p>
-            <p>
-              E a forma mais direta de fazer isso é adicionando ao seu portfólio um produto que muda a conversa
-              com o cliente — que ele compra sem questionar e que compartilha por vontade própria.
-            </p>
-            <p>
-              O Bombom Artístico de Morango, Baunilha, Cumaru e Praliné de Avelãs é esse produto.
-            </p>
-            <p>
-              Você vai aprender do zero — mesmo sem experiência prévia com técnicas avançadas — e vai poder
-              aplicar no mesmo fim de semana em que assistir.
-            </p>
-            <div
-              className="p-5 rounded-2xl mt-4"
+          <p style={{ color: "rgba(255,255,255,0.85)", marginBottom: "1.5rem", fontSize: "0.95rem" }}>
+            Coloque hoje mesmo em seu cardápio um produto que faz o cliente
+            fechar sem questionar o preço.
+          </p>
+          <div className="flex flex-col items-center gap-3">
+            <div className="text-sm line-through" style={{ color: "rgba(255,255,255,0.6)" }}>
+              De: R$ 197
+            </div>
+            <div style={{ fontFamily: "Lora, serif", fontSize: "2.5rem", fontWeight: 700, color: "#fff" }}>
+              R$ 97
+            </div>
+            <a
+              href={CTA_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl w-full max-w-xs justify-center transition-all hover:opacity-90 shadow-lg"
               style={{
-                backgroundColor: "rgba(200, 123, 117, 0.08)",
-                border: "1px solid rgba(200, 123, 117, 0.25)",
+                backgroundColor: "#fff",
+                color: ROSE,
+                fontWeight: 700,
+                fontSize: "1rem",
+                textDecoration: "none",
               }}
             >
-              <p className="text-sm" style={{ color: "rgba(251, 241, 238, 0.7)" }}>
-                <Rose>Sobre a mentoria:</Rose> se além da técnica você quiser trabalhar o posicionamento do seu
-                negócio de chocolates de forma estruturada — precificação, portfólio, aquisição de clientes —
-                o time do Gustavo Ono vai entrar em contato pelo WhatsApp que você forneceu para apresentar
-                as opções disponíveis.
-              </p>
-            </div>
+              ATIVAR MEU CONTEÚDO
+              <ArrowRight className="w-5 h-5" />
+            </a>
+            <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.8rem" }}>
+              💳 Pix · Cartão · Boleto · Parcelamento disponível
+            </p>
           </div>
-          <CtaButton
-            label="Garantir o Bombom Artístico agora"
-            note="R$97 · Acesso imediato · Garantia incondicional de 7 dias"
-          />
         </div>
+
+        {/* ── 12. Garantia ── */}
+        <Section bg={CARD2}>
+          <div className="flex flex-col items-center gap-4 text-center">
+            <div
+              className="w-20 h-20 rounded-full flex items-center justify-center"
+              style={{ backgroundColor: "rgba(200,123,117,0.12)", border: `2px solid ${ROSE}` }}
+            >
+              <ShieldCheck className="w-10 h-10" style={{ color: ROSE }} />
+            </div>
+            <h3
+              style={{ ...headlineStyle, fontSize: "1.3rem" }}
+            >
+              Garantia incondicional de 7 dias
+            </h3>
+            <p style={{ ...bodyText, fontSize: "0.9rem", maxWidth: "480px" }}>
+              Se por qualquer motivo você não ficar satisfeita com o treinamento nos primeiros 7 dias, basta
+              enviar uma mensagem e devolvemos 100% do seu investimento — sem perguntas, sem burocracia.
+            </p>
+            <p style={{ ...bodyText, fontSize: "0.85rem", color: "rgba(251,241,238,0.5)" }}>
+              O risco é zero. A decisão é sua.
+            </p>
+          </div>
+        </Section>
+
+        {/* ── 13. CTA final ── */}
+        <Section>
+          <CtaBlock note="Garantia de 7 dias · Sem risco" />
+        </Section>
 
         {/* Footer */}
         <div
-          className="text-center pt-8"
-          style={{ borderTop: "1px solid rgba(200, 123, 117, 0.15)" }}
+          className="text-center pt-6"
+          style={{ borderTop: "1px solid rgba(200,123,117,0.12)" }}
         >
-          <p className="mb-2 text-sm" style={{ color: "rgba(251, 241, 238, 0.5)" }}>
-            Diagnóstico elaborado pelo time de Gustavo Ono
-          </p>
-          <p className="text-xs mb-4" style={{ color: "rgba(251, 241, 238, 0.35)" }}>
-            Este relatório foi gerado com base nas respostas de {leadData.name} e é de uso exclusivo.
-          </p>
-          <p className="text-xs" style={{ color: "rgba(251, 241, 238, 0.25)" }}>
+          <p className="text-xs" style={{ color: "rgba(251,241,238,0.3)" }}>
             © Gustavo Ono · Todos os direitos reservados
+          </p>
+          <p className="text-xs mt-1" style={{ color: "rgba(251,241,238,0.2)" }}>
+            Este diagnóstico foi gerado com base nas respostas de {leadData.name}.
           </p>
         </div>
       </div>

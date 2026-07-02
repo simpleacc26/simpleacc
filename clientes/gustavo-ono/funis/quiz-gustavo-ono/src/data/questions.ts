@@ -12,207 +12,170 @@ export interface Question {
 }
 
 export const questions: Question[] = [
-  // Q0 — landing (pergunta inicial, visível na LandingScreen)
+  // Q0 — landing
   {
     category: "PERFIL",
-    question: "Como você se define hoje?",
+    question: "Qual dessas opções mais combina com você hoje?",
     options: [
-      {
-        value: "1",
-        title: "Faço chocolates em casa e quero transformar isso em renda",
-      },
-      {
-        value: "2",
-        title: "Já vendo chocolates artesanais, mas quero aumentar meu faturamento",
-      },
-      {
-        value: "3",
-        title: "Tenho uma confeitaria estabelecida e quero adicionar chocolates finos",
-      },
-      {
-        value: "4",
-        title: "Sou profissional da área e quero me especializar em bombons artísticos",
-      },
+      { value: "1", title: "Estou em crescimento mas preciso melhorar" },
+      { value: "2", title: "Minha margem de lucro é baixa" },
+      { value: "3", title: "Meu negócio vende sem constância" },
+      { value: "4", title: "Não tenho organização interna para crescer" },
     ],
   },
   // Q1
   {
-    category: "EXPERIÊNCIA",
-    question: "Há quanto tempo você trabalha com chocolate artesanal?",
+    category: "PRODUTO",
+    question: 'Os chocolates são o "carro chefe" do seu negócio?',
     options: [
-      { value: "1", title: "Estou começando agora (menos de 6 meses)" },
-      { value: "2", title: "Entre 6 meses e 2 anos de prática" },
-      { value: "3", title: "Entre 2 e 5 anos de experiência" },
-      { value: "4", title: "Mais de 5 anos no mercado" },
+      { value: "1", title: "Sim, são meu carro chefe" },
+      { value: "2", title: "Os chocolates finos são menos de 50% das minhas vendas" },
+      { value: "3", title: "Ainda não, mas quero que sejam o carro chefe" },
+      { value: "4", title: "Ainda quero começar a vender chocolates" },
     ],
   },
   // Q2
   {
-    category: "PRODUTOS",
-    question: "Quais produtos você já produz hoje?",
+    category: "EXPERIÊNCIA",
+    question: "Há quanto tempo você tem sua loja/atelier?",
     options: [
-      { value: "1", title: "Trufas e bombons simples" },
-      { value: "2", title: "Ovos de Páscoa e chocolates temáticos" },
-      { value: "3", title: "Alfajores, barras e tabletes artesanais" },
-      { value: "4", title: "Trabalho com vários produtos diferentes" },
+      { value: "1", title: "Menos de 1 ano" },
+      { value: "2", title: "1 – 3 anos" },
+      { value: "3", title: "3 – 6 anos" },
+      { value: "4", title: "6 – 10 anos" },
+      { value: "5", title: "Mais de 10 anos" },
     ],
   },
   // Q3
   {
-    category: "TÉCNICA",
-    question: "Qual é a sua maior dificuldade técnica hoje?",
+    category: "MOTIVAÇÃO",
+    question: "O que mais te motiva a trabalhar com chocolates?",
     options: [
-      { value: "1", title: "Temperagem e conseguir brilho perfeito no chocolate" },
-      {
-        value: "2",
-        title: "Criar recheios e ganaches com sabores diferenciados e marcantes",
-      },
-      { value: "3", title: "Decoração artística e acabamento de alto nível" },
-      {
-        value: "4",
-        title: "Embalagem e apresentação que justifique um preço premium",
-      },
+      { value: "1", title: "Paixão e prazer" },
+      { value: "2", title: "Reconhecimento profissional" },
+      { value: "3", title: "Independência financeira" },
+      { value: "4", title: "Renda extra" },
     ],
   },
-  // Q4 — FRUSTRAÇÃO (usado na personalização do relatório)
+  // Q4 — FRUSTRAÇÃO (usada na personalização do relatório)
   {
-    category: "SITUAÇÃO",
-    question: "O que mais te frustra no seu negócio de chocolates hoje?",
+    category: "FRUSTRAÇÃO",
+    question: "O que mais te frustra quando tenta vender chocolates?",
     options: [
-      {
-        value: "1",
-        title: "Não consigo cobrar o que meu trabalho realmente vale",
-      },
-      {
-        value: "2",
-        title: "Meus produtos não têm aparência profissional suficiente",
-      },
-      {
-        value: "3",
-        title: "Não tenho clientes em quantidade suficiente ou constante",
-      },
-      {
-        value: "4",
-        title: "Não me diferencio das outras confeiteiras no mercado",
-      },
+      { value: "1", title: "Falta de segurança técnica" },
+      { value: "2", title: "Não saber cobrar preço" },
+      { value: "3", title: "Falta de padrão nos produtos" },
+      { value: "4", title: "Medo de errar e perder material" },
     ],
   },
   // Q5
   {
-    category: "TENTATIVAS",
-    question: "O que você já tentou para resolver essa situação?",
+    category: "VENDAS",
+    question: "Qual dessas opções representa seu maior canal de vendas?",
     options: [
-      { value: "1", title: "Fiz cursos online, mas sem resultado prático consistente" },
-      { value: "2", title: "Tentei vender pelas redes sociais com pouco retorno" },
-      { value: "3", title: "Investi em equipamentos melhores" },
-      { value: "4", title: "Ainda não tomei uma ação estruturada para resolver" },
+      { value: "1", title: "Eventos (aniversários, casamentos, festas)" },
+      { value: "2", title: "Delivery" },
+      { value: "3", title: "Vendas à pronta entrega na loja" },
+      { value: "4", title: "Encomendas para datas especiais (ex: Páscoa, Natal)" },
+      { value: "5", title: "Internet / redes sociais" },
+      { value: "6", title: "Outro" },
     ],
   },
-  // Q6 — IMPEDIMENTO (usado na personalização do relatório)
+  // Q6 — IMPEDIMENTO (usada na personalização do relatório)
   {
     category: "OBSTÁCULO",
-    question: "O que te impede de ir para o próximo nível agora?",
+    question: "O que você acredita que mais te impede de crescer hoje?",
     options: [
-      {
-        value: "1",
-        title: "Falta de técnica específica em bombons artísticos de alto padrão",
-      },
-      {
-        value: "2",
-        title: "Não sei como precificar e posicionar meus produtos corretamente",
-      },
-      { value: "3", title: "Não tenho tempo para aprender novas técnicas" },
-      {
-        value: "4",
-        title: "Tenho medo de investir em algo novo e não ter retorno",
-      },
+      { value: "1", title: "Ter tempo de focar nas vendas, pois fico presa na produção" },
+      { value: "2", title: "Falta de estrutura para crescer" },
+      { value: "3", title: "Concorrência alta e desleal" },
+      { value: "4", title: "Imprevisibilidade nas vendas" },
+      { value: "5", title: "Falta de demanda na minha região" },
+      { value: "6", title: "Outro" },
     ],
   },
   // Q7
   {
-    category: "OBJETIVO",
-    question: "Qual é o seu principal objetivo para os próximos 6 meses?",
+    category: "POTENCIAL",
+    question: "Se você dominasse mais técnicas de produção e vendas de chocolates finos, isso te ajudaria a vender mais?",
     options: [
-      {
-        value: "1",
-        title: "Lançar uma coleção de bombons assinados com identidade própria",
-      },
-      { value: "2", title: "Triplicar minha renda com chocolates artesanais" },
-      { value: "3", title: "Ser reconhecida como referência na minha cidade" },
-      { value: "4", title: "Criar um negócio de chocolates online escalável" },
+      { value: "1", title: "Com certeza" },
+      { value: "2", title: "Acredito que sim" },
+      { value: "3", title: "Muito provável" },
     ],
   },
-  // Q8 — qualificação financeira
+  // Q8 — qualificação
   {
-    category: "QUALIFICAÇÃO",
-    question: "Qual é a sua renda mensal com chocolates ou confeitaria hoje?",
+    category: "FATURAMENTO",
+    question: "Qual é a média do seu faturamento mensal hoje?",
     supportText:
-      "Essa informação nos ajuda a personalizar o diagnóstico para o seu momento atual.",
+      "Essa informação nos ajuda a personalizar o diagnóstico para o seu momento.",
     options: [
-      { value: "1", title: "Ainda não gero renda (estou começando)" },
-      { value: "2", title: "Até R$2.000 por mês" },
-      { value: "3", title: "Entre R$2.000 e R$5.000 por mês" },
-      { value: "4", title: "Entre R$5.000 e R$10.000 por mês" },
-      { value: "5", title: "Acima de R$10.000 por mês" },
+      { value: "1", title: "Até R$ 5.000" },
+      { value: "2", title: "De R$ 5.000 até R$ 10.000" },
+      { value: "3", title: "De R$ 10.000 até R$ 20.000" },
+      { value: "4", title: "Acima de R$ 30.000" },
     ],
   },
 ];
 
-// Rótulos para o relatório, indexados por pergunta
 export const answerLabels: string[][] = [
   [
-    "Faço chocolates em casa e quero transformar isso em renda",
-    "Já vendo chocolates artesanais, mas quero aumentar meu faturamento",
-    "Tenho uma confeitaria estabelecida e quero adicionar chocolates finos",
-    "Sou profissional da área e quero me especializar em bombons artísticos",
+    "Estou em crescimento mas preciso melhorar",
+    "Minha margem de lucro é baixa",
+    "Meu negócio vende sem constância",
+    "Não tenho organização interna para crescer",
   ],
   [
-    "Estou começando agora (menos de 6 meses)",
-    "Entre 6 meses e 2 anos de prática",
-    "Entre 2 e 5 anos de experiência",
-    "Mais de 5 anos no mercado",
+    "Sim, são meu carro chefe",
+    "Os chocolates finos são menos de 50% das minhas vendas",
+    "Ainda não, mas quero que sejam o carro chefe",
+    "Ainda quero começar a vender chocolates",
   ],
   [
-    "Trufas e bombons simples",
-    "Ovos de Páscoa e chocolates temáticos",
-    "Alfajores, barras e tabletes artesanais",
-    "Trabalho com vários produtos diferentes",
+    "Menos de 1 ano",
+    "1 – 3 anos",
+    "3 – 6 anos",
+    "6 – 10 anos",
+    "Mais de 10 anos",
   ],
   [
-    "Temperagem e brilho perfeito no chocolate",
-    "Recheios e ganaches com sabores diferenciados",
-    "Decoração artística e acabamento de alto nível",
-    "Embalagem e apresentação premium",
+    "Paixão e prazer",
+    "Reconhecimento profissional",
+    "Independência financeira",
+    "Renda extra",
   ],
   [
-    "Não consigo cobrar o que meu trabalho realmente vale",
-    "Meus produtos não têm aparência profissional suficiente",
-    "Não tenho clientes em quantidade suficiente ou constante",
-    "Não me diferencio das outras confeiteiras no mercado",
+    "Falta de segurança técnica",
+    "Não saber cobrar preço",
+    "Falta de padrão nos produtos",
+    "Medo de errar e perder material",
   ],
   [
-    "Fiz cursos online, mas sem resultado prático consistente",
-    "Tentei vender pelas redes sociais com pouco retorno",
-    "Investi em equipamentos melhores",
-    "Ainda não tomei uma ação estruturada para resolver",
+    "Eventos (aniversários, casamentos, festas)",
+    "Delivery",
+    "Vendas à pronta entrega na loja",
+    "Encomendas para datas especiais (ex: Páscoa, Natal)",
+    "Internet / redes sociais",
+    "Outro",
   ],
   [
-    "Falta de técnica específica em bombons artísticos de alto padrão",
-    "Não sei como precificar e posicionar meus produtos corretamente",
-    "Não tenho tempo para aprender novas técnicas",
-    "Tenho medo de investir em algo novo e não ter retorno",
+    "Ter tempo de focar nas vendas, pois fico presa na produção",
+    "Falta de estrutura para crescer",
+    "Concorrência alta e desleal",
+    "Imprevisibilidade nas vendas",
+    "Falta de demanda na minha região",
+    "Outro",
   ],
   [
-    "Lançar uma coleção de bombons assinados com identidade própria",
-    "Triplicar minha renda com chocolates artesanais",
-    "Ser reconhecida como referência na minha cidade",
-    "Criar um negócio de chocolates online escalável",
+    "Com certeza",
+    "Acredito que sim",
+    "Muito provável",
   ],
   [
-    "Ainda não gero renda (estou começando)",
-    "Até R$2.000 por mês",
-    "Entre R$2.000 e R$5.000 por mês",
-    "Entre R$5.000 e R$10.000 por mês",
-    "Acima de R$10.000 por mês",
+    "Até R$ 5.000",
+    "De R$ 5.000 até R$ 10.000",
+    "De R$ 10.000 até R$ 20.000",
+    "Acima de R$ 30.000",
   ],
 ];
