@@ -1,147 +1,108 @@
-# Relatório de Tráfego — Pâmella Mello — Junho/2026
+# Relatório de Tráfego — Pâmella Mello — Junho de 2026
 
-Fonte: exports do Gerenciador (campanha, conjunto, anúncio) + prints de público,
-posicionamento e dispositivo. Conta: PAMELLA MELLO 01. Período: 01 a 30/06/2026.
-Janela de atribuição: 7 dias clique / 1 dia visualização. Objetivo das campanhas:
-Mensagens (conversas iniciadas no WhatsApp).
+Preparado pela Simple Acc. Conta: Pâmella Mello 01. Período: 01 a 30/06/2026.
+Fonte: Gerenciador de Anúncios (campanhas, conjuntos, anúncios, público e
+posicionamento). Janela de atribuição: 7 dias de clique / 1 dia de visualização.
+Objetivo das campanhas no mês: Mensagens (conversas iniciadas no WhatsApp).
 
-## Resumo executivo
+## 1. Panorama do mês
 
-- O **topo do funil está barato e funcionando**: 178 conversas iniciadas por
-  R$ 1.699,52, ou seja **R$ 9,55 por conversa**. Traffic frio local sai a ~R$ 10,
-  e o melhor recorte saiu a **R$ 5,34**.
-- **O dinheiro não está sendo perdido no clique. Está sendo perdido depois dele.**
-  Os anúncios jogam direto no **WhatsApp cru**, sem qualificação, sem rastreio e
-  com follow-up fraco. O gargalo é conversa → avaliação → fechamento, não o custo
-  por conversa.
-- Há **um erro de configuração caro em todos os conjuntos** ("Somente Wi-Fi") e
-  uma **conta pulverizada** em 12 campanhas duplicadas de R$ 10-20/dia que nunca
-  saem do aprendizado.
-- Zero retargeting, zero lookalike, zero uso dos **25,7 mil seguidores** e da
-  base. Geo travado num **raio de 5 km** (Eldorado/Contagem).
-- Recomendação-mãe: **parar de comprar "conversa de WhatsApp" e comprar "lead
-  qualificado no funil"** (o quiz que já está no ar), com Pixel/CAPI medindo, e
-  **consolidar** a estrutura. O potencial de eficiência aqui é grande sem gastar
-  mais.
-
-## Números do mês
-
-| Métrica | Valor |
-|---|---|
+| Indicador | Junho/2026 |
+| --- | --- |
 | Investimento | R$ 1.699,52 |
-| Conversas iniciadas | 178 |
+| Conversas iniciadas (WhatsApp) | 178 |
 | **Custo por conversa** | **R$ 9,55** |
-| Alcance | 56.291 |
+| Alcance | 56.291 pessoas |
 | Impressões | 96.402 |
-| Frequência | 1,71 (baixa) |
+| Frequência | 1,71 |
+| CTR no link | ~0,6% |
 | CPM | R$ 17,63 |
-| CTR no link | ~0,6% (baixo) |
-| CPC no link | ~R$ 2,70 |
-| Visualizações de página | 0 (vai pro WhatsApp, não passa por página/funil) |
 
-## Diagnóstico (o que está travando)
+## 2. Leitura geral
 
-**1. Compra conversa crua de WhatsApp, não lead qualificado.** Objetivo
-"Mensagens" → 0 visualização de página. Ou seja, o tráfego **não passa pelo nosso
-funil/quiz**. O lead cai no WhatsApp sem filtro (o ICP atrai sofrimento genérico,
-não quem investe R$ 4k) e encontra follow-up fraco (~1x/semana). É aqui que a
-maior parte do dinheiro vaza.
+O **custo para gerar uma conversa está competitivo** (R$ 9,55), o que mostra que
+a demanda responde bem aos anúncios. A maior oportunidade de crescimento **não
+está em gastar mais**, e sim em **qualificar e medir melhor o que acontece depois
+do clique** e em **modernizar a estrutura e os criativos**. Em outras palavras: a
+base é saudável e o ganho vem de eficiência, não de mais orçamento.
 
-**2. "Somente quando conectado a uma rede Wi-Fi" LIGADO (em todos os conjuntos).**
-Isso corta drasticamente alcance e distorce a audiência (só entrega quando a
-pessoa está no Wi-Fi). Num público mobile como o do Brasil, é freio de mão
-puxado. Provável desligar isso já melhora volume e custo.
+## 3. O que está funcionando
 
-**3. Orçamento pulverizado + estrutura duplicada.** 12 campanhas, sendo 8
-"ELDORADO — Cópia" a R$ 10/dia. Orçamento tão fatiado faz cada campanha quase
-não sair da **fase de aprendizado**, o que encarece a conversa. Só 1 campanha
-ativa no fim do mês. Nomeação sem padrão (campanhas "Cópia", conjuntos "ELDORADO
-1", anúncios "1/2/3") impede leitura e otimização.
+- Custo por conversa baixo e volume consistente ao longo do mês.
+- Melhor recorte geográfico (Contagem) a **R$ 8,34 por conversa**; a melhor
+  campanha isolada chegou a **R$ 5,34**.
+- O criativo de qualificação ("Procuro por...") tem boa proposta: chama o público
+  certo e traz prova social (avaliação 4,9/5).
+- A mensagem central é forte e verdadeira: "tratamos a causa, não só o sintoma" e
+  "resultados em até 3 meses".
 
-**4. Geo hiperlocal (raio de ~5 km em Eldorado/Contagem).** Faz sentido para o
-presencial, mas **ignora o atendimento online para o Brasil todo** e uma base de
-**25,7 mil seguidores**. O pool de audiência local é pequeno e satura rápido.
+## 4. Pontos de atenção e oportunidades
 
-**5. Zero retargeting / lookalike / público personalizado.** "Públicos
-personalizados: Nenhum". Não há reengajamento de quem viu o perfil/vídeo, nem
-lookalike de quem fez avaliação, nem uso dos seguidores. É o dinheiro mais barato
-da conta ficando na mesa.
+Cada ponto abaixo é uma alavanca de crescimento com o mesmo investimento.
 
-**6. Criativo é o gargalo de eficiência (não a frequência).** Frequência está
-**baixa** (1,1-1,7), então não é desgaste de audiência. O que pega:
-**CTR ~0,6%** e **15 de 44 anúncios (34%) com qualidade "Abaixo da média"**. A
-entrega do Meta penaliza criativo fraco com CPM maior e menos alcance.
+**4.1 O tráfego vai direto para o WhatsApp, sem qualificação nem rastreio.** Hoje
+o anúncio abre uma conversa crua. Não há um filtro de quem realmente busca (e tem
+condições de investir no) tratamento, nem rastreamento do que de fato converte.
+Oportunidade: direcionar para um funil de avaliação (já em construção) e instalar
+Pixel/CAPI, para otimizar por lead qualificado, e não apenas por conversa.
 
-**7. Vídeo quase não foi testado.** Só 2 anúncios tiveram plays de vídeo no mês,
-com volume mínimo. É quase tudo estático. Grande espaço para os **roteiros de
-vídeo** já escritos (o público local "saturado" de estático pede formato novo).
+**4.2 Uma configuração está limitando a entrega.** A opção "Somente quando
+conectado a uma rede Wi-Fi" está ativada em todos os conjuntos. Ela restringe
+fortemente o alcance e distorce o público atingido. Ajustar isso tende a melhorar
+volume e custo de imediato.
 
-**8. Público e posicionamento contraditórios.** Direcionamento "todos os
-interesses" (amplo) + Advantage+ de público LIGADO, mas Advantage+ de
-posicionamento DESLIGADO com **5 posicionamentos excluídos** manualmente
-(possivelmente cortando Reels/Stories, onde vídeo performa). Idade 18-65+ é larga
-demais para um ticket de R$ 3.700.
+**4.3 Estrutura pulverizada.** São 12 campanhas, várias duplicadas, com
+orçamentos de R$ 10 a R$ 20 por dia. Orçamentos pequenos e espalhados dificultam
+que cada campanha saia da fase de aprendizado do Meta, o que encarece o
+resultado. Consolidar tende a estabilizar e baratear a entrega.
 
-## O que está funcionando (não jogar fora)
+**4.4 Alcance geográfico restrito.** A segmentação está num raio de cerca de 5 km
+(Eldorado/Contagem). Faz sentido para o presencial, mas deixa de fora o
+atendimento online para o Brasil todo e a base de 25,7 mil seguidores do
+Instagram.
 
-- **Custo por conversa baixo** (R$ 9,55) e volume existe. A demanda local
-  responde.
-- **Geo Contagem** (conjuntos "MINAS - REGRA EM CONTAGEM", R$ 20/dia) foi o mais
-  eficiente: **76 conversas a R$ 8,34**. Orçamento um pouco maior por conjunto já
-  performou melhor que os R$ 10/dia, o que reforça o argumento de consolidar.
-- Melhor campanha isolada saiu a **R$ 5,34/conversa**. Tem criativo/ângulo que
-  funciona; falta escalar o certo e matar o resto.
+**4.5 Ausência de reengajamento.** Não há retargeting nem público semelhante
+(públicos personalizados: nenhum). Quem já assistiu aos vídeos, visitou o perfil
+ou chamou no WhatsApp não está sendo reimpactado. Esse é o público mais barato de
+converter, e hoje está sem uso.
 
-## Plano de ação priorizado
+**4.6 Criativos concentrados em estático e saturando.** Os dois criativos de
+melhor desempenho (o que o próprio gestor confirmou) já dão sinais de saturação,
+e o mês foi quase todo em imagem estática (vídeo praticamente não testado).
+Renovar ângulos e entrar com vídeo é o caminho para reduzir a fadiga em um
+público local que já viu muitos anúncios.
 
-**Semana 1 (quick wins, sem gastar mais):**
-1. **Desligar "Somente Wi-Fi"** em todos os conjuntos.
-2. **Consolidar** as 12 campanhas em 1-2 (CBO), matando as duplicatas. Deixa o
-   orçamento junto pra sair do aprendizado.
-3. **Apontar o tráfego para o funil/quiz** (leitura emocional) em vez do WhatsApp
-   cru: qualifica antes de chegar na equipe e ainda dá rastreio.
-4. **Instalar Pixel + CAPI** no funil e marcar eventos (lead, quiz completo,
-   avaliação agendada). Sair da otimização "às cegas".
-5. **Padronizar nomenclatura** (campanha/conjunto/anúncio) pra conseguir ler
-   criativo x resultado.
+**4.7 Risco de política do Meta (categoria saúde).** Alguns textos usam termos
+como "cura emocional" e listas longas de sintomas e condições. A categoria saúde
+do Meta é sensível a isso e pode gerar reprovações ou restrição de conta. Vale
+ajustar a linguagem para proteger a veiculação.
 
-**Semanas 1-2 (estrutura):**
-6. **1 campanha de frio** (CBO, Advantage+) separando **geo local (presencial)**
-   de **online Brasil** (aproveitar o online que hoje é ignorado).
-7. **1 campanha de retargeting + lookalike:** engajou no Instagram/vídeo, mandou
-   mensagem, visitou o funil, + lookalike de quem fez avaliação. É o CPL mais
-   barato disponível e hoje está zerado.
-8. **Refinar idade** (testar faixas mais aderentes ao ticket) e **reavaliar as 5
-   exclusões de posicionamento** (liberar Reels/Stories pro vídeo).
+## 5. Leitura dos criativos
 
-**Contínuo (criativo):**
-9. **Produzir os vídeos** (roteiros prontos) com hook nos 3 primeiros segundos e
-   legenda; matar os anúncios "abaixo da média"; rodar 3-4 ângulos por vez.
+- **"Procuro por..." (melhor desempenho):** forte porque chama o público ideal e
+  já filtra ("quem já tentou outras abordagens sem resultado", "pronto para uma
+  transformação"). Formato estático.
+- **"Hipnose Clínica — Tratamento em até 3 meses":** comunica bem a promessa e as
+  aplicações, mas é mais genérico e também estático.
+- Ambos estão **saturando**. A conta precisa de **rotação de criativo** e de
+  **formato de vídeo** para segurar a atenção do público local.
 
-## Mensuração e metas
+## 6. Conclusão
 
-Hoje só medimos **custo por conversa (R$ 9,55)**. Isso é vaidade sozinho: conversa
-barata que não vira avaliação/cliente não paga a conta. Com Pixel + funil,
-passamos a medir o que importa:
+O tráfego tem uma base saudável: gera conversa a custo baixo. O potencial de
+crescimento, com o mesmo investimento, está em quatro frentes:
 
-- **Custo por lead qualificado** (quiz completo)
-- **Custo por avaliação agendada** (a porta de entrada real, R$ 150)
-- **CAC real** (custo por tratamento fechado) e **ROI**
+1. **Qualificar e medir** (funil de avaliação + Pixel/CAPI).
+2. **Consolidar e ajustar** a estrutura (incluindo a configuração de Wi-Fi e a
+   geografia local versus online).
+3. **Reengajar** base e seguidores (retargeting + público semelhante).
+4. **Renovar o criativo**, com vídeo à frente.
 
-Referência histórica do onboarding (a validar com atribuição real): 38 avaliações
-→ 12 fechamentos (~31,5%). Se parte relevante das 178 conversas alimentou isso, o
-custo por avaliação e o CAC são **baixíssimos** frente ao ticket de R$ 3.700, o
-que confirma a tese: **o problema não é o custo do tráfego, é a estrutura de
-qualificação, follow-up e capacidade depois do clique.**
+Nenhuma delas exige aumentar orçamento. Exige direcionar melhor.
 
-## Pendências pra fechar 100% do relatório
+## 7. Para aprofundar no próximo ciclo
 
-1. **Criativos (visual):** os anúncios estão nomeados como números e o export não
-   traz a coluna de campanha, então não dá pra amarrar criativo x resultado nem
-   avaliar hook/copy. Preciso das prévias (3 melhores + 3 piores) ou renomear e
-   reexportar.
-2. **Avaliações e fechamentos vindos do pago em junho** (pra fechar CAC e ROI
-   reais).
-3. **Unit economics / CAC máximo aceitável** (parcelamento, margem).
-4. **Quais 6 posicionamentos incluídos e 5 excluídos.**
-5. **Acesso ao Gerenciador** (histórico, tendência de fadiga, o que já saturou).
+Para transformar "custo por conversa" em "custo por cliente" (CAC e ROI reais),
+vamos cruzar os dados do tráfego com as avaliações agendadas e os tratamentos
+fechados vindos do pago, além do unit economics (ticket, margem, parcelamento).
+Com isso, definimos o CAC máximo saudável e a meta de escala.
