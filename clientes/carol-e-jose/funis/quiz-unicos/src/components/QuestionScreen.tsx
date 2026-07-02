@@ -1,4 +1,16 @@
 import type { Question } from "../data/questions";
+
+function renderQuestionText(text: string, highlights?: string[]): React.ReactNode {
+  if (!highlights?.length) return text;
+  const escaped = highlights.map(w => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  const pattern = new RegExp(`(${escaped.join("|")})`, "gi");
+  const parts = text.split(pattern);
+  return parts.map((part, i) =>
+    highlights.some(h => h.toLowerCase() === part.toLowerCase())
+      ? <span key={i} style={{ color: "#a9802f", fontWeight: 700 }}>{part}</span>
+      : part
+  );
+}
 import { ProgressBar } from "./ProgressBar";
 import { AnswerOption } from "./AnswerOption";
 import { NavigationButtons } from "./NavigationButtons";
@@ -82,7 +94,7 @@ export function QuestionScreen({
               marginBottom: "8px",
             }}
           >
-            {question.question}
+            {renderQuestionText(question.question, question.highlightWords)}
           </h2>
           {question.supportText && (
             <p

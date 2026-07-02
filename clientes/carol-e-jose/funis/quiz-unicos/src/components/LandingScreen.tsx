@@ -40,7 +40,7 @@ export function LandingScreen({
               marginBottom: "12px",
             }}
           >
-            Diagnóstico de Maturidade do Negócio
+            Diagnóstico de Liderança
           </p>
           <h1
             style={{
@@ -52,7 +52,7 @@ export function LandingScreen({
               marginBottom: "14px",
             }}
           >
-            Você cresceu, mas a empresa ainda para quando você para.
+            Você levou sua empresa aos 7 dígitos.
           </h1>
           <p
             style={{
@@ -64,7 +64,7 @@ export function LandingScreen({
               margin: "0 auto",
             }}
           >
-            Há um momento em que você trabalha mais e cresce menos, porque a liderança ainda opera no padrão de quando tudo dependia de uma pessoa. Responda 7 perguntas e descubra onde isso está freando o crescimento da sua empresa.
+            Em 2 minutos, descubra o gargalo invisível que te mantém refém da operação, mesmo faturando alto.
           </p>
         </div>
 
