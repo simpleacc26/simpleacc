@@ -182,13 +182,20 @@ export function DiagnosticoPage({ bucket, isQualified, leadData, onSchedule }: D
 
         {/* Assinatura Caroline */}
         <div className="rounded-2xl p-6" style={{ backgroundColor: "#ffffff", border: "1px solid rgba(169,128,47,0.15)", boxShadow: "0 4px 20px rgba(22,49,79,0.06)" }}>
-          <p style={{ ...sans, fontWeight: 700, color: NAVY, fontSize: "0.95rem", marginBottom: "4px" }}>Caroline Batista</p>
-          <p style={{ ...sans, fontSize: "0.88rem", color: "rgba(22,49,79,0.55)", lineHeight: 1.65 }}>
-            Mais de 20 anos e 6 mil líderes desenvolvidos individualmente.
-          </p>
-          <p style={{ ...serif, fontStyle: "italic", color: GOLD, fontSize: "0.95rem", marginTop: "10px" }}>
-            Aqui não falta grana. Falta uma nova maneira de liderar.
-          </p>
+          <p style={{ ...sans, fontWeight: 700, color: NAVY, fontSize: "0.95rem", marginBottom: "14px" }}>Caroline Batista</p>
+          <div className="grid grid-cols-2 gap-3">
+            {[
+              { num: "+20 anos", label: "de experiência" },
+              { num: "+10 mil", label: "horas de atendimento" },
+              { num: "+6 mil", label: "líderes desenvolvidos" },
+              { num: "+40", label: "empresas acompanhadas" },
+            ].map((s) => (
+              <div key={s.num} className="rounded-xl p-3 text-center" style={{ backgroundColor: "#faf8f4", border: "1px solid rgba(169,128,47,0.15)" }}>
+                <p style={{ ...serif, fontSize: "1.05rem", fontWeight: 700, color: GOLD }}>{s.num}</p>
+                <p style={{ ...sans, fontSize: "0.72rem", color: "rgba(22,49,79,0.6)", marginTop: "2px" }}>{s.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
       </div>
@@ -199,7 +206,7 @@ export function DiagnosticoPage({ bucket, isQualified, leadData, onSchedule }: D
           <LogoUnicos size="sm" />
         </div>
         <p style={{ ...sans, fontSize: "0.78rem", color: "rgba(22,49,79,0.35)" }}>
-          Caroline Batista e José · ÚNICOS Leadership Club
+          Caroline Batista e José Westphalen · ÚNICOS Leadership Club
         </p>
       </div>
     </div>
