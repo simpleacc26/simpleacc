@@ -7,8 +7,9 @@ import { LeadCaptureForm, type LeadData } from "./components/LeadCaptureForm";
 import { AgendamentoPage } from "./pages/AgendamentoPage";
 import { DiagnosticoPage, getBucketFromSlug, getSlugFromBucket } from "./pages/DiagnosticoPage";
 import { GateBlockPage } from "./pages/GateBlockPage";
+import { LoadingScreen } from "./components/LoadingScreen";
 
-type Step = "landing" | "question" | "lead-capture" | "gate-block" | "diagnostico" | "agendamento";
+type Step = "landing" | "question" | "lead-capture" | "gate-block" | "loading" | "diagnostico" | "agendamento";
 
 interface UtmParams {
   utm_source: string;
@@ -39,7 +40,6 @@ export default function App() {
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [leadData, setLeadData] = useState<LeadData | null>(null);
   const [isQualified, setIsQualified] = useState(true);
-  const [loading, setLoading] = useState(false);
   const [utm, setUtm] = useState<UtmParams>({
     utm_source: "",
     utm_medium: "",
@@ -96,8 +96,8 @@ export default function App() {
   };
 
   const handleLeadSubmit = async (data: LeadData) => {
-    setLoading(true);
     setLeadData(data);
+    setStep("loading");
 
     const getAnswerText = (index: number) => {
       const value = answers[index];
@@ -131,17 +131,16 @@ export default function App() {
     payload.append("utm_content", utm.utm_content);
     payload.append("utm_term", utm.utm_term);
 
-    try {
-      if (WEBHOOK_URL) {
-        await fetch(WEBHOOK_URL, {
+    const minDelay = new Promise<void>((resolve) => setTimeout(resolve, 3000));
+    const webhookCall = WEBHOOK_URL
+      ? fetch(WEBHOOK_URL, {
           method: "POST",
           headers: { "Content-Type": "application/x-www-form-urlencoded" },
           body: payload.toString(),
-        });
-      }
-    } catch {
-      // Não bloqueia o fluxo se o webhook falhar
-    }
+        }).catch(() => {})
+      : Promise.resolve();
+
+    await Promise.all([webhookCall, minDelay]);
 
     const qualified = calcIsQualified(answers);
     fbqTrack("Lead", {
@@ -153,7 +152,6 @@ export default function App() {
     }
     const bucketName = questions[3]?.options.find((o) => o.value === answers[3])?.bucket ?? "Refém da Operação";
     const slug = getSlugFromBucket(bucketName);
-    setLoading(false);
     setIsQualified(qualified);
     setBucket(bucketName);
     setStep("diagnostico");
@@ -197,9 +195,12 @@ export default function App() {
       <LeadCaptureForm
         onSubmit={handleLeadSubmit}
         onBack={handleLeadBack}
-        loading={loading}
       />
     );
+  }
+
+  if (step === "loading") {
+    return <LoadingScreen />;
   }
 
   if (step === "diagnostico") {
