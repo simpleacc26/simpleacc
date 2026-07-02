@@ -125,19 +125,7 @@ export function LandingScreen({
           </p>
         </div>
 
-        {/* Frase de marca */}
-        <p
-          style={{
-            fontFamily: "'Playfair Display', Georgia, serif",
-            fontSize: "0.9rem",
-            fontStyle: "italic",
-            color: "rgba(169,128,47,0.8)",
-            textAlign: "center",
-            marginTop: "28px",
-          }}
-        >
-          Aqui não falta grana. Falta uma nova maneira de liderar.
-        </p>
+
       </div>
     </div>
   );
