@@ -33,6 +33,8 @@ export const questions: Question[] = [
     options: [
       { value: "1", title: "Fundador ou Sócio", score: 20 },
       { value: "2", title: "Diretor ou C-Level", score: 12 },
+      { value: "3", title: "Assumi recentemente posição executiva de alta responsabilidade", score: 8 },
+      { value: "4", title: "Gestor com autonomia parcial", score: 3 },
     ],
   },
   // Q3 — Tamanho do time
