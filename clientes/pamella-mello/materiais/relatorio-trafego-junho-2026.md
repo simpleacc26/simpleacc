@@ -119,9 +119,6 @@ a régua de medição antes de escalar investimento.
 **Estrutura de campanha**
 - Consolidar as 12 campanhas em poucas, com orçamento no nível de campanha (CBO),
   eliminando duplicatas, para sair da fase de aprendizado.
-- Desativar a opção "Somente quando conectado a uma rede Wi-Fi".
-- Separar a geografia em duas linhas: presencial (Contagem e raio) e online
-  (Brasil), aproveitando o atendimento online e a base de seguidores.
 - Ativar públicos personalizados (retargeting de quem engajou no Instagram,
   assistiu aos vídeos, enviou mensagem ou visitou o funil) e público semelhante a
   partir de quem agendou avaliação.
@@ -129,9 +126,9 @@ a régua de medição antes de escalar investimento.
   posicionamento (liberando Reels e Stories para vídeo).
 
 **Criativo**
-- Rotação de criativos e entrada de vídeo (formato hoje ausente), com variação de
-  ângulos por dor.
-- Padronizar a nomenclatura de campanhas, conjuntos e anúncios.
+- Investir no formato de vídeo, hoje ainda pouco explorado e sem um embasamento
+  de copy forte que prenda o lead nos primeiros segundos. Estruturar roteiros por
+  ângulo de dor e manter a rotação de criativos.
 - Ajustar a linguagem à política de saúde do Meta (remover "cura" e listas de
   condições).
 
@@ -140,16 +137,14 @@ a régua de medição antes de escalar investimento.
 Ações de execução direta no Gerenciador. Os itens em destaque dependem da camada
 de mensuração e do funil, fornecidos pela Simple Acc.
 
-1. Desativar "Somente Wi-Fi" em todos os conjuntos.
-2. Consolidar as campanhas em estrutura CBO e pausar as duplicatas.
-3. **Alterar o destino dos anúncios para o funil de qualificação** (link com
+1. Consolidar as campanhas em estrutura CBO e pausar as duplicatas.
+2. **Alterar o destino dos anúncios para o funil de qualificação** (link com
    UTMs), no lugar do WhatsApp direto. *A Simple Acc fornece o link e a estrutura
    de captura.*
-4. Criar os públicos personalizados e semelhantes. *A Simple Acc fornece as
+3. Criar os públicos personalizados e semelhantes. *A Simple Acc fornece as
    definições de evento assim que o Pixel/CAPI estiver ativo.*
-5. Padronizar a nomenclatura de campanhas, conjuntos e anúncios.
-6. Revisar posicionamentos, faixa etária e a separação geográfica.
-7. Ajustar os textos de anúncio e de mensagem para conformidade.
+4. Revisar posicionamentos e faixa etária.
+5. Ajustar os textos de anúncio e de mensagem para conformidade.
 
 ## 10. Nota sobre a operação
 
