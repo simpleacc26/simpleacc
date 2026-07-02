@@ -8,8 +8,7 @@ window.FLOW = {
     nome: "Mentoria Cabelo de Segunda",
     expert: "Rômulo Heleno",
     // WhatsApp em formato internacional, só dígitos (ex: 5551999999999).
-    // PENDENTE: trocar pelo número real do Rômulo.
-    whatsapp: "5500000000000",
+    whatsapp: "5551997990520",
     whatsappMsg: "Oi, Rômulo! Sou {nome}, acabei de fazer o diagnóstico da minha técnica de mecha e quero falar sobre a sessão estratégica.",
   },
 

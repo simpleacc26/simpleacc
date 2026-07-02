@@ -3,7 +3,7 @@
    Recebe os leads do funil e grava na planilha automaticamente.
 
    COMO ATIVAR (2 minutos, uma vez só):
-   1. Abra a planilha "Leads · Funil Inclusão · Instituto Sabrina Siqueira"
+   1. Abra a planilha "Leads · Funil de Quiz · Mentoria Cabelo de Segunda"
    2. Menu  Extensões  →  Apps Script
    3. Apague o conteúdo e cole TODO este arquivo. Salve (💾).
    4. Botão  Implantar  →  Nova implantação
@@ -17,8 +17,10 @@
    ============================================================ */
 
 var CABECALHO = [
-  "Data/Hora", "Nome", "WhatsApp", "E-mail", "Situação", "Problema", "Implicação",
-  "Já tentou", "Objetivo", "Perfil da criança", "Cidade", "Frente", "Origem",
+  "Data/Hora", "Nome", "WhatsApp", "E-mail", "Instagram",
+  "Tempo de carreira", "Relação com mecha", "Maior travamento", "Impacto do erro",
+  "Custo de continuar", "Já tentou", "Objetivo", "Perfil", "Frequência", "Intenção",
+  "Frente", "Origem",
   "UTM Source", "UTM Medium", "UTM Campaign", "UTM Content", "UTM Term"
 ];
 
@@ -39,24 +41,28 @@ function doPost(e) {
     ensureHeader(sheet);
     var d = JSON.parse(e.postData.contents);
     sheet.appendRow([
-      new Date(),            // Data/Hora
-      d.nome || "",          // Nome
-      d.whatsapp || "",      // WhatsApp
-      d.email || "",         // E-mail
-      d.situacao || "",      // Situação
-      d.problema || "",      // Problema
-      d.implicacao || "",    // Implicação
-      d.necessidade || "",   // Já tentou
-      d.objetivo || "",      // Objetivo
-      d.perfil || "",        // Perfil da criança
-      d.qualificacao || "",  // Cidade
-      d.frente || "Inclusão",// Frente
-      d.origem || "",        // Origem
-      d.utm_source || "",    // UTM Source
-      d.utm_medium || "",    // UTM Medium
-      d.utm_campaign || "",  // UTM Campaign
-      d.utm_content || "",   // UTM Content
-      d.utm_term || ""       // UTM Term
+      new Date(),                    // Data/Hora
+      d.nome || "",                  // Nome
+      d.whatsapp || "",              // WhatsApp
+      d.email || "",                 // E-mail
+      d.instagram || "",             // Instagram
+      d.tempo || "",                 // Tempo de carreira
+      d.relacao || "",               // Relação com mecha
+      d.travamento || "",            // Maior travamento
+      d.impacto || "",               // Impacto do erro
+      d.custo || "",                 // Custo de continuar
+      d.tentativas || "",            // Já tentou
+      d.objetivo || "",              // Objetivo
+      d.perfil || "",                // Perfil
+      d.frequencia || "",            // Frequência
+      d.intencao || "",              // Intenção
+      d.frente || "Mentoria Mecha",  // Frente
+      d.origem || "",                // Origem
+      d.utm_source || "",            // UTM Source
+      d.utm_medium || "",            // UTM Medium
+      d.utm_campaign || "",          // UTM Campaign
+      d.utm_content || "",           // UTM Content
+      d.utm_term || ""               // UTM Term
     ]);
     return ContentService
       .createTextOutput(JSON.stringify({ ok: true }))
@@ -73,14 +79,15 @@ function configurar() {
   ensureHeader(SpreadsheetApp.getActiveSpreadsheet().getSheets()[0]);
 }
 
-/* Opcional: teste rápido pelo editor (Executar → testar) */
+/* Opcional: teste rápido pelo editor (Executar → _teste) */
 function _teste() {
   doPost({ postData: { contents: JSON.stringify({
-    nome: "Teste", whatsapp: "(33) 99999-9999", email: "teste@email.com",
-    situacao: "Já fomos, mas foi difícil", problema: "Sem manejo",
-    implicacao: "Inseguros", necessidade: "Dentista de plano",
-    objetivo: "Sem trauma", perfil: "Autista", qualificacao: "Governador Valadares",
-    frente: "Inclusão", origem: "teste",
-    utm_source: "meta", utm_medium: "cpc", utm_campaign: "inclusao-jun",
-    utm_content: "criativo-a", utm_term: "dentista-autista" }) } });
+    nome: "Teste", whatsapp: "(51) 99999-9999", email: "teste@email.com", instagram: "@teste",
+    tempo: "Entre 1 e 3 anos", relacao: "Faço, mas com insegurança",
+    travamento: "Insegurança na aplicação", impacto: "A cliente não volta",
+    custo: "Perder clientes", tentativas: "Curso online", objetivo: "Me posicionar como especialista",
+    perfil: "Tenho meu próprio salão", frequencia: "4 a 7 atendimentos", intencao: "Sim",
+    frente: "Mentoria Mecha", origem: "teste",
+    utm_source: "meta", utm_medium: "cpc", utm_campaign: "mecha-jul",
+    utm_content: "criativo-a", utm_term: "curso-mecha" }) } });
 }
