@@ -60,18 +60,6 @@ export function LandingScreen({
 
           {/* Pergunta de perfil */}
           <div>
-            <div
-              className="mb-2"
-              style={{
-                color: "#C87B75",
-                fontSize: "0.75rem",
-                fontWeight: 600,
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-              }}
-            >
-              {question.category}
-            </div>
             <h2
               className="mb-6"
               style={{

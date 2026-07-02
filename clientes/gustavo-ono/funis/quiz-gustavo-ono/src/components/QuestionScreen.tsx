@@ -40,12 +40,6 @@ export function QuestionScreen({
           className="rounded-3xl p-8 md:p-10 shadow-2xl"
           style={{ backgroundColor: "#2D1108" }}
         >
-          <div
-            className="mb-2 text-xs font-semibold tracking-widest uppercase"
-            style={{ color: "#C87B75", letterSpacing: "0.12em" }}
-          >
-            {question.category}
-          </div>
           <h2
             className="mb-3"
             style={{
