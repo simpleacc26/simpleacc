@@ -1,0 +1,233 @@
+<style>
+  :root{
+    --bg:#F4EFE7; --bg2:#EFE7D9; --surface:#FFFDF9;
+    --text:#2A2420; --muted:#7C6E5C; --faint:#A2937E;
+    --gold:#B0843A; --gold-deep:#8A6526; --gold-lite:#D8B566;
+    --border:#E7DAC2; --border-soft:#EFE6D6;
+    --pos:#5E7A52; --pos-bg:#EDF0E5;
+    --att:#A9702C; --att-bg:#F6ECD9;
+    --risk:#A8442B; --risk-bg:#F5E4DD;
+    --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,"Hoefler Text",Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --maxw:820px;
+  }
+  *{box-sizing:border-box}
+  .doc{
+    font-family:var(--sans); color:var(--text);
+    background:
+      radial-gradient(120% 60% at 100% -10%, rgba(216,181,102,.14), transparent 60%),
+      linear-gradient(180deg,var(--bg) 0%, var(--bg2) 100%);
+    background-attachment:fixed;
+    line-height:1.62; font-size:16.5px;
+    padding:clamp(20px,4vw,56px) 20px 64px;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw); margin:0 auto}
+  .doc :is(h1,h2,h3){font-family:var(--serif); font-weight:700; color:var(--text); text-wrap:balance; letter-spacing:-.01em}
+  .eyebrow{font-size:11.5px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--gold-deep)}
+  .num{font-variant-numeric:tabular-nums}
+
+  /* header */
+  .head{border-bottom:1px solid var(--border); padding-bottom:26px; margin-bottom:34px}
+  .brandline{display:flex; align-items:baseline; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:22px}
+  .brand{font-family:var(--serif); font-weight:700; font-size:19px; letter-spacing:.02em;
+    background:linear-gradient(92deg,var(--gold-deep),var(--gold-lite) 55%,var(--gold-deep));
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent}
+  .brand small{display:block; font-family:var(--sans); -webkit-text-fill-color:var(--faint); color:var(--faint); font-size:10px; font-weight:700; letter-spacing:.34em; text-transform:uppercase; margin-top:3px}
+  .head h1{font-size:clamp(30px,5vw,44px); line-height:1.05; margin:8px 0 6px}
+  .head .sub{font-family:var(--serif); font-size:19px; color:var(--gold-deep)}
+  .meta{display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:18px; font-size:13px; color:var(--muted)}
+  .meta span{display:inline-flex; gap:7px}
+  .meta b{color:var(--text); font-weight:600}
+
+  section{margin:40px 0}
+  section > .eyebrow{display:block; margin-bottom:8px}
+  h2{font-size:24px; margin:0 0 16px; line-height:1.2}
+  p{margin:0 0 14px; max-width:66ch}
+  .lead{font-size:18px; color:#3a3128}
+  .lead b{color:var(--gold-deep)}
+
+  /* KPI grid */
+  .kpis{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+  .kpi{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px 18px 16px}
+  .kpi .k{font-size:11px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--faint)}
+  .kpi .v{font-family:var(--serif); font-size:30px; line-height:1.1; margin-top:8px; font-variant-numeric:tabular-nums}
+  .kpi .n{font-size:12.5px; color:var(--muted); margin-top:4px}
+  .kpi.star{background:linear-gradient(180deg,#2E2620,#241d18); border-color:#3a2f22}
+  .kpi.star .k{color:var(--gold-lite)}
+  .kpi.star .v{color:#FBF3E2}
+  .kpi.star .n{color:#C9B79A}
+
+  /* callout */
+  .callout{background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--gold); border-radius:12px; padding:18px 20px}
+  .callout p:last-child{margin-bottom:0}
+
+  /* good list */
+  .good{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px}
+  .good li{display:flex; gap:12px; align-items:flex-start; background:var(--surface); border:1px solid var(--border-soft); border-radius:11px; padding:13px 15px}
+  .good li .dot{flex:0 0 auto; width:20px; height:20px; border-radius:50%; background:var(--pos-bg); color:var(--pos); display:grid; place-items:center; font-size:12px; font-weight:700; margin-top:1px}
+  .good li p{margin:0}
+
+  /* findings */
+  .finds{display:flex; flex-direction:column; gap:14px}
+  .find{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:18px 20px}
+  .find .top{display:flex; align-items:center; gap:12px; margin-bottom:7px; flex-wrap:wrap}
+  .find .idx{font-family:var(--serif); font-weight:700; color:var(--gold-deep); font-size:15px; font-variant-numeric:tabular-nums}
+  .find .t{font-weight:700; font-size:16px; color:var(--text); margin-right:auto}
+  .find p{margin:0; color:#463c31; font-size:15px}
+  .chip{font-size:10.5px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:4px 10px; border-radius:999px; white-space:nowrap}
+  .chip.opp{background:var(--att-bg); color:var(--att)}
+  .chip.att{background:var(--att-bg); color:var(--att)}
+  .chip.risk{background:var(--risk-bg); color:var(--risk)}
+  .chip.pos{background:var(--pos-bg); color:var(--pos)}
+
+  /* creatives */
+  .crea{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+  .crea .c{background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:16px 18px}
+  .crea .c h3{font-size:16px; margin:0 0 6px}
+  .crea .c p{font-size:14px; margin:0; color:var(--muted)}
+  .crea .tagrow{margin-top:12px; display:flex; gap:8px; flex-wrap:wrap}
+
+  /* fronts */
+  .fronts{display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-top:6px}
+  .front{display:flex; gap:14px; align-items:flex-start; background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:16px 18px}
+  .front .fn{font-family:var(--serif); font-size:26px; color:var(--gold-lite); line-height:1; font-variant-numeric:tabular-nums}
+  .front .ft{font-weight:700; margin:0 0 3px}
+  .front .fd{margin:0; font-size:14px; color:var(--muted)}
+
+  .foot{margin-top:52px; padding-top:20px; border-top:1px solid var(--border); font-size:12.5px; color:var(--faint); display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap}
+
+  @media (max-width:640px){
+    .kpis{grid-template-columns:1fr 1fr}
+    .crea,.fronts{grid-template-columns:1fr}
+    .head h1{font-size:30px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="doc">
+<div class="wrap">
+
+  <header class="head">
+    <div class="brandline">
+      <div class="brand">Simple Acc<small>Growth &amp; Performance</small></div>
+      <div class="eyebrow">Relatório mensal · Confidencial</div>
+    </div>
+    <div class="eyebrow">Análise de Tráfego Pago</div>
+    <h1>Relatório de Tráfego</h1>
+    <div class="sub">Pâmella Mello · Junho de 2026</div>
+    <div class="meta">
+      <span>Conta:&nbsp;<b>Pâmella Mello 01</b></span>
+      <span>Período:&nbsp;<b class="num">01 a 30/06/2026</b></span>
+      <span>Objetivo:&nbsp;<b>Mensagens (WhatsApp)</b></span>
+      <span>Atribuição:&nbsp;<b>7 dias clique / 1 dia visualização</b></span>
+    </div>
+  </header>
+
+  <section>
+    <span class="eyebrow">1 · Panorama do mês</span>
+    <div class="kpis">
+      <div class="kpi"><div class="k">Investimento</div><div class="v">R$ 1.699,52</div><div class="n">no mês</div></div>
+      <div class="kpi"><div class="k">Conversas iniciadas</div><div class="v">178</div><div class="n">no WhatsApp</div></div>
+      <div class="kpi star"><div class="k">Custo por conversa</div><div class="v">R$ 9,55</div><div class="n">competitivo para o nicho</div></div>
+      <div class="kpi"><div class="k">Alcance</div><div class="v">56.291</div><div class="n">pessoas</div></div>
+      <div class="kpi"><div class="k">Frequência</div><div class="v">1,71</div><div class="n">baixa (audiência fresca)</div></div>
+      <div class="kpi"><div class="k">CTR no link</div><div class="v">~0,6%</div><div class="n">CPM R$ 17,63</div></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">2 · Leitura geral</span>
+    <h2>A base é saudável. O crescimento está na eficiência, não em gastar mais.</h2>
+    <div class="callout">
+      <p>O custo para gerar uma conversa está <b>competitivo (R$ 9,55)</b>, o que mostra que a demanda responde bem aos anúncios. A maior oportunidade de crescimento não está em aumentar o orçamento, e sim em <b>qualificar e medir melhor o que acontece depois do clique</b> e em <b>modernizar a estrutura e os criativos</b>.</p>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">3 · O que está funcionando</span>
+    <h2>Pontos fortes a preservar</h2>
+    <ul class="good">
+      <li><span class="dot">✓</span><p>Custo por conversa baixo e volume consistente ao longo do mês.</p></li>
+      <li><span class="dot">✓</span><p>Melhor recorte geográfico (Contagem) a <b>R$ 8,34 por conversa</b>; a melhor campanha isolada chegou a <b>R$ 5,34</b>.</p></li>
+      <li><span class="dot">✓</span><p>O criativo de qualificação ("Procuro por...") chama o público certo e traz prova social (avaliação 4,9/5).</p></li>
+      <li><span class="dot">✓</span><p>Mensagem central forte e verdadeira: "tratamos a causa, não só o sintoma" e "resultados em até 3 meses".</p></li>
+    </ul>
+  </section>
+
+  <section>
+    <span class="eyebrow">4 · Pontos de atenção e oportunidades</span>
+    <h2>Onde mora o crescimento</h2>
+    <p>Cada ponto abaixo é uma alavanca que pode melhorar o resultado <b>com o mesmo investimento</b>.</p>
+    <div class="finds">
+      <div class="find">
+        <div class="top"><span class="idx">4.1</span><span class="t">Tráfego vai direto ao WhatsApp, sem qualificar nem rastrear</span><span class="chip opp">Oportunidade</span></div>
+        <p>Hoje o anúncio abre uma conversa crua: não há filtro de quem realmente busca (e tem condições de investir no) tratamento, nem rastreamento do que converte. Direcionar para um funil de avaliação e instalar Pixel/CAPI permite otimizar por lead qualificado, e não apenas por conversa.</p>
+      </div>
+      <div class="find">
+        <div class="top"><span class="idx">4.2</span><span class="t">Uma configuração está limitando a entrega</span><span class="chip att">Atenção</span></div>
+        <p>A opção "Somente quando conectado a uma rede Wi-Fi" está ativada em todos os conjuntos. Ela restringe fortemente o alcance e distorce o público atingido. Ajustar tende a melhorar volume e custo de imediato.</p>
+      </div>
+      <div class="find">
+        <div class="top"><span class="idx">4.3</span><span class="t">Estrutura pulverizada em muitas campanhas pequenas</span><span class="chip att">Atenção</span></div>
+        <p>São 12 campanhas, várias duplicadas, com orçamentos de R$ 10 a R$ 20 por dia. Orçamentos pequenos e espalhados dificultam sair da fase de aprendizado do Meta, o que encarece o resultado. Consolidar tende a estabilizar e baratear a entrega.</p>
+      </div>
+      <div class="find">
+        <div class="top"><span class="idx">4.4</span><span class="t">Alcance geográfico muito restrito</span><span class="chip opp">Oportunidade</span></div>
+        <p>A segmentação está num raio de cerca de 5 km (Eldorado/Contagem). Faz sentido para o presencial, mas deixa de fora o atendimento online para o Brasil todo e a base de 25,7 mil seguidores do Instagram.</p>
+      </div>
+      <div class="find">
+        <div class="top"><span class="idx">4.5</span><span class="t">Sem reengajamento de quem já demonstrou interesse</span><span class="chip opp">Oportunidade</span></div>
+        <p>Não há retargeting nem público semelhante (públicos personalizados: nenhum). Quem já assistiu aos vídeos, visitou o perfil ou chamou no WhatsApp não é reimpactado. Esse é o público mais barato de converter, e hoje está sem uso.</p>
+      </div>
+      <div class="find">
+        <div class="top"><span class="idx">4.6</span><span class="t">Criativos concentrados em estático e já saturando</span><span class="chip att">Atenção</span></div>
+        <p>Os dois criativos de melhor desempenho já dão sinais de saturação, e o mês foi quase todo em imagem estática (vídeo praticamente não testado). Renovar ângulos e entrar com vídeo reduz a fadiga em um público local que já viu muitos anúncios.</p>
+      </div>
+      <div class="find">
+        <div class="top"><span class="idx">4.7</span><span class="t">Risco de política do Meta (categoria saúde)</span><span class="chip risk">Risco</span></div>
+        <p>Alguns textos usam termos como "cura emocional" e listas longas de sintomas e condições. A categoria saúde do Meta é sensível a isso e pode gerar reprovações ou restrição da conta. Ajustar a linguagem protege a veiculação.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">5 · Leitura dos criativos</span>
+    <h2>Boa proposta, formato único, em fadiga</h2>
+    <div class="crea">
+      <div class="c">
+        <h3>"Procuro por..."</h3>
+        <p>Melhor desempenho do mês. Forte porque chama o público ideal e já filtra ("quem já tentou outras abordagens sem resultado", "pronto para uma transformação"). Formato estático.</p>
+        <div class="tagrow"><span class="chip pos">Melhor performance</span><span class="chip att">Saturando</span></div>
+      </div>
+      <div class="c">
+        <h3>"Hipnose Clínica · até 3 meses"</h3>
+        <p>Comunica bem a promessa e as aplicações, mas é mais genérico e também estático. Ganharia em segmentar por dor específica e migrar para vídeo.</p>
+        <div class="tagrow"><span class="chip att">Genérico / estático</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">6 · Conclusão</span>
+    <h2>O potencial está em direcionar melhor, com o mesmo orçamento</h2>
+    <div class="fronts">
+      <div class="front"><span class="fn">1</span><div><p class="ft">Qualificar e medir</p><p class="fd">Funil de avaliação + Pixel/CAPI para otimizar por lead, não por conversa.</p></div></div>
+      <div class="front"><span class="fn">2</span><div><p class="ft">Consolidar e ajustar</p><p class="fd">Menos campanhas, corrigir a config de Wi-Fi, separar local e online.</p></div></div>
+      <div class="front"><span class="fn">3</span><div><p class="ft">Reengajar</p><p class="fd">Retargeting e público semelhante a partir da base e dos seguidores.</p></div></div>
+      <div class="front"><span class="fn">4</span><div><p class="ft">Renovar o criativo</p><p class="fd">Rotação de ângulos e vídeo à frente, para vencer a saturação.</p></div></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">7 · Para aprofundar no próximo ciclo</span>
+    <p>Para transformar "custo por conversa" em <b>custo por cliente</b> (CAC e ROI reais), vamos cruzar os dados do tráfego com as avaliações agendadas e os tratamentos fechados vindos do pago, além do unit economics (ticket, margem, parcelamento). Com isso, definimos o CAC máximo saudável e a meta de escala.</p>
+  </section>
+
+  <div class="foot">
+    <span>Simple Acc · Growth &amp; Performance</span>
+    <span>Documento confidencial · Pâmella Mello · Junho de 2026</span>
+  </div>
+
+</div>
+</div>
