@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
   <title>Sua leitura de imagem · Stella Grützmann</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <style>
     :root{--bg:#F5F0EA;--text:#2B2521}
     body{margin:0;background:var(--bg);color:var(--text);
@@ -18,6 +23,9 @@
     .etapa { margin: 0 0 16px; }
     .etapa h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--primary); margin: 0 0 8px; }
     .etapa p { margin: 0 0 10px; }
+    .metodo { margin: 0; padding-left: 18px; }
+    .metodo li { margin: 0 0 8px; }
+    .metodo strong { color: var(--primary-700); }
     .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 8px 0; }
     .compare .col { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px; background: var(--surface); }
     .compare .col h4 { margin: 0 0 8px; font-size: 14px; }
@@ -25,7 +33,12 @@
     .compare .col.good { background: color-mix(in srgb, var(--primary) 6%, var(--surface)); border-color: color-mix(in srgb, var(--primary) 30%, var(--border)); }
     .compare ul { margin: 0; padding-left: 18px; font-size: 15px; color: var(--muted); }
     .compare .good ul { color: var(--text); }
-    .depo { background: var(--accent-soft); border: 1px dashed #E6B79F; border-radius: var(--radius-sm); padding: 14px; margin: 8px 0; font-size: 15px; color: var(--primary-700); }
+    .depo { background: var(--accent-soft); border: 1px dashed #C9B3E6; border-radius: var(--radius-sm); padding: 14px; margin: 8px 0; font-size: 15px; color: var(--primary-700); }
+    .depo-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0 6px; }
+    .depo-shot { width: 100%; height: auto; display: block; border-radius: var(--radius-sm); border: 1px solid var(--border); box-shadow: var(--shadow); background: #fff; }
+    @media (max-width: 520px){ .depo-gallery { grid-template-columns: 1fr; } }
+    .cta-inline { text-align: center; margin: 22px 0; }
+    .cta-inline .btn { width: 100%; max-width: 420px; }
     .cta-box { background: color-mix(in srgb, var(--primary) 7%, var(--surface)); border: 1px solid color-mix(in srgb, var(--primary) 26%, var(--border)); border-radius: var(--radius); padding: 22px; text-align: center; margin-top: 8px; }
     .clube { font-size: 15px; color: var(--muted); margin-top: 14px; }
     .toolbar { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 4px 0 22px; }
@@ -43,7 +56,7 @@
   <header class="topbar">
     <div class="container">
       <div class="brand">
-        <!-- Quando tiver o arquivo do logo, troque por: <img class="logo-img" src="logo.png" alt="Stella Grützmann"> -->
+        <!-- Quando tiver o logo, troque por: <img class="logo-img" src="logo.png" alt="Stella Grützmann"> -->
         <span class="brand-name">Stella Grützmann</span>
         <span class="brand-tag">Consultoria de Imagem</span>
       </div>
@@ -51,10 +64,6 @@
   </header>
 
   <main class="container">
-    <div class="toolbar no-print">
-      <button class="btn btn-primary" id="whatsapp">Falar com a Stella no WhatsApp</button>
-      <button class="btn btn-ghost" id="pdf">Baixar PDF</button>
-    </div>
     <div class="card screen" id="report"><!-- preenchido por diagnostico.js --></div>
   </main>
 

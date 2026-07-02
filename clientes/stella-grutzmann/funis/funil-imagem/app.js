@@ -1,14 +1,17 @@
 /* ============================================================
-   APP — motor do funil (render, validação, persistência, tracking)
+   APP. Motor do funil (render, validação, persistência, tracking).
    Sem dependências externas. Funciona abrindo o index.html.
+   Padrão de escrita: nunca usar travessões (traço longo).
    ============================================================ */
 
 /* ---- Tracking plugável: preencha os IDs e os eventos vão junto.
    Vazio = só loga no console. ---- */
 const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
 
-/* Planilha de leads (Google Apps Script). Cole aqui a URL /exec da implantação
-   e republique. Vazio = não envia (só salva local + segue pro diagnóstico). */
+/* Planilha de leads via Make (webhook instant → Google Sheets).
+   Cole a URL do webhook do Make aqui. Dispara só quando chega lead; não fica
+   varrendo (não consome crédito à toa). IMPORTANTE: o Make só estrutura o lead
+   quando recebe application/json (já tratado em enviarLead). Vazio = não envia. */
 const LEADS_ENDPOINT = "";
 
 /* UTMs capturadas da URL no carregamento (a página do quiz não muda de URL até
@@ -33,8 +36,26 @@ function trackEvent(name, data = {}) {
   } catch (e) { /* tracking nunca quebra o funil */ }
 }
 
-/* Envia o lead pra planilha (Google Apps Script). Manda as respostas já em
-   texto legível. Fire-and-forget: nunca trava o fluxo do lead. */
+/* Data/hora no fuso de Brasília, formato legível: "29/06/2026 09:32:35".
+   Força America/Sao_Paulo (não depende do fuso do visitante). */
+function dataHoraBR() {
+  try {
+    const tz = { timeZone: "America/Sao_Paulo" };
+    const d = new Date();
+    return d.toLocaleDateString("pt-BR", tz) + " " + d.toLocaleTimeString("pt-BR", tz);
+  } catch (e) { return new Date().toISOString(); }
+}
+
+/* Classifica o lead pela prontidão e geografia (mesma régua do diagnóstico).
+   Qualifica por intenção, não por pergunta crua de renda. */
+function classificarLead(a) {
+  if (a.prontidao === "pontual" || a.prontidao === "pesquisando") return "nutrir";
+  return "qualificado";
+}
+
+/* Envia o lead pro webhook do Make (formato padrão da casa: name/email/
+   whatsapp + meta + utms + answers q1..q9). Fire-and-forget: nunca trava o
+   fluxo do lead. O Make grava a linha na planilha. */
 function enviarLead() {
   if (!LEADS_ENDPOINT) return;
   const a = state.answers;
@@ -44,22 +65,37 @@ function enviarLead() {
     return o ? o.label : "";
   };
   const lead = {
-    data: new Date().toISOString(),
-    nome: a.nomeResp || "", whatsapp: a.whatsapp || "", email: a.email || "",
-    situacao: label("situacao"), problema: label("problema"), implicacao: label("implicacao"),
-    custo: label("custo"), tentativas: label("tentativas"), objetivo: label("objetivo"),
-    perfil: label("perfil"), qualificacao: label("qualificacao"),
-    frente: "Consultoria de Imagem", origem: document.referrer || location.href,
-    ...URL_UTMS,
+    name: a.nomeResp || "",
+    email: a.email || "",
+    whatsapp: a.whatsapp || "",
+    qualificacao: classificarLead(a),
+    frente: (F.config && F.config.frente) || "Funil",
+    answers: {
+      q1: label("situacao"), q2: label("problema"), q3: label("implicacao"),
+      q4: label("custo"), q5: label("tentativas"), q6: label("objetivo"),
+      q7: label("perfil"), q8: label("prontidao"),
+    },
+    utms: URL_UTMS,
+    meta: {
+      timestamp: dataHoraBR(),
+      page_url: location.href,
+      referrer: document.referrer || "",
+      user_agent: navigator.userAgent || "",
+    },
   };
+  const body = JSON.stringify(lead);
   try {
-    fetch(LEADS_ENDPOINT, { method: "POST", mode: "no-cors",
-      headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(lead) });
+    // O webhook do Make só estrutura o lead quando recebe application/json
+    // (text/plain não é parseado). O webhook responde CORS, então o navegador
+    // pode mandar application/json em modo cors. keepalive garante que o POST
+    // sobreviva ao redirect pro diagnóstico (não é cancelado ao trocar de página).
+    fetch(LEADS_ENDPOINT, { method: "POST", keepalive: true,
+      headers: { "Content-Type": "application/json" }, body });
   } catch (e) { /* não bloqueia o lead */ }
 }
 
-const STORE_KEY = "stella_funil_imagem";
 const F = window.FLOW;
+const STORE_KEY = (F.config && F.config.storeKey) || "funil_quiz";
 const app = document.getElementById("app");
 const progressEl = document.getElementById("progress");
 
@@ -104,13 +140,12 @@ function renderStep(i) {
     </button>`).join("");
 
   const intro = i === 0 ? `
-      <span class="selo">${F.hero.selo}</span>
       <h1>${F.hero.titulo}</h1>
-      <p class="hint" style="margin:-4px 0 20px">${F.hero.tempo}</p>` : "";
+      <p class="lead">${F.hero.subtitulo}</p>
+      <p class="hint" style="margin:-2px 0 18px">${F.hero.tempo}</p>` : "";
   const screen = el(`
     <section class="card screen">
       ${intro}
-      <p class="eyebrow">${step.etapa}</p>
       <h2 id="q-${step.id}">${step.pergunta}</h2>
       <div class="options" role="radiogroup" aria-labelledby="q-${step.id}">${opts}</div>
       <div class="actions">
@@ -124,7 +159,7 @@ function renderStep(i) {
 
   const optionEls = [...screen.querySelectorAll(".opt")];
   let advancing = false;
-  // auto-avanço: escolher já leva pra próxima (maior conclusão/connect rate)
+  // auto-avanço: escolher já leva pra próxima (maior taxa de conclusão)
   function choose(node) {
     if (advancing) return;
     optionEls.forEach(o => { o.setAttribute("aria-checked", "false"); o.tabIndex = -1; });
@@ -237,8 +272,47 @@ function renderCaptura() {
     save();
     trackEvent("funnel_complete", { answers: { ...state.answers } });
     enviarLead();
-    setTimeout(() => { window.location.href = "diagnostico.html"; }, 600);
+    renderLoading();
   });
+}
+
+/* Tela de "preparando a leitura": barra que enche + mensagens, depois redireciona.
+   O tempo extra também garante a entrega do lead antes de trocar de página. */
+function renderLoading() {
+  progressEl.hidden = true;
+  trackEvent("step_view", { step_id: "loading" });
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const dur = reduce ? 800 : 4700;
+  const msgs = [
+    "Analisando as suas respostas...",
+    "Lendo o que a sua imagem comunica hoje...",
+    "Montando a sua leitura personalizada...",
+  ];
+  const screen = el(`
+    <section class="card screen loading-card">
+      <p class="eyebrow">Quase lá</p>
+      <h2>Preparando a sua Leitura de Imagem</h2>
+      <p class="lead" id="load-msg">${msgs[0]}</p>
+      <div class="load-track"><div class="load-bar" id="load-bar"></div></div>
+      <p class="hint" style="margin-top:16px">Estamos personalizando com base no que você respondeu.</p>
+    </section>`);
+  app.replaceChildren(screen);
+  scrollTop();
+
+  const bar = screen.querySelector("#load-bar");
+  const msgEl = screen.querySelector("#load-msg");
+  bar.style.transition = `width ${dur}ms cubic-bezier(.4,0,.2,1)`;
+  requestAnimationFrame(() => { bar.style.width = "100%"; });
+
+  if (!reduce) {
+    let i = 1;
+    const iv = setInterval(() => {
+      if (i < msgs.length) { msgEl.textContent = msgs[i++]; } else { clearInterval(iv); }
+    }, dur / msgs.length);
+  }
+
+  const dest = (F.config && F.config.diagnosticoUrl) || "diagnostico.html";
+  setTimeout(() => { window.location.href = dest; }, dur + 350);
 }
 
 /* ---------- navegação ---------- */
@@ -262,7 +336,7 @@ function offerResume(saved) {
     </div>`);
   app.replaceChildren(banner);
   banner.querySelector("#resume-yes").addEventListener("click", () => { state = saved; render(); });
-  banner.querySelector("#resume-no").addEventListener("click", () => { clearSaved(); state = { view: "hero", answers: {}, started: false }; render(); });
+  banner.querySelector("#resume-no").addEventListener("click", () => { clearSaved(); state = { view: 0, answers: {}, started: false }; render(); });
 }
 
 /* ---------- abandono ---------- */
@@ -272,7 +346,7 @@ window.addEventListener("beforeunload", () => {
 
 /* ---------- start ---------- */
 (function init() {
-  trackEvent("page_view", { funil: "inclusao" });
+  trackEvent("page_view", { funil: (F.config && F.config.frente) || "funil" });
   const saved = loadSaved();
   if (saved && saved.started && !(saved.answers && saved.answers._completedAt)) {
     offerResume(saved);

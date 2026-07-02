@@ -1,6 +1,7 @@
 /* ============================================================
-   DIAGNÓSTICO — monta a leitura de imagem a partir das respostas
-   do quiz (sessionStorage) e habilita "Baixar PDF" + WhatsApp.
+   DIAGNÓSTICO · Funil de Imagem · Stella Grützmann
+   Monta a leitura personalizada a partir das respostas do quiz
+   (sessionStorage) e habilita os CTAs de WhatsApp (distribuídos).
    Copy da estratégia aprovada. Sem travessão.
    ============================================================ */
 const STORE_KEY = "stella_funil_imagem";
@@ -23,8 +24,8 @@ if (!a._completedAt && !a.problema) {
   report.innerHTML = `
     <p class="eyebrow">Leitura de imagem</p>
     <h2>Ainda não temos suas respostas</h2>
-    <p class="lead">Parece que você chegou aqui sem fazer o teste. Leva ~2 minutos.</p>
-    <div class="actions"><a class="btn btn-primary btn-block" href="index.html">Fazer o teste agora</a></div>`;
+    <p class="lead">Parece que você chegou aqui sem fazer a leitura. Leva ~2 minutos.</p>
+    <div class="actions"><a class="btn btn-primary btn-block" href="index.html">Fazer agora</a></div>`;
 } else {
   const nome = esc((a.nomeResp || "").split(" ")[0]) || "tudo bem";
   const problema = frase("problema") || "o que mais te incomoda na imagem";
@@ -32,7 +33,9 @@ if (!a._completedAt && !a.problema) {
   const custo = frase("custo") || "continuar sendo subestimada pela sua imagem";
   const tentativa = frase("tentativas") || "buscar uma solução";
   const objetivo = frase("objetivo") || "uma imagem que comunique a sua autoridade";
-  const frio = ["esperar", "pesquisando"].includes(valor("qualificacao"));
+
+  const prontidaoVal = valor("prontidao");
+  const nutrir = prontidaoVal === "pontual" || prontidaoVal === "pesquisando";
 
   // recomendação inicial conforme o objetivo escolhido
   const RECO = {
@@ -42,6 +45,17 @@ if (!a._completedAt && !a.problema) {
     presenca: "uma estratégia de imagem por ocasião, para reuniões e eventos",
   };
   const reco = RECO[valor("objetivo")] || "o alinhamento entre a sua imagem e o seu objetivo";
+
+  // CTA adaptado à prontidão (Stella atende o Brasil e fora, sem filtro geográfico)
+  let ctaLabel, ctaExtra;
+  if (nutrir) {
+    ctaLabel = "Quero entender melhor como funciona";
+    ctaExtra = '<p class="hint">Sem compromisso. A Stella te explica como funciona e tira suas dúvidas, no seu tempo.</p>';
+  } else {
+    ctaLabel = "Quero agendar minha avaliação estratégica";
+    ctaExtra = '<p class="hint">Uma conversa individual, online, sem compromisso. A avaliação já te entrega clareza sobre a sua imagem, decida ou não seguir.</p>';
+  }
+  const ctaInline = `<div class="cta-inline"><button class="btn btn-primary cta-wpp">${ctaLabel}</button></div>`;
 
   report.innerHTML = `
     <div class="report-head">
@@ -68,8 +82,8 @@ if (!a._completedAt && !a.problema) {
       <h3>Por que não resolveu até agora</h3>
       <p>Você já chegou a <strong>${tentativa}</strong>. Faz sentido não ter resolvido: dica de
       moda foca na peça e na tendência, não no critério. Sem entender o que cada escolha comunica,
-      a gente compra mais e continua no mesmo lugar. Não é falta de bom gosto, é falta de
-      estratégia.</p>
+      a gente compra mais e continua no mesmo lugar. <strong>Não é falta de bom gosto, é falta de
+      estratégia.</strong></p>
     </div>
 
     <div class="etapa">
@@ -86,47 +100,59 @@ if (!a._completedAt && !a.problema) {
       </div>
     </div>
 
+    ${ctaInline}
+
     <div class="etapa">
-      <h3>O custo de continuar</h3>
-      <p>O que custa caro não é investir na sua imagem. É <strong>${custo}</strong>, perdendo
-      espaço para quem se posiciona melhor. O tempo passa do mesmo jeito. A diferença é como você
-      será vista no fim dele.</p>
+      <h3>Como a Stella trabalha</h3>
+      <p>Não é moda, é estratégia. Um processo individual, em quatro frentes, que fica com você:</p>
+      <ol class="metodo">
+        <li><strong>Mapeamento de estilo e temperamento:</strong> quem você é e a imagem que o seu momento pede.</li>
+        <li><strong>A psicologia por trás da imagem:</strong> o que cor, linha, forma e tecido comunicam sobre você.</li>
+        <li><strong>Estratégia personalizada:</strong> o que comprar, o que usar do que já tem, o que combina, o que evitar.</li>
+        <li><strong>Autonomia para sempre:</strong> o critério para você escolher sozinha, com segurança, todos os dias.</li>
+      </ol>
     </div>
 
     <div class="etapa">
       <h3>O que precisa acontecer agora</h3>
       <p>Pelo seu objetivo, o foco da sua estratégia começaria por <strong>${reco}</strong>. O que
-      você deseja, <strong>${objetivo}</strong>, é totalmente possível com um processo estruturado
-      de imagem: mapear o seu estilo, entender a psicologia por trás das escolhas e te dar o
-      critério para decidir sozinha, para sempre.</p>
+      você deseja, <strong>${objetivo}</strong>, é totalmente possível. O primeiro passo é uma
+      <strong>avaliação estratégica</strong>: uma conversa em que a Stella entende o seu momento e
+      te mostra o caminho.</p>
     </div>
+
+    ${ctaInline}
 
     <div class="etapa">
       <h3>Quem já viveu isso</h3>
       <div class="depo">[DEPOIMENTO 1]: inserir print/vídeo de cliente com antes e depois de imagem e de percepção profissional.</div>
       <div class="depo">[DEPOIMENTO 2]: inserir caso de cliente que ganhou segurança em reuniões e eventos.</div>
-      <p class="hint">O que essas histórias têm em comum: não mudou a competência. Mudou a estratégia da imagem.</p>
+      <p class="hint">O que essas histórias têm em comum: não mudou a competência. Mudou a estratégia da imagem.
+      <!-- Quando tiver os prints reais, troque os dois blocos [DEPOIMENTO] acima por:
+           <div class="depo-gallery">
+             <img class="depo-shot" src="depoimentos/01.jpeg" loading="lazy" alt="Depoimento de cliente" />
+             <img class="depo-shot" src="depoimentos/02.jpeg" loading="lazy" alt="Depoimento de cliente" />
+           </div> --></p>
     </div>
 
     <div class="cta-box">
-      <h2 style="margin-top:0">O próximo passo é simples${nome && nome !== "tudo bem" ? ", " + nome : ""}</h2>
-      <p>Uma <strong>avaliação estratégica</strong> com a Stella: uma conversa individual, online,
-      em que ela entende o seu momento e te mostra o caminho. Sem compromisso.</p>
-      ${frio ? '<p class="hint">Sem pressa. Fica o convite para quando fizer sentido pra você.</p>' : ""}
+      <h2 style="margin-top:0">O próximo passo${nome && nome !== "tudo bem" ? ", " + nome : ""}</h2>
+      <p>Alinhar a sua imagem à sua competência começa por uma conversa. Sem compromisso, no seu tempo.</p>
+      ${ctaExtra}
       <div class="actions" style="justify-content:center">
-        <button class="btn btn-primary" id="whatsapp-2">Quero agendar minha avaliação</button>
+        <button class="btn btn-primary cta-wpp">${ctaLabel}</button>
       </div>
       <p class="clube">Este resultado é uma leitura inicial baseada nas suas respostas. A avaliação estratégica é o passo que aprofunda o seu caso.</p>
     </div>`;
 }
 
-/* ---------- WhatsApp + PDF ---------- */
+/* ---------- WhatsApp (CTAs distribuídos: qualquer .cta-wpp abre a conversa) ---------- */
 function abrirWhatsApp() {
   const nome = (a.nomeResp || "").split(" ")[0] || "";
   const msg = (F.marca.whatsappMsg || "").replace("{nome}", nome);
   const url = `https://wa.me/${F.marca.whatsapp}?text=${encodeURIComponent(msg)}`;
   window.open(url, "_blank", "noopener");
 }
-document.getElementById("whatsapp")?.addEventListener("click", abrirWhatsApp);
-document.getElementById("pdf")?.addEventListener("click", () => window.print());
-document.addEventListener("click", (e) => { if (e.target && e.target.id === "whatsapp-2") abrirWhatsApp(); });
+document.addEventListener("click", (e) => {
+  if (e.target.closest && e.target.closest(".cta-wpp")) abrirWhatsApp();
+});
