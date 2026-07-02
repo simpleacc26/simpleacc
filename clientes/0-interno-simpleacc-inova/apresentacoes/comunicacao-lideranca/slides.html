@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comunicação Assertiva, Conflitos & Feedbacks — Carlos Durães</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#080808; --dark:#0e0e0e; --dark-2:#141414; --card:#1a1a1a; --card-2:#111111;
+    --gold:#dab06a; --gold-bright:#e8c97a; --gold-dim:#a07a42; --gold-glow:rgba(218,176,106,.18);
+    --white:#ffffff; --ice:#f5f0e8; --soft:#c4c4b8; --muted:#888880; --steel:#666660;
+    --line:#2a2a2a; --line-gold:rgba(218,176,106,.25);
+    --display:"Cormorant Garamond",Georgia,serif;
+    --body:"Inter",system-ui,sans-serif;
+    --mono:"Space Grotesk",system-ui,sans-serif;
+    --green:#5a9e6f; --green-bg:rgba(30,64,40,.35); --green-line:#2f5a3e;
+    --red:#b05a5a; --red-bg:rgba(64,20,20,.35); --red-line:#5a2f2f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%;overflow:hidden}
+  body{font-family:var(--body);background:var(--dark);color:var(--white);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+
+  /* DECK */
+  .deck{position:fixed;inset:0}
+  .slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:7vh 7.5vw;opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .4s ease,transform .4s ease,visibility .4s;overflow:auto}
+  .slide.active{opacity:1;visibility:visible;transform:none;z-index:2}
+
+  /* BACKGROUNDS */
+  .bg-dark{background:radial-gradient(900px 500px at 8% 0%,rgba(218,176,106,.10),transparent 55%),linear-gradient(160deg,#141414 0%,#0e0e0e 55%,#080808 120%)}
+  .bg-deep{background:radial-gradient(700px 500px at 92% 5%,rgba(218,176,106,.09),transparent 55%),linear-gradient(150deg,#0e0e0e 0%,#0b0b0b 70%,#080808 120%)}
+  .bg-gold{background:linear-gradient(150deg,#1a1208,#2a1e0a)}
+  .bg-split{background:linear-gradient(135deg,#111108 0%,#0e0e0e 100%)}
+
+  /* TIPOGRAFIA */
+  .eyebrow{font-family:var(--mono);font-weight:600;text-transform:uppercase;letter-spacing:.22em;font-size:11px;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:14px}
+  .eyebrow::after{content:"";height:1px;width:38px;background:var(--gold);opacity:.5}
+  h1.kicker{font-family:var(--display);font-weight:600;line-height:1.0;font-size:clamp(38px,6.5vw,86px);letter-spacing:-.01em}
+  h1.kicker .ac{color:var(--gold)}
+  h2.title{font-family:var(--display);font-weight:600;line-height:1.06;font-size:clamp(28px,4.5vw,58px);letter-spacing:-.01em;margin-bottom:8px}
+  h2.title .ac{color:var(--gold)}
+  .lead{font-size:clamp(15px,1.6vw,19px);color:var(--soft);max-width:68ch;line-height:1.65;margin-top:14px}
+  .lead b{color:var(--white);font-weight:600}
+  .flare{height:2px;width:56px;background:var(--gold);margin:22px 0;border-radius:2px;opacity:.9}
+  .big-num{font-family:var(--display);font-weight:700;line-height:.85;font-size:clamp(80px,16vw,210px);letter-spacing:-.03em;color:var(--gold)}
+  .big-num .unit{font-size:.24em;color:var(--gold-dim);font-weight:500}
+  .num-label{font-size:clamp(15px,1.7vw,20px);color:var(--soft);margin-top:18px;max-width:52ch;line-height:1.6}
+  .punch{font-family:var(--display);font-weight:600;font-size:clamp(26px,4.2vw,58px);line-height:1.1;max-width:26ch;letter-spacing:-.01em}
+  .punch .ac{color:var(--gold)}
+  .src{font-size:13px;letter-spacing:.03em;color:var(--muted);margin-top:22px;font-style:italic}
+  .lema{font-family:var(--display);font-weight:600;font-size:clamp(30px,5.2vw,72px);line-height:1.1;max-width:22ch;letter-spacing:-.01em}
+  .lema .ac{color:var(--gold)}
+
+  /* LISTAS REVEAL */
+  ul.reveal{list-style:none;margin-top:24px;max-width:84ch}
+  ul.reveal li{font-size:clamp(15px,1.55vw,19px);line-height:1.55;padding:13px 0 13px 26px;position:relative;border-bottom:1px solid var(--line);color:#d0d0c4;opacity:0;transform:translateY(8px);transition:opacity .4s ease,transform .4s ease}
+  ul.reveal li:last-child{border-bottom:none}
+  ul.reveal li.show{opacity:1;transform:none}
+  ul.reveal li::before{content:"";position:absolute;left:4px;top:22px;width:10px;height:2px;background:var(--gold);border-radius:2px}
+  ul.reveal li b{color:var(--white);font-weight:600}
+  ul.reveal li .tag{font-family:var(--mono);font-weight:600;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:3px}
+
+  /* GRIDS */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:26px}
+  .split{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center}
+
+  /* CARDS */
+  .card{background:var(--card);border-radius:12px;padding:22px 22px 24px;position:relative;overflow:hidden;border:1px solid var(--line);opacity:0;transform:translateY(12px);transition:opacity .45s ease,transform .45s ease}
+  .card.show{opacity:1;transform:none}
+  .card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold)}
+  .card .ck{font-family:var(--mono);font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+  .card h3{font-family:var(--display);font-weight:600;font-size:20px;margin-bottom:8px;line-height:1.15}
+  .card p{font-size:13.5px;color:#aaa89c;line-height:1.55}
+  .card p b{color:#d8d8cc;font-weight:600}
+  .card .stat{font-family:var(--display);font-weight:700;font-size:36px;color:var(--gold);line-height:1;margin-bottom:6px}
+
+  /* NUMBERED ROWS */
+  .nlist{margin-top:22px;display:flex;flex-direction:column;gap:10px;max-width:94ch}
+  .nrow{display:grid;grid-template-columns:52px 1fr;gap:18px;align-items:center;background:var(--card-2);border-radius:10px;padding:14px 20px;border-left:2px solid var(--gold);opacity:0;transform:translateX(-10px);transition:opacity .4s ease,transform .4s ease}
+  .nrow.show{opacity:1;transform:none}
+  .nrow .n{font-family:var(--display);font-weight:700;font-size:28px;color:var(--gold);line-height:1}
+  .nrow h3{font-family:var(--display);font-weight:600;font-size:18px;margin-bottom:2px}
+  .nrow p{font-size:14px;color:#9a9a8e;line-height:1.45}
+
+  /* BEFORE/AFTER */
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px;max-width:100ch}
+  .ba .col{border-radius:12px;padding:20px 22px;opacity:0;transform:translateY(10px);transition:opacity .4s ease,transform .4s ease}
+  .ba .col.show{opacity:1;transform:none}
+  .ba .no{background:var(--red-bg);border:1px solid var(--red-line)}
+  .ba .yes{background:var(--green-bg);border:1px solid var(--green-line)}
+  .ba .h{font-family:var(--mono);font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px}
+  .ba .no .h{color:#d98a82}.ba .yes .h{color:#7ec99f}
+  .ba .col p{font-size:14.5px;line-height:1.5;color:#ccc8bc}
+  .ba .col .quote{font-style:italic;color:var(--white);font-size:15px;line-height:1.5}
+
+  /* PILLS */
+  .pill-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px;max-width:86ch}
+  .pill{border:1px solid var(--line);border-radius:30px;padding:9px 18px;font-weight:600;font-size:13px;letter-spacing:.03em;color:#c0c0b4;background:var(--card-2)}
+  .pill.hot{border-color:var(--gold-dim);color:var(--gold-bright);background:var(--gold-glow)}
+
+  /* FLOW */
+  .flow{display:flex;align-items:stretch;gap:0;margin-top:24px;flex-wrap:wrap}
+  .flow .fst{flex:1;min-width:110px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 14px;position:relative}
+  .flow .fst .fn{font-family:var(--mono);font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+  .flow .fst h4{font-family:var(--display);font-weight:600;font-size:17px;margin:5px 0 4px}
+  .flow .fst p{font-size:12px;color:#888882;line-height:1.4}
+  .flow .arr{display:flex;align-items:center;justify-content:center;padding:0 7px;color:var(--gold-dim);font-size:18px;font-weight:700}
+
+  /* TIMELABEL */
+  .time{position:absolute;top:18px;right:96px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--steel);text-transform:uppercase}
+
+  /* TOPBAR */
+  .topbar{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:16px 28px;z-index:50;pointer-events:none}
+  .topbar .brand{display:flex;align-items:center;gap:10px}
+  .topbar .logo-simple{font-family:var(--mono);font-weight:700;letter-spacing:.22em;font-size:12px;color:var(--white)}
+  .topbar .logo-dot{width:5px;height:5px;background:var(--gold);border-radius:50%}
+  .topbar .logo-mentoria{font-family:var(--display);font-size:13px;color:var(--gold);font-weight:600;letter-spacing:.04em}
+  .topbar .step{font-family:var(--mono);font-weight:600;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--steel)}
+
+  /* PROGRESS */
+  .progress{position:fixed;bottom:0;left:0;height:2px;background:var(--gold);width:0;z-index:60;transition:width .4s ease}
+
+  /* NAV */
+  .nav{position:fixed;bottom:16px;right:24px;display:flex;align-items:center;gap:12px;z-index:60}
+  .nav button{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:rgba(14,14,14,.8);color:var(--white);font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s;backdrop-filter:blur(6px)}
+  .nav button:hover{border-color:var(--gold-dim);background:var(--gold-glow)}
+  .nav .count{font-family:var(--mono);font-weight:600;font-size:11px;letter-spacing:.1em;color:var(--steel);min-width:60px;text-align:center}
+
+  /* CRED CARDS */
+  .cred{background:var(--card-2);border:1px solid var(--line-gold);border-radius:12px;padding:18px 20px;margin-top:8px;opacity:0;transform:translateY(8px);transition:opacity .4s ease,transform .4s ease}
+  .cred.show{opacity:1;transform:none}
+  .cred .label-c{font-family:var(--mono);font-weight:700;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+  .cred .val{font-family:var(--display);font-weight:600;font-size:22px;color:var(--white)}
+  .cred .sub{font-size:13px;color:var(--muted);margin-top:4px}
+
+  /* MOBILE */
+  @media(max-width:860px){.slide{padding:9vh 6vw}.grid3,.grid2,.ba,.split{grid-template-columns:1fr}.time{display:none}.nav{right:12px}}
+  @media(prefers-reduced-motion:reduce){.slide,.card,.nrow,.ba .col,ul.reveal li,.cred{transition:opacity .2s ease}.slide{transform:none}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand">
+    <span class="logo-simple">SIMPLE</span>
+    <span class="logo-dot"></span>
+    <span class="logo-mentoria">Liderança Próspera</span>
+  </div>
+  <span class="step" id="stepMark">Comunicação · Conflitos · Feedbacks</span>
+</div>
+<div class="time" id="timeMark"></div>
+
+<div class="deck" id="deck">
+
+  <!-- ===== ABERTURA (~4 min) ===== -->
+
+  <section class="slide bg-dark active" data-step="Abertura" data-time="00:00">
+    <h1 class="kicker">Comunicação<br>Assertiva,<br><span class="ac">Conflitos</span><br>& Feedbacks</h1>
+    <div class="flare"></div>
+    <p class="lead">Como liderar conversas difíceis, resolver tensões e construir uma cultura de feedback real — especialmente no trabalho remoto.</p>
+  </section>
+
+  <section class="slide bg-deep" data-step="Abertura" data-time="00:30">
+    <div class="eyebrow">O paradoxo que abre tudo</div>
+    <div class="big-num">80<span class="unit">%</span></div>
+    <p class="num-label">dos conflitos em times remotos não surgem de divergências reais. Surgem de <b style="color:#fff">mensagens mal enviadas</b> — ou nem enviadas.</p>
+  </section>
+
+  <section class="slide bg-dark" data-step="Abertura" data-time="01:20">
+    <div class="split">
+      <div>
+        <div class="eyebrow">Quem está aqui com você</div>
+        <h2 class="title">Fui de analista<br>a diretor em <span class="ac">3 anos</span></h2>
+        <ul class="reveal" style="margin-top:18px">
+          <li><b>8 promoções em 3 anos</b> — analista júnior → diretor-geral, em tempo recorde.</li>
+          <li><b>Head de Operações & Entrega</b> na Simple Acc — gestão de times remotos no dia a dia.</li>
+          <li><b>Co-fundador da Mentoria Liderança Próspera</b> — ajudo líderes a saírem da centralização.</li>
+          <li>Antes: de auxiliar a gerente-geral em <b>4 anos</b>. Consistência antes de velocidade.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="cred"><div class="label-c">Resultado que falo porque vivi</div><div class="val">8 promoções</div><div class="sub">Analista Júnior → Diretor-Geral · 3 anos</div></div>
+        <div class="cred" style="margin-top:12px"><div class="label-c">Hoje</div><div class="val">Head de Ops & Entrega</div><div class="sub">Simple Acc · gestão de times 100% remotos</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide bg-gold" data-step="Abertura" data-time="03:00">
+    <div class="eyebrow" style="color:var(--dark-2)">O que você vai sair daqui sabendo</div>
+    <h2 class="title" style="color:var(--dark)">3 blocos.<br>45 minutos.<br>Aplicável amanhã.</h2>
+    <div class="nlist">
+      <div class="nrow show" style="background:rgba(8,8,8,.5);border-left-color:#0e0e0e"><div class="n" style="color:var(--dark)">1</div><div><h3 style="color:var(--dark)">Comunicação Assertiva no Remoto</h3><p style="color:#5a4a30">Como enviar, receber e alinhar sem perder clareza ou respeito.</p></div></div>
+      <div class="nrow show" style="background:rgba(8,8,8,.5);border-left-color:#0e0e0e"><div class="n" style="color:var(--dark)">2</div><div><h3 style="color:var(--dark)">Gestão de Conflitos</h3><p style="color:#5a4a30">Como identificar, desescalar e resolver antes que quebre o time.</p></div></div>
+      <div class="nrow show" style="background:rgba(8,8,8,.5);border-left-color:#0e0e0e"><div class="n" style="color:var(--dark)">3</div><div><h3 style="color:var(--dark)">Dar e Receber Feedbacks</h3><p style="color:#5a4a30">Como fazer feedback virar ferramenta — não conversa temida.</p></div></div>
+    </div>
+  </section>
+
+  <!-- ===== PARTE 1 · COMUNICAÇÃO ASSERTIVA (~12 min) ===== -->
+
+  <section class="slide bg-dark" data-step="Parte 1 · Comunicação Assertiva" data-time="04:00">
+    <div class="eyebrow">Parte 1 de 3</div>
+    <h1 class="kicker">Comunicação<br><span class="ac">Assertiva</span><br>no Remoto</h1>
+    <p class="lead">O problema não é o que você quer dizer. É o que chega do outro lado.</p>
+  </section>
+
+  <section class="slide bg-deep" data-step="Parte 1 · Comunicação Assertiva" data-time="05:00">
+    <div class="eyebrow">Por que o remoto é diferente</div>
+    <h2 class="title">93% da comunicação<br><span class="ac">desaparece</span></h2>
+    <p class="lead">No presencial, 55% da mensagem é linguagem corporal, 38% é tom de voz. No remoto, você fica com <b>7% — só as palavras</b>. O contexto que você não escreve, o outro inventa.</p>
+    <div class="ba" style="margin-top:28px">
+      <div class="col no show"><div class="h">O que acontece</div><p>"Tá." · "Ok." · "Vou ver." — lido como grosseria, desinteresse ou resistência passiva.</p></div>
+      <div class="col yes show"><div class="h">O que precisamos fazer</div><p>Compensar o que o presencial dá de graça: clareza explícita, contexto escrito, intenção declarada.</p></div>
+    </div>
+  </section>
+
+  <section class="slide bg-dark" data-step="Parte 1 · Comunicação Assertiva" data-time="06:30">
+    <div class="eyebrow">O espectro da comunicação</div>
+    <h2 class="title">Passivo · <span class="ac">Assertivo</span> · Agressivo</h2>
+    <div class="grid3">
+      <div class="card show">
+        <div class="ck" style="color:#888">Passivo</div>
+        <h3>Evita o conflito</h3>
+        <p>Não fala o que pensa. Concorda por fora, resiste por dentro. Gera frustração acumulada e ressentimento silencioso.</p>
+      </div>
+      <div class="card show" style="border-color:var(--gold-dim)">
+        <div class="ck">Assertivo ✓</div>
+        <h3>Fala o que pensa<br>com respeito</h3>
+        <p>Expressa posição clara. Escuta genuinamente. Busca solução — não vitória. <b>É aqui que líderes fortes vivem.</b></p>
+      </div>
+      <div class="card show">
+        <div class="ck" style="color:var(--red)">Agressivo</div>
+        <h3>Impõe sem ouvir</h3>
+        <p>Fala o que pensa sem filtro. Ganha o argumento, perde a pessoa. Gera medo — não respeito.</p>
+      </div>
+    </div>
+    <p class="src">Assertividade não é ser "duro nem mole" — é ser claro com intenção de construir.</p>
+  </section>
+
+  <section class="slide bg-deep" data-step="Parte 1 · Comunicação Assertiva" data-time="08:00">
+    <div class="eyebrow">Os erros que destroem o remoto</div>
+    <h2 class="title">Os 3 erros<br>mais comuns</h2>
+    <ul class="reveal">
+      <li><span class="tag">Erro 1</span><b>Mensagem ambígua.</b> "Preciso disso logo" — logo quando? Para o outro pode ser sexta; para você é hoje. Sem prazo explícito, cada um interpreta diferente.</li>
+      <li><span class="tag">Erro 2</span><b>Feedback implícito.</b> Deixar de responder, dar um "👍" ou mudar o assunto como resposta. O silêncio no remoto vira ansiedade — nunca clareza.</li>
+      <li><span class="tag">Erro 3</span><b>Resolver conflito por escrito.</b> Texto é o pior formato para tensão. Sem tom, sem expressão — qualquer frase pode ser lida como ataque.</li>
+    </ul>
+  </section>
+
+  <section class="slide bg-dark" data-step="Parte 1 · Comunicação Assertiva" data-time="09:30">
+    <div class="eyebrow">O framework que resolve</div>
+    <h2 class="title">C · P · A · P</h2>
+    <div class="nlist">
+      <div class="nrow show"><div class="n">C</div><div><h3>Contexto</h3><p>Por que você está mandando essa mensagem agora? Qual é o cenário? 1–2 frases.</p></div></div>
+      <div class="nrow show"><div class="n">P</div><div><h3>Ponto</h3><p>Qual é a sua posição, pedido ou preocupação — direto, sem rodeio.</p></div></div>
+      <div class="nrow show"><div class="n">A</div><div><h3>Ação esperada</h3><p>O que você espera do outro: decidir, responder, executar, apenas saber?</p></div></div>
+      <div class="nrow show"><div class="n">P</div><div><h3>Prazo</h3><p>Quando. Sempre. "Sem urgência" também é um prazo.</p></div></div>
+    </div>
+    <p class="src">"Oi, sobre o relatório de segunda (C) — precisamos mudar o formato (P). Você consegue ajustar até amanhã 18h? (A+P)"</p>
+  </section>
+
+  <section class="slide bg-deep" data-step="Parte 1 · Comunicação Assertiva" data-time="11:00">
+    <div class="eyebrow">Rituais que sustentam o time</div>
+    <h2 class="title">Comunicação<br>não é só mensagem<br>— é <span class="ac">sistema</span></h2>
+    <div class="grid2">
+      <div class="card show"><div class="ck">Daily ou check-in</div><h3>3 perguntas curtas</h3><p>O que fiz ontem. O que farei hoje. O que está me travando. <b>5 min, assíncrono ou síncrono.</b></p></div>
+      <div class="card show"><div class="ck">Canal de bloqueios</div><h3>Transparência de gargalos</h3><p>Um canal só para "estou travado em X". Remove o custo social de pedir ajuda.</p></div>
+      <div class="card show"><div class="ck">Regra do canal certo</div><h3>Urgência define o meio</h3><p>WhatsApp = urgente. Notion/Doc = referência. Meeting = decisão complexa. <b>Email = nunca urgente.</b></p></div>
+      <div class="card show"><div class="ck">Norma de resposta</div><h3>Expectativa clara</h3><p>Defina: mensagem de trabalho tem resposta em até X horas no horário útil. Remove a ansiedade do "foi entregue mas não leu".</p></div>
+    </div>
+  </section>
+
+  <!-- ===== PARTE 2 · GESTÃO DE CONFLITOS (~13 min) ===== -->
+
+  <section class="slide bg-dark" data-step="Parte 2 · Gestão de Conflitos" data-time="16:00">
+    <div class="eyebrow">Parte 2 de 3</div>
+    <h1 class="kicker">Gestão de<br><span class="ac">Conflitos</span></h1>
+    <p class="lead">Conflito não é problema. É sintoma. O problema é quando o líder não sabe o que fazer com ele.</p>
+  </section>
+
+  <section class="slide bg-deep" data-step="Parte 2 · Gestão de Conflitos" data-time="17:00">
+    <div class="eyebrow">Reframe essencial</div>
+    <h2 class="punch">Conflito saudável<br>é sinal de <span class="ac">time que pensa</span>.</h2>
+    <p class="lead" style="margin-top:24px">Time sem conflito não é time unido — é time com medo de falar. O objetivo não é eliminar conflito. É <b>saber diferenciar o útil do destrutivo</b> e saber navegar.</p>
+    <div class="ba" style="margin-top:22px">
+      <div class="col yes show"><div class="h">Conflito produtivo</div><p>Dois pontos de vista diferentes sobre como resolver um problema. Gera melhores decisões.</p></div>
+      <div class="col no show"><div class="h">Conflito destrutivo</div><p>Sobre quem está certo, não sobre o que é certo. Vira pessoal. Consome energia sem gerar nada.</p></div>
+    </div>
+  </section>
+
+  <section class="slide bg-dark" data-step="Parte 2 · Gestão de Conflitos" data-time="18:30">
+    <div class="eyebrow">Onde o conflito mora</div>
+    <h2 class="title">Os 3 tipos —<br>e qual é o <span class="ac">mais perigoso</span></h2>
+    <div class="grid3">
+      <div class="card show">
+        <div class="ck">Tarefa</div>
+        <h3>Sobre o quê fazer</h3>
+        <p>Discordância sobre prioridade, solução ou resultado esperado. <b>O mais saudável dos 3</b> — resolve com dados e critérios claros.</p>
+      </div>
+      <div class="card show">
+        <div class="ck">Processo</div>
+        <h3>Sobre como fazer</h3>
+        <p>Diferença de método, ritmo ou responsabilidade. Moderadamente perigoso — resolve com processo documentado.</p>
+      </div>
+      <div class="card show" style="border-top-color:var(--red)">
+        <div class="ck" style="color:var(--red)">Relacionamento ⚠</div>
+        <h3>Sobre quem a pessoa é</h3>
+        <p>Atrito pessoal. Não é mais sobre a tarefa. <b>O mais destruidor — e o mais difícil de reverter.</b> Age rápido, antes de virar isso.</p>
+      </div>
+    </div>
+    <p class="src">A progressão natural: conflito de tarefa ignorado → vira processo → vira relacionamento. Age antes de subir de nível.</p>
+  </section>
+
+  <section class="slide bg-deep" data-step="Parte 2 · Gestão de Conflitos" data-time="20:30">
+    <div class="eyebrow">Como o líder costuma errar</div>
+    <h2 class="title">Os 3 erros<br>do líder <span class="ac">bombeiro</span></h2>
+    <ul class="reveal">
+      <li><span class="tag">Erro 1</span><b>Ignorar e torcer para passar.</b> Conflito não resolvido não desaparece — fermenta. Quando explode, está maior, mais pessoal e mais caro de resolver.</li>
+      <li><span class="tag">Erro 2</span><b>Apagar o incêndio sem resolver a causa.</b> Convence as partes a "se acertarem" sem entender o que gerou o conflito. Semana que vem, está de volta.</li>
+      <li><span class="tag">Erro 3</span><b>Escolher um lado.</b> O líder que escolhe lado perde a autoridade com quem ficou de fora — mesmo que seja o lado "certo". Você não é juiz. Você é facilitador.</li>
+    </ul>
+  </section>
+
+  <section class="slide bg-dark" data-step="Parte 2 · Gestão de Conflitos" data-time="22:30">
+    <div class="eyebrow">O protocolo que funciona</div>
+    <h2 class="title">E · E · R</h2>
+    <div class="nlist">
+      <div class="nrow show"><div class="n">E</div><div><h3>Escutar — separado</h3><p>Antes de juntar as partes, ouça cada um separadamente. Sem interromper, sem julgar, sem já ter a resposta. Pergunte: <em>"Me conta como você viu a situação."</em></p></div></div>
+      <div class="nrow show"><div class="n">E</div><div><h3>Entender — o real</h3><p>O conflito declarado raramente é o conflito real. Pergunte: <em>"O que você precisava que não chegou?"</em> — ali está a causa raiz.</p></div></div>
+      <div class="nrow show"><div class="n">R</div><div><h3>Resolver — juntos</h3><p>Reúna as partes com os fatos, não com os julgamentos. Defina o que muda, quem faz o quê e quando. Documente.</p></div></div>
+    </div>
+    <p class="src">A única pergunta que resolve 80% dos conflitos: <b>"O que você precisava que não chegou?"</b></p>
+  </section>
+
+  <section class="slide bg-deep" data-step="Parte 2 · Gestão de Conflitos" data-time="25:00">
+    <div class="eyebrow">O caso especial</div>
+    <h2 class="title">E quando o conflito<br>é <span class="ac">com você</span>?</h2>
+    <div class="ba" style="margin-top:22px">
+      <div class="col no show"><div class="h">O instinto</div><p class="quote">Defender sua posição. Explicar o porquê da decisão antes de ouvir. Usar a hierarquia.</p></div>
+      <div class="col yes show"><div class="h">O que líderes maduros fazem</div><p><b>Pedem a perspectiva antes de dar a explicação.</b> "Me conta o que te incomodou." A hierarquia não elimina o conflito — só o empurra para baixo da superfície.</p></div>
+    </div>
+    <p class="src">Vulnerabilidade intencional não é fraqueza — é a ferramenta mais poderosa de um líder seguro.</p>
+  </section>
+
+  <!-- ===== PARTE 3 · FEEDBACKS (~13 min) ===== -->
+
+  <section class="slide bg-dark" data-step="Parte 3 · Feedbacks" data-time="29:00">
+    <div class="eyebrow">Parte 3 de 3</div>
+    <h1 class="kicker">Dar &<br>Receber<br><span class="ac">Feedbacks</span></h1>
+    <p class="lead">A conversa mais evitada no trabalho é a que mais acelera crescimento.</p>
+  </section>
+
+  <section class="slide bg-deep" data-step="Parte 3 · Feedbacks" data-time="30:00">
+    <div class="eyebrow">Por que a maioria trava</div>
+    <h2 class="punch">O medo não é<br>de dar. É de <span class="ac">magoar</span>.</h2>
+    <p class="lead" style="margin-top:22px">Quem dá tem medo de parecer cruel, de perder a relação, de não ter razão. Quem recebe tem medo de ser julgado, de parecer incompetente, de que vai mudar como te veem. <b>Os dois lados estão errados sobre o risco real.</b></p>
+    <p class="src">Feedback que nunca é dado não some — vira resignação silenciosa, microgerenciamento ou demissão surpresa.</p>
+  </section>
+
+  <section class="slide bg-dark" data-step="Parte 3 · Feedbacks" data-time="31:30">
+    <div class="eyebrow">Como dar feedback que funciona</div>
+    <h2 class="title">Modelo <span class="ac">S · C · I</span></h2>
+    <div class="nlist">
+      <div class="nrow show"><div class="n">S</div><div><h3>Situação</h3><p>Âncora no fato concreto, não no julgamento. <em>"Na reunião de terça, quando o cliente perguntou sobre o prazo..."</em></p></div></div>
+      <div class="nrow show"><div class="n">C</div><div><h3>Comportamento</h3><p>O que a pessoa fez ou não fez — observável, não interpretável. <em>"...você disse que não sabia sem consultar o time primeiro."</em></p></div></div>
+      <div class="nrow show"><div class="n">I</div><div><h3>Impacto</h3><p>O que isso gerou de concreto. <em>"O cliente ficou inseguro e pediu reunião extra — isso custou 2h do time."</em></p></div></div>
+    </div>
+    <p class="src">Feedback sem Situação é julgamento. Sem Comportamento é vago. Sem Impacto é sem peso. Os 3 juntos = conversa que muda comportamento.</p>
+  </section>
+
+  <section class="slide bg-deep" data-step="Parte 3 · Feedbacks" data-time="33:30">
+    <div class="eyebrow">O que NÃO é feedback</div>
+    <h2 class="title">Feedback é<br><span class="ac">específico</span> ou<br>não é feedback</h2>
+    <ul class="reveal">
+      <li><span class="tag">Não é feedback</span><b>"Você precisa ser mais proativo."</b> — o que isso significa? Quem decide o que é ser proativo? Sem âncora no comportamento, a pessoa não sabe o que mudar.</li>
+      <li><span class="tag">Não é feedback</span><b>"Você foi incrível hoje!"</b> — elogio vazio. Ótimo para motivar; péssimo para desenvolver. O que exatamente foi incrível? O que repetir?</li>
+      <li><span class="tag">Não é feedback</span><b>"Você sempre faz isso."</b> — "sempre" e "nunca" são armas, não fatos. Invalida o ponto e transforma a conversa em defesa.</li>
+      <li><span class="tag">Não é feedback</span><b>"Isso é só minha opinião..."</b> — feedback com disclaimer perde força antes de começar. Fale com clareza ou não fale.</li>
+    </ul>
+  </section>
+
+  <section class="slide bg-dark" data-step="Parte 3 · Feedbacks" data-time="35:30">
+    <div class="eyebrow">O lado mais difícil</div>
+    <h2 class="title">Como <span class="ac">receber</span><br>sem reagir</h2>
+    <div class="ba" style="margin-top:22px">
+      <div class="col no show"><div class="h">O instinto defensivo</div><p>Explicar imediatamente. Dar contexto antes de ouvir. Contra-atacar. Concordar só pra acabar. Ficar ruminando horas depois.</p></div>
+      <div class="col yes show">
+        <div class="h">O protocolo de 4 passos</div>
+        <p><b>1. Respira.</b> Reação emocional é fisiológica — 3 segundos antes de falar.<br><b>2. Entende antes de discordar.</b> "Me dá um exemplo?"<br><b>3. Agradeça o incômodo.</b> Quem deu feedback investiu em você.<br><b>4. Decide depois.</b> Você não tem que concordar agora — processa e decide em 24h.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="slide bg-deep" data-step="Parte 3 · Feedbacks" data-time="38:00">
+    <div class="eyebrow">O que muda tudo</div>
+    <h2 class="title">Feedback contínuo<br>elimina a <span class="ac">conversa difícil</span></h2>
+    <p class="lead">A "conversa difícil" de fim de ano existe porque ninguém falou nada no resto do ano. Quando feedback é ritual, não é mais surpresa — e surpresa é o que machuca.</p>
+    <div class="grid2" style="margin-top:22px">
+      <div class="card show"><div class="ck">Ritual 1:1</div><h3>Uma vez por semana</h3><p>30 min, sem pauta de projeto. Só: o que está indo bem, o que está pesado e o que precisa mudar. <b>Previne 80% das "conversas difíceis".</b></p></div>
+      <div class="card show"><div class="ck">Elogio público</div><h3>Comportamento específico</h3><p>"João, na reunião de ontem você X e isso fez Y." Modela o que é valorizado — sem precisar de manual de cultura.</p></div>
+      <div class="card show"><div class="ck">Correção privada</div><h3>Sempre 1:1, sempre imediato</h3><p>Correção pública humilha — não educa. E "imediato" significa no mesmo dia, quando a memória ainda está fresca dos dois lados.</p></div>
+      <div class="card show"><div class="ck">Feedback de cima pra baixo</div><h3>Peça sobre você</h3><p>"O que eu poderia fazer diferente para te ajudar mais?" — o líder que pede feedback sobre si mesmo cria cultura de feedback para o time.</p></div>
+    </div>
+  </section>
+
+  <!-- ===== FECHAMENTO (~3 min) ===== -->
+
+  <section class="slide bg-dark" data-step="Fechamento" data-time="42:00">
+    <div class="eyebrow">O resumo de tudo</div>
+    <h2 class="title">Os 3 <span class="ac">takeaways</span></h2>
+    <ul class="reveal">
+      <li><b>Comunicação assertiva não é talento — é sistema.</b> Use C.P.A.P.: contexto, ponto, ação esperada, prazo. No remoto, o que não está escrito não existe.</li>
+      <li><b>Conflito que você não trata hoje, você paga mais caro amanhã.</b> Identifique o tipo (tarefa, processo, relacionamento) e use E.E.R. antes de virar incêndio.</li>
+      <li><b>Cultura de feedback contínuo é o que elimina a conversa difícil.</b> SCI para dar. 4 passos para receber. 1:1 semanal para prevenir.</li>
+    </ul>
+  </section>
+
+  <section class="slide bg-deep" data-step="Fechamento" data-time="43:30">
+    <div class="eyebrow">Pra fechar</div>
+    <h2 class="lema">Liderar bem<br>não é evitar<br><span class="ac">conversas difíceis</span>.<br>É torná-las<br>desnecessárias.</h2>
+  </section>
+
+  <section class="slide bg-dark" data-step="Fechamento" data-time="44:30">
+    <div class="eyebrow">Se isso ressoou</div>
+    <h2 class="title">Próximos passos</h2>
+    <p class="lead">Se você quer aprofundar liderança estratégica — sair da centralização, construir time autônomo e escalar sem se destruir:</p>
+    <div class="pill-row" style="margin-top:20px">
+      <span class="pill hot">Mentoria Liderança Próspera</span>
+      <span class="pill">@carlosdurae.s</span>
+    </div>
+    <p class="src" style="margin-top:16px">Perguntas? Temos 15 minutos.</p>
+  </section>
+
+</div>
+
+<div class="progress" id="progress"></div>
+
+<div class="nav">
+  <button id="prev" aria-label="Anterior">‹</button>
+  <span class="count" id="count">01 / 24</span>
+  <button id="next" aria-label="Próximo">›</button>
+</div>
+
+<script>
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  let i = 0;
+  const countEl = document.getElementById('count');
+  const progressEl = document.getElementById('progress');
+  const stepEl = document.getElementById('stepMark');
+  const timeEl = document.getElementById('timeMark');
+  const pad = n => String(n).padStart(2,'0');
+
+  function revealItems(slide){
+    const items = slide.querySelectorAll('.reveal li, .card, .nrow, .ab .col, .ba .col, .cred');
+    items.forEach((el,idx)=>{
+      el.classList.remove('show');
+      setTimeout(()=>el.classList.add('show'), 100 + idx*90);
+    });
+  }
+
+  function show(n){
+    i = Math.max(0, Math.min(slides.length-1, n));
+    slides.forEach((s,idx)=>s.classList.toggle('active', idx===i));
+    countEl.textContent = pad(i+1) + ' / ' + pad(slides.length);
+    progressEl.style.width = ((i+1)/slides.length*100) + '%';
+    stepEl.textContent = slides[i].dataset.step || '';
+    timeEl.textContent = slides[i].dataset.time ? 'min ' + slides[i].dataset.time : '';
+    revealItems(slides[i]);
+  }
+
+  document.getElementById('next').onclick = ()=>show(i+1);
+  document.getElementById('prev').onclick = ()=>show(i-1);
+
+  document.addEventListener('keydown', e=>{
+    if(['ArrowRight',' ','PageDown'].includes(e.key)){e.preventDefault();show(i+1);}
+    if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();show(i-1);}
+    if(e.key==='Home') show(0);
+    if(e.key==='End') show(slides.length-1);
+    if(e.key==='f'||e.key==='F'){
+      if(!document.fullscreenElement) document.documentElement.requestFullscreen();
+      else document.exitFullscreen();
+    }
+  });
+
+  let x0=null;
+  document.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;},{passive:true});
+  document.addEventListener('touchend',e=>{
+    if(x0===null)return;
+    const dx=e.changedTouches[0].clientX-x0;
+    if(Math.abs(dx)>50) dx<0?show(i+1):show(i-1);
+    x0=null;
+  },{passive:true});
+
+  show(0);
+</script>
+</body>
+</html>
