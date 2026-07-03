@@ -130,6 +130,20 @@
   .bubble.bad .label-b{color:#c07070}
   .bubble.good .label-b{color:#70c090}
 
+  /* mock de conversa WhatsApp (exemplo real do protocolo de audio) */
+  .wa{max-width:440px;margin-top:20px;display:flex;flex-direction:column;gap:7px}
+  .wa-cap{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:3px}
+  .wa-bub{background:#d9fdd3;border-radius:10px;padding:9px 12px;box-shadow:0 1px 1px rgba(0,0,0,.25)}
+  .wa-audio{display:flex;align-items:center;gap:9px}
+  .wa-av{width:30px;height:30px;border-radius:50%;background:linear-gradient(160deg,#3a6f96,#22405a);flex:none}
+  .wa-play{color:#3a3a3a;font-size:11px}
+  .wa-wave{flex:1;height:16px;border-radius:3px;background:repeating-linear-gradient(90deg,#7fb48f 0 2px,transparent 2px 4px)}
+  .wa-dur{font-size:11px;color:#556;font-family:var(--body)}
+  .wa-txt p{font-size:13.5px;color:#0d1c12;line-height:1.4;margin:0;font-family:var(--body)}
+  .wa-txt .wa-name{color:#1f7a5c;font-weight:700;font-size:12.5px;margin-bottom:3px}
+  .wa-txt .wa-tag{color:#0a7cba;font-weight:700;margin-top:4px}
+  .wa-time{font-size:10px;color:#5a7a5a;text-align:right;margin-top:3px;font-family:var(--body)}
+
   /* depoimentos */
   .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
   .qt{background:var(--card-2);border:1px solid var(--line);border-radius:12px;padding:20px 22px;position:relative;opacity:0;transform:translateY(12px);transition:opacity .45s ease,transform .45s ease}
@@ -254,15 +268,15 @@
 
   <section class="slide bg-dark" data-step="Parte 1 · Comunicação Assíncrona" data-time="08:30">
     <div class="eyebrow">A regra da mensagem completa</div>
-    <h2 class="title">C · P · A · P</h2>
+    <h2 class="title">A mensagem completa<br>em <span class="ac">4 passos</span></h2>
     <p class="lead" style="max-width:62ch">Manda a mensagem já estruturada, com tudo que a pessoa precisa. Assim quem responde não fica pedindo detalhe atrás de detalhe, e a conversa não vira dez idas e vindas.</p>
     <div class="nlist">
-      <div class="nrow show"><div class="n">C</div><div><h3>Contexto</h3><p>Por que você está mandando essa mensagem agora? Qual é o cenário? Uma ou duas frases.</p></div></div>
-      <div class="nrow show"><div class="n">P</div><div><h3>Ponto</h3><p>Qual é o pedido, a posição ou a preocupação. Direto, sem rodeio.</p></div></div>
-      <div class="nrow show"><div class="n">A</div><div><h3>Ação esperada</h3><p>O que você espera do outro: decidir, responder, executar ou apenas saber?</p></div></div>
-      <div class="nrow show"><div class="n">P</div><div><h3>Prazo</h3><p>Quando. Sempre. "Sem urgência" também é um prazo.</p></div></div>
+      <div class="nrow show"><div class="n">1</div><div><h3>Contexto</h3><p>Por que você está mandando essa mensagem agora? Qual é o cenário? Uma ou duas frases.</p></div></div>
+      <div class="nrow show"><div class="n">2</div><div><h3>O ponto</h3><p>Qual é o pedido, a posição ou a preocupação. Direto, sem rodeio.</p></div></div>
+      <div class="nrow show"><div class="n">3</div><div><h3>Ação esperada</h3><p>O que você espera do outro: decidir, responder, executar ou apenas saber?</p></div></div>
+      <div class="nrow show"><div class="n">4</div><div><h3>Prazo</h3><p>Quando. Sempre. "Sem urgência" também é um prazo.</p></div></div>
     </div>
-    <p class="src">"Sobre o relatório de segunda (C): precisamos mudar o formato (P). Você consegue ajustar até amanhã às 18h? (A + P)"</p>
+    <p class="src">"Sobre o relatório de segunda: precisamos mudar o formato. Você consegue ajustar até amanhã às 18h?"</p>
   </section>
 
   <section class="slide bg-deep" data-step="Parte 1 · Comunicação Assíncrona" data-time="09:45">
@@ -272,24 +286,26 @@
       <div class="col no show"><div class="h">O erro</div><p>Áudio longo trava o acompanhamento e ninguém consulta depois. Boa parte do time passa o dia em reunião: texto responde mais rápido e é mais fácil de revisar.</p></div>
       <div class="col yes show"><div class="h">Quando o áudio faz sentido</div><p>Mostrar tom de voz numa situação, explicar algo complexo ou evitar um textão. Aí manda, sem problema, desde que siga o protocolo abaixo.</p></div>
     </div>
-    <div class="chat" style="margin-top:16px">
-      <div class="bubble good"><div class="label-b">O texto que vem logo depois do áudio</div>"@Fulano, sobre o alinhamento com o cliente X: resumo em 2 linhas do que falei no áudio."</div>
+    <div class="wa">
+      <div class="wa-cap">Exemplo real: áudio + resumo logo em seguida</div>
+      <div class="wa-bub">
+        <div class="wa-audio">
+          <div class="wa-av"></div>
+          <div class="wa-play">▶</div>
+          <div class="wa-wave"></div>
+          <div class="wa-dur">0:41</div>
+        </div>
+      </div>
+      <div class="wa-bub wa-txt">
+        <div class="wa-name">Você</div>
+        <p>Sobre o plano de estudos</p>
+        <p class="wa-tag">@Daniel Souza | CEO Simple Acc</p>
+        <div class="wa-time">10:40 ✓✓</div>
+      </div>
     </div>
-    <p class="src">Assim quem recebe entende o tema, decide se ouve agora e encontra a informação depois. Esse protocolo já roda no time de gestão.</p>
   </section>
 
-  <section class="slide bg-dark" data-step="Parte 1 · Comunicação Assíncrona" data-time="11:00">
-    <div class="eyebrow">Canal certo, mensagem certa</div>
-    <h2 class="title">O meio <span class="ac">define</span><br>a mensagem</h2>
-    <div class="grid2">
-      <div class="card show"><div class="ck">WhatsApp / chat</div><h3>Tarefas e updates rápidos</h3><p>Pedidos curtos, confirmações, avisos. <b>Use CPAP e agrupe tudo em uma mensagem só.</b></p></div>
-      <div class="card show"><div class="ck">Discord (call)</div><h3>Conflito, decisão ou alinhamento maior</h3><p>Quando o assunto precisa de conversa ou tem tensão, <b>já chama para alinhar ao vivo e evita idas e vindas.</b></p></div>
-      <div class="card show"><div class="ck">Doc ou Notion</div><h3>O que precisa durar</h3><p>Decisões, combinações e dados que serão resgatados depois <b>vão para texto documentado, não para o chat.</b></p></div>
-      <div class="card show"><div class="ck">Áudio</div><h3>Só com protocolo</h3><p>Curto, em horário útil e sempre com o resumo em texto logo depois. <b>Quem recebe decide quando ouvir.</b></p></div>
-    </div>
-  </section>
-
-  <section class="slide bg-deep" data-step="Parte 1 · Comunicação Assíncrona" data-time="12:30">
+  <section class="slide bg-deep" data-step="Parte 1 · Comunicação Assíncrona" data-time="11:30">
     <div class="eyebrow">O que faz a diferença no time</div>
     <h2 class="title">Antecipe. Seja objetivo.<br><span class="ac">Sem achismo</span>.</h2>
     <div class="grid3">
@@ -353,13 +369,13 @@
 
   <section class="slide bg-dark" data-step="Parte 2 · Gestão de Conflitos" data-time="21:30">
     <div class="eyebrow">O protocolo que funciona</div>
-    <h2 class="title">E · E · R</h2>
+    <h2 class="title">Resolver em <span class="ac">3 passos</span></h2>
     <div class="nlist">
-      <div class="nrow show"><div class="n">E</div><div><h3>Escutar separado</h3><p>Antes de juntar as partes, ouça cada um individualmente. Sem interromper, sem julgar, sem já ter a resposta. "Me conta como você viu a situação."</p></div></div>
-      <div class="nrow show"><div class="n">E</div><div><h3>Entender o real</h3><p>O conflito declarado raramente é o conflito real. Pergunte: "O que você precisava que não chegou?" Ali está a causa raiz.</p></div></div>
-      <div class="nrow show"><div class="n">R</div><div><h3>Resolver juntos</h3><p>Reúna as partes com os fatos, não com os julgamentos. Defina o que muda, quem faz o quê e quando. Documente.</p></div></div>
+      <div class="nrow show"><div class="n">1</div><div><h3>Escutar separado</h3><p>Antes de juntar as partes, ouça cada um individualmente. Sem interromper, sem julgar, sem já ter a resposta. "Me conta como você viu a situação."</p></div></div>
+      <div class="nrow show"><div class="n">2</div><div><h3>Entender o real</h3><p>O conflito declarado raramente é o conflito real. Pergunte: "O que você precisava que não chegou?" Ali está a causa raiz.</p></div></div>
+      <div class="nrow show"><div class="n">3</div><div><h3>Resolver juntos</h3><p>Reúna as partes com os fatos, não com os julgamentos. Defina o que muda, quem faz o quê e quando. Documente.</p></div></div>
     </div>
-    <p class="src">A pergunta que resolve 80% dos conflitos: <b>"O que você precisava que não chegou?"</b></p>
+    <p class="src">A pergunta que resolve a maior parte dos conflitos: <b>"O que você precisava que não chegou?"</b></p>
   </section>
 
   <section class="slide bg-deep" data-step="Parte 2 · Gestão de Conflitos" data-time="23:30">
@@ -389,13 +405,13 @@
 
   <section class="slide bg-dark" data-step="Parte 3 · Feedbacks" data-time="28:30">
     <div class="eyebrow">Como dar feedback que funciona</div>
-    <h2 class="title">Modelo <span class="ac">S · C · I</span></h2>
+    <h2 class="title">Feedback em <span class="ac">3 passos</span></h2>
     <div class="nlist">
-      <div class="nrow show"><div class="n">S</div><div><h3>Situação</h3><p>Âncora no fato concreto, não no julgamento. "Na reunião de terça, quando o cliente perguntou sobre o prazo..."</p></div></div>
-      <div class="nrow show"><div class="n">C</div><div><h3>Comportamento</h3><p>O que a pessoa fez ou não fez: observável, não interpretável. "...você disse que não sabia sem consultar o time primeiro."</p></div></div>
-      <div class="nrow show"><div class="n">I</div><div><h3>Impacto</h3><p>O que isso gerou de concreto. "O cliente ficou inseguro e pediu reunião extra: custou 2h do time."</p></div></div>
+      <div class="nrow show"><div class="n">1</div><div><h3>Situação</h3><p>Âncora no fato concreto, não no julgamento. "Na reunião de terça, quando o cliente perguntou sobre o prazo..."</p></div></div>
+      <div class="nrow show"><div class="n">2</div><div><h3>Comportamento</h3><p>O que a pessoa fez ou não fez: observável, não interpretável. "...você disse que não sabia sem consultar o time primeiro."</p></div></div>
+      <div class="nrow show"><div class="n">3</div><div><h3>Impacto</h3><p>O que isso gerou de concreto. "O cliente ficou inseguro e pediu reunião extra: custou 2h do time."</p></div></div>
     </div>
-    <p class="src">Feedback sem Situação é julgamento. Sem Comportamento é vago. Sem Impacto é sem peso. Os 3 juntos mudam comportamento.</p>
+    <p class="src">Sem a situação, vira julgamento. Sem o comportamento, fica vago. Sem o impacto, não tem peso. Os 3 juntos mudam comportamento.</p>
   </section>
 
   <section class="slide bg-deep" data-step="Parte 3 · Feedbacks" data-time="30:30">
@@ -450,9 +466,9 @@
     <div class="eyebrow">O resumo de tudo</div>
     <h2 class="title">Os 3 <span class="ac">takeaways</span></h2>
     <ul class="reveal">
-      <li><b>Comunicação assíncrona efetiva não é talento: é sistema.</b> Use CPAP, mande a mensagem completa, escolha o canal certo e nada de achismo. No remoto, o que não está escrito não existe.</li>
-      <li><b>Conflito que você não trata hoje, você paga mais caro amanhã.</b> Identifique o tipo (tarefa, processo, relacionamento) e use EER antes de virar incêndio.</li>
-      <li><b>Feedback contínuo elimina a conversa difícil.</b> SCI para estruturar. Quatro passos para receber, sem levar para o pessoal. 1:1 semanal para prevenir.</li>
+      <li><b>Comunicação assíncrona efetiva não é talento: é sistema.</b> Mande a mensagem completa, use o áudio com protocolo e nada de achismo. No remoto, o que não está escrito não existe.</li>
+      <li><b>Conflito que você não trata hoje, você paga mais caro amanhã.</b> Identifique o tipo (tarefa, processo, relacionamento) e resolva escutando, entendendo a causa e resolvendo junto, antes de virar incêndio.</li>
+      <li><b>Feedback contínuo elimina a conversa difícil.</b> Estruture pela situação, comportamento e impacto. Quatro passos para receber, sem levar para o pessoal. 1:1 semanal para prevenir.</li>
     </ul>
   </section>
 
@@ -473,7 +489,7 @@
 
 <div class="nav">
   <button id="prev" aria-label="Anterior">‹</button>
-  <span class="count" id="count">01 / 28</span>
+  <span class="count" id="count">01 / 27</span>
   <button id="next" aria-label="Próximo">›</button>
 </div>
 
