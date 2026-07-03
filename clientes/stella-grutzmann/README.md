@@ -26,7 +26,7 @@ em 90 dias. Mentor estratégico: Daniel Souza. Contexto completo em `contexto/pe
 | Script de prospecção | `copy/script-prospeccao.md` | Em standby (prospecção adiada) | — |
 | 1º Checkpoint (25/06) — pauta + doc cliente | `estrategia/checkpoint-2026-06-25.md` + PDFs | Realizado | — |
 | Estratégia completa (funil de quiz) | `estrategia/2026-07-01-estrategia.md` + PDF | Entregue | — |
-| Funil de quiz (aquisição) | `funis/funil-imagem/` | Montado e testado (local); falta deploy | — |
+| Funil de quiz (aquisição) | `funis/funil-imagem/` | **No ar** | [funil-stella.vercel.app](https://funil-stella.vercel.app) |
 | Funil curso Estilo Têxtil (recorrência) | `funis/` | A planejar (Renan) | — |
 
 > **Direção atual (pós-checkpoint 25/06):** tráfego pago + funil de quiz como motor principal;

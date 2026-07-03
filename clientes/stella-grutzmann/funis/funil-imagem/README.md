@@ -1,5 +1,9 @@
 # Funil de Quiz — Stella Grützmann (Consultoria de Imagem)
 
+> **No ar (produção):** https://funil-stella.vercel.app  · time Vercel `simpleacc`.
+> Para anúncios, use a raiz com query: `https://funil-stella.vercel.app/?utm_source=...&utm_campaign=...`.
+> Redeploy: `vercel deploy --prod --scope simpleacc` (a partir desta pasta; ver `DEPLOY.md`).
+
 Funil visual autocontido (HTML/CSS/JS puro, sem build). Construído a partir do
 template padrão da casa (`.claude/skills/criar-funil-quiz/template/`), com a copy
 da estratégia aprovada e a identidade real da Stella.
