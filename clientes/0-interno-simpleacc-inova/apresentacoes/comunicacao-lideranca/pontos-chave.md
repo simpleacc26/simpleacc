@@ -42,7 +42,7 @@
 1. **Reframe:** "Time sem conflito não é time unido. É time com medo de falar."
 2. **Os 3 tipos.** Tarefa (o mais saudável), Processo, Relacionamento (o mais destruidor). "Tarefa ignorado vira processo. Processo ignorado vira relacionamento. Você paga juros a cada nível."
 3. **Os 3 erros do líder bombeiro.** Ignorar, apagar sem resolver, escolher lado. "Você não é juiz. Você é facilitador."
-4. **Resolver em 3 passos.** Escutar (separado), entender (a causa real), resolver (juntos). **"O que você precisava que não chegou?"** resolve a maior parte dos conflitos.
+4. **Resolver em 3 passos.** (1) Entender a situação geral. (2) Entender os pontos de cada lado. (3) Mediar e direcionar, sempre explicando o porquê da decisão. **Ordem de prioridade na decisão: empresa/cliente, depois time, por último o individual.**
 5. **Conflito com você.** "O instinto é defender. A pessoa madura pede a perspectiva antes de dar a explicação."
 
 ### Parte 3: Dar e Receber Feedbacks
