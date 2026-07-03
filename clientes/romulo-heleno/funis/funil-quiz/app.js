@@ -12,7 +12,7 @@ const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
    Cole a URL do webhook do Make aqui. Dispara só quando chega lead; não fica
    varrendo (não consome crédito à toa). IMPORTANTE: o Make só estrutura o lead
    quando recebe application/json (já tratado em enviarLead). Vazio = não envia. */
-const LEADS_ENDPOINT = "";
+const LEADS_ENDPOINT = "https://hook.us2.make.com/z43xti6urytnu8xomciv1ohozoxd1qfq";
 
 /* UTMs capturadas da URL no carregamento (a página do quiz não muda de URL até
    o envio, então isso preserva os parâmetros do anúncio). */

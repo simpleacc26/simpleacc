@@ -15,3 +15,4 @@ adicionar uma linha. É a memória que se acumula ao longo do tempo.
 | 29/06/2026 | Lista do evento Beleza e Movimento caiu muito (evento aberto, nem só cabeleireiros) → entra social selling para leads frios, com apoio da Maria Cecília (Inova). | Call 29/06 |
 | 29/06/2026 | Vender pela transformação/emocional, não pela técnica do curso. Tráfego pago só após validar a estratégia. | Call 29/06 |
 | 02/07/2026 | Funil de quiz publicado: https://romulo-heleno.vercel.app (Vercel/time Simpleacc). Planilha de leads criada no Drive. Falta publicar o Apps Script (passo manual) para ligar a integração. | Skill gerar-quiz-diag-pag-pos-quiz |
+| 02/07/2026 | Integração de leads do funil via Make (webhook instant → Sheets, cenário 5560422), testada de ponta a ponta. Dispara só quando chega lead (scheduling immediately, sem polling). Aba da planilha criada via CSV chama-se 'Untitled'. | Skill criar-funil-quiz |

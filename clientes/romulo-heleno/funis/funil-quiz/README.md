@@ -22,7 +22,7 @@ Tokenizada no `:root` do `styles.css` para troca fácil quando chegar logo/hex o
 - [x] WhatsApp do Rômulo em `flow.js` (5551997990520 — confirmar com o cliente).
 - [x] Deploy na Vercel (time Simpleacc): https://romulo-heleno.vercel.app (público).
 - [x] Planilha de leads no Drive: "Leads · Funil de Quiz · Mentoria Cabelo de Segunda".
-- [ ] Publicar o Apps Script como web app (passo manual do Google) e ligar `LEADS_ENDPOINT` no `app.js` + testar.
+- [x] Integração de leads via **Make** (webhook instant → Google Sheets), testada e funcionando. Cenário: [Rômulo Heleno] Funil de Quiz → Sheets (id 5560422). Webhook ligado no `app.js`.
 - [ ] Logo oficial (o cliente não tem no Instagram; seguimos com o wordmark).
 - [ ] Depoimentos reais no lugar dos `[DEPOIMENTO]`.
 
