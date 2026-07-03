@@ -3,11 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
   <title>Diagnóstico da sua mecha · Mentoria Cabelo de Segunda</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <meta name="description" content="Descubra em 3 minutos o que está travando a sua técnica de mecha e o caminho exato para dominá-la. Diagnóstico personalizado com o Rômulo Heleno." />
-  <!-- CSS crítico mínimo (evita flash antes do styles.css) -->
+  <!-- CSS crítico mínimo (evita flash antes do styles.css). Use o --bg da paleta. -->
   <style>
-    :root{--bg:#F5F1EA;--text:#232C39}
+    :root{--bg:#F3EEE6;--text:#2A2420}
     body{margin:0;background:var(--bg);color:var(--text);
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
   </style>
@@ -17,7 +22,7 @@
   <header class="topbar">
     <div class="container">
       <div class="brand">
-        <!-- Quando tiver o arquivo, troque tudo abaixo por:
+        <!-- Quando tiver o logo, troque por:
              <img class="logo-img" src="logo.png" alt="Rômulo Heleno · Mentoria Cabelo de Segunda"> -->
         <span class="brand-name">Rômulo Heleno</span>
         <span class="brand-tag">Mentoria Cabelo de Segunda</span>
@@ -39,8 +44,6 @@
   <main class="container">
     <div id="app" aria-live="polite"><!-- as telas são renderizadas aqui --></div>
   </main>
-
-  <p class="foot">Rômulo Heleno · Mentoria Cabelo de Segunda · Formação técnica em mecha</p>
 
   <script src="flow.js" defer></script>
   <script src="app.js" defer></script>

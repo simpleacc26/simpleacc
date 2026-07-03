@@ -1,14 +1,14 @@
 /* ============================================================
-   DIAGNÓSTICO — monta o relatório a partir das respostas do quiz
-   (sessionStorage) e habilita "Baixar PDF" + WhatsApp.
+   DIAGNÓSTICO. Monta o relatório personalizado a partir das
+   respostas do quiz (sessionStorage) e habilita os CTAs de WhatsApp.
+   Qualificação por intenção adapta o CTA; CTAs distribuídos (.cta-wpp).
+   Padrão de escrita: nunca usar travessões (traço longo).
    ============================================================ */
 const STORE_KEY = "romulo_funil_mecha";
 const F = window.FLOW;
 const report = document.getElementById("report");
 
 function getState() { try { return JSON.parse(sessionStorage.getItem(STORE_KEY)) || {}; } catch (e) { return {}; } }
-
-/* pega a frase de relatório (campo "report") da opção escolhida num passo */
 function frase(stepId) {
   const step = F.steps.find(s => s.id === stepId);
   const val = (getState().answers || {})[stepId];
@@ -20,7 +20,7 @@ function esc(s) { return String(s == null ? "" : s).replace(/[<>&]/g, c => ({ "<
 
 const a = getState().answers || {};
 
-/* mapa de foco por gargalo (P3) para a etapa "o que precisa acontecer" */
+/* foco por gargalo (P3) para a etapa "o que precisa acontecer" */
 const FOCO_POR_GARGALO = {
   tonalidade: "calibrar a leitura do fio e a construção de base antes da aplicação, para a tonalidade sair exatamente como a cliente pediu",
   aplicacao: "revisar a técnica de divisão, folha e timing por tipo de cabelo, até a aplicação ficar consistente atendimento após atendimento",
@@ -28,7 +28,6 @@ const FOCO_POR_GARGALO = {
   ticket: "documentar a sua consistência técnica em fichas, para você se posicionar como especialista e sustentar um ticket maior",
 };
 
-/* sem respostas? (abriu a página direto) */
 if (!a._completedAt && !a.travamento) {
   report.innerHTML = `
     <p class="eyebrow">Diagnóstico</p>
@@ -44,6 +43,22 @@ if (!a._completedAt && !a.travamento) {
   const objetivo = frase("objetivo") || "dominar a técnica com segurança";
   const foco = FOCO_POR_GARGALO[valor("travamento")] || "trabalhar o seu maior gargalo técnico com método e correção";
 
+  const intencaoVal = valor("intencao");
+  const nutrir = intencaoVal === "esperar" || intencaoVal === "nao";
+
+  // CTA adaptado ao nível de qualificação
+  let ctaLabel, ctaExtra, fecho;
+  if (nutrir) {
+    ctaLabel = "Quero entender melhor como funciona";
+    ctaExtra = '<p class="hint">Sem compromisso. O Rômulo te explica o método e tira suas dúvidas no seu tempo.</p>';
+    fecho = '<p class="clube">Quando fizer sentido pra você, o primeiro passo é a <strong>sessão estratégica gratuita</strong>: a gente olha o seu caso juntos, sem compromisso de seguir.</p>';
+  } else {
+    ctaLabel = "Quero agendar minha sessão gratuita";
+    ctaExtra = '<p class="hint">Uma conversa de 30 minutos, individual e sem compromisso de compra. Você já sai com clareza do seu gargalo, decida ou não seguir.</p>';
+    fecho = '<p class="clube">A partir da sessão, conduzimos a <strong>Mentoria Cabelo de Segunda</strong>: correção de vídeo, fichas técnicas e acompanhamento pensado pro seu caso.</p>';
+  }
+  const ctaInline = `<div class="cta-inline"><button class="btn btn-primary cta-wpp">${ctaLabel}</button></div>`;
+
   report.innerHTML = `
     <div class="report-head">
       <span class="selo">Diagnóstico personalizado</span>
@@ -53,7 +68,7 @@ if (!a._completedAt && !a.travamento) {
 
     <div class="etapa">
       <h3>Antes de tudo</h3>
-      <p>Oi, ${nome}! Aqui é o Rômulo. Li com atenção tudo o que você respondeu.
+      <p>Oi, ${nome}! Aqui é o Rômulo. 💛 Li com atenção tudo o que você respondeu.
       E quero começar com uma coisa que talvez ninguém tenha te dito:
       <strong>o que te trava na mecha não é falta de talento, é falta de método corrigido.</strong></p>
     </div>
@@ -89,6 +104,20 @@ if (!a._completedAt && !a.travamento) {
       </div>
     </div>
 
+    ${ctaInline}
+
+    <div class="etapa">
+      <h3>Como a mentoria trabalha</h3>
+      <p>A Mentoria Cabelo de Segunda é um acompanhamento individual de 3 meses, em quatro frentes:</p>
+      <ol class="metodo">
+        <li><strong>Sessão semanal individual:</strong> revisão do que você fez, dúvidas respondidas em tempo real, ajuste de rota imediato.</li>
+        <li><strong>Correção de vídeo:</strong> você grava o atendimento no salão e recebe feedback específico do que errou e como ajustar.</li>
+        <li><strong>Banco de fichas técnicas:</strong> os parâmetros certos por tipo de mecha, para você parar de improvisar.</li>
+        <li><strong>Suporte por WhatsApp:</strong> a dúvida que surge antes de um atendimento difícil, resolvida na hora.</li>
+      </ol>
+      <p class="hint">É um processo com começo, meio e fim. A maioria nota diferença nas primeiras semanas.</p>
+    </div>
+
     <div class="etapa">
       <h3>O custo de continuar como está</h3>
       <p>Você disse que, sem dominar a mecha nos próximos meses, o risco é <strong>${custo}</strong>.
@@ -97,40 +126,39 @@ if (!a._completedAt && !a.travamento) {
     </div>
 
     <div class="etapa">
-      <h3>O que precisa acontecer com a sua técnica</h3>
+      <h3>O que precisa acontecer agora</h3>
       <p>Baseado no que você respondeu, o primeiro foco da sua evolução seria
       <strong>${foco}</strong>. A partir daí, cada atendimento fica melhor que o anterior.
       O que você quer, <strong>${objetivo}</strong>, é totalmente possível. Eu acompanho isso
       de perto, no seu trabalho, com o seu cabelo.</p>
     </div>
 
+    ${ctaInline}
+
     <div class="etapa">
       <h3>Quem já viveu isso</h3>
-      <div class="depo">[DEPOIMENTO 1]: inserir print/vídeo de aluno(a) que saiu da insegurança para a referência em mecha.</div>
-      <div class="depo">[DEPOIMENTO 2]: inserir caso de aumento de ticket por atendimento depois de dominar a técnica.</div>
+      <div class="depo">[DEPOIMENTOS]: inserir prints/vídeos de alunos em ./depoimentos/ (antes e depois, aumento de ticket, saída da insegurança). Imagens inteiras.</div>
       <p class="hint">O que essas histórias têm em comum: não mudou o talento. Mudou o método.</p>
     </div>
 
     <div class="cta-box">
-      <h2 style="margin-top:0">O próximo passo é simples, ${nome}</h2>
-      <p>Uma sessão estratégica gratuita de 30 minutos comigo. Você apresenta o seu cenário,
-      a gente identifica com precisão o seu gargalo e você entende como o método resolve.
-      Sem compromisso de compra.</p>
+      <h2 style="margin-top:0">O próximo passo, ${nome}</h2>
+      <p>Dar o primeiro passo é simples, e no seu tempo.</p>
+      ${ctaExtra}
       <div class="actions" style="justify-content:center">
-        <button class="btn btn-primary" id="whatsapp-2">Quero agendar minha sessão gratuita</button>
+        <button class="btn btn-primary cta-wpp">${ctaLabel}</button>
       </div>
-      <p class="clube">Na sessão eu te mostro, na prática, como a Mentoria Cabelo de Segunda
-      corrige o que hoje te trava.</p>
+      ${fecho}
     </div>`;
 }
 
-/* ---------- WhatsApp + PDF ---------- */
+/* ---------- WhatsApp ---------- */
 function abrirWhatsApp() {
   const nome = (a.nomeResp || "").split(" ")[0] || "";
   const msg = (F.marca.whatsappMsg || "").replace("{nome}", nome);
   const url = `https://wa.me/${F.marca.whatsapp}?text=${encodeURIComponent(msg)}`;
   window.open(url, "_blank", "noopener");
 }
-document.getElementById("whatsapp")?.addEventListener("click", abrirWhatsApp);
-document.getElementById("pdf")?.addEventListener("click", () => window.print());
-document.addEventListener("click", (e) => { if (e.target && e.target.id === "whatsapp-2") abrirWhatsApp(); });
+document.addEventListener("click", (e) => {
+  if (e.target.closest && e.target.closest(".cta-wpp")) abrirWhatsApp();
+});

@@ -17,7 +17,7 @@
    ============================================================ */
 
 var CABECALHO = [
-  "Data/Hora", "Nome", "WhatsApp", "E-mail", "Instagram",
+  "Data/Hora", "Nome", "WhatsApp", "E-mail", "Instagram", "Qualificação",
   "Tempo de carreira", "Relação com mecha", "Maior travamento", "Impacto do erro",
   "Custo de continuar", "Já tentou", "Objetivo", "Perfil", "Frequência", "Intenção",
   "Frente", "Origem",
@@ -40,29 +40,33 @@ function doPost(e) {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
     ensureHeader(sheet);
     var d = JSON.parse(e.postData.contents);
+    var ans = d.answers || {};
+    var utm = d.utms || {};
+    var meta = d.meta || {};
     sheet.appendRow([
-      new Date(),                    // Data/Hora
-      d.nome || "",                  // Nome
+      meta.timestamp || new Date(),  // Data/Hora (horário de Brasília, vem do funil)
+      d.name || "",                  // Nome
       d.whatsapp || "",              // WhatsApp
       d.email || "",                 // E-mail
       d.instagram || "",             // Instagram
-      d.tempo || "",                 // Tempo de carreira
-      d.relacao || "",               // Relação com mecha
-      d.travamento || "",            // Maior travamento
-      d.impacto || "",               // Impacto do erro
-      d.custo || "",                 // Custo de continuar
-      d.tentativas || "",            // Já tentou
-      d.objetivo || "",              // Objetivo
-      d.perfil || "",                // Perfil
-      d.frequencia || "",            // Frequência
-      d.intencao || "",              // Intenção
+      d.qualificacao || "",          // Qualificação (qualificado / nutrir)
+      ans.q1 || "",                  // Tempo de carreira
+      ans.q2 || "",                  // Relação com mecha
+      ans.q3 || "",                  // Maior travamento
+      ans.q4 || "",                  // Impacto do erro
+      ans.q5 || "",                  // Custo de continuar
+      ans.q6 || "",                  // Já tentou
+      ans.q7 || "",                  // Objetivo
+      ans.q8 || "",                  // Perfil
+      ans.q9 || "",                  // Frequência
+      ans.q10 || "",                 // Intenção
       d.frente || "Mentoria Mecha",  // Frente
-      d.origem || "",                // Origem
-      d.utm_source || "",            // UTM Source
-      d.utm_medium || "",            // UTM Medium
-      d.utm_campaign || "",          // UTM Campaign
-      d.utm_content || "",           // UTM Content
-      d.utm_term || ""               // UTM Term
+      meta.page_url || "",           // Origem
+      utm.utm_source || "",          // UTM Source
+      utm.utm_medium || "",          // UTM Medium
+      utm.utm_campaign || "",        // UTM Campaign
+      utm.utm_content || "",         // UTM Content
+      utm.utm_term || ""             // UTM Term
     ]);
     return ContentService
       .createTextOutput(JSON.stringify({ ok: true }))
@@ -82,12 +86,13 @@ function configurar() {
 /* Opcional: teste rápido pelo editor (Executar → _teste) */
 function _teste() {
   doPost({ postData: { contents: JSON.stringify({
-    nome: "Teste", whatsapp: "(51) 99999-9999", email: "teste@email.com", instagram: "@teste",
-    tempo: "Entre 1 e 3 anos", relacao: "Faço, mas com insegurança",
-    travamento: "Insegurança na aplicação", impacto: "A cliente não volta",
-    custo: "Perder clientes", tentativas: "Curso online", objetivo: "Me posicionar como especialista",
-    perfil: "Tenho meu próprio salão", frequencia: "4 a 7 atendimentos", intencao: "Sim",
-    frente: "Mentoria Mecha", origem: "teste",
-    utm_source: "meta", utm_medium: "cpc", utm_campaign: "mecha-jul",
-    utm_content: "criativo-a", utm_term: "curso-mecha" }) } });
+    name: "Teste", whatsapp: "(51) 99999-9999", email: "teste@email.com", instagram: "@teste",
+    qualificacao: "qualificado", frente: "Mentoria Mecha",
+    answers: {
+      q1: "Entre 1 e 3 anos", q2: "Faço, mas com insegurança", q3: "Insegurança na aplicação",
+      q4: "A cliente não volta", q5: "Perder clientes", q6: "Curso online",
+      q7: "Me posicionar como especialista", q8: "Tenho meu próprio salão",
+      q9: "4 a 7 atendimentos", q10: "Sim" },
+    utms: { utm_source: "meta", utm_medium: "cpc", utm_campaign: "mecha-jul", utm_content: "criativo-a", utm_term: "curso-mecha" },
+    meta: { timestamp: "02/07/2026 20:00:00", page_url: "teste" } }) } });
 }

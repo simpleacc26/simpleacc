@@ -1,14 +1,21 @@
 /* ============================================================
-   FLOW — Funil de Quiz · Mentoria Cabelo de Segunda (Rômulo Heleno)
-   Toda a copy do quiz e do relatório vive aqui.
-   Para editar perguntas/textos, mexa só neste arquivo.
+   FLOW. Toda a copy do quiz e do relatório vive aqui.
+   Funil de Quiz · Mentoria Cabelo de Segunda (Rômulo Heleno).
+   Padrão de escrita: NUNCA usar travessões (traço longo).
    ============================================================ */
 window.FLOW = {
+  config: {
+    storeKey: "romulo_funil_mecha",   // chave única do sessionStorage
+    frente: "Mentoria Mecha",         // rótulo do projeto (vai pro lead)
+    diagnosticoUrl: "diagnostico.html",
+  },
+
   marca: {
-    nome: "Mentoria Cabelo de Segunda",
+    nome: "Rômulo Heleno",
     expert: "Rômulo Heleno",
-    // WhatsApp em formato internacional, só dígitos (ex: 5551999999999).
+    // Número internacional, só dígitos. (51) 99799-0520 — confirmar com o cliente.
     whatsapp: "5551997990520",
+    // {nome} é trocado pelo primeiro nome de quem respondeu
     whatsappMsg: "Oi, Rômulo! Sou {nome}, acabei de fazer o diagnóstico da minha técnica de mecha e quero falar sobre a sessão estratégica.",
   },
 
@@ -17,12 +24,13 @@ window.FLOW = {
     titulo: "Descubra o que está travando a sua técnica de mecha, e o que fazer agora.",
     subtitulo:
       "Responda 10 perguntas rápidas e receba um diagnóstico personalizado com o seu maior gargalo técnico e o caminho exato para resolvê-lo.",
-    tempo: "Leva ~3 minutos · 10 perguntas · 100% confidencial",
+    tempo: "Leva ~3 minutos · 100% confidencial",
     cta: "Começar",
   },
 
-  /* Cada passo: id, etapa (rótulo SPIN), pergunta e opções.
-     Em 'report' fica a frase usada no relatório de diagnóstico. */
+  /* Ordem SPIN: baixa fricção primeiro; qualificação por último.
+     report: frase usada no relatório (interpolada em diagnostico.js)
+     nutrir: true -> lead de baixa prontidão (CTA mais suave). */
   steps: [
     {
       id: "tempo",
@@ -127,7 +135,7 @@ window.FLOW = {
     },
     {
       id: "perfil",
-      etapa: "Perfil",
+      etapa: "Para quem é",
       pergunta: "Qual cenário descreve melhor a sua situação hoje?",
       options: [
         { value: "terceiros", label: "Trabalho em salão de terceiros e quero crescer" },
@@ -149,13 +157,13 @@ window.FLOW = {
     },
     {
       id: "intencao",
-      etapa: "Qualificação",
+      etapa: "O próximo passo",
       pergunta: "Se existisse um método que resolve exatamente o que te trava, você investiria em uma mentoria técnica nos próximos 30 dias?",
       options: [
         { value: "sim", label: "Sim, se eu entender que é o caminho certo para mim" },
-        { value: "talvez", label: "Talvez, dependendo do formato e do valor" },
-        { value: "esperar", label: "Prefiro esperar mais um tempo" },
-        { value: "nao", label: "Não estou pronta(o) agora" },
+        { value: "entender", label: "Sim, mas preciso entender melhor como funciona antes" },
+        { value: "esperar", label: "Prefiro esperar mais um tempo", nutrir: true },
+        { value: "nao", label: "Não estou pronta(o) agora", nutrir: true },
       ],
     },
   ],
