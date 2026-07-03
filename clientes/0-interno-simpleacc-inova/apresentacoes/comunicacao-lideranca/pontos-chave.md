@@ -7,16 +7,16 @@
 
 ---
 
-## Mapa de tempo (LIMITE RÍGIDO de 45 min · 29 slides)
+## Mapa de tempo (LIMITE RÍGIDO de 45 min · 28 slides)
 
 | Bloco | Tempo | Slides | Alvo de minutagem |
 |---|---|---|---|
-| Abertura + autoridade | ~4 min | 1–5 | sair até 04:00 |
-| Parte 1: Comunicação Assíncrona Efetiva | ~11 min | 6–13 | até 15:00 |
-| Parte 2: Gestão de Conflitos | ~11 min | 14–19 | até 26:00 |
-| Parte 3: Feedbacks | ~10 min | 20–25 | até 36:00 |
-| Prova real (depoimentos) | ~2 min | 26 | até 38:00 |
-| Fechamento + Dúvidas | ~3 min | 27–29 | até 42:00, sobra p/ Q&A |
+| Abertura + autoridade | ~4 min | 1–4 | sair até 04:00 |
+| Parte 1: Comunicação Assíncrona Efetiva | ~11 min | 5–12 | até 15:00 |
+| Parte 2: Gestão de Conflitos | ~11 min | 13–18 | até 26:00 |
+| Parte 3: Feedbacks | ~10 min | 19–24 | até 36:00 |
+| Prova real (depoimentos) | ~2 min | 25 | até 38:00 |
+| Fechamento + Dúvidas | ~3 min | 26–28 | até 42:00, sobra p/ Q&A |
 
 **Regra do ensaio:** grave cronometrando. Se passar de 42 min, corte um bloco de exemplo. Nunca corte os frameworks. O slide "Dúvidas?" abre os 15 min de Q&A; o "Obrigado" fecha.
 
@@ -25,9 +25,9 @@
 ## Pontos inegociáveis por bloco (1 frase-âncora cada)
 
 ### Abertura (autoridade)
-- **Gancho:** "80% dos conflitos em times remotos não surgem de divergência real. Surgem de mensagem mal enviada, ou nem enviada." Abre com isso antes de se apresentar.
+- **Gancho (sem número, é observação sua):** "Quase todo conflito que vi em time remoto não veio de divergência real. Veio de mensagem mal enviada, ou nem enviada." Abre com isso antes de se apresentar. (O antigo slide de "80%" foi removido: era estatística sem fonte.)
 - **Autoridade (slides 3 e 4):** não é teoria, são 4 anos validando na prática. Trajetória de analista júnior a diretor geral (líder de squad, head de operações, head de receita). Vivi o problema, organizei o que fazia sentido e, como líder, tive autonomia para colocar as boas práticas para rodar e validar.
-- **A prova (slide 4):** uma das 200 unidades da V4 Company. Time de 6 a 30 pessoas, 100% remoto, 10 estados. Unidade referência da rede em retenção de time e ambiente de trabalho. Treinei outras unidades nesses processos. Hoje: Head de Ops na Simple Acc.
+- **A prova (slide 4):** uma das 250 unidades da V4 Company. Time de 6 a 30 pessoas, 100% remoto, 10 estados. Unidade premiada entre as melhores da rede para se trabalhar (retenção de time e ambiente). Treinei outras unidades nesses processos. Hoje: Head de Operações e Entrega na Simple Acc.
 - Slide 5 (agenda): mapeia os 3 blocos. Deixa o time saber onde está.
 
 ### Parte 1: Comunicação Assíncrona Efetiva
