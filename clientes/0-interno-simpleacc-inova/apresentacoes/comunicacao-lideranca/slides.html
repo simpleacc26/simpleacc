@@ -14,6 +14,7 @@
     --white:#ffffff; --ice:#f5f0e8; --soft:#c4c4b8; --muted:#888880; --steel:#666660;
     --line:#2a2a2a; --line-gold:rgba(218,176,106,.25);
     --display:"Cormorant Garamond",Georgia,serif;
+    --serif-logo:"Didot","Bodoni 72","Hoefler Text",Georgia,serif;
     --body:"Inter",system-ui,sans-serif;
     --mono:"Space Grotesk",system-ui,sans-serif;
     --green:#5a9e6f; --green-bg:rgba(30,64,40,.35); --green-line:#2f5a3e;
@@ -24,12 +25,12 @@
   body{font-family:var(--body);background:var(--dark);color:var(--white);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 
   .deck{position:fixed;inset:0}
-  .slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:7vh 7.5vw;opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .4s ease,transform .4s ease,visibility .4s;overflow:auto}
+  .slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:7vh 7.5vw;opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .4s ease,transform .4s ease,visibility .4s;overflow:hidden}
   .slide.active{opacity:1;visibility:visible;transform:none;z-index:2}
 
   .bg-dark{background:radial-gradient(900px 500px at 8% 0%,rgba(218,176,106,.10),transparent 55%),linear-gradient(160deg,#141414 0%,#0e0e0e 55%,#080808 120%)}
   .bg-deep{background:radial-gradient(700px 500px at 92% 5%,rgba(218,176,106,.09),transparent 55%),linear-gradient(150deg,#0e0e0e 0%,#0b0b0b 70%,#080808 120%)}
-  .bg-gold{background:linear-gradient(150deg,#1a1208,#2a1e0a)}
+  .bg-gold{background:linear-gradient(150deg,#e8c97a 0%,#caa259 60%,#b98f45 120%)}
 
   .eyebrow{font-family:var(--mono);font-weight:600;text-transform:uppercase;letter-spacing:.22em;font-size:11px;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:14px}
   .eyebrow::after{content:"";height:1px;width:38px;background:var(--gold);opacity:.5}
@@ -48,6 +49,8 @@
   .src{font-size:13px;letter-spacing:.03em;color:var(--muted);margin-top:22px;font-style:italic}
   .lema{font-family:var(--display);font-weight:600;font-size:clamp(30px,5.2vw,72px);line-height:1.1;max-width:22ch;letter-spacing:-.01em}
   .lema .ac{color:var(--gold)}
+  .big-center{font-family:var(--display);font-weight:600;line-height:1;letter-spacing:-.02em;font-size:clamp(64px,15vw,190px)}
+  .big-center .ac{color:var(--gold)}
 
   ul.reveal{list-style:none;margin-top:24px;max-width:84ch}
   ul.reveal li{font-size:clamp(15px,1.55vw,19px);line-height:1.55;padding:13px 0 13px 26px;position:relative;border-bottom:1px solid var(--line);color:#d0d0c4;opacity:0;transform:translateY(8px);transition:opacity .4s ease,transform .4s ease}
@@ -90,10 +93,10 @@
   .pill{border:1px solid var(--line);border-radius:30px;padding:9px 18px;font-weight:600;font-size:13px;letter-spacing:.03em;color:#c0c0b4;background:var(--card-2)}
   .pill.hot{border-color:var(--gold-dim);color:var(--gold-bright);background:var(--gold-glow)}
 
-  .flow{display:flex;align-items:stretch;gap:0;margin-top:24px;flex-wrap:wrap}
-  .flow .fst{flex:1;min-width:110px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 14px}
+  .flow{display:flex;align-items:stretch;gap:0;margin-top:26px;flex-wrap:wrap}
+  .flow .fst{flex:1;min-width:120px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 14px}
   .flow .fst .fn{font-family:var(--mono);font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
-  .flow .fst h4{font-family:var(--display);font-weight:600;font-size:17px;margin:5px 0 4px}
+  .flow .fst h4{font-family:var(--display);font-weight:600;font-size:17px;margin:5px 0 4px;line-height:1.1}
   .flow .fst p{font-size:12px;color:#888882;line-height:1.4}
   .flow .arr{display:flex;align-items:center;justify-content:center;padding:0 7px;color:var(--gold-dim);font-size:18px;font-weight:700}
 
@@ -101,9 +104,7 @@
 
   .topbar{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:16px 28px;z-index:50;pointer-events:none}
   .topbar .brand{display:flex;align-items:center;gap:10px}
-  .topbar .logo-simple{font-family:var(--mono);font-weight:700;letter-spacing:.22em;font-size:12px;color:var(--white)}
-  .topbar .logo-dot{width:5px;height:5px;background:var(--gold);border-radius:50%}
-  .topbar .logo-mentoria{font-family:var(--display);font-size:13px;color:var(--gold);font-weight:600;letter-spacing:.04em}
+  .topbar .logo-acc{font-family:var(--body);font-weight:400;letter-spacing:.34em;font-size:13.5px;color:var(--ice);text-transform:uppercase;padding-left:.34em}
   .topbar .step{font-family:var(--mono);font-weight:600;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--steel)}
 
   .progress{position:fixed;bottom:0;left:0;height:2px;background:var(--gold);width:0;z-index:60;transition:width .4s ease}
@@ -129,17 +130,35 @@
   .bubble.bad .label-b{color:#c07070}
   .bubble.good .label-b{color:#70c090}
 
-  @media(max-width:860px){.slide{padding:9vh 6vw}.grid3,.grid2,.ba,.split{grid-template-columns:1fr}.time{display:none}.nav{right:12px}}
+  /* depoimentos */
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+  .qt{background:var(--card-2);border:1px solid var(--line);border-radius:12px;padding:20px 22px;position:relative;opacity:0;transform:translateY(12px);transition:opacity .45s ease,transform .45s ease}
+  .qt.show{opacity:1;transform:none}
+  .qt::before{content:"\201C";font-family:var(--display);color:var(--gold);font-size:60px;line-height:.6;position:absolute;top:18px;left:14px;opacity:.35}
+  .qt p{font-size:14px;line-height:1.55;color:#d6d2c6;padding-top:20px}
+  .qt .who{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-top:14px}
+
+  @media(max-width:860px){.slide{padding:9vh 6vw;overflow:auto}.grid3,.grid2,.ba,.split,.quotes{grid-template-columns:1fr}.time{display:none}.nav{right:12px}}
   @media(prefers-reduced-motion:reduce){.slide,.card,.nrow,.ba .col,ul.reveal li,.cred,.bubble{transition:opacity .2s ease}.slide{transform:none}}
+
+  /* ===== EXPORTAR PARA PDF (Chrome: Ctrl/Cmd+P > Paisagem > "Gráficos de plano de fundo" ligado) ===== */
+  @page{size:landscape;margin:0}
+  @media print{
+    html,body{height:auto;overflow:visible;background:#0e0e0e}
+    .topbar,.nav,.progress,.time{display:none!important}
+    .deck{position:static}
+    .slide{position:relative!important;inset:auto;opacity:1!important;visibility:visible!important;transform:none!important;height:100vh;width:100%;break-after:page;page-break-after:always;overflow:hidden}
+    .slide:last-child{break-after:auto;page-break-after:auto}
+    ul.reveal li,.card,.nrow,.ba .col,.cred,.bubble{opacity:1!important;transform:none!important}
+    *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  }
 </style>
 </head>
 <body>
 
 <div class="topbar">
   <div class="brand">
-    <span class="logo-simple">SIMPLE</span>
-    <span class="logo-dot"></span>
-    <span class="logo-mentoria">Liderança Próspera</span>
+    <span class="logo-acc">Simple Acc</span>
   </div>
   <span class="step" id="stepMark">Comunicação · Conflitos · Feedbacks</span>
 </div>
@@ -155,38 +174,47 @@
     <p class="lead">Como escrever bem, resolver tensões e construir uma cultura de feedback no dia a dia de um time remoto.</p>
   </section>
 
-  <section class="slide bg-deep" data-step="Abertura" data-time="00:30">
+  <section class="slide bg-deep" data-step="Abertura" data-time="00:40">
     <div class="eyebrow">O que abre essa aula</div>
     <div class="big-num">80<span class="unit">%</span></div>
     <p class="num-label">dos conflitos em times remotos não surgem de divergências reais. Surgem de mensagens mal enviadas, ou simplesmente não enviadas.</p>
   </section>
 
   <section class="slide bg-dark" data-step="Abertura" data-time="01:20">
-    <div class="split">
-      <div>
-        <div class="eyebrow">Quem está aqui com você</div>
-        <h2 class="title">Fui de analista<br>a diretor em <span class="ac">3 anos</span></h2>
-        <ul class="reveal" style="margin-top:18px">
-          <li><b>8 promoções em 3 anos.</b> Analista júnior a diretor-geral, em tempo recorde.</li>
-          <li><b>Head de Operações e Entrega</b> na Simple Acc. Gestão de times 100% remotos no dia a dia.</li>
-          <li><b>Montei o padrão de comunicação de um time que saiu de 6 para 30 pessoas.</b> O que vem a seguir foi construído na prática, não na teoria.</li>
-          <li><b>Co-fundador da Mentoria Liderança Próspera.</b> Ajudo líderes a saírem da centralização.</li>
-        </ul>
-      </div>
-      <div>
-        <div class="cred"><div class="label-c">Resultado que falo porque vivi</div><div class="val">8 promoções</div><div class="sub">Analista Júnior a Diretor-Geral · 3 anos</div></div>
-        <div class="cred" style="margin-top:12px"><div class="label-c">O time que gerenciei</div><div class="val">De 6 a 30 pessoas</div><div class="sub">Operação 100% remota · Simple Acc</div></div>
-      </div>
+    <div class="eyebrow">Por que me ouvir sobre isso</div>
+    <h2 class="title">Não é teoria.<br>São <span class="ac">4 anos</span> validando na prática.</h2>
+    <p class="lead">Vivi cada desafio na pele, de analista júnior a diretor geral. Primeiro senti o problema de baixo, depois organizei o que fazia sentido e, como líder, tive autonomia para colocar as boas práticas para rodar, otimizar e validar.</p>
+    <div class="flow">
+      <div class="fst"><div class="fn">Começo</div><h4>Analista Jr.</h4><p>Vivi o problema de baixo.</p></div>
+      <div class="arr">›</div>
+      <div class="fst"><div class="fn">Depois</div><h4>Líder de Squad</h4><p>Primeira autonomia.</p></div>
+      <div class="arr">›</div>
+      <div class="fst"><div class="fn">Escala</div><h4>Head de Operações</h4><p>Padrão para o time.</p></div>
+      <div class="arr">›</div>
+      <div class="fst"><div class="fn">Escala</div><h4>Head de Receita</h4><p>Do time à máquina.</p></div>
+      <div class="arr">›</div>
+      <div class="fst"><div class="fn">Depois</div><h4>Diretor Geral</h4><p>Visão de ponta a ponta.</p></div>
     </div>
   </section>
 
-  <section class="slide bg-gold" data-step="Abertura" data-time="03:00">
-    <div class="eyebrow" style="color:var(--dark-2)">O que você vai sair daqui sabendo</div>
-    <h2 class="title" style="color:var(--dark)">3 blocos.<br>45 minutos.<br>Aplicável amanhã.</h2>
+  <section class="slide bg-deep" data-step="Abertura" data-time="02:20">
+    <div class="eyebrow">Onde isso foi validado</div>
+    <h2 class="title">Uma das <span class="ac">200 unidades</span><br>da V4 Company</h2>
+    <div class="grid2">
+      <div class="card show"><div class="ck">O time que construí</div><h3>De 6 a 30 pessoas</h3><p>100% remoto, com gente espalhada por <b>10 estados do país.</b> Comunicação virou questão de sobrevivência, não de teoria.</p></div>
+      <div class="card show"><div class="ck">Reconhecimento</div><h3>Referência da rede</h3><p>Unidade citada entre as <b>melhores para se trabalhar</b>, por retenção de time e qualidade do ambiente.</p></div>
+      <div class="card show"><div class="ck">Alcance</div><h3>Treinei outras unidades</h3><p>Levei esses processos como treinamento <b>para outras unidades da rede V4.</b></p></div>
+      <div class="card show"><div class="ck">Hoje</div><h3>Head de Ops na Simple Acc</h3><p>Seguindo com a mesma régua de comunicação e gestão de time 100% remoto.</p></div>
+    </div>
+  </section>
+
+  <section class="slide bg-gold" data-step="Abertura" data-time="03:20">
+    <div class="eyebrow" style="color:#3a2a10">O que você vai sair sabendo</div>
+    <h2 class="title" style="color:#1a1208">3 blocos.<br>45 minutos.<br>Aplicável amanhã.</h2>
     <div class="nlist">
-      <div class="nrow show" style="background:rgba(8,8,8,.5);border-left-color:#0e0e0e"><div class="n" style="color:var(--dark)">1</div><div><h3 style="color:var(--dark)">Comunicação Assíncrona Efetiva</h3><p style="color:#5a4a30">Como escrever mensagens que chegam certas, inclusive no WhatsApp.</p></div></div>
-      <div class="nrow show" style="background:rgba(8,8,8,.5);border-left-color:#0e0e0e"><div class="n" style="color:var(--dark)">2</div><div><h3 style="color:var(--dark)">Gestão de Conflitos</h3><p style="color:#5a4a30">Como identificar, desescalar e resolver antes de virar incêndio.</p></div></div>
-      <div class="nrow show" style="background:rgba(8,8,8,.5);border-left-color:#0e0e0e"><div class="n" style="color:var(--dark)">3</div><div><h3 style="color:var(--dark)">Dar e Receber Feedbacks</h3><p style="color:#5a4a30">Como transformar feedback em ferramenta cotidiana, não em conversa temida.</p></div></div>
+      <div class="nrow show" style="background:#0e0e0e;border-left-color:#0e0e0e"><div class="n">1</div><div><h3 style="color:var(--ice)">Comunicação Assíncrona Efetiva</h3><p style="color:#b0aea2">Como escrever mensagens que chegam certas, inclusive no WhatsApp.</p></div></div>
+      <div class="nrow show" style="background:#0e0e0e;border-left-color:#0e0e0e"><div class="n">2</div><div><h3 style="color:var(--ice)">Gestão de Conflitos</h3><p style="color:#b0aea2">Como identificar, desescalar e resolver antes de virar incêndio.</p></div></div>
+      <div class="nrow show" style="background:#0e0e0e;border-left-color:#0e0e0e"><div class="n">3</div><div><h3 style="color:var(--ice)">Dar e Receber Feedbacks</h3><p style="color:#b0aea2">Como transformar feedback em ferramenta cotidiana, não em conversa temida.</p></div></div>
     </div>
   </section>
 
@@ -230,7 +258,7 @@
     </ul>
   </section>
 
-  <section class="slide bg-dark" data-step="Parte 1 · Comunicação Assíncrona" data-time="08:45">
+  <section class="slide bg-dark" data-step="Parte 1 · Comunicação Assíncrona" data-time="08:30">
     <div class="eyebrow">A regra da mensagem completa</div>
     <h2 class="title">C · P · A · P</h2>
     <p class="lead" style="max-width:62ch">Manda a mensagem já estruturada, com tudo que a pessoa precisa. Assim quem responde não fica pedindo detalhe atrás de detalhe, e a conversa não vira dez idas e vindas.</p>
@@ -243,7 +271,7 @@
     <p class="src">"Sobre o relatório de segunda (C): precisamos mudar o formato (P). Você consegue ajustar até amanhã às 18h? (A + P)"</p>
   </section>
 
-  <section class="slide bg-deep" data-step="Parte 1 · Comunicação Assíncrona" data-time="10:00">
+  <section class="slide bg-deep" data-step="Parte 1 · Comunicação Assíncrona" data-time="09:45">
     <div class="eyebrow">Sobre áudios</div>
     <h2 class="title">Áudio não é proibido.<br>É <span class="ac">protocolo</span>.</h2>
     <div class="ba" style="margin-top:22px">
@@ -256,7 +284,7 @@
     <p class="src">Assim quem recebe entende o tema, decide se ouve agora e encontra a informação depois. Esse protocolo já roda no time de gestão.</p>
   </section>
 
-  <section class="slide bg-dark" data-step="Parte 1 · Comunicação Assíncrona" data-time="11:30">
+  <section class="slide bg-dark" data-step="Parte 1 · Comunicação Assíncrona" data-time="11:00">
     <div class="eyebrow">Canal certo, mensagem certa</div>
     <h2 class="title">O meio <span class="ac">define</span><br>a mensagem</h2>
     <div class="grid2">
@@ -267,7 +295,7 @@
     </div>
   </section>
 
-  <section class="slide bg-deep" data-step="Parte 1 · Comunicação Assíncrona" data-time="13:00">
+  <section class="slide bg-deep" data-step="Parte 1 · Comunicação Assíncrona" data-time="12:30">
     <div class="eyebrow">O que faz a diferença no time</div>
     <h2 class="title">Antecipe. Seja objetivo.<br><span class="ac">Sem achismo</span>.</h2>
     <div class="grid3">
@@ -280,13 +308,13 @@
 
   <!-- ===== PARTE 2 · GESTÃO DE CONFLITOS (~11 min) ===== -->
 
-  <section class="slide bg-dark" data-step="Parte 2 · Gestão de Conflitos" data-time="15:30">
+  <section class="slide bg-dark" data-step="Parte 2 · Gestão de Conflitos" data-time="15:00">
     <div class="eyebrow">Parte 2 de 3</div>
     <h1 class="kicker">Gestão de<br><span class="ac">Conflitos</span></h1>
     <p class="lead">Conflito não é problema. É sintoma. O problema é não saber o que fazer quando ele aparece.</p>
   </section>
 
-  <section class="slide bg-deep" data-step="Parte 2 · Gestão de Conflitos" data-time="16:30">
+  <section class="slide bg-deep" data-step="Parte 2 · Gestão de Conflitos" data-time="16:00">
     <div class="eyebrow">Reframe essencial</div>
     <h2 class="punch">Conflito saudável é sinal<br>de <span class="ac">time que pensa</span>.</h2>
     <p class="lead" style="margin-top:24px">Time sem conflito não é time unido: é time com medo de falar. O objetivo não é eliminar conflito. É saber diferenciar o útil do destrutivo e navegar sem se perder.</p>
@@ -296,7 +324,7 @@
     </div>
   </section>
 
-  <section class="slide bg-dark" data-step="Parte 2 · Gestão de Conflitos" data-time="18:00">
+  <section class="slide bg-dark" data-step="Parte 2 · Gestão de Conflitos" data-time="17:30">
     <div class="eyebrow">Onde o conflito mora</div>
     <h2 class="title">Os 3 tipos:<br>qual é o <span class="ac">mais perigoso</span>?</h2>
     <div class="grid3">
@@ -319,17 +347,17 @@
     <p class="src">A progressão natural: conflito de tarefa ignorado vira processo; processo ignorado vira relacionamento. Você paga juros a cada nível.</p>
   </section>
 
-  <section class="slide bg-deep" data-step="Parte 2 · Gestão de Conflitos" data-time="20:00">
+  <section class="slide bg-deep" data-step="Parte 2 · Gestão de Conflitos" data-time="19:30">
     <div class="eyebrow">Como o líder costuma errar</div>
     <h2 class="title">Os 3 erros<br>do líder <span class="ac">bombeiro</span></h2>
     <ul class="reveal">
       <li><span class="tag">Erro 1</span><b>Ignorar e torcer para passar.</b> Conflito não resolvido não desaparece: fermenta. Quando explode, está maior, mais pessoal e mais caro de resolver.</li>
       <li><span class="tag">Erro 2</span><b>Apagar o incêndio sem resolver a causa.</b> Convence as partes a "se acertarem" sem entender o que gerou o conflito. Semana que vem, está de volta.</li>
-      <li><span class="tag">Erro 3</span><b>Escolher um lado.</b> O líder que escolhe lado perde a autoridade com quem ficou de fora, mesmo que seja o lado certo. Você não é juiz: você é facilitador.</li>
+      <li><span class="tag">Erro 3</span><b>Escolher um lado.</b> Quem escolhe lado perde a autoridade com quem ficou de fora, mesmo que seja o lado certo. Você não é juiz: você é facilitador.</li>
     </ul>
   </section>
 
-  <section class="slide bg-dark" data-step="Parte 2 · Gestão de Conflitos" data-time="22:00">
+  <section class="slide bg-dark" data-step="Parte 2 · Gestão de Conflitos" data-time="21:30">
     <div class="eyebrow">O protocolo que funciona</div>
     <h2 class="title">E · E · R</h2>
     <div class="nlist">
@@ -340,7 +368,7 @@
     <p class="src">A pergunta que resolve 80% dos conflitos: <b>"O que você precisava que não chegou?"</b></p>
   </section>
 
-  <section class="slide bg-deep" data-step="Parte 2 · Gestão de Conflitos" data-time="24:00">
+  <section class="slide bg-deep" data-step="Parte 2 · Gestão de Conflitos" data-time="23:30">
     <div class="eyebrow">O caso especial</div>
     <h2 class="title">E quando o conflito<br>é <span class="ac">com você</span>?</h2>
     <div class="ba" style="margin-top:22px">
@@ -352,20 +380,20 @@
 
   <!-- ===== PARTE 3 · FEEDBACKS (~11 min) ===== -->
 
-  <section class="slide bg-dark" data-step="Parte 3 · Feedbacks" data-time="26:30">
+  <section class="slide bg-dark" data-step="Parte 3 · Feedbacks" data-time="26:00">
     <div class="eyebrow">Parte 3 de 3</div>
     <h1 class="kicker">Dar &<br>Receber<br><span class="ac">Feedbacks</span></h1>
     <p class="lead">A conversa mais evitada no trabalho é a que mais acelera crescimento. É assim que todo mundo aqui evolui.</p>
   </section>
 
-  <section class="slide bg-deep" data-step="Parte 3 · Feedbacks" data-time="27:30">
+  <section class="slide bg-deep" data-step="Parte 3 · Feedbacks" data-time="27:00">
     <div class="eyebrow">Por que a maioria trava</div>
     <h2 class="punch">Todo mundo quer falar.<br>Ninguém quer<br><span class="ac">machucar</span>.</h2>
     <p class="lead" style="margin-top:22px">Quem vai falar tem medo de parecer cruel, de perder a relação, de não ter razão. Quem vai ouvir tem medo de ser julgado, de parecer incompetente. <b>Os dois lados estão errados sobre o risco real.</b></p>
     <p class="src">Feedback que nunca sai não some. Vira resignação silenciosa, microgerenciamento ou demissão surpresa.</p>
   </section>
 
-  <section class="slide bg-dark" data-step="Parte 3 · Feedbacks" data-time="29:00">
+  <section class="slide bg-dark" data-step="Parte 3 · Feedbacks" data-time="28:30">
     <div class="eyebrow">Como dar feedback que funciona</div>
     <h2 class="title">Modelo <span class="ac">S · C · I</span></h2>
     <div class="nlist">
@@ -376,7 +404,7 @@
     <p class="src">Feedback sem Situação é julgamento. Sem Comportamento é vago. Sem Impacto é sem peso. Os 3 juntos mudam comportamento.</p>
   </section>
 
-  <section class="slide bg-deep" data-step="Parte 3 · Feedbacks" data-time="31:00">
+  <section class="slide bg-deep" data-step="Parte 3 · Feedbacks" data-time="30:30">
     <div class="eyebrow">O que NÃO é feedback</div>
     <h2 class="title">Feedback é<br><span class="ac">específico</span> ou<br>não é feedback</h2>
     <ul class="reveal">
@@ -387,7 +415,7 @@
     </ul>
   </section>
 
-  <section class="slide bg-dark" data-step="Parte 3 · Feedbacks" data-time="33:00">
+  <section class="slide bg-dark" data-step="Parte 3 · Feedbacks" data-time="32:30">
     <div class="eyebrow">O lado mais difícil</div>
     <h2 class="title">Como <span class="ac">receber</span><br>sem reagir</h2>
     <div class="ba" style="margin-top:22px">
@@ -399,7 +427,7 @@
     </div>
   </section>
 
-  <section class="slide bg-deep" data-step="Parte 3 · Feedbacks" data-time="35:30">
+  <section class="slide bg-deep" data-step="Parte 3 · Feedbacks" data-time="35:00">
     <div class="eyebrow">O que muda tudo</div>
     <h2 class="title">Feedback contínuo<br>elimina a <span class="ac">conversa difícil</span></h2>
     <p class="lead">A conversa difícil de fim de ano existe porque ninguém falou nada no resto do ano. Quando feedback é ritual, não é mais surpresa. E surpresa é o que machuca.</p>
@@ -411,7 +439,18 @@
     </div>
   </section>
 
-  <!-- ===== FECHAMENTO (~3 min) ===== -->
+  <!-- ===== PROVA REAL + FECHAMENTO (~4 min) ===== -->
+
+  <section class="slide bg-deep" data-step="Prova real" data-time="37:00">
+    <div class="eyebrow">Não é teoria, o time confirma</div>
+    <h2 class="title">O que a <span class="ac">prática</span> devolveu</h2>
+    <div class="quotes">
+      <div class="qt"><p>A proximidade e a sinceridade no time davam liberdade pra discutir feedbacks e erros. Isso fortalecia a relação e a nossa capacidade de resolver problemas.</p><div class="who">Liderado · unidade V4</div></div>
+      <div class="qt"><p>Muita gente do time permaneceu, diferente de outras experiências onde a equipe mudava toda hora. Um cliente elogiou a estabilidade e a baixa rotatividade da unidade.</p><div class="who">Time + cliente · unidade V4</div></div>
+      <div class="qt"><p>Felizes são as pessoas lideradas por você, e eu sou uma delas. Você é uma das minhas referências dentro da rede.</p><div class="who">Liderada · unidade V4</div></div>
+    </div>
+    <p class="src">Depoimentos reais de quem foi liderado nesse período. Nomes preservados.</p>
+  </section>
 
   <section class="slide bg-dark" data-step="Fechamento" data-time="39:00">
     <div class="eyebrow">O resumo de tudo</div>
@@ -423,20 +462,15 @@
     </ul>
   </section>
 
-  <section class="slide bg-deep" data-step="Fechamento" data-time="41:30">
-    <div class="eyebrow">Pra fechar</div>
-    <h2 class="lema">Liderar bem<br>não é evitar<br><span class="ac">conversas difíceis</span>.<br>É torná-las<br>desnecessárias.</h2>
+  <section class="slide bg-deep" data-step="Q&A" data-time="42:00" style="align-items:center;text-align:center">
+    <h2 class="big-center">Dúvidas<span class="ac">?</span></h2>
   </section>
 
-  <section class="slide bg-dark" data-step="Fechamento" data-time="43:00">
-    <div class="eyebrow">Se isso ressoou</div>
-    <h2 class="title">Próximos passos</h2>
-    <p class="lead">Se você quer aprofundar liderança estratégica: sair da centralização, construir time autônomo e crescer sem se destruir no processo.</p>
-    <div class="pill-row" style="margin-top:20px">
-      <span class="pill hot">Mentoria Liderança Próspera</span>
-      <span class="pill">@carlosdurae.s</span>
+  <section class="slide bg-dark" data-step="Fechamento" style="align-items:center;text-align:center">
+    <h2 class="big-center" style="font-size:clamp(56px,12vw,160px)">Obrigado<span class="ac">.</span></h2>
+    <div class="pill-row" style="justify-content:center;margin-top:26px">
+      <span class="pill hot">@ocarlosduraes</span>
     </div>
-    <p class="src" style="margin-top:16px">Perguntas? Temos 15 minutos.</p>
   </section>
 
 </div>
@@ -445,7 +479,7 @@
 
 <div class="nav">
   <button id="prev" aria-label="Anterior">‹</button>
-  <span class="count" id="count">01 / 27</span>
+  <span class="count" id="count">01 / 29</span>
   <button id="next" aria-label="Próximo">›</button>
 </div>
 
@@ -459,7 +493,7 @@
   const pad = n => String(n).padStart(2,'0');
 
   function revealItems(slide){
-    const items = slide.querySelectorAll('.reveal li, .card, .nrow, .ba .col, .cred, .bubble');
+    const items = slide.querySelectorAll('.reveal li, .card, .nrow, .ba .col, .cred, .bubble, .qt');
     items.forEach((el,idx)=>{
       el.classList.remove('show');
       setTimeout(()=>el.classList.add('show'), 100 + idx*90);
