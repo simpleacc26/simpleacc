@@ -40,12 +40,18 @@ Testado ponta a ponta (Playwright): 8 perguntas, auto-avanço, máscara de
 WhatsApp, e-mail obrigatório, UTMs, loading ~5s, auto-redirect, diagnóstico
 preenchido, 3 CTAs distribuídos. Console limpo.
 
-## Pendências antes de publicar (precisa da cliente / Simple)
-- [ ] **WhatsApp da Stella** — placeholder `5500000000000` em `flow.js` (`marca.whatsapp`).
+## Integração de leads (Make → Google Sheets) — FEITA e testada
+- **Planilha:** `Leads · Funil de Imagem · Stella Grützmann` (Drive, pasta "Simple <> Stella Grützmann"). ID `1UCkwox0CPebl8sp1nupo_eBlX6Zz1ZQTPoKK5I9i3LU`.
+- **Cenário Make:** `[Stella Grützmann] Funil Imagem → Sheets` (id 5560427), **instant** (webhook → addRow); só roda quando chega lead, não consome operação à toa.
+- **Webhook:** `https://hook.us2.make.com/csrd34h7txu8lnxdldyxmnbxfup5c57l` (em `app.js` → `LEADS_ENDPOINT`).
+- Conexão Google do Make (ssouzadaniel.ads@gmail.com) tem acesso de editor à planilha. Testado: lead de exemplo caiu na planilha (linha de teste "Teste Stella" pode ser apagada).
+
+## Deploy — FEITO
+No ar em https://funil-stella.vercel.app (time Vercel `simpleacc`).
+
+## Pendências (precisa da cliente)
 - [ ] **Logo** (PNG/SVG) — hoje wordmark serifado provisório.
 - [ ] **Depoimentos reais** — `[DEPOIMENTO 1/2]` em `diagnostico.js`; prints em `depoimentos/`.
-- [ ] **Integração de leads (Make → Sheets):** criar a planilha, montar o cenário webhook→addRow e colar a URL do webhook em `app.js` (`LEADS_ENDPOINT`). Testar um lead caindo na planilha.
-- [ ] **Deploy na Vercel** (conta/time da Simple) — ver `DEPLOY.md`.
 - [ ] (Opcional) GA4/Meta Pixel em `app.js` (`TRACKING_CONFIG`).
 
 ## Anúncio
