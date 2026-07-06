@@ -28,7 +28,7 @@
   a{color:var(--blue);text-decoration:none}
 
   /* capa */
-  .cover{background:radial-gradient(900px 420px at 78% 8%,rgba(94,130,182,.30),transparent 60%),linear-gradient(150deg,var(--navy-2),var(--navy) 62%,#0f1d30);color:#fff;padding:120px 30px 108px;text-align:center}
+  .cover{background:radial-gradient(900px 420px at 78% 8%,rgba(94,130,182,.30),transparent 60%),linear-gradient(150deg,var(--navy-2),var(--navy) 62%,#0f1d30);color:#fff;padding:120px 30px;text-align:center;min-height:100vh;display:flex;flex-direction:column;justify-content:center;page-break-after:always}
   .cover .wm{font-weight:300;letter-spacing:.36em;font-size:26px;padding-left:.36em}
   .cover .hair{height:1px;width:120px;background:var(--steel);opacity:.6;margin:26px auto}
   .cover .eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:#9db2d0;margin-bottom:20px}
@@ -146,9 +146,10 @@
   footer .lm{color:#c4d2e6;font-weight:500;margin-bottom:10px}
 
   @page{size:A4;margin:15mm 0}
+  @page :first{margin:0}
   @media print{
     body{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-    .cover{padding:150px 30px}
+    .cover{min-height:297mm;padding:40px 30px;page-break-after:always}
     .part-div,.check,.tpl,.duo,.case,.kpi,.proc,.step,.flow,.lema,table{page-break-inside:avoid}
     h2,h3{page-break-after:avoid}
   }
