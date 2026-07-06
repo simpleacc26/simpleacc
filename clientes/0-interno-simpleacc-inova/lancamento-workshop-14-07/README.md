@@ -45,6 +45,11 @@ comparecimento no evento, que governa aplicação, que governa caixa.
 - **Torre de Controle (Sheet, no ar):** `https://docs.google.com/spreadsheets/d/1nqxcwMP24aYLz-FSUReSXIleKbq-6q_A9QZ_OsLogto/edit`
 - Cockpit-referência (modelo Autoconhecimento): `https://docs.google.com/spreadsheets/d/1JlzK4piSOyyy57-pWtKKOrnNfq8uSZ5YPMVMWTJ6AHE/edit`
 
+### Entregas no Drive
+- **Doc — Sequência de copys do grupo:** `https://docs.google.com/document/d/1zSD21i2m_MvO7uosbdz0A4E2OS9SsLaSA6JUBHUrzNM/edit`
+- **Form — Pesquisa (vazio, colar perguntas):** `https://docs.google.com/forms/d/1MDvIggqA-IxM_JFm7k15F_O169XKreoGrifr9uFsNKk/edit`
+- **Torre v2 (Sheet):** `https://docs.google.com/spreadsheets/d/1nqxcwMP24aYLz-FSUReSXIleKbq-6q_A9QZ_OsLogto/edit`
+
 ## Ordem de execução (o que trava o quê)
 
 1. **Trava venda** → Checkout + ofertas (Kiwify) + automação de grupo (Make)
