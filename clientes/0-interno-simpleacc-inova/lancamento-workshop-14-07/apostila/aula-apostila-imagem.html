@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{
+    --navy:#15263C; --navy-2:#1E344F; --blue:#2E5A99; --blue-lt:#5E82B6;
+    --steel:#8A9AAE; --line-d:#2A3B54;
+    --f:"Inter",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#0d1826}
+  .card{
+    position:relative;width:1300px;height:620px;overflow:hidden;
+    font-family:var(--f);color:#fff;
+    background:linear-gradient(120deg,#1E344F 0%,#15263C 62%,#101d2f 100%);
+    display:flex;flex-direction:column;
+  }
+  .card::after{
+    content:"";position:absolute;inset:0;left:60%;
+    background-image:linear-gradient(rgba(94,130,182,.13) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(94,130,182,.13) 1px,transparent 1px);
+    background-size:38px 38px;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 60%);
+            mask-image:linear-gradient(90deg,transparent,#000 60%);
+  }
+  .pad{position:absolute;inset:0;padding:56px 66px;display:flex;flex-direction:column}
+  .top{display:flex;align-items:center;gap:20px;z-index:2}
+  .wm{font-weight:300;letter-spacing:.36em;font-size:28px;padding-left:.36em}
+  .vsep{width:1px;height:24px;background:var(--line-d)}
+  .kicker{font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue-lt);font-weight:600}
+  .body{margin-top:auto;margin-bottom:auto;z-index:2;border-left:3px solid var(--blue);padding-left:30px;max-width:1020px}
+  .body p{font-size:31px;line-height:1.5;color:#e8edf4;font-weight:400}
+  .body p + p{margin-top:22px}
+  .body p.small{font-size:26px;color:#aeb9c9}
+  .foot{position:absolute;left:66px;bottom:40px;font-size:15px;letter-spacing:.12em;color:var(--steel);z-index:2}
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="pad">
+      <div class="top">
+        <span class="wm">SIMPLE</span>
+        <span class="vsep"></span>
+        <span class="kicker">Apostila · Funil de Lead Dinâmico</span>
+      </div>
+
+      <div class="body">
+        <p>Bem-vindo(a)! Esta é a sua Apostila do Funil de Lead Dinâmico: o guia
+        prático com os principais insights, resumos e checklists do workshop, pra
+        você modelar e aplicar.</p>
+        <p>👉 Baixe o PDF no material desta aula e use como seu passo a passo de
+        implementação.</p>
+        <p class="small">Qualquer dúvida, fale com a gente no suporte.</p>
+      </div>
+
+      <div class="foot">O novo jogo do high ticket · simpleacc.com</div>
+    </div>
+  </div>
+</body>
+</html>
