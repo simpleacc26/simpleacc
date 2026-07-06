@@ -1,0 +1,13 @@
+Fase,Base,Data,Dia,Periodo,Status,Link da copy
+Captacao,Novo comprador,na compra,-,imediato,A fazer,D1 Boas-vindas (Z-API) - comunicacao.md#D1
+Aquecimento,Grupo,09/07,qui,manha,A fazer,G5 Faltam 5 dias - comunicacao.md#g5
+Aquecimento,Grupo,11/07,sab,manha,A fazer,G3 Faltam 3 dias - comunicacao.md#g3
+Aquecimento,Grupo,12/07,dom,tarde,A fazer,G2 Faltam 2 dias - comunicacao.md#g2
+Aquecimento,Grupo,13/07,seg,noite,A fazer,G1 E amanha - comunicacao.md#g1
+Evento,Grupo,14/07,ter,08h,A fazer,H0 E hoje - comunicacao.md#h-hoje
+Evento,Grupo,14/07,ter,12h,A fazer,H1 Faltam 2h - comunicacao.md#h-2h
+Evento,Grupo,14/07,ter,13h50,A fazer,H2 Ta comecando - comunicacao.md#h-start
+Evento,Grupo,14/07,ter,14h30,A fazer,H3 Cade voce - comunicacao.md#h-cade
+Vendas,Grupo,15/07,qua,manha,A fazer,P1 Replay + aplicacao - comunicacao.md#p1
+Vendas,Grupo,16/07,qua,-,A fazer,P2 Case/urgencia - comunicacao.md#p2
+Vendas,Grupo,17-21/07,-,-,A fazer,P3 D+3 a D+7 - comunicacao.md#p3
