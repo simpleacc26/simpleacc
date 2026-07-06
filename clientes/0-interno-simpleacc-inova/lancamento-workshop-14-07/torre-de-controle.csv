@@ -1,4 +1,22 @@
 Canal,Data,Dia,Periodo,Peca/Assunto,Alvo,Status,Link da copy,Obs
+Indice/Links,,,,Checkout (Hubla),,A fazer,{{link_checkout}},
+Indice/Links,,,,Grupo WhatsApp do evento,,A fazer,{{link_grupo}},
+Indice/Links,,,,Sala do evento (ao vivo),,A fazer,{{link_sala}},
+Indice/Links,,,,Pesquisa (entrada do grupo),,A fazer,{{link_pesquisa}},
+Indice/Links,,,,Aplicacao (pos-evento),,A fazer,{{link_aplicacao}},
+Indice/Links,,,,Area de membros (Hubla),,A fazer,{{link_membros}},
+Indice/Links,,,,Suporte / direto,,A fazer,{{link_suporte}},
+Indice/Links,,,,Banner do checkout,,Pronto,criativos/banner-checkout.png,
+Indice/Links,,,,Apostila (Workbook),,Casca pronta,apostila/apostila.html,
+Indice/Links,,,,Brandbook Simple,,Pronto,../marca/brandbook.html,
+Datas,07/07,ter,,Captacao abre,,-,,
+Datas,07/07,ter,,Disparo base #1,,-,,
+Datas,08/07,qua,,Disparo base #2,,-,,
+Datas,09-13/07,qui-seg,,Regua do grupo (D-5 a D-1),,-,,
+Datas,14/07,ter,14h,EVENTO - Workshop (14h-17h),,-,,
+Datas,15/07,qua,,Libera gravacao (order bump),,-,,
+Datas,15/07,qua,,Abre aplicacoes,,-,,
+Datas,21/07,ter,,Fecha aplicacoes da semana,,-,,
 Disparos Grupo,na compra,-,imediato,Boas-vindas + regras + link da pesquisa,novo comprador,A fazer,comunicacao.md#g0,Automatico via Make
 Disparos Grupo,07-13/07,-,imediato,Entrada no grupo -> link da pesquisa,quem entra no grupo,A fazer,comunicacao.md#g0,Automatico
 Disparos Grupo,09/07,qui,manha,Faltam 5 dias - o que vai sair sabendo,grupo,A fazer,comunicacao.md#g5,

@@ -5,7 +5,7 @@ da equipe, Inova). Fica no topo da lista pelo prefixo `0-`.
 
 ## Links úteis
 
-- Torre de Controle (Sheet) — Workshop 14/07: https://docs.google.com/spreadsheets/d/1P3TKGlNwUeddJGG111Ma1j4OUcQwOn1oyif3Ng48dhU/edit
+- Torre de Controle (Sheet) — Workshop 14/07: https://docs.google.com/spreadsheets/d/1nqxcwMP24aYLz-FSUReSXIleKbq-6q_A9QZ_OsLogto/edit
 
 ## Projetos
 

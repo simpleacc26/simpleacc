@@ -40,7 +40,8 @@ comparecimento no evento, que governa aplicação, que governa caixa.
 - Doc de mensagens (Tarso, OneDrive): `https://onedrive.live.com/:w:/g/personal/9fd233285803cf2b/IQDWNckRMaZYR6OgyDev0sN4AaAqpmE47tgBpyK8RaqLfsk`
 - Checkout/bump referência (Luiz): `https://lps.luizfilho.com/v3`
 - Brandbook Simple: `../marca/brandbook.html`
-- **Torre de Controle (Sheet, no ar):** `https://docs.google.com/spreadsheets/d/1P3TKGlNwUeddJGG111Ma1j4OUcQwOn1oyif3Ng48dhU/edit`
+- **Torre de Controle (Sheet, no ar):** `https://docs.google.com/spreadsheets/d/1nqxcwMP24aYLz-FSUReSXIleKbq-6q_A9QZ_OsLogto/edit`
+- Cockpit-referência (modelo Autoconhecimento): `https://docs.google.com/spreadsheets/d/1JlzK4piSOyyy57-pWtKKOrnNfq8uSZ5YPMVMWTJ6AHE/edit`
 
 ## Ordem de execução (o que trava o quê)
 

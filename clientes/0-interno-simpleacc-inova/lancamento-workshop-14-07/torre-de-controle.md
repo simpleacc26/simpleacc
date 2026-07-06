@@ -5,13 +5,44 @@
 > **data · dia · período · status · link da copy**. Isso é o que evita mensagem
 > esquecida ou duplicada.
 
-**Abas (no Google Sheets):** `Disparos Grupo` · `Troca de Nome/Grupo` ·
-`Disparos API (base)` · `URA e SMS`.
+**Modelada em cima do cockpit-referência** (planilha do lançamento Autoconhecimento):
+a aba-capa é um **índice de links + datas**; as demais são disparos por canal.
+Espelhamos esse formato aqui.
+
+**Abas (no Google Sheets):** `Índice / Links Úteis` · `Datas` · `Disparos Grupo` ·
+`Troca de Nome/Grupo` · `Disparos API (base)` · `URA e SMS`.
 
 O arquivo `torre-de-controle.csv` traz **tudo num sheet só** (coluna `Canal`
 filtra por aba). Importe no Sheets e, se quiser, quebre em abas por `Canal`.
 
 **Legenda de Status:** `A fazer` · `Copy pronta` · `Agendado` · `Enviado` · `—`
+
+## Aba: Índice / Links Úteis (o hub do lançamento)
+| Item | Link |
+| --- | --- |
+| Checkout (Hubla) | `{{link_checkout}}` |
+| Grupo WhatsApp do evento | `{{link_grupo}}` |
+| Sala do evento (ao vivo) | `{{link_sala}}` |
+| Pesquisa (entrada do grupo) | `{{link_pesquisa}}` |
+| Aplicação (pós-evento) | `{{link_aplicacao}}` |
+| Área de membros (Hubla) | `{{link_membros}}` |
+| Suporte / direto | `{{link_suporte}}` |
+| Banner do checkout | `criativos/banner-checkout.png` |
+| Apostila (Workbook) | `apostila/apostila.html` |
+| Brandbook Simple | `../marca/brandbook.html` |
+| Torre de Controle (este Sheet) | (esta planilha) |
+
+## Aba: Datas (marcos do lançamento)
+| Marco | Data | Dia |
+| --- | --- | --- |
+| Captação abre | 07/07 | ter |
+| Disparo base #1 | 07/07 | ter |
+| Disparo base #2 | 08/07 | qua |
+| Régua do grupo (D-5 → D-1) | 09–13/07 | qui–seg |
+| **EVENTO — Workshop (14h–17h)** | **14/07** | **ter** |
+| Libera gravação (order bump) | 15/07 | qua |
+| Abre aplicações | 15/07 | qua |
+| Fecha aplicações da semana | 21/07 | ter |
 
 ## Calendário-mãe (evento 14/07/2026, terça)
 
