@@ -1,0 +1,20 @@
+SEÇÃO,Item,Link
+LINKS UTEIS,Grupo do evento (WhatsApp),{{link_grupo}}
+LINKS UTEIS,Pesquisa (entrada do grupo),{{link_pesquisa}}
+LINKS UTEIS,Checkout (Kiwify),{{link_checkout}}
+LINKS UTEIS,Area de membros (Kiwify),{{link_membros}}
+LINKS UTEIS,Sala do evento (ao vivo),{{link_sala}}
+LINKS UTEIS,Replay do evento,{{link_replay}}
+LINKS UTEIS,Aplicacao (pos-evento),{{link_aplicacao}}
+LINKS UTEIS,Suporte / direto,{{link_suporte}}
+LINKS UTEIS,Automacao Make (webhook Kiwify),https://hook.us2.make.com/wq9of44lzzvjypcy3r7piwuyglg5rngy
+LINKS UTEIS,Banner do checkout,criativos/banner-checkout.png
+LINKS UTEIS,Apostila (Workbook),apostila/apostila.html
+LINKS UTEIS,Brandbook Simple,../marca/brandbook.html
+DATAS,Captacao abre,07/07 (ter)
+DATAS,Disparo base #1,07/07 (ter)
+DATAS,Disparo base #2,08/07 (qua)
+DATAS,EVENTO - Workshop (14h-17h),14/07 (ter)
+DATAS,Libera gravacao (order bump),15/07 (qua)
+DATAS,Abre aplicacoes,15/07 (qua)
+DATAS,Fecha aplicacoes da semana,21/07 (ter)
