@@ -137,22 +137,19 @@
 > (`*negrito*`, `_itálico_`). A **de boas-vindas já está no cenário do Make**
 > (`automacao-make.md`). Carlos só cola os 2 links.
 
-### D1 · Boas-vindas (dispara na compra, via Z-API)
+### D1 · Boas-vindas (dispara na compra, via Z-API) — COPY FINAL (no cenário do Make)
 ```
-Seja bem-vindo(a) ao *Workshop Funil de Lead Dinâmico*! 🚀
+Seja bem-vindo(a) ao *Workshop Funil de Lead Dinâmico!* Seu ingresso está confirmado. 🚀
 
-Seu ingresso está *confirmado*. Aqui é o canal oficial: o link da sala, os
-materiais e os avisos vêm por aqui.
+*Nele você vai descobrir o novo jogo do high ticket: como fazer o lead certo se qualificar sozinho antes da call, com lead mais barato e CAC menor.*
 
-📌 *Grave a data:* terça, *14 de julho*, das *14h às 17h* (horário de Brasília),
-ao vivo e online.
+📌 *Grave a data:* terça, 14 de julho, das 14h às 17h (horário de Brasília), ao vivo e online.
 
-👉 *1º passo (leva 2 min):*
-🟢 Entre no grupo oficial do evento: https://chat.whatsapp.com/LOWEVNHuqNRH7wOx9QrFAr
-📝 Depois responda a pesquisa (é com ela que preparamos o conteúdo pro seu
-momento): [COLE O LINK DA PESQUISA]
+*1º passo (leva 2 min):*
+🟢 Entre no *grupo oficial* do evento: https://chat.whatsapp.com/LOWEVNHuqNRH7wOx9QrFAr
+📝 Depois responda a *pesquisa*: https://forms.gle/4LEbAmbNELgdGgvU7
 
-⚠️ *Se algum link não abrir,* adicione este número aos seus contatos e chame aqui.
+⚠️ *Se algum link não estiver ativo,* basta adicionar este número nos seus contatos.
 ```
 
 ### D2 · Descrição do grupo (texto fixo do grupo de WhatsApp)
