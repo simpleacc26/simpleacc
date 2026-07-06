@@ -1,4 +1,4 @@
-# Torre de Controle — Workshop 14/07 (modelo Rapha/Tarso, 5 abas)
+# Torre de Controle: Workshop 14/07 (modelo Rapha/Tarso, 5 abas)
 
 > Bloco 3 do HANDOFF. **Chão de fábrica**: nada é agendado fora daqui.
 > Espelha as **5 abas** do cockpit do Rapha/Tarso, adaptadas pra nossa realidade
@@ -11,12 +11,12 @@
 **Legenda de Status (dropdown do Rapha):** `Não iniciado` · `Disparo agendado` ·
 `Disparo realizado`. (No nosso preenchimento inicial deixei `A fazer`.)
 
-**Fases:** `Captação` (07–08/07) · `Aquecimento` (09–13/07) · `Evento` (14/07) ·
-`Vendas` (15–21/07, pós-evento → aplicação).
+**Fases:** `Captação` (07-08/07) · `Aquecimento` (09-13/07) · `Evento` (14/07) ·
+`Vendas` (15-21/07, pós-evento → aplicação).
 
 ---
 
-## Aba 1 — SOS LINKS  (`torre/1-sos-links.csv`)
+## Aba 1: SOS LINKS  (`torre/1-sos-links.csv`)
 
 ### Links úteis
 | Item | Link |
@@ -34,7 +34,7 @@
 | Apostila (Workbook) | `apostila/apostila.html` |
 | Brandbook Simple | `../marca/brandbook.html` |
 
-> Rapha tem colunas de CPLs (canal VEX / RAPHA) — **não se aplicam** ao nosso
+> Rapha tem colunas de CPLs (canal VEX / RAPHA). **não se aplicam** ao nosso
 > evento de 1 dia. Trocadas por *Sala/Replay* acima.
 
 ### Datas
@@ -43,17 +43,17 @@
 | Captação abre | 07/07 | ter |
 | Disparo base #1 | 07/07 | ter |
 | Disparo base #2 | 08/07 | qua |
-| **Evento — Workshop (14h–17h)** | **14/07** | **ter** |
+| **Evento. Workshop (14h-17h)** | **14/07** | **ter** |
 | Libera gravação (order bump) | 15/07 | qua |
 | Abre aplicações | 15/07 | qua |
 | Fecha aplicações da semana | 21/07 | ter |
 
 ---
 
-## Aba 2 — DISPAROS GRUPOS  (`torre/2-disparos-grupos.csv`)
+## Aba 2: DISPAROS GRUPOS  (`torre/2-disparos-grupos.csv`)
 | Fase | Base | Data | Dia | Período | Status | Link da copy |
 | --- | --- | --- | --- | --- | --- | --- |
-| Captação | Novo comprador | na compra | — | imediato | A fazer | D1 Boas-vindas (Z-API) · comunicacao.md#D1 |
+| Captação | Novo comprador | na compra |. | imediato | A fazer | D1 Boas-vindas (Z-API) · comunicacao.md#D1 |
 | Aquecimento | Grupo | 09/07 | qui | manhã | A fazer | G5 Faltam 5 dias · comunicacao.md#g5 |
 | Aquecimento | Grupo | 11/07 | sáb | manhã | A fazer | G3 Faltam 3 dias · comunicacao.md#g3 |
 | Aquecimento | Grupo | 12/07 | dom | tarde | A fazer | G2 Faltam 2 dias · comunicacao.md#g2 |
@@ -63,33 +63,33 @@
 | Evento | Grupo | 14/07 | ter | 13h50 | A fazer | H2 Tá começando · comunicacao.md#h-start |
 | Evento | Grupo | 14/07 | ter | 14h30 | A fazer | H3 Cadê você · comunicacao.md#h-cade |
 | Vendas | Grupo | 15/07 | qua | manhã | A fazer | P1 Replay + aplicação · comunicacao.md#p1 |
-| Vendas | Grupo | 16/07 | qua | — | A fazer | P2 Case/urgência · comunicacao.md#p2 |
-| Vendas | Grupo | 17–21/07 | — | — | A fazer | P3 D+3 a D+7 · comunicacao.md#p3 |
+| Vendas | Grupo | 16/07 | qua |. | A fazer | P2 Case/urgência · comunicacao.md#p2 |
+| Vendas | Grupo | 17-21/07 |. |. | A fazer | P3 D+3 a D+7 · comunicacao.md#p3 |
 
 ---
 
-## Aba 3 — TROCA DE NOME  (`torre/3-troca-de-nome.csv`)
+## Aba 3: TROCA DE NOME  (`torre/3-troca-de-nome.csv`)
 | Fase | Grupo | Data | Dia | Período | Hora | Status | Nome do Grupo |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Captação | Grupo do evento | 07/07 | ter | captação | — | A fazer | Workshop Funil de Lead Dinâmico · 14/07 |
+| Captação | Grupo do evento | 07/07 | ter | captação |. | A fazer | Workshop Funil de Lead Dinâmico · 14/07 |
 | Aquecimento | Grupo do evento | 13/07 | seg | pré | noite | A fazer | ⚡ É AMANHÃ 14H · Workshop FLD |
 | Evento | Grupo do evento | 14/07 | ter | evento | 08h | A fazer | 🔴 HOJE 14H · Workshop FLD |
 | Evento | Grupo do evento | 14/07 | ter | evento | 13h50 | A fazer | 🔴 AO VIVO AGORA · entra na sala |
 | Vendas | Grupo do evento | 15/07 | qua | pós | manhã | A fazer | 🎬 REPLAY no ar · faça sua aplicação |
-| Vendas | Grupo do evento | 21/07 | ter | pós | — | A fazer | ⏳ Últimas vagas da semana |
+| Vendas | Grupo do evento | 21/07 | ter | pós |. | A fazer | ⏳ Últimas vagas da semana |
 
 ---
 
-## Aba 4 — DISPAROS API (base ~2k, 1:1)  (`torre/4-disparos-api.csv`)
+## Aba 4: DISPAROS API (base ~2k, 1:1)  (`torre/4-disparos-api.csv`)
 | Fase | Base | Data | Dia | Período | Janela | Status | Link da copy |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Captação | Lista geral | 07/07 | ter | manhã | Janela 1 | A fazer | BASE 1 Abertura · comunicacao.md#base1 |
 | Captação | Lista geral | 08/07 | qua | manhã | Janela 2 | A fazer | BASE 2 Reforço/urgência · comunicacao.md#base2 |
-| Evento | Lista geral | 14/07 | ter | manhã | Janela 3 | A fazer | É hoje — última chamada (opcional) |
+| Evento | Lista geral | 14/07 | ter | manhã | Janela 3 | A fazer | É hoje. última chamada (opcional) |
 
 ---
 
-## Aba 5 — URA e SMS (dia do evento)  (`torre/5-ura-sms.csv`)
+## Aba 5: URA e SMS (dia do evento)  (`torre/5-ura-sms.csv`)
 | Fase | Base | Data | Dia | Período | Status | Link da copy |
 | --- | --- | --- | --- | --- | --- | --- |
 | Evento | tag comprou_ingresso | 14/07 | ter | 09h (SMS) | A fazer | SMS É hoje 14h · comunicacao.md#C |

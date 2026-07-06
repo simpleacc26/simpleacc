@@ -1,6 +1,6 @@
-# Apostila / Workbook — order bump (Funil de Lead Dinâmico)
+# Apostila / Workbook, order bump (Funil de Lead Dinâmico)
 
-Material do order bump **"Apostila digital — lançamento pago"** (R$ 37 / R$ 39,90).
+Material do order bump **"Apostila digital, lançamento pago"** (R$ 37 / R$ 39,90).
 Copy de referência do checkout:
 
 > Acesse os principais insights dos 2 dias de Workshop em um material prático, com
@@ -10,9 +10,9 @@ Copy de referência do checkout:
 ## Status: casca pronta, conteúdo pendente
 
 - ✅ **Casca visual** na identidade Simple: `apostila.html` (mesma paleta/tipografia
-  do brandbook — navy/azul, Inter).
+  do brandbook, navy/azul, Inter).
 - ⛔ **Conteúdo do método:** depende da **gravação do workshop** ("minha gravação
-  do workshop para o leandro" — HANDOFF). **Não invento conteúdo do método.**
+  do workshop para o leandro". HANDOFF). **Não invento conteúdo do método.**
   Assim que o Daniel mandar a gravação/transcrição, eu preencho as seções.
 
 ## Esqueleto proposto (a preencher com a gravação)
