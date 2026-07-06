@@ -1,17 +1,17 @@
-# Checkout + Ofertas (Hubla) — Workshop Funil de Lead Dinâmico · 14/07
+# Checkout + Ofertas (Kiwify) — Workshop Funil de Lead Dinâmico · 14/07
 
 > Bloco 1 do HANDOFF. É o que **trava venda** — prioridade máxima.
 > Referência que o Daniel mandou modelar (Zouti/estilo Luiz Filho):
 > `https://pay.zouti.com.br/checkout?...&product_offer_id=prod_offer_hdu9x7nmbcj4keu1ze7nos`
 > Página do Luiz (copy/layout do bump): `https://lps.luizfilho.com/v3`
 
-A gente **modela** a estrutura dessa referência, mas na **Hubla** e na **marca Simple**.
-Os 3 produtos **já estão criados e ativos** na Hubla (ver print). Falta configurar a
+A gente **modela** a estrutura dessa referência, mas na **Kiwify** e na **marca Simple**.
+Os 3 produtos **já estão criados e ativos** na Kiwify (ver print). Falta configurar a
 página de checkout, os order bumps e a área de membros.
 
 ---
 
-## 1. Produtos (já ativos na Hubla)
+## 1. Produtos (já ativos na Kiwify)
 
 | Produto | Papel no checkout | Preço |
 | --- | --- | --- |
@@ -19,7 +19,7 @@ página de checkout, os order bumps e a área de membros.
 | **Apostila Digital – Funil de Lead Dinâmico** | Order bump 1 (Workbook) | **R$ 39,90** ⚠️ |
 | **Gravação em Formato de aulas** | Order bump 2 | **R$ 197,00** |
 
-⚠️ **Decisão de preço:** o HANDOFF pede a apostila (Workbook) a **R$ 37**; na Hubla
+⚠️ **Decisão de preço:** o HANDOFF pede a apostila (Workbook) a **R$ 37**; na Kiwify
 está **R$ 39,90**. Confirmar com o Daniel qual vale. (Recomendo manter R$ 39,90, que
 já está no ar — diferença irrelevante e evita retrabalho.)
 
@@ -93,7 +93,7 @@ método depende da gravação do workshop — pendência com o Daniel).
 
 ---
 
-## 5. Área de membros (Hubla) — configuração
+## 5. Área de membros (Kiwify) — configuração
 
 Legenda do Daniel: *"configurar os produtos na área de membros: no workshop é
 colocar o link do grupo (de novo); a apostila, ter a apostila; e a gravação em
@@ -107,7 +107,7 @@ formato de aulas colocar que vai liberar 1 dia após o workshop."*
 
 ---
 
-## 6. Checklist de execução (Carlos, na Hubla)
+## 6. Checklist de execução (Carlos, na Kiwify)
 
 - [ ] Confirmar preço da Apostila (R$ 37 × R$ 39,90) com Daniel
 - [ ] Montar checkout do Ingresso R$ 29,90 (Pix em destaque + cartão)

@@ -123,3 +123,50 @@
 - **SMS 14h20 (não-presentes):** `Começou! Ainda dá tempo: {{link_sala}}`
 
 > ⚠️ Todos os textos acima são **rascunho** — Daniel valida antes de agendar.
+
+---
+
+## D. Boas-vindas (Z-API) + Descrição do grupo — modelos adaptados
+
+> Adaptado dos modelos do lançamento Autoconhecimento (`WPP 01 Boas-vindas` e
+> `WPP 00 Descrição dos grupos`) pra nossa realidade. Formatação de WhatsApp
+> (`*negrito*`, `_itálico_`). A **de boas-vindas já está no cenário do Make**
+> (`automacao-make.md`) — Carlos só cola os 2 links.
+
+### D1 · Boas-vindas (dispara na compra, via Z-API)
+```
+Seja bem-vindo(a) ao *Workshop Funil de Lead Dinâmico*! 🚀
+
+Seu ingresso está *confirmado*. Aqui é o canal oficial — o link da sala, os
+materiais e os avisos vêm por aqui.
+
+📌 *Grave a data:* terça, *14 de julho*, das *14h às 17h* (horário de Brasília),
+ao vivo e online.
+
+👉 *1º passo (leva 2 min):*
+🟢 Entre no grupo oficial do evento: [COLE O LINK DO GRUPO]
+📝 Depois responda a pesquisa — é com ela que preparamos o conteúdo pro seu
+momento: [COLE O LINK DA PESQUISA]
+
+⚠️ *Se algum link não abrir,* adicione este número aos seus contatos e chame aqui.
+```
+
+### D2 · Descrição do grupo (texto fixo do grupo de WhatsApp)
+```
+Seja muito bem-vindo(a) ao grupo oficial do *Workshop Funil de Lead Dinâmico* 🚀
+
+Aqui você vai descobrir o *novo jogo do high ticket*: como fazer o lead certo se
+qualificar sozinho antes da call — com lead mais barato e CAC menor.
+
+🗓 *14 de julho (terça), das 14h às 17h* (horário de Brasília), ao vivo e online.
+
+👉 Enquanto não começa, responda a pesquisa (leva menos de 2 min) e ajude a gente
+a preparar o conteúdo pro seu momento:
+🎁 [COLE O LINK DA PESQUISA]
+
+❗ Evite golpes! Confie apenas nos administradores do grupo. Nunca vendemos nada
+por links de terceiros aqui.
+```
+
+> Copy final é do Daniel — estes textos seguem o tom do brandbook e a estrutura
+> dos modelos, prontos pra ele só ajustar.

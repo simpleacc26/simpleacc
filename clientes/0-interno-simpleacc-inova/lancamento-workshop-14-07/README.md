@@ -17,19 +17,19 @@ comparecimento no evento, que governa aplicação, que governa caixa.
 
 | Arquivo | O quê |
 | --- | --- |
-| `checkout-ofertas.md` | Bloco 1 — checkout + order bumps + área de membros (Hubla) |
+| `checkout-ofertas.md` | Bloco 1 — checkout + order bumps + área de membros (Kiwify) |
 | `torre-de-controle.md` / `.csv` | Planilha-cockpit: toda a régua datada, uma linha por disparo |
 | `comunicacao.md` | Régua do grupo + disparo base (~2k) + URA/SMS, datados, com rascunho de copy |
 | `pesquisa.md` | Formulário de pesquisa (4 perguntas) — segmenta o lead |
 | `aplicacao.md` | Formulário de aplicação (10 perguntas + lógica 🟢🟡🔴) |
-| `automacao-make.md` | Blueprint da automação Make (webhook Hubla → grupo + pesquisa + tag) |
+| `automacao-make.md` | Blueprint da automação Make (webhook Kiwify → grupo + pesquisa + tag) |
 | `criativos/banner-checkout.html` / `.png` | Banner do topo do checkout (marca Simple) |
 | `apostila/` | Workbook (order bump) — casca na marca + esqueleto |
 
 ## Ferramentas
 
-- **Checkout + área de membros:** Hubla (tudo num lugar só)
-- **Automação:** Make (webhook Hubla → WhatsApp)
+- **Checkout + área de membros:** Kiwify (tudo num lugar só)
+- **Automação:** Make (webhook Kiwify → WhatsApp)
 - **Pesquisa + Aplicação:** Typeform ou Google Forms (o que subir mais rápido)
 - **Cockpit:** Google Sheets (Torre de Controle)
 - **Agendamento da call:** Calendly / agenda do SDR
@@ -45,7 +45,7 @@ comparecimento no evento, que governa aplicação, que governa caixa.
 
 ## Ordem de execução (o que trava o quê)
 
-1. **Trava venda** → Checkout + ofertas (Hubla) + automação de grupo (Make)
+1. **Trava venda** → Checkout + ofertas (Kiwify) + automação de grupo (Make)
 2. **Trava comparecimento** → Régua do grupo + URA/SMS + disparo base
 3. **Trava a call** → Pesquisa + Aplicação + agendamento
 
@@ -57,11 +57,11 @@ comparecimento no evento, que governa aplicação, que governa caixa.
 - [x] Torre de Controle (cadência datada)
 - [x] Régua de comunicação (grupo + base + URA/SMS) — rascunho de copy
 - [x] Pesquisa (4 perguntas) + Aplicação (10 perguntas + lógica)
-- [x] Blueprint da automação Make
-- [ ] **Conta Hubla** (`carlos.duraes@simpleacc.com.br`) + acesso liberado pelo Daniel *(mão do Carlos/Daniel)*
-- [ ] Checkout + bumps montados na Hubla *(mão do Carlos)*
+- [x] **Automação Make CRIADA** — webhook (id 2542253) + cenário boas-vindas (id 5584763, **inativo**), Z-API + copy adaptada. Ver `automacao-make.md`.
+- [ ] **Conta Kiwify** (`carlos.duraes@simpleacc.com.br`) + acesso liberado pelo Daniel *(mão do Carlos/Daniel)*
+- [ ] Checkout + bumps montados na Kiwify *(mão do Carlos)*
 - [ ] Grupo de WhatsApp novo + link *(mão do Carlos)*
-- [ ] Automação Make ligada às conexões reais (Hubla + WhatsApp) *(mão do Carlos)*
+- [ ] **Ativar automação:** ligar webhook na Kiwify, compra-teste, mapear telefone, colar 2 links, ativar cenário *(mão do Carlos — 5 passos em `automacao-make.md`)*
 - [ ] Forms no ar (Typeform/Forms) *(mão do Carlos)*
 - [ ] **Apostila:** conteúdo do método (gravação do workshop) *(pendência com Daniel)*
 - [ ] Copy final de cada peça *(Daniel)*
