@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{
+    --navy:#15263C; --navy-2:#1E344F; --blue:#2E5A99; --blue-lt:#5E82B6;
+    --steel:#8A9AAE; --line-d:#2A3B54;
+    --f:"Inter",-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#0d1826}
+  .cover{
+    position:relative;width:1200px;height:1500px;overflow:hidden;
+    font-family:var(--f);color:#fff;
+    background:linear-gradient(160deg,#1E344F 0%,#15263C 55%,#101d2f 100%);
+  }
+  .cover::after{
+    content:"";position:absolute;inset:0;top:52%;
+    background-image:linear-gradient(rgba(94,130,182,.14) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(94,130,182,.14) 1px,transparent 1px);
+    background-size:44px 44px;
+    -webkit-mask-image:linear-gradient(180deg,transparent,#000 60%);
+            mask-image:linear-gradient(180deg,transparent,#000 60%);
+  }
+  .pad{position:absolute;inset:0;padding:90px 84px;display:flex;flex-direction:column}
+  .top{display:flex;align-items:center;justify-content:space-between;z-index:2}
+  .wm{font-weight:300;letter-spacing:.4em;font-size:40px;padding-left:.4em}
+  .tag{font-size:16px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;
+    color:#fff;border:1px solid var(--blue-lt);padding:11px 20px;border-radius:999px}
+  .mid{margin-top:auto;margin-bottom:auto;z-index:2}
+  .kicker{font-size:20px;letter-spacing:.24em;text-transform:uppercase;color:var(--blue-lt);font-weight:600}
+  h1{font-weight:300;font-size:150px;line-height:.92;letter-spacing:-.03em;margin-top:22px}
+  h1 b{display:block;font-weight:600;font-size:74px;color:#fff;letter-spacing:-.02em;margin-top:14px}
+  .sub{font-size:22px;letter-spacing:.16em;text-transform:uppercase;color:var(--steel);margin-top:36px}
+  .hair{height:1px;width:100%;background:var(--line-d);margin:52px 0;z-index:2}
+  .checks{display:flex;flex-direction:column;gap:20px;z-index:2}
+  .checks div{display:flex;align-items:center;gap:18px;font-size:26px;color:#cdd7e4}
+  .checks span{width:34px;height:34px;border-radius:8px;background:var(--blue);
+    display:flex;align-items:center;justify-content:center;font-size:20px;flex:none}
+  .kpis{display:flex;gap:22px;margin-top:60px;z-index:2}
+  .kpi{flex:1;background:rgba(30,52,79,.55);border:1px solid var(--line-d);border-radius:14px;padding:28px 26px}
+  .kpi .l{font-size:16px;letter-spacing:.08em;text-transform:uppercase;color:#8ea0bb}
+  .kpi .v{font-size:56px;font-weight:600;margin-top:8px;letter-spacing:-.02em}
+  .kpi .v em{font-style:normal;color:var(--blue-lt)}
+  .foot{margin-top:auto;display:flex;align-items:baseline;justify-content:space-between;z-index:2;color:var(--steel);font-size:18px;letter-spacing:.1em}
+</style>
+</head>
+<body>
+  <div class="cover">
+    <div class="pad">
+      <div class="top">
+        <span class="wm">SIMPLE</span>
+        <span class="tag">PDF · Workbook</span>
+      </div>
+
+      <div class="mid">
+        <div class="kicker">Workshop · Funil de Lead Dinâmico</div>
+        <h1>Apostila<b>Funil de Lead Dinâmico</b></h1>
+        <div class="sub">Guia prático de implementação</div>
+
+        <div class="hair"></div>
+
+        <div class="checks">
+          <div><span>✓</span> Resumos e insights dos 2 dias</div>
+          <div><span>✓</span> Checklists de execução</div>
+          <div><span>✓</span> Referências e templates para modelar</div>
+        </div>
+
+        <div class="kpis">
+          <div class="kpi"><div class="l">Custo por MQL</div><div class="v">R$<em>80</em></div></div>
+          <div class="kpi"><div class="l">ROAS</div><div class="v"><em>8x</em>+</div></div>
+          <div class="kpi"><div class="l">Público</div><div class="v">Frio</div></div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <span>O novo jogo do high ticket</span>
+        <span>simpleacc.com</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
