@@ -123,10 +123,18 @@ A descrição original (rodada 3) ficou grande demais no mobile. Compactada de
 descubra como atrair clientes de maior poder aquisitivo e crescer com
 previsibilidade no digital." Já embutida em `Quiz.v2.tsx`.
 
+## Ajustes da própria Vitória (rodada 5, 2026-07-06) — faturamento por último
+
+Ela pediu para o faturamento voltar a ser a última pergunta (era a
+penúltima). Ordem final: balde → estrutura → ticket → modelo de apoio →
+momento de investimento → **faturamento (última)**. IDs internos trocaram de
+novo: `investimento` agora é `q5`, `faturamento` é `q6`. `getCamada` já
+atualizado.
+
 ## Para aplicar tudo de uma vez no Figma Make
 
 São 2 arquivos para colar, cada um por completo, no chat do Figma Make (já
-incluem as rodadas 2, 3 e 4):
+incluem todas as rodadas até a 5):
 
 1. `src/app/hooks/useQuizLogic.ts` ← conteúdo de `useQuizLogic.v2.ts`
 2. `src/app/components/Quiz.tsx` ← conteúdo de `Quiz.v2.tsx`

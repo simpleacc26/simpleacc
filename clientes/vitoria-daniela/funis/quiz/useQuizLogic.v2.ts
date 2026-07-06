@@ -55,6 +55,17 @@ export const QUESTIONS: Question[] = [
   },
   {
     id: 'q5',
+    text: 'Qual desses cenários mais representa seu momento com relação a investir em uma solução pra isso agora?',
+    contextType: 'INVESTIMENTO',
+    options: [
+      'Sei que preciso resolver, mas não é prioridade agora',
+      'Quero resolver, mas não posso investir agora',
+      'Quero resolver, mas meu caixa está apertado no momento',
+      'Quero resolver e tenho como viabilizar investimento se fizer sentido',
+    ],
+  },
+  {
+    id: 'q6',
     text: 'Qual é o faturamento médio mensal do seu negócio hoje?',
     contextType: 'FATURAMENTO',
     options: [
@@ -63,17 +74,6 @@ export const QUESTIONS: Question[] = [
       'Entre R$20 mil e R$50 mil',
       'Entre R$50 mil e R$100 mil',
       'Acima de R$100 mil',
-    ],
-  },
-  {
-    id: 'q6',
-    text: 'Qual desses cenários mais representa seu momento com relação a investir em uma solução pra isso agora?',
-    contextType: 'INVESTIMENTO',
-    options: [
-      'Sei que preciso resolver, mas não é prioridade agora',
-      'Quero resolver, mas não posso investir agora',
-      'Quero resolver, mas meu caixa está apertado no momento',
-      'Quero resolver e tenho como viabilizar investimento se fizer sentido',
     ],
   },
 ];
@@ -127,8 +127,8 @@ export const useQuizLogic = () => {
   // nutrição, não vai para a agenda do comercial). Ver
   // clientes/vitoria-daniela/estrategia/2026-07-06-diagnostico-leads-desqualificados.md
   const getCamada = (answers: Answers) => {
-    const faturamento = answers['q5'];
-    const investimento = answers['q6'];
+    const faturamento = answers['q6'];
+    const investimento = answers['q5'];
     const estrutura = answers['q2'];
     const ticket = answers['q3'];
 
