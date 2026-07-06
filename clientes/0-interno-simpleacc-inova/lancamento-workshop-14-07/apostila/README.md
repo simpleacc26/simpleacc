@@ -7,29 +7,40 @@ Copy de referência do checkout:
 > resumos, checklists e referências para modelar. Um guia de implementação pra
 > aproveitar o melhor da nossa estratégia.
 
-## Status: casca pronta, conteúdo pendente
+## Status: ✅ conteúdo preenchido
 
-- ✅ **Casca visual** na identidade Simple: `apostila.html` (mesma paleta/tipografia
-  do brandbook — navy/azul, Inter).
-- ⛔ **Conteúdo do método:** depende da **gravação do workshop** ("minha gravação
-  do workshop para o leandro" — HANDOFF). **Não invento conteúdo do método.**
-  Assim que o Daniel mandar a gravação/transcrição, eu preencho as seções.
+- ✅ **Apostila completa** em `apostila.html` — o método inteiro em formato workbook
+  (resumo → checklist → templates preenchíveis por parte), na identidade Simple.
+- ✅ **PDF pronto:** `apostila.pdf` (gerado do HTML).
+- ✅ **Autossuficiente:** as fontes (Inter + Space Grotesk) estão embutidas em base64,
+  então o HTML abre e gera PDF igual em qualquer máquina, **offline** — não depende do
+  Google Fonts nem de rede.
 
-## Esqueleto proposto (a preencher com a gravação)
-1. Capa + o novo jogo do high ticket (contexto)
-2. O mecanismo: Funil de Lead Dinâmico (como o lead se qualifica sozinho)
-3. Passo a passo do quiz-diagnóstico (perguntas e roteamento)
-4. Tráfego pro público frio (estrutura de campanha, criativos roteirizados)
-5. Da aplicação à call: filtro 🟢🟡🔴 e agenda
-6. Métricas que importam (MQL R$80, CAC, ROAS 8x) + checklist de implementação
-7. Modelos/templates para modelar (páginas, mensagens, aplicação)
+Fonte do conteúdo: a **gravação/transcrição da aula do Daniel** ("Funil de Lead Dinâmico",
+~2h28) + o **deck da apresentação** (`aula-deploy`). Conteúdo do método **não inventado** —
+extraído da fonte, com números e falas reais.
 
-## Como gerar o PDF (quando o conteúdo estiver no HTML)
+## Estrutura da apostila (realinhada ao deck)
+
+- **Parte 0 · A prova** — cases e números (Carol MQL R$32 · Daniele MQL R$5–6 · Ju ROAS 8,4 ·
+  contratos R$30–84k · faturamento mês a mês da operação própria).
+- **Parte 1 · A virada de visão** — custo por reunião qualificada comparecida.
+- **Parte 2 · A arquitetura do quiz** — ordem, 4 erros, promessa dupla, buckets, interseções.
+- **Parte 3 · O anúncio e a página** — prende→segmenta, dopamina, página que vende.
+- **Parte 4 · Os 9 procedimentos** — o passo a passo de implementação + checklist mestre.
+- **Parte 5 · O comercial** — 5 min, SPIN/NEPQ, ancoragem, 6 etapas de follow-up.
+- **Fechamento** — os 5 primeiros passos + anexo de fórmulas para modelar.
+
+Cada parte traz **checklists** (☐ pra marcar) e **templates preenchíveis** (oferta, buckets,
+headline dupla, anúncio, scripts do comercial).
+
+## Como regerar o PDF (depois de editar o HTML)
 ```bash
 # na pasta apostila/
-/opt/pw-browsers/chromium --headless --no-sandbox --print-to-pdf=apostila.pdf \
-  --no-pdf-header-footer "file://$PWD/apostila.html"
+/opt/pw-browsers/chromium --headless --no-sandbox --disable-gpu \
+  --print-to-pdf=apostila.pdf --no-pdf-header-footer "file://$PWD/apostila.html"
 ```
 
-> Dica: dá pra usar a skill `/prompt-mestre` ou gerar a partir da transcrição da
-> gravação assim que o Daniel disponibilizar.
+> As fontes já estão embutidas no HTML — não precisa de internet pra gerar o PDF.
+> Se um dia precisar reembutir/trocar as fontes, baixe os `woff2` (subset latin) e
+> converta em `data:font/woff2;base64,...` dentro do bloco `@font-face`.
