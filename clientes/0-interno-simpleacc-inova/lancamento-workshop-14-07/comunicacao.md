@@ -11,6 +11,10 @@
 
 ---
 
+> 📄 **Sequência completa e detalhada de copys do grupo** (dia a dia, com disparos
+> cronometrados, no modelo Tarso adaptado): ver `sequencia-copys-grupo.md`.
+> O bloco A abaixo é o resumo âncora usado na Torre.
+
 ## A. Grupo de WhatsApp (do dia da compra até D+7)
 
 <a id="g0"></a>

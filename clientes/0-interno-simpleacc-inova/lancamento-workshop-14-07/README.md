@@ -21,6 +21,7 @@ comparecimento no evento, que governa aplicação, que governa caixa.
 | `torre-de-controle.md` | Planilha-cockpit (modelo Rapha, 5 abas): toda a régua datada |
 | `torre/*.csv` | 1 CSV por aba (SOS Links · Grupos · Troca de Nome · API · URA/SMS) pra colar na cópia da planilha |
 | `comunicacao.md` | Régua do grupo + disparo base (~2k) + URA/SMS, datados, com rascunho de copy |
+| `sequencia-copys-grupo.md` | Sequência completa de copys do grupo (D-7 → D+7), modelo Tarso adaptado |
 | `pesquisa.md` | Formulário de pesquisa (4 perguntas) — segmenta o lead |
 | `aplicacao.md` | Formulário de aplicação (10 perguntas + lógica 🟢🟡🔴) |
 | `automacao-make.md` | Blueprint da automação Make (webhook Kiwify → grupo + pesquisa + tag) |
