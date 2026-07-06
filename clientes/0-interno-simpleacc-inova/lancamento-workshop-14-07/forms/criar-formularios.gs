@@ -23,10 +23,13 @@ function criarFormularios() {
 function criarPesquisa() {
   var form = FormApp.create('Pesquisa - Workshop Funil de Lead Dinâmico');
   form.setDescription(
-    'Workshop Funil de Lead Dinâmico\n\n' +
-    'Que bom ter você aqui. Antes do dia 14, responda 4 perguntas rápidas: é com ' +
-    'elas que a gente prepara o conteúdo pro seu momento. Leva menos de 1 minuto ' +
-    'e suas respostas são sigilosas.'
+    'Que bom ter você aqui. 🙌\n\n' +
+    'Seu lugar no Workshop Funil de Lead Dinâmico (14/07) está garantido. Antes do ' +
+    'dia, a gente quer te conhecer melhor.\n\n' +
+    'São só 4 perguntas rápidas, e é com elas que preparamos o conteúdo pro seu ' +
+    'momento. Assim você sai do workshop com o funil pensado pro SEU negócio.\n\n' +
+    'Pode responder com tranquilidade: suas informações são 100% sigilosas.\n\n' +
+    'Leva menos de 1 minuto. Bora? 👇'
   );
   form.setProgressBar(true);
 
