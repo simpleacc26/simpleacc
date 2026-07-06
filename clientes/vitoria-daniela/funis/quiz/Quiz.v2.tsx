@@ -76,7 +76,7 @@ export function Quiz() {
         <span className="text-[#C5A059] font-bold">Descubra como trazer a autoridade que você já possui no offline para a internet</span> e atraia clientes de alto valor.
       </h1>
       <p className="text-stone-400 text-base leading-relaxed max-w-xl mx-auto md:mx-0">
-        Este teste rápido foi desenhado para especialistas, profissionais e empresários que possuem um serviço de excelência. Em menos de 3 minutos, você receberá uma análise do que precisa fazer para ter uma presença digital que traga resultados. Responda às perguntas abaixo para entender como atrair o público de maior poder aquisitivo e expandir seu negócio com previsibilidade usando o digital.
+        Para especialistas e empresários de serviço de excelência. Em 3 minutos, descubra como atrair clientes de maior poder aquisitivo e crescer com previsibilidade no digital.
       </p>
     </div>
   ), []);

@@ -102,12 +102,10 @@ bloco "Headline>" antes das perguntas). Aplicado em `Quiz.v2.tsx`
 
 - **Headline:** "Descubra como trazer a autoridade que você já possui no
   offline para a internet e atraia clientes de alto valor."
-- **Descrição:** "Este teste rápido foi desenhado para especialistas,
-  profissionais e empresários que possuem um serviço de excelência. Em menos
-  de 3 minutos, você receberá uma análise do que precisa fazer para ter uma
-  presença digital que traga resultados. Responda às perguntas abaixo para
-  entender como atrair o público de maior poder aquisitivo e expandir seu
-  negócio com previsibilidade usando o digital."
+- **Descrição (compactada na rodada 4, ver abaixo):** "Para especialistas e
+  empresários de serviço de excelência. Em 3 minutos, descubra como atrair
+  clientes de maior poder aquisitivo e crescer com previsibilidade no
+  digital."
 
 **Nota estratégica (não bloqueia, só registro):** esse gancho fala de
 "autoridade offline → digital", diferente do gancho de "lucro/previsibilidade
@@ -117,9 +115,18 @@ de execução) vão ser produzidos a partir dessa nova linha — ou seja, o quiz
 está puxando a frente da comunicação, e os anúncios/LP/relatório devem ser
 realinhados a esse gancho depois, não o contrário.
 
+## Ajustes da própria Vitória (rodada 4, 2026-07-06) — descrição compacta
+
+A descrição original (rodada 3) ficou grande demais no mobile. Compactada de
+~60 para ~25 palavras, mantendo os 3 elementos (pra quem é, tempo, resultado):
+"Para especialistas e empresários de serviço de excelência. Em 3 minutos,
+descubra como atrair clientes de maior poder aquisitivo e crescer com
+previsibilidade no digital." Já embutida em `Quiz.v2.tsx`.
+
 ## Para aplicar tudo de uma vez no Figma Make
 
-São 2 arquivos para colar, cada um por completo, no chat do Figma Make:
+São 2 arquivos para colar, cada um por completo, no chat do Figma Make (já
+incluem as rodadas 2, 3 e 4):
 
 1. `src/app/hooks/useQuizLogic.ts` ← conteúdo de `useQuizLogic.v2.ts`
 2. `src/app/components/Quiz.tsx` ← conteúdo de `Quiz.v2.tsx`
