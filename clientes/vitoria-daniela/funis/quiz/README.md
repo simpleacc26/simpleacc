@@ -17,7 +17,7 @@ Publicado em: https://quiz.vitoriadaniela.com.br/
 
 As ferramentas de Figma disponíveis nesta sessão **leem** arquivos Figma Make
 (`get_design_context`), mas **não escrevem** neles — o `use_figma` (que edita via
-Plugin API) explicitly só funciona em arquivos `/design/`, `/board/` e `/slides/`,
+Plugin API) só funciona em arquivos `/design/`, `/board/` e `/slides/`,
 não em `/make/`. Ou seja: eu não consigo aplicar esta mudança diretamente no
 Figma a partir daqui. Alguém com acesso de edição precisa colar o conteúdo de
 `useQuizLogic.v2.ts` (deste diretório) substituindo
@@ -66,3 +66,29 @@ classificação, em `useQuizLogic.ts`.
 - Confirmar com quem administra o Make.com o impacto da mudança de payload.
 - Depois de aprovado por ela: seguir para os próximos itens da ordem de
   execução (copy da LP, diagnósticos por balde, anúncios).
+
+## Ajustes da própria Vitória (rodada 2, 2026-07-06)
+
+Depois da primeira versão, ela pediu 3 mudanças diretamente pelo Daniel. Já
+aplicadas em `useQuizLogic.v2.ts`:
+
+1. **A pergunta de momento de investimento virou a última pergunta** (era a
+   4ª). Faturamento agora é a 5ª, investimento é a 6ª (e última).
+2. **A pergunta "Se o seu negócio funcionasse com previsibilidade..." (objetivo)
+   foi removida** — considerada irrelevante por ela.
+3. **Substituída por uma nova pergunta de "modelo de apoio ideal"**, adaptada do
+   rascunho original que ela mandou (`contexto/anexos/2026-07-06-quiz-rascunho-vitoria.docx`,
+   pergunta 4 de lá): **"O que mais faria a diferença para o seu negócio
+   atualmente?"**, com as opções sobre direcionamento/acompanhamento
+   individual/profissionais que executam/equilíbrio. A resposta vai no payload
+   como `modelo_apoio` (informativo, não entra ainda nos filtros de
+   qualificação de `getCamada`).
+
+**Atenção ao reaplicar:** como as perguntas mudaram de posição, os IDs internos
+mudaram junto (`faturamento` agora é `q5`, `investimento` é `q6`). Se alguém
+for fazer esse ajuste em pedaços pelo chat do Figma Make (só reordenando/
+trocando o texto, sem colar o arquivo inteiro), é fácil esquecer de atualizar
+essas referências dentro de `getCamada` — e aí a classificação de camada
+passa a ler a pergunta errada silenciosamente. Por isso o mais seguro é colar
+o arquivo `useQuizLogic.v2.ts` inteiro de novo, em vez de pedir ajustes
+pontuais.

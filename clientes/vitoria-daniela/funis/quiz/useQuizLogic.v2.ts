@@ -4,7 +4,7 @@ export type Question = {
   id: string;
   text: string;
   options: string[];
-  contextType?: 'BALDE' | 'CONTEXT' | 'TICKET' | 'INVESTIMENTO' | 'OBJETIVO' | 'FATURAMENTO';
+  contextType?: 'BALDE' | 'CONTEXT' | 'TICKET' | 'APOIO' | 'FATURAMENTO' | 'INVESTIMENTO';
 };
 
 export const QUESTIONS: Question[] = [
@@ -44,29 +44,17 @@ export const QUESTIONS: Question[] = [
   },
   {
     id: 'q4',
-    text: 'Qual desses cenários mais representa seu momento com relação a investir em uma solução pra isso agora?',
-    contextType: 'INVESTIMENTO',
+    text: 'O que mais faria a diferença para o seu negócio atualmente?',
+    contextType: 'APOIO',
     options: [
-      'Sei que preciso resolver, mas não é prioridade agora',
-      'Quero resolver, mas não posso investir agora',
-      'Quero resolver, mas meu caixa está apertado no momento',
-      'Quero resolver e tenho como viabilizar investimento se fizer sentido',
+      'Um direcionamento e acompanhamento do que eu preciso fazer',
+      'Um acompanhamento individual de médio prazo para eu aprender a estruturar meu ecossistema de vendas e marketing',
+      'Profissionais que executem tudo pra mim',
+      'O equilíbrio entre acompanhamento individual e profissionais que cuidam de tudo pra mim',
     ],
   },
   {
     id: 'q5',
-    text: 'Se o seu negócio funcionasse com previsibilidade, o que você faria diferente hoje?',
-    contextType: 'OBJETIVO',
-    options: [
-      'Reduziria minha carga de trabalho e teria mais tempo para a família',
-      'Escolheria melhor meus clientes e aumentaria meu ticket',
-      'Investiria com segurança para crescer mais rápido',
-      'Me posicionaria como referência no meu mercado',
-      'Construiria uma empresa que funciona sem mim',
-    ],
-  },
-  {
-    id: 'q6',
     text: 'Qual é o faturamento médio mensal do seu negócio hoje?',
     contextType: 'FATURAMENTO',
     options: [
@@ -75,6 +63,17 @@ export const QUESTIONS: Question[] = [
       'Entre R$20 mil e R$50 mil',
       'Entre R$50 mil e R$100 mil',
       'Acima de R$100 mil',
+    ],
+  },
+  {
+    id: 'q6',
+    text: 'Qual desses cenários mais representa seu momento com relação a investir em uma solução pra isso agora?',
+    contextType: 'INVESTIMENTO',
+    options: [
+      'Sei que preciso resolver, mas não é prioridade agora',
+      'Quero resolver, mas não posso investir agora',
+      'Quero resolver, mas meu caixa está apertado no momento',
+      'Quero resolver e tenho como viabilizar investimento se fizer sentido',
     ],
   },
 ];
@@ -128,8 +127,8 @@ export const useQuizLogic = () => {
   // nutrição, não vai para a agenda do comercial). Ver
   // clientes/vitoria-daniela/estrategia/2026-07-06-diagnostico-leads-desqualificados.md
   const getCamada = (answers: Answers) => {
-    const faturamento = answers['q6'];
-    const investimento = answers['q4'];
+    const faturamento = answers['q5'];
+    const investimento = answers['q6'];
     const estrutura = answers['q2'];
     const ticket = answers['q3'];
 
@@ -175,12 +174,14 @@ export const useQuizLogic = () => {
 
     const balde = getBalde(answers);
     const camada = getCamada(answers);
+    const modelo_apoio = answers['q4'];
 
     const payload = {
       ...data,
       answers,
       balde,
       camada,
+      modelo_apoio,
       utms,
       meta,
     };
