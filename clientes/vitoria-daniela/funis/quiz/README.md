@@ -53,11 +53,11 @@ precisa mudar (ver "o que NÃO muda" abaixo).
 
 ## O que NÃO muda
 
-Nenhum componente visual foi tocado — `Quiz.tsx`, `Question.tsx`, `LeadForm.tsx`,
-`ProgressBar.tsx`, cores, tipografia, animações (motion/confetti) e o hero
-("Descubra quanto lucro sua empresa pode gerar a mais...") continuam
-exatamente como estão. A mudança é só no conteúdo das perguntas e na lógica de
-classificação, em `useQuizLogic.ts`.
+`Question.tsx`, `LeadForm.tsx`, `ProgressBar.tsx`, cores, tipografia e animações
+(motion/confetti) continuam exatamente como estão. A mudança é só no conteúdo
+das perguntas e na lógica de classificação (`useQuizLogic.ts`), e no texto do
+hero (`Quiz.tsx`, ver rodada 3 abaixo) — nenhum layout ou componente visual
+novo foi criado.
 
 ## Pendente
 
@@ -92,3 +92,36 @@ essas referências dentro de `getCamada` — e aí a classificação de camada
 passa a ler a pergunta errada silenciosamente. Por isso o mais seguro é colar
 o arquivo `useQuizLogic.v2.ts` inteiro de novo, em vez de pedir ajustes
 pontuais.
+
+## Ajustes da própria Vitória (rodada 3, 2026-07-06) — headline e descrição
+
+Ela pediu para trocar a headline e a descrição do quiz. O texto exato estava
+no rascunho que ela mandou (`contexto/anexos/2026-07-06-quiz-rascunho-vitoria.docx`,
+bloco "Headline>" antes das perguntas). Aplicado em `Quiz.v2.tsx`
+(componente `HeroHeader`, único trecho alterado nesse arquivo):
+
+- **Headline:** "Descubra como trazer a autoridade que você já possui no
+  offline para a internet e atraia clientes de alto valor."
+- **Descrição:** "Este teste rápido foi desenhado para especialistas,
+  profissionais e empresários que possuem um serviço de excelência. Em menos
+  de 3 minutos, você receberá uma análise do que precisa fazer para ter uma
+  presença digital que traga resultados. Responda às perguntas abaixo para
+  entender como atrair o público de maior poder aquisitivo e expandir seu
+  negócio com previsibilidade usando o digital."
+
+**Nota estratégica (não bloqueia, só registro):** esse gancho fala de
+"autoridade offline → digital", diferente do gancho de "lucro/previsibilidade
+de vendas com o Método Magna" usado hoje nos anúncios, na LP e no relatório.
+Ela confirmou que é intencional porque os próximos anúncios (item 4 da ordem
+de execução) vão ser produzidos a partir dessa nova linha — ou seja, o quiz
+está puxando a frente da comunicação, e os anúncios/LP/relatório devem ser
+realinhados a esse gancho depois, não o contrário.
+
+## Para aplicar tudo de uma vez no Figma Make
+
+São 2 arquivos para colar, cada um por completo, no chat do Figma Make:
+
+1. `src/app/hooks/useQuizLogic.ts` ← conteúdo de `useQuizLogic.v2.ts`
+2. `src/app/components/Quiz.tsx` ← conteúdo de `Quiz.v2.tsx`
+
+Nenhum outro arquivo do projeto precisa mudar.
