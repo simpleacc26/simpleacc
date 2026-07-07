@@ -250,7 +250,6 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
             <span style={{ color: ROSE }}>reagindo</span>
           </h2>
           <div className="space-y-4">
-            <img src="/fotos/dep1.png" alt="Depoimento 1" className="w-full rounded-2xl" />
             <img src="/fotos/dep2.png" alt="Depoimento 2" className="w-full rounded-2xl" />
             <img src="/fotos/dep3.png" alt="Depoimento 3" className="w-full rounded-2xl" />
             <img src="/fotos/dep4.png" alt="Depoimento 4" className="w-full rounded-2xl" />
