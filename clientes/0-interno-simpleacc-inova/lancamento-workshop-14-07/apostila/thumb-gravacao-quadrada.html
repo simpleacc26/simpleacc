@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{
+    --navy:#15263C; --steel:#8A9AAE; --blue-lt:#5E82B6;
+    --serif:Georgia,"Times New Roman",serif;
+    --sans:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#0d1826}
+  /* Thumb quadrado minimalista do produto (estilo referencia). 800x800 */
+  .thumb{
+    position:relative;width:800px;height:800px;overflow:hidden;
+    font-family:var(--serif);color:#fff;
+    background:linear-gradient(160deg,#1B2C44 0%,#15263C 60%,#111f31 100%);
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:70px 64px;
+  }
+  .wm{position:absolute;top:34px;right:40px;font-family:var(--sans);
+    font-weight:300;letter-spacing:.34em;font-size:15px;color:rgba(255,255,255,.42);padding-left:.34em}
+  .kicker{font-size:44px;font-weight:400;letter-spacing:.005em;line-height:1.06}
+  .title{font-size:60px;font-weight:700;letter-spacing:-.01em;line-height:1.04;margin-top:6px}
+  .rule{width:70px;height:2px;background:var(--blue-lt);opacity:.7;margin:34px 0}
+  .sub{font-family:var(--sans);font-size:24px;font-weight:400;color:var(--steel);letter-spacing:.02em}
+  .foot{position:absolute;bottom:34px;left:0;right:0;font-family:var(--sans);
+    font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.30)}
+</style>
+</head>
+<body>
+  <div class="thumb">
+    <span class="wm">SIMPLE</span>
+    <div class="kicker">Workshop</div>
+    <div class="title">Funil de<br>Lead Dinâmico</div>
+    <div class="rule"></div>
+    <div class="sub">Formato de aulas</div>
+    <div class="foot">simpleacc.com</div>
+  </div>
+</body>
+</html>
