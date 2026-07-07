@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { questions } from "./data/questions";
 import { fbqTrack } from "./analytics";
 import { LandingScreen } from "./components/LandingScreen";
@@ -6,8 +7,6 @@ import { QuestionScreen } from "./components/QuestionScreen";
 import { LeadCaptureForm, type LeadData } from "./components/LeadCaptureForm";
 import { LoadingScreen } from "./components/LoadingScreen";
 import { ReportScreen } from "./components/ReportScreen";
-
-type Step = "landing" | "question" | "lead-capture" | "loading" | "report";
 
 interface UtmParams {
   utm_source: string;
@@ -17,12 +16,20 @@ interface UtmParams {
   utm_term: string;
 }
 
+interface ResultState {
+  leadData: LeadData;
+  answers: Record<number, string>;
+}
+
 const WEBHOOK_URL =
   import.meta.env.VITE_WEBHOOK_URL ||
   "https://hook.us2.make.com/PLACEHOLDER";
 
-export default function App() {
-  const [step, setStep] = useState<Step>("landing");
+type QuizStep = "landing" | "question" | "lead-capture" | "loading";
+
+function QuizFlow() {
+  const navigate = useNavigate();
+  const [step, setStep] = useState<QuizStep>("landing");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [leadData, setLeadData] = useState<LeadData | null>(null);
@@ -46,7 +53,6 @@ export default function App() {
     fbqTrack("PageView");
   }, []);
 
-  // Landing: selecionar a resposta da Q0 inicia o quiz
   const handleLandingSelect = (value: string) => {
     setAnswers((prev) => ({ ...prev, 0: value }));
     fbqTrack("CompleteRegistration", {
@@ -57,7 +63,6 @@ export default function App() {
     setCurrentIndex(1);
   };
 
-  // Perguntas Q1–Q8
   const handleSelectAnswer = (value: string) => {
     setAnswers((prev) => ({ ...prev, [currentIndex]: value }));
     fbqTrack("ViewContent", {
@@ -126,6 +131,13 @@ export default function App() {
     setStep("loading");
   };
 
+  const handleLoadingComplete = () => {
+    if (!leadData) return;
+    const resultState: ResultState = { leadData, answers };
+    sessionStorage.setItem("quizResult", JSON.stringify(resultState));
+    navigate("/resultado", { state: resultState });
+  };
+
   if (step === "landing") {
     return (
       <LandingScreen
@@ -154,12 +166,42 @@ export default function App() {
   }
 
   if (step === "loading") {
-    return <LoadingScreen onComplete={() => setStep("report")} />;
-  }
-
-  if (step === "report" && leadData) {
-    return <ReportScreen leadData={leadData} answers={answers} />;
+    return <LoadingScreen onComplete={handleLoadingComplete} />;
   }
 
   return null;
+}
+
+function ResultPage() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const state: ResultState | null =
+    location.state ||
+    (() => {
+      try {
+        return JSON.parse(sessionStorage.getItem("quizResult") || "null");
+      } catch {
+        return null;
+      }
+    })();
+
+  useEffect(() => {
+    if (!state) {
+      navigate("/", { replace: true });
+    }
+  }, [state, navigate]);
+
+  if (!state) return null;
+
+  return <ReportScreen leadData={state.leadData} answers={state.answers} />;
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<QuizFlow />} />
+      <Route path="/resultado" element={<ResultPage />} />
+    </Routes>
+  );
 }
