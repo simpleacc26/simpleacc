@@ -14,9 +14,17 @@ export function Hero() {
         <h1 className="font-extrabold text-[#FAFAFA] leading-[1.15] uppercase text-[26px] md:text-[38px] lg:text-[46px] tracking-wide text-center md:text-left drop-shadow-sm">
           TENHA UMA PRESENÇA ONLINE QUE DEMONSTRE A <span className="text-[#Cfb36e]">AUTORIDADE</span> QUE VOCÊ JÁ TEM NO OFFLINE E ATRAIA CLIENTES DE <span className="text-[#Cfb36e]">ALTO VALOR</span>.
         </h1>
-        <h2 className="md:text-xl font-medium text-gray-300 leading-relaxed text-[16px] text-center md:text-left">
-            Tenha clareza do que é preciso para construir um canal de vendas organizado, assertivo e que faça sentido para o tamanho do seu negócio. Atraia o cliente que reconhece e paga pelo seu valor sem que você precise perder tempo com o que não gera resultado ou arriscar a reputação que levou anos para construir. Toque abaixo para agendar uma análise estratégica e desenhar o seu plano online.
-        </h2>
+        <div className="space-y-3 text-center md:text-left">
+            <p className="text-white font-semibold leading-relaxed text-[17px] md:text-xl">
+                Tenha clareza do que é preciso para construir um canal de vendas organizado, assertivo e que faça sentido para o tamanho do seu negócio.
+            </p>
+            <p className="text-gray-400 font-normal leading-relaxed text-[15px] md:text-lg">
+                Atraia o cliente que reconhece e paga pelo seu valor sem que você precise perder tempo com o que não gera resultado ou arriscar a reputação que levou anos para construir.
+            </p>
+            <p className="text-[#Cfb36e] font-medium leading-relaxed text-[14px] md:text-base">
+                Toque abaixo para agendar uma análise estratégica e desenhar o seu plano online.
+            </p>
+        </div>
 
         <div className="flex flex-col sm:flex-row items-center md:items-start gap-6 pt-4 justify-center md:justify-start">
             <div className="space-y-2">

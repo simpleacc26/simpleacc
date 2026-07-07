@@ -43,7 +43,7 @@ export function Testimonials() {
         </div>
 
         {/* Carousel Layout */}
-        <div className="mb-10 px-4 w-full block testimonial-slider [&_.slick-prev:before]:text-[#Cfb36e] [&_.slick-next:before]:text-[#Cfb36e] [&_.slick-dots_li.slick-active_button:before]:text-[#Cfb36e] [&_.slick-dots_li_button:before]:text-gray-400">
+        <div className="mb-10 px-4 w-full max-w-[820px] mx-auto block testimonial-slider [&_.slick-prev:before]:text-[#Cfb36e] [&_.slick-next:before]:text-[#Cfb36e] [&_.slick-dots_li.slick-active_button:before]:text-[#Cfb36e] [&_.slick-dots_li_button:before]:text-gray-400">
             <Slider {...settings}>
                 {testimonials.map((img, idx) => (
                     <div key={idx} className="px-3 outline-none">

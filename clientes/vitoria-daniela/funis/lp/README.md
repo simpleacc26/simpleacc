@@ -129,3 +129,30 @@ toda a página):
 
 `App.tsx` já foi ajustado na rodada 1 (import + `<MagnaMethod />`) e não
 precisa mudar de novo.
+
+## Rodada 2 aplicada com sucesso
+
+Confirmado pelo Daniel (Version 81 no Figma Make, 9 arquivos alterados): o
+espaçamento entre as dobras e a remoção da numeração já estão no ar.
+
+## Rodada 3 — carrossel de depoimentos e subheadline (2026-07-06)
+
+Dois feedbacks novos da Vitória:
+
+1. **Depoimentos espaçados demais no desktop.** Causa: o carrossel mostra 2
+   slides por vez (`slidesToShow: 2`) dentro de um container de
+   `max-w-[1440px]`, mas cada card de depoimento é limitado a
+   `max-w-[340px]`. Isso deixa cada card "flutuando" sozinho no centro de uma
+   coluna bem mais larga que ele, criando um vão enorme entre os dois cards
+   visíveis. Corrigido limitando o wrapper do carrossel a `max-w-[820px]
+   mx-auto` — os dois cards ficam próximos um do outro, sem sobrar espaço
+   morto entre eles. No mobile o carrossel já mostra 1 slide por vez
+   (`breakpoint: 768`), então essa mudança não afeta o mobile.
+2. **Subheadline do Hero "blocada demais".** Era um único parágrafo com 3
+   frases seguidas, mesmo peso e tamanho de fonte do início ao fim. Troquei
+   por 3 linhas com hierarquia visual diferente: a primeira frase (a mais
+   importante) em branco e semi-bold, a segunda em cinza mais claro e peso
+   normal, e a frase de transição pro botão em dourado, menor. O texto em si
+   não mudou uma palavra, só o agrupamento e o peso/tamanho de cada parte.
+
+Arquivos atualizados: `Hero.v2.tsx`, `Testimonials.v2.tsx`.
