@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Diagnóstico Estratégico — Vitória Daniela</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+  :root {
+    --gold: #Cfb36e;
+    --bg: #090806;
+    --card: #111111;
+    --card-border: #222222;
+    --green: #25D366;
+    --green-hover: #1ebc57;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: #FAFAFA;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+  }
+
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+
+  section { padding: 64px 0; }
+  section.tight { padding: 48px 0; }
+
+  .divider {
+    max-width: 860px;
+    margin: 0 auto;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--card-border), transparent);
+  }
+
+  h1, h2, h3 { margin: 0 0 16px; font-weight: 800; text-transform: uppercase; line-height: 1.2; }
+  .gold { color: var(--gold); }
+
+  h1 { font-size: 34px; text-align: center; }
+  h2 { font-size: 26px; }
+  h3 { font-size: 18px; color: var(--gold); }
+
+  p { color: #D4D4D4; font-size: 16px; margin: 0 0 16px; }
+  .lead { font-size: 18px; color: #FAFAFA; font-weight: 500; }
+
+  .cover {
+    text-align: center;
+    padding: 80px 0 56px;
+  }
+  .cover-photo {
+    width: 220px; height: 220px; border-radius: 999px; overflow: hidden;
+    margin: 0 auto 32px; border: 3px solid var(--gold);
+    box-shadow: 0 0 40px rgba(207,179,110,0.25);
+  }
+  .cover-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .kicker {
+    display: inline-block; color: var(--gold); font-weight: 700; letter-spacing: 2px;
+    font-size: 13px; text-transform: uppercase; margin-bottom: 16px;
+  }
+
+  .signature { text-align: right; color: var(--gold); font-weight: 600; margin-top: 24px; }
+  .signature span { display: block; color: #999; font-weight: 400; font-size: 14px; }
+
+  .card {
+    background: rgba(17,17,17,0.8);
+    border: 1px solid var(--card-border);
+    border-radius: 20px;
+    padding: 28px;
+    margin-bottom: 20px;
+  }
+  .card h3 { margin-bottom: 12px; }
+  .card p:last-child { margin-bottom: 0; }
+  .card .symptom { color: #999; font-size: 14px; font-style: italic; margin-top: 8px; }
+
+  .grid { display: grid; gap: 20px; }
+  @media (min-width: 640px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
+
+  ul.checklist { list-style: none; padding: 0; margin: 0 0 16px; }
+  ul.checklist li {
+    padding-left: 30px; position: relative; margin-bottom: 12px; color: #D4D4D4;
+  }
+  ul.checklist.yes li:before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+  ul.checklist.no li:before { content: "✕"; position: absolute; left: 0; color: #777; font-weight: 700; }
+
+  .about-photo {
+    width: 100%; max-width: 280px; aspect-ratio: 3/4; border-radius: 32px; overflow: hidden;
+    border: 1px solid var(--card-border); margin: 0 auto 28px; box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  }
+  .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--green); color: #fff; font-weight: 700; text-decoration: none;
+    padding: 16px 32px; border-radius: 14px; text-transform: uppercase; font-size: 14px;
+    letter-spacing: 0.5px; box-shadow: 0 0 20px rgba(37,211,102,0.3);
+  }
+  .cta-wrap { text-align: center; padding: 8px 0 16px; }
+
+  .options { display: grid; gap: 20px; margin: 32px 0; }
+  @media (min-width: 640px) { .options { grid-template-columns: 1fr 1fr; } }
+  .option-card { border-radius: 20px; padding: 28px; border: 1px solid var(--card-border); }
+  .option-card.bad { background: rgba(17,17,17,0.6); }
+  .option-card.good { background: rgba(207,179,110,0.08); border-color: var(--gold); position: relative; }
+  .option-card .tag {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--gold); color: #090806; font-weight: 700; font-size: 11px;
+    padding: 4px 14px; border-radius: 999px; text-transform: uppercase; letter-spacing: 1px;
+  }
+  .option-card h3 { margin-top: 8px; }
+  .option-card ul { list-style: none; padding: 0; margin: 12px 0 0; }
+  .option-card ul li { padding-left: 18px; position: relative; color: #ccc; margin-bottom: 8px; font-size: 15px; }
+  .option-card.bad ul li:before { content: "—"; position: absolute; left: 0; color: #666; }
+  .option-card.good ul li:before { content: "—"; position: absolute; left: 0; color: var(--gold); }
+
+  .final-question {
+    text-align: center; font-size: 20px; font-weight: 600; color: #FAFAFA;
+    max-width: 640px; margin: 24px auto; line-height: 1.5;
+  }
+
+  footer { text-align: center; padding: 40px 0; color: #666; font-size: 13px; }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .pagebreak { page-break-before: always; break-before: page; }
+    .card, .option-card, .cover-photo, .about-photo { page-break-inside: avoid; break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- SLIDE 1 — Capa -->
+  <section class="cover">
+    <div class="wrap">
+      <div class="cover-photo"><img src="{{HERO_IMG}}" alt="Vitória Daniela" /></div>
+      <span class="kicker">Diagnóstico Estratégico</span>
+      <h1>Descubra quanto lucro sua empresa pode gerar a mais em 2026, <span class="gold">e o que está impedindo você de vender mais</span> (e com previsibilidade)</h1>
+      <p class="lead" style="text-align:center; max-width:620px; margin:16px auto 0;">
+        Ao longo deste documento, você vai descobrir por que seu negócio vende de forma instável, e o que você precisa ajustar para ter previsibilidade de vendas e se tornar uma referência no mercado.
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SLIDE 2 — Carta -->
+  <section class="pagebreak">
+    <div class="wrap">
+      <p class="lead">Olá.</p>
+      <p>Preparei este relatório para te mostrar algo que a maioria dos empresários não percebe: por que você já vende, já tem uma carreira consolidada, já tem clientes... mas continua dependendo de indicação, com vendas imprevisíveis e sem clareza de quanto vai entrar no próximo mês.</p>
+      <p>Milhares de profissionais vivem a mesma frustração: investem em marketing, tentam postar conteúdo, até fecham algumas vendas... mas não conseguem ter resultado. O negócio funciona quando você está presente, mas trava quando você tenta escalar.</p>
+      <p>E a verdade é que não adianta contratar uma agência que vai te entregar uma estratégia genérica, elaborada por um guru do marketing que nunca olhou de verdade para o seu negócio. <strong style="color:#FAFAFA">O que você precisa é de um olhar individualizado sobre o seu contexto, seu mercado e seus objetivos.</strong></p>
+      <p style="margin-top:24px;">Nas próximas páginas, você vai descobrir:</p>
+      <ul class="checklist yes">
+        <li>Por que o seu faturamento é instável (e como isso se resolve)</li>
+        <li>O que você precisa saber sobre O SEU negócio para ter previsibilidade e se tornar uma referência no mercado</li>
+        <li>O que vai acontecer na conversa estratégica que identifica exatamente o que está travando seu crescimento</li>
+      </ul>
+      <div class="signature">
+        — Vitória Daniela
+        <span>Estrategista de Vendas para Alto Ticket</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SLIDE 3 — 3 motivos -->
+  <section class="pagebreak">
+    <div class="wrap">
+      <h2 style="text-align:center;">OS 3 MOTIVOS QUE IMPEDEM VOCÊ DE TER <span class="gold">PREVISIBILIDADE DE VENDAS</span></h2>
+      <div class="card">
+        <h3>Motivo 1 — Você depende de indicação</h3>
+        <p>Você não sabe quando o próximo cliente vai aparecer. Você não tem um sistema estruturado de atração e conversão que gere leads qualificados todo mês.</p>
+        <p class="symptom">Sintoma: vendas instáveis, meses bons e meses ruins, ansiedade constante sobre o faturamento.</p>
+      </div>
+      <div class="card">
+        <h3>Motivo 2 — Seu marketing não vira venda</h3>
+        <p>Você já tentou postar conteúdo, fazer anúncios, contratar agências, mas ninguém conseguiu te dar resultados. Não tem uma estrutura completa para crescer e vender: posicionamento que te diferencia dos concorrentes + oferta validada e aceita pelo seu público + estratégia de vendas que funciona + estratégia para se tornar referência no mercado.</p>
+        <p class="symptom">Sintoma: dinheiro jogado fora, frustração de investir sem resultado, sensação de estar perdido.</p>
+      </div>
+      <div class="card">
+        <h3>Motivo 3 — Você é o centro do seu negócio</h3>
+        <p>O negócio só vende quando você está presente e você não consegue delegar sem medo. Você não confia em profissionais de marketing por ter tido experiências horríveis. Falta processos, falta um sistema que funcione sem você, faltam pessoas que se importam com seu negócio assim como você.</p>
+        <p class="symptom">Sintoma: sobrecarga total, impossibilidade de crescer, você é refém do próprio negócio.</p>
+      </div>
+      <p style="text-align:center; font-weight:600; color:#FAFAFA; margin-top:24px;">E o pior: você tenta resolver isso investindo em mais marketing, mais conteúdo, mais agências... mas nada disso cria previsibilidade e escala.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SLIDE 4 — Por que já tentou de tudo -->
+  <section class="pagebreak">
+    <div class="wrap">
+      <h2 style="text-align:center;">POR QUE VOCÊ JÁ TENTOU DE TUDO E <span class="gold">CONTINUA SEM PREVISIBILIDADE?</span></h2>
+      <p class="lead">Você já tentou:</p>
+      <ul class="checklist yes">
+        <li>Agências tradicionais que prometeram resultado mas só entregaram "posts bonitos" sem estratégias pensadas para o que o SEU negócio precisa de verdade.</li>
+        <li>Freelancers que fizeram algumas coisas mas não resolveram o problema a fundo.</li>
+        <li>Cursos de "gurus" com fórmulas prontas que não funcionam para o SEU negócio.</li>
+        <li>Investir em tráfego pago sem estrutura e ver o dinheiro queimar sem retorno.</li>
+        <li>Tentar criar sua estratégia de vendas sozinho, e se sentir caminhando em círculos.</li>
+      </ul>
+
+      <div class="card" style="margin-top:32px;">
+        <h3>O problema é que você está tentando resolver o problema errado</h3>
+        <p class="lead">Você acha que o problema é:</p>
+        <ul class="checklist no">
+          <li>"Preciso de mais seguidores"</li>
+          <li>"Preciso de mais conteúdo"</li>
+          <li>"Preciso de mais anúncios"</li>
+        </ul>
+        <p class="lead">Mas o problema DE VERDADE é:</p>
+        <ul class="checklist yes">
+          <li>Você não tem clareza do que precisa fazer para vender mais e se tornar referência no seu mercado.</li>
+          <li>Você não tem uma estrutura completa na internet que realmente traga resultados (e não te faça só perder tempo e dinheiro).</li>
+          <li>Você não tem um diagnóstico profundo do que está impedindo o crescimento do seu negócio.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SLIDE 5 — Resultados -->
+  <section class="tight pagebreak" style="text-align:center;">
+    <div class="wrap">
+      <h2><span class="gold">Resultados</span> de quem passou pela nossa análise individual</h2>
+      <p>Mais de 300 projetos implementados nos últimos 8 anos, ajudando empresas e profissionais a alcançarem faturamentos de 5, 6 e 7 dígitos.</p>
+      <p class="lead">Na sua conversa estratégica, você pode começar a trilhar o mesmo caminho.</p>
+      <div class="cta-wrap">
+        <a class="cta-btn" href="{{WHATSAPP_LINK}}" target="_blank" rel="noopener noreferrer">Quero agendar minha análise estratégica →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SLIDE 6 — O que vai ganhar -->
+  <section class="pagebreak">
+    <div class="wrap">
+      <h2 style="text-align:center;">O QUE VOCÊ VAI GANHAR NA <span class="gold">SESSÃO ESTRATÉGICA</span></h2>
+      <div class="card">
+        <h3>Passo 1 — Análise profunda do seu negócio atual</h3>
+        <ul class="checklist yes">
+          <li>Você vai me contar como funciona seu negócio hoje, como vende, qual seu ticket médio, e suas maiores frustrações.</li>
+          <li>Vou fazer perguntas estratégicas para identificar exatamente onde está o gargalo que impede a previsibilidade.</li>
+          <li>Juntos, vamos mapear por que você não consegue escalar com consistência.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Passo 2 — Diagnóstico do que está travando seu crescimento</h3>
+        <ul class="checklist yes">
+          <li>Vou te mostrar exatamente o que está impedindo suas vendas de serem previsíveis (posicionamento, oferta, funil ou estrutura comercial).</li>
+          <li>Você vai entender por que marketing isolado não funciona e por que você precisa de uma estratégia integrada.</li>
+          <li>Vou analisar sua situação específica e mostrar o que precisa ser ajustado.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Passo 3 — Validação ou ajuste da sua oferta</h3>
+        <ul class="checklist yes">
+          <li>Vou te mostrar se sua oferta está alinhada com o público certo e se está sendo comunicada da forma que converte.</li>
+          <li>Você vai descobrir por que mesmo tendo um bom serviço você não vende com consistência.</li>
+          <li>Vou te explicar como estruturar comunicação que gera autoridade e desejo.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Passo 4 — Plano claro para ter previsibilidade</h3>
+        <ul class="checklist yes">
+          <li>Vou traçar o caminho exato do que você precisa fazer para finalmente ter vendas previsíveis e com alta margem de lucro.</li>
+          <li>Você vai descobrir como construir um sistema de posicionamento + conteúdo + funil que funciona.</li>
+          <li>Vou te mostrar qual o melhor próximo passo para O SEU negócio.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SLIDE 7 — Sobre Vitória -->
+  <section class="pagebreak">
+    <div class="wrap">
+      <h2 style="text-align:center;">QUEM VAI FAZER SUA <span class="gold">CONVERSA ESTRATÉGICA</span></h2>
+      <div class="about-photo"><img src="{{ABOUT_IMG}}" alt="Vitória Daniela" /></div>
+      <h3 style="text-align:center; margin-bottom:20px;">Sobre Vitória Daniela</h3>
+      <p>Com mais de 8 anos de experiência no marketing digital, já esteve à frente de mais de 300 projetos, ajudando empresas e profissionais a alcançarem faturamentos de 5, 6 e 7 dígitos, no Brasil e nos EUA, além disso construiu seu próprio faturamento de mais de R$600.000 vendendo serviços com um perfil com menos de 150 seguidores no Instagram.</p>
+      <p>Atendeu infoprodutores, empresas, agências e profissionais liberais: o que deu a ela uma visão completa do que realmente funciona (e do que não funciona) na internet.</p>
+      <div class="card">
+        <p class="lead" style="text-transform:uppercase; font-size:14px; letter-spacing:0.5px;">O diferencial do trabalho dela está em três pontos:</p>
+        <ul class="checklist yes">
+          <li>Ensina o que vive na prática</li>
+          <li>Tem uma visão de negócio completa do negócio, trazendo sua experiência como copywriter e empresária</li>
+          <li>Constrói resultados para os clientes com visão de dono e dedicação profunda, se comprometendo com seus resultados e cuidando do seu negócio como se fosse dela</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SLIDE 8 — Pra quem é / não é -->
+  <section class="pagebreak">
+    <div class="wrap">
+      <h2 style="text-align:center;">ESSA CONVERSA ESTRATÉGICA É PARA VOCÊ SE:</h2>
+      <ul class="checklist yes">
+        <li>Você é empresário ou profissional liberal que já vende serviço/produto de alto ticket (R$ 3k–R$ 10k+)</li>
+        <li>Você vende de forma instável e depende de indicações (um mês vai bem, outro nem tanto)</li>
+        <li>Você já investiu em agências, freelancers, cursos… mas não viu resultado</li>
+        <li>Você quer clareza do que está travando SEU negócio, e não fórmula mágica</li>
+        <li>Você está cansado de tentar e não dar certo. Já cansou de perder tempo e queimar dinheiro com profissionais ruins</li>
+      </ul>
+      <h2 style="text-align:center; margin-top:32px;">ESSA CONVERSA NÃO É PARA VOCÊ SE:</h2>
+      <ul class="checklist no">
+        <li>Você quer uma solução mágica rápida sem estruturar seu negócio de verdade</li>
+        <li>Você não está disposto a investir em uma estratégia personalizada</li>
+        <li>Você acha que o problema é só "preciso de mais seguidores"</li>
+        <li>Você quer apenas validação do que já está fazendo</li>
+      </ul>
+      <p style="text-align:center; font-weight:600; color:#FAFAFA; margin-top:24px;">Se você se identificou com pelo menos 1 item da lista "É PARA VOCÊ", essa conversa foi feita para o seu momento.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SLIDE 9 — Recapitulando -->
+  <section class="pagebreak">
+    <div class="wrap">
+      <h2 style="text-align:center;">RECAPITULANDO O QUE VOCÊ DESCOBRIU NESTE RELATÓRIO</h2>
+      <div class="card">
+        <h3>Você precisa de estratégia para ter previsibilidade de vendas</h3>
+        <p>Você precisa de estrutura integrada: posicionamento + oferta validada + sistema comercial que funciona.</p>
+      </div>
+      <div class="card">
+        <h3>Você está resolvendo o problema errado</h3>
+        <p>Você tenta resolver com mais marketing, mais posts, mais anúncios… quando o problema é falta de diagnóstico profundo do SEU negócio.</p>
+      </div>
+      <div class="card">
+        <h3>Você não consegue fazer esse diagnóstico sozinho</h3>
+        <p>Pontos cegos, tentativa e erro, soluções genéricas te impedem de ver o que especificamente está impedindo seus resultados.</p>
+      </div>
+      <div class="card">
+        <h3>A conversa estratégica revela o que está impedindo seu crescimento</h3>
+        <p>40 minutos para descobrir por que você vende mas não tem previsibilidade.</p>
+      </div>
+      <div class="card">
+        <h3>Mais de 300 projetos já foram implementados com sucesso</h3>
+        <p>E tudo começou com uma Conversa Estratégica como a que você vai fazer.</p>
+      </div>
+      <p class="final-question">A pergunta é: quanto tempo mais você vai desperdiçar sem previsibilidade quando poderia ter vendas consistentes todo mês?</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- SLIDE 10 — O que fazer agora -->
+  <section class="pagebreak">
+    <div class="wrap">
+      <h2 style="text-align:center;">O QUE FAZER AGORA?</h2>
+      <p style="text-align:center;">Você tem duas opções:</p>
+      <div class="options">
+        <div class="option-card bad">
+          <h3 style="color:#999;">Opção 1 — Continuar como está</h3>
+          <ul>
+            <li>Vendendo de forma instável e imprevisível</li>
+            <li>Dependendo de indicação</li>
+            <li>Gastando dinheiro em marketing que não converte</li>
+            <li>Sendo refém do próprio negócio</li>
+          </ul>
+        </div>
+        <div class="option-card good">
+          <span class="tag">Recomendado</span>
+          <h3>Opção 2 — Agendar sua Conversa Estratégica</h3>
+          <ul>
+            <li>Descobrir exatamente o que está impedindo você de ter previsibilidade</li>
+            <li>Entender se sua oferta está alinhada e como comunicá-la da forma certa</li>
+            <li>Receber o plano claro para construir um sistema de vendas que funciona e gera lucro previsível</li>
+          </ul>
+        </div>
+      </div>
+      <p style="text-align:center;">Se você chegou até aqui, é bem provável que você prefira a segunda opção.</p>
+      <p style="text-align:center; font-weight:700; color:#FAFAFA;">Toque no botão e agende sua conversa estratégica:</p>
+      <div class="cta-wrap">
+        <a class="cta-btn" href="{{WHATSAPP_LINK}}" target="_blank" rel="noopener noreferrer">Quero agendar minha conversa estratégica →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>© Vitória Daniela — Estrategista de Vendas para Alto Ticket</footer>
+
+</body>
+</html>
