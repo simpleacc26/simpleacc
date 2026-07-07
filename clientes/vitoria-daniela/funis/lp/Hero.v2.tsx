@@ -3,7 +3,7 @@ import imgHero from "figma:asset/65a838286d95ba76681f066fc49273dbc2a11ee5.png";
 
 export function Hero() {
   return (
-    <section className="relative w-full max-w-[1440px] mx-auto px-6 md:px-10 py-12 md:py-20 flex flex-col md:flex-row items-center gap-12 bg-transparent">
+    <section className="relative w-full max-w-[1440px] mx-auto px-6 md:px-10 py-10 md:py-14 flex flex-col md:flex-row items-center gap-12 bg-transparent">
       {/* Background Gradient Effect - Adjusted to feel more integrated */}
       <div className="absolute top-0 left-0 w-full h-full overflow-visible pointer-events-none">
         <div className="absolute top-[-20%] left-[-10%] w-[800px] h-[800px] bg-[#Cfb36e]/10 rounded-full blur-[150px]"></div>

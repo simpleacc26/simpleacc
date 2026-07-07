@@ -86,15 +86,46 @@ Conteúdo (direto do documento da Vitória, sem invenção):
 Precisa de uma linha a mais no `App.tsx`: importar `MagnaMethod` e renderizar
 `<MagnaMethod />` entre `<Quiz />` e `<Methodology />`.
 
+## Rodada 1 aplicada com sucesso
+
+Confirmado pelo Daniel (prints do Figma Make): Dobra 1, 2 e 3 já estão no ar
+exatamente como especificado.
+
+## Rodada 2 — espaçamento entre seções + remover numeração (2026-07-06)
+
+Feedback dela: o espaço vertical entre as seções ("dobras") ficou grande
+demais, em praticamente toda a página. E no bloco novo (`MagnaMethod`), tirar
+a numeração 01/02/03 dos cards.
+
+**Causa:** quase todas as seções usam `py-20` (80px de respiro em cima e
+embaixo) — como são `<section>` adjacentes sem sobreposição de margem, o
+espaço visual entre duas seções soma o padding-bottom de uma com o
+padding-top da próxima (até 160px). Reduzi `py-20` → `py-14` (e o `py-24` do
+`FooterCTA` → `py-16`) em **todas** as seções da página, e apertei também os
+espaçamentos internos (`mb-16`/`mb-12` → `mb-8`/`mb-10`) que empurravam
+título/grid pra mais longe um do outro. Nenhum texto mudou nessa rodada.
+
+Arquivos atualizados (espaçamento apenas, sem mudança de texto):
+`Hero.v2.tsx`, `PowerQuiz.v2.tsx`, `MagnaMethod.tsx` (também sem numeração
+agora), `Methodology.v2.tsx`, `SessionDetails.v2.tsx`, `Testimonials.v2.tsx`,
+`AboutExpert.v2.tsx`, `FAQ.v2.tsx`, `FooterCTA.v2.tsx`. `Footer.tsx` (`py-8`)
+e `Header.tsx` (vazio, não renderiza nada) não precisaram de ajuste.
+
 ## Para aplicar tudo no Figma Make
 
-São 4 alterações para colar no chat do Figma Make, cada uma por completo:
+São 9 arquivos para colar, cada um por completo, no chat do Figma Make (já
+inclui a numeração removida do `MagnaMethod` e o espaçamento reduzido em
+toda a página):
 
 1. `src/app/components/power/Hero.tsx` ← conteúdo de `Hero.v2.tsx`
 2. `src/app/components/power/Quiz.tsx` ← conteúdo de `PowerQuiz.v2.tsx`
-3. **Novo arquivo** `src/app/components/power/MagnaMethod.tsx` ← conteúdo de
-   `MagnaMethod.tsx`
-4. `src/app/App.tsx` ← adicionar o import de `MagnaMethod` e renderizar
-   `<MagnaMethod />` logo depois de `<Quiz />` e antes de `<Methodology />`
+3. `src/app/components/power/MagnaMethod.tsx` ← conteúdo de `MagnaMethod.tsx`
+4. `src/app/components/power/Methodology.tsx` ← conteúdo de `Methodology.v2.tsx`
+5. `src/app/components/power/SessionDetails.tsx` ← conteúdo de `SessionDetails.v2.tsx`
+6. `src/app/components/power/Testimonials.tsx` ← conteúdo de `Testimonials.v2.tsx`
+7. `src/app/components/power/AboutExpert.tsx` ← conteúdo de `AboutExpert.v2.tsx`
+8. `src/app/components/power/FAQ.tsx` ← conteúdo de `FAQ.v2.tsx`
+9. `src/app/components/power/FooterCTA.tsx` ← conteúdo de `FooterCTA.v2.tsx`
 
-Nenhum outro arquivo do projeto precisa mudar.
+`App.tsx` já foi ajustado na rodada 1 (import + `<MagnaMethod />`) e não
+precisa mudar de novo.

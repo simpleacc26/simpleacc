@@ -28,15 +28,15 @@ export function Quiz() {
   };
 
   return (
-    <section className="py-20 bg-transparent text-[#FAFAFA]">
+    <section className="py-14 bg-transparent text-[#FAFAFA]">
       <div className="max-w-5xl mx-auto px-6">
-        <div className="text-center mb-12 space-y-6">
+        <div className="text-center mb-8 space-y-6">
           <h2 className="text-2xl md:text-3xl font-bold text-[#FAFAFA] leading-tight uppercase">
             SE VOCÊ JÁ VENDE UM SERVIÇO DE <span className="text-[#Cfb36e]">ALTO TICKET</span> E SENTE QUE PRECISA DE AJUDA PARA VENDER MAIS, TER ORGANIZAÇÃO E ARRUMAR SUA <span className="text-[#Cfb36e]">"VIDA ONLINE"</span>, PROVAVELMENTE VOCÊ ESTÁ ENFRENTANDO ESSES DESAFIOS:
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
           {challenges.map((item, index) => (
             <div
               key={index}
