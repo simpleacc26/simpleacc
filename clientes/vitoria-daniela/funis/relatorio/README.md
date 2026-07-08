@@ -25,25 +25,20 @@ motivos, por que já tentou de tudo, prova social, os 4 passos da sessão,
 sobre a Vitória, pra quem é/não é, recapitulando, e a chamada final com as 2
 opções.
 
-O visual (fundo preto/dourado `#Cfb36e`, cards com borda `#222`, tipografia
-Montserrat) segue a **mesma identidade** já usada no quiz e na LP — não tive
-acesso ao visual exato do arquivo original do Figma, então recriei com o
-sistema visual que a Vitória já aprovou nos outros dois funis, pra manter
-tudo consistente. As duas fotos usadas (capa e seção "sobre") são as mesmas
-já em uso na LP (`Hero.tsx` e `AboutExpert.tsx`). Não há nenhum botão no
-documento (ver rodada 2 abaixo).
+O visual (fundo preto/dourado `#Cfb36e`, cards com borda `#222`) segue a
+**mesma identidade** já usada no quiz e na LP — não tive acesso ao visual
+exato do arquivo original do Figma, então recriei com o sistema visual que a
+Vitória já aprovou nos outros dois funis, pra manter tudo consistente. Desde
+a rodada 4, o documento não usa fotos (removidas a pedido dela) nem depende
+de fonte externa (ver rodada 4 abaixo).
 
 ## Arquivos
 
-- `Diagnostico-Estrategico-Vitoria-Daniela.html` — versão HTML, autocontida
-  (fotos embutidas em base64, abre em qualquer navegador sem depender de
-  internet nem de arquivos externos). É o arquivo "fonte" pra editar texto.
+- `Diagnostico-Estrategico-Vitoria-Daniela.html` e `template.html` — hoje são
+  idênticos (não há mais placeholder de foto/link pra substituir). É o
+  arquivo "fonte" pra editar texto e regerar o PDF.
 - `Diagnostico-Estrategico-Vitoria-Daniela.pdf` — versão PDF gerada a partir
-  do HTML, uma página por bloco/"slide", pronta pra enviar como está hoje.
-- `template.html` — mesmo HTML, mas com placeholders no lugar das fotos e do
-  link do WhatsApp (usado para gerar o HTML final; editar aqui se for trocar
-  foto/link, depois re-gerar).
-- `assets/` — as 2 fotos usadas, em PNG.
+  do HTML, pronta pra enviar como está hoje.
 
 ## Rodada 2 — realinhamento com o quiz v2 e a LP nova (2026-07-08)
 
@@ -104,10 +99,85 @@ Corrigido:
 Resultado: o PDF caiu de 13 para 10 páginas, com os 4 motivos + fechamento
 numa página só, os 4 passos numa página só, e sem página órfã quase vazia.
 
+## Rodada 4 — copy final revisada + redesign de legibilidade (2026-07-08)
+
+A Vitória enviou a copy final revisada por ela (Word) em cima do PDF da
+rodada 3, com feedback escrito adicional: *"o layout como um todo precisa ser
+pensado melhor. Mto pequeno, mto texto na pagina. a pessoa abre e tem q dar
+zoom p conseguir ler. Isso tudo faz o resultado cair pq a retenção é baixa
+pela 'dificuldade' e falta de experiência de design pro usuário ler o
+diagnóstico."* Pediu também: remover a foto dela do documento, e deixar o
+design "bem idêntico ao primeiro modelo do Figma" (arquivo original,
+`fiASU8LAlKiSqhhEqt4iI2`).
+
+Sobre a referência do Figma: tentei de novo (inclusive com o link reenviado
+pela Vitória) e continua "sem acesso de edição" — a mesma limitação da
+rodada 1. `get_screenshot` também não serve aqui, o Figma MCP não suporta
+URLs `/make/`. Perguntei ao Daniel como prosseguir; ele optou por eu seguir
+sem a referência visual exata, aplicando o padrão pedido no feedback escrito
+(fonte grande, 1 ideia por vez, sem vão entre páginas) em vez de adivinhar o
+layout do arquivo que não dá pra abrir.
+
+Mudanças aplicadas:
+
+1. **Copy inteiramente substituída** pelo texto do Word, 1:1, na ordem em que
+   aparece lá (isso reordenou "não é pra você" antes de "é pra você", e
+   trocou a redação de vários trechos — ex.: "Os 4 motivos" virou 3 blocos
+   narrativos mais longos: "Os gargalos ocultos", "A lógica da metodologia
+   Magna", "A prioridade do seu momento"). Os rótulos "Dobra N" do documento
+   não entraram no relatório (eram só marcação de referência da própria
+   Vitória); usei o subtítulo real de cada bloco como título visível.
+2. **Foto da capa removida.** A seção "Sobre Vitória Daniela" também ficou
+   sem foto (não havia instrução de manter só numa das duas, então apliquei
+   nas duas).
+3. **"(mantém como tá)"** — o trecho em vermelho no documento, na seção "O
+   que fazer agora" — foi interpretado como instrução para manter o
+   comparativo Opção 1 / Opção 2 exatamente como já estava no relatório
+   (rodada 3), em vez do texto reduzido do Word.
+4. **Nova frase de fechamento com CTA de texto**: "Me envie uma mensagem:
+   'Estou pronta pra fazer a análise estratégica'". Isso substitui o
+   fechamento sem CTA da rodada 2 — a Vitória adicionou esse convite direto
+   no próprio documento desta vez (mudança de direção em relação à regra
+   anterior de "convite só na conversa, nunca no documento").
+5. **Decisão que precisa confirmação**: a seção "Resultados" tinha, no lugar
+   do texto, a instrução `(colocar prints feedbacks)` — não veio marcada em
+   vermelho, mas exibir esse parênteses literalmente no documento do cliente
+   não fazia sentido. Troquei por uma caixa tracejada "Prints e depoimentos
+   de clientes entram aqui", sinalizando que é um espaço pendente de
+   conteúdo real (prints/depoimentos), em vez de inventar texto ou publicar
+   a instrução como se fosse copy. **Confirmar com a Vitória se é isso que
+   ela quis dizer.**
+6. **Fonte trocada de Montserrat para uma pilha de fontes de sistema**
+   (`Helvetica Neue`/Arial/Liberation Sans). O `@import` do Google Fonts
+   dependia de rede em tempo de geração do PDF, e o Chromium headless deste
+   ambiente não conseguiu buscar `fonts.gstatic.com` (falha de handshake
+   TLS) — o HTML deixaria de ser realmente autocontido/offline, que é um
+   requisito explícito desde a rodada 1. Fonte de sistema resolve isso sem
+   depender de internet.
+7. **Paginação redesenhada**: em vez de forçar quebra de página no início de
+   cada seção (`.pagebreak`), o conteúdo agora flui livremente e o navegador
+   decide onde cada página termina; só cards, boxes e a assinatura têm
+   `break-inside: avoid` (pra não partir no meio), e títulos têm
+   `break-after: avoid` (pra não ficarem sozinhos no fim de uma página). Isso
+   eliminou as páginas quase vazias que voltariam a aparecer com o texto
+   maior. Tipografia aumentada de ~16px/1.6 de altura de linha para
+   ~18px/1.75 (tela) e ~17px no PDF — o objetivo era não precisar de zoom
+   pra ler no celular.
+8. Fotos não usadas (`assets/vitoria-hero.png`, `assets/vitoria-about.png`)
+   removidas do repositório.
+
+Resultado: PDF com 10 páginas (igual à rodada 3), sem foto, fonte
+sensivelmente maior, sem página quase vazia.
+
 ## Pendências / próximos passos
 
-- **Confirmar com a Vitória** se a nova comunicação e a paginação do
-  relatório estão de acordo antes de considerar o item 3 fechado de vez.
+- **Confirmar com a Vitória** se a copy, a remoção da foto e o novo design de
+  legibilidade (rodada 4) estão de acordo antes de considerar o item 3
+  fechado de vez — inclusive a decisão tomada na seção "Resultados" (placeholder
+  de prints em vez do texto `(colocar prints feedbacks)` do Word).
+- Se ela quiser o layout literalmente idêntico ao arquivo Figma original
+  (`fiASU8LAlKiSqhhEqt4iI2`), só dá pra fazer com acesso de edição a esse
+  arquivo (ou prints/export de cada tela) — ver rodada 4.
 - Publicar: como esse HTML não está hospedado em lugar nenhum ainda (ao
   contrário do quiz/LP, que são o site ao vivo), falta decidir onde ele vai
   morar de fato — pode virar um projeto Vercel próprio dentro dessa mesma
