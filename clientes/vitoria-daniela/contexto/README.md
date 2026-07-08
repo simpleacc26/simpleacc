@@ -66,6 +66,11 @@ fitness, moda), infoprodutoras/educadoras high ticket.
   completa) precisam aparecer nos anúncios — se sumirem, a copy vira genérica
   e atrai gente sem dinheiro.
 - Comunicação tem que gerar **confiança**, não é sobre "acreditar", é sobre provar.
+- **Nunca usar travessão (— ou –)** em nenhuma peça de copy. Trocar por vírgula,
+  ponto, dois-pontos ou um separador simples tipo "·".
+- **Fugir de "cheiro de IA"**: nada de frases genéricas de guru de marketing,
+  linguagem robótica ou clichê motivacional. Bater direto na dor específica,
+  com frases que soam de gente de verdade, não de template.
 
 ## Links
 
