@@ -34,11 +34,26 @@ de fonte externa (ver rodada 4 abaixo).
 
 ## Arquivos
 
-- `Diagnostico-Estrategico-Vitoria-Daniela.html` e `template.html` — hoje são
-  idênticos (não há mais placeholder de foto/link pra substituir). É o
-  arquivo "fonte" pra editar texto e regerar o PDF.
-- `Diagnostico-Estrategico-Vitoria-Daniela.pdf` — versão PDF gerada a partir
-  do HTML, pronta pra enviar como está hoje.
+- `template.html` — arquivo "fonte" pra editar (texto + layout). Usa um
+  placeholder `{{PHOTO}}` no lugar da foto da Vitória. É aqui que se edita.
+- `Diagnostico-Estrategico-Vitoria-Daniela.html` — HTML final autocontido,
+  gerado do template com a foto embutida em base64 (abre offline em qualquer
+  navegador). Regenerar depois de editar o template (ver "Como regerar").
+- `Diagnostico-Estrategico-Vitoria-Daniela.pdf` — PDF gerado do HTML final,
+  pronto pra enviar.
+- `assets/vitoria-daniela.jpg` — foto-fonte da Vitória (a mesma embutida no
+  HTML), guardada pra regeneração.
+
+## Como regerar (HTML final + PDF)
+
+O HTML final embute a foto como data-URI (pra ficar autocontido). Fluxo:
+1. Editar `template.html`.
+2. Gerar o data-URI da foto (`assets/vitoria-daniela.jpg`, redimensionada
+   pra ~520px de largura) e substituir `{{PHOTO}}` no template, salvando como
+   `Diagnostico-Estrategico-Vitoria-Daniela.html`.
+3. Gerar o PDF do HTML com Chromium headless
+   (`--headless --print-to-pdf --no-pdf-header-footer`). O `@page { margin:0 }`
+   + o padding de cada `.page` já cuidam das margens.
 
 ## Rodada 2 — realinhamento com o quiz v2 e a LP nova (2026-07-08)
 
@@ -169,12 +184,54 @@ Mudanças aplicadas:
 Resultado: PDF com 10 páginas (igual à rodada 3), sem foto, fonte
 sensivelmente maior, sem página quase vazia.
 
+## Rodada 5 — copy final revisada + redesign "1 dobra por página" (2026-07-08)
+
+A Vitória revisou a copy da rodada 4 e mandou uma lista de feedbacks de
+layout, mais a foto dela e 3 depoimentos (via pastas do Drive). Aplicado:
+
+1. **Copy revisada dela aplicada** (a versão do Word que ela editou).
+2. **Modelo de paginação trocado para "1 dobra = 1 página"** (pedido explícito
+   dela: "cada dobra diz respeito a uma página, deixe-as totalmente alinhadas
+   com a página de modo que preencha todo o espaço"). Cada seção agora é uma
+   `.page` que ocupa a folha A4 inteira, com o conteúdo **centralizado
+   verticalmente** e padding próprio (margens). Isso resolve de uma vez os
+   problemas que ela apontou: caixa colada no topo (rodada anterior, pág. 5),
+   tópicos órfãos quebrando entre páginas (págs. 7→8 e 9→10) e páginas quase
+   vazias. Substitui a abordagem de "deixar fluir" da rodada 4 — que, com a
+   fonte maior, voltava a criar quebras feias.
+3. **Cabeçalho fantasma removido**: o "Vitória Daniela | Grupo Magna /
+   Estrategista..." que vazava pro topo da página dos gargalos era a
+   assinatura da carta transbordando. Com 1 seção = 1 página, a assinatura
+   fica na carta e não aparece mais em outro lugar.
+4. **Dobra 1 (gargalos) com as 3 caixas na mesma página** (a 3ª, "Frustração
+   com estratégias desintegradas", estava sobrando pra página seguinte).
+5. **Capa com parágrafos separados** (ela achou "blocado"): espaçamento entre
+   parágrafos aumentado, leitura mais arejada.
+6. **Foto da Vitória** adicionada na seção "Quem vai conduzir a análise"
+   (`assets/vitoria-daniela.jpg`, arquivo `DSC_2820 (2).jpg` do Drive dela).
+7. **Seção "Resultados"** agora traz os 3 depoimentos que ela mandou, cada um
+   num card separado (ela pediu "trate separadamente tudo o que foi enviado
+   separado"). **Decisão de design a confirmar:** renderizei os 3 como cards
+   de citação em texto (limpos e legíveis), em vez de colar os prints de
+   WhatsApp originais. Motivo: o feedback central dela é que o documento
+   estava pequeno/ilegível ("tem que dar zoom"); print de conversa em tela
+   pequena reintroduz exatamente esse problema. O texto de cada card é o dos
+   prints, 1:1. Se ela preferir os prints originais (autenticidade), dá pra
+   trocar — os arquivos estão nas pastas do Drive: `Feedback .jpeg`,
+   `Feedback farmacia.jpeg`, `mmmmmm.png`. Atribuição atual genérica
+   ("Cliente Magna") porque os prints não identificam o autor.
+8. **Legibilidade geral**: fonte base 17px, títulos maiores, cards com
+   respiro — atacando direto a queixa de retenção/leitura.
+
+Resultado: PDF com 11 páginas, uma dobra por página, sem página órfã, com
+foto e depoimentos.
+
 ## Pendências / próximos passos
 
-- **Confirmar com a Vitória** se a copy, a remoção da foto e o novo design de
-  legibilidade (rodada 4) estão de acordo antes de considerar o item 3
-  fechado de vez — inclusive a decisão tomada na seção "Resultados" (placeholder
-  de prints em vez do texto `(colocar prints feedbacks)` do Word).
+- **Confirmar com a Vitória** o resultado da rodada 5 (novo layout 1
+  dobra/página, foto, depoimentos) antes de fechar o item 3.
+- **Decisão da seção "Resultados" a validar**: depoimentos como card de texto
+  vs. print original do WhatsApp (ver ponto 7 da rodada 5).
 - Se ela quiser o layout literalmente idêntico ao arquivo Figma original
   (`fiASU8LAlKiSqhhEqt4iI2`), só dá pra fazer com acesso de edição a esse
   arquivo (ou prints/export de cada tela) — ver rodada 4.
