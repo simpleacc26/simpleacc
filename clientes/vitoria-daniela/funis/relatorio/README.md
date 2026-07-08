@@ -78,10 +78,36 @@ alto valor"). Mudanças aplicadas:
    e o histórico de feedback de copy da própria Vitória (`[Vitória] COPY
    2026`, Drive).
 
+## Rodada 3 — paginação do PDF (2026-07-08)
+
+Depois de ver o PDF, a Vitória apontou 3 problemas de quebra de página:
+- Página com só a frase de fechamento dos "4 motivos" ("E o pior...") sobrando
+  sozinha, quase toda vazia.
+- Página do bloco "Resultados" (prova social) também quase vazia, por ser
+  uma seção curta com página própria.
+- "Passo 4" (dentro de "O que você vai ganhar na sessão") caindo sozinho no
+  topo da página seguinte, separado dos Passos 1 a 3.
+
+Causa: o CSS de página (`@media print`) tinha respiro generoso demais
+(padding de seção, padding de card, margens) para o tanto de conteúdo de
+cada bloco, e cada seção forçava sua própria quebra de página
+(`.pagebreak`), inclusive a seção "Resultados", que é curta demais para
+merecer uma página só dela.
+
+Corrigido:
+- Adicionado um bloco de regras **só para impressão/PDF** (compacta o
+  espaçamento sem alterar a versão em tela no navegador): padding de seção,
+  padding e margem dos cards, e espaçamento de parágrafos/listas reduzidos.
+- Removido o `.pagebreak` da seção "Resultados" — ela não força mais página
+  própria, flui depois do bloco anterior.
+
+Resultado: o PDF caiu de 13 para 10 páginas, com os 4 motivos + fechamento
+numa página só, os 4 passos numa página só, e sem página órfã quase vazia.
+
 ## Pendências / próximos passos
 
-- **Confirmar com a Vitória** se a nova comunicação do relatório está de
-  acordo antes de considerar o item 3 fechado de vez.
+- **Confirmar com a Vitória** se a nova comunicação e a paginação do
+  relatório estão de acordo antes de considerar o item 3 fechado de vez.
 - Publicar: como esse HTML não está hospedado em lugar nenhum ainda (ao
   contrário do quiz/LP, que são o site ao vivo), falta decidir onde ele vai
   morar de fato — pode virar um projeto Vercel próprio dentro dessa mesma

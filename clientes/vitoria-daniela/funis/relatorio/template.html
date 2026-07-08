@@ -128,6 +128,17 @@
     body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     .pagebreak { page-break-before: always; break-before: page; }
     .card, .option-card, .cover-photo, .about-photo { page-break-inside: avoid; break-inside: avoid; }
+
+    /* Compacta o espaçamento só no PDF, pra caber tudo de cada bloco numa única página */
+    section { padding: 40px 0; }
+    section.tight { padding: 32px 0; }
+    h2 { margin-bottom: 10px; font-size: 24px; }
+    .card { padding: 18px 22px; margin-bottom: 12px; }
+    .card h3 { margin-bottom: 6px; }
+    .card p { margin-bottom: 10px; }
+    .card .symptom { margin-top: 2px; }
+    p { margin-bottom: 12px; }
+    ul.checklist li { margin-bottom: 8px; }
   }
 </style>
 </head>
@@ -257,8 +268,8 @@
 
   <div class="divider"></div>
 
-  <!-- SLIDE 5 — Resultados -->
-  <section class="tight pagebreak" style="text-align:center;">
+  <!-- SLIDE 5 — Resultados (sem pagebreak próprio: conteúdo curto, flui após o slide 4 pra não deixar página quase vazia) -->
+  <section class="tight" style="text-align:center;">
     <div class="wrap">
       <h2><span class="gold">Resultados</span> de quem passou pela nossa análise individual</h2>
       <p>Mais de 300 projetos implementados nos últimos 8 anos, ajudando empresas e profissionais a alcançarem faturamentos de 5, 6 e 7 dígitos.</p>
