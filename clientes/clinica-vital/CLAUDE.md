@@ -20,9 +20,16 @@ onde o outro parou (o Git é a memória compartilhada).
 3. Salve os entregáveis na pasta certa (acima) e **registre o aprendizado** em `aprendizados.md`.
 4. Trabalhe numa branch `cliente/clinica-vital/<assunto>` e abra PR.
 
-## Contexto rápido (preencher)
+## Contexto rápido
 
-- **Oferta principal:** _(a preencher)_
-- **Público / ICP:** _(a preencher)_
-- **Links (site, páginas, Make, Figma, Drive):** _(a preencher)_
-- **Contato principal:** _(a preencher)_
+- **Oferta principal:** Avaliação Diagnóstica Integrativa (R$ 1.000, crédito
+  100% se fechar acompanhamento) → Acompanhamento Integrativo Vital (mín. 2
+  meses, R$ 9k–19k). Clínica de medicina integrativa/wellness, Itajubá — MG,
+  com Dra. Marcela. Detalhes completos em `contexto/oferta-icp-produto.md`.
+- **Público / ICP:** mulheres 35–60 anos (79-80% da base), classe alta,
+  ensino superior, em pré-menopausa/menopausa, cansadas de tentativa e erro
+  com emagrecimento/hormônios. Detalhes em `contexto/oferta-icp-produto.md`.
+- **Links (site, páginas, Make, Figma, Drive):** pasta do cliente no Drive —
+  https://drive.google.com/drive/u/2/folders/1mjKydU1oW6hWZ8-4ArwhzwB7SvtjpEQJ
+- **Contato principal:** _(a preencher — planilha de acessos no Drive está
+  em branco)_
