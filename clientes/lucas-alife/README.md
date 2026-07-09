@@ -17,6 +17,8 @@ páginas + tráfego), estruturação comercial e acompanhamento.
 
 ## Links úteis
 
+- Instagram (marca pessoal): **[@olucasalife](https://www.instagram.com/olucasalife/)**
+- Instagram (produto): **[@teorema.digital](https://www.instagram.com/teorema.digital/)** _(a confirmar se é oficial do Lucas)_
 - Curso (Teorema Digital): Hotmart _(link a confirmar — ~R$ 997)_
 - Painéis/ferramentas: GHL / GoHighLevel, conta de ads _(acessos a liberar)_
 - Pasta no Drive: _(a preencher — materiais visuais do Lucas)_
