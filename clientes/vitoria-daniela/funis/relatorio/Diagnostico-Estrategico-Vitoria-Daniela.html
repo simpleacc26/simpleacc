@@ -160,9 +160,14 @@
   .foot { text-align: center; color: var(--muted); font-size: 13px; margin-top: 16px; letter-spacing: 0.5px; }
 
   @media print {
+    /* A cor de fundo do documento (preto) precisa cobrir a folha TODA,
+       inclusive a área de margem — senão a margem sai branca (papel).
+       O fundo do elemento raiz (html) pinta o "canvas" inteiro da página,
+       incluindo a margem do @page. */
+    html { background: var(--bg); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     body { -webkit-print-color-adjust: exact; print-color-adjust: exact; background: var(--bg); }
-    @page { size: A4; margin: 24mm 22mm; }   /* margem consistente em todas as páginas */
-    .doc { max-width: none; margin: 0; padding: 0; }
+    @page { size: A4; margin: 18mm; }   /* margem consistente (preta) em todas as páginas */
+    .doc { max-width: none; margin: 0; padding: 0; background: transparent; }
     h2 { break-after: avoid; page-break-after: avoid; }
     p, li { orphans: 3; widows: 3; }
   }

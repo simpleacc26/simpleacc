@@ -271,6 +271,18 @@ a margem inferior.
 Resultado: PDF com 9 páginas, margens consistentes (ABNT) em todas, sem página
 órfã/quase vazia.
 
+### Correção — margens pretas (não brancas)
+
+Na primeira versão da rodada 6 as margens saíram **brancas** (o `@page { margin }`
+faz a folha aparecer atrás, e branco é a cor padrão do papel). O documento é
+preto, então a margem tem que ser preta também. Corrigido pintando o **fundo do
+elemento raiz (`html`)** de preto no `@media print`: o fundo do `html` pinta o
+"canvas" inteiro da folha, **inclusive a área da margem do `@page`**. Só o
+`body`/`.doc` não bastava (não propaga pra margem). Aproveitei pra expandir o
+conteúdo (margem 22→18mm). Padrão a repetir em PDF de fundo escuro: `@page`
+controla o tamanho da margem, mas quem pinta a margem é o `background` do `html`
+— sempre setar `html { background: <cor> ; print-color-adjust: exact }`.
+
 ## Pendências / próximos passos
 
 - **Confirmar com a Vitória** o resultado da rodada 6 (documento corrido,
