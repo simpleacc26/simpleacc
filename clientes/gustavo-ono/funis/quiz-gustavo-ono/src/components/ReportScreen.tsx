@@ -203,7 +203,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
         {/* ── 3. Foto do Gustavo ── */}
         <Section className="!p-0 overflow-hidden">
           <img
-            src="/fotos/gustavo.png"
+            src="/fotos/gustavo.webp"
             alt="Gustavo Ono — Chocolatier"
             className="w-full"
             style={{ display: "block", maxHeight: "480px", objectFit: "cover", objectPosition: "top" }}
@@ -221,7 +221,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
         {/* ── 4. Foto do produto ── */}
         <Section className="!p-0 overflow-hidden">
           <img
-            src="/fotos/produto.jpg"
+            src="/fotos/produto.webp"
             alt="Bombom Artístico de Morango, Baunilha, Cumaru e Praliné de Avelãs"
             className="w-full"
             style={{ display: "block", maxHeight: "440px", objectFit: "cover" }}
@@ -250,9 +250,9 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
             <span style={{ color: ROSE }}>reagindo</span>
           </h2>
           <div className="space-y-4">
-            <img src="/fotos/dep2.png" alt="Depoimento 2" className="w-full rounded-2xl" />
-            <img src="/fotos/dep3.png" alt="Depoimento 3" className="w-full rounded-2xl" />
-            <img src="/fotos/dep4.png" alt="Depoimento 4" className="w-full rounded-2xl" />
+            <img src="/fotos/dep2.webp" alt="Depoimento 2" className="w-full rounded-2xl" />
+            <img src="/fotos/dep3.webp" alt="Depoimento 3" className="w-full rounded-2xl" />
+            <img src="/fotos/dep4.webp" alt="Depoimento 4" className="w-full rounded-2xl" />
           </div>
         </Section>
 
