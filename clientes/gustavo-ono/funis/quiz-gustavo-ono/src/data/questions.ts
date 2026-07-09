@@ -26,11 +26,11 @@ export const questions: Question[] = [
   // Q1
   {
     category: "PRODUTO",
-    question: 'Os chocolates são o "carro chefe" do seu negócio?',
+    question: 'Os chocolates são o "carro-chefe" do seu negócio?',
     options: [
-      { value: "1", title: "Sim, são meu carro chefe" },
+      { value: "1", title: "Sim, são meu carro-chefe" },
       { value: "2", title: "Os chocolates finos são menos de 50% das minhas vendas" },
-      { value: "3", title: "Ainda não, mas quero que sejam o carro chefe" },
+      { value: "3", title: "Ainda não, mas quero que sejam o carro-chefe" },
       { value: "4", title: "Ainda quero começar a vender chocolates" },
     ],
   },
@@ -127,9 +127,9 @@ export const answerLabels: string[][] = [
     "Não tenho organização interna para crescer",
   ],
   [
-    "Sim, são meu carro chefe",
+    "Sim, são meu carro-chefe",
     "Os chocolates finos são menos de 50% das minhas vendas",
-    "Ainda não, mas quero que sejam o carro chefe",
+    "Ainda não, mas quero que sejam o carro-chefe",
     "Ainda quero começar a vender chocolates",
   ],
   [

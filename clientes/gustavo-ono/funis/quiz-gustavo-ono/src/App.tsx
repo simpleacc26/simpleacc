@@ -23,7 +23,7 @@ interface ResultState {
 
 const WEBHOOK_URL =
   import.meta.env.VITE_WEBHOOK_URL ||
-  "https://hook.us2.make.com/PLACEHOLDER";
+  "https://hook.us2.make.com/webrhbzopsinsjep4oxquwrf0m7frfnl";
 
 type QuizStep = "landing" | "question" | "lead-capture" | "loading";
 
@@ -103,13 +103,24 @@ function QuizFlow() {
       return questions[index].options[parseInt(value) - 1]?.title || "";
     };
 
+    const fieldNames = [
+      "combinacao",
+      "carro_chefe",
+      "tempo",
+      "motivacao",
+      "frustracao",
+      "canal_de_vendas",
+      "impedimento",
+      "dominasse",
+      "seguranca",
+    ];
+
     const payload = new URLSearchParams();
     payload.append("nome", data.name);
     payload.append("email", data.email);
     payload.append("whatsapp", data.phone);
-    questions.forEach((question, index) => {
-      payload.append(`pergunta_${index + 1}`, question.question);
-      payload.append(`resposta_${index + 1}`, answerText(index));
+    fieldNames.forEach((field, index) => {
+      payload.append(field, answerText(index));
     });
     payload.append("utm_source", utm.utm_source);
     payload.append("utm_medium", utm.utm_medium);

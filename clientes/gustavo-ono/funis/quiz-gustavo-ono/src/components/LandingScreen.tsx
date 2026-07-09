@@ -42,7 +42,7 @@ export function LandingScreen({
               fontFamily: "Lora, Georgia, serif",
             }}
           >
-            Descubra o que está travando seus chocolates artesanais de alcançar
+            Descubra o que está travando seus chocolates artesanais de alcançarem
             o{" "}
             <em style={{ color: "#C87B75" }}>nível profissional</em> que você
             merece.
