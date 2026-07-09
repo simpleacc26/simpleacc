@@ -34,22 +34,25 @@ de fonte externa (ver rodada 4 abaixo).
 
 ## Arquivos
 
-- `template.html` — arquivo "fonte" pra editar (texto + layout). Usa um
-  placeholder `{{PHOTO}}` no lugar da foto da Vitória. É aqui que se edita.
+- `template.html` — arquivo "fonte" pra editar (texto + layout). Usa
+  placeholders `{{PHOTO}}`, `{{T1}}`, `{{T2}}`, `{{T3}}` no lugar da foto da
+  Vitória e dos 3 prints de depoimento. É aqui que se edita.
 - `Diagnostico-Estrategico-Vitoria-Daniela.html` — HTML final autocontido,
-  gerado do template com a foto embutida em base64 (abre offline em qualquer
-  navegador). Regenerar depois de editar o template (ver "Como regerar").
+  gerado do template com as imagens embutidas em base64 (abre offline em
+  qualquer navegador). Regenerar depois de editar o template (ver "Como regerar").
 - `Diagnostico-Estrategico-Vitoria-Daniela.pdf` — PDF gerado do HTML final,
   pronto pra enviar.
-- `assets/vitoria-daniela.jpg` — foto-fonte da Vitória (a mesma embutida no
-  HTML), guardada pra regeneração.
+- `assets/` — imagens-fonte embutidas no HTML: `vitoria-daniela.jpg` (foto),
+  `depoimento-marco.jpg` e `depoimento-sessao.jpg` (prints reais),
+  `depoimento-15mil-recriado.jpg` (print recriado, ver rodada 5, ponto 7).
 
 ## Como regerar (HTML final + PDF)
 
 O HTML final embute a foto como data-URI (pra ficar autocontido). Fluxo:
 1. Editar `template.html`.
-2. Gerar o data-URI da foto (`assets/vitoria-daniela.jpg`, redimensionada
-   pra ~520px de largura) e substituir `{{PHOTO}}` no template, salvando como
+2. Gerar os data-URIs das imagens de `assets/` (foto → `{{PHOTO}}`; os 3
+   prints → `{{T1}}` "15 mil", `{{T2}}` "março", `{{T3}}` "sessão") e
+   substituir os placeholders no template, salvando como
    `Diagnostico-Estrategico-Vitoria-Daniela.html`.
 3. Gerar o PDF do HTML com Chromium headless
    (`--headless --print-to-pdf --no-pdf-header-footer`). O `@page { margin:0 }`
@@ -209,17 +212,21 @@ layout, mais a foto dela e 3 depoimentos (via pastas do Drive). Aplicado:
    parágrafos aumentado, leitura mais arejada.
 6. **Foto da Vitória** adicionada na seção "Quem vai conduzir a análise"
    (`assets/vitoria-daniela.jpg`, arquivo `DSC_2820 (2).jpg` do Drive dela).
-7. **Seção "Resultados"** agora traz os 3 depoimentos que ela mandou, cada um
-   num card separado (ela pediu "trate separadamente tudo o que foi enviado
-   separado"). **Decisão de design a confirmar:** renderizei os 3 como cards
-   de citação em texto (limpos e legíveis), em vez de colar os prints de
-   WhatsApp originais. Motivo: o feedback central dela é que o documento
-   estava pequeno/ilegível ("tem que dar zoom"); print de conversa em tela
-   pequena reintroduz exatamente esse problema. O texto de cada card é o dos
-   prints, 1:1. Se ela preferir os prints originais (autenticidade), dá pra
-   trocar — os arquivos estão nas pastas do Drive: `Feedback .jpeg`,
-   `Feedback farmacia.jpeg`, `mmmmmm.png`. Atribuição atual genérica
-   ("Cliente Magna") porque os prints não identificam o autor.
+7. **Seção "Resultados"** traz os 3 depoimentos que ela mandou, cada um como
+   um "print" separado (card branco com sombra), do jeito que ela pediu
+   ("quero os prints originais, trazem mais autoridade e veracidade").
+   - `assets/depoimento-marco.jpg` — print real (Drive `Feedback farmacia.jpeg`).
+   - `assets/depoimento-sessao.jpg` — print real (Drive `mmmmmm.png`).
+   - `assets/depoimento-15mil-recriado.jpg` — **recriado**, não é o print
+     original. O arquivo original (`Feedback .jpeg`, id `1MaAun...`) é pequeno
+     (28 KB) e a ferramenta de Drive só o devolvia inline (não salvava em
+     arquivo decodificável), então não consegui extrair os bytes íntegros
+     nesta sessão. Recriei a bolha no mesmo estilo (iMessage cinza, igual ao
+     print do "março") com o **texto exato** do original. **Se quiser o print
+     literal, é só reenviar esse arquivo** (ou deixá-lo acessível de outro
+     jeito) que eu troco. Obs.: criei uma cópia `feedback-15mil-copy.jpg`
+     dentro da pasta de depoimentos do Drive durante a tentativa de extração —
+     pode apagar.
 8. **Legibilidade geral**: fonte base 17px, títulos maiores, cards com
    respiro — atacando direto a queixa de retenção/leitura.
 
@@ -229,9 +236,9 @@ foto e depoimentos.
 ## Pendências / próximos passos
 
 - **Confirmar com a Vitória** o resultado da rodada 5 (novo layout 1
-  dobra/página, foto, depoimentos) antes de fechar o item 3.
-- **Decisão da seção "Resultados" a validar**: depoimentos como card de texto
-  vs. print original do WhatsApp (ver ponto 7 da rodada 5).
+  dobra/página, foto, depoimentos em print) antes de fechar o item 3.
+- **Trocar o print recriado do "15 mil" pelo original** se/quando o arquivo
+  `Feedback .jpeg` chegar de forma extraível (ver rodada 5, ponto 7).
 - Se ela quiser o layout literalmente idêntico ao arquivo Figma original
   (`fiASU8LAlKiSqhhEqt4iI2`), só dá pra fazer com acesso de edição a esse
   arquivo (ou prints/export de cada tela) — ver rodada 4.
