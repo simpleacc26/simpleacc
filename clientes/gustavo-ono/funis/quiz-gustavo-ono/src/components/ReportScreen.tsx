@@ -221,7 +221,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
         {/* ── 4. Foto do produto ── */}
         <Section className="!p-0 overflow-hidden">
           <img
-            src="/fotos/produto.png"
+            src="/fotos/produto.jpg"
             alt="Bombom Artístico de Morango, Baunilha, Cumaru e Praliné de Avelãs"
             className="w-full"
             style={{ display: "block", maxHeight: "440px", objectFit: "cover" }}
