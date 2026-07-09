@@ -12,3 +12,6 @@ Log do que funciona e do que não funciona com este cliente.
 | 2026-07-07 | Reposicionar **Fernanda de closer → SDR** (inbound + outbound); não faz sentido closer sem volume de calls. | Call 03/07 |
 | 2026-07-07 | Operação WhatsApp: número **dedicado** ao CRM, responder por celular/CRM, **nunca WhatsApp Web** (risco de queda do número). | Onboarding |
 | 2026-07-07 | Contratar **GHL** só mais perto do uso (evitar ociosidade da assinatura). | Onboarding |
+| 2026-07-09 | **High ticket fixado em R$ 20.000** (não 21k) com esteira de 3 produtos: 20k / 12k / 3k (entrada = aproveitamento do não-ICP). | Roadmap |
+| 2026-07-09 | Roadmap segue a **estrutura validada do doc do Rômulo Heleno** (capa, decisões fundamentais, fases com passos, checkpoints, materiais). Modelo salvo em `estrategia/modelo-roadmap-romulo-heleno.pdf`. | Roadmap |
+| 2026-07-09 | **Não usar travessão (—) em documentos e entregas** (padrão do Daniel; "fica com cara de IA"). Usar vírgula, dois-pontos ou ponto. | Daniel |

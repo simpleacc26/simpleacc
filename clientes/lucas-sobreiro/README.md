@@ -1,7 +1,7 @@
 # Lucas Sobreiro
 
 Mentor de empresários (foco em **saúde**: dentistas, médicos, fisioterapeutas, veterinários).
-Oferta high ticket de R$ 21.000. A SimpleAcc implementa o **Funil de Lead Dinâmico**
+Oferta high ticket de R$ 20.000 (esteira 20k / 12k / 3k). A SimpleAcc implementa o **Funil de Lead Dinâmico**
 (tráfego pago → quiz → SDR → sessão estratégica) para gerar volume previsível de leads e
 levar o faturamento a R$ 100 mil/mês. Onboarding em 07/07/2026.
 
@@ -36,4 +36,4 @@ levar o faturamento a R$ 100 mil/mês. Onboarding em 07/07/2026.
 ## Observações
 
 - Cliente **leigo em digital** e do mercado tradicional → traduzir jargões; copy simples.
-- Meta: R$ 100 mil/mês (~4–5 vendas de R$ 21k). Contrato inicial de 6 meses (upsell p/ 12).
+- Meta: R$ 100 mil/mês (5 vendas de R$ 20k). Contrato inicial de 6 meses (upsell p/ 12).

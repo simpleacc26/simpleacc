@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Roadmap Estratégico Digital — Lucas Sobreiro</title>
+<title>Roadmap Estratégico Digital · Lucas Sobreiro</title>
 <style>
   @page { size: A4; margin: 0; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -17,13 +17,14 @@
   body {
     font-family: Arial, Helvetica, sans-serif;
     color: var(--text);
-    font-size: 10.5pt;
-    line-height: 1.5;
+    font-size: 10pt;
+    line-height: 1.45;
   }
   .page {
     width: 210mm;
-    min-height: 297mm;
-    padding: 18mm 18mm 20mm 18mm;
+    height: 297mm;
+    overflow: hidden;
+    padding: 16mm 18mm 24mm 18mm;
     position: relative;
     page-break-after: always;
     background: #fff;
@@ -33,10 +34,10 @@
     display: flex; justify-content: space-between;
     font-size: 7.5pt; color: var(--muted);
     letter-spacing: .06em; text-transform: uppercase;
-    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 22pt;
+    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt;
   }
   .runfoot {
-    position: absolute; bottom: 10mm; left: 18mm; right: 18mm;
+    position: absolute; bottom: 9mm; left: 18mm; right: 18mm;
     text-align: center; font-size: 7.5pt; color: var(--muted);
   }
   .kicker {
@@ -44,44 +45,46 @@
     letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt;
   }
   h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
-  .lead { font-style: italic; color: #5a6070; margin-bottom: 16pt; font-size: 10.5pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
   .box-dark {
     background: var(--navy-dark); color: #f5f3ee;
-    padding: 12pt 14pt; margin: 12pt 0; border-radius: 2pt;
+    padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt;
+    break-inside: avoid;
   }
-  .box-dark .bt { color: #fff; font-weight: bold; font-size: 10pt; letter-spacing: .04em; margin-bottom: 6pt; text-transform: uppercase; }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
   .box-dark p { margin-bottom: 5pt; }
   .box-dark p:last-child { margin-bottom: 0; }
   .box-light {
     background: var(--beige); border-left: 3pt solid var(--gold);
-    padding: 11pt 14pt; margin: 12pt 0;
+    padding: 10pt 14pt; margin: 11pt 0;
+    break-inside: avoid;
   }
-  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 10pt; letter-spacing: .04em; margin-bottom: 6pt; text-transform: uppercase; }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
   .box-light p { margin-bottom: 5pt; }
   .box-light p:last-child { margin-bottom: 0; }
   .fase-header {
     background: var(--navy-dark); color: #fff;
-    padding: 14pt 16pt; margin-bottom: 14pt;
+    padding: 10pt 16pt; margin-bottom: 10pt;
     border-left: 4pt solid var(--gold);
   }
   .fase-header .fk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
-  .fase-header h2 { color: #fff; font-size: 17pt; margin-bottom: 5pt; }
+  .fase-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
   .fase-header .fd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
-  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 14pt 0 3pt; }
-  h3 { color: var(--navy); font-size: 13pt; margin-bottom: 7pt; }
-  ul.check { list-style: none; margin-bottom: 8pt; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 12pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
   ul.check > li {
-    padding-left: 14pt; position: relative; margin-bottom: 4pt;
+    padding-left: 14pt; position: relative; margin-bottom: 3.5pt;
+    break-inside: avoid;
   }
   ul.check > li::before {
     content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt;
   }
   ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
-  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 3pt; color: #4a5160; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
   ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
-  strong { color: inherit; }
   .navy { color: var(--navy); }
-  p { margin-bottom: 7pt; }
+  p { margin-bottom: 6pt; }
 
   /* capa */
   .cover { padding-top: 60mm; }
@@ -91,12 +94,12 @@
   .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
   .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
   .cover .meta .val { font-size: 10.5pt; color: var(--text); }
-  .footer-note { margin-top: 26pt; padding-top: 8pt; border-top: 1pt solid var(--gold); font-size: 8.5pt; color: var(--muted); width: 60%; }
+  .footer-note { margin-top: 24pt; padding-top: 8pt; border-top: 1pt solid var(--gold); font-size: 8.5pt; color: var(--muted); width: 60%; }
 </style>
 </head>
 <body>
 
-<!-- CAPA -->
+<!-- PÁGINA 1: CAPA -->
 <div class="page cover">
   <div class="kicker">Plano de Ação Personalizado</div>
   <h1>Roadmap<br>Estratégico<br>Digital</h1>
@@ -114,51 +117,52 @@
   </div>
 </div>
 
-<!-- PÁGINA 2 — CONTEXTO E DECISÕES -->
+<!-- PÁGINA 2: CONTEXTO E DECISÕES -->
 <div class="page">
-  <div class="runhead"><span>Roadmap Estratégico — Lucas Sobreiro</span><span>Página 2</span></div>
+  <div class="runhead"><span>Roadmap Estratégico · Lucas Sobreiro</span><span>Página 2</span></div>
   <div class="kicker">Antes de Começar</div>
-  <h1 style="font-size:20pt;">Contexto e Decisões Fundamentais</h1>
+  <h1 style="font-size:19pt;">Contexto e Decisões Fundamentais</h1>
   <p class="lead">Leia esta página inteira antes de executar qualquer passo. Todas as decisões a seguir partem do que está aqui.</p>
 
   <div class="box-dark">
     <div class="bt">A decisão mais importante deste plano</div>
-    <p><strong>Lucas fala com um único público: o dono de clínica e o profissional da saúde</strong> — dentista na frente, depois médico, fisioterapeuta e veterinário — <strong>que já validou o negócio e sente que o crescimento travou.</strong></p>
-    <p>Não "empresário de serviços em geral". Não arquiteto, não advogado, não agência — esses podem comprar, mas <strong>toda a comunicação (bio, conteúdo, abordagem, quiz, call) mira a saúde.</strong> Um público, uma promessa, uma esteira.</p>
-    <p>A big idea que sustenta tudo: <strong>"O problema não é crescer — é o modelo que você está usando para crescer."</strong> A clínica que fatura 30 mil está a uma secretária treinada e um processo comercial de dobrar o faturamento.</p>
+    <p><strong>Lucas fala com um único público: o dono de clínica e o profissional da saúde</strong> (dentista na frente, depois médico, fisioterapeuta e veterinário) <strong>que já validou o negócio e sente que o crescimento travou.</strong></p>
+    <p>Não "empresário de serviços em geral". Arquiteto, advogado e agência podem comprar, mas <strong>toda a comunicação (bio, conteúdo, abordagem, quiz, call) mira a saúde.</strong> Um público, uma promessa, uma esteira.</p>
+    <p>A big idea que sustenta tudo: <strong>"O problema não é crescer. É o modelo que você está usando para crescer."</strong> A clínica que fatura 30 mil está a uma secretária treinada e um processo comercial de dobrar o faturamento.</p>
   </div>
 
   <div class="box-light">
-    <div class="bt">A esteira — três produtos, uma promessa</div>
-    <p><strong>1. High Ticket — Mentoria de Evolução Empresarial: R$ 21.000.</strong> O carro-chefe. Vendas + Produtividade + Autoliderança, entrega em grupo com acompanhamento próximo. É para onde vai todo lead ICP.</p>
-    <p><strong>2. Intermediário: R$ 12.000.</strong> Versão com menos acesso individual (grupo + material). Downsell para o lead qualificado que não fecha os 21k na call.</p>
-    <p><strong>3. Entrada: R$ 3.000.</strong> Produto de aproveitamento para o público sem potencial de high ticket (não-ICP do funil). Ângulo sugerido: <em>"Transforme sua secretária numa máquina de vendas"</em>. Monetiza o tráfego e financia a mídia.</p>
+    <div class="bt">A esteira: três produtos, uma promessa</div>
+    <p><strong>1. High Ticket, R$ 20.000: Mentoria de Evolução Empresarial.</strong> O carro-chefe. Vendas + Produtividade + Autoliderança, entrega em grupo com acompanhamento próximo. É para onde vai todo lead ICP.</p>
+    <p><strong>2. Intermediário, R$ 12.000.</strong> Versão com menos acesso individual (grupo + material). É o downsell para o lead qualificado que não fecha os 20k na call.</p>
+    <p><strong>3. Entrada, R$ 3.000.</strong> Produto de aproveitamento para o público sem potencial de high ticket (não-ICP do funil). Ângulo sugerido: <em>"Transforme sua secretária numa máquina de vendas"</em>. Monetiza o tráfego e financia a mídia.</p>
     <p><strong>Lucas monta os três produtos com direcionamento da Simple</strong> (aula de como montar high ticket + calls quinzenais). Não criar um quarto produto nos 90 dias.</p>
   </div>
 
   <div class="box-light">
     <div class="bt">A matemática dos R$ 100.000/mês</div>
-    <p><strong>5 vendas × R$ 21.000 = R$ 105.000.</strong></p>
-    <p>Com a sua conversão real de call (25–40%, usamos 30%), 5 vendas pedem <strong>~17 sessões estratégicas/mês — 1 por dia útil</strong>. Cabe com folga no seu teto de 2 calls/dia.</p>
-    <p>Para gerar 17 sessões: <strong>SDR fazendo 60–100 abordagens/dia</strong> (base + social selling) somada aos <strong>leads do Funil de Lead Dinâmico</strong>.</p>
+    <p><strong>5 vendas × R$ 20.000 = R$ 100.000.</strong></p>
+    <p>Com a sua conversão real de call (25 a 40%, usamos 30%), 5 vendas pedem <strong>cerca de 17 sessões estratégicas por mês: 1 por dia útil</strong>. Cabe com folga no seu teto de 2 calls por dia.</p>
+    <p>Para gerar 17 sessões: <strong>SDR fazendo de 60 a 100 abordagens por dia</strong> (base + social selling), somada aos <strong>leads do Funil de Lead Dinâmico</strong>.</p>
     <p>Esse número é <strong>operacional, não aspiracional.</strong> É só fazer.</p>
   </div>
 
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 3: RITMO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Lucas Sobreiro</span><span>Página 3</span></div>
   <div class="box-light">
     <div class="bt">Foco deste roadmap</div>
     <p>Este documento cobre <strong>exclusivamente os primeiros 90 dias</strong>: caixa rápido, esteira, aquisição manual e funil no ar.</p>
-    <p>Quando Lucas atingir o ritmo de R$ 100k/mês, entregaremos o <strong>Roadmap 2: escala dos R$ 100k aos R$ 250k/mês</strong> — expansão do comercial (closer de volta ao jogo), eventos maiores, novos canais e esteira ampliada. Não tente queimar etapas.</p>
+    <p>Quando Lucas atingir o ritmo de R$ 100k/mês, entregaremos o <strong>Roadmap 2: escala dos R$ 100k aos R$ 250k/mês</strong>, com expansão do comercial (closer de volta ao jogo), eventos maiores, novos canais e esteira ampliada. Não tente queimar etapas.</p>
   </div>
-  <div class="runfoot">Mentoria estratégica — execução nos primeiros 90 dias</div>
-</div>
 
-<!-- PÁGINA 3 — RITMO -->
-<div class="page">
-  <div class="runhead"><span>Roadmap Estratégico — Lucas Sobreiro</span><span>Página 3</span></div>
   <div class="box-light">
     <div class="bt">Ritmo de acompanhamento</div>
-    <p><strong>1 encontro individual a cada 15 dias</strong> (no primeiro mês, mais frequente) + <strong>1 encontro em grupo a cada 15 dias</strong>. O papel é <strong>destravar o que está travado</strong> — dúvidas, ajustes de rota, revisão de copy ou script, leitura de métricas.</p>
-    <p>A execução acontece <strong>entre as calls.</strong> As calls servem para afinar, não para decidir o que fazer — o que fazer já está aqui dentro.</p>
+    <p><strong>1 encontro individual a cada 15 dias</strong> (no primeiro mês, mais frequente) e <strong>1 encontro em grupo a cada 15 dias</strong>. O papel é <strong>destravar o que está travado</strong>: dúvidas, ajustes de rota, revisão de copy ou script, leitura de métricas.</p>
+    <p>A execução acontece <strong>entre as calls.</strong> As calls servem para afinar, não para decidir o que fazer. O que fazer já está aqui dentro.</p>
     <p>Dúvidas no meio do caminho: <strong>mande no grupo</strong>. Entrega e estratégia: mencione o Carlos. Tráfego: mencione o Renan. Não espere a próxima call.</p>
   </div>
 
@@ -168,21 +172,21 @@
     <p><strong>Lucas executa:</strong> caixa rápido na base, montagem da esteira, gravação de vídeos e depoimentos, abordagens diárias com a SDR e as sessões estratégicas.</p>
     <p>O funil coloca lead na porta. <strong>Quem coloca dinheiro no caixa é a rotina comercial.</strong></p>
   </div>
-  <div class="runfoot">Mentoria estratégica — execução nos primeiros 90 dias</div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
 </div>
 
-<!-- PÁGINA 4 — FASE 1 CAIXA RÁPIDO -->
+<!-- PÁGINA 4: FASE 1 CAIXA RÁPIDO -->
 <div class="page">
-  <div class="runhead"><span>Roadmap Estratégico — Lucas Sobreiro</span><span>Página 4</span></div>
+  <div class="runhead"><span>Roadmap Estratégico · Lucas Sobreiro</span><span>Página 4</span></div>
   <div class="fase-header">
-    <div class="fk">Fase 1 — Dias 1 a 10</div>
+    <div class="fk">Fase 1 · Dias 1 a 10</div>
     <h2>Estratégia de Caixa Rápido</h2>
     <div class="fd">Dinheiro que já está na sua base, esperando abordagem. Gera caixa para financiar mídia e operação antes de o funil ligar.</div>
   </div>
 
   <div class="box-light">
     <div class="bt">Por que começar pelo caixa</div>
-    <p>Você já tem <strong>clientes ativos, ex-clientes, lista de eventos (40% da sua base veio deles) e contatos de LinkedIn</strong>. Esse público quente converte mais rápido que qualquer lead frio — e o caixa gerado aqui banca o investimento em tráfego sem aperto.</p>
+    <p>Você já tem <strong>clientes ativos, ex-clientes, lista de eventos (40% da sua base veio deles) e contatos de LinkedIn</strong>. Esse público quente converte mais rápido que lead frio e banca o investimento em tráfego.</p>
   </div>
 
   <div class="passo-label">Passo 01</div>
@@ -190,7 +194,7 @@
   <ul class="check">
     <li>Listar em planilha: <strong>clientes ativos, ex-clientes, participantes dos eventos, leads antigos de LinkedIn e indicações não trabalhadas</strong></li>
     <li>Classificar cada nome: potencial de <strong>novo serviço</strong> (upsell), potencial de <strong>indicação</strong>, potencial de <strong>sessão estratégica</strong> (venda nova)</li>
-    <li>Meta: <strong>lista completa até o Dia 3</strong> — sem nome de fora</li>
+    <li>Meta: <strong>lista completa até o Dia 3</strong>, sem nome de fora</li>
   </ul>
 
   <div class="passo-label">Passo 02</div>
@@ -198,60 +202,59 @@
   <ul class="check">
     <li><strong>Clientes ativos e ex-clientes:</strong>
       <ul class="sub">
-        <li>Ofertar um <strong>novo serviço/próximo nível</strong> (ex.: continuidade, intensivo, acompanhamento estendido)</li>
-        <li>Pedir <strong>3 a 5 indicações qualificadas</strong> por cliente — pedido direto, com perfil claro ("dentista dono de clínica que fatura 30k+")</li>
+        <li>Ofertar um <strong>novo serviço ou próximo nível</strong> (continuidade, intensivo)</li>
+        <li>Pedir <strong>de 3 a 5 indicações qualificadas</strong> por cliente. Pedido direto, com perfil claro ("dentista dono de clínica que fatura 30k ou mais")</li>
       </ul>
     </li>
     <li><strong>Lista de eventos e leads antigos:</strong> abordagem personalizada no WhatsApp reativando a conversa e convidando para sessão estratégica</li>
-    <li>Usar os <strong>scripts de abordagem da Simple</strong> (materiais de apoio) — nunca copiar e colar o mesmo texto</li>
-    <li>Registrar tudo na planilha de controle — <strong>sem registro, não existe</strong></li>
+    <li>Usar os <strong>scripts de abordagem da Simple</strong>, sempre personalizados, e registrar tudo na planilha de controle. <strong>Sem registro, não existe</strong></li>
   </ul>
 
   <div class="passo-label">Passo 03</div>
   <h3>Converter Vendas em Caixa Imediato</h3>
   <ul class="check">
-    <li>Venda fechada no cartão parcelado: avaliar <strong>antecipação de recebíveis</strong> na maquininha/gateway para trazer o caixa para hoje</li>
-    <li>Destino do caixa rápido: <strong>orçamento de mídia + ferramentas (GHL/API)</strong> — não é caixa de retirada</li>
-    <li>Levar o resultado das antecipações para a call quinzenal — decidir juntos o quanto vai para tráfego</li>
+    <li>Venda fechada no cartão parcelado: avaliar <strong>antecipação de recebíveis</strong> na maquininha ou gateway para trazer o caixa para hoje</li>
+    <li>Destino do caixa rápido: <strong>orçamento de mídia + ferramentas (GHL/API)</strong>. Não é caixa de retirada</li>
+    <li>Levar o resultado das antecipações para a call quinzenal e decidir juntos o quanto vai para tráfego</li>
   </ul>
 
   <div class="box-dark">
     <div class="bt">Meta desta fase</div>
-    <p><strong>Dia 10:</strong> 100% da base abordada, 4+ sessões estratégicas agendadas, <strong>1 venda fechada ou 1 antecipação feita</strong> — caixa inicial de mídia garantido.</p>
+    <p><strong>Dia 10:</strong> 100% da base abordada, 4 ou mais sessões estratégicas agendadas, <strong>1 venda fechada ou 1 antecipação feita</strong>. Caixa inicial de mídia garantido.</p>
   </div>
-  <div class="runfoot">Mentoria estratégica — execução nos primeiros 90 dias</div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
 </div>
 
-<!-- PÁGINA 5 — FASE 2 ESTEIRA E POSICIONAMENTO -->
+<!-- PÁGINA 5: FASE 2 ESTEIRA E POSICIONAMENTO -->
 <div class="page">
-  <div class="runhead"><span>Roadmap Estratégico — Lucas Sobreiro</span><span>Página 5</span></div>
+  <div class="runhead"><span>Roadmap Estratégico · Lucas Sobreiro</span><span>Página 5</span></div>
   <div class="fase-header">
-    <div class="fk">Fase 2 — Dias 1 a 14</div>
+    <div class="fk">Fase 2 · Dias 1 a 14</div>
     <h2>Esteira de Produtos e Posicionamento</h2>
     <div class="fd">Monte a esteira, defina a promessa e prepare o Instagram antes de o tráfego ligar. Sem isso, nenhum lead converte.</div>
   </div>
 
   <div class="box-light">
     <div class="bt">Prioridade máxima</div>
-    <p>Quando o lead do funil (ou da base) clicar no seu perfil, ele precisa encontrar <strong>o mentor da saúde</strong> — posicionamento profissional claro, não um perfil pessoal genérico de 850 seguidores sem promessa.</p>
+    <p>Quando o lead do funil (ou da base) clicar no seu perfil, ele precisa encontrar <strong>o mentor da saúde</strong>: posicionamento profissional claro, não um perfil pessoal genérico de 850 seguidores sem promessa.</p>
   </div>
 
   <div class="passo-label">Passo 04</div>
   <h3>Assistir à Aula de Como Montar o High Ticket</h3>
   <ul class="check">
     <li>Assistir à <strong>aula de estruturação de oferta high ticket</strong> antes de mexer na esteira (link nos materiais de apoio)</li>
-    <li>Anotar o desenho atual da mentoria (R$ 21k) e os ajustes de entregável para a entrega em grupo</li>
+    <li>Anotar o desenho atual da mentoria e os ajustes de entregável para a entrega em grupo</li>
   </ul>
 
   <div class="passo-label">Passo 05</div>
   <h3>Montar os 3 Produtos da Esteira</h3>
   <ul class="check">
-    <li><strong>High Ticket — R$ 21.000:</strong> manter promessa e módulos (Vendas, Produtividade, Autoliderança); consolidar a migração da entrega individual para grupo</li>
-    <li><strong>Intermediário — R$ 12.000:</strong> definir entregáveis com menos acesso individual (grupo + material + suporte); é o downsell da call</li>
-    <li><strong>Entrada — R$ 3.000:</strong> produto de aproveitamento do não-ICP; ângulo sugerido: <em>"Secretária Máquina de Vendas"</em> — treinar a secretária para vender e destravar a agenda da clínica</li>
+    <li><strong>High Ticket, R$ 20.000:</strong> manter promessa e módulos (Vendas, Produtividade, Autoliderança); consolidar a migração da entrega individual para grupo</li>
+    <li><strong>Intermediário, R$ 12.000:</strong> definir entregáveis com menos acesso individual (grupo + material + suporte); é o downsell da call</li>
+    <li><strong>Entrada, R$ 3.000:</strong> produto de aproveitamento do não-ICP; ângulo sugerido: <em>"Secretária Máquina de Vendas"</em>, treinar a secretária para vender e destravar a agenda da clínica</li>
     <li>Para cada produto: <strong>nome, promessa, entregáveis, preço e forma de pagamento</strong> definidos e validados na call quinzenal</li>
-    <li>Criar o <strong>PDF de apresentação da mentoria</strong> (10–15 slides, modelo padrão nos materiais de apoio)</li>
-    <li>Não recuar no preço do high ticket. Objeção de valor → negociar <strong>forma de pagamento</strong>, nunca o ticket. Se não fecha 21k, oferta-se o 12k</li>
+    <li>Criar o <strong>PDF de apresentação da mentoria</strong> (10 a 15 slides, modelo padrão nos materiais de apoio)</li>
+    <li>Não recuar no preço do high ticket. Objeção de valor: negociar <strong>forma de pagamento</strong>, nunca o ticket. Se não fecha 20k, oferta-se o 12k</li>
   </ul>
 
   <div class="passo-label">Passo 06</div>
@@ -266,32 +269,32 @@
     <li>Fixar 2 ou 3 posts no topo do feed (apresentação + case forte da saúde)</li>
     <li>Foto de perfil profissional, sem fundo poluído, sorriso visível</li>
   </ul>
-  <div class="runfoot">Mentoria estratégica — execução nos primeiros 90 dias</div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
 </div>
 
-<!-- PÁGINA 6-7 — FASE 3 AQUISIÇÃO MANUAL -->
+<!-- PÁGINA 6: FASE 3 AQUISIÇÃO (parte 1) -->
 <div class="page">
-  <div class="runhead"><span>Roadmap Estratégico — Lucas Sobreiro</span><span>Página 6</span></div>
+  <div class="runhead"><span>Roadmap Estratégico · Lucas Sobreiro</span><span>Página 6</span></div>
   <div class="fase-header">
-    <div class="fk">Fase 3 — Dias 1 a 90 (Motor Principal)</div>
-    <h2>Aquisição Manual — Base, Social Selling e SDR</h2>
+    <div class="fk">Fase 3 · Dias 1 a 90 (Motor Principal)</div>
+    <h2>Aquisição Manual: Base, Social Selling e SDR</h2>
     <div class="fd">O funil amplia; o manual valida e vende desde a semana 1. Esta é a fase mais importante do plano. Não pule.</div>
   </div>
 
   <div class="box-dark">
     <div class="bt">Por que o manual anda junto com o funil</div>
-    <p>As <strong>objeções reais</strong> das suas calls alimentam o quiz e os criativos do funil. A linguagem real do comprador — que você só descobre conversando — é o que faz o tráfego converter.</p>
+    <p>As <strong>objeções reais</strong> das suas calls alimentam o quiz e os criativos do funil. A linguagem real do comprador, que você só descobre conversando, é o que faz o tráfego converter.</p>
     <p>Em junho você fez <strong>1 call de vendas no mês</strong>. O objetivo desta fase é nunca mais ter agenda vazia: <strong>abordagem ativa todos os dias úteis, sem exceção.</strong></p>
   </div>
 
   <div class="passo-label">Passo 07</div>
   <h3>Assistir às Aulas de Aquisição</h3>
-  <p>Antes de qualquer abordagem ou call em escala — sem isso, você está improvisando, e improviso na frente da venda queima lead bom.</p>
+  <p>Antes de qualquer abordagem ou call em escala. Sem isso, você está improvisando, e improviso na frente da venda queima lead bom.</p>
   <ul class="check">
-    <li><strong>Aula de Social Selling (Parte 1 e 2)</strong> — fundamentos de abordagem ativa</li>
-    <li><strong>Aula de Outbound</strong> — prospecção ativa para leads frios</li>
-    <li><strong>Aula de Call de Vendas (1×1)</strong> — condução completa da sessão estratégica</li>
-    <li><strong>Aula de Pré-Vendas</strong> — planilha de controle e agendamento</li>
+    <li><strong>Aula de Social Selling (Parte 1 e 2):</strong> fundamentos de abordagem ativa</li>
+    <li><strong>Aula de Outbound:</strong> prospecção ativa para leads frios</li>
+    <li><strong>Aula de Call de Vendas (1×1):</strong> condução completa da sessão estratégica</li>
+    <li><strong>Aula de Pré-Vendas:</strong> planilha de controle e agendamento</li>
     <li>Fernanda assiste às mesmas aulas de social selling, outbound e pré-vendas</li>
   </ul>
 
@@ -304,49 +307,50 @@
     <li>Aplicar os <strong>playbooks de pré-vendas e o script de abordagem da Simple</strong></li>
     <li>Bônus: <strong>auditorias de social selling</strong> com a Inova Selling para calibrar abordagem</li>
   </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
 
+<!-- PÁGINA 7: FASE 3 AQUISIÇÃO (parte 2) -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Lucas Sobreiro</span><span>Página 7</span></div>
   <div class="passo-label">Passo 09</div>
   <h3>Executar as Abordagens Diárias</h3>
-  <p>Esse é o número que move o caixa. <strong>60 a 100 abordagens por dia</strong>, todos os dias úteis, sem exceção.</p>
+  <p>Esse é o número que move o caixa. <strong>De 60 a 100 abordagens por dia</strong>, todos os dias úteis, sem exceção.</p>
   <ul class="check">
     <li>Mapear perfis qualificados no Instagram: dentistas e donos de clínica (seguidores de perfis de referência da saúde, hashtags do nicho, rede regional)</li>
-    <li>Distribuição inicial: <strong>40% base/lista quente · 50% social selling Instagram · 10% outbound frio</strong>. Conforme a base esgota, inverter para o social selling</li>
-    <li>Abordagem sempre personalizada — nunca copiar e colar o mesmo texto</li>
-    <li>Quem responder com interesse: agendar <strong>sessão estratégica de 30–45 min</strong></li>
+    <li>Distribuição inicial: <strong>40% base e lista quente · 50% social selling no Instagram · 10% outbound frio</strong>. Conforme a base esgota, o social selling assume</li>
+    <li>Abordagem sempre personalizada. Nunca copiar e colar o mesmo texto</li>
+    <li>Quem responder com interesse: agendar <strong>sessão estratégica de 30 a 45 min</strong></li>
     <li>Quem não responder em 2 dias: <strong>follow-up obrigatório</strong></li>
     <li>Meta: <strong>200 perfis qualificados mapeados até o Dia 10</strong> e planilha viva daí em diante</li>
   </ul>
-  <div class="runfoot">Mentoria estratégica — execução nos primeiros 90 dias</div>
-</div>
 
-<div class="page">
-  <div class="runhead"><span>Roadmap Estratégico — Lucas Sobreiro</span><span>Página 7</span></div>
   <div class="passo-label">Passo 10</div>
   <h3>Conduzir a Call de Vendas</h3>
   <ul class="check">
     <li>Assistir à <strong>Aula de Call de Vendas (1×1)</strong> completa antes da primeira call desta nova rotina</li>
-    <li>Gravar todas as calls (com consentimento) — Fathom, Meet ou Zoom</li>
+    <li>Gravar todas as calls (com consentimento): Fathom, Meet ou Zoom</li>
     <li>Revisar as 3 primeiras gravações com o mentor estratégico na call quinzenal</li>
-    <li>Agenda: <strong>máximo 2 calls/dia</strong> (seu teto declarado) — com 30% de conversão isso já sustenta a meta com folga</li>
-    <li><strong>Não recue no preço.</strong> Objeção de valor → forma de pagamento ou downsell R$ 12k — nunca desconto no 21k</li>
+    <li>Agenda: <strong>máximo 2 calls por dia</strong> (seu teto declarado). Com 30% de conversão, isso já sustenta a meta com folga</li>
+    <li><strong>Não recue no preço.</strong> Objeção de valor: forma de pagamento ou downsell de R$ 12k. Nunca desconto no 20k</li>
     <li>Toda call sem fechamento sai com <strong>próximo passo marcado</strong> (follow-up datado, nunca "vou pensar" solto)</li>
   </ul>
 
   <div class="box-light">
     <div class="bt">Metas numéricas desta fase</div>
-    <p><strong>Dia 30:</strong> base 100% trabalhada, 15+ sessões realizadas, <strong>2 vendas fechadas (R$ 42.000)</strong></p>
-    <p><strong>Dia 60:</strong> 30+ sessões acumuladas, <strong>5 vendas acumuladas (R$ 105.000)</strong></p>
-    <p><strong>Dia 90:</strong> ritmo de <strong>4–5 vendas/mês</strong> — <strong>R$ 100k/mês de run rate batido</strong>, 9–10 vendas acumuladas (R$ 190.000+)</p>
-    <p><strong>Alerta vermelho:</strong> menos de 1 venda até o Dia 30 = problema de fechamento ou de qualificação, não de produto. Pausar, revisar gravações com o mentor, ajustar antes de continuar.</p>
+    <p><strong>Dia 30:</strong> base 100% trabalhada, 15 ou mais sessões realizadas, <strong>2 vendas fechadas (R$ 40.000)</strong></p>
+    <p><strong>Dia 60:</strong> 30 ou mais sessões acumuladas, <strong>5 vendas acumuladas (R$ 100.000)</strong></p>
+    <p><strong>Dia 90:</strong> ritmo de <strong>4 a 5 vendas por mês</strong>: <strong>run rate de R$ 100k/mês batido</strong>, 9 a 10 vendas acumuladas (R$ 180.000 ou mais)</p>
+    <p><strong>Alerta vermelho:</strong> menos de 1 venda até o Dia 30 é problema de fechamento ou de qualificação, não de produto. Pausar, revisar gravações com o mentor, ajustar antes de continuar.</p>
   </div>
-  <div class="runfoot">Mentoria estratégica — execução nos primeiros 90 dias</div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
 </div>
 
-<!-- PÁGINA 8 — FASE 4 CONTEÚDO -->
+<!-- PÁGINA 8: FASE 4 CONTEÚDO -->
 <div class="page">
-  <div class="runhead"><span>Roadmap Estratégico — Lucas Sobreiro</span><span>Página 8</span></div>
+  <div class="runhead"><span>Roadmap Estratégico · Lucas Sobreiro</span><span>Página 8</span></div>
   <div class="fase-header">
-    <div class="fk">Fase 4 — Dias 1 a 90 (Paralelo)</div>
+    <div class="fk">Fase 4 · Dias 1 a 90 (Paralelo)</div>
     <h2>Conteúdo e Posicionamento Orgânico</h2>
     <div class="fd">Produção de conteúdo para gerar autoridade e endossar as abordagens. Roda em paralelo. Não é pré-requisito para venda.</div>
   </div>
@@ -354,18 +358,18 @@
   <div class="passo-label">Passo 11</div>
   <h3>Entender os Níveis de Consciência</h3>
   <ul class="check">
-    <li>Conteúdo orgânico serve para <strong>endossar a abordagem ativa e o anúncio</strong> — não substitui a Fase 3</li>
-    <li><strong>Nível 1 — Inconsciente do problema</strong> (maior alcance): "por que sua clínica lota a agenda e o lucro não aparece"</li>
-    <li><strong>Nível 2 — Consciente do problema</strong> (alcance médio): nomear a dor — faturamento travado, agenda cheia, crescimento que exige cada vez mais do dono</li>
-    <li><strong>Nível 4 — Consciente do produto</strong> (maior conversão): depoimentos e cases da saúde — vai principalmente para o tráfego pago</li>
-    <li>Começar sempre pelo Nível 1 — alimenta o funil orgânico</li>
+    <li>Conteúdo orgânico serve para <strong>endossar a abordagem ativa e o anúncio</strong>. Não substitui a Fase 3</li>
+    <li><strong>Nível 1, inconsciente do problema</strong> (maior alcance): "por que sua clínica lota a agenda e o lucro não aparece"</li>
+    <li><strong>Nível 2, consciente do problema</strong> (alcance médio): nomear a dor. Faturamento travado, agenda cheia, crescimento que exige cada vez mais do dono</li>
+    <li><strong>Nível 4, consciente do produto</strong> (maior conversão): depoimentos e cases da saúde. Vai principalmente para o tráfego pago</li>
+    <li>Começar sempre pelo Nível 1, que alimenta o funil orgânico</li>
   </ul>
 
   <div class="passo-label">Passo 12</div>
   <h3>Rotina Semanal de Conteúdo</h3>
   <ul class="check">
-    <li>Meta mínima: <strong>12 publicações por semana</strong> no Instagram (mix de Reels, carrosséis e Stories — definir o mix na call quinzenal)</li>
-    <li>Produzir em lote — gravar tudo da semana em um único dia</li>
+    <li>Meta mínima: <strong>12 publicações por semana</strong> no Instagram (mix de Reels, carrosséis e Stories; definir o mix na call quinzenal)</li>
+    <li>Produzir em lote: gravar tudo da semana em um único dia</li>
     <li>Reaproveitar entre formatos (mesmo tema vira Reel + carrossel + Stories)</li>
     <li>CTA em todo conteúdo: convite para a <strong>sessão estratégica / quiz</strong> (link na bio)</li>
     <li>Explorar a ponte da <strong>rede regional de dentistas</strong> (relacionamento via esposa) para conteúdo colaborativo e prova de identificação</li>
@@ -375,18 +379,18 @@
   <h3>Gravar os Materiais do Funil</h3>
   <ul class="check">
     <li>Gravar os <strong>vídeos dos criativos seguindo os roteiros que a Simple enviar</strong></li>
-    <li>Coletar <strong>depoimentos em vídeo</strong> dos cases (a Simple envia os tópicos de direcionamento — não deixar o cliente improvisar)</li>
+    <li>Coletar <strong>depoimentos em vídeo</strong> dos cases (a Simple envia os tópicos de direcionamento; não deixar o cliente improvisar)</li>
     <li>Subir no Drive: depoimentos, prints de WhatsApp (pode tampar nomes), fotos e materiais visuais</li>
-    <li>Prioridade absoluta para <strong>cases da saúde</strong> — identificação é o que prende esse público</li>
+    <li>Prioridade absoluta para <strong>cases da saúde</strong>. Identificação é o que prende esse público</li>
   </ul>
-  <div class="runfoot">Mentoria estratégica — execução nos primeiros 90 dias</div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
 </div>
 
-<!-- PÁGINA 9 — FASE 5 FUNIL -->
+<!-- PÁGINA 9: FASE 5 FUNIL (parte 1) -->
 <div class="page">
-  <div class="runhead"><span>Roadmap Estratégico — Lucas Sobreiro</span><span>Página 9</span></div>
+  <div class="runhead"><span>Roadmap Estratégico · Lucas Sobreiro</span><span>Página 9</span></div>
   <div class="fase-header">
-    <div class="fk">Fase 5 — Dias 15 a 60</div>
+    <div class="fk">Fase 5 · Dias 15 a 60</div>
     <h2>Funil de Lead Dinâmico e Tráfego Pago</h2>
     <div class="fd">A Simple constrói e opera. O quiz qualifica: ICP vai para a sua agenda; não-ICP compra o produto de entrada e paga a mídia.</div>
   </div>
@@ -394,147 +398,157 @@
   <div class="box-dark">
     <div class="bt">Como o funil funciona</div>
     <p><strong>Anúncio → página do quiz (promessa: relatório/diagnóstico gratuito) → coleta de dados → CRM → abordagem WhatsApp (SDR + script) → envio do relatório → sessão estratégica agendada.</strong></p>
-    <p>Lead <strong>ICP</strong> → agenda direto com você. Lead <strong>não-ICP</strong> → oferta do produto de entrada (R$ 3k), que monetiza o tráfego. O funil inteiro fica lucrativo.</p>
+    <p>Lead <strong>ICP</strong>: agenda direto com você. Lead <strong>não-ICP</strong>: oferta do produto de entrada (R$ 3k), que monetiza o tráfego. O funil inteiro fica lucrativo.</p>
   </div>
 
   <div class="passo-label">Passo 14</div>
   <h3>Aprovar Copies, Quiz e Páginas</h3>
   <ul class="check">
-    <li>A Simple envia o <strong>documento com todas as copies</strong> (quiz, páginas, mensagens) — Lucas valida principalmente <strong>tom de voz</strong> nas primeiras entregas; as próximas já vêm prontas</li>
-    <li>Quiz: 8–12 perguntas combinando qualificação, dor e intenção — alimentadas pelas objeções reais das suas calls</li>
-    <li>Simple implementa e envia o <strong>link funcional para teste</strong>; integração com planilha + CRM incluída</li>
+    <li>A Simple envia o <strong>documento com todas as copies</strong> (quiz, páginas, mensagens). Lucas valida principalmente <strong>tom de voz</strong> nas primeiras entregas; as próximas já vêm prontas</li>
+    <li>Quiz: de 8 a 12 perguntas combinando qualificação, dor e intenção, alimentadas pelas objeções reais das suas calls</li>
+    <li>Simple implementa e envia o <strong>link funcional para teste</strong>; integração com planilha e CRM incluída</li>
   </ul>
 
   <div class="passo-label">Passo 15</div>
   <h3>Montar a Infraestrutura (GHL + WhatsApp API)</h3>
   <ul class="check">
-    <li>Contratar o <strong>GHL (~R$ 97/mês)</strong> quando o Carlos sinalizar — nem antes (assinatura ociosa), nem depois (trava o cronograma)</li>
-    <li>Instância da <strong>API oficial do WhatsApp (~R$ 100/mês</strong> + centavos por primeira mensagem/template)</li>
-    <li><strong>Número dedicado ao CRM.</strong> Responder pelo celular ou pelo próprio CRM — <strong>nunca WhatsApp Web</strong> (risco real de queda do número)</li>
-    <li>Automações: disparo pós-quiz, reativação por template aprovado, cadência de follow-up — Simple configura</li>
+    <li>Contratar o <strong>GHL (cerca de R$ 97/mês)</strong> quando o Carlos sinalizar. Nem antes (assinatura ociosa), nem depois (trava o cronograma)</li>
+    <li>Instância da <strong>API oficial do WhatsApp (cerca de R$ 100/mês</strong> + centavos por primeira mensagem/template)</li>
+    <li><strong>Número dedicado ao CRM.</strong> Responder pelo celular ou pelo próprio CRM. <strong>Nunca WhatsApp Web</strong> (risco real de queda do número)</li>
+    <li>Automações: disparo pós-quiz, reativação por template aprovado, cadência de follow-up. Simple configura</li>
     <li>Liberar os <strong>acessos às contas de anúncio</strong> e ativos digitais para a equipe</li>
   </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
 
+<!-- PÁGINA 10: FASE 5 FUNIL (parte 2) -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Lucas Sobreiro</span><span>Página 10</span></div>
   <div class="passo-label">Passo 16</div>
   <h3>Subir as Campanhas de Tráfego</h3>
   <ul class="check">
     <li>Gestão: <strong>Renan (Simple)</strong>. Criativos no formato validado (estilo Twitter) + vídeos do Lucas</li>
-    <li>Orçamento inicial de validação: <strong>R$ 1.500 a R$ 3.000/mês</strong> — financiado pelo caixa rápido; não escalar antes de validar CPL e taxa de agendamento</li>
-    <li>Segmentação: saúde (dentistas, médicos, donos de clínica), Brasil inteiro — produto digital, sem trava geográfica</li>
+    <li>Orçamento inicial de validação: <strong>R$ 1.500 a R$ 3.000/mês</strong>, financiado pelo caixa rápido. Não escalar antes de validar CPL e taxa de agendamento</li>
+    <li>Segmentação: saúde (dentistas, médicos, donos de clínica), Brasil inteiro. Produto digital, sem trava geográfica</li>
     <li>Revisão de métricas a cada 7 dias:
       <ul class="sub">
-        <li>CPL fora da meta → ajustar criativo</li>
-        <li>Conclusão do quiz abaixo de 40% → revisar perguntas</li>
-        <li>Comparecimento na sessão abaixo de 60% → revisar follow-up e cadência do SDR</li>
+        <li>CPL fora da meta: ajustar criativo</li>
+        <li>Conclusão do quiz abaixo de 40%: revisar perguntas</li>
+        <li>Comparecimento na sessão abaixo de 60%: revisar follow-up e cadência do SDR</li>
       </ul>
     </li>
-    <li>Meta da fase: <strong>~100 leads/mês</strong> entrando no CRM com custo controlado e primeiras vendas atribuídas ao funil</li>
+    <li>Meta da fase: <strong>cerca de 100 leads/mês</strong> entrando no CRM com custo controlado e primeiras vendas atribuídas ao funil</li>
   </ul>
-  <div class="runfoot">Mentoria estratégica — execução nos primeiros 90 dias</div>
+
+  <div class="box-light">
+    <div class="bt">Regra de ouro do tráfego high ticket</div>
+    <p>Uma venda de R$ 20.000 paga meses de mídia. O jogo não é lead barato, é <strong>lead certo</strong>: o quiz filtra, o SDR qualifica, a call fecha. Métrica olhada fria, decisão tomada no número.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
 </div>
 
-<!-- PÁGINA 10 — BÔNUS -->
+<!-- PÁGINA 11: BÔNUS -->
 <div class="page">
-  <div class="runhead"><span>Roadmap Estratégico — Lucas Sobreiro</span><span>Página 10</span></div>
+  <div class="runhead"><span>Roadmap Estratégico · Lucas Sobreiro</span><span>Página 11</span></div>
   <div class="fase-header">
-    <div class="fk">Bônus — A partir do Dia 60</div>
+    <div class="fk">Bônus · A partir do Dia 60</div>
     <h2>Eventos e Rede de Relacionamento</h2>
-    <div class="fd">Seus dois ativos únicos — eventos presenciais e a rede da saúde — entram como aceleradores no fim da janela. Não é o foco dos 90 dias.</div>
+    <div class="fd">Seus dois ativos únicos, eventos presenciais e a rede da saúde, entram como aceleradores no fim da janela. Não é o foco dos 90 dias.</div>
   </div>
 
   <div class="box-light">
     <div class="bt">Por que entra agora</div>
-    <p>40% dos seus clientes vieram de eventos — é canal validado. Mas evento sem funil enche sala e esvazia agenda. Com o funil rodando, <strong>cada evento vira alimentador do CRM</strong> e cada participante entra numa cadência.</p>
+    <p>40% dos seus clientes vieram de eventos. É canal validado. Mas evento sem funil enche sala e esvazia agenda. Com o funil rodando, <strong>cada evento vira alimentador do CRM</strong> e cada participante entra numa cadência.</p>
   </div>
 
   <div class="passo-label">Passo 17</div>
   <h3>Integrar os Eventos à Esteira</h3>
   <ul class="check">
     <li>Planejar o próximo evento presencial já com <strong>CTA para sessão estratégica + captura no CRM</strong> (QR code do quiz na sala)</li>
-    <li>Substituir a ferramenta de palco "primeiros R$ 2 mil" por uma promessa mais ambiciosa — <em>"Secretária Máquina de Vendas"</em> — alinhada ao produto de entrada</li>
+    <li>Substituir a ferramenta de palco "primeiros R$ 2 mil" por uma promessa mais ambiciosa, <em>"Secretária Máquina de Vendas"</em>, alinhada ao produto de entrada</li>
     <li>Todo participante entra na planilha/CRM e recebe follow-up do SDR em até 48h</li>
   </ul>
 
   <div class="passo-label">Passo 18</div>
-  <h3>Plantar a Rede de Dentistas (via relacionamento regional)</h3>
+  <h3>Plantar a Rede de Dentistas (relacionamento regional)</h3>
   <ul class="check">
-    <li>Mapear 10–15 dentistas/donos de clínica da rede de relacionamento regional (ponte da esposa) — abordagem pessoal, não é venda fria</li>
+    <li>Mapear de 10 a 15 dentistas e donos de clínica da rede de relacionamento regional (ponte da esposa). Abordagem pessoal, não é venda fria</li>
     <li>Estratégia de conteúdo colaborativo + indicação para marcar sessões estratégicas</li>
-    <li>Meta dos 90 dias: <strong>2 a 3 conversas em andamento</strong> (não fechamento) — colheita no mês 4–5</li>
+    <li>Meta dos 90 dias: <strong>2 a 3 conversas em andamento</strong> (não fechamento). Colheita no mês 4 e 5</li>
   </ul>
-  <div class="runfoot">Mentoria estratégica — execução nos primeiros 90 dias</div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
 </div>
 
-<!-- PÁGINA 11 — CHECKPOINTS -->
+<!-- PÁGINA 12: CHECKPOINTS -->
 <div class="page">
-  <div class="runhead"><span>Roadmap Estratégico — Lucas Sobreiro</span><span>Página 11</span></div>
+  <div class="runhead"><span>Roadmap Estratégico · Lucas Sobreiro</span><span>Página 12</span></div>
   <div class="kicker">Checkpoints de Progresso</div>
-  <h1 style="font-size:20pt;">Como Saber Que Você Está no Caminho Certo</h1>
-  <p class="lead">Cada checkpoint marca o final de uma janela. Se algum item não estiver fechado, leve para a próxima call quinzenal — ajuste de rota imediato, sem esconder.</p>
+  <h1 style="font-size:19pt;">Como Saber Que Você Está no Caminho Certo</h1>
+  <p class="lead">Cada checkpoint marca o final de uma janela. Se algum item não estiver fechado, leve para a próxima call quinzenal. Ajuste de rota imediato, sem esconder.</p>
 
-  <h3 class="navy" style="margin-top:14pt;">CHECKPOINT 1 — DIA 10 (CAIXA RÁPIDO)</h3>
+  <h3 class="navy" style="margin-top:10pt;">CHECKPOINT 1 · DIA 10 (CAIXA RÁPIDO)</h3>
   <ul class="check">
     <li>Base 100% mapeada e abordada (clientes, ex-clientes, eventos, LinkedIn)</li>
-    <li>4+ sessões estratégicas agendadas da base</li>
-    <li>1 venda fechada ou 1 antecipação de recebíveis feita — caixa de mídia garantido</li>
+    <li>4 ou mais sessões estratégicas agendadas da base</li>
+    <li>1 venda fechada ou 1 antecipação de recebíveis feita: caixa de mídia garantido</li>
     <li>200 perfis qualificados mapeados para social selling</li>
   </ul>
 
-  <h3 class="navy" style="margin-top:14pt;">CHECKPOINT 2 — DIA 14 (ESTEIRA E POSICIONAMENTO)</h3>
+  <h3 class="navy" style="margin-top:10pt;">CHECKPOINT 2 · DIA 14 (ESTEIRA E POSICIONAMENTO)</h3>
   <ul class="check">
-    <li>Esteira definida: 3 produtos com nome, promessa, entregáveis e preço (21k / 12k / 3k)</li>
+    <li>Esteira definida: 3 produtos com nome, promessa, entregáveis e preço (20k / 12k / 3k)</li>
     <li>Bio do Instagram reescrita, 4 destaques criados, posts fixados</li>
     <li>PDF de apresentação da mentoria concluído</li>
     <li>Aulas de Social Selling, Outbound, Call de Vendas e High Ticket assistidas (Lucas + Fernanda)</li>
   </ul>
 
-  <h3 class="navy" style="margin-top:14pt;">CHECKPOINT 3 — DIA 30</h3>
+  <h3 class="navy" style="margin-top:10pt;">CHECKPOINT 3 · DIA 30</h3>
   <ul class="check">
-    <li>Fernanda operando como SDR com planilha viva (60–100 abordagens/dia)</li>
-    <li>15+ sessões estratégicas realizadas</li>
-    <li><strong>2 vendas fechadas (R$ 42.000)</strong></li>
+    <li>Fernanda operando como SDR com planilha viva (60 a 100 abordagens/dia)</li>
+    <li>15 ou mais sessões estratégicas realizadas</li>
+    <li><strong>2 vendas fechadas (R$ 40.000)</strong></li>
     <li>Rotina de conteúdo rodando (12 publicações/semana) + vídeos do funil gravados</li>
     <li>Copies do funil aprovadas; GHL contratado</li>
   </ul>
 
-  <h3 class="navy" style="margin-top:14pt;">CHECKPOINT 4 — DIA 60</h3>
+  <h3 class="navy" style="margin-top:10pt;">CHECKPOINT 4 · DIA 60</h3>
   <ul class="check">
-    <li><strong>Funil de Lead Dinâmico no ar</strong>: quiz + páginas + automações + tráfego rodando (R$ 1,5–3k/mês)</li>
-    <li>~100 leads/mês entrando no CRM com custo controlado</li>
-    <li>30+ sessões acumuladas · <strong>5 vendas acumuladas (R$ 105.000)</strong></li>
+    <li><strong>Funil de Lead Dinâmico no ar</strong>: quiz + páginas + automações + tráfego rodando (R$ 1,5 a 3k/mês)</li>
+    <li>Cerca de 100 leads/mês entrando no CRM com custo controlado</li>
+    <li>30 ou mais sessões acumuladas · <strong>5 vendas acumuladas (R$ 100.000)</strong></li>
     <li>Depoimentos em vídeo coletados e no funil</li>
   </ul>
 
-  <h3 class="navy" style="margin-top:14pt;">CHECKPOINT 5 — DIA 90 (FIM DO ROADMAP)</h3>
+  <h3 class="navy" style="margin-top:10pt;">CHECKPOINT 5 · DIA 90 (FIM DO ROADMAP)</h3>
   <ul class="check">
-    <li><strong>Ritmo de 4–5 vendas/mês — run rate de R$ 100.000/mês batido</strong></li>
-    <li>9–10 vendas acumuladas no trimestre (R$ 190.000+)</li>
+    <li><strong>Ritmo de 4 a 5 vendas/mês: run rate de R$ 100.000/mês batido</strong></li>
+    <li>9 a 10 vendas acumuladas no trimestre (R$ 180.000 ou mais)</li>
     <li>Funil rodando com CPL controlado e não-ICP comprando o produto de entrada</li>
-    <li>2–3 conversas da rede/eventos em andamento</li>
+    <li>2 a 3 conversas da rede/eventos em andamento</li>
     <li>Pronto para receber o <strong>Roadmap 2 (escala dos R$ 100k aos R$ 250k/mês)</strong></li>
   </ul>
-  <div class="runfoot">Mentoria estratégica — execução nos primeiros 90 dias</div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
 </div>
 
-<!-- PÁGINA 12 — MATERIAIS -->
+<!-- PÁGINA 13: MATERIAIS -->
 <div class="page">
-  <div class="runhead"><span>Roadmap Estratégico — Lucas Sobreiro</span><span>Página 12</span></div>
+  <div class="runhead"><span>Roadmap Estratégico · Lucas Sobreiro</span><span>Página 13</span></div>
   <div class="kicker">Materiais de Apoio</div>
-  <h1 style="font-size:20pt;">Recursos para Executar o Plano</h1>
+  <h1 style="font-size:19pt;">Recursos para Executar o Plano</h1>
   <p class="lead">Todas as aulas e templates abaixo estão disponíveis no portal (área de membros) e no grupo. Se algum link não foi compartilhado, peça no grupo.</p>
 
   <ul class="check">
-    <li><strong>Aula de Social Selling — Parte 1 e 2</strong>
+    <li><strong>Aula de Social Selling (Parte 1 e 2)</strong>
       <ul class="sub"><li>Fundamentos completos de abordagem ativa via Instagram e WhatsApp (Passos 07 e 09).</li></ul>
     </li>
     <li><strong>Aula de Outbound</strong>
       <ul class="sub"><li>Prospecção ativa para leads frios (Passos 07 e 09).</li></ul>
     </li>
     <li><strong>Aula de Call de Vendas (1×1)</strong>
-      <ul class="sub"><li>Estrutura completa da sessão estratégica de 30–45 min (Passo 10). Obrigatória antes da primeira call da nova rotina.</li></ul>
+      <ul class="sub"><li>Estrutura completa da sessão estratégica de 30 a 45 min (Passo 10). Obrigatória antes da primeira call da nova rotina.</li></ul>
     </li>
     <li><strong>Aula de Pré-Vendas + Planilha de CRM Básico</strong>
-      <ul class="sub"><li>Para organizar a planilha de controle de abordagens (Passos 08 e 09) — Lucas e Fernanda.</li></ul>
+      <ul class="sub"><li>Para organizar a planilha de controle de abordagens (Passos 08 e 09). Lucas e Fernanda.</li></ul>
     </li>
     <li><strong>Aula de Como Montar o High Ticket</strong>
       <ul class="sub"><li>Para estruturar a esteira de 3 produtos (Passos 04 e 05).</li></ul>
@@ -545,34 +559,34 @@
     <li><strong>Playbooks Comerciais e de Pré-Vendas + Scripts de Abordagem</strong>
       <ul class="sub"><li>Scripts validados de abordagem, follow-up e agendamento (Fases 1 e 3).</li></ul>
     </li>
-    <li><strong>Método Simple Growth — Funil de Quiz</strong>
+    <li><strong>Método Simple Growth: Funil de Quiz</strong>
       <ul class="sub"><li>Material completo da construção do quiz (Passo 14).</li></ul>
     </li>
-    <li><strong>Growth Model — Planilha de Métricas e Alavancas</strong>
+    <li><strong>Growth Model: Planilha de Métricas e Alavancas</strong>
       <ul class="sub"><li>Leitura de métricas e identificação de gargalos nas calls quinzenais.</li></ul>
     </li>
     <li><strong>Auditorias de Social Selling (Inova Selling)</strong>
       <ul class="sub"><li>Calibragem das abordagens da SDR (Passo 08).</li></ul>
     </li>
   </ul>
-  <div class="runfoot">Mentoria estratégica — execução nos primeiros 90 dias</div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
 </div>
 
-<!-- PÁGINA 13 — FECHAMENTO -->
+<!-- PÁGINA 14: FECHAMENTO -->
 <div class="page">
-  <div class="runhead"><span>Roadmap Estratégico — Lucas Sobreiro</span><span>Página 13</span></div>
+  <div class="runhead"><span>Roadmap Estratégico · Lucas Sobreiro</span><span>Página 14</span></div>
   <div style="padding-top:40mm;">
     <div class="kicker">Lembre-se Sempre Disto</div>
-    <h1 style="font-size:20pt;">Antes de Fechar Este Documento</h1>
+    <h1 style="font-size:19pt;">Antes de Fechar Este Documento</h1>
     <p style="margin-top:10pt;">Você passou 22 anos batendo meta comercial num dos maiores bancos do país. Você converte 3 em cada 10 calls que faz. Não foi falta de capacidade, não foi falta de produto, não foi falta de mercado.</p>
     <p><strong class="navy">Foi falta de volume com método.</strong></p>
     <p>Este roadmap é o método. A execução é sua. A cada 15 dias o mentor estratégico vai te encontrar na conversa quinzenal, mas o que coloca dinheiro no caixa é o que você faz <strong>entre as calls</strong>.</p>
     <p>Dúvidas no meio do caminho: mande no grupo. Não espere a próxima call para perguntar.</p>
-    <p style="margin-top:14pt;">Você tem a conversão. Você tem o ticket. Você tem o time. Você tem o método.</p>
+    <p style="margin-top:12pt;">Você tem a conversão. Você tem o ticket. Você tem o time. Você tem o método.</p>
     <p><strong class="navy">O próximo passo é começar.</strong></p>
-    <div class="footer-note">Roadmap Estratégico Digital — Lucas Sobreiro · 90 dias · Versão 1.0</div>
+    <div class="footer-note">Roadmap Estratégico Digital · Lucas Sobreiro · 90 dias · Versão 1.1</div>
   </div>
-  <div class="runfoot">Mentoria estratégica — execução nos primeiros 90 dias</div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
 </div>
 
 </body>

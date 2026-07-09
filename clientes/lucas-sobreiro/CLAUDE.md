@@ -24,8 +24,8 @@ onde o outro parou (o Git é a memória compartilhada).
 
 - **Quem é:** mentor de empresários (ex-bancário do BB, 22 anos, saiu em jan/26). Foco de
   energia atual: **área da saúde** (dentistas, médicos, fisioterapeutas, veterinários).
-- **Oferta principal:** mentoria high ticket de **R$ 21.000** — evolução empresarial
-  (Vendas + Produtividade + Autoliderança).
+- **Oferta principal:** mentoria high ticket de **R$ 20.000** — evolução empresarial
+  (Vendas + Produtividade + Autoliderança). Esteira: 20k / 12k / 3k (roadmap 09/07).
 - **Público / ICP:** empresário de serviços/saúde que já validou o negócio e sente que o
   crescimento travou. 35–55 anos, renda pessoal 25k+, empresa fatura 300k–10mi/ano.
   Detalhes em `contexto/icp.md`.

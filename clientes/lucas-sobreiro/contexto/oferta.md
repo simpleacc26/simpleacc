@@ -35,10 +35,13 @@ liberdade**. Isso é feito desenvolvendo **3 habilidades**:
 - Mais tempo para vida pessoal, social e família
 - Mais realização pessoal e aumento do índice de felicidade
 
-## Preço
+## Preço e esteira (definida no roadmap de 09/07/26)
 
-- **High ticket: R$ 21.000** (mentoria).
-- Ticket alto → **poucas vendas** (4–5/mês) já batem a meta de R$ 100 mil/mês.
+- **High ticket: R$ 20.000** (mentoria; o canvas original citava R$ 21.000, o ticket foi
+  fixado em R$ 20 mil no roadmap). 5 vendas/mês = R$ 100 mil.
+- **Intermediário: R$ 12.000** (menos acesso individual; downsell da call).
+- **Entrada: R$ 3.000** (aproveitamento do não-ICP do funil; ângulo sugerido:
+  "Secretária Máquina de Vendas"). Lucas monta os três com direcionamento da Simple.
 
 ## Provas / prova social
 
