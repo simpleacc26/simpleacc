@@ -7,11 +7,11 @@
 <style>
   :root {
     --gold: #Cfb36e;
-    --gold-soft: rgba(207,179,110,0.10);
+    --gold-soft: rgba(207,179,110,0.12);
     --bg: #090806;
-    --card: #121110;
-    --card-border: #2a2622;
-    --text: #EDE8E0;
+    --card: #14120f;
+    --card-border: #302a22;
+    --text: #ECE7DE;
     --muted: #A69E92;
   }
 
@@ -19,160 +19,151 @@
   html, body { margin: 0; padding: 0; }
 
   body {
-    background: #000;
+    background: var(--bg);
     color: var(--text);
     font-family: 'Helvetica Neue', Arial, 'Liberation Sans', sans-serif;
-    line-height: 1.75;
-    font-size: 17px;
+    line-height: 1.5;
+    font-size: 27px;               /* fonte grande — legível no celular */
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Documento corrido em <table>: thead/tfoot repetem em TODA página impressa,
-     criando uma faixa de margem PRETA no topo e no rodapé de cada página
-     (mesma cor do fundo, nunca branca). As laterais vêm do padding da célula
-     de conteúdo. Conteúdo nunca encosta na borda. */
-  .sheet { width: 100%; max-width: 800px; margin: 0 auto; border-collapse: collapse; background: var(--bg); }
-  .sheet .mtop, .sheet .mbot { height: 15mm; background: var(--bg); padding: 0; border: 0; }
-  .sheet .body { padding: 0 16mm; vertical-align: top; background: var(--bg); }
+  /* Documento em <table>: thead/tfoot repetem em toda página impressa e
+     criam a margem PRETA de topo/rodapé (mesma cor do fundo, nunca branca). */
+  .sheet { width: 100%; max-width: 780px; margin: 0 auto; border-collapse: collapse; background: var(--bg); }
+  .sheet .mtop, .sheet .mbot { height: 11mm; background: var(--bg); padding: 0; border: 0; }
+  .sheet .body { padding: 0 13mm; vertical-align: top; background: var(--bg); }
 
-  h1, h2, h3 { margin: 0; font-weight: 800; line-height: 1.25; }
-  h1 { font-size: 27px; text-transform: uppercase; text-align: center; }
-  h2 { font-size: 24px; text-transform: uppercase; margin-bottom: 18px; }
-  h3 { font-size: 18px; color: var(--gold); margin-bottom: 9px; }
+  h1, h2, h3 { margin: 0; font-weight: 800; line-height: 1.18; }
+  h1 { font-size: 42px; text-transform: uppercase; text-align: center; }
+  h2 { font-size: 36px; text-transform: uppercase; }
+  h3 { font-size: 29px; color: var(--gold); }
   .gold { color: var(--gold); }
 
-  p { margin: 0 0 18px; color: var(--text); }
+  p { margin: 0 0 15px; color: var(--text); }
   p:last-child { margin-bottom: 0; }
   .muted { color: var(--muted); }
-  .lead { font-size: 18px; font-weight: 500; }
+  .lead { font-size: 31px; font-weight: 600; line-height: 1.42; }
   .center { text-align: center; }
-  strong { color: #fff; font-weight: 700; }
+  strong { color: #fff; font-weight: 800; }
 
-  /* Ritmo entre seções (documento corrido) */
-  section { margin-bottom: 8mm; }
-  section:last-child { margin-bottom: 0; }
-  .block-break { break-inside: avoid; page-break-inside: avoid; }
+  /* Cada ASSUNTO começa numa página nova (nunca dois assuntos na mesma folha) */
+  .topic { break-before: page; page-break-before: always; }
 
   /* ---------- Capa ---------- */
   .cover {
-    text-align: center;
-    min-height: 249mm;              /* preenche a 1ª folha (297 - 2*24 margem) */
+    text-align: center; min-height: 264mm;
     display: flex; flex-direction: column; justify-content: center;
-    break-after: page; page-break-after: always;
-    margin-bottom: 0;
   }
-  .unlock { font-size: 34px; margin-bottom: 10px; }
+  .unlock { font-size: 52px; margin-bottom: 12px; }
   .kicker {
     display: block; color: var(--gold); font-weight: 700;
-    letter-spacing: 2.5px; font-size: 13px; text-transform: uppercase; margin-bottom: 18px;
+    letter-spacing: 3px; font-size: 22px; text-transform: uppercase; margin-bottom: 28px;
   }
-  .cover h1 { font-size: 24px; margin: 0 auto 28px; max-width: 20em; }
-  .cover p { text-align: center; font-size: 17px; max-width: 33em; margin-left: auto; margin-right: auto; margin-bottom: 20px; }
-  .cover .lead { color: #fff; }
-  .reading-time {
-    color: var(--muted); font-size: 13px; letter-spacing: 1px;
-    margin-top: 26px; text-transform: uppercase;
-  }
+  .cover h1 { font-size: 41px; margin: 0 auto 30px; max-width: 16em; line-height: 1.2; }
+  .cover p { text-align: center; font-size: 28px; max-width: 22em; margin: 0 auto 24px; }
+  .cover .lead { color: #fff; font-size: 31px; }
+  .reading-time { color: var(--muted); font-size: 22px; letter-spacing: 1.5px; margin-top: 32px; text-transform: uppercase; }
+
+  /* ---------- Seção (título + intro) ---------- */
+  .eyebrow { display:block; color: var(--gold); font-weight: 700; letter-spacing: 2.5px; font-size: 21px; text-transform: uppercase; margin-bottom: 10px; text-align:center; }
+  h2.title { text-align: center; margin-bottom: 18px; }
+  .intro { font-size: 28px; line-height: 1.42; margin-bottom: 16px; }
 
   /* ---------- Carta ---------- */
-  .signature { text-align: right; color: var(--gold); font-weight: 700; margin-top: 24px; }
-  .signature span { display: block; color: var(--muted); font-weight: 400; font-size: 15px; margin-top: 3px; }
+  .signature { text-align: right; color: var(--gold); font-weight: 700; font-size: 29px; margin-top: 26px; break-inside: avoid; page-break-inside: avoid; }
+  .signature span { display: block; color: var(--muted); font-weight: 400; font-size: 22px; margin-top: 5px; }
 
-  /* ---------- Cards ---------- */
-  .card {
-    background: var(--card);
-    border: 1px solid var(--card-border);
-    border-left: 3px solid var(--gold);
-    border-radius: 14px;
-    padding: 18px 24px;
-    margin-bottom: 14px;
+  /* ---------- Passos numerados (dinâmico, compacto, fácil de escanear) ---------- */
+  .steps { border-top: 1px solid var(--card-border); margin: 0; }
+  .step {
+    display: flex; gap: 18px; align-items: flex-start;
+    padding: 13px 2px; border-bottom: 1px solid var(--card-border);
     break-inside: avoid; page-break-inside: avoid;
   }
-  .card:last-of-type { margin-bottom: 0; }
-  .card p { color: #D9D3C9; margin: 0; }
+  .step .num {
+    flex: 0 0 auto; width: 48px; height: 48px; border-radius: 50%;
+    background: var(--gold-soft); border: 1.5px solid var(--gold); color: var(--gold);
+    font-weight: 800; font-size: 25px; line-height: 1;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .step .txt { flex: 1; }
+  .step .txt h3 { font-size: 28px; margin-bottom: 6px; }
+  .step .txt p { color: #D9D3C9; margin: 0; font-size: 26px; line-height: 1.4; }
 
-  .intro { margin-bottom: 20px; }
-  .closing { margin-top: 20px; text-align: center; font-weight: 600; color: #fff; }
+  .closing {
+    margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--card-border);
+    text-align: center; font-weight: 700; color: #fff; font-size: 29px; line-height: 1.34;
+    break-inside: avoid; page-break-inside: avoid;
+  }
 
   /* ---------- Listas ---------- */
   ul.check { list-style: none; padding: 0; margin: 0; }
-  ul.check li { padding-left: 32px; position: relative; margin-bottom: 11px; }
+  ul.check li { padding-left: 42px; position: relative; margin-bottom: 15px; font-size: 28px; line-height: 1.38; }
   ul.check li:last-child { margin-bottom: 0; }
-  ul.check.yes li:before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--gold); font-weight: 800; }
-  ul.check.no li:before { content: "✕"; position: absolute; left: 0; top: 0; color: #6d6d6d; font-weight: 800; }
+  ul.check.yes li:before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--gold); font-weight: 800; font-size: 29px; }
+  ul.check.no li:before { content: "✕"; position: absolute; left: 0; top: 0; color: #7a7166; font-weight: 800; font-size: 29px; }
 
-  /* ---------- Sobre (foto proporcional ao texto) ---------- */
-  .about { display: flex; gap: 26px; align-items: flex-start; break-inside: avoid; page-break-inside: avoid; }
+  /* ---------- Sobre (foto) ---------- */
+  .about { display: flex; gap: 32px; align-items: flex-start; break-inside: avoid; page-break-inside: avoid; }
   .about .photo {
-    flex: 0 0 46mm; width: 46mm; border-radius: 14px; overflow: hidden;
-    border: 1px solid var(--card-border); box-shadow: 0 14px 34px rgba(0,0,0,0.5);
+    flex: 0 0 62mm; width: 62mm; border-radius: 18px; overflow: hidden;
+    border: 1px solid var(--card-border); box-shadow: 0 16px 40px rgba(0,0,0,0.5);
   }
   .about .photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
   .about .bio { flex: 1; }
-  .about .bio h3 { margin-bottom: 12px; }
-  .about .bio p { font-size: 16px; margin-bottom: 13px; }
+  .about .bio p { font-size: 27px; margin-bottom: 18px; }
   .about .bio p:last-child { margin-bottom: 0; }
 
   /* ---------- Depoimentos (prints) ---------- */
-  /* Fluxo normal (block centralizado) — pagina corretamente entre páginas,
-     diferente de flexbox, que agrupa os itens e deixa vão. */
   .prints { text-align: center; }
   .print {
     display: block; width: -moz-fit-content; width: fit-content;
     margin: 0 auto 16px;
-    /* Moldura ESCURA (não branca) em volta do print — assim, mesmo que um
-       print encoste na borda da página, nunca aparece branco na margem. */
     background: var(--card); border: 1px solid var(--card-border);
-    border-radius: 14px; padding: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.45); line-height: 0;
+    border-radius: 18px; padding: 10px;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.45); line-height: 0;
     break-inside: avoid; page-break-inside: avoid;
   }
   .print:last-child { margin-bottom: 0; }
-  .print img { display: block; border-radius: 8px; width: auto; }
-  .print.p1 img { max-height: 26mm; max-width: 150mm; }
-  .print.p2 img { max-height: 50mm; max-width: 150mm; }
-  .print.p3 img { max-height: 78mm; max-width: 150mm; }
+  .print img { display: block; border-radius: 10px; width: auto; }
+  .print.p1 img { max-height: 32mm; max-width: 168mm; }
+  .print.p2 img { max-height: 54mm; max-width: 168mm; }
+  .print.p3 img { max-height: 86mm; max-width: 168mm; }
 
   /* ---------- Opções ---------- */
-  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 14px 0; break-inside: avoid; page-break-inside: avoid; }
-  .option { border-radius: 16px; padding: 18px; border: 1px solid var(--card-border); }
+  .options { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin: 28px 0; break-inside: avoid; page-break-inside: avoid; }
+  .option { border-radius: 20px; padding: 26px; border: 1px solid var(--card-border); }
   .option.bad { background: rgba(255,255,255,0.02); }
   .option.good { background: var(--gold-soft); border-color: var(--gold); position: relative; }
   .option .tag {
-    position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
-    background: var(--gold); color: #090806; font-weight: 800; font-size: 11px;
-    padding: 5px 15px; border-radius: 999px; text-transform: uppercase; letter-spacing: 1px;
+    position: absolute; top: -16px; left: 50%; transform: translateX(-50%);
+    background: var(--gold); color: #090806; font-weight: 800; font-size: 18px;
+    padding: 6px 18px; border-radius: 999px; text-transform: uppercase; letter-spacing: 1px;
   }
-  .option ul { list-style: none; padding: 0; margin: 12px 0 0; }
-  .option ul li { padding-left: 18px; position: relative; margin-bottom: 8px; font-size: 15px; color: #D9D3C9; }
+  .option h3 { font-size: 27px; }
+  .option ul { list-style: none; padding: 0; margin: 14px 0 0; }
+  .option ul li { padding-left: 24px; position: relative; margin-bottom: 12px; font-size: 25px; color: #D9D3C9; line-height: 1.38; }
   .option ul li:last-child { margin-bottom: 0; }
-  .option.bad ul li:before { content: "•"; position: absolute; left: 0; color: #6d6d6d; }
+  .option.bad ul li:before { content: "•"; position: absolute; left: 0; color: #7a7166; }
   .option.good ul li:before { content: "•"; position: absolute; left: 0; color: var(--gold); }
 
   .cta {
-    text-align: center; max-width: 130mm; margin: 16px auto 0; padding: 18px 26px;
-    border: 1px solid var(--gold); border-radius: 16px; background: var(--gold-soft);
+    text-align: center; max-width: 176mm; margin: 30px auto 0; padding: 30px 32px;
+    border: 2px solid var(--gold); border-radius: 20px; background: var(--gold-soft);
     break-inside: avoid; page-break-inside: avoid;
   }
-  .cta .l { display: block; font-size: 18px; color: #fff; margin-bottom: 8px; font-weight: 500; }
-  .cta .q { color: var(--gold); font-weight: 800; font-size: 19px; }
+  .cta .l { display: block; font-size: 28px; color: #fff; margin-bottom: 10px; font-weight: 600; }
+  .cta .q { color: var(--gold); font-weight: 800; font-size: 31px; }
 
-  .foot { text-align: center; color: var(--muted); font-size: 13px; margin-top: 16px; letter-spacing: 0.5px; }
-
-  .page-bg { display: none; }
+  .foot { text-align: center; color: var(--muted); font-size: 21px; margin-top: 36px; letter-spacing: 0.5px; }
 
   @media print {
-    /* Margem do @page = 0 pra a borda NÃO sair branca (o Chrome pinta a margem
-       do @page com papel branco, e nada cobre essa área). O preto preenche a
-       folha inteira; a margem preta de topo/rodapé de CADA página vem do
-       thead/tfoot da tabela, que se repetem em toda página impressa. */
     html, body { background: var(--bg); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     @page { size: A4; margin: 0; }
     .sheet { max-width: none; margin: 0; }
-    thead, tfoot { display: table-header-group; }
+    thead { display: table-header-group; }
     tfoot { display: table-footer-group; }
     h2 { break-after: avoid; page-break-after: avoid; }
-    p, li { orphans: 3; widows: 3; }
   }
 </style>
 </head>
@@ -188,21 +179,19 @@
       <div class="unlock">🔓</div>
       <span class="kicker">Diagnóstico estratégico liberado</span>
       <h1>Descubra o que está impedindo você de ter no digital o reconhecimento, os resultados e os <span class="gold">clientes de alto valor</span> que a sua competência no offline merece</h1>
-      <p>Ao longo deste documento, você vai entender por que soluções genéricas no estilo "copia e cola" e truques de algoritmo não servem para quem quer construir um negócio com previsibilidade.</p>
-      <p>Se o seu trabalho já é sólido e tem uma entrega de extrema qualidade, o seu próximo passo na internet não é achar o hack milagroso pra viralizar, mas sim estruturar um ecossistema 360º baseado em realmente construir um negócio no longo prazo, que gera previsibilidade e constrói reputação e autoridade.</p>
-      <p>Nas próximas páginas, vou revelar os gargalos invisíveis que estão desalinhando os seus resultados com o seu real potencial de negócio no digital.</p>
-      <p class="lead">Você vai sair desse diagnóstico com clareza de onde seguir, entendendo onde está gastando energia à toa e como ter uma visão estratégica para construir resultados de verdade e parar de rodar em círculos com a estrutura da sua empresa digital.</p>
+      <p>Você vai entender por que <strong>soluções genéricas de "copia e cola" e truques de algoritmo</strong> não servem para quem quer construir um negócio com previsibilidade.</p>
+      <p class="lead">Você vai sair deste diagnóstico com <span class="gold">clareza de onde seguir</span> e de como parar de rodar em círculos.</p>
       <div class="reading-time">Tempo de leitura: 5 minutos</div>
     </div>
   </section>
 
   <!-- Carta de abertura -->
-  <section>
+  <section class="topic">
     <p class="lead">Olá.</p>
-    <p>Sou a Vitória Daniela e preparei este diagnóstico para evidenciar o que a maioria dos profissionais de alto nível não percebe: você já construiu uma reputação sólida de anos no offline, entrega um trabalho de excelência e é referência para quem conhece os seus bastidores. No digital, porém, o mercado ainda não te enxerga com o valor que você possui, o que afeta diretamente os seus resultados.</p>
-    <p>Ver profissionais com menos entrega conquistando mais espaço gera uma quebra de expectativa legítima e traz à tona um questionamento estratégico: <strong>"Como ter a assertividade, o retorno e a liberdade para focar minha energia apenas no que realmente expande o meu negócio?"</strong></p>
-    <p>A grande verdade é que o seu problema nunca foi falta de execução ou de esforço. O gargalo é o desperdício de foco em táticas isoladas que não geram tração no longo prazo. Como empresária, você sabe que a maturidade da sua operação depende da alocação inteligente de recursos para colher o máximo de retorno.</p>
-    <p>Quando o seu digital opera sem uma estratégia desenhada para o seu momento atual, a sua estrutura fica vulnerável ao <strong>marketing de esperança</strong>, deixando descobertas as áreas que realmente trazem previsibilidade. É sobre eficiência operacional, e não sobre o próximo hack do algoritmo.</p>
+    <p>Sou a Vitória Daniela e preparei este diagnóstico para evidenciar o que a maioria dos profissionais de alto nível não percebe: <strong>você já construiu uma reputação sólida de anos no offline</strong> e é referência para quem conhece os seus bastidores. No digital, porém, o mercado ainda não te enxerga com o valor que você possui.</p>
+    <p>Ver profissionais com menos entrega conquistando mais espaço traz à tona um questionamento: <strong>"Como ter a assertividade, o retorno e a liberdade para focar minha energia apenas no que realmente expande o meu negócio?"</strong></p>
+    <p>A grande verdade é que <strong>o seu problema nunca foi falta de execução ou de esforço.</strong> O gargalo é o desperdício de foco em táticas isoladas que não geram tração no longo prazo.</p>
+    <p>Quando o seu digital opera sem estratégia, a sua estrutura fica vulnerável ao <strong>marketing de esperança</strong>. É sobre eficiência operacional, e não sobre o próximo hack do algoritmo.</p>
     <div class="signature">
       Vitória Daniela | Grupo Magna
       <span>Estrategista de Vendas para Profissionais de Alto Ticket</span>
@@ -210,143 +199,181 @@
   </section>
 
   <!-- Dobra 1 -->
-  <section>
-    <h2 class="center">Os gargalos ocultos da <span class="gold">energia desperdiçada</span></h2>
-    <p class="intro">Se o seu negócio no offline é sólido, o seu digital deveria operar com a mesma eficiência. Se isso não está acontecendo, o problema nunca foi a sua capacidade de execução, mas sim onde o foco está alocado. Quando um negócio opera sem clareza do processo, a energia da dona é drenada por três gargalos ocultos:</p>
-    <div class="card">
-      <h3>Obesidade mental e falta de direcionamento</h3>
-      <p>O excesso de métodos e promessas na internet gera uma confusão estratégica. Todo mundo fala o tempo todo sobre o que fazer, mas você continua sem saber o que de fato funciona para o seu caso específico, para o seu produto e para o seu momento atual.</p>
+  <section class="topic">
+    <span class="eyebrow">O que está travando você</span>
+    <h2 class="title">Os gargalos ocultos da <span class="gold">energia desperdiçada</span></h2>
+    <p class="intro">Se o seu offline é sólido, o seu digital deveria operar com a mesma eficiência. Quando isso não acontece, a energia da dona é drenada por <strong>três gargalos ocultos:</strong></p>
+    <div class="steps">
+      <div class="step">
+        <div class="num">01</div>
+        <div class="txt">
+          <h3>Obesidade mental e falta de direcionamento</h3>
+          <p>O excesso de métodos e promessas gera confusão. Todo mundo fala o tempo todo sobre o que fazer, mas <strong>você continua sem saber o que de fato funciona para o seu caso</strong> e para o seu momento.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <div class="txt">
+          <h3>Gargalo de organização operacional</h3>
+          <p>Você não tem processos claros para planejar uma estratégia, e não só brincar de criar conteúdo. <strong>Sem essa estrutura, fica impossível se organizar</strong> para executar ou delegar.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <div class="txt">
+          <h3>Frustração com estratégias desintegradas</h3>
+          <p>Você cria conteúdo, mas não tem funil de captação. Tem gente chegando, mas não consegue aumentar o ticket. <strong>Uma coisa nunca conversa com a outra.</strong></p>
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <h3>Gargalo de organização operacional</h3>
-      <p>Você não tem processos claros para planejar uma estratégia de negócio, e não apenas brincar de criar conteúdo. Sem essa estrutura, fica impossível se organizar para executar o que é preciso ou até mesmo delegar funções para desafogar o seu dia a dia.</p>
-    </div>
-    <div class="card">
-      <h3>Frustração com estratégias desintegradas</h3>
-      <p>Você já tentou sozinha ou com agências e não deu certo porque as estratégias não são integradas. Você cria conteúdo, mas não tem um funil de captação. Tem gente chegando, mas você não consegue aumentar o ticket do seu produto. Uma coisa nunca conversa com a outra.</p>
-    </div>
-    <p class="closing">Cada dia rodando em círculos, colocando energia onde não te traz resultados, é como passar batom em quem está sangrando.</p>
+    <p class="closing">Rodar em círculos, colocando energia onde não traz resultado, é como <span class="gold">passar batom em quem está sangrando.</span></p>
   </section>
 
   <!-- Dobra 2 -->
-  <section>
-    <h2 class="center">A lógica da <span class="gold">metodologia Magna</span></h2>
-    <p class="intro">Uma grande empresa jamais chegaria ao topo fazendo apenas uma área funcionar. Ela exige que todos os setores rodem em sincronia. No digital é igual: o mercado vende a ilusão de que basta uma ação isolada, como rodar tráfego ou postar todo dia, para estourar de vender. <strong>Isso é mentira.</strong> Sua presença online precisa ser um ecossistema com três áreas trabalhando juntas:</p>
-    <div class="card">
-      <h3>Marketing e presença digital</h3>
-      <p>Não é sobre ter o perfil mais badalado ou fazer dancinhas. É extrair a bagagem real que você já possui fora das telas e traduzi-la em um posicionamento à prova de cópia, para que o público de alto poder aquisitivo enxergue a sua autoridade imediatamente e sinta desejo de compra.</p>
+  <section class="topic">
+    <span class="eyebrow">Como isso se resolve</span>
+    <h2 class="title">A lógica da <span class="gold">metodologia Magna</span></h2>
+    <p class="intro">O mercado vende a ilusão de que basta <strong>uma ação isolada</strong> — rodar tráfego ou postar todo dia — para estourar de vender. <strong>Isso é mentira.</strong> A sua presença precisa ser um ecossistema com três áreas juntas:</p>
+    <div class="steps">
+      <div class="step">
+        <div class="num">01</div>
+        <div class="txt">
+          <h3>Marketing e presença digital</h3>
+          <p>Não é fazer dancinha. É traduzir a bagagem que você já tem num <strong>posicionamento à prova de cópia</strong>, para o público certo enxergar a sua autoridade na hora.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <div class="txt">
+          <h3>Captação de clientes</h3>
+          <p>O processo que <strong>te tira da dependência de indicações</strong> e coloca nas suas mãos quantas oportunidades de alto ticket chegam por semana.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <div class="txt">
+          <h3>Organização e vendas</h3>
+          <p>A engrenagem que garante <strong>converter mais, aumentar o ticket e vender com qualidade</strong> — processo comercial, atendimento e entrega funcionando.</p>
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <h3>Captação de clientes</h3>
-      <p>Posicionamento é a base, mas você precisa de pessoas qualificadas vendo o que você tem a dizer, de forma recorrente. É o processo que te tira da dependência de indicações e coloca nas suas mãos o controle de quantas oportunidades de alto ticket chegam toda semana.</p>
-    </div>
-    <div class="card">
-      <h3>Organização e vendas</h3>
-      <p>De nada adianta atrair o mercado se a sua estrutura interna não sabe o que fazer com os leads. Aqui entra o processo comercial, o fluxo de atendimento e a entrega: a engrenagem que garante converter mais, aumentar o ticket e vender com qualidade, podendo até delegar funções.</p>
-    </div>
-    <p class="closing">Quando essas três áreas rodam em sincronia, o seu digital deixa de ser fonte de exaustão e vira uma empresa de verdade.</p>
+    <p class="closing">Com as três áreas em sincronia, o seu digital deixa de ser exaustão e <span class="gold">vira uma empresa de verdade.</span></p>
   </section>
 
   <!-- Dobra 3 -->
-  <section>
-    <h2 class="center">A prioridade do <span class="gold">seu momento</span></h2>
-    <p class="intro">Identificar o cenário exato da sua operação é o único caminho para construir um negócio e parar de queimar energia com ações inúteis. Se você quer migrar do amadorismo para a previsibilidade, o seu negócio precisa avançar por três etapas:</p>
-    <div class="card">
-      <h3>Mapeamento de maturidade</h3>
-      <p>Identificar a realidade exata da sua estrutura hoje para descobrir qual das áreas (marketing, captação ou vendas, ou todas) possui o vazamento mais urgente.</p>
+  <section class="topic">
+    <span class="eyebrow">Por onde começar</span>
+    <h2 class="title">A prioridade do <span class="gold">seu momento</span></h2>
+    <p class="intro">Para migrar do amadorismo para a previsibilidade, o seu negócio precisa avançar por <strong>três etapas:</strong></p>
+    <div class="steps">
+      <div class="step">
+        <div class="num">01</div>
+        <div class="txt">
+          <h3>Mapeamento de maturidade</h3>
+          <p>Identificar a realidade da sua estrutura hoje para descobrir <strong>qual área tem o vazamento mais urgente</strong> — marketing, captação ou vendas.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">02</div>
+        <div class="txt">
+          <h3>Ajuste de rota</h3>
+          <p>Se você bate cabeça e não tem o resultado prometido, <strong>é provável que esteja fazendo algo que não serve pro seu momento</strong>, só porque alguém disse.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="num">03</div>
+        <div class="txt">
+          <h3>Estruturar o 360º para subir de degrau</h3>
+          <p>Estruturar o que <strong>já existe</strong> no seu negócio, porém de um jeito que funcione de verdade pra te trazer resultado.</p>
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <h3>Ajuste de rota</h3>
-      <p>Se você sente que está batendo cabeça e não tem o resultado prometido, é muito provável que esteja fazendo algo que não serve pro seu momento atual, ou fazendo sem saber, só porque alguém disse.</p>
-    </div>
-    <div class="card">
-      <h3>Estruturar o 360º para você subir de degrau</h3>
-      <p>Você precisa estruturar as áreas que já existem no seu negócio, porém de forma que funcione de verdade pra te trazer resultados.</p>
-    </div>
-    <p class="closing">A clareza do seu momento determina o caminho a seguir com assertividade. O próximo passo não exige criar mais tarefas, e sim saber exatamente o que fazer para resolver os desafios e alcançar os seus objetivos.</p>
+    <p class="closing">O próximo passo não exige criar mais tarefas, e sim <span class="gold">saber exatamente o que fazer.</span></p>
   </section>
 
   <!-- Recapitulando -->
-  <section>
-    <h2 class="center">Recapitulando o que você <span class="gold">descobriu neste diagnóstico</span></h2>
-    <ul class="check yes" style="margin-bottom:22px;">
-      <li>O seu negócio precisa de uma estratégia integrada, não de ações isoladas.</li>
-      <li>Você provavelmente está gastando energia com algo que não está levando aos resultados.</li>
-      <li>Soluções genéricas e tentativa e erro impedem você de mapear com precisão onde o seu lucro e o seu tempo estão vazando.</li>
-      <li>A clareza para estruturar as áreas que já existem no seu negócio exige um direcionamento desenhado sob medida para o seu momento.</li>
+  <section class="topic">
+    <span class="eyebrow">Recapitulando</span>
+    <h2 class="title">O que você <span class="gold">descobriu aqui</span></h2>
+    <ul class="check yes">
+      <li>O seu negócio precisa de uma <strong>estratégia integrada</strong>, não de ações isoladas.</li>
+      <li>Você provavelmente <strong>está gastando energia com algo que não leva a resultado.</strong></li>
+      <li>Soluções genéricas e tentativa e erro impedem você de <strong>ver onde o seu lucro e o seu tempo estão vazando.</strong></li>
+      <li>A clareza para estruturar o que já existe exige um <strong>direcionamento sob medida para o seu momento.</strong></li>
     </ul>
-    <p class="closing" style="font-size:19px;">A pergunta estratégica é: quanto tempo mais você vai continuar dispersando a sua energia e rodando em círculos, enquanto a sua competência merece um negócio previsível, lucrativo e organizado?</p>
+    <p class="closing">Quanto tempo mais você vai <span class="gold">rodar em círculos</span>, enquanto a sua competência merece um negócio previsível, lucrativo e organizado?</p>
   </section>
 
   <!-- Próximo passo -->
-  <section>
-    <h2 class="center">O próximo passo · <span class="gold">Sessão estratégica</span></h2>
-    <p>Para você ter clareza de onde seguir e parar de gastar energia à toa, o próximo passo é receber atenção personalizada para clarear 100% os próximos passos do seu negócio.</p>
-    <p>Este documento apontou as falhas gerais, mas o plano estratégico para o seu tipo de produto e ticket precisa ser individual. É o fim do "marketing de esperança" e o início de uma estrutura com processos previsíveis.</p>
-    <p class="lead" style="margin-bottom:14px;">Nesta reunião, nós vamos:</p>
+  <section class="topic">
+    <span class="eyebrow">O próximo passo</span>
+    <h2 class="title">A sua <span class="gold">sessão estratégica</span></h2>
+    <p>Este documento apontou as falhas gerais, mas <strong>o plano para o seu tipo de produto e ticket precisa ser individual.</strong> É o fim do "marketing de esperança".</p>
+    <p class="lead" style="margin-bottom:18px;">Nesta reunião, nós vamos:</p>
     <ul class="check yes">
-      <li><strong>Analisar o momento do seu negócio:</strong> investigar os bastidores da sua operação para entender os gargalos.</li>
-      <li><strong>Definir o melhor caminho:</strong> identificar o que precisa ser feito para alcançar os seus objetivos.</li>
-      <li><strong>Desenhar o plano de ação:</strong> estruturar os próximos passos práticos para estancar o vazamento e trazer previsibilidade.</li>
+      <li><strong>Analisar o momento do seu negócio</strong> e investigar os bastidores da sua operação.</li>
+      <li><strong>Definir o melhor caminho</strong> para alcançar os seus objetivos.</li>
+      <li><strong>Desenhar o plano de ação</strong> para estancar o vazamento e trazer previsibilidade.</li>
     </ul>
-    <p class="closing">Como prezamos por um suporte personalizado e exclusivo, as vagas para essa análise são limitadas.</p>
+    <p class="closing">As vagas para essa análise são <span class="gold">limitadas.</span></p>
   </section>
 
   <!-- Sobre Vitória -->
-  <section>
-    <h2 class="center">Quem vai conduzir <span class="gold">a análise do seu negócio</span></h2>
+  <section class="topic">
+    <span class="eyebrow">Quem vai te conduzir</span>
+    <h2 class="title">Sobre a <span class="gold">Vitória Daniela</span></h2>
     <div class="about">
       <div class="photo"><img src="{{PHOTO}}" alt="Vitória Daniela" /></div>
       <div class="bio">
-        <h3>Sobre Vitória Daniela</h3>
-        <p>Há mais de 8 anos atuo nos bastidores de marketing e vendas na internet, com mais de 300 projetos liderados no Brasil e nos EUA. Como copywriter e estrategista, liderei empresas, estratégias e lançamentos de alto ticket, gerando faturamentos de 5, 6 e 7 dígitos.</p>
-        <p>Percebi que o mercado está saturado de agências que empurram soluções genéricas de "copia e cola". Por isso, na Magna, trabalhamos com poucos clientes para focar nas nuances que o seu mercado exige.</p>
-        <p>Meu papel é te tirar do caos de informação, entender seu momento e te direcionar com respeito para a melhor solução. Conectamos as frentes que já existem no seu negócio para que funcionem de verdade, trazendo a previsibilidade, o lucro e o retorno que a sua competência merece.</p>
+        <p>Há <strong>mais de 8 anos</strong> nos bastidores de marketing e vendas na internet, com <strong>mais de 300 projetos</strong> liderados no Brasil e nos EUA, gerando faturamentos de 5, 6 e 7 dígitos.</p>
+        <p>Na Magna, trabalhamos com <strong>poucos clientes</strong> para focar nas nuances que o seu mercado exige.</p>
+        <p>Meu papel é te tirar do caos, entender seu momento e <strong>conectar as frentes que já existem</strong> no seu negócio para que funcionem de verdade.</p>
       </div>
     </div>
   </section>
 
   <!-- Resultados -->
-  <section>
-    <h2 class="center"><span class="gold">Resultados</span> de quem passou pela nossa análise</h2>
+  <section class="topic">
+    <span class="eyebrow">Prova real</span>
+    <h2 class="title"><span class="gold">Resultados</span> de quem passou pela análise</h2>
     <div class="prints">
       <div class="print p1"><img src="{{T1}}" alt="Depoimento de cliente" /></div>
       <div class="print p2"><img src="{{T2}}" alt="Depoimento de cliente" /></div>
       <div class="print p3"><img src="{{T3}}" alt="Depoimento de cliente" /></div>
     </div>
-    <p class="closing">Na sua conversa estratégica, você pode começar a trilhar o mesmo caminho.</p>
+    <p class="closing">Na sua conversa estratégica, você pode começar a <span class="gold">trilhar o mesmo caminho.</span></p>
   </section>
 
   <!-- Pra quem é / não é -->
-  <section>
-    <h2 class="center">Essa conversa <span class="gold">não é</span> para você se:</h2>
-    <ul class="check no" style="margin-bottom:26px;">
+  <section class="topic">
+    <h2 class="title">Essa conversa <span class="gold">é para você</span> se você:</h2>
+    <ul class="check yes">
+      <li>Já vende <strong>serviço/produto de alto ticket.</strong></li>
+      <li>Já tem <strong>alguma estrutura rodando</strong> (sozinho ou com equipe) ou está pronto para montar agora.</li>
+      <li>Vende de forma <strong>instável e/ou depende de indicações.</strong></li>
+      <li>Já investiu em agências, freelancers e cursos, mas <strong>não teve resultado.</strong></li>
+      <li>Quer <strong>clareza do melhor caminho digital</strong> pro seu negócio.</li>
+      <li>Está cansado de tentar e não dar certo, de <strong>perder tempo e queimar dinheiro.</strong></li>
+    </ul>
+    <h2 class="title" style="margin-top:40px;">E <span class="gold">não é</span> para você se:</h2>
+    <ul class="check no">
       <li>Você quer uma solução milagrosa.</li>
       <li>Não quer colocar a mão na massa e quer tudo caindo do céu.</li>
-      <li>Você não está disposto a investir em uma solução.</li>
-    </ul>
-    <h2 class="center">Essa conversa estratégica <span class="gold">é para você</span> se você:</h2>
-    <ul class="check yes">
-      <li>É empresário ou profissional liberal que já vende serviço/produto de alto ticket.</li>
-      <li>Já tem alguma estrutura rodando (sozinho ou com equipe) ou está pronto para montar isso agora.</li>
-      <li>Vende de forma instável e/ou depende de indicações.</li>
-      <li>Já investiu em agências, freelancers, cursos, mas não teve resultado.</li>
-      <li>Quer clareza do melhor caminho digital pro seu negócio.</li>
-      <li>Está cansado de tentar e não dar certo, de perder tempo e queimar dinheiro.</li>
+      <li>Não está disposto a investir em uma solução.</li>
     </ul>
   </section>
 
   <!-- O que fazer agora -->
-  <section>
-    <h2 class="center">O que fazer agora?</h2>
-    <p class="center">Você tem duas opções:</p>
+  <section class="topic">
+    <h2 class="title">O que fazer <span class="gold">agora?</span></h2>
+    <p class="center" style="font-size:29px;">Você tem duas opções:</p>
     <div class="options">
       <div class="option bad">
         <h3 style="color:var(--muted);">Opção 1 · Continuar como está</h3>
         <ul>
           <li>Vendendo de forma instável e imprevisível</li>
           <li>Dependendo de indicação</li>
-          <li>Gastando dinheiro em marketing que não converte</li>
+          <li>Gastando em marketing que não converte</li>
           <li>Sendo refém do próprio negócio</li>
         </ul>
       </div>
@@ -354,13 +381,12 @@
         <span class="tag">Recomendado</span>
         <h3>Opção 2 · Agendar sua Conversa Estratégica</h3>
         <ul>
-          <li>Descobrir exatamente o que está impedindo a sua previsibilidade</li>
-          <li>Entender se a sua oferta está alinhada e como comunicá-la</li>
-          <li>Receber o plano claro para um sistema de vendas que gera lucro previsível</li>
+          <li>Descobrir o que está impedindo a sua previsibilidade</li>
+          <li>Entender se a sua oferta está alinhada</li>
+          <li>Receber o plano de um sistema de vendas que gera lucro</li>
         </ul>
       </div>
     </div>
-    <p class="center">Se você chegou até aqui, é bem provável que já saiba qual das duas prefere.</p>
     <div class="cta">
       <span class="l">Me envie uma mensagem:</span>
       <span class="q">"Estou pronta pra fazer a análise estratégica"</span>

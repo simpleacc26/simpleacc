@@ -294,10 +294,48 @@ Conteúdo expandido (margens 15mm topo/rodapé, 16mm laterais). Padrão a repeti
 **`@page` não pinta margem no Chrome — pra margem colorida use `@page margin:0`
 + `thead`/`tfoot` de tabela como faixas de margem que se repetem por página.**
 
+## Rodada 7 — leitura no celular + 1 assunto por página (2026-07-09)
+
+A Vitória testou a rodada 6 no **celular** e trouxe 4 pontos: (1) um assunto não
+pode terminar no meio de uma página e o próximo começar logo abaixo — atrapalha a
+retenção; o espaço que sobrar deve ser preenchido com conteúdo do próprio assunto
+(ex.: a assinatura na carta); (2) usar **negrito** em textos longos pra facilitar a
+leitura; (3) as fontes estavam "do tamanho de uma formiga" no celular — o formato é
+vertical (feito pra celular), mas a experiência de leitura estava dimensionada pra
+computador; (4) o design tem que **facilitar a leitura e funcionar**, ser dinâmico,
+não só "texto blocado e alguns quadrados".
+
+Mudanças:
+
+1. **Fonte dimensionada pra celular**: corpo 27px (era ~17px), títulos/leads
+   proporcionais. Um A4 aberto "ajustado à largura" no celular reduz a ~0,52x —
+   então a fonte-fonte precisa ser ~2x a de desktop pra ficar legível sem zoom.
+2. **Um assunto por página**: cada `<section class="topic">` força
+   `break-before: page`. Assim nenhum assunto começa numa folha onde outro
+   terminou. O espaço restante é preenchido pela frase de fechamento (pull-quote
+   dourada) de cada bloco e, na carta, pela assinatura.
+3. **Cards viraram passos numerados** (`.step` com círculo dourado 01/02/03): mais
+   dinâmico e mais escaneável que as caixas cheias da rodada 6 — ataca direto a
+   queixa de "só texto blocado e alguns quadrados" — e **mais compacto**, o que faz
+   cada assunto de 3 itens caber numa página só.
+4. **Negrito nos trechos-chave** (`<strong>`) ao longo de todo o texto, pra criar
+   ritmo de leitura e destacar a ideia central de cada parágrafo.
+5. **Ajuste fino de paginação por medição**: medi a altura real de cada seção com
+   Playwright (`emulateMedia('print')`, viewport 794px) contra a altura útil da
+   página (297mm − 22mm de margem = **1039px**). O assunto "gargalos" (o de texto
+   mais longo) media 1041px e estourava 2px, jogando o fechamento sozinho pra
+   página seguinte; reduzir o padding de cada passo (15→13px) trouxe pra 1029px e
+   fechou tudo em 1 página. **Padrão a repetir: quando um bloco "quase cabe", medir
+   com Playwright em vez de chutar espaçamento.**
+
+Resultado: PDF com 11 páginas, cada assunto na sua própria folha (sem órfãos nem
+página quase vazia), fonte grande pra celular, passos numerados dinâmicos, margens
+pretas em todas as bordas (confirmado por amostragem de pixel = `9,8,6`).
+
 ## Pendências / próximos passos
 
-- **Confirmar com a Vitória** o resultado da rodada 6 (documento corrido,
-  margens ABNT, capa/Sobre ajustados) antes de fechar o item 3.
+- **Confirmar com a Vitória** o resultado da rodada 7 (fonte pra celular, um
+  assunto por página, passos numerados) antes de fechar o item 3.
 - **Trocar o print recriado do "15 mil" pelo original** se/quando o arquivo
   `Feedback .jpeg` chegar de forma extraível (ver rodada 5, ponto 7).
 - Se ela quiser o layout literalmente idêntico ao arquivo Figma original
