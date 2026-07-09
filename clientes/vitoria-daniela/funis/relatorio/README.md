@@ -233,10 +233,48 @@ layout, mais a foto dela e 3 depoimentos (via pastas do Drive). Aplicado:
 Resultado: PDF com 11 páginas, uma dobra por página, sem página órfã, com
 foto e depoimentos.
 
+## Rodada 6 — layout "documento corrido ABNT" (2026-07-09)
+
+A Vitória revisou a rodada 5 e **afrouxou a regra de "1 dobra por página"**:
+o modelo de página cheia + conteúdo centralizado verticalmente deixava vãos
+grandes em cima E embaixo nas páginas de seção curta. Feedbacks (numerados por
+página do PDF da rodada 5): capa com headline grande demais e texto
+apertado/pequeno; várias páginas (2, 5, 6, 7, 10, 11) com margem sobrando
+demais; "Sobre" (pág. 8) com foto desproporcional ao texto; pedido de margens
+consistentes padrão ABNT em cima e embaixo, podendo deixar **tudo corrido**.
+
+Mudanças:
+
+1. **Trocado o modelo de paginação**: de "cada seção = 1 página A4
+   centralizada" para **documento corrido** — o conteúdo flui de cima pra
+   baixo e o `@page { margin: 24mm 22mm }` dá margem consistente em toda
+   página. Acabaram os vãos de centralização. As seções **fluem e quebram
+   livremente** entre páginas; só os blocos indivisíveis (cards, opções,
+   prints, foto+bio) têm `break-inside: avoid`.
+2. **Capa**: headline reduzida (33→24px) e alargada (menos linhas), corpo
+   maior (17px) com mais respiro entre parágrafos. Cabe em 1 página.
+3. **"Sobre" proporcional**: foto reduzida pra 46mm ao lado do texto,
+   alinhada ao topo — sem mais desproporção nem margem sobrando.
+4. **Sem página órfã**: compactado o espaçamento entre seções (16→8mm) e o
+   bloco final (opções/CTA) o suficiente pra puxar o CTA de volta e fechar em
+   9 páginas cheias (a rodada 5 tinha a última página quase vazia).
+5. **Prints**: trocado o container de `flex` pra fluxo normal (block
+   centralizado) — flexbox paginava mal e deixava vão; block quebra certo.
+
+Observação: a página do "Sobre + Resultados" pode terminar com um respiro
+(~1/4 da folha) porque os 3 prints são imagens indivisíveis e não cabem todos
+após o bloco "Sobre" numa página só — comportamento normal de figura em
+documento corrido (a próxima quebra empurra os prints maiores pra página
+seguinte). É o único respiro que sobra; todas as outras páginas preenchem até
+a margem inferior.
+
+Resultado: PDF com 9 páginas, margens consistentes (ABNT) em todas, sem página
+órfã/quase vazia.
+
 ## Pendências / próximos passos
 
-- **Confirmar com a Vitória** o resultado da rodada 5 (novo layout 1
-  dobra/página, foto, depoimentos em print) antes de fechar o item 3.
+- **Confirmar com a Vitória** o resultado da rodada 6 (documento corrido,
+  margens ABNT, capa/Sobre ajustados) antes de fechar o item 3.
 - **Trocar o print recriado do "15 mil" pelo original** se/quando o arquivo
   `Feedback .jpeg` chegar de forma extraível (ver rodada 5, ponto 7).
 - Se ela quiser o layout literalmente idêntico ao arquivo Figma original
