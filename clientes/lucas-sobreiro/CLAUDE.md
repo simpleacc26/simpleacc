@@ -20,9 +20,20 @@ onde o outro parou (o Git é a memória compartilhada).
 3. Salve os entregáveis na pasta certa (acima) e **registre o aprendizado** em `aprendizados.md`.
 4. Trabalhe numa branch `cliente/lucas-sobreiro/<assunto>` e abra PR.
 
-## Contexto rápido (preencher)
+## Contexto rápido
 
-- **Oferta principal:** _(a preencher)_
-- **Público / ICP:** _(a preencher)_
-- **Links (site, páginas, Make, Figma, Drive):** _(a preencher)_
-- **Contato principal:** _(a preencher)_
+- **Quem é:** mentor de empresários (ex-bancário do BB, 22 anos, saiu em jan/26). Foco de
+  energia atual: **área da saúde** (dentistas, médicos, fisioterapeutas, veterinários).
+- **Oferta principal:** mentoria high ticket de **R$ 21.000** — evolução empresarial
+  (Vendas + Produtividade + Autoliderança).
+- **Público / ICP:** empresário de serviços/saúde que já validou o negócio e sente que o
+  crescimento travou. 35–55 anos, renda pessoal 25k+, empresa fatura 300k–10mi/ano.
+  Detalhes em `contexto/icp.md`.
+- **Gargalo:** falta de **volume de leads** (conversão em call é boa). Meta: **R$ 100k/mês**
+  (~4–5 vendas). Solução Simple: **Funil de Lead Dinâmico** (tráfego → quiz → SDR → call).
+- **Projeto Fase 1 (90 dias):** diagnóstico/roadmap + implementação do funil (quiz, páginas,
+  copies, criativos, automação GHL + API WhatsApp) + estruturação comercial. Ver
+  `estrategia/2026-07-07-diagnostico-e-roadmap.md`.
+- **Equipe Simple:** Daniel (estratégia), Carlos Durães (entrega), Renan (tráfego).
+- **Links (site, páginas, GHL, Drive):** _(a preencher — Lucas vai liberar acessos)_
+- **Contato principal:** Lucas Sobreiro _(WhatsApp/e-mail a preencher)_
