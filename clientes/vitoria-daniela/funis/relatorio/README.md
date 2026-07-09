@@ -271,17 +271,28 @@ a margem inferior.
 Resultado: PDF com 9 páginas, margens consistentes (ABNT) em todas, sem página
 órfã/quase vazia.
 
-### Correção — margens pretas (não brancas)
+### Correção — margens PRETAS (não brancas)
 
-Na primeira versão da rodada 6 as margens saíram **brancas** (o `@page { margin }`
-faz a folha aparecer atrás, e branco é a cor padrão do papel). O documento é
-preto, então a margem tem que ser preta também. Corrigido pintando o **fundo do
-elemento raiz (`html`)** de preto no `@media print`: o fundo do `html` pinta o
-"canvas" inteiro da folha, **inclusive a área da margem do `@page`**. Só o
-`body`/`.doc` não bastava (não propaga pra margem). Aproveitei pra expandir o
-conteúdo (margem 22→18mm). Padrão a repetir em PDF de fundo escuro: `@page`
-controla o tamanho da margem, mas quem pinta a margem é o `background` do `html`
-— sempre setar `html { background: <cor> ; print-color-adjust: exact }`.
+Na primeira versão da rodada 6 as margens saíram **brancas**: o `@page { margin }`
+reserva a margem, mas no Chrome headless essa área é **sempre pintada de branco
+(papel)** — e nada cobre ela (testei: fundo do `html`, fundo do `body`,
+`position:fixed` cobrindo a folha — nenhum pinta a área da margem do `@page`).
+O documento é preto, então a margem tinha que ser preta.
+
+Solução que funcionou (a robusta pra PDF de fundo escuro):
+1. `@page { margin: 0 }` — única forma da borda não sair branca; o preto
+   (`body`) preenche a folha de borda a borda.
+2. **Margem preta de topo/rodapé em TODA página** via `<table>` com
+   `thead`/`tfoot`: `thead` e `tfoot` **se repetem em toda página impressa**,
+   então uma célula vazia de 15mm neles vira uma faixa preta de margem no topo
+   e no rodapé de cada página (o `tbody` com o conteúdo flui no meio, sem
+   encostar na borda). Laterais: padding de 16mm na célula do conteúdo.
+3. Prints com **moldura escura** (não branca): mesmo que um print caia na
+   borda, nunca aparece branco — a imagem clara fica dentro de um card escuro.
+
+Conteúdo expandido (margens 15mm topo/rodapé, 16mm laterais). Padrão a repetir:
+**`@page` não pinta margem no Chrome — pra margem colorida use `@page margin:0`
++ `thead`/`tfoot` de tabela como faixas de margem que se repetem por página.**
 
 ## Pendências / próximos passos
 

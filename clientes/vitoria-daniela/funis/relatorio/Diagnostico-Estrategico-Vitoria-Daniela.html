@@ -27,16 +27,13 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Documento corrido: conteúdo flui de cima pra baixo com margens
-     consistentes (padrão ABNT). Sem centralização vertical -> sem vãos
-     enormes em cima/embaixo. As margens da folha vêm do @page (print) e
-     do padding do .doc (tela). */
-  .doc {
-    background: var(--bg);
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 24mm 22mm;
-  }
+  /* Documento corrido em <table>: thead/tfoot repetem em TODA página impressa,
+     criando uma faixa de margem PRETA no topo e no rodapé de cada página
+     (mesma cor do fundo, nunca branca). As laterais vêm do padding da célula
+     de conteúdo. Conteúdo nunca encosta na borda. */
+  .sheet { width: 100%; max-width: 800px; margin: 0 auto; border-collapse: collapse; background: var(--bg); }
+  .sheet .mtop, .sheet .mbot { height: 15mm; background: var(--bg); padding: 0; border: 0; }
+  .sheet .body { padding: 0 16mm; vertical-align: top; background: var(--bg); }
 
   h1, h2, h3 { margin: 0; font-weight: 800; line-height: 1.25; }
   h1 { font-size: 27px; text-transform: uppercase; text-align: center; }
@@ -123,7 +120,10 @@
   .print {
     display: block; width: -moz-fit-content; width: fit-content;
     margin: 0 auto 16px;
-    background: #fff; border-radius: 14px; padding: 8px;
+    /* Moldura ESCURA (não branca) em volta do print — assim, mesmo que um
+       print encoste na borda da página, nunca aparece branco na margem. */
+    background: var(--card); border: 1px solid var(--card-border);
+    border-radius: 14px; padding: 10px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.45); line-height: 0;
     break-inside: avoid; page-break-inside: avoid;
   }
@@ -159,22 +159,28 @@
 
   .foot { text-align: center; color: var(--muted); font-size: 13px; margin-top: 16px; letter-spacing: 0.5px; }
 
+  .page-bg { display: none; }
+
   @media print {
-    /* A cor de fundo do documento (preto) precisa cobrir a folha TODA,
-       inclusive a área de margem — senão a margem sai branca (papel).
-       O fundo do elemento raiz (html) pinta o "canvas" inteiro da página,
-       incluindo a margem do @page. */
-    html { background: var(--bg); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    body { -webkit-print-color-adjust: exact; print-color-adjust: exact; background: var(--bg); }
-    @page { size: A4; margin: 18mm; }   /* margem consistente (preta) em todas as páginas */
-    .doc { max-width: none; margin: 0; padding: 0; background: transparent; }
+    /* Margem do @page = 0 pra a borda NÃO sair branca (o Chrome pinta a margem
+       do @page com papel branco, e nada cobre essa área). O preto preenche a
+       folha inteira; a margem preta de topo/rodapé de CADA página vem do
+       thead/tfoot da tabela, que se repetem em toda página impressa. */
+    html, body { background: var(--bg); -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    @page { size: A4; margin: 0; }
+    .sheet { max-width: none; margin: 0; }
+    thead, tfoot { display: table-header-group; }
+    tfoot { display: table-footer-group; }
     h2 { break-after: avoid; page-break-after: avoid; }
     p, li { orphans: 3; widows: 3; }
   }
 </style>
 </head>
 <body>
-<div class="doc">
+<table class="sheet">
+<thead><tr><td class="mtop"></td></tr></thead>
+<tfoot><tr><td class="mbot"></td></tr></tfoot>
+<tbody><tr><td class="body">
 
   <!-- Capa -->
   <section class="cover">
@@ -362,6 +368,7 @@
     <div class="foot">© Vitória Daniela · Grupo Magna</div>
   </section>
 
-</div>
+</td></tr></tbody>
+</table>
 </body>
 </html>
