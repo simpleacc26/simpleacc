@@ -4,4 +4,9 @@ Log do que funciona e do que não funciona com este cliente.
 
 | Data | Aprendizado / decisão | Origem |
 | ---------- | --------------------- | ------ |
-|            |                       |        |
+| 2026-07-02 | Decisão estratégica: **sair da coprodução de experts e construir marca pessoal própria** (Lucas é o "dono da bola"). | Call de vendas Daniel × Lucas |
+| 2026-07-02 | Modelo de receita da nova marca: **consultoria high ticket (~R$ 25k/mês)** + mentoria + Teorema como entrada. | Call de vendas |
+| 2026-07-08 | **História pessoal conecta e deve entrar no posicionamento** (trajetória, burnouts, propósito). Usar com verdade, sem sensacionalismo. | Onboarding (Carlos) |
+| 2026-07-08 | **Foco Fase 1 = ICP expert** (já fatura → paga high ticket mais rápido). Teorema atende o público de renda extra. | Onboarding |
+| 2026-07-08 | Frase-âncora do valor pro expert: **"faturamento é ego, caixa é rei"**. | Onboarding |
+| 2026-07-09 | Base de conhecimento inicial criada a partir das 3 transcrições (contexto, ICP, oferta, estratégia). | Esta sessão |
