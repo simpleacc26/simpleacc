@@ -10,3 +10,5 @@ Log do que funciona e do que não funciona com este cliente.
 | 2026-07-08 | **Foco Fase 1 = ICP expert** (já fatura → paga high ticket mais rápido). Teorema atende o público de renda extra. | Onboarding |
 | 2026-07-08 | Frase-âncora do valor pro expert: **"faturamento é ego, caixa é rei"**. | Onboarding |
 | 2026-07-09 | Base de conhecimento inicial criada a partir das 3 transcrições (contexto, ICP, oferta, estratégia). | Esta sessão |
+| 2026-07-09 | Canvas de Produto + Cliente Ideal **pré-preenchido com dados reais** (foco no produto high ticket p/ experts) e entregue como Google Doc para o Lucas completar os campos ✍️. | Esta sessão |
+| 2026-07-09 | **Decisão pendente do Lucas:** confirmar se o produto do funil é a oferta high ticket p/ experts ou o Teorema (renda extra). Preço HT e estrutura de entrega ainda em aberto. | Canvas |
