@@ -332,10 +332,52 @@ Resultado: PDF com 11 páginas, cada assunto na sua própria folha (sem órfãos
 página quase vazia), fonte grande pra celular, passos numerados dinâmicos, margens
 pretas em todas as bordas (confirmado por amostragem de pixel = `9,8,6`).
 
+## Rodada 8 — centralização vertical + carta dinâmica (2026-07-09)
+
+O Daniel juntou o feedback da Vitória com o dele e chegou num ponto em comum: (1) a
+carta (pág. 2) estava "blocada", precisava ser mais dinâmica, com a assinatura
+"Vitória Daniela…" menor e no **canto inferior direito**, e destaques em **dourado**
+(não só negrito branco) pra dar dinâmica; (2) várias páginas de assunto curto (5, 6,
+7, 8) tinham **espaço grande sobrando no rodapé** — o bloco de texto ficava colado no
+topo.
+
+O ponto em comum resolvido: não dá pra ter *ao mesmo tempo* "um assunto por página"
+(retenção, pedido da Vitória) **e** "toda página 100% cheia" quando os assuntos têm
+tamanhos diferentes — alguma coisa cede. A saída de documento profissional é manter
+um assunto por página **e centralizar o conteúdo verticalmente**, pra a sobra virar
+**margem simétrica em cima e embaixo** (padrão ABNT), nunca amontoada só no rodapé.
+Isso é o que a rodada 6 errou (centralizou *e* deixou o conteúdo esparso); aqui a
+correção é centralizar **+** dar mais respiro nas páginas curtas pra a margem
+simétrica ficar pequena.
+
+Mudanças:
+
+1. **Centralização vertical por assunto**: cada `.topic` virou um flex-column de
+   `min-height: 272mm` com `justify-content: center`. O conteúdo fica no meio da
+   folha, com a mesma margem em cima e embaixo. (Cuidado: `min-height` acima de
+   ~272mm estoura pra 2 páginas no A4 com as faixas de 11mm — 272mm é o teto seguro.)
+2. **Páginas curtas com mais respiro** (`.roomy`: recapitulando, próximo passo,
+   sobre): espaçamento maior de lista/intro/fechamento e foto do "Sobre" de 62→66mm
+   com bio mais espaçada, pra preencher melhor antes de centralizar.
+3. **Carta redesenhada** (`.letter`): texto e assinatura viram dois blocos num
+   `justify-content: space-between` — texto no topo, **assinatura fixada no canto
+   inferior direito** (fonte reduzida de 29→24px, subtítulo 22→18px). Destaques da
+   carta trocados de negrito branco (`<strong>`) para **dourado** (`.g` = dourado +
+   bold) pra criar o "salto de leitura" que a Vitória pediu. A carta é densa (~980px
+   de texto puro, quase uma folha cheia), então não dá pra aumentar a fonte sem
+   estourar — o dinamismo veio do dourado + respiro entre parágrafos + assinatura no
+   canto, não de fonte maior. Confirmei o limite por varredura de medição (27px/1.5
+   cabe; 28px já estoura pra 2 páginas).
+
+Resultado: PDF com 11 páginas, cada assunto centralizado na sua folha (margem
+simétrica em cima/embaixo, sem rodapé vazio), carta com destaques dourados e
+assinatura no canto inferior direito, margens pretas em todas as bordas (pixel de
+borda = `9,8,6`).
+
 ## Pendências / próximos passos
 
-- **Confirmar com a Vitória** o resultado da rodada 7 (fonte pra celular, um
-  assunto por página, passos numerados) antes de fechar o item 3.
+- **Confirmar com a Vitória** o resultado da rodada 8 (assuntos centralizados,
+  carta com destaque dourado e assinatura no canto) antes de fechar o item 3.
 - **Trocar o print recriado do "15 mil" pelo original** se/quando o arquivo
   `Feedback .jpeg` chegar de forma extraível (ver rodada 5, ponto 7).
 - Se ela quiser o layout literalmente idêntico ao arquivo Figma original
