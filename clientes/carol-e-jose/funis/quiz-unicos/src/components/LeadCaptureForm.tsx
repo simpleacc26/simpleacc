@@ -166,8 +166,8 @@ export function LeadCaptureForm({ onSubmit, onBack, loading }: LeadCaptureFormPr
               lineHeight: 1.55,
             }}
           >
-            Preencha seus dados para receber a análise completa e agendar sua
-            sessão estratégica.
+            Preencha seus dados para receber a análise completa do seu
+            diagnóstico de liderança.
           </p>
 
           <div className="flex flex-col gap-5">
