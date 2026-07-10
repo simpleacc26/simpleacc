@@ -40,6 +40,16 @@ function isOutOfICP(answers: Record<number, string>): boolean {
   return industria && abaixo3M && semDecisao;
 }
 
+// Qualificação de ICP consolidada, decidida já a partir das respostas do quiz
+// (não depende do formulário). Falha em qualquer regra → desqualificado.
+function isICPQualified(answers: Record<number, string>): boolean {
+  const faturamento = answers[6]; // Q7 (faturamento mensal)
+  const abaixoDoPiso = faturamento === "1" || faturamento === "2"; // < R$1M/ano
+  if (abaixoDoPiso) return false;
+  if (isOutOfICP(answers)) return false;
+  return calcIsQualified(answers);
+}
+
 export default function App() {
   const initPath = window.location.pathname;
   const initSlug = initPath.startsWith("/diagnostico/") ? initPath.replace("/diagnostico/", "") : null;
@@ -83,11 +93,21 @@ export default function App() {
     if (currentIndex < TOTAL_QUESTIONS - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      // Última pergunta (faturamento): TODOS preenchem o formulário para
-      // entrar na base de leads. O destino final (agenda x comunidade) é
-      // decidido no envio, em handleLeadSubmit.
-      fbqTrack("InitiateCheckout", { content_name: "Captura de Lead Quiz ÚNICOS" });
-      setStep("lead-capture");
+      // Última pergunta: a qualificação é decidida agora, a partir das respostas.
+      const bucketName = questions[3]?.options.find((o) => o.value === updated[3])?.bucket ?? "Refém da Operação";
+      if (isICPQualified(updated)) {
+        // ICP: coleta os dados (formulário) e segue para o diagnóstico → agenda.
+        fbqTrack("InitiateCheckout", { content_name: "Captura de Lead Quiz ÚNICOS" });
+        setStep("lead-capture");
+      } else {
+        // Desqualificado: sem formulário — vai direto ao diagnóstico com o
+        // botão da comunidade.
+        fbqTrack("Lead", { content_name: "Lead Quiz ÚNICOS", content_category: "Desqualificado" });
+        setIsQualified(false);
+        setBucket(bucketName);
+        setStep("diagnostico");
+        window.history.pushState({}, "", `/diagnostico/${getSlugFromBucket(bucketName)}`);
+      }
     }
   };
 
@@ -151,31 +171,13 @@ export default function App() {
 
     await Promise.all([webhookCall, minDelay]);
 
-    // Faturamento abaixo de R$1M/ano (≈ R$83 mil/mês) → fora do ICP,
-    // independentemente do setor. Q7 (índice 6): "1" = Até R$50 mil e
-    // "2" = R$50–100 mil. O lead já entrou na base pelo webhook acima, mas é
-    // direcionado à comunidade — nunca à agenda nem ao diagnóstico de sessão.
-    const faturamentoMensal = answers[TOTAL_QUESTIONS - 1];
-    if (faturamentoMensal === "1" || faturamentoMensal === "2") {
-      fbqTrack("Lead", {
-        content_name: "Lead Quiz ÚNICOS",
-        content_category: "Fora do perfil (faturamento)",
-      });
-      setStep("gate-block");
-      return;
-    }
-
-    const qualified = calcIsQualified(answers) && !isOutOfICP(answers);
-    fbqTrack("Lead", {
-      content_name: "Lead Quiz ÚNICOS",
-      content_category: qualified ? "Qualificado" : "Desqualificado",
-    });
-    if (qualified) {
-      fbqTrack("Schedule");
-    }
+    // Apenas leads ICP (qualificados) chegam ao formulário; os demais já foram
+    // direcionados ao diagnóstico/comunidade sem coletar dados.
+    fbqTrack("Lead", { content_name: "Lead Quiz ÚNICOS", content_category: "Qualificado" });
+    fbqTrack("Schedule");
     const bucketName = questions[3]?.options.find((o) => o.value === answers[3])?.bucket ?? "Refém da Operação";
     const slug = getSlugFromBucket(bucketName);
-    setIsQualified(qualified);
+    setIsQualified(true);
     setBucket(bucketName);
     setStep("diagnostico");
     window.history.pushState({}, "", `/diagnostico/${slug}`);
