@@ -201,21 +201,25 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
         </Section>
 
         {/* ── 3. Foto do Gustavo ── */}
-        <Section className="!p-0 overflow-hidden">
+        <Section className="text-center">
           <img
             src="/fotos/gustavo.webp"
             alt="Gustavo Ono — Chocolatier"
-            className="w-full"
-            style={{ display: "block", maxHeight: "480px", objectFit: "cover", objectPosition: "top" }}
+            style={{
+              display: "block",
+              margin: "0 auto",
+              width: "100%",
+              maxWidth: "200px",
+              height: "auto",
+              borderRadius: "12px",
+            }}
           />
-          <div className="p-6">
-            <p
-              className="text-center font-semibold"
-              style={{ ...headlineStyle, fontSize: "1.1rem" }}
-            >
-              Gustavo Ono
-            </p>
-          </div>
+          <p
+            className="text-center font-semibold"
+            style={{ ...headlineStyle, fontSize: "1.1rem", marginTop: "1rem" }}
+          >
+            Gustavo Ono
+          </p>
         </Section>
 
         {/* ── 4. Foto do produto ── */}
