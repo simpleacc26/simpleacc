@@ -165,5 +165,9 @@ function abrirWhatsApp() {
 }
 // qualquer CTA com a classe .cta-wpp (distribuídos pela página) abre o WhatsApp
 document.addEventListener("click", (e) => {
-  if (e.target.closest && e.target.closest(".cta-wpp")) abrirWhatsApp();
+  if (e.target.closest && e.target.closest(".cta-wpp")) {
+    // clique no WhatsApp: momento de maior intenção. Evento Contact no Pixel.
+    try { if (typeof fbq === "function") fbq("track", "Contact", { content_name: "CTA WhatsApp diagnostico" }); } catch (err) {}
+    abrirWhatsApp();
+  }
 });

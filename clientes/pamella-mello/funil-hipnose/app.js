@@ -6,7 +6,11 @@
 
 /* ---- Tracking plugável: preencha os IDs e os eventos vão junto.
    Vazio = só loga no console. ---- */
-const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
+const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "328694529132563", custom_webhook: "" };
+
+/* Eventos do funil que viram evento PADRÃO do Meta (melhor para otimização e
+   conversões personalizadas). O resto vai como trackCustom com o mesmo nome. */
+const META_STANDARD = { funnel_start: "InitiateCheckout", funnel_complete: "Lead" };
 
 /* Planilha de leads via Make (webhook instant → Google Sheets).
    Dispara só quando chega lead; não fica varrendo (não consome crédito à toa).
@@ -29,7 +33,10 @@ function trackEvent(name, data = {}) {
   console.log(`[TRACK] ${name}`, payload);
   try {
     if (TRACKING_CONFIG.ga4_id && typeof gtag === "function") gtag("event", name, data);
-    if (TRACKING_CONFIG.meta_pixel_id && typeof fbq === "function") fbq("trackCustom", name, data);
+    if (TRACKING_CONFIG.meta_pixel_id && typeof fbq === "function") {
+      const std = META_STANDARD[name];
+      if (std) fbq("track", std, data); else fbq("trackCustom", name, data);
+    }
     if (TRACKING_CONFIG.custom_webhook && navigator.sendBeacon)
       navigator.sendBeacon(TRACKING_CONFIG.custom_webhook, JSON.stringify({ event: name, ...payload }));
   } catch (e) { /* tracking nunca quebra o funil */ }

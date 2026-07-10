@@ -63,7 +63,7 @@ Já está **ligada e testada de ponta a ponta**.
 | Onde            | O quê                                                                 |
 | --------------- | --------------------------------------------------------------------- |
 | `diagnostico.js`| Trocar `[DEPOIMENTO 1/2]` por provas sociais reais (prints/vídeos do Instagram). |
-| `app.js`        | `TRACKING_CONFIG`: GA4 / Meta Pixel quando a cliente liberar.          |
+| `app.js`        | `TRACKING_CONFIG`: Meta Pixel `328694529132563` ativo (PageView, InitiateCheckout no início do quiz, Lead no envio). GA4 quando a cliente liberar. |
 | `styles.css`    | Paleta/logo provisórios (dourado): ajustar ao brand kit/logo oficiais.|
 
 Já configurado: WhatsApp comercial (`flow.js`) e integração de leads (`app.js`).
