@@ -436,6 +436,26 @@ outra, embaixo da foto e do 1º texto. Implementação: `.about` virou bloco com
 `.about-top` (flex: foto + 1º parágrafo) e `.about-rest` (parágrafos full-width).
 Continua cabendo em 1 página (medido).
 
+## Rodada 11 — "respiro" visual sem mexer no layout (2026-07-10)
+
+A Vitória pediu mais dinamismo/"respiro" pra quebrar o texto e mandou exemplos
+de uma proposta comercial (design ajudando a leitura, separação visual das
+coisas). **Com a trava explícita de não impactar significativamente o layout /
+estrutura.** Os exemplos eram de outro designer (paleta verde/roxo, portfólio),
+então não copiei paleta nem virei portfólio: mantive a identidade preto/dourado
+e adicionei só **acentos de design em CSS**, height-neutros, que não mexem na
+paginação (continua 11 páginas, 1 assunto por folha) nem na copy:
+
+1. **Cabeçalho de seção desenhado**: o *eyebrow* (ex.: "O QUE ESTÁ TRAVANDO
+   VOCÊ") ganhou dois tracinhos dourados nas laterais (via `::before`/`::after`),
+   virando um separador desenhado em vez de só texto.
+2. **Frase de fechamento como destaque**: troquei o filete cinza de largura
+   total por uma **barra dourada curta e centralizada** acima de cada pull-quote
+   (via `.closing::before`), dando cara de "frase de impacto" desenhada.
+
+Sem imagens novas (a trava de layout + não ter imagem de apoio adequada), sem
+tocar em estrutura, margens (seguem pretas, pixel `9,8,6`), fonte ou texto.
+
 ## Pendências / próximos passos
 
 - **Confirmar com a Vitória** o resultado da rodada 9 (Montserrat, sem
