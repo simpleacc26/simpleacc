@@ -35,8 +35,13 @@ de fonte externa (ver rodada 4 abaixo).
 ## Arquivos
 
 - `template.html` — arquivo "fonte" pra editar (texto + layout). Usa
-  placeholders `{{PHOTO}}`, `{{T1}}`, `{{T2}}`, `{{T3}}` no lugar da foto da
-  Vitória e dos 3 prints de depoimento. É aqui que se edita.
+  placeholders `{{FONTS}}` (fonte Montserrat embutida), `{{PHOTO}}`, `{{T1}}`,
+  `{{T2}}`, `{{T3}}` (foto da Vitória e os 3 prints de depoimento). É aqui que
+  se edita.
+- `assets/fonts/` — fonte **Montserrat** (Google Fonts, OFL) usada no
+  documento: `montserrat-latin.woff2` e `montserrat-latin-ext.woff2` (fonte
+  variável, cobre pesos 100–900) e `montserrat-embed.css` (os `@font-face`
+  com a fonte em base64, prontos pra injetar no `{{FONTS}}`). Ver rodada 9.
 - `Diagnostico-Estrategico-Vitoria-Daniela.html` — HTML final autocontido,
   gerado do template com as imagens embutidas em base64 (abre offline em
   qualquer navegador). Regenerar depois de editar o template (ver "Como regerar").
@@ -48,15 +53,23 @@ de fonte externa (ver rodada 4 abaixo).
 
 ## Como regerar (HTML final + PDF)
 
-O HTML final embute a foto como data-URI (pra ficar autocontido). Fluxo:
+O HTML final embute fonte e imagens como data-URI (pra ficar autocontido). Fluxo:
 1. Editar `template.html`.
-2. Gerar os data-URIs das imagens de `assets/` (foto → `{{PHOTO}}`; os 3
-   prints → `{{T1}}` "15 mil", `{{T2}}` "março", `{{T3}}` "sessão") e
-   substituir os placeholders no template, salvando como
-   `Diagnostico-Estrategico-Vitoria-Daniela.html`.
+2. Substituir os placeholders no template e salvar como
+   `Diagnostico-Estrategico-Vitoria-Daniela.html`:
+   - `{{FONTS}}` → conteúdo de `assets/fonts/montserrat-embed.css` (os
+     `@font-face` da Montserrat em base64);
+   - `{{PHOTO}}` → data-URI de `assets/vitoria-daniela.jpg`;
+   - `{{T1}}`/`{{T2}}`/`{{T3}}` → data-URIs dos 3 prints ("15 mil", "março",
+     "sessão").
 3. Gerar o PDF do HTML com Chromium headless
    (`--headless --print-to-pdf --no-pdf-header-footer`). O `@page { margin:0 }`
-   + o padding de cada `.page` já cuidam das margens.
+   + as faixas `thead`/`tfoot` já cuidam das margens pretas.
+
+**Nada de rede na geração do PDF**: a Montserrat vai embutida em base64, então
+o Chromium não precisa buscar fonte externa (era o que quebrava na rodada 4).
+Se algum dia precisar atualizar a fonte, baixe os `.woff2` (latin + latin-ext)
+da API do Google Fonts e regenere o `montserrat-embed.css` (ver rodada 9).
 
 ## Rodada 2 — realinhamento com o quiz v2 e a LP nova (2026-07-08)
 
@@ -374,10 +387,54 @@ simétrica em cima/embaixo, sem rodapé vazio), carta com destaques dourados e
 assinatura no canto inferior direito, margens pretas em todas as bordas (pixel de
 borda = `9,8,6`).
 
+## Rodada 9 — Montserrat, sem travessões e foto maior (2026-07-10)
+
+Feedback da Vitória (4 pontos, pediu atenção especial):
+
+1. **Tirar TODOS os travessões** ("não quero linguagem de IA em nada"). Removi
+   os 3 travessões que sobravam na copy (intro da metodologia, passo
+   "Organização e vendas", passo "Mapeamento de maturidade"), reescrevendo com
+   vírgula/ponto ("basta uma ação isolada, seja rodar tráfego…"; "…vender com
+   qualidade. Processo comercial…"; "…mais urgente, seja em marketing…"). Os
+   `·` (ponto mediano) de "Opção 1 · …" e do rodapé **não** são travessões
+   (são separador tipográfico) e ficaram.
+2. **Fonte Montserrat.** Voltou a ser Montserrat, mas agora **embutida em
+   base64** (não via `@import` do Google Fonts, que quebrava a geração do PDF
+   na rodada 4 por falha de TLS no Chromium headless). Como pegar a fonte sem
+   rede no render: `curl` na API do Google Fonts (`fonts.googleapis.com/css2`)
+   com User-Agent de navegador devolve os `.woff2`; a Montserrat vem como
+   **fonte variável** (um `.woff2` por subset cobre todos os pesos 100–900).
+   Baixei os subsets **latin** e **latin-ext** (cobre acentos do português,
+   aspas curvas, `º`, `·`), converti pra base64 num `@font-face` com
+   `font-weight: 100 900` e injeto no `{{FONTS}}`. Arquivos em `assets/fonts/`.
+3. **Foto da Vitória (pág. "Sobre") estava pequena.** Aumentei de 62→82mm de
+   largura e centralizei verticalmente ao lado da bio (`align-items: center`),
+   deixando a foto bem mais presente.
+4. **Mais dinamismo/"respiro"** (sugestão dela, sem certeza): mantidos os
+   destaques em dourado (rodada 8) e as frases de fechamento como pull-quotes
+   dourados centralizados, que já quebram o texto. Sem imagens novas pra não
+   arriscar a paginação nem inventar recurso visual sem direção.
+
+**Reajuste de paginação obrigatório após a troca de fonte**: Montserrat é mais
+larga que a Helvetica, então no mesmo `px` o texto quebra mais linhas e cresce.
+Isso estourou as páginas de 3 passos (gargalos ia a 1207px, metodologia a
+1145px) e a carta (1045px). Remedi por **medição** (Playwright, altura útil
+1039px): mantive o corpo em 27px (as páginas de checklist ainda cabem) e reduzi
+só o que vive nas páginas de passo (passo 26→24px, título de passo 28→25px,
+intro 28→25px, fechamento 29→26px, h2 36→33px, padding do passo 13→11px) e a
+carta (27→26px). Todas as 11 páginas voltaram a caber em 1 folha cada. **Padrão
+a repetir: trocar a família de fonte muda a paginação — sempre remedir e
+reajustar tamanhos depois de trocar a fonte.**
+
 ## Pendências / próximos passos
 
-- **Confirmar com a Vitória** o resultado da rodada 8 (assuntos centralizados,
-  carta com destaque dourado e assinatura no canto) antes de fechar o item 3.
+- **Confirmar com a Vitória** o resultado da rodada 9 (Montserrat, sem
+  travessões, foto maior) antes de fechar o item 3.
+- **Dinamismo/"respiro"**: ela levantou (sem certeza) a ideia de frases
+  impactantes maiores ou imagens pra quebrar os textos. Hoje isso vive nos
+  destaques dourados + pull-quotes de fechamento. Se ela quiser ir além,
+  decidir COM ela onde/como (ex.: uma frase-manifesto grande numa página, ou
+  imagens de apoio) pra não inflar a paginação já ajustada.
 - **Trocar o print recriado do "15 mil" pelo original** se/quando o arquivo
   `Feedback .jpeg` chegar de forma extraível (ver rodada 5, ponto 7).
 - Se ela quiser o layout literalmente idêntico ao arquivo Figma original

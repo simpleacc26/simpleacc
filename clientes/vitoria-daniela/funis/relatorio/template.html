@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Diagnóstico Estratégico · Vitória Daniela</title>
 <style>
+  {{FONTS}}
   :root {
     --gold: #Cfb36e;
     --gold-soft: rgba(207,179,110,0.12);
@@ -21,9 +22,9 @@
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: 'Helvetica Neue', Arial, 'Liberation Sans', sans-serif;
+    font-family: 'Montserrat', 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.5;
-    font-size: 27px;               /* fonte grande — legível no celular */
+    font-size: 27px;               /* fonte grande, legível no celular */
     -webkit-font-smoothing: antialiased;
   }
 
@@ -35,7 +36,7 @@
 
   h1, h2, h3 { margin: 0; font-weight: 800; line-height: 1.18; }
   h1 { font-size: 42px; text-transform: uppercase; text-align: center; }
-  h2 { font-size: 36px; text-transform: uppercase; }
+  h2 { font-size: 33px; text-transform: uppercase; }
   h3 { font-size: 29px; color: var(--gold); }
   .gold { color: var(--gold); }
 
@@ -47,7 +48,7 @@
   strong { color: #fff; font-weight: 800; }
 
   /* Cada ASSUNTO começa numa página nova (nunca dois assuntos na mesma folha)
-     e é centralizado verticalmente — o espaço que sobra fica dividido em cima
+     e é centralizado verticalmente, com o espaço que sobra dividido em cima
      e embaixo (margem simétrica), nunca amontoado só no rodapé. */
   .topic {
     break-before: page; page-break-before: always;
@@ -56,8 +57,8 @@
   }
   /* Carta: texto arejado no topo, assinatura no canto inferior direito. */
   .topic.letter { justify-content: space-between; }
-  .topic.letter p { font-size: 27px; line-height: 1.5; margin-bottom: 18px; }
-  .topic.letter .lead { font-size: 33px; margin-bottom: 20px; }
+  .topic.letter p { font-size: 26px; line-height: 1.5; margin-bottom: 18px; }
+  .topic.letter .lead { font-size: 31px; margin-bottom: 20px; }
   /* Páginas curtas ganham mais respiro pra preencher melhor a folha. */
   .topic.roomy .intro { margin-bottom: 26px; }
   .topic.roomy ul.check li { margin-bottom: 26px; }
@@ -84,7 +85,7 @@
   /* ---------- Seção (título + intro) ---------- */
   .eyebrow { display:block; color: var(--gold); font-weight: 700; letter-spacing: 2.5px; font-size: 21px; text-transform: uppercase; margin-bottom: 10px; text-align:center; }
   h2.title { text-align: center; margin-bottom: 18px; }
-  .intro { font-size: 28px; line-height: 1.42; margin-bottom: 16px; }
+  .intro { font-size: 25px; line-height: 1.42; margin-bottom: 16px; }
 
   /* ---------- Carta ---------- */
   .signature { text-align: right; color: var(--gold); font-weight: 700; font-size: 24px; margin-top: 26px; break-inside: avoid; page-break-inside: avoid; }
@@ -94,7 +95,7 @@
   .steps { border-top: 1px solid var(--card-border); margin: 0; }
   .step {
     display: flex; gap: 18px; align-items: flex-start;
-    padding: 13px 2px; border-bottom: 1px solid var(--card-border);
+    padding: 11px 2px; border-bottom: 1px solid var(--card-border);
     break-inside: avoid; page-break-inside: avoid;
   }
   .step .num {
@@ -104,12 +105,12 @@
     display: flex; align-items: center; justify-content: center;
   }
   .step .txt { flex: 1; }
-  .step .txt h3 { font-size: 28px; margin-bottom: 6px; }
-  .step .txt p { color: #D9D3C9; margin: 0; font-size: 26px; line-height: 1.4; }
+  .step .txt h3 { font-size: 25px; margin-bottom: 6px; }
+  .step .txt p { color: #D9D3C9; margin: 0; font-size: 24px; line-height: 1.34; }
 
   .closing {
     margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--card-border);
-    text-align: center; font-weight: 700; color: #fff; font-size: 29px; line-height: 1.34;
+    text-align: center; font-weight: 700; color: #fff; font-size: 26px; line-height: 1.34;
     break-inside: avoid; page-break-inside: avoid;
   }
 
@@ -121,14 +122,14 @@
   ul.check.no li:before { content: "✕"; position: absolute; left: 0; top: 0; color: #7a7166; font-weight: 800; font-size: 29px; }
 
   /* ---------- Sobre (foto) ---------- */
-  .about { display: flex; gap: 34px; align-items: flex-start; break-inside: avoid; page-break-inside: avoid; }
+  .about { display: flex; gap: 30px; align-items: center; break-inside: avoid; page-break-inside: avoid; }
   .about .photo {
-    flex: 0 0 66mm; width: 66mm; border-radius: 18px; overflow: hidden;
+    flex: 0 0 82mm; width: 82mm; border-radius: 18px; overflow: hidden;
     border: 1px solid var(--card-border); box-shadow: 0 16px 40px rgba(0,0,0,0.5);
   }
   .about .photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
   .about .bio { flex: 1; }
-  .about .bio p { font-size: 27px; margin-bottom: 26px; }
+  .about .bio p { font-size: 27px; margin-bottom: 20px; }
   .about .bio p:last-child { margin-bottom: 0; }
 
   /* ---------- Depoimentos (prints) ---------- */
@@ -252,7 +253,7 @@
   <section class="topic">
     <span class="eyebrow">Como isso se resolve</span>
     <h2 class="title">A lógica da <span class="gold">metodologia Magna</span></h2>
-    <p class="intro">O mercado vende a ilusão de que basta <strong>uma ação isolada</strong> — rodar tráfego ou postar todo dia — para estourar de vender. <strong>Isso é mentira.</strong> A sua presença precisa ser um ecossistema com três áreas juntas:</p>
+    <p class="intro">O mercado vende a ilusão de que basta <strong>uma ação isolada</strong>, seja rodar tráfego ou postar todo dia, para estourar de vender. <strong>Isso é mentira.</strong> A sua presença precisa ser um ecossistema com três áreas juntas:</p>
     <div class="steps">
       <div class="step">
         <div class="num">01</div>
@@ -272,7 +273,7 @@
         <div class="num">03</div>
         <div class="txt">
           <h3>Organização e vendas</h3>
-          <p>A engrenagem que garante <strong>converter mais, aumentar o ticket e vender com qualidade</strong> — processo comercial, atendimento e entrega funcionando.</p>
+          <p>A engrenagem que garante <strong>converter mais, aumentar o ticket e vender com qualidade</strong>. Processo comercial, atendimento e entrega funcionando.</p>
         </div>
       </div>
     </div>
@@ -289,7 +290,7 @@
         <div class="num">01</div>
         <div class="txt">
           <h3>Mapeamento de maturidade</h3>
-          <p>Identificar a realidade da sua estrutura hoje para descobrir <strong>qual área tem o vazamento mais urgente</strong> — marketing, captação ou vendas.</p>
+          <p>Identificar a realidade da sua estrutura hoje para descobrir <strong>qual área tem o vazamento mais urgente</strong>, seja em marketing, captação ou vendas.</p>
         </div>
       </div>
       <div class="step">
