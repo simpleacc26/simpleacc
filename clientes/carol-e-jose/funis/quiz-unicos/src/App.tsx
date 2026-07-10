@@ -55,12 +55,14 @@ export default function App() {
   const initSlug = initPath.startsWith("/diagnostico/") ? initPath.replace("/diagnostico/", "") : null;
   const initBucket = initSlug ? (getBucketFromSlug(initSlug) ?? "Refém da Operação") : "Refém da Operação";
   const initStep: Step = initPath === "/agendamento" ? "agendamento" : initSlug ? "diagnostico" : "landing";
+  // URL /diagnostico/comunidade identifica o diagnóstico dos desqualificados.
+  const initQualified = initSlug !== "comunidade";
   const [step, setStep] = useState<Step>(initStep);
   const [bucket, setBucket] = useState<string>(initBucket);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [leadData, setLeadData] = useState<LeadData | null>(null);
-  const [isQualified, setIsQualified] = useState(true);
+  const [isQualified, setIsQualified] = useState(initQualified);
   const [utm, setUtm] = useState<UtmParams>({
     utm_source: "",
     utm_medium: "",
@@ -106,7 +108,8 @@ export default function App() {
         setIsQualified(false);
         setBucket(bucketName);
         setStep("diagnostico");
-        window.history.pushState({}, "", `/diagnostico/${getSlugFromBucket(bucketName)}`);
+        // URL única para os desqualificados, facilitando o traqueamento.
+        window.history.pushState({}, "", "/diagnostico/comunidade");
       }
     }
   };
