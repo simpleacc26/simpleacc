@@ -33,9 +33,11 @@ function trackEvent(name, data = {}) {
   console.log(`[TRACK] ${name}`, payload);
   try {
     if (TRACKING_CONFIG.ga4_id && typeof gtag === "function") gtag("event", name, data);
+    // Só os eventos mapeados vão pro Pixel (evita ruído e PageView duplicado).
+    // Os demais eventos internos ficam só no console/GA4/webhook.
     if (TRACKING_CONFIG.meta_pixel_id && typeof fbq === "function") {
       const std = META_STANDARD[name];
-      if (std) fbq("track", std, data); else fbq("trackCustom", name, data);
+      if (std) fbq("track", std, data);
     }
     if (TRACKING_CONFIG.custom_webhook && navigator.sendBeacon)
       navigator.sendBeacon(TRACKING_CONFIG.custom_webhook, JSON.stringify({ event: name, ...payload }));
