@@ -52,11 +52,13 @@ function isICPQualified(answers: Record<number, string>): boolean {
 
 export default function App() {
   const initPath = window.location.pathname;
+  // Desqualificados usam /comunidade; qualificados usam /diagnostico/<bucket>.
+  // Assim, "diagnostico" na URL identifica exclusivamente os qualificados.
+  const isComunidade = initPath === "/comunidade";
   const initSlug = initPath.startsWith("/diagnostico/") ? initPath.replace("/diagnostico/", "") : null;
   const initBucket = initSlug ? (getBucketFromSlug(initSlug) ?? "Refém da Operação") : "Refém da Operação";
-  const initStep: Step = initPath === "/agendamento" ? "agendamento" : initSlug ? "diagnostico" : "landing";
-  // URL /diagnostico/comunidade identifica o diagnóstico dos desqualificados.
-  const initQualified = initSlug !== "comunidade";
+  const initStep: Step = initPath === "/agendamento" ? "agendamento" : (initSlug || isComunidade) ? "diagnostico" : "landing";
+  const initQualified = !isComunidade;
   const [step, setStep] = useState<Step>(initStep);
   const [bucket, setBucket] = useState<string>(initBucket);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -108,8 +110,9 @@ export default function App() {
         setIsQualified(false);
         setBucket(bucketName);
         setStep("diagnostico");
-        // URL única para os desqualificados, facilitando o traqueamento.
-        window.history.pushState({}, "", "/diagnostico/comunidade");
+        // URL exclusiva dos desqualificados: /comunidade (sem "diagnostico"),
+        // para separar claramente no traqueamento.
+        window.history.pushState({}, "", "/comunidade");
       }
     }
   };
