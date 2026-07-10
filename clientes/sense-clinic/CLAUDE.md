@@ -20,9 +20,11 @@ onde o outro parou (o Git é a memória compartilhada).
 3. Salve os entregáveis na pasta certa (acima) e **registre o aprendizado** em `aprendizados.md`.
 4. Trabalhe numa branch `cliente/sense-clinic/<assunto>` e abra PR.
 
-## Contexto rápido (preencher)
+## Contexto rápido
 
-- **Oferta principal:** _(a preencher)_
-- **Público / ICP:** _(a preencher)_
-- **Links (site, páginas, Make, Figma, Drive):** _(a preencher)_
-- **Contato principal:** _(a preencher)_
+- **Oferta principal:** remoção/despigmentação de tatuagem (Ana Luiza) e
+  clareamento íntimo + peeling (Ana Paula). Chapecó/SC. Ver `contexto/produto-e-icp.md`.
+- **Público / ICP:** mulher 18–42, classe média-alta. Clareamento: 18–35, conversão
+  rápida. Tatuagem: 20+, jornada 40–60 dias.
+- **Links:** Drive do cliente — https://drive.google.com/drive/folders/1eJRQcnTdc5SJJYuEtFxRO5krjnghUeOj
+- **Contato principal:** Ana Luiza e Ana Paula (sócias). Preencher WhatsApp no README.
