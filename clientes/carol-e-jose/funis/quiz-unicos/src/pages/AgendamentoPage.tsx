@@ -9,7 +9,7 @@ interface AgendamentoPageProps {
 
 const CTA_URL_QUALIFIED =
   import.meta.env.VITE_CTA_URL ||
-  "https://api.whatsapp.com/send/?phone=555591466065&text=Ol%C3%A1%21+Vim+pelo+site+e+gostaria+de+saber+mais+informa%C3%A7%C3%B5es&type=phone_number&app_absent=0";
+  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0zy_l57UqviGoP8HlkBEt4a894iIQafVRxFK3CsjMNQWz8E07MRlg8eNdBu1oG5s8cnv3i6ILD";
 
 const NAVY = "#16314f";
 const GOLD = "#a9802f";
