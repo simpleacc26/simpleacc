@@ -8,8 +8,8 @@
    Vazio = só loga no console. ---- */
 const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "328694529132563", custom_webhook: "" };
 
-/* Eventos do funil que viram evento PADRÃO do Meta (melhor para otimização e
-   conversões personalizadas). O resto vai como trackCustom com o mesmo nome. */
+/* Únicos eventos do funil que vão pro Pixel, como evento PADRÃO do Meta (para
+   otimização e conversões). Os demais eventos internos ficam só no console. */
 const META_STANDARD = { funnel_start: "InitiateCheckout", funnel_complete: "Lead" };
 
 /* Planilha de leads via Make (webhook instant → Google Sheets).
