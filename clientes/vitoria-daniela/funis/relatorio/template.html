@@ -122,15 +122,16 @@
   ul.check.no li:before { content: "✕"; position: absolute; left: 0; top: 0; color: #7a7166; font-weight: 800; font-size: 29px; }
 
   /* ---------- Sobre (foto) ---------- */
-  .about { display: flex; gap: 30px; align-items: center; break-inside: avoid; page-break-inside: avoid; }
+  .about { display: block; break-inside: avoid; page-break-inside: avoid; }
+  .about-top { display: flex; gap: 30px; align-items: center; margin-bottom: 24px; }
   .about .photo {
     flex: 0 0 82mm; width: 82mm; border-radius: 18px; overflow: hidden;
     border: 1px solid var(--card-border); box-shadow: 0 16px 40px rgba(0,0,0,0.5);
   }
   .about .photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
   .about .bio { flex: 1; }
-  .about .bio p { font-size: 27px; margin-bottom: 20px; }
-  .about .bio p:last-child { margin-bottom: 0; }
+  .about p { font-size: 27px; margin-bottom: 20px; }
+  .about p:last-child { margin-bottom: 0; }
 
   /* ---------- Depoimentos (prints) ---------- */
   .prints { text-align: center; }
@@ -343,9 +344,13 @@
     <span class="eyebrow">Quem vai te conduzir</span>
     <h2 class="title">Sobre a <span class="gold">Vitória Daniela</span></h2>
     <div class="about">
-      <div class="photo"><img src="{{PHOTO}}" alt="Vitória Daniela" /></div>
-      <div class="bio">
-        <p>Há <strong>mais de 8 anos</strong> nos bastidores de marketing e vendas na internet, com <strong>mais de 300 projetos</strong> liderados no Brasil e nos EUA, gerando faturamentos de 5, 6 e 7 dígitos.</p>
+      <div class="about-top">
+        <div class="photo"><img src="{{PHOTO}}" alt="Vitória Daniela" /></div>
+        <div class="bio">
+          <p>Há <strong>mais de 8 anos</strong> nos bastidores de marketing e vendas na internet, com <strong>mais de 300 projetos</strong> liderados no Brasil e nos EUA, gerando faturamentos de 5, 6 e 7 dígitos.</p>
+        </div>
+      </div>
+      <div class="about-rest">
         <p>Na Magna, trabalhamos com <strong>poucos clientes</strong> para focar nas nuances que o seu mercado exige.</p>
         <p>Meu papel é te tirar do caos, entender seu momento e <strong>conectar as frentes que já existem</strong> no seu negócio para que funcionem de verdade.</p>
       </div>

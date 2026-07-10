@@ -426,6 +426,16 @@ carta (27→26px). Todas as 11 páginas voltaram a caber em 1 folha cada. **Padr
 a repetir: trocar a família de fonte muda a paginação — sempre remedir e
 reajustar tamanhos depois de trocar a fonte.**
 
+## Rodada 10 — layout da página "Sobre" em L (2026-07-10)
+
+A pedido do Daniel/Vitória, a página "Sobre" deixou de ser foto+bio lado a lado
+e virou um layout em "L": o **1º parágrafo** ("Há mais de 8 anos… 5, 6 e 7
+dígitos.") fica **ao lado da foto**, e os **2 parágrafos restantes** ("Na Magna…"
+e "Meu papel…") descem **corridos em largura total**, de uma margem lateral à
+outra, embaixo da foto e do 1º texto. Implementação: `.about` virou bloco com
+`.about-top` (flex: foto + 1º parágrafo) e `.about-rest` (parágrafos full-width).
+Continua cabendo em 1 página (medido).
+
 ## Pendências / próximos passos
 
 - **Confirmar com a Vitória** o resultado da rodada 9 (Montserrat, sem
