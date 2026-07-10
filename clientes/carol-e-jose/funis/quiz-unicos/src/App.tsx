@@ -151,10 +151,12 @@ export default function App() {
 
     await Promise.all([webhookCall, minDelay]);
 
-    // Faturamento abaixo do mínimo (Q7 = "Até R$ 50 mil"): o lead já entrou
-    // na base pelo webhook acima, mas é direcionado à comunidade — nunca à
-    // agenda nem ao diagnóstico de sessão.
-    if (answers[TOTAL_QUESTIONS - 1] === "1") {
+    // Faturamento abaixo de R$1M/ano (≈ R$83 mil/mês) → fora do ICP,
+    // independentemente do setor. Q7 (índice 6): "1" = Até R$50 mil e
+    // "2" = R$50–100 mil. O lead já entrou na base pelo webhook acima, mas é
+    // direcionado à comunidade — nunca à agenda nem ao diagnóstico de sessão.
+    const faturamentoMensal = answers[TOTAL_QUESTIONS - 1];
+    if (faturamentoMensal === "1" || faturamentoMensal === "2") {
       fbqTrack("Lead", {
         content_name: "Lead Quiz ÚNICOS",
         content_category: "Fora do perfil (faturamento)",
