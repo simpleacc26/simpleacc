@@ -72,13 +72,11 @@ export default function App() {
     if (currentIndex < TOTAL_QUESTIONS - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      // Q7 = faturamento gate: < R$1M → gate-block without lead form
-      if (value === "1") {
-        setStep("gate-block");
-      } else {
-        fbqTrack("InitiateCheckout", { content_name: "Captura de Lead Quiz ÚNICOS" });
-        setStep("lead-capture");
-      }
+      // Última pergunta (faturamento): TODOS preenchem o formulário para
+      // entrar na base de leads. O destino final (agenda x comunidade) é
+      // decidido no envio, em handleLeadSubmit.
+      fbqTrack("InitiateCheckout", { content_name: "Captura de Lead Quiz ÚNICOS" });
+      setStep("lead-capture");
     }
   };
 
@@ -141,6 +139,18 @@ export default function App() {
       : Promise.resolve();
 
     await Promise.all([webhookCall, minDelay]);
+
+    // Faturamento abaixo do mínimo (Q7 = "Até R$ 50 mil"): o lead já entrou
+    // na base pelo webhook acima, mas é direcionado à comunidade — nunca à
+    // agenda nem ao diagnóstico de sessão.
+    if (answers[TOTAL_QUESTIONS - 1] === "1") {
+      fbqTrack("Lead", {
+        content_name: "Lead Quiz ÚNICOS",
+        content_category: "Fora do perfil (faturamento)",
+      });
+      setStep("gate-block");
+      return;
+    }
 
     const qualified = calcIsQualified(answers);
     fbqTrack("Lead", {
