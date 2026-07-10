@@ -29,6 +29,17 @@ function calcIsQualified(answers: Record<number, string>): boolean {
   return calcScore(answers) >= 35;
 }
 
+// Regra extra de ICP: indústria de menor porte tocada por quem não decide.
+// Q1 (setor) índice 0, Q2 (cargo) índice 1, Q7 (faturamento mensal) índice 6.
+// R$3M/ano ≈ R$250 mil/mês → faixas "1","2","3" (até R$300 mil/mês) contam como abaixo.
+// Cargos sem poder de decisão: "3" (executivo recente) e "4" (gestor com autonomia parcial).
+function isOutOfICP(answers: Record<number, string>): boolean {
+  const industria = answers[0] === "4";
+  const abaixo3M = answers[6] === "1" || answers[6] === "2" || answers[6] === "3";
+  const semDecisao = answers[1] === "3" || answers[1] === "4";
+  return industria && abaixo3M && semDecisao;
+}
+
 export default function App() {
   const initPath = window.location.pathname;
   const initSlug = initPath.startsWith("/diagnostico/") ? initPath.replace("/diagnostico/", "") : null;
@@ -152,7 +163,7 @@ export default function App() {
       return;
     }
 
-    const qualified = calcIsQualified(answers);
+    const qualified = calcIsQualified(answers) && !isOutOfICP(answers);
     fbqTrack("Lead", {
       content_name: "Lead Quiz ÚNICOS",
       content_category: qualified ? "Qualificado" : "Desqualificado",
