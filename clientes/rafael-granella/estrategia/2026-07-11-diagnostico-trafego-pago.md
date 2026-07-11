@@ -52,7 +52,7 @@ O gargalo não é "criativo fraco" nem "quiz mal feito" — é uma combinação 
 
 ### Fase 1 — Medição (esta semana, antes de qualquer outra mudança)
 Sem isso, nenhuma decisão de criativo/orçamento daqui pra frente é confiável.
-- ~~Adicionar o trigger `25 - Relatório View` nas tags `[GA4] 3 | Submit` e `[Meta Ads] 3 | Submit`~~ — **feito e validado em 11/07/2026** via GTM Tag Assistant: as duas tags dispararam corretamente junto com o evento `relatorio_view` (teste real no quiz em produção). Confirmar se a versão já foi publicada ("Enviar") e checar no Meta Events Manager se a conversão customizada `submit_application_website` está de fato mapeada no evento padrão `SubmitApplication`.
+- ~~Adicionar o trigger `25 - Relatório View` nas tags `[GA4] 3 | Submit` e `[Meta Ads] 3 | Submit`~~ — **feito, publicado e validado ponta a ponta em 11/07/2026**: testado no GTM Tag Assistant (as duas tags dispararam certo no evento `relatorio_view`) e confirmado no Meta Events Manager — a conversão personalizada "Enviar inscrição" (ID 892570093867404, a mesma que aparece como `submit_application_website` nos relatórios do Ads Manager), com regra `Evento = SubmitApplication` + `URL contém "quiz.rafaelgranella.com"`, recebeu o evento do teste em tempo real. Correção 100% fechada.
 - ~~Verificar se o app dispara `dataLayer.push({event: 'relatorio_view'})`~~ — confirmado no bundle de produção, já está correto.
 - **[Recomendado, opcional]** O disparo do webhook do lead e do `relatorio_view` já acontecem lado a lado no código — fica como melhoria futura considerar um evento dedicado no exato instante do envio do formulário, caso quisermos medir captura de lead separado da visualização do relatório.
 - Corrigir o parâmetro de URL dinâmico quebrado (`{{campaign.name}}` etc.) na configuração do anúncio/link do quiz.
@@ -75,4 +75,7 @@ Sem isso, nenhuma decisão de criativo/orçamento daqui pra frente é confiável
 - Export de campanha (nível campanha, pra ver orçamento diário real — hoje só sabemos que está em "orçamento da campanha", CBO)
 - Exports equivalentes das campanhas de Webinário e Formulário Nativo
 - Confirmar no Clarity se o funil (Landing → Quiz → Relatório → Envio) está configurado — hoje não está ("Configure os funis para encontrá-los aqui")
-- Publicar a correção do GTM (trigger 25 nas tags de Submit) e validar em Preview mode
+- Corrigir o parâmetro de URL dinâmico quebrado (`{{campaign.name}}` etc.)
+- Reativar/recriar o anúncio `AD05 - CARD - Existe uma diferença`
+
+~~Publicar a correção do GTM e validar~~ — feito e confirmado ponta a ponta em 11/07/2026 (ver Fase 1 acima).
