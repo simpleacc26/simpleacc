@@ -42,18 +42,21 @@
 
 7. **Qualificação geral saudável.** Dos 15 leads com UTM rastreável, 60% declaram faturamento ≥R$20k/mês. O quiz está atraindo o público certo — o problema é volume, não qualidade de quem chega.
 
+8. **Causa raiz da subcontagem de conversões, confirmada no export do GTM (`GTM-MVWPJF6H`, versão "Correção 29.06").** O container tem dois triggers pra saber quando o lead chegou no relatório: `14 - Evento Lead` (tipo `PAGEVIEW`, dispara quando a URL contém `/relatorio/`) e `25 - Relatório View` (tipo `CUSTOM_EVENT`, dispara no evento `relatorio_view` do `dataLayer`). Como o quiz é uma SPA (React, navegação client-side), um trigger `PAGEVIEW` praticamente nunca dispara ao navegar internamente pro relatório — só em reload/acesso direto. As tags de **Lead** (`[GA4] 2`, `[Meta Ads] 2`, `[API] 2`) disparam nos dois triggers `[14, 25]`, então têm alguma chance via o evento customizado. Mas as tags de **Submit** (`[GA4] 3 | Submit`, `[Meta Ads] 3 | Submit`) disparam **só no trigger 14** — faltou incluir o 25. É o evento `SubmitApplication` dessa tag que alimenta a conversão customizada `submit_application_website` do Meta Ads (achado #4, só 2 conversões em 30 dias). Também explica o Clarity mostrar só 4 de 263 sessões chegando numa URL `/relatorio/*` — mesmo sintoma, ferramenta diferente. **Pendente confirmar**: se o quiz (código-fonte ainda não localizado — não é o `quiz-alivance/` deste repo, que está desatualizado) realmente dispara `dataLayer.push({event: 'relatorio_view'})` ao mostrar o relatório; sem isso, o trigger 25 também fica órfão.
+
 ## Conclusão
 
-O gargalo não é "criativo fraco" nem "quiz mal feito" — é uma combinação de **investimento reduzido + orçamento pulverizado + medição quebrada**, com um agravante estrutural: o anúncio que historicamente mais performava foi tirado do ar sem substituto à altura.
+O gargalo não é "criativo fraco" nem "quiz mal feito" — é uma combinação de **investimento reduzido + orçamento pulverizado + medição quebrada**, com um agravante estrutural: o anúncio que historicamente mais performava foi tirado do ar sem substituto à altura. A medição quebrada tem causa raiz identificada: trigger de PageView incompatível com navegação SPA nas tags de Submit do GTM.
 
 ## Plano de ação (em ordem de prioridade)
 
 ### Fase 1 — Medição (esta semana, antes de qualquer outra mudança)
 Sem isso, nenhuma decisão de criativo/orçamento daqui pra frente é confiável.
+- **[GTM, correção imediata, sem depender de código]** Adicionar o trigger `25 - Relatório View` nas tags `[GA4] 3 | Submit` e `[Meta Ads] 3 | Submit` (hoje só têm o trigger `14`, que quase não dispara numa SPA).
+- **[Código do quiz, a confirmar]** Verificar se o app dispara `dataLayer.push({event: 'relatorio_view'})` no momento em que mostra o relatório. Sem isso, o trigger 25 não funciona pra ninguém.
+- **[Recomendado]** Adicionar um evento de `dataLayer` disparado no momento exato da captura do WhatsApp/e-mail (antes da navegação pro relatório) — deixa a métrica de Lead independente de qualquer roteamento de página.
 - Corrigir o parâmetro de URL dinâmico quebrado (`{{campaign.name}}` etc.) na configuração do anúncio/link do quiz.
-- Verificar se o Meta Pixel **e** a Conversions API (CAPI) estão instalados e disparando no evento certo de conclusão do quiz (usar o Meta Pixel Helper pra confirmar ao vivo).
-- Reconciliar: nº de leads no CRM/GHL x nº de conversões contadas pelo Meta, pra medir o tamanho real da perda de tracking.
-- Confirmar GA4/GTM como fonte secundária de verdade (hoje não documentado nos acessos).
+- Reconciliar: nº de leads no CRM/GHL x nº de conversões contadas pelo Meta, pra medir o tamanho real da perda de tracking depois da correção.
 
 ### Fase 2 — Estancar o desperdício de orçamento (próximas 1-2 semanas)
 - Pausar de vez os anúncios com CPM alto e zero conversão/qualificação (ex.: `AD14 - CARD - A maioria dos mentores`).
@@ -71,4 +74,5 @@ Sem isso, nenhuma decisão de criativo/orçamento daqui pra frente é confiável
 ## Pendências para fechar o diagnóstico 100%
 - Export de campanha (nível campanha, pra ver orçamento diário real — hoje só sabemos que está em "orçamento da campanha", CBO)
 - Exports equivalentes das campanhas de Webinário e Formulário Nativo
-- Confirmação de status do GA4/GTM/CAPI
+- Localizar o projeto Vercel do quiz em produção (não identificado entre os 15 projetos do time Simple) e confirmar se `relatorio_view` está implementado no `dataLayer`
+- Confirmar no Clarity se o funil (Landing → Quiz → Relatório → Envio) está configurado — hoje não está ("Configure os funis para encontrá-los aqui")
