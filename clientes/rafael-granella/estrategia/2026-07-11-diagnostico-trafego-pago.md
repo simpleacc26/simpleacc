@@ -52,7 +52,7 @@ O gargalo não é "criativo fraco" nem "quiz mal feito" — é uma combinação 
 
 ### Fase 1 — Medição (esta semana, antes de qualquer outra mudança)
 Sem isso, nenhuma decisão de criativo/orçamento daqui pra frente é confiável.
-- **[GTM, correção imediata, sem depender de código]** Adicionar o trigger `25 - Relatório View` nas tags `[GA4] 3 | Submit` e `[Meta Ads] 3 | Submit` (hoje só têm o trigger `14`, que quase não dispara numa SPA).
+- ~~Adicionar o trigger `25 - Relatório View` nas tags `[GA4] 3 | Submit` e `[Meta Ads] 3 | Submit`~~ — **feito e validado em 11/07/2026** via GTM Tag Assistant: as duas tags dispararam corretamente junto com o evento `relatorio_view` (teste real no quiz em produção). Confirmar se a versão já foi publicada ("Enviar") e checar no Meta Events Manager se a conversão customizada `submit_application_website` está de fato mapeada no evento padrão `SubmitApplication`.
 - ~~Verificar se o app dispara `dataLayer.push({event: 'relatorio_view'})`~~ — confirmado no bundle de produção, já está correto.
 - **[Recomendado, opcional]** O disparo do webhook do lead e do `relatorio_view` já acontecem lado a lado no código — fica como melhoria futura considerar um evento dedicado no exato instante do envio do formulário, caso quisermos medir captura de lead separado da visualização do relatório.
 - Corrigir o parâmetro de URL dinâmico quebrado (`{{campaign.name}}` etc.) na configuração do anúncio/link do quiz.
