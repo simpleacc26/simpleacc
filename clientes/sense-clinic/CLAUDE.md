@@ -26,5 +26,5 @@ onde o outro parou (o Git é a memória compartilhada).
   clareamento íntimo + peeling (Ana Paula). Chapecó/SC. Ver `contexto/produto-e-icp.md`.
 - **Público / ICP:** mulher 18–42, classe média-alta. Clareamento: 18–35, conversão
   rápida. Tatuagem: 20+, jornada 40–60 dias.
-- **Links:** Drive do cliente — https://drive.google.com/drive/folders/1eJRQcnTdc5SJJYuEtFxRO5krjnghUeOj
+- **Links:** Instagram @sense.clinicc (https://www.instagram.com/sense.clinicc/) · Drive do cliente https://drive.google.com/drive/folders/1eJRQcnTdc5SJJYuEtFxRO5krjnghUeOj
 - **Contato principal:** Ana Luiza e Ana Paula (sócias). Preencher WhatsApp no README.

@@ -14,6 +14,7 @@ Clínica de estética em **Chapecó/SC**, com duas frentes: **remoção de tatua
 
 ## Links úteis
 
+- **Instagram:** https://www.instagram.com/sense.clinicc/ (@sense.clinicc)
 - **Drive (raiz do cliente):** https://drive.google.com/drive/folders/1eJRQcnTdc5SJJYuEtFxRO5krjnghUeOj
   - `1. Documentos` — Canvas do Produto + Cliente Ideal, Onboarding, Cadência Comercial, Indicadores.
   - `4. Copy` — doc "[Sense Clinic] Copies 2026" (copies de anúncios + Plano de Inauguração).
