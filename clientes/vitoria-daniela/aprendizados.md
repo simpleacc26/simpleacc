@@ -1,4 +1,4 @@
-# Aprendizados — Vitória Daniela
+# Aprendizados: Vitória Daniela
 
 Log do que funciona e do que não funciona com este cliente. Toda sessão pode
 adicionar uma linha. É a memória que se acumula ao longo do tempo.
@@ -13,3 +13,4 @@ adicionar uma linha. É a memória que se acumula ao longo do tempo.
 | 2026-07-14 | Toda peça precisa de **racional** (hipótese, objetivo, gatilho). Nada de "copies soltas". Entregar ideia+ângulo+porquê, não copy pronta. | Feedback Vitória (28.05) |
 | 2026-07-14 | Virada de ângulo: de "sistema que funciona sem você" → **"direção estratégica para quem já está em movimento"** (tinha equipe/budget desqualificado chegando). | Feedback Vitória (23.06) |
 | 2026-07-14 | Criado o **modelo de planejamento de criativos** (`copy/2026-07-14-modelo-planejamento-criativos.md`) para entregar à Vitória. | Esta sessão |
+| 2026-07-14 | **NUNCA usar travessão nas copies** (o traço longo). A Vitória odeia, associa a "cara de IA". Usar vírgula, ponto, dois-pontos ou parênteses. | Feedback Vitória (via Daniel) |
