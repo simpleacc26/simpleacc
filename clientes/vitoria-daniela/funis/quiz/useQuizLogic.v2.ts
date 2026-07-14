@@ -197,7 +197,7 @@ export const useQuizLogic = () => {
 
       if (!res.ok) throw new Error('Failed');
 
-      setCurrentStep(8); // Success
+      setCurrentStep(7); // Success (0-5 perguntas, 6 lead form, 7 sucesso)
     } catch (e) {
       console.error(e);
       setSubmissionError(true);
