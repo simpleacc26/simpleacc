@@ -187,7 +187,7 @@ export const useQuizLogic = () => {
     };
 
     try {
-      const WEBHOOK_URL = 'https://hook.us2.make.com/cgyeyqut7cwnvv2m9ac9rgowsvg6qo9b';
+      const WEBHOOK_URL = 'https://hook.us2.make.com/j7wh9ki8ae9qrkeb279w73e3hx3iesgr';
 
       const res = await fetch(WEBHOOK_URL, {
         method: 'POST',
