@@ -20,9 +20,13 @@ onde o outro parou (o Git é a memória compartilhada).
 3. Salve os entregáveis na pasta certa (acima) e **registre o aprendizado** em `aprendizados.md`.
 4. Trabalhe numa branch `cliente/vitoria-daniela/<assunto>` e abra PR.
 
-## Contexto rápido (preencher)
+## Contexto rápido
 
-- **Oferta principal:** _(a preencher)_
-- **Público / ICP:** _(a preencher)_
-- **Links (site, páginas, Make, Figma, Drive):** _(a preencher)_
-- **Contato principal:** _(a preencher)_
+- **Oferta principal:** Método Magna — estratégia 360º de vendas para alto ticket. Produtos: Implementação Magna (~72–80k) e Mentoria Magnetizze (~15k).
+- **Promessa:** "Traga a autoridade que você já tem no offline para a internet e capte clientes de alto valor" / "quanto lucro a mais em 2026 com o Método Magna".
+- **Funil:** criativo → quiz → diagnóstico personalizado → conversa estratégica → produto.
+- **Público / ICP:** empresárias/profissionais liberais premium (~28–40, fatura 20k+/mês), foco Camadas A e B. Compram confiança e resultado, não ideia.
+- **Regra de copy (crítica):** NÃO parecer marketing de guru; MIX dor+destino (herói); gancho forte; palavras-chave da promessa. Detalhes em `contexto/` e `copy/2026-07-14-modelo-planejamento-criativos.md`.
+- **Links:** site vitoriadaniela.com.br/metodomagna · IG @vitoriadanielasd · Drive "Simple <> Vitória Daniela".
+
+> Antes de gerar copy, leia `contexto/2026-07-14-contexto-consolidado.md` e o modelo em `copy/`.
