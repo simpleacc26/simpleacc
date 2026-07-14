@@ -1,5 +1,7 @@
+import { useEffect } from "react";
 import { ArrowRight, Check, X, ShieldCheck } from "lucide-react";
 import { answerLabels } from "../data/questions";
+import { fbqTrack } from "../analytics";
 import type { LeadData } from "./LeadCaptureForm";
 
 const ROSE = "#C87B75";
@@ -53,6 +55,7 @@ function CtaBlock({ note }: { note?: string }) {
         href={CTA_URL}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={() => fbqTrack("InitiateCheckout", { value: 97, currency: "BRL", content_name: "Kit Chocolatier" })}
         className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl w-full max-w-sm justify-center transition-all hover:opacity-90 shadow-lg"
         style={{
           backgroundColor: ROSE,
@@ -147,6 +150,11 @@ const IMPEDIMENT_BRIDGE: Record<string, string> = {
 // ─── COMPONENTE PRINCIPAL ─────────────────────────────────────────────────────
 
 export function ReportScreen({ leadData, answers }: ReportScreenProps) {
+  useEffect(() => {
+    fbqTrack("PageView");
+    fbqTrack("ViewContent", { content_name: "Relatório Quiz", content_category: "Chocolate" });
+  }, []);
+
   const firstName = leadData.name.split(" ")[0];
   const frustration = getLabel(4, answers[4]);
   const impediment = getLabel(6, answers[6]);
@@ -431,6 +439,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
               href={CTA_URL}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => fbqTrack("InitiateCheckout", { value: 97, currency: "BRL", content_name: "Kit Chocolatier" })}
               className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl w-full max-w-xs justify-center transition-all hover:opacity-90 shadow-lg"
               style={{
                 backgroundColor: "#fff",
