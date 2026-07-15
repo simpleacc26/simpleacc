@@ -13,3 +13,7 @@ adicionar uma linha. É a memória que se acumula ao longo do tempo.
 | 2026-06-08 | Cadências de reativação (frios e mornos) criadas — 5 toques em 10 dias para frios, 4 toques em 8 dias para mornos. | Copy |
 | 2026-07-02 | ICP confirmado: mulher 35–55 anos, maioria já tem chocolateria, frustrações com inconsistência e precificação. | Planilha de Leads / Quiz 2 |
 | 2026-07-02 | Público de maior ticket médio declarado (acima de R$30k faturamento) aparece nos leads do Quiz 2 — vale segmentar. | Planilha de Leads |
+| 2026-07-15 | Meta Pixel (ID 413208557089573) instalado no quiz: PageView na landing e no relatório, ViewContent ao abrir relatório, InitiateCheckout nos CTAs, Lead no form, CompleteRegistration ao iniciar quiz. Usar `fbqTrack()` de `src/analytics.ts` — nunca chamar `window.fbq()` diretamente. | Deploy quiz-gustavo-ono |
+| 2026-07-15 | O projeto Vercel `quiz-gustavo-ono` **não tem integração GitHub** — push no git não dispara deploy automático. Para subir: rodar `VERCEL_TOKEN=xxx npx vercel deploy --prod --yes` dentro de `funis/quiz-gustavo-ono/`. | Deploy quiz-gustavo-ono |
+| 2026-07-15 | O `vercel.json` precisa declarar `buildCommand`, `outputDirectory` e `framework` explicitamente — sem isso a Vercel serve os arquivos-fonte sem compilar (página preta no browser). | Deploy quiz-gustavo-ono |
+| 2026-07-15 | noscript do Meta Pixel deve ficar no `<body>`, não no `<head>` — Vite/parse5 rejeita conteúdo não-script dentro do noscript em head e quebra o build. | Deploy quiz-gustavo-ono |
