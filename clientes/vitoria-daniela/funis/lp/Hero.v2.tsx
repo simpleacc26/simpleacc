@@ -29,7 +29,7 @@ export function Hero() {
         <div className="flex flex-col sm:flex-row items-center md:items-start gap-6 pt-4 justify-center md:justify-start">
             <div className="space-y-2">
                 <a
-                    href="https://api.whatsapp.com/send/?phone=5533997064731&text=Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+agendar+minha+an%C3%A1lise+estrat%C3%A9gica.&type=phone_number&app_absent=0"
+                    href="https://api.whatsapp.com/send/?phone=5533999476324&text=Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+agendar+minha+an%C3%A1lise+estrat%C3%A9gica.&type=phone_number&app_absent=0"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex w-fit items-center gap-2 bg-[#25D366] text-white px-8 py-4 rounded-xl font-bold hover:scale-105 hover:bg-[#1ebc57] transition-all shadow-[0_0_20px_rgba(37,211,102,0.3)] uppercase text-sm tracking-wide"

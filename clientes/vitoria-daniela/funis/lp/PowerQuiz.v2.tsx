@@ -20,7 +20,7 @@ export function Quiz() {
   const [selected, setSelected] = useState<number | null>(null);
 
   const getWhatsappLink = () => {
-    const baseUrl = "https://api.whatsapp.com/send/?phone=5533997064731";
+    const baseUrl = "https://api.whatsapp.com/send/?phone=5533999476324";
     const text = selected !== null
       ? `Ol%C3%A1%2C%20me%20identifiquei%20com%20o%20desafio%20\"${encodeURIComponent(challenges[selected].title)}\"%20e%20gostaria%20de%20agendar%20minha%20an%C3%A1lise.`
       : "Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+agendar+minha+an%C3%A1lise+estrat%C3%A9gica.";

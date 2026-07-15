@@ -16,7 +16,7 @@ export function FooterCTA() {
         </p>
 
         <a
-            href="https://api.whatsapp.com/send/?phone=5533997064731&text=Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+agendar+minha+an%C3%A1lise+estrat%C3%A9gica.&type=phone_number&app_absent=0"
+            href="https://api.whatsapp.com/send/?phone=5533999476324&text=Ol%C3%A1%2C+vim+pelo+site+e+gostaria+de+agendar+minha+an%C3%A1lise+estrat%C3%A9gica.&type=phone_number&app_absent=0"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-[#25D366] text-white px-12 py-5 rounded-xl font-bold hover:scale-105 transition-transform shadow-[0px_0px_30px_0px_rgba(37,211,102,0.4)] uppercase text-lg tracking-wide animate-pulse inline-flex items-center gap-2"
