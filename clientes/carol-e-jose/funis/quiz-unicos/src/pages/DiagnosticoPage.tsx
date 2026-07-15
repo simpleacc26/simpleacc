@@ -54,21 +54,6 @@ export const DIAGNOSES: Record<string, DiagnosisData> = {
   },
 };
 
-const SLUG_TO_BUCKET: Record<string, string> = {
-  "refem-da-operacao": "Refém da Operação",
-  "time-sem-dono": "Time sem Dono",
-  "estagnado": "Consolidado mas Estagnado",
-  "frustrado": "O Frustrado",
-};
-
-export function getBucketFromSlug(slug: string): string | null {
-  return SLUG_TO_BUCKET[slug] ?? null;
-}
-
-export function getSlugFromBucket(bucket: string): string {
-  return DIAGNOSES[bucket]?.slug ?? "refem-da-operacao";
-}
-
 interface DiagnosticoPageProps {
   bucket: string;
   isQualified: boolean;

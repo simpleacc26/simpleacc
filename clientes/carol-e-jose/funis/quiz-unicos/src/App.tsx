@@ -1,13 +1,29 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { questions, calcScore, calcTier } from "./data/questions";
+import { getBucketFromSlug, getSlugFromBucket } from "./data/buckets";
 import { fbqTrack } from "./analytics";
 import { LandingScreen } from "./components/LandingScreen";
 import { QuestionScreen } from "./components/QuestionScreen";
 import { LeadCaptureForm, type LeadData } from "./components/LeadCaptureForm";
-import { AgendamentoPage } from "./pages/AgendamentoPage";
-import { DiagnosticoPage, getBucketFromSlug, getSlugFromBucket } from "./pages/DiagnosticoPage";
-import { GateBlockPage } from "./pages/GateBlockPage";
 import { LoadingScreen } from "./components/LoadingScreen";
+
+// Páginas mostradas depois do quiz → carregadas sob demanda (lazy), para
+// deixar o bundle inicial (landing + quiz) o mais leve e rápido possível.
+const DiagnosticoPage = lazy(() =>
+  import("./pages/DiagnosticoPage").then((m) => ({ default: m.DiagnosticoPage }))
+);
+const AgendamentoPage = lazy(() =>
+  import("./pages/AgendamentoPage").then((m) => ({ default: m.AgendamentoPage }))
+);
+const GateBlockPage = lazy(() =>
+  import("./pages/GateBlockPage").then((m) => ({ default: m.GateBlockPage }))
+);
+
+// Fallback neutro (fundo creme) enquanto o chunk da página carrega — evita
+// flash branco.
+function PageFallback() {
+  return <div style={{ minHeight: "100vh", backgroundColor: "#faf8f4" }} />;
+}
 
 type Step = "landing" | "question" | "lead-capture" | "gate-block" | "loading" | "diagnostico" | "agendamento";
 
@@ -83,6 +99,13 @@ export default function App() {
       utm_term: params.get("utm_term") || "",
     });
   }, []);
+
+  // Prefetch das próximas páginas durante os momentos ociosos, para que já
+  // estejam prontas quando o lead avançar (sem espera após o quiz).
+  useEffect(() => {
+    if (step === "question") import("./pages/DiagnosticoPage");
+    if (step === "diagnostico" && isQualified) import("./pages/AgendamentoPage");
+  }, [step, isQualified]);
 
   const handleLandingSelect = (value: string) => {
     setAnswers((prev) => ({ ...prev, 0: value }));
@@ -218,7 +241,11 @@ export default function App() {
   }
 
   if (step === "gate-block") {
-    return <GateBlockPage />;
+    return (
+      <Suspense fallback={<PageFallback />}>
+        <GateBlockPage />
+      </Suspense>
+    );
   }
 
   if (step === "lead-capture") {
@@ -236,14 +263,20 @@ export default function App() {
 
   if (step === "diagnostico") {
     return (
-      <DiagnosticoPage
-        bucket={bucket}
-        isQualified={isQualified}
-        leadData={leadData}
-        onSchedule={handleSchedule}
-      />
+      <Suspense fallback={<PageFallback />}>
+        <DiagnosticoPage
+          bucket={bucket}
+          isQualified={isQualified}
+          leadData={leadData}
+          onSchedule={handleSchedule}
+        />
+      </Suspense>
     );
   }
 
-  return <AgendamentoPage leadData={leadData} isQualified={isQualified} />;
+  return (
+    <Suspense fallback={<PageFallback />}>
+      <AgendamentoPage leadData={leadData} isQualified={isQualified} />
+    </Suspense>
+  );
 }
