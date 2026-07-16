@@ -1,0 +1,440 @@
+
+### STEP 0 — id=mckhIS — Etapa - Capa
+  [image] https://media.inlead.cloud/uploads/19971/2026-05-25/uHEYz-hoje.png
+  [text] Você está carregando um vínculo oculto.
+  [text] Eu quero te ajudar a enxergar o que está te impedindo de prosperar no dinheiro, nas emoções, nos relacionamentos e na espiritualidade.
+  [text] Faça o Diagnóstico e Descubra seu bloqueio em menos de 2 minutos.
+  [clear/spacer]
+  [button] 'Começar o teste agora mesmo' dest=next action=None
+
+### STEP 1 — id=O4jw8W — Etapa 1/2-Identificação
+  [text] Você é Homem ou mulher?
+  [clear/spacer]
+  [options] name=sexo required=True cols=grid-cols-2 multiple=None
+      - 'Homem' -> 0rhbzh  img=Y
+      - 'Mulher' -> wfeWkc  img=Y
+
+### STEP 2 — id=0rhbzh — Etapa 3-idade-Homem
+  [text] Qual a sua idade?
+  [clear/spacer]
+  [options] name=idade_sexo_masculino required=True cols=grid-cols-2 multiple=None
+      - '19-29' -> 5MNaBx  img=Y
+      - '30-39' -> 5MNaBx  img=Y
+      - '40-49' -> 5MNaBx  img=Y
+      - '50+' -> 5MNaBx  img=Y
+
+### STEP 3 — id=wfeWkc — Etapa 3-idade-mulher
+  [text] Qual a sua idade?
+  [clear/spacer]
+  [options] name=idadde_sexo_feminino required=True cols=grid-cols-2 multiple=None
+      - '19-29' -> next  img=Y
+      - '30-39' -> next  img=Y
+      - '40-49' -> None  img=Y
+      - '50+' -> None  img=Y
+
+### STEP 4 — id=5MNaBx — Etapa 4-cristão?
+  [text] Você é cristão?
+  [clear/spacer]
+  [options] name=voce_e_cristao required=True cols=grid-cols-1 multiple=None
+      - 'Sim' -> next  img=Y
+      - 'Não' -> next  img=Y
+
+### STEP 5 — id=SMnazm — Etapa 5-Casado?
+  [text] Você é casado(a)?
+  [clear/spacer]
+  [options] name=voce_e_casado required=True cols=grid-cols-1 multiple=None
+      - 'Sim' -> next  img=Y
+      - 'Não' -> next  img=Y
+
+### STEP 6 — id=gLUfjr — voce-tem filhos
+  [text] Você tem filhos?
+  [clear/spacer]
+  [options] name=opcoes_CVLL6p required=True cols=grid-cols-1 multiple=None
+      - 'Sim' -> jnVytM  img=Y
+      - 'Não' -> 6EMzPA  img=Y
+
+### STEP 7 — id=jnVytM — INSERÇÃO - FILHOS
+  [text] Estudos comprovam: Que mais de 67% dos pais com bloqueios emocionais transmitem inconscientemente esses padrões para os filhos Pesquisadores da Universidade de Harvard identificaram que crianças criad
+  [image] https://media.inlead.cloud/uploads/19971/2025-05-23/cqotl-sem-nome-225-x-300-px.png
+  [alert] variant={'style': 'success', 'basis': '75', 'horizontalAlign': 'mx-auto', 'verticalAlign': 'self-center'} :: De acordo com a pesquisa da Universidade de Stanford 2020, Stanford Institute for Economic Policy Research
+  [clear/spacer]
+  [button] 'Continuar' dest=next action=None
+
+### STEP 8 — id=6EMzPA — Etapa 7-situação financeira
+  [text] Qual frase mais ressoa com você?
+  [clear/spacer]
+  [options] name=atualmente_qual_a_sua_situacao_financeira required=True cols=grid-cols-1 multiple=None
+      - 'Me esforcei muito, mas as coisas continuam iguais.' -> next  img=Y
+      - 'Entendo meus problemas, mas não consigo mudar.' -> next  img=Y
+      - 'Quanto mais avanço, mais algo me puxa pra trás.' -> None  img=Y
+      - 'Cuido de todo mundo, mas ninguém cuida de mim.' -> None  img=Y
+
+### STEP 9 — id=FIEVNb — Etapa 8-briga/dinheiro
+  [text] No relacionamento, o que mais dói?
+  [clear/spacer]
+  [options] name=com_qual_frequencia_voce_briga_com_alguem_por_causa_de_dinheiro required=True cols=grid-cols-1 multiple=None
+      - 'Me envolvo sempre com as mesmas pessoas e vivo os mesmos conflitos.' -> next  img=Y
+      - 'Tenho dificuldade de confiar e me fechar emocionalmente.' -> next  img=Y
+      - 'Me perdi tanto no outro que não sei mais quem sou.' -> None  img=Y
+      - 'Me sinto sozinho mesmo rodeado de pessoas.' -> oj3g7f  img=Y
+
+### STEP 10 — id=pjuTog — Etapa 9-Dinheiro
+  [text] Com o dinheiro, o que mais frustra?
+  [clear/spacer]
+  [options] name=opcoes_K8DJjZ required=True cols=grid-cols-1 multiple=None
+      - 'Quando algo começa a dar certo, aparece um imprevisto.' -> next  img=Y
+      - 'Trabalho muito, mas nunca sobra ou acumula.' -> next  img=Y
+      - 'Sinto que não mereço prosperar.' -> None  img=Y
+      - 'Ciclo de dívidas que parece não ter fim.' -> oj3g7f  img=Y
+
+### STEP 11 — id=h8NpE5 — INSERÇÃO - DIVORCIO
+  [image] https://media.inlead.cloud/uploads/19971/2026-04-29/199di-captura-de-tela-2026-04-29-as-232926.png
+  [clear/spacer]
+  [alert] variant={'style': 'light', 'basis': 100} :: Você sabia que a maioria das brigas dentro de casa não são sobre dinheiro, traição ou distância? São sobre vínculos não resolvidos que cada um traz consigo antes mesmo do casamento começar. Pesquisas 
+  [clear/spacer]
+  [text] ELA PASSOU POR UM DESBLOQUEIO QUE MELHOROU A RELAÇÃO COM MARIDO E FILHOS ⬇️
+  [image] https://media.inlead.cloud/uploads/19971/2025-05-22/bi97g-mudou-da-agua-para-o-vinho.jpg
+  [button] 'Continuar' dest=next action=None
+
+### STEP 12 — id=iorQcV — Etapa 10-Emocional
+  [text] Emocionalmente, o que mais drena?
+  [clear/spacer]
+  [options] name=ultimamente_voce_compra_o_que_voce_consegue_pagar_ou_o_que_voce_quer_comprar required=True cols=grid-cols-1 multiple=None
+      - 'Ansiedade mesmo quando tudo parece bem.' -> next  img=Y
+      - 'Culpa quando me coloco em primeiro lugar.' -> next  img=Y
+      - 'Vazio que não passa mesmo após conquistar algo.' -> None  img=Y
+      - 'Sensação de estar vivendo uma vida que não é minha.' -> None  img=Y
+
+### STEP 13 — id=UefhEj — Etapa 11-Propósito
+  [text] No propósito e espiritualidade, o que mais pesa?
+  [clear/spacer]
+  [options] name=opcoes_Lnh3vJ required=True cols=grid-cols-1 multiple=None
+      - 'Tenho fé, mas sinto que não sou ouvido.' -> next  img=Y
+      - 'Não sei mais o que acredito ou pra onde vou.' -> next  img=Y
+      - 'Faço tudo certo, mas sinto vazio por dentro.' -> None  img=Y
+      - 'Me sinto distante de Deus ou indigno.' -> None  img=Y
+
+### STEP 14 — id=BQh3mo — Etapa 15-Impede
+  [text] O que te impede de dar esse passo?
+  [clear/spacer]
+  [options] name=o_que_voce_mais_sente_ao_ver_outras_pessoas_prosperando_pode_ser_100_sincero_a_ required=True cols=grid-cols-1 multiple=None
+      - 'Já tentei tanta coisa que tenho medo de frustração.' -> next  img=Y
+      - 'Não sei se funciona pra mim especificamente.' -> next  img=Y
+      - 'Dificuldade de investir em mim, tempo ou dinheiro.' -> None  img=Y
+      - 'Uma parte quer, mas outra resiste sem explicação.' -> None  img=Y
+
+### STEP 15 — id=fu3kKr — Etapa 12-Diferente
+  [text] Se você pudesse acordar amanhã com uma coisa diferente, o que seria?
+  [clear/spacer]
+  [options] name=com_qual_frequencia_voce_se_encontra_preocupado_estressado_por_conta_do_dinheiro required=True cols=grid-cols-1 multiple=None
+      - 'Não sentir mais esse peso emocional que carrego todo dia.' -> next  img=Y
+      - 'Ver o dinheiro chegar e ficar, sem crise no final do mês.' -> next  img=Y
+      - 'Ter um relacionamento onde me sinto seguro de verdade.' -> None  img=Y
+      - 'Saber com clareza quem sou e pra onde estou indo.' -> None  img=Y
+
+### STEP 16 — id=RCYgNA — INSERÇÃO - COMPRA POR IMPULSO
+  [arguments] {"cols": "grid-cols-1", "order": "default", "arguments": [{"id": "dmtkJU", "text": "<h3 class=\"ql-align-center\"><strong style=\"background-color: rgb(37, 99, 235); color: rgb(255, 255, 255);\">Um&nbsp;estudo&nbsp;realizado&nbsp;pelo&nbsp;cientista&
+  [alert] variant={'style': 'light', 'basis': 100, 'contrast': False, 'backgroundColor': '#ffe2e3', 'color': '#b91c1c', 'borderColor': '#ffcccc'} :: Você já se perguntou o que aconteceu com aquela criança que você foi? Ela não desapareceu. Ela foi silenciada. Por críticas que viraram feridas. Por medos que viraram muros. Por frases que ouviu dentr
+  [button] 'Continuar' dest=next action=None
+
+### STEP 17 — id=pQXjqw — Etapa 14-Parar-Repetir
+  [text] O que você quer parar de repetir?
+  [clear/spacer]
+  [options] name=voce_sente_que_esta_vivendo required=True cols=grid-cols-1 multiple=None
+      - 'Relacionamentos que terminam sempre do mesmo jeito.' -> next  img=Y
+      - 'Ciclos de prosperidade e crise financeira.' -> 2qT7Qv  img=Y
+      - 'Avançar e recuar sem entender por quê.' -> next  img=Y
+      - 'Me perder cuidando de todos e esquecendo de mim.' -> None  img=Y
+
+### STEP 18 — id=6FL2vX — Etapa 25-Frase já repetiu
+  [text] Quais dessas frases você mais ouvi ouviu na sua casa?
+  [clear/spacer]
+  [options] name=qual_dessas_frases_voce_ja_ouviu_ou_repetiu_dentro_da_igreja required=True cols=grid-cols-1 multiple=True
+      - '''O dinheiro é a raiz de todos os males''' -> next  img=Y
+      - '''Rico não entra no céu''' -> next  img=Y
+      - '''É mais fácil um camelo passar pelo buraco da agulha do que o rico entrar no céu''' -> None  img=Y
+      - '''Quem fica rico se desvia''' -> None  img=Y
+      - 'Nenhuma das anteriores' -> None  img=Y
+  [clear/spacer]
+  [button] 'Continuar' dest=next action=None
+
+### STEP 19 — id=awgmPI — Etapa 26-Julgado
+  [text] Você já terminou um relacionamento e percebeu que o próximo tinha os mesmos problemas?
+  [clear/spacer]
+  [options] name=voce_ja_se_sentiu_julgado_por_sonhar_em_prosperar_financeiramente required=True cols=grid-cols-1 multiple=None
+      - 'Sim, isso se repete toda vez.' -> next  img=Y
+      - 'Já percebi algumas semelhanças.' -> None  img=Y
+      - 'Nunca aconteceu comigo.' -> None  img=Y
+      - 'Nem entro em relacionamento novo de tanto medo de repetir.' -> None  img=Y
+
+### STEP 20 — id=0KNYu7 — Etapa 28-Espiritual
+  [text] Em qual momento da sua vida você acreditou que sofrer é sinônimo de alguém mais espiritual, e que a vida é mesmo assim?
+  [clear/spacer]
+  [options] name=em_algum_momento_da_sua_vida_voce_acreditou_que_ser_pobre_e_mais_espiritual required=True cols=grid-cols-1 multiple=None
+      - 'Sim, eu acredito nisso' -> next  img=Y
+      - 'As vezes eu sinto isso internamente' -> next  img=Y
+      - 'Ainda tenho minhas dúvidas' -> None  img=Y
+      - 'Nunca acreditei nisso' -> None  img=Y
+
+### STEP 21 — id=Yvcy8x — INSERÇÃO
+  [text] A epigenética, campo estudado por pesquisadores como Michael Meaney da Universidade McGill , comprova que traumas e padrões emocionais podem ser transmitidos de pais para filhos através de mecanismos 
+  [image] https://media.inlead.cloud/uploads/19971/2026-04-30/Artgx-captura-de-tela-2026-04-30-as-000835.png
+  [clear/spacer]
+  [text] O neurocientista Benjamin Libet demonstrou em experimentos que o cérebro registra a intenção de agir antes mesmo da pessoa ter consciência dessa decisão. Estudos posteriores baseados no trabalho dele 
+  [clear/spacer]
+  [alert] variant={'style': 'info', 'basis': 100, 'contrast': False} :: A maioria das pessoas volta ao mesmo ponto não porque falta esforço ou fé. Mas porque nunca encontrou o vínculo oculto que está na raiz do problema.
+  [clear/spacer]
+  [button] 'Continuar' dest=next action=None
+
+### STEP 22 — id=pkGuwI — Etapa 31-Emociona
+  [text] Aquele peso emocional que você carrega, faz quanto tempo que ele está lá?
+  [clear/spacer]
+  [options] name=imprevistos_financeiros_acontecem_quando_voce_esta_se_estabilizando_financeiramente_ required=True cols=grid-cols-1 multiple=None
+      - 'Nunca foi embora de verdade.' -> next  img=Y
+      - 'Faz anos que está lá e vai e volta.' -> next  img=Y
+      - 'Aparece às vezes mas passo rápido.' -> None  img=Y
+      - 'Não carrego nenhum peso.' -> None  img=Y
+
+### STEP 23 — id=I61r55 — Etapa 33-Vida financeira
+  [text] Quando você tenta avançar em algo importante, o que acontece?
+  [clear/spacer]
+  [options] name=qual_o_seu_maior_impedimento_para_viver_a_realidade_financeira_que_voce_deseja required=True cols=grid-cols-1 multiple=None
+      - 'Trava na hora de agir sem entender o motivo.' -> next  img=Y
+      - 'Uma voz por dentro diz que não vai dar certo.' -> next  img=Y
+      - 'Fico animado no começo mas esfrio rápido.' -> None  img=Y
+      - 'Avanço com confiança.' -> None  img=Y
+
+### STEP 24 — id=qHd98A — Etapa 16-Daqui-1ano?
+  [text] Se daqui a um ano nada mudar, como vai se sentir?
+  [clear/spacer]
+  [options] name=voce_acredita_que_voce_se_autossabota_financeiramente required=True cols=grid-cols-1 multiple=None
+      - 'Conformado — vou aceitar que é assim.' -> next  img=Y
+      - 'Frustrado — mas vou tentar de outras formas.' -> next  img=Y
+      - 'Arrependido — sabia que tinha algo a fazer.' -> None  img=Y
+      - 'Igual a hoje. E isso já me assusta.' -> None  img=Y
+
+### STEP 25 — id=sscEfw — Etapa 19-Desejo01
+  [text] O que mudaria na sua vida se você descobrisse exatamente o que está te travando?
+  [clear/spacer]
+  [options] name=avalie_o_quanto_voce_concorda_com_a_frase_tempo_e_dinheiro required=True cols=grid-cols-1 multiple=None
+      - 'Pararia de repetir os mesmos erros e finalmente avançaria.' -> next  img=Y
+      - 'Saberia por onde começar — em vez de tentar tudo e não sair do lugar.' -> next  img=Y
+      - 'Deixaria de me sabotar na hora em que mais preciso.' -> None  img=Y
+      - 'Teria coragem de dar os passos que venho adiando há anos.' -> None  img=Y
+
+### STEP 26 — id=9kjufo — Etapa 21-Desejo03
+  [text] Quanto tempo você ainda está disposto a carregar isso?
+  [clear/spacer]
+  [options] name=opcoes_mLS1Nf required=True cols=grid-cols-1 multiple=None
+      - 'Já cheguei no limite — não aguento mais ficar no mesmo lugar.' -> next  img=Y
+      - 'Sei que preciso mudar, mas ainda estou procurando o caminho certo.' -> next  img=Y
+      - 'Tenho tentado, mas cada tentativa sem resultado me cansa mais.' -> None  img=Y
+      - 'Uma parte de mim quer esperar, e outra sabe que esperar é o problema.' -> None  img=Y
+
+### STEP 27 — id=oZ4gUw — Etapa 13-Transformação
+  [options] name=opcoes_wS2pVU required=True cols=None multiple=True
+      - 'Leve — como se um peso antigo tivesse saído.' -> next  img=
+      - 'Claro — sabendo quem sou e pra onde vou.' -> next  img=
+      - 'Inteiro — sem a parte que sempre sabota.' -> next  img=
+      - 'Presente — vivendo de verdade, não sobrevivendo.' -> next  img=
+  [clear/spacer]
+  [button] 'Continuar' dest=next action=None
+
+### STEP 28 — id=O9oj4Z — Etapa 34-Diagnóstico
+  [loading] title='Calculando o MAPA certo pra você Romper...' secs=5 dest=next percent=True progress=True
+
+### STEP 29 — id=hNyzc5 — Etapa 35-Sintomas
+  [text] Resultado: Bloqueio Ativo em Múltiplas Áreas
+  [metric] label='' value=None unit=None pct=34 color=None
+  [alert] variant={'style': 'light', 'padding': 10, 'basis': '100', 'contrast': False, 'backgroundColor': '#ffe2e3', 'color': '#b91c1c', 'borderColor': '#ffcccc'} :: Sua relação com dinheiro está comprometida por um vínculo emocional. Você não tem problema financeiro — tem um bloqueio que impede o dinheiro de fluir e permanecer.
+  [metric] label='' value=None unit=None pct=15 color=None
+  [alert] variant={'style': 'light', 'padding': 10, 'basis': '100', 'contrast': False, 'backgroundColor': '#fef9c3', 'color': '#a16207', 'borderColor': '#F0E895'} :: Existe um padrão de autossabotagem operando no seu inconsciente. Você entende o que precisa mudar, mas algo por dentro continua travado.
+  [metric] label='' value=None unit=None pct=28 color=None
+  [alert] variant={'style': 'light', 'padding': 10, 'basis': '100', 'contrast': False, 'backgroundColor': '#fef9c3', 'color': '#a16207', 'borderColor': '#F0E895'} :: Seus vínculos relacionais carregam feridas não resolvidas. Isso faz você repetir padrões — mesmo quando tenta algo diferente.
+  [metric] label='' value=None unit=None pct=22 color=None
+  [alert] variant={'style': 'light', 'padding': 10, 'basis': '100', 'contrast': False, 'backgroundColor': '#fef9c3', 'color': '#a16207', 'borderColor': '#F0E895'} :: Há uma desconexão entre o que você acredita e o que você vive. A fé está presente, mas algo bloqueia a manifestação dela na sua vida prática.
+  [clear/spacer]
+  [metric] label='' value=None unit=None pct=89 color=None
+  [clear/spacer]
+  [clear/spacer]
+  [button] 'Continuar' dest=next action=None
+
+### STEP 30 — id=uI7Fe6 — Etapa 37-Quão motivado
+  [alert] variant={'style': 'danger', 'padding': '16'} :: ⚠️ Diagnóstico: Seus bloqueios estão ativos e operando agora — nas suas decisões, nos seus relacionamentos e na sua relação com o dinheiro, emocional e espiritual. Isso não é fraqueza. Não é falta de 
+  [text] Quão motivado(a) você está para DESBLOQUEAR SUA VIDA?
+  [clear/spacer]
+  [options] name=quao_motivado_a_voce_esta_para_transformar_a_sua_realidade_financeira required=True cols=grid-cols-1 multiple=None
+      - 'Só estou curioso(a) para tentar' -> next  img=Y
+      - 'Ainda não tenho certeza se consigo' -> next  img=Y
+      - 'Não vou parar até eu conseguir' -> None  img=Y
+
+### STEP 31 — id=2VzKCh — Etapa 38-comparação
+  [text] Veja a diferença de quem vive COM VÍNCULO OCULTO x quem decide romper
+  [arguments] {"cols": "grid-cols-2", "order": "default", "arguments": [{"id": "7b7OeW", "text": "<h2 class=\"ql-align-center\"><strong style=\"color: rgb(220, 38, 38);\">VÍNCULO&nbsp;OCULTO</strong><strong>&nbsp;</strong></h2><p class=\"ql-align-center\"><strong 
+  [metric] label='' value=None unit=None pct=19 color=None
+  [metric] label='' value=None unit=None pct=83 color=None
+  [metric] label='' value=None unit=None pct=14 color=None
+  [metric] label='' value=None unit=None pct=95 color=None
+  [metric] label='' value=None unit=None pct=20 color=None
+  [metric] label='' value=None unit=None pct=88 color=None
+  [metric] label='' value=None unit=None pct=75 color=None
+  [metric] label='' value=None unit=None pct=12 color=None
+  [metric] label='' value=None unit=None pct=12 color=None
+  [metric] label='' value=None unit=None pct=94 color=None
+  [clear/spacer]
+  [text] 🎯 Satisfação e Feedback após O Mapa da Alma
+  [graphics] {"cols": "grid-cols-2", "order": "default", "graphics": [{"id": "Lmk1fm", "type": "chart", "style": "#dc2626", "percent": "75", "legend": "<p class=\"ql-align-center\"><strong>Vivam&nbsp;presos&nbsp;e
+  [button] 'Continuar' dest=next action=None
+
+### STEP 32 — id=lOYFbM — Etapa 39 - Depoimento
+  [text] Agora veja na prática o poder de utilizar a técnica de desbloqueio correta com as minhas alunas...
+  [clear/spacer]
+  [carousel] {"centered": true, "spoiler": true, "pagination": true, "layout": "image", "items": [{"id": "KJtwj5", "image": {"src": "https://media.inlead.cloud/uploads/19971/2025-05-22/fvb7d-o-ano-mais-prospero-da-vida.jpg", "type": "image", "width": 1192, "heigh
+  [image] https://media.inlead.cloud/uploads/19971/2025-05-22/hezgi-crenca-de-escassez-2.jpg
+  [image] https://media.inlead.cloud/uploads/19971/2025-05-22/wsfr8-conseguiu-trocar-de-carro.jpg
+  [clear/spacer]
+  [image] https://media.inlead.cloud/uploads/19971/2025-05-22/bi97g-mudou-da-agua-para-o-vinho.jpg
+  [clear/spacer]
+  [button] 'Continuar' dest=next action=None
+
+### STEP 33 — id=mTU4MG — Etapa 40-Relato do desafio
+  [text] &quot;Me esforço, faço oração, tento me organizar... mas parece que algo puxa pra trás!&quot; Os meus alunos sempre vinham com a queixa de se esforçarem, mas sentiam que algo estava travando eles... É
+  [image] https://media.inlead.cloud/uploads/19971/2026-04-30/LdbRK-captura-de-tela-2026-04-30-as-005133.png
+  [clear/spacer]
+  [alert] variant={'style': 'danger', 'padding': '16'} :: Você até começa, mas logo perde o interesse... E VIVE NESSE CICLO...
+  [charts] {"id": "kkvaAl", "type": "cartesian", "datasetCount": 0, "xAxis": [null, null, "VÍCULO OCULTO", null, "RESULTADO", null], "datasets": [{"id": "ZQKUqH", "title": "Conjunto A", "datas": [{"id": "p5v216", "value": "10", "tooltip": null, "featured": true
+  [text] O VÍCULO OCULTO ESTÁ TE IMPEDINDO DE AVANÇAR NOS RELACIONAMENTOS, FINANCEIRO, ESPIRITUAL E EMOCIONAL.
+  [alert] variant={'style': 'light', 'padding': '16', 'basis': 100, 'contrast': False, 'backgroundColor': '#ffe2e3', 'color': '#b91c1c', 'borderColor': '#ffcccc'} :: VOCÊ SE ESFORÇA, ORA, SE DEDICA, FAZ MAIS QUE OS OUTROS E O RESULTADO É BAIXO.
+  [graphics] {"cols": "grid-cols-2", "order": "default", "graphics": [{"id": "znVFMT", "type": "bar", "style": "#dc2626", "percent": "83", "legend": "<p class=\"ql-align-center\"><strong>Esforço&nbsp;para&nbsp;AVA
+  [clear/spacer]
+  [button] 'Continuar' dest=next action=None
+
+### STEP 34 — id=8MtQ41 — Etapa 41 Depois do plano
+  [text] Mas... Depois de 2 dias do MAPA DA ALMA tive clareza do que estava me travando... Esses foram os resultados delas
+  [graphics] {"cols": "grid-cols-2", "order": "default", "graphics": [{"id": "kgnTrc", "type": "bar", "style": "#16a34a", "percent": "87", "legend": "<p class=\"ql-align-center\"><strong>Identificaram&nbsp;o&nbsp;
+  [clear/spacer]
+  [alert] variant={'style': 'success', 'basis': 100} :: Elas Reprogramaram a mente delas para conseguir viver uma vida de PLENA
+  [clear/spacer]
+  [text] Tudo isso porque em 2 dias elas receberam informações que nunca ninguém te ensinou... Nem na igreja, nem em casa, mas que são fundamentais para Desbloquear
+  [clear/spacer]
+  [button] 'Continuar' dest=next action=None
+
+### STEP 35 — id=a3cum3 — Etapa 42 Depois do plano
+  [text] Com base em tudo que você respondeu até aqui... Você receberá uma oportunidade, uma experiência profunda, com técnicas de desbloqueio ao vivo. Com isso você será capaz de romper com ciclos de autossab
+  [text] Seu Progresso:
+  [charts] {"id": "bvHYQM", "type": "cartesian", "datasetCount": 0, "xAxis": ["Início", "Dia 1", "Dia 2", "Dia 3"], "datasets": [{"id": "ZQKUqH", "title": "Conjunto A", "datas": [{"id": "0WAwbP", "value": "3", "tooltip": "Bloqueado"}, {"id": "p5v216", "value": 
+  [text] Você acredita que seria capaz de destravar sua vida se tivesse esse plano nas suas mãos?
+  [options] name=opcoes_zlX8Dg required=True cols=grid-cols-1 multiple=None
+      - 'Sim, estou pronto(a) para isso' -> next  img=Y
+      - 'Com certeza, só preciso de direção' -> next  img=Y
+      - 'Acho que sim... Quero tentar' -> None  img=Y
+  [clear/spacer]
+
+### STEP 36 — id=TW1lft — Etapa 44-loading
+  [text] Com base nas suas respostas, PREPARAMOS UM CAMINHO PRA VOCÊ VIVER SUA TRANSFORMAÇÃO.
+  [loading] title='Carregando...' secs=5 dest=next percent=True progress=True
+
+### STEP 37 — id=KY1ckD — Etapa - Cadastro
+  [text] Preencha seus dados para receber o seu caminho.
+  [field] name=ZlODyZ type=text ph='Digite seu primeiro nome...' req=True
+  [field] name=dwCopZ type=email ph='Digite seu Email...' req=True
+  [field] name=M7AfFe type=phone ph='Digite seu Whatsapp...' req=True
+  [text] Caso não seja do Brasil, não preencha o whatsApp
+  [clear/spacer]
+  [button] 'RECEBER MEU CAMINHO' dest=next action=None
+
+### STEP 38 — id=jtiAEf — Etapa 51-pitch
+  [text] Ei {{nome}}... SEU MAPA DA ALMA ESTÁ AQUI! Em 2 dias você pode remover o que nenhum curso, terapia ou retiro conseguiu tocar.
+  [text] ANTES
+  [text] DEPOIS
+  [image] https://media.inlead.cloud/uploads/19971/2026-04-30/AK6oN-captura-de-tela-2026-04-30-as-085707.png
+  [image] https://media.inlead.cloud/uploads/19971/2026-04-30/vDOpP-captura-de-tela-2026-04-30-as-085901.png
+  [metric] label='' value=None unit=None pct=29 color=None
+  [metric] label='' value=None unit=None pct=87 color=None
+  [metric] label='' value=None unit=None pct=24 color=None
+  [metric] label='' value=None unit=None pct=94 color=None
+  [metric] label='' value=None unit=None pct=31 color=None
+  [metric] label='' value=None unit=None pct=97 color=None
+  [metric] label='' value=None unit=None pct=12 color=None
+  [metric] label='' value=None unit=None pct=91 color=None
+  [clear/spacer]
+  [alert] variant={'style': 'light', 'basis': 100} :: {{nome}}...
+  [text] Preparei esse vídeo especialmente pra você!
+  [video] {"id": "1OpTCv", "title": null, "description": null, "name": "zlcKbC", "video": "<script type=\"text/javascript\"> var s=document.createElement(\"script\"); s.src=\"https://scripts.converteai.net/lib/
+  [alert] variant={'style': 'light', 'basis': 100} :: DESBLOQUEIO AO VIVO
+  [clear/spacer]
+  [alert] variant={'style': 'info', 'basis': 100, 'contrast': False, 'backgroundColor': '#fef9c3', 'color': '#a16207', 'borderColor': '#F0E895'} :: NÃO É UM CURSO. Não é conteúdo gravado.
+  [alert] variant={'style': 'success', 'basis': 100, 'contrast': False, 'backgroundColor': '#dbeafe', 'color': '#1d4ed8', 'borderColor': '#c2d1fb'} :: ✅️ Aplicação ao vivo
+  [text] Você participa do processo em tempo real, com orientação clara e objetiva.
+  [alert] variant={'style': 'success', 'basis': 100, 'contrast': False, 'backgroundColor': '#dbeafe', 'color': '#1d4ed8', 'borderColor': '#c2d1fb'} :: ✅️ Clareza imediata
+  [text] Ao aprender ao vivo, você entende os padrões com profundidade e na hora certa.
+  [alert] variant={'style': 'success', 'basis': 100, 'contrast': False, 'backgroundColor': '#dbeafe', 'color': '#1d4ed8', 'borderColor': '#c2d1fb'} :: ✅️ Transformação sentida
+  [text] O benefício não fica só no entendimento. Você percebe a mudança acontecendo no corpo e na mente.
+  [arguments] {"cols": "grid-cols-1", "order": "default", "arguments": [], "id": "QKzz8j", "name": "nUeHU0"}
+  [arguments] {"cols": "grid-cols-1", "order": "default", "arguments": [{"id": "PLSTjg", "text": "<h3 class=\"ql-align-center\"><strong style=\"background-color: rgb(249, 249, 249); color: rgb(9, 9, 11);\">É&nbsp;uma&nbsp;experiência&nbsp;ao&nbsp;vivo,&nbsp;em&nbs
+  [text] SEU PROGRESSO ESPERADO...
+  [clear/spacer]
+  [charts] {"id": "7dZHMF", "type": "cartesian", "datasetCount": 0, "xAxis": ["Hoje", "Dia 1", "Dia 2", "Dia 3"], "datasets": [{"id": "4ROGRS", "title": "Conjunto A", "datas": [{"id": "1cQXET", "value": "3", "tooltip": "Bloqueado", "featured": true}, {"id": "4O
+  [timer] {"text": "<p class=\"ql-align-center\"><strong style=\"color: rgb(9, 9, 11);\">Seu&nbsp;cupom&nbsp;de&nbsp;desconto&nbsp;foi&nbsp;aplicado!</strong></p><p class=\"ql-align-center\"><strong style=\"col
+  [alert] variant={'style': 'info', 'padding': 14, 'basis': '61', 'horizontalAlign': 'mx-auto', 'verticalAlign': 'self-center', 'contrast': False, 'backgroundColor': '#ffe2e3', 'color': '#b91c1c', 'borderColor': '#ffcccc'} :: 1º LOTE LIBERADO
+  [price] {"title": "<p><strong>2&nbsp;DIAS&nbsp;DE&nbsp;DESBLOQUEIO&nbsp;AO&nbsp;VIVO</strong></p>", "value": "R$ 19,90", "before": "De: R$97,00 por", "after": null, "redirect": true, "id": "AFqcSr", "name": "dSs447", "featured": "75% OFF", "type": null}
+  [alert] variant={'style': 'success', 'padding': 14, 'basis': '100', 'horizontalAlign': 'mx-auto', 'verticalAlign': 'self-center', 'contrast': False, 'backgroundColor': '#ffe6e3', 'color': '#ec1129', 'borderColor': '#fecdc8', 'borderWidth': 1, 'borderRadiusStyle': 'custom'} :: Dia 25 e 26 de Julho - 15h00
+  [image] https://media.inlead.cloud/uploads/19971/2026-04-30/n0dW1-captura-de-tela-2026-04-30-as-094549.png
+  [clear/spacer]
+  [image] https://media.inlead.cloud/uploads/19971/2025-05-25/6qfdw-icone-cartao.png
+  [image] https://media.inlead.cloud/uploads/19971/2025-05-25/3tu2i-design-sem-nome-2.png
+  [text] 4.8 estrelas de 1912 avaliações
+  [button] 'Comprar Agora' dest=https://pay.onprofit.com.br/1Nik8Rsu?off=RCRllR action=None
+  [text] Olha o que aconteceu com quem decidiu PARTICIPAR DO DESBLOQUEIO AO VIVO
+  [video] {"title": null, "description": null, "id": "q2AbLU", "name": "0JcLYf", "video": "<iframe width=\"315\" height=\"560\"\nsrc=\"https://www.youtube.com/embed/qcQgmekoMzQ\"\ntitle=\"YouTube video player\"
+  [clear/spacer]
+  [image] https://media.inlead.cloud/uploads/19971/2025-05-22/fvb7d-o-ano-mais-prospero-da-vida.jpg
+  [image] https://media.inlead.cloud/uploads/19971/2025-05-22/cj2ha-marido-esperou-muito-pela-mudanca.jpg
+  [image] https://media.inlead.cloud/uploads/19971/2025-05-22/a405b-design-sem-nome.png
+  [image] https://media.inlead.cloud/uploads/19971/2025-05-22/1wvry-crenca-de-escassez.jpg
+  [text] O QUE O DESBLOQUEIO AO VIVO SERÁ CAPAZ DE TRANSFORMAR NA SUA VIDA:
+  [alert] variant={'style': 'success', 'basis': 100} :: ✅ Quebrar o vínculo oculto que te prende nos mesmos padrões há anos
+  [alert] variant={'style': 'success', 'basis': 100} :: ✅ Ter clareza do que estava travando sua vida emocional, financeira, relacional e espiritual
+  [alert] variant={'style': 'success', 'basis': 100} :: ✅ Prosperar sem culpa, sem medo e sem sentir que não merece
+  [alert] variant={'style': 'success', 'basis': 100} :: ✅ Renovar sua mente com princípios bíblicos que libertam de verdade
+  [alert] variant={'style': 'success', 'basis': 100} :: ✅ Eliminar crenças como &quot;dinheiro é sujo&quot; ou &quot;não nasci pra isso&quot;
+  [alert] variant={'style': 'success', 'basis': 100} :: ✅ Viver relacionamentos saudáveis sem repetir os mesmos padrões
+  [alert] variant={'style': 'success', 'basis': 100} :: ✅ Acordar com paz sabendo que algo mudou por dentro de verdade
+  [clear/spacer]
+  [timer] {"text": "<p class=\"ql-align-center\"><strong style=\"color: rgb(9, 9, 11);\">Seu cupom de desconto foi aplicado!</strong></p><p class=\"ql-align-center\"><strong style=\"color: rgb(22, 163, 74);\"> 
+  [price] {"title": "<p><strong>2&nbsp;DIAS&nbsp;DE&nbsp;DESBLOQUEIO&nbsp;AO&nbsp;VIVO</strong></p>", "value": "R$ 19,90", "before": "De: R$97,00 por", "after": null, "redirect": true, "id": "SE7tHF", "name": "TNSr4q", "featured": "75% OFF", "type": null}
+  [image] https://media.inlead.cloud/uploads/19971/2026-04-30/n0dW1-captura-de-tela-2026-04-30-as-094549.png
+  [image] https://media.inlead.cloud/uploads/19971/2025-05-25/6qfdw-icone-cartao.png
+  [image] https://media.inlead.cloud/uploads/19971/2025-05-25/3tu2i-design-sem-nome-2.png
+  [text] 4.8 estrelas de 1912 avaliações
+  [clear/spacer]
+  [text] de acordo com as suas respostas...
+  [text] Pessoas como você conseguiram excelentes resultados com o MAPA DA ALMA
+  [graphics] {"cols": "grid-cols-1", "order": "default", "graphics": [{"id": "dL01KX", "type": "chart", "style": "#16a34a", "percent": "83", "legend": "<p class=\"ql-align-center\">Dos&nbsp;participantes&nbsp;iden
+  [text] A VIDA ANTES DO DESBLOQUEIO AO VIVO
+  [alert] variant={'style': 'light', 'basis': 100} :: Durante os dois dias ao vivo você vai remover esses padrões de uma vez por todas:
+  [alert] variant={'style': 'danger'} :: ❌ Sentir que quanto mais avança mais algo te puxa pra trás
+  [alert] variant={'style': 'danger'} :: ❌ Culpa por querer mais na vida espiritual, financeira e emocional
+  [alert] variant={'style': 'danger'} :: ❌ Travar sempre que tenta crescer ou mudar
+  [alert] variant={'style': 'danger'} :: ❌ Repetir os mesmos padrões nos relacionamentos sem entender por quê
+  [alert] variant={'style': 'danger'} :: ❌ Carregar um peso emocional que não passa independente do que você faz
+  [alert] variant={'style': 'danger'} :: ❌ Acreditar na promessa de Deus mas sentir que ela não é pra você
+  [text] A VIDA DEPOIS DO DESAFIO DO MAPA DA ALMA
+  [alert] variant={'style': 'light', 'basis': 100} :: Essa será sua realidade como participante do desafio! Você vai:
+  [alert] variant={'style': 'success', 'basis': 100} :: ✅ Acordar com paz sabendo que o vínculo que te travava foi removido
+  [alert] variant={'style': 'success', 'basis': 100} :: ✅ Romper com a culpa de prosperar e viver com liberdade de verdade
+  [alert] variant={'style': 'success', 'basis': 100} :: ✅ Ter clareza emocional para tomar decisões sem medo e sem sabotagem
+  [alert] variant={'style': 'success', 'basis': 100} :: ✅ Ver progresso real no dinheiro, nos relacionamentos e na espiritualidade
+  [alert] variant={'style': 'success', 'basis': 100} :: ✅ Quebrar o ciclo que marcou sua família por gerações
+  [alert] variant={'style': 'success', 'basis': 100} :: ✅ Viver o que Deus prometeu sem sentir que a promessa é para os outros
+  [alert] variant={'style': 'success', 'basis': 100} :: ✅ Dar uma vida melhor para quem você ama sem se perder no processo
+  [clear/spacer]
+  [timer] {"text": "<p class=\"ql-align-center\"><strong style=\"color: rgb(9, 9, 11);\">Seu cupom de desconto foi aplicado!</strong></p><p class=\"ql-align-center\"><strong style=\"color: rgb(22, 163, 74);\"> 
+  [price] {"title": "<p><strong>2&nbsp;DIAS&nbsp;DE&nbsp;DESBLOQUEIO&nbsp;AO&nbsp;VIVO</strong></p>", "value": "R$ 19,90", "before": "De: R$97,00 por", "after": null, "redirect": true, "id": "48ua9L", "name": "E484bu", "featured": "75% OFF", "type": null}
+  [image] https://media.inlead.cloud/uploads/19971/2026-04-30/n0dW1-captura-de-tela-2026-04-30-as-094549.png
+  [image] https://media.inlead.cloud/uploads/19971/2025-05-25/6qfdw-icone-cartao.png
+  [text] 4.8 estrelas de 1912 avaliações
+  [image] https://media.inlead.cloud/uploads/19971/2025-05-25/3tu2i-design-sem-nome-2.png
+  [clear/spacer]
+  [text] Copyright © 2026 - Todos os direitos reservados. RT PRODUTOS DIGITAIS LTDA - CNPJ: 55.168.722/0001-41
+  [text] Ao assinar algum plano e continuar, você concorda com nossos Termos de Uso | Política de Privacidade
