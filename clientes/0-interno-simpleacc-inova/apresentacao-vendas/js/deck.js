@@ -247,6 +247,24 @@
 
     imgslide:(s)=>`<img class="full-img" src="${esc(s.img)}" alt="">`,
 
+    case:(s)=>`
+      <div class="two" style="grid-template-columns:.85fr 1.15fr">
+        <div>
+          <h2 class="title sm" style="margin-bottom:8px">${esc(s.name)}</h2>
+          <p class="lead" style="font-size:20px;color:var(--blue);margin-bottom:10px">${esc(s.brand)}</p>
+          <p class="lead" style="font-size:16px;margin-bottom:18px">${esc(s.ig)}</p>
+          ${s.contract?`<span class="chip-navy">${esc(s.contract)}</span>`:''}
+        </div>
+        <div class="case-panel">
+          <div class="case-kpis">
+            ${s.kpis.map(k=>`<div class="case-kpi"><div class="v">${esc(k.v)}</div><div class="l">${esc(k.l)}</div></div>`).join('')}
+          </div>
+          <div class="case-rows">
+            ${s.rows.map(r=>`<div class="cr"><span>${esc(r[0])}</span><b>${esc(r[1])}</b></div>`).join('')}
+          </div>
+        </div>
+      </div>`,
+
     consists:(s)=>`${head(s)}
       <div class="grid c2" style="flex:1;align-content:center">
         ${s.points.map((p,i)=>`<div class="card"><div class="num">${i+1}</div><h3 style="font-size:19px">${esc(p)}</h3></div>`).join('')}
@@ -298,7 +316,7 @@
     testimonials:(s)=>`
       <div class="head"><h2 class="title sm">Provas sociais</h2></div>
       <div class="testi-grid">${s.items.map(t=>`
-        <div class="testi"><div class="ph">[ ${esc(t.ctx||'depoimento')} ]</div><div class="who">${esc(t.who)}<span>${esc(t.role||'cliente Simple')}</span></div></div>`).join('')}</div>`,
+        <div class="testi">${t.stat?`<div class="t-stat">${esc(t.stat)}</div>`:`<div class="ph">[ ${esc(t.ctx||'depoimento')} ]</div>`}<div class="who">${esc(t.who)}<span>${esc(t.role||'cliente Simple')}</span></div></div>`).join('')}</div>`,
 
     'price-table':(s)=>{
       const p=s.price;

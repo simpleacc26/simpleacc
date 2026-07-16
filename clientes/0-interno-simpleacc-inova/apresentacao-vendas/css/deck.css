@@ -401,6 +401,21 @@ table.cases td.num{color:var(--ink)}
 .mandala .petal.p1{top:2%; left:0} .mandala .petal.p2{top:2%; right:0}
 .mandala .petal.p3{bottom:2%; left:0} .mandala .petal.p4{bottom:2%; right:0}
 
+/* ---------- Cases reais (dados por cliente) ---------- */
+.chip-navy{display:inline-block; background:var(--navy); color:#dfe8f5; border-radius:6px; padding:10px 16px; font-size:13px; line-height:1.4}
+.case-panel{align-self:stretch; display:flex; flex-direction:column; gap:16px; justify-content:center}
+.case-kpis{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+.case-kpi{background:var(--navy); border-radius:8px; padding:18px 16px; text-align:center}
+.case-kpi .v{font-weight:700; font-size:27px; color:#fff; letter-spacing:-.01em; white-space:nowrap}
+.case-kpi .l{font-size:12px; color:#8ea0bb; margin-top:5px}
+.case-rows{display:grid; grid-template-columns:1fr 1fr; gap:6px 28px}
+.case-rows .cr{display:flex; justify-content:space-between; gap:10px; font-size:14px; border-bottom:1px solid var(--line); padding:7px 0}
+.case-rows .cr span{color:var(--mute)}
+.case-rows .cr b{color:var(--navy); font-weight:600; font-variant-numeric:tabular-nums}
+
+/* depoimento com métrica real */
+.t-stat{flex:1; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--blue); font-weight:700; font-size:19px; line-height:1.35; border:1px solid var(--line); border-radius:6px; min-height:110px; padding:12px; background:rgba(46,90,153,.05)}
+
 /* ---------- Impressão / export PDF ---------- */
 @media print{
   @page{size:1280px 720px; margin:0}

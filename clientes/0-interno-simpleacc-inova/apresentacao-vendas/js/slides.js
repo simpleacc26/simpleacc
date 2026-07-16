@@ -209,6 +209,39 @@ const COMMON = [
   { type:'imgslide', sec:'Implementação', label:'Cases de resultado',
     img:'assets/resultados-simple.jpg', bg:'#191A1C' },
 
+  // 21b–21d — CASES REAIS (dados das planilhas por cliente)
+  { type:'case', sec:'Implementação', label:'Case — Ju Godinho',
+    name:'Ju Godinho', brand:'Método ELA — saúde e estética',
+    ig:'@eujugodinho · 54,5 mil seguidores · +5 mil mentoradas',
+    contract:'Contrato de Implementação do Sistema Simple assinado',
+    kpis:[ {v:'8,46', l:'ROAS'}, {v:'R$ 21.995', l:'Faturamento'}, {v:'3', l:'Vendas high ticket'} ],
+    rows:[
+      ['Valor investido','R$ 2.601,09'], ['Cliques no link','751'], ['CPC','R$ 3,46'],
+      ['Connect rate','62,45%'], ['Leads','169'], ['Custo por lead','R$ 15,39'],
+      ['Conversão de LP','36,03%'], ['Leads qualificados','32 (18,93%)'],
+      ['Custo por MQL','R$ 81,28'], ['CAC','R$ 867,03'],
+    ]},
+  { type:'case', sec:'Implementação', label:'Case — Daniele (Grokker)',
+    name:'Daniele — Grokker', brand:'Doutora de Líderes — liderança e gestão',
+    ig:'@daniele.doutoradelideres · 8,4 mil seguidores · +3 mil alunos',
+    contract:'Contrato de Implementação do Sistema Simple assinado',
+    kpis:[ {v:'R$ 3,25', l:'Custo por lead'}, {v:'R$ 5,26', l:'Custo por MQL'}, {v:'179', l:'Leads qualificados'} ],
+    rows:[
+      ['Valor investido','R$ 940,68'], ['CTR','1,00%'], ['Cliques no link','1.485'],
+      ['CPC','R$ 0,63'], ['Connect rate','72,86%'], ['Leads','289'],
+      ['Conversão de LP','26,71%'], ['Taxa de qualificados','61,94%'],
+    ]},
+  { type:'case', sec:'Implementação', label:'Case — Carol Batista (Mindshift)',
+    name:'Carol Batista — Mindshift', brand:'Liderança & cultura organizacional',
+    ig:'@carolbatista · 10,6 mil seguidores',
+    contract:'Contrato de Implementação do Sistema Simple assinado',
+    kpis:[ {v:'R$ 32,35', l:'Custo por MQL'}, {v:'59,57%', l:'Taxa de qualificados'}, {v:'R$ 19,27', l:'Custo por lead'} ],
+    rows:[
+      ['Valor investido','R$ 905,85'], ['CTR','0,95%'], ['Cliques no link','493'],
+      ['CPC','R$ 1,84'], ['Connect rate','66,13%'], ['Leads','47'],
+      ['Conversão de LP','14,42%'], ['Leads qualificados','28'],
+    ]},
+
   // 22 — TRANSIÇÃO PARA O PRODUTO (título grande, texto reduzido)
   { type:'statement', sec:'Produto', label:'Transição para o produto', titleClass:'xl',
     title:'Agora eu quero te apresentar o programa que estrutura tudo isso',
@@ -334,12 +367,12 @@ function offer(o){
 }
 
 const DEFAULT_TESTI = [
-  {who:'Eliana Franz', ctx:'print de resultado'},
-  {who:'Juliana Godinho', ctx:'print de resultado'},
-  {who:'Sabrina', ctx:'print de resultado'},
-  {who:'Isabele', ctx:'print de resultado'},
-  {who:'Rafael', ctx:'print de resultado'},
-  {who:'Carol & Dani', ctx:'print de resultado'},
+  {who:'Ju Godinho', role:'Método ELA — saúde e estética', stat:'ROAS 8,46 · R$ 21.995 em vendas'},
+  {who:'Daniele — Grokker', role:'Doutora de Líderes', stat:'MQL a R$ 5,26 · 179 qualificados'},
+  {who:'Carol Batista — Mindshift', role:'Liderança & cultura', stat:'MQL a R$ 32,35 · 59,6% de qualificação'},
+  {who:'Rafael — Alivance', role:'cliente Simple', ctx:'print de resultado'},
+  {who:'Eliana Franz', role:'cliente Simple', ctx:'print de resultado'},
+  {who:'Sabrina', role:'cliente Simple', ctx:'print de resultado'},
 ];
 
 /* entregáveis (copy verbatim) */
