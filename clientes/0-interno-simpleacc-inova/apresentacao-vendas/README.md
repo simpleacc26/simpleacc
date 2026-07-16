@@ -1,21 +1,21 @@
 # Apresentação de Vendas — Simple Acc
 
-Deck de vendas (Full Sales) da Simple Acc em HTML, para o closer apresentar na
+Deck de vendas (Full Sales) da **Simple** em HTML, para o closer apresentar na
 call. Parte comum (autoridade → diagnóstico → metodologia → produto) + **as 4
 ofertas completas** (Implementação, Principal/Consultoria, Downsell, Oferta 3 e
 Entrada), com ancoragem de valor, justificativa C.A.F. e preço protagonista.
 
 Base de conteúdo: copy aprovada pelo CEO/closer. Estrutura: modelo Full Sales
-(FSS). Visual: fiel ao deck atual no Figma (fundo quase-preto + glow azul,
-títulos em sans com gradiente prata, cards indigo).
+(FSS). **Visual: fiel ao Brandbook (Julho)** — off-white dominante + navy
+(`#15263C`) + azul dessaturado (`#2E5A99`), fonte **Inter**, limpo e sóbrio.
+Sem glow, sem grade 3D, sem azul vívido, sem sobretítulos.
 
 ## Stack
 
 - HTML + CSS + JS puro (sem build, sem dependências).
-- Fontes via Google Fonts: **Sora** (títulos) e **Plus Jakarta Sans** (corpo).
-  > Obs.: o deck atual no Figma usa a fonte **Grift** (paga). Aqui usamos **Sora**
-  > como substituto geométrico próximo. Se a equipe tiver licença da Grift,
-  > basta hospedar os arquivos e trocar `--font-display` em `css/deck.css`.
+- Fonte **Inter** (auto-hospedada em `assets/fonts/`, variável — funciona offline).
+- Sistema de temas por slide: **navy** (capa, seções, preços) e **off-white**
+  (conteúdo). Tokens do brandbook ficam no topo de `css/deck.css`.
 
 ## Como rodar
 

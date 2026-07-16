@@ -1,5 +1,5 @@
 /* =====================================================================
-   Conteúdo da apresentação de vendas — Simple Acc
+   Conteúdo da apresentação de vendas — Simple
    Fonte: copy aprovada (CEO/closer) + estrutura Full Sales (FSS).
    Edite aqui textos, entregáveis e preços. O render fica em deck.js.
    ===================================================================== */
@@ -44,7 +44,7 @@ function offer(o){
   s.push({ type:'anchor', sec:o.sec, label:'Ancoragem de valor', title:'Tudo que você recebe — e o valor de mercado de cada entrega',
     items:o.anchor, total:o.total, question:o.anchorQuestion||'Se você pudesse ter um desconto expressivo sobre tudo isso… você seria um cliente hoje?' });
   s.push({ type:'testimonials', sec:o.sec, label:'Depoimentos', items:o.testimonials||DEFAULT_TESTI });
-  s.push({ type:'price-table', sec:o.sec, label:'Preço de tabela', title:'Programa de Aceleração Simple Acc',
+  s.push({ type:'price-table', sec:o.sec, label:'Preço de tabela', title:'Programa de Aceleração Simple',
     note:o.tableNote||'Programa completo, com possibilidade de parcelamento.', price:o.tablePrice });
   s.push({ type:'caf', sec:o.sec, label:'Justificativa' });
   s.push({ type:'hero-price', sec:o.sec, label:'Preço protagonista', regular:o.regular, hero:o.hero, instal:o.instal,
@@ -64,8 +64,8 @@ const DEFAULT_TESTI = [
 /* ===================== PARTE COMUM (1–24) ===================== */
 const COMMON = [
   // 1 — Capa
-  { type:'cover', sec:'Abertura', label:'Capa', wordmark:'SIMPLE ACC',
-    tag:'Apresentação de uma oportunidade de marketing e vendas' },
+  { type:'cover', sec:'Abertura', label:'Capa', wordmark:'SIMPLE',
+    tag:'Funil de Lead Dinâmico' },
 
   // 2 — Promessa principal
   { type:'statement', sec:'Abertura', label:'Promessa principal', grid:true, glow:true,
@@ -245,11 +245,11 @@ const COMMON = [
 
   // 23 — Capa do produto
   { type:'divider', sec:'Produto', label:'Capa do produto', diamond:'IMPLEMENTAÇÃO',
-    title:'Programa de Implementação Simple Acc', sub:'O sistema completo de aquisição e vendas' },
+    title:'Programa de Implementação Simple', sub:'O sistema completo de aquisição e vendas' },
 
   // 24 — No que consiste
   { type:'consists', sec:'Produto', label:'No que consiste o programa',
-    kicker:'O programa', title:'No que consiste o Programa de Implementação Simple Acc',
+    kicker:'O programa', title:'No que consiste o Programa de Implementação Simple',
     points:[
       'Ofertas irresistíveis que fazem os leads implorarem para comprar',
       'Funil de Lead Dinâmico que filtra lead ruim e reduz o custo de aquisição',
@@ -474,7 +474,7 @@ const OFFER4 = offer({
     {nm:'Bônus 5 · 2 Auditorias de Comercial', vl:10000},
   ],
   total:172500,
-  tableNote:'Entrada no Sistema Simple Acc.',
+  tableNote:'Entrada no Sistema Simple.',
   tablePrice:{full:6000, instal:'12x R$ 600'},
   regular:6000, hero:6000, instal:'12x R$ 600',
 });

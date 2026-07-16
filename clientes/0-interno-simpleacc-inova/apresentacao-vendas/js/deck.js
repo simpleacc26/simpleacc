@@ -12,7 +12,6 @@
   const badge = (t)=> t ? `<div class="track-badge">${esc(t)}</div>` : '';
   const head = (s,center)=>`
     <div class="head ${center?'center':''}">
-      ${s.kicker?`<div class="kicker ${s.kickerWarn?'warn':''}">${esc(s.kicker)}</div>`:''}
       ${s.title?`<h2 class="title ${s.titleClass||''}">${esc(s.title)}</h2>`:''}
       ${s.lead?`<p class="lead">${esc(s.lead)}</p>`:''}
     </div>`;
@@ -25,11 +24,11 @@
     </div>`;
 
   const R = {
-    cover:(s)=>`<div class="wordmark">${esc(s.wordmark)}</div>${s.tag?`<div class="tag">${esc(s.tag)}</div>`:''}`,
+    cover:(s)=>`<div class="wordmark">${esc(s.wordmark)}</div><div class="hair"></div>${s.tag?`<div class="tag">${esc(s.tag)}</div>`:''}`,
 
     statement:(s)=>`${head(s,true)}${s.bullets?`<div style="max-width:60ch;margin:8px auto 0">${bullets(s.bullets)}</div>`:''}`,
 
-    divider:(s)=>`<div class="diamond">${esc(s.diamond||'◆ ◆ ◆')}</div><h2 class="title">${esc(s.title)}</h2>${s.sub?`<div class="sub">${esc(s.sub)}</div>`:''}`,
+    divider:(s)=>`<div class="rule"></div><h2 class="title">${esc(s.title)}</h2>${s.sub?`<div class="sub">${esc(s.sub)}</div>`:''}`,
 
     bio:(s)=>`${badge('Autoridade')}
       <div class="bio">
@@ -70,11 +69,10 @@
         <div class="core">${esc(s.core)}</div>
       </div>`,
 
-    pillar:(s)=>`${badge('Os 4 pilares')}
+    pillar:(s)=>`${badge('Pilar '+esc(s.n))}
       <div class="two">
         <div>
-          <div class="kicker">Pilar ${esc(s.n)}</div>
-          <h2 class="title sm" style="margin:12px 0 6px">${esc(s.title)}</h2>
+          <h2 class="title sm" style="margin:0 0 6px">${esc(s.title)}</h2>
           <p class="lead" style="font-size:21px;margin-bottom:14px">${esc(s.sub)}</p>
           ${s.lead?`<p class="muted" style="font-size:17px;margin-bottom:12px">${esc(s.lead)}</p>`:''}
           ${bullets(s.bullets)}
@@ -93,7 +91,6 @@
         ${s.dur?`<span class="muted" style="margin-left:auto;font-family:var(--font-display)">${esc(s.dur)}</span>`:''}
       </div>
       <p class="lead" style="font-size:21px"><b>Objetivo:</b> ${esc(s.objetivo)}</p>
-      <div class="kicker" style="margin-top:26px">Metas da fase</div>
       <div class="metas">${s.metas.map((m,i)=>`<div class="card"><div class="num">${String(i+1).padStart(2,'0')}</div><p style="color:inherit;font-size:16px">${esc(m)}</p></div>`).join('')}</div>`,
 
     cases:(s)=>`${head(s)}
@@ -113,7 +110,7 @@
     ask:(s)=>`<div class="q">${esc(s.q||'?')}</div><h2 class="title">${esc(s.title)}</h2>${s.lead?`<p class="lead" style="text-align:center;margin:18px auto 0">${esc(s.lead)}</p>`:''}`,
 
     vxp:(s)=>`${badge(s.sec)}
-      <div class="head center"><div class="kicker">Antes do preço</div><h2 class="title sm">Existe uma diferença entre preço e valor</h2></div>
+      <div class="head center"><h2 class="title sm">Existe uma diferença entre preço e valor</h2></div>
       <div class="vxp">
         <div class="box price"><div class="k">Preço</div><p>É quanto algo custa em dinheiro.</p></div>
         <div class="x">×</div>
@@ -128,14 +125,14 @@
       ${s.question?`<p class="anchor-q">${esc(s.question)}</p>`:''}`,
 
     testimonials:(s)=>`${badge(s.sec)}
-      <div class="head"><div class="kicker">Prova social</div><h2 class="title sm">Quem já vive esse resultado</h2></div>
+      <div class="head"><h2 class="title sm">Quem já vive esse resultado</h2></div>
       <div class="testi-grid">${s.items.map(t=>`
         <div class="testi"><div class="ph">[ ${esc(t.ctx||'depoimento')} ]</div><div class="who">${esc(t.who)}<span>${esc(t.role||'cliente Simple Acc')}</span></div></div>`).join('')}</div>`,
 
     'price-table':(s)=>{
       const p=s.price;
       return `${badge(s.sec)}
-      <div class="head"><div class="kicker">Preço de tabela</div><h2 class="title sm">${esc(s.title)}</h2></div>
+      <div class="head"><h2 class="title sm">${esc(s.title)}</h2></div>
       <div class="price-table-wrap">
         <p class="lead">${esc(s.note)}<br><br><span class="muted" style="font-size:16px">Toda a negociação acontece a partir deste valor.</span></p>
         <div class="price-card">
@@ -149,7 +146,6 @@
 
     caf:(s)=>`${badge(s.sec)}
       <div class="caf">
-        <div class="kicker">Justificativa para condição especial</div>
         <h2 class="title sm">Economia comercial, administrativa e financeira</h2>
         <div class="timeline-bar"><span class="seg">Custo C.A.F. · 1 a 30 dias de follow-up</span><span class="seg">Decisão agora → 0 custo</span></div>
         <p class="lead" style="text-align:center;max-width:64ch">Fechar agora elimina todo o custo administrativo e financeiro de um follow-up de no mínimo 30 dias. Esse custo evitado é repassado 100% a você como desconto — em agradecimento ao seu poder de decisão.</p>
@@ -158,7 +154,7 @@
     'hero-price':(s)=>{
       const hasDiscount = s.regular && s.hero && s.regular!==s.hero;
       return `${badge(s.sec)}
-      <div class="star">✦ ✦ ✦</div>
+      <div class="rule"></div>
       ${hasDiscount?`<div class="regular">Preço regular: <s>${money(s.regular)}</s></div>`:`<div class="regular">Condição final</div>`}
       <div class="big">${money(s.hero)}</div>
       <div class="inst">à vista · ou ${esc(s.instal)}</div>
@@ -167,6 +163,8 @@
   };
 
   /* ---------- montar slides no DOM ---------- */
+  // temas do brandbook: navy = telas-herói/seção/preço; light (off-white) = conteúdo
+  const NAVY = new Set(['cover','divider','statement','ask','hero-price','caf']);
   SLIDES.forEach((s,i)=>{
     const el=document.createElement('section');
     const cls=['slide'];
@@ -175,14 +173,14 @@
     if(s.type==='divider') cls.push('divider');
     if(s.type==='ask') cls.push('ask');
     if(s.type==='hero-price') cls.push('hero-price');
-    if(s.glow) cls.push('glow');
-    if(s.light) cls.push('light');
+    const theme = s.theme || (NAVY.has(s.type)?'navy':'light');
+    if(theme==='navy') cls.push('navy');
+    if(theme==='blue') cls.push('blue');
     if(s.type==='deliverable' && s.cards && s.cards.length>4) cls.push('dense');
     if(s.type==='anchor'){ cls.push('anchor-slide'); if(s.items && s.items.length>13) cls.push('tight'); }
     el.className=cls.join(' ');
     el.dataset.idx=i;
     let inner='';
-    if(s.grid) inner+='<div class="bg-grid"></div>';
     inner+= (R[s.type]?R[s.type](s):`<div class="head"><h2 class="title">${esc(s.title||s.type)}</h2></div>`);
     el.innerHTML=inner;
     deck.appendChild(el);
