@@ -38,6 +38,11 @@ interface UtmParams {
 const WEBHOOK_URL =
   import.meta.env.VITE_WEBHOOK_URL || "";
 
+// Webhook dedicado para contar leads desqualificados de forma 100% anônima
+// (sem nome/e-mail/telefone — esses leads nunca preenchem o formulário).
+const DISQUALIFIED_WEBHOOK_URL =
+  import.meta.env.VITE_DISQUALIFIED_WEBHOOK_URL || "";
+
 // Índice 0 = landing (P1), índice 1..6 = P2..P7
 const TOTAL_QUESTIONS = questions.length;
 
@@ -64,6 +69,14 @@ function isICPQualified(answers: Record<number, string>): boolean {
   if (abaixoDoPiso) return false;
   if (isOutOfICP(answers)) return false;
   return calcIsQualified(answers);
+}
+
+// Motivo da desqualificação, só para fins de contagem anônima (sem PII).
+function getMotivoDesqualificacao(answers: Record<number, string>): string {
+  const faturamento = answers[6];
+  if (faturamento === "1" || faturamento === "2") return "faturamento_abaixo_piso";
+  if (isOutOfICP(answers)) return "industria_sem_decisor";
+  return "pontuacao_baixa";
 }
 
 export default function App() {
@@ -130,6 +143,25 @@ export default function App() {
         // Desqualificado: sem formulário — vai direto ao diagnóstico com o
         // botão da comunidade.
         fbqTrack("Lead", { content_name: "Lead Quiz ÚNICOS", content_category: "Desqualificado" });
+
+        // Ping anônimo (sem nome/e-mail/telefone) só para contagem — não
+        // aguarda resposta nem trava a navegação.
+        if (DISQUALIFIED_WEBHOOK_URL) {
+          const pingPayload = new URLSearchParams();
+          pingPayload.append("bucket", bucketName);
+          pingPayload.append("motivo", getMotivoDesqualificacao(updated));
+          pingPayload.append("utm_source", utm.utm_source);
+          pingPayload.append("utm_medium", utm.utm_medium);
+          pingPayload.append("utm_campaign", utm.utm_campaign);
+          pingPayload.append("utm_content", utm.utm_content);
+          pingPayload.append("utm_term", utm.utm_term);
+          fetch(DISQUALIFIED_WEBHOOK_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: pingPayload.toString(),
+          }).catch(() => {});
+        }
+
         setIsQualified(false);
         setBucket(bucketName);
         setStep("diagnostico");
