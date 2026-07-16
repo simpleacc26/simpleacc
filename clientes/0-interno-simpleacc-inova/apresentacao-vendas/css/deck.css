@@ -297,18 +297,65 @@ table.cases td.num{color:var(--ink)}
 .menu-item:hover{border-color:var(--blue); background:rgba(46,90,153,.18)}
 .menu-item .mi-n{color:var(--blue-lt); font-size:12px; min-width:30px}
 
-/* ---------- Tema VERMELHO (Inferno / Riscos) ---------- */
-.slide.red{background:#521613; color:#F3E3E1}
+/* ---------- Tema VERMELHO VIVO (Inferno / Riscos) ---------- */
+.slide.red{background:#C81E1C; color:#FFEDEA}
 .slide.red .title{color:#fff}
-.slide.red .lead{color:#E8C7C3}
-.slide.red .col{background:rgba(255,255,255,.04); border-color:rgba(255,255,255,.16); border-left:3px solid #E0594F}
-.slide.red ul.bullets li{color:#F3E3E1}
-.slide.red ul.bullets li::before{background:#E0594F}
+.slide.red .lead{color:#FFD9D4}
+.slide.red .col{background:rgba(0,0,0,.16); border-color:rgba(255,255,255,.32); border-left:3px solid #fff}
+.slide.red ul.bullets li{color:#FFF2F0}
+.slide.red ul.bullets li::before{background:#fff}
 .slide.red ul.bullets li b,.slide.red ul.bullets li strong{color:#fff}
-.slide.red .card{background:rgba(255,255,255,.05); border-color:rgba(255,255,255,.14); box-shadow:none}
+.slide.red .card{background:rgba(0,0,0,.18); border-color:rgba(255,255,255,.28); box-shadow:none}
 .slide.red .card h3{color:#fff}
-.slide.red .card p{color:#E0BEB9}
-.slide.red .foot-note{color:#E8C7C3}
+.slide.red .card p{color:#FFDCD7}
+.slide.red .foot-note{color:#FFE4E0}
+
+/* ---------- Statements — tipografia reduzida ---------- */
+.slide.statement .title{font-size:42px; max-width:28ch}
+.slide.statement .title.xl{font-size:58px; max-width:24ch}
+.slide.statement .lead{font-size:19px; max-width:66ch}
+.slide.statement ul.bullets{gap:12px}
+.slide.statement ul.bullets li{font-size:16.5px}
+
+/* ---------- Cargos do time — título central + grid cheio ---------- */
+.cargo-head{align-items:center; text-align:center; margin-bottom:28px; gap:12px}
+.cargo-head .title{font-size:48px}
+.cargo-head .lead{font-size:18px; max-width:74ch}
+.cargo-grid{flex:1; align-content:stretch}
+.cargo-grid .card{justify-content:center; gap:10px}
+.cargo-grid.c2 .card{padding:30px 32px}
+.cargo-grid.c2 .card h3{font-size:23px}
+.cargo-grid.c2 .card p{font-size:16.5px; line-height:1.55}
+.cargo-grid.c3 .card{padding:22px 24px}
+.cargo-grid.c3 .card h3{font-size:20px}
+.cargo-grid.c3 .card p{font-size:14.5px; line-height:1.5}
+
+/* ---------- Ilustrações (painel navy) — primitivas ---------- */
+.il{position:absolute; inset:0; padding:36px; display:flex; flex-direction:column; color:#c6d3e6; font-size:13px}
+.il .row{display:flex; align-items:center; gap:10px}
+.il .tile{border:1px solid #2A3B54; border-radius:8px; background:rgba(255,255,255,.03); padding:14px 16px}
+.il .lbl{font-size:11.5px; color:#8ea0bb}
+.il .val{font-size:26px; font-weight:700; color:#fff; margin-top:4px}
+.il .ln{height:7px; border-radius:4px; background:#24354e; overflow:hidden}
+.il .ln.b{background:#5E82B6}
+.il .ln i{display:block; height:100%; border-radius:inherit; background:#5E82B6}
+.il .chip{display:inline-block; border:1px solid #3f5878; border-radius:20px; padding:6px 14px; font-size:12px; color:#9fb4d4}
+.il .chip.hl{background:var(--blue); border-color:var(--blue); color:#fff}
+.il .il-step{display:flex; align-items:center; gap:10px; border:1px solid #2A3B54; border-radius:8px; background:rgba(255,255,255,.03); padding:11px 14px; color:#dfe8f5}
+.il .il-step.hl{border-color:var(--blue); background:rgba(46,90,153,.28); color:#fff}
+.il .il-step .dot{width:9px; height:9px; border-radius:50%; background:#5E82B6; flex:none}
+.il .il-step .mini{margin-left:auto; font-size:10.5px; color:#7f92ab}
+.il .bars{display:flex; align-items:flex-end; gap:4px; height:44px; margin-top:8px}
+.il .bars i{flex:1; background:#5E82B6; border-radius:2px 2px 0 0; opacity:.85}
+.il .wdot{width:8px; height:8px; border-radius:50%; background:#3f5878; display:inline-block}
+.il .sq{width:40px; height:40px; border-radius:6px; background:#24354e; flex:none}
+.il .av{width:42px; height:42px; border-radius:50%; background:#24354e; flex:none}
+.il .post{flex:1; aspect-ratio:1; background:#24354e; border-radius:4px}
+.il .ck{color:#7fd6a4; font-weight:700}
+.il .xk{color:#e08a80; font-weight:700}
+.il .node{border:1px solid #3f5878; border-radius:8px; padding:10px 12px; color:#dfe8f5; font-size:12px; text-align:center; background:rgba(255,255,255,.03)}
+.il .link{width:22px; height:1px; background:#3f5878; flex:none}
+.il svg text{font-family:var(--font)}
 .foot-note{margin-top:18px; font-size:17px; font-style:italic; color:var(--mute)}
 
 /* ---------- Fases — layout da apresentação atual ---------- */

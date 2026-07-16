@@ -143,7 +143,7 @@ const COMMON = [
     ]},
 
   // 13–16 — PILARES (verbatim)
-  { type:'pillar', sec:'Metodologia', label:'Pilar 1 — Produto e Oferta', n:'01',
+  { type:'pillar', sec:'Metodologia', label:'Pilar 1 — Produto e Oferta', n:'01', illo:'oferta',
     title:'Produto e Oferta',
     sub:'O funil filtra quem vai comprar, mas a oferta precisa ser irresistível',
     lead:'Antes de rodar qualquer tráfego, precisamos garantir que sua oferta esteja posicionada para o cliente certo, com a mensagem certa, no momento certo. Oferta fraca com funil forte ainda é funil quebrado.',
@@ -165,7 +165,7 @@ const COMMON = [
       'Elimina o lead descomprometido antes da call e antes de custar o seu tempo',
       'Reduz o custo do MQL de forma consistente e mensurável',
     ]},
-  { type:'pillar', sec:'Metodologia', label:'Pilar 3 — Comercial', n:'03',
+  { type:'pillar', sec:'Metodologia', label:'Pilar 3 — Comercial', n:'03', illo:'comercial',
     title:'Comercial',
     sub:'Lead qualificado sem comercial estruturado é desperdício',
     lead:'O funil entrega para o comercial o lead certo. O comercial é o que transforma esse lead em receita. Não adianta ter funil perfeito se o comercial perde a venda boa por falta de processo.',
@@ -174,7 +174,7 @@ const COMMON = [
       'Processo de SDR completo: cadência de follow-up e templates de agendamento',
       'Matriz de objeções: resposta estruturada para cada resistência do cliente',
     ]},
-  { type:'pillar', sec:'Metodologia', label:'Pilar 4 — Expansão (Funil Ampulheta)', n:'04',
+  { type:'pillar', sec:'Metodologia', label:'Pilar 4 — Expansão (Funil Ampulheta)', n:'04', illo:'ltv',
     title:'Expansão — Funil Ampulheta',
     sub:'O negócio mais lucrativo começa na base que você já tem',
     lead:'A maioria dos mentores gasta energia e dinheiro tentando atrair cliente novo, quando a maior oportunidade de lucro está em quem já comprou. O Funil de Ampulheta inverte essa lógica.',
@@ -344,24 +344,24 @@ const DEFAULT_TESTI = [
 
 /* entregáveis (copy verbatim) */
 const D = {
-  roadmap:(det)=>({h:'Roadmap Personalizado', d:det,
+  roadmap:(det)=>({h:'Roadmap Personalizado', d:det, illo:'roadmap',
     p:'Direcionamento prático e ultra específico para o seu negócio e momento para gerar valor de imediato. Você nunca fica sem direção. Cada checkpoint garante que a rota está ajustada à sua realidade, com handoff documentado ao final de cada sessão.'}),
-  protocolo:{h:'Protocolo Destrava Lucro', d:'Diagnóstico triplo',
+  protocolo:{h:'Protocolo Destrava Lucro', d:'Diagnóstico triplo', illo:'protocolo',
     p:'Diagnóstico triplo: oferta + ICP + mercado / comercial / mídia paga. Antes de rodar qualquer tráfego, sabemos exatamente onde está o gargalo.'},
-  growth:{h:'Growth Model Personalizado', d:'Projeção com números reais',
+  growth:{h:'Growth Model Personalizado', d:'Projeção com números reais', illo:'growth',
     p:'Projeção de onde você chega com o sistema rodando, baseado nos seus números reais. Custo de MQL projetado vs. atual, taxa de fechamento esperada vs. hoje, receita adicional mensal estimada.'},
   funil:(copies)=>({h:'Funil de Quiz Completo e Calibrado', d:`+ ${copies} copies`,
     p:`Construção do quiz de qualificação, página de aplicação e integração com o tráfego. O mecanismo que filtra o lead ruim antes de chegar no comercial e reduz o custo de MQL. Inclui ${copies} copies produzidas pelo time da Simple para anúncios.`,
     img:'assets/processo-aquisicao.png'}),
-  biblioteca:{h:'Biblioteca de Copy para Anúncios', d:'Formatos validados',
+  biblioteca:{h:'Biblioteca de Copy para Anúncios', d:'Formatos validados', illo:'biblioteca',
     p:'Formatos validados separados por nível de consciência do lead: topo, meio e fundo. Seu gestor usa sem depender de você para criar do zero.'},
-  prompts:{h:'Prompts e Agentes de IA para Copy e Quiz', d:'Copy em 20 minutos',
+  prompts:{h:'Prompts e Agentes de IA para Copy e Quiz', d:'Copy em 20 minutos', illo:'prompts',
     p:'Seu gestor cria copy em 20 minutos. Reduz dependência de copywriter e mantém o sistema funcionando sem você parar para criar.'},
-  tracking:{h:'Setup de Trackeamento e Dashboard de Métricas', d:'Tudo visível em tempo real',
+  tracking:{h:'Setup de Trackeamento e Dashboard de Métricas', d:'Tudo visível em tempo real', illo:'tracking',
     p:'CPL, custo de MQL, taxa de agendamento, taxa de fechamento, tudo visível em um lugar, em tempo real. Você para de achar e começa a saber.'},
-  ltv:{h:'Mapa de Expansão de Oferta e LTV', d:'Monetizar a base',
+  ltv:{h:'Mapa de Expansão de Oferta e LTV', d:'Monetizar a base', illo:'ltv',
     p:'Como monetizar a base que você já tem antes de precisar de lead novo. Novas ofertas, upsells e downsells mapeados com base no que o seu ICP já comprou.'},
-  playbook:(nome)=>({h:`Playbook Comercial ${nome}`, d:'O que faz o MQL virar receita',
+  playbook:(nome)=>({h:`Playbook Comercial ${nome}`, d:'O que faz o MQL virar receita', illo:'playbook',
     p:'Script de pré-venda, roteiro de call 1x1, templates de agendamento, processo de SDR e matriz de objeções. O que faz o MQL virar receita.'}),
 };
 
@@ -377,15 +377,15 @@ const SUP = {
 };
 
 const BONUS = (n1,n2,n5)=>[
-  {h:`Bônus 1 — Auditoria de Social Selling${n1?` (${n1})`:''}`, d:'Bônus 1',
+  {h:`Bônus 1 — Auditoria de Social Selling${n1?` (${n1})`:''}`, d:'Bônus 1', illo:'b1',
    p:"Antes de rodar o quiz, garantimos que o seu perfil orgânico está convertendo também. Resolve a objeção: 'mas e o conteúdo, preciso investir nisso?'"},
-  {h:`Bônus 2 — Auditoria de Produção de Conteúdo${n2?` (${n2})`:''}`, d:'Bônus 2',
+  {h:`Bônus 2 — Auditoria de Produção de Conteúdo${n2?` (${n2})`:''}`, d:'Bônus 2', illo:'b2',
    p:'Ajuste da comunicação para falar com quem está pronto para escalar, não com quem está começando. O orgânico passa a trabalhar na mesma direção que o tráfego pago.'},
-  {h:'Bônus 3 — Snapshot de Pipeline', d:'Bônus 3',
+  {h:'Bônus 3 — Snapshot de Pipeline', d:'Bônus 3', illo:'b3',
    p:'Visão completa do pipeline de vendas: onde estão os leads, quanto está em negociação e onde estão as perdas.'},
-  {h:'Bônus 4 — Snapshot de Automações', d:'Bônus 4',
+  {h:'Bônus 4 — Snapshot de Automações', d:'Bônus 4', illo:'b4',
    p:'Diagnóstico das automações do funil: o que está rodando, o que está travando e o que pode ser otimizado.'},
-  {h:`Bônus 5 — Auditoria de Comercial${n5?` (${n5})`:''}`, d:'Bônus 5',
+  {h:`Bônus 5 — Auditoria de Comercial${n5?` (${n5})`:''}`, d:'Bônus 5', illo:'b5',
    p:'Análises de ponta a ponta do seu setor comercial em tudo que tange: calls de vendas, scripts, apresentações comerciais.'},
 ];
 
