@@ -24,6 +24,7 @@ clientes/
 | Juliana Godinho            | `juliana-godinho/`             | ativo  |
 | Rafael Granella            | `rafael-granella/`             | ativo  |
 | Rômulo Heleno              | `romulo-heleno/`               | ativo  |
+| Sabrina Cantarino          | `sabrina-cantarino/`           | ativo  |
 | Sense Clinic               | `sense-clinic/`                | ativo  |
 | Stella Grützmann           | `stella-grutzmann/`            | ativo  |
 | Taís Zawatski              | `tais-zawatski/`               | ativo  |
