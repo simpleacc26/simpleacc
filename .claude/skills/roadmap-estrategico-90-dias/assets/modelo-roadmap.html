@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Roadmap Estratégico Digital · {{NOME_CLIENTE}}</title>
+<!--
+  MODELO SIMPLEACC DE ROADMAP. O CSS abaixo é o validado (altura A4 fixa,
+  nada corta). Nao altere o CSS, salvo para resolver estouro de pagina.
+  Este arquivo é um ESQUELETO: cada pagina traz os componentes no lugar e
+  comentarios ADAPTAR. O conteudo real vem de references/estrutura-e-conteudo.md
+  e do mapa de extracao do cliente. Regras: zero travessoes; separador "·";
+  intervalos com "a" (de 60 a 100); apagar este comentario e todos os
+  comentarios ADAPTAR no arquivo final; nenhum campo de chaves duplas pode sobrar.
+  Paginas de fase que crescerem: duplique a div.page (parte 1 e parte 2) em vez
+  de espremer. Numeracao de passos é continua no documento inteiro.
+-->
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    padding: 16mm 18mm 24mm 18mm;
+    position: relative;
+    page-break-after: always;
+    background: #fff;
+  }
+  .page:last-child { page-break-after: auto; }
+  .runhead {
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; color: var(--muted);
+    letter-spacing: .06em; text-transform: uppercase;
+    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt;
+  }
+  .runfoot {
+    position: absolute; bottom: 9mm; left: 18mm; right: 18mm;
+    text-align: center; font-size: 7.5pt; color: var(--muted);
+  }
+  .kicker {
+    color: var(--gold); font-size: 9pt; font-weight: bold;
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt;
+  }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
+  .box-dark {
+    background: var(--navy-dark); color: #f5f3ee;
+    padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt;
+  }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light {
+    background: var(--beige); border-left: 3pt solid var(--gold);
+    padding: 10pt 14pt; margin: 11pt 0;
+  }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .fase-header {
+    background: var(--navy-dark); color: #fff;
+    padding: 10pt 16pt; margin-bottom: 10pt;
+    border-left: 4pt solid var(--gold);
+  }
+  .fase-header .fk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .fase-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .fase-header .fd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 12pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 38pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+  .footer-note { margin-top: 24pt; padding-top: 8pt; border-top: 1pt solid var(--gold); font-size: 8.5pt; color: var(--muted); width: 60%; }
+</style>
+</head>
+<body>
+
+<!-- PÁGINA 1 · CAPA -->
+<div class="page cover">
+  <div class="kicker">Plano de Ação Personalizado</div>
+  <h1>Roadmap<br>Estratégico<br>Digital</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    {{SUBTITULO_HISTORIA}}<br>
+    Os primeiros 90 dias. Passo a passo, fase a fase.<br>
+    Sem atalho, sem improviso, sem ideia solta.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">{{NOME_CLIENTE}}</div>
+    <div class="lbl">Mentor Estratégico</div>
+    <div class="val">{{MENTOR_ESTRATEGICO}}</div>
+  </div>
+</div>
+
+<!-- PÁGINA 2 · CONTEXTO E DECISÕES FUNDAMENTAIS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · {{NOME_CLIENTE}}</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Começar</div>
+  <h1 style="font-size:19pt;">Contexto e Decisões Fundamentais</h1>
+  <p class="lead">Leia esta página inteira antes de executar qualquer passo. Todas as decisões a seguir partem do que está aqui.</p>
+
+  <div class="box-dark">
+    <div class="bt">A decisão mais importante deste plano</div>
+    <!-- ADAPTAR: foco (um publico, uma promessa) + big idea do cliente em negrito -->
+    <p>{{DECISAO_MAIS_IMPORTANTE}}</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">{{TITULO_PRODUTO_OU_ESTEIRA}}</div>
+    <!-- ADAPTAR: Perfil A = oferta unica (nome, ticket, formato, regra de nao criar segunda oferta).
+         Perfil B = os 3 produtos com preco e papel + regra do quarto produto. -->
+    <p>{{CONTEUDO_PRODUTO_OU_ESTEIRA}}</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A matemática dos {{META_MENSAL}}/mês</div>
+    <!-- ADAPTAR: conta completa e redonda. Fechar sempre com a frase operacional. -->
+    <p>{{CONTA_DA_META}}</p>
+    <p>Esse número é <strong>operacional, não aspiracional.</strong> É só fazer.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Foco deste roadmap</div>
+    <!-- ADAPTAR: 90 dias + nome do Roadmap 2. Se a pagina apertar, mover este box para a pagina 3. -->
+    <p>{{FOCO_DO_ROADMAP}} Não tente queimar etapas.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 3 · RITMO + RESPONSABILIDADES -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · {{NOME_CLIENTE}}</span><span>Página 3</span></div>
+  <div class="box-light">
+    <div class="bt">Ritmo de acompanhamento</div>
+    <!-- ADAPTAR: cadencia real das calls + nomes reais do time no grupo -->
+    <p>{{RITMO_ACOMPANHAMENTO}}</p>
+    <p>A execução acontece <strong>entre as calls.</strong> As calls servem para afinar, não para decidir o que fazer. O que fazer já está aqui dentro.</p>
+  </div>
+
+  <!-- ADAPTAR: box abaixo apenas no Perfil B (Simple implementa). Remover no Perfil A. -->
+  <div class="box-dark">
+    <div class="bt">Divisão de responsabilidades</div>
+    <p><strong>A Simple constrói e opera:</strong> {{SIMPLE_CONSTROI}}.</p>
+    <p><strong>{{PRIMEIRO_NOME_CLIENTE}} executa:</strong> {{CLIENTE_EXECUTA}}.</p>
+    <p>O funil coloca lead na porta. <strong>Quem coloca dinheiro no caixa é a rotina comercial.</strong></p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINAS DE FASE (repita este esqueleto para cada fase da arquitetura:
+     Caixa Rapido, Esteira/Posicionamento, Aquisicao Manual em 2 paginas,
+     Conteudo Organico, Funil e Trafego em 1 ou 2 paginas, Bonus) -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · {{NOME_CLIENTE}}</span><span>Página {{N}}</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase {{NUMERO_FASE}} · Dias {{JANELA}}</div>
+    <h2>{{TITULO_FASE}}</h2>
+    <div class="fd">{{DESCRICAO_FASE_UMA_LINHA}}</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">{{TITULO_BOX_PORQUE}}</div>
+    <!-- ADAPTAR: o "por que" da fase com o dado real do cliente (baseline dramatico, base existente) -->
+    <p>{{CONTEUDO_BOX_PORQUE}}</p>
+  </div>
+
+  <div class="passo-label">Passo {{NN}}</div>
+  <h3>{{TITULO_PASSO}}</h3>
+  <ul class="check">
+    <li>{{ITEM_ACIONAVEL}}
+      <ul class="sub">
+        <li>{{DETALHE_OU_EXEMPLO_NA_VOZ_DO_CLIENTE}}</li>
+      </ul>
+    </li>
+    <li>{{ITEM_ACIONAVEL_2}}</li>
+  </ul>
+
+  <!-- ADAPTAR: fases de execucao fecham com metas numericas (box-light) e,
+       na fase de aquisicao manual, o Alerta vermelho -->
+  <div class="box-light">
+    <div class="bt">Metas numéricas desta fase</div>
+    <p><strong>Dia 30:</strong> {{META_D30}}</p>
+    <p><strong>Dia 60:</strong> {{META_D60}}</p>
+    <p><strong>Dia 90:</strong> {{META_D90}}</p>
+    <p><strong>Alerta vermelho:</strong> {{ALERTA_VERMELHO}}</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA · CHECKPOINTS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · {{NOME_CLIENTE}}</span><span>Página {{N}}</span></div>
+  <div class="kicker">Checkpoints de Progresso</div>
+  <h1 style="font-size:19pt;">Como Saber Que Você Está no Caminho Certo</h1>
+  <p class="lead">Cada checkpoint marca o final de uma janela. Se algum item não estiver fechado, leve para a próxima call quinzenal. Ajuste de rota imediato, sem esconder.</p>
+
+  <!-- ADAPTAR: um bloco por janela (dia 10 se houver caixa rapido, 14, 30, 60, 90),
+       itens espelhando as metas das fases. Ultimo fecha com "Pronto para receber o Roadmap 2". -->
+  <h3 class="navy" style="margin-top:10pt;">CHECKPOINT {{X}} · DIA {{D}} ({{APELIDO}})</h3>
+  <ul class="check">
+    <li>{{ITEM_VERIFICAVEL_1}}</li>
+    <li>{{ITEM_VERIFICAVEL_2}}</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA · MATERIAIS DE APOIO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · {{NOME_CLIENTE}}</span><span>Página {{N}}</span></div>
+  <div class="kicker">Materiais de Apoio</div>
+  <h1 style="font-size:19pt;">Recursos para Executar o Plano</h1>
+  <p class="lead">Todas as aulas e templates abaixo estão disponíveis no portal (área de membros) e no grupo. Se algum link não foi compartilhado, peça no grupo.</p>
+
+  <ul class="check">
+    <!-- ADAPTAR: lista das aulas/templates com uma linha de contexto e o passo a que servem
+         (ver a lista canonica em references/estrutura-e-conteudo.md) -->
+    <li><strong>{{NOME_DO_MATERIAL}}</strong>
+      <ul class="sub"><li>{{PARA_QUE_SERVE_E_QUAL_PASSO}}</li></ul>
+    </li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA FINAL · FECHAMENTO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · {{NOME_CLIENTE}}</span><span>Página {{N}}</span></div>
+  <div style="padding-top:40mm;">
+    <div class="kicker">Lembre-se Sempre Disto</div>
+    <h1 style="font-size:19pt;">Antes de Fechar Este Documento</h1>
+    <!-- ADAPTAR: fechamento pessoal na estrutura fixa (trajetoria e forcas reais;
+         "nao foi falta de X/Y/Z"; diagnostico em negrito; metodo x execucao;
+         "Voce tem A/B/C. O proximo passo é começar.") -->
+    <p style="margin-top:10pt;">{{TRAJETORIA_E_FORCAS}}</p>
+    <p><strong class="navy">Foi falta de {{DIAGNOSTICO_EM_UMA_LINHA}}.</strong></p>
+    <p>Este roadmap é o método. A execução é sua. A cada 15 dias o mentor estratégico vai te encontrar na conversa quinzenal, mas o que coloca dinheiro no caixa é o que você faz <strong>entre as calls</strong>.</p>
+    <p>Dúvidas no meio do caminho: mande no grupo. Não espere a próxima call para perguntar.</p>
+    <p style="margin-top:12pt;">{{VOCE_TEM_A_B_C}}</p>
+    <p><strong class="navy">O próximo passo é começar.</strong></p>
+    <div class="footer-note">Roadmap Estratégico Digital · {{NOME_CLIENTE}} · 90 dias · Versão 1.0</div>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+</body>
+</html>
