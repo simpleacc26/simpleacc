@@ -26,8 +26,8 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
   renda R$ 7 mil+, com fé/espiritualidade. "Forte por fora, exausta por
   dentro"; repete padrões em relacionamentos, autoestima e dinheiro. Persona:
   Juliana, 38. Detalhes em `contexto/canvas-produto-cliente-ideal.md`.
-- **O cliente na real é o João** (estrategista @ojomes, acordo 50/50 com a
-  expert): prioridade 1 é vender o high ticket da Luana (@lfelisminoficial);
+- **O cliente na real é o João** (estrategista @ojuaomendes, acordo 50/50 com a
+  expert): prioridade 1 é vender o high ticket da Luana (@lufelisminooficial);
   prioridade 2 é posicionar o João e sua captação de experts. Situação
   financeira urgente — janela de ~30 dias declarada no onboarding (02/07).
   Detalhes em `contexto/notas-onboarding.md`.

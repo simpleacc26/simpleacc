@@ -6,7 +6,7 @@
 
 ## Quem é o João
 
-- **João Mendes Jr.** — Instagram **@ojomes**. Ex-biólogo e professor
+- **João Mendes Jr.** — Instagram **@ojuaomendes**. Ex-biólogo e professor
   universitário (15 anos), consultor ambiental (hidrelétricas). Migrou para o
   digital em 2024/2025; quer se consolidar como **estrategista / coprodutor**.
 - **Trauma de parceria anterior:** modelo 50/50 em que ele bancava ferramentas
@@ -27,7 +27,7 @@
 
 ## A expert
 
-- **@lfelisminoficial** (Luana) — desenvolvimento emocional para mulheres
+- **@lufelisminooficial** (Luana) — desenvolvimento emocional para mulheres
   (Mentoria Reset Mental, ver `canvas-produto-cliente-ideal.md`).
 - Já faturou R$ 30 mil/mês vendendo 1-a-1 (social selling + sessão
   diagnóstica), mas parou por bloqueio emocional. Perfil esfriou.

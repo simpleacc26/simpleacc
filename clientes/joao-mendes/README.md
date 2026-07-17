@@ -1,8 +1,8 @@
-# João Mendes (Expert: Luana @lfelisminoficial — Mentoria Reset Mental)
+# João Mendes (Expert: Luana @lufelisminooficial — Mentoria Reset Mental)
 
 Mentoria da SimpleAcc para o **João Mendes Jr.** (estrategista/coprodutor,
-IG **@ojomes**), com dois focos: (1) vender o high ticket da expert **Luana**
-(@lfelisminoficial, Mentoria Reset Mental) — prioridade imediata; (2) em
+IG **@ojuaomendes**), com dois focos: (1) vender o high ticket da expert **Luana**
+(@lufelisminooficial, Mentoria Reset Mental) — prioridade imediata; (2) em
 paralelo, posicionar a marca do João e sua aquisição de novos experts.
 Call de onboarding em 02/07/2026 (canvas preenchido em 01/07/2026).
 
@@ -10,8 +10,8 @@ Call de onboarding em 02/07/2026 (canvas preenchido em 01/07/2026).
 
 | Papel                  | Nome            | Contato |
 | ---------------------- | --------------- | ------- |
-| Cliente (estrategista) | João Mendes Jr. | IG @ojomes |
-| Expert                 | Luana           | IG @lfelisminoficial |
+| Cliente (estrategista) | João Mendes Jr. | IG @ojuaomendes |
+| Expert                 | Luana           | IG @lufelisminooficial |
 | Responsável SimpleAcc  | Carlos Durães   | carlosfaduraes@gmail.com |
 
 ## Links úteis
