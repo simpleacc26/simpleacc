@@ -1,16 +1,18 @@
-# João Mendes (Expert: Luana — Mentoria Reset Mental)
+# João Mendes (Expert: Luana @lfelisminoficial — Mentoria Reset Mental)
 
-Projeto de estruturação de funil e vendas para a mentoria **Reset Mental**, da
-expert **Luana**. João Mendes é o gestor do projeto do lado do cliente.
-Onboarding realizado em 01/07/2026.
+Mentoria da SimpleAcc para o **João Mendes Jr.** (estrategista/coprodutor,
+IG **@ojomes**), com dois focos: (1) vender o high ticket da expert **Luana**
+(@lfelisminoficial, Mentoria Reset Mental) — prioridade imediata; (2) em
+paralelo, posicionar a marca do João e sua aquisição de novos experts.
+Call de onboarding em 02/07/2026 (canvas preenchido em 01/07/2026).
 
 ## Contatos
 
-| Papel                  | Nome          | Contato |
-| ---------------------- | ------------- | ------- |
-| Gestor (cliente)       | João Mendes   | _(a preencher)_ |
-| Expert                 | Luana         | _(a preencher)_ |
-| Responsável SimpleAcc  | Carlos Durães | carlosfaduraes@gmail.com |
+| Papel                  | Nome            | Contato |
+| ---------------------- | --------------- | ------- |
+| Cliente (estrategista) | João Mendes Jr. | IG @ojomes |
+| Expert                 | Luana           | IG @lfelisminoficial |
+| Responsável SimpleAcc  | Carlos Durães   | carlosfaduraes@gmail.com |
 
 ## Links úteis
 
@@ -19,6 +21,7 @@ Onboarding realizado em 01/07/2026.
   - `2. Material Visual` — criativos, depoimentos, referências, fotos
   - `3. Estratégia e Tráfego` · `4. Copy` · `5. Relatórios e Alinhamentos`
 - Canvas do Produto + Cliente Ideal: [Google Doc](https://docs.google.com/document/d/18vp_agBk0OTVchvu2AtUsq3NnCR7ncjSEdfW2rMZ7Uo/edit)
+- Onboarding 02/07: [Transcrição](https://docs.google.com/document/d/1eGvtylqYlapdkIg04R40fnF413q5lwHI04ljjKtW1_A/edit) · [Gravação](https://drive.google.com/file/d/15nsT3TgHIgtkTOR1iceyGPJ4fygaZ6JW/view) — síntese em `contexto/notas-onboarding.md`
 - Planilha de Acessos: [Drive](https://drive.google.com/file/d/1BZi2Cs_K9H9_Pu76ZWBQGGLX6aoQwFxt/view)
 - ClickUp (tarefas ativas):
   - [Avançar com ações pós-onboarding](https://app.clickup.com/t/86barn119) — em progresso
