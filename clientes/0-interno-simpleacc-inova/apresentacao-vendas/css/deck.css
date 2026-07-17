@@ -416,6 +416,18 @@ table.cases td.num{color:var(--ink)}
 .case-photo{border:1px solid var(--line); border-radius:8px; overflow:hidden; margin-bottom:16px; max-width:420px; box-shadow:0 8px 26px rgba(21,38,60,.08)}
 .case-photo img{width:100%; display:block}
 
+/* prints originais nos cases */
+.case-prints{flex:1; min-height:0; display:flex; gap:16px; align-items:center; justify-content:center}
+.case-prints img{max-height:100%; min-height:0; max-width:44%; object-fit:contain; border:1px solid var(--line); border-radius:8px; background:#fff; box-shadow:0 10px 30px rgba(21,38,60,.10)}
+
+/* foto natural (paisagem) na bio */
+.bio .photo.natural{min-height:0; align-self:center; padding:14px}
+.bio .photo.natural img{width:100%; height:auto; object-fit:unset; border-radius:4px}
+
+/* print real no card de prova social */
+.t-img{flex:1; min-height:0; display:flex; align-items:center; justify-content:center}
+.t-img img{max-width:100%; max-height:100%; object-fit:contain; border:1px solid var(--line); border-radius:6px}
+
 /* depoimento com métrica real */
 .t-stat{flex:1; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--blue); font-weight:700; font-size:19px; line-height:1.35; border:1px solid var(--line); border-radius:6px; min-height:110px; padding:12px; background:rgba(46,90,153,.05)}
 

@@ -1,5 +1,5 @@
 /* =====================================================================
-   Engine do deck — render + navegação + scale-to-fit + índice + print
+   Engine do deck: render + navegação + scale-to-fit + índice + print
    Sem sobretítulos/labels pequenos em nenhum slide.
    ===================================================================== */
 (function(){
@@ -43,7 +43,7 @@
         <circle cx="352" cy="36" r="6" fill="#5E82B6"/>
       </svg>
       <div class="row" style="justify-content:space-between">
-        <span class="chip">Hoje — números reais</span><span class="chip hl">Projeção com o sistema</span>
+        <span class="chip">Hoje: números reais</span><span class="chip hl">Projeção com o sistema</span>
       </div>
     </div>`,
     biblioteca:()=>`<div class="il" style="justify-content:center;gap:12px">
@@ -163,13 +163,13 @@
   const R = {
     cover:(s)=>`<div class="wordmark">${esc(s.wordmark)}</div><div class="hair"></div>${s.tag?`<div class="tag">${esc(s.tag)}</div>`:''}`,
 
-    statement:(s)=>`${head(s,true)}${s.bullets?`<div style="max-width:62ch;margin:8px auto 0">${bullets(s.bullets)}</div>`:''}`,
+    statement:(s)=>`${head(s,true)}${s.bullets?`<div style="margin:8px auto 0;text-align:center">${bullets(s.bullets).replace('<ul class=\"bullets\">','<ul class=\"bullets\" style=\"display:inline-flex;flex-direction:column;text-align:left;max-width:62ch\">')}</div>`:''}`,
 
     divider:(s)=>`<div class="rule"></div><h2 class="title">${esc(s.title)}</h2>${s.sub?`<div class="sub">${esc(s.sub)}</div>`:''}`,
 
     bio:(s)=>`
       <div class="bio">
-        <div class="photo">${s.photo?`<img src="${esc(s.photo)}" alt="Daniel Souza">`:'[ FOTO DE DANIEL SOUZA ]'}</div>
+        <div class="photo ${s.photoNatural?"natural":""}">${s.photo?`<img src="${esc(s.photo)}" alt="Daniel Souza">`:'[ FOTO DE DANIEL SOUZA ]'}</div>
         <div>
           <h2 class="title sm" style="margin-bottom:14px">${esc(s.title)}</h2>
           ${(s.paras||[]).map(p=>`<p class="lead" style="font-size:16.5px;margin-bottom:10px">${esc(p)}</p>`).join('')}
@@ -238,7 +238,7 @@
 
     phase:(s)=>`
       <div class="phase-wrap">
-        <h2 class="phase-title"><span class="accent">FASE ${esc(s.n)}</span> — ${esc(s.name)}</h2>
+        <h2 class="phase-title"><span class="accent">FASE ${esc(s.n)}</span>: ${esc(s.name)}</h2>
         <p class="phase-obj">Objetivo principal: ${esc(s.objetivo)}</p>
         <h3 class="phase-metas"><span class="accent">Metas</span> da Fase</h3>
         <div class="metas c${Math.min(s.metas.length,4)}">${s.metas.map((m,i)=>`
@@ -248,22 +248,16 @@
     imgslide:(s)=>`<img class="full-img" src="${esc(s.img)}" alt="">`,
 
     case:(s)=>`
-      <div class="two" style="grid-template-columns:.85fr 1.15fr">
-        <div>
-          <h2 class="title sm" style="margin-bottom:8px">${esc(s.name)}</h2>
-          <p class="lead" style="font-size:20px;color:var(--blue);margin-bottom:10px">${esc(s.brand)}</p>
-          <p class="lead" style="font-size:16px;margin-bottom:16px">${esc(s.ig)}</p>
-          ${s.photo?`<div class="case-photo"><img src="${esc(s.photo)}" alt="${esc(s.name)}"></div>`:''}
-          ${s.contract?`<span class="chip-navy">${esc(s.contract)}</span>`:''}
-        </div>
-        <div class="case-panel">
-          <div class="case-kpis">
-            ${s.kpis.map(k=>`<div class="case-kpi"><div class="v">${esc(k.v)}</div><div class="l">${esc(k.l)}</div></div>`).join('')}
-          </div>
-          <div class="case-rows">
-            ${s.rows.map(r=>`<div class="cr"><span>${esc(r[0])}</span><b>${esc(r[1])}</b></div>`).join('')}
-          </div>
-        </div>
+      <div class="head" style="margin-bottom:16px;gap:8px">
+        <h2 class="title sm">${esc(s.name)}</h2>
+        <p class="lead" style="font-size:19px;color:var(--blue)">${esc(s.brand)}</p>
+        <p class="lead" style="font-size:15px">${esc(s.ig)}</p>
+      </div>
+      <div class="case-kpis" style="margin-bottom:16px">
+        ${s.kpis.map(k=>`<div class="case-kpi"><div class="v">${esc(k.v)}</div><div class="l">${esc(k.l)}</div></div>`).join('')}
+      </div>
+      <div class="case-prints">
+        ${s.prints.map(p=>`<img src="${esc(p)}" alt="">`).join('')}
       </div>`,
 
     consists:(s)=>`${head(s)}
@@ -317,7 +311,7 @@
     testimonials:(s)=>`
       <div class="head"><h2 class="title sm">Provas sociais</h2></div>
       <div class="testi-grid">${s.items.map(t=>`
-        <div class="testi">${t.stat?`<div class="t-stat">${esc(t.stat)}</div>`:`<div class="ph">[ ${esc(t.ctx||'depoimento')} ]</div>`}<div class="who">${esc(t.who)}<span>${esc(t.role||'cliente Simple')}</span></div></div>`).join('')}</div>`,
+        <div class="testi">${t.img?`<div class="t-img"><img src="${esc(t.img)}" alt=""></div>`:t.stat?`<div class="t-stat">${esc(t.stat)}</div>`:`<div class="ph">[ ${esc(t.ctx||'depoimento')} ]</div>`}<div class="who">${esc(t.who)}<span>${esc(t.role||'cliente Simple')}</span></div></div>`).join('')}</div>`,
 
     'price-table':(s)=>{
       const p=s.price;
@@ -349,7 +343,7 @@
       <div class="regular">Preço regular: <s>${money(s.regular)}</s></div>
       <div class="big">${money(s.hero)}</div>
       <div class="inst">à vista · ou ${esc(s.instal)}</div>
-      <p class="note">Valor protagonista — válido apenas com a decisão na call.</p>`,
+      <p class="note">Valor protagonista: válido apenas com a decisão na call.</p>`,
   };
 
   /* ---------- montar slides ---------- */
