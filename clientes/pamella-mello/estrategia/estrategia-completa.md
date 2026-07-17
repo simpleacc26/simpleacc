@@ -84,12 +84,13 @@ causa se reconhece e aceita o investimento.*
      fora da região metropolitana (C) Em outro estado (online) (D) Fora do Brasil
    - 7c. Você está buscando um processo terapêutico estruturado e definitivo — mesmo que
      represente um investimento maior do que uma sessão avulsa? (A) Sim, quero resolver de
-     vez (B) Sim, mas preciso entender melhor antes (C) Busco algo mais pontual/de menor
-     custo (D) Só estou pesquisando por enquanto
+     vez (B) Sim, mas preciso entender melhor antes (C) Ainda não estou pronto(a) para um
+     processo assim agora (D) Só estou pesquisando por enquanto
 
    *Lógica de qualificação: 7c (A/B) + 7b (A/B/C) = lead qualificado → avaliação. 7c (C/D)
    = nutrição/conteúdo. 7b (D) = desqualifica. Filtro de capacidade por intenção e
-   prontidão, não por pergunta crua de renda.*
+   prontidão, não por pergunta crua de renda. Opção 7c(C) reformulada em 2026-07-17: trocado
+   "de menor custo" (âncora de preço, dava saída fácil) por foco em prontidão emocional.*
 
 **Captura de dados (após a última pergunta):**
 - **Título:** Sua leitura personalizada está pronta.
