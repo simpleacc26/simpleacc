@@ -1,4 +1,4 @@
-# 13/07/2026 · SENSE CLINIC · Reativação de leads frios (follow-up firme)
+# 17/07/2026 · SENSE CLINIC · Reativação de leads frios (follow-up firme)
 
 **Contexto:** complementa a Seção 4 da "Cadência Comercial" (a atual é acolhedora e sem
 pressão). Este kit é para o lead que **já esfriou / parou de responder**. Tom **firme e
