@@ -21,10 +21,17 @@ sem framework, sem build (`index.html` já é o entregável).
 
 ## Tracking instalado
 
-- **Meta Pixel:** `328694529132563` (em `index.html`, `diagnostico.html` e disparando
-  eventos customizados via `app.js`/`diagnostico.js`: `InitiateCheckout`, `Lead`, `Contact`).
 - **Google Tag Manager:** `GTM-PWQS84LW` (código head + noscript body em `index.html` e
   `diagnostico.html`).
+- **Meta Pixel `328694529132563`: gerenciado só pelo GTM**, via tag "[Meta Ads] 1 |
+  PageView" (template oficial Meta Pixel, trigger "All Pages", ID vindo da variável
+  `{{id-meta ads}}` — confirmar que resolve para `328694529132563` neste container). O
+  código NÃO tem mais o script `fbq` hardcoded no HTML — foi removido em 2026-07-16 para
+  não duplicar o evento PageView. `app.js`/`diagnostico.js` continuam disparando eventos
+  customizados (`InitiateCheckout`, `Lead`, `Contact`) chamando `fbq(...)` diretamente,
+  aproveitando o `window.fbq` que a tag do GTM define quando carrega — funciona desde que
+  o container esteja **publicado** (edições no Workspace do GTM não valem pro site até
+  publicar uma nova versão).
 - **Leads:** enviados via webhook do Make (`LEADS_ENDPOINT` em `app.js`) para a planilha
   "Planilha de Leads - Pâmella Mello (Funil Hipnose)" no Drive da cliente.
 
