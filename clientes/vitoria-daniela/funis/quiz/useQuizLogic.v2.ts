@@ -18,6 +18,7 @@ export const QUESTIONS: Question[] = [
       'Arquitetura ou engenharia',
       'Consultoria, mentoria ou educação',
       'Marketing',
+      'Outros serviços',
     ],
   },
   {
