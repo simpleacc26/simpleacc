@@ -310,6 +310,17 @@ table.cases td.num{color:var(--ink)}
 .slide.red .card p{color:#FFDCD7}
 .slide.red .foot-note{color:#FFE4E0}
 
+/* statements: tópicos como cards lado a lado */
+.st-cards{display:grid; gap:16px; width:100%; max-width:1080px; margin:30px auto 0}
+.st-cards.c2{grid-template-columns:repeat(2,1fr)}
+.st-cards.c3{grid-template-columns:repeat(3,1fr)}
+.st-cards .sc{
+  background:rgba(255,255,255,.045); border:1px solid var(--line-d); border-top:2px solid var(--blue-lt);
+  border-radius:8px; padding:22px 24px; text-align:left;
+  font-size:15.5px; line-height:1.6; color:#d7deea; display:flex; align-items:center;
+}
+.st-cards .sc b{color:#fff}
+
 /* ---------- Statements — tipografia reduzida ---------- */
 .slide.statement .title{font-size:42px; max-width:28ch}
 .slide.statement .title.xl{font-size:58px; max-width:24ch}

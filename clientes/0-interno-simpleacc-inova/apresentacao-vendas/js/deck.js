@@ -163,7 +163,10 @@
   const R = {
     cover:(s)=>`<div class="wordmark">${esc(s.wordmark)}</div><div class="hair"></div>${s.tag?`<div class="tag">${esc(s.tag)}</div>`:''}`,
 
-    statement:(s)=>`${head(s,true)}${s.bullets?`<div style="margin:8px auto 0;text-align:center">${bullets(s.bullets).replace('<ul class=\"bullets\">','<ul class=\"bullets\" style=\"display:inline-flex;flex-direction:column;text-align:left;max-width:62ch\">')}</div>`:''}`,
+    statement:(s)=>`${head(s,true)}${s.bullets?`
+      <div class="st-cards c${Math.min(s.bullets.length,3)}">
+        ${s.bullets.map(b=>`<div class="sc">${b}</div>`).join('')}
+      </div>`:''}`,
 
     divider:(s)=>`<div class="rule"></div><h2 class="title">${esc(s.title)}</h2>${s.sub?`<div class="sub">${esc(s.sub)}</div>`:''}`,
 
