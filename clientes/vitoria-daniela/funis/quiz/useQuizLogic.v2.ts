@@ -9,6 +9,18 @@ export type Question = {
 
 export const QUESTIONS: Question[] = [
   {
+    id: 'nicho',
+    text: 'Qual sua área de atuação?',
+    options: [
+      'Saúde (médica, dentista, nutricionista, fisioterapeuta, psicóloga...)',
+      'Estética, beleza e bem-estar (clínica, studio, estúdio fitness...)',
+      'Advocacia e área jurídica',
+      'Arquitetura ou engenharia',
+      'Consultoria, mentoria ou educação',
+      'Marketing',
+    ],
+  },
+  {
     id: 'q1',
     text: 'Hoje, qual dessas frases mais descreve a sua realidade?',
     contextType: 'BALDE',
@@ -197,7 +209,7 @@ export const useQuizLogic = () => {
 
       if (!res.ok) throw new Error('Failed');
 
-      setCurrentStep(7); // Success (0-5 perguntas, 6 lead form, 7 sucesso)
+      setCurrentStep(QUESTIONS.length + 1); // Success (dinâmico: N perguntas, passo N = lead form, N+1 = sucesso)
     } catch (e) {
       console.error(e);
       setSubmissionError(true);
