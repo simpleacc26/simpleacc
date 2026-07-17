@@ -26,6 +26,8 @@ function trackEvent(name, data = {}) {
   const payload = { ...data, ts: Date.now() };
   console.log(`[TRACK] ${name}`, payload);
   try {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: name, ...data });
     if (TRACKING_CONFIG.ga4_id && typeof gtag === "function") gtag("event", name, data);
     if (TRACKING_CONFIG.meta_pixel_id && typeof fbq === "function") fbq("trackCustom", name, data);
     if (TRACKING_CONFIG.custom_webhook && navigator.sendBeacon)
