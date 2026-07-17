@@ -30,9 +30,10 @@ Call de onboarding em 02/07/2026 (canvas preenchido em 01/07/2026).
 
 ## Projetos
 
-| Projeto                        | Pasta      | Status              | Deploy |
-| ------------------------------ | ---------- | ------------------- | ------ |
-| Funil da Mentoria Reset Mental | `funis/`   | em estruturação     | —      |
+| Projeto                        | Pasta         | Status                     | Deploy |
+| ------------------------------ | ------------- | -------------------------- | ------ |
+| Roadmap Estratégico 90 dias    | `estrategia/` | v1.0, ag. validação Daniel | —      |
+| Funil da Mentoria Reset Mental | `funis/`      | em estruturação            | —      |
 
 ## Observações
 
