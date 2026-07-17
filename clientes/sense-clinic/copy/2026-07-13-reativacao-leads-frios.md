@@ -1,73 +1,80 @@
 # 13/07/2026 · SENSE CLINIC · Reativação de leads frios (follow-up firme)
 
-**Contexto:** complementa a Seção 4 da "Cadência Comercial" (a cadência atual é
-acolhedora e sem pressão). Este kit é para o lead que **já esfriou / parou de
-responder**. Tom mais **firme e comercial**, mas ainda humano. Objetivo continua o
-mesmo: **agendar a avaliação presencial** (não fechar pelo WhatsApp).
+**Contexto:** complementa a Seção 4 da "Cadência Comercial" (a atual é acolhedora e sem
+pressão). Este kit é para o lead que **já esfriou / parou de responder**. Tom **firme e
+comercial**, ainda humano. Objetivo continua: **agendar a avaliação presencial**.
 
 Duas frentes: **Tatuagem** (Ana Luiza) e **Clareamento** (Ana Paula). Variáveis `{{}}`.
 
-## Princípios da firmeza que converte
-- **Uma ideia por mensagem** e **um CTA único**, fácil de responder (sim/não, A ou B).
+## Princípio nº 1: nunca dê um "não" fácil
+Pergunta binária (sim/não) entrega o "não" de bandeja, e depois que a cliente diz "não",
+ela passa a se justificar por ele (coerência) e reverter fica muito mais difícil. Troque por:
+- **Ou/ou (assumptiva):** "prefere {{dia A}} ou {{dia B}}?", pressupõe o sim, negocia só o *quando*.
+- **Aberta sobre o problema:** "o que te fez querer remover essa tattoo na época?", reacende a dor.
+- **Micro-compromisso:** "reservei no seu nome, me confirma seu nome completo que eu travo."
+
+Evite: "quer agendar?", "quer que eu garanta?", "confirmo ou solto?", "ainda tem interesse?".
+
+## Demais princípios
+- **Uma ideia por mensagem** e **um CTA**.
 - **Urgência e escassez só REAIS** (agenda cheia, condição com prazo). Nunca inventar.
-- **Aversão à perda** puxa mais que lista de benefícios ("cada semana parada é uma sessão a menos").
-- **Takeaway funciona:** dar a conversa por encerrada é o que faz o lead frio responder.
-- **Fluxo B (clareamento):** firmeza sim, mas **discrição total** — a pressão vem da agenda e do inverno, nunca da exposição do corpo.
+- **Aversão à perda** puxa mais que benefício ("cada semana parada é uma sessão a menos").
+- **Fluxo B (clareamento):** firmeza com **discrição total**, pressão vem da agenda/inverno, nunca da exposição do corpo.
 
 ---
 
 ## Sequência de reativação em 5 toques
-Espaçar **2 a 3 dias** entre os toques. **Parar assim que responder** e voltar ao atendimento normal.
+Espaçar **2 a 3 dias**. **Parar assim que responder.**
 
-### TOQUE 1 · Direto (pattern interrupt)
-- **Tatuagem:** "{{Nome}}, vou ser direta 😊 você ainda quer remover essa tatuagem ou já mudou de ideia? Pergunto porque a agenda da Ana Luiza tá concorrida e não quero segurar seu lugar à toa."
-- **Clareamento:** "{{Nome}}, vou ser sincera com você 💛 aquilo que te incomodava ainda te incomoda, ou já resolveu? É só pra eu saber se guardo um horário com a Ana Paula pra você ou se libero."
+### TOQUE 1 · Assumptiva (agenda)
+- **Tatuagem:** "{{Nome}}, tô fechando a agenda de avaliações da Ana Luiza dessa semana e separei um horário pra você antes de liberar. Fica melhor **{{dia A}} de manhã ou {{dia B}} à tarde?**"
+- **Clareamento:** "{{Nome}}, tô organizando a agenda da Ana Paula e reservei um horário pra você antes de abrir pra novas clientes. Fica melhor **{{dia A}} ou {{dia B}}?**"
 
-### TOQUE 2 · Aversão à perda + tempo (gancho do inverno)
-- **Tatuagem:** "{{Nome}}, um lembrete honesto: remoção é feita em sessões, leva tempo. Quem começa agora, no inverno, chega no verão com a pele já tratada. Cada semana parada é uma sessão a menos até lá. Quer que eu veja um horário essa semana?"
-- **Clareamento:** "{{Nome}}, o inverno é o melhor momento pra tratar essas manchas: menos sol, menos risco e recuperação mais tranquila. Quem começa agora chega no verão resolvida. Te encaixo numa avaliação essa semana?"
+### TOQUE 2 · Aversão à perda + inverno
+- **Tatuagem:** "{{Nome}}, um lembrete honesto: remoção é feita em sessões, leva tempo. Quem começa agora, no inverno, chega no verão com a pele já tratada, e cada semana parada é uma sessão a menos até lá. Me diz **dois dias** que funcionam essa semana que eu já encaixo sua avaliação."
+- **Clareamento:** "{{Nome}}, o inverno é o melhor momento pra tratar essas manchas: menos sol, menos risco, recuperação mais tranquila. Quem começa agora chega no verão resolvida. Qual período te atende melhor pra avaliação: **manhã ou tarde?**"
 
-### TOQUE 3 · Prova social + micro-compromisso
-"{{Nome}}, essa semana atendemos várias clientes com o mesmo caso que o seu, e a frase é sempre a mesma: 'queria ter feito antes'. Posso te mandar um resultado real (com autorização) pra você ver? Responde **SIM** que eu te envio 👇"
+### TOQUE 3 · Prova social + pergunta aberta
+"{{Nome}}, vou te mandar aqui o resultado de uma cliente que tava no mesmo ponto que você 👇 *(enviar print/vídeo com autorização)*. Olhando isso, **o que ainda te segura** pra marcar a sua avaliação?"
 
-### TOQUE 4 · Condição com prazo (usar só se puderem oferecer de verdade)
-"{{Nome}}, consegui uma condição pra quem agenda a avaliação até {{dia}}: {{benefício real — ex.: primeira sessão com desconto / prioridade na agenda}}. É limitado e não sei se repete. Quer que eu garanta a sua?"
+### TOQUE 4 · Condição com prazo (assumptiva)
+"{{Nome}}, reservei uma condição no seu nome pra quem agenda até {{dia}}: {{benefício real, ex.: primeira sessão com desconto / prioridade na agenda}}. Pra eu confirmar, o melhor dia pra sua avaliação é **{{dia A}} ou {{dia B}}?**"
 
-### TOQUE 5 · Takeaway / encerramento firme (alto índice de resposta)
+### TOQUE 5 · Takeaway / encerramento firme *(exceção proposital: sem pergunta binária)*
 "{{Nome}}, como não tive retorno, vou encerrar seu atendimento aqui pra liberar a agenda pra quem está esperando. Se ainda quiser cuidar disso, me manda só um **'quero'** hoje que eu seguro seu lugar. Amanhã eu passo pra frente 😊"
 
 ---
 
-## Banco de mensagens avulsas (escolher conforme o caso)
+## Banco de mensagens avulsas (todas sem "não" fácil)
 
-**Curiosidade / novidade**
-"{{Nome}}, apareceu uma novidade aqui que muda o seu caso. Posso te contar rapidinho?"
+**Fechamento assumido (micro-compromisso)**
+"{{Nome}}, deixei {{dia}} às {{hora}} reservado no seu nome com a {{Ana Luiza / Ana Paula}}. Me confirma seu **nome completo** que eu travo o horário."
 
-**Fechamento assumido (agenda provisória)**
-"{{Nome}}, deixei um horário provisório pra você {{dia}} às {{hora}} com a {{Ana Luiza / Ana Paula}}. Confirmo ou solto pra outra pessoa?"
+**Reacender a dor (aberta)**
+"{{Nome}}, deixa eu te perguntar: o que te fez pensar em {{remover essa tatuagem / tratar essas manchas}} na época? Porque quase sempre o motivo continua o mesmo, e é isso que a avaliação resolve."
 
-**Sumiço longo (semanas)**
-"{{Nome}}, faz um tempo que a gente não se fala. Aquele {{incômodo: 'da tatuagem' / 'com as manchas'}} ainda tá aí? Se sim, o momento é ótimo pra resolver. Bora marcar?"
+**Objeção preço (diagnóstica, ou/ou)**
+"{{Nome}}, a avaliação é sem custo e você parcela no cartão. Me diz o que pesa mais hoje: **o valor ou a agenda?** Que eu já te ajudo a resolver."
 
-**Volta da objeção preço (firme, sem baixar a cabeça)**
-"{{Nome}}, entendo o investimento, por isso a avaliação é sem custo e você parcela no cartão. Me diz o que pesa mais hoje: o valor ou a agenda? Que eu já te ajudo a resolver."
+**Sumiço longo (aberta + escassez real)**
+"{{Nome}}, faz um tempo que a gente não se fala. Como tá aquele {{incômodo}}? Se ainda te incomoda, esse é o melhor momento do ano pra resolver, me diz **dois dias** que funcionam que eu encaixo."
 
-**Escolha binária (facilita o sim)**
-"{{Nome}}, pra facilitar: prefere {{dia A}} de manhã ou {{dia B}} à tarde? Me fala só a letra que eu travo o horário 😊"
-
----
-
-## Quando o lead volta com "vi, mas..." → reengajar firme
-"Que bom que voltou! 😊 Então bora resolver de vez: te encaixo {{dia A}} ou {{dia B}}? Só me diz qual funciona que eu já garanto aqui."
+**Quando volta com "vi, mas..."**
+"Que bom que voltou! Então bora resolver de vez: te encaixo **{{dia A}} ou {{dia B}}?** Me diz qual que eu travo."
 
 ---
+
+## Limpeza de pipeline (o "não" proposital, só no fim)
+Quando já ficou claro que o lead não avança, use **de propósito** para liberar seu tempo
+(não como CTA de reativação):
+"{{Nome}}, pra eu não te incomodar à toa: quer seguir com a avaliação ou prefere que eu pause seu atendimento por enquanto? Qualquer resposta tá ótima 😊"
+→ Se pausar, entra no *pedido de indicação* (Seção 6 da Cadência).
 
 ## Regras pra não queimar o lead
-- **Máx. 1 mensagem por toque.** Não metralhar.
-- **Parar no primeiro "não" claro** e usar o *pedido de indicação* (Seção 6 da Cadência).
-- **Escassez só verdadeira.** Se a agenda não está cheia, use outro gatilho (inverno, prova social, condição).
-- **Registrar em que toque cada lead está**, pra não repetir nem perder o ritmo.
-- **Fluxo B:** nunca citar a região em texto que outra pessoa possa ler; reforçar sigilo e atendimento privado.
+- **Nunca dar "não" fácil** (princípio nº 1). **Máx. 1 mensagem por toque.**
+- **Escassez só verdadeira.** Sem agenda cheia, usar inverno / prova social / condição.
+- **Registrar em que toque cada lead está.**
+- **Fluxo B:** nunca citar a região em texto; reforçar sigilo e atendimento privado.
 
-> Observação: a mesma estrutura serve para reativar leads da campanha **Sense Lift**
-> (redução de medidas / captação de modelos), trocando o gancho pela vaga limitada.
+> A mesma estrutura reativa leads da campanha **Sense Lift** (captação de modelos),
+> trocando o gancho pela vaga limitada.
