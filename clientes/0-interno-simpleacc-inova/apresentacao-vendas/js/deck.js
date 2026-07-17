@@ -252,7 +252,8 @@
         <div>
           <h2 class="title sm" style="margin-bottom:8px">${esc(s.name)}</h2>
           <p class="lead" style="font-size:20px;color:var(--blue);margin-bottom:10px">${esc(s.brand)}</p>
-          <p class="lead" style="font-size:16px;margin-bottom:18px">${esc(s.ig)}</p>
+          <p class="lead" style="font-size:16px;margin-bottom:16px">${esc(s.ig)}</p>
+          ${s.photo?`<div class="case-photo"><img src="${esc(s.photo)}" alt="${esc(s.name)}"></div>`:''}
           ${s.contract?`<span class="chip-navy">${esc(s.contract)}</span>`:''}
         </div>
         <div class="case-panel">

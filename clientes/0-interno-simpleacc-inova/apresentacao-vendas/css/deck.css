@@ -413,6 +413,9 @@ table.cases td.num{color:var(--ink)}
 .case-rows .cr span{color:var(--mute)}
 .case-rows .cr b{color:var(--navy); font-weight:600; font-variant-numeric:tabular-nums}
 
+.case-photo{border:1px solid var(--line); border-radius:8px; overflow:hidden; margin-bottom:16px; max-width:420px; box-shadow:0 8px 26px rgba(21,38,60,.08)}
+.case-photo img{width:100%; display:block}
+
 /* depoimento com métrica real */
 .t-stat{flex:1; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--blue); font-weight:700; font-size:19px; line-height:1.35; border:1px solid var(--line); border-radius:6px; min-height:110px; padding:12px; background:rgba(46,90,153,.05)}
 

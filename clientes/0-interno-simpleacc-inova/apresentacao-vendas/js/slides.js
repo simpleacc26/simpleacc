@@ -47,14 +47,14 @@ const COMMON = [
       {img:'assets/daniel-palestra.jpg', label:'Palestra'},
       {img:'assets/daniel-trabalhando.jpg', label:'Operação'},
       {img:'assets/daniel-lifestyle.jpg', label:'Bastidores'},
-      {label:'Foto com Luiz Filho'},
+      {img:'assets/daniel-luiz.jpg', label:'Com Luiz Filho'},
       {label:'Palco da mentoria com Luiz'},
       {label:'Resultados'},
     ]},
 
-  // 5 — TRAJETÓRIA (foto com telão — interim: palestra; falta a foto do telão)
+  // 5 — TRAJETÓRIA (foto com telão)
   { type:'traj', sec:'Autoridade', label:'A trajetória da Simple',
-    title:'A trajetória da Simple', photo:'assets/daniel-palestra.jpg',
+    title:'A trajetória da Simple', photo:'assets/daniel-telao.jpg',
     marcos:[
       'Marca de 1.57 mi de faturamento no primeiro ano de atuação',
       'Escritório na Marçal Tower',
@@ -211,7 +211,7 @@ const COMMON = [
 
   // 21b–21d — CASES REAIS (dados das planilhas por cliente)
   { type:'case', sec:'Implementação', label:'Case — Ju Godinho',
-    name:'Ju Godinho', brand:'Método ELA — saúde e estética',
+    name:'Ju Godinho', photo:'assets/perfil-ju.jpg', brand:'Método ELA — saúde e estética',
     ig:'@eujugodinho · 54,5 mil seguidores · +5 mil mentoradas',
     contract:'Contrato de Implementação do Sistema Simple assinado',
     kpis:[ {v:'8,46', l:'ROAS'}, {v:'R$ 21.995', l:'Faturamento'}, {v:'3', l:'Vendas high ticket'} ],
@@ -222,7 +222,7 @@ const COMMON = [
       ['Custo por MQL','R$ 81,28'], ['CAC','R$ 867,03'],
     ]},
   { type:'case', sec:'Implementação', label:'Case — Daniele (Grokker)',
-    name:'Daniele — Grokker', brand:'Doutora de Líderes — liderança e gestão',
+    name:'Daniele — Grokker', photo:'assets/perfil-daniele.jpg', brand:'Doutora de Líderes — liderança e gestão',
     ig:'@daniele.doutoradelideres · 8,4 mil seguidores · +3 mil alunos',
     contract:'Contrato de Implementação do Sistema Simple assinado',
     kpis:[ {v:'R$ 3,25', l:'Custo por lead'}, {v:'R$ 5,26', l:'Custo por MQL'}, {v:'179', l:'Leads qualificados'} ],
@@ -232,7 +232,7 @@ const COMMON = [
       ['Conversão de LP','26,71%'], ['Taxa de qualificados','61,94%'],
     ]},
   { type:'case', sec:'Implementação', label:'Case — Carol Batista (Mindshift)',
-    name:'Carol Batista — Mindshift', brand:'Liderança & cultura organizacional',
+    name:'Carol Batista — Mindshift', photo:'assets/perfil-carol.jpg', brand:'Liderança & cultura organizacional',
     ig:'@carolbatista · 10,6 mil seguidores',
     contract:'Contrato de Implementação do Sistema Simple assinado',
     kpis:[ {v:'R$ 32,35', l:'Custo por MQL'}, {v:'59,57%', l:'Taxa de qualificados'}, {v:'R$ 19,27', l:'Custo por lead'} ],
