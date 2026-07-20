@@ -42,7 +42,7 @@ dono de um ecossistema que roda sem depender do seu rosto").* ✍️ **LUCAS: ap
 
 ✅ Provas já mencionadas nas reuniões:
 - ~**20 experts** acompanhados desde 2021 (esteiras de low, middle e high ticket).
-- Lançamento do **Dr. Ray** (produto físico + smartwatch/app) na casa de **R$ 50 mi**.
+- Lançamento do **Dr. Rey** (produto físico + smartwatch/app) na casa de **R$ 50 mi**.
 - ~~Lançamento de pós-graduação: R$ 1,1 mi em 6 dias~~ **[CORRIGIDO 20/07: esse case
   é do Carlos (operação anterior dele), não do Lucas — não usar como prova do Lucas]**.
 - Trajetória própria: de ~4.000 artes/mês a estrategista; **primeiro teto de R$ 7.000

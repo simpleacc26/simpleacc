@@ -64,7 +64,7 @@ Modelo com que Lucas trabalhava como coprodutor — vira **estudo de caso / mét
 ## Provas / resultados (para copy e páginas)
 
 - **R$ 7.000 líquidos/mês** no digital (primeiro teto pessoal relevante).
-- Lançamento **Dr. Ray** (produto físico) na casa de **R$ 50 mi**.
+- Lançamento **Dr. Rey** (produto físico) na casa de **R$ 50 mi**.
 - **~20 experts** atendidos; **856 sites** mapeados no Teorema.
 - ⚠️ O case "pós-graduação R$ 1,1 mi em 6 dias" é do **Carlos** (operação anterior
   dele), **não** do Lucas — não usar como prova do Lucas (corrigido 20/07).

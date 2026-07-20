@@ -25,7 +25,7 @@ um **ecossistema de produtos que leva do zero ao investidor**.
 - **2019–2020 (pandemia):** boom da demanda — saltou de ~8–12 para ~25 clientes,
   produzindo ~4.000 artes/mês. Veio caixa e tempo, mas também **burnout**.
 - Automação facilitou a operação e liberou tempo para estudar **lançamentos**.
-- 2016/2018: participou como estrategista júnior de um lançamento do **Dr. Ray**
+- 2016/2018: participou como estrategista júnior de um lançamento do **Dr. Rey**
   (produto físico + smartwatch + app de saúde) — na casa de R$ 50 milhões.
 - **2020:** estudou com Thiago Fit, Rayan Santos; desenvolveu o **Teorema Digital**.
 - **2021 em diante:** começou com os primeiros experts. Até 2026 já trabalhou com
