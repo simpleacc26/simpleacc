@@ -9,8 +9,9 @@
 - **Estrategista:** Daniel Souza · **Entrega:** Carlos Durães · **Expert:** Felipe Damasceno (@felipedamasceno.1)
 - **Fonte:** onboarding presencial (13/07/26), Canvas, Persona Oficial, WhatsApp.
 - **Premissas:** ticket carro-chefe R$ 80k (oferta ainda sendo fechada); IDE =
-  Índice de Dependência Empresarial; ICP qualificado a partir de R$ 50 mil/mês;
-  provas = credencial técnica (PGC, XGrow, apps +10M), não cases de mentorados.
+  Índice de Dependência Empresarial; **ICP ideal R$ 100 mil a R$ 2 milhões/mês
+  (Canvas); qualifica a partir de R$ 100 mil**; provas = credencial técnica
+  (PGC, XGrow, apps +10M), não cases de mentorados.
 
 ---
 

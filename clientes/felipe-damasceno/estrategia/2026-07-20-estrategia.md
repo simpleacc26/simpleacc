@@ -26,7 +26,8 @@ empresa virando território de governo, e não prisão.
 - **Estimativa:** leva 2 minutos.
 
 Padrão SPIN. Cada pergunta com 4 alternativas que já segmentam o lead pelo nível
-de dependência (em ordem do maior para o menor IDE).
+de dependência (a pergunta de qualificação, a última, tem 6 faixas de faturamento
+para captar de empresas pequenas a grandes).
 
 **1. Situação — Como você definiria o seu papel na empresa hoje?**
 - ( ) Sou o dono e ainda vivo dentro da operação
@@ -65,15 +66,20 @@ de dependência (em ordem do maior para o menor IDE).
 - ( ) Venci financeiramente, mas sinto que ainda falta algo
 
 **7. Qualificação — Qual o faturamento médio mensal da sua empresa hoje?**
-- ( ) Até R$ 30 mil *(desqualifica: rotear para conteúdo/entrada, não para a sessão)*
-- ( ) De R$ 30 mil a R$ 50 mil *(desqualifica: rotear para conteúdo/entrada)*
-- ( ) De R$ 50 mil a R$ 100 mil *(qualifica)*
-- ( ) Acima de R$ 100 mil *(qualifica, prioridade)*
+- ( ) Até R$ 50 mil *(desqualifica: abaixo do ICP, rotear para conteúdo/entrada)*
+- ( ) De R$ 50 mil a R$ 100 mil *(desqualifica: abaixo do ICP, rotear para conteúdo/entrada)*
+- ( ) De R$ 100 mil a R$ 500 mil *(qualifica)*
+- ( ) De R$ 500 mil a R$ 1 milhão *(qualifica)*
+- ( ) De R$ 1 milhão a R$ 5 milhões *(qualifica)*
+- ( ) R$ 5 milhões ou mais *(qualifica)*
 
-> As faixas "até R$ 30 mil" e "R$ 30 a 50 mil" existem para **identificar e filtrar
-> os desqualificados** (pedido do Daniel): esses leads não vão para a sessão de
-> alto ticket, entram no conteúdo de aquecimento ou na plataforma de entrada. A
-> sessão estratégica é para quem fatura R$ 50 mil/mês ou mais.
+> **ICP ideal (Canvas): R$ 100 mil a R$ 2 milhões/mês.** As faixas altas
+> (R$ 500 mil a R$ 1 milhão, R$ 1 a 5 milhões, R$ 5 milhões ou mais) mostram que o
+> Felipe atende também empresas grandes. As duas primeiras (até R$ 50 mil e R$ 50 a
+> 100 mil) ficam para **ver e filtrar os desqualificados** (pedido do Daniel):
+> esses leads não vão para a sessão de alto ticket, entram no conteúdo de
+> aquecimento ou na plataforma de entrada. A sessão estratégica é para quem fatura
+> R$ 100 mil/mês ou mais.
 
 **Captura de dados (última tela):**
 - **Título:** Seu Diagnóstico Executivo está pronto.
@@ -143,10 +149,10 @@ líderes, rotinas e indicadores.
 **Reforço:** É gratuito, leva 2 minutos e você já sai com o seu IDE e o próximo passo.
 
 **Para quem é (✓) / para quem não é (✗):**
-- ✓ Dono de empresa que já fatura a partir de R$ 50 mil por mês e continua preso à operação.
+- ✓ Dono de empresa que fatura a partir de R$ 100 mil por mês e continua preso à operação (do ICP ideal de R$ 100 mil a R$ 2 milhões às empresas de R$ 5 milhões ou mais).
 - ✓ Quem quer crescer sem aumentar a própria sobrecarga e formar um time que decide.
 - ✓ Quem já tem resultado e busca governo, clareza e legado, não mais uma fórmula de faturar.
-- ✗ Quem fatura abaixo de R$ 50 mil/mês e ainda busca a primeira validação de faturamento.
+- ✗ Quem fatura abaixo de R$ 100 mil/mês e ainda busca a primeira validação de faturamento.
 - ✗ Quem quer uma solução mágica sem estruturar pessoas, processos e indicadores.
 
 **FAQ:**
