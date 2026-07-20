@@ -28,8 +28,9 @@ páginas + tráfego), estruturação comercial e acompanhamento.
 | Projeto             | Pasta         | Status       | Deploy |
 | ------------------- | ------------- | ------------ | ------ |
 | Base de conhecimento| `contexto/`   | ativo        | —      |
-| Diagnóstico + roadmap Fase 1 | `estrategia/` | em construção | —      |
-| Sistema de aquisição (funil/quiz/páginas) | `funis/` | a iniciar | —      |
+| Canvas produto + cliente ideal | `estrategia/` | aguardando Lucas preencher | Google Doc no Drive |
+| Roadmap Estratégico 90 dias | `estrategia/` | entregue 20/07 (v1.0) | PDF |
+| Sistema de aquisição (funil/quiz/páginas) | `funis/` | a implementar em até 7 dias | —      |
 
 ## Observações
 

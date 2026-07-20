@@ -53,7 +53,8 @@ Modelo com que Lucas trabalhava como coprodutor — vira **estudo de caso / mét
 
 ## Modelo de negócio da nova marca (proposto com Daniel)
 
-- **Consultoria high ticket** (ex.: ~R$ 25 mil/mês) para validar experts e gerar
+- **Consultoria high ticket: R$ 25 mil, produto fechado (não mensalidade)** —
+  confirmado pelo Daniel em 20/07 no roadmap. Para validar experts e gerar
   receita sem o peso operacional da coprodução.
 - **Marca pessoal** em torno da história + Teorema Digital.
 - **Mentoria** usando clientes bem-sucedidos como prova social para atrair
@@ -64,8 +65,9 @@ Modelo com que Lucas trabalhava como coprodutor — vira **estudo de caso / mét
 
 - **R$ 7.000 líquidos/mês** no digital (primeiro teto pessoal relevante).
 - Lançamento **Dr. Ray** (produto físico) na casa de **R$ 50 mi**.
-- Lançamento de **pós-graduação: R$ 1,1 mi em 6 dias**.
 - **~20 experts** atendidos; **856 sites** mapeados no Teorema.
+- ⚠️ O case "pós-graduação R$ 1,1 mi em 6 dias" é do **Carlos** (operação anterior
+  dele), **não** do Lucas — não usar como prova do Lucas (corrigido 20/07).
 - Crachás/participações em eventos e ecossistemas de referência do mercado.
 
 ## Ferramentas / ativos

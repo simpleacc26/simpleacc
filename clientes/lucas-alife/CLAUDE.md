@@ -19,9 +19,12 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
 ## Contexto rápido
 - **Quem é:** estrategista digital (~10 anos), 29 anos, migrando de coprodutor de
   experts para **marca pessoal própria**. Fé cristã ("Reino") como fio condutor.
-- **Oferta principal:** método **Teorema Digital** (renda extra, 856 sites, 19 módulos;
-  curso na Hotmart ~R$ 997) + esteira **"O Alfabeto" (A→I)** e visão de **SaaS/ecossistema**.
-  Modelo novo (c/ Daniel): **consultoria high ticket (~R$ 25k/mês)** + mentoria.
+- **Oferta principal:** **consultoria high ticket para especialistas, R$ 25 mil
+  (produto fechado, não mensalidade)** — carro-chefe do roadmap. Entrada: **Teorema
+  Digital** (renda extra, 856 sites, 19 módulos; Hotmart ~R$ 997). Esteira
+  **"O Alfabeto" (A→I)** e SaaS ficam para o Roadmap 2.
+- **Meta 90 dias:** R$ 50 mil/mês (2 vendas/mês). Roadmap em
+  `estrategia/2026-07-20-roadmap-estrategico-lucas-alife.html` (+ PDF).
 - **Público / ICP:** foco Fase 1 = **experts** (pagam high ticket rápido). Secundário =
   público de **renda extra** do Teorema (faixas 14–70, ver `contexto/icp.md`).
 - **Frase-chave:** "faturamento é ego, caixa é rei".
