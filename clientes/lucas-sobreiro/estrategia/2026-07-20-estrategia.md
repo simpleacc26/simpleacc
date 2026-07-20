@@ -21,7 +21,7 @@ O caminho comum do profissional da saúde é trabalhar mais: mais cadeira, mais 
 **Hero da página do quiz**
 
 - **Título:** Descubra o que está travando o crescimento da sua clínica
-- **Subtítulo:** Responde em 2 minutos e recebe um diagnóstico personalizado, direto no teu WhatsApp, com o próximo passo mais lucrativo para o teu momento.
+- **Subtítulo:** Responda em 2 minutos e recebe um diagnóstico personalizado, direto no teu WhatsApp, com o próximo passo mais lucrativo para o teu momento.
 - **Tempo estimado:** 2 minutos · **CTA:** Começar meu diagnóstico
 
 **Perguntas (padrão SPIN, qualificação por último)**
