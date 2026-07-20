@@ -188,45 +188,7 @@ d) Acima de R$ 80 mil
 
 ---
 
-## 5. RELATÓRIO DE DIAGNÓSTICO (pós-quiz)
-
-**Instruções de uso:** substituir os campos `{{ }}` pelas respostas do quiz. `[DEPOIMENTO]` = inserir prova social do nicho da pessoa (dentista vê dentista). Botões `[AGENDAR]` levam ao WhatsApp da equipe (Fernanda) ou à agenda. Tom: direto, respeitoso, sem condescendência, tratamento por "tu".
-
-**Etapa 1 · Abertura personalizada**
-{{nome}}, este relatório foi montado com base nas tuas respostas. Ele lê o momento da tua clínica e aponta o próximo movimento mais lucrativo. Leitura de 3 minutos.
-
-**Etapa 2 · Leitura do cenário**
-Tu atuas em {{area}}, com a clínica faturando {{faturamento}} por mês, e o que mais trava o teu crescimento hoje é: {{gargalo}}. Quem cuida do comercial é {{responsavel_comercial}}, e o que tu mais quer nos próximos 6 meses é {{objetivo}}.
-
-**Etapa 3 · O mecanismo do problema**
-O teu caso segue um padrão que se repete na saúde: excelência técnica com modelo de negócio improvisado. Clínica cresce por três alavancas (pacientes certos, conversão, gestão do dono). Pelo teu diagnóstico, a alavanca travada é {{alavanca_travada}}.
-
-**Etapa 4 · Comparação de cenários**
-Clínicas do teu porte que destravam essa alavanca costumam dobrar o faturamento sem aumentar carga de atendimento. Mantendo o modelo atual, o cenário mais provável em 12 meses é: {{implicacao}}.
-
-**Etapa 5 · O custo de continuar como está**
-Cada mês nesse modelo custa nas três frentes: dinheiro (orçamentos sem follow-up e agenda sem confirmação), tempo (o dono no operacional) e energia (a sensação de teto que tu mesmo marcou: {{implicacao}}).
-
-**Etapa 6 · O mecanismo da solução**
-O método trabalha as três alavancas na ordem certa: **Vendas** (processo comercial na clínica, começando pela tua equipe de balcão), **Produtividade** (o teu tempo de volta ao papel de dono) e **Autoliderança** (a mentalidade que sustenta cobrar certo e crescer).
-
-**Etapa 7 · O que precisa acontecer no teu caso**
-Pelo teu gargalo ({{gargalo}}), o primeiro movimento é {{primeiro_movimento}}. É exatamente esse desenho que o Lucas monta contigo na sessão estratégica.
-
-**Etapa 8 · Prova**
-[DEPOIMENTO: case do mesmo nicho, com antes/depois concreto]
-
-**Etapa 9 · Convite**
-A sessão estratégica é gratuita, dura de 30 a 45 minutos e sai com o teu plano desenhado. O Lucas abre poucas agendas por semana (máximo 2 por dia). [AGENDAR MINHA SESSÃO]
-
-**Etapa 10 · Rodapé**
-Lucas Sobreiro · Mentoria de Evolução Empresarial para a Saúde. Dúvidas? Chama a equipe no WhatsApp. Teus dados são usados só para este diagnóstico.
-
-**Variante não-ICP (P8 = a ou b):** substituir as etapas 7 a 9 por: o teu próximo passo não é mentoria, é destravar o comercial com a tua própria equipe. O treinamento {{nome_produto_entrada}} (R$ 3.000) ensina a tua secretária a conduzir, confirmar e converter. [QUERO DESTRAVAR MINHA CLÍNICA]
-
----
-
-## 6. CADÊNCIA DE FOLLOW-UP · 12 DIAS (voz do Lucas)
+## 5. CADÊNCIA DE FOLLOW-UP · 12 DIAS (voz do Lucas)
 
 **Níveis:** N1 não respondeu · N2 engajou e parou · N3 quer agendar e adia · N4 no-show · N5 fez a call e não fechou.
 
@@ -249,34 +211,7 @@ Lucas Sobreiro · Mentoria de Evolução Empresarial para a Saúde. Dúvidas? Ch
 
 ---
 
-## 7. TAREFAS · ONBOARDING & PRIMEIROS MOVIMENTOS
-
-**Funil & CRM (Carlos · semanas 1 a 3)**
-- Configurar GHL + instância da API oficial do WhatsApp (número dedicado; nunca WhatsApp Web).
-- Implementar quiz, página de aplicação e automações (disparo do relatório, cadência, integração planilha/CRM).
-- Enviar doc de copies para validação de tom pelo Lucas (primeira leva; próximas já vão prontas).
-
-**Conteúdo & Criativos (Lucas + Carlos · semanas 1 a 3)**
-- Lucas grava os vídeos dos criativos seguindo os roteiros enviados (ver doc de roteiros).
-- Lucas coleta depoimentos em vídeo com o Guia de Captação de Depoimentos (meta: 3 a 5 em 15 dias, priorizando saúde).
-- Subir materiais no Drive (depoimentos, prints, fotos, identidade).
-
-**Comercial & Scripts (Lucas + Fernanda · semanas 1 a 2)**
-- Reposicionar Fernanda como SDR (fixo mantido + variável por reunião realizada).
-- Assistir às aulas (Social Selling 1 e 2, Outbound, Call 1×1, Pré-Vendas) e implantar a planilha de controle.
-- Rodar o caixa rápido: base 100% mapeada até o dia 3, abordada até o dia 10 (novo serviço, indicações, antecipação de recebíveis).
-
-**Mídia (Renan · a partir da semana 3)**
-- Subir campanhas com orçamento de validação (R$ 1.500 a 3.000/mês, financiado pelo caixa rápido).
-- Segmentação saúde, Brasil. Revisão de métricas a cada 7 dias (CPL, conclusão do quiz, comparecimento).
-
-**Tarefa que ataca o gargalo central (volume de leads):** garantir de 60 a 100 abordagens/dia da SDR desde a semana 1, sem esperar o funil. O tráfego amplia; a rotina comercial é o que gera caixa agora.
-
-**Checklist geral:** GHL no ar · quiz publicado e testado · relatório automático chegando no WhatsApp · planilha de leads viva · Fernanda operando como SDR · caixa rápido executado · roteiros gravados · depoimentos coletados · campanha ativa com métricas revisadas.
-
----
-
-## 8. RECOMENDAÇÕES ESTRATÉGICAS (Simple)
+## 6. RECOMENDAÇÕES ESTRATÉGICAS
 
 **Sobre a oferta.** O ticket de R$ 20 mil está certo para o ICP, mas a esteira é o que torna o funil lucrativo: o intermediário de R$ 12 mil salva calls que não fecham o high ticket e o produto de entrada de R$ 3 mil monetiza o não-ICP e paga a mídia. Prioridade: Lucas montar os três produtos nas duas primeiras semanas com direcionamento nosso. Nunca dar desconto no high ticket; a régua de negociação é forma de pagamento ou downsell.
 
