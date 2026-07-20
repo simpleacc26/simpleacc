@@ -87,10 +87,15 @@ de dependência (as alternativas estão em ordem do maior para o menor IDE).
 - ( ) Venci financeiramente, mas sinto que ainda falta algo
 
 **7. Qualificação — Qual o faturamento médio mensal da sua empresa hoje?**
-- ( ) Até R$ 100 mil
-- ( ) De R$ 100 mil a R$ 500 mil
-- ( ) De R$ 500 mil a R$ 2 milhões
-- ( ) Acima de R$ 2 milhões
+- ( ) Até R$ 30 mil *(desqualifica: rotear para conteúdo/entrada, não para a sessão)*
+- ( ) De R$ 30 mil a R$ 50 mil *(desqualifica: rotear para conteúdo/entrada)*
+- ( ) De R$ 50 mil a R$ 100 mil *(qualifica)*
+- ( ) Acima de R$ 100 mil *(qualifica, prioridade)*
+
+> As faixas "até R$ 30 mil" e "R$ 30 a 50 mil" existem para **identificar e filtrar
+> os desqualificados** (pedido do Daniel): esses leads não vão para a sessão de
+> alto ticket, entram no conteúdo de aquecimento ou na plataforma de entrada. A
+> sessão estratégica é para quem fatura R$ 50 mil/mês ou mais.
 
 **Captura de dados (última tela):**
 - **Título:** Seu Diagnóstico Executivo está pronto.
@@ -162,10 +167,10 @@ líderes, rotinas e indicadores.
 **Reforço:** É gratuito, leva 2 minutos e você já sai com o seu IDE e o próximo passo.
 
 **Para quem é (✓) / para quem não é (✗):**
-- ✓ Empresário que fatura de R$ 100 mil a R$ 2 milhões por mês e continua preso à operação.
+- ✓ Dono de empresa que já fatura a partir de R$ 50 mil por mês e continua preso à operação.
 - ✓ Quem quer crescer sem aumentar a própria sobrecarga e formar um time que decide.
 - ✓ Quem já tem resultado e busca governo, clareza e legado, não mais uma fórmula de faturar.
-- ✗ Quem está começando e ainda busca a primeira validação de faturamento.
+- ✗ Quem fatura abaixo de R$ 50 mil/mês e ainda busca a primeira validação de faturamento.
 - ✗ Quem quer uma solução mágica sem estruturar pessoas, processos e indicadores.
 
 **FAQ:**
@@ -186,6 +191,11 @@ líderes, rotinas e indicadores.
 ---
 
 ## 4. COPY DOS ANÚNCIOS
+
+> **Princípio (Daniel):** falar **sempre com o dono da empresa**, nunca com
+> gestor ou funcionário, no mesmo padrão que funcionou no projeto da Carol. E
+> subir **3 conjuntos, cada um com 10 anúncios** (um conjunto por ângulo abaixo:
+> dor, mecanismo e autoridade), variando gancho, copy e criativo.
 
 **Big Idea (para anúncio):** A sua empresa cresceu, mas quem virou refém foi você.
 Descubra o seu Índice de Dependência Empresarial.
@@ -406,7 +416,8 @@ disciplina, não desanimar.
   controle de leads. Prazo: dia 7.
 
 **Conteúdo & Criativos (Felipe + Robson / Simple orienta)**
-- Gravar os 3 criativos dos ângulos (dor, mecanismo, autoridade). Prazo: dia 6.
+- Gravar variações dos 3 ângulos (dor, mecanismo, autoridade) suficientes para
+  montar 3 conjuntos de 10 anúncios cada, sempre falando com o dono. Prazo: dia 6.
 - Rotina de 12 publicações/semana pelos níveis de consciência (reinante). Contínuo.
 
 **Comercial & Scripts (Felipe / gargalo central)**
@@ -416,12 +427,13 @@ disciplina, não desanimar.
 - Gravar todas as calls e revisar as 3 primeiras com o mentor. Contínuo.
 
 **Mídia (Renan / Simple)**
-- Subir campanhas de validação a partir do dia 8, financiadas pelo caixa rápido.
+- Subir, a partir do dia 8, **3 conjuntos com 10 anúncios cada** (dor, mecanismo,
+  autoridade), sempre falando com o dono da empresa, financiados pelo caixa rápido.
 - Revisão de métricas a cada 7 dias (CPL, conclusão do quiz, comparecimento).
 
 **Checklist geral:** oferta e PDF fechados · Diagnóstico no ar (dia 7) · SDR e
-playbook de follow-up · 3 criativos · campanhas no ar (dia 8) · caixa rápido de
-mídia garantido.
+playbook de follow-up · criativos dos 3 conjuntos de 10 ads · campanhas no ar
+(dia 8) · caixa rápido de mídia garantido.
 
 ---
 
@@ -446,9 +458,10 @@ pré-vendas para que o agendamento e o follow-up não dependam da presença dele
 Gerar demanda é fácil; levar a demanda qualificada à reunião com disciplina é o
 que trava o caixa.
 
-**Visão de longo prazo:** os ativos únicos (a plataforma de gestão como motor de
-prospecção e produto de entrada, e o evento presencial Axon Build integrado ao
-funil) entram a partir do dia 60, sem tirar o foco da máquina de vendas. O
-posicionamento de reinante constrói a tribo no conteúdo, enquanto a oferta ampla
+**Visão de longo prazo:** o ativo único é a plataforma de gestão, que entra a
+partir do dia 60 como motor de prospecção (alimentando o social selling) e como
+produto de entrada para o não-ICP, sem tirar o foco da máquina de vendas. Nada de
+frente presencial agora: o esforço vai para social selling, pré-vendas e tráfego.
+O posicionamento de reinante constrói a tribo no conteúdo, enquanto a oferta ampla
 (Governo Empresarial) converte no curto prazo. Quando os R$ 240 mil/mês estiverem
 de pé, o Roadmap 2 escala dos 240 aos 500 mil/mês.
