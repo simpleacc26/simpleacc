@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Diagnóstico & Reformulação de Funil — Alivance Club (Rafael Granella)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #1c1c42;
+    --navy-2: #292859;
+    --gold: #b6975f;
+    --gold-soft: #f3ecdd;
+    --paper: #f7f6f2;
+    --card: #ffffff;
+    --ink: #23232e;
+    --ink-muted: #5c5c6b;
+    --line: #e4e1d8;
+    --crit: #b23b3b;
+    --crit-soft: #f7e7e4;
+    --ok: #2f7d5b;
+    --ok-soft: #e4f1ea;
+    --display: 'Fahkwang', Georgia, serif;
+    --body: 'Inter', -apple-system, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--body); line-height: 1.62; -webkit-font-smoothing: antialiased; }
+  .doc { max-width: 860px; margin: 0 auto; padding: 0 24px 90px; }
+
+  header.cover {
+    background: var(--navy);
+    color: #fff;
+    margin: 0 -24px 44px;
+    padding: 56px 40px 44px;
+  }
+  .kicker { color: var(--gold); font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; margin-bottom: 16px; }
+  header.cover h1 { font-family: var(--display); font-weight: 600; font-size: clamp(1.7rem, 4vw, 2.5rem); line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 18px; text-wrap: balance; }
+  header.cover h1 span { color: var(--gold); }
+  .lead { color: rgba(255,255,255,0.8); font-size: 1.05rem; max-width: 46em; }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 26px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.14); font-size: 0.82rem; color: rgba(255,255,255,0.65); }
+  .meta b { color: #fff; font-weight: 600; }
+
+  section { margin-bottom: 52px; }
+  .sec-num { color: var(--gold); font-family: var(--display); font-weight: 600; font-size: 0.9rem; letter-spacing: 0.05em; }
+  h2 { font-family: var(--display); font-weight: 600; font-size: 1.6rem; color: var(--navy); margin: 4px 0 6px; letter-spacing: -0.01em; text-wrap: balance; }
+  .sec-sub { color: var(--ink-muted); font-size: 0.96rem; margin-bottom: 24px; max-width: 48em; }
+  h3 { font-size: 1.12rem; color: var(--navy); margin: 26px 0 8px; font-weight: 600; }
+  p { margin-bottom: 12px; }
+  strong { font-weight: 600; color: var(--ink); }
+  em { color: var(--navy); font-style: italic; }
+
+  .verdict {
+    background: var(--navy-2);
+    color: #fff;
+    border-radius: 16px;
+    padding: 26px 28px;
+    margin-bottom: 28px;
+  }
+  .verdict .kicker { margin-bottom: 10px; }
+  .verdict p { color: rgba(255,255,255,0.86); margin-bottom: 10px; }
+  .verdict strong { color: #fff; }
+  .verdict .hot { color: var(--gold); font-weight: 600; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 22px 0; }
+  .stat { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; }
+  .stat .n { font-family: var(--display); font-size: 1.7rem; font-weight: 600; color: var(--navy); line-height: 1; }
+  .stat .n.bad { color: var(--crit); }
+  .stat .l { font-size: 0.74rem; color: var(--ink-muted); margin-top: 6px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 18px 0; font-size: 0.9rem; }
+  th, td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { background: var(--navy); color: #fff; font-weight: 600; font-size: 0.78rem; letter-spacing: 0.03em; text-transform: uppercase; }
+  tr:nth-child(even) td { background: #fbfaf7; }
+  .tag { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.04em; padding: 3px 9px; border-radius: 999px; text-transform: uppercase; }
+  .tag.crit { background: var(--crit-soft); color: var(--crit); }
+  .tag.ok { background: var(--ok-soft); color: var(--ok); }
+
+  .step { display: flex; gap: 18px; padding: 18px 0; border-top: 1px solid var(--line); }
+  .step:first-of-type { border-top: none; }
+  .step .idx { flex: 0 0 34px; height: 34px; border-radius: 50%; background: var(--navy); color: var(--gold); font-family: var(--display); font-weight: 600; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+  .step .body { flex: 1; }
+  .step .body h3 { margin-top: 0; }
+
+  .callout { background: var(--gold-soft); border-left: 4px solid var(--gold); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 14px 0; font-size: 0.92rem; }
+  .callout b { color: var(--navy); }
+
+  .phase { border: 1px solid var(--line); border-radius: 16px; overflow: hidden; margin-bottom: 22px; }
+  .phase-head { padding: 14px 22px; font-weight: 600; color: #fff; display: flex; align-items: center; gap: 12px; }
+  .phase-head .pn { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.85; }
+  .phase-1 .phase-head { background: var(--crit); }
+  .phase-2 .phase-head { background: var(--navy); }
+  .phase-3 .phase-head { background: var(--ok); }
+  .phase-body { padding: 20px 22px; }
+  .qblock { margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px dashed var(--line); }
+  .qblock:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .qnum { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+  .qtext { font-weight: 600; color: var(--navy); margin: 4px 0 10px; font-size: 1.04rem; }
+  .opt { padding: 7px 0 7px 26px; position: relative; font-size: 0.92rem; }
+  .opt::before { content: attr(data-l); position: absolute; left: 0; top: 7px; font-weight: 700; color: var(--gold); font-size: 0.82rem; }
+  .opt.exit { color: var(--crit); }
+  .opt.exit::after { content: " ← SAI (nutrição)"; font-size: 0.72rem; font-weight: 700; color: var(--crit); letter-spacing: 0.02em; }
+  .logic { font-size: 0.82rem; color: var(--ink-muted); background: #fbfaf7; border: 1px solid var(--line); border-radius: 8px; padding: 8px 12px; margin-top: 10px; }
+  .logic b { color: var(--navy); }
+
+  ul.clean { list-style: none; margin: 8px 0 12px; }
+  ul.clean li { padding: 6px 0 6px 22px; position: relative; font-size: 0.94rem; }
+  ul.clean li::before { content: "→"; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+
+  .angle { border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; margin-bottom: 14px; background: var(--card); }
+  .angle .an { font-family: var(--display); font-weight: 600; color: var(--navy); font-size: 1.08rem; }
+  .angle .aa { font-size: 0.82rem; color: var(--ink-muted); margin: 3px 0 10px; }
+  .angle .hook { border-left: 3px solid var(--gold); padding-left: 14px; color: var(--ink); font-size: 0.95rem; }
+
+  footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 0.78rem; color: var(--ink-muted); text-align: center; }
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <header class="cover">
+    <div class="kicker">Documento interno SimpleAcc · Diagnóstico & Plano</div>
+    <h1>Reformulação do Funil <span>Alivance Club</span><br>com baldes de segmentação</h1>
+    <p class="lead">Por que o funil de tráfego gera curioso e não comprador, e como reformular o quiz para filtrar o ICP real (mentor, coach ou consultor com operação rodando faturando +R$30k/mês) já nas primeiras perguntas.</p>
+    <div class="meta">
+      <span><b>Cliente:</b> Rafael Granella · Alivance Club</span>
+      <span><b>Ticket:</b> R$115.000/ano</span>
+      <span><b>Base:</b> Pit Stop 15/07 + dados de campanha + jornada do quiz</span>
+    </div>
+  </header>
+
+  <!-- 1. DIAGNÓSTICO -->
+  <section>
+    <div class="sec-num">01 · Diagnóstico</div>
+    <h2>Resumo Executivo</h2>
+    <p class="sec-sub">O que os números dizem, sem filtro. Atualizado com os dados do Pit Stop de 15/07 e do gerenciador.</p>
+
+    <div class="verdict">
+      <div class="kicker">Veredito</div>
+      <p>~R$8.000/mês (mídia + agência) por 2,5 meses. <strong>4 reuniões, 0 vendas, ROAS 0.</strong> A prospecção ativa do Rafa, no mesmo período, fez <strong>46 reuniões/mês</strong> convertendo, e mais barato.</p>
+      <p>O problema não é o produto nem o volume de clique (o CTR está na média). <span class="hot">O funil atrai o curioso, não o comprador.</span> O quiz é um diagnóstico neutro e lisonjeiro que não filtra o ICP real, e deixa entrar quem auto-declara faturamento alto sem ter o perfil (relatado no Pit Stop: lead que marca "20k/mês" mas não bate). O filtro de faturamento está na última pergunta, depois da captura, sem lógica de redirecionamento.</p>
+      <p>Somam-se dois fatores técnicos já identificados: o <strong>tracking de conversão ficou quebrado até 11/07</strong> (a queda de conversão "18% → 4%" foi medida com pixel errado, número não confiável) e o <strong>público ADV+</strong> (amplo/automático) trouxe visitante frio, agravando a qualidade.</p>
+    </div>
+
+    <div class="cards">
+      <div class="stat"><div class="n bad">R$0</div><div class="l">Receita do funil (ROAS 0)</div></div>
+      <div class="stat"><div class="n bad">4</div><div class="l">Reuniões em 2,5 meses</div></div>
+      <div class="stat"><div class="n bad">0</div><div class="l">Vendas via funil</div></div>
+      <div class="stat"><div class="n">~R$8k</div><div class="l">Custo/mês (mídia + agência)</div></div>
+      <div class="stat"><div class="n">46</div><div class="l">Reuniões/mês no outbound</div></div>
+      <div class="stat"><div class="n">75%</div><div class="l">Connect rate (era 38%, corrigido)</div></div>
+    </div>
+
+    <h3>Diagnóstico por camada</h3>
+    <table>
+      <thead><tr><th>Camada</th><th>Status</th><th>Causa raiz</th></tr></thead>
+      <tbody>
+        <tr><td>Comunicação (criativo + quiz)</td><td><span class="tag crit">Crítico</span></td><td>Narrativa neutra de "diagnóstico" não pré-qualifica; atrai qualquer mentor curioso, inclusive quem está começando ou não vive disso</td></tr>
+        <tr><td>Ordem do filtro no quiz</td><td><span class="tag crit">Crítico</span></td><td>Faturamento é a última pergunta (P7), depois da captura; o lead entra no CRM antes de ser qualificado</td></tr>
+        <tr><td>Pergunta de faturamento</td><td><span class="tag crit">Crítico</span></td><td>Não especifica "da SUA mentoria/consultoria"; o lead pode contar outra renda e se auto-qualificar errado</td></tr>
+        <tr><td>Lógica de desqualificação</td><td><span class="tag crit">Crítico</span></td><td>Não existe: desqualificado segue o mesmo caminho do ICP e entra no pipeline de agendamento</td></tr>
+        <tr><td>Definição de MQL</td><td><span class="tag crit">Crítico</span></td><td>Conta faturamento auto-declarado sem confirmar que é mentor/coach com operação rodando</td></tr>
+        <tr><td>Tracking / pixel</td><td><span class="tag ok">Corrigido 11/07</span></td><td>Estava subcontando conversão; baseline anterior contaminado. Deixar 2 semanas rodando limpo antes de decidir</td></tr>
+        <tr><td>Público de mídia</td><td><span class="tag crit">Em ajuste</span></td><td>ADV+ amplo trouxe volume frio; campanha paralela sem ADV+ já no ar para isolar a variável</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 2. PASSO A PASSO DE DIAGNÓSTICO -->
+  <section>
+    <div class="sec-num">02 · Diagnóstico</div>
+    <h2>Passo a passo antes de investir mais</h2>
+    <p class="sec-sub">Quatro passos em ordem de prioridade, para não escalar verba sobre uma base errada.</p>
+
+    <div class="step"><div class="idx">1</div><div class="body">
+      <h3>Confirmar que o problema é comunicação/filtro, não volume</h3>
+      <p>O Rafa relatou no Pit Stop leads que não respondem, bloqueiam, dão no-show e reagendam sem fechar, e um que declarou 20k mas "olhando o perfil, não fatura isso".</p>
+      <div class="callout"><b>Teste de validação:</b> pegar os últimos 30 leads do quiz e verificar (Instagram, site, base) quantos são de fato mentores/coaches/consultores com operação rodando e +R$30k/mês. Se menos de ~40% baterem, o problema de comunicação/filtro está confirmado como causa raiz.</div>
+    </div></div>
+
+    <div class="step"><div class="idx">2</div><div class="body">
+      <h3>Mapear quem REALMENTE compra a mentoria do Rafa hoje</h3>
+      <p>Antes de reformular o funil, listar os últimos 10–15 clientes que o Rafa fechou (por qualquer canal): perfil, faturamento, nicho, como chegou, o que dizia sentir antes de comprar. Esse é o mapa do ICP real, mais valioso que qualquer Canvas.</p>
+      <div class="callout"><b>Bônus:</b> essa mesma lista alimenta o Lookalike de clientes reais no Meta (muito superior a interesses ou ADV+).</div>
+    </div></div>
+
+    <div class="step"><div class="idx">3</div><div class="body">
+      <h3>Mapear o cemitério de leads no GHL</h3>
+      <p>Filtrar contatos sem primeira mensagem / sem atividade de automação. São leads que demonstraram interesse e nunca foram contatados, candidatos à reativação manual (agora que a cadência automática está pronta).</p>
+    </div></div>
+
+    <div class="step"><div class="idx">4</div><div class="body">
+      <h3>Deixar o tracking corrigido gerar baseline limpo</h3>
+      <p>O pixel foi corrigido em 11/07. Antes de reformular o quiz inteiro com base em conversão, dar ~2 semanas de dado limpo. Em paralelo: manter as 2 campanhas (com/sem ADV+) rodando, ligar retargeting do público morno e o Lookalike dos clientes reais.</p>
+    </div></div>
+  </section>
+
+  <!-- 3. AJUSTE DE FUNIL -->
+  <section>
+    <div class="sec-num">03 · Funil</div>
+    <h2>Ajuste de funil, passo a passo</h2>
+    <p class="sec-sub">O funil atual captura o lead antes de qualificá-lo e usa uma narrativa que não filtra. Estes dois pontos, juntos, explicam a maioria dos leads fora do ICP.</p>
+
+    <div class="step"><div class="idx">1</div><div class="body">
+      <h3>Pré-qualificar já no criativo e no hero do quiz</h3>
+      <p>Falar explicitamente com "mentor, coach ou consultor que já fatura +R$30k/mês". Quem está começando não se identifica e não clica, e isso é bom: melhora a qualidade sem depender só do filtro interno.</p>
+    </div></div>
+
+    <div class="step"><div class="idx">2</div><div class="body">
+      <h3>Mover o filtro duro para as PRIMEIRAS perguntas</h3>
+      <p>Hoje o faturamento é a última pergunta. Inverter: as 3 primeiras perguntas viram os <b>baldes de segmentação</b> (é mentor com operação? / faturamento da própria mentoria? / intenção real?). O lead só chega na captura se passar.</p>
+      <div class="callout"><b>Expectativa correta:</b> volume de lead vai cair, CPL vai subir, custo por MQL <em>real</em> vai cair e a taxa de agendamento vai subir. Isso é o resultado desejado, não um problema.</div>
+    </div></div>
+
+    <div class="step"><div class="idx">3</div><div class="body">
+      <h3>Especificar "faturamento da SUA mentoria/consultoria"</h3>
+      <p>Remove a ambiguidade que gerou o lead de "20k" do Pit Stop. A pergunta deixa claro que é a renda da atividade de mentoria/consultoria, não outra fonte.</p>
+    </div></div>
+
+    <div class="step"><div class="idx">4</div><div class="body">
+      <h3>Lógica condicional de redirecionamento para desqualificados</h3>
+      <p>Quem não passa nos baldes não entra no pipeline de agendamento: é redirecionado para conteúdo gratuito / nutrição, com mensagem acolhedora (não rejeição). Cria um banco de leads menores para produto de entrada no futuro.</p>
+    </div></div>
+
+    <div class="step"><div class="idx">5</div><div class="body">
+      <h3>Página de resultado (relatório) que vende a call</h3>
+      <p>Já coberto na copy v2 do relatório: adicionar prova social (Fabrício, Greice, Camila), future-pacing concreto e CTA mais forte. É a etapa que converte curiosidade em intenção de agendar.</p>
+    </div></div>
+
+    <div class="step"><div class="idx">6</div><div class="body">
+      <h3>Pós-agendamento: redirecionar direto para o WhatsApp</h3>
+      <p>Após confirmar o agendamento, mandar para um link de WhatsApp com mensagem pré-preenchida ("Confirmei minha sessão, sou [nome], faturo [faixa]..."). Lead que abre o WhatsApp e escreve tem comprometimento muito maior, e o show rate sobe.</p>
+    </div></div>
+  </section>
+
+  <!-- 4. NOVO QUIZ -->
+  <section>
+    <div class="sec-num">04 · Novo Quiz</div>
+    <h2>Quiz reformulado com baldes de segmentação</h2>
+    <p class="sec-sub">Mesma lógica da estrutura Únicos: filtro duro na frente, diagnóstico no meio, captura só para quem passou. 7 perguntas (3 de filtro + 4 de diagnóstico), mantendo o design e a automação atuais.</p>
+
+    <div class="phase phase-1">
+      <div class="phase-head"><span class="pn">Fase 1 · Baldes de segmentação</span> Filtro (perguntas 1 a 3)</div>
+      <div class="phase-body">
+        <p style="font-size:0.88rem;color:var(--ink-muted);margin-bottom:18px;">Respostas marcadas com ← SAI redirecionam para conteúdo gratuito e encerram o quiz.</p>
+
+        <div class="qblock">
+          <div class="qnum">Pergunta 1 de 7 · É o ICP?</div>
+          <div class="qtext">Você já atua como mentor, coach ou consultor com clientes pagantes hoje?</div>
+          <div class="opt" data-l="A">Sim, já vivo disso, tenho clientes pagantes de forma recorrente</div>
+          <div class="opt" data-l="B">Sim, atendo alguns clientes, mas ainda não é minha principal renda</div>
+          <div class="opt exit" data-l="C">Sou reconhecido no meu nicho, mas ainda não monetizo como mentor</div>
+          <div class="opt exit" data-l="D">Ainda estou começando ou quero começar agora</div>
+          <div class="logic"><b>Lógica:</b> C ou D → conteúdo gratuito. A ou B → Pergunta 2.</div>
+        </div>
+
+        <div class="qblock">
+          <div class="qnum">Pergunta 2 de 7 · Filtro duro</div>
+          <div class="qtext">Qual é o faturamento mensal da SUA mentoria ou consultoria hoje?</div>
+          <p style="font-size:0.84rem;color:var(--crit);margin-bottom:8px;">⚠ Estamos falando da renda que vem da sua mentoria/consultoria, não de outra atividade ou emprego.</p>
+          <div class="opt exit" data-l="A">Abaixo de R$10 mil por mês</div>
+          <div class="opt exit" data-l="B">Entre R$10 mil e R$30 mil por mês</div>
+          <div class="opt" data-l="C">Entre R$30 mil e R$50 mil por mês</div>
+          <div class="opt" data-l="D">Entre R$50 mil e R$100 mil por mês</div>
+          <div class="opt" data-l="E">Acima de R$100 mil por mês</div>
+          <div class="logic"><b>Lógica:</b> A ou B → conteúdo gratuito / nutrição. C, D ou E → Pergunta 3. <em>(Mantém granularidade acima de 100k para segmentar o ticket na conversa.)</em></div>
+        </div>
+
+        <div class="qblock">
+          <div class="qnum">Pergunta 3 de 7 · Intenção / momento</div>
+          <div class="qtext">Qual é o seu objetivo com a mentoria nos próximos meses?</div>
+          <div class="opt" data-l="A">Escalar o que já funciona sem depender só de mim</div>
+          <div class="opt" data-l="B">Estruturar meu negócio como uma empresa de educação de verdade</div>
+          <div class="opt" data-l="C">Aumentar meu ticket sem perder clientes</div>
+          <div class="opt exit" data-l="D">Só quero alguns clientes pontuais, sem grandes mudanças</div>
+          <div class="logic"><b>Lógica:</b> D → nutrição (não é o momento). A, B ou C → Fase 2.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout"><b>Página de saída (desqualificados):</b> "O Alivance Club foi desenhado para mentores e consultores que já vivem disso e faturam acima de R$30 mil/mês. Se esse ainda não é o seu momento, o Rafael compartilha conteúdo gratuito que vai te ajudar a chegar lá." CTA: [Acessar conteúdo gratuito]. Tom acolhedor, nunca rejeição.</div>
+
+    <div class="phase phase-2">
+      <div class="phase-head"><span class="pn">Fase 2 · Diagnóstico</span> Mapeamento de maturidade (perguntas 4 a 7)</div>
+      <div class="phase-body">
+        <p style="font-size:0.88rem;color:var(--ink-muted);margin-bottom:18px;">Todas as respostas são válidas. As escolhas geram o relatório personalizado por perfil (previsibilidade / ticket / escala / modelo).</p>
+
+        <div class="qblock">
+          <div class="qnum">Pergunta 4 de 7 · Gargalo</div>
+          <div class="qtext">Qual desses é o gargalo que mais trava o seu crescimento hoje?</div>
+          <div class="opt" data-l="A">Não tenho previsibilidade: não sei de onde vem o próximo cliente</div>
+          <div class="opt" data-l="B">Meu ticket é menor do que o valor que eu realmente entrego</div>
+          <div class="opt" data-l="C">Só cresço se eu trabalhar mais, e já não tem mais hora na agenda</div>
+          <div class="opt" data-l="D">Não tenho clareza de qual modelo de negócio faz sentido agora</div>
+        </div>
+
+        <div class="qblock">
+          <div class="qnum">Pergunta 5 de 7 · Implicação</div>
+          <div class="qtext">E o que esse gargalo já está te custando na prática?</div>
+          <div class="opt" data-l="A">Minha receita estagnou, mesmo com a agenda lotada</div>
+          <div class="opt" data-l="B">Dependo de indicação e networking pra fechar, sem controle nenhum</div>
+          <div class="opt" data-l="C">Passo o dia na operação e quase nada em estratégia</div>
+          <div class="opt" data-l="D">Sei que preciso escalar, mas não sei qual é o próximo passo certo</div>
+        </div>
+
+        <div class="qblock">
+          <div class="qnum">Pergunta 6 de 7 · Situação da entrega</div>
+          <div class="qtext">Como funciona a entrega da sua mentoria hoje?</div>
+          <div class="opt" data-l="A">Sessões individuais, uma a uma, conforme a agenda permite</div>
+          <div class="opt" data-l="B">Programa fechado com começo, meio e fim</div>
+          <div class="opt" data-l="C">Clube ou grupo com membros recorrentes</div>
+          <div class="opt" data-l="D">Um mix de individual com grupo, dependendo do cliente</div>
+        </div>
+
+        <div class="qblock">
+          <div class="qnum">Pergunta 7 de 7 · O que já tentou</div>
+          <div class="qtext">O que você já tentou pra destravar isso, e não resolveu de vez?</div>
+          <div class="opt" data-l="A">Aumentei o preço, ajudou um pouco, mas o modelo continua o mesmo</div>
+          <div class="opt" data-l="B">Criei um grupo pra escalar, mas a entrega ficou genérica ou o ticket caiu</div>
+          <div class="opt" data-l="C">Investi em tráfego ou marketing, veio lead, mas a conversão foi baixa</div>
+          <div class="opt" data-l="D">Ainda não parei pra estruturar isso de forma séria</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase phase-3">
+      <div class="phase-head"><span class="pn">Fase 3 · Captura</span> Só quem passou nos baldes chega aqui</div>
+      <div class="phase-body">
+        <p><strong>Seu diagnóstico está pronto.</strong> Preencha para receber a análise completa do seu momento e o próximo passo pro seu caso.</p>
+        <ul class="clean">
+          <li>Nome completo</li>
+          <li>WhatsApp com DDD</li>
+          <li>E-mail</li>
+        </ul>
+        <p style="font-size:0.84rem;color:var(--ink-muted);">Depois da captura: relatório personalizado (copy v2, que vende a call) → agendamento → redirecionamento pro WhatsApp da SDR → cadência de follow-up automática no GHL.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. CRIATIVOS -->
+  <section>
+    <div class="sec-num">05 · Criativos</div>
+    <h2>Ângulos que já filtram no primeiro segundo</h2>
+    <p class="sec-sub">Todo criativo parte do pressuposto de que o leitor já é mentor/consultor faturando +R$30k. Quem não é não se sente representado e não clica, o próprio anúncio vira filtro. Já temos 3 vídeos + 3 estáticos no repo; abaixo os ângulos-âncora sincronizados com os baldes.</p>
+
+    <div class="angle">
+      <div class="an">1 · A indicação que não vem mais</div>
+      <div class="aa">Dependência de indicação e networking · sincroniza com a Pergunta 5-B</div>
+      <div class="hook">"Quantos clientes você fechou esse mês que não vieram de indicação? Se a resposta for 'quase nenhum', seu negócio não tem aquisição. Tem sorte com prazo de validade."</div>
+    </div>
+    <div class="angle">
+      <div class="an">2 · Você tá dando desconto sem saber</div>
+      <div class="aa">Ticket abaixo do valor entregue · sincroniza com a Pergunta 4-B</div>
+      <div class="hook">"Se você entrega resultado de gente que cobra R$30 mil e cobra R$5 mil por isso, você não tá sendo humilde. Tá dando desconto todo mês sem perceber."</div>
+    </div>
+    <div class="angle">
+      <div class="an">3 · Agenda cheia, faturamento parado</div>
+      <div class="aa">O paradoxo de crescer sem crescer · sincroniza com a Pergunta 4-C / 5-A</div>
+      <div class="hook">"Sua agenda tá cheia. Seu faturamento não cresce há meses. Isso não é coincidência, é o sinal mais claro de que você chegou no teto do seu modelo atual."</div>
+    </div>
+    <p style="font-size:0.88rem;color:var(--ink-muted);">Copy completa dos 6 criativos em <em>copy/2026-07-11-criativos-estaticos-novos-angulos.md</em> e <em>roteiros/2026-07-11-*.md</em>.</p>
+  </section>
+
+  <!-- 6. PRÓXIMOS PASSOS -->
+  <section>
+    <div class="sec-num">06 · Próximos passos</div>
+    <h2>O que este documento não fecha sozinho</h2>
+    <ul class="clean">
+      <li>Mapear os compradores reais históricos do Rafa (Passo 2) antes de escalar qualquer campanha, esse dado pode refinar ou contradizer o ICP atual.</li>
+      <li>Definir o destino dos desqualificados (qual é o "conteúdo gratuito" / comunidade de nutrição) antes de ligar a lógica de redirecionamento.</li>
+      <li>Decidir se esta versão com baldes vira a Versão B do teste A/B (mais agressiva) ou uma Versão C, já que a B atual mantém a estrutura da A para comparação limpa.</li>
+      <li>Implementação é código do app (projeto Vercel do quiz, sem repo Git conectado). Conectar ao Git permitiria fazer a mudança direto no código.</li>
+      <li>Validar se o produto vende via anúncio: com o funil corrigido, buscar as primeiras 3 vendas antes de escalar verba, para confirmar o modelo.</li>
+    </ul>
+  </section>
+
+  <footer>
+    SimpleAcc · Diagnóstico interno · Cliente: Rafael Granella — Alivance Club · Base: histórico do projeto até 15/07/2026 · Uso exclusivo da equipe
+  </footer>
+
+</div>
+</body>
+</html>
