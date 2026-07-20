@@ -20,9 +20,17 @@ onde o outro parou (o Git é a memória compartilhada).
 3. Salve os entregáveis na pasta certa (acima) e **registre o aprendizado** em `aprendizados.md`.
 4. Trabalhe numa branch `cliente/daniele-christensen/<assunto>` e abra PR.
 
-## Contexto rápido (preencher)
+## Contexto rápido
 
-- **Oferta principal:** _(a preencher)_
-- **Público / ICP:** _(a preencher)_
-- **Links (site, páginas, Make, Figma, Drive):** _(a preencher)_
-- **Contato principal:** _(a preencher)_
+- **Oferta principal:** Intensity — programa de 12 meses de desenvolvimento em
+  gestão e liderança adulta, ticket R$ 24.000. Detalhes em
+  `contexto/produto-e-oferta.md`.
+- **Público / ICP:** gestores/donos/líderes recém-promovidos, 30–55 anos,
+  responsabilidade direta sobre pessoas e resultado. Camadas de qualificação
+  A (ouro) a D (vampiro de tempo) em `estrategia/central-estrategica.md`.
+- **Links (site, páginas, Drive):** ver `README.md`.
+- **Contato principal:** Dra. Daniele Christensen (Instagram
+  `@daniele.doutoradelideres`).
+- **Funil ativo:** quiz de diagnóstico → LP → Sessão Diagnóstica → venda do
+  Intensity. Copy em `copy/`, métricas e cadência em
+  `estrategia/funil-e-comercial.md`.
