@@ -23,13 +23,20 @@ A SimpleAcc cuida da estratégia de aquisição (funil, quiz, copy, anúncios).
 
 ## Projetos
 
-| Projeto             | Pasta      | Status | Deploy |
-| ------------------- | ---------- | ------ | ------ |
-| _(a definir)_       |            |        |        |
+| Projeto                        | Pasta          | Status | Deploy |
+| ------------------------------ | -------------- | ------ | ------ |
+| Roadmap Estratégico 90 dias    | `estrategia/`  | v1.0   | PDF    |
+| Funil Diagnóstico Executivo (IDE) | `funis/`    | a fazer (Simple implementa, ~7 dias) | |
 
 ## Observações
 
-- Onboarding baseado no Canvas do Produto + Cliente Ideal (ver `contexto/`).
-- O cliente ainda está consolidando a metodologia — as provas são a vivência
-  própria e o histórico de estruturação de operações, não cases de mentorados.
-- Concorrente citado (vago): Marcos Marques.
+- Onboarding baseado no Canvas do Produto + Cliente Ideal, na transcrição da
+  reunião presencial e na Persona Oficial (ver `contexto/`).
+- O cliente ainda está consolidando a metodologia. As provas são a vivência
+  própria e o histórico de tecnologia/operações (PGC, XGrow, apps +10M), não
+  cases de mentorados. Não prometer "dezenas de cases".
+- É um vendedor excepcional (conversão >50%); o gargalo é estrutura/pré-vendas,
+  não demanda. O roadmap sistematiza a operação comercial dele.
+- Concorrentes mapeados: Marcos Marques, Dani (Daniele Christensen), Carol
+  (Carol e José).
+- Instagram: @felipedamasceno.1.

@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Roadmap Estratégico Digital · Felipe Damasceno</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    padding: 16mm 18mm 24mm 18mm;
+    position: relative;
+    page-break-after: always;
+    background: #fff;
+  }
+  .page:last-child { page-break-after: auto; }
+  .runhead {
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; color: var(--muted);
+    letter-spacing: .06em; text-transform: uppercase;
+    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt;
+  }
+  .runfoot {
+    position: absolute; bottom: 9mm; left: 18mm; right: 18mm;
+    text-align: center; font-size: 7.5pt; color: var(--muted);
+  }
+  .kicker {
+    color: var(--gold); font-size: 9pt; font-weight: bold;
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt;
+  }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
+  .box-dark {
+    background: var(--navy-dark); color: #f5f3ee;
+    padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt;
+  }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light {
+    background: var(--beige); border-left: 3pt solid var(--gold);
+    padding: 10pt 14pt; margin: 11pt 0;
+  }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .fase-header {
+    background: var(--navy-dark); color: #fff;
+    padding: 10pt 16pt; margin-bottom: 10pt;
+    border-left: 4pt solid var(--gold);
+  }
+  .fase-header .fk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .fase-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .fase-header .fd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 12pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 38pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+  .footer-note { margin-top: 24pt; padding-top: 8pt; border-top: 1pt solid var(--gold); font-size: 8.5pt; color: var(--muted); width: 60%; }
+</style>
+</head>
+<body>
+
+<!-- PÁGINA 1 · CAPA -->
+<div class="page cover">
+  <div class="kicker">Plano de Ação Personalizado</div>
+  <h1>Roadmap<br>Estratégico<br>Digital</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    De construtor de operações e tecnologia à mentoria de alto valor para empresários.<br>
+    Os primeiros 90 dias. Passo a passo, fase a fase.<br>
+    Sem atalho, sem improviso, sem ideia solta.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">Felipe Damasceno</div>
+    <div class="lbl">Mentor Estratégico</div>
+    <div class="val">Daniel Souza</div>
+  </div>
+</div>
+
+<!-- PÁGINA 2 · CONTEXTO E DECISÕES FUNDAMENTAIS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Felipe Damasceno</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Começar</div>
+  <h1 style="font-size:19pt;">Contexto e Decisões Fundamentais</h1>
+  <p class="lead">Leia esta página inteira antes de executar qualquer passo. Todas as decisões a seguir partem do que está aqui.</p>
+
+  <div class="box-dark">
+    <div class="bt">A decisão mais importante deste plano</div>
+    <p>Você já vendeu de tudo, já construiu operações e já testou muitas frentes ao mesmo tempo. A partir de hoje o projeto tem <strong>um público, uma promessa e uma esteira</strong>: o empresário próspero que continua preso à operação, o Projeto Governo Empresarial como o caminho, e o Método Potência Empresarial como o mecanismo.</p>
+    <p><strong>A big idea que sustenta todo o conteúdo: o empresário que você atende já venceu financeiramente. A dor dele não é faturar mais, é sentir que administra a empresa mas não governa a própria vida. A virada que só você entrega: sair de operário do próprio negócio para governar como reinante, com a empresa virando território de governo e não prisão.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A esteira</div>
+    <p><strong>Carro-chefe: Projeto Governo Empresarial</strong> (mentoria e diagnóstico, implementação e a plataforma de gestão, com acompanhamento de 12 meses), ticket de referência R$ 80 mil. É o produto que transforma o empresário operacional em um empresário que governa através de pessoas, processos e indicadores.</p>
+    <p><strong>Downsell de call: a Etapa 1 isolada</strong> (Raio-X do Fundador, Mapa do Tempo, o IDE e o plano de 30, 90 e 180 dias), sem a implementação completa. Só aparece na sessão, quando a objeção for de valor ou de momento. Preço validado na call.</p>
+    <p><strong>Produto de entrada: a plataforma de gestão</strong> para o não-ICP do high ticket, e o Diagnóstico Executivo gratuito no topo. Regra dos 90 dias: <strong>nenhum produto novo</strong> além destes.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A matemática dos R$ 240 mil/mês</div>
+    <p><strong>3 vendas × R$ 80 mil = R$ 240 mil por mês.</strong> Você declarou fechar mais de 50% das calls; para trabalhar com folga, esta conta usa 40%: <strong>3 vendas ÷ 40% = cerca de 8 sessões qualificadas por mês, menos de 2 por semana</strong>. Com comparecimento de 60%, são cerca de 13 agendamentos/mês, sustentados pela sua rotina de abordagens e pelos leads do Diagnóstico Executivo. A folga é proposital: com a sua conversão, o gargalo nunca foi fechar, foi ter agendamento qualificado com consistência.</p>
+    <p>Esse número é <strong>operacional, não aspiracional.</strong> É só fazer.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 3 · RITMO + RESPONSABILIDADES + FOCO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Felipe Damasceno</span><span>Página 3</span></div>
+  <div class="box-light">
+    <div class="bt">Ritmo de acompanhamento</div>
+    <p>Calls quinzenais com o mentor estratégico, mais frequentes neste primeiro mês pela velocidade do projeto. Dúvidas do dia a dia vão direto no grupo: <strong>Carlos</strong> para entrega e estratégia, <strong>Nícolas</strong> na implementação do funil, <strong>Renan</strong> para tráfego, <strong>Ceci</strong> na consultoria de social selling.</p>
+    <p>A execução acontece <strong>entre as calls.</strong> As calls servem para afinar, não para decidir o que fazer. O que fazer já está aqui dentro.</p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Divisão de responsabilidades</div>
+    <p><strong>A Simple constrói e opera:</strong> o Diagnóstico Executivo (o quiz do IDE), as páginas, copies e criativos, <strong>implementado e no ar em até 7 dias</strong>, além deste roadmap, das aulas do método, da consultoria de social selling com a Ceci e da análise das campanhas no Meta com o Renan.</p>
+    <p><strong>Felipe executa:</strong> o posicionamento de reinante, as abordagens e as calls de venda (você é o melhor closer do projeto), as gravações, o caixa rápido, a estruturação do SDR e o conteúdo de rosto.</p>
+    <p><strong>Jackson apoia</strong> como closer conforme a agenda cresce.</p>
+    <p>O funil coloca lead na porta. <strong>Quem coloca dinheiro no caixa é a rotina comercial.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Foco deste roadmap</div>
+    <p>Este documento cobre <strong>apenas os primeiros 90 dias</strong> com uma prioridade clara: fazer o Projeto Governo Empresarial vender com consistência. Como você está com disposição e o momento pede caixa, o seu <strong>posicionamento entra já, no ar até o dia 7</strong>, em paralelo e sem nunca passar na frente das abordagens de venda, que seguem como prioridade número 1. Quando os R$ 240 mil/mês estiverem de pé, vem o <strong>Roadmap 2: a escala dos 240 aos 500 mil/mês</strong>. Não tente queimar etapas.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 4 · FASE 1 CAIXA RÁPIDO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Felipe Damasceno</span><span>Página 4</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 1 · Dias 1 a 10</div>
+    <h2>Caixa Rápido: a Sua Base</h2>
+    <div class="fd">O dinheiro mais rápido do projeto não está no tráfego. Está em quem você já atendeu e em quem já te conhece.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que esta fase vem primeiro</div>
+    <p>Você assumiu a meta de levantar cerca de R$ 70 mil de caixa nos primeiros dias. Esse caixa existe: são clientes e ex-clientes das operações que você tocou, mentorados atuais, contatos dos eventos e a sua audiência de mais de 10 mil seguidores. O jogo aqui não é gerar demanda nova, que você sabe fazer, é <strong>colher o que já está quente</strong> e transformar em caixa que financia a mídia do funil.</p>
+  </div>
+
+  <div class="passo-label">Passo 1</div>
+  <h3>Mapear todas as oportunidades da base</h3>
+  <ul class="check">
+    <li>Listar em uma planilha única: clientes ativos, ex-clientes das empresas anteriores, mentorados, participantes dos eventos, contatos de relacionamento e seguidores que interagem com frequência.</li>
+    <li>Classificar cada nome por potencial: próximo nível ou novo serviço, indicação, ou convite para uma sessão estratégica.
+      <ul class="sub">
+        <li>Lista completa até o dia 3. Sem registro, não existe.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="passo-label">Passo 2</div>
+  <h3>Executar as abordagens de caixa rápido</h3>
+  <ul class="check">
+    <li>Clientes e ex-clientes: ofertar o próximo nível (o Projeto Governo Empresarial ou a plataforma) e pedir <strong>de 3 a 5 indicações qualificadas</strong> com o perfil claro: empresário faturando de 100 mil a 2 milhões por mês, preso à operação.</li>
+    <li>Contatos de evento e leads antigos: reativação personalizada, sem vender de cara. O convite é para uma <strong>sessão estratégica</strong>, onde você conduz como já faz hoje.</li>
+    <li>Scripts alinhados com a Ceci na consultoria de social selling desta semana.</li>
+  </ul>
+
+  <div class="passo-label">Passo 3</div>
+  <h3>Converter vendas em caixa de mídia</h3>
+  <ul class="check">
+    <li>Venda parcelada no cartão: avaliar <strong>antecipação de recebíveis</strong> para adiantar o caixa.</li>
+    <li>Destino do caixa: <strong>mídia e ferramentas, não retirada</strong>. É esse dinheiro que paga o tráfego do funil sem sair do seu bolso.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da fase</div>
+    <p><strong>Dia 10:</strong> base 100% mapeada e abordada · pelo menos 5 sessões estratégicas agendadas · cerca de R$ 70 mil em caixa entre venda e antecipação (caixa de mídia garantido).</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 5 · FASE 2 POSICIONAMENTO E OFERTA -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Felipe Damasceno</span><span>Página 5</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 2 · Dias 1 a 7</div>
+    <h2>Posicionamento e Oferta</h2>
+    <div class="fd">Quando o empresário certo clicar no seu perfil, ele precisa se reconhecer em 5 segundos.</div>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Prioridade máxima</div>
+    <p>O @felipedamasceno.1 já tem mais de 10 mil seguidores e a bio nova de Governo Empresarial no ar. Toda abordagem da Fase 1 e todo lead do funil cai exatamente ali antes de responder. O que falta é fechar a oferta e ligar o CTA da bio no Diagnóstico Executivo, que hoje ainda não existe no link.</p>
+  </div>
+
+  <div class="passo-label">Passo 4</div>
+  <h3>Fechar a oferta na linguagem da metodologia exclusiva</h3>
+  <ul class="check">
+    <li>A promessa central é <strong>a transformação, não um prazo</strong>: transformar o empresário operacional em um empresário que governa através de pessoas, processos e indicadores. O Método Potência Empresarial é o mecanismo único.
+      <ul class="sub">
+        <li>Evitar garantia de prazo rígido na comunicação externa: o ritmo de 30, 90 e 180 dias é interno da jornada, porque a velocidade depende também do cliente.</li>
+      </ul>
+    </li>
+    <li>PDF de apresentação da oferta (10 a 15 slides, modelo nos materiais de apoio): vender primeiro o especialista (a sua história), depois o cenário atual do empresário, depois a promessa, o método e as fases.</li>
+    <li>Regra de preço: <strong>nunca dar desconto no high ticket</strong>. Objeção de valor se resolve com forma de pagamento ou com o downsell da Etapa 1, nunca baixando os R$ 80 mil.</li>
+  </ul>
+
+  <div class="passo-label">Passo 5</div>
+  <h3>Consolidar o posicionamento de reinante</h3>
+  <ul class="check">
+    <li>Refinar a bio já publicada mantendo a fórmula [Quem ajudo] + [Resultado] + [Credencial] + [CTA], com o CTA apontando para o Diagnóstico Executivo assim que ele estiver no ar (Fase 5).</li>
+    <li>4 destaques: "Comece aqui", "Quem sou", "O Método", "Resultados"; 2 a 3 posts fixados de posicionamento; foto profissional.</li>
+    <li>Empacotar as suas provas reais: as operações e plataformas que você construiu, os cases de estruturação e a sua própria virada. No seu caso a prova é a credencial técnica, não dezenas de mentorados.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da fase</div>
+    <p><strong>Dia 7:</strong> oferta e PDF de apresentação prontos e validados na call · bio refinada, destaques e fixados no ar · posicionamento de reinante rodando.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 6 · FASE 3 AQUISIÇÃO MANUAL PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Felipe Damasceno</span><span>Página 6</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 3 · Dias 1 a 90 · Parte 1</div>
+    <h2>Aquisição Manual: o Motor Principal</h2>
+    <div class="fd">Você já sabe vender. O que falta é a máquina de vendas rodar sem depender de você todos os dias.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que o manual anda na frente do funil</div>
+    <p>Você foi claro na call: gerar demanda é fácil, o difícil é levar a demanda para a reunião com disciplina. Você já perdeu R$ 15 mil em tráfego por causa de um pré-vendas fraco, uma Ferrari andando com gasolina ruim. A boa notícia é que o processo já existe na sua cabeça, com a cadência detalhada de follow-up que você descreveu. O trabalho desta fase é <strong>tirar esse processo da sua cabeça e colocar em sistema</strong>, para deixar de depender de você. É o seu próprio produto aplicado na sua operação.</p>
+  </div>
+
+  <div class="passo-label">Passo 6</div>
+  <h3>Assistir às aulas de aquisição antes de estruturar</h3>
+  <ul class="check">
+    <li>Social Selling parte 1 e 2, Outbound, Call de Vendas 1 a 1 e Pré-Vendas, no portal da Simple.
+      <ul class="sub">
+        <li>Mesmo dominando o comercial, use as aulas para alinhar a linguagem com o time e padronizar o que hoje só você sabe fazer.</li>
+      </ul>
+    </li>
+    <li>Consultoria com a Ceci: framework de abordagem e copy das mensagens para os alvos de social selling.</li>
+  </ul>
+
+  <div class="passo-label">Passo 7</div>
+  <h3>Estruturar o pré-vendas do projeto</h3>
+  <ul class="check">
+    <li>Reposicionar uma pessoa como SDR dedicado (fixo mantido, variável por reunião realizada), com planilha de controle: nome, origem (base, social selling, funil), data da abordagem, status, follow-up e resultado da sessão.</li>
+    <li>Documentar a sua cadência de follow-up como playbook do time: os 3 primeiros dias intensos, os 14 dias de reativação, o tratamento de no-show e a base fria uma vez por mês. Isso deixa de morar só com você.</li>
+    <li>Meta: <strong>200 perfis qualificados mapeados até o dia 10</strong> (empresários por segmento e por cargo), alimentando a rotina diária.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 7 · FASE 3 AQUISIÇÃO MANUAL PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Felipe Damasceno</span><span>Página 7</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 3 · Dias 1 a 90 · Parte 2</div>
+    <h2>Aquisição Manual: a Rotina Diária</h2>
+    <div class="fd">Volume com método. Todos os dias, sem exceção, com registro na métrica.</div>
+  </div>
+
+  <div class="passo-label">Passo 8</div>
+  <h3>Executar de 60 a 100 abordagens por dia</h3>
+  <ul class="check">
+    <li>Distribuição de partida: 40% base quente (Fase 1), 40% social selling nos perfis mapeados, 20% reativação de leads antigos. Quando a base quente esgotar, inverta o peso para o social selling e os leads do funil.</li>
+    <li>Toda abordagem é personalizada e termina com um convite claro para a sessão estratégica.</li>
+    <li><strong>Follow-up obrigatório em até 2 dias.</strong> A maioria das sessões nasce no follow-up, não na primeira mensagem, como você mesmo comprova na sua operação.</li>
+  </ul>
+
+  <div class="passo-label">Passo 9</div>
+  <h3>Conduzir a call de vendas e proteger a métrica</h3>
+  <ul class="check">
+    <li>Manter a sua condução de reunião (jornada, dor, cenário atual e desejado, pitch da transformação), agora com todas as calls <strong>gravadas</strong>, com consentimento.
+      <ul class="sub">
+        <li>As 3 primeiras gravações da nova fase vão para revisão na call com o mentor.</li>
+      </ul>
+    </li>
+    <li>Acompanhar a métrica todo dia: abordagens, respostas, agendamentos e comparecimentos. Sem métrica, não existe otimização.</li>
+    <li>Nunca recuar no preço. Objeção de valor: forma de pagamento ou downsell da Etapa 1. Toda call sem fechamento sai com <strong>próximo passo datado</strong>.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Metas numéricas desta fase</div>
+    <p><strong>Dia 30:</strong> 8 sessões realizadas no acumulado · 3 vendas (cerca de R$ 240 mil no caixa do projeto).</p>
+    <p><strong>Dia 60:</strong> pré-vendas rodando com o SDR · funil alimentando a agenda · ritmo de vendas mantido.</p>
+    <p><strong>Dia 90:</strong> máquina estável de 3 vendas/mês · R$ 240 mil/mês recorrentes, com folga de agenda para escalar.</p>
+    <p><strong>Alerta vermelho:</strong> menos de 1 venda até o dia 30 com sessões acontecendo significa problema de qualificação ou de comparecimento, não de produto. Pausar, revisar as gravações com o mentor e ajustar antes de continuar.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 8 · FASE 4 CONTEÚDO ORGÂNICO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Felipe Damasceno</span><span>Página 8</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 4 · Dias 1 a 90 · Em paralelo</div>
+    <h2>Conteúdo Orgânico</h2>
+    <div class="fd">Roda em paralelo. Não é pré-requisito para venda: é o que constrói a sua tribo de reinantes.</div>
+  </div>
+
+  <div class="passo-label">Passo 10</div>
+  <h3>Produzir pelos níveis de consciência</h3>
+  <ul class="check">
+    <li>Nível 1 (não sabe que o problema é a dependência): "Sua empresa cresceu, mas quem trabalha mais hoje é você. Isso não é sucesso, é uma prisão bem paga".</li>
+    <li>Nível 2 (sente o sintoma): "Você fatura bem, mas se ficar 15 dias fora a operação trava. Já parou para medir o quanto a empresa depende de você?"</li>
+    <li>Nível 4 (pronto para a solução): o Método Potência Empresarial, o IDE e a sua leitura de Reino sobre governo, delegação e legado (a história de Jetro e Moisés, o empresário que administra mas não governa).</li>
+  </ul>
+
+  <div class="passo-label">Passo 11</div>
+  <h3>Rotina semanal de publicação</h3>
+  <ul class="check">
+    <li>12 publicações por semana entre stories, reels e carrossel, produzidas em lote num único dia de gravação com o Robson.</li>
+    <li>Método de pauta que você já usa: observar os temas que viralizam no nicho e trazer a sua verdade sobre cada um, ancorada no produto.</li>
+    <li>CTA fixo em tudo: o Diagnóstico Executivo (o quiz do IDE), quando estiver no ar.</li>
+  </ul>
+
+  <div class="passo-label">Passo 12</div>
+  <h3>Gravar os materiais do funil</h3>
+  <ul class="check">
+    <li>Vídeos dos criativos com os roteiros que a Simple orienta: dor reconhecível no gancho, big idea da dependência, convite para o Diagnóstico Executivo.</li>
+    <li>Prioridade para a sua história e para a linguagem de reinante: neste posicionamento, identificação vale mais do que promessa.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da fase</div>
+    <p><strong>Semanal:</strong> 12 publicações no ar · 1 lote de gravação feito · <strong>Dia 6:</strong> 3 criativos de vídeo prontos para as campanhas que sobem no dia 8.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 9 · FASE 5 FUNIL PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Felipe Damasceno</span><span>Página 9</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 5 · Dias 1 a 30 · Parte 1</div>
+    <h2>Diagnóstico Executivo: a Simple Implementa</h2>
+    <div class="fd">O quiz que mede o IDE e vira o link da sua bio. No ar em até 7 dias, implementado pela equipe.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Como o funil funciona</div>
+    <p>Anúncio com a dor reconhecível → Diagnóstico Executivo (o quiz que calcula o IDE, Índice de Dependência Empresarial) → resultado personalizado com o nível de dependência do empresário → convite para a sessão estratégica → abordagem no WhatsApp em até 24h → sessão → venda.</p>
+    <p>O quiz qualifica antes da agenda: quem tem perfil agenda a sessão, quem não tem recebe o conteúdo de aquecimento ou a plataforma de entrada. Você só senta na frente de quem já mediu a própria dependência e se reconheceu. <strong>É o mesmo diagnóstico que você faz na call, agora automatizado, e desta vez quem constrói é a Simple: em até 7 dias no ar, no link da bio.</strong></p>
+  </div>
+
+  <div class="passo-label">Passo 13</div>
+  <h3>Aprovar o Diagnóstico Executivo que a Simple constrói (dias 1 a 7)</h3>
+  <ul class="check">
+    <li>A Simple escreve as 8 a 12 perguntas, as copies e as páginas na metodologia do quiz, medindo o IDE nas palavras do empresário:
+      <ul class="sub">
+        <li>"Se você ficasse 15 dias totalmente fora, o que aconteceria com a empresa?"</li>
+        <li>"Quantas decisões por dia ainda passam obrigatoriamente por você?"</li>
+        <li>"Quanto do seu tempo hoje é operação e quanto é estratégia?"</li>
+      </ul>
+    </li>
+    <li>Felipe valida o tom nas primeiras entregas (resposta em até 24h, para não travar os 7 dias).</li>
+    <li>Resultado do quiz nomeia o nível de dependência e leva direto ao agendamento da sessão estratégica.</li>
+    <li>Todo lead cai na planilha de controle (Passo 7), com origem marcada como "diagnóstico".</li>
+  </ul>
+
+  <div class="passo-label">Passo 14</div>
+  <h3>Liberar a infraestrutura (dias 1 a 7)</h3>
+  <ul class="check">
+    <li>Página do quiz e página de agradecimento no padrão validado da Simple, ligadas ao CTA da bio.</li>
+    <li>Felipe prepara o WhatsApp de atendimento dedicado e libera os acessos (identidade, logo e materiais no Drive do projeto).</li>
+    <li>Felipe aceita o código de parceiro do Meta enviado pelo Renan.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 10 · FASE 5 FUNIL PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Felipe Damasceno</span><span>Página 10</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 5 · Dias 1 a 30 · Parte 2</div>
+    <h2>Tráfego Pago</h2>
+    <div class="fd">Tráfego pago aqui não é aposta: é escala de um diagnóstico que você já sabe que converte.</div>
+  </div>
+
+  <div class="passo-label">Passo 15</div>
+  <h3>Subir as campanhas de validação (a partir do dia 8)</h3>
+  <ul class="check">
+    <li>Com o Diagnóstico Executivo no ar no dia 7, as campanhas sobem na sequência. Orçamento inicial financiado pelo caixa rápido da Fase 1 (régua ajustada na call com o Renan), sem tirar dinheiro novo do seu bolso.</li>
+    <li>Segmentação de partida: empresários por interesse e por cargo, o mesmo público que você já testou, agora com a oferta certa.</li>
+    <li>3 criativos da Fase 4 no ar, rodando contra o quiz.</li>
+    <li>Revisão de métricas a cada 7 dias com o Renan, com gatilhos claros:
+      <ul class="sub">
+        <li>CPL fora da meta: troca o criativo, não a estratégia.</li>
+        <li>Conclusão do quiz abaixo de 40%: revisa as perguntas.</li>
+        <li>Comparecimento na sessão abaixo de 60%: reforça o pré-vendas e a confirmação.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Regra de ouro do tráfego high ticket</div>
+    <p>Uma venda de R$ 80 mil paga meses de mídia. O jogo aqui é <strong>lead certo, não lead barato</strong>. Você já pagou o preço de aprender isso com R$ 15 mil perdidos por pré-vendas fraco: este orçamento roda com diagnóstico validado, régua de métricas e revisão semanal. Nada sobe sem passar pela conta.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Meta da fase</div>
+    <p><strong>Dia 7:</strong> Diagnóstico Executivo no ar no link da bio. <strong>Dia 30:</strong> campanhas com 3 semanas de dados, primeira rodada de otimização feita e leads do funil na agenda.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 11 · BÔNUS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Felipe Damasceno</span><span>Página 11</span></div>
+  <div class="fase-header">
+    <div class="fk">Bônus · A partir do dia 60</div>
+    <h2>Os Seus Ativos Únicos</h2>
+    <div class="fd">O que você tem que nenhum concorrente tem. Plantado no fim da janela, sem roubar o foco da prioridade número 1.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">A regra deste bônus</div>
+    <p>Marcos Marques, Dani e Carol falam de crescimento de empresa. O que só você tem é a combinação de tecnologia própria, evento presencial e a linguagem de Reino. Esses ativos entram <strong>a partir do dia 60</strong>, quando a máquina de vendas já estiver de pé. A regra é uma só: <strong>as abordagens e as calls de venda vêm primeiro, todos os dias.</strong> Estes ativos aceleram, nunca substituem a rotina comercial.</p>
+  </div>
+
+  <div class="passo-label">Passo 16</div>
+  <h3>Ativar a plataforma como motor e como produto</h3>
+  <ul class="check">
+    <li>Como motor: usar a prospecção da plataforma (listas segmentadas de empresários por segmento) para alimentar as abordagens do Passo 8, reduzindo o custo do agendamento.</li>
+    <li>Como produto: a plataforma de gestão é o produto de entrada da esteira e um diferencial de venda que os concorrentes não têm. Todo cliente do high ticket já usa a ferramenta dentro da jornada.</li>
+  </ul>
+
+  <div class="passo-label">Passo 17</div>
+  <h3>Integrar o evento presencial ao funil</h3>
+  <ul class="check">
+    <li>Levar o Diagnóstico Executivo para dentro do evento (QR do quiz na sala) e fazer o SDR seguir cada participante em até 48h.</li>
+    <li>Alinhar a promessa do palco ao produto: o presencial gera identificação e antecipa a relação, o fechamento acontece na sessão estratégica.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta do bônus</div>
+    <p><strong>Dia 90:</strong> plataforma alimentando a prospecção e presente na esteira · 1 edição do evento integrada ao funil · de 3 a 5 conversas de venda em andamento vindas desses ativos (conversa em andamento, não fechamento).</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 12 · CHECKPOINTS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Felipe Damasceno</span><span>Página 12</span></div>
+  <div class="kicker">Checkpoints de Progresso</div>
+  <h1 style="font-size:19pt;">Como Saber Que Você Está no Caminho Certo</h1>
+  <p class="lead">Cada checkpoint marca o final de uma janela. Se algum item não estiver fechado, leve para a próxima call quinzenal. Ajuste de rota imediato, sem esconder.</p>
+
+  <h3 class="navy" style="margin-top:10pt;">CHECKPOINT 1 · DIA 7 (posicionamento e funil no ar)</h3>
+  <ul class="check">
+    <li>Oferta e PDF de apresentação prontos e validados na call.</li>
+    <li>Bio refinada, destaques e fixados no ar; posicionamento de reinante rodando.</li>
+    <li>Diagnóstico Executivo implementado pela Simple e no ar no link da bio.</li>
+  </ul>
+
+  <h3 class="navy">CHECKPOINT 2 · DIA 10 (caixa rápido)</h3>
+  <ul class="check">
+    <li>Base 100% mapeada e abordada, com registro na planilha.</li>
+    <li>Pelo menos 5 sessões estratégicas agendadas.</li>
+    <li>Cerca de R$ 70 mil em caixa entre venda e antecipação.</li>
+    <li>200 perfis qualificados mapeados para a rotina de aquisição.</li>
+  </ul>
+
+  <h3 class="navy">CHECKPOINT 3 · DIA 30 (primeiras vendas e máquina ligada)</h3>
+  <ul class="check">
+    <li>8 sessões realizadas no acumulado, todas gravadas.</li>
+    <li>3 vendas do Projeto Governo Empresarial (cerca de R$ 240 mil).</li>
+    <li>SDR estruturado e cadência de follow-up documentada como playbook.</li>
+    <li>Campanhas do quiz com 3 semanas de dados e primeira otimização feita.</li>
+  </ul>
+
+  <h3 class="navy">CHECKPOINT 4 · DIA 60 (máquina rodando)</h3>
+  <ul class="check">
+    <li>Pré-vendas rodando com o SDR, sem depender de você para operar.</li>
+    <li>Quiz com conclusão acima de 40% e sessões nascendo do tráfego.</li>
+    <li>Plataforma e evento presencial começando a alimentar a esteira.</li>
+  </ul>
+
+  <h3 class="navy">CHECKPOINT 5 · DIA 90 (meta batida)</h3>
+  <ul class="check">
+    <li>Ritmo estável: cerca de 8 sessões/mês, 3 vendas/mês, R$ 240 mil/mês.</li>
+    <li>De 3 a 5 conversas de venda em andamento vindas dos ativos únicos.</li>
+    <li>Pronto para receber o <strong>Roadmap 2: a escala dos 240 aos 500 mil/mês</strong>.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 13 · MATERIAIS DE APOIO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Felipe Damasceno</span><span>Página 13</span></div>
+  <div class="kicker">Materiais de Apoio</div>
+  <h1 style="font-size:19pt;">Recursos para Executar o Plano</h1>
+  <p class="lead">Todas as aulas e templates abaixo estão disponíveis no portal (área de membros) e no grupo. Se algum link não foi compartilhado, peça no grupo.</p>
+
+  <ul class="check">
+    <li><strong>Social Selling parte 1 e 2</strong>
+      <ul class="sub"><li>A rotina de abordagem no Instagram. Base dos Passos 6 e 8.</li></ul>
+    </li>
+    <li><strong>Outbound</strong>
+      <ul class="sub"><li>Reativação de listas e leads antigos sem queimar a base. Passos 2 e 8.</li></ul>
+    </li>
+    <li><strong>Call de Vendas 1 a 1</strong>
+      <ul class="sub"><li>A condução da sessão estratégica até o fechamento. Passo 9.</li></ul>
+    </li>
+    <li><strong>Pré-Vendas + planilha de CRM</strong>
+      <ul class="sub"><li>Controle de leads, follow-up e status; base do SDR. Passo 7.</li></ul>
+    </li>
+    <li><strong>Consultoria de Social Selling com a Ceci</strong>
+      <ul class="sub"><li>Framework e copy de abordagem 1 a 1. Passos 2 e 6.</li></ul>
+    </li>
+    <li><strong>Método Simple Growth (funil de quiz)</strong>
+      <ul class="sub"><li>A metodologia do Diagnóstico Executivo que a Simple implementa; entenda para validar. Passo 13.</li></ul>
+    </li>
+    <li><strong>Modelo de PDF de apresentação</strong>
+      <ul class="sub"><li>Estrutura dos 10 a 15 slides da oferta. Passo 4.</li></ul>
+    </li>
+    <li><strong>Como Montar o High Ticket</strong>
+      <ul class="sub"><li>Fechar a oferta e a esteira na linguagem da metodologia. Passos 4 e 5.</li></ul>
+    </li>
+    <li><strong>Growth Model (métricas e alavancas)</strong>
+      <ul class="sub"><li>A régua de leitura das campanhas com o Renan. Passo 15.</li></ul>
+    </li>
+    <li><strong>Código de parceiro do Meta</strong>
+      <ul class="sub"><li>Acesso da equipe às campanhas. Enviado pelo Renan. Passo 14.</li></ul>
+    </li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 14 · FECHAMENTO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Felipe Damasceno</span><span>Página 14</span></div>
+  <div style="padding-top:40mm;">
+    <div class="kicker">Lembre-se Sempre Disto</div>
+    <h1 style="font-size:19pt;">Antes de Fechar Este Documento</h1>
+    <p style="margin-top:10pt;">Felipe, você construiu operações, sistemas e plataformas que outros pagam caro para ter. Chegou a tocar 14 empresas ao mesmo tempo e teve a coragem de cortar quase tudo para focar no que importa. E, no meio disso, virou um vendedor que fecha mais da metade das calls que faz. Ninguém no seu caminho pode dizer que faltou capacidade.</p>
+    <p>Não foi falta de capacidade de vender. Não foi falta de conhecimento técnico, você domina tecnologia como poucos. Não foi falta de ambição.</p>
+    <p><strong class="navy">Foi falta de uma máquina que roda sem depender de você. Exatamente aquilo que você agora ensina o mercado a construir.</strong></p>
+    <p>Este roadmap é o método. A execução é sua. A cada 15 dias o mentor estratégico vai te encontrar na conversa quinzenal, mas o que coloca dinheiro no caixa é o que você faz <strong>entre as calls</strong>.</p>
+    <p>Dúvidas no meio do caminho: mande no grupo. Não espere a próxima call para perguntar.</p>
+    <p style="margin-top:12pt;">Você tem a conversão. Você tem a tecnologia que é só sua. Você tem uma mensagem que ninguém mais consegue copiar. Você tem o método.</p>
+    <p><strong class="navy">O próximo passo é começar.</strong></p>
+    <div class="footer-note">Roadmap Estratégico Digital · Felipe Damasceno · 90 dias · Versão 1.0</div>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+</body>
+</html>
