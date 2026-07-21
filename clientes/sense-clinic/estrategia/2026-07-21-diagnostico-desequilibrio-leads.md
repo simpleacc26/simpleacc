@@ -110,3 +110,38 @@ do Meta com o inbox real.
 - Status de aprovação dos anúncios de tatuagem — reprovação zera entrega.
 - Histórico de edições da conta (o que mudou em/na sexta 17/07).
 - Nº de leads reais no WhatsApp por procedimento (planilha da clínica) vs Meta.
+
+---
+
+## Atualização 21/07 (novos dados do Daniel) — CORREÇÃO DE TIMELINE
+- O **R$80 é de HOJE**. Antes (incluindo a sexta 17/07) a tatuagem rodava **R$40 Chapecó +
+  R$40 cidades próximas** em campanhas separadas. Logo, **o R$80 NÃO causou o zero-lead de
+  sexta** (a causa C do orçamento/saturação fica invalidada como gatilho).
+- Hoje o Daniel **consolidou em 1 campanha CBO de R$80 com 2 conjuntos** (Chapecó + cidades
+  próximas). Isso **reseta o aprendizado** → 3 a 7 dias de instabilidade esperada.
+- **Causa real do zero-lead de sexta (revisada):** criativo de tatuagem perdendo o leilão pro
+  clareamento no perfil/número compartilhado + possível **reprovação de anúncio** + conversas
+  de baixa intenção contadas como "conversa iniciada" + atribuição confusa no inbox único.
+  Confirmar com detalhamento por dia e aba Qualidade.
+- **Atenção com o CBO:** com 2 conjuntos num orçamento só, o Meta empurra a verba pro conjunto
+  mais barato e pode secar o outro geo. Se quiser cobertura equilibrada dos dois geos, usar
+  **ABO** (orçamento por conjunto); se quiser máximo resultado, manter CBO e monitorar a
+  distribuição.
+
+### Plano atualizado (ordem de execução)
+1. **Não editar a campanha de tatuagem nos próximos 3–5 dias** (aprendizado rodando). Cada
+   edição reinicia o ciclo.
+2. **Checar hoje:** aba Qualidade da conta (reprovação de anúncio de tatuagem) + detalhamento
+   por dia (14 dias).
+3. **Criar a conta de anúncios da Ana Paula** (acesso já cedido): Business Manager → nova conta
+   de anúncios → vincular página/perfil dela + pagamento + número de WhatsApp dela → migrar o
+   clareamento pra lá. É o que separa os dois funis de vez.
+4. **Número de WhatsApp separado por procedimento.**
+5. **Reconciliar** conversas do Meta × leads reais no WhatsApp (7 dias).
+6. **Subir criativos Hormozi de tatuagem** (atacar CTR).
+7. **Rebalancear verba** por resultado depois que o aprendizado estabilizar.
+8. Decidir **CBO x ABO** conforme o objetivo (máximo resultado x cobertura dos dois geos).
+
+### Mensagem enviada às clientes (registro)
+Ver texto tranquilizador em `estrategia/` / entregue por WhatsApp em 21/07 (explica o
+compartilhamento de perfil+número como causa e o plano de separação).
