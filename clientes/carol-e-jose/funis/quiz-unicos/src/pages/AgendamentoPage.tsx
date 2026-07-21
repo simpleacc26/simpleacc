@@ -9,7 +9,10 @@ interface AgendamentoPageProps {
 
 const CTA_URL_QUALIFIED =
   import.meta.env.VITE_CTA_URL ||
-  "https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ0zy_l57UqviGoP8HlkBEt4a894iIQafVRxFK3CsjMNQWz8E07MRlg8eNdBu1oG5s8cnv3i6ILD";
+  // Calendário "Calls da Caroline" no GHL (link permanente) — o agendamento
+  // dispara o workflow "Fluxo de Agendados", que move a Oportunidade para
+  // "Reunião Agendada" no pipeline do quiz.
+  "https://api.leadconnectorhq.com/widget/booking/leFMFKegfdvDRIE1b42I";
 
 const NAVY = "#16314f";
 const GOLD = "#a9802f";
