@@ -1,29 +1,18 @@
 # Canvas — Produto + Cliente Ideal
 
-> Fonte: "Simple Acc & Thaina | Canvas do Produto + Cliente Ideal - 13/07/26"
-> (Drive → `1. Documentos`). No momento o canvas está **quase todo em branco** —
-> só a grande promessa foi preenchida. Preencher o restante na call de
-> onboarding de 20/07/2026 e atualizar aqui.
+> **Atualizado em 21/07/2026.** O canvas foi **pré-preenchido** a partir da call de
+> onboarding e entregue como Google Doc na pasta do Drive. A versão viva está em:
+> `../estrategia/2026-07-21-canvas-produto-e-cliente-ideal.md`
+> (Google Doc: procurar "Canvas do Produto + Cliente Ideal — PRÉ-PREENCHIDO" na
+> pasta "1. Documentos" da Thaina).
 
-## Canvas do Produto
+## Decisão de foco (importante)
 
-- **Grande promessa / transformação:** Criar, validar e estruturar um produto
-  digital que transforma autoridade existente em receita previsível, sem
-  depender de crescimento de audiência.
-- **Provas:** _(a preencher)_
-- **Mecanismo único:** _(a preencher)_
-- **Benefícios:** _(a preencher)_
-- **Estrutura do produto (módulos/aulas/entrega):** _(a preencher)_
-- **Proposta de valor (resumo):** _(a preencher)_
-- **Preço do produto HT:** _(a preencher)_
-- **Concorrentes:** _(a preencher)_
+O canvas foi preenchido para o **produto de relacionamento do Thiago** (high ticket
+para mulheres), que é o foco da **Fase 1** definido no onboarding. O produto de
+marketing da Thaina ficou **em standby** (registrado no apêndice do canvas).
 
-## Canvas do Cliente Ideal
-
-- **Cliente dos sonhos (demografia/geografia/emocional):** _(a preencher)_
-- **Maiores frustrações do dia a dia:** _(a preencher)_
-- **Medos / o que tira o sono:** _(a preencher)_
-- **O que ele quer agora (topo de consciência):** _(a preencher)_
-- **Grande sonho:** _(a preencher)_
-- **Como quer / não quer ser visto:** _(a preencher)_
-- **Situação atual vs. desejada:** _(a preencher)_
+A promessa antiga que estava no canvas em branco do Drive ("transformar autoridade
+existente em receita previsível, sem depender de crescimento de audiência") era da
+**frente da Thaina (marketing)** e **não** é mais o foco. Ver o arquivo em
+`estrategia/` para o conteúdo completo e as perguntas pendentes para o cliente.
