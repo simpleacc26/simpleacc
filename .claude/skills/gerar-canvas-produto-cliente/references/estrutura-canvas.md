@@ -34,7 +34,7 @@ não renomeie nem reordene; o cliente vai comparar com o template em branco.
 > preenchido, para corrigir o que não estiver certo — e complete os campos ✍️.
 >
 > Legenda: ✅ preenchido com dado real · ✍️ {CLIENTE} precisa detalhar ·
-> 🔸 a validar/confirmar
+> ◆ a validar/confirmar
 
 ## As 15 perguntas (canônicas)
 
@@ -43,7 +43,7 @@ não renomeie nem reordene; o cliente vai comparar com o template em branco.
 1. **Qual é sua grande promessa? A grande transformação que você vai gerar na
    vida do seu cliente de forma única.**
    → Procurar: a resposta do cliente quando perguntado exatamente isso na call;
-   o "de → para"; a frase-síntese dele. Propor uma frase de capa como 🔸 a validar.
+   o "de → para"; a frase-síntese dele. Propor uma frase de capa como ◆ a validar.
 2. **Quais provas você pode apresentar para deixar claro que consegue entregar
    esta promessa?**
    → Procurar: números, cases, trajetória própria, formações. Quase sempre falta:
@@ -63,7 +63,7 @@ não renomeie nem reordene; o cliente vai comparar com o template em branco.
    → Propor um rascunho de 1–2 frases a partir dos dados (✅ "rascunho, revisar")
    e pedir que o cliente aprove/reescreva na voz dele → ✍️.
 7. **Qual o preço do produto HT?**
-   → Registrar valores discutidos nas calls como 🔸 (referência, não confirmado)
+   → Registrar valores discutidos nas calls como ◆ (referência, não confirmado)
    e pedir o preço oficial + formato de cobrança → ✍️.
 8. **Quem são seus concorrentes?**
    → Cuidado: referências/ídolos citados ≠ concorrentes diretos. Se só houver
@@ -90,20 +90,20 @@ não renomeie nem reordene; o cliente vai comparar com o template em branco.
    propósito) → ✍️.
 6. **Como seu cliente quer ser visto e como não quer ser visto pelas outras
    pessoas?**
-   → Quase sempre é inferência → marcar 🔸 e pedir confirmação → ✍️.
+   → Quase sempre é inferência → marcar ◆ e pedir confirmação → ✍️.
 7. **Qual a situação atual e a situação desejada do cliente?**
    → O "de → para" em 2 linhas (✅) + espaço para acréscimos → ✍️.
 
 ## Convenções de preenchimento
 
 - **✅** só para o que tem fonte direta no material. Se for interpretação sua,
-  degrade para 🔸.
+  degrade para ◆.
 - **✍️** sempre com pergunta específica + exemplo quando ajudar. Linhas de
   resposta em branco (lista com itens vazios), não "________" gigantes.
-- **🔸** para inferências razoáveis e valores "discutidos mas não fechados"
+- **◆** para inferências razoáveis e valores "discutidos mas não fechados"
   (ex.: preço mencionado na call de vendas).
 - **Não use emojis non-BMP** (🔎 🎯 📝 🚀) — corrompem na conversão pro Doc.
-  ✅ ✍️ ⚠️ 🔸 são seguros.
+  ✅ ✍️ ⚠️ ◆ são seguros. Atenção: o 🔸 corrompe (vira "ð¸"), por isso usamos ◆.
 - **Frases literais do cliente** entre aspas e em itálico — são o melhor
   material de copy e mostram que a Simple ouviu de verdade.
 - **Dados sensíveis** (saúde, finanças pessoais, relatos íntimos) das

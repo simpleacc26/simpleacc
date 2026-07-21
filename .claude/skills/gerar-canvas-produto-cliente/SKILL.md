@@ -78,7 +78,7 @@ canvas (8 de produto + 7 de cliente ideal — ver
 `references/estrutura-canvas.md`), anote:
 
 - **O que foi dito literalmente** (com quem disse e onde);
-- **O que é inferência razoável** a partir do que foi dito → vira "🔸 a validar";
+- **O que é inferência razoável** a partir do que foi dito → vira "◆ a validar";
 - **O que não existe no material** → vira campo em branco com pergunta ✍️.
 
 Frases literais do cliente são ouro — reaproveite no canvas (e alimente
@@ -103,7 +103,7 @@ Siga a estrutura e as convenções de `references/estrutura-canvas.md`:
 - Perguntas do canvas são **fixas** (as 15 do template Simple). Não invente seções.
 - Cabeçalho "Como usar este documento" explicando os marcadores ao cliente.
 - Marcadores por bloco: **✅ dado real** · **✍️ CLIENTE precisa detalhar** ·
-  **🔸 a validar/confirmar**. (⚠️ use só símbolos simples/BMP — ver Passo 5.)
+  **◆ a validar/confirmar**. (⚠️ use só símbolos simples/BMP — ver Passo 5.)
 - Campos ✍️ têm **pergunta específica e acionável** (com exemplos entre
   parênteses quando ajudar), nunca um "preencher aqui" seco.
 - Feche com **"Perguntas prioritárias"**: lista numerada do que travou o
@@ -124,8 +124,10 @@ Siga a estrutura e as convenções de `references/estrutura-canvas.md`:
    **Testado (07/2026): markdown converte direto para Google Doc nativo
    formatado** (títulos, negrito, listas) — não precisa do fluxo HTML+navegador
    do playbook de estratégia.
-   - ⚠️ **Emojis:** use apenas símbolos do plano básico Unicode (✅ ✍️ ⚠️ 🔸 ✔ ►).
+   - ⚠️ **Emojis:** use apenas símbolos do plano básico Unicode (✅ ✍️ ⚠️ ◆ ✔ ►).
      Emojis "novos"/non-BMP (🔎 🎯 📝 🚀…) **corrompem** na conversão (viram "ð").
+     ⚠️ Testado em 07/2026 no cliente Ayla Rica: o **🔸 TAMBÉM corrompe** (vira
+     "ð¸"), apesar de parecer BMP. Use **◆** para "a validar/confirmar".
 3. **Título do Doc**: `Simple Acc & {Cliente} | Canvas do Produto + Cliente
    Ideal — PRÉ-PREENCHIDO (para o {Cliente} revisar) - DD/MM/AA`.
 4. **Não sobrescreva o template em branco** do time — o doc pré-preenchido é um
