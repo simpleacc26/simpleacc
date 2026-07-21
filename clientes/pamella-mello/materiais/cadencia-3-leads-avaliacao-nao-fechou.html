@@ -1,0 +1,174 @@
+<style>
+  :root{
+    --navy:#16233D; --navy-deep:#0F1930; --gold:#C9A227; --gold-soft:#E8D8A0;
+    --bg:#FFFFFF; --text:#1E2430; --muted:#5B6472; --faint:#8891A0;
+    --card:#F4F5F7; --card-border:#E2E5EA; --att-bg:#FBF6E7; --att-border:#E9D9A0;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --maxw:760px;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans)}
+  .doc{max-width:var(--maxw);margin:0 auto;padding:56px 40px 80px}
+  .eyebrow{font-size:11px;font-weight:700;letter-spacing:.12em;color:var(--gold);text-transform:uppercase}
+  .cover{padding-top:40px}
+  .cover h1{font-size:44px;line-height:1.08;font-weight:800;color:var(--navy);margin:18px 0 22px}
+  .rule{width:56px;height:4px;background:var(--gold);border:none;margin:0 0 22px}
+  .cover p.lead{font-size:16px;line-height:1.6;color:var(--muted);max-width:520px;margin:0 0 34px}
+  .meta{display:flex;gap:48px;flex-wrap:wrap}
+  .meta div span{display:block}
+  .meta .k{font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--gold);text-transform:uppercase;margin-bottom:4px}
+  .meta .v{font-size:15px;color:var(--navy);font-weight:600}
+
+  section{margin-top:56px}
+  .head-box{background:var(--navy);color:#fff;border-radius:6px;padding:22px 26px;margin-bottom:22px}
+  .head-box .eyebrow{color:var(--gold-soft)}
+  .head-box h2{font-size:26px;margin:8px 0 6px;font-weight:800}
+  .head-box p{margin:0;font-size:14px;color:#C7CEDB;font-style:italic;line-height:1.5}
+
+  .panel{background:var(--card);border-left:4px solid var(--gold);border-radius:4px;padding:16px 20px;margin-bottom:20px}
+  .panel .lbl{font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--navy);text-transform:uppercase;margin-bottom:6px}
+  .panel p{margin:0;font-size:14px;color:var(--muted);line-height:1.55}
+
+  .att{background:var(--att-bg);border:1px solid var(--att-border);border-radius:4px;padding:16px 20px;margin-bottom:26px}
+  .att .lbl{font-size:11px;font-weight:700;letter-spacing:.08em;color:#8A6A10;text-transform:uppercase;margin-bottom:6px}
+  .att p{margin:0;font-size:14px;color:#5B4A16;line-height:1.55}
+  .att code{background:#F2E6BE;padding:1px 5px;border-radius:3px;font-size:12.5px}
+
+  .touch{border:1px solid var(--card-border);border-radius:6px;padding:20px 24px;margin-bottom:22px;break-inside:avoid}
+  .touch .tt{font-size:13px;font-weight:800;letter-spacing:.04em;color:var(--navy)}
+  .touch .logic{font-size:13px;color:var(--faint);font-style:italic;margin:2px 0 14px}
+  .touch .msg{background:var(--card);border-radius:5px;padding:16px 18px}
+  .touch .msg p{margin:0 0 10px;font-size:14.5px;line-height:1.6;color:var(--text)}
+  .touch .msg p:last-child{margin-bottom:0}
+  .touch .msg code{background:#E7E0F2;padding:1px 5px;border-radius:3px;font-size:13px;color:#4A3B6B}
+
+  .notes-item{border-left:3px solid var(--gold);padding:10px 0 10px 16px;margin-bottom:14px}
+  .notes-item b{color:var(--navy)}
+  .notes-item p{margin:4px 0 0;font-size:14px;color:var(--muted);line-height:1.55}
+
+  .foot{display:flex;justify-content:space-between;font-size:10.5px;color:var(--faint);letter-spacing:.03em;text-transform:uppercase;border-top:1px solid var(--card-border);padding-top:10px;margin-top:40px}
+
+  @media print{
+    .doc{padding:0 36px}
+    section{break-inside:auto}
+    .touch,.panel,.att,.head-box{break-inside:avoid}
+  }
+</style>
+
+<div class="doc">
+  <div class="cover">
+    <span class="eyebrow">Cadência 3 · WhatsApp</span>
+    <h1>Cadência de Conversão</h1>
+    <hr class="rule">
+    <p class="lead">Versão mais firme e comercial da abordagem para quem já fez a
+    avaliação com a Pâmella e não fechou o protocolo. Substitui o Toque 1B da
+    Cadência 2. Objetivo: destravar a decisão ou obter critério claro de
+    descarte, sem manter o lead girando sem resposta.</p>
+    <div class="meta">
+      <div><span class="k">Preparado para</span><span class="v">Pâmella Mello</span></div>
+      <div><span class="k">Estratégia</span><span class="v">Simple Acc</span></div>
+      <div><span class="k">Canal</span><span class="v">WhatsApp</span></div>
+    </div>
+  </div>
+
+  <section>
+    <div class="head-box">
+      <span class="eyebrow">Cadência 3</span>
+      <h2>Leads Quentes: Fizeram Avaliação, Não Fecharam</h2>
+      <p>Já tiveram uma conversa real com a clínica, conhecem a dor e conhecem a
+      proposta. Aqui não é mais sobre gerar identificação, é sobre decisão.</p>
+    </div>
+
+    <div class="panel">
+      <div class="lbl">Lógica da cadência</div>
+      <p>Substitui o Toque 1B da Cadência 2 para esse grupo específico. Mais
+      curta e mais direta: 5 toques em 9 dias, com pergunta de decisão em
+      todos os toques e prazo real no fechamento. O objetivo é duplo: ou
+      destrava a decisão, ou descarta o lead com critério, sem ficar girando
+      em ciclo morto.</p>
+    </div>
+
+    <div class="att">
+      <div class="lbl">Atenção</div>
+      <p>Use esta cadência só para quem completou a avaliação e não fechou.
+      Para quem agendou e faltou, siga o Toque 1A da Cadência 2. Consulte o
+      histórico da conversa antes do Toque 1: <code>{{dor citada na avaliação}}</code>
+      e <code>{{objeção mencionada}}</code> precisam ser reais, não genéricas.</p>
+    </div>
+
+    <div class="touch">
+      <div class="tt">TOQUE 1 — DIA 1, MANHÃ</div>
+      <div class="logic">Retomada direta. Nomeia a dor e pede posição, sem rodeio.</div>
+      <div class="msg">
+        <p>Oi, NOME.</p>
+        <p>Aqui é SDR, do time da Pâmella Mello.</p>
+        <p>Na nossa avaliação, você me falou sobre <code>{{dor citada na avaliação}}</code>. Fiquei pensando nisso depois da nossa conversa.</p>
+        <p>Vou ser direto: esse tipo de padrão não some sozinho com o tempo, ele tende a se repetir e a se aprofundar quando fica sem tratamento.</p>
+        <p>Você chegou a decidir alguma coisa sobre começar o processo, ou ainda está em dúvida?</p>
+      </div>
+    </div>
+
+    <div class="touch">
+      <div class="tt">TOQUE 2 — DIA 2, TARDE</div>
+      <div class="logic">Quebra a objeção mais comum de frente. Reposiciona o custo de adiar.</div>
+      <div class="msg">
+        <p>Oi, NOME.</p>
+        <p>Imagino que o que te segurou até agora tenha sido <code>{{objeção mencionada: investimento, tempo ou medo de não funcionar}}</code>. É uma dúvida legítima, e vou te responder direto, sem discurso.</p>
+        <p><code>{{Resposta objetiva à objeção. Ex.: "O protocolo tem início, meio e fim, não é uma mensalidade sem prazo" ou "A maioria dos casos parecidos com o seu mostra mudança consistente dentro de 3 meses."}}</code></p>
+        <p>O que costuma custar mais caro não é o processo. É continuar mais alguns meses do jeito que está.</p>
+        <p>Faz sentido eu te explicar como funcionaria a retomada a partir de onde você parou?</p>
+      </div>
+    </div>
+
+    <div class="touch">
+      <div class="tt">TOQUE 3 — DIA 4, MANHÃ</div>
+      <div class="logic">Urgência real de agenda. Prova social breve, sem inventar número.</div>
+      <div class="msg">
+        <p>NOME, direto ao ponto.</p>
+        <p>A agenda da Pâmella pra retomada de quem já fez avaliação é limitada, ela prioriza quem está pronto pra decidir essa semana, e não deixa vaga parada esperando resposta.</p>
+        <p>Teve gente que passou pela mesma avaliação que você, ficou na dúvida por semanas, e quando voltou teve que esperar a próxima abertura de agenda.</p>
+        <p>Consigo seu horário ainda esta semana se você confirmar até <code>{{dia}}</code>. Depois disso, libero a vaga pra próxima pessoa da lista.</p>
+        <p>Quer que eu segure?</p>
+      </div>
+    </div>
+
+    <div class="touch">
+      <div class="tt">TOQUE 4 — DIA 6, TARDE</div>
+      <div class="logic">Pergunta de fechamento com prazo. Binária, sem meio-termo vago.</div>
+      <div class="msg">
+        <p>NOME, esse é o penúltimo contato antes de eu encerrar o acompanhamento desse atendimento.</p>
+        <p>Preciso de uma resposta objetiva: você quer retomar o processo agora, ou prefere que eu tire seu nome da lista de espera por enquanto?</p>
+        <p>Qualquer uma das duas está de boa. Só preciso saber pra organizar a agenda da Pâmella direito.</p>
+      </div>
+    </div>
+
+    <div class="touch">
+      <div class="tt">TOQUE 5 — DIA 9, MANHÃ</div>
+      <div class="logic">Break-up assertivo. Fecha o ciclo comercial e serve como registro de descarte.</div>
+      <div class="msg">
+        <p>NOME, encerro por aqui.</p>
+        <p>Não tive retorno sobre a retomada, então vou considerar que não é o momento agora e vou tirar seu atendimento da fila ativa.</p>
+        <p>Isso não fecha a porta. Quando fizer sentido pra você, é só me chamar que eu vejo a agenda disponível naquele momento, sem garantia da mesma condição de hoje.</p>
+        <p>Te desejo o melhor com o que você está enfrentando.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="head-box" style="background:var(--navy-deep)">
+      <span class="eyebrow">Notas</span>
+      <h2 style="font-size:22px">Notas de Operação</h2>
+    </div>
+
+    <div class="notes-item"><b>Quando usar:</b><p>Só para quem completou a avaliação e não fechou. Para quem agendou e faltou, siga o Toque 1A da Cadência 2.</p></div>
+    <div class="notes-item"><b>Personalização obrigatória:</b><p><code>{{dor citada na avaliação}}</code> e <code>{{objeção mencionada}}</code> têm que vir da conversa real, registrada no CRM. Sem isso a cadência perde a força e volta a ser genérica.</p></div>
+    <div class="notes-item"><b>Ritmo mais curto de propósito:</b><p>9 dias, não 8 e num tom mais leve como a Cadência 2. É pra criar decisão, não só reaquecer.</p></div>
+    <div class="notes-item"><b>Se o lead responder a qualquer toque:</b><p>Sair da cadência automática e assumir conversa humana, sempre.</p></div>
+    <div class="notes-item"><b>Ligação/áudio de apoio:</b><p>Nos dias 1 e 4, tentar ligação curta ou áudio em paralelo ao texto. Quem já fez avaliação tende a atender mais fácil que lead frio.</p></div>
+    <div class="notes-item"><b>Critério de descarte:</b><p>Se não houver nenhuma resposta até o Toque 3, considerar baixa intenção e adiantar o Toque 5 (break-up), sem esperar o dia 9. Evita gastar ciclo de atendimento em lead que já sinalizou desinteresse.</p></div>
+    <div class="notes-item"><b>Depois do Toque 5:</b><p>Mover o lead pra uma lista de nutrição de 60 a 90 dias (fora do fluxo ativo) e reentrar via Cadência 1 nesse prazo. Não repetir a Cadência 3 no mesmo lead.</p></div>
+    <div class="notes-item"><b>Medir:</b><p>Taxa de resposta por toque e taxa de fechamento da Cadência 3 contra o histórico do antigo Toque 1B da Cadência 2. Isso mostra se a versão mais firme aumenta conversão ou só antecipa o descarte, os dois resultados servem pra decisão comercial.</p></div>
+
+    <div class="foot"><span>Cadências de Reativação · Pâmella Mello</span><span>Cadência 3 · WhatsApp · Conversão Comercial</span></div>
+  </section>
+</div>
