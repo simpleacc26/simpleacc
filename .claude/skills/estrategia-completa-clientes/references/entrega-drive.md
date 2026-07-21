@@ -1,5 +1,14 @@
 # Entrega — Google Doc formatado no Drive
 
+> **ATALHO VALIDADO (20/07/26, estratégia do Lucas Sobreiro):** o MCP de Drive
+> converte **`contentMimeType: "text/markdown"` direto para Google Doc nativo
+> formatado** (títulos, negrito, listas), sem passo de navegador. Use
+> `create_file` com `parentId` da pasta do cliente, `textContent` = o markdown
+> completo, e confira o resultado (mimeType `application/vnd.google-apps.document`
+> na resposta). **Tente este caminho primeiro.** O fluxo HTML → "Abrir com
+> Google Docs" abaixo vira fallback para quando a conversão não aplicar a
+> formatação esperada.
+
 O objetivo é entregar um **Google Doc nativo e formatado** (Título 1/2, negrito,
 listas, divisórias) na pasta do cliente. A formatação importa: foi o que fez o
 cliente aprovar de imediato. Um "textão" cru passa a impressão de rascunho.
