@@ -26,7 +26,7 @@ roadmap de 90 dias, funil de quiz, estruturação comercial e materiais de apoio
 | ------- | ----- | ------ | ------ |
 | Onboarding e base de contexto | `contexto/` | ativo | — |
 | Canvas + Guia de depoimentos | `estrategia/` | entregue (21/07) | — |
-| Roadmap 90 dias | `estrategia/` | a fazer (prazo qui 23/07) | — |
+| Roadmap 90 dias | `estrategia/` | entregue (21/07), v1.0 | — |
 | Funil de quiz | `funis/` | a fazer (copy sex 24/07) | — |
 
 ## Observações
