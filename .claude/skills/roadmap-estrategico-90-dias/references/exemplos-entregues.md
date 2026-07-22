@@ -10,6 +10,24 @@ calibragem de tom, granularidade e formato dos boxes.
 | `roadmap-lucas-sobreiro.html` | Lucas Sobreiro | mentoria p/ saúde (dono de clínica) | R$ 20.000 | R$ 100 mil | esteira de 3 (20k / 12k / 3k); ex banqueiro |
 | `roadmap-joao-mendes.html` | João Mendes (Expert Luana) | mentoria mental p/ mulheres | R$ 4.497 | R$ 45 mil (50/50) | downsell só na call; ancoragem; divisão de faturamento |
 | `roadmap-ayla-rica.html` | Ayla Pedra Rica | 2 produtos em paralelo (especialista + mentoria dela) | R$ 3 a 4 mil | R$ 50 mil | **ticket e conversão como premissa "a validar na call"** |
+| `roadmap-felipe-damasceno.html` | Felipe Damasceno | consultoria/plataforma (ticket alto) | R$ 20 mil+ | R$ 240 mil | **estrutura mais recente (20/07): 5 fases + bônus, "Meta da fase" em toda fase** |
+| `roadmap-lucas-alife.html` | Lucas Álife | consultoria p/ especialistas | R$ 25.000 | R$ 50 mil | **estrutura mais recente (20/07)**; "Prioridade máxima" no posicionamento; bônus com regra "vendas primeiro" |
+
+## Estrutura mais recente (Felipe e Lucas Álife, 20/07) = o padrão a seguir
+
+Os dois roadmaps de 20/07 são a versão mais refinada. Prefira esta ordem de
+fases, adaptando ao cliente (se algo não existe, ex.: produto/prova ainda não
+prontos, crie a fase que resolve isso antes):
+
+1. **Fase 1 · Caixa Rápido** (dias 1 a 10) na base existente.
+2. **Fase 2 · Posicionamento e Oferta** (dias 1 a 7, "no ar em 7 dias"), com box **"Prioridade máxima"** (perfil desalinhado = tráfego jogado fora).
+3. **Fase 3 · Aquisição Manual**, o motor (Parte 1 e Parte 2: rotina diária), com **metas numéricas (Dia 30/60/90)** + **Alerta vermelho**.
+4. **Fase 4 · Conteúdo Orgânico** (em paralelo).
+5. **Fase 5 · Funil de Quiz + Tráfego Pago** (a Simple implementa, Parte 1 e Parte 2), com "Como o funil funciona" + **"Regra de ouro do tráfego high ticket"**.
+6. **Bônus** (a partir do dia 60), com **"A regra deste bônus"** (as vendas vêm primeiro, o bônus é no tempo que sobra) + **"Meta do bônus"** (conversas em andamento, não fechamento).
+
+**Toda fase fecha com um box "Meta da fase"** (semanal + por dia/janela, com
+separador "·"). É o item que mais faltava nos roadmaps antigos; não pule.
 
 ## Estrutura confirmada nos três (replicar)
 
