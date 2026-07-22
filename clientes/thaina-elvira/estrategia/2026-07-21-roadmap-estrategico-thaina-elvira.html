@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Roadmap Estratégico Digital · Thaina Elvira</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    padding: 16mm 18mm 24mm 18mm;
+    position: relative;
+    page-break-after: always;
+    background: #fff;
+  }
+  .page:last-child { page-break-after: auto; }
+  .runhead {
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; color: var(--muted);
+    letter-spacing: .06em; text-transform: uppercase;
+    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt;
+  }
+  .runfoot {
+    position: absolute; bottom: 9mm; left: 18mm; right: 18mm;
+    text-align: center; font-size: 7.5pt; color: var(--muted);
+  }
+  .kicker {
+    color: var(--gold); font-size: 9pt; font-weight: bold;
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt;
+  }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
+  .box-dark {
+    background: var(--navy-dark); color: #f5f3ee;
+    padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt;
+  }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light {
+    background: var(--beige); border-left: 3pt solid var(--gold);
+    padding: 10pt 14pt; margin: 11pt 0;
+  }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .fase-header {
+    background: var(--navy-dark); color: #fff;
+    padding: 10pt 16pt; margin-bottom: 10pt;
+    border-left: 4pt solid var(--gold);
+  }
+  .fase-header .fk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .fase-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .fase-header .fd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 12pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 38pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+  .footer-note { margin-top: 24pt; padding-top: 8pt; border-top: 1pt solid var(--gold); font-size: 8.5pt; color: var(--muted); width: 60%; }
+</style>
+</head>
+<body>
+
+<!-- PÁGINA 1 · CAPA -->
+<div class="page cover">
+  <div class="kicker">Plano de Ação Personalizado</div>
+  <h1>Roadmap<br>Estratégico<br>Digital</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    De estrategista nos bastidores dos lançamentos dos outros a um sistema que vende o seu próprio high ticket todo mês.<br>
+    Os primeiros 90 dias. Passo a passo, fase a fase.<br>
+    Sem atalho, sem improviso, sem ideia solta.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">Thaina Elvira e Thiago</div>
+    <div class="lbl">Mentor Estratégico</div>
+    <div class="val">Daniel Souza</div>
+  </div>
+</div>
+
+<!-- PÁGINA 2 · CONTEXTO E DECISÕES FUNDAMENTAIS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Thaina Elvira</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Começar</div>
+  <h1 style="font-size:19pt;">Contexto e Decisões Fundamentais</h1>
+  <p class="lead">Leia esta página inteira antes de executar qualquer passo. Todas as decisões a seguir partem do que está aqui.</p>
+
+  <div class="box-dark">
+    <div class="bt">A decisão mais importante deste plano</div>
+    <p>Você testou marketing para iniciantes, perpétuo e mentoria, e travou por não ter prova do que nunca fez. A partir de agora o foco é <strong>um público, uma promessa, um produto</strong>: a mulher de 35 a 55 anos, independente e realizada, mas frustrada nos relacionamentos, e o acompanhamento de relacionamento do Thiago como o caminho. O produto de marketing da Thaina fica em standby (nada se perde, volta na fase de escala).</p>
+    <p>A big idea que sustenta toda a comunicação: <strong>ela não precisa aprender a prender um homem. Ela precisa parar de aceitar migalhas, e isso começa nela, não nele.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A esteira: um público, três produtos</div>
+    <p><strong>1. High ticket (carro-chefe), premissa R$ 2.000 a validar:</strong> o acompanhamento de relacionamento do Thiago. É para onde vai todo lead ICP.</p>
+    <p><strong>2. Downsell de call, a estruturar:</strong> versão em grupo, com menos acesso individual. Só aparece na call, na objeção de preço. Nunca é anunciado.</p>
+    <p><strong>3. Entrada, o low ticket que já roda:</strong> aproveita o não-ICP do funil e financia a mídia. Vocês montam os três com direcionamento da Simple. Nenhum produto novo além destes nos 90 dias.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A matemática dos R$ 30 mil/mês</div>
+    <p>Premissa a validar na call: ticket de R$ 2.000 e conversão de call de 30%. R$ 30.000 ÷ R$ 2.000 = <strong>15 vendas de high ticket por mês</strong>. A 30%, são cerca de 50 sessões/mês, ou de 2 a 3 por dia útil, sustentadas por de 40 a 60 abordagens por dia (base do low ticket, social selling) mais os leads do quiz. Se o ticket subir na validação, a conta afrouxa: menos vendas para a mesma meta.</p>
+    <p>Esse número é <strong>operacional, não aspiracional.</strong> É só fazer.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Foco deste roadmap</div>
+    <p>Cobre só os primeiros 90 dias, até o ritmo de R$ 30 mil/mês virar rotina. Ao bater essa régua, vem o Roadmap 2: a escala e a virada para o público masculino (a tese da crise da masculinidade que o Thiago quer), aproveitando a base feminina já construída. Não tente queimar etapas.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 3 · RITMO + RESPONSABILIDADES -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Thaina Elvira</span><span>Página 3</span></div>
+  <div class="box-light">
+    <div class="bt">Ritmo de acompanhamento</div>
+    <p>Calls quinzenais com o mentor estratégico, mais frequentes neste primeiro mês pela largada do produto. Dúvidas do dia a dia no grupo: com o Carlos para entrega e estratégia, com o gestor de tráfego para mídia. Não espere a próxima call para perguntar.</p>
+    <p>A execução acontece <strong>entre as calls.</strong> As calls servem para afinar, não para decidir o que fazer. O que fazer já está aqui dentro.</p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Divisão de responsabilidades</div>
+    <p><strong>A Simple constrói e opera:</strong> o funil de lead dinâmico (quiz, páginas, copies, integração com a planilha e a cadência de WhatsApp), o direcionamento da estruturação do produto e do comercial, os playbooks e as aulas.</p>
+    <p><strong>Thaina e Thiago executam:</strong> a estruturação do high ticket, a coleta de provas, o conteúdo orgânico, as abordagens diárias e as calls de venda (hoje com a Thaina na frente, o Thiago como rosto do produto).</p>
+    <p>O funil coloca lead na porta. <strong>Quem coloca dinheiro no caixa é a rotina comercial.</strong></p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 4 · FASE 1 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Thaina Elvira</span><span>Página 4</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 1 · Dias 1 a 15</div>
+    <h2>Estruturar o Produto e Fabricar a Prova</h2>
+    <div class="fd">Sem produto definido e sem prova paga, esta fase vem antes de qualquer venda.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que esta fase é a largada</div>
+    <p>Hoje o acompanhamento não tem estrutura fechada nem preço, e não existe prova paga (o Thiago já ajudou pessoas, mas de graça). Não dá para vender high ticket sem promessa, esteira e prova. Estes 15 dias resolvem isso, em paralelo com o aquecimento comercial da Fase 2.</p>
+  </div>
+
+  <div class="passo-label">Passo 1</div>
+  <h3>Fechar o canvas e a estrutura do high ticket</h3>
+  <ul class="check">
+    <li>Revisar e completar o <strong>canvas pré-preenchido</strong> que já está na sua pasta do Drive (promessa na sua voz, benefícios, concorrentes diretos).</li>
+    <li>Assistir a aula <strong>Como Montar o High Ticket</strong> e definir a estrutura:
+      <ul class="sub">
+        <li>formato (acompanhamento em grupo com encontros ao vivo), duração, o que a cliente recebe, e o resultado final concreto ao terminar.</li>
+      </ul>
+    </li>
+    <li>Definir o <strong>preço oficial</strong> e a forma de pagamento, e o downsell de grupo. Validar tudo na call quinzenal.</li>
+  </ul>
+
+  <div class="passo-label">Passo 2</div>
+  <h3>Fabricar a prova social (sem ela, o funil não converte)</h3>
+  <ul class="check">
+    <li>Usar o <strong>Guia de Captação de Depoimentos</strong> (já entregue) para coletar vídeos das mulheres que passaram pelo low ticket e das que o Thiago já ajudou.</li>
+    <li>Oferecer o acompanhamento <strong>gratuito para 5 mulheres do perfil</strong>, em troca de acompanhamento de perto e depoimento ao final. É a sua primeira turma e a sua primeira prova.</li>
+    <li>Meta da fase: <strong>produto estruturado e precificado</strong>, de 3 a 5 depoimentos coletados e 5 mulheres na turma de validação até o dia 15.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 5 · FASE 2 (posicionamento + aquisição manual parte 1) -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Thaina Elvira</span><span>Página 5</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 2 · Dias 1 a 90</div>
+    <h2>Posicionamento e Aquisição Manual</h2>
+    <div class="fd">O motor principal. Roda o tempo todo, junto com o funil, e é onde o caixa nasce.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que o manual anda junto com o funil</div>
+    <p>As objeções reais das conversas e a linguagem exata dessa mulher só aparecem falando com ela. É isso que alimenta o quiz e os criativos depois. Além disso, vocês já têm uma base viva: as compradoras do low ticket e a audiência engajada do Thiago. O caixa das primeiras semanas sai daí, não do tráfego.</p>
+  </div>
+
+  <div class="passo-label">Passo 3</div>
+  <h3>Posicionar o Instagram do Thiago para o high ticket</h3>
+  <ul class="check">
+    <li>Reescrever a bio na fórmula [Quem ajudo] + [Resultado] + [Credencial] + [CTA], mirando a mulher que quer parar de aceitar migalhas.</li>
+    <li>Quatro destaques: Comece aqui, Quem sou, O Método, Resultados. Dois a três posts fixados com a big idea e um depoimento.</li>
+  </ul>
+
+  <div class="passo-label">Passo 4</div>
+  <h3>Trabalhar a base quente do low ticket (caixa rápido)</h3>
+  <ul class="check">
+    <li>Listar em planilha todas as compradoras do low ticket, as mulheres já ajudadas e a audiência mais engajada.</li>
+    <li>Reativação personalizada convidando para uma <strong>sessão diagnóstica</strong> gratuita, sem oferta agressiva: escuta primeiro.</li>
+    <li>Registrar tudo na planilha. Sem registro, não existe. Meta: base 100% abordada até o dia 10.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 6 · Aquisição manual parte 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Thaina Elvira</span><span>Página 6</span></div>
+
+  <div class="passo-label">Passo 5</div>
+  <h3>Assistir às aulas de aquisição antes de escalar a abordagem</h3>
+  <ul class="check">
+    <li>Social Selling partes 1 e 2, Outbound, Call de Vendas 1 a 1 e Pré-Vendas. Sem isso você está improvisando, e improviso na frente da venda queima lead bom.</li>
+  </ul>
+
+  <div class="passo-label">Passo 6</div>
+  <h3>Executar as abordagens diárias</h3>
+  <ul class="check">
+    <li>De <strong>40 a 60 abordagens por dia</strong>, sempre personalizadas: base quente do low ticket, social selling na audiência do Thiago e outbound frio no perfil (mulher 35 a 55, separada, ativa em conteúdo de relacionamento).</li>
+    <li>Inverter a proporção quando a base quente esgotar, puxando mais social selling e frio.</li>
+    <li>Follow-up obrigatório em até 2 dias. Os 3 primeiros dias do lead são os mais importantes.</li>
+  </ul>
+
+  <div class="passo-label">Passo 7</div>
+  <h3>Conduzir a call de vendas (hoje com a Thaina)</h3>
+  <ul class="check">
+    <li>Assistir a aula completa antes da primeira call. Gravar todas (com consentimento) e revisar as 3 primeiras com o mentor.</li>
+    <li>Nunca recuar no preço: objeção de valor vira forma de pagamento ou downsell de grupo. Toda call sem fechamento sai com próximo passo datado.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Metas numéricas desta fase</div>
+    <p><strong>Dia 30:</strong> de 2 a 3 vendas do high ticket vindas da base e da turma de validação.</p>
+    <p><strong>Dia 60:</strong> ritmo de 6 a 8 vendas por mês, já com leads do funil entrando.</p>
+    <p><strong>Dia 90:</strong> ritmo próximo de 15 vendas por mês (a régua dos R$ 30 mil).</p>
+    <p><strong>Alerta vermelho:</strong> menos de 2 vendas até o dia 30 é problema de fechamento ou de qualificação, não de produto. Pausar, revisar gravações com o mentor e ajustar antes de continuar.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 7 · Conteúdo orgânico -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Thaina Elvira</span><span>Página 7</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 3 · Dias 1 a 90</div>
+    <h2>Conteúdo Orgânico e Materiais do Funil</h2>
+    <div class="fd">Roda em paralelo. Não é pré-requisito para vender, mas é o que educa e aquece.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">O trabalho de educar antes de vender</div>
+    <p>No topo da consciência ela quer ser escolhida. O que ela precisa é reconstruir a autoestima. O conteúdo faz essa ponte: entra pelo desejo dela (o relacionamento) e educa para a promessa real (ela primeiro). Sem isso, o lead chega querendo técnica de sedução e não o acompanhamento.</p>
+  </div>
+
+  <div class="passo-label">Passo 8</div>
+  <h3>Rotina de conteúdo do Thiago</h3>
+  <ul class="check">
+    <li>Trabalhar os níveis de consciência: quem nem percebe o padrão (a carência), quem já sente a dor (aceitar migalhas) e quem já quer o método.</li>
+    <li>Rotina de 12 publicações por semana, produzidas em lote, com CTA fixo para o quiz ou a sessão diagnóstica.</li>
+  </ul>
+
+  <div class="passo-label">Passo 9</div>
+  <h3>Produzir os materiais que o funil vai usar</h3>
+  <ul class="check">
+    <li>Gravar os vídeos dos criativos com os roteiros da Simple (estático estilo texto, carrossel e vídeo curto e longo).</li>
+    <li>Coletar os depoimentos em vídeo (o Guia já está com vocês) e subir tudo no Drive. Prioridade para casos com identificação: mulher que viveu a mesma dor e virou o jogo.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 8 · Funil e tráfego parte 1 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Thaina Elvira</span><span>Página 8</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 4 · Dias 15 a 60</div>
+    <h2>Funil de Lead Dinâmico e Tráfego Pago</h2>
+    <div class="fd">A Simple implementa. Entra cedo, enquanto a aquisição manual valida e vende em paralelo.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Como o funil funciona</div>
+    <p>Anúncio leva a mulher para um <strong>quiz</strong> que a qualifica de forma quase gamificada. Ao final ela recebe um <strong>diagnóstico personalizado</strong> (o band-aid para a dor) e os dados caem numa planilha integrada, com UTM e as respostas. A página tenta agendar a sessão; em paralelo, vocês abordam pelo WhatsApp com o relatório em PDF. O ICP agenda a sessão; a não-ICP compra o low ticket e paga a mídia.</p>
+  </div>
+
+  <div class="passo-label">Passo 10</div>
+  <h3>Aprovar as entregas da Simple</h3>
+  <ul class="check">
+    <li>Validar o tom das <strong>copies do quiz, das páginas e do diagnóstico</strong> nas primeiras entregas. Depois disso, a Simple roda.</li>
+    <li>Como a dor é muito emocional, o volume de leads tende a vir alto: as perguntas do quiz já entram calibradas para filtrar.</li>
+  </ul>
+
+  <div class="passo-label">Passo 11</div>
+  <h3>Montar a infraestrutura</h3>
+  <ul class="check">
+    <li>Planilha de leads integrada e a cadência de WhatsApp. Quando o Carlos sinalizar, subir o GoHighLevel com API oficial e número dedicado (nunca WhatsApp Web).</li>
+    <li>Liberar os acessos necessários para a Simple configurar a automação.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 9 · Funil e tráfego parte 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Thaina Elvira</span><span>Página 9</span></div>
+
+  <div class="passo-label">Passo 12</div>
+  <h3>Subir as campanhas</h3>
+  <ul class="check">
+    <li>Gestor de tráfego nomeado da Simple. Investimento inicial de validação de <strong>R$ 2.500 por mês</strong>, financiado pelo caixa do low ticket e das primeiras vendas.</li>
+    <li>Segmentação no perfil: mulheres de 35 a 55, interesses de relacionamento e desenvolvimento pessoal. Começar com volume de criativos (vídeo curto e longo, estático, carrossel) e deixar a inteligência da Meta escolher.</li>
+    <li>Revisão de métricas a cada 7 dias, com gatilhos:
+      <ul class="sub">
+        <li>CPL fora da meta, trocar criativo. Conclusão do quiz abaixo de 40%, revisar perguntas. Comparecimento abaixo de 60%, reforçar o follow-up.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Regra de ouro do tráfego high ticket</div>
+    <p>Uma venda de R$ 2.000 paga semanas de mídia. O jogo é <strong>lead certo, não lead barato.</strong> Não corra atrás de CPL baixo com lead que não é a mulher do perfil: ela lota a agenda de sessão que não fecha.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A restrição que a gente já sabe</div>
+    <p>Com esse volume e essa dor emocional, o gargalo vai ser o <strong>pré-vendas</strong>. Assim que o caixa permitir, colocar uma SDR para qualificar e agendar, liberando a Thaina para fechar. É a contratação que destrava a régua dos R$ 30 mil.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 10 · Bônus -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Thaina Elvira</span><span>Página 10</span></div>
+  <div class="fase-header">
+    <div class="fk">Bônus · a partir do dia 60</div>
+    <h2>Os Ativos Únicos de Vocês</h2>
+    <div class="fd">O que só vocês têm, plantado no fim da janela sem roubar o foco das vendas.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que entra agora, e não antes</div>
+    <p>Vocês têm dois ativos que nenhum concorrente tem: uma <strong>voz masculina autêntica</strong> falando com a mulher (o Thiago no lugar de amigo que dá o toque, não de quem quer conquistar) e uma <strong>base de low ticket já validada</strong>. Isso vira alavanca depois que a máquina de venda estiver girando, não antes.</p>
+  </div>
+
+  <div class="passo-label">Passo 13</div>
+  <h3>Live de diagnóstico coletivo para a base</h3>
+  <ul class="check">
+    <li>Uma live ou roda de conversa gratuita para as compradoras do low ticket e a audiência engajada, com o Thiago, terminando na sessão diagnóstica e no quiz.</li>
+    <li>Aproveita o senso de comunidade e pertencimento e enche a agenda de sessão de uma vez.</li>
+  </ul>
+
+  <div class="passo-label">Passo 14</div>
+  <h3>Semear a Fase 2 (público masculino) sem desviar o foco</h3>
+  <ul class="check">
+    <li>Começar a testar 2 a 3 conteúdos por semana falando com o homem (a tese da crise da masculinidade), medindo engajamento, sem produto ainda.</li>
+    <li>Meta do bônus: conversas e testes em andamento, não fechamento. A colheita disso é o Roadmap 2.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 11 · Checkpoints -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Thaina Elvira</span><span>Página 11</span></div>
+  <div class="kicker">Checkpoints de Progresso</div>
+  <h1 style="font-size:19pt;">Como Saber Que Você Está no Caminho Certo</h1>
+  <p class="lead">Cada checkpoint marca o final de uma janela. Se algum item não estiver fechado, leve para a próxima call quinzenal. Ajuste de rota imediato, sem esconder.</p>
+
+  <h3 class="navy" style="margin-top:8pt;">CHECKPOINT 1 · DIA 10 (base abordada)</h3>
+  <ul class="check">
+    <li>Base do low ticket e audiência engajada 100% listadas e abordadas.</li>
+    <li>Instagram do Thiago reposicionado (bio, destaques, posts fixados).</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:8pt;">CHECKPOINT 2 · DIA 15 (produto e prova)</h3>
+  <ul class="check">
+    <li>High ticket estruturado e precificado, canvas fechado.</li>
+    <li>De 3 a 5 depoimentos coletados e 5 mulheres na turma de validação.</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:8pt;">CHECKPOINT 3 · DIA 30 (primeiras vendas)</h3>
+  <ul class="check">
+    <li>De 2 a 3 vendas do high ticket. Aulas de aquisição assistidas e 3 calls revisadas com o mentor.</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:8pt;">CHECKPOINT 4 · DIA 60 (funil no ar)</h3>
+  <ul class="check">
+    <li>Funil de quiz rodando com tráfego, métricas revisadas a cada 7 dias, ritmo de 6 a 8 vendas por mês.</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:8pt;">CHECKPOINT 5 · DIA 90 (régua)</h3>
+  <ul class="check">
+    <li>Ritmo perto de R$ 30 mil por mês, SDR em avaliação, base masculina sendo testada. Pronto para receber o Roadmap 2.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 12 · Materiais de apoio -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Thaina Elvira</span><span>Página 12</span></div>
+  <div class="kicker">Materiais de Apoio</div>
+  <h1 style="font-size:19pt;">Recursos para Executar o Plano</h1>
+  <p class="lead">Tudo abaixo está na área de membros e no grupo. Se algum link não foi compartilhado, peça no grupo.</p>
+
+  <ul class="check">
+    <li><strong>Como Montar o High Ticket</strong>
+      <ul class="sub"><li>estruturar o produto e o downsell (Passo 1).</li></ul>
+    </li>
+    <li><strong>Guia de Captação de Depoimentos</strong> (já entregue)
+      <ul class="sub"><li>coletar a prova em vídeo (Passo 2 e Passo 9).</li></ul>
+    </li>
+    <li><strong>Social Selling 1 e 2, Outbound, Call de Vendas 1 a 1, Pré-Vendas</strong>
+      <ul class="sub"><li>as aulas de aquisição antes de escalar a abordagem (Passo 5).</li></ul>
+    </li>
+    <li><strong>Playbooks e scripts comerciais + planilha de CRM</strong>
+      <ul class="sub"><li>abordagem, cadência e registro (Passos 4, 6 e 7).</li></ul>
+    </li>
+    <li><strong>Modelo de PDF de apresentação (Fuseios)</strong>
+      <ul class="sub"><li>base para a apresentação de venda de vocês.</li></ul>
+    </li>
+    <li><strong>Método Simple Growth e Growth Model</strong>
+      <ul class="sub"><li>a lógica do funil de quiz e as alavancas de métrica (Fase 4).</li></ul>
+    </li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 13 · Fechamento -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Thaina Elvira</span><span>Página 13</span></div>
+  <div style="padding-top:34mm;">
+    <div class="kicker">Lembre-se Sempre Disto</div>
+    <h1 style="font-size:19pt;">Antes de Fechar Este Documento</h1>
+    <p style="margin-top:10pt;">Você trabalha nos bastidores do mercado digital desde 2021, tocou lançamentos de experts com audiência grande e sempre entregou resultado para os outros. O Thiago tem um nicho emocional validado, com low ticket já rodando e uma voz que a audiência escuta.</p>
+    <p>Não foi falta de competência. Não foi falta de audiência. Não foi falta de esforço.</p>
+    <p><strong class="navy">Foi falta de um produto seu, com prova e um sistema previsível de aquisição para vender ele todo mês.</strong></p>
+    <p>Este roadmap é o método. A execução é sua. A cada 15 dias o mentor estratégico vai te encontrar na conversa quinzenal, mas o que coloca dinheiro no caixa é o que você faz <strong>entre as calls</strong>.</p>
+    <p>Dúvidas no meio do caminho: mande no grupo. Não espere a próxima call para perguntar.</p>
+    <p style="margin-top:12pt;">Você tem a bagagem de bastidor. Você tem o Thiago e um nicho validado. Você tem a base do low ticket. Você tem o método.</p>
+    <p><strong class="navy">O próximo passo é começar.</strong></p>
+    <div class="footer-note">Roadmap Estratégico Digital · Thaina Elvira · 90 dias · Versão 1.0</div>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+</body>
+</html>
