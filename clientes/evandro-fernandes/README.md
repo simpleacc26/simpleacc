@@ -21,10 +21,10 @@ Invisível" nos 3 Funis) e é, ao mesmo tempo, laboratório/case da parceria.
 
 ## Projetos
 
-| Projeto                    | Pasta      | Status      | Deploy |
-| -------------------------- | ---------- | ----------- | ------ |
-| Roadmap estratégico 90 dias| _(a criar)_| planejado   |        |
-| Funil de quiz v1           | `funis/`   | planejado   |        |
+| Projeto                    | Pasta          | Status      | Deploy |
+| -------------------------- | -------------- | ----------- | ------ |
+| Roadmap estratégico 90 dias| `estrategia/`  | v1.0 entregue |      |
+| Funil de quiz v1           | `funis/`       | planejado   |        |
 
 ## Observações
 
