@@ -136,9 +136,10 @@ começa por você):**
 **Autoridade — quem é o Felipe:** empresário que construiu operações, sistemas e
 tecnologias que organizam empresas (plataforma de gestão própria, CRM,
 automações, dashboards, inteligência artificial aplicada à operação) e participou
-da estruturação de negócios do zero à escala, incluindo aplicativos com valuation
-de mais de R$ 10 milhões. Transformou a própria experiência de sair de operário
-da própria operação em um método replicável e mensurável.
+da estruturação de negócios do zero à escala, incluindo uma empresa que faturou
+mais de 100 milhões no primeiro ano de operação. Transformou a própria
+experiência de sair de operário da própria operação em um método replicável e
+mensurável.
 
 **Oferta (Projeto Governo Empresarial):** mentoria e diagnóstico + implementação
 personalizada + a plataforma de gestão unificada, com acompanhamento de 12 meses.
