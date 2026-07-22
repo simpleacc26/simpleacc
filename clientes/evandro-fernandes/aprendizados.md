@@ -1,0 +1,21 @@
+# Aprendizados — Evandro Fernandes
+
+Log do que funciona e do que não funciona com este cliente.
+
+| Data | Aprendizado / decisão | Origem |
+| ---------- | --------------------- | ------ |
+| 2026-07-20 | **Reposicionamento SaaS → consultoria HT.** A tração não é vender a plataforma HDM como software isolado, e sim uma **consultoria high-ticket (R$50k–180k)** que usa o HDM como motor. Vender "diagnóstico + implementação + acompanhamento até virar caixa", não "mais uma ferramenta". | Canvas + calls |
+| 2026-07-20 | **Ângulo de entrada que converte:** "Você quer descobrir quanto de receita sua empresa está perdendo sem perceber?" (Receita Invisível). O ICP responde "sim" na hora. Ancorar copy/funil nisso. | Canvas (ICP) |
+| 2026-07-20 | **Vocabulário proprietário do Evandro** (usar na copy, sem exagerar no jargão para o topo de funil): Receita Invisível, 3 Funis, Endognose, Endoperfil, Neurossegmentação Endognóstica, gestão da evasão, "Ausência de Estado", "Somos digitais. Somos humanos." | Canvas |
+| 2026-07-20 | **Prova âncora:** case JusExpert (R$30M+). Usar como prova principal em páginas e anúncios. | Canvas + call vendas |
+| 2026-07-20 | **Cuidado com o jargão técnico da fala do Evandro** (CDP, HBM/HDM, "40 pontos para a Meta"): ótimo para diferenciação, mas o ICP (dono de negócio) compra **resultado em caixa**, não arquitetura de dados. Traduzir o mecanismo para benefício financeiro. | Calls |
+| 2026-07-20 | **A call de onboarding foi demo, não roadmap.** O plano de ação de 90 dias ainda precisa ser construído (é o próximo entregável). Insumos consolidados em `estrategia/insumos-roadmap-90-dias.md`. | Call onboarding |
+| 2026-07-20 | **First win proposto:** conectar 1 campanha real do Daniel no HDM + teste A/B de vendedor ("Caim e Abel", 1 com HDM / 1 sem) medindo agendamento. Case é prioridade — "ninguém acredita sem resultado". | Call onboarding |
+| 2026-07-20 | **Urgência de caixa:** Evandro carrega dívida de dev ~R$190k do ex-sócio; precisa vender rápido. O roadmap deve priorizar **receita cedo** (quick wins de venda), não só construção. | Calls |
+| 2026-07-20 | **Ponto sensível — LGPD.** Evandro mencionou rastrear página sem consentimento; **não** replicar isso. Qualquer funil/tracking que a Simple montar deve ser no conforme (consentimento). | Call onboarding |
+| 2026-07-20 | **Dependências técnicas para o quiz:** integração precisa ser **tempo real via webhook** (InLead/OneLead só dão planilha). Migração para AWS e VoIP ainda pendentes. | Call onboarding |
+| 2026-07-22 | **Roadmap de 90 dias criado (v1.0).** Perfil B (Simple implementa o funil; Evandro é o closer). Esteira: carro-chefe consultoria HDM, downsell = Diagnóstico 360° isolado, entrada = assinatura da plataforma. Bônus = plataforma HDM + laboratório na Simple + certificação. Fonte e PDF em `estrategia/`. | Roadmap |
+| 2026-07-22 | **Premissas a validar na call de roadmap** (assumidas para não travar): ticket de referência R$ 60 mil, meta R$ 180 mil/mês, conversão 40%. Ancorado no preço do canvas (R$ 50 a 180 mil). Confirmar ticket oficial com o Daniel e ajustar a matemática se mudar. | Roadmap |
+| 2026-07-22 | **Roadmap 2 (fora dos 90 dias):** escala dos R$ 180 aos 400 mil/mês, com a certificação de consultores (~R$ 40k) e o SaaS aberto do HDM. Não criar produto novo nos primeiros 90 dias. | Roadmap |
+| 2026-07-22 | **Estratégia Completa criada (v1.0)** no modelo novo "Funil de Lead Dinâmico" (6 seções): Big Idea, Quiz (Diagnóstico de Receita Invisível), Página de Aplicação, Anúncios (3 ângulos = 3 conjuntos de 10), Cadência 12 dias e Recomendações. Fonte e PDF em `estrategia/`. | Estratégia |
+| 2026-07-22 | **Ângulos de anúncio do Evandro:** dor ("seu lead não está caro, sua receita está vazando") · mecanismo (os 3 funis / Endognose) · autoridade (JusExpert R$30M + criador do HDM). Reusar em criativos e página. | Estratégia |
