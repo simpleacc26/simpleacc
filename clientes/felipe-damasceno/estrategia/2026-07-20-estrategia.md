@@ -100,7 +100,7 @@ de continuar sendo o gargalo dela.
 **Prova social (logo abaixo do headline):**
 `[DEPOIMENTO]` `[DEPOIMENTO]` (empresários atendidos, à medida que os cases
 existirem). Enquanto isso: credenciais reais do Felipe (plataformas e operações
-construídas, apps com valuation de mais de R$ 10 milhões).
+construídas, e uma empresa que faturou mais de 100 milhões no primeiro ano de operação).
 
 **Bloco de dor — espelho do ICP (a pessoa lê e se reconhece):**
 - Você aprova praticamente todas as decisões importantes.
@@ -236,27 +236,28 @@ Descubra o seu Índice de Dependência Empresarial.
   Diagnóstico Executivo gratuito.
 
 ### Ângulo 3 — Prova social / autoridade (conjunto 3, 10 anúncios)
-- **Estratégia:** autoridade técnica do Felipe (enquanto os cases de mentoria não existem).
-- **Hook (3s):** "Eu construí sistemas que organizam empresas. Agora eu organizo o dono."
-- **Copy curta (~50):** Construí plataformas, CRMs e aplicativos com valuation de
-  mais de R$ 10 milhões. Aprendi na prática o que trava um dono de empresa: a
-  empresa depender dele. Faça o Diagnóstico Executivo e veja o seu IDE.
+- **Estratégia:** autoridade do Felipe (enquanto os cases de mentoria não existem).
+- **Hook (3s):** "Eu ajudei a estruturar empresas de verdade. Agora eu organizo o dono."
+- **Copy curta (~50):** Construí plataformas e sistemas e ajudei a estruturar uma
+  empresa que faturou mais de 100 milhões no primeiro ano. Aprendi na prática o
+  que trava um dono de empresa: a empresa depender dele. Faça o Diagnóstico
+  Executivo e veja o seu IDE.
 - **Copy média (~120):** Passei anos construindo operações, sistemas e tecnologias
-  que organizam empresas, de CRMs e automações a aplicativos com valuation de mais
-  de R$ 10 milhões. E aprendi, inclusive na própria pele, que o que trava o
-  crescimento de um dono próspero não é falta de venda, é a empresa depender dele
-  para tudo. Transformei essa experiência em um método que mede e reduz essa
-  dependência. Comece pelo Diagnóstico Executivo. `[DEPOIMENTO]`
+  que organizam empresas, e ajudei a estruturar uma empresa que faturou mais de
+  100 milhões no primeiro ano de operação. E aprendi, inclusive na própria pele,
+  que o que trava o crescimento de um dono próspero não é falta de venda, é a
+  empresa depender dele para tudo. Transformei essa experiência em um método que
+  mede e reduz essa dependência. Comece pelo Diagnóstico Executivo. `[DEPOIMENTO]`
 - **Copy longa (~250):** A maioria das mentorias de gestão nunca construiu nada
   além de slides. A minha história é outra: passei anos estruturando empresas de
   verdade, implantando processos, gestão comercial, indicadores, automações,
   dashboards e inteligência artificial na operação. Construí uma plataforma de
-  gestão própria e participei do desenvolvimento de aplicativos com valuation de
-  mais de R$ 10 milhões. No meio disso, cheguei a tocar 14 empresas ao mesmo tempo
-  e vivi exatamente a dor do dono próspero: ser escravo da própria operação. Foi
-  resolvendo isso em mim que nasceu o Método Potência Empresarial. Não é teoria: é
-  a mesma engenharia que eu usei para sair da operação. Comece pelo Diagnóstico
-  Executivo gratuito e descubra o seu IDE. `[DEPOIMENTO]`
+  gestão própria e ajudei a estruturar uma empresa que faturou mais de 100 milhões
+  no primeiro ano de operação. No meio disso, cheguei a tocar 14 empresas ao mesmo
+  tempo e vivi exatamente a dor do dono próspero: ser escravo da própria operação.
+  Foi resolvendo isso em mim que nasceu o Método Potência Empresarial. Não é
+  teoria: é a mesma engenharia que eu usei para sair da operação. Comece pelo
+  Diagnóstico Executivo gratuito e descubra o seu IDE. `[DEPOIMENTO]`
 
 **10 headlines para teste A/B:**
 1. A sua empresa cresceu. E hoje quem trabalha mais é você.
@@ -267,7 +268,7 @@ Descubra o seu Índice de Dependência Empresarial.
 6. A prisão mais cara é a empresa que só anda com você dentro.
 7. Dono próspero e refém da própria operação: é você?
 8. O problema não é vender mais. É a empresa depender de você.
-9. Construí sistemas que organizam empresas. Agora eu organizo o dono.
+9. Ajudei a estruturar uma empresa de 100 milhões. Agora eu organizo o dono.
 10. Do dono operacional ao dono que governa.
 
 **5 hooks para vídeo:**
