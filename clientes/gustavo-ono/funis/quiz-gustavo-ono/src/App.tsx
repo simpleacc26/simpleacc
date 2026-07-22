@@ -21,9 +21,7 @@ interface ResultState {
   answers: Record<number, string>;
 }
 
-const WEBHOOK_URL =
-  import.meta.env.VITE_WEBHOOK_URL ||
-  "https://hook.us2.make.com/webrhbzopsinsjep4oxquwrf0m7frfnl";
+const WEBHOOK_URL = "/api/lead";
 
 type QuizStep = "landing" | "question" | "lead-capture" | "loading";
 
@@ -115,24 +113,25 @@ function QuizFlow() {
       "seguranca",
     ];
 
-    const payload = new URLSearchParams();
-    payload.append("nome", data.name);
-    payload.append("email", data.email);
-    payload.append("whatsapp", data.phone);
+    const payload: Record<string, string> = {
+      nome: data.name,
+      email: data.email,
+      whatsapp: data.phone,
+      utm_source: utm.utm_source,
+      utm_medium: utm.utm_medium,
+      utm_campaign: utm.utm_campaign,
+      utm_content: utm.utm_content,
+      utm_term: utm.utm_term,
+    };
     fieldNames.forEach((field, index) => {
-      payload.append(field, answerText(index));
+      payload[field] = answerText(index);
     });
-    payload.append("utm_source", utm.utm_source);
-    payload.append("utm_medium", utm.utm_medium);
-    payload.append("utm_campaign", utm.utm_campaign);
-    payload.append("utm_content", utm.utm_content);
-    payload.append("utm_term", utm.utm_term);
 
     try {
       const response = await fetch(WEBHOOK_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: payload.toString(),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
       console.log("Webhook enviado:", response.status);
     } catch (error) {
