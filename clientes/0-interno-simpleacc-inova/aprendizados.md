@@ -25,3 +25,12 @@ lançamento não dispara o webhook → sem execução no Make → sem card.
 ### Regra prática
 Se um card não aparece no GHL: primeiro cheque no Make se **houve execução**. Sem execução = a Kiwify
 não disparou (problema de configuração de webhook por produto), não é erro do cenário.
+
+### Resolução (22/07/2026)
+- Corrigido o webhook `Make - LP L01` na Kiwify: produto **"Treinamento Funil de Lead Dinâmico"**
+  adicionado (antes travado só no produto do Workshop). Próximas vendas passam a fluir sozinhas.
+- Backfill das 2 vendas pendentes (Luiza Juste, Junior Ferreira) feito via POST direto no webhook do
+  Make com `{"Customer":{"full_name","email","mobile"}}`. Ambas as execuções OK (4/4 operações) e cards
+  criados no estágio "Comprou Ingresso", com contato/telefone/tag preenchidos.
+- Dica de backfill: a tela de detalhe da venda na Kiwify **não tem** reenvio de webhook por venda;
+  o caminho é pegar nome/email/celular na aba Cliente e disparar o webhook do Make manualmente.
