@@ -48,7 +48,7 @@ function enviarLead() {
     nome: a.nomeResp || "", whatsapp: a.whatsapp || "", email: a.email || "",
     situacao: label("situacao"), problema: label("problema"), implicacao: label("implicacao"),
     necessidade: label("necessidade"), objetivo: label("objetivo"), perfil: label("perfil"),
-    qualificacao: label("qualificacao"), frente: "Inclusão", origem: document.referrer || location.href,
+    qualificacao: label("qualificacao"), frente: "Governo Empresarial", origem: document.referrer || location.href,
     ...URL_UTMS,
   };
   try {
@@ -271,7 +271,7 @@ window.addEventListener("beforeunload", () => {
 
 /* ---------- start ---------- */
 (function init() {
-  trackEvent("page_view", { funil: "inclusao" });
+  trackEvent("page_view", { funil: "governo-empresarial" });
   const saved = loadSaved();
   if (saved && saved.started && !(saved.answers && saved.answers._completedAt)) {
     offerResume(saved);
