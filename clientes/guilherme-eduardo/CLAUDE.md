@@ -26,16 +26,17 @@ continua de onde o outro parou (o Git é a memória compartilhada).
   clínica a saírem da consulta avulsa para um **modelo de receita recorrente** (programas de
   acompanhamento), estruturando oferta, comercial e posicionamento.
 - **Método:** **GES360™** — 3 pilares (Modelo de Receita, Atração de Pacientes, Comercial).
-- **Oferta principal:** Implementação GES360™ 3 meses (R$15k / 6x R$5k) como porta de entrada;
-  programa completo 12 meses (R$30k / 12x R$2,5k). A criar: low-ticket de 45 dias ("caixa rápida").
+- **Oferta (3 degraus, confirmada):** 45 dias R$7.500 (6x R$1.250) · Implementação 3 meses R$15k
+  (6x R$2.500, principal do funil) · Programa 12 meses R$30k (12x R$2.500, HT). Entrega **ao vivo**.
 - **Público / ICP:** médico **dono de clínica já estabelecida**, agenda com demanda, preso no
   teto de "trocar tempo por dinheiro" (consulta avulsa), quer previsibilidade e recorrência.
-  (ICP refinado com o Daniel: mirar o médico maior, R$150k+, não o iniciante sem paciente.)
+  **Faturamento-alvo: R$50k a R$100k+** (o Guilherme corrigiu o R$150k do pré-preenchido).
+  Especialidades: nutrologia, integrativa, ginecologia, urologia, esportiva, tricologia, emagrecimento.
 - **Faturamento atual:** ~R$15k/mês (essencialmente 1 cliente ativo). **Meta:** 50k até o fim do
   ano, depois escalar para 100k/mês.
 - **Gargalo nº1:** aquisição de clientes (previsibilidade de leads) + processo comercial/pré-vendas.
-- **Provas:** case Dr. Kayo Andrade (R$20k → R$86k em 1 mês); Dr. Caio (ajuste de oferta →
-  vendeu 3 programas de acompanhamento); Dr. André, nutrólogo (R$48k em 7 dias, na página atual).
+- **Provas:** case Dr. Kayo Andrade (R$20,5k → R$86,7k em 1 mês, +322%; R$50,8k em 3 dias; autorização
+  em contrato, print/vídeo liberados) + os 3 programas num fim de semana; Dr. André, nutrólogo (R$48k em 7 dias).
 - **Página atual (validada por ele):** https://gesconsultoriamedica.com — WordPress, identidade
   **navy + dourado** com CTA verde. Ver `contexto/04-analise-pagina-atual.md`.
 - **Contato principal:** Guilherme Eduardo (Santa Catarina / Florianópolis). Idade 34.

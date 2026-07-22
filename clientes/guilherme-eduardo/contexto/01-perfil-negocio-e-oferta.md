@@ -38,22 +38,40 @@ Mecanismo único. **3 pilares:**
 2. **Atração de Pacientes** — posicionamento, indicação/reativação de base, aquisição qualificada.
 3. **Comercial** — processo de vendas, treinamento de recepção, conversão e LTV.
 
-Entrega em 12 meses: método gravado + live semanal + suporte no WhatsApp, em 4 ciclos trimestrais.
-Cadência de encontros: 3 reuniões/mês nos primeiros 90 dias (fase intensiva), depois 1/mês.
+**Formato (confirmado pelo Guilherme na versão final):** **ao vivo, não gravado**. Programa de 12
+meses = encontro ao vivo semanal + suporte contínuo no WhatsApp, em 4 ciclos trimestrais.
+Implementação de 3 meses = **2 sessões/mês** + WhatsApp (6 sessões nos 90 dias).
 
-Estrutura por fases (do Canvas do Produto):
-- **Meses 4–6:** Aquisição de pacientes e comercial (posicionamento, processo de vendas,
-  treinamento de recepção, conversão e LTV).
-- **Meses 7–9:** Otimização (ajustes finos no modelo, comercial e operação).
-- **Meses 10–12:** Consolidação (manutenção, escala e preparação para renovação).
+**O segredo é a ORDEM: preço e protocolo ANTES de tráfego.** "A maioria das mentorias ensina
+captação primeiro; o GES360 resolve o modelo de receita primeiro, porque de nada adianta trazer
+mais paciente para um sistema que já não converte nem retém." (Isso valida a sequência do roadmap:
+oferta/posicionamento antes do funil/tráfego.)
+
+**Metodologia de Conversão em Consulta (6 etapas):** Abertura, Conexão, Mapeamento, Direcionamento,
+Apresentação, Fechamento.
+
+**As 6 sessões da Implementação (3 meses):**
+- **Sessão 1 (mês 1):** diagnóstico da clínica, ICP, modelo atual vs. acompanhamento, gargalos
+  (preço baixo, público errado, pacote mal estruturado, secretária perdendo leads). O médico sai
+  com o gap entre o que fatura e o que deveria faturar bem claro.
+- **Sessão 2 (mês 1):** protocolos de acompanhamento, precificação estratégica, Metodologia de
+  Conversão em Consulta. Resultado (primeiros fechamentos) já nessa semana.
+- **Sessões 3–4 (mês 2):** processo comercial, script da secretária, treinamento de recepção,
+  primeiras ações de captação (reativação de base + Instagram).
+- **Sessões 5–6 (mês 3):** otimização com dados reais (mês 1 vs. mês 2), ajuste de oferta e
+  planejamento da virada para o programa de 12 meses.
+- **Resultado aos 90 dias:** modelo de receita rodando, processo comercial estruturado, histórico
+  real de faturamento (pacotes vs. avulsa).
 
 ## Escada de oferta
 
+Confirmada pelo Guilherme (**3 degraus**):
+
 | Nível | Produto | Duração | Preço | Papel |
 | --- | --- | --- | --- | --- |
-| Entrada / mid | **Implementação GES360™** | 3 meses | R$15.000 (ou 6x R$5.000) | Porta de entrada / validação, foco no Modelo de Receita. "Caixa rápida". |
-| High-ticket | **Programa GES360™ completo** | 12 meses | R$30.000 (ou 12x R$2.500) | Programa completo, 3 pilares. |
-| Low-ticket (a criar) | Programa "ganho rápido" de **45 dias** | 45 dias | a definir | Sugerido pelo Daniel: primeiro resultado rápido → upsell para os níveis acima. |
+| Low-ticket | **Ganho rápido** (diagnóstico/posicionamento + protocolos/precificação/3 programas/metodologia de consulta) | 45 dias | **R$7.500** (à vista) ou **6x R$1.250** | Faturamento já no 1º mês; aproveita o não-ICP do quiz e paga a mídia. |
+| Entrada (principal do funil) | **Implementação GES360™** | 3 meses | **R$15.000** (à vista) ou **6x R$2.500** | Porta de entrada, foco no Modelo de Receita. Upsell para o 12 meses. |
+| High-ticket | **Programa GES360™ completo** | 12 meses | **R$30.000** (à vista) ou **12x R$2.500** | Programa completo, 3 pilares. |
 
 Observações estratégicas (call com Daniel):
 - **Upsell no "frenesi de compra":** na hora que o cliente tem um resultado grande (ex.: Dr. Kayo
@@ -64,11 +82,12 @@ Observações estratégicas (call com Daniel):
 
 ## Provas / cases
 
-- **Dr. Kayo Andrade** (divide clínica, quer abrir a própria): **R$20,5k (abr) → R$86,7k (mai,
-  +322%)**, ~R$50,8k até 9/jun trabalhando exclusivamente às segundas. Principal case.
-- **Dr. Caio** (o mesmo "Kayo"? checar — no onboarding aparece como Dr. Caio): ajuste de oferta
-  (de "só obesidade" para acompanhamento de emagrecimento, ticket ~R$3,5k) → **vendeu 3 programas
-  de acompanhamento** (um de 4, dois de 3) num fim de semana. Lição: "quem dita o produto é o mercado".
+- **Dr. Kayo Andrade** (emagrecimento) — **case principal**: R$20.546 (abril) → R$86.771 (maio,
+  +322%); **R$50,8k faturados em 3 dias de atendimento (jun/2026)**. **Autorização confirmada em
+  contrato; print e vídeo liberados (já usados em Stories).** Também é o case do ajuste de oferta
+  (para acompanhamento de emagrecimento, ticket ~R$3,5k) que **vendeu 3 programas num fim de semana**.
+  (Na versão final do canvas o Guilherme atribuiu os dois cases ao Dr. Kayo; o "Dr. Caio" do
+  onboarding parece ser o mesmo Kayo.)
 - **Dr. André, nutrólogo** (case da página atual): **+R$48.000 em fechamentos em 7 dias**.
 - Médico do Albert Einstein / Sírio-Libanês: consultório fatura ~R$10k/mês, potencial de crescer
   via indicação (exemplo usado por Guilherme para mostrar que nem tudo é tráfego).
@@ -100,8 +119,33 @@ Observações estratégicas (call com Daniel):
 - **Ferramentas / IA:** usa Claude para transcrever e avaliar reuniões; construção de página/quiz
   via "vibe coding" (Lovable).
 
-## Concorrentes
+## Concorrentes (nominais, da versão final do canvas)
 
-Mentorias médicas genéricas, agências de tráfego pago, consultorias de gestão de clínica sem foco
-em modelo de receita. (Um lead estava em outra mentoria "voltada para consultório particular" que
-não criava programa de acompanhamento — diferencial do Guilherme.)
+Categorias: mentorias médicas genéricas, agências de tráfego, consultorias de gestão sem foco em
+modelo de receita. **Concorrentes diretos + diferencial do Guilherme contra cada um** (ótimo insumo
+para modelar anúncios/quiz e para a análise de mercado):
+
+- **Maria Eduarda Maia** (gestão/MBA para clínicas) → diferencial: implementação prática, não curso/pós.
+- **Pedro Madaleno** (sem tráfego, "sem método enlatado", o mais próximo conceitualmente) →
+  diferencial: metodologia estruturada com resultado em 90 dias, não processo do zero.
+- **Dra. Natália Daniela** (mentoria lifestyle para mulheres médicas) → diferencial: foco em modelo
+  de receita/conversão, sem recorte de gênero.
+- **Dr. Sandro Ferraz** (mentoria em massa/imersão presencial, +2000 médicos) → diferencial:
+  implementação individual assistida, não mentoria coletiva.
+- **Cassiano Sávio** (mindset/posicionamento, +4000 mentorados) → diferencial: operacional (pacote,
+  precificação, script, planilha), não só mindset.
+- **Gabriel Santos** (escala comercial genérica) → diferencial: 100% desenhado para o modelo de
+  consulta médica e o CFM.
+
+## Benefícios (ampliados na versão final)
+
+Receita previsível, saída da consulta avulsa, autoridade/posicionamento, processo comercial
+estruturado, aumento de LTV, menos dependência de tráfego. E ainda: **secretária treinada**,
+reativação de pacientes (base + novos), programa de ticket menor para outros perfis, formulário
+pré-consulta, **reconhecimento financeiro e autoestima**, **perda do medo de vender**, virada de
+mentalidade (consultório como empresa, não só atendimento), quebra de crenças limitantes.
+
+## Propósito (na voz do Guilherme, ótimo para copy)
+
+"Sair do ponto A e ir para o ponto B com alguém, iluminando. O papel é pegar uma lanterna e mostrar
+o caminho."

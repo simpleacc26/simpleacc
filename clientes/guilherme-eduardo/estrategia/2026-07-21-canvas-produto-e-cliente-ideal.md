@@ -2,6 +2,13 @@
 
 Fonte: pré-preenchido pela Simple a partir da call de vendas (16/07/26) e da call de onboarding (21/07/26). Doc template em branco de origem: "Simple Acc & Guilherme Eduardo | Canvas do Produto + Cliente Ideal - 17/07/26". Decisão de foco tomada: canvas preenchido para o programa GES360™ (médico dono de clínica), com a confirmação do ICP e da oferta principal na pergunta nº 1.
 
+> ⚠️ VERSÃO SUPERADA: o Guilherme revisou e devolveu a **versão final** (21/07/2026), salva em
+> `contexto/fontes/2026-07-21-canvas-final-revisado-pelo-cliente.md`. Principais mudanças dele:
+> ICP faturamento R$50k a R$100k+ (não R$150k); oferta em 3 degraus com preços (45d R$7,5k/6x1,25k ·
+> 3m R$15k/6x2,5k · 12m R$30k/12x2,5k); entrega ao vivo (não gravada), 2 sessões/mês; segredo =
+> preço/protocolo antes de tráfego; concorrentes nominais; especialidades e frases reais. O contexto
+> em `contexto/` já reflete a versão final. Este arquivo é o registro do que a Simple enviou.
+>
 > Nota de versão (repo): este .md é a fonte versionada. Google Doc entregue na pasta
 > "1. Documentos" do cliente no Drive:
 > https://docs.google.com/document/d/1FMqkoQwuk8IZL9wnTgy4wF0kF5HzLIM-BUdy5gd1_rQ/edit

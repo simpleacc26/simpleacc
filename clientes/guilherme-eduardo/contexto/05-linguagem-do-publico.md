@@ -3,6 +3,15 @@
 > Frases e expressões do próprio ICP e do Guilherme (calls). Use como matéria-prima de copy:
 > falar a língua do médico, não de marketeiro.
 
+## Frases confirmadas pelo Guilherme na versão final do canvas (ouro para copy)
+
+- **Frustração real do médico:** *"Eu não sou bom em vendas."*
+- **Frase de desejo (gancho de anúncio/quiz):** *"Você quer faturar R$86 mil atendendo só 16
+  pacientes, em vez de correr atrás de dezenas de consultas avulsas?"*
+- **Propósito do Guilherme (para conteúdo/bio):** *"Sair do ponto A e ir para o ponto B com alguém,
+  iluminando. O papel é pegar uma lanterna e mostrar o caminho."*
+- **Sonho do médico:** ser reconhecido, viajar com a família, sair dos plantões, focar na clínica própria.
+
 ## Dores / frases-espelho do médico (ICP)
 - "Trabalho o mês inteiro com consulta avulsa e no fim do mês não vejo o resultado chegando."
 - "A agenda está cheia, mas o faturamento oscila e falta previsibilidade."
