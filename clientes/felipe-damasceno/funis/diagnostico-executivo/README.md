@@ -22,14 +22,17 @@ necessidade e perfil. `IDE% = soma / máximo`. ≥66% = Alto, 33 a 65% = Médio,
 <33% = Baixo. Faturamento "até R$ 50 mil" e "R$ 50 a 100 mil" marcam o lead como
 fora do ICP (roteia para conteúdo/plataforma, não para a sessão).
 
+## No ar (preview)
+Publicado no time da Simple na Vercel (produção do projeto
+`diagnostico-executivo-felipe`): **https://diagnostico-executivo-felipe.vercel.app**
+Ainda com as pendências abaixo (WhatsApp, logo/cores e planilha).
+
 ## Pendências para publicar (o que falta do cliente)
 1. **WhatsApp do Felipe** (CTA): trocar `marca.whatsapp` em `flow.js` (hoje `5500000000000`).
 2. **Logo + cores oficiais**: hoje usa marca em texto e o tema dark navy + dourado
    proposto. Trocar o logo (colocar `logo.png` e ativar `<img class="logo-img">`)
    e ajustar os HEX no `:root` do `styles.css` quando vier o manual de marca.
-3. **Deploy na Vercel** (conta/time da Simple, nunca pessoal): publicar só esta
-   subpasta, com nome de projeto limpo.
-4. **Planilha de leads**: criar no Drive do cliente, colar o `integracao-planilha.gs`
+3. **Planilha de leads**: criar no Drive do cliente, colar o `integracao-planilha.gs`
    no Apps Script, implantar como App da Web, colar a URL `/exec` em
    `app.js → LEADS_ENDPOINT`, republicar e testar um lead de ponta a ponta.
 
