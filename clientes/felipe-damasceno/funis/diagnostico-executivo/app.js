@@ -1,6 +1,8 @@
 /* ============================================================
-   APP — motor do funil (render, validação, persistência, tracking)
+   APP. Motor do funil (render, validação, persistência, tracking).
    Sem dependências externas. Funciona abrindo o index.html.
+   Estrutura invisível espelhada do quiz de alta conversão da Pâmella.
+   Padrão de escrita: nunca usar travessões (traço longo).
    ============================================================ */
 
 /* ---- Tracking plugável: preencha os IDs e os eventos vão junto.
@@ -33,6 +35,14 @@ function trackEvent(name, data = {}) {
   } catch (e) { /* tracking nunca quebra o funil */ }
 }
 
+/* Classifica o lead pela prontidão e faturamento (mesma régua do diagnóstico).
+   Qualifica por intenção + ICP, não só por pergunta crua de faturamento. */
+function classificarLead(a) {
+  if (a.qualificacao === "ate-50" || a.qualificacao === "50-100") return "fora";
+  if (a.prontidao === "depois" || a.prontidao === "pesquisando") return "nutrir";
+  return "qualificado";
+}
+
 /* Envia o lead pra planilha (Google Apps Script). Manda as respostas já em
    texto legível. Fire-and-forget: nunca trava o fluxo do lead. */
 function enviarLead() {
@@ -46,19 +56,22 @@ function enviarLead() {
   const lead = {
     data: new Date().toISOString(),
     nome: a.nomeResp || "", whatsapp: a.whatsapp || "", email: a.email || "",
-    situacao: label("situacao"), problema: label("problema"), implicacao: label("implicacao"),
-    necessidade: label("necessidade"), objetivo: label("objetivo"), perfil: label("perfil"),
-    qualificacao: label("qualificacao"), frente: "Governo Empresarial", origem: document.referrer || location.href,
+    situacao: label("situacao"), problema: label("problema"), tempo: label("tempo"),
+    implicacao: label("implicacao"), necessidade: label("necessidade"), objetivo: label("objetivo"),
+    perfil: label("perfil"), qualificacao: label("qualificacao"), prontidao: label("prontidao"),
+    classificacao: classificarLead(a),
+    frente: (F.config && F.config.frente) || "Governo Empresarial",
+    origem: document.referrer || location.href,
     ...URL_UTMS,
   };
   try {
-    fetch(LEADS_ENDPOINT, { method: "POST", mode: "no-cors",
+    fetch(LEADS_ENDPOINT, { method: "POST", mode: "no-cors", keepalive: true,
       headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(lead) });
   } catch (e) { /* não bloqueia o lead */ }
 }
 
-const STORE_KEY = "felipe_diagnostico_executivo";
 const F = window.FLOW;
+const STORE_KEY = (F.config && F.config.storeKey) || "felipe_diagnostico_executivo";
 const app = document.getElementById("app");
 const progressEl = document.getElementById("progress");
 
@@ -102,14 +115,15 @@ function renderStep(i) {
       <span class="txt">${o.label}</span>
     </button>`).join("");
 
+  // Só a 1ª tela tem título e subtítulo. As demais começam direto na pergunta
+  // (sem rótulo de etapa em cima), como no quiz da Pâmella.
   const intro = i === 0 ? `
-      <span class="selo">${F.hero.selo}</span>
       <h1>${F.hero.titulo}</h1>
-      <p class="hint" style="margin:-4px 0 20px">${F.hero.tempo}</p>` : "";
+      <p class="lead">${F.hero.subtitulo}</p>
+      <p class="hint" style="margin:-2px 0 18px">${F.hero.tempo}</p>` : "";
   const screen = el(`
     <section class="card screen">
       ${intro}
-      <p class="eyebrow">${step.etapa}</p>
       <h2 id="q-${step.id}">${step.pergunta}</h2>
       <div class="options" role="radiogroup" aria-labelledby="q-${step.id}">${opts}</div>
       <div class="actions">
@@ -123,7 +137,7 @@ function renderStep(i) {
 
   const optionEls = [...screen.querySelectorAll(".opt")];
   let advancing = false;
-  // auto-avanço: escolher já leva pra próxima (maior conclusão/connect rate)
+  // auto-avanço: escolher já leva pra próxima (maior taxa de conclusão)
   function choose(node) {
     if (advancing) return;
     optionEls.forEach(o => { o.setAttribute("aria-checked", "false"); o.tabIndex = -1; });
@@ -236,8 +250,48 @@ function renderCaptura() {
     save();
     trackEvent("funnel_complete", { answers: { ...state.answers } });
     enviarLead();
-    setTimeout(() => { window.location.href = "diagnostico.html"; }, 600);
+    renderLoading();
   });
+}
+
+/* Tela de "preparando o diagnóstico": barra que enche + mensagens, depois
+   redireciona. O tempo extra também garante a entrega do lead antes da troca
+   de página. */
+function renderLoading() {
+  progressEl.hidden = true;
+  trackEvent("step_view", { step_id: "loading" });
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const dur = reduce ? 800 : 4700;
+  const msgs = [
+    "Analisando as suas respostas...",
+    "Calculando o seu IDE, o Índice de Dependência Empresarial...",
+    "Montando o seu Diagnóstico Executivo personalizado...",
+  ];
+  const screen = el(`
+    <section class="card screen loading-card">
+      <p class="eyebrow">Quase lá</p>
+      <h2>Preparando o seu Diagnóstico Executivo</h2>
+      <p class="lead" id="load-msg">${msgs[0]}</p>
+      <div class="load-track"><div class="load-bar" id="load-bar"></div></div>
+      <p class="hint" style="margin-top:16px">Estamos personalizando com base no que você respondeu. 💛</p>
+    </section>`);
+  app.replaceChildren(screen);
+  scrollTop();
+
+  const bar = screen.querySelector("#load-bar");
+  const msgEl = screen.querySelector("#load-msg");
+  bar.style.transition = `width ${dur}ms cubic-bezier(.4,0,.2,1)`;
+  requestAnimationFrame(() => { bar.style.width = "100%"; });
+
+  if (!reduce) {
+    let i = 1;
+    const iv = setInterval(() => {
+      if (i < msgs.length) { msgEl.textContent = msgs[i++]; } else { clearInterval(iv); }
+    }, dur / msgs.length);
+  }
+
+  const dest = (F.config && F.config.diagnosticoUrl) || "diagnostico.html";
+  setTimeout(() => { window.location.href = dest; }, dur + 350);
 }
 
 /* ---------- navegação ---------- */
@@ -261,7 +315,7 @@ function offerResume(saved) {
     </div>`);
   app.replaceChildren(banner);
   banner.querySelector("#resume-yes").addEventListener("click", () => { state = saved; render(); });
-  banner.querySelector("#resume-no").addEventListener("click", () => { clearSaved(); state = { view: "hero", answers: {}, started: false }; render(); });
+  banner.querySelector("#resume-no").addEventListener("click", () => { clearSaved(); state = { view: 0, answers: {}, started: false }; render(); });
 }
 
 /* ---------- abandono ---------- */
@@ -271,7 +325,7 @@ window.addEventListener("beforeunload", () => {
 
 /* ---------- start ---------- */
 (function init() {
-  trackEvent("page_view", { funil: "governo-empresarial" });
+  trackEvent("page_view", { funil: (F.config && F.config.funil) || "governo-empresarial" });
   const saved = loadSaved();
   if (saved && saved.started && !(saved.answers && saved.answers._completedAt)) {
     offerResume(saved);

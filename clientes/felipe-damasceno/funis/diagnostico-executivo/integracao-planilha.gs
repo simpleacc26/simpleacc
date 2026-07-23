@@ -17,8 +17,9 @@
    ============================================================ */
 
 var CABECALHO = [
-  "Data/Hora", "Nome", "WhatsApp", "E-mail", "Situação", "Problema", "Implicação",
-  "Já tentou", "Objetivo", "Perfil", "Faturamento", "Frente", "Origem",
+  "Data/Hora", "Nome", "WhatsApp", "E-mail", "Situação", "Problema", "Tempo",
+  "Implicação", "Já tentou", "Objetivo", "Perfil", "Faturamento", "Prontidão",
+  "Classificação", "Frente", "Origem",
   "UTM Source", "UTM Medium", "UTM Campaign", "UTM Content", "UTM Term"
 ];
 
@@ -45,11 +46,14 @@ function doPost(e) {
       d.email || "",         // E-mail
       d.situacao || "",      // Situação
       d.problema || "",      // Problema
+      d.tempo || "",         // Tempo
       d.implicacao || "",    // Implicação
       d.necessidade || "",   // Já tentou
       d.objetivo || "",      // Objetivo
       d.perfil || "",        // Perfil
       d.qualificacao || "",  // Faturamento
+      d.prontidao || "",     // Prontidão
+      d.classificacao || "", // Classificação (fora / nutrir / qualificado)
       d.frente || "Governo Empresarial", // Frente
       d.origem || "",        // Origem
       d.utm_source || "",    // UTM Source
@@ -78,9 +82,10 @@ function _teste() {
   doPost({ postData: { contents: JSON.stringify({
     nome: "Teste", whatsapp: "(11) 99999-9999", email: "teste@email.com",
     situacao: "Sou o dono e ainda vivo dentro da operação", problema: "Apagar incêndios",
-    implicacao: "A operação travaria rapidamente", necessidade: "Contratei pessoas",
-    objetivo: "Ter tempo para a família", perfil: "Trabalho mais do que todos",
-    qualificacao: "De R$ 500 mil a R$ 1 milhão",
+    tempo: "Vários anos", implicacao: "A operação travaria rapidamente",
+    necessidade: "Contratei pessoas", objetivo: "Ter tempo para a família",
+    perfil: "Trabalho mais do que todos", qualificacao: "De R$ 500 mil a R$ 1 milhão",
+    prontidao: "Sim, quero resolver de vez", classificacao: "qualificado",
     frente: "Governo Empresarial", origem: "teste",
     utm_source: "meta", utm_medium: "cpc", utm_campaign: "governo-empresarial",
     utm_content: "angulo-dor", utm_term: "dono-empresa" }) } });

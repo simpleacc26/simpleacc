@@ -1,9 +1,19 @@
 /* ============================================================
-   FLOW — Diagnóstico Executivo (IDE) · Felipe Damasceno
+   FLOW. Diagnóstico Executivo (IDE) · Felipe Damasceno
    Toda a copy do quiz e do relatório vive aqui.
    Para editar perguntas/textos, mexa só neste arquivo.
+   Estrutura invisível espelhada do quiz de alta conversão da Pâmella
+   (SPIN de 9 passos, qualificação no fim, loading, CTAs distribuídos).
+   Padrão de escrita: nunca usar travessões (traço longo).
    ============================================================ */
 window.FLOW = {
+  config: {
+    storeKey: "felipe_diagnostico_executivo",
+    frente: "Governo Empresarial",
+    funil: "governo-empresarial",
+    diagnosticoUrl: "diagnostico.html",
+  },
+
   marca: {
     nome: "Felipe Damasceno",
     expert: "Felipe Damasceno",
@@ -18,13 +28,14 @@ window.FLOW = {
     titulo: "A sua empresa cresceu. E hoje quem trabalha mais é você.",
     subtitulo:
       "Descubra o seu IDE, o Índice de Dependência Empresarial, e o caminho para governar a sua empresa através de pessoas, processos e indicadores, em vez de continuar sendo o gargalo dela.",
-    tempo: "Leva ~2 minutos · 7 perguntas",
+    tempo: "Leva ~2 minutos · 9 perguntas rápidas",
     cta: "Fazer meu Diagnóstico Executivo",
   },
 
-  /* Cada passo: id, tipo (rótulo SPIN), pergunta e opções.
-     Em 'report' fica a frase usada no relatório de diagnóstico.
-     'peso' alimenta o cálculo do IDE (3 = mais dependente, 0 = menos). */
+  /* Ordem SPIN: baixa fricção primeiro, qualificação (faturamento + prontidão)
+     por último. Em 'report' fica a frase usada no relatório de diagnóstico.
+     'peso' alimenta o cálculo do IDE (3 = mais dependente, 0 = menos).
+     tempo e prontidao não têm peso: não entram no IDE, só na leitura/qualificação. */
   steps: [
     {
       id: "situacao",
@@ -50,6 +61,17 @@ window.FLOW = {
           report: "cobrar e acompanhar a equipe o tempo todo" },
         { value: "estrategia", label: "Estratégia, crescimento e novos projetos", peso: 0,
           report: "cuidar de estratégia, crescimento e novos projetos" },
+      ],
+    },
+    {
+      id: "tempo",
+      etapa: "Há quanto tempo",
+      pergunta: "Há quanto tempo a sua empresa depende tanto de você?",
+      options: [
+        { value: "recente", label: "Começou nos últimos meses", report: "alguns meses" },
+        { value: "ano", label: "Mais de 1 ano", report: "mais de um ano" },
+        { value: "anos", label: "Vários anos, virou o jeito que a empresa funciona", report: "vários anos" },
+        { value: "sempre", label: "Desde que a empresa existe", report: "desde que a empresa existe" },
       ],
     },
     {
@@ -119,6 +141,18 @@ window.FLOW = {
         { value: "500-1mi", label: "De R$ 500 mil a R$ 1 milhão" },
         { value: "1-5mi", label: "De R$ 1 milhão a R$ 5 milhões" },
         { value: "5mi+", label: "R$ 5 milhões ou mais" },
+      ],
+    },
+    {
+      id: "prontidao",
+      etapa: "O próximo passo",
+      pergunta:
+        "Você busca um processo estruturado para reduzir de vez essa dependência, mesmo que represente um investimento maior do que um curso ou uma ferramenta?",
+      options: [
+        { value: "sim", label: "Sim, quero resolver de vez e entendo que é um investimento" },
+        { value: "entender", label: "Sim, mas preciso entender melhor como funciona antes" },
+        { value: "depois", label: "Ainda não é prioridade pra mim agora", nutrir: true },
+        { value: "pesquisando", label: "Só estou pesquisando por enquanto", nutrir: true },
       ],
     },
   ],

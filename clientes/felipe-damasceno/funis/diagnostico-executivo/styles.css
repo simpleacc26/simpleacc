@@ -5,7 +5,7 @@
    ============================================================ */
 
 /* ╔══════════════════════════════════════════════════════════╗
-   ║  PALETA — tema escuro premium. Ajuste os HEX se quiser.   ║
+   ║  PALETA. Tema escuro premium. Ajuste os HEX se quiser.    ║
    ╚══════════════════════════════════════════════════════════╝ */
 :root {
   --bg:         #0E1626;  /* navy quase preto (fundo) */
@@ -156,6 +156,15 @@ h2 { font-size: 25px; line-height: 1.25; margin: 0 0 16px; }
 .btn:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
 .spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(14,22,38,.4); border-top-color: var(--on-action); border-radius: 50%; animation: spin .7s linear infinite; vertical-align: -3px; margin-right: 8px; }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---------- tela de loading (preparando o diagnóstico) ---------- */
+.loading-card { text-align: center; padding: 40px 26px; }
+.loading-card .eyebrow { display: block; }
+.load-track { height: 10px; background: #1E2A44; border-radius: 99px; overflow: hidden; margin: 24px 0 4px; }
+.load-bar { height: 100%; width: 0; border-radius: 99px;
+  background: linear-gradient(90deg, var(--gold-deep), var(--gold-light)); }
+#load-msg { min-height: 1.5em; transition: opacity .2s; }
+@media (max-width: 520px){ .loading-card { padding: 32px 18px; } }
 
 /* ---------- resume banner ---------- */
 .resume { background: var(--gold-soft); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 16px; margin: 14px 0; font-size: 15px; }
