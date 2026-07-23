@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Alivance Club | Sessão Estratégica</title>
+<meta name="description" content="O Alivance Club transforma mentores, coaches e consultores em empresários da educação que faturam +R$100k por mês." />
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --bg-2: #111118;
+    --panel: #1a1a2e;
+    --panel-2: #292859;
+    --gold: #c8b28b;
+    --gold-dark: #b39d75;
+    --ink: #f4f2ee;
+    --muted: #c5c8d6;
+    --faint: rgba(197,200,214,0.6);
+    --line: rgba(200,178,139,0.18);
+    --display: 'Fahkwang', serif;
+    --body: 'Inter', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--body); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+  section { padding: 46px 0; }
+  .eyebrow { color: var(--gold); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; }
+  h1 { font-family: var(--display); font-weight: 600; font-size: clamp(1.9rem, 5vw, 2.8rem); line-height: 1.18; letter-spacing: -0.01em; color: var(--ink); text-wrap: balance; }
+  h2 { font-family: var(--display); font-weight: 600; font-size: clamp(1.5rem, 4vw, 2rem); line-height: 1.25; color: var(--gold); text-wrap: balance; margin-bottom: 8px; }
+  h1 .g, h2 .g { color: var(--gold); }
+  p { color: var(--muted); }
+  .lead { font-size: 1.1rem; }
+
+  /* hero */
+  .hero { background: radial-gradient(900px 460px at 50% -10%, rgba(200,178,139,0.10), transparent 62%), var(--bg); text-align: center; padding-top: 60px; }
+  .hero .eyebrow { display: block; margin-bottom: 22px; }
+  .hero h1 { margin-bottom: 20px; }
+  .hero p.sub { max-width: 34em; margin: 0 auto 30px; font-size: 1.08rem; }
+  .hero .social { color: var(--faint); font-size: 0.85rem; margin-top: 18px; }
+
+  .cta { display: inline-flex; align-items: center; gap: 10px; background: var(--gold); color: #17130c; font-family: var(--body); font-weight: 700; font-size: 1.02rem; border: none; border-radius: 999px; padding: 17px 34px; cursor: pointer; text-decoration: none; transition: filter .18s, transform .12s; }
+  .cta:hover { filter: brightness(1.06); transform: translateY(-1px); }
+  .cta.block { display: flex; justify-content: center; width: 100%; }
+
+  /* personalização por pilar */
+  .pilar-banner { background: rgba(200,178,139,0.1); border: 1px solid var(--line); border-radius: 14px; padding: 16px 20px; margin: 26px auto 0; max-width: 34em; font-size: 0.95rem; color: var(--ink); }
+  .pilar-banner b { color: var(--gold); }
+
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 18px; padding: 30px; }
+  .card + .card { margin-top: 16px; }
+
+  ul.checks { list-style: none; }
+  ul.checks li { position: relative; padding: 9px 0 9px 30px; color: var(--muted); }
+  ul.checks li::before { content: ""; position: absolute; left: 0; top: 16px; width: 8px; height: 8px; border-radius: 50%; background: var(--gold); }
+  ul.crosses li::before { background: #b23b3b; }
+
+  .frentes { display: flex; flex-direction: column; gap: 14px; }
+  .frente { border-left: 3px solid var(--gold); padding: 6px 0 6px 18px; }
+  .frente b { color: var(--gold); font-family: var(--display); font-size: 1.05rem; }
+  .frente p { margin-top: 4px; }
+
+  .reframe { text-align: center; }
+  .reframe .big { font-family: var(--display); font-size: clamp(1.4rem,3.6vw,1.9rem); color: var(--ink); line-height: 1.3; margin-bottom: 12px; text-wrap: balance; }
+  .reframe .big .g { color: var(--gold); }
+
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 560px) { .two { grid-template-columns: 1fr; } }
+  .two .card h3 { color: var(--gold); font-size: 1.05rem; margin-bottom: 12px; }
+  .two .card.no h3 { color: var(--muted); }
+
+  .obj { border-top: 1px solid var(--line); padding: 18px 0; }
+  .obj:first-child { border-top: none; }
+  .obj .q { color: var(--ink); font-weight: 600; font-family: var(--display); font-size: 1.1rem; margin-bottom: 6px; }
+
+  .scarcity { text-align: center; background: rgba(200,178,139,0.08); border: 1px solid var(--line); border-radius: 16px; padding: 26px; }
+  .scarcity .n { font-family: var(--display); font-size: 2.4rem; color: var(--gold); font-weight: 600; line-height: 1; }
+
+  /* form */
+  .form-card { background: var(--panel-2); border: 1px solid var(--line); border-radius: 20px; padding: 34px; }
+  .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+  .field label { font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--faint); }
+  .field input, .field select { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); border-radius: 12px; padding: 14px 15px; color: var(--ink); font-family: var(--body); font-size: 1rem; }
+  .field input:focus, .field select:focus { outline: none; border-color: var(--gold); }
+  .field select option { background: var(--panel); }
+  .lock { color: var(--faint); font-size: 0.8rem; margin-top: 14px; text-align: center; line-height: 1.5; }
+
+  footer { text-align: center; color: var(--faint); font-size: 0.78rem; padding: 30px 0 50px; }
+</style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">De mentor para empresário da educação · Método + Modelo + Vendas + Mentalidade · Alivance Club</span>
+      <h1>Mentores que operam como empresários da educação não disputam cliente. <span class="g">Eles constroem negócios.</span></h1>
+      <p class="sub">Uma sessão estratégica individual com o time do Rafael Granella para olhar o seu negócio de perto e mostrar o próximo movimento certo, sem fórmula genérica.</p>
+      <a href="#agendar" class="cta">Quero minha sessão estratégica →</a>
+      <div class="social">Mais de 40 mentores acompanhados · Ecossistema que faturou 1Bi em menos de 2 anos</div>
+      <div class="pilar-banner" id="pilarBanner" style="display:none;"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="card">
+        <h2>Você provavelmente está aqui porque:</h2>
+        <ul class="checks">
+          <li>Fatura a partir de R$20k por mês com consistência, mas o crescimento travou</li>
+          <li>Sabe que pode cobrar mais, só não sabe como justificar sem perder clientes</li>
+          <li>Já tentou criar grupo, aumentar preço ou investir em tráfego, e o resultado foi parcial</li>
+          <li>Sua agenda está cheia, mas o faturamento não cresce proporcionalmente</li>
+          <li>Depende de indicação e networking para fechar. Mês bom, mês ruim</li>
+          <li>Não sabe exatamente qual é o próximo movimento certo</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="reframe">
+    <div class="wrap">
+      <p class="big">Isso não é falta de capacidade. <span class="g">É falta de modelo.</span></p>
+      <p class="lead">Existe uma diferença entre mentor e empresário da educação. O empresário construiu método, modelo e processo, e o negócio cresce sem ele ser o gargalo. O problema nunca esteve no volume. Está na estrutura.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="card">
+        <h2>O olhar do Rafael atua em 4 frentes simultâneas</h2>
+        <div class="frentes">
+          <div class="frente"><b>Método</b><p>Estrutura a forma de entrega para que você escale sem perder profundidade. Seu cliente recebe mais e você trabalha menos por entrega.</p></div>
+          <div class="frente"><b>Modelo de negócio</b><p>Desenha um modelo que faz a receita crescer sem crescer na mesma proporção a sua carga. O crescimento deixa de depender da sua presença em cada entrega.</p></div>
+          <div class="frente"><b>Processo de vendas</b><p>Previsibilidade de aquisição com o ticket que o seu trabalho realmente vale. Não é sobre vender mais, é sobre vender certo.</p></div>
+          <div class="frente"><b>Mentalidade</b><p>Identidade de empresário, não de prestador de serviço. As crenças que travam o crescimento são identificadas e quebradas com precisão cirúrgica.</p></div>
+        </div>
+        <p style="margin-top:18px;">Nenhuma dessas frentes funciona isolada. Esse é o motivo pelo qual mentores que tentaram resolver um ponto só continuam no mesmo lugar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="card">
+        <h2>O que você acessa no Alivance Club</h2>
+        <ul class="checks">
+          <li>Sessões individuais com o Rafael, olhar direto no seu negócio, sem fórmula genérica</li>
+          <li>Imersões presenciais, aprofundamento estratégico com mentorados selecionados</li>
+          <li>Hotseats online, análise em tempo real com o grupo de alto nível</li>
+          <li>Acesso ao método completo regravado, um sprint estruturado desde o primeiro dia</li>
+          <li>Comunidade de mentores e empresários que já operam no próximo nível</li>
+        </ul>
+        <p style="margin-top:16px;">O diferencial não está no volume de mentorados, está na profundidade do acompanhamento. O Rafael atende poucos, e atende de perto.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap two">
+      <div class="card">
+        <h3>Essa sessão é para você se:</h3>
+        <ul class="checks">
+          <li>Já fatura de forma consistente com mentoria, consultoria ou coaching</li>
+          <li>Quer crescer sem aumentar proporcionalmente a sua carga de trabalho</li>
+          <li>Está disposto a ajustar o modelo, não só empurrar mais volume</li>
+        </ul>
+      </div>
+      <div class="card no">
+        <h3>Não é para você se:</h3>
+        <ul class="checks crosses">
+          <li>Ainda está construindo a sua base de clientes do zero</li>
+          <li>Quer uma fórmula pronta para copiar e colar</li>
+          <li>Não está disposto a questionar o modelo que usa hoje</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 style="text-align:center;margin-bottom:18px;">O que costuma passar pela sua cabeça agora</h2>
+      <div class="card">
+        <div class="obj"><div class="q">"Já tentei mentoria antes e não funcionou."</div><p>Provavelmente porque ajustou uma peça só. Aqui o olhar é sobre os 4 pilares ao mesmo tempo, que é o que muda o resultado de parcial para estrutural.</p></div>
+        <div class="obj"><div class="q">"Não sei se tenho o perfil certo."</div><p>A sessão é justamente para descobrir isso, sem compromisso. Se não fizer sentido, você sai com clareza do próximo passo mesmo assim.</p></div>
+        <div class="obj"><div class="q">"Não tenho tempo para mais uma mentoria."</div><p>A falta de tempo costuma ser o sintoma do modelo errado. Resolver a estrutura é o que abre a sua agenda, não o contrário.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="scarcity">
+        <div class="n">12</div>
+        <p style="margin-top:10px;"><b style="color:var(--gold);">Vagas disponíveis este mês.</b> O Rafael atende no máximo 12 novos membros por mês. Não por limitação operacional, por escolha estratégica.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="agendar">
+    <div class="wrap">
+      <div class="form-card">
+        <h2 style="text-align:center;">O próximo nível do seu negócio começa com uma decisão.</h2>
+        <p style="text-align:center;margin-bottom:24px;">Preencha para agendar a sua sessão estratégica. Nossa equipe entra em contato pelo WhatsApp para confirmar o melhor horário.</p>
+        <div class="field"><label>Nome completo</label><input type="text" id="f-nome" placeholder="Seu nome" /></div>
+        <div class="field"><label>WhatsApp com DDD</label><input type="text" placeholder="(00) 00000-0000" /></div>
+        <div class="field"><label>E-mail</label><input type="email" placeholder="voce@email.com" /></div>
+        <div class="field"><label>Faturamento mensal da sua mentoria ou consultoria</label>
+          <select>
+            <option>Entre R$20 mil e R$50 mil por mês</option>
+            <option>Entre R$50 mil e R$100 mil por mês</option>
+            <option>Entre R$100 mil e R$300 mil por mês</option>
+            <option>Acima de R$300 mil por mês</option>
+          </select>
+        </div>
+        <a href="#" class="cta block" id="agendarBtn" style="margin-top:8px;">Agendar minha sessão estratégica →</a>
+        <p class="lock">🔒 Nenhuma cobrança nesta etapa. A sessão é gratuita. Vagas limitadas: o Rafael atende no máximo 12 novos membros por mês.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>Alivance Club · Rafael Granella · Sessão estratégica gratuita, sem compromisso</footer>
+
+<script>
+  // Personalização por pilar (vem do relatório: ?pilar=modelo&nome=Fulano)
+  var PILAR = { M: "Método", N: "Modelo de negócio", V: "Processo de vendas", T: "Mentalidade",
+                metodo: "Método", modelo: "Modelo de negócio", vendas: "Processo de vendas", mentalidade: "Mentalidade" };
+  var params = new URLSearchParams(window.location.search);
+  var pKey = (params.get('pilar') || '').trim();
+  var nome = (params.get('nome') || '').trim();
+  var pNome = PILAR[pKey] || PILAR[pKey.toUpperCase()] || null;
+
+  if (pNome) {
+    var b = document.getElementById('pilarBanner');
+    b.style.display = 'block';
+    b.innerHTML = (nome ? nome + ', no' : 'No') + ' seu diagnóstico, o pilar que apareceu como o gargalo do seu próximo salto foi o <b>' + pNome + '</b>. Na sessão estratégica, o time do Rafael começa por ele e analisa os 4 pilares juntos.';
+  }
+  if (nome) { var fn = document.getElementById('f-nome'); if (fn) fn.value = nome; }
+
+  // Placeholder do destino do agendamento (WhatsApp / calendário) - conectar na implementação
+  document.getElementById('agendarBtn').setAttribute('href', '#');
+</script>
+</body>
+</html>

@@ -124,6 +124,11 @@
   var nome = params.get('nome') || document.getElementById('nameInput').value || "Renan";
   if (params.get('pilar')) document.getElementById('previewBar').style.display = 'none';
 
+  var AGENDA_BASE = 'https://agendamento-alivance-b.vercel.app';
+  function agendaUrl() {
+    return AGENDA_BASE + '?pilar=' + encodeURIComponent(current) + '&nome=' + encodeURIComponent(nome);
+  }
+
   function render() {
     var d = PILAR[current];
     document.getElementById('doc').innerHTML =
@@ -200,7 +205,7 @@
       '<div class="card cta-wrap">' +
         '<h2 style="margin-bottom:14px;">O próximo passo é uma conversa de 30 minutos</h2>' +
         '<p style="margin-bottom:22px;">Na sessão estratégica, o time do Rafael analisa os 4 pilares do seu negócio ao mesmo tempo, começando pelo ' + d.nome + ' que apareceu aqui, e te mostra o movimento certo pro seu caso. É uma análise individual, não uma call de vendas disfarçada.</p>' +
-        '<a href="#agendamento" class="cta" id="ctaBtn">Agendar minha sessão estratégica →</a>' +
+        '<a href="' + agendaUrl() + '" class="cta" id="ctaBtn">Agendar minha sessão estratégica →</a>' +
         '<p class="cta-note">30 minutos. Análise do seu caso específico. Sem compromisso e sem pitch genérico.</p>' +
       '</div>' +
 
