@@ -61,6 +61,10 @@ copy desalinhada:
 Sempre confirmar: **essa copy é para a marca da Vitória ou para um cliente dela?** A
 resposta define qual voz usar. Na dúvida, perguntar.
 
+> **DECISÃO (23/07/2026, Daniel):** o trabalho atual de refino é para a **marca da própria
+> Vitória**. Fonte da verdade = a **voz da Vitória** (`diretrizes-de-escrita-vitoria.md`).
+> Os textos da Carol Rache servem **apenas como modelo de estrutura**, nunca de tom/vocabulário.
+
 ## Ordem de leitura recomendada antes de escrever
 
 1. `diretrizes-de-escrita-vitoria.md` — a voz (o mais importante para o alinhamento).
