@@ -1,0 +1,903 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Leitura de imagem · Stella Grützmann (preview)</title>
+<style>/* ============================================================
+   FUNIL QUIZ · Stella Grützmann (Consultoria de Imagem)
+   Identidade extraída do site stellagrutzmann.com: mogno + taupe/mocha
+   sobre marfim. Premium, elegante, terrosa. Serifa de sistema.
+   Mantém --primary, --primary-700 e --accent-soft (o relatório usa).
+   ============================================================ */
+:root {
+  --bg:          #F5F0EA;  /* marfim quente (fundo do site) */
+  --bg-2:        #EFE7DB;  /* um tom abaixo */
+  --surface:     #FDFDFC;  /* cartões (off-white) */
+  --text:        #2B2521;  /* espresso quase preto (warm) */
+  --muted:       #877A6A;  /* texto secundário (taupe) */
+
+  /* realce da marca = mocha/taupe (usado também pelo relatório) */
+  --primary:     #8A6E52;  /* mocha médio (dots, bordas, progresso) */
+  --primary-700: #5A4433;  /* mocha escuro (títulos/realce de texto) */
+  --accent-soft: #EFE6D8;  /* creme suave (pílulas/seleção) */
+  --brand-hi:    #C2A98C;  /* taupe claro (brilho dos gradientes) */
+
+  --action:      #401F18;  /* botão principal (mogno profundo, contraste AA) */
+  --action-700:  #2E1712;  /* hover do botão */
+  --on-action:   #FBF6EC;  /* texto sobre o botão (creme) */
+
+  --border:      #E7DCCC;  /* bordas quentes */
+  --ring:        #8A6E52;  /* foco de teclado */
+  --err:         #A9432B;  /* erros (contraste AA sobre claro) */
+
+  --radius:      18px;
+  --radius-sm:   12px;
+  --shadow:      0 1px 3px rgba(42,36,32,.06), 0 10px 28px rgba(138,101,38,.10);
+  --shadow-lg:   0 2px 6px rgba(42,36,32,.08), 0 22px 54px rgba(138,101,38,.16);
+  --maxw:        600px;
+
+  --font:        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* serifada de sistema (sem dependência externa) p/ títulos e logo */
+  --font-serif:  "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, "Hoefler Text", Georgia, "Times New Roman", serif;
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 17px; line-height: 1.55;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+
+/* ---------- topo / logo ---------- */
+.topbar { padding: 24px 0 6px; text-align: center; }
+.brand { display: inline-flex; flex-direction: column; align-items: center; gap: 2px; }
+.brand .brand-name {
+  font-family: var(--font-serif); font-size: 23px; font-weight: 700; letter-spacing: .04em;
+  color: var(--primary-700);
+  background: linear-gradient(92deg, var(--primary-700), var(--brand-hi) 55%, var(--primary-700));
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.brand .brand-tag { font-size: 10.5px; letter-spacing: .42em; text-transform: uppercase; color: var(--primary); padding-left: .42em; }
+.brand .logo-img { height: 64px; width: auto; }
+
+/* ---------- progresso ---------- */
+.progress-wrap { position: sticky; top: 0; z-index: 20; background: linear-gradient(180deg, var(--bg) 70%, transparent); padding: 10px 0 8px; }
+.progress-meta { display: flex; justify-content: space-between; font-size: 13px; color: var(--primary-700); font-weight: 600; margin: 0 2px 7px; }
+.progress-track { height: 7px; background: #E7DCCC; border-radius: 99px; overflow: hidden; }
+.progress-bar { height: 100%; width: 0; border-radius: 99px; transition: width .45s cubic-bezier(.16,1,.3,1);
+  background: linear-gradient(90deg, var(--primary), var(--brand-hi)); }
+
+/* ---------- cartão / telas ---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 30px 26px; margin: 16px 0 28px;
+}
+.screen { animation: fade .45s cubic-bezier(.16,1,.3,1) both; }
+@keyframes fade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+.eyebrow { color: var(--primary-700); font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: .14em; margin: 0 0 12px; }
+h1, h2 { font-family: var(--font-serif); font-weight: 700; letter-spacing: -.005em; color: var(--text); }
+h1 { font-size: 30px; line-height: 1.2; margin: 0 0 14px; }
+h2 { font-size: 25px; line-height: 1.25; margin: 0 0 16px; }
+.lead { color: var(--muted); font-size: 17px; margin: 0 0 8px; }
+.hint { color: var(--muted); font-size: 14px; }
+
+/* ---------- selo do hero ---------- */
+.selo { display: inline-block; background: var(--accent-soft); color: var(--primary-700); font-size: 13px; font-weight: 600; padding: 7px 14px; border-radius: 99px; margin-bottom: 18px; border: 1px solid var(--border); }
+.tempo { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: 14px; margin-top: 16px; }
+.tempo::before { content: "⏱"; }
+
+/* ---------- opções (auto-avanço) ---------- */
+.options { display: grid; gap: 12px; margin: 22px 0 6px; }
+.opt {
+  display: flex; align-items: center; gap: 14px;
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  padding: 17px 16px; cursor: pointer; background: var(--surface); text-align: left;
+  color: var(--text);
+  -webkit-text-fill-color: var(--text);
+  transition: border-color .2s, background .2s, transform .15s, box-shadow .2s;
+}
+@media (hover: hover) and (pointer: fine) {
+  .opt:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow); }
+}
+.opt .dot { flex: 0 0 22px; height: 22px; border: 2px solid var(--border); border-radius: 50%; display: grid; place-items: center; transition: border-color .2s; }
+.opt .dot::after { content: ""; width: 11px; height: 11px; border-radius: 50%; background: var(--primary); transform: scale(0); transition: transform .18s cubic-bezier(.16,1,.3,1); }
+.opt .txt { font-size: 16px; flex: 1; text-align: left; }
+.opt[aria-checked="true"] { border-color: var(--primary); background: var(--accent-soft); }
+.opt[aria-checked="true"] .dot { border-color: var(--primary); }
+.opt[aria-checked="true"] .dot::after { transform: scale(1); }
+.opt:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
+
+/* ---------- formulário ---------- */
+.field { margin: 18px 0; }
+.field label { display: block; font-weight: 600; font-size: 15px; margin-bottom: 7px; }
+.field .req { color: var(--err); }
+.field .opt-tag { color: var(--muted); font-weight: 400; }
+.field input {
+  width: 100%; font: inherit; padding: 15px 14px; color: var(--text);
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm); background: var(--surface);
+  transition: border-color .2s, box-shadow .2s;
+}
+.field input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 26%, transparent); }
+.field input[aria-invalid="true"] { border-color: var(--err); }
+.field .err-msg { color: var(--err); font-size: 14px; margin-top: 6px; display: none; }
+.field .err-msg.show { display: block; }
+
+/* ---------- erros no topo ---------- */
+.errors { display: none; background: #FBEBE6; border: 1px solid #ECC4B8; color: var(--err); border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 16px; font-size: 15px; }
+.errors.show { display: block; }
+
+/* ---------- botões ---------- */
+.actions { display: flex; gap: 12px; align-items: center; margin-top: 24px; }
+.btn { font: inherit; font-weight: 700; cursor: pointer; border: none; border-radius: 99px; padding: 16px 26px; transition: background .2s, transform .12s, box-shadow .2s, opacity .2s; }
+.btn-primary { background: var(--action); color: var(--on-action); box-shadow: 0 8px 20px rgba(42,36,32,.26); }
+.btn-primary:hover { background: var(--action-700); transform: translateY(-1px); }
+.btn-primary:disabled { opacity: .55; cursor: not-allowed; transform: none; box-shadow: none; }
+.btn-ghost { background: transparent; color: var(--muted); padding: 16px 14px; }
+.btn-ghost:hover { color: var(--text); }
+.btn-block { width: 100%; justify-content: center; display: flex; }
+.btn:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
+.spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(251,246,236,.5); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; vertical-align: -3px; margin-right: 8px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---------- tela de loading (preparando a leitura) ---------- */
+.loading-card { text-align: center; padding: 40px 26px; }
+.loading-card .eyebrow { display: block; }
+.load-track { height: 10px; background: #E7DCCC; border-radius: 99px; overflow: hidden; margin: 24px 0 4px; }
+.load-bar { height: 100%; width: 0; border-radius: 99px;
+  background: linear-gradient(90deg, var(--primary), var(--brand-hi)); }
+#load-msg { min-height: 1.5em; transition: opacity .2s; }
+@media (max-width: 520px){ .loading-card { padding: 32px 18px; } }
+
+/* ---------- resume banner ---------- */
+.resume { background: var(--accent-soft); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 16px; margin: 14px 0; font-size: 15px; }
+.resume button { margin-top: 10px; margin-right: 8px; }
+.link { background: none; border: none; color: var(--primary-700); font: inherit; text-decoration: underline; cursor: pointer; padding: 0; }
+
+.foot { text-align: center; color: var(--muted); font-size: 13px; padding: 8px 0 36px; }
+
+/* ---------- responsivo ---------- */
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  h1 { font-size: 25px; } h2 { font-size: 22px; }
+  .card { padding: 24px 18px; }
+  .brand .brand-name { font-size: 20px; }
+}
+
+/* ---------- preferências do usuário ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+</style>
+<style>
+    /* --- específico do relatório --- */
+    .report-head { text-align: center; padding: 20px 0 6px; }
+    .report-head .selo { margin-bottom: 12px; }
+    .report-head h1 { font-size: 26px; }
+    .etapa { margin: 0 0 16px; }
+    .etapa h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--primary); margin: 0 0 8px; }
+    .etapa p { margin: 0 0 10px; }
+    .metodo { margin: 0; padding-left: 18px; }
+    .metodo li { margin: 0 0 8px; }
+    .metodo strong { color: var(--primary-700); }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 8px 0; }
+    .compare .col { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px; background: var(--surface); }
+    .compare .col h4 { margin: 0 0 8px; font-size: 14px; }
+    .compare .col.bad h4 { color: var(--muted); }
+    .compare .col.good { background: color-mix(in srgb, var(--primary) 6%, var(--surface)); border-color: color-mix(in srgb, var(--primary) 30%, var(--border)); }
+    .compare ul { margin: 0; padding-left: 18px; font-size: 15px; color: var(--muted); }
+    .compare .good ul { color: var(--text); }
+    .depo { background: var(--accent-soft); border: 1px dashed #C9B3E6; border-radius: var(--radius-sm); padding: 14px; margin: 8px 0; font-size: 15px; color: var(--primary-700); }
+    .depo-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0 6px; }
+    .depo-shot { width: 100%; height: auto; display: block; border-radius: var(--radius-sm); border: 1px solid var(--border); box-shadow: var(--shadow); background: #fff; }
+    @media (max-width: 520px){ .depo-gallery { grid-template-columns: 1fr; } }
+    .cta-inline { text-align: center; margin: 22px 0; }
+    .cta-inline .btn { width: 100%; max-width: 420px; }
+    .cta-box { background: color-mix(in srgb, var(--primary) 7%, var(--surface)); border: 1px solid color-mix(in srgb, var(--primary) 26%, var(--border)); border-radius: var(--radius); padding: 22px; text-align: center; margin-top: 8px; }
+    .clube { font-size: 15px; color: var(--muted); margin-top: 14px; }
+    .toolbar { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 4px 0 22px; }
+    @media (max-width: 520px){ .compare { grid-template-columns: 1fr; } }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #fff; }
+      .card { box-shadow: none; border-color: #ddd; margin: 0; }
+      .topbar, .foot { color: #000; }
+      .etapa, .compare .col, .cta-box, .depo { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <!-- Quando tiver o logo, troque por:
+             <img class="logo-img" src="logo.png" alt="Stella Grützmann · Consultoria de Imagem"> -->
+        <span class="brand-name">Stella Grützmann</span>
+        <span class="brand-tag">Consultoria de Imagem</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Barra de progresso (só aparece durante as perguntas) -->
+  <div class="progress-wrap" id="progress" hidden>
+    <div class="container">
+      <div class="progress-meta">
+        <span id="progress-label">Começando</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div id="app" aria-live="polite"><!-- as telas são renderizadas aqui --></div>
+  </main>
+
+<script>/* ============================================================
+   FLOW · Funil de Quiz · Stella Grützmann (Consultoria de Imagem)
+   Copy da estratégia aprovada. Sem travessão.
+   ============================================================ */
+window.FLOW = {
+  config: {
+    storeKey: "stella_funil_imagem",
+    frente: "Consultoria de Imagem",
+    diagnosticoUrl: "diagnostico.html",
+  },
+
+  marca: {
+    nome: "Stella Grützmann",
+    expert: "Stella Grützmann",
+    // WhatsApp da Stella (+55 46 9938-7066). Formato internacional, só dígitos.
+    whatsapp: "5546999387066",
+    whatsappMsg: "Oi Stella! Sou {nome}, acabei de fazer a leitura de imagem no seu site e quero falar sobre a avaliação estratégica.",
+  },
+
+  hero: {
+    selo: "Consultoria de imagem & estilo · Atendimento online",
+    titulo: "Descubra o que a sua imagem está comunicando, e o que muda a percepção sobre você.",
+    subtitulo: "Responda 8 perguntas rápidas e receba uma leitura personalizada do que hoje enfraquece a sua autoridade visual, e o primeiro passo para alinhar imagem e competência.",
+    tempo: "Leva ~2 minutos · 100% confidencial",
+    cta: "Começar",
+  },
+
+  steps: [
+    {
+      id: "situacao",
+      etapa: "Situação",
+      pergunta: "Como você descreveria a sua relação com a própria imagem hoje?",
+      options: [
+        { value: "nao-resolvida", label: "Invisto em roupa, mas nunca sinto que estou bem resolvida", report: "investir em roupa e ainda assim não se sentir bem resolvida" },
+        { value: "automatico", label: "Me visto no automático, sempre nas mesmas peças", report: "se vestir no automático, sempre nas mesmas peças" },
+        { value: "falta-estrategia", label: "Tenho bom gosto, mas falta estratégia e intenção", report: "ter bom gosto, mas sentir que falta estratégia e intenção" },
+        { value: "nao-acompanha", label: "Minha imagem não acompanha o meu momento profissional", report: "sentir que a imagem não acompanha o seu momento profissional" },
+      ],
+    },
+    {
+      id: "problema",
+      etapa: "Problema",
+      pergunta: "O que mais te incomoda na hora de se vestir?",
+      options: [
+        { value: "nao-combina", label: "Tenho muita roupa e não sei combinar o que já tenho", report: "ter muita roupa e não saber combinar o que já tem" },
+        { value: "paradas", label: "Compro peças que acabam paradas no armário", report: "comprar peças que acabam paradas no armário" },
+        { value: "tempo", label: "Perco tempo e energia decidindo o que vestir todo dia", report: "perder tempo e energia decidindo o que vestir todo dia" },
+        { value: "eventos", label: "Nunca sei o que usar em reuniões e eventos importantes", report: "nunca saber o que usar em reuniões e eventos importantes" },
+      ],
+    },
+    {
+      id: "implicacao",
+      etapa: "Implicação",
+      pergunta: "Como isso aparece na sua vida profissional?",
+      options: [
+        { value: "menos-autoridade", label: "Sinto que passo menos autoridade do que realmente tenho", report: "passar menos autoridade do que você realmente tem" },
+        { value: "menos-preparada", label: "Já vi gente menos preparada ser levada mais a sério", report: "ver gente menos preparada ser levada mais a sério que você" },
+        { value: "insegura", label: "Fico insegura em reuniões, eventos e fotos", report: "ficar insegura em reuniões, eventos e fotos" },
+        { value: "duvida", label: "Minha imagem gera dúvida no cliente antes de eu falar", report: "a sua imagem gerar dúvida no cliente antes de você falar" },
+      ],
+    },
+    {
+      id: "custo",
+      etapa: "O custo de não agir",
+      pergunta: "Se nada mudar nos próximos meses, o que isso representa?",
+      options: [
+        { value: "subestimada", label: "Continuar sendo subestimada pela imagem", report: "continuar sendo subestimada pela sua imagem" },
+        { value: "oportunidades", label: "Perder oportunidades para quem se posiciona melhor", report: "perder oportunidades para quem se posiciona melhor" },
+        { value: "gastando", label: "Seguir insegura e gastando com roupa sem resolver", report: "seguir insegura e gastando com roupa sem resolver" },
+        { value: "tudo", label: "Tudo isso ao mesmo tempo", report: "tudo isso ao mesmo tempo" },
+      ],
+    },
+    {
+      id: "tentativas",
+      etapa: "O que já tentou",
+      pergunta: "O que você já tentou para resolver?",
+      options: [
+        { value: "mais-roupa", label: "Comprei mais roupa, mas o problema continuou", report: "comprar mais roupa, sem que o problema mudasse" },
+        { value: "dicas", label: "Segui dicas de moda e influenciadoras", report: "seguir dicas de moda e de influenciadoras" },
+        { value: "ajuda", label: "Pedi ajuda a amigas ou a vendedoras", report: "pedir ajuda a amigas ou a vendedoras" },
+        { value: "nada", label: "Ainda não tentei nada estruturado", report: "ainda não ter tentado nada estruturado" },
+      ],
+    },
+    {
+      id: "objetivo",
+      etapa: "Objetivo",
+      pergunta: "O que você mais quer conquistar com a sua imagem?",
+      options: [
+        { value: "autoridade", label: "Ser vista como a autoridade que eu já sou", report: "ser vista como a autoridade que você já é" },
+        { value: "praticidade", label: "Ter segurança e praticidade para me vestir todo dia", report: "ter segurança e praticidade para se vestir todo dia" },
+        { value: "criterio", label: "Aprender a comprar e combinar com critério", report: "aprender a comprar e combinar com critério" },
+        { value: "presenca", label: "Presença e confiança em reuniões e eventos", report: "ter presença e confiança em reuniões e eventos" },
+      ],
+    },
+    {
+      id: "perfil",
+      etapa: "Para quem é",
+      pergunta: "Qual cenário descreve melhor você hoje?",
+      options: [
+        { value: "saude", label: "Profissional da saúde (médica, dentista, dermatologista)" },
+        { value: "juridico", label: "Advogada, executiva ou gestora" },
+        { value: "empresaria", label: "Empresária ou dona do próprio negócio" },
+        { value: "liberal", label: "Profissional liberal em outra área" },
+      ],
+    },
+    {
+      id: "prontidao",
+      etapa: "O próximo passo",
+      pergunta: "Se existisse um processo que alinha a sua imagem à sua competência, com estratégia e não só dicas, você investiria nele nos próximos 30 dias?",
+      options: [
+        { value: "sim", label: "Sim, se eu entender que é o caminho certo para mim" },
+        { value: "entender", label: "Talvez, dependendo do formato e do valor" },
+        { value: "pontual", label: "Prefiro esperar mais um tempo", nutrir: true },
+        { value: "pesquisando", label: "Só estou pesquisando por enquanto", nutrir: true },
+      ],
+    },
+  ],
+
+  captura: {
+    titulo: "Sua leitura personalizada está pronta.",
+    subtitulo: "Pra onde enviamos? Deixe seu WhatsApp que a Stella te envia a sua leitura de imagem e o próximo passo, sem compromisso.",
+    campos: [
+      { id: "nomeResp", label: "Seu nome", type: "text", required: true, autocomplete: "name", placeholder: "Como podemos te chamar?" },
+      { id: "whatsapp", label: "Seu WhatsApp (com DDD)", type: "tel", required: true, autocomplete: "tel", placeholder: "(41) 99999-9999", mask: "phone" },
+      { id: "email", label: "Seu e-mail", type: "email", required: true, autocomplete: "email", placeholder: "voce@email.com" },
+    ],
+    cta: "Ver minha leitura personalizada",
+    privacidade: "🔒 Seus dados são confidenciais e usados apenas para o seu atendimento. Nada de spam.",
+  },
+};
+</script>
+<script>/* ============================================================
+   APP. Motor do funil (render, validação, persistência, tracking).
+   Sem dependências externas. Funciona abrindo o index.html.
+   Padrão de escrita: nunca usar travessões (traço longo).
+   ============================================================ */
+
+/* ---- Tracking plugável: preencha os IDs e os eventos vão junto.
+   Vazio = só loga no console. ---- */
+const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
+
+/* Planilha de leads via Make (webhook instant → Google Sheets).
+   Cole a URL do webhook do Make aqui. Dispara só quando chega lead; não fica
+   varrendo (não consome crédito à toa). IMPORTANTE: o Make só estrutura o lead
+   quando recebe application/json (já tratado em enviarLead). Vazio = não envia. */
+const LEADS_ENDPOINT = "";
+
+/* UTMs capturadas da URL no carregamento (a página do quiz não muda de URL até
+   o envio, então isso preserva os parâmetros do anúncio). */
+function getUTMs() {
+  const p = new URLSearchParams(location.search);
+  return {
+    utm_source: p.get("utm_source") || "", utm_medium: p.get("utm_medium") || "",
+    utm_campaign: p.get("utm_campaign") || "", utm_content: p.get("utm_content") || "",
+    utm_term: p.get("utm_term") || "",
+  };
+}
+const URL_UTMS = getUTMs();
+function trackEvent(name, data = {}) {
+  const payload = { ...data, ts: Date.now() };
+  console.log(`[TRACK] ${name}`, payload);
+  try {
+    if (TRACKING_CONFIG.ga4_id && typeof gtag === "function") gtag("event", name, data);
+    if (TRACKING_CONFIG.meta_pixel_id && typeof fbq === "function") fbq("trackCustom", name, data);
+    if (TRACKING_CONFIG.custom_webhook && navigator.sendBeacon)
+      navigator.sendBeacon(TRACKING_CONFIG.custom_webhook, JSON.stringify({ event: name, ...payload }));
+  } catch (e) { /* tracking nunca quebra o funil */ }
+}
+
+/* Data/hora no fuso de Brasília, formato legível: "29/06/2026 09:32:35".
+   Força America/Sao_Paulo (não depende do fuso do visitante). */
+function dataHoraBR() {
+  try {
+    const tz = { timeZone: "America/Sao_Paulo" };
+    const d = new Date();
+    return d.toLocaleDateString("pt-BR", tz) + " " + d.toLocaleTimeString("pt-BR", tz);
+  } catch (e) { return new Date().toISOString(); }
+}
+
+/* Classifica o lead pela prontidão e geografia (mesma régua do diagnóstico).
+   Qualifica por intenção, não por pergunta crua de renda. */
+function classificarLead(a) {
+  if (a.prontidao === "pontual" || a.prontidao === "pesquisando") return "nutrir";
+  return "qualificado";
+}
+
+/* Envia o lead pro webhook do Make (formato padrão da casa: name/email/
+   whatsapp + meta + utms + answers q1..q9). Fire-and-forget: nunca trava o
+   fluxo do lead. O Make grava a linha na planilha. */
+function enviarLead() {
+  if (!LEADS_ENDPOINT) return;
+  const a = state.answers;
+  const label = (stepId) => {
+    const s = F.steps.find((x) => x.id === stepId);
+    const o = s && s.options.find((op) => op.value === a[stepId]);
+    return o ? o.label : "";
+  };
+  const lead = {
+    name: a.nomeResp || "",
+    email: a.email || "",
+    whatsapp: a.whatsapp || "",
+    qualificacao: classificarLead(a),
+    frente: (F.config && F.config.frente) || "Funil",
+    answers: {
+      q1: label("situacao"), q2: label("problema"), q3: label("implicacao"),
+      q4: label("custo"), q5: label("tentativas"), q6: label("objetivo"),
+      q7: label("perfil"), q8: label("prontidao"),
+    },
+    utms: URL_UTMS,
+    meta: {
+      timestamp: dataHoraBR(),
+      page_url: location.href,
+      referrer: document.referrer || "",
+      user_agent: navigator.userAgent || "",
+    },
+  };
+  const body = JSON.stringify(lead);
+  try {
+    // O webhook do Make só estrutura o lead quando recebe application/json
+    // (text/plain não é parseado). O webhook responde CORS, então o navegador
+    // pode mandar application/json em modo cors. keepalive garante que o POST
+    // sobreviva ao redirect pro diagnóstico (não é cancelado ao trocar de página).
+    fetch(LEADS_ENDPOINT, { method: "POST", keepalive: true,
+      headers: { "Content-Type": "application/json" }, body });
+  } catch (e) { /* não bloqueia o lead */ }
+}
+
+const F = window.FLOW;
+const STORE_KEY = (F.config && F.config.storeKey) || "funil_quiz";
+const app = document.getElementById("app");
+const progressEl = document.getElementById("progress");
+
+let state = { view: 0, answers: {}, started: false };
+let stepEnterTime = 0;
+
+/* ---------- persistência ---------- */
+function save() { try { sessionStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {} }
+function loadSaved() { try { return JSON.parse(sessionStorage.getItem(STORE_KEY)); } catch (e) { return null; } }
+function clearSaved() { try { sessionStorage.removeItem(STORE_KEY); } catch (e) {} }
+
+/* ---------- helpers ---------- */
+function el(html) { const t = document.createElement("template"); t.innerHTML = html.trim(); return t.content.firstElementChild; }
+function scrollTop() { window.scrollTo({ top: 0, behavior: "smooth" }); }
+
+function updateProgress(stepIdx) {
+  const total = F.steps.length;
+  const human = stepIdx + 1;
+  const pct = Math.round((stepIdx / total) * 100);
+  const label = stepIdx === 0 ? "Começando" : (stepIdx === total - 1 ? "Última pergunta" : `Pergunta ${human} de ${total}`);
+  progressEl.hidden = false;
+  document.getElementById("progress-label").textContent = label;
+  document.getElementById("progress-pct").textContent = `${pct}%`;
+  document.getElementById("progress-bar").style.width = `${pct}%`;
+}
+
+/* ============================================================
+   TELAS
+   ============================================================ */
+function renderStep(i) {
+  const step = F.steps[i];
+  updateProgress(i);
+  stepEnterTime = Date.now();
+  trackEvent("step_view", { step_id: step.id, step_number: i + 1 });
+
+  const selected = state.answers[step.id];
+  const opts = step.options.map((o, idx) => `
+    <button class="opt" role="radio" tabindex="${idx === 0 ? 0 : -1}"
+            aria-checked="${selected === o.value ? "true" : "false"}" data-value="${o.value}">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="txt">${o.label}</span>
+    </button>`).join("");
+
+  const intro = i === 0 ? `
+      <h1>${F.hero.titulo}</h1>
+      <p class="lead">${F.hero.subtitulo}</p>
+      <p class="hint" style="margin:-2px 0 18px">${F.hero.tempo}</p>` : "";
+  const screen = el(`
+    <section class="card screen">
+      ${intro}
+      <h2 id="q-${step.id}">${step.pergunta}</h2>
+      <div class="options" role="radiogroup" aria-labelledby="q-${step.id}">${opts}</div>
+      <div class="actions">
+        ${i > 0
+          ? '<button class="btn btn-ghost" id="back">← Voltar</button>'
+          : '<span class="hint">Toque na opção que mais combina. Avança sozinho.</span>'}
+      </div>
+    </section>`);
+  app.replaceChildren(screen);
+  scrollTop();
+
+  const optionEls = [...screen.querySelectorAll(".opt")];
+  let advancing = false;
+  // auto-avanço: escolher já leva pra próxima (maior taxa de conclusão)
+  function choose(node) {
+    if (advancing) return;
+    optionEls.forEach(o => { o.setAttribute("aria-checked", "false"); o.tabIndex = -1; });
+    node.setAttribute("aria-checked", "true"); node.tabIndex = 0;
+    state.answers[step.id] = node.dataset.value;
+    save();
+    if (!state.started) { state.started = true; trackEvent("funnel_start", {}); }
+    trackEvent("step_complete", { step_id: step.id, time_on_step: Date.now() - stepEnterTime });
+    advancing = true;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    setTimeout(() => { (i < F.steps.length - 1) ? goToStep(i + 1) : renderCaptura(); }, reduce ? 0 : 300);
+  }
+  optionEls.forEach((node, idx) => {
+    node.addEventListener("click", () => choose(node));
+    node.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); choose(node); }
+      if (e.key === "ArrowDown" || e.key === "ArrowRight") { e.preventDefault(); optionEls[(idx + 1) % optionEls.length].focus(); }
+      if (e.key === "ArrowUp" || e.key === "ArrowLeft") { e.preventDefault(); optionEls[(idx - 1 + optionEls.length) % optionEls.length].focus(); }
+    });
+  });
+
+  if (i > 0) screen.querySelector("#back").addEventListener("click", () => {
+    trackEvent("step_back", { from: step.id });
+    goToStep(i - 1);
+  });
+}
+
+function renderCaptura() {
+  progressEl.hidden = true;
+  const c = F.captura;
+  trackEvent("step_view", { step_id: "captura" });
+  const fields = c.campos.map(f => `
+    <div class="field">
+      <label for="${f.id}">${f.label} ${f.required ? '<span class="req" title="obrigatório">*</span>' : '<span class="opt-tag">(opcional)</span>'}</label>
+      <input id="${f.id}" name="${f.id}" type="${f.type}" autocomplete="${f.autocomplete}"
+             placeholder="${f.placeholder}" value="${state.answers[f.id] ? String(state.answers[f.id]).replace(/"/g,'&quot;') : ""}"
+             ${f.required ? 'aria-required="true"' : ""} aria-describedby="${f.id}-err" />
+      <p class="err-msg" id="${f.id}-err"></p>
+    </div>`).join("");
+
+  const screen = el(`
+    <section class="card screen">
+      <p class="eyebrow">Quase lá</p>
+      <h2>${c.titulo}</h2>
+      <p class="lead">${c.subtitulo}</p>
+      <div class="errors" id="err" role="alert" aria-live="assertive"></div>
+      <form id="form" novalidate>
+        ${fields}
+        <div class="actions">
+          <button class="btn btn-ghost" id="back" type="button">← Voltar</button>
+          <button class="btn btn-primary btn-block" id="submit" type="submit">${c.cta}</button>
+        </div>
+        <p class="hint" style="margin-top:14px">${c.privacidade}</p>
+      </form>
+    </section>`);
+  app.replaceChildren(screen);
+  scrollTop();
+
+  // máscara de WhatsApp: (XX) XXXXX-XXXX
+  c.campos.filter((f) => f.mask === "phone").forEach((f) => {
+    const input = screen.querySelector(`#${f.id}`);
+    if (!input) return;
+    input.inputMode = "numeric";
+    input.maxLength = 16;
+    const fmt = (v) => {
+      const d = v.replace(/\D/g, "").slice(0, 11);
+      if (d.length <= 2) return d ? "(" + d : "";
+      if (d.length <= 7) return "(" + d.slice(0, 2) + ") " + d.slice(2);
+      return "(" + d.slice(0, 2) + ") " + d.slice(2, 7) + "-" + d.slice(7);
+    };
+    if (input.value) input.value = fmt(input.value);
+    input.addEventListener("input", () => { input.value = fmt(input.value); });
+  });
+
+  screen.querySelector("#back").addEventListener("click", () => goToStep(F.steps.length - 1));
+
+  screen.querySelector("#form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const errBox = screen.querySelector("#err");
+    errBox.classList.remove("show");
+    const problems = [];
+    c.campos.forEach(f => {
+      const input = screen.querySelector(`#${f.id}`);
+      const msg = screen.querySelector(`#${f.id}-err`);
+      const val = input.value.trim();
+      let problem = "";
+      if (f.required && !val) problem = "Esse campo é obrigatório.";
+      else if (f.type === "tel" && val && val.replace(/\D/g, "").length < 11) problem = "Informe o WhatsApp completo com DDD.";
+      else if (f.type === "email" && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) problem = "Informe um e-mail válido.";
+      if (problem) {
+        problems.push(f.label);
+        input.setAttribute("aria-invalid", "true");
+        msg.textContent = "Erro: " + problem; msg.classList.add("show");
+      } else {
+        input.removeAttribute("aria-invalid"); msg.classList.remove("show");
+        state.answers[f.id] = val;
+      }
+    });
+    if (problems.length) {
+      errBox.textContent = "Confira os campos: " + problems.join(", ") + ".";
+      errBox.classList.add("show"); errBox.focus?.();
+      trackEvent("field_error", { step_id: "captura", fields: problems });
+      return;
+    }
+    // sucesso
+    const submitBtn = screen.querySelector("#submit");
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span class="spinner"></span>Enviando...';
+    state.answers._completedAt = new Date().toISOString();
+    save();
+    trackEvent("funnel_complete", { answers: { ...state.answers } });
+    enviarLead();
+    renderLoading();
+  });
+}
+
+/* Tela de "preparando a leitura": barra que enche + mensagens, depois redireciona.
+   O tempo extra também garante a entrega do lead antes de trocar de página. */
+function renderLoading() {
+  progressEl.hidden = true;
+  trackEvent("step_view", { step_id: "loading" });
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const dur = reduce ? 800 : 4700;
+  const msgs = [
+    "Analisando as suas respostas...",
+    "Lendo o que a sua imagem comunica hoje...",
+    "Montando a sua leitura personalizada...",
+  ];
+  const screen = el(`
+    <section class="card screen loading-card">
+      <p class="eyebrow">Quase lá</p>
+      <h2>Preparando a sua Leitura de Imagem</h2>
+      <p class="lead" id="load-msg">${msgs[0]}</p>
+      <div class="load-track"><div class="load-bar" id="load-bar"></div></div>
+      <p class="hint" style="margin-top:16px">Estamos personalizando com base no que você respondeu.</p>
+    </section>`);
+  app.replaceChildren(screen);
+  scrollTop();
+
+  const bar = screen.querySelector("#load-bar");
+  const msgEl = screen.querySelector("#load-msg");
+  bar.style.transition = `width ${dur}ms cubic-bezier(.4,0,.2,1)`;
+  requestAnimationFrame(() => { bar.style.width = "100%"; });
+
+  if (!reduce) {
+    let i = 1;
+    const iv = setInterval(() => {
+      if (i < msgs.length) { msgEl.textContent = msgs[i++]; } else { clearInterval(iv); }
+    }, dur / msgs.length);
+  }
+
+  setTimeout(() => { renderReportInline(); window.scrollTo({top:0,behavior:"smooth"}); }, dur + 350);
+}
+
+/* ---------- navegação ---------- */
+function goToStep(i) { state.view = i; save(); renderStep(i); }
+
+function render() {
+  if (state.view === "captura") return renderCaptura();
+  if (typeof state.view === "number") return renderStep(state.view);
+  renderStep(0);
+}
+
+/* ---------- resume (continuar de onde parou) ---------- */
+function offerResume(saved) {
+  const banner = el(`
+    <div class="resume">
+      Você começou a responder antes. Quer continuar de onde parou?
+      <div>
+        <button class="btn btn-primary" id="resume-yes">Continuar</button>
+        <button class="link" id="resume-no">Recomeçar</button>
+      </div>
+    </div>`);
+  app.replaceChildren(banner);
+  banner.querySelector("#resume-yes").addEventListener("click", () => { state = saved; render(); });
+  banner.querySelector("#resume-no").addEventListener("click", () => { clearSaved(); state = { view: 0, answers: {}, started: false }; render(); });
+}
+
+/* ---------- abandono ---------- */
+window.addEventListener("beforeunload", () => {
+  if (state.started && state.view !== "captura") trackEvent("funnel_abandon", { last_step: state.view });
+});
+
+/* ---------- start ---------- */
+(function init() {
+  trackEvent("page_view", { funil: (F.config && F.config.frente) || "funil" });
+  const saved = loadSaved();
+  if (saved && saved.started && !(saved.answers && saved.answers._completedAt)) {
+    offerResume(saved);
+  } else {
+    render();
+  }
+})();
+
+
+/* ===== diagnóstico inline (single-file preview) ===== */
+/* ============================================================
+   DIAGNÓSTICO · Funil de Imagem · Stella Grützmann
+   Monta a leitura personalizada a partir das respostas do quiz
+   (sessionStorage) e habilita os CTAs de WhatsApp (distribuídos).
+   Copy da estratégia aprovada. Sem travessão.
+   ============================================================ */
+
+
+
+
+function getState() { try { return JSON.parse(sessionStorage.getItem(STORE_KEY)) || {}; } catch (e) { return {}; } }
+function frase(stepId) {
+  const step = F.steps.find(s => s.id === stepId);
+  const val = (getState().answers || {})[stepId];
+  const opt = step && step.options.find(o => o.value === val);
+  return (opt && opt.report) || "";
+}
+function valor(stepId) { return (getState().answers || {})[stepId]; }
+function esc(s) { return String(s == null ? "" : s).replace(/[<>&]/g, c => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c])); }
+
+function renderReportInline(){
+document.getElementById("app").innerHTML = '<div class="card screen" id="report"></div>';
+  const report = document.getElementById("report");
+  const a = (typeof state!=="undefined" && state.answers) || getState().answers || {};
+
+if (!a._completedAt && !a.problema) {
+  report.innerHTML = `
+    <p class="eyebrow">Leitura de imagem</p>
+    <h2>Ainda não temos suas respostas</h2>
+    <p class="lead">Parece que você chegou aqui sem fazer a leitura. Leva ~2 minutos.</p>
+    <div class="actions"><a class="btn btn-primary btn-block" href="index.html">Fazer agora</a></div>`;
+} else {
+  const nome = esc((a.nomeResp || "").split(" ")[0]) || "tudo bem";
+  const problema = frase("problema") || "o que mais te incomoda na imagem";
+  const implicacao = frase("implicacao") || "passar menos autoridade do que você tem";
+  const custo = frase("custo") || "continuar sendo subestimada pela sua imagem";
+  const tentativa = frase("tentativas") || "buscar uma solução";
+  const objetivo = frase("objetivo") || "uma imagem que comunique a sua autoridade";
+
+  const prontidaoVal = valor("prontidao");
+  const nutrir = prontidaoVal === "pontual" || prontidaoVal === "pesquisando";
+
+  // recomendação inicial conforme o objetivo escolhido
+  const RECO = {
+    autoridade: "cor, forma e composições que constroem presença e autoridade",
+    praticidade: "um guarda-roupa cápsula e combinações práticas para o dia a dia",
+    criterio: "os critérios de compra e de combinação, para você escolher sozinha",
+    presenca: "uma estratégia de imagem por ocasião, para reuniões e eventos",
+  };
+  const reco = RECO[valor("objetivo")] || "o alinhamento entre a sua imagem e o seu objetivo";
+
+  // CTA adaptado à prontidão (Stella atende o Brasil e fora, sem filtro geográfico)
+  let ctaLabel, ctaExtra;
+  if (nutrir) {
+    ctaLabel = "Quero entender melhor como funciona";
+    ctaExtra = '<p class="hint">Sem compromisso. A Stella te explica como funciona e tira suas dúvidas, no seu tempo.</p>';
+  } else {
+    ctaLabel = "Quero agendar minha avaliação estratégica";
+    ctaExtra = '<p class="hint">Uma conversa individual, online, sem compromisso. A avaliação já te entrega clareza sobre a sua imagem, decida ou não seguir.</p>';
+  }
+  const ctaInline = `<div class="cta-inline"><button class="btn btn-primary cta-wpp">${ctaLabel}</button></div>`;
+
+  report.innerHTML = `
+    <div class="report-head">
+      <span class="selo">Leitura personalizada</span>
+      <h1>A sua imagem e a sua autoridade${nome && nome !== "tudo bem" ? ", " + nome : ""}</h1>
+      <p class="hint">Elaborada com base nas suas respostas · ${new Date().toLocaleDateString("pt-BR")}</p>
+    </div>
+
+    <div class="etapa">
+      <h3>Antes de tudo</h3>
+      <p>Oi, ${nome}! Aqui é da Stella. Obrigada por esses minutos olhando pra sua imagem com
+      atenção. Pelo que você respondeu, o que mais te incomoda hoje é <strong>${problema}</strong>.
+      Isso é mais comum do que parece entre profissionais como você, e tem solução.</p>
+    </div>
+
+    <div class="etapa">
+      <h3>O seu cenário hoje</h3>
+      <p>Na sua vida profissional, isso aparece como <strong>${implicacao}</strong>. Quando a
+      imagem não é pensada com estratégia, ela fala por conta própria, e nem sempre o que ela diz
+      combina com a sua competência.</p>
+    </div>
+
+    <div class="etapa">
+      <h3>Por que não resolveu até agora</h3>
+      <p>Você já chegou a <strong>${tentativa}</strong>. Faz sentido não ter resolvido: dica de
+      moda foca na peça e na tendência, não no critério. Sem entender o que cada escolha comunica,
+      a gente compra mais e continua no mesmo lugar. <strong>Não é falta de bom gosto, é falta de
+      estratégia.</strong></p>
+    </div>
+
+    <div class="etapa">
+      <h3>Dois caminhos lado a lado</h3>
+      <div class="compare">
+        <div class="col bad">
+          <h4>Sem estratégia</h4>
+          <ul><li>Guarda-roupa cheio</li><li>Decisões no escuro</li><li>Compra por impulso</li><li>Ser vista abaixo do que você é</li></ul>
+        </div>
+        <div class="col good">
+          <h4>Com estratégia de imagem</h4>
+          <ul><li>Escolhas com critério</li><li>Autonomia para se vestir</li><li>Menos compra, mais uso</li><li>Autoridade reforçada antes de você falar</li></ul>
+        </div>
+      </div>
+    </div>
+
+    ${ctaInline}
+
+    <div class="etapa">
+      <h3>Como a Stella trabalha</h3>
+      <p>Não é moda, é estratégia. Um processo individual, em quatro frentes, que fica com você:</p>
+      <ol class="metodo">
+        <li><strong>Mapeamento de estilo e temperamento:</strong> quem você é e a imagem que o seu momento pede.</li>
+        <li><strong>A psicologia por trás da imagem:</strong> o que cor, linha, forma e tecido comunicam sobre você.</li>
+        <li><strong>Estratégia personalizada:</strong> o que comprar, o que usar do que já tem, o que combina, o que evitar.</li>
+        <li><strong>Autonomia para sempre:</strong> o critério para você escolher sozinha, com segurança, todos os dias.</li>
+      </ol>
+    </div>
+
+    <div class="etapa">
+      <h3>O que precisa acontecer agora</h3>
+      <p>Pelo seu objetivo, o foco da sua estratégia começaria por <strong>${reco}</strong>. O que
+      você deseja, <strong>${objetivo}</strong>, é totalmente possível. O primeiro passo é uma
+      <strong>avaliação estratégica</strong>: uma conversa em que a Stella entende o seu momento e
+      te mostra o caminho.</p>
+    </div>
+
+    ${ctaInline}
+
+    <div class="etapa">
+      <h3>Quem já viveu isso</h3>
+      <div class="depo">[DEPOIMENTO 1]: inserir print/vídeo de cliente com antes e depois de imagem e de percepção profissional.</div>
+      <div class="depo">[DEPOIMENTO 2]: inserir caso de cliente que ganhou segurança em reuniões e eventos.</div>
+      <p class="hint">O que essas histórias têm em comum: não mudou a competência. Mudou a estratégia da imagem.
+      <!-- Quando tiver os prints reais, troque os dois blocos [DEPOIMENTO] acima por:
+           <div class="depo-gallery">
+             <img class="depo-shot" src="depoimentos/01.jpeg" loading="lazy" alt="Depoimento de cliente" />
+             <img class="depo-shot" src="depoimentos/02.jpeg" loading="lazy" alt="Depoimento de cliente" />
+           </div> --></p>
+    </div>
+
+    <div class="cta-box">
+      <h2 style="margin-top:0">O próximo passo${nome && nome !== "tudo bem" ? ", " + nome : ""}</h2>
+      <p>Alinhar a sua imagem à sua competência começa por uma conversa. Sem compromisso, no seu tempo.</p>
+      ${ctaExtra}
+      <div class="actions" style="justify-content:center">
+        <button class="btn btn-primary cta-wpp">${ctaLabel}</button>
+      </div>
+      <p class="clube">Este resultado é uma leitura inicial baseada nas suas respostas. A avaliação estratégica é o passo que aprofunda o seu caso.</p>
+    </div>`;
+}
+
+
+}
+/* ---------- WhatsApp (CTAs distribuídos: qualquer .cta-wpp abre a conversa) ---------- */
+function abrirWhatsApp() {
+  const nome = (((typeof state!=="undefined"&&state.answers)||{}).nomeResp || "").split(" ")[0] || "";
+  const msg = (F.marca.whatsappMsg || "").replace("{nome}", nome);
+  const url = `https://wa.me/${F.marca.whatsapp}?text=${encodeURIComponent(msg)}`;
+  window.open(url, "_blank", "noopener");
+}
+document.addEventListener("click", (e) => {
+  if (e.target.closest && e.target.closest(".cta-wpp")) abrirWhatsApp();
+});
+</script>
+</body>
+</html>

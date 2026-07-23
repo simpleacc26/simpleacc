@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Stella Grützmann">
+  <defs>
+    <linearGradient id="mocha" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C2A98C"/>
+      <stop offset=".55" stop-color="#8A6E52"/>
+      <stop offset="1" stop-color="#5A4433"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#401F18"/>
+  <rect x="1.5" y="1.5" width="61" height="61" rx="12.5" fill="none" stroke="url(#mocha)" stroke-opacity=".6" stroke-width="1.5"/>
+  <text x="32" y="33" text-anchor="middle" dominant-baseline="central"
+        font-family="'Iowan Old Style','Palatino Linotype','Book Antiqua',Palatino,Georgia,'Times New Roman',serif"
+        font-size="42" font-weight="700" fill="url(#mocha)">S</text>
+</svg>
