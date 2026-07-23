@@ -15,8 +15,8 @@ window.FLOW = {
   marca: {
     nome: "Lucas Sobreiro",
     expert: "Lucas Sobreiro",
-    // TODO: preencher o WhatsApp do time (formato internacional, só dígitos) antes do deploy
-    whatsapp: "5500000000000",
+    // WhatsApp do Lucas (formato internacional, só dígitos)
+    whatsapp: "5551981115195",
     // O {nome} é trocado pelo primeiro nome de quem respondeu
     whatsappMsg:
       "Oi! Sou {nome}, acabei de fazer o diagnóstico da minha clínica no site e quero falar sobre a Sessão Estratégica.",

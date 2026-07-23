@@ -56,10 +56,10 @@ function dataHoraBR() {
   } catch (e) { return new Date().toISOString(); }
 }
 
-/* Classifica o lead pela prontidão e geografia (mesma régua do diagnóstico).
+/* Classifica o lead por faturamento e prontidão (mesma régua do diagnóstico).
    Qualifica por intenção, não por pergunta crua de renda. */
 function classificarLead(a) {
-  if (a.geografia === "fora") return "fora";
+  if (a.faturamento === "ate15" || a.faturamento === "15a30") return "nutrir";
   if (a.prontidao === "pontual" || a.prontidao === "pesquisando") return "nutrir";
   return "qualificado";
 }
@@ -84,7 +84,7 @@ function enviarLead() {
     answers: {
       q1: label("situacao"), q2: label("problema"), q3: label("tempo"),
       q4: label("impacto"), q5: label("necessidade"), q6: label("objetivo"),
-      q7: label("perfil"), q8: label("geografia"), q9: label("prontidao"),
+      q7: label("perfil"), q8: label("faturamento"), q9: label("prontidao"),
     },
     utms: URL_UTMS,
     meta: {
