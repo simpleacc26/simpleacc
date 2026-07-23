@@ -5,7 +5,8 @@ profissionais da saúde. Gera lead qualificado antes da Sessão Estratégica.
 
 **Estrutura:** espelhada no funil validado da Pâmella Mello (o que vem tendo bom
 resultado). **Copy e identidade:** do Lucas (estratégia aprovada em
-`../../estrategia/2026-07-20-estrategia.md`; identidade navy + dourado).
+`../../estrategia/2026-07-20-estrategia.md`; identidade Método BIO: creme +
+espresso + vinho terracota, serifa editorial, wordmark "MÉTODO BIO").
 
 ## O que é
 
@@ -21,7 +22,8 @@ resultado). **Copy e identidade:** do Lucas (estratégia aprovada em
     minha Sessão Estratégica".
   - **Nutrir** (faturamento até 30k ou só pesquisando): "Quero entender melhor
     o próximo passo" (caminho de menor compromisso / produto de entrada).
-- **`depoimentos/`**: prints reais dos clientes do Lucas (baixados do Drive). O
+- **`depoimentos/`**: prints reais dos clientes do Lucas (baixados do Drive,
+  convertidos para `.webp` 520px para carregar leve). O
   `01-paula-xavier-dentista` é o case-estrela da saúde.
 - Toda a copy do quiz e do relatório vive em `flow.js` e `diagnostico.js`.
 
@@ -36,26 +38,48 @@ python3 -m http.server 8000
 # abra http://localhost:8000
 ```
 
-## Pendências antes de publicar (time)
+## Status
 
-1. **WhatsApp do Lucas** em `flow.js` (`marca.whatsapp`, formato internacional).
-2. **Cenário do Make** (webhook instant → Google Sheets) e colar a URL em
-   `app.js` (`LEADS_ENDPOINT`). Criar a planilha de leads no Drive do cliente.
-   Testar o lead caindo na planilha ponta a ponta.
-3. **Meta Pixel do Lucas**: descomentar o bloco no `<head>` do `index.html` e do
-   `diagnostico.html` e preencher o ID (hoje está com placeholder).
-4. **Deploy (Vercel):** projeto estático, framework "Other", Root Directory
-   apontando para esta pasta. Documentar o link aqui.
-5. (Opcional) Logo do Lucas: trocar o `.brand-name`/`.brand-tag` por
-   `<img class="logo-img">` quando houver arquivo.
+- [x] **WhatsApp do Lucas** em `flow.js` (`marca.whatsapp` = `5551981115195`).
+- [x] **Cenário do Make** (webhook instant → Google Sheets) criado e **testado
+      ponta a ponta** (23/07/2026, 2 leads gravados). URL já em `app.js`
+      (`LEADS_ENDPOINT`). Detalhes na seção Integração abaixo.
+- [ ] **Deploy (Vercel):** pronto para publicar (ver seção Deploy). Falta rodar
+      o comando com o token da conta.
+- [ ] **Meta Pixel do Lucas** (fora do escopo desta entrega, a pedido do cliente):
+      descomentar o bloco no `<head>` do `index.html` e do `diagnostico.html` e
+      preencher o ID quando o Lucas enviar.
+- [ ] (Opcional) Logo do Lucas: trocar `.brand-name`/`.brand-tag` por
+      `<img class="logo-img">` quando houver arquivo do brandbook oficial.
 
-## Deploy
+## Integração de leads (Make → Google Sheets)
 
-`vercel deploy --prod --yes` a partir desta pasta (ver DEPLOY.md do template da
-skill `criar-funil-quiz` para detalhes de scope/SSO). Link de produção: _(a preencher)_
+- **Cenário Make:** `[Lucas Sobreiro] Funil Clínica → Sheets` (ID `5747069`),
+  team `Time Simple Acc`. Webhook instant → `google-sheets:addRow`.
+- **Webhook:** `https://hook.us2.make.com/xiiny36asyfrjgrxfc2el43v6nuciu1l`
+  (já em `app.js` → `LEADS_ENDPOINT`).
+- **Planilha:** ID `1ugcf959c8-g-PvWXybRIqP2ROtArb5YkkHk1mnI0opE`, aba `Untitled`,
+  colunas A-T: Nome, Email, WhatsApp, Data, q1..q9 (Situação → Prontidão),
+  Qualificação, utm_source/medium/campaign/content/term, Origem.
+- O `app.js` manda `application/json` com `keepalive` (sobrevive ao redirect pro
+  diagnóstico). Duas linhas de teste foram gravadas na validação: **apagar as
+  duas linhas `TESTE Claude` antes de mandar tráfego.**
+
+## Deploy (Vercel)
+
+Projeto estático (framework "Other"), padrão dos demais funis: deploy direto da
+pasta, sem git connect. Precisa do token Vercel da conta Simple Acc (nunca
+commitar o token):
+
+```
+cd clientes/lucas-sobreiro/funis/funil-quiz-clinica
+vercel deploy --prod --yes --scope simpleacc
+```
+
+Sugestão de nome de projeto: `funil-lucas-sobreiro`. Link de produção: _(a preencher após o deploy)_
 
 ## Identidade
 
-Navy `#14213D` + dourado `#B8863B` sobre azul-cinza claro. Paleta provisória de
-marca (consistente com os PDFs de estratégia/roadmap do Lucas); ajustar ao
-brand kit oficial quando existir.
+Método BIO (Lucas Sobreiro): creme `#F1ECE4` + espresso `#2A2420` + vinho
+terracota `#8C3B34`, serifa editorial, wordmark "MÉTODO BIO". Paleta provisória a
+partir do Instagram; ajustar ao brandbook oficial quando chegar.

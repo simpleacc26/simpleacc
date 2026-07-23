@@ -14,10 +14,10 @@ const META_STANDARD = { funnel_start: "InitiateCheckout", funnel_complete: "Lead
 
 /* Planilha de leads via Make (webhook instant → Google Sheets).
    Dispara só quando chega lead; não fica varrendo (não consome crédito à toa).
-   Planilha: "Planilha de Leads - Lucas Sobreiro (Funil Quiz Clinica)". */
-/* TODO: criar o cenário do Make (webhook instant -> Google Sheets) para o Lucas
-   e colar a URL do webhook aqui. Vazio = não envia (seguro para testar layout). */
-const LEADS_ENDPOINT = "";
+   Cenário Make: "[Lucas Sobreiro] Funil Clínica → Sheets" (webhook instant ->
+   Google Sheets addRow). Planilha de leads (aba "Untitled", colunas A-T).
+   Testado ponta a ponta em 23/07/2026 (2 leads gravados com sucesso). */
+const LEADS_ENDPOINT = "https://hook.us2.make.com/xiiny36asyfrjgrxfc2el43v6nuciu1l";
 
 /* UTMs capturadas da URL no carregamento (a página do quiz não muda de URL até
    o envio, então isso preserva os parâmetros do anúncio). */
