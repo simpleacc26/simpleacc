@@ -150,7 +150,7 @@ window.FLOW = {
       options: [
         { value: "sim", label: "Sim, quero resolver de vez e entendo que é um investimento" },
         { value: "entender", label: "Sim, mas preciso entender melhor como funciona antes" },
-        { value: "pontual", label: "No momento, busco algo mais pontual ou de menor custo", nutrir: true },
+        { value: "pontual", label: "No momento, ainda não é prioridade investir para resolver isso", nutrir: true },
         { value: "pesquisando", label: "Só estou pesquisando por enquanto", nutrir: true },
       ],
     },
