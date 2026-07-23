@@ -148,6 +148,8 @@
   ];
 
   var answers = {};
+  var leadNome = '';
+  var AGENDA_URL = 'https://agendamento-alivance-b.vercel.app/';
   var step = 1; // 1 = hero+Q1, 2..7 = Q2..Q7, 8 = capture, 9 = end, 0 = exit
   var col = document.getElementById('col');
   var screen = document.getElementById('screen');
@@ -241,14 +243,18 @@
       '<div class="panel p-lg">' +
         '<div class="category">Seu diagnóstico está pronto</div>' +
         '<h2 class="q-first">Pra onde enviamos a leitura completa do seu caso?</h2>' +
-        '<div class="field"><label>Nome completo</label><input type="text" placeholder="Seu nome" /></div>' +
+        '<div class="field"><label>Nome completo</label><input type="text" id="capNome" placeholder="Seu nome" /></div>' +
         '<div class="field"><label>WhatsApp com DDD</label><input type="text" placeholder="(00) 00000-0000" /></div>' +
         '<div class="field"><label>E-mail</label><input type="email" placeholder="voce@email.com" /></div>' +
         '<p class="privacy">Seus dados são usados só para te entregar o diagnóstico. O relatório e o próximo passo vão pro seu WhatsApp.</p>' +
         '<button class="cta" id="seeBtn">Ver meu diagnóstico agora →</button>' +
         '<div><button class="back" id="backBtn">← Voltar</button></div>' +
       '</div>';
-    document.getElementById('seeBtn').onclick = function () { step = 9; render(); };
+    document.getElementById('seeBtn').onclick = function () {
+      var n = document.getElementById('capNome');
+      leadNome = n ? n.value.trim() : '';
+      step = 9; render();
+    };
     document.getElementById('backBtn').onclick = function () { step = 7; render(); };
   }
 
@@ -266,7 +272,7 @@
         '<div class="center"><button class="cta" id="ctaBtn">Agendar minha sessão estratégica →</button></div>' +
       '</div>';
     document.getElementById('ctaBtn').onclick = function () {
-      step = 1; for (var k in answers) { delete answers[k]; } render();
+      window.location.href = AGENDA_URL + '?pilar=' + encodeURIComponent(pilar) + '&nome=' + encodeURIComponent(leadNome);
     };
   }
 
