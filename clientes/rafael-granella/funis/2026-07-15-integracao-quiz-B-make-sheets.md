@@ -1,5 +1,21 @@
 # Integração Quiz B → Make → GHL + Planilha de Leads
 
+## Funil no ar (produção)
+
+Fluxo: **Quiz → (loading 4s "Gerando seu relatório personalizado") → Relatório → Agendamento → WhatsApp**
+
+| Etapa | URL |
+| --- | --- |
+| Quiz B | https://quiz-alivance-b.vercel.app |
+| Relatório (por pilar) | https://relatorio-alivance-b.vercel.app/?pilar=&nome= |
+| Agendamento | https://agendamento-alivance-b.vercel.app/?pilar=&nome= |
+
+A tela de captura do quiz posta o lead no webhook (abaixo), mostra o loading de 4s e
+redireciona para o relatório com `?pilar=&nome=`. Quem responde faturamento abaixo de
+R$20k cai na tela de saída (não avança e não captura). UTMs da URL do anúncio são
+repassados no payload.
+
+
 Cenário de automação do **Quiz Versão B**, clonado do cenário de produção do Quiz A
 (`[Simple] Rafael Granella`), praticamente idêntico. A única diferença estrutural é o
 destino no Google Sheets: **mesma planilha, aba separada**.

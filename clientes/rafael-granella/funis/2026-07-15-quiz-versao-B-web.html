@@ -149,8 +149,9 @@
 
   var answers = {};
   var leadNome = '';
-  var AGENDA_URL = 'https://agendamento-alivance-b.vercel.app/';
-  var step = 1; // 1 = hero+Q1, 2..7 = Q2..Q7, 8 = capture, 9 = end, 0 = exit
+  var WEBHOOK_URL = 'https://hook.us2.make.com/1udj4asnqi1kc6n8je836aunuip1xa63';
+  var RELATORIO_URL = 'https://relatorio-alivance-b.vercel.app/';
+  var step = 1; // 1 = hero+Q1, 2..7 = Q2..Q7, 8 = capture, 10 = loading -> relatório, 0 = exit
   var col = document.getElementById('col');
   var screen = document.getElementById('screen');
 
@@ -179,8 +180,9 @@
     if (step === 1) return renderHero();
     if (step >= 2 && step <= 7) return renderRest(step - 1);
     if (step === 8) return renderCapture();
+    if (step === 10) return renderLoading();
     if (step === 0) return renderExit();
-    return renderEnd();
+    return renderLoading();
   }
 
   function renderHero() {
@@ -244,36 +246,68 @@
         '<div class="category">Seu diagnóstico está pronto</div>' +
         '<h2 class="q-first">Pra onde enviamos a leitura completa do seu caso?</h2>' +
         '<div class="field"><label>Nome completo</label><input type="text" id="capNome" placeholder="Seu nome" /></div>' +
-        '<div class="field"><label>WhatsApp com DDD</label><input type="text" placeholder="(00) 00000-0000" /></div>' +
-        '<div class="field"><label>E-mail</label><input type="email" placeholder="voce@email.com" /></div>' +
+        '<div class="field"><label>WhatsApp com DDD</label><input type="text" id="capTel" inputmode="tel" placeholder="(00) 00000-0000" /></div>' +
+        '<div class="field"><label>E-mail</label><input type="email" id="capEmail" placeholder="voce@email.com" /></div>' +
+        '<p class="err" id="capErr" style="display:none;color:#ff9b9b;font-size:0.85rem;margin:2px 0 14px;">Preencha nome, WhatsApp e um e-mail válido para continuar.</p>' +
         '<p class="privacy">Seus dados são usados só para te entregar o diagnóstico. O relatório e o próximo passo vão pro seu WhatsApp.</p>' +
         '<button class="cta" id="seeBtn">Ver meu diagnóstico agora →</button>' +
         '<div><button class="back" id="backBtn">← Voltar</button></div>' +
       '</div>';
     document.getElementById('seeBtn').onclick = function () {
-      var n = document.getElementById('capNome');
-      leadNome = n ? n.value.trim() : '';
-      step = 9; render();
+      var nome = (document.getElementById('capNome').value || '').trim();
+      var tel = (document.getElementById('capTel').value || '').trim();
+      var email = (document.getElementById('capEmail').value || '').trim();
+      if (!nome || !tel || email.indexOf('@') < 1) {
+        document.getElementById('capErr').style.display = 'block';
+        return;
+      }
+      leadNome = nome;
+      submitLead(nome, tel, email);
+      step = 10; render();
     };
     document.getElementById('backBtn').onclick = function () { step = 7; render(); };
   }
 
-  function renderEnd() {
+  function answerText(idx) {
+    var a = answers[idx];
+    return (a != null && QUESTIONS[idx].options[a]) ? QUESTIONS[idx].options[a].t : '';
+  }
+
+  function submitLead(nome, tel, email) {
+    var pilar = diagnose();
+    var p = new URLSearchParams(window.location.search);
+    var payload = {
+      nome: nome, email: email, telefone: tel,
+      resposta_1: answerText(0), resposta_2: answerText(1), resposta_3: answerText(2),
+      resposta_4: answerText(3), resposta_5: answerText(4), resposta_6: answerText(5),
+      resposta_7: answerText(6),
+      pilar: PILLAR_NAMES[pilar] || '',
+      utm_source: p.get('utm_source') || '', utm_medium: p.get('utm_medium') || '',
+      utm_campaign: p.get('utm_campaign') || '', utm_content: p.get('utm_content') || '',
+      utm_term: p.get('utm_term') || ''
+    };
+    try {
+      fetch(WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload), keepalive: true }).catch(function () {});
+    } catch (e) {}
+  }
+
+  function renderLoading() {
     col.className = 'col narrow';
     var pilar = diagnose();
-    var d = PILLAR_DIAG[pilar];
     screen.innerHTML =
-      '<div class="panel p-lg end">' +
-        '<div class="mark">Diagnóstico · Alivance Club</div>' +
-        '<h2>' + d.titulo + '</h2>' +
-        '<div class="diag"><div class="pill-label">Pilar que está travando o seu próximo salto</div><div class="pill-name">' + PILLAR_NAMES[pilar] + '</div></div>' +
-        '<p>' + d.texto + '</p>' +
-        '<p>Mexer em um pilar só dá resultado parcial, porque os quatro se sustentam juntos. Na sessão estratégica, o time do Rafael analisa os quatro ao mesmo tempo e te mostra o movimento certo para o seu caso.</p>' +
-        '<div class="center"><button class="cta" id="ctaBtn">Agendar minha sessão estratégica →</button></div>' +
+      '<div class="panel p-lg" style="text-align:center;">' +
+        '<div class="category" style="text-align:center;">Só um instante</div>' +
+        '<h2 class="q-first" style="text-align:center;">Gerando seu relatório personalizado</h2>' +
+        '<div class="track" style="margin-top:28px;height:6px;"><div class="fill" id="loadFill"></div></div>' +
+        '<p class="privacy" style="text-align:center;margin:18px 0 0;">Analisando as suas respostas nos 4 pilares do seu negócio...</p>' +
       '</div>';
-    document.getElementById('ctaBtn').onclick = function () {
-      window.location.href = AGENDA_URL + '?pilar=' + encodeURIComponent(pilar) + '&nome=' + encodeURIComponent(leadNome);
-    };
+    requestAnimationFrame(function () {
+      var f = document.getElementById('loadFill');
+      if (f) { f.style.transition = 'width 3.7s ease-in-out'; f.style.width = '100%'; }
+    });
+    setTimeout(function () {
+      window.location.href = RELATORIO_URL + '?pilar=' + encodeURIComponent(pilar) + '&nome=' + encodeURIComponent(leadNome);
+    }, 4000);
   }
 
   function renderExit() {
