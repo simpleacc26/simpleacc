@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Diagnóstico de Modelo | Alivance Club</title>
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ground: #1c1c42;
+    --panel: #292859;
+    --gold: #c8b28b;
+    --display: 'Fahkwang', sans-serif;
+    --body: 'Inter', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--ground); color: #fff; font-family: var(--body); -webkit-font-smoothing: antialiased; min-height: 100vh; }
+  .wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+  .col { width: 100%; }
+  .col.narrow { max-width: 672px; }
+  .col.wide { max-width: 768px; }
+
+  .panel { background: var(--panel); border-radius: 24px; box-shadow: 0 20px 45px rgba(0,0,0,0.35); animation: fade .4s ease both; }
+  .panel.p-lg { padding: 48px; }
+  .panel.p-md { padding: 40px; }
+  @keyframes fade { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { .panel { animation: none; } .fill { transition: none; } }
+  @media (max-width: 560px) { .panel.p-lg, .panel.p-md { padding: 30px 22px; } }
+
+  .htag { color: var(--gold); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; text-align: center; margin-bottom: 16px; }
+  h1.promise { font-family: var(--display); font-size: clamp(1.6rem, 4vw, 2.1rem); font-weight: 500; letter-spacing: -0.02em; line-height: 1.25; color: var(--gold); text-align: center; text-wrap: balance; margin-bottom: 18px; }
+  .subhead { text-align: center; color: rgba(255,255,255,0.7); font-size: 1rem; line-height: 1.6; max-width: 36em; margin: 0 auto 40px; }
+
+  .category { color: var(--gold); font-size: 0.875rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+  h2.q-first { color: rgba(255,255,255,0.95); font-size: 1.5rem; font-weight: 500; line-height: 1.3; margin-bottom: 24px; text-wrap: balance; }
+  h2.q-rest { font-family: var(--display); color: var(--gold); font-size: clamp(1.4rem, 3.4vw, 2rem); font-weight: 500; letter-spacing: -0.02em; line-height: 1.3; text-transform: uppercase; text-wrap: balance; margin-bottom: 8px; }
+  .qhint { color: rgba(255,255,255,0.55); font-size: 0.9rem; margin-bottom: 22px; }
+
+  .options { display: flex; flex-direction: column; gap: 12px; }
+  .option { width: 100%; text-align: left; padding: 20px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.9); font-family: var(--body); font-size: 1rem; line-height: 1.45; font-weight: 400; cursor: pointer; transition: background .18s, border-color .18s, color .18s, transform .12s; }
+  .option:hover { border-color: rgba(200,178,139,0.5); background: rgba(255,255,255,0.08); transform: translateX(2px); }
+  .option.selected { background: var(--gold); border-color: var(--gold); color: var(--ground); font-weight: 500; }
+  .option:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+
+  .barwrap { margin-bottom: 30px; }
+  .track { width: 100%; height: 4px; border-radius: 999px; background: rgba(200,178,139,0.2); overflow: hidden; }
+  .fill { height: 100%; width: 0; background: var(--gold); transition: width .5s ease-out; }
+  .counter { margin-top: 12px; font-size: 0.875rem; color: rgba(200,178,139,0.8); }
+
+  .back { margin-top: 26px; background: none; border: none; color: rgba(255,255,255,0.55); font-family: var(--body); font-size: 0.9rem; cursor: pointer; transition: color .18s; }
+  .back:hover { color: var(--gold); }
+
+  .field { display: flex; flex-direction: column; gap: 7px; margin-bottom: 18px; }
+  .field label { font-size: 0.8rem; letter-spacing: 0.04em; color: rgba(255,255,255,0.6); text-transform: uppercase; }
+  .field input { background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 14px 16px; color: #fff; font-family: var(--body); font-size: 1rem; }
+  .field input::placeholder { color: rgba(255,255,255,0.4); }
+  .field input:focus { outline: none; border-color: var(--gold); }
+  .privacy { font-size: 0.8rem; color: rgba(255,255,255,0.4); margin: 6px 0 26px; }
+
+  .cta { display: inline-flex; align-items: center; gap: 10px; background: var(--gold); color: var(--ground); font-family: var(--body); font-weight: 600; font-size: 1rem; border: none; border-radius: 999px; padding: 15px 30px; cursor: pointer; transition: filter .18s, transform .12s; }
+  .cta:hover { filter: brightness(1.06); transform: translateY(-1px); }
+  .cta:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+  .end .mark { color: var(--gold); letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.75rem; margin-bottom: 14px; }
+  .end h2 { font-family: var(--display); color: var(--gold); font-weight: 500; font-size: 1.6rem; margin-bottom: 8px; line-height: 1.25; }
+  .end .diag { background: rgba(200,178,139,0.1); border: 1px solid rgba(200,178,139,0.3); border-radius: 14px; padding: 20px; margin: 18px 0 22px; }
+  .end .diag .pill-label { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.6); margin-bottom: 6px; }
+  .end .diag .pill-name { font-family: var(--display); font-size: 1.5rem; color: var(--gold); font-weight: 600; }
+  .end p { color: rgba(255,255,255,0.75); line-height: 1.6; margin-bottom: 12px; }
+  .end .center { text-align: center; margin-top: 8px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="col narrow" id="col">
+    <div id="screen"></div>
+  </div>
+</div>
+
+<script>
+  var HTAG = "Diagnóstico de Modelo · Alivance Club";
+  var HEADLINE = "Agenda cheia, resultado entregue, e o faturamento travado no mesmo lugar.";
+  var SUBHEAD = "Não é falta de esforço. É o teto do modelo em que você opera. Enquanto você age como mentor e não como empresário da educação, o número não sobe, por mais que você entregue. Em 7 perguntas rápidas, descubra qual dos 4 pilares do seu negócio está segurando o seu próximo salto.";
+
+  var PILLAR_NAMES = { M: "Método", N: "Modelo de negócio", V: "Processo de vendas", T: "Mentalidade" };
+  var PILLAR_DIAG = {
+    M: { titulo: "O seu resultado ainda mora na sua cabeça.", texto: "A sua entrega depende de você em cada sessão. O próximo passo é transformar isso em um método replicável, que escala sem consumir o seu tempo." },
+    N: { titulo: "O teto é do formato, não seu.", texto: "O seu modelo de receita tem um limite estrutural. O próximo passo é redesenhar como o negócio gera receita, para crescer sem inflar a operação." },
+    V: { titulo: "Você tem aquisição por sorte, não por sistema.", texto: "O seu faturamento depende de indicação e da sua presença nas vendas. O próximo passo é um processo de aquisição previsível." },
+    T: { titulo: "O gargalo é a sua identidade de mentor, não o mercado.", texto: "O negócio ainda gira em torno de você. O próximo passo é operar como empresário da educação, com estrutura que não depende da sua presença em tudo." }
+  };
+
+  var QUESTIONS = [
+    { category: "Quem é você", q: "Pra começar, como você se posiciona hoje?",
+      options: [
+        { t: "Mentor: ensino o que já domino e entrego resultado no meu nicho" },
+        { t: "Especialista ou consultor: entrego solução técnica sob medida" },
+        { t: "Coach ou treinador: trabalho desenvolvimento e metodologia própria" },
+        { t: "Um pouco de cada, dependendo do cliente" }
+      ] },
+    { category: "Seu produto", q: "E qual é o formato principal da sua entrega hoje?",
+      options: [
+        { t: "Mentoria individual, um a um" },
+        { t: "Mentoria ou grupo recorrente (mensal, quinzenal)" },
+        { t: "Programa fechado com prazo (3, 6, 12 meses)" },
+        { t: "Consultoria por projeto" }
+      ] },
+    { category: "Como o cliente chega", q: "Como os seus clientes chegam até você hoje?",
+      options: [
+        { t: "Indicação e networking" },
+        { t: "Conteúdo e social selling (Instagram, direct)" },
+        { t: "Lançamentos ou campanhas pontuais" },
+        { t: "Prospecção ativa, com um time indo atrás" }
+      ] },
+    { category: "Seu time de vendas", q: "E quem cuida das vendas hoje?",
+      options: [
+        { t: "Só eu fecho todas as vendas" },
+        { t: "Eu mais uma pessoa (um SDR ou um closer)" },
+        { t: "Tenho um time de vendas já estruturado" },
+        { t: "Não tenho um processo de vendas definido ainda" }
+      ] },
+    { category: "Sua operação hoje", q: "Agora que já te conheço melhor: como está a sua operação hoje?",
+      options: [
+        { t: "A entrega me consome, e sobra pouco tempo pra crescer o negócio", p: "M" },
+        { t: "A receita depende de fechar cliente novo toda vez, sem recorrência que sustente", p: "N" },
+        { t: "Só cresço se eu trabalhar mais, e a agenda já está no limite", p: "N" },
+        { t: "No fundo eu sei que preciso mudar algo estrutural, mas não sei o quê", p: "T" }
+      ] },
+    { category: "O próximo salto", q: "Quando você pensa no seu próximo salto de faturamento, o que mais trava?",
+      options: [
+        { t: "Minha entrega ainda depende de eu estar presente em tudo", p: "M" },
+        { t: "Meu modelo de receita tem um teto e não escala sem inflar a operação", p: "N" },
+        { t: "Minha aquisição é imprevisível, ainda depende muito de indicação", p: "V" },
+        { t: "Sou eu: tenho dificuldade de soltar o controle e mudar de patamar", p: "T" }
+      ] },
+    { category: "Faturamento", q: "Pra fechar, qual é o faturamento médio mensal da sua mentoria ou consultoria hoje?",
+      hint: "Estamos falando da receita que vem da sua mentoria ou consultoria, não de outro negócio, salário ou projeção futura.",
+      options: [
+        { t: "Abaixo de R$20 mil por mês", exit: true },
+        { t: "Entre R$20 mil e R$50 mil por mês" },
+        { t: "Entre R$50 mil e R$100 mil por mês" },
+        { t: "Entre R$100 mil e R$300 mil por mês" },
+        { t: "Acima de R$300 mil por mês" }
+      ] }
+  ];
+
+  var answers = {};
+  var step = 1; // 1 = hero+Q1, 2..7 = Q2..Q7, 8 = capture, 9 = end, 0 = exit
+  var col = document.getElementById('col');
+  var screen = document.getElementById('screen');
+
+  function optionsHTML(idx) {
+    var html = '<div class="options">';
+    QUESTIONS[idx].options.forEach(function (o, i) {
+      html += '<button class="option' + (answers[idx] === i ? ' selected' : '') + '" data-i="' + i + '">' + o.t + '</button>';
+    });
+    return html + '</div>';
+  }
+
+  function bindOptions(idx, onPick) {
+    Array.prototype.forEach.call(screen.querySelectorAll('.option'), function (btn) {
+      btn.onclick = function () {
+        var i = parseInt(btn.dataset.i, 10);
+        answers[idx] = i;
+        Array.prototype.forEach.call(screen.querySelectorAll('.option'), function (b) { b.classList.remove('selected'); });
+        btn.classList.add('selected');
+        setTimeout(function () { onPick(i); }, 180);
+      };
+    });
+  }
+
+  function render() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (step === 1) return renderHero();
+    if (step >= 2 && step <= 7) return renderRest(step - 1);
+    if (step === 8) return renderCapture();
+    if (step === 0) return renderExit();
+    return renderEnd();
+  }
+
+  function renderHero() {
+    col.className = 'col narrow';
+    screen.innerHTML =
+      '<div class="panel p-lg">' +
+        '<div class="htag">' + HTAG + '</div>' +
+        '<h1 class="promise">' + HEADLINE + '</h1>' +
+        '<p class="subhead">' + SUBHEAD + '</p>' +
+        '<div class="category">' + QUESTIONS[0].category + '</div>' +
+        '<h2 class="q-first">' + QUESTIONS[0].q + '</h2>' +
+        optionsHTML(0) +
+      '</div>';
+    bindOptions(0, function () { step = 2; render(); });
+  }
+
+  function renderRest(idx) {
+    col.className = 'col wide';
+    var pct = ((idx + 1) / 7) * 100;
+    var Q = QUESTIONS[idx];
+    screen.innerHTML =
+      '<div class="barwrap">' +
+        '<div class="track"><div class="fill" id="fill"></div></div>' +
+        '<div class="counter">Pergunta ' + (idx + 1) + ' de 7</div>' +
+      '</div>' +
+      '<div class="panel p-md">' +
+        '<h2 class="q-rest">' + Q.q + '</h2>' +
+        (Q.hint ? '<p class="qhint">' + Q.hint + '</p>' : '') +
+        optionsHTML(idx) +
+        '<button class="back" id="backBtn">← Voltar</button>' +
+      '</div>';
+    requestAnimationFrame(function () { document.getElementById('fill').style.width = pct + '%'; });
+    bindOptions(idx, function (i) {
+      if (Q.options[i].exit) { step = 0; render(); return; }
+      if (idx === 6) { step = 8; render(); return; }
+      step = idx + 2; render();
+    });
+    document.getElementById('backBtn').onclick = function () { step = idx; render(); };
+  }
+
+  function diagnose() {
+    var tally = { M: 0, N: 0, V: 0, T: 0 };
+    [4, 5].forEach(function (qi) {
+      var a = answers[qi];
+      if (a != null && QUESTIONS[qi].options[a].p) tally[QUESTIONS[qi].options[a].p]++;
+    });
+    // desempate pela Pergunta 6 (idx 5)
+    var winner = 'N', max = -1;
+    ['M', 'N', 'V', 'T'].forEach(function (k) { if (tally[k] > max) { max = tally[k]; winner = k; } });
+    var a6 = answers[5];
+    if (a6 != null && QUESTIONS[5].options[a6].p) {
+      var p6 = QUESTIONS[5].options[a6].p;
+      if (tally[p6] === max) winner = p6;
+    }
+    return winner;
+  }
+
+  function renderCapture() {
+    col.className = 'col narrow';
+    screen.innerHTML =
+      '<div class="panel p-lg">' +
+        '<div class="category">Seu diagnóstico está pronto</div>' +
+        '<h2 class="q-first">Pra onde enviamos a leitura completa do seu caso?</h2>' +
+        '<div class="field"><label>Nome completo</label><input type="text" placeholder="Seu nome" /></div>' +
+        '<div class="field"><label>WhatsApp com DDD</label><input type="text" placeholder="(00) 00000-0000" /></div>' +
+        '<div class="field"><label>E-mail</label><input type="email" placeholder="voce@email.com" /></div>' +
+        '<p class="privacy">Seus dados são usados só para te entregar o diagnóstico. O relatório e o próximo passo vão pro seu WhatsApp.</p>' +
+        '<button class="cta" id="seeBtn">Ver meu diagnóstico agora →</button>' +
+        '<div><button class="back" id="backBtn">← Voltar</button></div>' +
+      '</div>';
+    document.getElementById('seeBtn').onclick = function () { step = 9; render(); };
+    document.getElementById('backBtn').onclick = function () { step = 7; render(); };
+  }
+
+  function renderEnd() {
+    col.className = 'col narrow';
+    var pilar = diagnose();
+    var d = PILLAR_DIAG[pilar];
+    screen.innerHTML =
+      '<div class="panel p-lg end">' +
+        '<div class="mark">Diagnóstico · Alivance Club</div>' +
+        '<h2>' + d.titulo + '</h2>' +
+        '<div class="diag"><div class="pill-label">Pilar que está travando o seu próximo salto</div><div class="pill-name">' + PILLAR_NAMES[pilar] + '</div></div>' +
+        '<p>' + d.texto + '</p>' +
+        '<p>Mexer em um pilar só dá resultado parcial, porque os quatro se sustentam juntos. Na sessão estratégica, o time do Rafael analisa os quatro ao mesmo tempo e te mostra o movimento certo para o seu caso.</p>' +
+        '<div class="center"><button class="cta" id="ctaBtn">Agendar minha sessão estratégica →</button></div>' +
+      '</div>';
+    document.getElementById('ctaBtn').onclick = function () {
+      step = 1; for (var k in answers) { delete answers[k]; } render();
+    };
+  }
+
+  function renderExit() {
+    col.className = 'col narrow';
+    screen.innerHTML =
+      '<div class="panel p-lg end">' +
+        '<div class="mark">Alivance Club</div>' +
+        '<h2>Este diagnóstico foi feito para um momento específico.</h2>' +
+        '<p>Ele é para mentores e consultores que já vivem da própria operação e faturam acima de R$20 mil por mês, e que sentem que bateram num teto estrutural.</p>' +
+        '<p>Se esse ainda não é o seu momento, não tem problema: o Rafael compartilha, de graça, o conteúdo que ajuda a construir a base que leva até lá.</p>' +
+        '<div class="center"><button class="cta" id="exitBtn">Acessar o conteúdo gratuito →</button></div>' +
+      '</div>';
+    document.getElementById('exitBtn').onclick = function () {
+      step = 1; for (var k in answers) { delete answers[k]; } render();
+    };
+  }
+
+  render();
+</script>
+</body>
+</html>
