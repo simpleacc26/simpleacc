@@ -84,7 +84,7 @@
 <script>
   var HTAG = "Diagnóstico de Modelo · Alivance Club";
   var HEADLINE = "Agenda cheia, resultado entregue, e o faturamento travado no mesmo lugar.";
-  var SUBHEAD = "Não é falta de esforço. É o teto do modelo em que você opera. Enquanto você age como mentor e não como empresário da educação, o número não sobe, por mais que você entregue. Em 7 perguntas rápidas, descubra qual dos 4 pilares do seu negócio está segurando o seu próximo salto.";
+  var SUBHEAD = "Enquanto você age como mentor e não como empresário da educação, o faturamento não sobe devido ao teto do modelo que você opera. Em 7 perguntas rápidas, descubra qual dos 4 pilares do seu negócio está bloqueando o seu próximo salto.";
 
   var PILLAR_NAMES = { M: "Método", N: "Modelo de negócio", V: "Processo de vendas", T: "Mentalidade" };
   var PILLAR_DIAG = {
@@ -123,7 +123,7 @@
         { t: "Tenho um time de vendas já estruturado" },
         { t: "Não tenho um processo de vendas definido ainda" }
       ] },
-    { category: "Sua operação hoje", q: "Agora que já te conheço melhor: como está a sua operação hoje?",
+    { category: "Sua operação hoje", q: "Como está a sua operação hoje?",
       options: [
         { t: "A entrega me consome, e sobra pouco tempo pra crescer o negócio", p: "M" },
         { t: "A receita depende de fechar cliente novo toda vez, sem recorrência que sustente", p: "N" },
@@ -137,8 +137,7 @@
         { t: "Minha aquisição é imprevisível, ainda depende muito de indicação", p: "V" },
         { t: "Sou eu: tenho dificuldade de soltar o controle e mudar de patamar", p: "T" }
       ] },
-    { category: "Faturamento", q: "Pra fechar, qual é o faturamento médio mensal da sua mentoria ou consultoria hoje?",
-      hint: "Estamos falando da receita que vem da sua mentoria ou consultoria, não de outro negócio, salário ou projeção futura.",
+    { category: "Faturamento", q: "Qual é o faturamento médio mensal da sua mentoria ou consultoria hoje?",
       options: [
         { t: "Abaixo de R$20 mil por mês", exit: true },
         { t: "Entre R$20 mil e R$50 mil por mês" },
@@ -189,8 +188,7 @@
         '<div class="htag">' + HTAG + '</div>' +
         '<h1 class="promise">' + HEADLINE + '</h1>' +
         '<p class="subhead">' + SUBHEAD + '</p>' +
-        '<div class="category">' + QUESTIONS[0].category + '</div>' +
-        '<h2 class="q-first">' + QUESTIONS[0].q + '</h2>' +
+        '<h2 class="q-rest">' + QUESTIONS[0].q + '</h2>' +
         optionsHTML(0) +
       '</div>';
     bindOptions(0, function () { step = 2; render(); });
