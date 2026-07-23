@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { questions } from "./data/questions";
 import { fbqTrack } from "./analytics";
@@ -6,7 +6,9 @@ import { LandingScreen } from "./components/LandingScreen";
 import { QuestionScreen } from "./components/QuestionScreen";
 import { LeadCaptureForm, type LeadData } from "./components/LeadCaptureForm";
 import { LoadingScreen } from "./components/LoadingScreen";
-import { ReportScreen } from "./components/ReportScreen";
+const ReportScreen = lazy(() =>
+  import("./components/ReportScreen").then((m) => ({ default: m.ReportScreen }))
+);
 
 interface UtmParams {
   utm_source: string;
@@ -204,7 +206,11 @@ function ResultPage() {
 
   if (!state) return null;
 
-  return <ReportScreen leadData={state.leadData} answers={state.answers} />;
+  return (
+    <Suspense fallback={null}>
+      <ReportScreen leadData={state.leadData} answers={state.answers} />
+    </Suspense>
+  );
 }
 
 export default function App() {

@@ -1,3 +1,7 @@
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/lora';
+@import '@fontsource-variable/lora/wght-italic.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
