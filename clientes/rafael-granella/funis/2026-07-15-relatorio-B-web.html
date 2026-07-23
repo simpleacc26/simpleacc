@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Diagnóstico do seu negócio de mentoria | Alivance Club</title>
+<meta name="robots" content="noindex" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ground: #1c1c42;
+    --panel: #292859;
+    --gold: #c8b28b;
+    --display: 'Fahkwang', sans-serif;
+    --body: 'Inter', sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--ground); color: #fff; font-family: var(--body); -webkit-font-smoothing: antialiased; line-height: 1.7; }
+
+  /* preview bar (só para revisão interna; em produção o pilar vem da URL) */
+  .preview-bar { position: sticky; top: 0; z-index: 20; background: rgba(13,13,30,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(200,178,139,0.25); padding: 10px 16px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; font-size: 0.82rem; }
+  .preview-bar .lbl { color: rgba(255,255,255,0.55); letter-spacing: 0.04em; }
+  .preview-bar button { background: transparent; border: 1px solid rgba(200,178,139,0.3); color: rgba(255,255,255,0.8); border-radius: 999px; padding: 5px 13px; cursor: pointer; font-family: var(--body); font-size: 0.8rem; transition: all .15s; }
+  .preview-bar button.active, .preview-bar button:hover { background: var(--gold); color: var(--ground); border-color: var(--gold); }
+  .preview-bar input { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.15); border-radius: 999px; padding: 5px 12px; color: #fff; font-family: var(--body); font-size: 0.8rem; width: 120px; }
+
+  .doc { max-width: 720px; margin: 0 auto; padding: 40px 20px 90px; }
+
+  .rep-head { text-align: center; margin-bottom: 28px; }
+  .rep-head h1 { font-family: var(--display); font-weight: 500; font-size: clamp(1.8rem, 5vw, 2.5rem); letter-spacing: -0.02em; line-height: 1.2; color: var(--gold); text-transform: uppercase; text-wrap: balance; margin-bottom: 10px; }
+  .rep-head p { color: rgba(255,255,255,0.6); font-size: 0.95rem; }
+
+  .card { background: var(--panel); border-radius: 24px; padding: 40px; margin-bottom: 24px; box-shadow: 0 14px 34px rgba(0,0,0,0.3); }
+  .card h2 { font-family: var(--display); font-weight: 500; font-size: 1.5rem; color: var(--gold); margin-bottom: 20px; text-wrap: balance; }
+  .card p { color: rgba(255,255,255,0.82); margin-bottom: 16px; }
+  .card p:last-child { margin-bottom: 0; }
+  .g { color: var(--gold); font-weight: 600; }
+  .diag-pill { display: inline-block; background: rgba(200,178,139,0.12); border: 1px solid rgba(200,178,139,0.35); border-radius: 12px; padding: 12px 18px; margin: 6px 0 20px; }
+  .diag-pill .l { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.6); display: block; margin-bottom: 3px; }
+  .diag-pill .n { font-family: var(--display); font-size: 1.4rem; color: var(--gold); font-weight: 600; }
+
+  .scenarios { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 560px) { .scenarios { grid-template-columns: 1fr; } }
+  .scen { border-radius: 16px; padding: 22px; }
+  .scen.now { background: rgba(200,178,139,0.06); border: 1px solid rgba(200,178,139,0.18); }
+  .scen.right { background: rgba(200,178,139,0.13); border: 2px solid rgba(200,178,139,0.38); }
+  .scen h3 { font-size: 1.05rem; color: var(--gold); font-weight: 500; margin-bottom: 14px; font-family: var(--body); }
+  .scen ul { list-style: none; }
+  .scen li { color: rgba(255,255,255,0.85); font-size: 0.92rem; padding: 5px 0 5px 18px; position: relative; line-height: 1.5; }
+  .scen li::before { content: ""; position: absolute; left: 0; top: 13px; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+  .scen-close { text-align: center; margin-top: 20px; color: rgba(255,255,255,0.82); font-size: 1.02rem; }
+
+  .proof { display: flex; flex-direction: column; gap: 14px; }
+  .proof .case { border-left: 3px solid var(--gold); padding: 4px 0 4px 16px; }
+  .proof .case b { color: #fff; }
+  .proof .case span { color: rgba(255,255,255,0.75); }
+  .proof .feat { background: rgba(200,178,139,0.08); border-radius: 0 12px 12px 0; padding: 12px 16px; border-left: 3px solid var(--gold); }
+
+  .cta-wrap { text-align: center; }
+  .cta { display: inline-flex; align-items: center; gap: 10px; background: var(--gold); color: var(--ground); font-family: var(--body); font-weight: 600; font-size: 1.02rem; border: none; border-radius: 999px; padding: 17px 34px; cursor: pointer; text-decoration: none; transition: filter .18s, transform .12s; }
+  .cta:hover { filter: brightness(1.06); transform: translateY(-1px); }
+  .cta-note { color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-top: 12px; }
+  .scarcity { background: rgba(200,178,139,0.08); border: 1px solid rgba(200,178,139,0.25); border-radius: 14px; padding: 16px 20px; margin-bottom: 24px; font-size: 0.9rem; color: rgba(255,255,255,0.8); text-align: center; }
+  .scarcity b { color: var(--gold); }
+
+  .rep-foot { text-align: center; color: rgba(255,255,255,0.4); font-size: 0.8rem; padding-top: 12px; border-top: 1px solid rgba(200,178,139,0.15); margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<div class="preview-bar" id="previewBar">
+  <span class="lbl">Prévia · gargalo:</span>
+  <button data-p="M">Método</button>
+  <button data-p="N">Modelo</button>
+  <button data-p="V">Vendas</button>
+  <button data-p="T">Mentalidade</button>
+  <span class="lbl">nome:</span>
+  <input id="nameInput" value="Renan" />
+</div>
+
+<div class="doc" id="doc"></div>
+
+<script>
+  var PILAR = {
+    M: {
+      nome: "Método",
+      titulo: "O seu resultado ainda mora na sua cabeça.",
+      significa: "Você entrega bem, mas a entrega depende de você em cada sessão, em cada detalhe, em cada decisão. Isso funciona, só que trava o crescimento: cada novo cliente vira mais uma hora sua, e a sua hora tem limite. Enquanto o método existir só na sua cabeça, o negócio não escala sem te consumir.",
+      custo: "O custo disso é silencioso. O negócio continua pagando as contas, continua gerando resultado, mas não cresce e não te libera. E você começa a se perguntar se o teto é você. Não é.",
+      proxPasso: "transformar a sua entrega em um método replicável, que gera resultado sem depender da sua presença em cada passo",
+      feat: "Foi exatamente isso que destravou os mentores que tiravam o resultado da própria cabeça e colocavam num método. O trabalho diminuiu, o resultado dos alunos ficou mais previsível, e o faturamento parou de depender da agenda deles."
+    },
+    N: {
+      nome: "Modelo de negócio",
+      titulo: "O teto é do formato, não seu.",
+      significa: "O seu modelo de receita tem um limite estrutural. Hoje você vende tempo e acesso, não uma transformação que escala. Por isso mais esforço não vira mais faturamento na mesma proporção: o formato em que você opera tem um teto físico, e você já bateu nele.",
+      custo: "Você pode ser o melhor no que faz e ainda assim ficar preso nesse teto, porque o que te trouxe até aqui não é o que te leva ao próximo nível. O problema não é capacidade nem entrega. É modelo.",
+      proxPasso: "redesenhar o modelo de negócio para que a receita cresça sem crescer na mesma proporção a sua carga de trabalho",
+      feat: "O Fabrício viveu isso. Faturava bem como mentor, mas cada real dependia da presença dele. Quando ele mudou o modelo (não o volume de trabalho), chegou a R$600 mil trabalhando cerca de 1 dia por semana."
+    },
+    V: {
+      nome: "Processo de vendas",
+      titulo: "Você tem aquisição por sorte, não por sistema.",
+      significa: "Todo mês o seu negócio começa quase do zero, dependendo de indicação, de networking e da sua presença nas vendas. Isso não é falta de esforço, é a ausência de um processo de aquisição previsível. Enquanto o próximo cliente depender de quem lembrou de te indicar, o faturamento vai continuar imprevisível.",
+      custo: "O risco é que isso parece funcionar, até o mês em que a indicação não vem. Um negócio que depende de sorte para encher a agenda não é um negócio estruturado, é uma aposta que se renova todo mês.",
+      proxPasso: "construir um processo de aquisição previsível, que não dependa de indicação nem da sua presença em cada venda",
+      feat: "Os mentores que saíram da dependência de indicação e montaram um processo de aquisição pararam de começar o mês no zero. O pipeline passou a chegar cheio, por sistema, não por torcida."
+    },
+    T: {
+      nome: "Mentalidade",
+      titulo: "O gargalo é a sua identidade, não o mercado.",
+      significa: "O negócio ainda gira em torno de você: você decide, executa, fecha e entrega. Mudar isso não é mais uma tática, é uma mudança de identidade, de operar como mentor para operar como empresário da educação. O que trava o próximo salto não está no mercado, está na dificuldade de soltar o controle e mudar de patamar.",
+      custo: "É o gargalo mais difícil de enxergar sozinho, porque ele se disfarça de dedicação. Mas enquanto o negócio precisar de você em tudo, o teto vai continuar sendo a sua própria capacidade.",
+      proxPasso: "fazer a transição de mentor para empresário da educação, ajustando a mentalidade e a estrutura para que o negócio cresça sem depender de você em cada decisão",
+      feat: "A Greice destravou por aqui. Ajustando ticket e mentalidade, ela fez R$500 mil em 3 meses. Não foi trabalhando mais, foi mudando a forma de liderar o próprio negócio."
+    }
+  };
+
+  var params = new URLSearchParams(window.location.search);
+  var current = (params.get('pilar') || 'N').toUpperCase();
+  if (!PILAR[current]) current = 'N';
+  var nome = params.get('nome') || document.getElementById('nameInput').value || "Renan";
+  if (params.get('pilar')) document.getElementById('previewBar').style.display = 'none';
+
+  function render() {
+    var d = PILAR[current];
+    document.getElementById('doc').innerHTML =
+      '<div class="rep-head">' +
+        '<h1>Diagnóstico do seu negócio de mentoria</h1>' +
+        '<p>Elaborado com base nas suas respostas · Rafael Granella</p>' +
+      '</div>' +
+
+      '<div class="card">' +
+        '<h2>Olá, ' + nome + '.</h2>' +
+        '<p>Analisei as suas respostas e tenho uma leitura direta sobre o seu momento.</p>' +
+        '<p>Pelo que você respondeu, o que está segurando o seu próximo salto tem um nome:</p>' +
+        '<div class="diag-pill"><span class="l">Pilar que está travando o seu próximo salto</span><span class="n">' + d.nome + '</span></div>' +
+        '<p><span class="g">' + d.titulo + '</span></p>' +
+        '<p>Isso não é falta de esforço. É um padrão estrutural, e ele tem solução.</p>' +
+      '</div>' +
+
+      '<div class="card">' +
+        '<h2>O que isso significa no seu negócio</h2>' +
+        '<p>' + d.significa + '</p>' +
+        '<p>' + d.custo + '</p>' +
+      '</div>' +
+
+      '<div class="card">' +
+        '<h2>Dois retratos, lado a lado</h2>' +
+        '<div class="scenarios">' +
+          '<div class="scen now"><h3>Como o negócio opera hoje</h3><ul>' +
+            '<li>Cada real que entra depende de você presente na entrega</li>' +
+            '<li>Novos clientes chegam por indicação, sem previsibilidade</li>' +
+            '<li>Quando você para, o negócio sente na hora</li>' +
+            '<li>O faturamento oscila conforme a sua agenda e a sua energia</li>' +
+            '<li>Escalar significa trabalhar mais, e isso tem um limite</li>' +
+            '<li>O próximo passo não está claro</li>' +
+          '</ul></div>' +
+          '<div class="scen right"><h3>Como opera quando o modelo está certo</h3><ul>' +
+            '<li>A entrega tem método e pode ser replicada e escalada</li>' +
+            '<li>Novos clientes chegam por um processo, com previsibilidade real</li>' +
+            '<li>O negócio tem inércia própria, roda com ou sem você em cada detalhe</li>' +
+            '<li>O faturamento cresce sem crescer na mesma proporção a sua carga</li>' +
+            '<li>Escalar vira uma decisão estratégica, não resistência física</li>' +
+            '<li>O próximo passo é claro, e você sabe qual alavanca mover</li>' +
+          '</ul></div>' +
+        '</div>' +
+        '<p class="scen-close">A diferença entre os dois retratos não é talento, nicho, preço ou volume de seguidores. <span class="g">É modelo.</span></p>' +
+      '</div>' +
+
+      '<div class="card">' +
+        '<h2>A diferença que quase ninguém encara</h2>' +
+        '<p>Existe uma diferença fundamental entre o <span class="g">mentor</span> e o <span class="g">empresário da educação</span>.</p>' +
+        '<p>O mentor entrega. O empresário da educação constrói sistemas de entrega. No início, operar como mentor funciona, e até é necessário. O problema é quando o negócio cresce e continua girando em torno de uma pessoa só: você.</p>' +
+        '<p>Depois de um certo ponto, ser um bom mentor não é mais suficiente. É preciso agir como empresário da educação. E o seu diagnóstico mostra que o <span class="g">' + d.nome + '</span> é justamente o ponto onde essa passagem está travada.</p>' +
+      '</div>' +
+
+      '<div class="card">' +
+        '<h2>Não é teoria. Já aconteceu.</h2>' +
+        '<div class="proof">' +
+          '<div class="feat">' + d.feat + '</div>' +
+          '<div class="case"><b>Fabrício</b> <span>faturava bem como mentor, mas dependia da própria presença em tudo. Mudando o modelo, chegou a R$600 mil trabalhando cerca de 1 dia por semana.</span></div>' +
+          '<div class="case"><b>Greice</b> <span>estava travada há mais de um ano no mesmo patamar. Ajustando ticket e mentalidade, fez R$500 mil em 3 meses.</span></div>' +
+          '<div class="case"><b>Camila</b> <span>aplicou o ajuste logo no começo e fez R$120 mil no primeiro mês, sem inflar a operação.</span></div>' +
+        '</div>' +
+        '<p style="margin-top:18px;">O que os três têm em comum não é nicho nem talento. É que pararam de operar como mentores e passaram a operar como empresários da educação. O ponto de partida deles era o mesmo que o seu agora.</p>' +
+      '</div>' +
+
+      '<div class="card">' +
+        '<h2>Por que consertar só um pilar não resolve</h2>' +
+        '<p>Identificamos o <span class="g">' + d.nome + '</span> como o ponto mais crítico agora. Mas aqui está o que a maioria não enxerga: os 4 pilares (método, modelo de negócio, processo de vendas e mentalidade) se sustentam juntos.</p>' +
+        '<p>Mexer só em um dá resultado parcial. Sempre. Foi assim com todo mentor que passou anos ajustando uma peça de cada vez, o preço, a oferta, a agenda, e via o resultado voltar pro mesmo lugar.</p>' +
+        '<p>O seu próximo passo é <span class="g">' + d.proxPasso + '</span>, sem perder de vista como isso conversa com os outros três pilares.</p>' +
+      '</div>' +
+
+      '<div class="scarcity"><b>Vagas deste ciclo:</b> o Rafael acompanha no máximo 12 novos membros por ciclo. Não por limitação operacional, por escolha. Quando as vagas fecham, fecham.</div>' +
+
+      '<div class="card cta-wrap">' +
+        '<h2 style="margin-bottom:14px;">O próximo passo é uma conversa de 30 minutos</h2>' +
+        '<p style="margin-bottom:22px;">Na sessão estratégica, o time do Rafael analisa os 4 pilares do seu negócio ao mesmo tempo, começando pelo ' + d.nome + ' que apareceu aqui, e te mostra o movimento certo pro seu caso. É uma análise individual, não uma call de vendas disfarçada.</p>' +
+        '<a href="#agendamento" class="cta" id="ctaBtn">Agendar minha sessão estratégica →</a>' +
+        '<p class="cta-note">30 minutos. Análise do seu caso específico. Sem compromisso e sem pitch genérico.</p>' +
+      '</div>' +
+
+      '<div class="rep-foot">Diagnóstico elaborado pelo time do Rafael Granella · Alivance Club</div>';
+  }
+
+  // preview controls
+  Array.prototype.forEach.call(document.querySelectorAll('.preview-bar button'), function (b) {
+    b.onclick = function () {
+      current = b.dataset.p;
+      Array.prototype.forEach.call(document.querySelectorAll('.preview-bar button'), function (x) { x.classList.remove('active'); });
+      b.classList.add('active');
+      render();
+    };
+  });
+  document.getElementById('nameInput').oninput = function () { nome = this.value || "Renan"; render(); };
+  var activeBtn = document.querySelector('.preview-bar button[data-p="' + current + '"]');
+  if (activeBtn) activeBtn.classList.add('active');
+
+  render();
+</script>
+</body>
+</html>
