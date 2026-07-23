@@ -26,7 +26,7 @@ pós-procedimento + acolhimento (importante em procedimentos sensíveis como o �
 | Despigmentação de tatuagem | Ana Luiza | Mini R$150 · Sessão média R$220–300 · Meia costas R$1.500 |
 | Clareamento íntimo (peeling + laser) | Ana Paula | Virilha/axila R$550–650 |
 | Limpeza de pele | Ana Paula | a definir |
-| Micropigmentação | Ana Luiza | a definir |
+| Remoção de micropigmentação (sobrancelha, a laser) | Ana Luiza | Avulsa R$280 · Pacote 3 sessões R$749,90 (+ 1 sessão reconstrução de fios bônus) |
 | Estrias / microvarizes | — | a definir |
 | Depilação a laser / LASER DAY | — | em planejamento |
 
