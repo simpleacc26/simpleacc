@@ -24,8 +24,10 @@ onde o outro parou (o Git é a memória compartilhada).
 
 - **Quem é:** mentor de empresários (ex-bancário do BB, 22 anos, saiu em jan/26). Foco de
   energia atual: **área da saúde** (dentistas, médicos, fisioterapeutas, veterinários).
-- **Oferta principal:** mentoria high ticket de **R$ 20.000** — evolução empresarial
-  (Vendas + Produtividade + Autoliderança). Esteira: 20k / 12k / 3k (roadmap 09/07).
+- **Oferta principal:** mentoria high ticket **BIO Society (R$ 24.000)**, evolução empresarial
+  (Vendas + Produtividade + Autoliderança). Esteira: BIO Society 24k / Bio Society Core 14k /
+  BIO Essential 3k (nomes definidos pelo Lucas em 21/07; números a validar). Promessa de
+  vendas é **da clínica** (dono ou secretária), não ancorada só na secretária.
 - **Público / ICP:** empresário de serviços/saúde que já validou o negócio e sente que o
   crescimento travou. 35–55 anos, renda pessoal 25k+, empresa fatura 300k–10mi/ano.
   Detalhes em `contexto/icp.md`.

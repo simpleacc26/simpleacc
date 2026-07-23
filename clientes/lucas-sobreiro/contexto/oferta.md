@@ -35,13 +35,15 @@ liberdade**. Isso é feito desenvolvendo **3 habilidades**:
 - Mais tempo para vida pessoal, social e família
 - Mais realização pessoal e aumento do índice de felicidade
 
-## Preço e esteira (definida no roadmap de 09/07/26)
+## Preço e esteira (nomes definidos pelo Lucas em 21/07/26, números a validar)
 
-- **High ticket: R$ 20.000** (mentoria; o canvas original citava R$ 21.000, o ticket foi
-  fixado em R$ 20 mil no roadmap). 5 vendas/mês = R$ 100 mil.
-- **Intermediário: R$ 12.000** (menos acesso individual; downsell da call).
-- **Entrada: R$ 3.000** (aproveitamento do não-ICP do funil; ângulo sugerido:
-  "Secretária Máquina de Vendas"). Lucas monta os três com direcionamento da Simple.
+- **BIO Society: R$ 24.000** (high ticket, carro-chefe). Evolução: canvas citava 21k,
+  roadmap fixou 20k, e o Lucas subiu para 24k ao nomear a esteira.
+- **Bio Society Core: R$ 14.000** (intermediário; menos acesso individual; downsell da call).
+- **BIO Essential: R$ 3.000** (entrada; aproveitamento do não-ICP do funil).
+- **Posicionamento da promessa:** a vocação de vendas é **da clínica** (pode estar no dono
+  ou na secretária), NÃO ancorada só na secretária, porque parte do público não tem
+  secretária. Decisão do Lucas em 21/07.
 
 ## Provas / prova social
 
