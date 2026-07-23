@@ -76,6 +76,37 @@ Categorias de anunciante que tendem a falar com o mesmo público sem serem os gu
 - **Funil** (destino do clique: quiz? agendamento? VSL?).
 - **Tom** (o que dá pra absorver **sem** trair as diretrizes da Vitória — estrutura, não guru-ês).
 
-## Observação
-A modelagem é de **estrutura e ângulo**, nunca de tom/vocabulário. A voz final é sempre a da
-Vitória (`diretrizes-de-escrita-vitoria.md`).
+## Nomes reais para investigar na Biblioteca de Anúncios (23/07/2026)
+
+> Levantados via busca web (WebSearch é US-based; **não confirmei anúncios ativos nem o tom de
+> cada um** — validar caso a caso na própria biblioteca e no perfil). Buscar na Meta Ad Library
+> **por nome de página/anunciante** (País = Brasil), não por palavra-chave. Confiança = quão
+> perto do público/proposta/tom da Vitória.
+
+**Previsibilidade / máquina de vendas high ticket p/ prestadores de serviço (tom de negócio, anti-guru)**
+- **Growth Machine (Thiago Reis)** — "máquina de vendas B2B", previsibilidade por processo, high
+  ticket, "não depender de talento individual". Alto alinhamento de PROPOSTA e tom. (não é guru de
+  lançamento; é consultoria de vendas). Confiança: ALTA.
+- **Full Sales System** — vendas high ticket, "sessão estratégica", venda pela não-venda. MÉDIA.
+- **Pensare Digital** — estruturação de oferta high ticket para consultores/prestadores. MÉDIA.
+
+**Marketing de NICHO profissional (falam EXATAMENTE com o ICP dela — autoridade offline → online)**
+- Médico: **Luana Trentin** · **Andreo Costa** (ParqueMed/Shaw Digital) · **Médico Influente** ·
+  **Mentoria MDBR** · **Agência KOS**. (dor: captar pacientes com previsibilidade, autoridade, sem ferir CFM)
+- Advogados: **Leonardo Marcondes (Mentoria MAAP)** · **Cappi Company** · **Lucas Peixoto (Acroma)**.
+- Arquitetos: **Marcos Nascimento** (@marcosnascimentons) · **Lucas Galy** (@arquiteturacomlucas,
+  "fechar clientes com previsibilidade e lucro") · **BORA Captar** (@boracaptar, Leo Maciel / Martha Moça).
+- Odonto: **Odonto Results** · **Agência do Dentista** (mais agências que expert pessoal).
+- Contábil: **Grupo DPG** · mentorias contábeis (marketing de necessidade + previsibilidade).
+
+**Melhores para modelar o TOM (marca pessoal, dor do público, autoridade):** Luana Trentin,
+Andreo Costa, Marcos Nascimento, Lucas Galy, Leonardo Marcondes, Thiago Reis (Growth Machine).
+Muitos dos demais são agências (bons p/ ângulo/oferta, menos p/ voz).
+
+**Como validar cada um (antes de mostrar pra Vitória):** abrir o perfil/página → conferir se a
+comunicação é anti-guru e toca a dor do público (autoridade que não vira cliente, dependência de
+indicação, previsibilidade) → na Ad Library ver se há **anúncios ativos há semanas** (= validado)
+→ extrair ângulo/isca/CTA/funil (ver "O que extrair" acima).
+
+> Lembrete: modelar **estrutura e ângulo**, nunca tom/vocabulário. Voz final = Vitória
+> (`diretrizes-de-escrita-vitoria.md`).
