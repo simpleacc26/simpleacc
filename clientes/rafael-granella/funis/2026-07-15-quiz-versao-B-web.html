@@ -139,7 +139,7 @@
       ] },
     { category: "Faturamento", q: "Qual é o faturamento médio mensal da sua mentoria ou consultoria hoje?",
       options: [
-        { t: "Abaixo de R$20 mil por mês", exit: true },
+        { t: "Abaixo de R$20 mil por mês" },
         { t: "Entre R$20 mil e R$50 mil por mês" },
         { t: "Entre R$50 mil e R$100 mil por mês" },
         { t: "Entre R$100 mil e R$300 mil por mês" },
@@ -151,7 +151,7 @@
   var leadNome = '';
   var WEBHOOK_URL = 'https://hook.us2.make.com/1udj4asnqi1kc6n8je836aunuip1xa63';
   var RELATORIO_URL = 'https://relatorio-alivance-b.vercel.app/';
-  var step = 1; // 1 = hero+Q1, 2..7 = Q2..Q7, 8 = capture, 10 = loading -> relatório, 0 = exit
+  var step = 1; // 1 = hero+Q1, 2..7 = Q2..Q7, 8 = capture, 10 = loading -> relatório
   var col = document.getElementById('col');
   var screen = document.getElementById('screen');
 
@@ -181,7 +181,6 @@
     if (step >= 2 && step <= 7) return renderRest(step - 1);
     if (step === 8) return renderCapture();
     if (step === 10) return renderLoading();
-    if (step === 0) return renderExit();
     return renderLoading();
   }
 
@@ -215,7 +214,6 @@
       '</div>';
     requestAnimationFrame(function () { document.getElementById('fill').style.width = pct + '%'; });
     bindOptions(idx, function (i) {
-      if (Q.options[i].exit) { step = 0; render(); return; }
       if (idx === 6) { step = 8; render(); return; }
       step = idx + 2; render();
     });
@@ -308,21 +306,6 @@
     setTimeout(function () {
       window.location.href = RELATORIO_URL + '?pilar=' + encodeURIComponent(pilar) + '&nome=' + encodeURIComponent(leadNome);
     }, 4000);
-  }
-
-  function renderExit() {
-    col.className = 'col narrow';
-    screen.innerHTML =
-      '<div class="panel p-lg end">' +
-        '<div class="mark">Alivance Club</div>' +
-        '<h2>Este diagnóstico foi feito para um momento específico.</h2>' +
-        '<p>Ele é para mentores e consultores que já vivem da própria operação e faturam acima de R$20 mil por mês, e que sentem que bateram num teto estrutural.</p>' +
-        '<p>Se esse ainda não é o seu momento, não tem problema: o Rafael compartilha, de graça, o conteúdo que ajuda a construir a base que leva até lá.</p>' +
-        '<div class="center"><button class="cta" id="exitBtn">Acessar o conteúdo gratuito →</button></div>' +
-      '</div>';
-    document.getElementById('exitBtn').onclick = function () {
-      step = 1; for (var k in answers) { delete answers[k]; } render();
-    };
   }
 
   render();
