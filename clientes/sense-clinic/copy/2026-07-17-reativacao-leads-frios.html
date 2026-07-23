@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Reativação de Leads Frios · Sense Clinic | Simple Acc</title>
+<style>
+  :root{
+    --midnight:#0A1626; --navy:#0E2138; --navy-2:#122B4A;
+    --blue:#3E5C8A; --blue-link:#34527D; --steel:#8197B6;
+    --ice:#EEF3FA; --white:#FFFFFF; --ink:#16202f; --ink-soft:#3a4656;
+    --muted:#6f7f95; --line-light:#e1e8f1;
+    --display:"Playfair Display","Didot","Bodoni 72",Georgia,"Times New Roman",serif;
+    --text:Georgia,"Iowan Old Style",Palatino,"Times New Roman",serif;
+    --label:"Helvetica Neue",Arial,sans-serif;
+  }
+  @page{ size:A4; margin:0; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--text);color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .page{ position:relative; width:210mm; min-height:297mm; padding:22mm 20mm; page-break-after:always; overflow:hidden; }
+  .page:last-child{page-break-after:auto}
+  .label{font-family:var(--label);text-transform:uppercase;letter-spacing:.26em;font-size:10px;font-weight:600}
+  .serif{font-family:var(--display)}
+
+  .cover{color:#fff; padding:26mm 22mm; display:flex; flex-direction:column; justify-content:space-between;
+    background:
+      radial-gradient(700px 320px at 14% 6%, rgba(120,150,210,.16), transparent 58%),
+      radial-gradient(520px 380px at 6% 96%, rgba(60,92,138,.14), transparent 62%),
+      linear-gradient(150deg,#0e2138 0%,#0a1626 62%,#070f1b 100%);}
+  .cover .topbar{display:flex;justify-content:space-between;color:#9fb1cc}
+  .cover .center{display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px;margin-top:14mm}
+  .cover .logo{font-family:var(--display);font-size:40px;letter-spacing:14px;color:#fff;font-weight:500}
+  .cover .logo .hair{height:1px;width:200px;background:linear-gradient(90deg,transparent,var(--steel),transparent);opacity:.6;margin:10px auto}
+  .cover .logo .desc{font-family:var(--label);font-size:10px;letter-spacing:9px;color:#9fb1cc;font-weight:600}
+  .cover .flare{height:1px;width:200px;background:linear-gradient(90deg,transparent,var(--steel),transparent);opacity:.6}
+  .cover h1{font-family:var(--display);font-weight:500;font-size:44px;line-height:1.1;color:#fff;margin-top:10mm}
+  .cover h1 em{font-style:italic;color:#aebfdb}
+  .cover .kicker{font-family:var(--label);text-transform:uppercase;letter-spacing:.24em;font-size:11px;color:var(--steel)}
+  .cover .sub{max-width:150mm;color:#bccadf;font-size:16px;font-style:italic;margin-top:6px}
+  .cover .foot{display:flex;gap:30px;color:#7e90ab;flex-wrap:wrap}
+
+  .sec-num{color:var(--blue);font-family:var(--label);letter-spacing:.24em;font-size:10px;font-weight:700;text-transform:uppercase}
+  h2.title{font-family:var(--display);font-size:29px;font-weight:500;line-height:1.1;margin:8px 0 6px;color:var(--midnight)}
+  .lead{font-size:14px;color:var(--ink-soft);max-width:150mm;margin-top:6px}
+  .hairline{height:1px;background:var(--line-light);margin:14px 0}
+  .hairline.steel{background:linear-gradient(90deg,var(--steel),transparent);opacity:.6}
+  .brandmark{position:absolute;top:12mm;right:20mm;font-family:var(--display);letter-spacing:5px;font-size:11px;color:var(--steel)}
+  .pagenum{position:absolute;bottom:12mm;right:20mm;font-family:var(--label);font-size:9px;letter-spacing:.14em;color:var(--muted)}
+  .footmark{position:absolute;bottom:12mm;left:20mm;font-family:var(--label);font-size:9px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+
+  .note{border-left:3px solid var(--blue);background:var(--ice);padding:14px 18px;border-radius:0 8px 8px 0;margin-top:14px}
+  .note .k{font-family:var(--label);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue-link);margin-bottom:5px}
+  .note p{font-size:13px;color:var(--ink-soft)}
+  .note ul{margin:6px 0 0 16px}
+  .note li{font-size:13px;color:var(--ink-soft);padding:2px 0}
+
+  /* antes/depois */
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+  .ba .h{font-family:var(--label);font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+  .ba .no,.ba .yes{border-radius:10px;padding:14px 16px;font-size:13px;line-height:1.5}
+  .ba .no{background:#faf1f0;border:1px solid #ecdada;color:#7a4a43}
+  .ba .yes{background:#eef5f0;border:1px solid #d3e4d8;color:#2f5a45}
+  .ba .no .h{color:#a85a4f}.ba .yes .h{color:#2f7a55}
+  .ba .row{display:contents}
+
+  /* toque + mensagens */
+  .toque{margin-top:16px;break-inside:avoid}
+  .toque .head{display:flex;align-items:baseline;gap:11px;border-bottom:1px solid var(--line-light);padding-bottom:6px}
+  .toque .n{font-family:var(--display);font-size:26px;color:var(--blue);line-height:1;flex:none}
+  .toque .ttl{font-family:var(--display);font-size:18px;color:var(--midnight)}
+  .toque .why{font-family:var(--label);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:5px 0 2px}
+  .msg{border:1px solid var(--line-light);border-left:3px solid var(--steel);border-radius:0 10px 10px 0;background:#fbfcfe;padding:11px 15px;margin-top:9px;break-inside:avoid}
+  .msg .tag{font-family:var(--label);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:4px}
+  .msg .tag.tat{color:#5a4a6a}.msg .tag.cla{color:#8a5a72}
+  .msg .txt{font-size:14px;color:var(--ink);font-style:italic}
+  .msg .txt b{font-style:normal;color:var(--midnight)}
+
+  .block{margin-top:16px;break-inside:avoid}
+  .block .bt{font-family:var(--display);font-size:16px;color:var(--midnight);margin-bottom:2px}
+
+  footer.page{color:#fff;display:flex;flex-direction:column;justify-content:center;
+    background:linear-gradient(150deg,#0e2138,#0a1626 70%,#070f1b)}
+  footer .big{font-family:var(--display);color:#fff;font-size:25px;font-weight:500;margin-bottom:12px}
+  footer p{color:#9fb1cc;font-size:13.5px;max-width:150mm}
+  footer .logo{font-family:var(--display);letter-spacing:6px;font-size:14px;color:#fff;margin-top:20mm}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="page cover">
+  <div class="topbar"><span class="label">Simple Acc × Sense Clinic</span><span class="label">Confidencial</span></div>
+  <div class="center">
+    <div class="logo">SIMPLE ACC<div class="hair"></div><div class="desc">FUNIL DE LEAD DINÂMICO</div></div>
+    <div class="flare"></div>
+    <div class="kicker">Sense Clinic · Chapecó/SC</div>
+    <h1>Reativação de<br><em>Leads Frios</em></h1>
+    <p class="sub">Follow-up firme e comercial para reativar quem esfriou e parou de responder.</p>
+  </div>
+  <div class="foot"><span class="label">Cadência Comercial · WhatsApp</span><span class="label">17 de julho de 2026</span><span class="label">v1</span></div>
+</section>
+
+<!-- PRINCÍPIOS -->
+<section class="page">
+  <div class="brandmark">SIMPLE ACC</div>
+  <span class="sec-num">00 · Princípios</span>
+  <h2 class="title">A firmeza que converte</h2>
+  <p class="lead">Complementa a Seção 4 da Cadência Comercial (que é acolhedora e sem pressão). Este kit é para o lead que <b>já esfriou / parou de responder</b>. Tom firme e comercial, ainda humano. O objetivo continua sendo <b>agendar a avaliação presencial</b>, nunca fechar pelo WhatsApp.</p>
+
+  <div class="note">
+    <span class="k">Princípio nº 1 · Nunca dê um “não” fácil</span>
+    <p>Pergunta binária (sim/não) entrega o “não” de bandeja. E depois que a cliente diz “não”, ela passa a se justificar por ele (coerência) e reverter fica muito mais difícil. Troque por:</p>
+    <ul>
+      <li><b>Ou/ou (assumptiva):</b> “prefere {{dia A}} ou {{dia B}}?”, pressupõe o sim, negocia só o <em>quando</em>.</li>
+      <li><b>Aberta sobre o problema:</b> “o que te fez querer remover essa tattoo na época?”, reacende a dor.</li>
+      <li><b>Micro-compromisso:</b> “reservei no seu nome, me confirma seu nome completo que eu travo”.</li>
+    </ul>
+  </div>
+
+  <div class="ba">
+    <div class="row">
+      <div class="no"><span class="h">Evite (dá “não” fácil)</span>“Ainda quer remover ou já mudou de ideia?”</div>
+      <div class="yes"><span class="h">Use (sem saída pelo não)</span>“Separei um horário com a Ana Luiza. Fica melhor {{dia A}} de manhã ou {{dia B}} à tarde?”</div>
+    </div>
+    <div class="row">
+      <div class="no"><span class="h">Evite</span>“Quer que eu garanta a sua?”</div>
+      <div class="yes"><span class="h">Use</span>“Reservei a condição no seu nome até {{dia}}. Pra confirmar: {{dia A}} ou {{dia B}}?”</div>
+    </div>
+    <div class="row">
+      <div class="no"><span class="h">Evite</span>“Confirmo ou solto?”</div>
+      <div class="yes"><span class="h">Use</span>“Deixei {{dia}} às {{hora}} no seu nome. Me confirma seu nome completo que eu travo.”</div>
+    </div>
+  </div>
+
+  <div class="hairline steel"></div>
+  <p class="lead"><b>Demais princípios:</b> uma ideia e um CTA por mensagem · urgência e escassez <b>só reais</b> · aversão à perda puxa mais que benefício · Fluxo B (clareamento) com <b>discrição total</b>, a pressão vem da agenda e do inverno, nunca da exposição do corpo.</p>
+  <div class="footmark">Simple Acc · Reativação Sense Clinic</div>
+  <div class="pagenum">01</div>
+</section>
+
+<!-- TOQUES 1-3 -->
+<section class="page">
+  <div class="brandmark">SIMPLE ACC</div>
+  <span class="sec-num">01 · Sequência de reativação</span>
+  <h2 class="title">5 toques (2 a 3 dias entre cada)</h2>
+  <p class="lead">Parar assim que a cliente responder e voltar ao atendimento normal. Variáveis entre chaves.</p>
+
+  <div class="toque">
+    <div class="head"><span class="n">1</span><span class="ttl serif">Assumptiva (agenda)</span></div>
+    <div class="msg"><span class="tag tat">Tatuagem · Ana Luiza</span><div class="txt">“{{Nome}}, tô fechando a agenda de avaliações da Ana Luiza dessa semana e separei um horário pra você antes de liberar. Fica melhor <b>{{dia A}} de manhã ou {{dia B}} à tarde?</b>”</div></div>
+    <div class="msg"><span class="tag cla">Clareamento · Ana Paula</span><div class="txt">“{{Nome}}, tô organizando a agenda da Ana Paula e reservei um horário pra você antes de abrir pra novas clientes. Fica melhor <b>{{dia A}} ou {{dia B}}?</b>”</div></div>
+  </div>
+
+  <div class="toque">
+    <div class="head"><span class="n">2</span><span class="ttl serif">Aversão à perda + inverno</span></div>
+    <div class="msg"><span class="tag tat">Tatuagem · Ana Luiza</span><div class="txt">“{{Nome}}, um lembrete honesto: remoção é feita em sessões, leva tempo. Quem começa agora, no inverno, chega no verão com a pele já tratada, e cada semana parada é uma sessão a menos até lá. Me diz <b>dois dias</b> que funcionam essa semana que eu já encaixo sua avaliação.”</div></div>
+    <div class="msg"><span class="tag cla">Clareamento · Ana Paula</span><div class="txt">“{{Nome}}, o inverno é o melhor momento pra tratar essas manchas: menos sol, menos risco, recuperação mais tranquila. Quem começa agora chega no verão resolvida. Qual período te atende melhor pra avaliação: <b>manhã ou tarde?</b>”</div></div>
+  </div>
+
+  <div class="toque">
+    <div class="head"><span class="n">3</span><span class="ttl serif">Prova social + pergunta aberta</span></div>
+    <div class="msg"><span class="tag">Ambos os fluxos</span><div class="txt">“{{Nome}}, vou te mandar aqui o resultado de uma cliente que tava no mesmo ponto que você 👇 <b>(enviar print/vídeo com autorização)</b>. Olhando isso, <b>o que ainda te segura</b> pra marcar a sua avaliação?”</div></div>
+  </div>
+
+  <div class="footmark">Simple Acc · Reativação Sense Clinic</div>
+  <div class="pagenum">02</div>
+</section>
+
+<!-- TOQUES 4-5 -->
+<section class="page">
+  <div class="brandmark">SIMPLE ACC</div>
+  <span class="sec-num">01 · Sequência de reativação · continuação</span>
+
+  <div class="toque" style="margin-top:14px">
+    <div class="head"><span class="n">4</span><span class="ttl serif">Condição com prazo (assumptiva)</span></div>
+    <div class="why">Usar só se puderem oferecer de verdade</div>
+    <div class="msg"><span class="tag">Ambos os fluxos</span><div class="txt">“{{Nome}}, reservei uma condição no seu nome pra quem agenda até {{dia}}: {{benefício real, ex.: primeira sessão com desconto / prioridade na agenda}}. Pra eu confirmar, o melhor dia pra sua avaliação é <b>{{dia A}} ou {{dia B}}?</b>”</div></div>
+  </div>
+
+  <div class="toque">
+    <div class="head"><span class="n">5</span><span class="ttl serif">Takeaway / encerramento firme</span></div>
+    <div class="why">Exceção proposital: sem pergunta binária, é a perda que age</div>
+    <div class="msg"><span class="tag">Ambos os fluxos</span><div class="txt">“{{Nome}}, como não tive retorno, vou encerrar seu atendimento aqui pra liberar a agenda pra quem está esperando. Se ainda quiser cuidar disso, me manda só um <b>‘quero’</b> hoje que eu seguro seu lugar. Amanhã eu passo pra frente 😊”</div></div>
+  </div>
+
+  <div class="note">
+    <span class="k">Por que o Toque 5 pode “oferecer a saída”</span>
+    <p>Aqui não existe pergunta sim/não. A resposta natural é <b>silêncio</b> (aí você libera mesmo, sem custo) ou o <b>‘quero’</b> que reengaja. O “não” não é oferecido: quem trabalha é a <b>aversão à perda</b> de ver o lugar sendo passado adiante.</p>
+  </div>
+
+  <div class="block">
+    <div class="bt serif">Quando a cliente volta com “vi, mas...”</div>
+    <div class="msg"><span class="tag">Ambos os fluxos</span><div class="txt">“Que bom que voltou! Então bora resolver de vez: te encaixo <b>{{dia A}} ou {{dia B}}?</b> Me diz qual que eu travo.”</div></div>
+  </div>
+
+  <div class="footmark">Simple Acc · Reativação Sense Clinic</div>
+  <div class="pagenum">03</div>
+</section>
+
+<!-- BANCO -->
+<section class="page">
+  <div class="brandmark">SIMPLE ACC</div>
+  <span class="sec-num">02 · Banco de mensagens avulsas</span>
+  <h2 class="title">Escolher conforme o caso</h2>
+  <p class="lead">Todas sem “não” fácil: assumptiva, aberta sobre o problema ou micro-compromisso.</p>
+
+  <div class="block">
+    <div class="bt serif">Fechamento assumido (micro-compromisso)</div>
+    <div class="msg"><div class="txt">“{{Nome}}, deixei {{dia}} às {{hora}} reservado no seu nome com a {{Ana Luiza / Ana Paula}}. Me confirma seu <b>nome completo</b> que eu travo o horário.”</div></div>
+  </div>
+  <div class="block">
+    <div class="bt serif">Reacender a dor (aberta)</div>
+    <div class="msg"><div class="txt">“{{Nome}}, deixa eu te perguntar: o que te fez pensar em {{remover essa tatuagem / tratar essas manchas}} na época? Porque quase sempre o motivo continua o mesmo, e é isso que a avaliação resolve.”</div></div>
+  </div>
+  <div class="block">
+    <div class="bt serif">Objeção preço (diagnóstica, ou/ou)</div>
+    <div class="msg"><div class="txt">“{{Nome}}, a avaliação é sem custo e você parcela no cartão. Me diz o que pesa mais hoje: <b>o valor ou a agenda?</b> Que eu já te ajudo a resolver.”</div></div>
+  </div>
+  <div class="block">
+    <div class="bt serif">Sumiço longo (aberta + escassez real)</div>
+    <div class="msg"><div class="txt">“{{Nome}}, faz um tempo que a gente não se fala. Como tá aquele {{incômodo}}? Se ainda te incomoda, esse é o melhor momento do ano pra resolver, me diz <b>dois dias</b> que funcionam que eu encaixo.”</div></div>
+  </div>
+
+  <div class="footmark">Simple Acc · Reativação Sense Clinic</div>
+  <div class="pagenum">04</div>
+</section>
+
+<!-- LIMPEZA + REGRAS -->
+<section class="page">
+  <div class="brandmark">SIMPLE ACC</div>
+  <span class="sec-num">03 · Fechamento do ciclo</span>
+  <h2 class="title">Limpeza de pipeline e regras</h2>
+
+  <div class="note">
+    <span class="k">O “não” proposital · só no fim</span>
+    <p>Quando já ficou claro que o lead não avança, use <b>de propósito</b> para liberar seu tempo (não como CTA de reativação):</p>
+    <div class="msg" style="margin-top:8px"><div class="txt">“{{Nome}}, pra eu não te incomodar à toa: quer seguir com a avaliação ou prefere que eu pause seu atendimento por enquanto? Qualquer resposta tá ótima 😊”</div></div>
+    <p style="margin-top:8px">Se pausar, entra no <b>pedido de indicação</b> (Seção 6 da Cadência).</p>
+  </div>
+
+  <div class="block">
+    <div class="bt serif">Regras pra não queimar o lead</div>
+    <div class="note" style="border-left-color:var(--steel);background:#fbfcfe">
+      <ul>
+        <li><b>Nunca dar “não” fácil</b> (princípio nº 1). Máximo <b>1 mensagem por toque</b>, não metralhar.</li>
+        <li><b>Escassez só verdadeira.</b> Sem agenda cheia, usar inverno, prova social ou condição.</li>
+        <li><b>Registrar em que toque cada lead está</b>, pra não repetir nem perder o ritmo.</li>
+        <li><b>Fluxo B:</b> nunca citar a região em texto que outra pessoa possa ler; reforçar sigilo e atendimento privado.</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="lead" style="margin-top:16px">A mesma estrutura reativa leads da campanha <b>Sense Lift</b> (captação de modelos), trocando o gancho pela vaga limitada.</p>
+
+  <div class="footmark">Simple Acc · Reativação Sense Clinic</div>
+  <div class="pagenum">05</div>
+</section>
+
+<!-- CLOSING -->
+<footer class="page">
+  <div class="big serif">Firmeza sem dar o “não” de bandeja.</div>
+  <p>Cinco toques de reativação e um banco de mensagens avulsas para trazer de volta o lead que esfriou, sempre conduzindo para a avaliação presencial, sem perguntas que a cliente responde “não” com facilidade.</p>
+  <p style="margin-top:12px">Complementa a Cadência Comercial existente. Dúvidas de execução ou versão específica para os leads do Sense Lift: é só chamar.</p>
+  <div class="logo">SIMPLE ACC</div>
+  <p style="margin-top:8px;font-size:11px;color:#7d8fa9">Documento produzido pela Simple Acc para a Sense Clinic · 17/07/2026 · Confidencial</p>
+</footer>
+
+</body>
+</html>
