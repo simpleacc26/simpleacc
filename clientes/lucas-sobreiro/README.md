@@ -1,7 +1,7 @@
 # Lucas Sobreiro
 
 Mentor de empresários (foco em **saúde**: dentistas, médicos, fisioterapeutas, veterinários).
-Oferta high ticket de R$ 20.000 (esteira 20k / 12k / 3k). A SimpleAcc implementa o **Funil de Lead Dinâmico**
+Oferta high ticket BIO Society (R$ 24.000); esteira BIO Society 24k / Bio Society Core 14k / BIO Essential 3k. A SimpleAcc implementa o **Funil de Lead Dinâmico**
 (tráfego pago → quiz → SDR → sessão estratégica) para gerar volume previsível de leads e
 levar o faturamento a R$ 100 mil/mês. Onboarding em 07/07/2026.
 
@@ -36,4 +36,4 @@ levar o faturamento a R$ 100 mil/mês. Onboarding em 07/07/2026.
 ## Observações
 
 - Cliente **leigo em digital** e do mercado tradicional → traduzir jargões; copy simples.
-- Meta: R$ 100 mil/mês (5 vendas de R$ 20k). Contrato inicial de 6 meses (upsell p/ 12).
+- Meta: R$ 100 mil/mês (4 a 5 vendas de BIO Society). Contrato inicial de 6 meses (upsell p/ 12).
