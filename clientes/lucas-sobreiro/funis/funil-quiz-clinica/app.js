@@ -162,7 +162,7 @@ function renderStep(i) {
       <div class="actions">
         ${i > 0
           ? '<button class="btn btn-ghost" id="back">← Voltar</button>'
-          : '<span class="hint">Toque na opção que mais combina. Avança sozinho 💛</span>'}
+          : '<span class="hint">Toque na opção que mais combina. Avança sozinho.</span>'}
       </div>
     </section>`);
   app.replaceChildren(screen);
@@ -296,16 +296,16 @@ function renderLoading() {
   const dur = reduce ? 800 : 4700;
   const msgs = [
     "Analisando as suas respostas...",
-    "Identificando a origem emocional...",
-    "Montando a sua leitura personalizada...",
+    "Cruzando o cenário da sua clínica...",
+    "Montando o seu diagnóstico personalizado...",
   ];
   const screen = el(`
     <section class="card screen loading-card">
       <p class="eyebrow">Quase lá</p>
-      <h2>Preparando a sua Leitura Emocional</h2>
+      <h2>Preparando o diagnóstico da sua clínica</h2>
       <p class="lead" id="load-msg">${msgs[0]}</p>
       <div class="load-track"><div class="load-bar" id="load-bar"></div></div>
-      <p class="hint" style="margin-top:16px">Estamos personalizando com base no que você respondeu. 💛</p>
+      <p class="hint" style="margin-top:16px">Estamos personalizando com base no que você respondeu.</p>
     </section>`);
   app.replaceChildren(screen);
   scrollTop();
