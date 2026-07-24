@@ -7,7 +7,7 @@
   <title>Seu Diagnóstico Executivo · Felipe Damasceno</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <style>
-    :root{--bg:#0E1626;--text:#F0ECE2}
+    :root{--bg:#0A0E16;--text:#F2EEE6}
     body{margin:0;background:var(--bg);color:var(--text);
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
   </style>
@@ -36,6 +36,16 @@
     @media (max-width: 520px){ .depo-gallery { grid-template-columns: 1fr; } }
     .cta-inline { text-align: center; margin: 22px 0; }
     .cta-inline .btn { width: 100%; max-width: 420px; }
+    /* --- bloco de autoridade (Quem é o Felipe) --- */
+    .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0 6px; }
+    .cred { border: 1px solid var(--border); border-radius: var(--radius-sm); background: color-mix(in srgb, var(--gold) 5%, var(--surface)); padding: 13px 14px; }
+    .cred .n { font-family: var(--font-serif); font-size: 21px; font-weight: 700; color: var(--gold-light); line-height: 1.05; }
+    .cred .d { font-size: 12.5px; color: var(--muted); margin-top: 3px; }
+    .cred.full { grid-column: 1 / -1; }
+    .eco { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .eco-chip { border: 1px solid var(--border); border-radius: 999px; padding: 7px 13px; font-size: 12.5px; color: var(--muted); background: var(--surface); }
+    .eco-chip b { color: var(--gold); font-weight: 700; letter-spacing: .02em; }
+    @media (max-width: 520px){ .cred-grid { grid-template-columns: 1fr; } }
     .cta-box { background: color-mix(in srgb, var(--primary) 7%, var(--surface)); border: 1px solid color-mix(in srgb, var(--primary) 26%, var(--border)); border-radius: var(--radius); padding: 22px; text-align: center; margin-top: 8px; }
     .clube { font-size: 15px; color: var(--muted); margin-top: 14px; }
     @media (max-width: 520px){ .compare { grid-template-columns: 1fr; } }
@@ -52,7 +62,12 @@
   <header class="topbar">
     <div class="container">
       <div class="brand">
-        <!-- Quando tiver o arquivo, troque por: <img class="logo-img" src="logo.png" alt="Felipe Damasceno · Governo Empresarial"> -->
+        <!-- Quando tiver o logo oficial, troque por: <img class="logo-img" src="logo.png" alt="Felipe Damasceno · Governo Empresarial"> -->
+        <svg class="emblem" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <path d="M32 8 L50 13 V33 C50 45 42 52 32 55 C22 52 14 45 14 33 V13 Z" fill="none" stroke="#E0A63A" stroke-width="2.6" stroke-linejoin="round"/>
+          <path d="M23 34 L25.5 24 L30 30 L32 21 L34 30 L38.5 24 L41 34 Z" fill="#E0A63A"/>
+          <rect x="23" y="35.5" width="18" height="3.2" rx="1" fill="#E0A63A"/>
+        </svg>
         <span class="brand-name">Felipe Damasceno</span>
         <span class="brand-tag">Governo Empresarial</span>
       </div>

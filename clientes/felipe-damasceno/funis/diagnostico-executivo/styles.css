@@ -8,27 +8,30 @@
    ║  PALETA. Tema escuro premium. Ajuste os HEX se quiser.    ║
    ╚══════════════════════════════════════════════════════════╝ */
 :root {
-  --bg:         #0E1626;  /* navy quase preto (fundo) */
-  --bg-2:       #0B1220;  /* navy um tom abaixo */
-  --surface:    #16213A;  /* cartões (navy elevado) */
-  --text:       #F0ECE2;  /* creme (texto principal) */
-  --muted:      #A9B2C4;  /* texto secundário (slate claro) */
+  --bg:         #0A0E16;  /* navy quase preto (fundo, como a apresentação) */
+  --bg-2:       #06090F;  /* navy um tom abaixo */
+  --surface:    #121A2B;  /* cartões (navy elevado) */
+  --text:       #F2EEE6;  /* creme (texto principal) */
+  --muted:      #9AA6B8;  /* texto secundário (slate claro) */
 
-  --gold:       #C9A24A;  /* dourado da marca */
-  --gold-light: #E6C874;  /* dourado claro / brilho */
-  --gold-deep:  #B8863B;  /* dourado escuro */
-  --gold-soft:  rgba(201,162,74,.14);  /* fundo dourado suave (pílulas/seleção) */
+  --gold:       #E0A63A;  /* dourado âmbar da marca (Governo Empresarial) */
+  --gold-light: #F2C775;  /* dourado claro / brilho */
+  --gold-deep:  #C8860E;  /* dourado escuro */
+  --gold-soft:  rgba(224,166,58,.14);  /* fundo dourado suave (pílulas/seleção) */
+
+  --accent-blue: #3FA9E0; /* acento ciano (secundário, da apresentação) */
+  --accent-green:#86C440; /* acento verde (lado "governa", da apresentação) */
 
   --primary:      var(--gold);       /* usado no relatório (diagnostico.html) */
-  --primary-700:  var(--gold-deep);
-  --accent-soft:  rgba(201,162,74,.10);
+  --primary-700:  var(--gold-light); /* realce que aparece sobre fundo escuro */
+  --accent-soft:  rgba(224,166,58,.10);
 
-  --action:     #C9A24A;  /* botão principal (dourado) */
-  --action-700: #B8863B;  /* hover do botão */
-  --on-action:  #0E1626;  /* texto sobre o botão dourado */
+  --action:     #E0A63A;  /* botão principal (dourado) */
+  --action-700: #C8860E;  /* hover do botão */
+  --on-action:  #0A0E16;  /* texto sobre o botão dourado */
 
-  --border:     #2A3552;  /* bordas (navy claro) */
-  --ring:       #C9A24A;  /* foco de teclado */
+  --border:     #26303F;  /* bordas (navy claro) */
+  --ring:       #E0A63A;  /* foco de teclado */
   --err:        #E08A6F;  /* erros (contraste sobre escuro) */
 
   --radius:     18px;
@@ -59,6 +62,7 @@ img { max-width: 100%; display: block; }
 /* ---------- topo / logo ---------- */
 .topbar { padding: 24px 0 6px; text-align: center; }
 .brand { display: inline-flex; flex-direction: column; align-items: center; gap: 2px; }
+.brand .emblem { width: 34px; height: 34px; margin-bottom: 4px; }
 .brand .brand-name {
   font-family: var(--font-serif); font-size: 23px; font-weight: 700; letter-spacing: .04em;
   color: var(--gold-light);

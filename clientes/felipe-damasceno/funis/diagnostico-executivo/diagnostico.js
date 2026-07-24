@@ -137,14 +137,15 @@ if (!a._completedAt && !a.problema) {
 
     <div class="etapa">
       <h3>Como o Método Potência Empresarial trabalha</h3>
-      <p>Um acompanhamento individual e estruturado para tirar a empresa das suas costas, em quatro etapas:</p>
+      <p>Um acompanhamento individual e estruturado para tirar a empresa das suas costas, em cinco pilares:</p>
       <ol class="metodo">
-        <li><strong>Medir o IDE:</strong> mapear o seu tempo e medir o quanto a empresa depende de você.</li>
-        <li><strong>Diagnosticar as causas:</strong> onde exatamente a operação trava em você.</li>
-        <li><strong>Transferir:</strong> o que sai das suas costas vai para pessoas, processos, tecnologia e indicadores.</li>
-        <li><strong>Implantar o governo:</strong> uma rotina em que você lidera e a empresa roda.</li>
+        <li><strong>Diagnosticar:</strong> entender a real situação do negócio e medir a dependência com o IDE e a CLO (Calculadora de Liberdade Operacional).</li>
+        <li><strong>Organizar:</strong> estruturar pessoas, processos e informações.</li>
+        <li><strong>Delegar:</strong> transferir responsabilidades com clareza e confiança.</li>
+        <li><strong>Automatizar:</strong> criar cadências e sistemas que fazem o trabalho acontecer.</li>
+        <li><strong>Governar:</strong> acompanhar, decidir e direcionar com base em dados.</li>
       </ol>
-      <p class="hint">O foco é na metodologia, não em prazo rígido: o caminho é medir, reduzir e sustentar a redução da dependência.</p>
+      <p class="hint">O foco é na metodologia, não em prazo rígido: medir, reduzir e sustentar a redução da dependência.</p>
     </div>
 
     <div class="etapa">
@@ -159,16 +160,26 @@ if (!a._completedAt && !a.problema) {
 
     <div class="etapa">
       <h3>Quem é o Felipe</h3>
-      <p>Empresário que construiu operações, sistemas e tecnologias que organizam empresas, e ajudou a
-      estruturar uma empresa que faturou mais de 100 milhões no primeiro ano de operação. Transformou a
-      própria experiência de sair de operário da própria operação em um método replicável e mensurável.</p>
-    </div>
-
-    <div class="etapa">
-      <h3>Quem já viveu isso</h3>
-      <p>Empresários que pararam de ser o gargalo e passaram a governar a própria empresa:</p>
-      <div class="depo">[DEPOIMENTOS]: inserir aqui os prints/vídeos de empresários que reduziram a dependência da empresa em relação a eles. Estrutura pronta para virar galeria de imagens (depoimentos/01.jpg, 02.jpg...).</div>
-      <p class="hint">O que essas histórias têm em comum: o dono parou de segurar tudo e a empresa passou a andar.</p>
+      <p>Empresário, estrategista e mentor. Construiu empresas do zero, faturou
+      <strong>mais de 100 milhões no primeiro ano</strong> de operação e viveu na pele o desafio de
+      depender de si mesmo para tudo funcionar. Foi isso que o levou a criar o Método Potência
+      Empresarial e o Programa Governo Empresarial.</p>
+      <div class="cred-grid">
+        <div class="cred"><div class="n">+R$ 100 mi</div><div class="d">faturados no primeiro ano com a XGrow</div></div>
+        <div class="cred"><div class="n">+2.800</div><div class="d">players e empresas aceleradas no digital</div></div>
+        <div class="cred"><div class="n">+15 anos</div><div class="d">em negócios, tecnologia e educação</div></div>
+        <div class="cred"><div class="n">6 empresas</div><div class="d">fundadas e construídas do zero</div></div>
+        <div class="cred full"><div class="n">Autor de "Líderes Não Nascem Prontos"</div><div class="d">o livro sobre formar líderes que assumem a empresa</div></div>
+      </div>
+      <p class="hint" style="margin-top:14px">Ecossistema de empresas que ele construiu:</p>
+      <div class="eco">
+        <span class="eco-chip"><b>XGROW</b> · plataforma de infoprodutos</span>
+        <span class="eco-chip"><b>EVENTX</b> · ticketeira inteligente</span>
+        <span class="eco-chip"><b>D360</b> · dashboard 360°</span>
+        <span class="eco-chip"><b>ADVAI</b> · inteligência jurídica</span>
+        <span class="eco-chip"><b>E3T</b> · educação e tecnologia</span>
+        <span class="eco-chip"><b>NeuroVerse</b> · IA estratégica</span>
+      </div>
     </div>
 
     <div class="cta-box">

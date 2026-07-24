@@ -1,5 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
-  <rect width="64" height="64" rx="14" fill="#0E1626"/>
-  <text x="32" y="43" font-family="Georgia, 'Times New Roman', serif" font-size="30"
-        font-weight="700" text-anchor="middle" fill="#C9A24A">FD</text>
+  <rect width="64" height="64" rx="14" fill="#0A0E16"/>
+  <!-- escudo -->
+  <path d="M32 12 L48 17 V33 C48 43 41 49 32 52 C23 49 16 43 16 33 V17 Z"
+        fill="none" stroke="#E0A63A" stroke-width="2.4" stroke-linejoin="round"/>
+  <!-- coroa -->
+  <path d="M24 33 L26 25 L29.5 30 L32 23 L34.5 30 L38 25 L40 33 Z"
+        fill="#E0A63A"/>
+  <rect x="24" y="34.5" width="16" height="3" rx="1" fill="#E0A63A"/>
 </svg>

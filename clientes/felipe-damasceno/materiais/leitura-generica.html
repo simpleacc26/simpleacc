@@ -12,18 +12,18 @@
 -->
 <style>
   :root{
-    /* ==== PALETA DA MARCA (dark navy + dourado, igual ao funil do Felipe) ==== */
-    --bg:#0E1626;            /* fundo (navy quase preto) */
-    --surface:#16213A;       /* cartões (navy elevado) */
-    --text:#F0ECE2;          /* texto (creme) */
-    --muted:#A9B2C4;         /* texto secundário (slate claro) */
-    --primary:#C9A24A;       /* dourado da marca */
-    --primary-700:#E6C874;   /* dourado claro (realce sobre fundo escuro) */
-    --accent-soft:rgba(201,162,74,.14); /* dourado suave (pílulas/box bom) */
-    --border:#2A3552;        /* bordas (navy claro) */
+    /* ==== PALETA DA MARCA (navy quase preto + dourado âmbar, da apresentação) ==== */
+    --bg:#0A0E16;            /* fundo (navy quase preto) */
+    --surface:#121A2B;       /* cartões (navy elevado) */
+    --text:#F2EEE6;          /* texto (creme) */
+    --muted:#9AA6B8;         /* texto secundário (slate claro) */
+    --primary:#E0A63A;       /* dourado âmbar da marca */
+    --primary-700:#F2C775;   /* dourado claro (realce sobre fundo escuro) */
+    --accent-soft:rgba(224,166,58,.14); /* dourado suave (pílulas/box bom) */
+    --border:#26303F;        /* bordas (navy claro) */
     --err:#E08A6F;           /* coluna "gargalo" */
-    --action:#C9A24A;        /* botão (dourado) */
-    --on-action:#0E1626;     /* texto do botão (navy) */
+    --action:#E0A63A;        /* botão (dourado) */
+    --on-action:#0A0E16;     /* texto do botão (navy) */
     /* ======================================================================== */
     --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,"Hoefler Text",Georgia,"Times New Roman",serif;
     --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
@@ -65,6 +65,15 @@
   .cta{ margin:22px 0 6px; }
   a.btn{ display:block; text-decoration:none; text-align:center; background:var(--action); color:var(--on-action); font-family:var(--sans); font-weight:700; font-size:16px; padding:16px 18px; border-radius:14px; letter-spacing:.01em; }
   .cta .under{ text-align:center; color:var(--muted); font-size:12.5px; margin:9px 4px 0; }
+
+  /* bloco de autoridade (Quem é o Felipe) */
+  .cred-grid{ display:flex; flex-direction:column; gap:10px; margin:10px 0 4px; }
+  .cred{ border:1px solid var(--border); border-radius:14px; padding:13px 15px; background:var(--surface); }
+  .cred .n{ font-family:var(--serif); font-size:20px; font-weight:700; color:var(--primary-700); line-height:1.1; }
+  .cred .d{ font-size:13px; color:var(--muted); margin-top:3px; }
+  .eco{ display:flex; flex-wrap:wrap; gap:8px; margin-top:12px; }
+  .eco-chip{ border:1px solid var(--border); border-radius:999px; padding:7px 13px; font-size:12.5px; color:var(--muted); background:var(--surface); }
+  .eco-chip b{ color:var(--primary); font-weight:700; }
 
   .cta-box{ margin-top:28px; background:var(--surface); border:1px solid var(--border); border-radius:18px; padding:22px 20px; }
   .cta-box h2{ font-size:22px; margin-bottom:10px; }
@@ -148,12 +157,13 @@
 
   <div class="sec">
     <h3>Como o Método Potência Empresarial trabalha</h3>
-    <p>Um acompanhamento individual e estruturado para tirar a empresa das suas costas, em quatro etapas:</p>
+    <p>Um acompanhamento individual e estruturado para tirar a empresa das suas costas, em cinco pilares:</p>
     <ol class="metodo">
-      <li><strong>Medir o IDE:</strong> mapear o seu tempo e medir o quanto a empresa depende de você.</li>
-      <li><strong>Diagnosticar as causas:</strong> onde exatamente a operação trava em você.</li>
-      <li><strong>Transferir:</strong> o que sai das suas costas vai para pessoas, processos, tecnologia e indicadores.</li>
-      <li><strong>Implantar o governo:</strong> uma rotina em que você lidera e a empresa roda.</li>
+      <li><strong>Diagnosticar:</strong> entender a real situação do negócio e medir a dependência com o IDE e a CLO (Calculadora de Liberdade Operacional).</li>
+      <li><strong>Organizar:</strong> estruturar pessoas, processos e informações.</li>
+      <li><strong>Delegar:</strong> transferir responsabilidades com clareza e confiança.</li>
+      <li><strong>Automatizar:</strong> criar cadências e sistemas que fazem o trabalho acontecer.</li>
+      <li><strong>Governar:</strong> acompanhar, decidir e direcionar com base em dados.</li>
     </ol>
     <p class="hint">O foco é na metodologia, não em prazo rígido: medir, reduzir e sustentar a redução da dependência.</p>
   </div>
@@ -170,6 +180,30 @@
   <div class="cta">
     <a class="btn" data-wa="Olá! Quero agendar minha Sessão Estratégica do Governo Empresarial.">Quero agendar minha Sessão Estratégica</a>
     <p class="under">Conversa individual e confidencial. Vagas limitadas por semana.</p>
+  </div>
+
+  <div class="sec">
+    <h3>Quem é o Felipe</h3>
+    <p>Empresário, estrategista e mentor. Construiu empresas do zero, faturou
+    <strong>mais de 100 milhões no primeiro ano</strong> de operação e viveu na pele o
+    desafio de depender de si mesmo para tudo funcionar. Foi isso que o levou a criar o
+    Método Potência Empresarial e o Programa Governo Empresarial.</p>
+    <div class="cred-grid">
+      <div class="cred"><div class="n">+R$ 100 milhões</div><div class="d">faturados no primeiro ano com a XGrow</div></div>
+      <div class="cred"><div class="n">+2.800 players e empresas</div><div class="d">aceleradas no digital</div></div>
+      <div class="cred"><div class="n">+15 anos de experiência</div><div class="d">em negócios, tecnologia e educação</div></div>
+      <div class="cred"><div class="n">6 empresas</div><div class="d">fundadas e construídas do zero</div></div>
+      <div class="cred"><div class="n">Autor de "Líderes Não Nascem Prontos"</div><div class="d">o livro sobre formar líderes que assumem a empresa</div></div>
+    </div>
+    <p class="hint" style="margin-top:14px">Ecossistema de empresas que ele construiu:</p>
+    <div class="eco">
+      <span class="eco-chip"><b>XGROW</b> · plataforma de infoprodutos</span>
+      <span class="eco-chip"><b>EVENTX</b> · ticketeira inteligente</span>
+      <span class="eco-chip"><b>D360</b> · dashboard 360°</span>
+      <span class="eco-chip"><b>ADVAI</b> · inteligência jurídica</span>
+      <span class="eco-chip"><b>E3T</b> · educação e tecnologia</span>
+      <span class="eco-chip"><b>NeuroVerse</b> · IA estratégica</span>
+    </div>
   </div>
 
   <div class="cta-box">
