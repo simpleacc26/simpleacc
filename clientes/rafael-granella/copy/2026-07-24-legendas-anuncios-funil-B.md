@@ -1,4 +1,4 @@
-# Legendas de anúncio — Funil B (2 versões globais)
+# Legendas de anúncio (Funil B) (2 versões globais)
 
 **Cliente:** Rafael Granella / Alivance Club
 **Contexto:** Legendas para os novos anúncios do funil B (quiz por pilar). São **versões globais**, pensadas para **complementar** as copies já existentes em `[Rafael Granella] Copies 2026` (Drive), sem repetir os ângulos já rodados (Fabrício R$600k, agenda cheia, dependência de indicação, ticket/desconto, Ferrari vs Fusca).
@@ -8,7 +8,7 @@
 
 ---
 
-## Versão 1 — O gargalo tem nome (e você provavelmente está consertando o errado)
+## Versão 1: O gargalo tem nome (e você provavelmente está consertando o errado)
 
 A maioria dos mentores que trava sabe que alguma coisa não está certa, mas aposta no palpite errado. Mexe no preço, troca a oferta, grava mais conteúdo, e em poucos meses o resultado volta pro mesmo lugar. Não é falta de ação. É que o gargalo de verdade está em outro ponto, e sem saber qual é, você gasta energia consertando o que nem estava quebrado.
 
@@ -18,7 +18,7 @@ Por isso eu montei um diagnóstico rápido que aponta qual desses quatro pilares
 
 ---
 
-## Versão 2 — Continuar sendo um bom mentor deixou de ser suficiente
+## Versão 2: Continuar sendo um bom mentor deixou de ser suficiente
 
 Tem um momento em que ser um bom mentor para de resolver. Você entrega resultado, tem cliente satisfeito, é reconhecido no que faz, e mesmo assim sente que o negócio não cresce na mesma velocidade da sua competência. Isso não quer dizer que você precisa se esforçar mais. Quer dizer que o seu negócio ainda é conduzido como uma mentoria, quando já pedia pra ser conduzido como uma empresa de educação.
 
