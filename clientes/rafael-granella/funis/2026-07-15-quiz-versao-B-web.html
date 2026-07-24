@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5WS9MLHF');</script>
+<!-- End Google Tag Manager -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Diagnóstico de Modelo | Alivance Club</title>
@@ -74,6 +81,10 @@
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5WS9MLHF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <div class="wrap">
   <div class="col narrow" id="col">
@@ -154,6 +165,16 @@
   var step = 1; // 1 = hero+Q1, 2..7 = Q2..Q7, 8 = capture, 10 = loading -> relatório
   var col = document.getElementById('col');
   var screen = document.getElementById('screen');
+
+  function dl(event, extra) {
+    try {
+      window.dataLayer = window.dataLayer || [];
+      var o = { event: event };
+      if (extra) { for (var k in extra) { o[k] = extra[k]; } }
+      window.dataLayer.push(o);
+    } catch (e) {}
+  }
+  dl('quiz_b_start');
 
   function optionsHTML(idx) {
     var html = '<div class="options">';
@@ -287,6 +308,7 @@
     try {
       fetch(WEBHOOK_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload), keepalive: true }).catch(function () {});
     } catch (e) {}
+    dl('quiz_b_lead', { pilar: PILLAR_NAMES[pilar] || '' });
   }
 
   function renderLoading() {

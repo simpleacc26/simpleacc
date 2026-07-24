@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5WS9MLHF');</script>
+<!-- End Google Tag Manager -->
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Diagnóstico do seu negócio de mentoria | Alivance Club</title>
@@ -69,6 +76,10 @@
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5WS9MLHF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <div class="preview-bar" id="previewBar">
   <span class="lbl">Prévia · gargalo:</span>
@@ -123,6 +134,9 @@
   if (!PILAR[current]) current = 'N';
   var nome = params.get('nome') || document.getElementById('nameInput').value || "Renan";
   if (params.get('pilar')) document.getElementById('previewBar').style.display = 'none';
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event: 'relatorio_view', pilar: current });
 
   var AGENDA_BASE = 'https://agendamento-alivance-b.vercel.app';
   function agendaUrl() {
@@ -226,6 +240,12 @@
   if (activeBtn) activeBtn.classList.add('active');
 
   render();
+
+  var ctaEl = document.getElementById('ctaBtn');
+  if (ctaEl) ctaEl.addEventListener('click', function () {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'agendar_click', pilar: current });
+  });
 </script>
 </body>
 </html>
