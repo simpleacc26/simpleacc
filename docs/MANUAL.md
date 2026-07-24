@@ -145,6 +145,12 @@ Os **padrões reutilizáveis** (a "inteligência de especialistas") ficam em
   vale para **todos os clientes** de uma vez (não copie por cliente).
 - **Para criar um novo** prompt mestre (ex.: roteiro, copy): veja `prompts/README.md`.
 
+Além dos comandos, há **skills** em `.claude/skills/` — a IA aciona sozinha quando
+a tarefa combina (ou você pede pelo nome). Hoje: `estrategia-completa-clientes`
+(documento de estratégia a partir do onboarding) e `carrossel-instagram` (carrossel
+de Instagram em HTML + PNGs 1080×1350 prontos para postar). A lista completa e como
+criar uma nova ficam em `prompts/README.md`.
+
 ---
 
 ## 9. Segredos e variáveis de ambiente

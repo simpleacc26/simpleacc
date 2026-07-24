@@ -40,6 +40,7 @@ máquina, mantendo cada assunto no seu lugar.
 | ---------------------------------------- | ---------------------------------------------- |
 | Estratégia, diagnóstico de um cliente    | `clientes/<cliente>/estrategia/`               |
 | Copy de página ou de anúncio             | `clientes/<cliente>/copy/`                     |
+| Carrossel de Instagram (HTML + PNGs)     | `clientes/<cliente>/copy/carrossel-<tema>/`    |
 | Roteiro de vídeo                         | `clientes/<cliente>/roteiros/`                 |
 | Funil, landing, quiz                     | `clientes/<cliente>/funis/`                    |
 | Contexto / pesquisa de mercado           | `clientes/<cliente>/contexto/`                 |
@@ -52,6 +53,13 @@ máquina, mantendo cada assunto no seu lugar.
 Em qualquer sessão, rode **`/prompt-mestre`** — o prompt mestre conduz diagnóstico →
 aprofundamento → geração (HTML puro ou copy de anúncios). Dentro da pasta de um
 cliente, ele já usa o contexto daquele cliente.
+
+## Gerar um carrossel de Instagram
+
+Peça **"cria um carrossel sobre X"** (ou rode a skill `carrossel-instagram`) — ela
+coleta a marca, deriva a paleta de uma cor só, monta os slides swipeáveis em HTML
+(4:5) e exporta os PNGs 1080×1350 prontos para postar. Salva em
+`clientes/<cliente>/copy/carrossel-<tema>/`.
 
 ## Começar um trabalho novo
 

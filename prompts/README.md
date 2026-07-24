@@ -19,6 +19,7 @@ a tarefa combina (ou você pode pedir pelo nome).
 | Skill (nome interno)            | Para quê |
 | ------------------------------- | -------- |
 | `estrategia-completa-clientes`  | **Estratégia Completa para Clientes** — a partir do onboarding (transcrição/notas), gera o documento de estratégia de 8 seções e entrega como Google Doc formatado na pasta do cliente no Drive. |
+| `carrossel-instagram`           | **Carrossel de Instagram** — a partir de um tema + a marca do cliente, monta um carrossel swipeável em HTML (4:5) e exporta os slides como PNGs 1080×1350 prontos para postar. Deriva a paleta de uma cor de marca e segue o arco gancho → problema → solução → CTA. |
 
 ## Como usar
 
