@@ -46,10 +46,10 @@ function dataHoraBR() {
   } catch (e) { return new Date().toISOString(); }
 }
 
-/* Classifica o lead pela prontidão e geografia (mesma régua do diagnóstico).
-   Qualifica por intenção, não por pergunta crua de renda. */
+/* Classifica o lead por faturamento e prontidão (mesma régua do diagnóstico).
+   Qualifica por intenção (2 perguntas-porteira), não por pergunta crua de renda. */
 function classificarLead(a) {
-  if (a.geografia === "fora") return "fora";
+  if (a.faturamento === "ate15" || a.faturamento === "15a30") return "nutrir";
   if (a.prontidao === "pontual" || a.prontidao === "pesquisando") return "nutrir";
   return "qualificado";
 }
@@ -74,7 +74,7 @@ function enviarLead() {
     answers: {
       q1: label("situacao"), q2: label("problema"), q3: label("tempo"),
       q4: label("impacto"), q5: label("necessidade"), q6: label("objetivo"),
-      q7: label("perfil"), q8: label("geografia"), q9: label("prontidao"),
+      q7: label("perfil"), q8: label("faturamento"), q9: label("prontidao"),
     },
     utms: URL_UTMS,
     meta: {
@@ -152,7 +152,7 @@ function renderStep(i) {
       <div class="actions">
         ${i > 0
           ? '<button class="btn btn-ghost" id="back">← Voltar</button>'
-          : '<span class="hint">Toque na opção que mais combina. Avança sozinho 💛</span>'}
+          : '<span class="hint">Toque na opção que mais combina. Avança sozinho.</span>'}
       </div>
     </section>`);
   app.replaceChildren(screen);
@@ -286,16 +286,16 @@ function renderLoading() {
   const dur = reduce ? 800 : 4700;
   const msgs = [
     "Analisando as suas respostas...",
-    "Identificando a origem emocional...",
-    "Montando a sua leitura personalizada...",
+    "Cruzando as suas respostas...",
+    "Montando o seu diagnóstico personalizado...",
   ];
   const screen = el(`
     <section class="card screen loading-card">
       <p class="eyebrow">Quase lá</p>
-      <h2>Preparando a sua Leitura Emocional</h2>
+      <h2>Preparando o seu diagnóstico</h2>
       <p class="lead" id="load-msg">${msgs[0]}</p>
       <div class="load-track"><div class="load-bar" id="load-bar"></div></div>
-      <p class="hint" style="margin-top:16px">Estamos personalizando com base no que você respondeu. 💛</p>
+      <p class="hint" style="margin-top:16px">Estamos personalizando com base no que você respondeu.</p>
     </section>`);
   app.replaceChildren(screen);
   scrollTop();

@@ -15,8 +15,8 @@ window.FLOW = {
   marca: {
     nome: "Lucas Sobreiro",
     expert: "Lucas Sobreiro",
-    // TODO: preencher o WhatsApp do time (formato internacional, só dígitos) antes do deploy
-    whatsapp: "5500000000000",
+    // WhatsApp do Lucas (formato internacional, só dígitos)
+    whatsapp: "5551981115195",
     // O {nome} é trocado pelo primeiro nome de quem respondeu
     whatsappMsg:
       "Oi! Sou {nome}, acabei de fazer o diagnóstico da minha clínica no site e quero falar sobre a Sessão Estratégica.",
@@ -150,7 +150,7 @@ window.FLOW = {
       options: [
         { value: "sim", label: "Sim, quero resolver de vez e entendo que é um investimento" },
         { value: "entender", label: "Sim, mas preciso entender melhor como funciona antes" },
-        { value: "pontual", label: "No momento, busco algo mais pontual ou de menor custo", nutrir: true },
+        { value: "pontual", label: "No momento, ainda não é prioridade investir para resolver isso", nutrir: true },
         { value: "pesquisando", label: "Só estou pesquisando por enquanto", nutrir: true },
       ],
     },

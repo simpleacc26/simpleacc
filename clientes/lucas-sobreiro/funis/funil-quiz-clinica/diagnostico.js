@@ -131,15 +131,15 @@ if (!a._completedAt && !a.problema) {
       <h3>Quem já viveu isso</h3>
       <p>Donos de clínica e empresários que pararam de só trabalhar mais e foram na causa:</p>
       <div class="depo-gallery">
-        <img class="depo-shot" src="depoimentos/01-paula-xavier-dentista.jpeg" loading="lazy" alt="Paula Xavier, dentista e sócia em clínica de radiologia: cresceu o faturamento da clínica e aumentou a remuneração pessoal em cerca de 50%, saindo do operacional." />
-        <img class="depo-shot" src="depoimentos/02-ana-paula.jpeg" loading="lazy" alt="Depoimento de cliente do Lucas Sobreiro sobre o resultado no negócio." />
-        <img class="depo-shot" src="depoimentos/03-carlos-eduardo.jpeg" loading="lazy" alt="Depoimento de cliente do Lucas Sobreiro sobre o resultado no negócio." />
-        <img class="depo-shot" src="depoimentos/04-marcia-c-1.jpeg" loading="lazy" alt="Depoimento de cliente do Lucas Sobreiro sobre o resultado no negócio." />
-        <img class="depo-shot" src="depoimentos/05-endrigo-g.jpeg" loading="lazy" alt="Endrigo, consultoria: mais que dobrou o faturamento, reposicionou contrato e ticket e organizou a operação." />
-        <img class="depo-shot" src="depoimentos/06-alejandro-b.jpeg" loading="lazy" alt="Depoimento de cliente do Lucas Sobreiro sobre o resultado no negócio." />
-        <img class="depo-shot" src="depoimentos/07-paula-l.jpeg" loading="lazy" alt="Depoimento de cliente do Lucas Sobreiro sobre o resultado no negócio." />
-        <img class="depo-shot" src="depoimentos/08-marcia-c-2.jpeg" loading="lazy" alt="Depoimento de cliente do Lucas Sobreiro sobre o resultado no negócio." />
-        <img class="depo-shot" src="depoimentos/09-alejandro-junho.jpeg" loading="lazy" alt="Depoimento de cliente do Lucas Sobreiro sobre a evolução no negócio." />
+        <img class="depo-shot" src="depoimentos/01-paula-xavier-dentista.webp" loading="lazy" alt="Paula Xavier, dentista e sócia em clínica de radiologia: cresceu o faturamento da clínica e aumentou a remuneração pessoal em cerca de 50%, saindo do operacional." />
+        <img class="depo-shot" src="depoimentos/02-ana-paula.webp" loading="lazy" alt="Depoimento de cliente do Lucas Sobreiro sobre o resultado no negócio." />
+        <img class="depo-shot" src="depoimentos/03-carlos-eduardo.webp" loading="lazy" alt="Depoimento de cliente do Lucas Sobreiro sobre o resultado no negócio." />
+        <img class="depo-shot" src="depoimentos/04-marcia-c-1.webp" loading="lazy" alt="Depoimento de cliente do Lucas Sobreiro sobre o resultado no negócio." />
+        <img class="depo-shot" src="depoimentos/05-endrigo-g.webp" loading="lazy" alt="Endrigo, consultoria: mais que dobrou o faturamento, reposicionou contrato e ticket e organizou a operação." />
+        <img class="depo-shot" src="depoimentos/06-alejandro-b.webp" loading="lazy" alt="Depoimento de cliente do Lucas Sobreiro sobre o resultado no negócio." />
+        <img class="depo-shot" src="depoimentos/07-paula-l.webp" loading="lazy" alt="Depoimento de cliente do Lucas Sobreiro sobre o resultado no negócio." />
+        <img class="depo-shot" src="depoimentos/08-marcia-c-2.webp" loading="lazy" alt="Depoimento de cliente do Lucas Sobreiro sobre o resultado no negócio." />
+        <img class="depo-shot" src="depoimentos/09-alejandro-junho.webp" loading="lazy" alt="Depoimento de cliente do Lucas Sobreiro sobre a evolução no negócio." />
       </div>
       <p class="hint">O que essas histórias têm em comum: pararam de só trabalhar mais e instalaram método no negócio.</p>
     </div>
