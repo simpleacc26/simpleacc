@@ -44,7 +44,7 @@ python3 -m http.server 8000
 - [x] **Cenário do Make** (webhook instant → Google Sheets) criado e **testado
       ponta a ponta** (23/07/2026, 2 leads gravados). URL já em `app.js`
       (`LEADS_ENDPOINT`). Detalhes na seção Integração abaixo.
-- [x] **Deploy (Vercel):** no ar em https://funil-lucas-sobreiro.vercel.app
+- [x] **Deploy (Vercel):** no ar em https://quiz-lucas-sobreiro.vercel.app
       (produção, team `simpleacc`). Ver seção Deploy.
 - [ ] **Meta Pixel do Lucas** (fora do escopo desta entrega, a pedido do cliente):
       descomentar o bloco no `<head>` do `index.html` e do `diagnostico.html` e
@@ -71,21 +71,21 @@ Projeto estático (framework "Other"), padrão dos demais funis: deploy direto d
 pasta, sem git connect. Precisa do token Vercel da conta Simple Acc (nunca
 commitar o token).
 
-- **Produção (no ar):** https://funil-lucas-sobreiro.vercel.app
-- **Projeto Vercel:** `funil-lucas-sobreiro` (team `simpleacc`)
+- **Produção (no ar):** https://quiz-lucas-sobreiro.vercel.app
+- **Projeto Vercel:** `quiz-lucas-sobreiro` (team `simpleacc`)
 - **Anúncio aponta para a raiz** com `?utm_source=...&utm_medium=...&utm_campaign=...`
 
 **Redeploy** (logo, WhatsApp, Pixel, etc.), mantendo a mesma URL:
 ```
 cd clientes/lucas-sobreiro/funis/funil-quiz-clinica
 # uma vez por máquina: liga a pasta ao projeto existente
-vercel link --yes --project funil-lucas-sobreiro --scope simpleacc
+vercel link --yes --project quiz-lucas-sobreiro --scope simpleacc
 # a cada deploy:
 vercel deploy --prod --yes --scope simpleacc
 ```
 Sem o `vercel link`, o deploy da pasta cria um projeto novo (`funil-quiz-clinica`);
-por isso o primeiro deploy foi feito a partir de uma cópia nomeada
-`funil-lucas-sobreiro/` para dar o domínio limpo.
+por isso o deploy é feito a partir de uma cópia nomeada
+`quiz-lucas-sobreiro/` para dar o domínio limpo.
 
 ## Identidade
 
