@@ -284,6 +284,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       submitLead(nome, tel, email);
       step = 10; render();
     };
+    var telEl = document.getElementById('capTel');
+    telEl.setAttribute('maxlength', '16');
+    telEl.addEventListener('input', function () {
+      var d = telEl.value.replace(/\D/g, '').slice(0, 11); // 2 do DDD + 9 dígitos
+      var out = d;
+      if (d.length > 7) out = '(' + d.slice(0, 2) + ') ' + d.slice(2, 7) + '-' + d.slice(7);
+      else if (d.length > 2) out = '(' + d.slice(0, 2) + ') ' + d.slice(2);
+      telEl.value = out;
+    });
     document.getElementById('backBtn').onclick = function () { step = 7; render(); };
   }
 
