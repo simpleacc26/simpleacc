@@ -95,6 +95,42 @@ Att: Vitória Daniela | Grupo Magna
 
 ---
 
+## E-mail 1-B — Entrega do diagnóstico · PROSPECÇÃO ATIVA (imediato)
+
+_Versão do e-mail 1 para quem NÃO fez o quiz (contatos de prospecção ativa,
+tag `prospeccao_ativa`). Mesmo diagnóstico (é genérico), sem dizer "você
+respondeu o quiz". A partir do e-mail 2, a trilha é a mesma pros dois públicos._
+
+**Assunto:** a autoridade que você tem no offline aparece no digital?
+**Prévia:** preparei um diagnóstico pensando em profissionais como você
+**Anexo:** Diagnóstico Estratégico (PDF)
+
+Oii, {{contact.first_name}}, aqui é a Vitória Daniela, do Grupo Magna.
+
+Você ainda não me conhece, então vou ser direta: eu ajudo profissionais e empresários que já são referência no offline, que têm um serviço de excelência, a construir uma presença digital que traga os clientes de alto valor que a competência de vocês merece.
+
+E eu tô te escrevendo porque você parece exatamente o tipo de profissional que sofre de um problema silencioso: ser reconhecida onde já te conhecem, e ser mais uma (ou quase invisível) no digital.
+
+Preparei um diagnóstico com os 3 gargalos ocultos que drenam a energia de quem está nesse momento (a maioria tem pelo menos dois rodando ao mesmo tempo, sem perceber). Deixei ele no anexo deste e-mail, como um ponto de partida pra você enxergar o que trava.
+
+E deixa eu adiantar o que eu vejo o tempo todo: o problema quase nunca é falta de esforço. Você trabalha muito. O problema é o seu digital operar sem estratégia, com pedaços que não conversam entre si. Você cria conteúdo de um jeito, capta cliente de outro, vende meio no improviso, e as vendas seguem no talento, sem processo validado por trás.
+
+Cada pedaço até funciona sozinho. Só que juntos, eles não estão te levando pra lugar nenhum, e é por isso que parece que você trabalha o dobro pra crescer nem a metade do que devia.
+
+O diagnóstico aponta a falha geral. Mas o plano pro seu ticket específico, pro seu produto, é individual, e isso só sai numa conversa com olhar voltado pro seu negócio.
+
+Vou entender seu momento, seu produto, e te mostrar o que fazer para alcançar o próximo degrau da escada do seu negócio.
+
+É isso que você quer?
+
+**[BOTÃO: QUERO CLAREAR MEU CAMINHO]** → link CTA
+
+Aproveite o que está no anexo. O que você faz a partir de agora pode mudar tudo.
+
+Att: Vitória Daniela | Grupo Magna
+
+---
+
 ## E-mail 2 — Aumentando nível de consciência (+2 dias úteis)
 
 **Assunto:** a resposta para a falta de resultados
@@ -472,10 +508,13 @@ Vitória Daniela | Grupo Magna
    "Contact Tag" = `prospeccao_ativa` (mesmo workflow).
 3. **(Recomendado) Filtro/limpeza inicial:** um passo "If/Else" logo no começo
    pra sair se já tiver a tag `agendou` (não recomeçar quem já marcou).
-4. **E-mail 1** (Send Email): colar assunto/prévia/corpo, anexar o PDF do
-   diagnóstico, botão com o link CTA.
+4. **Desvio do e-mail 1** (If/Else "tem a tag `prospeccao_ativa`?"):
+   - **Sim (prospecção)** → **E-mail 1-B** (versão prospecção).
+   - **Não (veio do quiz)** → **E-mail 1-A** (versão quiz).
+   Os dois anexam o PDF do diagnóstico e têm o botão com o link CTA. Depois do
+   e-mail 1, os dois caminhos seguem juntos pro mesmo Wait/E-mail 2.
 5. **Wait 2 dias** (marcar a opção de continuar só em dias de semana) → **E-mail 2**.
-6. Repetir Wait + E-mail até o **E-mail 10**.
+6. Repetir Wait + E-mail até o **E-mail 10** (iguais pros dois públicos).
 7. **Saída da trilha:** configurar o workflow com "Remove from workflow" quando a
    tag `agendou` for adicionada (ou usar um "Goal"/"Wait for trigger" de
    agendamento). Assim, quem marca a reunião para de receber.
