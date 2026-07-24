@@ -9,7 +9,7 @@ description: >-
   personalizado". Já inclui a base pronta: quiz SPIN, tela de Loading (~5s),
   CTAs distribuídos, envio de lead que cai na planilha (Make → Sheets), data em
   horário de Brasília, qualificação por intenção, acessibilidade e tracking.
-  Template em template/. Referência viva: clientes/pamella-mello/funil-hipnose/.
+  Template em template/. Referência viva: clientes/lucas-sobreiro/funis/funil-quiz-clinica/ (live em quiz-lucas-sobreiro.vercel.app; estrutura espelhada no funil da Pâmella).
 ---
 
 # Criar Funil (HTML puro · Simple Acc)
@@ -23,7 +23,7 @@ e máxima velocidade. Referências internas (nunca citar pro cliente): Schwartz,
 Kennedy, Halbert, Ogilvy, Todd Brown, Brunson, Fladlien, Kurtz, Sugarman,
 Carlton, Sultanic.
 
-## REGRA ZERO — sequência obrigatória
+## REGRA ZERO: sequência obrigatória
 
 `DIAGNÓSTICO → APROFUNDAMENTO → RESUMO + CONFIRMAÇÃO → GERAÇÃO`
 
@@ -38,7 +38,7 @@ a confirmação antes de gerar.
 
 ---
 
-## ETAPA 1 — Diagnóstico (5 perguntas, opções prontas)
+## ETAPA 1: Diagnóstico (5 perguntas, opções prontas)
 
 1. **O que construir?** (A) Anúncios · (B) Página/funil · (C) Os dois
 2. **Tipo de funil?** (1) Aplicação/Call · (2) Webinar · (3) VSL · (4) Low
@@ -54,7 +54,7 @@ Pare. Espere as respostas. Não gere nada ainda.
 
 ---
 
-## ETAPA 2 — Aprofundamento (máx. 5 perguntas por vez, 2 rodadas)
+## ETAPA 2: Aprofundamento (máx. 5 perguntas por vez, 2 rodadas)
 
 Cada pergunta com exemplo/opção. Resposta vaga → reformule com exemplo concreto.
 "Não sei/tanto faz" → assuma o padrão mais seguro, diga qual, e siga (sem loop).
@@ -117,7 +117,7 @@ Se E2 vier "não sei", infira a partir de E1+E3, explique a inferência e confir
 
 ---
 
-## ETAPA 3 — Resumo e confirmação
+## ETAPA 3: Resumo e confirmação
 
 Gere um resumo de 10-15 linhas: Produto/Oferta · Público (ICP, dor,
 consciência) · Contexto do funil (E1-E8) · **Ajustes que vou aplicar** (liste os
@@ -127,7 +127,7 @@ Premissas assumidas. Termine com:
 
 ---
 
-## ETAPA 4 — Geração
+## ETAPA 4: Geração
 
 Eixo estratégico por tipo: **Aplicação/Call** = qualificação+dor+autoridade+
 filtro+compromisso · **Webinar** = curiosidade+promessa+antecipação · **VSL** =
@@ -234,22 +234,57 @@ crédito); roda só quando chega lead.
   `?fields=sheets(properties(sheetId,title))` num passo anterior e referencie
   `{{1.body.sheets[1].properties.sheetId}}`.
 
+## Particularidades e aprendizados (funil Lucas)
+
+Referência viva: `clientes/lucas-sobreiro/funis/funil-quiz-clinica/` (live em
+quiz-lucas-sobreiro.vercel.app), com a estrutura espelhada no funil validado da
+Pâmella. Aprendizados a respeitar sempre:
+
+1. **Reescreva 100% da copy** ao adaptar, INCLUSIVE a tela de loading e TODAS as
+   labels de opção. Nunca deixe resíduo do funil-modelo (ex.: falar em "leitura
+   emocional" num funil de negócio). A base já vem com loading ~5s (barra +
+   mensagens, respeita `prefers-reduced-motion`), `application/json` + `keepalive`
+   no envio do lead, data em horário de Brasília e a aba "Untitled" do Make.
+2. **Qualificação por 2 perguntas-porteira** (ex.: faturamento + prontidão):
+   defina o corte (qualificado vs nutrir). As demais perguntas alimentam o
+   diagnóstico, não pontuam.
+3. **High ticket:** as opções de "nutrir" NÃO devem ancorar em "algo mais
+   barato/pontual"; enquadre como "ainda não é prioridade investir agora".
+4. **Não ancore a promessa numa sub-persona única** que parte do público não tem
+   (ex.: "a secretária"); mantenha a promessa no nível do negócio (do dono ou de
+   quem atende).
+5. **Identidade = marca REAL do cliente** (Instagram/brandbook), não uma paleta
+   genérica inventada; paleta de exemplo só até o brandbook chegar.
+6. **Depoimentos:** prints reais, convertidos para WebP ~520px (funil leve).
+   Nunca inventar depoimento.
+7. **Make -> Sheets:** a aba de um CSV importado nasce "Untitled" (não "Página1");
+   descubra a aba real via RPC `google-sheets@2/rpcSheet` antes de montar o
+   `addRow`; envie `application/json` com `keepalive`.
+8. **Deploy:** use o `vercel` CLI com token da conta (não o deploy inline do MCP
+   Vercel para funil COM imagens: o payload base64 é cortado e há risco de imagem
+   corrompida); publique a partir de uma subpasta com nome limpo para dar domínio
+   limpo; use o TEAM_ID no `--scope`; confira `whoami`/`teams` antes.
+
+Regra da casa: **nunca usar travessão (traço longo)** em nenhum texto (vírgula,
+dois-pontos, parênteses; faixas como "de X a Y").
+
 ## Deploy (Vercel)
 
 Projeto **estático** próprio por funil (framework "Other"), deploy direto da
 pasta: `vercel deploy --prod --yes --scope <slug-do-time>`. Cuidado: se o
 username pessoal e o slug do time forem iguais, `--scope` pode resolver pra conta
 pessoal; a conta do time pode ter **SAML SSO** (token expira, gere outro). Nunca
-commitar o token. (DEPLOY.md no template cobre também Netlify, GitHub Pages,
-Cloudflare, S3, Firebase.)
+commitar o token. Para funil **com imagens**, use o CLI com token (não o deploy
+inline do MCP Vercel: o base64 é cortado e a imagem pode corromper). (DEPLOY.md no
+template cobre também Netlify, GitHub Pages, Cloudflare, S3, Firebase.)
 
 ## Gerar PNGs do favicon (sem rasterizador)
 
 Renderize `favicon.svg` no Chromium headless (playwright-core), salvando
 `apple-touch-icon.png` (180), `favicon-32.png` e `favicon-16.png`. Script de
-exemplo em `clientes/pamella-mello/funil-hipnose` (commits) ou no DEPLOY.md.
+exemplo em `clientes/lucas-sobreiro/funis/funil-quiz-clinica` (commits) ou no DEPLOY.md.
 
-## Bloco final obrigatório — otimização estratégica
+## Bloco final obrigatório: otimização estratégica
 
 Ao entregar, inclua recomendações de: (1) **oferta** (aumentar valor percebido,
 reduzir risco, bônus/ancoragem/garantia); (2) **funil** (gargalos, sequência,
