@@ -183,6 +183,9 @@ da matriz. Fluxo de criação:
 9. **Favicon** próprio na identidade do cliente.
 10. **Quiz:** ordem SPIN (baixa fricção primeiro, qualificação por último),
     auto-avanço, barra de progresso, "continuar de onde parou", abandono.
+    **Hero (selo + título + subtítulo + CTA) só na 1ª tela**; as perguntas
+    mostram só a pergunta e as opções, sem repetir título nem selo (no motor, o
+    hero só entra quando `i === 0`).
 
 ### Funil de aplicação/call (extensão do motor)
 

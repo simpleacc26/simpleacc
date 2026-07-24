@@ -139,7 +139,47 @@ quiz-lucas-sobreiro.vercel.app. Respeite sempre:
 Base técnica (já no motor): loading ~5s, envio do lead em `application/json` +
 `keepalive`, data em horário de Brasília, qualificação por intenção, sem travessão.
 
+## Estrutura padrão (formato top, não improvisar)
+
+Esta é a estrutura do funil do Lucas. Mantenha; só troque a copy/identidade.
+
+### Quiz (`index.html` + `flow.js` + `app.js`)
+- **Hero (selo + título + subtítulo + CTA) aparece SÓ na 1ª tela.** As telas de
+  pergunta mostram apenas a pergunta e as opções: **não repita o título nem o selo
+  a cada pergunta** (no motor, o hero só entra quando `i === 0`).
+- Uma pergunta por tela, opções com **auto-avanço**, barra de progresso ("Passo X
+  de N"), "voltar" e "continuar de onde parou".
+- **9 passos SPIN**: situação, problema, tempo, impacto, o que já tentou, objetivo,
+  perfil, e as **2 perguntas-porteira de qualificação por ÚLTIMO** (ex.: faturamento,
+  prontidão).
+- Captura no fim: nome, WhatsApp (com máscara), e-mail (obrigatório).
+- **Tela de loading (~5s) personalizada ao público** do cliente (nunca genérica
+  nem resíduo do modelo), depois redireciona pro relatório.
+
+### Página de aplicação / relatório (`diagnostico.html` + `diagnostico.js`), nesta ordem
+1. Cabeçalho: selo "Diagnóstico personalizado" + H1 + data.
+2. **Antes de tudo** (acolhe, tira a culpa do dono).
+3. **O cenário hoje** (espelha as respostas: situação, problema, tempo, impacto).
+4. **Por que não destravou até agora** (reframe do gargalo real: não é esforço nem
+   técnica, é o mecanismo que o método resolve).
+5. **Dois caminhos lado a lado** (modelo atual x trocar o modelo).
+6. **[CTA distribuído]**
+7. **Como o método trabalha** (os pilares do método do cliente).
+8. **O que precisa acontecer agora** (a oferta do 1º passo, ex.: Sessão Estratégica).
+9. **[CTA distribuído]**
+10. **Quem já viveu isso** (galeria de depoimentos, o **case-estrela PRIMEIRO**).
+11. **Caixa final** (`cta-box`) com o CTA.
+
+Regras do CTA:
+- **Nunca** botão no topo. **CTAs distribuídos** (2 no meio + 1 na caixa final),
+  todos com a classe `.cta-wpp` (abrem o WhatsApp com mensagem pronta de agendar).
+- O CTA **adapta por qualificação**: **qualificado** agenda a call (ex.: "Sessão
+  Estratégica"); **nutrir** vai para o caminho de menor compromisso ("entender
+  melhor o próximo passo"), **sem oferecer nada barato**.
+
 ## Checklist final
+- [ ] Título/hero só na 1ª tela (não repetido nas perguntas)
+- [ ] Página de aplicação na ordem padrão · CTA adapta por qualificação · CTAs distribuídos (nenhum no topo) · case-estrela primeiro
 - [ ] Copy 100% do cliente (zero texto do modelo), sem travessões
 - [ ] Identidade do cliente aplicada (cores + logo + fontes)
 - [ ] 1ª pergunta na 1ª tela · auto-avanço · máscara WhatsApp · e-mail obrigatório · UTMs
