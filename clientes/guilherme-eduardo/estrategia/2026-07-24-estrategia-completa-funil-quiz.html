@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Estratégia Completa · Funil de Quiz · Guilherme Eduardo</title>
+<style>
+  @page { size: A4; margin: 16mm 18mm 18mm 18mm; }
+  @page :first { margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-deep: #16233c;
+    --gold: #b8863b;
+    --text: #2f3742;
+    --muted: #8a8f98;
+    --line: #e2ddd3;
+  }
+  body { font-family: Arial, Helvetica, sans-serif; color: var(--text); font-size: 10.5pt; line-height: 1.5; }
+
+  /* ===== CAPA ===== */
+  .cover {
+    width: 210mm; height: 297mm; background: var(--navy-deep);
+    background-image:
+      linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: 26mm 26mm;
+    color: #fff; position: relative; padding: 20mm; page-break-after: always;
+  }
+  .cover .top { display: flex; justify-content: space-between; align-items: baseline; }
+  .cover .brand { font-size: 13pt; font-weight: bold; letter-spacing: .5em; }
+  .cover .brand-r { font-size: 8pt; letter-spacing: .4em; color: #9fb0cc; }
+  .cover .block { position: absolute; left: 20mm; top: 150mm; }
+  .cover .kick { color: #7f9bc4; font-size: 9pt; font-weight: bold; letter-spacing: .28em; margin-bottom: 8pt; }
+  .cover h1 { font-size: 40pt; line-height: 1.05; font-weight: bold; letter-spacing: -.01em; }
+  .cover .rule { width: 22mm; height: 2.5pt; background: var(--gold); margin: 9mm 0 8mm; }
+  .cover .sub { font-size: 12pt; color: #c7d0de; line-height: 1.6; max-width: 130mm; }
+  .cover .foot { position: absolute; left: 20mm; bottom: 20mm; right: 20mm; display: flex; gap: 26mm; align-items: baseline; }
+  .cover .foot .lbl { color: #7f9bc4; font-size: 7.5pt; font-weight: bold; letter-spacing: .2em; margin-bottom: 3pt; }
+  .cover .foot .val { font-size: 11pt; }
+  .cover .foot .year { margin-left: auto; color: #7f9bc4; font-size: 8pt; letter-spacing: .3em; }
+
+  /* ===== CONTEÚDO ===== */
+  .intro { border-left: 3pt solid var(--gold); padding: 8pt 0 8pt 14pt; margin-bottom: 16pt; }
+  .intro p { margin-bottom: 5pt; }
+  .intro .l { color: var(--navy); font-weight: bold; }
+  h2.sec { color: var(--navy); font-size: 15pt; padding-bottom: 5pt; border-bottom: 2pt solid var(--gold); margin: 6pt 0 10pt; page-break-after: avoid; }
+  h2.sec span { color: var(--gold); }
+  h3 { color: var(--navy); font-size: 11.5pt; margin: 12pt 0 4pt; page-break-after: avoid; }
+  .kick2 { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin: 12pt 0 3pt; }
+  p { margin-bottom: 7pt; }
+  .lead-idea { font-size: 13pt; color: var(--navy); font-weight: bold; line-height: 1.35; margin: 4pt 0 8pt; }
+  strong.navy { color: var(--navy); }
+  ul { list-style: none; margin: 4pt 0 8pt; }
+  ul li { padding-left: 15pt; position: relative; margin-bottom: 4pt; }
+  ul li::before { content: "\25AA"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 2pt; }
+  ul.alt li::before { content: ""; }
+  ul.alt li { padding-left: 15pt; color: #3f4753; margin-bottom: 2.5pt; }
+  ul.ok li::before { content: "\2713"; color: #2f8f4e; font-weight: bold; }
+  ul.no li::before { content: "\2717"; color: #b23b3b; font-weight: bold; }
+  .qblock, .ad-angle, .faq-item, .cad-day, .diag-step { page-break-inside: avoid; }
+  .qlabel { color: var(--navy); font-weight: bold; }
+  .box { background: #f4f1ea; border-left: 3pt solid var(--gold); padding: 9pt 13pt; margin: 9pt 0; page-break-inside: avoid; }
+  .box .bt { color: var(--navy); font-weight: bold; font-size: 9pt; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 4pt; }
+  .box p { margin-bottom: 4pt; }
+  .box p:last-child { margin-bottom: 0; }
+  .var { background: #eef1f6; color: var(--navy); font-family: monospace; font-size: 9pt; padding: 0 2pt; border-radius: 2pt; }
+  .sec-wrap { page-break-before: always; }
+  .note { font-size: 9pt; color: var(--muted); font-style: italic; }
+</style>
+</head>
+<body>
+
+<!-- ===================== CAPA ===================== -->
+<div class="cover">
+  <div class="top"><div class="brand">SIMPLE</div><div class="brand-r">ESTRATÉGIA</div></div>
+  <div class="block">
+    <div class="kick">FUNIL DE LEAD DINÂMICO</div>
+    <h1>Estratégia<br>Completa</h1>
+    <div class="rule"></div>
+    <div class="sub">Big idea, funil de quiz, página de aplicação, anúncios, relatório de diagnóstico, cadência de follow-up e recomendações estratégicas.</div>
+  </div>
+  <div class="foot">
+    <div><div class="lbl">CLIENTE</div><div class="val">Guilherme Eduardo</div></div>
+    <div><div class="lbl">ESTRATEGISTA</div><div class="val">Daniel Souza</div></div>
+    <div class="year">SIMPLE · 2026</div>
+  </div>
+</div>
+
+<!-- ===================== INTRO ===================== -->
+<div class="intro">
+  <p><span class="l">Estrategista:</span> Daniel Souza · <span class="l">Expert:</span> Guilherme Eduardo (GES Consultoria Médica)</p>
+  <p><span class="l">Negócio em uma linha:</span> consultoria de implantação (Método GES360) que tira o médico dono de clínica da consulta avulsa e instala um modelo de receita recorrente (programas de acompanhamento), dobrando o faturamento sem aumentar o número de atendimentos.</p>
+  <p><span class="l">Frente única:</span> saúde (médico dono de clínica já estabelecida). Funil de aplicação via quiz (Funil de Lead Dinâmico), com o não-ICP direcionado ao produto de entrada de 45 dias (R$ 7.500).</p>
+  <p><span class="l">Premissas assumidas (confirmadas no canvas do cliente):</span> esteira em 3 degraus (45 dias R$ 7.500 · Implementação 3 meses R$ 15.000 · Programa 12 meses R$ 30.000). Corte de qualificação do quiz em R$ 50 mil/mês de faturamento (coerente com o ICP de R$ 50 mil a R$ 100 mil+). Conversão de call de 50% e comparecimento de 80% (benchmarks Simple). O segredo do método é a ordem: preço e protocolo antes de tráfego.</p>
+</div>
+
+<!-- ===================== 1. BIG IDEA ===================== -->
+<h2 class="sec"><span>1.</span> Big Idea</h2>
+<p class="lead-idea">O problema da sua clínica não é falta de paciente. É o modelo que você usa para faturar.</p>
+<p>O médico estuda anos para dominar a técnica, mas ninguém ensina o negócio. Aí ele enche a agenda de consulta avulsa e, no fim do mês, o dinheiro não sobra e o tempo some. Crescer, nesse modelo, é atender mais, e atender mais tem teto: a sua própria saúde. A virada do <strong class="navy">GES360</strong> é contraintuitiva: antes de trazer mais paciente, a clínica precisa de um modelo de receita que converte e retém. Preço e protocolo primeiro, tráfego depois. Uma clínica que fatura no teto da consulta avulsa está a um programa de acompanhamento de dobrar o faturamento, sem atender mais. Não por falta de paciente, por falta de um modelo que funcione.</p>
+
+<!-- ===================== 2. QUIZ ===================== -->
+<div class="sec-wrap">
+<h2 class="sec"><span>2.</span> Copy do Quiz</h2>
+<div class="kick2">Hero da página do quiz</div>
+<p><strong class="navy">Título:</strong> Descubra o que está travando o faturamento da sua clínica</p>
+<p><strong class="navy">Subtítulo:</strong> Responda em 2 minutos e receba um diagnóstico personalizado no seu WhatsApp, com o próximo passo para dobrar o faturamento sem aumentar os atendimentos.</p>
+<p><strong class="navy">Tempo estimado:</strong> 2 minutos · <strong class="navy">CTA:</strong> Começar meu diagnóstico</p>
+
+<div class="kick2">Perguntas (padrão SPIN, qualificação por último)</div>
+
+<div class="qblock">
+<p class="qlabel">P1 · Situação. Como é a sua clínica hoje?</p>
+<ul class="alt"><li>a) Clínica ou consultório próprio, atendo e cuido de tudo</li><li>b) Divido clínica com outros profissionais</li><li>c) Tenho clínica com secretária e equipe</li><li>d) Estou estruturando o negócio agora</li></ul>
+</div>
+<div class="qblock">
+<p class="qlabel">P2 · Situação. Como você cobra hoje?</p>
+<ul class="alt"><li>a) Só consulta avulsa</li><li>b) Consulta avulsa e, às vezes, tento vender acompanhamento</li><li>c) Já tenho programa de acompanhamento, mas vende pouco</li><li>d) O acompanhamento já é a maior parte da minha receita</li></ul>
+</div>
+<div class="qblock">
+<p class="qlabel">P3 · Problema. O que mais trava o seu faturamento neste momento?</p>
+<ul class="alt"><li>a) Dependo de consulta avulsa e não sobra no fim do mês</li><li>b) Ofereço o programa e o paciente acha caro, não fecha</li><li>c) Tenho dificuldade ou vergonha de vender</li><li>d) Não tenho um programa estruturado para oferecer</li></ul>
+</div>
+<div class="qblock">
+<p class="qlabel">P4 · Implicação. Se nada mudar, como fica a sua clínica daqui a 12 meses?</p>
+<ul class="alt"><li>a) Igual: trabalhando muito para o mesmo faturamento</li><li>b) Pior: mais cansado e com menos tempo para a família</li><li>c) Não sei, e isso me preocupa</li><li>d) Vou crescer, mas à custa da minha saúde e da minha vida</li></ul>
+</div>
+<div class="qblock">
+<p class="qlabel">P5 · Tentativas. O que você já tentou para faturar mais?</p>
+<ul class="alt"><li>a) Tráfego pago ou anúncios</li><li>b) Cursos e mentorias de gestão ou marketing médico</li><li>c) Postar mais no Instagram</li><li>d) Ainda não tentei nada estruturado</li></ul>
+</div>
+<div class="qblock">
+<p class="qlabel">P6 · Objetivo. O que você mais quer nos próximos 6 meses?</p>
+<ul class="alt"><li>a) Faturar mais sem aumentar o número de atendimentos</li><li>b) Ter previsibilidade de receita todo mês</li><li>c) Vender os meus programas com naturalidade</li><li>d) Sair dos plantões e focar só na clínica</li></ul>
+</div>
+<div class="qblock">
+<p class="qlabel">P7 · Perfil. Qual é a sua especialidade?</p>
+<ul class="alt"><li>a) Nutrologia, medicina integrativa ou emagrecimento</li><li>b) Ginecologia ou urologia</li><li>c) Medicina esportiva ou tricologia</li><li>d) Outra especialidade ou dono de clínica</li></ul>
+</div>
+<div class="qblock">
+<p class="qlabel">P8 · Qualificação (filtro). Qual o faturamento mensal da sua clínica hoje?</p>
+<ul class="alt"><li>a) Até R$ 20 mil</li><li>b) De R$ 20 a 50 mil</li><li>c) De R$ 50 a 100 mil</li><li>d) Acima de R$ 100 mil</li></ul>
+</div>
+
+<div class="box">
+  <div class="bt">Regra de segmentação</div>
+  <p>c e d na P8 (com demanda de paciente) = <strong>ICP</strong>: agenda o diagnóstico estratégico com o Guilherme. a e b = oferta do <strong>produto de entrada de 45 dias (R$ 7.500)</strong> e conteúdo de aquecimento. As respostas da P3 definem o gargalo que personaliza o relatório (seção 5).</p>
+</div>
+
+<div class="kick2">Captura de dados (última tela)</div>
+<p><strong class="navy">Título:</strong> Seu diagnóstico está pronto</p>
+<p><strong class="navy">Subtítulo:</strong> Preencha abaixo para receber o relatório personalizado no seu WhatsApp (leva 30 segundos).</p>
+<p><strong class="navy">Campos:</strong> Nome · WhatsApp (com DDD) · E-mail &nbsp;·&nbsp; <strong class="navy">CTA:</strong> Receber meu diagnóstico</p>
+<p class="note">Privacidade: seus dados estão seguros. Sem spam, só o seu relatório e o próximo passo.</p>
+</div>
+
+<!-- ===================== 3. PÁGINA DE APLICAÇÃO ===================== -->
+<div class="sec-wrap">
+<h2 class="sec"><span>3.</span> Copy · Página de Aplicação (Diagnóstico Estratégico)</h2>
+<p><strong class="navy">Headline:</strong> Sua clínica está a um modelo de receita de dobrar o faturamento, sem atender mais.</p>
+<p><strong class="navy">Subheadline:</strong> Diagnóstico estratégico gratuito com Guilherme Eduardo para médicos donos de clínica que querem sair da consulta avulsa e faturar com previsibilidade.</p>
+<p><strong class="navy">Prova social (logo após o headline):</strong> [DEPOIMENTO em vídeo do Dr. Kayo] + faixa com prints de WhatsApp de médicos atendidos.</p>
+
+<div class="kick2">Bloco de dor (espelho do ICP)</div>
+<ul>
+  <li>Você atende o dia inteiro e, no fim do mês, o dinheiro não sobra como deveria.</li>
+  <li>Depende da consulta avulsa: se você para de atender, o faturamento para junto.</li>
+  <li>Oferece o programa e o paciente acha caro, ou você trava na hora de vender.</li>
+  <li>Vê médicos mais novos crescendo mais rápido e não entende por quê.</li>
+  <li>Sabe que precisa mudar o modelo, mas não sabe por onde começar.</li>
+</ul>
+<p><strong class="navy">Virada:</strong> o problema não é falta de paciente nem falta de esforço. É o modelo. E modelo se troca.</p>
+
+<div class="kick2">Reframe (o mecanismo do problema)</div>
+<p>A clínica cresce por três alavancas: o <strong class="navy">modelo de receita</strong> (o que você vende), a <strong class="navy">conversão na consulta</strong> (transformar atendimento em programa) e a <strong class="navy">atração</strong> (paciente certo chegando). O médico aprendeu a ser excelente na consulta, mas ninguém ensinou as três alavancas. Resultado: mais esforço no modelo errado, mais cansaço, o mesmo faturamento.</p>
+
+<div class="kick2">Mecanismo único (o Método GES360)</div>
+<ul>
+  <li><strong class="navy">1. Modelo de Receita:</strong> sair da consulta avulsa para programas de acompanhamento, com preço e protocolo estruturados primeiro.</li>
+  <li><strong class="navy">2. Comercial:</strong> a Metodologia de Conversão em Consulta (6 etapas) e o treinamento da secretária, para o paciente fechar o programa sem você precisar "empurrar".</li>
+  <li><strong class="navy">3. Atração de Pacientes:</strong> reativação de base, indicação e posicionamento, e só então tráfego.</li>
+</ul>
+<p>O segredo é a ordem: <strong class="navy">preço e protocolo antes de tráfego</strong>. De nada adianta trazer mais paciente para um sistema que ainda não converte nem retém. O resultado começa a aparecer já na primeira semana.</p>
+
+<div class="kick2">Autoridade</div>
+<p>Guilherme Eduardo, estrategista de clínicas médicas e fundador da GES Consultoria Médica. O Método GES360 tem cases reais de médicos que reorganizaram o modelo de receita e destravaram o faturamento (um deles saiu de R$ 20 mil para R$ 86 mil em um mês, sem atender mais). Implementação assistida e ao vivo, não curso gravado.</p>
+
+<div class="kick2">Oferta da página</div>
+<p>Diagnóstico estratégico gratuito de 30 a 45 minutos: leitura do seu momento e o desenho do próximo passo mais lucrativo para a sua clínica. Sem compromisso e sem enrolação.</p>
+<p><strong class="navy">CTA primário:</strong> Quero meu diagnóstico estratégico</p>
+<p class="note">Reforço: as agendas da semana são limitadas (máximo de sessões por dia definido pelo próprio Guilherme).</p>
+
+<div class="kick2">Para quem é / para quem não é</div>
+<ul class="ok"><li>Médico dono de clínica com demanda de paciente, que travou no faturamento.</li><li>Quem quer sair da consulta avulsa para um modelo de receita recorrente.</li><li>Quem está disposto a executar um método com disciplina.</li></ul>
+<ul class="no"><li>Quem está começando do zero, sem pacientes chegando.</li><li>Quem procura fórmula mágica sem execução.</li><li>Quem não pode investir no próprio crescimento agora.</li></ul>
+
+<div class="kick2">FAQ</div>
+<div class="faq-item"><p><strong class="navy">É curso ou consultoria?</strong> Nenhum dos dois: é implementação assistida, ao vivo, com método e acompanhamento. Você executa com direção e vê resultado já no início.</p></div>
+<div class="faq-item"><p><strong class="navy">Não tenho tempo.</strong> É exatamente por isso. O método organiza o modelo de receita para você faturar mais sem atender mais.</p></div>
+<div class="faq-item"><p><strong class="navy">E se eu não sou bom em vendas?</strong> A Metodologia de Conversão em Consulta (6 etapas) instala o processo comercial dentro da sua consulta e treina a sua secretária. Vender deixa de depender de talento.</p></div>
+<div class="faq-item"><p><strong class="navy">Funciona para a minha especialidade?</strong> O método é de modelo de receita, não de especialidade: nutrologia, ginecologia, urologia, esportiva, integrativa, tricologia, emagrecimento.</p></div>
+<div class="faq-item"><p><strong class="navy">Quanto custa?</strong> O diagnóstico é gratuito. Se fizer sentido para os dois lados, o Guilherme apresenta o formato e o investimento na própria sessão.</p></div>
+
+<p><strong class="navy">CTA final:</strong> Agendar meu diagnóstico estratégico gratuito</p>
+<p class="note">Microcopy: seus dados ficam só com a equipe do Guilherme. Sem spam.</p>
+</div>
+
+<!-- ===================== 4. ANÚNCIOS ===================== -->
+<div class="sec-wrap">
+<h2 class="sec"><span>4.</span> Copy dos Anúncios</h2>
+<div class="box">
+  <div class="bt">Princípio de mídia (Daniel)</div>
+  <p>Falar sempre com o <strong>médico dono de clínica</strong>, nunca com o paciente. Subir <strong>3 conjuntos, cada um com 10 anúncios</strong> (um conjunto por ângulo: dor, mecanismo e autoridade), variando gancho, copy e criativo. Linguagem de <strong>diagnóstico</strong>, nunca promessa de ganho (política da Meta e CFM).</p>
+</div>
+<p><strong class="navy">Big Idea do anúncio:</strong> não é falta de paciente. É o modelo que você usa para faturar.</p>
+
+<div class="ad-angle">
+<h3>Ângulo 1 · Dor e identificação (conjunto 1, 10 anúncios)</h3>
+<p class="note">Estratégia: espelhar a rotina do médico e nomear a dor que ele ainda não nomeou.</p>
+<p><strong class="navy">Hook (3s):</strong> "Agenda cheia não é faturamento."</p>
+<p><strong class="navy">Copy curta (~50):</strong> Agenda cheia não é faturamento. Se você atende o dia inteiro e o fim do mês continua apertado, o problema não é falta de paciente: é o modelo da sua clínica. Faça o diagnóstico gratuito de 2 minutos e descubra o que está travando o seu faturamento.</p>
+<p><strong class="navy">Copy média (~120):</strong> Tem médico que virou funcionário da própria clínica: agenda lotada, semana sem respiro e um faturamento que não conversa com o tanto que trabalha. Isso não se resolve atendendo mais. A clínica cresce por três alavancas: o modelo de receita, a conversão na consulta e a atração de paciente certo. Quando você depende só de consulta avulsa, o faturamento trava e a conta chega no seu tempo e na sua família. O diagnóstico gratuito do Guilherme Eduardo mostra, em 2 minutos, o que está travando a sua clínica e qual o próximo passo. Clica, responde e recebe o relatório no seu WhatsApp.</p>
+<p><strong class="navy">Copy longa (~250):</strong> Ninguém te ensinou isso na faculdade: ser excelente na consulta não faz a clínica faturar. Você estudou anos para dominar a técnica, montou o seu consultório, encheu a agenda, e descobriu que agenda cheia não é faturamento. O número travou num patamar, todo mês parecido, e a única saída que parece existir é atender ainda mais. Só que essa saída tem teto, e o teto é a sua saúde. A verdade que quase ninguém fala para o médico: o problema não é falta de paciente, é o modelo que você usa para faturar. A clínica cresce por três alavancas: um modelo de receita que sai da consulta avulsa e vai para o acompanhamento, a conversão dentro da consulta (o paciente fechando o programa) e a atração de paciente certo. Quando as três funcionam, uma clínica que fatura no teto da avulsa dobra sem atender mais. O Guilherme Eduardo instala exatamente essa virada com médicos donos de clínica: modelo de receita, processo comercial e posicionamento, na ordem certa. O primeiro passo é gratuito: um diagnóstico de 2 minutos que lê o momento da sua clínica e devolve um relatório personalizado no seu WhatsApp, com o gargalo identificado e o próximo movimento. Clica em Saiba mais e responde o seu diagnóstico.</p>
+</div>
+
+<div class="ad-angle">
+<h3>Ângulo 2 · Mecanismo único (conjunto 2, 10 anúncios)</h3>
+<p class="note">Estratégia: a virada contraintuitiva (preço e protocolo antes de tráfego; a consulta que converte).</p>
+<p><strong class="navy">Hook (3s):</strong> "Sua clínica atende muito bem. Só que atender não é vender."</p>
+<p><strong class="navy">Copy curta (~50):</strong> Sua clínica atende muito bem, mas atender não é vender. O paciente elogia, "vai pensar" e some, e o programa não fecha. A clínica que instala um processo comercial na consulta dobra sem precisar de mais paciente. Faça o diagnóstico gratuito e veja o que falta na sua.</p>
+<p><strong class="navy">Copy média (~120):</strong> Toda clínica presa na consulta avulsa está a um modelo de receita de dobrar o faturamento. Não é mais tráfego, não é mais diploma, não é atender até mais tarde. É modelo: sair da consulta avulsa para programas de acompanhamento, com preço e protocolo estruturados, e uma consulta que conduz o paciente até o fechamento (a Metodologia de Conversão em Consulta). O Guilherme Eduardo instala exatamente isso: Modelo de Receita, Comercial e Atração, na ordem certa, com resultado já na primeira semana. Comece pelo diagnóstico gratuito: 2 minutos e você recebe no WhatsApp a leitura do seu momento e o próximo passo.</p>
+<p><strong class="navy">Copy longa (~250):</strong> Existe um faturamento parado dentro da sua clínica, e ele não precisa de nenhum paciente novo para aparecer. Ele está no paciente que "vai pensar" e nunca mais recebe uma mensagem, no programa que você tem vergonha de oferecer, no preço defasado que ninguém reajusta, na consulta que só atende em vez de conduzir até o fechamento. O médico aprende tudo sobre a técnica e quase nada sobre o negócio, e aí a clínica atende muito bem e vende mal. A virada que o Guilherme Eduardo aplica tem uma ordem que quase ninguém respeita: preço e protocolo antes de tráfego. Primeiro o Modelo de Receita (a clínica sai da consulta avulsa e monta os programas de acompanhamento). Depois o Comercial (a Metodologia de Conversão em Consulta, em 6 etapas, e a secretária treinada para não perder lead). Só então a Atração (reativação de base, indicação e tráfego). Porque de nada adianta trazer mais paciente para um sistema que não converte nem retém. Antes de qualquer conversa, o primeiro passo é entender o seu momento: o diagnóstico gratuito lê a sua clínica em 2 minutos e devolve um relatório personalizado no seu WhatsApp com o gargalo e o próximo movimento. Clica e responde agora.</p>
+</div>
+
+<div class="ad-angle">
+<h3>Ângulo 3 · Prova e autoridade (conjunto 3, 10 anúncios)</h3>
+<p class="note">Estratégia: case real do nicho (médico fala com médico), sem prometer resultado (CFM e Meta).</p>
+<p><strong class="navy">Hook (3s):</strong> "Um médico saiu de R$ 20 mil para R$ 86 mil em um mês. Sem atender mais. Veja o que mudou."</p>
+<p><strong class="navy">Copy curta (~50):</strong> Um médico que atendia no teto da consulta avulsa reorganizou o modelo de receita e mudou de patamar em um mês, sem atender mais. O que mudou não foi a agenda, foi o modelo. Faça o diagnóstico gratuito e descubra o que dá para destravar na sua clínica.</p>
+<p><strong class="navy">Copy média (~120):</strong> O Guilherme Eduardo trabalha com uma tese simples: o médico não precisa de mais paciente, precisa de um modelo de receita. Um dos médicos que aplicou o método saiu de um faturamento travado para outro patamar em poucas semanas, apenas reorganizando a oferta, o preço e a conversão da consulta. Sem plantão a mais, sem agenda a mais. [DEPOIMENTO: case real da saúde em uma linha]. Se a sua clínica funciona mas o faturamento travou, o diagnóstico gratuito mostra onde. 2 minutos, relatório no WhatsApp.</p>
+<p><strong class="navy">Copy longa (~250):</strong> Tem uma cena que se repete em quase toda clínica que o Guilherme Eduardo atende: o médico é excelente no que faz, os pacientes elogiam, indicam, voltam, e mesmo assim o faturamento está travado no mesmo patamar há meses. Quando ele olha o negócio por dentro, encontra sempre as mesmas coisas: dependência da consulta avulsa, nenhum programa estruturado, um preço abaixo do valor e uma consulta que atende mas não conduz até o fechamento. A tese do Guilherme é que o médico não precisa de mais paciente, precisa de um modelo de receita. Foi assim que um dos médicos que aplicou o Método GES360 saiu de R$ 20 mil para R$ 86 mil de faturamento em um mês, sem atender mais: só reorganizando a oferta, o preço, o protocolo e a conversão. [DEPOIMENTO: case com resultado concreto]. O método trabalha três pilares na ordem certa: Modelo de Receita, Comercial e Atração, com implementação ao vivo e acompanhamento. O caminho começa com um diagnóstico gratuito de 2 minutos: você responde, recebe um relatório personalizado no WhatsApp e, se fizer sentido, agenda uma sessão com o próprio Guilherme. Sem turma lotada, sem fórmula genérica. O link está aqui embaixo.</p>
+</div>
+
+<div class="kick2">10 headlines para teste A/B</div>
+<ul class="alt">
+<li>1. Agenda cheia não é faturamento.</li>
+<li>2. Não é falta de paciente. É o seu modelo de faturar.</li>
+<li>3. Sua clínica está a um modelo de receita de dobrar o faturamento.</li>
+<li>4. Sua clínica atende muito bem e vende mal (dá para mudar isso).</li>
+<li>5. Ninguém te ensinou o negócio, só a medicina.</li>
+<li>6. Clínica que depende de consulta avulsa tem teto.</li>
+<li>7. O faturamento parado dentro da sua clínica.</li>
+<li>8. Atender mais não é plano de crescimento.</li>
+<li>9. Por que médicos excelentes faturam menos do que deviam.</li>
+<li>10. Descubra em 2 minutos o que trava o faturamento da sua clínica.</li>
+</ul>
+<div class="kick2">5 hooks para vídeo</div>
+<ul class="alt">
+<li>1. "Agenda cheia não é faturamento. E eu te provo em 40 segundos."</li>
+<li>2. "Sua clínica atende muito bem. Só que atender não é vender, e a diferença vale o seu mês."</li>
+<li>3. "O médico não precisa de mais paciente. Precisa de um modelo de receita."</li>
+<li>4. "Se a sua clínica fatura no teto da consulta avulsa, ela está a um passo de dobrar. E o passo não é o que você pensa."</li>
+<li>5. "Existe um faturamento parado dentro da sua clínica agora. Deixa eu te mostrar onde."</li>
+</ul>
+</div>
+
+<!-- ===================== 5. RELATÓRIO DE DIAGNÓSTICO ===================== -->
+<div class="sec-wrap">
+<h2 class="sec"><span>5.</span> Relatório de Diagnóstico (entregue após o quiz)</h2>
+<div class="box">
+  <div class="bt">Como usar</div>
+  <p>As <span class="var">{{variáveis}}</span> são preenchidas pelas respostas do quiz. <span class="var">[DEPOIMENTO]</span> = inserir prova real (vídeo ou print). <span class="var">[AGENDAR]</span> = botão que leva ao WhatsApp/agenda. Tom: direto, de médico para médico, sem condescendência e sem prometer resultado (CFM).</p>
+</div>
+
+<div class="diag-step"><p><strong class="navy">Abertura:</strong> <span class="var">{{nome}}</span>, aqui está o seu diagnóstico. Ele foi montado a partir das suas respostas, então é sobre a sua clínica, não um texto genérico.</p></div>
+<div class="diag-step"><p><strong class="navy">Leitura do cenário:</strong> hoje você fatura <span class="var">{{faixa_faturamento}}</span> e a maior parte da sua receita ainda vem de <span class="var">{{modelo_cobranca}}</span>. O que mais trava você agora é <span class="var">{{gargalo}}</span>. Esse é um ponto muito comum em <span class="var">{{especialidade}}</span>, e é 100% resolvível.</p></div>
+<div class="diag-step"><p><strong class="navy">O mecanismo do problema:</strong> a clínica cresce por três alavancas (modelo de receita, conversão na consulta e atração). O seu gargalo (<span class="var">{{gargalo}}</span>) está na alavanca <span class="var">{{alavanca}}</span>. Enquanto ela não é resolvida, mais paciente só aumenta o trabalho, não o faturamento.</p></div>
+<div class="diag-step"><p><strong class="navy">Comparação de cenários:</strong> na consulta avulsa, cada mês recomeça do zero e o seu faturamento é do tamanho da sua agenda. Com um programa de acompanhamento bem estruturado, o mesmo paciente vale várias vezes mais e a receita fica previsível.</p></div>
+<div class="diag-step"><p><strong class="navy">O custo de continuar:</strong> se nada mudar, daqui a 12 meses você tende a estar <span class="var">{{implicacao}}</span>: mais cansado, no mesmo patamar, vendo colegas crescerem. O tempo perdido não volta.</p></div>
+<div class="diag-step"><p><strong class="navy">O mecanismo da solução (GES360):</strong> primeiro o modelo de receita e o protocolo (preço certo, programa montado), depois o comercial (a Metodologia de Conversão em Consulta e a secretária treinada) e só então a atração. Nessa ordem, o resultado começa já na primeira semana.</p></div>
+<div class="diag-step"><p><strong class="navy">O seu próximo passo:</strong> pelo seu perfil, o primeiro movimento é <span class="var">{{proximo_passo}}</span>. É exatamente isso que a gente desenha no diagnóstico estratégico.</p></div>
+<div class="diag-step"><p><strong class="navy">Prova:</strong> <span class="var">[DEPOIMENTO do Dr. Kayo: de R$ 20 mil para R$ 86 mil em um mês, reorganizando o modelo, sem atender mais]</span>.</p></div>
+<div class="diag-step"><p><strong class="navy">Convite:</strong> o próximo passo é uma conversa de 30 a 45 minutos, gratuita, para desenhar isso na sua clínica. <span class="var">[AGENDAR meu diagnóstico estratégico]</span>.</p></div>
+<p class="note">Variações do <span class="var">{{gargalo}}</span> por resposta da P3: (a) dependência de avulsa; (b) objeção de preço no fechamento; (c) trava de vendas; (d) falta de programa estruturado. Cada uma muda a alavanca, a implicação e o próximo passo.</p>
+</div>
+
+<!-- ===================== 6. CADÊNCIA ===================== -->
+<div class="sec-wrap">
+<h2 class="sec"><span>6.</span> Cadência de Follow-up · 12 dias (voz do Guilherme)</h2>
+<p class="note">Níveis: N1 não respondeu · N2 engajou e parou · N3 quer agendar e adia · N4 no-show · N5 fez a call e não fechou. SDR do projeto: Elisa. Tom de médico para médico, respeitoso e direto.</p>
+<div class="cad-day"><p><strong class="navy">Dia 1 (manhã):</strong> Doutor(a) <span class="var">{{nome}}</span>, aqui é a Elisa, do time do Guilherme Eduardo. O seu diagnóstico chegou aí no WhatsApp? Qualquer coisa eu reenvio.</p></div>
+<div class="cad-day"><p><strong class="navy">Dia 1 (tarde):</strong> o Guilherme viu o seu diagnóstico e comentou que o seu caso tem uma saída mais rápida do que parece. Quer que eu te mostre os horários do diagnóstico estratégico?</p></div>
+<div class="cad-day"><p><strong class="navy">Dia 2:</strong> <span class="var">{{nome}}</span>, separei dois horários na agenda do Guilherme esta semana: <span class="var">{{h1}}</span> e <span class="var">{{h2}}</span>. Qual encaixa melhor?</p></div>
+<div class="cad-day"><p><strong class="navy">Dia 3:</strong> 👀</p></div>
+<div class="cad-day"><p><strong class="navy">Dia 4 (valor):</strong> um ponto do seu diagnóstico que vale destacar: clínicas com <span class="var">{{gargalo}}</span> costumam recuperar faturamento só ajustando a oferta e a conversão da consulta, sem paciente novo. É o tipo de ajuste que o Guilherme desenha com você na sessão. Bora marcar?</p></div>
+<div class="cad-day"><p><strong class="navy">Dia 5 (ligação):</strong> tentativa de ligação + mensagem: te liguei para agilizar o seu agendamento, doutor(a). Me diz um horário bom que eu ligo de novo.</p></div>
+<div class="cad-day"><p><strong class="navy">Dia 6 (case):</strong> olha o que aconteceu com um médico que estava no mesmo ponto que você: [DEPOIMENTO curto]. A diferença foi o modelo, não a agenda.</p></div>
+<div class="cad-day"><p><strong class="navy">Dia 7:</strong> 👀</p></div>
+<div class="cad-day"><p><strong class="navy">Dia 8 (valor):</strong> pergunta honesta, <span class="var">{{nome}}</span>: se a sua clínica seguir igual pelos próximos 12 meses, tá tudo bem para você? Se a resposta incomodar, o diagnóstico é gratuito e resolve a dúvida do próximo passo.</p></div>
+<div class="cad-day"><p><strong class="navy">Dia 9 (áudio do Guilherme):</strong> áudio curto, informal: "<span class="var">{{nome}}</span>, Guilherme aqui. Vi o seu diagnóstico, o seu caso é dos que eu gosto: potencial grande e ajuste claro. Me dá 40 minutos que eu te mostro o desenho. Combina um horário com a Elisa."</p></div>
+<div class="cad-day"><p><strong class="navy">Dia 10:</strong> <span class="var">{{nome}}</span>, a agenda do Guilherme para a semana que vem abre hoje. Te guardo um horário?</p></div>
+<div class="cad-day"><p><strong class="navy">Dia 11 (ligação):</strong> segunda tentativa de ligação + mensagem curta.</p></div>
+<div class="cad-day"><p><strong class="navy">Dia 12 (pré break-up):</strong> <span class="var">{{nome}}</span>, vou encerrar o seu acompanhamento por aqui para dar lugar à fila de diagnósticos. Se quiser retomar, é só me chamar nesta conversa. O seu diagnóstico fica salvo e a porta fica aberta. Sucesso na sua clínica!</p></div>
+<div class="cad-day"><p><strong class="navy">N4 no-show:</strong> "imprevisto acontece, doutor(a). Te reencaixo ainda esta semana: <span class="var">{{h1}}</span> ou <span class="var">{{h2}}</span>?"</p></div>
+<div class="cad-day"><p><strong class="navy">N5 não fechou:</strong> cadência quinzenal de valor (case + conteúdo) por 60 dias, com convite de retomada a cada 15 dias.</p></div>
+</div>
+
+<!-- ===================== 7. RECOMENDAÇÕES ===================== -->
+<div class="sec-wrap">
+<h2 class="sec"><span>7.</span> Recomendações Estratégicas</h2>
+<p><strong class="navy">Sobre a oferta.</strong> A esteira de 3 degraus está no ponto: o produto de 45 dias (R$ 7.500) monetiza o não-ICP do quiz e paga a mídia; a Implementação de 3 meses (R$ 15.000) é o carro-chefe do funil e a que já vende; o Programa de 12 meses (R$ 30.000) é o upsell natural, oferecido no calor do primeiro resultado (frenesi de compra). Prioridade: nunca dar desconto no high ticket; a régua de negociação é forma de pagamento ou downsell para o degrau de baixo.</p>
+<p><strong class="navy">Sobre o funil.</strong> O gargalo do Guilherme é volume de aquisição e o comercial, não a entrega (a entrega dá resultado). Por isso o manual anda junto com o tráfego desde o dia 1: as objeções reais das calls alimentam o quiz e os criativos. O próprio método já ensina a ordem certa (preço e protocolo antes de tráfego), e o funil respeita isso: qualifica no quiz, entrega valor no relatório e só leva para a sessão quem se reconheceu. Risco a vigiar: subir orçamento antes de validar CPL, conclusão do quiz e comparecimento.</p>
+<p><strong class="navy">Sobre conversão.</strong> A trava declarada do Guilherme ("eu não sou bom em vendas") é resolvida por três coisas: a Metodologia de Conversão em Consulta (que tira a venda do improviso), a Elisa carregando o volume de prospecção (o Guilherme entra só na sessão) e a revisão das 3 primeiras calls com o mentor. Documentar o processo desde já para poder delegar sem depender do fundador.</p>
+<p><strong class="navy">Visão de longo prazo.</strong> Os ativos únicos do Guilherme são a rede do mercado médico (farmácia de manipulação, implante hormonal, eventos que ele já circula), que vira canal de indicação e parceria, e o braço de tráfego para clínicas (2 médicos já pediram), que é a expansão do Roadmap 2. Contra concorrentes fortes (Sandro Ferraz e Cassiano Sávio atacam por volume e mindset), o diferencial é claro: implementação individual e operacional (protocolo, precificação, script, secretária) com resultado em 90 dias. E o ativo que mais precisa crescer agora é a prova social do nicho: cada case de médico documentado (com o Guia de Captação de Depoimentos já entregue) vale mais que qualquer criativo novo.</p>
+</div>
+
+</body>
+</html>
