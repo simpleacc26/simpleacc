@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sua leitura emocional · {{MARCA}}</title>
+<!--
+  MODELO da leitura emocional genérica (pro SDR enviar no WhatsApp).
+  Regras: sem travessão, sem sombra (renderiza cinza no PDF mobile), sem nome
+  do lead. Botões usam data-wa
+  (o gerador vira link wa.me). Troque as cores da marca no :root abaixo.
+  Depoimentos: aponte os <img> para as imagens reais do funil do cliente.
+-->
+<style>
+  :root{
+    /* ==== PALETA DA MARCA: troque pelos hex do cliente (pegue do styles.css do funil) ==== */
+    --bg:#F3EEE6;            /* fundo (marfim quente) */
+    --surface:#FFFDF9;       /* cartões (off-white) */
+    --text:#2A2420;          /* texto (espresso) */
+    --muted:#8A7B66;         /* texto secundário */
+    --primary:#B0843A;       /* dourado da marca */
+    --primary-700:#8A6526;   /* dourado escuro (realce) */
+    --accent-soft:#F1E7D1;   /* champagne (pílulas/box bom) */
+    --border:#E6D8C0;        /* bordas */
+    --err:#B4452B;           /* coluna "sintoma" */
+    --action:#2A2420;        /* botão (espresso) */
+    --on-action:#FBF6EC;     /* texto do botão (creme) */
+    /* ==================================================================================== */
+    --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,"Hoefler Text",Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{ background:var(--bg); color:var(--text); font-family:var(--sans); font-size:16.5px; line-height:1.62; -webkit-font-smoothing:antialiased; }
+  .wrap{ padding:34px 30px 38px; }
+  p{ margin:0 0 15px; }
+  strong{ color:var(--primary-700); }
+  h1,h2,h3,h4{ font-family:var(--serif); color:var(--text); margin:0; }
+
+  .brand{ text-align:center; padding-bottom:18px; border-bottom:1px solid var(--border); margin-bottom:8px; }
+  .brand .name{ font-family:var(--serif); font-size:23px; font-weight:700; color:var(--primary-700); letter-spacing:.02em; }
+  .brand .tag{ font-family:var(--sans); font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin-top:5px; }
+  .selo{ display:inline-block; margin:22px auto 10px; font-family:var(--sans); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--primary-700); background:var(--accent-soft); border-radius:999px; padding:5px 13px; }
+  h1.title{ font-size:28px; line-height:1.16; margin:2px 0 8px; }
+  .sub{ color:var(--muted); font-size:14px; margin:0 0 4px; }
+
+  .sec{ margin-top:24px; }
+  .sec h3{ font-size:19.5px; line-height:1.25; color:var(--primary-700); margin-bottom:10px; }
+  .intro{ font-size:17px; }
+
+  .compare{ display:flex; flex-direction:column; gap:12px; margin-top:6px; }
+  .col{ border-radius:16px; padding:16px 17px; }
+  .col h4{ font-size:16px; margin-bottom:9px; }
+  .col ul{ margin:0; padding-left:18px; }
+  .col li{ margin:5px 0; font-size:15px; }
+  .col.bad{ background:#F4ECE0; border:1px solid var(--border); }
+  .col.bad h4{ color:var(--err); }
+  .col.good{ background:var(--accent-soft); border:1px solid #E4CE9E; }
+  .col.good h4{ color:var(--primary-700); }
+
+  ol.metodo{ margin:6px 0 10px; padding-left:20px; }
+  ol.metodo li{ margin:9px 0; }
+  .hint{ color:var(--muted); font-size:14px; }
+
+  /* Botão CTA (link real wa.me, montado pelo gerador). Sem sombra de propósito. */
+  .cta{ margin:22px 0 6px; }
+  a.btn{ display:block; text-decoration:none; text-align:center; background:var(--action); color:var(--on-action); font-family:var(--sans); font-weight:700; font-size:16px; padding:16px 18px; border-radius:14px; letter-spacing:.01em; }
+  .cta .under{ text-align:center; color:var(--muted); font-size:12.5px; margin:9px 4px 0; }
+
+  .depo{ display:flex; flex-direction:column; gap:13px; margin-top:8px; }
+  .depo img{ width:100%; height:auto; border-radius:14px; border:1px solid var(--border); display:block; }
+
+  .cta-box{ margin-top:28px; background:var(--surface); border:1px solid var(--border); border-radius:18px; padding:22px 20px; }
+  .cta-box h2{ font-size:22px; margin-bottom:10px; }
+
+  .foot{ margin-top:28px; padding-top:16px; border-top:1px solid var(--border); text-align:center; color:var(--muted); font-size:12.5px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brand">
+    <div class="name">{{MARCA}}</div>
+    <div class="tag">{{TAGLINE}}</div>
+  </div>
+
+  <div style="text-align:center"><span class="selo">{{SELO}}</span></div>
+  <h1 class="title">{{TITULO}}</h1>
+  <p class="sub">{{SUBTITULO}}</p>
+
+  <div class="sec">
+    <p class="intro">Olá! Que bom que você chegou até aqui. 💛</p>
+    <p>Se você respondeu à leitura, é porque alguma coisa dentro de você pediu
+    atenção. Eu li com carinho o que você compartilhou, e preparei essa leitura
+    pra te mostrar, com honestidade, o que pode estar por trás do que você sente.
+    E, principalmente, que existe caminho.</p>
+  </div>
+
+  <div class="sec">
+    <h3>Antes de tudo</h3>
+    <p>Quero começar por uma verdade que talvez ninguém tenha te dito:
+    <strong>o que você vive não é falta de esforço, nem "frescura".</strong>
+    Tem uma explicação, e tem solução.</p>
+  </div>
+
+  <div class="sec">
+    <h3>O seu cenário hoje</h3>
+    <!-- ADAPTE AO NICHO: descreva o cenário comum do lead do cliente, sem citar respostas. -->
+    <p>Se você sente que vive no automático, dando conta de tudo por fora enquanto
+    por dentro carrega um peso que não passa, saiba que esse padrão se repete em
+    quase todas as pessoas que chegam até a gente.</p>
+    <p>Pode ter começado há meses ou há anos, e já vem custando caro no seu dia a
+    dia. <strong>E isso tem uma explicação.</strong></p>
+  </div>
+
+  <div class="sec">
+    <h3>Por que não resolveu até agora</h3>
+    <!-- ADAPTE AO NICHO: por que as tentativas anteriores do lead não resolveram. -->
+    <p>Você provavelmente já tentou de tudo. E, mesmo assim, o padrão voltou.</p>
+    <p>Faz sentido. A maioria das abordagens trabalha o que você <em>sente hoje</em>,
+    o sintoma. O alívio vem, e por isso parece que resolveu. Mas a causa continua
+    intacta. <strong>Não é recaída sua; é a causa que ainda não foi acessada.</strong></p>
+  </div>
+
+  <div class="sec">
+    <h3>Dois caminhos lado a lado</h3>
+    <div class="compare">
+      <div class="col bad">
+        <h4>Continuar tratando o sintoma</h4>
+        <ul>
+          <li>Alívios temporários</li>
+          <li>Recomeços do zero</li>
+          <li>A sensação de andar em círculos</li>
+          <li>O padrão volta depois</li>
+        </ul>
+      </div>
+      <div class="col good">
+        <h4>Tratar a causa (como fazemos aqui)</h4>
+        <ul>
+          <li>Acessa a origem do problema</li>
+          <li>Ressignifica e reprograma o padrão</li>
+          <li>Processo com começo, meio e fim</li>
+          <li>Para não precisar voltar</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <a class="btn" data-wa="{{WA_MSG_1}}">{{BOTAO_1}}</a>
+    <p class="under">Se já fez sentido pra você, é só tocar aqui.</p>
+  </div>
+
+  <div class="sec">
+    <h3>Como o método trabalha</h3>
+    <!-- ADAPTE AO NICHO: o método/etapas do cliente. -->
+    <p>{{METODO_INTRO}}</p>
+    <ol class="metodo">
+      <li><strong>{{ETAPA_1_TITULO}}:</strong> {{ETAPA_1_TEXTO}}</li>
+      <li><strong>{{ETAPA_2_TITULO}}:</strong> {{ETAPA_2_TEXTO}}</li>
+      <li><strong>{{ETAPA_3_TITULO}}:</strong> {{ETAPA_3_TEXTO}}</li>
+      <li><strong>{{ETAPA_4_TITULO}}:</strong> {{ETAPA_4_TEXTO}}</li>
+    </ol>
+    <p class="hint">{{METODO_NOTA}}</p>
+  </div>
+
+  <div class="sec">
+    <h3>O que precisa acontecer agora</h3>
+    <p>O caminho começa por uma <strong>{{OFERTA_PRIMEIRO_PASSO}}</strong>:
+    {{OFERTA_DESCRICAO}}. Você sai dela entendendo exatamente o que está
+    acontecendo com você.</p>
+    <p>Aquilo que você deseja é totalmente possível. A gente faz isso todos os dias.</p>
+  </div>
+
+  <div class="cta">
+    <a class="btn" data-wa="{{WA_MSG_2}}">{{BOTAO_2}}</a>
+    <p class="under">{{CTA_2_LINHA}}</p>
+  </div>
+
+  <div class="sec">
+    <h3>Quem já viveu isso</h3>
+    <p>Pessoas reais que pararam de tratar o sintoma e foram na causa:</p>
+    <div class="depo">
+      <!-- DEPOIMENTOS: aponte para as imagens reais do funil do cliente.
+           Caminho relativo à pasta materiais/ (ex.: ../<funil>/depoimentos/01.jpeg).
+           Coloque de 4 a 8. O gerador embute como data URI. -->
+      <img src="{{DEPO_PATH}}/01.jpeg" alt="Depoimento de cliente">
+      <img src="{{DEPO_PATH}}/02.jpeg" alt="Depoimento de cliente">
+      <img src="{{DEPO_PATH}}/03.jpeg" alt="Depoimento de cliente">
+      <img src="{{DEPO_PATH}}/04.jpeg" alt="Depoimento de cliente">
+    </div>
+    <p class="hint">O que essas histórias têm em comum: a pessoa parou de tratar o
+    sintoma e foi na causa.</p>
+  </div>
+
+  <div class="cta-box">
+    <h2>O próximo passo</h2>
+    <p>Dar o primeiro passo é simples, e no seu tempo. Se essa leitura fez sentido
+    pra você, é só tocar no botão que a gente já organiza tudo.</p>
+    <div class="cta" style="margin-bottom:0">
+      <a class="btn" data-wa="{{WA_MSG_3}}">{{BOTAO_3}}</a>
+    </div>
+  </div>
+
+  <div class="foot">
+    {{MARCA}} · {{TAGLINE}}<br>
+    {{RODAPE_ATENDIMENTO}}
+  </div>
+
+</div>
+</body>
+</html>
