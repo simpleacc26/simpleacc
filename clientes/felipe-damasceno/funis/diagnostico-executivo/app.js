@@ -1,6 +1,7 @@
 /* ============================================================
    APP. Motor do funil (render, validação, persistência, tracking).
    Sem dependências externas. Funciona abrindo o index.html.
+   Estrutura invisível espelhada do quiz de alta conversão da Pâmella.
    Padrão de escrita: nunca usar travessões (traço longo).
    ============================================================ */
 
@@ -8,10 +9,8 @@
    Vazio = só loga no console. ---- */
 const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
 
-/* Planilha de leads via Make (webhook instant → Google Sheets).
-   Cole a URL do webhook do Make aqui. Dispara só quando chega lead; não fica
-   varrendo (não consome crédito à toa). IMPORTANTE: o Make só estrutura o lead
-   quando recebe application/json (já tratado em enviarLead). Vazio = não envia. */
+/* Planilha de leads (Google Apps Script). Cole aqui a URL /exec da implantação
+   e republique. Vazio = não envia (só salva local + segue pro diagnóstico). */
 const LEADS_ENDPOINT = "";
 
 /* UTMs capturadas da URL no carregamento (a página do quiz não muda de URL até
@@ -36,27 +35,16 @@ function trackEvent(name, data = {}) {
   } catch (e) { /* tracking nunca quebra o funil */ }
 }
 
-/* Data/hora no fuso de Brasília, formato legível: "29/06/2026 09:32:35".
-   Força America/Sao_Paulo (não depende do fuso do visitante). */
-function dataHoraBR() {
-  try {
-    const tz = { timeZone: "America/Sao_Paulo" };
-    const d = new Date();
-    return d.toLocaleDateString("pt-BR", tz) + " " + d.toLocaleTimeString("pt-BR", tz);
-  } catch (e) { return new Date().toISOString(); }
-}
-
-/* Classifica o lead por faturamento e prontidão (mesma régua do diagnóstico).
-   Qualifica por intenção (2 perguntas-porteira), não por pergunta crua de renda. */
+/* Classifica o lead pela prontidão e faturamento (mesma régua do diagnóstico).
+   Qualifica por intenção + ICP, não só por pergunta crua de faturamento. */
 function classificarLead(a) {
-  if (a.faturamento === "ate15" || a.faturamento === "15a30") return "nutrir";
-  if (a.prontidao === "pontual" || a.prontidao === "pesquisando") return "nutrir";
+  if (a.qualificacao === "ate-50" || a.qualificacao === "50-100") return "fora";
+  if (a.prontidao === "depois" || a.prontidao === "pesquisando") return "nutrir";
   return "qualificado";
 }
 
-/* Envia o lead pro webhook do Make (formato padrão da casa: name/email/
-   whatsapp + meta + utms + answers q1..q9). Fire-and-forget: nunca trava o
-   fluxo do lead. O Make grava a linha na planilha. */
+/* Envia o lead pra planilha (Google Apps Script). Manda as respostas já em
+   texto legível. Fire-and-forget: nunca trava o fluxo do lead. */
 function enviarLead() {
   if (!LEADS_ENDPOINT) return;
   const a = state.answers;
@@ -66,37 +54,24 @@ function enviarLead() {
     return o ? o.label : "";
   };
   const lead = {
-    name: a.nomeResp || "",
-    email: a.email || "",
-    whatsapp: a.whatsapp || "",
-    qualificacao: classificarLead(a),
-    frente: (F.config && F.config.frente) || "Funil",
-    answers: {
-      q1: label("situacao"), q2: label("problema"), q3: label("tempo"),
-      q4: label("impacto"), q5: label("necessidade"), q6: label("objetivo"),
-      q7: label("perfil"), q8: label("faturamento"), q9: label("prontidao"),
-    },
-    utms: URL_UTMS,
-    meta: {
-      timestamp: dataHoraBR(),
-      page_url: location.href,
-      referrer: document.referrer || "",
-      user_agent: navigator.userAgent || "",
-    },
+    data: new Date().toISOString(),
+    nome: a.nomeResp || "", whatsapp: a.whatsapp || "", email: a.email || "",
+    situacao: label("situacao"), problema: label("problema"), tempo: label("tempo"),
+    implicacao: label("implicacao"), necessidade: label("necessidade"), objetivo: label("objetivo"),
+    perfil: label("perfil"), qualificacao: label("qualificacao"), prontidao: label("prontidao"),
+    classificacao: classificarLead(a),
+    frente: (F.config && F.config.frente) || "Governo Empresarial",
+    origem: document.referrer || location.href,
+    ...URL_UTMS,
   };
-  const body = JSON.stringify(lead);
   try {
-    // O webhook do Make só estrutura o lead quando recebe application/json
-    // (text/plain não é parseado). O webhook responde CORS, então o navegador
-    // pode mandar application/json em modo cors. keepalive garante que o POST
-    // sobreviva ao redirect pro diagnóstico (não é cancelado ao trocar de página).
-    fetch(LEADS_ENDPOINT, { method: "POST", keepalive: true,
-      headers: { "Content-Type": "application/json" }, body });
+    fetch(LEADS_ENDPOINT, { method: "POST", mode: "no-cors", keepalive: true,
+      headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(lead) });
   } catch (e) { /* não bloqueia o lead */ }
 }
 
 const F = window.FLOW;
-const STORE_KEY = (F.config && F.config.storeKey) || "funil_quiz";
+const STORE_KEY = (F.config && F.config.storeKey) || "felipe_diagnostico_executivo";
 const app = document.getElementById("app");
 const progressEl = document.getElementById("progress");
 
@@ -140,6 +115,8 @@ function renderStep(i) {
       <span class="txt">${o.label}</span>
     </button>`).join("");
 
+  // Só a 1ª tela tem título e subtítulo. As demais começam direto na pergunta
+  // (sem rótulo de etapa em cima), como no quiz da Pâmella.
   const intro = i === 0 ? `
       <h1>${F.hero.titulo}</h1>
       <p class="lead">${F.hero.subtitulo}</p>
@@ -152,7 +129,7 @@ function renderStep(i) {
       <div class="actions">
         ${i > 0
           ? '<button class="btn btn-ghost" id="back">← Voltar</button>'
-          : '<span class="hint">Toque na opção que mais combina. Avança sozinho.</span>'}
+          : '<span class="hint">Toque na opção que mais combina. Avança sozinho 💛</span>'}
       </div>
     </section>`);
   app.replaceChildren(screen);
@@ -277,8 +254,9 @@ function renderCaptura() {
   });
 }
 
-/* Tela de "preparando a leitura": barra que enche + mensagens, depois redireciona.
-   O tempo extra também garante a entrega do lead antes de trocar de página. */
+/* Tela de "preparando o diagnóstico": barra que enche + mensagens, depois
+   redireciona. O tempo extra também garante a entrega do lead antes da troca
+   de página. */
 function renderLoading() {
   progressEl.hidden = true;
   trackEvent("step_view", { step_id: "loading" });
@@ -286,16 +264,16 @@ function renderLoading() {
   const dur = reduce ? 800 : 4700;
   const msgs = [
     "Analisando as suas respostas...",
-    "Cruzando as suas respostas...",
-    "Montando o seu diagnóstico personalizado...",
+    "Calculando o seu IDE, o Índice de Dependência Empresarial...",
+    "Montando o seu Diagnóstico Executivo personalizado...",
   ];
   const screen = el(`
     <section class="card screen loading-card">
       <p class="eyebrow">Quase lá</p>
-      <h2>Preparando o seu diagnóstico</h2>
+      <h2>Preparando o seu Diagnóstico Executivo</h2>
       <p class="lead" id="load-msg">${msgs[0]}</p>
       <div class="load-track"><div class="load-bar" id="load-bar"></div></div>
-      <p class="hint" style="margin-top:16px">Estamos personalizando com base no que você respondeu.</p>
+      <p class="hint" style="margin-top:16px">Estamos personalizando com base no que você respondeu. 💛</p>
     </section>`);
   app.replaceChildren(screen);
   scrollTop();
@@ -347,7 +325,7 @@ window.addEventListener("beforeunload", () => {
 
 /* ---------- start ---------- */
 (function init() {
-  trackEvent("page_view", { funil: (F.config && F.config.frente) || "funil" });
+  trackEvent("page_view", { funil: (F.config && F.config.funil) || "governo-empresarial" });
   const saved = loadSaved();
   if (saved && saved.started && !(saved.answers && saved.answers._completedAt)) {
     offerResume(saved);
