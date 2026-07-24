@@ -62,6 +62,9 @@ alguém. Leia antes de mexer. Atualize depois de cada rodada.
   comercial firme para quem fez avaliação e não fechou (com registro da dor).
 - `materiais/cadencia-3b-leads-avaliacao-sem-registro.(md|html|pdf)` — mesma
   cadência sem depender do registro da dor (menu de dores genéricas).
+- `materiais/leitura-emocional-generica.(html|pdf)` — a leitura emocional do
+  pós-quiz em versão genérica (sem nome, igual para todos), formatada em
+  página estreita de celular, para o SDR enviar no WhatsApp.
 - `materiais/onboarding-2026-06-12-notas-e-transcricao.md` — base do onboarding.
 
 ## Pendências e responsabilidades
