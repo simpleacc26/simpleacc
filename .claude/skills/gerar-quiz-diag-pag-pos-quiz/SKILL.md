@@ -25,12 +25,24 @@ Transforma a **copy/estratégia já aprovada** de um cliente em **páginas no ar
 Tudo na **identidade visual do cliente** (a que for definida na hora).
 
 Stack: HTML/CSS/JS puro, sem dependências, sem build. Há uma **base de
-referência aprovada** em `assets/funil-referencia/`, no **modelo Lucas Sobreiro
-(estrutura espelhada no funil validado da Pâmella)**, live em
-quiz-lucas-sobreiro.vercel.app. A base já vem NEUTRA, com placeholders `__MARCA__`
-e copy genérica de negócio: **duplique essa estrutura e adapte para o novo
-cliente**. Reescreva 100% da copy (nunca publique com o texto do modelo); ele é só
-o ponto de partida que já converteu.
+referência aprovada e CONCRETA** em `assets/funil-referencia/`: é o **funil real
+do Lucas Sobreiro (identidade Método BIO)**, live em quiz-lucas-sobreiro.vercel.app,
+com a estrutura espelhada no funil validado da Pâmella. É o formato top da casa,
+já no acabamento final: 9 passos SPIN, qualificação por 2 perguntas-porteira no
+fim, tela de loading, relatório com as seções certas e CTAs distribuídos, wordmark,
+favicon e paleta reais.
+
+**Use como referência para DUPLICAR e ADAPTAR.** Ao adaptar para o novo cliente,
+troque **100%**, não só a copy:
+- **Copy** do quiz e do relatório (nunca publique com o texto do Lucas).
+- **Identidade**: paleta no `:root` do `styles.css`, wordmark (`.brand-name`/
+  `.brand-tag`), favicon, CSS crítico inline nas duas páginas. (A base vem na
+  paleta Método BIO só como exemplo de acabamento.)
+- **Tela de loading** e **todas as labels de opção** (não deixe resíduo do funil
+  do Lucas, ex.: "clínica" num cliente que não é clínica).
+- **WhatsApp** (`marca.whatsapp`), **webhook** (`LEADS_ENDPOINT`) e **depoimentos**
+  (troque pelos prints reais do cliente). Na base esses três já vêm vazios/genéricos
+  de propósito, para não misrotear dados de um cliente para outro.
 
 ## Regra de ouro: pergunte o que falta, não invente
 Antes de construir, levante o que o cliente precisa fornecer. Se faltar algo

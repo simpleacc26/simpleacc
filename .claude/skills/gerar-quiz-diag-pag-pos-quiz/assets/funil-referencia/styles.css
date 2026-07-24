@@ -1,29 +1,29 @@
 /* ============================================================
-   FUNIL QUIZ · Sistema visual (template)
-   Estrutura pronta e acessível. A PALETA abaixo é um EXEMPLO
-   (dourado/champagne + espresso sobre marfim, serifa elegante).
-   Ajuste as CSS vars de :root à identidade do cliente (cores do
-   logo/feed). O resto do arquivo normalmente não muda.
-   Mantenha --primary, --primary-700 e --accent-soft (o relatório usa).
+   MÉTODO BIO · Lucas Sobreiro · Funil de Quiz (clínicas/saúde)
+   Identidade: creme + espresso + vinho terracota, serifa editorial.
+   Wordmark "Método BIO" em caixa-alta espaçada (referência: Instagram).
+   Paleta provisória de marca; ajustar ao brandbook oficial quando chegar.
    ============================================================ */
 :root {
-  --bg:          #F3EEE6;  /* marfim quente (fundo) */
-  --bg-2:        #ECE3D5;  /* um tom abaixo */
-  --surface:     #FFFDF9;  /* cartões (off-white quente) */
+  /* Identidade Método BIO (Lucas Sobreiro): creme + espresso + vinho, serifa editorial.
+     Paleta provisória a partir do Instagram; ajustar ao brandbook oficial quando chegar. */
+  --bg:          #F1ECE4;  /* creme quente (fundo) */
+  --bg-2:        #E8E1D6;  /* um tom abaixo */
+  --surface:     #FBF8F3;  /* cartões (off-white quente) */
   --text:        #2A2420;  /* espresso quase preto (texto) */
-  --muted:       #8A7B66;  /* texto secundário (taupe) */
+  --muted:       #7C7266;  /* texto secundário (taupe) */
 
-  /* dourado da marca (usado também pelo relatório) */
-  --primary:     #B0843A;  /* dourado */
-  --primary-700: #8A6526;  /* dourado escuro (realce) */
-  --accent-soft: #F1E7D1;  /* champagne suave (pílulas/seleção) */
+  /* vinho/terracota da marca (usado também pelo relatório) */
+  --primary:     #8C3B34;  /* vinho terracota */
+  --primary-700: #6B2A25;  /* vinho escuro (realce) */
+  --accent-soft: #EEE3DA;  /* champagne quente (pílulas/seleção) */
 
   --action:      #2A2420;  /* botão principal (espresso, contraste AA) */
   --action-700:  #100D0B;  /* hover do botão */
   --on-action:   #FBF6EC;  /* texto sobre o botão (creme) */
 
-  --border:      #E6D8C0;  /* bordas (champagne dessaturado) */
-  --ring:        #B0843A;  /* foco de teclado */
+  --border:      #E4DACE;  /* bordas (champagne dessaturado) */
+  --ring:        #8C3B34;  /* foco de teclado */
   --err:         #B4452B;  /* erros (contraste AA sobre claro) */
 
   --radius:      18px;
@@ -56,9 +56,9 @@ img { max-width: 100%; display: block; }
 .topbar { padding: 24px 0 6px; text-align: center; }
 .brand { display: inline-flex; flex-direction: column; align-items: center; gap: 2px; }
 .brand .brand-name {
-  font-family: var(--font-serif); font-size: 23px; font-weight: 700; letter-spacing: .04em;
+  font-family: var(--font-serif); font-size: 21px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
   color: var(--primary-700);
-  background: linear-gradient(92deg, var(--primary-700), #D8B566 55%, var(--primary-700));
+  background: linear-gradient(92deg, var(--text), var(--primary) 60%, var(--text));
   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
 }
 .brand .brand-tag { font-size: 10.5px; letter-spacing: .42em; text-transform: uppercase; color: var(--primary); padding-left: .42em; }
@@ -67,9 +67,9 @@ img { max-width: 100%; display: block; }
 /* ---------- progresso ---------- */
 .progress-wrap { position: sticky; top: 0; z-index: 20; background: linear-gradient(180deg, var(--bg) 70%, transparent); padding: 10px 0 8px; }
 .progress-meta { display: flex; justify-content: space-between; font-size: 13px; color: var(--primary-700); font-weight: 600; margin: 0 2px 7px; }
-.progress-track { height: 7px; background: #E4D6BC; border-radius: 99px; overflow: hidden; }
+.progress-track { height: 7px; background: #E6DBCB; border-radius: 99px; overflow: hidden; }
 .progress-bar { height: 100%; width: 0; border-radius: 99px; transition: width .45s cubic-bezier(.16,1,.3,1);
-  background: linear-gradient(90deg, var(--primary), #D8B566); }
+  background: linear-gradient(90deg, var(--primary-700), var(--primary)); }
 
 /* ---------- cartão / telas ---------- */
 .card {
@@ -150,9 +150,9 @@ h2 { font-size: 25px; line-height: 1.25; margin: 0 0 16px; }
 /* ---------- tela de loading (preparando a leitura) ---------- */
 .loading-card { text-align: center; padding: 40px 26px; }
 .loading-card .eyebrow { display: block; }
-.load-track { height: 10px; background: #E4D6BC; border-radius: 99px; overflow: hidden; margin: 24px 0 4px; }
+.load-track { height: 10px; background: #E6DBCB; border-radius: 99px; overflow: hidden; margin: 24px 0 4px; }
 .load-bar { height: 100%; width: 0; border-radius: 99px;
-  background: linear-gradient(90deg, var(--primary), #D8B566); }
+  background: linear-gradient(90deg, var(--primary-700), var(--primary)); }
 #load-msg { min-height: 1.5em; transition: opacity .2s; }
 @media (max-width: 520px){ .loading-card { padding: 32px 18px; } }
 
