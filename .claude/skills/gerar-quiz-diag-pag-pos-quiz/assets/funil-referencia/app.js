@@ -8,10 +8,12 @@
    Vazio = só loga no console. ---- */
 const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
 
-/* Planilha de leads via Make (webhook instant → Google Sheets).
-   Cole a URL do webhook do Make aqui. Dispara só quando chega lead; não fica
-   varrendo (não consome crédito à toa). IMPORTANTE: o Make só estrutura o lead
-   quando recebe application/json (já tratado em enviarLead). Vazio = não envia. */
+/* Únicos eventos do funil que vão pro Pixel, como evento PADRÃO do Meta (para
+   otimização e conversões). Os demais eventos internos ficam só no console. */
+const META_STANDARD = { funnel_start: "InitiateCheckout", funnel_complete: "Lead" };
+
+/* Planilha de leads via Make (webhook instant -> Google Sheets addRow).
+   Cole aqui a URL do webhook do Make do CLIENTE. Vazio = nao envia. */
 const LEADS_ENDPOINT = "";
 
 /* UTMs capturadas da URL no carregamento (a página do quiz não muda de URL até
@@ -30,7 +32,12 @@ function trackEvent(name, data = {}) {
   console.log(`[TRACK] ${name}`, payload);
   try {
     if (TRACKING_CONFIG.ga4_id && typeof gtag === "function") gtag("event", name, data);
-    if (TRACKING_CONFIG.meta_pixel_id && typeof fbq === "function") fbq("trackCustom", name, data);
+    // Só os eventos mapeados vão pro Pixel (evita ruído e PageView duplicado).
+    // Os demais eventos internos ficam só no console/GA4/webhook.
+    if (TRACKING_CONFIG.meta_pixel_id && typeof fbq === "function") {
+      const std = META_STANDARD[name];
+      if (std) fbq("track", std, data);
+    }
     if (TRACKING_CONFIG.custom_webhook && navigator.sendBeacon)
       navigator.sendBeacon(TRACKING_CONFIG.custom_webhook, JSON.stringify({ event: name, ...payload }));
   } catch (e) { /* tracking nunca quebra o funil */ }
@@ -47,7 +54,7 @@ function dataHoraBR() {
 }
 
 /* Classifica o lead por faturamento e prontidão (mesma régua do diagnóstico).
-   Qualifica por intenção (2 perguntas-porteira), não por pergunta crua de renda. */
+   Qualifica por intenção, não por pergunta crua de renda. */
 function classificarLead(a) {
   if (a.faturamento === "ate15" || a.faturamento === "15a30") return "nutrir";
   if (a.prontidao === "pontual" || a.prontidao === "pesquisando") return "nutrir";
@@ -70,7 +77,7 @@ function enviarLead() {
     email: a.email || "",
     whatsapp: a.whatsapp || "",
     qualificacao: classificarLead(a),
-    frente: (F.config && F.config.frente) || "Funil",
+    frente: (F.config && F.config.frente) || "Saude",
     answers: {
       q1: label("situacao"), q2: label("problema"), q3: label("tempo"),
       q4: label("impacto"), q5: label("necessidade"), q6: label("objetivo"),
@@ -96,7 +103,7 @@ function enviarLead() {
 }
 
 const F = window.FLOW;
-const STORE_KEY = (F.config && F.config.storeKey) || "funil_quiz";
+const STORE_KEY = (F.config && F.config.storeKey) || "lucas_funil_clinica";
 const app = document.getElementById("app");
 const progressEl = document.getElementById("progress");
 
@@ -286,13 +293,13 @@ function renderLoading() {
   const dur = reduce ? 800 : 4700;
   const msgs = [
     "Analisando as suas respostas...",
-    "Cruzando as suas respostas...",
+    "Cruzando o cenário da sua clínica...",
     "Montando o seu diagnóstico personalizado...",
   ];
   const screen = el(`
     <section class="card screen loading-card">
       <p class="eyebrow">Quase lá</p>
-      <h2>Preparando o seu diagnóstico</h2>
+      <h2>Preparando o diagnóstico da sua clínica</h2>
       <p class="lead" id="load-msg">${msgs[0]}</p>
       <div class="load-track"><div class="load-bar" id="load-bar"></div></div>
       <p class="hint" style="margin-top:16px">Estamos personalizando com base no que você respondeu.</p>
@@ -347,7 +354,7 @@ window.addEventListener("beforeunload", () => {
 
 /* ---------- start ---------- */
 (function init() {
-  trackEvent("page_view", { funil: (F.config && F.config.frente) || "funil" });
+  trackEvent("page_view", { funil: (F.config && F.config.frente) || "saude" });
   const saved = loadSaved();
   if (saved && saved.started && !(saved.answers && saved.answers._completedAt)) {
     offerResume(saved);

@@ -4,15 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex" />
-  <title>__TITULO__ · __MARCA__</title>
+  <title>Diagnóstico da Clínica · Lucas Sobreiro</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <meta name="description" content="__META_DESCRICAO__" />
-  <!-- CSS crítico mínimo (evita flash antes do styles.css). Use o --bg da paleta. -->
+  <meta name="description" content="Descubra o que está travando o crescimento da sua clínica e o próximo passo mais lucrativo. Diagnóstico gratuito em 2 minutos, para donos de clínica e profissionais da saúde." />
+  <!-- Meta Pixel: TODO preencher o ID do Pixel do Lucas antes do deploy (mesmo bloco em diagnostico.html) -->
+  <!--
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','SEU_PIXEL_ID');
+    fbq('track','PageView');
+  </script>
+  -->
+  <!-- CSS crítico mínimo (evita flash antes do styles.css) -->
   <style>
-    :root{--bg:#F3EEE6;--text:#2A2420}
+    :root{--bg:#F1ECE4;--text:#2A2420}
     body{margin:0;background:var(--bg);color:var(--text);
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
   </style>
@@ -22,10 +34,10 @@
   <header class="topbar">
     <div class="container">
       <div class="brand">
-        <!-- Quando tiver o logo, troque por:
-             <img class="logo-img" src="logo.png" alt="__MARCA__"> -->
-        <span class="brand-name">__MARCA__</span>
-        <span class="brand-tag">__TAGLINE__</span>
+        <!-- Quando tiver o arquivo, troque tudo abaixo por:
+             <img class="logo-img" src="logo.png" alt="Lucas Sobreiro · Mentoria para Clínicas"> -->
+        <span class="brand-name">Método BIO</span>
+        <span class="brand-tag">por Lucas Sobreiro</span>
       </div>
     </div>
   </header>
@@ -34,7 +46,7 @@
   <div class="progress-wrap" id="progress" hidden>
     <div class="container">
       <div class="progress-meta">
-        <span id="progress-label">Começando</span>
+        <span id="progress-label">Passo 1 de 9</span>
         <span id="progress-pct">0%</span>
       </div>
       <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
