@@ -1,4 +1,4 @@
-# Intake — o que coletar do cliente (pergunte o que faltar)
+# Intake: o que coletar do cliente (pergunte o que faltar)
 
 Antes de construir, confirme cada item. Se faltar, **pergunte ao usuário ou peça
 o material**. Não invente dados do cliente (nome, número, cor, depoimento).
@@ -9,9 +9,9 @@ o material**. Não invente dados do cliente (nome, número, cor, depoimento).
   cliente. Se não existir, avise que precisa disso primeiro.
 - **Qual frente** (se o cliente tiver mais de uma, ex.: inclusão x implantes).
   Construa uma por vez, salvo pedido contrário.
-- **WhatsApp do cliente** (número com DDD) — destino do CTA. Formato pra usar no
+- **WhatsApp do cliente** (número com DDD), destino do CTA. Formato pra usar no
   link: só dígitos com país, ex.: `5533999999999`.
-- **Pasta do cliente no Google Drive** — onde criar a planilha de leads. Se não
+- **Pasta do cliente no Google Drive**, onde criar a planilha de leads. Se não
   souber, busque pelo nome do cliente ou pergunte.
 - **Conta/Time Vercel** onde publicar (normalmente o time da empresa). Confirme
   qual e que o CLI/login tem acesso (veja `deploy-vercel.md`).
@@ -19,7 +19,7 @@ o material**. Não invente dados do cliente (nome, número, cor, depoimento).
 ## Identidade visual (peça ou ofereça propor)
 - **Paleta** (hex de primária/realce/fundo/texto) ou o brandbook.
 - **Logo** em PNG (fundo transparente) ou SVG. Foto/mockup não serve para
-  produção — peça o arquivo. Enquanto não vier, use um wordmark provisório e
+  produção, peça o arquivo. Enquanto não vier, use um wordmark provisório e
   deixe o slot pronto.
 - **Fontes** da marca (se houver). Por padrão, use stack de sistema (sem
   dependência externa). Veja `identidade-visual.md`.

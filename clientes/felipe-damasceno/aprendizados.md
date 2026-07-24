@@ -18,3 +18,18 @@ Log do que funciona e do que não funciona com este cliente.
 | 2026-07-20 | **Doc de estratégia enxugado (pedido do Daniel):** o documento entregue fica só com as seções de copy (1. Big Idea, 2. Quiz, 3. Página de Aplicação, 4. Anúncios), sem o cabeçalho de metadados e sem as seções operacionais. As seções 5 a 8 (Relatório, Cadência, Tarefas, Recomendações) foram movidas para `estrategia/2026-07-20-estrategia-interno-operacao.md` (memória interna). Doc final (copy): https://docs.google.com/document/d/1jpXR0SeLYyv0u7AJ-gw_R-m9pk81eWCj_7i8eBOZueQ/edit — descartar os Docs anteriores (v1 e v2). | Daniel (sessão) |
 | 2026-07-20 | **Roadmap v1.1 (ajustes do Daniel/time):** (1) Nícolas é do time do FELIPE, não da Simple; quem implementa/entrega o funil é o **Carlos** (corrigido na pág. 3, Ritmo + Divisão de responsabilidades). (2) A bio nova já foi aprovada e está no ar, não refinar de novo; o único ajuste no Passo 5 é ligar o CTA "Faça seu Diagnóstico Executivo" ao quiz do IDE. | Daniel (sessão) |
 | 2026-07-20 | **Premissas do roadmap a validar com Daniel/Felipe na call:** (1) ticket do carro-chefe assumido em R$ 80k (canvas); a nova oferta Governo Empresarial ainda está sendo fechada, confirmar ticket final. (2) Meta assumida R$ 240k/mês (3 vendas × 80k), alinhada ao benchmark da Simple de "250k+ mensais para mentores". (3) Conversão de planejamento 40% (Felipe declarou >50%). (4) Downsell = Etapa 1 isolada, preço a definir. Números escritos limpos no PDF; premissas ficam aqui. | Roadmap v1.0 |
+
+## 2026-07-24 — Alinhamento à skill nova + PDF da leitura (WhatsApp)
+- O funil já seguia a **estrutura invisível da Pâmella**; a skill nova
+  `gerar-quiz-diag-pag-pos-quiz` (modelo Lucas Sobreiro, mesma base) confirmou o
+  padrão. Ajustes finos aplicados: `favicon.svg` (monograma FD dourado sobre navy)
+  + `<meta robots noindex>` nas duas páginas (funil de anúncio não deve indexar).
+- Gerado o **PDF genérico da leitura** (skill `leitura-pdf-whatsapp`) em
+  `materiais/leitura-generica.html` + `.pdf`: página única contínua ~400px, tema
+  dark navy + dourado igual ao funil, 3 botões wa.me clicáveis, copy adaptada ao
+  IDE/dependência (sem "leitura emocional", sem nome do lead, sem travessão, sem
+  box-shadow). **Sem depoimentos** (Felipe ainda não tem prints reais; a skill
+  proíbe inventar) — seção omitida, a incluir quando os depoimentos chegarem.
+- **Pendência do número:** o PDF foi gerado com o WhatsApp placeholder
+  (5500000000000). Regenerar com o número real assim que o Felipe passar
+  (é só rodar o gerador com `WHATSAPP=<numero>`).
