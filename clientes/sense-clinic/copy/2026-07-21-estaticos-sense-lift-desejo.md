@@ -25,3 +25,13 @@ preço, sem número de vagas.** CTA pro WhatsApp. Sem travessão. Texto em itál
 **APOIO:** Sem disfarce, sem truque de ângulo. Reduzir medidas de seios e braços de forma natural é mais possível do que você imagina, com o Sense Lift, aqui em Chapecó.
 **CTA:** Comece por você. Fala com a gente no WhatsApp.
 *(Arte: mulher vestida e confiante, ou só tipografia elegante. Foco no sentimento.)*
+
+---
+
+## Prompts de imagem para o GPT (gerar a arte de cada estático)
+
+**Estático 1:** "Fotografia editorial premium de um vestido elegante pendurado em um cabide dourado, em um closet ou quarto aconchegante e luxuoso. Luz quente e suave de janela lateral, tons de preto, marrom profundo e dourado, clima intimista e aspiracional. Bastante espaço negativo à esquerda para sobrepor texto. Estilo sofisticado de clínica de estética de alto padrão. Sem pessoas, sem texto na imagem. Proporção 4:5 (1080x1350)."
+
+**Estático 2:** "Fundo abstrato premium em preto e marrom profundo, com leve textura de seda/cetim e sutil brilho dourado nas bordas, iluminação de estúdio suave e elegante. Muito espaço negativo central para sobrepor a headline. Clima misterioso e aspiracional, estética de marca de luxo. Sem pessoas, sem texto na imagem. Proporção 4:5 (1080x1350)."
+
+**Estático 3:** "Fotografia editorial de uma mulher elegante e confiante, vestida, de perfil ou em contraluz suave, em ambiente sofisticado de tons quentes (preto, dourado, bege). Expressão serena e segura, clima de autoestima e bem-estar. Espaço à direita para texto. Iluminação cinematográfica suave. Estilo premium, sem nudez, sem foco em partes do corpo, sem texto na imagem. Proporção 4:5 (1080x1350)."
