@@ -62,8 +62,7 @@ faturamento sem aumentar os atendimentos.* Tempo: 2 minutos · CTA: *Começar me
   a) Até R$ 20 mil · b) De R$ 20 a 50 mil · c) De R$ 50 a 100 mil · d) Acima de R$ 100 mil
 
 **Regra de segmentação:** c e d na P8 (com demanda) = ICP → agenda o diagnóstico estratégico. a e b =
-produto de entrada de 45 dias (R$ 7.500) + aquecimento. A P3 define o gargalo que personaliza o
-relatório (seção 5).
+produto de entrada de 45 dias (R$ 7.500) + aquecimento. A P3 define o gargalo do lead (para o SDR usar na abordagem).
 
 **Captura de dados.** Título: *Seu diagnóstico está pronto*. Subtítulo: *Preencha abaixo para receber o
 relatório personalizado no seu WhatsApp (leva 30 segundos).* Campos: Nome · WhatsApp (com DDD) ·
@@ -205,31 +204,7 @@ agora. Deixa eu te mostrar onde."
 
 ---
 
-## 5. Relatório de Diagnóstico (pós-quiz)
-
-Uso: `{{variáveis}}` preenchidas pelo quiz · `[DEPOIMENTO]` = prova real · `[AGENDAR]` = botão WhatsApp.
-Tom direto, de médico para médico, sem prometer resultado (CFM).
-
-1. **Abertura:** {{nome}}, aqui está o seu diagnóstico, montado a partir das suas respostas.
-2. **Leitura do cenário:** hoje você fatura {{faixa_faturamento}} e a maior parte vem de
-   {{modelo_cobranca}}. O que mais trava você é {{gargalo}}, comum em {{especialidade}} e resolvível.
-3. **Mecanismo do problema:** três alavancas (modelo, conversão, atração). O seu gargalo está na
-   alavanca {{alavanca}}. Enquanto ela não é resolvida, mais paciente só aumenta o trabalho.
-4. **Comparação de cenários:** avulsa recomeça do zero todo mês; acompanhamento torna o paciente várias
-   vezes mais valioso e a receita previsível.
-5. **Custo de continuar:** se nada mudar, em 12 meses você tende a estar {{implicacao}}.
-6. **Mecanismo da solução (GES360):** modelo e protocolo, depois comercial, depois atração. Resultado
-   na primeira semana.
-7. **Próximo passo (personalizado):** pelo seu perfil, o primeiro movimento é {{proximo_passo}}.
-8. **Prova:** [DEPOIMENTO do Dr. Kayo].
-9. **Convite:** [AGENDAR meu diagnóstico estratégico].
-
-Variações do {{gargalo}} pela P3: (a) dependência de avulsa · (b) objeção de preço · (c) trava de
-vendas · (d) falta de programa. Cada uma muda alavanca, implicação e próximo passo.
-
----
-
-## 6. Cadência de Follow-up · 12 dias (voz do Guilherme, SDR: Elisa)
+## 5. Cadência de Follow-up · 12 dias (voz do Guilherme, SDR: Elisa)
 
 Níveis: N1 não respondeu · N2 engajou e parou · N3 quer agendar e adia · N4 no-show · N5 fez call e não
 fechou.
@@ -259,7 +234,7 @@ fechou.
 
 ---
 
-## 7. Recomendações Estratégicas
+## 6. Recomendações Estratégicas
 
 - **Oferta:** esteira de 3 degraus no ponto. 45 dias monetiza o não-ICP e paga a mídia; 3 meses é o
   carro-chefe do funil; 12 meses é o upsell no frenesi de compra. Nunca dar desconto no HT (régua =
