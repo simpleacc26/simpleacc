@@ -31,7 +31,7 @@ entrada. Sem landing page nem quiz para esta cliente.
 | Projeto                              | Pasta       | Status                                   | Deploy |
 | ------------------------------------- | ----------- | ----------------------------------------- | ------ |
 | Copy de anúncios (estático/carrossel) | `copy/`     | v1 entregue (27/07/26)                    | —      |
-| Roteiros de vídeo                     | `roteiros/` | v1 entregue (27/07/26)                    | —      |
+| Roteiros de vídeo                     | `roteiros/` | v2 entregue (27/07/26), v1 no histórico   | —      |
 
 ## Observações
 

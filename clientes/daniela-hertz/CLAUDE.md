@@ -36,6 +36,8 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
   materiais internos. O Canvas usa "Aplausi" uma vez — confirmar com a
   cliente qual é a grafia oficial.
 - **Links:** pasta no Drive "Simple & Applausi" (ver `README.md`).
-- **Entregas até agora:** 5 copies de estático + 5 de carrossel + 5 roteiros
-  de vídeo, todos focados em Endolaser (27/07/26). Ver `copy/` e `roteiros/`.
+- **Entregas até agora:** 5 copies de estático + 5 de carrossel (v1) e 5
+  roteiros de vídeo (v2, mais desenvolvidos, com urgência e desejo; v1 no
+  histórico), todos focados em Endolaser (27/07/26). Ver `copy/` e
+  `roteiros/`.
 - **Contato principal:** _(a preencher — WhatsApp/e-mail da Daniela)_
