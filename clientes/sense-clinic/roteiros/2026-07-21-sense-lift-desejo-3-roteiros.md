@@ -38,16 +38,16 @@ Texto em itálico é direção de cena.
 **[CTA]** *(texto na tela: "Chame no WhatsApp")*
 "Se bateu aquele 'será que dava pra mim', toca no botão e fala com a gente."
 
-## ROTEIRO 3 · A mulher que você seria (identidade, future-pacing)
+## ROTEIRO 3 · Se sentir desejada (intimidade e validação, indireto)
 
-**[HOOK]** *(tom suave, quase sussurrado)*
-"Fecha os olhos e imagina por um segundo: você entrando naquele lugar, com aquela roupa, sem pensar uma única vez em disfarçar nada."
+**[HOOK]** *(tom íntimo, de cumplicidade)*
+"Existe uma segurança que não tem nada a ver com roupa ou com foto. É a de se entregar por inteiro num momento a dois, sem nenhuma parte de você ficando na defensiva."
 
-**[DESENVOLVIMENTO]** *(tom emocional, sem exagero)*
-"Sem cruzar o braço na foto. Sem escolher a blusa pra esconder. Sem aquele pensamento no automático toda vez que se olha no espelho. Essa mulher existe dentro de você, e o que separa vocês duas às vezes é só uma decisão: a de cuidar de você. Reduzir medidas de seios e braços, de forma natural e sem cirurgia, é mais possível do que você imagina."
+**[DESENVOLVIMENTO]** *(tom que acolhe, sem apelação)*
+"Muita mulher conhece bem esse jogo. É a mão que desvia, a luz que ela prefere mais baixa, o pensamento que aparece justo na hora de se sentir desejada. Não é frescura. É o incômodo com o próprio corpo tirando de você momentos que deveriam ser só seus. E dá pra mudar isso, reduzindo medidas de seios e braços de um jeito natural e sem cirurgia."
 
-**[OFERTA]** *(tom acolhedor)*
-"É o que a gente faz com o Sense Lift aqui na Sense Clinic, em Chapecó, sempre com uma avaliação pra entender o seu caso primeiro."
+**[OFERTA]** *(tom acolhedor e seguro)*
+"Aqui na Sense Clinic, em Chapecó, o Sense Lift foi pensado pra te devolver essa liberdade de se sentir bem no seu corpo, sempre com uma avaliação individual antes de qualquer coisa."
 
 **[CTA]** *(texto na tela: "Chame no WhatsApp")*
-"Dá o primeiro passo por ela. Toca no botão e fala com a gente."
+"Você merece viver esses momentos por inteiro. Toca no botão e fala com a gente."
