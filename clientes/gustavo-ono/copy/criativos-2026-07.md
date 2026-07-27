@@ -1,7 +1,8 @@
 # Copy de Criativos — Gustavo Ono
 **Criado em:** 2026-07-27
-**Objetivo:** 15 peças em ângulos distintos do funil atual (que usa ângulo diagnóstico/descoberta)
-**Público:** Mulher 35–55 anos, já produz chocolate, frustrações com precificação, inconsistência e dependência de datas sazonais
+**Objetivo:** 15 peças em ângulos distintos do funil atual e das copies já existentes no doc oficial
+**Público:** Mulher 35–55 anos, já tem negócio de chocolate, frustrada com precificação, inconsistência e falta de método de negócio
+**Observação:** Baseado em leitura completa do Drive (copies oficiais, briefing, canvas, scripts comerciais, leads reais)
 
 ---
 
@@ -9,271 +10,213 @@
 
 ---
 
-### ESTÁTICO 1 — Ângulo: Vilão Explícito (a sazonalidade como sintoma, não causa)
+### ESTÁTICO 1 — Ângulo: Gap de identidade / precificação
 
-**Headline:**
-> A Páscoa não é o seu problema.
-> O que faz você **depender** dela é.
+Você entrega produto de atelier.
+Cobra preço de improviso.
 
-**Subheadline:**
-> Enquanto você espera as datas, chocolateiras com o mesmo produto ganham o ano inteiro.
+Não é falta de confiança. É que ninguém nunca te ensinou a montar o preço que você consegue explicar — e o cliente não questiona.
 
-**CTA:**
-> Descubra o que está travando o seu negócio → [link do quiz]
+Descubra o que está travando o seu negócio → [link do quiz]
 
 ---
 
-### ESTÁTICO 2 — Ângulo: Identidade (quem ela é vs. quem ela quer ser)
+### ESTÁTICO 2 — Ângulo: Presa na produção
 
-**Headline:**
-> Você faz chocolate.
-> Mas você tem um **negócio** de chocolate?
+Você passou o dia inteiro na cozinha.
+No final, mal sobrou lucro.
+E ainda tem encomenda pra entregar amanhã.
 
-**Subheadline:**
-> Saber produzir é o começo. Saber precificar, vender e crescer sem depender de datas — isso é o que transforma uma paixão em profissão.
+Quando você está presa na produção, não tem espaço pra crescer o negócio. A saída não é trabalhar mais horas — é mudar o que você produz e quanto cobra por isso.
 
-**CTA:**
-> Faça o diagnóstico gratuito → [link do quiz]
+Faça o diagnóstico gratuito → [link do quiz]
 
 ---
 
-### ESTÁTICO 3 — Ângulo: A Matemática da Perda (números concretos)
+### ESTÁTICO 3 — Ângulo: FOMO / prova social implícita
 
-**Headline:**
-> Você trabalha 10 horas por dia
-> e ainda não consegue pagar todas as contas.
+Tem chocolateira cobrando o dobro do que você cobra.
+Com produto parecido com o seu.
 
-**Subheadline:**
-> O problema não é quanto você trabalha.
-> É o que você cobra — e por quê.
+A diferença não está no que ela faz. Está em como ela posiciona, precifica e estrutura o negócio por trás.
 
-**CTA:**
-> Identifique o gargalo do seu negócio agora → [link do quiz]
+Entenda o que está faltando no seu → [link do quiz]
 
 ---
 
-### ESTÁTICO 4 — Ângulo: Contrarian (destruindo a crença de que curso de receita resolve)
+### ESTÁTICO 4 — Ângulo: Custo de não decidir
 
-**Headline:**
-> Mais uma receita não vai resolver
-> o que está travando sua chocolateria.
+Mais um mês vai acabar.
+E sem entender o que está travando, o próximo vai ser igual.
 
-**Subheadline:**
-> O que falta não é técnica. É um sistema que une técnica profissional + visão de negócio desde o primeiro passo.
+Não é esforço que falta. É clareza de onde está o gargalo. Quando você descobre isso, o próximo passo fica óbvio.
 
-**CTA:**
-> Veja o que realmente está te impedindo → [link do quiz]
+Faça o diagnóstico gratuito agora → [link do quiz]
 
 ---
 
-### ESTÁTICO 5 — Ângulo: Pergunta Financeira Direta (ativa a ganância e a dor ao mesmo tempo)
+### ESTÁTICO 5 — Ângulo: O momento do Instagram
 
-**Headline:**
-> Quantos chocolates você precisaria vender
-> para pagar suas contas esse mês?
+Você acabou de salvar mais uma foto de produto bonito no Instagram.
+Mas o problema não está no produto.
 
-**Subheadline:**
-> Se a conta não fecha — ou fecha só em novembro — o problema está na estrutura, não no esforço.
+Está no que vem depois dele: cardápio, preço, rotina de venda. Sem isso, qualquer produto fica bonito no feed e parado no estoque.
 
-**CTA:**
-> Faça o diagnóstico gratuito e descubra onde está o erro → [link do quiz]
+Descubra o que está bloqueando o seu faturamento → [link do quiz]
 
 ---
 
 ---
 
-## BLOCO 2 — CRIATIVOS CARROSSEL (5 modelos)
-
-*Estrutura: Capa + slides internos + slide de CTA. Cada slide tem máx. 3 linhas visíveis.*
+## BLOCO 2 — CARROSSÉIS (5 modelos)
 
 ---
 
-### CARROSSEL 1 — "3 razões pelas quais sua chocolateria não cresce (mesmo você trabalhando muito)"
+### CARROSSEL 1 — "4 sinais de que sua chocolateria travou"
 
 **CAPA:**
-> 3 razões pelas quais a sua chocolateria não cresce
-> (mesmo você trabalhando muito)
-> ↓ Arraste
+4 sinais de que sua chocolateria travou — mesmo que você ainda esteja vendendo
+↓ Arraste
 
 **SLIDE 2:**
-> **Razão 1: cardápio sem estratégia**
-> Vender "o que o cliente pede" é diferente de ter um cardápio que gera margem.
-> Sem estrutura de produto, você produz muito e lucra pouco.
+**Sinal 1: você não sabe qual produto te dá mais lucro**
+Você tem vários produtos no portfólio. Mas se alguém perguntasse qual deles paga de verdade — e qual te faz trabalhar de graça — você não saberia responder.
 
 **SLIDE 3:**
-> **Razão 2: precificação no chute**
-> Se você não sabe exatamente quanto custa cada peça — incluindo seu tempo —
-> você está pagando para trabalhar.
+**Sinal 2: seu preço tem medo embutido**
+Você não calculou o preço — você chutou. E continua com aquela sensação no fundo: "cobrei barato demais de novo."
 
 **SLIDE 4:**
-> **Razão 3: dependência de datas**
-> Páscoa e Natal não são oportunidades. São sintomas de que seu negócio
-> ainda não tem uma estratégia de vendas para o ano todo.
+**Sinal 3: você está mais ocupada produzindo do que vendendo**
+Cozinha cheia. Encomendas em dia. Mas sobra zero tempo — e zero energia — pra pensar em como crescer.
 
 **SLIDE 5:**
-> **O que muda quando você resolve os 3:**
-> → Faturamento previsível todos os meses
-> → Menos horas, mais margem
-> → Você para de apagar incêndio e começa a planejar
+**Sinal 4: você não consegue explicar por que um mês é bom e outro é ruim**
+Não é o mercado. Não é sorte. É que sem método, o resultado depende de variável que você não controla.
 
 **SLIDE 6 — CTA:**
-> Descubra qual desses pontos está te travando
-> Faça o diagnóstico gratuito
-> → [link do quiz]
+Se você se identificou com qualquer um desses, o diagnóstico gratuito é o próximo passo.
+→ [link do quiz]
 
 ---
 
-### CARROSSEL 2 — "Por que saber fazer chocolate não é suficiente para ter renda estável"
+### CARROSSEL 2 — "O que separa quem fatura bem de quem fatura pouco"
 
 **CAPA:**
-> Por que saber fazer chocolate
-> não é suficiente para ter renda estável
-> ↓ Arraste para entender
+O que separa a chocolateira que fatura bem da que fatura pouco — com o mesmo produto
+↓ Arraste
 
 **SLIDE 2:**
-> **A técnica te diferencia na vitrine.**
-> Mas quem fecha o mês no positivo
-> tem um sistema por trás, não só um produto bonito.
+**Não é o produto**
+As duas produzem bem. Às vezes a que fatura menos tem o produto mais bonito. Talento não é o diferencial.
 
 **SLIDE 3:**
-> **Chocolateria é um negócio com dois lados:**
-> → O produto: técnica, padronização, qualidade
-> → O negócio: precificação, cardápio, vendas, relacionamento
-> A maioria só aprende o primeiro lado.
+**Não é o volume**
+Produzir mais sem margem só aumenta o cansaço — não o faturamento.
 
 **SLIDE 4:**
-> **O resultado de ignorar o segundo lado:**
-> Renda instável. Dependência de datas.
-> Cansaço de trabalhar muito e ganhar pouco.
+**É o cardápio**
+Uma sabe exatamente o que vende, pra quem, e por que aquele produto justifica o preço. A outra faz "o que pedem".
 
 **SLIDE 5:**
-> **O que a integração entre os dois lados produz:**
-> Chocolateiras que faturam o ano inteiro, com produtos que vendem
-> porque foram desenhados para vender — não só para ficarem bonitos.
-
-**SLIDE 6 — CTA:**
-> Qual lado está travando o seu negócio?
-> Faça o quiz de diagnóstico gratuito
-> → [link do quiz]
-
----
-
-### CARROSSEL 3 — "5 sinais de que seu cardápio está te impedindo de crescer"
-
-**CAPA:**
-> 5 sinais de que seu cardápio
-> está te impedindo de crescer
-> ↓ Veja se você se identifica
-
-**SLIDE 2:**
-> **Sinal 1:**
-> Você vende o que o cliente pede,
-> não o que dá mais margem para você.
-
-**SLIDE 3:**
-> **Sinal 2:**
-> Você não sabe qual produto te faz lucrar mais
-> e qual te faz trabalhar de graça.
-
-**SLIDE 4:**
-> **Sinal 3:**
-> Seu cardápio muda toda semana
-> porque você ainda não tem produtos validados e fixos.
-
-**SLIDE 5:**
-> **Sinal 4:**
-> Você nunca fez uma campanha em cima de um produto específico —
-> porque não sabe qual merece ser o carro-chefe.
+**É a precificação**
+Uma calcula. A outra chuta — e às vezes prefere não calcular pra não ver o resultado.
 
 **SLIDE 6:**
-> **Sinal 5:**
-> Seus melhores meses são Páscoa e Natal.
-> O resto do ano é sobrevivência.
+**É a estrutura de venda**
+Uma tem rotina de oferta. A outra espera o cliente aparecer.
 
 **SLIDE 7 — CTA:**
-> Se você se identificou com 2 ou mais sinais,
-> o diagnóstico gratuito é o próximo passo.
-> → [link do quiz]
+Essas três coisas são o que o quiz ajuda a diagnosticar no seu negócio.
+→ [link do quiz]
 
 ---
 
-### CARROSSEL 4 — "Antes e depois: o que muda quando você para de improvisar"
+### CARROSSEL 3 — "3 erros que estão comendo sua margem sem você perceber"
 
 **CAPA:**
-> O que muda quando você para de improvisar
-> e começa a operar como profissional
-> ↓ Arraste
+3 erros que estão comendo a margem da sua chocolateria — sem você perceber
+↓ Arraste
 
 **SLIDE 2:**
-> **ANTES**
-> Produz o que o cliente pede.
-> Precifica no sentimento.
-> Mês bom é exceção.
+**Erro 1: você não conta seu tempo no custo**
+Uma caixa de 9 bombons que leva 2h pra fazer. Você colocou o valor da sua hora no preço? Se a resposta for "não sei", você pode estar trabalhando de graça.
 
 **SLIDE 3:**
-> **DEPOIS**
-> Cardápio fixo com produtos de alta margem.
-> Preço calculado. Lucro previsível.
-> Crescimento acontece sem depender da Páscoa.
+**Erro 2: você vende o que o cliente pede**
+"Você tem brigadeiro?" Você faz. Negócio estruturado não funciona assim — você define o cardápio que dá margem, não o que vira pedido aleatório.
 
 **SLIDE 4:**
-> **ANTES**
-> Sabe fazer chocolate bonito.
-> Mas não sabe como isso vira negócio.
-> Trabalha 10h por dia e não sente que avança.
+**Erro 3: você não tem produto âncora**
+O produto âncora é aquele que puxa todo o resto. Que aparece no feed e já gera mensagem antes de você abrir a boca. Que justifica o preço do cardápio inteiro. Sem ele, você briga por atenção em todo post.
 
 **SLIDE 5:**
-> **DEPOIS**
-> Técnica profissional integrada com visão empresarial.
-> Cada produto tem um propósito dentro do negócio.
-> Você trabalha menos horas e com muito mais resultado.
-
-**SLIDE 6:**
-> **O que muda de verdade não é a técnica.**
-> É o sistema por trás dela.
-
-**SLIDE 7 — CTA:**
-> Descubra onde você está agora
-> e o caminho para chegar no depois.
-> Faça o diagnóstico → [link do quiz]
-
----
-
-### CARROSSEL 5 — "A conta que a maioria das chocolateiras nunca fez"
-
-**CAPA:**
-> A conta que a maioria das chocolateiras
-> nunca fez — e que explica por que a renda não cresce
-> ↓ Arraste
-
-**SLIDE 2:**
-> **Quanto custa uma caixa de 9 bombons?**
-> Matéria-prima: R$ 18
-> Embalagem: R$ 4
-> Seu tempo (2h): ?
-> Energia, gás, desgaste de equipamentos: ?
-
-**SLIDE 3:**
-> **Se você não conta seu tempo no custo,
-> você está se pagando R$ 0/hora.**
-> E o preço que você cobrou não cobre
-> o que o seu negócio realmente custa.
-
-**SLIDE 4:**
-> **O que acontece quando você aprende a precificar:**
-> → Você para de vender barato com medo de perder cliente
-> → Você atrai clientes que valorizam o que você faz
-> → Sua margem cresce sem precisar vender mais volume
-
-**SLIDE 5:**
-> **Precificação correta não é cobrar caro.**
-> É cobrar o que o seu negócio precisa para ser sustentável.
-> E esse número é maior do que você imagina.
+Esses erros não aparecem na sua cara. Aparecem no extrato no fim do mês. E são exatamente o que o diagnóstico gratuito ajuda a identificar.
 
 **SLIDE 6 — CTA:**
-> Quer entender onde está o gargalo do seu negócio?
-> Faça o diagnóstico gratuito
-> → [link do quiz]
+Responda o quiz e descubra qual está te custando mais.
+→ [link do quiz]
+
+---
+
+### CARROSSEL 4 — "Fazer chocolate vs ter um negócio de chocolate"
+
+**CAPA:**
+Fazer chocolate é diferente de ter um negócio de chocolate.
+Entender essa diferença muda tudo.
+↓ Arraste
+
+**SLIDE 2:**
+**Fazer chocolate**
+Você aprende técnica. Produz com qualidade. Entrega produto que o cliente elogia.
+
+**SLIDE 3:**
+**Ter um negócio de chocolate**
+Você sabe o que vender, para quem, quanto cobrar — e como fazer a venda acontecer sem depender de indicação, data ou sorte.
+
+**SLIDE 4:**
+**Os dois não vêm juntos**
+Você pode ser excelente em um e zero no outro. E ninguém avisa isso quando você começa.
+
+**SLIDE 5:**
+**O que acontece quando falta o negócio**
+Você trabalha no limite e o resultado financeiro não corresponde ao esforço. Parece que falta algo — mas você não consegue nomear o quê.
+
+**SLIDE 6:**
+**O que muda quando você tem os dois**
+Cada produto tem lugar certo no cardápio. Cada hora na cozinha tem retorno calculado. O negócio para de depender de mês bom ou mês ruim.
+
+**SLIDE 7 — CTA:**
+O quiz te mostra qual dos dois está faltando hoje no seu caso.
+→ [link do quiz]
+
+---
+
+### CARROSSEL 5 — "Se eu te desse um conselho" (autoridade / método)
+
+**CAPA:**
+Se eu te desse um conselho antes de você continuar tentando fazer sua chocolateria crescer, seria este:
+↓ Arraste
+
+**SLIDE 2:**
+**Não é mais produto que você precisa**
+Você já tem produto. Às vezes produto excelente. O problema não está na receita.
+
+**SLIDE 3:**
+**Não é mais conteúdo no Instagram**
+Post não paga conta. Oferta certa, na hora certa, com preço que o cliente entende e valoriza — isso paga.
+
+**SLIDE 4:**
+**Não é mais um curso de técnica**
+Você já sabe fazer. O que falta é saber o que fazer com o que você já sabe.
+
+**SLIDE 5:**
+**O que você precisa é de um diagnóstico honesto**
+Entender exatamente onde está o gargalo — e o que mudar primeiro pra não continuar colocando esforço no lugar errado.
+
+**SLIDE 6 — CTA:**
+Esse diagnóstico existe. É gratuito. Leva menos de 3 minutos.
+→ [link do quiz]
 
 ---
 
@@ -281,191 +224,101 @@
 
 ## BLOCO 3 — ROTEIROS DE VÍDEO (5 modelos)
 
-*Formato: vídeo curto (Reels/Stories), 30–60 segundos. Hook nos primeiros 3 segundos.*
-*Indicação de postura, tom e visuais quando relevante.*
+---
+
+### ROTEIRO 1 — O scroll do Instagram
+
+Você abriu o Instagram hoje, viu o produto de outra chocolateira, curtiu, salvou — e ficou ali alguns segundos pensando: como ela consegue cobrar esse preço?
+
+Eu já ouvi essa pergunta de centenas de chocolateiras. E a resposta nunca está no produto.
+
+O que permite cobrar mais não é o chocolate ser mais bonito. É o que está por trás dele: um cardápio construído com estratégia, uma precificação que faz sentido e um posicionamento que não precisa se justificar pra ninguém.
+
+Tudo isso tem nome. Tem método. E dá pra aprender — sem precisar ser a melhor chocolateira do mundo. Só precisando entender como o negócio funciona de verdade.
+
+Se você quer saber exatamente o que está te impedindo de chegar lá, eu preparei um diagnóstico gratuito. Você responde 9 perguntas sobre o seu negócio e recebe na hora um relatório com o que precisa mudar primeiro. O link tá aqui.
 
 ---
 
-### ROTEIRO 1 — Ângulo: Identificação direta / "Se você faz chocolate e..."
+### ROTEIRO 2 — A mentira que o mercado conta
 
-**[Hook — 0 a 3s]**
-*(Olhar direto na câmera, tom calmo e firme)*
-> "Se você trabalha com chocolate e ainda depende de Páscoa para ter um mês bom —
-> esse vídeo é pra você."
+Tem uma mentira que corre solta no mundo da chocolateria. Que se você melhorar a técnica, melhorar o produto, aprender mais receitas — as vendas vêm.
 
-**[Problema — 3 a 15s]**
-> "A maioria das chocolateiras que conheço é apaixonada pelo que faz.
-> Acorda cedo, vai dormir tarde, não para.
-> Mas no fim do mês, a conta não fecha como deveria.
-> E sabe por quê? Porque paixão não paga conta.
-> Sistema paga."
+Mas não vêm. E você provavelmente já sabe disso.
 
-**[Virada — 15 a 35s]**
-> "O que separa quem fatura o ano inteiro de quem sobrevive de data em data
-> não é talento. Não é receita.
-> É ter um método que une técnica profissional com visão de negócio —
-> desde o cardápio até o preço certo."
+Porque já melhorou a técnica. Já fez curso. O produto ficou melhor. E o faturamento continuou igual.
 
-**[CTA — 35 a 45s]**
-> "Se você quer descobrir exatamente o que está travando a sua chocolateria,
-> eu tenho um diagnóstico gratuito.
-> Você responde 9 perguntas e recebe um relatório personalizado
-> com o que precisa fazer agora.
-> O link tá aqui." *(aponta para o link/sticker)*
+O que ninguém conta é que produto e negócio são coisas completamente diferentes. Você pode ter o melhor produto da sua cidade e ainda não saber transformar isso em renda consistente.
+
+O que transforma é o método de negócio: cardápio estratégico, preço calculado, rotina de venda. Três coisas que a maioria nunca aprende junto com a técnica.
+
+Se você quer entender qual das três está mais travada no seu caso, o diagnóstico gratuito te mostra isso em menos de 3 minutos. O link tá aqui.
 
 ---
 
-### ROTEIRO 2 — Ângulo: Provocação / "Por que você cobra barato"
+### ROTEIRO 3 — O que ninguém conta sobre chocolateria como negócio
 
-**[Hook — 0 a 3s]**
-*(Postura direta, sem rodeios)*
-> "Posso te dizer por que você cobra barato?
-> Não é porque o mercado não paga mais.
-> É porque você ainda não acredita que o que você faz vale mais."
+Vou te contar uma coisa que a maioria dos cursos de chocolateria não ensina.
 
-**[Desenvolvimento — 3 a 20s]**
-> "Eu já conversei com centenas de chocolateiras.
-> E toda vez que pergunto 'por que você cobra esse preço?',
-> a resposta é sempre a mesma:
-> 'Porque tenho medo de perder o cliente.'
->
-> Mas deixa eu te fazer uma pergunta:
-> você quer clientes que compram de você
-> porque você é a mais barata —
-> ou clientes que compram de você
-> porque você é a referência?"
+Saber fazer chocolate com técnica, padrão e acabamento é a parte que você aprende em qualquer lugar. Tem curso bom pra isso.
 
-**[Virada — 20 a 40s]**
-> "Quando você aprende a calcular o preço certo —
-> e entende que preço certo não é preço alto, é preço justo —
-> você para de competir por quem cobra menos
-> e começa a atrair quem valoriza o que você entrega.
->
-> Isso muda tudo. O tipo de cliente, a quantidade de trabalho,
-> e o que entra no final do mês."
+O que ninguém ensina junto é o que vem depois: qual produto colocar no cardápio, quanto cobrar sem perder margem, como criar demanda que não depende de data especial, e como fazer a venda acontecer com consistência.
 
-**[CTA — 40 a 50s]**
-> "Faz o diagnóstico gratuito agora.
-> Em 9 perguntas você descobre onde está o gargalo do seu negócio.
-> Link aqui." *(aponta)*
+Quando você aprende a fazer mas não aprende o resto, você fica presa num ciclo: produz muito, ganha pouco, não entende por quê. E vai buscar mais um curso, mais uma receita, achando que o produto é o problema.
+
+Mas não é.
+
+O diagnóstico gratuito existe pra você entender exatamente onde está o gargalo. Não precisa adivinhar. Você responde 9 perguntas e recebe o relatório na hora. Link aqui.
 
 ---
 
-### ROTEIRO 3 — Ângulo: Contrarian / "O que um curso de confeitaria não te ensina"
+### ROTEIRO 4 — "Já fiz muitos cursos"
 
-**[Hook — 0 a 3s]**
-> "Tem uma coisa que nenhum curso de confeitaria te ensina.
-> E é exatamente o que está impedindo o seu negócio de crescer."
+Se você já fez curso de chocolate e ainda sente que o negócio não está onde queria — isso não é falta de esforço. E não é porque o curso era ruim.
 
-**[Desenvolvimento — 3 a 25s]**
-> "Cursos de confeitaria te ensinam técnica.
-> Ganache, temperagem, modelagem, decoração.
-> E você aprende — fica muito bom nisso.
->
-> Mas aí você volta pra sua cozinha
-> e percebe que saber fazer não é o mesmo que saber vender.
-> Que ter produto bonito não é o mesmo que ter negócio lucrativo.
-> Que trabalhar mais não é o mesmo que ganhar mais.
->
-> O que falta não é mais uma receita.
-> É saber o que fazer com o que você já sabe."
+É porque curso ensina o produto. Ninguém ensina o negócio junto.
 
-**[Solução — 25 a 40s]**
-> "Isso é o que eu ensino:
-> como integrar técnica profissional com visão empresarial —
-> cardápio, precificação, campanhas, processo de vendas.
-> Para você parar de improvisar e começar a operar
-> como a empresária que você já pode ser."
+Você sai sabendo fazer chocolate com técnica e padrão. Mas volta pra casa sem saber o que colocar no cardápio, quanto cobrar, como vender além de esperar o próximo pedido aparecer.
 
-**[CTA — 40 a 50s]**
-> "Começa pelo diagnóstico gratuito.
-> Você descobre exatamente onde está o seu gargalo agora.
-> Link na bio." *(ou aponta para o link)*
+Essa lacuna é enorme. E é exatamente o que separa quem faz chocolate bem de quem tem um negócio de chocolate que funciona de verdade.
+
+Se você já sabe fazer mas ainda não encontrou o caminho pra isso virar renda consistente, o diagnóstico gratuito foi feito pra você. São 9 perguntas. O relatório sai na hora. Link aqui.
 
 ---
 
-### ROTEIRO 4 — Ângulo: Revelação de Mecanismo / "A diferença entre chocolateiras que crescem e as que estacionam"
+### ROTEIRO 5 — A pergunta que muda a perspectiva
 
-**[Hook — 0 a 3s]**
-*(Tom de quem vai revelar algo)*
-> "Sabe qual é a diferença entre a chocolateira que fatura o ano inteiro
-> e a que depende de Páscoa?
-> Não é o produto. Não é o talento."
+Deixa eu te fazer uma pergunta: quanto você precisaria faturar por mês pra sentir que a sua chocolateria virou um negócio de verdade?
 
-**[Desenvolvimento — 3 a 30s]**
-> "Eu já vi chocolateiras com técnica incrível
-> que vivem apagando incêndio todo mês.
-> E já vi outras com produtos mais simples
-> que faturam de forma consistente, todos os meses.
->
-> A diferença é uma coisa só:
-> método.
->
-> Quem cresce tem um sistema.
-> Sabe quais produtos vender, como precificar, como atrair cliente,
-> como fazer campanha, como converter uma conversa em venda.
->
-> Quem estaciona improvisa cada uma dessas etapas —
-> e improviso não escala."
+Pensa num número.
 
-**[Virada — 30 a 42s]**
-> "A boa notícia é que método se aprende.
-> E quando você aprende de verdade,
-> o crescimento para de ser sorte
-> e vira consequência."
+Agora me diz: o que está entre onde você está hoje e esse número?
 
-**[CTA — 42 a 52s]**
-> "Faz o diagnóstico gratuito.
-> Você descobre em qual etapa o seu negócio está travado —
-> e o que fazer pra destravar.
-> Link aqui." *(aponta)*
+Pra maioria das chocolateiras que eu conheço, não é falta de produto. Não é falta de técnica. É que o modelo não está estruturado pra chegar lá.
 
----
+Produto sem cardápio estratégico não escala. Preço no chute não sustenta crescimento. Venda que depende de indicação não dá previsibilidade.
 
-### ROTEIRO 5 — Ângulo: Matemática / "O número que muda tudo"
+Quando você resolve esses três pontos, o número que você pensou começa a fazer sentido como meta — e não mais como sonho.
 
-**[Hook — 0 a 3s]**
-> "Vou te mostrar uma conta simples
-> que pode mudar completamente
-> como você vê o seu negócio."
-
-**[Desenvolvimento — 3 a 30s]**
-> "Imagina que você vende 100 caixas por mês a R$ 40 cada.
-> São R$ 4.000. Já é um começo.
->
-> Agora imagina que você aprende a precificar corretamente,
-> monta um cardápio com produtos premium,
-> e sobe o seu ticket médio para R$ 90.
->
-> Com as mesmas 100 caixas,
-> você fatura R$ 9.000.
->
-> Mas agora vem o detalhe que muda de vez:
-> com produtos premium, você vende menos quantidade
-> e trabalha menos horas.
-> Porque o cliente que paga R$ 90 não barganha. Ele quer qualidade.
-> E você entrega — porque você tem o método para isso."
-
-**[Virada — 30 a 42s]**
-> "O problema não é vender mais.
-> É vender melhor.
-> E 'melhor' começa com saber exatamente o que está te impedindo hoje."
-
-**[CTA — 42 a 52s]**
-> "O diagnóstico gratuito te mostra isso.
-> 9 perguntas, relatório personalizado.
-> Link aqui." *(aponta)*
+O diagnóstico gratuito te mostra qual dos três está mais travado no seu caso. Você responde 9 perguntas e recebe o relatório na hora. O link tá aqui.
 
 ---
 
 ## OBSERVAÇÕES DE USO
 
-- **Estáticos 1, 3 e 5** são mais diretos e agressivos — adequados para público frio que nunca viu Gustavo.
-- **Estáticos 2 e 4** trabalham identidade — mais eficazes para público morno (já teve contato com o perfil).
-- **Carrosséis 1 e 3** são diagnóstico — funcionam bem para atrair público educado que quer entender.
-- **Carrosséis 4 e 5** trabalham transformação e números — bons para converter público que já conhece o problema.
-- **Roteiros 1 e 4** são mais suaves — para quem ainda não está convicta de que tem um problema.
-- **Roteiros 2 e 3** são provocadores — para público que já tentou outras coisas e está mais maduro.
-- **Roteiro 5** (matemática) é o mais racional — funciona bem para quem toma decisão por números.
+**Estáticos:**
+- E1 e E3 funcionam melhor pra público frio que ainda não teve contato com o Gustavo
+- E2 e E5 são mais eficazes pra quem já viu algum conteúdo — reconhece a dor pelo contexto
+- E4 é o mais urgente — melhor usar pra remarketing (quem visitou o quiz mas não converteu)
 
-**Todos os CTAs apontam para o quiz de diagnóstico** ([quiz-gustavo-ono.vercel.app](https://quiz-gustavo-ono.vercel.app)) — manter consistência com o funil atual.
+**Carrosséis:**
+- C1 e C3 são diagnósticos — atraem público analítico que quer entender o problema antes de agir
+- C2 e C4 trabalham identidade — mais eficazes pra quem já está no meio da jornada
+- C5 é autoridade — funciona bem pra público que segue o Gustavo mas ainda não entrou no funil
+
+**Roteiros:**
+- R1 e R5 têm o gancho mais suave — adequados pra quem está fria no tráfego
+- R2 e R3 desconstroem crenças — mais impactantes pra quem já tentou outros cursos
+- R4 fala diretamente com a objeção mais comum — melhor pra quem está em remarketing ou consideração
+
+**Todos os CTAs levam para o quiz** (quiz-gustavo-ono.vercel.app).
