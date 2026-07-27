@@ -1,4 +1,4 @@
-# Roteiros de vídeo — Endolaser
+# Roteiros de vídeo para Endolaser
 
 **Cliente:** Daniela Hertz / Applausi Clínica de Estética
 **Campanha:** engajamento no Meta Ads, CTA para mensagem direta no WhatsApp
@@ -17,7 +17,7 @@
 
 ---
 
-## Roteiro 1 — Mecanismo (gancho de pergunta)
+## Roteiro 1: mecanismo (gancho de pergunta)
 
 **Duração sugerida:** 30 a 40s
 **Formato:** você falando direto pra câmera, no consultório
@@ -43,7 +43,7 @@ WhatsApp. A avaliação é gratuita."
 
 ---
 
-## Roteiro 2 — Bastidores da clínica (institucional)
+## Roteiro 2: bastidores da clínica (institucional)
 
 **Duração sugerida:** 20 a 30s
 **Formato:** câmera na mão, andando pelo ambiente, com locução
@@ -65,7 +65,7 @@ nada."
 
 ---
 
-## Roteiro 3 — Quebra de objeção (medo de gastar à toa)
+## Roteiro 3: quebra de objeção (medo de gastar à toa)
 
 **Duração sugerida:** 30 a 45s
 **Formato:** você falando direto pra câmera
@@ -89,7 +89,7 @@ sempre personalizado."
 
 ---
 
-## Roteiro 4 — Foco facial
+## Roteiro 4: foco facial
 
 **Duração sugerida:** 25 a 35s
 **Formato:** você falando pra câmera, pode intercalar close no rosto se
@@ -114,7 +114,7 @@ agenda uma avaliação gratuita."
 
 ---
 
-## Roteiro 5 — Foco corporal + oferta direta
+## Roteiro 5: foco corporal e oferta direta
 
 **Duração sugerida:** 20 a 30s
 **Formato:** você falando direto pra câmera
