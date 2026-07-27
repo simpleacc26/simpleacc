@@ -64,7 +64,7 @@ export function LandingScreen({
               margin: "0 auto",
             }}
           >
-            Em 2 minutos, descubra o gargalo invisível que te mantém refém da operação, mesmo faturando alto.
+            Em 2 minutos, descubra o freio invisível que te mantém refém da operação, mesmo faturando alto.
           </p>
         </div>
 
