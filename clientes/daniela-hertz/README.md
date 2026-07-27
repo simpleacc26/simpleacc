@@ -24,6 +24,7 @@ entrada. Sem landing page nem quiz para esta cliente.
 - Notas do onboarding (13/07/26): [Google Doc](https://drive.google.com/file/d/10hQdozoem9eiJFuAYtZcT3LoecJwGLrW/view)
 - Deck de onboarding (13/07/26): [Google Slides](https://docs.google.com/presentation/d/1nXyE2FQSs9UMihQRV0yE9SI9LYAmJ8i1D_5XbTDDVd8/edit)
 - Planilha de copies do time (Meta Ads): [Google Doc](https://docs.google.com/document/d/1P1t9Bc7Gh2aBFyk1j6FfXR-0H1RBRu1GRVvujgwK2zU/edit)
+- Instagram: [@applausiestetica](https://www.instagram.com/applausiestetica/)
 
 ## Projetos
 
@@ -39,4 +40,7 @@ entrada. Sem landing page nem quiz para esta cliente.
 - Pastas de Depoimentos, Fotos e Criativos no Drive ("2. Material Visual")
   ainda estavam vazias em 27/07 — a copy v1 não usa depoimento real nem cita
   tecnologia/equipamento específico por falta desse material.
-- Instagram da clínica não foi localizado por busca; pedir o link direto.
+- Instagram é [@applausiestetica](https://www.instagram.com/applausiestetica/),
+  mas o conteúdo não é acessível pelas ferramentas desta sessão (Instagram
+  exige login mesmo em perfil público). Pedir print/texto se precisar puxar
+  algo de lá pra copy.

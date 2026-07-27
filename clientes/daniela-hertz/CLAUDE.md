@@ -26,8 +26,12 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
 - **Funil:** campanha de engajamento no Meta Ads, CTA para mensagem direta no
   WhatsApp. Oferta de entrada: avaliação gratuita (~80% de comparecimento).
   Sem landing page/quiz para esta cliente.
-- **Instagram:** não localizado por busca (27/07/26) — pedir o @ direto à
-  cliente/equipe antes de tentar de novo.
+- **Instagram:** [@applausiestetica](https://www.instagram.com/applausiestetica/),
+  confirmado pela cliente em 27/07/26. Confirma a grafia "Applausi" (2 "p").
+  Conteúdo não acessível pelas ferramentas desta sessão: Instagram bloqueia
+  acesso sem login (testado com WebFetch e curl em 27/07/26, ambos retornam
+  a casca do app sem bio/posts). Pedir print ou colar o texto direto se
+  precisar incorporar algo de lá.
 - **Grafia da marca:** usando "Applausi" (2 "p"), a mais recorrente nos
   materiais internos. O Canvas usa "Aplausi" uma vez — confirmar com a
   cliente qual é a grafia oficial.
