@@ -38,16 +38,16 @@ Texto em itálico é direção de cena.
 **[CTA]** *(texto na tela: "Chame no WhatsApp")*
 "Se bateu aquele 'será que dava pra mim', toca no botão e fala com a gente."
 
-## ROTEIRO 3 · Se sentir desejada (intimidade e validação, indireto)
+## ROTEIRO 3 · Se sentir admirada (autoestima e validação)
 
-**[HOOK]** *(tom íntimo, de cumplicidade)*
-"Existe uma segurança que não tem nada a ver com roupa ou com foto. É a de se entregar por inteiro num momento a dois, sem nenhuma parte de você ficando na defensiva."
+**[HOOK]** *(tom próximo e caloroso)*
+"Tem uma diferença enorme entre passar despercebida e entrar num lugar sentindo que você tá sendo admirada. E essa diferença nasce da autoestima."
 
-**[DESENVOLVIMENTO]** *(tom que acolhe, sem apelação)*
-"Muita mulher conhece bem esse jogo. É a mão que desvia, a luz que ela prefere mais baixa, o pensamento que aparece justo na hora de se sentir desejada. Não é frescura. É o incômodo com o próprio corpo tirando de você momentos que deveriam ser só seus. E dá pra mudar isso, reduzindo medidas de seios e braços de um jeito natural e sem cirurgia."
+**[DESENVOLVIMENTO]** *(tom que inspira, sem apelação)*
+"Quando a mulher se sente bem com o próprio corpo, isso transborda. Muda o jeito de caminhar, de falar, de se colocar no mundo. Não é sobre agradar ninguém, é sobre aquela sensação gostosa de gostar de si mesma e de receber de volta o olhar de admiração que ela merece. Só que, quando existe um incômodo com as medidas dos seios ou dos braços, muita mulher acaba se encolhendo sem nem perceber."
 
 **[OFERTA]** *(tom acolhedor e seguro)*
-"Aqui na Sense Clinic, em Chapecó, o Sense Lift foi pensado pra te devolver essa liberdade de se sentir bem no seu corpo, sempre com uma avaliação individual antes de qualquer coisa."
+"Aqui na Sense Clinic, em Chapecó, o Sense Lift foi pensado pra devolver essa autoestima: reduzindo medidas de seios e braços de forma natural e sem cirurgia, sempre com uma avaliação individual antes de tudo."
 
 **[CTA]** *(texto na tela: "Chame no WhatsApp")*
-"Você merece viver esses momentos por inteiro. Toca no botão e fala com a gente."
+"Você merece se sentir admirada de novo, começando por você mesma. Toca no botão e fala com a gente."
