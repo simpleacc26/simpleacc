@@ -6,9 +6,9 @@ Sense Lift. Por isso não citam preço, número de vagas nem os benefícios já 
 arte (sem cirurgia, nada injetável, firmeza, contorno, graduais e duradouros, sem
 recuperação). O texto complementa a arte, não repete ela.
 
-**Nota de posicionamento (21/07):** o criativo aprovado define o Sense Lift como
-**levantamento das mamas sem cirurgia** (não mais "redução de seios e braços" como nos
-materiais de 13/07). Atualizar isso é registrado em `aprendizados.md`.
+**Nota de posicionamento (21/07):** Sense Lift = **redução de medidas de seios e braços,
+sem cirurgia** (registro de 13/07). O criativo "levantar suas mamas" foi só um exemplo de
+arte, não redefine o serviço. Estas legendas são genéricas o bastante pra servir a ambos.
 
 Sem travessão. CTA sempre para o WhatsApp.
 
