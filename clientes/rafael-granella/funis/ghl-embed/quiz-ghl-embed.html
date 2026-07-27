@@ -1,7 +1,7 @@
 <!-- ===== GHL EMBED: QUIZ =====
      Cole TODO este bloco num elemento 'Custom Code / HTML' do passo do funil.
      GTM: NAO vai aqui. Coloque o GTM nas Tracking Settings do funil (Head + Body).
-     EDITAR: No <script>, edite WEBHOOK_URL (ja correto) e RELATORIO_URL (troque pela URL do passo 'relatorio' do seu funil GHL).
+     EDITAR: Nada a editar. WEBHOOK_URL (Make) e RELATORIO_URL ('/relatorio-b') ja estao prontos. So garanta que o passo do relatorio tenha o path exatamente 'relatorio-b'.
 ============================================ -->
 <link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
@@ -143,7 +143,7 @@
   var answers = {};
   var leadNome = '';
   var WEBHOOK_URL = 'https://hook.us2.make.com/1udj4asnqi1kc6n8je836aunuip1xa63';
-  var RELATORIO_URL = 'https://relatorio-alivance-b.vercel.app/';
+  var RELATORIO_URL = '/relatorio-b';  // passo do funil GHL (caminho relativo)
   var step = 1; // 1 = hero+Q1, 2..7 = Q2..Q7, 8 = capture, 10 = loading -> relatório
   var col = document.getElementById('col');
   var screen = document.getElementById('screen');

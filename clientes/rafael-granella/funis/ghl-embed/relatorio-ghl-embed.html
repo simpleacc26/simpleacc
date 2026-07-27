@@ -1,7 +1,7 @@
 <!-- ===== GHL EMBED: RELATORIO =====
      Cole TODO este bloco num elemento 'Custom Code / HTML' do passo do funil.
      GTM: NAO vai aqui. Coloque o GTM nas Tracking Settings do funil (Head + Body).
-     EDITAR: No <script>, edite AGENDA_BASE (troque pela URL do passo 'agendamento' do seu funil GHL). A barra de previa some sozinha quando vier ?pilar= na URL.
+     EDITAR: Nada a editar. AGENDA_BASE ('/agendamento-b') ja esta pronto. So garanta que o passo do agendamento tenha o path exatamente 'agendamento-b'. A barra de previa some sozinha quando vier ?pilar= na URL.
 ============================================ -->
 <link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
@@ -120,7 +120,7 @@
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({ event: 'relatorio_view', pilar: current });
 
-  var AGENDA_BASE = 'https://agendamento-alivance-b.vercel.app';
+  var AGENDA_BASE = '/agendamento-b';  // passo do funil GHL (caminho relativo)
   function agendaUrl() {
     return AGENDA_BASE + '?pilar=' + encodeURIComponent(current) + '&nome=' + encodeURIComponent(nome);
   }
