@@ -100,3 +100,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 - **Imagens do agendamento** (logo, foto do Rafa, prints) apontam pra `lp.rafaelgranella.com.br`. Se um dia esse domínio sair do ar, suba as imagens na Mídia do GHL e troque os `src`.
 - **Bloco grande:** o `agendamento` tem ~41 KB (CSS do Tailwind embutido). O GHL aceita, mas cole tudo de uma vez; não corte no meio.
 - Mantivemos as páginas na Vercel funcionando. Só desligue/redirecione a Vercel depois que o GHL estiver validado.
+
+---
+
+## Migração SEM afetar as campanhas ativas (cutover seguro)
+
+Regra central: **as Fases 1 a 6 não encostam em nada que o Meta usa.** O funil GHL é construído e testado em paralelo, a Vercel continua no ar e as campanhas rodam sem mudança. O único momento sensível é a virada (Fase 7).
+
+### Por que o Meta pode ser afetado (e como blindar)
+1. **Editar a URL de destino de um anúncio ativo pode reiniciar o aprendizado.** Então o mais seguro é **não editar o anúncio**.
+2. **A conversão otimizada é por EVENTO** (`SubmitApplication` disparado no `quiz_b_lead` via GTM), **não por URL**. Como o funil GHL usa o **mesmo container GTM (`GTM-5WS9MLHF`) e os mesmos eventos**, a conversão continua contando sem interrupção. Não crie pixel novo nem evento novo.
+3. **UTMs precisam continuar chegando.** O redirect tem que **preservar a query string**.
+
+### Método recomendado: redirect no nível da Vercel (zero edição de anúncio)
+Em vez de trocar a URL nos anúncios (o que reinicia aprendizado), mantenha a **mesma URL de destino** e faça a Vercel **redirecionar** pro GHL depois de validar:
+- Redirect **302 (temporário)**, nunca 301, pra permitir rollback instantâneo sem cache travado no navegador.
+- **Preservar `?utm_...`** no redirect.
+- Resultado: o anúncio não muda de URL (aprendizado intacto), o lead cai no GHL, o pixel/evento dispara igual (mesmo GTM), a conversão segue contando.
+
+### Rollback (se algo der errado na virada)
+- Remover o redirect da Vercel → volta a servir o quiz na Vercel na hora (por isso 302, não 301).
+- Nenhum anúncio foi editado, então não há o que reverter no Meta.
+
+### Checklist antes de virar a chave
+- [ ] Funil GHL testado ponta a ponta (quiz → relatório → agendamento → WhatsApp).
+- [ ] Make gravando na aba `Quiz B` a partir do GHL.
+- [ ] `quiz_b_lead` / `SubmitApplication` disparando no GHL (GTM Preview + Eventos de Teste da Meta).
+- [ ] Confirmar qual URL as campanhas ativas usam hoje (é ela que vamos redirecionar).
+- [ ] Se existir alguma **conversão personalizada por regra de URL** no Meta, incluir a URL do GHL na regra. Se for por evento, nada a fazer.
+- [ ] Redirect 302 com preservação de UTM configurado e testado com uma URL de anúncio real (com `?utm_...`).
+- [ ] Só então ativar o redirect. Observar 24-48h antes de desligar a Vercel de vez.
