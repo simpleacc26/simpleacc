@@ -54,3 +54,26 @@ Log do que funciona e do que não funciona com este cliente.
 - **Preço fora do funil (recomendação da Simple):** os R$ 80.000 da apresentação
   NÃO entram no quiz. O CTA de topo é a Sessão Estratégica; preço em página de
   quiz derruba conversão.
+
+## 2026-07-29 · Integração de leads e hover no mobile (funil IDE)
+
+- **Webhook do Make com `text/plain` engole o lead em silêncio.** O padrão antigo
+  (`fetch(..., { mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" } })`)
+  faz o Make **não** parsear o JSON: a automação roda, responde "Accepted" e grava
+  uma **linha vazia** na planilha. Nenhum erro aparece em lugar nenhum. Os webhooks
+  do Make devolvem `Access-Control-Allow-Origin: *`, então dá pra largar o `no-cors`
+  e mandar `application/json` de verdade. Vale conferir isso nos outros clientes
+  que usam o mesmo esqueleto de `app.js`.
+- **Sempre validar a integração lendo a planilha**, não o status HTTP. O webhook
+  responde "Accepted" mesmo quando o corpo não foi entendido.
+- **`:hover` gruda no iOS.** Em celular o Safari mantém o `:hover` no último item
+  tocado (e dispara ao arrastar o dedo), fazendo as opções do quiz parecerem
+  pré-selecionadas. Solução: embrulhar o hover em
+  `@media (hover: hover) and (pointer: fine)`, somar
+  `-webkit-tap-highlight-color: transparent` e usar `:active` para o feedback de
+  toque. A seleção real fica só no `aria-checked`.
+- **Vercel: o nome do projeto é a URL.** Não dá pra renomear pelo MCP; para trocar
+  o domínio, publica-se num projeto novo com o nome desejado.
+- **Deploy pelo MCP substitui a árvore inteira.** Todo arquivo que faltar no array
+  vira 404 silencioso. Conferir os assets com `curl -o /dev/null -w '%{http_code}'`
+  depois de cada publicação virou passo obrigatório (já pegou 2 omissões reais).

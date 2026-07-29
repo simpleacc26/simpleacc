@@ -52,15 +52,32 @@ apresentação (+R$ 100 mi no 1o ano, +2.800 empresas, +15 anos, 6 empresas, o
 livro e o ecossistema XGROW/EVENTX/D360/ADVAI/E3T/NeuroVerse). A foto
 (`felipe.webp`, 440px) foi recortada do post do Instagram, sem textos.
 
+## Leads (ligado e testado)
+Cada lead cai sozinho na planilha, via Make (mesmo padrão da Pâmella Mello):
+
+`funil → webhook do Make → Google Sheets`
+
+- **Planilha**: "Planilha de Leads - Felipe Damasceno (Diagnóstico Executivo IDE) - Simple Acc",
+  na pasta "Simple <> Felipe" do Drive. ID `1UmI0Q3Ldmtt1ScsQ0sxI9eANfgOiUx7f-wcUjfFo5M8`.
+  Aba `Untitled`, 21 colunas (as mesmas do `integracao-planilha.gs`).
+- **Cenário Make**: "[Felipe Damasceno] Diagnóstico Executivo (IDE) → Sheets"
+  (id 5805455, time Simple Acc), ativo.
+- **Endpoint** em `app.js → LEADS_ENDPOINT`.
+
+⚠️ O POST precisa ir com `Content-Type: application/json`. Com `text/plain`
+(o padrão de quem usa `mode: "no-cors"`) o webhook do Make **não parseia o corpo
+e a linha cai vazia**, sem erro nenhum. O webhook devolve
+`Access-Control-Allow-Origin: *`, então o CORS normal funciona.
+
+O `integracao-planilha.gs` fica no repo como plano B (caso um dia se queira sair
+do Make e usar Apps Script direto na planilha).
+
 ## Pendências para publicar (o que falta do cliente)
 1. **Logo oficial**: hoje usa o emblema de coroa em SVG + marca em texto. Quando
    vier o arquivo, colocar `logo.png` e ativar `<img class="logo-img">`.
 2. **Depoimentos**: opcional. Se vierem prints reais, dá para somar uma galeria
    `.depo-gallery` com `<img class="depo-shot" src="depoimentos/01.webp">` sem
    tirar o bloco de autoridade.
-3. **Planilha de leads**: criar no Drive do cliente, colar o `integracao-planilha.gs`
-   no Apps Script, implantar como App da Web, colar a URL `/exec` em
-   `app.js → LEADS_ENDPOINT`, republicar e testar um lead de ponta a ponta.
 
 ## Deploy (resumo)
 Publicar **apenas esta pasta** na Vercel da Simple. Rodar tráfego com

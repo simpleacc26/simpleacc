@@ -11,7 +11,7 @@ const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
 
 /* Planilha de leads (Google Apps Script). Cole aqui a URL /exec da implantação
    e republique. Vazio = não envia (só salva local + segue pro diagnóstico). */
-const LEADS_ENDPOINT = "";
+const LEADS_ENDPOINT = "https://hook.us2.make.com/akkbwcbz8ikxg8grrxwm3vswkqdrzqx9";
 
 /* UTMs capturadas da URL no carregamento (a página do quiz não muda de URL até
    o envio, então isso preserva os parâmetros do anúncio). */
@@ -64,9 +64,13 @@ function enviarLead() {
     origem: document.referrer || location.href,
     ...URL_UTMS,
   };
+  // application/json de propósito: com text/plain o webhook do Make não parseia
+  // o corpo e a linha cai vazia na planilha. O endpoint responde com
+  // Access-Control-Allow-Origin: *, então o CORS normal funciona.
   try {
-    fetch(LEADS_ENDPOINT, { method: "POST", mode: "no-cors", keepalive: true,
-      headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(lead) });
+    fetch(LEADS_ENDPOINT, { method: "POST", keepalive: true,
+      headers: { "Content-Type": "application/json" }, body: JSON.stringify(lead) })
+      .catch(() => { /* não bloqueia o lead */ });
   } catch (e) { /* não bloqueia o lead */ }
 }
 

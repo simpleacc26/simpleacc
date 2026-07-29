@@ -28,7 +28,7 @@ window.FLOW = {
     titulo: "A sua empresa cresceu. E hoje quem trabalha mais é você.",
     subtitulo:
       "Descubra o seu IDE, o Índice de Dependência Empresarial, e o caminho para governar a sua empresa através de pessoas, processos e indicadores, em vez de continuar sendo o gargalo dela.",
-    tempo: "Leva ~2 minutos · 9 perguntas rápidas",
+    tempo: "Leva ~2 minutos",
     cta: "Fazer meu Diagnóstico Executivo",
   },
 
