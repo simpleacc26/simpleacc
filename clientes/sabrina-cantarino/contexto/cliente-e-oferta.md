@@ -95,6 +95,34 @@ trás funciona. O gargalo está no **anúncio** (CTR baixo = o hook não está
 parando o scroll). Por isso a prioridade agora é testar ângulos e hooks novos,
 não mexer na página/quiz.
 
+## Inventário de criativos existentes (atualizado 2026-07-29)
+
+Antes de criar peça nova, confira o que já existe:
+
+- **Ângulos de ads da Estratégia** (Drive): 3 por frente (ver seção Big Ideas acima),
+  com 10 headlines e 5 hooks de vídeo cada.
+- **Roteiros de vídeo produzidos** ("Roteiros — Frente 1/2", PDF, 2026-06-25): 9 por
+  frente (3 curtos, 3 médios, 3 longos), todos em formato talking-head da própria
+  Dra. Sabrina. Fonte de verdade de tom/formato pra qualquer roteiro novo.
+- **Estáticos já publicados** (Drive, pasta
+  ["Criativos" ↳ Institucional/Implantes](https://drive.google.com/drive/u/2/folders/1eeaWbZlj7yOWh3nnI2XEA-dyb0EEEezw)):
+  em boa parte, versões estáticas dos ganchos dos roteiros de vídeo.
+- **Meu lote #1** (`copy/2026-07-29-criativos-meta-ads-inclusao-e-implantes.md`, PR
+  #78): 3 ângulos novos por frente (confissão/talking-head, pergunta direta,
+  escassez regional/reframe biológico) + headlines e hooks.
+- **Meu lote #2** (2026-07-29): `copy/*-criativos-estaticos-carrossel-*.md` (5
+  estáticos + 5 carrosséis por frente) e `roteiros/*-roteiros-video-*.md` (5
+  roteiros novos por frente) — ângulos: Clubinho do Sorriso, voz da mãe/paciente
+  (depoimento), o pai, mitos x verdades, comparação tradicional x manejo /
+  fábrica de sorriso x Instituto, timeline visual, autoridade institucional
+  (14 anos/estrutura), sinais de reconhecimento, bastidores/observacional.
+
+> **Correção a um aprendizado anterior:** eu tinha registrado o talking-head como
+> "formato ainda não testado" no lote #1 — na verdade é o formato padrão de TODOS
+> os 18 roteiros já produzidos. O que ainda não existe é: vídeo em formato
+> depoimento/mensagem lida (não a própria Sabrina contando), e vídeo observacional
+> (bastidores, sem narração explicativa) — os dois entraram no lote #2.
+
 ## Atenção — não confundir públicos
 
 Existe copy antiga (nov/2025, pré-SimpleAcc) com um ângulo de **"ensinar outros
