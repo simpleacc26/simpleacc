@@ -21,15 +21,20 @@ python3 -m http.server 8099
 # abra http://localhost:8099/index.html?utm_source=teste
 ```
 
-## PENDÊNCIAS antes de publicar (precisam do cliente)
-- [ ] **WhatsApp oficial** do Evandro/time (hoje placeholder `5500000000000` em `flow.js`).
-- [ ] **Logo e paleta oficiais** do HDM (hoje placeholder Simple/HDM navy+dourado em `styles.css`; trocar o slot do logo nos dois HTML).
-- [ ] **Depoimentos reais** (case JusExpert em vídeo/print) para substituir os `[DEPOIMENTO]` em `diagnostico.js`.
-- [ ] **Deploy na Vercel** (conta/time da Simple) · não feito nesta sessão (sem CLI/login Vercel).
-- [ ] **Planilha de leads** no Drive do cliente + `LEADS_ENDPOINT` no `app.js` (hoje vazio) + teste ponta a ponta.
-- [ ] (Opcional) IDs de GA4 / Meta Pixel em `TRACKING_CONFIG` no `app.js`.
+## Publicação (Vercel · time Simpleacc)
+- **Projeto:** `quiz-evandro-fernandes` (`prj_9gwlLW8TG5yVauoDFe1714KyjhAq`), time Simpleacc (`team_bD5dst9eSAc4qVaaynXWifXr`).
+- **URL de produção:** https://quiz-evandro-fernandes-simpleacc.vercel.app (deploy READY).
+- ⚠️ **BLOQUEIO:** o time tem **Vercel Authentication (Deployment Protection) ON**, então a URL redireciona pra login (302). Um admin precisa desligar em **Project → Settings → Deployment Protection → Vercel Authentication → Off**. Só depois o funil fica público. (Os tools de protection do MCP retornam "not found", não dá pra desligar por aqui.)
+- Anúncio deve apontar pra raiz com query (`/?utm_source=...`), nunca `/index.html`.
 
-## Deploy (quando liberado)
-Publicar **apenas esta subpasta** na conta/time da Simple na Vercel, com nome de
-projeto limpo. Ver `.claude/skills/gerar-quiz-diag-pag-pos-quiz/references/deploy-vercel.md`.
-O anúncio deve apontar para a raiz com query (`/?utm_source=...`), nunca `/index.html`.
+## Planilha de leads
+- **Planilha:** https://docs.google.com/spreadsheets/d/1A1xFuIldVeAM7S0HQfza4hj-GZRZxAqahlFRqoJc1Gk/edit (dona: daniel@simpleacc.com.br), cabeçalho pronto.
+- **Integração (a ligar):** Make (time `1317940`, conexão Google `5139463`), webhook → Google Sheets addRow, mesmo padrão dos outros funis. Depois: colar a URL do webhook em `LEADS_ENDPOINT` (`app.js`), republicar e testar 1 lead.
+
+## PENDÊNCIAS (precisam do cliente/admin)
+- [ ] **Admin Vercel:** desligar a Deployment Protection (acima).
+- [ ] **WhatsApp oficial** do Evandro/time (hoje placeholder `5500000000000` em `flow.js`).
+- [ ] **Logo e paleta oficiais** do HDM (hoje placeholder Simple/HDM; trocar slot do logo nos 2 HTML).
+- [ ] **Depoimentos reais** (case JusExpert) para os `[DEPOIMENTO]` em `diagnostico.js`.
+- [ ] Ligar `LEADS_ENDPOINT` (Make webhook) + testar ponta a ponta.
+- [ ] (Opcional) IDs de GA4 / Meta Pixel em `TRACKING_CONFIG` no `app.js`.
