@@ -7,9 +7,9 @@
    Vazio = só loga no console. ---- */
 const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
 
-/* Planilha de leads (Google Apps Script). Cole aqui a URL /exec da implantação
-   e republique. Vazio = não envia (só salva local + segue pro diagnóstico). */
-const LEADS_ENDPOINT = "";
+/* Planilha de leads via Make (webhook instantâneo -> Google Sheets addRow).
+   Vazio = não envia (só salva local + segue pro diagnóstico). */
+const LEADS_ENDPOINT = "https://hook.us2.make.com/bb1vst7dea8fyim5mfs9rh4vfo4rdf1v";
 
 /* UTMs capturadas da URL no carregamento (a página do quiz não muda de URL até
    o envio, então isso preserva os parâmetros do anúncio). */
@@ -48,12 +48,15 @@ function enviarLead() {
     nome: a.nomeResp || "", whatsapp: a.whatsapp || "", email: a.email || "",
     situacao: label("situacao"), problema: label("problema"), implicacao: label("implicacao"),
     necessidade: label("necessidade"), objetivo: label("objetivo"), perfil: label("perfil"),
-    qualificacao: label("qualificacao"), frente: "Receita Invisível", origem: document.referrer || location.href,
+    qualificacao: label("qualificacao"),
+    qualificado: ["ate-100", "100-300"].includes(a.qualificacao) ? "nutrir" : "qualificado",
+    frente: "Receita Invisível", origem: document.referrer || location.href,
     ...URL_UTMS,
   };
   try {
-    fetch(LEADS_ENDPOINT, { method: "POST", mode: "no-cors",
-      headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(lead) });
+    // Make espera application/json; keepalive sobrevive ao redirect pro diagnóstico.
+    fetch(LEADS_ENDPOINT, { method: "POST",
+      headers: { "Content-Type": "application/json" }, body: JSON.stringify(lead), keepalive: true });
   } catch (e) { /* não bloqueia o lead */ }
 }
 
