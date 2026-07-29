@@ -15,14 +15,14 @@ Os 10 criativos abaixo evitam essas execuções todas. São ângulos novos: parc
 
 ## ESTÁTICOS (5)
 
-### E1: Não precisa ter tudo guardado hoje
+### E1: A comida que você recusa antes de alguém perceber
 
 **Formato:** Estático
-**Orientação de imagem:** Sabrina ou o ambiente da clínica, com tom tranquilizador. Evitar qualquer elemento que pareça promoção ou desconto agressivo.
+**Orientação de imagem:** Uma cena cotidiana de comida (mesa posta, prato compartilhado, churrasco entre amigos), ou a Sabrina no consultório com tom tranquilizador. Evitar qualquer elemento que pareça promoção ou desconto agressivo.
 
-**Headline:** Você não precisa ter o valor todo guardado pra começar.
+**Headline:** Quantas vezes você já disse "pode ir" quando ofereceram pipoca, ou aquele pedaço de carne mais durinho?
 
-**Texto:** A avaliação existe justamente pra mostrar o caminho, inclusive as condições pra organizar o tratamento. Adiar não resolve o problema, só empurra ele pra frente.
+**Texto:** Você nem repara mais, já virou hábito recusar antes que alguém perceba que você não consegue morder direito. Ou cortar tudo bem miudinho antes de comer, pra ninguém ver. O que trava a maioria não é o bolso, é achar que precisa ter tudo guardado antes de procurar ajuda. Dá pra começar com uma avaliação e organizar o tratamento do seu jeito, sem empurrar isso pra mais um ano de comida cortada em pedacinho.
 
 **CTA:** Fazer o teste de 2 minutos
 
@@ -31,25 +31,25 @@ Os 10 criativos abaixo evitam essas execuções todas. São ângulos novos: parc
 ### E2: Voz do paciente (depoimento em forma de mensagem)
 
 **Formato:** Estático
-**Orientação de imagem:** Card no estilo "mensagem", ou citação tipográfica. Sem antes e depois sem autorização.
+**Orientação de imagem:** Card no estilo "mensagem", ou citação tipográfica sobre uma foto de mão cobrindo a boca ao sorrir (sem mostrar rosto completo se não for autorizado). Sem antes e depois sem autorização.
 **Nota:** Publicar só com depoimento real e autorizado, até lá fica como estrutura de referência.
 
 **Headline:** "Eu não sabia que dava pra rir de boca aberta de novo até fazer isso." Mensagem de um paciente.
 
-**Texto:** É esse tipo de resultado que a avaliação começa a construir. Descobre o caminho indicado pro seu caso.
+**Texto:** A mão na frente da boca quando ri, o jeito de falar mais fechado, a vergonha de aparecer em foto de perto: é um peso que a gente carrega em silêncio, achando que já virou "do jeito que é" e que ninguém percebe. Não precisa continuar assim. Descobre o caminho indicado pro seu caso.
 
 **CTA:** Quero entender meu caso
 
 ---
 
-### E3: Avaliação sem compromisso
+### E3: O ângulo de foto "de segurança"
 
 **Formato:** Estático
-**Orientação de imagem:** Ambiente acolhedor da clínica, sem cadeira ou instrumental em destaque.
+**Orientação de imagem:** Alguém sorrindo de lado ou de boca fechada numa foto (pose "de segurança"), ou o ambiente acolhedor da clínica. Sem cadeira ou instrumental em destaque.
 
-**Headline:** A avaliação não te obriga a fechar nada na hora.
+**Headline:** Você já decorou o ângulo de foto que esconde o dente que falta?
 
-**Texto:** É o espaço pra você entender seu caso, ver o plano e as condições, e decidir com calma, sem pressão. O primeiro passo é bem mais leve do que parece.
+**Texto:** Todo mundo que passa por isso desenvolve um jeito de sorrir "de segurança": de lado, de boca quase fechada, com a mão por perto pra qualquer emergência. A avaliação não te obriga a fechar nada na hora, é só pra você entender seu caso, ver o plano e decidir com calma. Às vezes o primeiro passo pra voltar a sorrir de frente é bem mais leve do que a gente imagina.
 
 **CTA:** Fazer o teste rápido
 
@@ -68,14 +68,14 @@ Os 10 criativos abaixo evitam essas execuções todas. São ângulos novos: parc
 
 ---
 
-### E5: 14 anos de clínica estabelecida
+### E5: Medo de cair em mão errada de novo
 
 **Formato:** Estático
-**Orientação de imagem:** Fachada ou estrutura da clínica, ou a Sabrina num registro mais institucional, não tão emocional dessa vez.
+**Orientação de imagem:** Fachada ou estrutura da clínica, equipe em ação, ou a Sabrina em registro institucional, intercalado se possível com um detalhe de sorriso aberto e confiante pra reforçar o benefício emocional.
 
-**Headline:** 14 anos de clínica em Governador Valadares, com estrutura própria pra reabilitação oral.
+**Headline:** Tem gente que já quase marcou a avaliação e recuou no último minuto, com medo de cair em mão errada.
 
-**Texto:** Reabilitação séria pede planejamento, equipe e estrutura, não só boa vontade. Conhece o caminho indicado pro seu caso.
+**Texto:** A dúvida é justa: uma reabilitação malfeita tira ainda mais confiança do que a falta do dente já tirou. Por isso a estrutura importa. São 14 anos de clínica em Governador Valadares, com planejamento sério antes de qualquer procedimento, pensado pra devolver o sorriso que você parou de mostrar nas fotos, não só o dente que falta.
 
 **CTA:** Fazer o teste rápido
 
