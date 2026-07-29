@@ -37,10 +37,12 @@ entram no cálculo (só na leitura e na qualificação).
 - **nutrir** (prontidão "não é prioridade" ou "só pesquisando"): "entender melhor como funciona".
 - **qualificado** (ICP + pronto): "agendar Sessão Estratégica".
 
-## No ar (preview)
+## No ar
 Publicado no time da Simple na Vercel (produção do projeto
-`diagnostico-executivo-felipe`): **https://diagnostico-executivo-felipe.vercel.app**
-Ainda com as pendências abaixo (WhatsApp, logo/cores e planilha).
+`quiz-felipe-damasceno`): **https://quiz-felipe-damasceno.vercel.app**
+Este é o link oficial. O projeto antigo `diagnostico-executivo-felipe` ainda
+responde, mas foi aposentado; pode ser removido no painel da Vercel.
+Ainda com as pendências abaixo (logo e planilha de leads).
 
 ## Identidade e autoridade
 Paleta e emblema tirados da **apresentação comercial do Programa Governo
