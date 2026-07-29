@@ -10,6 +10,7 @@ verdade** (um arquivo `.md` nesta pasta) e um **comando** correspondente em
 | Comando   | Fonte                      | Para quê |
 | --------- | -------------------------- | -------- |
 | `/prompt-mestre`  | `prompts/funil-html.md`    | Criar funil/página completa em HTML puro ou anúncios (copy + criativo). Conduz diagnóstico → aprofundamento → geração. |
+| `/copy`   | `prompts/copy.md`          | Escrever copy persuasiva para anúncios, páginas de vendas, e-mails, criativos de redes sociais e roteiros de vídeo. Conduz diagnóstico → estruturação → compliance → finalização. |
 
 ## Skills disponíveis
 

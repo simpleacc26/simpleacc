@@ -74,7 +74,7 @@ simpleacc/                      ← o armário (repositório) da Simple
 2. Selecione **Simple Acc → simpleacc → main**.
 3. Diga o cliente e a tarefa na 1ª mensagem.
 4. Peça para **ler `contexto/` e `aprendizados.md`** do cliente antes de criar nada.
-5. Para gerar funil / página / anúncios, use o comando **`/prompt-mestre`**.
+5. Para funil/página em HTML ou anúncios, use **`/prompt-mestre`**; para copy avulsa (ads, e-mail, social, roteiro), use **`/copy`**.
 6. Ao terminar, a IA salva e abre um **PR** → revisar → **merge**.
 7. **Registre o aprendizado** em `aprendizados.md` do cliente.
 
@@ -88,14 +88,16 @@ quando a tarefa combina (ou você pede pelo nome).
 | Nome | O que é | O que faz | Como acionar |
 |---|---|---|---|
 | **`/prompt-mestre`** | Comando (funil/copy) | Vira um especialista em **copy de resposta direta + estratégia de funil + front-end**. Conduz diagnóstico → aprofundamento → confirmação → geração. Entrega **página/funil em HTML puro** e/ou **copy de anúncios** (ângulos, headlines, hooks). Pergunta o que falta, não inventa. | Digite `/prompt-mestre` em qualquer sessão. Na pasta de um cliente, já usa o contexto dele. |
+| **`/copy`** | Comando (copy) | Vira um especialista em **copy persuasiva multi-formato**: anúncios, páginas de vendas, e-mails, criativos de redes sociais e roteiros de vídeo. Conduz diagnóstico → estruturação → compliance → finalização, sempre com variações prontas para teste A/B. | Digite `/copy` em qualquer sessão. Na pasta de um cliente, já usa o contexto dele. |
 | **Estratégia Completa para Clientes** (`estrategia-completa-clientes`) | Skill (automática) | Pega o **onboarding** (transcrição, notas, áudio, resumo) e gera o **documento de estratégia de 8 seções** (Big Idea, Quiz, Página de Aplicação, Anúncios, Diagnóstico, Cadência 12 dias, Tarefas, Recomendações). Entrega como **Google Doc formatado** no Drive e salva a fonte em `clientes/<cliente>/estrategia/`. | Peça: *"transforma esse onboarding do cliente X em documento de estratégia"*. |
 | **Gerar Quiz + Diagnóstico + Página Pós-Quiz** (`gerar-quiz-diag-pag-pos-quiz`) | Skill (automática) | Pega a **copy aprovada** e **coloca o funil no ar**: quiz + página pós-quiz (diagnóstico + PDF + WhatsApp) na identidade do cliente, **publica na Vercel**, cria a **planilha de leads** no Drive e testa a integração. **Confirma a conta da Simple** antes de publicar (nunca conta pessoal). | Peça: *"monta/implementa o funil do cliente X"* ou *"sobe a página na Vercel"*. |
 
 **Como se encaixam:** Onboarding → *Estratégia Completa* (gera o doc + copy) →
 *Gerar Quiz…* (publica o funil + leads). O `/prompt-mestre` é o coringa para
-páginas/anúncios avulsos.
+página/funil em HTML; o `/copy` é o coringa para copy avulsa em qualquer
+formato (ads, e-mail, social, roteiro).
 
-> Outros comandos virão (ex.: `/roteiro`, `/copy`) conforme cadastrarmos novos
+> Outros comandos virão (ex.: `/roteiro`) conforme cadastrarmos novos
 > prompts mestres em `prompts/`.
 
 ---

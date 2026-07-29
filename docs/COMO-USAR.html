@@ -180,7 +180,7 @@
     <li>No seletor, escolha <strong>Simple Acc → simpleacc → main</strong>.</li>
     <li>Diga o cliente e a tarefa: <em>"Trabalhar em <code>clientes/sense-clinic</code>: criar a landing."</em></li>
     <li>Peça para <strong>ler <code>contexto/</code> e <code>aprendizados.md</code></strong> do cliente antes de criar nada.</li>
-    <li>Para gerar funil / página / anúncios, use o comando <strong><code>/prompt-mestre</code></strong>.</li>
+    <li>Para funil/página em HTML ou anúncios, use <strong><code>/prompt-mestre</code></strong>; para copy avulsa (ads, e-mail, social, roteiro), use <strong><code>/copy</code></strong>.</li>
     <li>Ao terminar, a IA salva e abre um <strong>PR</strong> → revisar → <strong>merge</strong>.</li>
     <li><strong>Registre o aprendizado</strong> em <code>aprendizados.md</code> do cliente.</li>
   </ol>
@@ -199,6 +199,12 @@
       <td>Digite <code>/prompt-mestre</code> em qualquer sessão. Na pasta de um cliente, já usa o contexto dele.</td>
     </tr>
     <tr>
+      <td><strong><code>/copy</code></strong></td>
+      <td>Comando<br>(copy)</td>
+      <td>Vira um especialista em <strong>copy persuasiva multi-formato</strong>: anúncios, páginas de vendas, e-mails, criativos de redes sociais e roteiros de vídeo. Conduz: diagnóstico → estruturação → compliance → finalização, sempre com variações prontas para teste A/B.</td>
+      <td>Digite <code>/copy</code> em qualquer sessão. Na pasta de um cliente, já usa o contexto dele.</td>
+    </tr>
+    <tr>
       <td><strong>Estratégia Completa para Clientes</strong><br><code>estrategia-completa-clientes</code></td>
       <td>Skill<br>(automática)</td>
       <td>Pega o <strong>onboarding</strong> (transcrição, notas, áudio, resumo) e gera o <strong>documento de estratégia de 8 seções</strong> (Big Idea, Quiz, Página de Aplicação, Anúncios, Diagnóstico, Cadência 12 dias, Tarefas, Recomendações). Entrega como <strong>Google Doc formatado</strong> no Drive e salva a fonte em <code>clientes/&lt;cliente&gt;/estrategia/</code>.</td>
@@ -211,8 +217,8 @@
       <td>Peça: <em>"monta/implementa o funil do cliente X"</em> ou <em>"sobe a página na Vercel"</em>.</td>
     </tr>
   </table>
-  <div class="note"><strong>Como se encaixam:</strong> Onboarding → <em>Estratégia Completa</em> (gera o doc + copy) → <em>Gerar Quiz…</em> (publica o funil + leads). O <code>/prompt-mestre</code> é o coringa para páginas/anúncios avulsos.</div>
-  <p class="muted" style="color:var(--muted);font-size:15px;margin-top:14px">Outros comandos virão (ex.: <code>/roteiro</code>, <code>/copy</code>) conforme cadastrarmos novos prompts mestres em <code>prompts/</code>.</p>
+  <div class="note"><strong>Como se encaixam:</strong> Onboarding → <em>Estratégia Completa</em> (gera o doc + copy) → <em>Gerar Quiz…</em> (publica o funil + leads). O <code>/prompt-mestre</code> é o coringa para página/funil em HTML; o <code>/copy</code> é o coringa para copy avulsa em qualquer formato (ads, e-mail, social, roteiro).</div>
+  <p class="muted" style="color:var(--muted);font-size:15px;margin-top:14px">Outros comandos virão (ex.: <code>/roteiro</code>) conforme cadastrarmos novos prompts mestres em <code>prompts/</code>.</p>
 </section>
 
 <section>
