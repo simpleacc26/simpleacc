@@ -2,8 +2,8 @@
 
 > **Status: fonte da verdade do produto.** A Thaina e o Thiago revisaram e
 > completaram o canvas pré-preenchido (versão de 21/07). Este documento
-> consolida as respostas deles. Fonte bruta em
-> `contexto/fontes/2026-07-29-canvas-respondido-pelo-cliente.md`.
+> consolida as respostas deles, com a leitura validada pelo Daniel em 29/07.
+> Fonte bruta: `contexto/fontes/2026-07-29-canvas-respondido-pelo-cliente.md`.
 > Complemento de mercado: `contexto/2026-07-23-raio-x-mercado-relacionamento.md`.
 
 ## Decisão confirmada
@@ -13,27 +13,56 @@ Thiago. A frente de marketing da Thaina segue em standby.
 
 ---
 
-## O PRODUTO
+## A OFERTA EM DOIS TEMPOS (leitura validada)
 
-**Sessão Mapa do Ciclo** (nome de trabalho): sessão individual de diagnóstico e
-direcionamento, ao vivo, com o Thiago.
+O canvas descreve **duas coisas diferentes**, e é importante não confundir:
 
-- **Formato:** individual, ao vivo no Meet, gravada. Slots limitados por semana.
-- **Duração:** 60 minutos (~15 min de escuta guiada, ~25 min de diagnóstico
-  preenchendo o mapa com ela, ~20 min de direcionamento dos 30 dias).
-- **Pré-work obrigatório:** quiz + formulário curto sobre a situação atual.
-  Sem pré-work, sem sessão (remarca).
-- **Pós-sessão:** Mapa do Ciclo em 1 página + gravação, entregues em até 48h.
+| | O que é | Preço |
+| --- | --- | --- |
+| **Sessão estratégica** (60 min) | O **mecanismo de venda** do funil, gratuita. Onde o Thiago entrega diagnóstico e direção, e vende o acompanhamento. | Gratuita |
+| **Acompanhamento Mulher que Escolhe** | O **produto pago**: 1 mês, 4 encontros individuais, um por semana (as 4 etapas do método). | **R$ 1.000** à vista ou 12x |
+
+### A sessão estratégica (isca do funil)
+
+- **Formato:** individual, 60 minutos, ao vivo no Meet, gravada. Slots limitados.
+- **Pré-work obrigatório:** quiz + formulário curto. Sem pré-work, sem sessão (remarca).
+- **Roteiro:** ~15 min de escuta guiada · ~25 min de diagnóstico (preencher o Mapa
+  do Ciclo com ela) · ~20 min de direcionamento dos 30 dias.
+- **Entrega de valor:** Mapa do Ciclo em 1 página + gravação, em até 48h.
 - **O que NÃO inclui:** suporte contínuo, acompanhamento entre sessões, terapia,
-  pacote de encontros. É o que separa a sessão do acompanhamento.
-- **Preço:** **R$ 1.000**, à vista ou em até 12x no cartão.
+  pacote de encontros. É o que separa a sessão do acompanhamento (e o que abre
+  espaço para a oferta no fim dela).
+- **Objetivo comercial:** vender o acompanhamento de 4 encontros.
 
-> ⚠️ **Ponto a confirmar:** no campo de duração o canvas também traz "1 mês, com
-> 4 encontros, um por semana", mas todo o resto do documento (promessa, proposta
-> de valor, estrutura, resultado, o "não inclui pacote de encontros" e o preço)
-> descreve **uma sessão única de 60 minutos**. Este canvas e o roadmap foram
-> montados como **sessão única**. Se a intenção for o pacote de 4 encontros,
-> avisar que a gente reposiciona oferta, preço e funil.
+### O acompanhamento (produto pago, R$ 1.000)
+
+- **Formato:** individual. **Duração:** 1 mês, 4 encontros, um por semana.
+- **Estrutura provável (o Thiago ainda vai validar):** um encontro por etapa do
+  método **Mulher que Escolhe**:
+  1. **Regulação** (atravessar a ansiedade sem buscar alívio nele)
+  2. **Reconstrução** (autoestima e suficiência)
+  3. **Clareza** (o relacionamento que ela quer, postura e consciência)
+  4. **Escolha** (critérios, limites, seleção consciente, feminilidade aplicada)
+- **Preço:** R$ 1.000, à vista ou em até 12x no cartão.
+
+---
+
+## O MECANISMO
+
+- **Inimigo: o Ciclo da Migalha.** Padrão de 5 elos que se repete e se autoalimenta.
+- **Método: Mulher que Escolhe.** As 4 etapas acima.
+
+**Reason why (por que a sessão de 1 hora entrega valor real):** direção não exige
+tratamento, exige localização. As situações que parecem únicas se repetem num
+padrão mapeável. O trabalho da sessão é preencher o mapa do caso dela:
+
+1. **Gatilho dominante:** qual incerteza dispara o ciclo (demora, esfriamento, ambiguidade).
+2. **Reação característica:** como ela busca alívio (checagem, textão, cobrança, joguinho).
+3. **Migalha típica:** qual sinal mínimo ela aceita como prova de que está tudo bem.
+4. **Elo de alimentação principal:** onde o ciclo se sustenta com mais força, e onde intervir primeiro.
+5. **Direção dos 30 dias:** o que fazer e o que parar de fazer.
+
+> Esse mapa é o que a sessão entrega. **O acompanhamento é quem executa a virada.**
 
 ### Promessa (na voz deles)
 
@@ -42,34 +71,12 @@ direcionamento, ao vivo, com o Thiago.
 > minutos você entende o que está realmente acontecendo na sua situação com ele,
 > por que se repete, e sai com um direcionamento claro do que fazer agora."
 
-### Proposta de valor (aprovada por eles)
+### Proposta de valor da sessão (aprovada por eles)
 
 > "Uma sessão individual de direcionamento com o Thiago: você chega com a
 > situação que está vivendo, sai com o mapa do ciclo que está travando sua vida
 > amorosa e a direção exata do que fazer agora. Diagnóstico e direção em 60
 > minutos, não mais um curso para acumular."
-
-### Mecanismo
-
-- **Inimigo: o Ciclo da Migalha.** Padrão de 5 elos que se repete e se
-  autoalimenta.
-- **Método: Mulher que Escolhe.** Quatro etapas:
-  1. **Regulação** (diagnóstico, contexto e nível de consciência, ferramentas
-     para atravessar a ansiedade sem buscar alívio nele)
-  2. **Reconstrução** (autoestima e suficiência)
-  3. **Clareza** (o relacionamento que ela quer, postura e consciência feminina)
-  4. **Escolha** (critérios na prática, limites, seleção consciente,
-     feminilidade aplicada)
-
-**Reason why (por que 1 hora basta):** direção não exige tratamento, exige
-localização. As situações que parecem únicas se repetem num padrão mapeável. O
-trabalho da sessão é preencher o mapa do caso dela:
-
-1. **Gatilho dominante:** qual incerteza dispara o ciclo (demora, esfriamento, ambiguidade).
-2. **Reação característica:** como ela busca alívio (checagem, textão, cobrança, joguinho).
-3. **Migalha típica:** qual sinal mínimo ela aceita como prova de que está tudo bem.
-4. **Elo de alimentação principal:** onde o ciclo se sustenta com mais força, e portanto onde intervir primeiro.
-5. **Direção dos 30 dias:** o que fazer e o que parar de fazer.
 
 ### Benefícios
 
@@ -77,11 +84,11 @@ trabalho da sessão é preencher o mapa do caso dela:
 - **Alívio da culpa:** não é defeito dela, é um ciclo que se alimenta (e tem saída).
 - **Direção concreta:** o que fazer e o que parar de fazer nos próximos 30 dias.
 - **Economia de tempo e dinheiro:** para de tentar soluções que miram no elo errado.
-- **Documento na mão:** o Mapa do Ciclo em 1 página + gravação da sessão.
+- **Documento na mão:** o Mapa do Ciclo em 1 página + gravação.
 - **Conversa com um homem que fala a verdade sem julgamento:** a visão masculina
   franca de quem está do lado dela.
 
-### Resultado final concreto
+### Resultado da sessão
 
 Ela sai com três coisas: (1) o Mapa do Ciclo preenchido em 1 página, com o padrão
 nomeado e o elo de alimentação identificado; (2) a direção dos próximos 30 dias
@@ -142,13 +149,15 @@ amada ou que não serve para ser escolhida.
 
 ---
 
-## O que ainda falta (para a próxima call)
+## Pontos de atenção (para a call)
 
-1. Confirmar **sessão única de 60 min** (ver alerta no topo).
-2. Definir o **produto de continuidade** (o acompanhamento que a sessão não
-   inclui). É onde está o high ticket de verdade e o que destrava a meta sem
-   dobrar volume de vendas.
-3. **Cases nominais autorizados** (nome, antes → depois, print ou vídeo).
-4. Validar os nomes **Ciclo da Migalha** e **Mulher que Escolhe** no INPI e no
-   Instagram antes de gravar em página.
-5. Uma **frase real** a mais da cliente, para copy.
+1. **Capacidade de entrega.** Com ticket de R$ 1.000 e entrega individual, a meta
+   de R$ 30 mil/mês pede 30 vendas, ou seja, cerca de 100 sessões estratégicas e
+   120 encontros de acompanhamento por mês. É muita agenda para o Thiago sozinho.
+   Alavancas: subir a conversão da sessão, limitar vagas e trabalhar fila, subir
+   o ticket quando houver prova, ou migrar parte do acompanhamento para turma.
+   Tratado no roadmap como a restrição a monitorar.
+2. **Fechar os 4 encontros** (o Thiago ainda vai validar os módulos).
+3. **Renovação/continuidade:** o que acontece depois do primeiro mês.
+4. **Cases nominais autorizados** (nome, antes → depois, print ou vídeo).
+5. **Checar os nomes** Ciclo da Migalha e Mulher que Escolhe no INPI e no Instagram.

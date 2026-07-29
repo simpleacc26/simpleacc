@@ -14,10 +14,11 @@
 
 ## O que mudou na versão completada (impacta funil, copy e roadmap)
 
-- **O produto ficou de pé:** **Sessão Mapa do Ciclo**, individual, 60 minutos ao
-  vivo, com pré-work obrigatório e entrega do mapa em 1 página + gravação.
-  **Preço: R$ 1.000** (à vista ou 12x). Não é o acompanhamento longo que se
-  imaginava no onboarding.
+- **A oferta ficou de pé, em dois tempos:** o **produto pago** é o
+  **Acompanhamento Mulher que Escolhe** (individual, 1 mês, 4 encontros semanais,
+  **R$ 1.000**), e o **mecanismo de venda** é uma **sessão estratégica gratuita de
+  60 min** com pré-work obrigatório, onde o Thiago preenche o Mapa do Ciclo com a
+  lead e entrega o mapa em 1 página + gravação. Não confundir os dois.
 - **Mecanismo nomeado:** inimigo **Ciclo da Migalha** (5 elos), método **Mulher
   que Escolhe** (Regulação, Reconstrução, Clareza, Escolha).
 - **ICP ajustado:** **30 a 55 anos** (antes 35 a 55).

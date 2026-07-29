@@ -27,13 +27,16 @@ playbooks. Contrato fechado após a sessão estratégica de 02/07/2026.
 | ------------------ | ---------- | ------------ | ------ |
 | Funil de quiz (v1) | `funis/`   | a iniciar    | —      |
 
-## Produto do funil (definido em 29/07/2026)
+## Oferta do funil (definida em 29/07/2026)
 
-**Sessão Mapa do Ciclo** (do Thiago): sessão individual de 60 minutos, ao vivo e
-gravada, com pré-work obrigatório e entrega do Mapa do Ciclo em 1 página.
-**R$ 1.000** à vista ou em 12x. Público: mulher de 30 a 55 anos, separada,
-independente, com a vida amorosa travada. Fonte da verdade:
-`estrategia/2026-07-29-canvas-completado-produto-e-cliente-ideal.md`.
+- **Produto pago:** **Acompanhamento Mulher que Escolhe** (do Thiago), individual,
+  1 mês com 4 encontros semanais. **R$ 1.000** à vista ou em 12x.
+- **Mecanismo de venda:** sessão estratégica gratuita de 60 min, com pré-work
+  obrigatório (quiz) e entrega do Mapa do Ciclo em 1 página + gravação.
+- **Público:** mulher de 30 a 55 anos, separada, independente, com a vida amorosa
+  travada.
+
+Fonte da verdade: `estrategia/2026-07-29-canvas-completado-produto-e-cliente-ideal.md`.
 
 ## Escopo contratado (mentoria anual)
 
