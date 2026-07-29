@@ -42,16 +42,21 @@ Publicado no time da Simple na Vercel (produção do projeto
 `diagnostico-executivo-felipe`): **https://diagnostico-executivo-felipe.vercel.app**
 Ainda com as pendências abaixo (WhatsApp, logo/cores e planilha).
 
+## Identidade e autoridade
+Paleta e emblema tirados da **apresentação comercial do Programa Governo
+Empresarial** (dourado âmbar `#E0A63A` sobre navy `#0A0E16`, coroa/escudo).
+A seção "Quem é o Felipe" traz foto + nome + os pontos de autoridade reais da
+apresentação (+R$ 100 mi no 1o ano, +2.800 empresas, +15 anos, 6 empresas, o
+livro e o ecossistema XGROW/EVENTX/D360/ADVAI/E3T/NeuroVerse). A foto
+(`felipe.webp`, 440px) foi recortada do post do Instagram, sem textos.
+
 ## Pendências para publicar (o que falta do cliente)
-1. **WhatsApp do Felipe** (CTA): trocar `marca.whatsapp` em `flow.js` (hoje `5500000000000`).
-2. **Logo + cores oficiais**: hoje usa marca em texto e o tema dark navy + dourado
-   proposto. Trocar o logo (colocar `logo.png` e ativar `<img class="logo-img">`)
-   e ajustar os HEX no `:root` do `styles.css` quando vier o manual de marca.
-3. **Depoimentos**: a seção "Quem já viveu isso" está com um placeholder. Quando
-   houver prints/vídeos de empresários, é só trocar o bloco `.depo` por uma
-   galeria `.depo-gallery` com `<img class="depo-shot" src="depoimentos/01.jpg">`
-   (a mesma estrutura usada no funil da Pâmella).
-4. **Planilha de leads**: criar no Drive do cliente, colar o `integracao-planilha.gs`
+1. **Logo oficial**: hoje usa o emblema de coroa em SVG + marca em texto. Quando
+   vier o arquivo, colocar `logo.png` e ativar `<img class="logo-img">`.
+2. **Depoimentos**: opcional. Se vierem prints reais, dá para somar uma galeria
+   `.depo-gallery` com `<img class="depo-shot" src="depoimentos/01.webp">` sem
+   tirar o bloco de autoridade.
+3. **Planilha de leads**: criar no Drive do cliente, colar o `integracao-planilha.gs`
    no Apps Script, implantar como App da Web, colar a URL `/exec` em
    `app.js → LEADS_ENDPOINT`, republicar e testar um lead de ponta a ponta.
 

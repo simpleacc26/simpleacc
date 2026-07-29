@@ -33,3 +33,24 @@ Log do que funciona e do que não funciona com este cliente.
 - **Pendência do número:** o PDF foi gerado com o WhatsApp placeholder
   (5500000000000). Regenerar com o número real assim que o Felipe passar
   (é só rodar o gerador com `WHATSAPP=<numero>`).
+
+## 2026-07-29 — Identidade da apresentação, autoridade, foto e WhatsApp
+- **Identidade oficial** extraída da apresentação comercial (Programa Governo
+  Empresarial): dourado âmbar `#E0A63A` sobre navy `#0A0E16`, emblema de
+  coroa/escudo. Aplicada no funil e no PDF.
+- **Depoimentos trocados por AUTORIDADE** (decisão do Daniel, já que os
+  depoimentos ainda não vieram): +R$ 100 mi no 1o ano com a XGrow, +2.800
+  players/empresas aceleradas, +15 anos, 6 empresas do zero, autor de "Líderes
+  Não Nascem Prontos" e o ecossistema XGROW/EVENTX/D360/ADVAI/E3T/NeuroVerse.
+- **Método corrigido para os 5 pilares oficiais**: Diagnosticar, Organizar,
+  Delegar, Automatizar, Governar (+ menção ao IDE e à CLO).
+- **Foto do Felipe**: recortada do post do Instagram ("O Travamento Invisível").
+  O header do IG foi apagado replicando o gradiente do fundo, e o corte pega só
+  ele (sem textos), em `felipe.webp` 440px (11 KB).
+- **WhatsApp definido: 5511912856095** (11 91285-6095). Já no funil e nos 3
+  botões do PDF (links wa.me ativos).
+- **Tom das mensagens:** "Oi!" trocado por **"Olá!"** em todos os botões, a pedido
+  do Daniel (público majoritariamente empresário homem, tom mais formal).
+- **Preço fora do funil (recomendação da Simple):** os R$ 80.000 da apresentação
+  NÃO entram no quiz. O CTA de topo é a Sessão Estratégica; preço em página de
+  quiz derruba conversão.

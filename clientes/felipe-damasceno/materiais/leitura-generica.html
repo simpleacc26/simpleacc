@@ -67,6 +67,10 @@
   .cta .under{ text-align:center; color:var(--muted); font-size:12.5px; margin:9px 4px 0; }
 
   /* bloco de autoridade (Quem é o Felipe) */
+  .autor{ display:flex; align-items:center; gap:15px; margin:2px 0 14px; }
+  .autor-foto{ width:96px; height:96px; flex:0 0 96px; border-radius:50%; object-fit:cover; object-position:50% 22%; border:2px solid var(--primary); }
+  .autor-nome{ display:block; font-family:var(--serif); font-size:19px; font-weight:700; letter-spacing:.05em; color:var(--primary-700); line-height:1.15; }
+  .autor-cargo{ display:block; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); margin-top:5px; }
   .cred-grid{ display:flex; flex-direction:column; gap:10px; margin:10px 0 4px; }
   .cred{ border:1px solid var(--border); border-radius:14px; padding:13px 15px; background:var(--surface); }
   .cred .n{ font-family:var(--serif); font-size:20px; font-weight:700; color:var(--primary-700); line-height:1.1; }
@@ -184,10 +188,17 @@
 
   <div class="sec">
     <h3>Quem é o Felipe</h3>
-    <p>Empresário, estrategista e mentor. Construiu empresas do zero, faturou
-    <strong>mais de 100 milhões no primeiro ano</strong> de operação e viveu na pele o
-    desafio de depender de si mesmo para tudo funcionar. Foi isso que o levou a criar o
-    Método Potência Empresarial e o Programa Governo Empresarial.</p>
+    <div class="autor">
+      <img class="autor-foto" src="../funis/diagnostico-executivo/felipe.webp" alt="Felipe Damasceno">
+      <div>
+        <span class="autor-nome">FELIPE DAMASCENO</span>
+        <span class="autor-cargo">Empresário · Estrategista · Mentor</span>
+      </div>
+    </div>
+    <p>Construiu empresas do zero, faturou <strong>mais de 100 milhões no primeiro
+    ano</strong> de operação e viveu na pele o desafio de depender de si mesmo para tudo
+    funcionar. Foi isso que o levou a criar o Método Potência Empresarial e o Programa
+    Governo Empresarial.</p>
     <div class="cred-grid">
       <div class="cred"><div class="n">+R$ 100 milhões</div><div class="d">faturados no primeiro ano com a XGrow</div></div>
       <div class="cred"><div class="n">+2.800 players e empresas</div><div class="d">aceleradas no digital</div></div>

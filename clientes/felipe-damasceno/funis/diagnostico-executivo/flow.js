@@ -17,10 +17,10 @@ window.FLOW = {
   marca: {
     nome: "Felipe Damasceno",
     expert: "Felipe Damasceno",
-    // TODO: número do WhatsApp do Felipe, formato internacional, só dígitos (ex: 5531999999999)
-    whatsapp: "5500000000000",
+    // WhatsApp de direcionamento dos leads, formato internacional, só dígitos
+    whatsapp: "5511912856095",
     // Texto que abre no WhatsApp (o {nome} é trocado pelo nome do lead)
-    whatsappMsg: "Oi! Sou {nome}, acabei de fazer o Diagnóstico Executivo e quero entender como reduzir a dependência da minha empresa.",
+    whatsappMsg: "Olá! Sou {nome}, acabei de fazer o Diagnóstico Executivo e quero entender como reduzir a dependência da minha empresa.",
   },
 
   hero: {

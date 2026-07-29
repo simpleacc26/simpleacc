@@ -160,10 +160,16 @@ if (!a._completedAt && !a.problema) {
 
     <div class="etapa">
       <h3>Quem é o Felipe</h3>
-      <p>Empresário, estrategista e mentor. Construiu empresas do zero, faturou
-      <strong>mais de 100 milhões no primeiro ano</strong> de operação e viveu na pele o desafio de
-      depender de si mesmo para tudo funcionar. Foi isso que o levou a criar o Método Potência
-      Empresarial e o Programa Governo Empresarial.</p>
+      <div class="autor">
+        <img class="autor-foto" src="felipe.webp" alt="Felipe Damasceno" />
+        <div>
+          <span class="autor-nome">FELIPE DAMASCENO</span>
+          <span class="autor-cargo">Empresário · Estrategista · Mentor</span>
+        </div>
+      </div>
+      <p>Construiu empresas do zero, faturou <strong>mais de 100 milhões no primeiro ano</strong> de
+      operação e viveu na pele o desafio de depender de si mesmo para tudo funcionar. Foi isso que o
+      levou a criar o Método Potência Empresarial e o Programa Governo Empresarial.</p>
       <div class="cred-grid">
         <div class="cred"><div class="n">+R$ 100 mi</div><div class="d">faturados no primeiro ano com a XGrow</div></div>
         <div class="cred"><div class="n">+2.800</div><div class="d">players e empresas aceleradas no digital</div></div>
