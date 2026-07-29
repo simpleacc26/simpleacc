@@ -20,9 +20,23 @@ onde o outro parou (o Git é a memória compartilhada).
 3. Salve os entregáveis na pasta certa (acima) e **registre o aprendizado** em `aprendizados.md`.
 4. Trabalhe numa branch `cliente/luana-isse/<assunto>` e abra PR.
 
-## Contexto rápido (preencher)
+## Contexto rápido
 
-- **Oferta principal:** _(a preencher)_
-- **Público / ICP:** _(a preencher)_
-- **Links (site, páginas, Make, Figma, Drive):** _(a preencher)_
-- **Contato principal:** _(a preencher)_
+- **Quem é:** jornalista, copywriter, estrategista digital e master coach. Cria movimento,
+  causa e posicionamento para especialistas. Mora em SC; trabalha só à tarde/noite
+  (Deus e família vêm antes — não trabalha de manhã).
+- **Oferta principal:** mentoria **MMPV™** (Matriz da Identidade → Movimento → Posicionamento
+  → Vendas), R$ 6 mil (quer subir para R$ 8 mil), 17 alunos. O que mais gera caixa hoje é a
+  **consultoria pontual de movimento/posicionamento a R$ 15 mil**, que chega por indicação
+  (principalmente políticos). Quer lançar individual de R$ 30 mil.
+- **Público / ICP:** a definir na call de onboarding (canvas do cliente ideal em branco).
+  Quem já chega organicamente: médicos, coaches, líderes, advogados e políticos.
+- **Meta:** R$ 50 mil líquidos/mês. Hoje fatura abaixo de R$ 20 mil.
+- **Projeto Simple:** consultoria de 1 ano — roadmap de 90 dias, funil de lead dinâmico com
+  quiz, playbooks comerciais e acompanhamento quinzenal.
+- **Links:** Instagram [@luana.isse](https://www.instagram.com/luana.isse/) ·
+  [call de vendas 24/07 (Fathom)](https://fathom.video/share/4H2YzLfdyBzjF5BGmc4s2chQEGJurYZ3)
+- **Contato principal:** Luana Isse. Braço direito: **Aline Castro** (social seller / SDR).
+
+> Antes de qualquer entrega, leia `contexto/2026-07-29-briefing-luana-isse.md` — números,
+> restrições e tensões em aberto.
