@@ -79,13 +79,6 @@ const nome = esc((a.nomeResp || "").split(" ")[0]) || "tudo bem";
       <strong>${objetivo}</strong>, é totalmente possível, e começa com esse primeiro passo.</p>
     </div>
 
-    <div class="etapa">
-      <h3>Quem já viveu isso</h3>
-      <div class="depo">[ANTES E DEPOIS 1]: inserir foto/vídeo de um paciente que voltou a sorrir nas fotos.</div>
-      <div class="depo">[DEPOIMENTO 2]: inserir caso de quem trocou a prótese que machucava por algo fixo.</div>
-      <p class="hint">Reabilitação bem feita não devolve só dente. Devolve a pessoa.</p>
-    </div>
-
     <div class="cta-box">
       <h2 style="margin-top:0">O próximo passo é simples, ${nome}</h2>
       <p>Uma avaliação para entender o seu caso e te mostrar o caminho e as condições, sem

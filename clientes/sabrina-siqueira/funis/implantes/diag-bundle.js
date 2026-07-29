@@ -1,4 +1,3 @@
-
 window.FLOW = {
   
   config: {
@@ -138,8 +137,6 @@ window.FLOW = {
     privacidade: "🔒 Usamos seus dados só para te enviar a orientação e o contato do consultório. Nada de spam.",
   },
 };
-
-
 const F = window.FLOW;
 const STORE_KEY = (F.config && F.config.storeKey) || "siqueira_funil_implantes";
 const report = document.getElementById("report");
@@ -215,13 +212,6 @@ const nome = esc((a.nomeResp || "").split(" ")[0]) || "tudo bem";
       Mas a definição correta (e qualquer valor ou plano) depende de uma <strong>avaliação
       presencial</strong>: dar um número sem te examinar seria irresponsável. O que você deseja,
       <strong>${objetivo}</strong>, é totalmente possível, e começa com esse primeiro passo.</p>
-    </div>
-
-    <div class="etapa">
-      <h3>Quem já viveu isso</h3>
-      <div class="depo">[ANTES E DEPOIS 1]: inserir foto/vídeo de um paciente que voltou a sorrir nas fotos.</div>
-      <div class="depo">[DEPOIMENTO 2]: inserir caso de quem trocou a prótese que machucava por algo fixo.</div>
-      <p class="hint">Reabilitação bem feita não devolve só dente. Devolve a pessoa.</p>
     </div>
 
     <div class="cta-box">
