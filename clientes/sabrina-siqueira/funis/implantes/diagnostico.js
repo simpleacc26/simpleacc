@@ -20,15 +20,7 @@ function esc(s) { return String(s == null ? "" : s).replace(/[<>&]/g, c => ({ "<
 
 const a = getState().answers || {};
 
-/* sem respostas? (abriu a página direto) */
-if (!a._completedAt && !a.problema) {
-  report.innerHTML = `
-    <p class="eyebrow">Orientação</p>
-    <h2>Ainda não temos suas respostas</h2>
-    <p class="lead">Parece que você chegou aqui sem fazer o teste. Leva ~2 minutos.</p>
-    <div class="actions"><a class="btn btn-primary btn-block" href="/">Fazer o teste agora</a></div>`;
-} else {
-  const nome = esc((a.nomeResp || "").split(" ")[0]) || "tudo bem";
+const nome = esc((a.nomeResp || "").split(" ")[0]) || "tudo bem";
   const problema = frase("problema") || "o seu sorriso";
   const implicacao = frase("implicacao") || "afetar o seu dia a dia";
   const tentativa = frase("necessidade") || "buscar uma solução";
@@ -104,7 +96,6 @@ if (!a._completedAt && !a.problema) {
       </div>
       <p class="clube">Você já adiou tempo demais. O primeiro passo é só uma avaliação.</p>
     </div>`;
-}
 
 /* ---------- WhatsApp + PDF ---------- */
 function abrirWhatsApp() {

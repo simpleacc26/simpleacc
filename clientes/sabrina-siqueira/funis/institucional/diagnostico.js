@@ -20,15 +20,7 @@ function esc(s) { return String(s == null ? "" : s).replace(/[<>&]/g, c => ({ "<
 
 const a = getState().answers || {};
 
-/* sem respostas? (abriu a página direto) */
-if (!a._completedAt && !a.problema) {
-  report.innerHTML = `
-    <p class="eyebrow">Diagnóstico</p>
-    <h2>Ainda não temos suas respostas</h2>
-    <p class="lead">Parece que você chegou aqui sem fazer o teste. Leva ~2 minutos.</p>
-    <div class="actions"><a class="btn btn-primary btn-block" href="index.html">Fazer o teste agora</a></div>`;
-} else {
-  const nome = esc((a.nomeResp || "").split(" ")[0]) || "tudo bem";
+const nome = esc((a.nomeResp || "").split(" ")[0]) || "tudo bem";
   const criancaRaw = (a.crianca || "").trim();
   const crianca = esc(criancaRaw ? criancaRaw.split(",")[0].trim() : "seu filho");
   const problema = frase("problema") || "as consultas odontológicas";
@@ -112,7 +104,6 @@ if (!a._completedAt && !a.problema) {
       </div>
       <p class="clube">E se fizer sentido pra rotina de vocês, te apresento o <strong>Clubinho do Sorriso</strong>, nosso acompanhamento contínuo pensado pra famílias como a sua.</p>
     </div>`;
-}
 
 /* ---------- WhatsApp + PDF ---------- */
 function abrirWhatsApp() {
