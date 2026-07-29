@@ -15,7 +15,7 @@ Quiz → Relatório personalizado → Agendamento no WhatsApp.
 
 - Funil Odontologia Inclusiva: https://institutosabrinasiqueira.vercel.app/
 - Funil Implantes e Reabilitação: https://institutosabrinasiqueira-implantes.vercel.app/
-- Pasta no Drive: Estratégia, Canvas, Growth Model e Planilha de Leads — buscar
+- Pasta no Drive: Estratégia, Canvas, Growth Model e Planilha de Leads, buscar
   "Sabrina Cantarino" ou "Instituto Sabrina Siqueira" no Drive da SimpleAcc.
 
 ## Projetos
@@ -27,7 +27,7 @@ Quiz → Relatório personalizado → Agendamento no WhatsApp.
 
 ## Observações
 
-- Os dois funis já estão publicados na Vercel fora deste repositório — não há
+- Os dois funis já estão publicados na Vercel fora deste repositório, não há
   código-fonte deles aqui ainda.
 - Ver `contexto/cliente-e-oferta.md` para o perfil completo do negócio, ICP das
   duas frentes e diagnóstico de performance atual dos anúncios.

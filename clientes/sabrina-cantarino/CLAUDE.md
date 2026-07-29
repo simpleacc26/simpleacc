@@ -3,12 +3,12 @@
 Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
 
 ## Estrutura
-- `contexto/`   — quem é, oferta, ICP, análise de mercado, linguagem.
-- `estrategia/` — estratégias, planos, diagnósticos.
-- `copy/`       — copy de páginas e anúncios.
-- `roteiros/`   — roteiros de vídeo (datados).
-- `funis/`      — funis, landing pages, quizzes.
-- `aprendizados.md` — o que funciona/não funciona.
+- `contexto/`: quem é, oferta, ICP, análise de mercado, linguagem.
+- `estrategia/`: estratégias, planos, diagnósticos.
+- `copy/`: copy de páginas e anúncios.
+- `roteiros/`: roteiros de vídeo (datados).
+- `funis/`: funis, landing pages, quizzes.
+- `aprendizados.md`: o que funciona/não funciona.
 
 ## Ao trabalhar para este cliente
 1. Leia `contexto/cliente-e-oferta.md` e `aprendizados.md` antes de criar.
@@ -18,7 +18,7 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
 4. Branch `cliente/sabrina-cantarino/<assunto>` + PR.
 
 ## Contexto rápido
-- **Oferta principal:** Odontologia Humanizada — duas frentes: (A) Odontologia
+- **Oferta principal:** Odontologia Humanizada, com duas frentes: (A) Odontologia
   Inclusiva para crianças autistas/neurodivergentes, (B) Implantes e Reabilitação
   Oral. Funil igual nas duas: Meta Ads → Quiz → Relatório personalizado →
   Agendamento no WhatsApp.
