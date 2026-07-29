@@ -27,9 +27,11 @@ python3 -m http.server 8099
 - ⚠️ **BLOQUEIO:** o time tem **Vercel Authentication (Deployment Protection) ON**, então a URL redireciona pra login (302). Um admin precisa desligar em **Project → Settings → Deployment Protection → Vercel Authentication → Off**. Só depois o funil fica público. (Os tools de protection do MCP retornam "not found", não dá pra desligar por aqui.)
 - Anúncio deve apontar pra raiz com query (`/?utm_source=...`), nunca `/index.html`.
 
-## Planilha de leads
-- **Planilha:** https://docs.google.com/spreadsheets/d/1A1xFuIldVeAM7S0HQfza4hj-GZRZxAqahlFRqoJc1Gk/edit (dona: daniel@simpleacc.com.br), cabeçalho pronto.
-- **Integração (a ligar):** Make (time `1317940`, conexão Google `5139463`), webhook → Google Sheets addRow, mesmo padrão dos outros funis. Depois: colar a URL do webhook em `LEADS_ENDPOINT` (`app.js`), republicar e testar 1 lead.
+## Planilha de leads (integração montada)
+- **Planilha:** https://docs.google.com/spreadsheets/d/1A1xFuIldVeAM7S0HQfza4hj-GZRZxAqahlFRqoJc1Gk/edit (dona: daniel@simpleacc.com.br), cabeçalho pronto (19 colunas).
+- **Make:** cenário `[Evandro Fernandes] Diagnóstico Receita Invisível → Sheets` (id **5805664**, ATIVO), time `1317940`, conexão Google `5139463`. Webhook → google-sheets:addRow (fromAll, aba `Untitled`).
+- **Webhook:** `https://hook.us2.make.com/bb1vst7dea8fyim5mfs9rh4vfo4rdf1v` (já ligado no `LEADS_ENDPOINT` do `app.js`, envio em `application/json`+`keepalive`).
+- ⚠️ **1 clique pendente:** a conexão do Make grava como **ssouzadaniel.ads@gmail.com**, que ainda NÃO tem acesso à planilha (teste retornou `403 PERMISSION_DENIED`). **Compartilhar a planilha com ssouzadaniel.ads@gmail.com como Editor.** Depois disso o lead cai sozinho (verificar a aba: se der "Unable to parse range", o nome da aba não é `Untitled` e ajusto no cenário).
 
 ## PENDÊNCIAS (precisam do cliente/admin)
 - [ ] **Admin Vercel:** desligar a Deployment Protection (acima).
