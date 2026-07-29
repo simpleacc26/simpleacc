@@ -126,9 +126,9 @@ Os 10 criativos abaixo evitam essas execuções todas. São ângulos novos: Club
 **Orientação:** Numeração visual de 1 a 3, último card com o CTA.
 
 - **Card 1 (capa):** O que realmente acontece na primeira consulta, sem surpresa
-- **Card 2:** 1. Conhecer o espaço, sem procedimento, no tempo da criança.
-- **Card 3:** 2. Dessensibilização: cada instrumento é apresentado aos poucos.
-- **Card 4:** 3. Construção de vínculo antes de qualquer coisa acontecer na boca.
+- **Card 2:** 1. Conhecer o espaço. Seu filho entra, olha a sala, senta na cadeira se quiser, tudo no tempo dele. Nessa primeira vez não tem procedimento nenhum, só o objetivo de perder o medo do lugar.
+- **Card 3:** 2. Dessensibilização. Cada instrumento é apresentado com calma: mostra, deixa tocar, deixa ouvir o barulho do aspirador antes de usar de verdade. Uma coisa nova de cada vez, no ritmo que ele aguenta.
+- **Card 4:** 3. Construção de vínculo. Antes de qualquer coisa acontecer na boca, a gente constrói confiança, com brincadeira, conversa, elogio a cada passo. Quando chega a hora do procedimento, ele já confia em quem está do lado.
 - **Card 5 (CTA):** Quer saber por onde seu filho começaria? Faz o teste → institutosabrinasiqueira.vercel.app
 
 ---
