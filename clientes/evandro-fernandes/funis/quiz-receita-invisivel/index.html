@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diagnóstico de Receita Invisível · Evandro Fernandes</title>
+  <meta name="description" content="Descubra quanto de receita a sua empresa perde sem perceber nos 3 funis (Marketing, Comercial e CS) e o próximo passo para recuperar, sem aumentar o tráfego." />
+  <!-- CSS crítico mínimo (evita flash antes do styles.css) -->
+  <style>
+    :root{--bg:#F5F1E8;--text:#23303f}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <!-- PENDENTE: quando tiver o logo do HDM, troque tudo abaixo por:
+             <img class="logo-img" src="logo.png" alt="Evandro Fernandes · HDM"> -->
+        <span class="brand-name">Evandro Fernandes</span>
+        <span class="brand-tag">Receita Invisível · HDM</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Barra de progresso (só aparece durante as perguntas) -->
+  <div class="progress-wrap" id="progress" hidden>
+    <div class="container">
+      <div class="progress-meta">
+        <span id="progress-label">Passo 1 de 7</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div id="app" aria-live="polite"><!-- as telas são renderizadas aqui --></div>
+  </main>
+
+  <p class="foot">Evandro Fernandes · Recuperação de Receita com a metodologia HDM</p>
+
+  <script src="flow.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

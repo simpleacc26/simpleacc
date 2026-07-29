@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sua leitura · Evandro Fernandes</title>
+<!--
+  Leitura de Receita Invisível (genérica, pro SDR enviar no WhatsApp).
+  Regras: sem travessão, sem sombra, sem nome do lead. Botões usam data-wa
+  (o gerador vira link wa.me). PENDENTE: WhatsApp real e prints de depoimento.
+-->
+<style>
+  :root{
+    /* Paleta Simple/HDM (navy + dourado), igual ao funil. */
+    --bg:#F5F1E8;
+    --surface:#FFFFFF;
+    --text:#23303f;
+    --muted:#6b7480;
+    --primary:#1b2a4a;
+    --primary-700:#14213d;
+    --accent-soft:#F3EBD8;
+    --border:#E4DCC9;
+    --err:#B4452B;
+    --action:#1b2a4a;
+    --on-action:#FBF7EE;
+    --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,"Hoefler Text",Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{ background:var(--bg); color:var(--text); font-family:var(--sans); font-size:16.5px; line-height:1.62; -webkit-font-smoothing:antialiased; }
+  .wrap{ padding:34px 30px 38px; }
+  p{ margin:0 0 15px; }
+  strong{ color:var(--primary-700); }
+  h1,h2,h3,h4{ font-family:var(--serif); color:var(--text); margin:0; }
+
+  .brand{ text-align:center; padding-bottom:18px; border-bottom:1px solid var(--border); margin-bottom:8px; }
+  .brand .name{ font-family:var(--serif); font-size:23px; font-weight:700; color:var(--primary-700); letter-spacing:.02em; }
+  .brand .tag{ font-family:var(--sans); font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin-top:5px; }
+  .selo{ display:inline-block; margin:22px auto 10px; font-family:var(--sans); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--primary-700); background:var(--accent-soft); border-radius:999px; padding:5px 13px; }
+  h1.title{ font-size:28px; line-height:1.16; margin:2px 0 8px; }
+  .sub{ color:var(--muted); font-size:14px; margin:0 0 4px; }
+
+  .sec{ margin-top:24px; }
+  .sec h3{ font-size:19.5px; line-height:1.25; color:var(--primary-700); margin-bottom:10px; }
+  .intro{ font-size:17px; }
+
+  .compare{ display:flex; flex-direction:column; gap:12px; margin-top:6px; }
+  .col{ border-radius:16px; padding:16px 17px; }
+  .col h4{ font-size:16px; margin-bottom:9px; }
+  .col ul{ margin:0; padding-left:18px; }
+  .col li{ margin:5px 0; font-size:15px; }
+  .col.bad{ background:#F4ECE0; border:1px solid var(--border); }
+  .col.bad h4{ color:var(--err); }
+  .col.good{ background:var(--accent-soft); border:1px solid #E4CE9E; }
+  .col.good h4{ color:var(--primary-700); }
+
+  ol.metodo{ margin:6px 0 10px; padding-left:20px; }
+  ol.metodo li{ margin:9px 0; }
+  .hint{ color:var(--muted); font-size:14px; }
+
+  /* Botão CTA (link real wa.me, montado pelo gerador). Sem sombra de propósito. */
+  .cta{ margin:22px 0 6px; }
+  a.btn{ display:block; text-decoration:none; text-align:center; background:var(--action); color:var(--on-action); font-family:var(--sans); font-weight:700; font-size:16px; padding:16px 18px; border-radius:14px; letter-spacing:.01em; }
+  .cta .under{ text-align:center; color:var(--muted); font-size:12.5px; margin:9px 4px 0; }
+
+  .prova{ margin-top:8px; background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:16px 17px; }
+  .prova ul{ margin:0; padding-left:18px; }
+  .prova li{ margin:7px 0; font-size:15px; }
+
+  .cta-box{ margin-top:28px; background:var(--surface); border:1px solid var(--border); border-radius:18px; padding:22px 20px; }
+  .cta-box h2{ font-size:22px; margin-bottom:10px; }
+
+  .foot{ margin-top:28px; padding-top:16px; border-top:1px solid var(--border); text-align:center; color:var(--muted); font-size:12.5px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brand">
+    <div class="name">Evandro Fernandes</div>
+    <div class="tag">Recuperação de Receita · HDM</div>
+  </div>
+
+  <div style="text-align:center"><span class="selo">Diagnóstico de Receita Invisível</span></div>
+  <h1 class="title">Onde a receita da sua empresa está escapando</h1>
+  <p class="sub">Uma leitura de por que o dinheiro vaza nos seus 3 funis, e do caminho para recuperar.</p>
+
+  <div class="sec">
+    <p class="intro">Olá! Que bom que você chegou até aqui.</p>
+    <p>Se você respondeu ao diagnóstico, é porque desconfia que a sua empresa
+    deixa dinheiro na mesa todo mês. Eu preparei essa leitura pra te mostrar, com
+    honestidade, por onde a receita costuma escapar, e que existe caminho para
+    recuperar.</p>
+  </div>
+
+  <div class="sec">
+    <h3>Antes de tudo</h3>
+    <p>Quero começar por uma boa notícia: <strong>o dinheiro que falta na sua
+    empresa não sumiu. Ele vaza, e o que vaza dá para recuperar.</strong> Não é
+    falta de esforço nem de tráfego. É evasão que ninguém está gerindo.</p>
+  </div>
+
+  <div class="sec">
+    <h3>O seu cenário hoje</h3>
+    <p>Se você investe cada vez mais em tráfego e a conversão não acompanha, se os
+    seus dados vivem espalhados entre plataforma de pagamento, CRM, planilhas e
+    WhatsApp, e se o comercial e o CS quase não se falam, saiba que esse padrão se
+    repete em quase toda empresa digital que cresceu rápido.</p>
+    <p>Pode ter começado há meses ou há anos, e já vem custando caro no seu caixa.
+    <strong>E isso tem uma explicação.</strong></p>
+  </div>
+
+  <div class="sec">
+    <h3>Por que não resolveu até agora</h3>
+    <p>Você provavelmente já tentou de tudo: mais tráfego, trocar de gestor,
+    implantar um CRM. E mesmo assim a receita continua escapando.</p>
+    <p>Faz sentido. A maioria dessas abordagens ataca o que você <em>vê hoje</em>,
+    o custo do lead, o sintoma. Mas a causa continua intacta: a receita que já
+    entrou e vaza entre o Marketing, o Comercial e o CS.
+    <strong>Não é o seu tráfego; é a evasão que ainda não foi gerida.</strong></p>
+  </div>
+
+  <div class="sec">
+    <h3>Dois caminhos lado a lado</h3>
+    <div class="compare">
+      <div class="col bad">
+        <h4>Continuar comprando mais tráfego</h4>
+        <ul>
+          <li>Dados em ilhas</li>
+          <li>Mais verba na Meta</li>
+          <li>Lead que some sem rastro</li>
+          <li>Receita escapando todo mês</li>
+        </ul>
+      </div>
+      <div class="col good">
+        <h4>Gerir a evasão nos 3 funis (método HDM)</h4>
+        <ul>
+          <li>Os 3 funis como um organismo</li>
+          <li>Comportamento real lido (Endognose)</li>
+          <li>Cada lead rastreado até o fim</li>
+          <li>Receita recuperada em R$</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <a class="btn" data-wa="Olá! Fiz o Diagnóstico de Receita Invisível e quero entender onde minha empresa está perdendo receita.">Quero entender onde perco receita</a>
+    <p class="under">Se já fez sentido pra você, é só tocar aqui.</p>
+  </div>
+
+  <div class="sec">
+    <h3>Como o método trabalha</h3>
+    <p>O método HDM recupera a Receita Invisível em quatro movimentos:</p>
+    <ol class="metodo">
+      <li><strong>Diagnóstico 360°:</strong> a Endognose lê o comportamento real do lead e calcula, em R$, quanto está vazando nos 3 funis.</li>
+      <li><strong>Arquitetura de recuperação:</strong> os 3 funis desenhados como um organismo único, com os KPIs priorizados por impacto financeiro.</li>
+      <li><strong>Implementação assistida:</strong> a plataforma HDM e os processos entram junto com a sua equipe, não no lugar dela.</li>
+      <li><strong>Acompanhamento:</strong> ajustes com dados reais até o resultado aparecer no caixa.</li>
+    </ol>
+    <p class="hint">O horizonte de resultado costuma ser de 90 a 180 dias, sem aumentar o investimento em tráfego.</p>
+  </div>
+
+  <div class="sec">
+    <h3>O que precisa acontecer agora</h3>
+    <p>O caminho começa por uma <strong>sessão estratégica gratuita</strong>: um
+    diagnóstico do seu momento e o desenho do próximo passo para recuperar a sua
+    Receita Invisível. Você sai dela sabendo exatamente por onde o dinheiro está
+    saindo.</p>
+    <p>Aquilo que você quer, crescer com margem e previsibilidade, é totalmente
+    possível. E sem depender de comprar mais tráfego.</p>
+  </div>
+
+  <div class="cta">
+    <a class="btn" data-wa="Olá! Quero agendar minha sessão estratégica de Receita Invisível.">Quero minha sessão estratégica</a>
+    <p class="under">Atendimento com o time do Evandro, online.</p>
+  </div>
+
+  <div class="sec">
+    <h3>Quem já viveu isso</h3>
+    <p>Empresas que pararam de olhar só o tráfego e foram na evasão:</p>
+    <div class="prova">
+      <ul>
+        <li><strong>Case JusExpert:</strong> mais de R$ 30 milhões de receita gerada com a gestão da Receita Invisível nos 3 funis.</li>
+        <li>Operações que reduziram o custo por lead alimentando a Meta com o comportamento real, sem aumentar a verba.</li>
+      </ul>
+    </div>
+    <p class="hint">O que essas histórias têm em comum: não compraram mais tráfego. Passaram a gerir a evasão.</p>
+  </div>
+
+  <div class="cta-box">
+    <h2>O próximo passo</h2>
+    <p>Dar o primeiro passo é simples. Se essa leitura fez sentido pra você, é só
+    tocar no botão que o time já organiza a sua sessão.</p>
+    <div class="cta" style="margin-bottom:0">
+      <a class="btn" data-wa="Olá! Fiz o Diagnóstico de Receita Invisível e quero agendar minha sessão estratégica.">Falar com o time e agendar</a>
+    </div>
+  </div>
+
+  <div class="foot">
+    Evandro Fernandes · Recuperação de Receita · HDM<br>
+    Atendimento do time do Evandro Fernandes, online para todo o Brasil.
+  </div>
+
+</div>
+</body>
+</html>

@@ -25,7 +25,8 @@ Invisível" nos 3 Funis) e é, ao mesmo tempo, laboratório/case da parceria.
 | -------------------------- | -------------- | ----------- | ------ |
 | Roadmap estratégico 90 dias| `estrategia/`  | v1.0 entregue |      |
 | Estratégia completa (funil)| `estrategia/`  | v1.0 entregue |      |
-| Funil de quiz v1           | `funis/`       | planejado   |        |
+| Funil de quiz (Receita Invisível) | `funis/quiz-receita-invisivel/` | build feito, deploy pendente |  |
+| Leitura em PDF (SDR/WhatsApp)     | `materiais/`   | v1.0 (assets pendentes) |  |
 
 ## Observações
 
