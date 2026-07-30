@@ -17,7 +17,11 @@ Três telas de funil, uma stack:
 3. **Comunidade** (`/comunidade`) — caminho dos desqualificados (papel não-dono ou porte
    abaixo do piso), sem formulário, contagem anônima.
 
-Stack: React + Vite + TypeScript. Tracking centralizado no GTM. Deploy na **Netlify**.
+Stack: React + Vite + TypeScript. Tracking centralizado no GTM.
+
+> **Produção = GHL.** O que vai para o ar são os arquivos self-contained em [`ghl/`](./ghl/)
+> (HTML/CSS/JS puro para colar no GHL, com a logo e a paleta reais + Apps Script da
+> planilha). Esta versão React é a **referência de manutenção** da copy e da lógica.
 
 ## Decisões que viraram regra (ver `src/lib/scoring.ts`)
 

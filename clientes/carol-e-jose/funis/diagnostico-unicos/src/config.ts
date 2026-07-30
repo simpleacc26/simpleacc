@@ -18,11 +18,11 @@ export const config = {
   // (comunidade / Jornada 1). Apenas dígitos com DDI. Ex.: 5551999999999
   whatsapp: (env.VITE_WHATSAPP as string) || "PREENCHER_WHATSAPP",
 
-  // Link/emb) do Calendário nativo do GHL para o agendamento da sessão (aprovados).
-  agendamentoUrl: (env.VITE_AGENDAMENTO_URL as string) || "PREENCHER_AGENDAMENTO_URL",
+  // Link do Calendário nativo do GHL para o agendamento da sessão (aprovados).
+  agendamentoUrl: (env.VITE_AGENDAMENTO_URL as string) || "https://api.leadconnectorhq.com/widget/booking/leFMFKegfdvDRIE1b42I",
 
-  // Link da comunidade / Jornada 1 para desqualificados (papel ou porte).
-  comunidadeUrl: (env.VITE_COMUNIDADE_URL as string) || "PREENCHER_COMUNIDADE_URL",
+  // Grupo de WhatsApp da comunidade / Jornada 1 para desqualificados (papel ou porte).
+  comunidadeUrl: (env.VITE_COMUNIDADE_URL as string) || "https://chat.whatsapp.com/B6rtIEWe7jcHseToLdfSBE",
 } as const;
 
 export function faltaConfig(): string[] {
