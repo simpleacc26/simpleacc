@@ -5,13 +5,13 @@ da equipe, Inova). Fica no topo da lista pelo prefixo `0-`.
 
 ## Links úteis
 
-- App de indicações da base: https://simpleacc-indicacoes-simpleacc.vercel.app
+- App de indicações da base: https://simpleacc-indicacoes.vercel.app
 
 ## Projetos
 
 | Projeto | Pasta | Status | Deploy |
 | ------- | ----- | ------ | ------ |
-| Levantamento de indicações da base | `app-indicacoes/` | Em uso | [Vercel](https://simpleacc-indicacoes-simpleacc.vercel.app) |
+| Levantamento de indicações da base | `app-indicacoes/` | Em uso | [Vercel](https://simpleacc-indicacoes.vercel.app) |
 | Marca / brandbook | `marca/` | Referência | — |
 
 ## Estratégia e planos

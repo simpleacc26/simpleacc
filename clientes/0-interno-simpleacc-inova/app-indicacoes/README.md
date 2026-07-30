@@ -13,7 +13,7 @@ O plano que originou o app está em
 
 ## No ar
 
-- **App:** https://simpleacc-indicacoes-simpleacc.vercel.app
+- **App:** https://simpleacc-indicacoes.vercel.app
 - **Projeto na Vercel:** `simpleacc-indicacoes` (time Simpleacc)
 - **Acesso:** senha compartilhada (variável `APP_SENHA` na Vercel).
 
