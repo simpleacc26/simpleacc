@@ -147,10 +147,10 @@ body{font-family:var(--font-text);background:#DED3C2;min-height:100vh;display:fl
 const HANDLE  = '@gustavo_ono';
 const LEGENDA = 'Tem margem sumindo da sua chocolateria e ela não aparece na sua cara, aparece no extrato no fim do mês. São 3 erros: não contar seu tempo no custo, vender o que o cliente pede em vez do que dá margem, e não ter produto âncora. Clique em Saiba mais, responda o quiz e descubra qual está te custando mais.';
 
-const IMG_FILEIRA = '__IMG_FILEIRA__';
+const IMG_GUSTAVO = '__IMG_GUSTAVO__';
 const IMG_CORTE   = '__IMG_CORTE__';
-const IMG_PRATO   = '__IMG_PRATO__';
-const IMG_MAO     = '__IMG_MAO__';
+const IMG_FILEIRA = '__IMG_FILEIRA__';
+const IMG_ANCORA  = '__IMG_ANCORA__';
 
 /* ---------- chrome do slide (sai dentro do PNG) ---------- */
 function bottomBar(index, total, tom){
@@ -189,7 +189,7 @@ function selo(n, txt){ return `<span class="selo sans">${txt}<i>${n}</i></span>`
 const SLIDES = [
 
   // 1 — gancho
-  { bg:'dark', faixa:IMG_FILEIRA, pos:'bottom', html: `
+  { bg:'dark', faixa:IMG_GUSTAVO, pos:'bottom', html: `
     <h1 class="t-hero">3 erros que estão comendo a margem da sua chocolateria</h1>
     <p class="body sans" style="font-size:15px;">sem você perceber</p>
   `},
@@ -203,7 +203,7 @@ const SLIDES = [
   `},
 
   // 3 — erro 2
-  { bg:'dark', faixa:IMG_PRATO, pos:'bottom', html: `
+  { bg:'dark', faixa:IMG_FILEIRA, pos:'bottom', html: `
     ${selo('02','Erro')}
     <h2 class="t-err">Você vende o que o cliente pede.</h2>
     <p class="fala">"Você tem brigadeiro?"</p>
@@ -211,7 +211,7 @@ const SLIDES = [
   `},
 
   // 4 — erro 3
-  { bg:'light', faixa:IMG_MAO, pos:'bottom', html: `
+  { bg:'light', faixa:IMG_ANCORA, pos:'bottom', html: `
     ${selo('03','Erro')}
     <h2 class="t-err">Você não tem produto âncora.</h2>
     <p class="body sans" style="font-size:13px;">O produto âncora é aquele que puxa todo o resto. Que aparece no feed e já gera mensagem antes de você abrir a boca. Que justifica o preço do cardápio inteiro.</p>

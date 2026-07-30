@@ -25,10 +25,10 @@ TEMPLATE = AQUI / "carrossel.template.html"
 SAIDA = AQUI / "carrossel.html"
 
 IMAGENS = {
-    "__IMG_FILEIRA__": AQUI / "assets" / "faixa-fileira.jpg",
+    "__IMG_GUSTAVO__": AQUI / "assets" / "faixa-gustavo.jpg",
     "__IMG_CORTE__":   AQUI / "assets" / "faixa-corte.jpg",
-    "__IMG_PRATO__":   AQUI / "assets" / "faixa-prato.jpg",
-    "__IMG_MAO__":     AQUI / "assets" / "faixa-mao.jpg",
+    "__IMG_FILEIRA__": AQUI / "assets" / "faixa-fileira.jpg",
+    "__IMG_ANCORA__":  AQUI / "assets" / "faixa-ancora.jpg",
     "__IMG_AVATAR__":  AQUI / "assets" / "avatar.png",
 }
 

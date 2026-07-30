@@ -17,10 +17,10 @@
 
 | # | Fundo | Faixa de foto | Conteúdo |
 |---|---|---|---|
-| 1 | cacau | caixa e fileiras de bombons | 3 erros que estão comendo a margem da sua chocolateria, sem você perceber |
+| 1 | cacau | Gustavo, retrato de estúdio | 3 erros que estão comendo a margem da sua chocolateria, sem você perceber |
 | 2 | creme | bombom cortado, recheio à mostra | Erro 01: você não conta seu tempo no custo |
-| 3 | cacau | bandejas e a caixa da marca | Erro 02: você vende o que o cliente pede |
-| 4 | creme | a mão dele segurando um bombom | Erro 03: você não tem produto âncora |
+| 3 | cacau | bombons nos moldes, em fileira | Erro 02: você vende o que o cliente pede |
+| 4 | creme | um bombom só, em close | Erro 03: você não tem produto âncora |
 | 5 | cacau | sem faixa | Esses erros aparecem no extrato no fim do mês |
 | 6 | salmão | sem faixa | Clique em Saiba mais, responda o quiz e descubra qual está te custando mais |
 
@@ -59,11 +59,15 @@ faixa é um recorte diferente, escolhido pelo que o slide precisa dizer:
 
 | Arquivo | Origem | Por que este recorte |
 |---|---|---|
-| `faixa-fileira.jpg` | `IMG_4438.jpg` | muitos produtos: é o negócio inteiro, serve à abertura |
+| `faixa-gustavo.jpg` | `IMG_7133.jpg` | rosto inteiro, sem corte: quem fala aparece antes do argumento |
 | `faixa-corte.jpg` | `morango.png` | o bombom cortado mostra o trabalho que existe dentro, serve ao erro do tempo no custo |
-| `faixa-prato.jpg` | `IMG_4438.jpg` | bandejas e caixa da marca: é o cardápio, serve ao erro de vender o que pedem |
-| `faixa-mao.jpg` | `IMG_4438.jpg` | **um** bombom erguido: é o produto âncora, serve ao erro 3 |
+| `faixa-fileira.jpg` | `IMG_4438.jpg` | bombons nos moldes, em fileira: é o cardápio, serve ao erro de vender o que pedem |
+| `faixa-ancora.jpg` | `morango.png` | **um** bombom dominando o quadro: é o produto âncora, serve ao erro 3 |
 | `avatar.png` | `gustavo.png` | só o avatar da moldura de preview, não sai nos PNGs |
+
+Notas de tratamento do retrato de estúdio: o recorte para dentro do ciclorama,
+para não pegar a emenda do fundo, e um viés quente leve, para o cinza neutro do
+estúdio conversar com o creme da paleta.
 
 ## Como regerar
 
