@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<!--
+  CARROSSEL DE ANÚNCIO — Gustavo Ono (@gustavo_ono)
+  Ângulo: "o que separa a chocolateira que fatura bem da que fatura pouco"
+  Copy: fornecida pelo cliente (6 blocos) + slide de CTA.
+
+  Identidade espelhada dos criativos de melhor performance:
+    creme quente #EFE5D6  ↔  cacau profundo #3B2A20
+    marrom médio #7A5540 nos títulos, salmão #E08A8A como acento
+    serifa de alto contraste no título, sans geométrica no corpo
+    assinatura GUSTAVO ONO | CHOCOLATE | CURSOS no topo, @gustavo_ono no rodapé
+    fios finos de canto arredondado como device gráfico
+
+  Destino do CTA: quiz de diagnóstico gratuito.
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carrossel Gustavo Ono: fatura bem x fatura pouco</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  /* paleta extraída dos criativos de melhor performance */
+  --cream:       #EFE5D6;   /* fundo claro, creme quente */
+  --cream-soft:  #F6EFE4;   /* creme mais claro, para caixas */
+  --cream-line:  #DCCDB6;   /* fio sobre creme */
+  --cocoa:       #3B2A20;   /* fundo escuro, cacau profundo */
+  --cocoa-deep:  #2A1D16;   /* âncora do gradiente */
+  --brown:       #7A5540;   /* marrom médio, títulos sobre creme */
+  --brown-soft:  #A9866A;   /* marrom claro, labels */
+  --salmon:      #E08A8A;   /* acento de destaque */
+  --ink:         #4A3A2E;   /* corpo de texto sobre creme */
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-text:    'Plus Jakarta Sans', system-ui, sans-serif;
+
+  --slide-w: 420px;
+  --slide-h: 525px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:var(--font-text);
+  background:#DED3C2;
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:32px 16px;
+}
+.serif{font-family:var(--font-display)}
+.sans {font-family:var(--font-text)}
+
+/* ============ MOLDURA DO INSTAGRAM (só preview) ============ */
+.ig-frame{width:420px;max-width:100%;background:#fff;border-radius:12px;box-shadow:0 8px 40px rgba(59,42,32,.22);overflow:hidden}
+.ig-header{display:flex;align-items:center;gap:10px;padding:12px 14px}
+.ig-avatar{width:34px;height:34px;border-radius:50%;flex:0 0 auto;background:var(--cocoa);display:flex;align-items:center;justify-content:center;color:var(--cream);font-family:var(--font-display);font-size:15px;font-weight:600}
+.ig-handle{font-size:13px;font-weight:700;color:#111;line-height:1.2}
+.ig-sub{font-size:11px;color:#8A8580;line-height:1.2}
+.ig-dots{display:flex;justify-content:center;gap:5px;padding:10px 0 4px}
+.ig-dot{width:6px;height:6px;border-radius:50%;background:#D5D5D5;transition:background .2s}
+.ig-dot.on{background:var(--brown)}
+.ig-actions{display:flex;gap:14px;padding:6px 14px 2px;color:#111}
+.ig-actions .spacer{flex:1}
+.ig-caption{padding:6px 14px 14px;font-size:13px;line-height:1.45;color:#111}
+.ig-caption .ts{display:block;margin-top:8px;font-size:10px;letter-spacing:.4px;color:#9A9A9A}
+
+/* ============ VIEWPORT ============ */
+.carousel-viewport{width:100%;aspect-ratio:4/5;overflow:hidden;position:relative;cursor:grab;touch-action:pan-y;user-select:none}
+.carousel-viewport.dragging{cursor:grabbing}
+.carousel-track{display:flex;height:100%;transition:transform .32s cubic-bezier(.22,.61,.36,1);will-change:transform}
+
+/* ============ SLIDE ============ */
+.slide{flex:0 0 var(--slide-w);width:var(--slide-w);height:100%;position:relative;overflow:hidden;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+.slide.bg-light{background:var(--cream);color:var(--ink)}
+.slide.bg-dark {background:var(--cocoa);color:var(--cream)}
+.slide.bg-grad {background:linear-gradient(165deg,var(--cocoa-deep) 0%,#5A3E2C 55%,#8A6448 100%);color:var(--cream)}
+
+/* assinatura do topo, presente em todos os slides */
+.slide-top{padding:26px 36px 0;font-size:9.5px;letter-spacing:1.7px;text-transform:uppercase;z-index:3}
+.bg-light .slide-top{color:var(--brown)}
+.bg-dark  .slide-top,.bg-grad .slide-top{color:rgba(239,229,214,.82)}
+.slide-top b{font-weight:800}
+.slide-top span{opacity:.72;font-weight:500}
+
+/* conteúdo: 80px embaixo para liberar @handle + barra de progresso */
+.slide-body{flex:1;display:flex;flex-direction:column;padding:0 36px 80px;position:relative;z-index:2}
+.slide-body.center{justify-content:center}
+.slide-body.bottom{justify-content:flex-end}
+
+/* ============ TIPOGRAFIA ============ */
+.t-xl{font-family:var(--font-display);font-size:44px;font-weight:600;line-height:1.02;letter-spacing:-.5px}
+.t-lg{font-family:var(--font-display);font-size:36px;font-weight:600;line-height:1.06;letter-spacing:-.4px}
+.t-it{font-style:italic;font-weight:500}
+.body{font-size:14px;font-weight:400;line-height:1.55;margin-top:14px}
+.body b{font-weight:700}
+.bg-light .body{color:var(--ink)}
+.bg-dark .body,.bg-grad .body{color:rgba(239,229,214,.8)}
+.bg-light .t-xl,.bg-light .t-lg{color:var(--brown)}
+.bg-dark .t-xl,.bg-dark .t-lg,.bg-grad .t-xl,.bg-grad .t-lg{color:var(--cream)}
+
+.kicker{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:13px;display:inline-block}
+.bg-light .kicker{color:var(--brown-soft)}
+.bg-dark .kicker{color:var(--salmon)}
+.bg-grad .kicker{color:rgba(239,229,214,.75)}
+
+/* ============ DEVICE GRÁFICO: fios de canto arredondado ============ */
+.bracket{border:1px solid var(--cream-line);border-radius:18px;padding:20px 22px}
+.bg-dark .bracket,.bg-grad .bracket{border-color:rgba(239,229,214,.28)}
+/* fio em L, que aponta para o texto (como nos criativos 2 e 3) */
+.rule{height:1px;background:var(--cream-line);margin:18px 0 0;width:78px}
+.bg-dark .rule,.bg-grad .rule{background:rgba(239,229,214,.35)}
+
+/* ============ BLOCO DE CONTRASTE "uma / a outra" ============ */
+.vs{margin-top:20px}
+.vs-row{display:flex;gap:13px;align-items:flex-start;padding:12px 0}
+.vs-row + .vs-row{border-top:1px solid var(--cream-line)}
+.bg-dark .vs-row + .vs-row{border-top-color:rgba(239,229,214,.2)}
+.vs-key{font-family:var(--font-display);font-size:17px;font-style:italic;line-height:1.2;flex:0 0 62px;padding-top:1px}
+.vs-a .vs-key{color:var(--brown)}
+.bg-dark .vs-a .vs-key{color:var(--salmon)}
+.vs-b .vs-key{color:var(--brown-soft);opacity:.85}
+.bg-dark .vs-b .vs-key{color:rgba(239,229,214,.45)}
+.vs-tx{font-size:13.5px;line-height:1.45;font-weight:500}
+.bg-light .vs-a .vs-tx{color:var(--ink)}
+.bg-light .vs-b .vs-tx{color:#8A7565}
+.bg-dark .vs-a .vs-tx{color:var(--cream)}
+.bg-dark .vs-b .vs-tx{color:rgba(239,229,214,.5)}
+
+.cta-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;background:var(--cream);color:var(--cocoa);font-family:var(--font-text);font-weight:700;font-size:14px;border-radius:30px}
+</style>
+</head>
+<body>
+
+<div class="ig-frame">
+  <div class="ig-header">
+    <div class="ig-avatar">G</div>
+    <div>
+      <div class="ig-handle">gustavo_ono</div>
+      <div class="ig-sub">Patrocinado</div>
+    </div>
+  </div>
+
+  <div class="carousel-viewport" id="viewport">
+    <div class="carousel-track" id="track"></div>
+  </div>
+
+  <div class="ig-dots" id="dots"></div>
+
+  <div class="ig-actions">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 00-7.8 7.8l1.1 1.1L12 21.2l7.7-7.7 1.1-1.1a5.5 5.5 0 000-7.8z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.5 8.5 0 01-3.8-.9L3 20.5l1.5-4.4A8.4 8.4 0 0121 11.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="spacer"></span>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+
+  <div class="ig-caption" id="igCaption"></div>
+</div>
+
+<script>
+const HANDLE  = '@gustavo_ono';
+const LEGENDA = 'Duas chocolateiras, o mesmo produto, faturamentos completamente diferentes. A diferença não está no talento nem no volume, está em três coisas que ninguém vê no feed: cardápio, precificação e rotina de venda. Clique em Saiba mais, responda o quiz e receba seu diagnóstico gratuito.';
+
+/* ---------- chrome do slide (sai dentro do PNG) ---------- */
+function topBar(){
+  return `<div class="slide-top sans"><b>GUSTAVO ONO</b> <span>| CHOCOLATE | CURSOS</span></div>`;
+}
+
+function bottomBar(index, total, isLight){
+  const pct    = ((index + 1) / total) * 100;
+  const track  = isLight ? 'rgba(74,58,46,0.14)'  : 'rgba(239,229,214,0.18)';
+  const fill   = isLight ? 'var(--brown)'         : 'var(--cream)';
+  const label  = isLight ? 'rgba(74,58,46,0.45)'  : 'rgba(239,229,214,0.5)';
+  const handle = isLight ? 'rgba(74,58,46,0.62)'  : 'rgba(239,229,214,0.7)';
+  return `<div style="position:absolute;bottom:0;left:0;right:0;padding:0 28px 20px;z-index:10;">
+    <div class="sans" style="font-size:11px;font-weight:600;letter-spacing:.2px;color:${handle};margin-bottom:9px;">${HANDLE}</div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div style="flex:1;height:3px;background:${track};border-radius:2px;overflow:hidden;">
+        <div style="height:100%;width:${pct}%;background:${fill};border-radius:2px;"></div>
+      </div>
+      <span class="sans" style="font-size:11px;color:${label};font-weight:500;">${index + 1}/${total}</span>
+    </div>
+  </div>`;
+}
+
+function swipeArrow(isLight){
+  const bg     = isLight ? 'rgba(74,58,46,0.07)'   : 'rgba(239,229,214,0.09)';
+  const stroke = isLight ? 'rgba(74,58,46,0.3)'    : 'rgba(239,229,214,0.4)';
+  return `<div style="position:absolute;right:0;top:0;bottom:0;width:48px;z-index:9;display:flex;align-items:center;justify-content:center;background:linear-gradient(to right,transparent,${bg});">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path d="M9 6l6 6-6 6" stroke="${stroke}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>`;
+}
+
+/* bloco de contraste, repetido nos slides 4, 5 e 6 */
+function vs(uma, outra){
+  return `<div class="vs">
+    <div class="vs-row vs-a"><span class="vs-key serif">Uma</span><span class="vs-tx sans">${uma}</span></div>
+    <div class="vs-row vs-b"><span class="vs-key serif">A outra</span><span class="vs-tx sans">${outra}</span></div>
+  </div>`;
+}
+
+/* ---------- os slides ---------- */
+const SLIDES = [
+
+  // 1 — gancho. Espelha a estrutura do criativo "Duas confeiteiras."
+  { bg:'light', pos:'center', html: `
+    <div class="bracket">
+      <h1 class="t-xl">Duas<br>chocolateiras.</h1>
+      <p class="body sans" style="margin-top:12px;font-size:15px;"><b>Mesmo</b> produto. <b>Faturamentos</b> diferentes.</p>
+    </div>
+    <p class="body sans" style="margin-top:20px;">O que separa a que fatura bem da que fatura pouco?</p>
+  `},
+
+  // 2 — não é o produto
+  { bg:'dark', pos:'bottom', html: `
+    <span class="kicker sans">Não é isso</span>
+    <h2 class="t-lg">Não é o produto.</h2>
+    <p class="body sans">As duas produzem bem. Às vezes a que fatura menos tem o produto mais bonito.</p>
+    <div class="rule"></div>
+    <p class="t-lg t-it" style="font-size:24px;margin-top:16px;">Talento não é o diferencial.</p>
+  `},
+
+  // 3 — não é o volume
+  { bg:'light', pos:'bottom', html: `
+    <span class="kicker sans">Não é isso</span>
+    <h2 class="t-lg">Não é o volume.</h2>
+    <p class="body sans">Produzir mais sem margem só aumenta o cansaço...</p>
+    <div class="rule"></div>
+    <p class="t-lg t-it" style="font-size:24px;margin-top:16px;">não o faturamento.</p>
+  `},
+
+  // 4 — é o cardápio
+  { bg:'dark', pos:'bottom', html: `
+    <span class="kicker sans">A diferença, 1 de 3</span>
+    <h2 class="t-lg">É o cardápio.</h2>
+    ${vs(
+      'sabe exatamente o que vende, pra quem, e por que aquele produto justifica o preço',
+      'faz "o que pedem"'
+    )}
+  `},
+
+  // 5 — é a precificação
+  { bg:'light', pos:'bottom', html: `
+    <span class="kicker sans">A diferença, 2 de 3</span>
+    <h2 class="t-lg">É a precificação.</h2>
+    ${vs(
+      'calcula',
+      'chuta, e às vezes prefere não calcular pra não ver o resultado'
+    )}
+  `},
+
+  // 6 — é a estrutura de venda
+  { bg:'dark', pos:'bottom', html: `
+    <span class="kicker sans">A diferença, 3 de 3</span>
+    <h2 class="t-lg">É a estrutura<br>de venda.</h2>
+    ${vs(
+      'tem rotina de oferta',
+      'espera o cliente aparecer'
+    )}
+  `},
+
+  // 7 — CTA
+  { bg:'grad', pos:'center', html: `
+    <span class="kicker sans">Diagnóstico gratuito</span>
+    <h2 class="t-lg">Essas três coisas<br>são o que o quiz<br><span class="t-it">diagnostica</span> no seu<br>negócio.</h2>
+    <p class="body sans" style="margin-bottom:24px;">Leva 3 minutos e o resultado sai na hora.</p>
+    <span class="cta-btn">Clique em Saiba mais</span>
+  `},
+
+];
+
+/* ---------- render + swipe ---------- */
+const track    = document.getElementById('track');
+const viewport = document.getElementById('viewport');
+const dotsEl   = document.getElementById('dots');
+const TOTAL    = SLIDES.length;
+
+track.innerHTML = SLIDES.map((s, i) => {
+  const isLight = s.bg === 'light';
+  const isLast  = i === TOTAL - 1;
+  return `<div class="slide bg-${s.bg}">
+    ${topBar()}
+    <div class="slide-body ${s.pos || 'bottom'}">${s.html}</div>
+    ${isLast ? '' : swipeArrow(isLight)}
+    ${bottomBar(i, TOTAL, isLight)}
+  </div>`;
+}).join('');
+
+dotsEl.innerHTML = SLIDES.map((_, i) => `<span class="ig-dot${i ? '' : ' on'}"></span>`).join('');
+document.getElementById('igCaption').innerHTML =
+  `<strong>gustavo_ono</strong> ${LEGENDA}<span class="ts">HÁ 2 HORAS</span>`;
+
+let index = 0, startX = 0, dragX = 0, dragging = false;
+const W = () => viewport.clientWidth;
+function go(i){
+  index = Math.max(0, Math.min(TOTAL - 1, i));
+  track.style.transition = 'transform .32s cubic-bezier(.22,.61,.36,1)';
+  track.style.transform  = `translateX(${-index * W()}px)`;
+  [...dotsEl.children].forEach((d, n) => d.classList.toggle('on', n === index));
+}
+viewport.addEventListener('pointerdown', e => {
+  dragging = true; startX = e.clientX; dragX = 0;
+  viewport.classList.add('dragging');
+  viewport.setPointerCapture(e.pointerId);
+  track.style.transition = 'none';
+});
+viewport.addEventListener('pointermove', e => {
+  if(!dragging) return;
+  dragX = e.clientX - startX;
+  track.style.transform = `translateX(${-index * W() + dragX}px)`;
+});
+function endDrag(){
+  if(!dragging) return;
+  dragging = false;
+  viewport.classList.remove('dragging');
+  if(Math.abs(dragX) > W() * 0.18) go(index + (dragX < 0 ? 1 : -1));
+  else go(index);
+}
+viewport.addEventListener('pointerup', endDrag);
+viewport.addEventListener('pointercancel', endDrag);
+document.addEventListener('keydown', e => {
+  if(e.key === 'ArrowRight') go(index + 1);
+  if(e.key === 'ArrowLeft')  go(index - 1);
+});
+window.addEventListener('resize', () => go(index));
+go(0);
+</script>
+</body>
+</html>
