@@ -70,7 +70,7 @@ if (!a._completedAt && !a.problema) {
   let ctaLabel, ctaExtra, clube;
   if (foraDeArea) {
     ctaLabel = "Falar com a equipe no WhatsApp";
-    ctaExtra = '<p class="hint">Pelo faturamento de hoje, o melhor primeiro passo pode ser o nosso conteúdo e a plataforma de gestão. Me chama no WhatsApp que eu te mostro por onde começar. 💛</p>';
+    ctaExtra = '<p class="hint">Pelo faturamento de hoje, o melhor primeiro passo pode ser o nosso conteúdo e a plataforma de gestão. Me chama no WhatsApp que eu te mostro por onde começar.</p>';
     clube = "";
   } else if (nutrir) {
     ctaLabel = "Quero entender melhor como funciona";

@@ -9,8 +9,10 @@
    Vazio = só loga no console. ---- */
 const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
 
-/* Planilha de leads (Google Apps Script). Cole aqui a URL /exec da implantação
-   e republique. Vazio = não envia (só salva local + segue pro diagnóstico). */
+/* Planilha de leads. Webhook do Make que grava na planilha
+   "Planilha de Leads - Felipe Damasceno (Diagnóstico Executivo IDE) - Simple Acc"
+   (cenário "[Felipe Damasceno] Diagnóstico Executivo (IDE) → Sheets").
+   Vazio = não envia (só salva local + segue pro diagnóstico). */
 const LEADS_ENDPOINT = "https://hook.us2.make.com/akkbwcbz8ikxg8grrxwm3vswkqdrzqx9";
 
 /* UTMs capturadas da URL no carregamento (a página do quiz não muda de URL até
@@ -43,8 +45,8 @@ function classificarLead(a) {
   return "qualificado";
 }
 
-/* Envia o lead pra planilha (Google Apps Script). Manda as respostas já em
-   texto legível. Fire-and-forget: nunca trava o fluxo do lead. */
+/* Envia o lead pra planilha. Manda as respostas já em texto legível.
+   Fire-and-forget: nunca trava o fluxo do lead. */
 function enviarLead() {
   if (!LEADS_ENDPOINT) return;
   const a = state.answers;
@@ -133,7 +135,7 @@ function renderStep(i) {
       <div class="actions">
         ${i > 0
           ? '<button class="btn btn-ghost" id="back">← Voltar</button>'
-          : '<span class="hint">Toque na opção que mais combina. Avança sozinho 💛</span>'}
+          : '<span class="hint">Toque na opção que mais combina. Avança sozinho.</span>'}
       </div>
     </section>`);
   app.replaceChildren(screen);
@@ -277,7 +279,7 @@ function renderLoading() {
       <h2>Preparando o seu Diagnóstico Executivo</h2>
       <p class="lead" id="load-msg">${msgs[0]}</p>
       <div class="load-track"><div class="load-bar" id="load-bar"></div></div>
-      <p class="hint" style="margin-top:16px">Estamos personalizando com base no que você respondeu. 💛</p>
+      <p class="hint" style="margin-top:16px">Estamos personalizando com base no que você respondeu.</p>
     </section>`);
   app.replaceChildren(screen);
   scrollTop();
