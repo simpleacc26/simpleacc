@@ -1,5 +1,14 @@
 # Copies de fundo de funil — Juliana Godinho (30/07/2026)
 
+> **Leia antes de usar.** O set de anúncios oficial desta rodada é
+> `2026-07-30-anuncios-5-roteiros-5-estaticos.md` (5 roteiros + 5 estáticos, dez
+> ângulos separados por formato). Este arquivo é o rascunho anterior, sem divisão
+> de formato. Dois ângulos daqui foram reescritos e promovidos para o set oficial:
+> a peça 1 ("pasta de cursos") virou o roteiro **V3** e a peça 2 ("estagnou") virou
+> o estático **E1**. **Não veicular as duas versões do mesmo ângulo.**
+> As peças 3, 4 e 5 continuam válidas e não têm equivalente no set oficial: são
+> reserva para remarketing.
+
 > Construídas sobre os padrões de resposta reais do **Quiz 3** (126 leads), não
 > sobre suposição. Cada peça declara qual marcador dos dados está atacando.
 > Análise completa: `estrategia/2026-07-30-auditoria-funil-quiz3.md`.
