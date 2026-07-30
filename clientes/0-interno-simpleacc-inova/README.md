@@ -11,7 +11,7 @@ da equipe, Inova). Fica no topo da lista pelo prefixo `0-`.
 
 | Projeto | Pasta | Status | Deploy |
 | ------- | ----- | ------ | ------ |
-|         |       |        |        |
+| Comercial (playbook de call de vendas) | [`comercial/`](./comercial/) | Em uso | — |
 
 ## Observações
 
