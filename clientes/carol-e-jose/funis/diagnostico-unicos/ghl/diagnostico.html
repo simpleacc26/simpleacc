@@ -95,24 +95,32 @@
      opts:[["1","Mentoria, consultoria ou aceleradora de gestão"],["2","Contratei gente de mercado para assumir"],["3","Implantei ERP, ferramentas e indicadores"],["4","Tentei me afastar e acabei voltando para o centro"],["5","Todas as alternativas acima"]]},
     {id:"faturamento",cat:"QUALIFICAÇÃO",q:"Qual o faturamento anual da sua empresa?",
      support:"Essa informação define o tipo de análise que vamos preparar para você.",
-     opts:[["1","Até R$1 milhão"],["2","De R$1 a R$3 milhões"],["3","De R$3 a R$10 milhões"],["4","De R$10 a R$30 milhões"],["5","Acima de R$30 milhões"]]},
+     dynamic:true}, // opções dependem do setor (ver FAT_INDUSTRIA / FAT_DEMAIS)
     {id:"margem",cat:"QUALIFICAÇÃO",q:"Da sua receita anual, quanto sobra de lucro para você (margem líquida aproximada)?",
      support:"Fica entre nós. Ajuda a calibrar a análise ao momento real do seu negócio.",
      opts:[["1","Menos de 10%"],["2","Entre 10% e 20%"],["3","Entre 20% e 30%"],["4","Acima de 30%"],["5","Não sei dizer com precisão"]]}
   ];
   var TOTAL = Q.length;
 
+  // Faixas de faturamento por setor: cada uma corta EXATAMENTE no ICP do setor.
+  // Indústria (ICP R$5M): a borda R$5M separa tier2 de pleno.
+  var FAT_INDUSTRIA=[["1","Até R$1 milhão"],["2","De R$1 a R$5 milhões"],["3","De R$5 a R$10 milhões"],["4","De R$10 a R$30 milhões"],["5","Acima de R$30 milhões"]];
+  // Serviços / Operações B2B / Comércio / Outro (ICP R$2M): a borda R$2M separa tier2 de pleno.
+  var FAT_DEMAIS=[["1","Até R$1 milhão"],["2","De R$1 a R$2 milhões"],["3","De R$2 a R$5 milhões"],["4","De R$5 a R$10 milhões"],["5","Acima de R$10 milhões"]];
+  function fatOpts(a){ return a.setor==="industria"?FAT_INDUSTRIA:FAT_DEMAIS; }
+
   // ====================== LÓGICA (rota / aprovação / balde) ======================
   function rota(a){
     if(a.papel==="exec"||a.papel==="nenhuma") return "fora-papel";
-    if(a.faturamento==="1") return "abaixo-piso";
+    if(a.faturamento==="1") return "abaixo-piso"; // "Até R$1 milhão" em qualquer setor
     return "qualificado";
   }
   function aprovacao(a){
     if(rota(a)!=="qualificado") return "nao-aprovado";
+    // Faixas montadas para que o índice 3 seja a borda do ICP em todo setor:
+    // pleno = índice >= 3 ; tier2 = índice 2 ; piso = índice 1 (já sai na rota).
     var fat=parseInt(a.faturamento||"0",10);
-    var corte=(a.setor==="industria")?3:2;
-    return fat>=corte?"pleno":"tier2";
+    return fat>=3?"pleno":"tier2";
   }
   var ORDEM=["oportunidade","lideranca","decisao","processo"];
   function balde(a){
@@ -176,6 +184,7 @@
 
   function renderQuestion(){
     var q=Q[state.idx], sel=state.answers[q.id]||null;
+    var opts=q.dynamic?fatOpts(state.answers):q.opts;
     var sub=q.second, subSel=sub?(state.answers[sub.id]||null):null;
     var needOther=q.other&&sel==="outro";
     var html=
@@ -183,7 +192,7 @@
       '<div class="pmeta"><span>Pergunta '+(state.idx+1)+' de '+TOTAL+'</span><span>'+Math.round(((state.idx+1)/TOTAL)*100)+'%</span></div>'+
       '<div style="margin-top:16px"><span class="label">'+q.cat+'</span><h1>'+esc(q.q)+'</h1>'+
       (q.support?'<p class="support">'+esc(q.support)+'</p>':'')+
-      optionsHTML(q.opts,sel)+'</div>';
+      optionsHTML(opts,sel)+'</div>';
     if(needOther) html+='<div class="field" style="margin-top:12px"><label>Qual?</label><input id="u-other" placeholder="Digite o setor" value="'+esc(state.other||"")+'"></div>';
     if(sub) html+='<div style="margin-top:26px"><h1 style="font-size:20px">'+esc(sub.q)+'</h1>'+optionsHTML(sub.opts,subSel)+'</div>';
     if(q.foot) html+='<p class="foot">'+esc(q.foot)+'</p>';
@@ -271,8 +280,10 @@
     setTimeout(function(){ redirect(target); },600);
   }
 
-  function label(id,val){ for(var i=0;i<Q.length;i++){var q=Q[i];
-      if(q.id===id){for(var j=0;j<q.opts.length;j++)if(q.opts[j][0]===val)return q.opts[j][1];}
+  function label(id,val){
+    if(id==="faturamento"){ var L=fatOpts(state.answers); for(var m=0;m<L.length;m++)if(L[m][0]===val)return L[m][1]; return val||""; }
+    for(var i=0;i<Q.length;i++){var q=Q[i];
+      if(q.id===id&&q.opts){for(var j=0;j<q.opts.length;j++)if(q.opts[j][0]===val)return q.opts[j][1];}
       if(q.second&&q.second.id===id){for(var k=0;k<q.second.opts.length;k++)if(q.second.opts[k][0]===val)return q.second.opts[k][1];}
     } return val||""; }
 

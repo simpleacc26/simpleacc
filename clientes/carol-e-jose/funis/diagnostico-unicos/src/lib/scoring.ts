@@ -42,10 +42,11 @@ export type Aprovacao = "pleno" | "tier2" | "nao-aprovado";
 
 export function aprovacao(a: Answers): Aprovacao {
   if (rota(a) !== "qualificado") return "nao-aprovado";
-  const fat = parseInt(a["faturamento"] || "0", 10); // 2..5 (1 já saiu no piso)
-  const industria = a["setor"] === "industria";
-  const corteIcp = industria ? 3 : 2; // índice mínimo de faixa para pleno
-  return fat >= corteIcp ? "pleno" : "tier2";
+  // Produção (GHL): as faixas de faturamento variam por setor e são montadas para que
+  // o índice 3 seja SEMPRE a borda do ICP (indústria R$5M / demais R$2M). Assim a regra
+  // fica uniforme: pleno = índice >= 3 ; tier2 = índice 2 ; piso = índice 1 (sai na rota).
+  const fat = parseInt(a["faturamento"] || "0", 10);
+  return fat >= 3 ? "pleno" : "tier2";
 }
 
 // ---------------------------------------------------------------------------
