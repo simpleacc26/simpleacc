@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gelo text-navy antialiased;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
+      sans-serif;
+  }
+
+  /* Títulos da marca em serifa de alto contraste. */
+  .font-serif {
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  }
+
+  input,
+  select,
+  textarea {
+    @apply bg-white;
+  }
+}
+
+@layer components {
+  .campo {
+    @apply w-full rounded-md border border-slate-300 px-2.5 py-1.5 text-sm text-navy outline-none transition focus:border-aco focus:ring-1 focus:ring-aco/30;
+  }
+  .rotulo {
+    @apply text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-500;
+  }
+  .cartao {
+    @apply rounded-xl border border-slate-200 bg-white p-4 shadow-sm;
+  }
+  .botao {
+    @apply rounded-lg bg-navy px-3.5 py-2 text-sm font-medium text-white transition hover:bg-navy-2 disabled:opacity-50;
+  }
+  .botao-claro {
+    @apply rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-navy transition hover:border-aco hover:text-aco;
+  }
+}
