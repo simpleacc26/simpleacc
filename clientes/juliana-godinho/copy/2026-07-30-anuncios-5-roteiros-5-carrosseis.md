@@ -1,4 +1,4 @@
-# Anúncios — 5 roteiros de vídeo + 5 estáticos (30/07/2026)
+# Anúncios — 5 roteiros de vídeo + 5 carrosséis (30/07/2026)
 
 > Set construído sobre os padrões reais do **Quiz 3** (126 leads) e sobre o dossiê
 > de ICP do Drive. Cada peça declara qual marcador dos dados está atacando.
@@ -9,7 +9,7 @@
 > `2026-07-30-roteiros-video-quiz-diagnostico.md`).
 >
 > **Divisão de papel:** os **roteiros** trabalham identidade e custo pessoal, com a
-> Juliana falando. Os **estáticos** trabalham a mecânica do negócio, com conta na
+> Juliana falando. Os **carrosséis** trabalham a mecânica do negócio, com conta na
 > mão e leitura rápida.
 >
 > **Funil:** o quiz permanece como está, então o CTA de todas as peças é o quiz.
@@ -148,10 +148,13 @@ Toca no botão e responde o diagnóstico. Leva menos de dois minutos e você rec
 
 ---
 
-# ESTÁTICOS
+# CARROSSÉIS
 
-> Texto mais curto e cortante que os roteiros, para leitura no feed. Mesma voz,
-> mesmo filtro, ângulos completamente diferentes dos vídeos.
+> Seis cards cada, no padrão que o doc de COPY da Ju já usa. **Card 1** para parar
+> o scroll e gerar identificação imediata, **cards 2 a 5** desenvolvendo o
+> argumento e carregando o filtro de ICP, **card 6** com o CTA construído.
+> Mesmo volume de texto da versão estática, redistribuído pelo formato.
+> Mesma voz, mesmo filtro, ângulos completamente diferentes dos vídeos.
 
 ---
 
@@ -161,16 +164,22 @@ Toca no botão e responde o diagnóstico. Leva menos de dois minutos e você rec
 > mas estagnou" foi marcado por 17,2% das qualificadas e por zero das 97
 > desqualificadas.
 
-Pega o seu faturamento dos últimos seis meses. Não o do mês passado, os seis. Tira a média.
+**CARD 1**
+Pega os seus últimos seis meses de faturamento e tira a média. Agora compara com os seis meses anteriores. Se o número é praticamente o mesmo, você não está crescendo devagar. Você estagnou.
 
-Agora compara com os seis meses anteriores.
+**CARD 2**
+E estagnação tem uma característica cruel: ela não dói o suficiente pra você parar tudo e resolver.
 
-Se o número é praticamente o mesmo, você não está crescendo devagar. Você estagnou. E estagnação tem uma característica cruel: não dói o suficiente pra você parar tudo e resolver. As contas fecham, a agenda tem movimento, dá pra tocar mais um ano assim. Por isso a maioria toca mais um ano assim.
+**CARD 3**
+As contas fecham. A agenda tem movimento. Dá pra tocar mais um ano assim. Por isso a maioria toca mais um ano assim.
 
-Negócio estagnado não precisa de mais esforço, ele já está no limite do esforço. Precisa de mudança de estrutura, e estrutura não muda porque você trabalhou mais uma semana.
+**CARD 4**
+Negócio estagnado não precisa de mais esforço. Ele já está no limite do esforço. Precisa de mudança de estrutura, e estrutura não muda porque você trabalhou mais uma semana.
 
+**CARD 5**
 Se você tem clínica com fluxo, fatura acima de 15 mil por mês e os dois últimos semestres fecharam iguais, o seu problema não é venda, é patamar.
 
+**CARD 6**
 Toca no botão e responde o diagnóstico. Em menos de dois minutos você recebe a leitura do que está segurando o seu patamar e o que ajustar primeiro. Você vê antes de falar com qualquer pessoa.
 
 ---
@@ -180,16 +189,22 @@ Toca no botão e responde o diagnóstico. Em menos de dois minutos você recebe 
 > **Marcador:** precificação é gargalo declarado no dossiê e aparece na Q3 do quiz.
 > O ângulo aqui não é o medo de falar o preço, é **como o preço foi construído**.
 
-Como você chegou no preço que cobra hoje?
+**CARD 1**
+Como você chegou no preço que cobra hoje? Se você olhou o que as clínicas da região cobram e se posicionou um pouco abaixo, você não precificou. Você copiou.
 
-Se a resposta honesta for que você olhou o que as outras clínicas da região cobram e se posicionou um pouco abaixo, então você não precificou. Você copiou.
+**CARD 2**
+E copiar preço é copiar a margem de alguém que talvez esteja no vermelho.
 
-E copiar preço é copiar a margem de alguém que talvez esteja no vermelho. Você não faz ideia da estrutura de custo daquela clínica, de quanto ela paga de aluguel, de quantos procedimentos ela faz por dia. Mesmo assim ela virou a sua referência.
+**CARD 3**
+Você não faz ideia da estrutura de custo daquela clínica. Quanto ela paga de aluguel, quantos procedimentos faz por dia, quanta gente tem na equipe. Mesmo assim ela virou a sua referência.
 
+**CARD 4**
 Preço não sai da concorrência. Sai da sua conta: quanto custa entregar aquilo com qualidade, quanto do seu tempo ocupa e quanto precisa sobrar pra empresa ainda existir daqui a três anos.
 
+**CARD 5**
 Se você fatura acima de 15 mil por mês e já aumentou preço com medo e voltou atrás, é aqui que o seu dinheiro está ficando.
 
+**CARD 6**
 Toca no botão e responde o diagnóstico. Menos de dois minutos e você recebe a leitura do gargalo do seu negócio. Sem aula, sem PDF de dicas e sem precisar falar com vendedor antes.
 
 ---
@@ -199,14 +214,22 @@ Toca no botão e responde o diagnóstico. Menos de dois minutos e você recebe a
 > **Marcador:** margem por serviço. É a tradução concreta do pilar de Gestão
 > Financeira, que hoje só aparece como promessa genérica na página.
 
+**CARD 1**
 Tem procedimento na sua tabela que te dá prejuízo. Você só não sabe qual.
 
-Não é exagero. Basta somar o custo do produto, o tempo de sala, a sua hora, a taxa da maquininha e o rateio do aluguel. Faz isso com os seus cinco procedimentos mais vendidos e você vai achar pelo menos um em que, no fim da conta, você trabalhou de graça. Às vezes é justamente o mais popular, o que enche a agenda.
+**CARD 2**
+Não é exagero. Soma o custo do produto, o tempo de sala, a sua hora, a taxa da maquininha e o rateio do aluguel.
 
+**CARD 3**
+Faz essa conta com os seus cinco procedimentos mais vendidos. Você vai achar pelo menos um em que, no fim, trabalhou de graça. E às vezes é justamente o mais popular, o que enche a agenda.
+
+**CARD 4**
 É por isso que dá pra faturar mais e sobrar menos. O volume cresce em cima do serviço errado e o negócio corre mais rápido pro mesmo lugar.
 
+**CARD 5**
 Se você fatura acima de 15 mil por mês e nunca fez essa conta procedimento por procedimento, você está decidindo preço, agenda e campanha no escuro.
 
+**CARD 6**
 Toca no botão e responde o diagnóstico do seu negócio. Em menos de dois minutos você recebe a leitura de onde o seu dinheiro está vazando e o que olhar primeiro.
 
 ---
@@ -216,16 +239,22 @@ Toca no botão e responde o diagnóstico do seu negócio. Em menos de dois minut
 > **Marcador:** "atrair clientes mais qualificados" foi o maior desafio de 44,8%
 > das qualificadas, contra 32,0% das desqualificadas (+12,9pp).
 
+**CARD 1**
 Quando a cliente te manda mensagem perguntando o preço, ela já decidiu quase tudo.
 
-Ela já viu o seu perfil, já viu como você fala do seu trabalho, já viu as fotos do espaço e já reparou se você posta promoção toda semana. Quando ela chega no orçamento, está só conferindo um número que já imaginava.
+**CARD 2**
+Ela já viu o seu perfil. Já viu como você fala do seu trabalho, já viu as fotos do espaço, já reparou se você posta promoção toda semana.
 
+**CARD 3**
+Quando ela chega no orçamento, está só conferindo um número que já imaginava.
+
+**CARD 4**
 Por isso responder melhor no WhatsApp muda tão pouco. A escolha não acontece ali. Acontece antes, e você não estava na conversa.
 
-Quem atrai cliente que paga bem não é quem negocia melhor. É quem construiu antes um motivo pra ela nem perguntar de desconto: clareza sobre o que resolve, pra quem resolve e por que aquilo vale o que custa.
+**CARD 5**
+Quem atrai cliente que paga bem não é quem negocia melhor. É quem construiu antes um motivo pra ela nem perguntar de desconto. Se você fatura acima de 15 mil por mês, entrega um trabalho bom e mesmo assim quase toda conversa termina em preço, o ajuste não é no atendimento.
 
-Se você fatura acima de 15 mil por mês, entrega um trabalho bom e mesmo assim quase toda conversa termina em preço, o ajuste não é no atendimento.
-
+**CARD 6**
 Toca no botão e responde o diagnóstico. Menos de dois minutos e você recebe a leitura do que está atraindo o perfil errado pro seu negócio.
 
 ---
@@ -236,29 +265,35 @@ Toca no botão e responde o diagnóstico. Menos de dois minutos e você recebe a
 > mostram na Q1, onde as qualificadas têm estrutura e as desqualificadas se
 > declaram "totalmente perdidas".
 
+**CARD 1**
 Enquanto você está na sala atendendo, quem está olhando o seu negócio?
 
+**CARD 2**
 A resposta honesta costuma ser: ninguém.
 
-Enquanto você atende, ninguém vê que o custo do produto subiu, que aquela cliente não volta há quatro meses, que a taxa de retorno caiu, que a campanha do mês está gastando e não está trazendo. Essas coisas continuam acontecendo, só que sem plateia. Você descobre depois, quando já viraram número no fechamento.
+**CARD 3**
+Ninguém vê que o custo do produto subiu. Que aquela cliente não volta há quatro meses. Que a taxa de retorno caiu. Que a campanha do mês está gastando e não está trazendo.
 
-Clínica precisa de alguém olhando de fora da maca. Se a dona passa oito horas por dia dentro do atendimento, o negócio fica órfão oito horas por dia.
+**CARD 4**
+Essas coisas continuam acontecendo, só que sem plateia. Você descobre depois, quando já viraram número no fechamento.
 
-Se você fatura acima de 15 mil por mês e não tem uma hora fixa na semana só pra olhar número, você não tem uma empresa. Tem uma agenda muito cheia.
+**CARD 5**
+Clínica precisa de alguém olhando de fora da maca. Se a dona passa oito horas por dia dentro do atendimento, o negócio fica órfão oito horas por dia. Se você fatura acima de 15 mil por mês e não tem uma hora fixa na semana só pra olhar número, você não tem uma empresa. Tem uma agenda muito cheia.
 
+**CARD 6**
 Toca no botão e responde o diagnóstico. Em menos de dois minutos você recebe a leitura do que está passando despercebido no seu negócio agora.
 
 ---
 
 # Notas de veiculação
 
-**Distribuição por ângulo.** Os cinco vídeos e os cinco estáticos são dez ângulos
+**Distribuição por ângulo.** Os cinco vídeos e os cinco carrosséis são dez ângulos
 independentes. Podem subir como dez conjuntos separados, ou agrupados em dois
-conjuntos de cinco (um de vídeo, um de estático) para o Meta distribuir dentro de
+conjuntos de cinco (um de vídeo, um de carrossel) para o Meta distribuir dentro de
 cada formato.
 
 **Variação para remarketing.** Para público que já respondeu o quiz e não agendou,
-trocar o parágrafo final de qualquer peça por:
+trocar o parágrafo final de qualquer peça (o CARD 6, nos carrosséis) por:
 
 > Toca no botão e escolhe um horário comigo. São 30 minutos olhando o número real da sua clínica, você sai com o gargalo identificado e a ordem do que fazer, e leva isso embora mesmo que não trabalhe comigo depois.
 
