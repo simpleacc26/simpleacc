@@ -1,0 +1,20 @@
+# Deploy do Diagnóstico ÚNICOS na Netlify.
+# Base = a subpasta do funil (nunca a raiz do monorepo).
+
+[build]
+  base    = "clientes/carol-e-jose/funis/diagnostico-unicos"
+  command = "npm run build"
+  publish = "clientes/carol-e-jose/funis/diagnostico-unicos/dist"
+
+# SPA: todas as rotas caem no index.html (react-router cuida de /agendamento e /comunidade).
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# As variáveis abaixo devem ser preenchidas no painel da Netlify (Site settings > Env):
+#   VITE_LEADS_ENDPOINT   endpoint do Make/Apps Script que grava na planilha
+#   VITE_WHATSAPP         WhatsApp destino (só dígitos com DDI)
+#   VITE_AGENDAMENTO_URL  link do Calendário GHL (aprovados)
+#   VITE_COMUNIDADE_URL   link da comunidade / Jornada 1 (desqualificados)
+#   VITE_GTM_ID           opcional, default GTM-MP9NJX24
