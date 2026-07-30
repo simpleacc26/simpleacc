@@ -10,28 +10,35 @@ páginas + copies + criativos + tráfego), playbooks comerciais e acompanhamento
 
 ## Contatos
 
-| Papel                    | Nome         | Contato |
-| ------------------------ | ------------ | ------- |
-| Principal                | Luana Isse   |         |
-| Social seller / SDR      | Aline Castro |         |
+| Papel               | Nome                              | Contato |
+| ------------------- | --------------------------------- | ------- |
+| Principal           | Luana Isse                        |         |
+| Social seller / SDR | Aline (sobrenome a confirmar)      |         |
+| Gestor do projeto   | Carlos Durães (Simple)            | carlos.duraes@simpleacc.com.br |
 
 ## Links úteis
 
 - Instagram: https://www.instagram.com/luana.isse/
 - Call de vendas (24/07/26, Fathom): https://fathom.video/share/4H2YzLfdyBzjF5BGmc4s2chQEGJurYZ3
+- Call de onboarding (29/07/26): [transcrição](https://docs.google.com/document/d/1ZLhP7AzXbil1HIcEzJ2_INvoyE3PGy6N20FTgDYW52Q/edit) · [gravação](https://drive.google.com/file/d/1sAuO7hGsQ6Avte1Eq50OeqHXX9qTr9x8/view)
+- Ferramentas dela: quiz **Inlead** · CRM **Sales** · conta de anúncios Meta _(acessos a liberar)_
 - Pasta no Drive: _(a preencher)_
-- CRM / conta de anúncios: _(a preencher — levantar no onboarding)_
 
 ## Projetos
 
 | Projeto | Pasta | Status | Deploy |
 | ------- | ----- | ------ | ------ |
-| Funil de lead dinâmico (quiz) | `funis/` | a iniciar | — |
+| Funil de lead dinâmico (quiz) | `funis/` | a iniciar — prazo de 15 dias a partir de 29/07 | — |
 
 ## Materiais
 
-- `contexto/2026-07-29-briefing-luana-isse.md` — quem é, números, time, tensões em aberto.
-- `estrategia/2026-07-29-roteiro-call-onboarding.md` — roteiro de perguntas da call de onboarding.
+- `contexto/2026-07-29-decisoes-do-onboarding.md` — **leia primeiro**: público, preços, funil,
+  ferramentas, tarefas e como conduzir a Luana.
+- `contexto/2026-07-29-briefing-luana-isse.md` — quem é, números, time, restrições.
+- `contexto/2026-07-29-canvas-produto-e-cliente-ideal-completo.md` — canvas do produto + framework
+  completo de avatar (gerado com Furion na call).
+- `contexto/2026-07-29-anotacoes-call-onboarding.md` · `contexto/2026-07-24-call-de-vendas-resumo-e-transcricao.md` — fontes brutas.
+- `estrategia/2026-07-29-roteiro-call-onboarding.md` — roteiro usado na call de onboarding.
 
 ## Observações
 
