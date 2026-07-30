@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<!--
+  CARROSSEL DE ANÚNCIO — Gustavo Ono (@gustavo_ono)
+  Ângulo: "3 erros que estão comendo a margem da sua chocolateria"
+  Copy: fornecida pelo cliente, 5 blocos + a chamada final.
+
+  Terceiro sistema de composição do cliente. Mesma identidade
+  (creme #EFE5D6, cacau #3B2A20, marrom #7A5540, salmão #E08A8A,
+  Playfair Display + Plus Jakarta Sans), outra estrutura:
+    - LAYOUT PARTIDO: faixa de foto no topo, corte reto, texto embaixo
+    - SELO preenchido em salmão, no lugar do kicker solto
+    - slide final em SALMÃO cheio, cor que nenhum dos dois anteriores usou de fundo
+    - sem numerais gigantes (carrossel "4 sinais") e sem bloco "Uma / A outra"
+      (carrossel "fatura bem x fatura pouco")
+
+  Este é o arquivo que se edita. Rode embutir-imagens.py para gerar o
+  carrossel.html autocontido.
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carrossel Gustavo Ono: 3 erros que comem a margem</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --cream:      #EFE5D6;
+  --cream-line: #DCCDB6;
+  --cocoa:      #3B2A20;
+  --brown:      #7A5540;
+  --brown-soft: #A9866A;
+  --salmon:     #E08A8A;
+  --salmon-dk:  #C86F70;
+  --ink:        #4A3A2E;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-text:    'Plus Jakarta Sans', system-ui, sans-serif;
+
+  --slide-w: 420px;
+  --slide-h: 525px;
+  --faixa-h: 200px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-text);background:#DED3C2;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px 16px}
+.serif{font-family:var(--font-display)}
+.sans {font-family:var(--font-text)}
+
+/* ============ MOLDURA DO INSTAGRAM (só preview) ============ */
+.ig-frame{width:420px;max-width:100%;background:#fff;border-radius:12px;box-shadow:0 8px 40px rgba(59,42,32,.22);overflow:hidden}
+.ig-header{display:flex;align-items:center;gap:10px;padding:12px 14px}
+.ig-avatar{width:34px;height:34px;border-radius:50%;flex:0 0 auto;overflow:hidden;background:var(--cocoa)}
+.ig-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.ig-handle{font-size:13px;font-weight:700;color:#111;line-height:1.2}
+.ig-sub{font-size:11px;color:#8A8580;line-height:1.2}
+.ig-dots{display:flex;justify-content:center;gap:5px;padding:10px 0 4px}
+.ig-dot{width:6px;height:6px;border-radius:50%;background:#D5D5D5;transition:background .2s}
+.ig-dot.on{background:var(--brown)}
+.ig-actions{display:flex;gap:14px;padding:6px 14px 2px;color:#111}
+.ig-actions .spacer{flex:1}
+.ig-caption{padding:6px 14px 14px;font-size:13px;line-height:1.45;color:#111}
+.ig-caption .ts{display:block;margin-top:8px;font-size:10px;letter-spacing:.4px;color:#9A9A9A}
+
+/* ============ VIEWPORT ============ */
+.carousel-viewport{width:100%;aspect-ratio:4/5;overflow:hidden;position:relative;cursor:grab;touch-action:pan-y;user-select:none}
+.carousel-viewport.dragging{cursor:grabbing}
+.carousel-track{display:flex;height:100%;transition:transform .32s cubic-bezier(.22,.61,.36,1);will-change:transform}
+
+/* ============ SLIDE ============ */
+.slide{flex:0 0 var(--slide-w);width:var(--slide-w);height:100%;position:relative;overflow:hidden;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+.slide.bg-light {background:var(--cream); color:var(--ink)}
+.slide.bg-dark  {background:var(--cocoa); color:var(--cream)}
+.slide.bg-salmon{background:var(--salmon);color:var(--cocoa)}
+
+/* ============ A FAIXA: assinatura deste carrossel ============ */
+.faixa{height:var(--faixa-h);width:100%;flex:0 0 auto;background-position:center;background-size:cover;position:relative;z-index:1}
+/* leve escurecida na base da faixa, para o corte reto não brigar com o texto */
+.faixa::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(42,29,22,0) 62%,rgba(42,29,22,.22) 100%)}
+
+.slide-body{flex:1;display:flex;flex-direction:column;padding:26px 36px 80px;position:relative;z-index:2}
+.slide-body.center{justify-content:center}
+.slide-body.bottom{justify-content:flex-end}
+.slide-body.solto{padding-top:34px}
+
+/* ============ SELO ============ */
+.selo{display:inline-flex;align-items:center;align-self:flex-start;gap:7px;
+  padding:6px 11px 6px 14px;border-radius:20px;background:var(--salmon);color:#4A2A24;
+  font-size:10px;font-weight:800;letter-spacing:1.6px;text-transform:uppercase;margin-bottom:14px}
+.selo i{font-style:normal;font-family:var(--font-display);font-size:14px;font-weight:700;letter-spacing:0;line-height:1}
+
+/* ============ TIPOGRAFIA ============ */
+.t-hero{font-family:var(--font-display);font-size:33px;font-weight:600;line-height:1.08;letter-spacing:-.5px}
+.t-err {font-family:var(--font-display);font-size:26px;font-weight:600;line-height:1.12;letter-spacing:-.3px}
+.bg-light .t-hero,.bg-light .t-err{color:var(--brown)}
+.bg-dark  .t-hero,.bg-dark  .t-err{color:var(--cream)}
+.bg-salmon .t-hero,.bg-salmon .t-err{color:var(--cocoa)}
+
+.body{font-size:13.5px;font-weight:400;line-height:1.5;margin-top:11px}
+.bg-light .body{color:var(--ink)}
+.bg-dark  .body{color:rgba(239,229,214,.8)}
+.bg-salmon .body{color:#5A3730}
+
+/* fala do cliente e remates, em serifa itálica */
+.fala{font-family:var(--font-display);font-size:21px;font-style:italic;font-weight:500;line-height:1.25;margin-top:10px}
+.bg-light .fala{color:var(--brown)}
+.bg-dark  .fala{color:var(--salmon)}
+.bg-salmon .fala{color:var(--cocoa)}
+
+.remate{margin-top:12px;padding-top:12px;border-top:1px solid var(--cream-line);font-size:13.5px;line-height:1.45;font-weight:600}
+.bg-dark .remate{border-top-color:rgba(239,229,214,.24);color:var(--cream)}
+.bg-light .remate{color:var(--brown)}
+</style>
+</head>
+<body>
+
+<div class="ig-frame">
+  <div class="ig-header">
+    <div class="ig-avatar"><img src="__IMG_AVATAR__" alt=""></div>
+    <div>
+      <div class="ig-handle">gustavo_ono</div>
+      <div class="ig-sub">Patrocinado</div>
+    </div>
+  </div>
+
+  <div class="carousel-viewport" id="viewport">
+    <div class="carousel-track" id="track"></div>
+  </div>
+
+  <div class="ig-dots" id="dots"></div>
+
+  <div class="ig-actions">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 00-7.8 7.8l1.1 1.1L12 21.2l7.7-7.7 1.1-1.1a5.5 5.5 0 000-7.8z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.5 8.5 0 01-3.8-.9L3 20.5l1.5-4.4A8.4 8.4 0 0121 11.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="spacer"></span>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+
+  <div class="ig-caption" id="igCaption"></div>
+</div>
+
+<script>
+const HANDLE  = '@gustavo_ono';
+const LEGENDA = 'Tem margem sumindo da sua chocolateria e ela não aparece na sua cara, aparece no extrato no fim do mês. São 3 erros: não contar seu tempo no custo, vender o que o cliente pede em vez do que dá margem, e não ter produto âncora. Clique em Saiba mais, responda o quiz e descubra qual está te custando mais.';
+
+const IMG_FILEIRA = '__IMG_FILEIRA__';
+const IMG_CORTE   = '__IMG_CORTE__';
+const IMG_PRATO   = '__IMG_PRATO__';
+const IMG_MAO     = '__IMG_MAO__';
+
+/* ---------- chrome do slide (sai dentro do PNG) ---------- */
+function bottomBar(index, total, tom){
+  const pct   = ((index + 1) / total) * 100;
+  const claro = tom !== 'dark';                       // creme e salmão contam como claros
+  const track  = claro ? 'rgba(74,58,46,0.16)' : 'rgba(239,229,214,0.18)';
+  const fill   = claro ? 'var(--cocoa)'        : 'var(--cream)';
+  const label  = claro ? 'rgba(74,58,46,0.45)' : 'rgba(239,229,214,0.5)';
+  const handle = claro ? 'rgba(74,58,46,0.66)' : 'rgba(239,229,214,0.72)';
+  return `<div style="position:absolute;bottom:0;left:0;right:0;padding:0 28px 20px;z-index:10;">
+    <div class="sans" style="font-size:11px;font-weight:600;letter-spacing:.2px;color:${handle};margin-bottom:9px;">${HANDLE}</div>
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div style="flex:1;height:3px;background:${track};border-radius:2px;overflow:hidden;">
+        <div style="height:100%;width:${pct}%;background:${fill};border-radius:2px;"></div>
+      </div>
+      <span class="sans" style="font-size:11px;color:${label};font-weight:500;">${index + 1}/${total}</span>
+    </div>
+  </div>`;
+}
+
+function swipeArrow(tom){
+  const claro  = tom !== 'dark';
+  const bg     = claro ? 'rgba(74,58,46,0.07)' : 'rgba(239,229,214,0.09)';
+  const stroke = claro ? 'rgba(74,58,46,0.32)' : 'rgba(239,229,214,0.4)';
+  return `<div style="position:absolute;right:0;top:0;bottom:0;width:48px;z-index:9;display:flex;align-items:center;justify-content:center;background:linear-gradient(to right,transparent,${bg});">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path d="M9 6l6 6-6 6" stroke="${stroke}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>`;
+}
+
+function faixa(img){ return `<div class="faixa" style="background-image:url(${img});"></div>`; }
+function selo(n, txt){ return `<span class="selo sans">${txt}<i>${n}</i></span>`; }
+
+/* ---------- os slides: a copy do cliente, um bloco por slide ---------- */
+const SLIDES = [
+
+  // 1 — gancho
+  { bg:'dark', faixa:IMG_FILEIRA, pos:'bottom', html: `
+    <h1 class="t-hero">3 erros que estão comendo a margem da sua chocolateria</h1>
+    <p class="body sans" style="font-size:15px;">sem você perceber</p>
+  `},
+
+  // 2 — erro 1
+  { bg:'light', faixa:IMG_CORTE, pos:'bottom', html: `
+    ${selo('01','Erro')}
+    <h2 class="t-err">Você não conta seu tempo no custo.</h2>
+    <p class="body sans">Uma caixa de 9 bombons que leva 2h pra fazer. Você colocou o valor da sua hora no preço?</p>
+    <p class="remate sans">Se a resposta for "não sei", você pode estar trabalhando de graça.</p>
+  `},
+
+  // 3 — erro 2
+  { bg:'dark', faixa:IMG_PRATO, pos:'bottom', html: `
+    ${selo('02','Erro')}
+    <h2 class="t-err">Você vende o que o cliente pede.</h2>
+    <p class="fala">"Você tem brigadeiro?"</p>
+    <p class="body sans">Você faz. Negócio estruturado não funciona assim: você define o cardápio que dá margem, não o que vira pedido aleatório.</p>
+  `},
+
+  // 4 — erro 3
+  { bg:'light', faixa:IMG_MAO, pos:'bottom', html: `
+    ${selo('03','Erro')}
+    <h2 class="t-err">Você não tem produto âncora.</h2>
+    <p class="body sans" style="font-size:13px;">O produto âncora é aquele que puxa todo o resto. Que aparece no feed e já gera mensagem antes de você abrir a boca. Que justifica o preço do cardápio inteiro.</p>
+    <p class="remate sans">Sem ele, você briga por atenção em todo post.</p>
+  `},
+
+  // 5 — o fecho: sem faixa, para quebrar o ritmo antes da chamada
+  { bg:'dark', pos:'center', extraClasse:'solto', html: `
+    <h2 class="t-hero" style="font-size:31px;">Esses erros não aparecem na sua cara.</h2>
+    <p class="fala" style="font-size:26px;margin-top:14px;">Aparecem no extrato no fim do mês.</p>
+    <p class="body sans" style="margin-top:18px;font-size:14px;">E são exatamente o que o diagnóstico gratuito ajuda a identificar.</p>
+  `},
+
+  // 6 — chamada, em salmão cheio
+  { bg:'salmon', pos:'center', extraClasse:'solto', html: `
+    <h2 class="t-hero" style="font-size:34px;">Clique em Saiba mais, responda o quiz</h2>
+    <p class="fala" style="font-size:30px;margin-top:10px;">e descubra qual está te custando mais.</p>
+  `},
+
+];
+
+/* ---------- render + swipe ---------- */
+const track    = document.getElementById('track');
+const viewport = document.getElementById('viewport');
+const dotsEl   = document.getElementById('dots');
+const TOTAL    = SLIDES.length;
+
+track.innerHTML = SLIDES.map((s, i) => {
+  const isLast = i === TOTAL - 1;
+  return `<div class="slide bg-${s.bg}">
+    ${s.faixa ? faixa(s.faixa) : ''}
+    <div class="slide-body ${s.pos || 'bottom'} ${s.extraClasse || ''}">${s.html}</div>
+    ${isLast ? '' : swipeArrow(s.bg)}
+    ${bottomBar(i, TOTAL, s.bg)}
+  </div>`;
+}).join('');
+
+dotsEl.innerHTML = SLIDES.map((_, i) => `<span class="ig-dot${i ? '' : ' on'}"></span>`).join('');
+document.getElementById('igCaption').innerHTML =
+  `<strong>gustavo_ono</strong> ${LEGENDA}<span class="ts">HÁ 2 HORAS</span>`;
+
+let index = 0, startX = 0, dragX = 0, dragging = false;
+const W = () => viewport.clientWidth;
+function go(i){
+  index = Math.max(0, Math.min(TOTAL - 1, i));
+  track.style.transition = 'transform .32s cubic-bezier(.22,.61,.36,1)';
+  track.style.transform  = `translateX(${-index * W()}px)`;
+  [...dotsEl.children].forEach((d, n) => d.classList.toggle('on', n === index));
+}
+viewport.addEventListener('pointerdown', e => {
+  dragging = true; startX = e.clientX; dragX = 0;
+  viewport.classList.add('dragging');
+  viewport.setPointerCapture(e.pointerId);
+  track.style.transition = 'none';
+});
+viewport.addEventListener('pointermove', e => {
+  if(!dragging) return;
+  dragX = e.clientX - startX;
+  track.style.transform = `translateX(${-index * W() + dragX}px)`;
+});
+function endDrag(){
+  if(!dragging) return;
+  dragging = false;
+  viewport.classList.remove('dragging');
+  if(Math.abs(dragX) > W() * 0.18) go(index + (dragX < 0 ? 1 : -1));
+  else go(index);
+}
+viewport.addEventListener('pointerup', endDrag);
+viewport.addEventListener('pointercancel', endDrag);
+document.addEventListener('keydown', e => {
+  if(e.key === 'ArrowRight') go(index + 1);
+  if(e.key === 'ArrowLeft')  go(index - 1);
+});
+window.addEventListener('resize', () => go(index));
+go(0);
+</script>
+</body>
+</html>
