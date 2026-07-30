@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Roadmap Estratégico Digital · Luana Isse</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    padding: 16mm 18mm 24mm 18mm;
+    position: relative;
+    page-break-after: always;
+    background: #fff;
+  }
+  .page:last-child { page-break-after: auto; }
+  .runhead {
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; color: var(--muted);
+    letter-spacing: .06em; text-transform: uppercase;
+    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt;
+  }
+  .runfoot {
+    position: absolute; bottom: 9mm; left: 18mm; right: 18mm;
+    text-align: center; font-size: 7.5pt; color: var(--muted);
+  }
+  .kicker {
+    color: var(--gold); font-size: 9pt; font-weight: bold;
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt;
+  }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
+  .box-dark {
+    background: var(--navy-dark); color: #f5f3ee;
+    padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt;
+  }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light {
+    background: var(--beige); border-left: 3pt solid var(--gold);
+    padding: 10pt 14pt; margin: 11pt 0;
+  }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .fase-header {
+    background: var(--navy-dark); color: #fff;
+    padding: 10pt 16pt; margin-bottom: 10pt;
+    border-left: 4pt solid var(--gold);
+  }
+  .fase-header .fk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .fase-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .fase-header .fd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 12pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 38pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+  .footer-note { margin-top: 24pt; padding-top: 8pt; border-top: 1pt solid var(--gold); font-size: 8.5pt; color: var(--muted); width: 60%; }
+</style>
+</head>
+<body>
+
+<!-- PÁGINA 1 · CAPA -->
+<div class="page cover">
+  <div class="kicker">Plano de Ação Personalizado</div>
+  <h1>Roadmap<br>Estratégico<br>Digital</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    De jornalista e copywriter à autoridade que tira<br>
+    especialistas da invisibilidade. Os primeiros 90 dias,<br>
+    passo a passo. Sem atalho, sem improviso, sem ideia solta.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">Luana Isse</div>
+    <div class="lbl">Mentor Estratégico</div>
+    <div class="val">Daniel Souza</div>
+  </div>
+</div>
+
+<!-- PÁGINA 2 · CONTEXTO E DECISÕES FUNDAMENTAIS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Luana Isse</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Começar</div>
+  <h1 style="font-size:19pt;">Contexto e Decisões Fundamentais</h1>
+  <p class="lead">Leia esta página inteira antes de executar qualquer passo. Todas as decisões a seguir partem do que está aqui.</p>
+
+  <div class="box-dark">
+    <div class="bt">A decisão mais importante deste plano</div>
+    <p>Você tem muita ideia boa ao mesmo tempo, e é exatamente isso que vai ser contido aqui. A partir de hoje o projeto tem <strong>um público, uma promessa e uma esteira</strong>: o especialista que está começando a virar mentor, a saída da invisibilidade como promessa, e o MMPV como mecanismo.</p>
+    <p><strong>A big idea que sustenta todo o conteúdo: a invisibilidade do especialista não é falta de marketing, é falta de identidade e de causa. Quem acredita que ser bom já basta continua invisível, enquanto gente com um décimo da qualificação é lembrada. Você não ensina a aparecer, você devolve ao especialista o valor que ele já tem e transforma isso em posicionamento.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A esteira dos 90 dias</div>
+    <p><strong>Carro-chefe: a Consultoria de Movimento e Posicionamento, R$ 15 mil.</strong> É a única oferta que já vende sozinha, por indicação, e é a que menos consome o seu tempo (entrega concentrada, sem aula recorrente). Ela lidera o funil e a call.</p>
+    <p><strong>Downsell da call: a mentoria em grupo, R$ 7 mil.</strong> Só aparece na sessão, quando a objeção for de valor ou de momento. Aproveita as aulas já gravadas e o grupo que já existe.</p>
+    <p><strong>Individual high ticket, R$ 30 mil:</strong> estruturado até o dia 30 e ofertado para a base e para quem chega ultra qualificado. Regra dos 90 dias: <strong>nenhum produto novo além destes três</strong>. Comunidade de recorrência e o produto dos 90 roteiros ficam para o Roadmap 2.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A matemática dos R$ 50 mil/mês</div>
+    <p><strong>3 consultorias de R$ 15 mil mais 1 mentoria de R$ 7 mil = R$ 52 mil por mês.</strong> São 4 vendas. Trabalhando com uma conversão conservadora de 30 por cento na call, são <strong>cerca de 13 sessões qualificadas por mês</strong>. Com comparecimento de 60 por cento, isso são cerca de 22 agendamentos no mês, sustentados pela rotina da Aline e, a partir do dia 30, pelos leads do quiz.</p>
+    <p>Repare no tamanho real disso: <strong>13 sessões por mês são 3 por semana</strong>. Cabe em três tardes, dentro da sua janela de trabalho, sem invadir a manhã. O gargalo nunca foi agenda, foi não ter agendamento qualificado com constância.</p>
+    <p>Esse número é <strong>operacional, não aspiracional.</strong> É só fazer.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 3 · RITMO, RESPONSABILIDADES E FOCO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Luana Isse</span><span>Página 3</span></div>
+  <div class="box-light">
+    <div class="bt">Ritmo de acompanhamento</div>
+    <p>Um encontro individual a cada 15 dias e um encontro em grupo a cada 15 dias. Dúvida do dia a dia vai direto no grupo: <strong>Carlos</strong> para entrega, estratégia e implementação do funil, <strong>Daniel</strong> na mentoria estratégica, e o gestor de tráfego do projeto para campanhas.</p>
+    <p>A execução acontece <strong>entre as calls.</strong> As calls servem para afinar, não para decidir o que fazer. O que fazer já está aqui dentro.</p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Divisão de responsabilidades</div>
+    <p><strong>A Simple constrói e opera:</strong> o quiz no Inlead, as páginas, as copies do funil, os criativos, as automações, a integração com o seu CRM, a gestão das campanhas, os roteiros dos seus vídeos, os playbooks de pré-venda e de closer, e este roadmap.</p>
+    <p><strong>Luana executa:</strong> o caixa rápido na base, as calls de venda (a closer é você), as gravações seguindo os roteiros, a validação das copies e a liderança da Aline.</p>
+    <p><strong>Aline executa:</strong> a pré-venda. Prospecção ativa, follow-up e agendamento, com registro no CRM.</p>
+    <p>O funil coloca lead na porta. <strong>Quem coloca dinheiro no caixa é a rotina comercial.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Foco deste roadmap e a fila de ideias</div>
+    <p>Este documento cobre <strong>apenas os primeiros 90 dias</strong>, com uma prioridade clara: fazer a consultoria de R$ 15 mil vender com constância enquanto o funil sobe. A ordem é <strong>caixa primeiro, funil depois, escala por último</strong>.</p>
+    <p><strong>Regra da fila:</strong> toda ideia nova que aparecer nesses 90 dias (comunidade de recorrência, os 90 roteiros como produto, novo formato de mentoria, novo nicho) vai para uma lista com data, e é discutida na call quinzenal. Nenhuma entra no mês corrente. Isso não é para frear você, é para o seu tempo, que já é curto, ir inteiro para o que gera caixa.</p>
+    <p>Quando os R$ 50 mil/mês estiverem de pé, vem o <strong>Roadmap 2: a escala dos 50 aos 100 mil/mês</strong>, e aí sim a recorrência entra. Não tente queimar etapas.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 4 · FASE 1 · CAIXA RÁPIDO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Luana Isse</span><span>Página 4</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 1 · Dias 1 a 10</div>
+    <h2>Caixa Rápido: a Base Que Já Existe</h2>
+    <div class="fd">O dinheiro mais rápido do projeto não está no tráfego. Está em quem você já atendeu e em quem já te conhece.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que esta fase vem primeiro</div>
+    <p>O tráfego que você rodou por um mês e meio trouxe cerca de 20 leads e <strong>uma única reunião de vendas</strong>. Não foi falta de investimento, foi falta de processo. Enquanto o funil novo é construído, o caixa vem de onde já está quente: <strong>17 alunos na mentoria, perto de 30 pessoas já mentoradas, os 87 participantes do seu evento e as consultorias entregues por indicação.</strong> E esse caixa tem destino: ele paga a mídia e as ferramentas do funil, para o investimento não sair do seu bolso.</p>
+  </div>
+
+  <div class="passo-label">Passo 1</div>
+  <h3>Mapear todas as oportunidades da base</h3>
+  <ul class="check">
+    <li>Listar em uma planilha única: alunos ativos da mentoria, ex-mentorados, participantes do evento, clientes de consultoria já entregues, indicações que chegaram e não foram trabalhadas, e seguidores que interagem com frequência.</li>
+    <li>Classificar cada nome por potencial: próximo nível (consultoria ou individual), indicação, ou convite para sessão estratégica. Lista completa até o dia 3. Sem registro, não existe.</li>
+  </ul>
+
+  <div class="passo-label">Passo 2</div>
+  <h3>Executar as abordagens de caixa rápido</h3>
+  <ul class="check">
+    <li>Alunos e ex-mentorados: ofertar o <strong>próximo nível</strong> (a consultoria individual de R$ 15 mil ou o individual de R$ 30 mil) e pedir <strong>de 3 a 5 indicações qualificadas</strong>, com o perfil escrito: especialista com formação séria, preso no atendimento um a um, que quer virar mentor e ainda é invisível.</li>
+    <li>Lista do evento, leads antigos e quem já pagou consultoria e sumiu: reativação personalizada, sem vender de cara. O convite é para uma <strong>sessão estratégica</strong>. Scripts saem dos playbooks da Simple.</li>
+  </ul>
+
+  <div class="passo-label">Passo 3</div>
+  <h3>Converter as vendas em caixa de mídia</h3>
+  <ul class="check">
+    <li>Venda parcelada no cartão: avaliar <strong>antecipação de recebíveis</strong> para adiantar o caixa.</li>
+    <li>Destino do caixa: <strong>mídia e ferramentas, não retirada</strong>. É esse dinheiro que sustenta o tráfego dos primeiros 60 dias.</li>
+    <li>Levar o resultado para a call quinzenal com número, não com impressão.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da fase</div>
+    <p><strong>Dia 10:</strong> base 100 por cento mapeada e abordada, com registro no CRM · pelo menos 6 sessões estratégicas agendadas · pelo menos 1 venda fechada, entre R$ 7 mil e R$ 15 mil, com o caixa de mídia garantido.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 5 · FASE 2 · OFERTA E POSICIONAMENTO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Luana Isse</span><span>Página 5</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 2 · Dias 1 a 14</div>
+    <h2>Oferta, Esteira e Posicionamento</h2>
+    <div class="fd">Quando o especialista certo clicar no seu perfil, ele precisa se reconhecer em 5 segundos.</div>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Prioridade máxima</div>
+    <p>Toda abordagem da Fase 1 e todo lead do quiz vai passar pelo seu perfil antes de responder. Hoje ele fala de você. Ele precisa falar da dor dele: do especialista que sabe muito e não é visto.</p>
+  </div>
+
+  <div class="passo-label">Passo 4</div>
+  <h3>Fechar a oferta e a esteira</h3>
+  <ul class="check">
+    <li>Escrever cada produto com nome, promessa, entregáveis, preço e formas de pagamento. Os três, um por página: consultoria de R$ 15 mil, mentoria de R$ 7 mil, individual de R$ 30 mil.</li>
+    <li>Revisar com o Carlos o <strong>nome da mentoria e o mecanismo único</strong>, como foi combinado no onboarding. O MMPV é forte como método; o que está em revisão é o nome que vai para o mercado.</li>
+    <li>A promessa é <strong>autoridade e reconhecimento, nunca faturamento</strong>. Isso é decisão do projeto e é também política de anúncio. Vale a que você mesma formulou: nenhum especialista brilhante continua invisível por não saber comunicar o próprio valor.</li>
+    <li>Regra de preço: <strong>nunca dar desconto</strong>. Objeção de valor se resolve com forma de pagamento ou com o downsell da mentoria de R$ 7 mil.</li>
+  </ul>
+
+  <div class="passo-label">Passo 5</div>
+  <h3>Montar o PDF de apresentação da oferta</h3>
+  <ul class="check">
+    <li>De 10 a 15 slides, no modelo dos materiais de apoio: primeiro a especialista (a sua história), depois o cenário do especialista invisível, depois a promessa, o método e as fases.</li>
+    <li>Ele é usado na call e mandado depois dela. Sem PDF, a call vira conversa e a decisão fica para depois.</li>
+  </ul>
+
+  <div class="passo-label">Passo 6</div>
+  <h3>Reescrever o Instagram</h3>
+  <ul class="check">
+    <li>Bio na fórmula quem eu ajudo, resultado, credencial e chamada.
+      <ul class="sub">
+        <li>Exemplo na sua voz: "Ajudo especialistas invisíveis a virarem autoridade reconhecida · Jornalista, copywriter e criadora do método MMPV · Faça o diagnóstico gratuito".</li>
+      </ul>
+    </li>
+    <li>4 destaques: Comece aqui, Quem sou, O Método, Resultados. De 2 a 3 posts fixados de posicionamento. Foto profissional.</li>
+    <li>Empacotar as provas que você já tem: os depoimentos em vídeo, os prints de resultado e os cases das quase 30 pessoas que você já mentorou.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da fase</div>
+    <p><strong>Dia 14:</strong> os três produtos escritos e validados na call · PDF de apresentação pronto · bio, destaques e fixados no ar · de 3 a 5 depoimentos em vídeo já solicitados pelo guia de captação.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 6 · FASE 3 PARTE 1 · AQUISIÇÃO MANUAL -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Luana Isse</span><span>Página 6</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 3 · Dias 1 a 90 · Parte 1</div>
+    <h2>Aquisição Manual: o Motor Principal</h2>
+    <div class="fd">O funil é o que escala. A aquisição manual é o que paga as contas enquanto ele sobe.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que o manual anda junto com o funil</div>
+    <p>Em um mês e meio de campanha você fez <strong>uma call de vendas</strong>. O funil vai resolver o volume, mas ele só fica bom com uma coisa que só a conversa dá: <strong>a linguagem real de quem compra</strong>. As objeções que aparecerem nas suas próximas 13 sessões viram as perguntas do quiz e as copies dos criativos.</p>
+    <p>E tem o lado prático: o funil leva algumas semanas para maturar. As vendas do mês 1 e do mês 2 saem daqui.</p>
+  </div>
+
+  <div class="passo-label">Passo 7</div>
+  <h3>Assistir às aulas de aquisição, você e a Aline</h3>
+  <ul class="check">
+    <li>Social Selling parte 1 e 2, Outbound, Pré-Vendas e Call de Vendas 1 a 1, na área de membros.</li>
+    <li>A Aline assiste às de Social Selling, Outbound e Pré-Vendas antes de mudar a rotina dela. Você assiste à de Call de Vendas antes da primeira sessão do plano.
+      <ul class="sub">
+        <li>Sem isso vocês estão improvisando, e improviso na frente da venda queima lead bom.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="passo-label">Passo 8</div>
+  <h3>Estruturar a pré-venda com a Aline</h3>
+  <ul class="check">
+    <li>Reposicionar a função: a Aline deixa de ser só social seller e passa a ser <strong>a SDR do projeto</strong>. O trabalho dela é agendar sessão qualificada, não conversar bonito.</li>
+    <li>Meta diária clara e visível: <strong>de 40 a 60 abordagens por dia</strong>, contra as 20 a 30 de hoje, e um número mínimo de agendamentos por dia.</li>
+    <li>Todo lead registrado no CRM com status e data do próximo contato. <strong>Follow-up obrigatório em até 2 dias.</strong> Lead sem follow-up esfria e vira prejuízo de mídia.</li>
+    <li>Playbooks de pré-venda e de closer entram no grupo pela Simple e viram o padrão da operação.</li>
+    <li>Uma leitura semanal de 15 minutos entre vocês duas: quantas abordagens, quantos agendamentos, quantos comparecimentos. Sem número, não tem gestão.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Onde a Aline procura o especialista invisível</div>
+    <p>Comentários e seguidores de perfis de referência do nicho (psicologia, coaching, direito, nutrição, terapias), egressos de cursos de marketing digital para especialistas, grupos e eventos da área, e a base de indicações da Fase 1.</p>
+    <p>Sinais de que é ele: bio cheia de credenciais, posts longos e densos, engajamento baixo, poucos vídeos com o rosto. Esse é o perfil que se reconhece na sua mensagem.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 7 · FASE 3 PARTE 2 · ROTINA E CALL -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Luana Isse</span><span>Página 7</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 3 · Dias 1 a 90 · Parte 2</div>
+    <h2>Aquisição Manual: a Rotina e a Call</h2>
+    <div class="fd">Três sessões por semana, dentro da sua janela da tarde. É esse o tamanho do jogo.</div>
+  </div>
+
+  <div class="passo-label">Passo 9</div>
+  <h3>Rodar a rotina diária de abordagens</h3>
+  <ul class="check">
+    <li>Distribuição das abordagens da Aline: cerca de 40 por cento na base quente e indicações, 40 por cento em social selling no perfil do especialista, 20 por cento em outbound frio. Quando a base quente esgotar, o peso vira social selling.</li>
+    <li>Toda abordagem personalizada, com referência ao conteúdo ou ao perfil da pessoa. Mensagem copiada e colada não agenda especialista cético.</li>
+    <li>Meta de perfis mapeados: <strong>200 até o dia 10</strong>, alimentados continuamente.</li>
+  </ul>
+
+  <div class="passo-label">Passo 10</div>
+  <h3>Conduzir a call de vendas</h3>
+  <ul class="check">
+    <li>Agenda protegida: sessões concentradas nas tardes, no bloco que você já usa. De 2 a 3 por dia no máximo, para você chegar inteira na última.</li>
+    <li><strong>Gravar todas as calls</strong>, com consentimento. As 3 primeiras são revisadas com o mentor na quinzenal.</li>
+    <li>Sequência: diagnóstico da invisibilidade, o que ele já tentou, o custo de continuar assim, o método, a oferta, o fechamento. O PDF entra na hora da oferta.</li>
+    <li>Nunca recuar no preço. Se travar em valor: forma de pagamento ou downsell da mentoria de R$ 7 mil.</li>
+    <li>Toda call sem fechamento sai com <strong>próximo passo datado</strong>, registrado no CRM. Nunca "me chama quando puder".</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Metas numéricas desta fase</div>
+    <p><strong>Dia 30:</strong> 13 sessões realizadas no acumulado, todas gravadas · 2 vendas fechadas (entre R$ 22 mil e R$ 30 mil) · rotina de pré-venda da Aline rodando com registro no CRM.</p>
+    <p><strong>Dia 60:</strong> ritmo estável de 13 sessões/mês · 3 vendas no mês · primeiras sessões já nascendo do quiz.</p>
+    <p><strong>Dia 90:</strong> 4 vendas no mês, cerca de R$ 50 mil · funil e rotina comercial rodando juntos.</p>
+    <p><strong>Alerta vermelho:</strong> menos de 2 vendas até o dia 30 é problema de fechamento ou de qualificação, não de produto. Pausar, revisar as gravações com o mentor e ajustar antes de seguir aumentando volume.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 8 · FASE 4 · CONTEÚDO ORGÂNICO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Luana Isse</span><span>Página 8</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 4 · Dias 1 a 90 · Em paralelo</div>
+    <h2>Conteúdo Orgânico e Materiais do Funil</h2>
+    <div class="fd">Roda em paralelo. Não é pré-requisito para venda, mas é o que faz a abordagem ser respondida.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">A sua vantagem aqui é injusta</div>
+    <p>Você é jornalista e copywriter, e escreve rápido. O conteúdo, que para a maioria dos clientes é o gargalo, para você é o ativo mais barato que existe. O compromisso que você assumiu no onboarding vale: <strong>1 vídeo por dia</strong>, gravado em lotes de 10 a 20.</p>
+  </div>
+
+  <div class="passo-label">Passo 11</div>
+  <h3>Falar nos três níveis de consciência</h3>
+  <ul class="check">
+    <li><strong>Inconsciente do problema:</strong> "você posta conteúdo bom há um ano e continua sendo procurado só por indicação. O problema não é o algoritmo."</li>
+    <li><strong>Consciente do problema:</strong> "por que o especialista mais preparado da sala é o menos lembrado" e o inimigo comum: o marketing superficial que transformou conhecimento sério em dancinha.</li>
+    <li><strong>Consciente da solução:</strong> o MMPV, as etapas, os bastidores de uma consultoria e os depoimentos de quem saiu da invisibilidade.</li>
+  </ul>
+
+  <div class="passo-label">Passo 12</div>
+  <h3>Manter a rotina semanal sem virar refém dela</h3>
+  <ul class="check">
+    <li>Gravação em lote de 10 a 20 vídeos, em um bloco de tarde por semana. Roteiros vêm da Simple.</li>
+    <li>CTA fixo: diagnóstico gratuito (o quiz) enquanto ele não está no ar, chamada para a sessão estratégica no direct.</li>
+    <li>Regra de sanidade: <strong>conteúdo nunca passa na frente das abordagens e das calls</strong>. Se o dia apertar, corta o conteúdo, não a venda.</li>
+  </ul>
+
+  <div class="passo-label">Passo 13</div>
+  <h3>Produzir os materiais que o funil precisa</h3>
+  <ul class="check">
+    <li>Gravar os vídeos dos criativos com os roteiros que a Simple envia. Sem eles, a campanha não sobe.</li>
+    <li>Coletar <strong>de 5 a 7 depoimentos em vídeo</strong> usando o guia de captação que já está com você. Prioridade para quem chegou invisível e hoje se posiciona, mesmo sem número de faturamento.</li>
+    <li>Subir tudo no Drive do projeto: vídeos, prints de conversa, logo e fotos.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 9 · FASE 5 PARTE 1 · FUNIL -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Luana Isse</span><span>Página 9</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 5 · Dias 10 a 30 · Parte 1</div>
+    <h2>Funil de Lead Dinâmico: a Simple Implementa</h2>
+    <div class="fd">O funil que substitui o formulário de aplicação que não trouxe reunião.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Como o funil funciona</div>
+    <p>Anúncio leva ao <strong>quiz</strong>, no Inlead. O quiz qualifica enquanto entrega valor: a cada resposta a pessoa entende melhor por que continua invisível. No fim, ela recebe um <strong>diagnóstico automático</strong> que eleva o nível de consciência antes de qualquer conversa.</p>
+    <p>A partir daí o caminho muda conforme a resposta: <strong>quem tem perfil vai para a página de aplicação e agenda a sessão</strong>; quem não tem perfil ainda segue em nutrição, sem ocupar a sua agenda. Os dados caem no CRM e a Aline aborda no WhatsApp.</p>
+    <p>Sem VSL nesta primeira versão. Ela entra depois, se a escala pedir.</p>
+  </div>
+
+  <div class="passo-label">Passo 14</div>
+  <h3>Validar copies, quiz e páginas</h3>
+  <ul class="check">
+    <li>A Simple escreve, você valida o tom. Nas primeiras entregas o retorno precisa ser rápido: <strong>até 48 horas</strong>, senão o cronograma do funil escorrega.</li>
+    <li>O que você olha na validação: se soa como você, se a promessa fala de autoridade e não de faturamento, e se as perguntas do quiz batem com as objeções que apareceram nas suas calls.</li>
+    <li>Como copywriter, o seu instinto aqui vale muito. Só cuide para que revisão não vire reescrita: o funil precisa subir.</li>
+  </ul>
+
+  <div class="passo-label">Passo 15</div>
+  <h3>Liberar acessos e fechar a infraestrutura</h3>
+  <ul class="check">
+    <li>Acessos que destravam a implementação: gerenciador de negócios e conta de anúncios, Instagram, Inlead, CRM, domínio e Drive.</li>
+    <li>Integração do <strong>CRM com o funil</strong>, para o lead cair automaticamente na fila da Aline.</li>
+    <li>Número dedicado para o comercial, com o histórico no CRM. <strong>Nunca operar pelo WhatsApp Web pessoal.</strong></li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da fase</div>
+    <p><strong>Dia 30:</strong> quiz, páginas e automações no ar · CRM integrado recebendo lead automaticamente · primeiros leads do funil já sendo abordados pela Aline.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 10 · FASE 5 PARTE 2 · TRÁFEGO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Luana Isse</span><span>Página 10</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 5 · Dias 30 a 90 · Parte 2</div>
+    <h2>Tráfego Pago com Método</h2>
+    <div class="fd">Da última vez faltou métrica e faltou dono. Agora tem os dois.</div>
+  </div>
+
+  <div class="passo-label">Passo 16</div>
+  <h3>Subir e ler as campanhas</h3>
+  <ul class="check">
+    <li>Orçamento inicial de validação, financiado pelo caixa da Fase 1. Ele sobe quando a conta fechar, não antes.</li>
+    <li>Segmentação no público do especialista: interesses de psicologia, coaching, terapias, direito e nutrição, com públicos semelhantes a partir de quem concluir o quiz.</li>
+    <li><strong>Revisão de métricas a cada 7 dias</strong>, com gatilhos claros de ajuste:
+      <ul class="sub">
+        <li>Custo por lead fora da meta: o problema é criativo, troca o criativo.</li>
+        <li>Conclusão do quiz abaixo de 40 por cento: o problema são as perguntas.</li>
+        <li>Comparecimento abaixo de 60 por cento: o problema é o follow-up da Aline.</li>
+        <li>Sessão acontecendo e não fechando: o problema é a call, e aí a gente revisa a gravação.</li>
+      </ul>
+    </li>
+    <li>Toda leitura vira decisão registrada. Aqui não se acha nada: traz o número.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">A regra de ouro do tráfego high ticket</div>
+    <p>Uma venda de R$ 15 mil paga meses de mídia. O jogo não é lead barato, é <strong>lead certo</strong>. Enquanto o custo por sessão qualificada couber dentro de uma fração da venda, o investimento sobe. Quando não couber, o problema está no funil ou na call, e não se resolve colocando mais dinheiro.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Meta da fase</div>
+    <p><strong>Dia 60:</strong> campanhas com 3 semanas de dados e primeira otimização feita · conclusão do quiz acima de 40 por cento · pelo menos 3 sessões vindas do funil.</p>
+    <p><strong>Dia 90:</strong> custo por sessão qualificada conhecido e estável · funil sustentando metade das sessões do mês.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 11 · BÔNUS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Luana Isse</span><span>Página 11</span></div>
+  <div class="fase-header">
+    <div class="fk">Bônus · A partir do dia 60</div>
+    <h2>A Porta Que Só Você Tem</h2>
+    <div class="fd">Duas fontes de receita que já funcionam sozinhas e que ninguém no seu mercado consegue copiar.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que entra agora e não antes</div>
+    <p>Nos primeiros 60 dias o foco é um só: a máquina do especialista invisível de pé. Estas duas frentes já geram dinheiro sem esforço de marketing, então elas entram plantadas, para colher no mês 4 e no mês 5, sem disputar espaço com o que está sendo construído.</p>
+  </div>
+
+  <div class="passo-label">Passo 17</div>
+  <h3>Sistematizar a porta da política</h3>
+  <ul class="check">
+    <li>Você entregou duas consultorias de R$ 15 mil para políticos sem fazer nenhum esforço de aquisição: eles chegam sozinhos para construir movimento, causa e slogan. Isso é uma vertente inteira funcionando no orgânico.</li>
+    <li>O que fazer: mapear quem já indicou, pedir indicação ativa a cada entrega concluída e organizar o material dessas entregas em um formato repetível.</li>
+    <li>Acompanhar o calendário eleitoral, que concentra demanda em janela previsível, e se preparar com antecedência em vez de atender por acaso.</li>
+    <li>Regra: <strong>essa porta não vira posicionamento público nos 90 dias</strong>. Ela é receita e é indicação, e o seu perfil continua falando com o especialista invisível.</li>
+  </ul>
+
+  <div class="passo-label">Passo 18</div>
+  <h3>Transformar o método em ativo de autoridade</h3>
+  <ul class="check">
+    <li>Você já fez um evento presencial para 87 pessoas no orgânico e tem quase 30 pessoas mentoradas. Esse acervo de histórias é a prova social que o seu público exige, porque ele confia em quem tem trajetória, não em quem promete rápido.</li>
+    <li>A partir do dia 75: organizar de 2 a 3 cases completos no formato antes, durante e depois, para virarem página de vendas, criativo e conteúdo.</li>
+    <li>Meta do bônus: conversas em andamento e material pronto, não fechamento. O fechamento vem no Roadmap 2.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 12 · CHECKPOINTS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Luana Isse</span><span>Página 12</span></div>
+  <div class="kicker">Checkpoints de Progresso</div>
+  <h1 style="font-size:19pt;">Como Saber Que Você Está no Caminho Certo</h1>
+  <p class="lead">Cada checkpoint marca o final de uma janela. Se algum item não estiver fechado, leve para a próxima call quinzenal. Ajuste de rota imediato, sem esconder.</p>
+
+  <h3 class="navy" style="margin-top:10pt;">CHECKPOINT 1 · DIA 10 (caixa rápido)</h3>
+  <ul class="check">
+    <li>Base 100 por cento mapeada e abordada, com registro no CRM.</li>
+    <li>Pelo menos 6 sessões estratégicas agendadas.</li>
+    <li>Pelo menos 1 venda fechada e o caixa de mídia separado.</li>
+    <li>200 perfis de especialistas mapeados para a rotina da Aline.</li>
+  </ul>
+
+  <h3 class="navy">CHECKPOINT 2 · DIA 14 (oferta e posicionamento)</h3>
+  <ul class="check">
+    <li>Os três produtos escritos, com preço e forma de pagamento, validados na call.</li>
+    <li>PDF de apresentação pronto e já usado em pelo menos uma sessão.</li>
+    <li>Bio, destaques e posts fixados no ar, falando com o especialista invisível.</li>
+    <li>Depoimentos solicitados pelo guia de captação.</li>
+  </ul>
+
+  <h3 class="navy">CHECKPOINT 3 · DIA 30 (máquina ligada)</h3>
+  <ul class="check">
+    <li>13 sessões realizadas no acumulado, todas gravadas.</li>
+    <li>2 vendas fechadas, entre R$ 22 mil e R$ 30 mil.</li>
+    <li>Aline em rotina de pré-venda, de 40 a 60 abordagens por dia, com follow-up registrado.</li>
+    <li>Quiz, páginas e automações no ar, com o CRM integrado.</li>
+  </ul>
+
+  <h3 class="navy">CHECKPOINT 4 · DIA 60 (funil alimentando a agenda)</h3>
+  <ul class="check">
+    <li>Ritmo estável de 13 sessões por mês e 3 vendas no mês.</li>
+    <li>Conclusão do quiz acima de 40 por cento e primeira otimização de campanha feita.</li>
+    <li>De 5 a 7 depoimentos em vídeo no Drive e criativos gravados.</li>
+  </ul>
+
+  <h3 class="navy">CHECKPOINT 5 · DIA 90 (meta batida)</h3>
+  <ul class="check">
+    <li>4 vendas no mês, cerca de R$ 50 mil, com o funil sustentando metade das sessões.</li>
+    <li>Rotina comercial rodando sem depender de você para operar o dia a dia.</li>
+    <li>Pronta para receber o <strong>Roadmap 2: a escala dos 50 aos 100 mil/mês</strong>.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 13 · MATERIAIS DE APOIO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Luana Isse</span><span>Página 13</span></div>
+  <div class="kicker">Materiais de Apoio</div>
+  <h1 style="font-size:19pt;">Recursos para Executar o Plano</h1>
+  <p class="lead">Todas as aulas e templates abaixo estão na área de membros e no grupo. Se algum link não foi compartilhado, peça no grupo.</p>
+
+  <ul class="check">
+    <li><strong>Social Selling parte 1 e 2</strong>
+      <ul class="sub"><li>A rotina de abordagem no Instagram. Base dos Passos 7 e 9, para você e para a Aline.</li></ul>
+    </li>
+    <li><strong>Outbound</strong>
+      <ul class="sub"><li>Reativação da lista do evento e dos leads antigos sem queimar a base. Passos 2 e 9.</li></ul>
+    </li>
+    <li><strong>Pré-Vendas e planilha de CRM</strong>
+      <ul class="sub"><li>Controle de leads, follow-up e status. Base da estruturação da Aline. Passo 8.</li></ul>
+    </li>
+    <li><strong>Call de Vendas 1 a 1</strong>
+      <ul class="sub"><li>A condução da sessão até o fechamento, sem recuar no preço. Passo 10.</li></ul>
+    </li>
+    <li><strong>Playbooks de pré-venda e de closer</strong>
+      <ul class="sub"><li>Scripts, matriz de objeções e cadência. Enviados no grupo pelo Carlos. Passos 2, 8 e 10.</li></ul>
+    </li>
+    <li><strong>Como Montar o High Ticket</strong>
+      <ul class="sub"><li>Fechar a esteira e estruturar o individual de R$ 30 mil. Passo 4.</li></ul>
+    </li>
+    <li><strong>Modelo de PDF de apresentação</strong>
+      <ul class="sub"><li>Estrutura dos 10 a 15 slides da oferta. Passo 5.</li></ul>
+    </li>
+    <li><strong>Guia de Captação de Depoimentos</strong>
+      <ul class="sub"><li>Como pedir e direcionar os depoimentos em vídeo, com a mensagem pronta para o WhatsApp. Passo 13.</li></ul>
+    </li>
+    <li><strong>Método Simple Growth (funil de quiz)</strong>
+      <ul class="sub"><li>A metodologia do funil que a Simple implementa. Entenda para validar bem. Passo 14.</li></ul>
+    </li>
+    <li><strong>Growth Model (métricas e alavancas)</strong>
+      <ul class="sub"><li>A régua de leitura das campanhas e dos gargalos. Passo 16.</li></ul>
+    </li>
+    <li><strong>Framework de avatar do especialista invisível</strong>
+      <ul class="sub"><li>O documento de persona construído na sua call de onboarding. Fonte de linguagem para conteúdo e copy. Passos 11 e 14.</li></ul>
+    </li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 14 · FECHAMENTO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Luana Isse</span><span>Página 14</span></div>
+  <div style="padding-top:40mm;">
+    <div class="kicker">Lembre-se Sempre Disto</div>
+    <h1 style="font-size:19pt;">Antes de Fechar Este Documento</h1>
+    <p style="margin-top:10pt;">Luana, você é jornalista, copywriter, estrategista e master coach. Trabalhou dez anos com política, foi secretária de comunicação, teve agência, ganhou dinheiro escrevendo para os outros, mentorou quase 30 pessoas e encheu uma sala com 87 pessoas no orgânico. Você construiu um método com nome, etapas e conceito próprio. Nada disso é sorte.</p>
+    <p>Não foi falta de competência, você entrega o que promete. Não foi falta de conteúdo, você escreve melhor e mais rápido do que a maioria. Não foi falta de coragem, você já recomeçou mais de uma vez.</p>
+    <p><strong class="navy">Foi falta de um processo com dono, com número e com foco em uma coisa de cada vez.</strong></p>
+    <p>Este roadmap é o método. A execução é sua. A cada 15 dias o mentor estratégico vai te encontrar na conversa quinzenal, mas o que coloca dinheiro no caixa é o que você faz <strong>entre as calls</strong>.</p>
+    <p>Dúvidas no meio do caminho: mande no grupo. Não espere a próxima call para perguntar.</p>
+    <p style="margin-top:12pt;">Você tem uma oferta que já vende por indicação. Você tem uma base quente que ainda não foi trabalhada. Você tem um método que é só seu e uma mensagem que o seu mercado precisa ouvir. Você tem o método de execução.</p>
+    <p><strong class="navy">O próximo passo é começar.</strong></p>
+    <div class="footer-note">Roadmap Estratégico Digital · Luana Isse · 90 dias · Versão 1.0</div>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+</body>
+</html>

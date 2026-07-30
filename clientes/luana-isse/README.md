@@ -38,6 +38,9 @@ páginas + copies + criativos + tráfego), playbooks comerciais e acompanhamento
 - `contexto/2026-07-29-canvas-produto-e-cliente-ideal-completo.md` — canvas do produto + framework
   completo de avatar (gerado com Furion na call).
 - `contexto/2026-07-29-anotacoes-call-onboarding.md` · `contexto/2026-07-24-call-de-vendas-resumo-e-transcricao.md` — fontes brutas.
+- `estrategia/2026-07-30-roadmap-estrategico-luana-isse.html` e `.pdf` — Roadmap de 90 dias
+  (entrega de 03/08/2026). Fonte editável no HTML.
+- `estrategia/2026-07-30-guia-captacao-depoimentos-luana-isse.html` e `.pdf` — guia de depoimentos.
 - `estrategia/2026-07-29-roteiro-call-onboarding.md` — roteiro usado na call de onboarding.
 
 ## Observações
