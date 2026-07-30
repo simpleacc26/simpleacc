@@ -1,0 +1,1068 @@
+<title>Playbook de Call de Vendas — Simple Acc</title>
+
+<style>
+  :root{
+    --midnight:#0A1626; --navy:#0E2138; --blue:#3E5C8A; --blue-soft:#7d99c4;
+    --steel:#8197B6; --ice:#EEF3FA; --white:#FFFFFF;
+
+    --bg:#FFFFFF;
+    --bg-alt:#F6F9FD;
+    --surface:#FFFFFF;
+    --ink:#16202f;
+    --ink-soft:#3a4656;
+    --muted:#6f7f95;
+    --rule:#dfe6f0;
+    --rule-strong:#c3d1e4;
+    --accent:#3E5C8A;
+    --accent-quiet:#E7EDF7;
+    --shadow:0 1px 2px rgba(10,22,38,.05), 0 8px 24px -16px rgba(10,22,38,.22);
+
+    --display:"Helvetica Neue",Helvetica,Arial,"Liberation Sans",system-ui,sans-serif;
+    --text:"Helvetica Neue",Helvetica,Arial,"Liberation Sans",system-ui,sans-serif;
+    --label:"Helvetica Neue",Helvetica,Arial,"Liberation Sans",sans-serif;
+
+    --measure:64ch;
+    --gutter:5.5rem;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0A1626; --bg-alt:#0E2138; --surface:#0E2138;
+      --ink:#E4EDF9; --ink-soft:#C3D2E6; --muted:#8197B6;
+      --rule:#1d3050; --rule-strong:#2b436b;
+      --accent:#9DB6DD; --accent-quiet:#132845;
+      --shadow:0 1px 2px rgba(0,0,0,.35), 0 10px 28px -18px rgba(0,0,0,.7);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0A1626; --bg-alt:#0E2138; --surface:#0E2138;
+    --ink:#E4EDF9; --ink-soft:#C3D2E6; --muted:#8197B6;
+    --rule:#1d3050; --rule-strong:#2b436b;
+    --accent:#9DB6DD; --accent-quiet:#132845;
+    --shadow:0 1px 2px rgba(0,0,0,.35), 0 10px 28px -18px rgba(0,0,0,.7);
+  }
+  :root[data-theme="light"]{
+    --bg:#FFFFFF; --bg-alt:#F6F9FD; --surface:#FFFFFF;
+    --ink:#16202f; --ink-soft:#3a4656; --muted:#6f7f95;
+    --rule:#dfe6f0; --rule-strong:#c3d1e4;
+    --accent:#3E5C8A; --accent-quiet:#E7EDF7;
+    --shadow:0 1px 2px rgba(10,22,38,.05), 0 8px 24px -16px rgba(10,22,38,.22);
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--text);
+    font-size:17px;
+    line-height:1.68;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+
+  /* ---------- shell ---------- */
+  .shell{
+    display:grid;
+    grid-template-columns:1fr;
+    max-width:1240px;
+    margin:0 auto;
+    padding:0 1.5rem 8rem;
+  }
+  @media (min-width:1060px){
+    .shell{ grid-template-columns:15rem minmax(0,1fr); gap:var(--gutter); padding:0 2.5rem 9rem; }
+  }
+
+  /* ---------- nav rail ---------- */
+  .rail{ display:none; }
+  @media (min-width:1060px){
+    .rail{
+      display:block;
+      position:sticky; top:0; align-self:start;
+      height:100vh; overflow-y:auto;
+      padding:4.5rem 0 3rem;
+      border-right:1px solid var(--rule);
+      margin-right:calc(var(--gutter) / -2);
+      padding-right:calc(var(--gutter) / 2);
+    }
+  }
+  .rail-mark{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:1.02rem;
+    letter-spacing:-.012em;
+    margin:0 0 .35rem;
+    color:var(--ink);
+  }
+  .rail-sub{
+    font-family:var(--label);
+    font-size:.62rem; text-transform:uppercase; letter-spacing:.16em;
+    color:var(--muted); margin:0 0 2.25rem;
+  }
+  .rail nav{ display:flex; flex-direction:column; gap:.1rem; }
+  .rail a{
+    font-family:var(--label);
+    font-size:.74rem;
+    letter-spacing:.04em;
+    color:var(--muted);
+    text-decoration:none;
+    padding:.42rem 0 .42rem .85rem;
+    border-left:2px solid transparent;
+    transition:color .15s ease, border-color .15s ease;
+  }
+  .rail a:hover, .rail a:focus-visible{ color:var(--ink); border-left-color:var(--rule-strong); }
+  .rail a.on{ color:var(--accent); border-left-color:var(--accent); }
+  .rail .grp{
+    font-family:var(--label); font-size:.6rem; text-transform:uppercase;
+    letter-spacing:.16em; color:var(--muted); opacity:.65;
+    margin:1.6rem 0 .5rem;
+  }
+  .rail .grp:first-of-type{ margin-top:0; }
+
+  /* ---------- masthead ---------- */
+  header.mast{ padding:4.5rem 0 0; max-width:var(--measure); }
+  .eyebrow{
+    font-family:var(--label);
+    font-size:.66rem; text-transform:uppercase; letter-spacing:.19em;
+    color:var(--accent);
+    margin:0 0 1.4rem;
+  }
+  h1{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:clamp(2.35rem, 5.6vw, 3.5rem);
+    line-height:1.07;
+    letter-spacing:-.026em;
+    text-wrap:balance;
+    margin:0 0 1.3rem;
+  }
+  .standfirst{
+    font-size:1.2rem; line-height:1.62; color:var(--ink-soft);
+    margin:0 0 2.5rem; text-wrap:pretty;
+  }
+  .standfirst em{ font-style:italic; color:var(--ink); }
+
+  /* ---------- fact strip ---------- */
+  .facts{
+    display:grid; gap:0;
+    grid-template-columns:1fr;
+    border-top:1px solid var(--rule-strong);
+    border-bottom:1px solid var(--rule-strong);
+    margin:0 0 1.25rem;
+  }
+  @media (min-width:620px){ .facts{ grid-template-columns:repeat(4,1fr); } }
+  .fact{ padding:1.1rem 1.1rem 1.15rem 0; border-bottom:1px solid var(--rule); }
+  @media (min-width:620px){
+    .fact{ border-bottom:0; border-right:1px solid var(--rule); padding-left:1.1rem; }
+    .fact:first-child{ padding-left:0; }
+    .fact:last-child{ border-right:0; }
+  }
+  .fact dt{
+    font-family:var(--label); font-size:.6rem; text-transform:uppercase;
+    letter-spacing:.15em; color:var(--muted); margin:0 0 .35rem;
+  }
+  .fact dd{
+    margin:0; font-family:var(--display); font-weight:700; font-size:1.3rem; line-height:1.18;
+    letter-spacing:-.018em; font-variant-numeric:tabular-nums;
+  }
+  .fact dd small{ font-family:var(--label); font-size:.68rem; letter-spacing:.03em; color:var(--muted); display:block; margin-top:.3rem; text-transform:none; }
+
+  .source{
+    font-family:var(--label); font-size:.72rem; color:var(--muted);
+    line-height:1.65; margin:0 0 1rem; max-width:var(--measure);
+  }
+
+  /* ---------- sections ---------- */
+  main{ min-width:0; }
+  section{ padding-top:4.5rem; max-width:var(--measure); scroll-margin-top:1.5rem; }
+  section.wide{ max-width:none; }
+  .sec-num{
+    font-family:var(--label); font-size:.64rem; text-transform:uppercase;
+    letter-spacing:.19em; color:var(--accent); display:block; margin-bottom:.75rem;
+  }
+  h2{
+    font-family:var(--display); font-weight:700;
+    font-size:clamp(1.72rem, 3.7vw, 2.25rem); line-height:1.16;
+    letter-spacing:-.02em; text-wrap:balance;
+    margin:0 0 1rem; padding-bottom:0;
+  }
+  h3{
+    font-family:var(--display); font-weight:700;
+    font-size:1.24rem; line-height:1.3; letter-spacing:-.013em;
+    text-wrap:balance; margin:2.75rem 0 .7rem;
+  }
+  h4{
+    font-family:var(--label); font-weight:700;
+    font-size:.7rem; text-transform:uppercase; letter-spacing:.14em;
+    color:var(--muted); margin:2rem 0 .6rem;
+  }
+  p{ margin:0 0 1.15rem; text-wrap:pretty; }
+  .lede{ font-size:1.08rem; color:var(--ink-soft); margin-bottom:1.9rem; }
+  a{ color:var(--accent); }
+  strong{ font-weight:700; color:var(--ink); }
+
+  ul, ol{ margin:0 0 1.2rem; padding-left:1.15rem; }
+  li{ margin-bottom:.5rem; padding-left:.2rem; }
+  li::marker{ color:var(--steel); }
+  ol li::marker{ font-family:var(--label); font-size:.82rem; }
+
+  /* ---------- say-this blocks ---------- */
+  .say{
+    margin:1.4rem 0 1.5rem;
+    padding:.15rem 0 .15rem 1.5rem;
+    border-left:2px solid var(--accent);
+  }
+  .say::before{
+    content:"Você diz";
+    display:block;
+    font-family:var(--label); font-size:.58rem; text-transform:uppercase;
+    letter-spacing:.17em; color:var(--accent);
+    margin-bottom:.6rem;
+  }
+  .say p{ font-size:1rem; line-height:1.62; color:var(--ink); margin-bottom:.8rem; }
+  .say p:last-child{ margin-bottom:0; }
+  .say p em{ font-style:normal; color:var(--muted); font-family:var(--label); font-size:.86rem; }
+  .say.alt::before{ content:"Se ele desviar"; }
+  .say.gate::before{ content:"Passa pro Daniel"; }
+  .say.close::before{ content:"Fechamento"; }
+  .say.follow::before{ content:"Follow-up"; }
+
+  /* ---------- rules / cautions ---------- */
+  .rule-box{
+    margin:1.6rem 0;
+    padding:1.1rem 1.3rem;
+    background:var(--bg-alt);
+    border:1px solid var(--rule);
+    border-radius:3px;
+  }
+  .rule-box p{ margin-bottom:.7rem; font-size:.98rem; line-height:1.62; }
+  .rule-box p:last-child{ margin-bottom:0; }
+  .rule-box .tag{
+    display:block;
+    font-family:var(--label); font-size:.58rem; text-transform:uppercase;
+    letter-spacing:.17em; color:var(--muted); margin-bottom:.55rem;
+  }
+  .rule-box.warn{ border-left:2px solid var(--accent); }
+  .rule-box.warn .tag{ color:var(--accent); }
+
+  /* ---------- timeline movements ---------- */
+  .moves{ border-top:1px solid var(--rule-strong); margin-top:2rem; }
+  .move{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:.4rem 2rem;
+    padding:2.1rem 0 2.3rem;
+    border-bottom:1px solid var(--rule);
+  }
+  @media (min-width:760px){
+    .move{ grid-template-columns:6.5rem minmax(0,1fr); }
+  }
+  .move-time{
+    font-family:var(--label);
+    font-size:.72rem; letter-spacing:.09em;
+    color:var(--muted);
+    font-variant-numeric:tabular-nums;
+    padding-top:.42rem;
+    white-space:nowrap;
+  }
+  .move-time b{ display:block; color:var(--accent); font-weight:700; font-size:.62rem; text-transform:uppercase; letter-spacing:.16em; margin-bottom:.3rem; }
+  .move-body{ min-width:0; }
+  .move-body > h3{ margin-top:0; margin-bottom:.55rem; }
+  .move-why{
+    font-family:var(--label); font-size:.8rem; line-height:1.6;
+    color:var(--muted); margin:0 0 1.1rem;
+  }
+  .move-why b{ color:var(--ink-soft); font-weight:700; }
+
+  /* ---------- tables ---------- */
+  .tw{ overflow-x:auto; margin:1.5rem 0 1.8rem; -webkit-overflow-scrolling:touch; }
+  table{ border-collapse:collapse; width:100%; min-width:34rem; font-size:.94rem; }
+  thead th{
+    font-family:var(--label); font-weight:700;
+    font-size:.6rem; text-transform:uppercase; letter-spacing:.15em;
+    color:var(--muted); text-align:left;
+    padding:0 1rem .7rem 0;
+    border-bottom:1px solid var(--rule-strong);
+    white-space:nowrap;
+  }
+  tbody td{
+    padding:.78rem 1rem .78rem 0;
+    border-bottom:1px solid var(--rule);
+    vertical-align:top; line-height:1.55;
+  }
+  tbody tr:last-child td{ border-bottom:0; }
+  td.tm{ font-family:var(--label); font-size:.76rem; color:var(--muted); font-variant-numeric:tabular-nums; white-space:nowrap; }
+  td.q{ font-style:italic; color:var(--ink-soft); }
+  th:last-child, td:last-child{ padding-right:0; }
+
+  /* ---------- objection list ---------- */
+  .obj{ border-top:1px solid var(--rule-strong); margin-top:1.8rem; }
+  .obj-item{ padding:1.5rem 0 1.6rem; border-bottom:1px solid var(--rule); }
+  .obj-q{
+    font-family:var(--label); font-weight:700; font-size:.93rem;
+    letter-spacing:.005em; color:var(--ink); margin:0 0 .2rem;
+  }
+  .obj-q span{ color:var(--muted); font-weight:400; }
+  .obj-item .say{ margin-bottom:.4rem; }
+  .obj-item .say:last-child{ margin-bottom:0; }
+  .obj-note{ font-family:var(--label); font-size:.78rem; color:var(--muted); margin:.65rem 0 0; }
+
+  /* ---------- ladder ---------- */
+  .ladder{ counter-reset:step; margin:1.6rem 0 1.4rem; padding:0; list-style:none; }
+  .ladder li{
+    counter-increment:step;
+    display:grid; grid-template-columns:2rem minmax(0,1fr); gap:1rem;
+    padding:.85rem 0; border-bottom:1px solid var(--rule); margin:0;
+  }
+  .ladder li:last-child{ border-bottom:0; }
+  .ladder li::before{
+    content:counter(step);
+    font-family:var(--label); font-size:.7rem; font-weight:700;
+    color:var(--accent); padding-top:.28rem;
+    font-variant-numeric:tabular-nums;
+  }
+  .ladder li b{ font-family:var(--label); font-size:.9rem; }
+  .ladder .last{ color:var(--ink); }
+  .ladder .last b{ color:var(--accent); }
+
+  /* ---------- errors ---------- */
+  .errs{ list-style:none; padding:0; margin:1.6rem 0 0; counter-reset:err; }
+  .errs li{
+    counter-increment:err;
+    display:grid; grid-template-columns:1.9rem minmax(0,1fr); gap:1rem;
+    padding:.8rem 0; border-bottom:1px solid var(--rule); margin:0;
+    font-family:var(--label); font-size:.92rem; line-height:1.55;
+  }
+  .errs li::before{
+    content:counter(err,decimal-leading-zero);
+    font-family:var(--label); font-size:.68rem; font-weight:700;
+    color:var(--steel); padding-top:.2rem; font-variant-numeric:tabular-nums;
+  }
+
+  /* ---------- misc ---------- */
+  .kicker{
+    font-family:var(--label); font-size:.6rem; text-transform:uppercase;
+    letter-spacing:.16em; color:var(--muted); margin:0 0 .5rem;
+  }
+  .pull{
+    font-family:var(--display); font-weight:600; font-size:1.32rem; line-height:1.45;
+    letter-spacing:-.015em; color:var(--ink);
+    border-top:1px solid var(--rule-strong); border-bottom:1px solid var(--rule-strong);
+    padding:1.8rem 0; margin:2.75rem 0; text-wrap:pretty;
+  }
+  footer{
+    max-width:var(--measure); margin-top:5rem; padding-top:1.6rem;
+    border-top:1px solid var(--rule-strong);
+    font-family:var(--label); font-size:.76rem; line-height:1.7; color:var(--muted);
+  }
+  footer p{ margin:0 0 .5rem; }
+  :focus-visible{ outline:2px solid var(--accent); outline-offset:3px; border-radius:2px; }
+  @media (prefers-reduced-motion:reduce){ *{ transition:none !important; scroll-behavior:auto !important; } }
+  html{ scroll-behavior:smooth; }
+
+  /* ---------- print / PDF ---------- */
+  @page{ size:A4; margin:17mm 16mm 16mm; }
+  @media print{
+    :root{
+      --bg:#FFFFFF; --bg-alt:#F4F8FD; --surface:#FFFFFF;
+      --ink:#101B2B; --ink-soft:#33404f; --muted:#5d6d84;
+      --rule:#d8e1ec; --rule-strong:#a9bcd4;
+      --accent:#2F4C77; --accent-quiet:#EDF2F9;
+      --measure:150mm;
+    }
+    html{ scroll-behavior:auto; }
+    body{ background:#fff; font-size:10.2pt; line-height:1.52; }
+    .rail{ display:none !important; }
+    .shell{
+      display:block; max-width:none; margin:0; padding:0;
+    }
+    main{ display:block; }
+
+    header.mast{ padding-top:0; max-width:none; }
+    /* prosa fica na coluna de leitura; tabelas usam a largura toda */
+    h1, .standfirst, .source, .lede,
+    section > p, section > ol, section > ul,
+    .say, .rule-box, .obj, .ladder, .errs, .pull, footer{ max-width:var(--measure); }
+    .move-body > p, .move-body > ol, .move-body > ul,
+    .move-body .say, .move-body .move-why, .move-body h4{ max-width:138mm; }
+    .facts, .tw, .moves{ max-width:none; }
+    h1{ font-size:26pt; line-height:1.08; margin-bottom:.5rem; }
+    .standfirst{ font-size:11pt; line-height:1.5; margin-bottom:1.1rem; }
+    .eyebrow{ font-size:7.5pt; margin-bottom:.7rem; }
+    .facts{ grid-template-columns:repeat(4,1fr); margin-bottom:.8rem; }
+    .fact{ padding:.6rem .7rem .65rem; border-bottom:0; border-right:1px solid var(--rule); }
+    .fact:first-child{ padding-left:0; }
+    .fact:last-child{ border-right:0; }
+    .fact dd{ font-size:12.5pt; }
+    .fact dd small{ font-size:7.5pt; }
+    .source{ font-size:8.4pt; max-width:none; }
+
+    section{
+      padding-top:0;
+      max-width:none;
+      break-before:page; page-break-before:always;
+      break-inside:auto;
+    }
+    section#anatomia{ break-before:auto; page-break-before:auto; padding-top:1.6rem; }
+    .sec-num{ font-size:7.5pt; margin-bottom:.5rem; }
+    h2{ font-size:18pt; margin-bottom:.5rem; }
+    h3{ font-size:12pt; margin:1.15rem 0 .4rem; }
+    h4{ font-size:8pt; margin:1rem 0 .35rem; }
+    .lede{ font-size:10.6pt; margin-bottom:1rem; }
+    p{ margin-bottom:.62rem; }
+    ul, ol{ margin-bottom:.7rem; }
+    li{ margin-bottom:.3rem; }
+
+    h2, h3, h4{ break-after:avoid; page-break-after:avoid; }
+    .say, .rule-box, .obj-item, .move, tr, .ladder li, .errs li, .pull{
+      break-inside:avoid; page-break-inside:avoid;
+    }
+    .say{ margin:.7rem 0 .8rem; padding-left:1rem; border-left-width:2px; }
+    .say::before{ font-size:7pt; margin-bottom:.35rem; }
+    .say p{ font-size:10pt; line-height:1.5; margin-bottom:.45rem; }
+    .rule-box{ margin:.9rem 0; padding:.75rem .9rem; }
+    .rule-box p{ font-size:9.6pt; line-height:1.5; }
+
+    .moves{ margin-top:1rem; }
+    .move{ grid-template-columns:5.6rem minmax(0,1fr); gap:.3rem 1.3rem; padding:1.1rem 0 1.2rem; }
+    .move-time{ font-size:8pt; padding-top:.2rem; }
+    .move-time b{ font-size:7.2pt; }
+    .move-why{ font-size:8.8pt; line-height:1.5; margin-bottom:.6rem; }
+
+    .tw{ overflow:visible; margin:.8rem 0 1rem; }
+    table{ min-width:0; font-size:9.2pt; }
+    thead{ display:table-header-group; }
+    thead th{ font-size:7.2pt; padding-bottom:.4rem; }
+    tbody td{ padding:.42rem .8rem .42rem 0; line-height:1.42; }
+    td.tm{ font-size:8.2pt; }
+
+    .obj{ margin-top:1rem; }
+    .obj-item{ padding:.85rem 0 .9rem; }
+    .obj-q{ font-size:9.8pt; }
+    .obj-note{ font-size:8.6pt; }
+    .ladder li, .errs li{ padding:.5rem 0; }
+    .errs li{ font-size:9.6pt; }
+    .pull{ font-size:13pt; padding:1.1rem 0; margin:1.6rem 0 0; }
+    footer{ max-width:none; margin-top:1.6rem; padding-top:.9rem; font-size:8.4pt; }
+    a{ color:var(--accent); text-decoration:none; }
+  }
+</style>
+
+<div class="shell">
+
+  <aside class="rail">
+    <p class="rail-mark">Simple Acc</p>
+    <p class="rail-sub">Comercial · Interno</p>
+    <nav id="rail-nav">
+      <span class="grp">Entender</span>
+      <a href="#anatomia">A estrutura invisível</a>
+      <a href="#mapa">Mapa da call</a>
+      <a href="#sinais">Sinais de compra</a>
+      <span class="grp">Executar</span>
+      <a href="#ficha">A ficha</a>
+      <a href="#roteiro">Os 10 movimentos</a>
+      <a href="#objecoes">Banco de objeções</a>
+      <a href="#downsell">Downsell 2.497 → 1.497</a>
+      <a href="#fechamento">Fechamento e pós</a>
+      <span class="grp">Calibrar</span>
+      <a href="#autoridade">Autoridade sem ser o dono</a>
+      <a href="#naocopiar">O que não copiar</a>
+      <a href="#metricas">Métricas</a>
+      <a href="#erros">Os 7 erros</a>
+    </nav>
+  </aside>
+
+  <main>
+
+    <header class="mast">
+      <p class="eyebrow">Playbook comercial · Carlos</p>
+      <h1>A call que vende sem parecer que está vendendo</h1>
+      <p class="standfirst">A estrutura invisível da call em que o Daniel validou a mentoria de 3 meses — decodificada e transformada em processo. <em>O lead fala mais que o vendedor nos primeiros trinta minutos.</em> O preço só entra depois do compromisso. E a chamada não termina até o pagamento cair.</p>
+
+      <dl class="facts">
+        <div class="fact"><dt>Produto</dt><dd>R$ 2.497<small>10× sem juros · piso 1.497</small></dd></div>
+        <div class="fact"><dt>Duração alvo</dt><dd>55–65<small>minutos</small></dd></div>
+        <div class="fact"><dt>Preço na tela</dt><dd>min. 40–45<small>nunca antes do compromisso</small></dd></div>
+        <div class="fact"><dt>Roteamento</dt><dd>&lt; 10k<small>acima disso vai pro Daniel</small></dd></div>
+      </dl>
+
+      <p class="source">Base: call Daniel × Kainã Barreto, 30/07/2026. 94 minutos, venda fechada na chamada por R$&nbsp;2.497. Lead: personal trainer em transição pro online, faturando R$&nbsp;2 mil/mês, já tinha pago R$&nbsp;12 mil numa mentoria que não resolveu.</p>
+    </header>
+
+    <!-- ================= ANATOMIA ================= -->
+    <section id="anatomia">
+      <span class="sec-num">Parte um</span>
+      <h2>A estrutura invisível</h2>
+      <p class="lede">Sete mecanismos sustentam a call inteira. Nenhum deles aparece como técnica — todos aparecem como conversa.</p>
+
+      <h3>Contrato prévio com saída honrosa</h3>
+      <p>Abre pedindo permissão pra vender. Isso faz três coisas de uma vez: vender depois não é traição, a promessa da call vira <strong>clareza</strong> (não produto), e a pressão sai — o que faz o lead abrir muito mais no diagnóstico.</p>
+      <div class="say"><p>"Hoje eu quero entender um pouco mais da sua situação. Gosto de fazer uma clareza bem grande ali do caminho. Se fizer sentido, irmão, eu vou te apresentar um produto, mas se não fizer, cê pode contar com o meu melhor, tá bom?"</p></div>
+
+      <h3>A escada de perguntas</h3>
+      <p>A sequência não é aleatória — cada pergunta prepara a próxima. Três delas são as que realmente fecham a venda, e todas as três vêm antes de qualquer menção a produto.</p>
+      <div class="say">
+        <p>"Por que que realmente é importante pra você esses 20 mil por mês, cara?"</p>
+        <p>"Quanto que te custa hoje, financeiramente e até emocionalmente, ainda não estar 100% online?"</p>
+        <p>"Você tem uma projeção do seu negócio nos próximos seis meses continuando assim?"</p>
+      </div>
+      <p>Foi isso que abriu o lead: <em>"eu já morei de favor… a liberdade de não me preocupar com grana me importa muito… eu durmo e acordo pensando nisso… tô à beira de um burnout."</em> Cada uma dessas palavras volta depois — na oferta, no preço e em toda objeção.</p>
+
+      <h3>Empréstimo de vocabulário</h3>
+      <p>No minuto 33 o Daniel pergunta <em>"você foi bodybuilder, ainda é?"</em> — e a partir dali toda analogia da call sai do mundo do lead. É o movimento mais replicável de toda a chamada, e o mais barato de executar.</p>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Conceito de negócio</th><th>Como virou</th></tr></thead>
+          <tbody>
+            <tr><td>Consistência acima de atalho</td><td class="q">"Não é o shape rápido, é a consistência da dieta"</td></tr>
+            <tr><td>Estratégia monofatorial</td><td class="q">"Quero perna foda e vou fazer só agachamento. Aí o stiff e o terra eu não faço"</td></tr>
+            <tr><td>Volume de leads</td><td class="q">"A venda é igual comida na balança. Se não bate o macro, não tem o shape"</td></tr>
+            <tr><td>Trocar de canal</td><td class="q">"É como mudar a ficha de treino. Estímulo diferente pra resultado diferente"</td></tr>
+            <tr><td>Métricas</td><td class="q">"Isso aqui é igual caloria. Se comeu a mais, você sabe o porquê"</td></tr>
+            <tr><td>Plano de 90 dias</td><td class="q">"Como se fosse uma ficha de treino de 90 dias"</td></tr>
+            <tr><td>Acompanhamento</td><td class="q">"Chegou um obeso, você passa a ficha e fala 'se vira'. Certeza que ele não faz"</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Preço só depois do compromisso</h3>
+      <p>O lead pediu preço <strong>três vezes</strong>. O Daniel desviou as três, e cada desvio devolveu uma pergunta de compromisso. O valor só saiu no minuto 77, quando o lead já tinha dito "faz sentido" e "se encaixar, com certeza".</p>
+      <div class="say"><p>"Eu não estou falando aqui nem do preço. Eu quero saber se você está disposto a realmente ter o resultado. Porque é a mesma coisa da academia: todo mundo quer ter o shape, mas chega na hora de treinar e fazer a dieta, ninguém quer."</p></div>
+
+      <h3>A escada de ancoragem</h3>
+      <p>Quatro degraus. O 2.497 chega parecendo um trinta e quatro avos do teto — e um quinto do que o lead já tinha pago em algo que não funcionou.</p>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Degrau</th><th>Valor</th><th>Como entrou na call</th></tr></thead>
+          <tbody>
+            <tr><td>Teto</td><td class="tm">R$ 84.000</td><td>Implementação completa — <em>"nem faz sentido pra ti"</em></td></tr>
+            <tr><td>Referência</td><td class="tm">R$ 12.000</td><td><strong>O próprio lead entregou</strong> — a mentoria que não resolveu</td></tr>
+            <tr><td>Preço "real"</td><td class="tm">R$ 5.000</td><td><em>"eu estava pensando em cobrar uns 5 mil, e ele é 5 mil"</em></td></tr>
+            <tr><td>Preço da call</td><td class="tm">R$ 2.497</td><td>Com razão declarada, condição e parcelamento</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>O preço nunca vem sozinho</h3>
+      <p>Três camadas obrigatórias: <strong>razão do desconto</strong> (decisão rápida — nunca "está em promoção"), <strong>condição</strong> (fechar agora) e <strong>redução da dor</strong> (10× sem juros). Sem a razão, o desconto destrói a percepção de valor e o preço de todas as próximas vendas.</p>
+
+      <h3>A venda não termina no "fechou"</h3>
+      <p>O Daniel ficou <strong>oito minutos na chamada</strong> enquanto o pagamento processava — falando de treino e de pré-treino, e resolvendo o token do banco junto com o cara. Depois entregou acesso na hora e projetou a primeira entrega pro dia seguinte.</p>
+      <div class="say"><p>"Não fique com dúvida, não se permita ficar com dúvida, não tem pergunta idiota. Idiota é pagar e não fazer pergunta. Então, perturba a gente, tá?"</p></div>
+    </section>
+
+    <!-- ================= MAPA ================= -->
+    <section id="mapa" class="wide">
+      <span class="sec-num">Parte um · anexo</span>
+      <h2>O mapa da call original</h2>
+      <p class="lede">Proporção real: 45% diagnóstico, 20% apresentação, 10% oferta e preço, 8% objeção, 10% fechamento e pagamento.</p>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Minuto</th><th>Bloco</th><th>O que acontece de verdade</th></tr></thead>
+          <tbody>
+            <tr><td class="tm">4:20</td><td>Contrato prévio</td><td>Pede permissão pra vender e tira a pressão</td></tr>
+            <tr><td class="tm">5:12</td><td>Diagnóstico</td><td>Lead descreve funil, números e tentativas</td></tr>
+            <tr><td class="tm">13:07</td><td>Qualificação financeira</td><td>Ticket, faturamento, público</td></tr>
+            <tr><td class="tm">21:45</td><td>Meta, porquê e custo</td><td>Sai o burnout, a mãe, o "morei de favor"</td></tr>
+            <tr><td class="tm">29:04</td><td>Demolição do plano</td><td>A metáfora do leão e do sniper</td></tr>
+            <tr><td class="tm">33:01</td><td>Empréstimo de vocabulário</td><td><em>"Você foi bodybuilder?"</em> — muda a call inteira</td></tr>
+            <tr><td class="tm">33:17</td><td>Mini-aula</td><td>Ensina o gap sem falar de produto</td></tr>
+            <tr><td class="tm">38:57</td><td>Pergunta de compromisso</td><td><strong>Antes</strong> de qualquer preço</td></tr>
+            <tr><td class="tm">45:12</td><td>Isolamento do decisor</td><td>E desbloqueio mental</td></tr>
+            <tr><td class="tm">49:40</td><td>Apresentação de tela</td><td>Problema → pilares → fases → provas</td></tr>
+            <tr><td class="tm">1:07:10</td><td>Ancoragem + takeaway</td><td><em>"É 84 mil — não é pra você"</em></td></tr>
+            <tr><td class="tm">1:07:53</td><td>Pré-fechamento condicional</td><td><em>"Se encaixar, posso te considerar cliente?"</em></td></tr>
+            <tr><td class="tm">1:08:28</td><td>Oferta</td><td>Cada entregável com o porquê dele</td></tr>
+            <tr><td class="tm">1:17:00</td><td>Preço</td><td>5 mil → 2.497, com razão declarada</td></tr>
+            <tr><td class="tm">1:18:18</td><td>Objeções</td><td>Cinco objeções em loop</td></tr>
+            <tr><td class="tm">1:24:08</td><td>Pagamento</td><td>Não saiu da call até cair</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ================= SINAIS ================= -->
+    <section id="sinais" class="wide">
+      <h2>Sinais de compra</h2>
+      <p class="lede">Quando o lead pergunta <em>como</em> pagar em vez de <em>se</em> vale, ele já comprou. Dali em diante o trabalho é logística, não persuasão.</p>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Minuto</th><th>O que o lead disse</th><th>O que significava</th></tr></thead>
+          <tbody>
+            <tr><td class="tm">39:36</td><td class="q">"acredito que esteja caro essa implementação de vocês"</td><td>Já está se imaginando comprando</td></tr>
+            <tr><td class="tm">1:07:00</td><td class="q">"deve ser mais caro do que esse que eu paguei, né?"</td><td>Está comparando com o que já pagou — quer</td></tr>
+            <tr><td class="tm">1:07:31</td><td class="q">"queria saber como eu poderia ter acesso de uma forma que eu conseguisse pagar"</td><td><strong>Pedido de ajuda pra comprar.</strong> Não é objeção</td></tr>
+            <tr><td class="tm">1:11:08</td><td class="q">"a única coisa que faria eu deixar esse valor entrar ou não é…"</td><td>Objeção única e isolada — é fechar</td></tr>
+            <tr><td class="tm">1:23:54</td><td class="q">"então dá pra fazer isso aí… Bora começar?"</td><td>O lead fechou sozinho</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ================= FICHA ================= -->
+    <section id="ficha">
+      <span class="sec-num">Parte dois</span>
+      <h2>A ficha, preenchida ao vivo</h2>
+      <p class="lede">Cinco minutos antes de entrar: apresentação já aberta na segunda tela, e este bloco de notas pronto.</p>
+      <div class="rule-box">
+        <span class="tag">Preencher durante a call</span>
+        <p>Nome e negócio · Ticket atual · Faturamento/mês<br>
+        Meta declarada · Prazo<br>
+        <strong>O PORQUÊ</strong> — palavras exatas dele<br>
+        <strong>O CUSTO</strong> de continuar igual — palavras exatas dele<br>
+        Já investiu em mentoria? Quanto? Ainda está pagando?<br>
+        Decide sozinho? · Vocabulário do mundo dele · Objeção real</p>
+      </div>
+      <div class="rule-box warn">
+        <span class="tag">Regra que não se quebra</span>
+        <p>Se os campos <strong>O PORQUÊ</strong> e <strong>O CUSTO</strong> não estiverem preenchidos com as palavras dele, você não está pronto pra apresentar nada. Volte a perguntar.</p>
+      </div>
+    </section>
+
+    <!-- ================= ROTEIRO ================= -->
+    <section id="roteiro" class="wide">
+      <span class="sec-num">Parte três</span>
+      <h2>Os dez movimentos</h2>
+      <p class="lede" style="max-width:66ch">A call é uma sequência cronometrada. A calha da esquerda é o relógio — se você estiver muito fora dela, sabe exatamente onde perdeu o tempo.</p>
+
+      <div class="moves">
+
+        <article class="move">
+          <div class="move-time"><b>Min 0–2</b>Abertura</div>
+          <div class="move-body">
+            <h3>Contrato prévio</h3>
+            <p class="move-why"><b>Objetivo:</b> pedir permissão pra vender, tirar a pressão, prometer clareza.</p>
+            <div class="say">
+              <p>"Fala, [Nome], tudo certo? Prazer te conhecer, cara. Eu sou o Carlos, faço parte do time aqui da Simple Acc com o Daniel — a gente é especialista em aquisição de clientes online, hoje são mais de 40 negócios rodando a nossa metodologia."</p>
+              <p>"Hoje o meu objetivo aqui é um só: entender a fundo a sua situação e te dar uma clareza bem grande do caminho. Aí, se no final fizer sentido, eu vou te apresentar uma solução nossa. Se não fizer, sem problema nenhum — você pode contar com o meu melhor do mesmo jeito. Fechado?"</p>
+              <p>"Ah, e você vai me ouvir digitando aqui, é que eu vou anotar tudo pra não perder nada."</p>
+            </div>
+            <p class="move-why">Não pule o <b>"fechado?"</b>. Você precisa de um sim antes de começar a perguntar.</p>
+          </div>
+        </article>
+
+        <article class="move">
+          <div class="move-time"><b>Min 2–14</b>Diagnóstico</div>
+          <div class="move-body">
+            <h3>O jogo atual</h3>
+            <p class="move-why"><b>Objetivo:</b> entender o negócio e fazer o lead falar. Nesta fase <b>ele fala 80%</b>.</p>
+            <div class="say">
+              <p>"Primeiro de tudo: o que te levou a entrar nessa reunião comigo hoje?"</p>
+              <p><em>Agora cale a boca. Três a quatro minutos sem interromper — só anote.</em></p>
+              <p>"Me conta como funciona hoje o teu negócio: o que você vende, pra quem, e por quanto?"</p>
+              <p>"E como chega cliente hoje? Me descreve o caminho — da hora que a pessoa te descobre até ela pagar."</p>
+              <p>"Quantas reuniões você fez no último mês? Dessas, quantas fecharam?"</p>
+              <p>"Qual que é o teu ticket médio hoje? E quanto você tá faturando por mês, em média, nos últimos três meses?"</p>
+            </div>
+            <p class="move-why">Se ele desviar da pergunta de faturamento, <b>repita</b>. O Daniel perguntou duas vezes até ter o número.</p>
+            <div class="say gate">
+              <p>"Cara, pelo que você me falou — [X] por mês, ticket de [Y] — o teu momento aqui pede outro nível de implementação, e quem conduz esse papo dentro da Simple é o Daniel. Deixa eu passar tudo que a gente falou aqui pra ele e já ver a agenda. Você tem disponibilidade [dia] às [hora]?"</p>
+            </div>
+            <h4>Histórico de tentativas — não deixe pro fim</h4>
+            <div class="say">
+              <p>"E o que você já tentou pra resolver isso?"</p>
+              <p>"Você já investiu em alguma mentoria, curso ou consultoria pra isso? Qual, e quanto foi?"</p>
+              <p>"E o que aquilo te entregou de fato? O que ficou faltando?"</p>
+              <p>"Você ainda tá pagando ela hoje?"</p>
+            </div>
+            <p class="move-why">Essas quatro perguntas te dão a <b>âncora de preço</b>, o <b>"sozinho não deu"</b> e o <b>compromisso financeiro que já existe</b> — o que muda como você monta o parcelamento lá na frente.</p>
+          </div>
+        </article>
+
+        <article class="move">
+          <div class="move-time"><b>Min 14–24</b>O porquê</div>
+          <div class="move-body">
+            <h3>Meta, porquê e custo</h3>
+            <p class="move-why"><b>Objetivo:</b> fazer o lead verbalizar a dor. É aqui que a venda acontece.</p>
+            <div class="say">
+              <p>"Qual que é a meta que você tá buscando agora? Em faturamento, quanto você precisa fazer por mês pra falar 'agora tá tranquilo'?"</p>
+              <p><em>Quase sempre vem 10k, 20k, 30k. Esse número vira o nome da oferta lá na frente.</em></p>
+              <p>"E por que que esses [20 mil] são realmente importantes pra você, cara? Fala real."</p>
+              <p><em>Silêncio absoluto. Conte até cinco. É aqui que sai o ouro.</em></p>
+              <p>"E o que que te custa hoje — financeiramente e até emocionalmente — não estar nesse ponto ainda?"</p>
+              <p>"Quanto você já investiu de dinheiro e de tempo pra chegar até aqui?"</p>
+              <p>"Se continuar exatamente do jeito que tá hoje, qual é a tua projeção pros próximos seis meses?"</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="move">
+          <div class="move-time"><b>~Min 20</b>30 segundos</div>
+          <div class="move-body">
+            <h3>Empréstimo de vocabulário</h3>
+            <p class="move-why">Em algum ponto do diagnóstico, pergunte — e a partir dali <b>toda</b> analogia sai do mundo dele.</p>
+            <div class="say">
+              <p>"Deixa eu te perguntar uma parada, [Nome]: você treina? / você jogava alguma coisa? / você veio de onde antes disso?"</p>
+            </div>
+            <div class="tw">
+              <table>
+                <thead><tr><th>Se ele é…</th><th>Consistência</th><th>Métricas</th><th>Plano de 90 dias</th></tr></thead>
+                <tbody>
+                  <tr><td>Atleta / academia</td><td>ficha de treino, dieta, macro</td><td>caloria, balança</td><td>ficha de treino de 90 dias</td></tr>
+                  <tr><td>Cozinha</td><td>receita, ponto do fogo</td><td>ficha técnica, custo do prato</td><td>cardápio da temporada</td></tr>
+                  <tr><td>Saúde / clínica</td><td>protocolo, adesão do paciente</td><td>exame, marcador</td><td>plano terapêutico</td></tr>
+                  <tr><td>Construção</td><td>obra, fundação</td><td>cronograma físico-financeiro</td><td>projeto executivo</td></tr>
+                  <tr><td>Direito / contábil</td><td>rito, prazo</td><td>fechamento, balanço</td><td>plano de trabalho</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </article>
+
+        <article class="move">
+          <div class="move-time"><b>Min 24–28</b>Demolição</div>
+          <div class="move-body">
+            <h3>Derrubar o plano atual</h3>
+            <p class="move-why">Pergunte o plano dele, ouça inteiro, e <b>conte um erro seu antes de dizer que ele errou</b> — isso remove a defesa.</p>
+            <div class="say">
+              <p>"E como você tá pensando em chegar nesses [20 mil]?"</p>
+              <p>"Posso ser sincero contigo? Eu já fiz exatamente isso e vou te contar no que dá. Teve uma época aqui na empresa que a gente falou: vamos fazer reunião com todo mundo. No segundo dia o Daniel falou 'isso aqui não funciona' — porque quando você fala com muito cara quebrado, isso te dá uma sensação horrível e queima a tua agenda."</p>
+              <p>"A gente é leão, mano. Se você bota o leão pra atacar toda presa que passa, ele não enche a barriga. O jogo é ser sniper: aquele ali é um búfalo filhote machucado, esse eu pego."</p>
+              <p>"E olha, não existe CAC zero. Tem um CAC que ninguém coloca na conta, que é o mais caro de todos: o teu tempo. Você produziu 90 conteúdos. Quanto tempo foi isso?"</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="move">
+          <div class="move-time"><b>Min 28–36</b>Mini-aula</div>
+          <div class="move-body">
+            <h3>Ensinar o gap — oito minutos, no máximo</h3>
+            <p class="move-why">Só <b>três ideias</b>. Nenhuma menção a produto. Pergunta de retorno a cada três minutos.</p>
+            <h4>Um · ninguém vive de um produto só</h4>
+            <div class="say">
+              <p>"Não tem negócio nenhum que vive de um produto só. Você vai ter um cliente com bolso de 6 mil e um com bolso de 200 reais. No começo da empresa eu não posso ficar sangrando caixa. Então eu entro na call pra vender o meu melhor produto — e se a pessoa não conseguiu comprar, eu faço um downsell, porque assim eu rentabilizo. Faz sentido isso?"</p>
+            </div>
+            <h4>Dois · o que é lead qualificado de verdade</h4>
+            <div class="say">
+              <p>"Lead qualificado tem três pontos: ser do mercado que eu quero vender, ter dinheiro pra comprar, e — esse é o que quase ninguém trabalha — ter <strong>urgência</strong>. Tem um monte de cara gordo cheio de grana que não tá nem aí pro shape. Aí o cara infarta, vê que pode não ficar com a filha dele, e agora ele tem urgência."</p>
+              <p>"Conteúdo te traz os dois primeiros, na sorte. O quiz traz os três: eu faço o cara lembrar que ele tem um problema, antes dele entrar na call."</p>
+            </div>
+            <h4>Três · marketing e comercial são a mesma coisa</h4>
+            <div class="say">
+              <p>"O comercial é uma ponta, o marketing é outra, e eu não posso jogar uma contra a outra — tenho que fundir. Sabe vender mas não sabe gerar lead? Ou gera lead e não sabe agendar? Aí é fumo total. Ontem a gente fez oito agendamentos num dia só, e não foi sorte — foi porque o processo é redondo dos dois lados."</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="move">
+          <div class="move-time"><b>Min 36–38</b>O pivô</div>
+          <div class="move-body">
+            <h3>Pergunta de compromisso</h3>
+            <p class="move-why">Este é o pivô da call inteira. <b>Não pule, não suavize, não corra.</b></p>
+            <div class="say">
+              <p>"Olha, [Nome], eu vejo claramente que a gente consegue te ajudar aqui. Mas antes de qualquer outra coisa eu preciso entender uma parada: implementar essa metodologia pra você bater esses [20 mil] por mês é realmente uma coisa que você tá disposto a fazer <strong>agora</strong>?"</p>
+            </div>
+            <div class="say alt">
+              <p>"Eu nem tô falando de preço ainda, cara. Eu quero saber se você quer mesmo o resultado. Porque é igual academia: todo mundo quer o shape, mas na hora de treinar e fazer a dieta, ninguém quer. Você quer mesmo fazer esses [20 mil] por mês?"</p>
+            </div>
+            <h4>E na sequência, isole o decisor</h4>
+            <div class="say">
+              <p>"E hoje, quando você toma uma decisão dessas, você decide sozinho ou consulta alguém? Tem mais alguém que precisaria estar nessa conversa?"</p>
+            </div>
+            <p class="move-why">Se aparecer um terceiro decisor, <b>chame ele agora</b>, não depois. "Ela tá em casa? Chama ela cinco minutinhos que eu explico junto."</p>
+          </div>
+        </article>
+
+        <article class="move">
+          <div class="move-time"><b>Min 38–52</b>Apresentação</div>
+          <div class="move-body">
+            <h3>A tela, em seis blocos</h3>
+            <p class="move-why">Pergunta de retorno a cada quatro minutos. Se passou de oito minutos falando sozinho, você errou.</p>
+            <ol>
+              <li><strong>O problema do mercado</strong> — lead caro e descomprometido, concorrência em tudo, todo mundo transforma vida. <em>"Quantas consultorias fitness existem hoje?"</em></li>
+              <li><strong>O que muda com um sistema</strong> — lead qualificado todo dia, CAC previsível, agenda cheia, ticket maior, independência de canal.</li>
+              <li><strong>Por que sozinho não dá</strong> — <em>este bloco é o que vende.</em> Gasta dinheiro e tempo no lugar errado; o gestor de tráfego não entende o funil ponta a ponta; gera lead e não gera receita; ninguém sabe onde está o gargalo.</li>
+              <li><strong>Pergunta de valor + checkpoint</strong> — <em>"Quanto vale pro teu negócio ter lead qualificado todo dia, CAC controlado, agenda cheia e clareza dos números? Até aqui tá fazendo sentido?"</em></li>
+              <li><strong>Os quatro pilares</strong> — produto e oferta, funil dinâmico, comercial, expansão de valor. <strong>Um exemplo do negócio dele em cada um.</strong></li>
+              <li><strong>As três fases + provas</strong> — validação, escala, expansão. Use as provas calibradas ao ticket dele: <em>"a Ju Godinho investe 2 mil e faz mais de 20 mil por mês, e o produto dela é baratinho"</em>.</li>
+            </ol>
+            <div class="say">
+              <p>"[Nome], quero entender: você conseguiu visualizar aqui o caminho pra chegar nessa liberdade que você me falou no começo?"</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="move">
+          <div class="move-time"><b>Min 52–58</b>Oferta</div>
+          <div class="move-body">
+            <h3>Ancoragem, pré-fechamento e os entregáveis</h3>
+            <div class="say">
+              <p>"A nossa implementação completa, onde o time entra e faz junto com você, hoje é 84 mil reais. E eu vou ser honesto contigo: ela não faz sentido pro teu momento. Se você quisesse financiar alguma coisa e botar esse dinheiro na minha mão, ela voltaria — mas eu não recomendo, não é a tua hora."</p>
+              <p>"Deixa eu te perguntar uma coisa: se eu te mostrar aqui um caminho que encaixe financeiramente pra você hoje, eu posso considerar mais um cliente aqui dentro?"</p>
+              <p><em>Espere o sim explícito. Se vier morno: "É pergunta mesmo, viu. Se encaixar, você entra?"</em></p>
+            </div>
+            <h4>O framing da oferta</h4>
+            <div class="say">
+              <p>"Cara, eu vou te mostrar uma parada que a gente nem tem desenhada em página, é uma coisa nova que o Daniel criou aqui dentro. E ele criou com um propósito: a gente queria conseguir ajudar mais gente que tá exatamente no teu momento, e não só quem já tem caixa pra implementação completa."</p>
+              <p>"É uma mentoria de <strong>3 meses</strong>, com um foco só: você bater <strong>20 mil por mês</strong>."</p>
+              <p>"<strong>Encontro semanal em grupo</strong>, toda sexta às 10h. Ali a gente mostra literalmente: primeira fase do teu negócio é essa, o que você faz. Segunda fase é essa. Passo a passo, ao vivo. Se não puder assistir, fica gravado."</p>
+              <p>"<strong>Hot seat quinzenal</strong> — porque não adianta nada você pegar o passo a passo e ficar travado numa dúvida. De 15 em 15 dias você senta com a gente, mostra a tua métrica, mostra o teu anúncio, e a gente ajusta na hora."</p>
+              <p>"<strong>Área de membros</strong> — como montar o funil, o pré-vendas e o comercial, como fazer o produto high ticket, como conduzir a call de vendas, tráfego, copy. O Daniel já investiu mais de 200 mil reais em mentoria, e o ódio dele era esse: comprar uma e ela não resolver tudo. Aqui tem tudo num lugar só."</p>
+              <p>"<strong>Grupo de WhatsApp individual</strong> — só a tua empresa e o nosso time. Dúvida no criativo, manda. Dúvida na copy, manda. Fez uma call de vendas e não vendeu? Manda a gravação que a gente analisa."</p>
+              <p>"<strong>Acesso aos nossos processos comerciais e às nossas IAs</strong> — literalmente o que a gente usa aqui dentro pra rodar a operação."</p>
+              <p>"E a gente desenha <strong>o teu plano de ação de 90 dias</strong>. Como se fosse uma ficha de treino de 90 dias: o que você faz na semana 1, na 2, na 3. Faz sentido pra você?"</p>
+            </div>
+            <div class="say">
+              <p>"Antes de eu te falar o valor: isso que eu te mostrei resolve o que você me falou lá no começo da call, de [repetir as palavras exatas dele]?"</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="move">
+          <div class="move-time"><b>Min 58–59</b>Preço</div>
+          <div class="move-body">
+            <h3>Trinta segundos, depois silêncio</h3>
+            <div class="say">
+              <p>"Meu brother, é o seguinte. Esse produto a gente pensou em cobrar 5 mil reais nele — e ele vale 5 mil pelo que tem lá dentro. Só que a gente valoriza muito quem toma decisão rápido, porque poupa o meu tempo e me mostra que a pessoa quer de verdade."</p>
+              <p>"Então, pra gente fechar aqui agora, ele sai por <strong>2.497</strong>. E você pode dividir em até <strong>10× sem juros</strong>."</p>
+            </div>
+            <div class="rule-box warn">
+              <span class="tag">Depois do preço</span>
+              <p>Cale a boca. Quem fala primeiro depois do preço, perde. Aguente o silêncio, mesmo que dure quinze segundos.</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ================= OBJEÇÕES ================= -->
+    <section id="objecoes">
+      <span class="sec-num">Parte quatro</span>
+      <h2>Banco de objeções</h2>
+      <p class="lede">O padrão é sempre o mesmo: <strong>acolhe → reframe → prova específica com número → devolve a pergunta.</strong></p>
+
+      <div class="obj">
+
+        <div class="obj-item">
+          <p class="obj-q">"Deve ser muito caro" <span>· antes do preço</span></p>
+          <div class="say"><p>"Eu nem tô falando de preço ainda, cara. Eu quero entender se você tá disposto a ter o resultado. Porque é igual academia — todo mundo quer o shape, na hora de treinar e fazer dieta ninguém quer. Você quer mesmo fazer esses 20 mil por mês?"</p></div>
+        </div>
+
+        <div class="obj-item">
+          <p class="obj-q">"Tá caro / não tenho essa grana agora"</p>
+          <div class="say"><p>"Entendo. Mas deixa eu te passar uma visão. Você tá pensando 'vou ter que ter 2.497'. Eu penso diferente: bora mapear o que você tem de produto e de ativo agora, e ver de onde esse dinheiro sai. Você tem [X] alunos, você tem lista no WhatsApp, você tem [Y]. A pergunta não é <strong>se</strong> você tem — é <strong>de onde vai sair</strong>."</p><p>"Me fala uma coisa: se você fizesse uma ação essa semana com a tua base, quanto você levantaria?"</p></div>
+        </div>
+
+        <div class="obj-item">
+          <p class="obj-q">"Estou pagando outra mentoria ainda"</p>
+          <div class="say"><p>"E ela te entregou o quê até agora? […] Então você vai continuar pagando por mais [X] meses uma coisa que não tá te dando resultado, e adiar a que dá?"</p><p>"Deixa eu te perguntar o que custa mais caro: 2.497 agora, ou mais seis meses exatamente iguais aos últimos seis?"</p></div>
+        </div>
+
+        <div class="obj-item">
+          <p class="obj-q">"E o dinheiro do tráfego, de onde sai?"</p>
+          <div class="say"><p>"Cara, eu não faço nada do meu bolso. O tráfego é dinheiro da empresa. Esse mês a Simple vai investir 15 mil reais em tráfego — não fui eu que paguei, foram os clientes que eu trouxe que pagaram."</p><p>"E os mil reais não são pra vender, são pra <strong>coletar métrica</strong>. É a ficha de treino: o cara treinou uma semana, não dá pra ver evolução. Em 45 dias eu já sei o que funcionou e o que corrigir. Só pra você ter noção: a primeira vez que a gente subiu um funil desses, com R$ 300 saiu uma venda de R$ 3.000."</p></div>
+        </div>
+
+        <div class="obj-item">
+          <p class="obj-q">"Tenho medo de sangrar dinheiro"</p>
+          <div class="say"><p>"Sabe quando sangra? Quando fica largado. É igual chegar um cara obeso pra tua consultoria, você passar a ficha de treino e a dieta e falar 'tá aqui, se vira'. Certeza absoluta que ele não faz. Agora, se você acompanha e cuida, ele faz."</p><p>"Empresa é a mesma coisa. Você não vai estar sozinho: tem o encontro semanal, tem o hot seat, tem o grupo com o time todo. É exatamente pra não te deixar sangrar."</p></div>
+        </div>
+
+        <div class="obj-item">
+          <p class="obj-q">"Fulano me falou que precisa de 2 mil/mês de tráfego pra começar"</p>
+          <div class="say"><p>"Isso é falta de conhecimento de negócio, irmão. Pensa comigo: se o meu produto é 2 mil reais, eu não posso exigir um teste de 2 mil, senão nunca dá lucro. A nossa implementação é 84 mil — eu vou pedir 84 mil pra validar? Não faz sentido."</p><p>"A minha estimativa pro teu CAC é 200 a 400 reais. Ou seja: com mil reais você tem volume estatístico pra saber onde está o gargalo."</p></div>
+        </div>
+
+        <div class="obj-item">
+          <p class="obj-q">"Preciso pensar"</p>
+          <div class="say"><p>"Fechado, faz sentido. Só me ajuda numa coisa: pensar sobre o quê exatamente? É o valor, é o tempo pra executar, ou é se isso funciona pro teu caso?"</p><p>"Porque se for [X], isso eu resolvo com você agora. Se for outra coisa, me fala qual que é — eu prefiro um não do que um talvez."</p></div>
+          <p class="obj-note">Isole primeiro, responda só aquilo, volte pro fechamento.</p>
+        </div>
+
+        <div class="obj-item">
+          <p class="obj-q">"Vou falar com minha esposa / meu sócio"</p>
+          <div class="say"><p>"Perfeito. E o que você acha que ela vai te perguntar? […] Então vamos fazer o seguinte: ela tá aí? Chama ela cinco minutinhos que eu explico junto com você — assim você não precisa remontar tudo depois."</p></div>
+        </div>
+
+        <div class="obj-item">
+          <p class="obj-q">"Me manda por escrito / manda no WhatsApp que eu vejo"</p>
+          <div class="say"><p>"Mando sim, sem problema. Mas te falo com sinceridade: por escrito não responde 90% do que você vai pensar hoje à noite. Já que a gente tá aqui ao vivo, me fala o que ficou em aberto que eu resolvo agora."</p></div>
+        </div>
+
+        <div class="obj-item">
+          <p class="obj-q">"Não é o momento / mês que vem eu entro"</p>
+          <div class="say"><p>"Cara, e o que muda de hoje pro mês que vem no teu negócio? […] Você me falou que tá à beira de um burnout e que dorme e acorda pensando nisso. Mais 30 dias assim é o quê?"</p><p>"Se fosse teu aluno falando 'começo a dieta mês que vem', o que você falaria pra ele?"</p></div>
+        </div>
+
+        <div class="obj-item">
+          <p class="obj-q">"Não sei se vou conseguir executar"</p>
+          <div class="say"><p>"Você produziu 90 conteúdos sozinho, sem ninguém te falar o que fazer. Executar você executa, isso não é o teu problema. O que faltou foi alguém te dizer <strong>o que</strong> executar. É exatamente isso que o plano de 90 dias é."</p></div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= DOWNSELL ================= -->
+    <section id="downsell">
+      <span class="sec-num">Parte cinco</span>
+      <h2>O piso de 1.497</h2>
+      <p class="lede">É ferramenta de fechamento, não desconto de tabela. Queimar cedo destrói a percepção de valor e o preço de todas as próximas vendas.</p>
+
+      <h3>Ordem obrigatória — mexa na forma antes do valor</h3>
+      <ol class="ladder">
+        <li><b>10× sem juros</b> — "dá 249 por mês, menos do que você gasta de suplemento"</li>
+        <li><b>Entrada menor + saldo</b> — "faz 500 hoje e o resto a gente parcela"</li>
+        <li><b>Dois cartões, ou cartão + pix</b> — "divide em dois cartões, resolve o limite"</li>
+        <li class="last"><b>Só então: 1.497</b></li>
+      </ol>
+
+      <h3>As três condições</h3>
+      <p>Só desça se as três existirem ao mesmo tempo: o compromisso explícito já foi dado; a restrição de caixa é <strong>real e demonstrada</strong> (ele te mostrou os números, não só disse "tá caro"); e você já testou as três alternativas de pagamento acima.</p>
+
+      <div class="rule-box warn">
+        <span class="tag">Nunca desça</span>
+        <p>Por objeção de preço pura, por hesitação, ou porque a call está se arrastando. Objeção de preço solta é <strong>falta de valor construído</strong>, não excesso de preço — volte para o porquê e o custo.</p>
+      </div>
+
+      <h3>E se descer, troque por algo</h3>
+      <div class="say">
+        <p>"Olha, vou fazer uma coisa que eu não faço sempre, e eu vou te falar o porquê: eu acredito em você. Cara que produziu 90 conteúdos sozinho não é cara que não executa. Então eu vou levar o teu caso como caso de validação nossa no nicho [X]."</p>
+        <p>"Eu consigo te colocar por <strong>1.497</strong>, com duas condições: primeira, é agora, nessa call. Segunda, quando você bater os 20 mil, você grava um depoimento pra gente. Fechado assim?"</p>
+      </div>
+      <p class="obj-note">Meta de mix: no máximo <strong>30% das vendas</strong> fechando no piso. Se passar disso, o problema está no diagnóstico, não no preço.</p>
+    </section>
+
+    <!-- ================= FECHAMENTO ================= -->
+    <section id="fechamento">
+      <span class="sec-num">Parte seis</span>
+      <h2>Fechamento, pagamento e o dia seguinte</h2>
+
+      <div class="say close">
+        <p>"Fechou então, bora começar? Deixa eu pegar o link aqui no celular… Já vai preparando, porque as entregas começam sexta às 10h."</p>
+      </div>
+
+      <h3>As três regras não-negociáveis</h3>
+      <ol>
+        <li><strong>Não saia da call.</strong> Fique conversando enquanto ele paga — treino, rotina, a cidade dele, qualquer coisa. O Daniel ficou oito minutos assim.</li>
+        <li><strong>Problema no cartão, resolva junto.</strong> "Fica aqui comigo que a gente resolve. Tenta pelo pix. Não foi? Tenta o outro cartão. Divide em dois que resolve o limite."</li>
+        <li><strong>Pagou, entrega na hora.</strong> Link da área de membros, grupo do WhatsApp, data e hora do primeiro encontro — tudo antes de encerrar.</li>
+      </ol>
+
+      <h3>Pós-venda imediato</h3>
+      <div class="say">
+        <p>"Meu irmão, já te mandei o acesso e vai chegar um e-mail também. Sexta às 10h já começam as entregas — se não puder assistir ao vivo, fica gravado. De 15 em 15 dias tem o nosso hot seat."</p>
+        <p>"E o mais importante: não fica com dúvida, não se permita ficar com dúvida. Não existe pergunta idiota. Idiota é pagar e não fazer pergunta. Então perturba a gente, tá? Conta 100% comigo e bora pra cima."</p>
+      </div>
+
+      <h3>Se não fechou</h3>
+      <p>Nunca encerre sem próximo passo com data e hora marcadas.</p>
+      <div class="say">
+        <p>"Vamos fazer o seguinte, [Nome]: eu deixo essa condição reservada até [dia] às [hora]. Nesse horário a gente se fala de novo, nem que sejam 10 minutos, e você me dá um sim ou um não — os dois estão ótimos pra mim. O que não serve pra nenhum de nós dois é o talvez."</p>
+      </div>
+      <p>Antes de desligar, registre: qual foi a <strong>objeção real</strong> (não a declarada), em que bloco a call perdeu força, e o que você não perguntou e deveria ter perguntado.</p>
+      <div class="say follow">
+        <p>"[Nome], papo muito bom o de hoje. Te mandei aqui o resumo do que a gente desenhou pro teu caso: [três bullets com as palavras dele]. Nossa conversa é [dia] às [hora], combinado?"</p>
+        <p><em>E um dia antes:</em> "Fala [Nome]! Só confirmando o nosso papo de amanhã às [hora]. Já vou adiantando: eu pensei numa forma de resolver aquele ponto do [objeção dela] — te mostro amanhã."</p>
+      </div>
+    </section>
+
+    <!-- ================= AUTORIDADE ================= -->
+    <section id="autoridade">
+      <span class="sec-num">Parte sete</span>
+      <h2>Autoridade sem ser o dono</h2>
+      <p class="lede">A call original funciona em parte porque quem fala é o dono, com treze milhões de faturamento pra mostrar. Você precisa de outra base — e ela existe.</p>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Não faça</th><th>Faça</th></tr></thead>
+          <tbody>
+            <tr><td>Falar dos seus próprios resultados financeiros</td><td>Falar dos resultados dos <strong>alunos</strong> e da <strong>empresa</strong></td></tr>
+            <tr><td>"Eu faturo X"</td><td>"A gente tem mais de 40 negócios rodando essa metodologia"</td></tr>
+            <tr><td>Se apresentar como o dono</td><td>"Eu sou quem acompanha a implementação dos alunos aqui dentro"</td></tr>
+            <tr><td>Fingir que sabe uma resposta técnica</td><td>"Esse é exatamente o tipo de coisa que você leva pro hot seat"</td></tr>
+            <tr><td>Prometer acesso individual ao Daniel</td><td>Vender o que está na oferta e nada além</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Sua autoridade real é de trincheira — e num ponto específico ela é <em>mais forte</em> que a do Daniel:</p>
+      <div class="say">
+        <p>"Cara, eu vejo call de aluno toda semana aqui dentro. E o que trava é sempre a mesma coisa: o cara gera lead e não sabe agendar, ou agenda e não sabe conduzir a reunião. Eu sei exatamente onde você vai travar porque eu vejo isso acontecer toda semana."</p>
+      </div>
+    </section>
+
+    <!-- ================= NÃO COPIAR ================= -->
+    <section id="naocopiar">
+      <h2>O que não copiar da call original</h2>
+      <ol>
+        <li><strong>94 minutos.</strong> Só sustenta porque quem fala é o dono e o lead veio de um workshop dele. Sua meta é 55–65.</li>
+        <li><strong>Vinte minutos de monólogo.</strong> Autoridade emprestada não sustenta isso. Corte pela metade e coloque pergunta de retorno a cada quatro minutos.</li>
+        <li><strong>Descobrir a mentoria de 12 mil no minuto 46.</strong> Isso é qualificação — tem que sair no minuto 10. Se sai antes, a oferta e o parcelamento são construídos em cima disso.</li>
+        <li><strong>Preço no minuto 77.</strong> Uma call de 60 minutos não comporta 77 minutos de aquecimento. Mire no 40–45.</li>
+        <li><strong>Espaços mortos.</strong> Buscar água, tela demorando a compartilhar. Deixe a apresentação já aberta antes de entrar.</li>
+        <li><strong>Vocabulário muito solto.</strong> Funciona porque é quem ele é e o lead é do mesmo registro. Calibre pelo lead — não copie.</li>
+      </ol>
+    </section>
+
+    <!-- ================= MÉTRICAS ================= -->
+    <section id="metricas" class="wide">
+      <span class="sec-num">Parte oito</span>
+      <h2>O que medir toda semana</h2>
+      <div class="tw">
+        <table>
+          <thead><tr><th>Métrica</th><th>Meta inicial</th></tr></thead>
+          <tbody>
+            <tr><td>No-show</td><td class="tm">&lt; 25%</td></tr>
+            <tr><td>Fechamento na própria call</td><td class="tm">&gt; 20%</td></tr>
+            <tr><td>Fechamento total, com follow-up</td><td class="tm">&gt; 30%</td></tr>
+            <tr><td>Vendas fechadas no piso de 1.497</td><td class="tm">&lt; 30%</td></tr>
+            <tr><td>Duração média da call</td><td class="tm">55–65 min</td></tr>
+            <tr><td>Minuto médio em que o preço aparece</td><td class="tm">40–45</td></tr>
+            <tr><td>Objeção mais frequente da semana</td><td class="tm">registrar sempre</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="max-width:66ch">Registre a objeção mais frequente toda semana e leve pro hot seat. É assim que o script evolui — exatamente o que a gente vende: coleta de métrica antes de otimizar.</p>
+    </section>
+
+    <!-- ================= ERROS ================= -->
+    <section id="erros">
+      <h2>Os sete erros que matam a call</h2>
+      <ol class="errs">
+        <li>Falar de preço antes do compromisso</li>
+        <li>Apresentar sem ter preenchido o porquê e o custo na ficha</li>
+        <li>Monologar mais de oito minutos sem pergunta de retorno</li>
+        <li>Falar depois de dar o preço</li>
+        <li>Sair da call antes do pagamento cair</li>
+        <li>Dar desconto sem razão declarada e sem contrapartida</li>
+        <li>Encerrar sem próximo passo com data e hora</li>
+      </ol>
+
+      <p class="pull">A call não vende o produto: ela faz o lead dizer em voz alta o que ele quer, o que isso está custando e o que acontece se nada mudar — e só então mostra um caminho.</p>
+    </section>
+
+    <footer>
+      <p>Simple Acc · documento interno do comercial · versionado em <code>clientes/0-interno-simpleacc-inova/comercial/</code></p>
+      <p>Revisar depois das 10 primeiras calls do Carlos, com os números reais em mãos.</p>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+  (function () {
+    var links = Array.prototype.slice.call(document.querySelectorAll('#rail-nav a'));
+    if (!links.length || !('IntersectionObserver' in window)) return;
+
+    var map = {};
+    links.forEach(function (a) {
+      var el = document.querySelector(a.getAttribute('href'));
+      if (el) map[el.id] = a;
+    });
+
+    var visible = new Set();
+    var obs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) visible.add(e.target.id);
+        else visible.delete(e.target.id);
+      });
+      var order = Object.keys(map);
+      var first = order.find(function (id) { return visible.has(id); });
+      links.forEach(function (a) { a.classList.remove('on'); });
+      if (first && map[first]) map[first].classList.add('on');
+    }, { rootMargin: '-10% 0px -70% 0px', threshold: 0 });
+
+    Object.keys(map).forEach(function (id) {
+      obs.observe(document.getElementById(id));
+    });
+  })();
+</script>

@@ -14,6 +14,7 @@ scripts, objeções e regras de roteamento de lead.
 
 | Arquivo | O que é | Quando usar |
 | ------- | ------- | ----------- |
+| [`playbook-call-vendas-simpleacc.pdf`](./playbook-call-vendas-simpleacc.pdf) | O playbook completo diagramado, 25 páginas A4 | **Imprimir ou ler no celular/tablet** |
 | [`cheatsheet-call-1-pagina.md`](./cheatsheet-call-1-pagina.md) | Roteiro de 1 página com os 10 movimentos, frases-gatilho e objeções | **Deixar aberto na segunda tela durante a call** |
 | [`playbook-call-carlos-ticket-2497.md`](./playbook-call-carlos-ticket-2497.md) | Passo a passo completo, scripts por bloco, banco de objeções, regras de downsell, métricas | Estudo e treino antes das calls |
 | [`analise-call-daniel-kaina-2026-07-30.md`](./analise-call-daniel-kaina-2026-07-30.md) | Estrutura invisível da call em que o Daniel validou a oferta, com timestamps | Entender o *porquê* de cada movimento |
@@ -32,6 +33,18 @@ Foco: bater **20 mil/mês** em 3 meses.
 
 Preço cheio R$ 2.497 (até 10x sem juros). Piso R$ 1.497 — ver regras de downsell no
 playbook (seção 13). Meta: no máximo 30% das vendas fechando no piso.
+
+## Regerar o PDF
+
+O PDF é gerado a partir de `playbook-call-vendas-simpleacc.html` (fonte diagramada,
+paleta navy do brandbook, tipografia sans para leitura). Depois de editar o HTML:
+
+```bash
+cd clientes/0-interno-simpleacc-inova/comercial
+node gerar-pdf.js       # exige Chromium + playwright disponíveis na sessão
+```
+
+O script embute cabeçalho, rodapé e numeração de página, e força tema claro.
 
 ## Próximos passos
 
