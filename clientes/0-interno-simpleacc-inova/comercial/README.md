@@ -17,6 +17,7 @@ scripts, objeções e regras de roteamento de lead.
 | [`cheatsheet-call-1-pagina.md`](./cheatsheet-call-1-pagina.md) | Roteiro de 1 página com os 10 movimentos, frases-gatilho e objeções | **Deixar aberto na segunda tela durante a call** |
 | [`playbook-call-carlos-ticket-2497.md`](./playbook-call-carlos-ticket-2497.md) | Passo a passo completo, scripts por bloco, banco de objeções, regras de downsell, métricas | Estudo e treino antes das calls |
 | [`analise-call-daniel-kaina-2026-07-30.md`](./analise-call-daniel-kaina-2026-07-30.md) | Estrutura invisível da call em que o Daniel validou a oferta, com timestamps | Entender o *porquê* de cada movimento |
+| [`calls/`](./calls/) | Transcrições de calls (confidencial — dados de leads) | Treino: assistir acompanhando o mapa da análise |
 
 ## Oferta atual — mentoria de 3 meses (R$ 2.497)
 
