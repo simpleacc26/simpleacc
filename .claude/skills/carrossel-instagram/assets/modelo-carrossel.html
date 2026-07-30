@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<!--
+  MODELO DE CARROSSEL DE INSTAGRAM (4:5) — Simple Acc
+  ===================================================
+  Duplique este arquivo para a pasta do cliente e edite SOMENTE dois lugares:
+
+    1) o bloco :root logo abaixo  → os 6 tokens de cor + as 2 fontes
+    2) o array SLIDES no rodapé   → o conteudo de cada slide
+
+  Tudo o mais (barra de progresso, seta de swipe, moldura do Instagram, arrasto,
+  dots) ja esta pronto e correto. NAO altere a largura de 420px da .ig-frame:
+  a exportacao para 1080x1350 depende dela.
+
+  Conteudo abaixo e EXEMPLO. Troque por completo.
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carrossel: preview</title>
+
+<!-- TROQUE: as fontes escolhidas no intake (ver references/design-system.md) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  /* ---- TROQUE: paleta derivada da cor primaria da marca ---- */
+  --brand-primary: #3E5C8A;
+  --brand-light:   #8197B6;
+  --brand-dark:    #263A57;
+  --light-bg:      #EEF3FA;
+  --light-border:  #DDE5F0;
+  --dark-bg:       #0A1626;
+
+  /* ---- TROQUE: o par de fontes ---- */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-text:    'DM Sans', system-ui, sans-serif;
+
+  /* ---- NAO MUDE: base do layout, a exportacao depende disso ---- */
+  --slide-w: 420px;
+  --slide-h: 525px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  font-family:var(--font-text);
+  background:#F2F2F2;
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:32px 16px;
+}
+.serif{font-family:var(--font-display)}
+.sans {font-family:var(--font-text)}
+
+/* ============ MOLDURA DO INSTAGRAM (so preview, some no export) ============ */
+.ig-frame{
+  width:420px;              /* NAO MUDE */
+  max-width:100%;
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 8px 40px rgba(0,0,0,.12);
+  overflow:hidden;
+}
+.ig-header{display:flex;align-items:center;gap:10px;padding:12px 14px}
+.ig-avatar{
+  width:34px;height:34px;border-radius:50%;
+  background:var(--brand-primary);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-weight:600;font-size:14px;flex:0 0 auto;
+}
+.ig-handle{font-size:13px;font-weight:600;color:#111;line-height:1.2}
+.ig-sub{font-size:11px;color:#8A8580;line-height:1.2}
+.ig-dots{display:flex;justify-content:center;gap:5px;padding:10px 0 4px}
+.ig-dot{width:6px;height:6px;border-radius:50%;background:#D5D5D5;transition:background .2s}
+.ig-dot.on{background:var(--brand-primary)}
+.ig-actions{display:flex;gap:14px;padding:6px 14px 2px;color:#111}
+.ig-actions .spacer{flex:1}
+.ig-caption{padding:6px 14px 14px;font-size:13px;line-height:1.45;color:#111}
+.ig-caption .ts{display:block;margin-top:8px;font-size:10px;letter-spacing:.4px;color:#9A9A9A}
+
+/* ============ VIEWPORT E TRILHO ============ */
+.carousel-viewport{
+  width:100%;
+  aspect-ratio:4/5;
+  overflow:hidden;
+  position:relative;
+  cursor:grab;
+  touch-action:pan-y;
+  user-select:none;
+}
+.carousel-viewport.dragging{cursor:grabbing}
+.carousel-track{
+  display:flex;
+  height:100%;
+  transition:transform .32s cubic-bezier(.22,.61,.36,1);
+  will-change:transform;
+}
+
+/* ============ SLIDE ============ */
+.slide{
+  flex:0 0 var(--slide-w);
+  width:var(--slide-w);
+  height:100%;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  -webkit-font-smoothing:antialiased;
+}
+.slide.bg-light{background:var(--light-bg);color:var(--dark-bg)}
+.slide.bg-dark {background:var(--dark-bg); color:#fff}
+.slide.bg-grad {
+  background:linear-gradient(165deg,var(--brand-dark) 0%,var(--brand-primary) 50%,var(--brand-light) 100%);
+  color:#fff;
+}
+/* conteudo: 36px de respiro lateral, 52px embaixo para nunca encostar na barra */
+.slide-body{
+  flex:1;
+  display:flex;flex-direction:column;
+  padding:0 36px 52px;
+  position:relative;z-index:2;
+}
+.slide-body.center{justify-content:center}
+.slide-body.bottom{justify-content:flex-end}
+.slide-body.top   {justify-content:flex-start;padding-top:44px}
+
+/* ============ TIPOGRAFIA DOS SLIDES (escala fixa entre marcas) ============ */
+.s-tag{
+  display:inline-block;font-size:10px;font-weight:600;letter-spacing:2px;
+  text-transform:uppercase;margin-bottom:16px;
+}
+.s-title{font-size:31px;font-weight:600;letter-spacing:-.4px;line-height:1.13}
+.s-title.sm{font-size:27px}
+.s-body{font-size:14px;font-weight:400;line-height:1.52;margin-top:14px}
+.s-small{font-size:12px;line-height:1.45}
+.muted-light{color:#6F6A66}
+.muted-dark {color:rgba(255,255,255,.62)}
+
+/* ============ COMPONENTES ============ */
+.pill{display:inline-block;font-size:11px;padding:5px 12px;border-radius:20px}
+.pill-strike{border:1px solid rgba(255,255,255,.1);color:#6B6560;text-decoration:line-through}
+.pill-tag{background:rgba(255,255,255,.06);color:var(--brand-light)}
+.pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+
+.quote-box{
+  padding:16px;background:rgba(0,0,0,.15);border-radius:12px;
+  border:1px solid rgba(255,255,255,.08);margin-top:18px;
+}
+.quote-box .label{font-size:13px;color:rgba(255,255,255,.5);margin-bottom:6px}
+.quote-box .text {font-size:15px;color:#fff;font-style:italic;line-height:1.4}
+
+.feat{display:flex;align-items:flex-start;gap:14px;padding:10px 0;border-bottom:1px solid var(--light-border)}
+.feat:last-child{border-bottom:0}
+.feat .ico{color:var(--brand-primary);font-size:15px;width:18px;text-align:center;flex:0 0 18px;line-height:1.4}
+.feat .lb{display:block;font-size:14px;font-weight:600}
+.feat .ds{display:block;font-size:12px;color:#8A8580;margin-top:1px}
+
+.step{display:flex;align-items:flex-start;gap:16px;padding:14px 0;border-bottom:1px solid var(--light-border)}
+.step:last-child{border-bottom:0}
+.step .n{font-family:var(--font-display);font-size:26px;font-weight:300;color:var(--brand-primary);min-width:34px;line-height:1}
+.step .lb{display:block;font-size:14px;font-weight:600}
+.step .ds{display:block;font-size:12px;color:#8A8580;margin-top:1px}
+
+.swatch{width:32px;height:32px;border-radius:8px;border:1px solid rgba(255,255,255,.08)}
+.swatch-row{display:flex;gap:10px;margin-top:16px}
+
+.lockup{display:flex;align-items:center;gap:11px}
+.lockup .mark{
+  width:40px;height:40px;border-radius:50%;background:var(--brand-primary);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-weight:600;font-size:17px;flex:0 0 auto;
+}
+.lockup .name{font-size:13px;font-weight:600;letter-spacing:.5px}
+/* sobre o gradiente a cor primaria some no fundo, entao o circulo vira vidro */
+.bg-grad .lockup .mark{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.28)}
+
+.cta-btn{
+  display:inline-flex;align-items:center;gap:8px;padding:12px 28px;
+  background:var(--light-bg);color:var(--brand-dark);
+  font-family:var(--font-text);font-weight:600;font-size:14px;border-radius:28px;
+}
+
+.hero-img{
+  width:100%;border-radius:14px;overflow:hidden;margin-top:18px;
+  border:1px solid var(--light-border);
+}
+.hero-img img{display:block;width:100%;height:auto}
+</style>
+</head>
+<body>
+
+<div class="ig-frame">
+  <div class="ig-header">
+    <div class="ig-avatar" id="igAvatar">M</div>
+    <div>
+      <div class="ig-handle" id="igHandle">@marcaexemplo</div>
+      <div class="ig-sub" id="igSub">Patrocinado</div>
+    </div>
+  </div>
+
+  <div class="carousel-viewport" id="viewport">
+    <div class="carousel-track" id="track"></div>
+  </div>
+
+  <div class="ig-dots" id="dots"></div>
+
+  <div class="ig-actions">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.8 4.6a5.5 5.5 0 00-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 00-7.8 7.8l1.1 1.1L12 21.2l7.7-7.7 1.1-1.1a5.5 5.5 0 000-7.8z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 11.5a8.4 8.4 0 01-9 8.4 8.5 8.5 0 01-3.8-.9L3 20.5l1.5-4.4A8.4 8.4 0 0121 11.5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="spacer"></span>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+
+  <div class="ig-caption" id="igCaption">
+    <strong>marcaexemplo</strong> Legenda do post entra aqui. Gancho curto, corpo
+    de duas a tres linhas e a chamada para acao.
+    <span class="ts">HA 2 HORAS</span>
+  </div>
+</div>
+
+<script>
+/* =========================================================================
+   1) DADOS DA MARCA  (TROQUE)
+   ========================================================================= */
+const BRAND = {
+  nome:    'Marca Exemplo',
+  inicial: 'M',            // usada no lockup e no avatar quando nao ha logo
+  handle:  '@marcaexemplo',
+  sub:     'Patrocinado',
+  legenda: 'Legenda do post entra aqui. Gancho curto, corpo de duas a tres linhas e a chamada para acao.',
+  // logoSvg: '<svg ...>'  // opcional: se existir, substitui a inicial e vira marca d'agua
+};
+
+/* =========================================================================
+   2) CHROME DO SLIDE  (NAO MUDE: sai dentro do PNG exportado)
+   ========================================================================= */
+function progressBar(index, total, isLight){
+  const pct   = ((index + 1) / total) * 100;
+  const track = isLight ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.12)';
+  const fill  = isLight ? 'var(--brand-primary)' : '#fff';
+  const label = isLight ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.4)';
+  return `<div style="position:absolute;bottom:0;left:0;right:0;padding:16px 28px 20px;z-index:10;display:flex;align-items:center;gap:10px;">
+    <div style="flex:1;height:3px;background:${track};border-radius:2px;overflow:hidden;">
+      <div style="height:100%;width:${pct}%;background:${fill};border-radius:2px;"></div>
+    </div>
+    <span class="sans" style="font-size:11px;color:${label};font-weight:500;">${index + 1}/${total}</span>
+  </div>`;
+}
+
+function swipeArrow(isLight){
+  const bg     = isLight ? 'rgba(0,0,0,0.06)'  : 'rgba(255,255,255,0.08)';
+  const stroke = isLight ? 'rgba(0,0,0,0.25)'  : 'rgba(255,255,255,0.35)';
+  return `<div style="position:absolute;right:0;top:0;bottom:0;width:48px;z-index:9;display:flex;align-items:center;justify-content:center;background:linear-gradient(to right,transparent,${bg});">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path d="M9 6l6 6-6 6" stroke="${stroke}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>`;
+}
+
+function watermark(){
+  if(!BRAND.logoSvg) return '';
+  return `<div style="position:absolute;right:-40px;bottom:-30px;width:260px;opacity:.05;z-index:1;pointer-events:none;">${BRAND.logoSvg}</div>`;
+}
+
+function lockup(){
+  const mark = BRAND.logoSvg
+    ? `<span class="mark">${BRAND.logoSvg}</span>`
+    : `<span class="mark">${BRAND.inicial}</span>`;
+  return `<div class="lockup">${mark}<span class="name sans">${BRAND.nome}</span></div>`;
+}
+
+/* cor da tag conforme o fundo do slide */
+function tagColor(bg){
+  if(bg === 'light') return 'var(--brand-primary)';
+  if(bg === 'dark')  return 'var(--brand-light)';
+  return 'rgba(255,255,255,0.6)';
+}
+function tag(txt, bg){
+  return `<span class="s-tag sans" style="color:${tagColor(bg)}">${txt}</span>`;
+}
+function muted(bg){ return bg === 'light' ? 'muted-light' : 'muted-dark'; }
+
+/* =========================================================================
+   3) OS SLIDES  (TROQUE TUDO)
+   bg: 'light' | 'dark' | 'grad'
+   pos: 'center' | 'bottom' | 'top'
+   Regra de copy: zero travessoes. Use virgula ou dois-pontos.
+   ========================================================================= */
+const SLIDES = [
+
+  // 1 — CAPA: o gancho. Tem que parar o scroll.
+  { bg:'light', pos:'center', html: `
+    ${lockup()}
+    <div style="margin-top:26px">
+      ${tag('GUIA RAPIDO','light')}
+      <h1 class="s-title serif">Seu perfil recebe visita<br>e nao recebe cliente.</h1>
+      <p class="s-body sans muted-light">Sao tres erros que aparecem em quase todo perfil que a gente audita, e os tres tem conserto na mesma semana.</p>
+    </div>
+  `},
+
+  // 2 — PROBLEMA: a dor.
+  { bg:'dark', pos:'bottom', html: `
+    ${tag('O PROBLEMA','dark')}
+    <h2 class="s-title serif">Voce esta postando para o algoritmo, nao para quem compra.</h2>
+    <p class="s-body sans muted-dark">Alcance sobe, salvamento sobe, e a caixa de entrada continua vazia. O conteudo entretem, mas nao qualifica ninguem.</p>
+    <div class="pill-row">
+      <span class="pill pill-strike">post de bom dia</span>
+      <span class="pill pill-strike">trend sem contexto</span>
+      <span class="pill pill-strike">frase motivacional</span>
+    </div>
+  `},
+
+  // 3 — SOLUCAO: a virada.
+  { bg:'grad', pos:'bottom', html: `
+    ${watermark()}
+    ${tag('A VIRADA','grad')}
+    <h2 class="s-title serif">Todo post responde<br>uma objecao real.</h2>
+    <p class="s-body sans" style="color:rgba(255,255,255,.8)">Liste as cinco frases que o cliente fala antes de comprar. Cada uma vira um post. E so isso.</p>
+    <div class="quote-box">
+      <p class="label sans">O que ele pensa</p>
+      <p class="text serif">"Parece bom, mas sera que funciona pro meu caso?"</p>
+    </div>
+  `},
+
+  // 4 — BENEFICIOS: o que ganha.
+  { bg:'light', pos:'bottom', html: `
+    ${tag('O QUE MUDA','light')}
+    <h2 class="s-title sm serif">O que acontece quando o conteudo qualifica.</h2>
+    <div style="margin-top:18px">
+      <div class="feat"><span class="ico">1</span><div><span class="lb sans">Menos curioso</span><span class="ds sans">quem chega ja sabe o preco da solucao</span></div></div>
+      <div class="feat"><span class="ico">2</span><div><span class="lb sans">Conversa mais curta</span><span class="ds sans">a objecao ja caiu antes do primeiro contato</span></div></div>
+      <div class="feat"><span class="ico">3</span><div><span class="lb sans">Fechamento mais rapido</span><span class="ds sans">a proposta chega em quem ja esta pronto</span></div></div>
+    </div>
+  `},
+
+  // 5 — DETALHES: profundidade.
+  { bg:'dark', pos:'bottom', html: `
+    ${tag('NA PRATICA','dark')}
+    <h2 class="s-title sm serif">Um post nao vende sozinho. A sequencia vende.</h2>
+    <p class="s-body sans muted-dark">Distribua as objecoes ao longo da semana em vez de tentar responder todas no mesmo post.</p>
+    <div class="pill-row">
+      <span class="pill pill-tag">prova</span>
+      <span class="pill pill-tag">bastidor</span>
+      <span class="pill pill-tag">comparacao</span>
+      <span class="pill pill-tag">erro comum</span>
+    </div>
+  `},
+
+  // 6 — COMO FAZER: passos.
+  { bg:'light', pos:'bottom', html: `
+    ${tag('COMECE HOJE','light')}
+    <h2 class="s-title sm serif">Tres passos para a proxima semana.</h2>
+    <div style="margin-top:14px">
+      <div class="step"><span class="n">01</span><div><span class="lb sans">Abra a conversa</span><span class="ds sans">releia os ultimos dez atendimentos no direct</span></div></div>
+      <div class="step"><span class="n">02</span><div><span class="lb sans">Anote as objecoes</span><span class="ds sans">as cinco frases que mais se repetem</span></div></div>
+      <div class="step"><span class="n">03</span><div><span class="lb sans">Transforme em pauta</span><span class="ds sans">uma objecao por post, uma por dia</span></div></div>
+    </div>
+  `},
+
+  // 7 — CTA: sem seta, barra em 100%.
+  { bg:'grad', pos:'center', html: `
+    ${watermark()}
+    ${lockup()}
+    <div style="margin-top:26px">
+      <h2 class="s-title serif">Quer que a gente monte<br>essa sequencia com voce?</h2>
+      <p class="s-body sans" style="color:rgba(255,255,255,.8);margin-bottom:24px">Chama no direct e manda a palavra CONTEUDO.</p>
+      <span class="cta-btn">Falar com a gente</span>
+    </div>
+  `},
+
+];
+
+/* =========================================================================
+   4) RENDER + SWIPE  (NAO MUDE)
+   ========================================================================= */
+const track    = document.getElementById('track');
+const viewport = document.getElementById('viewport');
+const dotsEl   = document.getElementById('dots');
+const TOTAL    = SLIDES.length;
+
+track.innerHTML = SLIDES.map((s, i) => {
+  const isLight = s.bg === 'light';
+  const isLast  = i === TOTAL - 1;
+  return `<div class="slide bg-${s.bg}">
+    <div class="slide-body ${s.pos || 'bottom'}">${s.html}</div>
+    ${isLast ? '' : swipeArrow(isLight)}
+    ${progressBar(i, TOTAL, isLight)}
+  </div>`;
+}).join('');
+
+dotsEl.innerHTML = SLIDES.map((_, i) => `<span class="ig-dot${i ? '' : ' on'}"></span>`).join('');
+
+document.getElementById('igAvatar').textContent  = BRAND.inicial;
+document.getElementById('igHandle').textContent  = BRAND.handle;
+document.getElementById('igSub').textContent     = BRAND.sub;
+document.getElementById('igCaption').innerHTML   =
+  `<strong>${BRAND.handle.replace('@','')}</strong> ${BRAND.legenda}<span class="ts">HA 2 HORAS</span>`;
+
+let index = 0, startX = 0, dragX = 0, dragging = false;
+const W = () => viewport.clientWidth;
+
+function go(i){
+  index = Math.max(0, Math.min(TOTAL - 1, i));
+  track.style.transition = 'transform .32s cubic-bezier(.22,.61,.36,1)';
+  track.style.transform  = `translateX(${-index * W()}px)`;
+  [...dotsEl.children].forEach((d, n) => d.classList.toggle('on', n === index));
+}
+
+viewport.addEventListener('pointerdown', e => {
+  dragging = true; startX = e.clientX; dragX = 0;
+  viewport.classList.add('dragging');
+  viewport.setPointerCapture(e.pointerId);
+  track.style.transition = 'none';
+});
+viewport.addEventListener('pointermove', e => {
+  if(!dragging) return;
+  dragX = e.clientX - startX;
+  track.style.transform = `translateX(${-index * W() + dragX}px)`;
+});
+function endDrag(){
+  if(!dragging) return;
+  dragging = false;
+  viewport.classList.remove('dragging');
+  if(Math.abs(dragX) > W() * 0.18) go(index + (dragX < 0 ? 1 : -1));
+  else go(index);
+}
+viewport.addEventListener('pointerup', endDrag);
+viewport.addEventListener('pointercancel', endDrag);
+
+document.addEventListener('keydown', e => {
+  if(e.key === 'ArrowRight') go(index + 1);
+  if(e.key === 'ArrowLeft')  go(index - 1);
+});
+window.addEventListener('resize', () => go(index));
+go(0);
+</script>
+</body>
+</html>
