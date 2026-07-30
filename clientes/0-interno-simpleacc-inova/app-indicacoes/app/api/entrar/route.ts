@@ -1,11 +1,12 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { COOKIE, hashSenha } from "@/lib/auth";
+import { SEGREDOS } from "@/lib/segredos";
 
 export const dynamic = "force-dynamic";
 
 export async function POST(req: NextRequest) {
   const { senha } = await req.json();
-  const esperada = process.env.APP_SENHA;
+  const esperada = process.env.APP_SENHA || SEGREDOS.APP_SENHA;
   if (!esperada) return NextResponse.json({ ok: true });
   if (String(senha ?? "") !== esperada) {
     return NextResponse.json({ erro: "senha_invalida" }, { status: 401 });

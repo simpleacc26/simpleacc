@@ -54,9 +54,8 @@ Sem `APP_SENHA`, ele não pede senha (conveniente em desenvolvimento).
 
 ## Banco de dados
 
-Postgres. Na Vercel: **Storage → Create Database → Neon → Connect Project** — a
-variável `DATABASE_URL` é injetada automaticamente. Funciona com qualquer
-Postgres (Neon, Supabase, Railway).
+Postgres — hoje um projeto Neon (plano gratuito, região `us-east-1`, mesma do
+deploy). Funciona com qualquer Postgres (Neon, Supabase, Railway).
 
 As tabelas (`clientes`, `indicacoes`, `notas`, `tarefas`) e o conteúdo inicial
 (cronograma, rascunho do pitch e da mensagem) são criados **na primeira
@@ -67,12 +66,25 @@ requisição** — não há migration para rodar à mão. Ver `lib/db.ts`.
 Projeto autocontido nesta subpasta. Ao ligar o repositório na Vercel, aponte o
 **Root Directory** para `clientes/0-interno-simpleacc-inova/app-indicacoes`.
 
-Variáveis de ambiente na Vercel:
+Configuração:
 
 | Variável | Para quê |
 | --- | --- |
-| `DATABASE_URL` | Conexão com o Postgres (a Neon preenche sozinha). |
+| `DATABASE_URL` | Conexão com o Postgres. |
 | `APP_SENHA` | Senha compartilhada de acesso. Vazia = app aberto. |
+
+> **Onde a configuração vive hoje.** O projeto na Vercel foi publicado direto,
+> sem ligação com o repositório — e por esse caminho não é possível gravar
+> variável de ambiente. Por isso a versão publicada carrega os dois valores em
+> `lib/segredos.ts`, que **fica vazio no Git de propósito** (segredo não se
+> commita).
+>
+> Ao ligar o projeto ao repositório, defina `DATABASE_URL` e `APP_SENHA` em
+> **Settings → Environment Variables**: as variáveis de ambiente têm prioridade
+> e o `lib/segredos.ts` deixa de ter qualquer efeito.
+>
+> Para trocar a senha antes disso, basta criar `APP_SENHA` nas variáveis de
+> ambiente e fazer um redeploy — ela passa a valer na hora.
 
 ## Stack
 

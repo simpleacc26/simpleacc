@@ -1,9 +1,10 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { COOKIE, hashSenha } from "./lib/auth";
+import { SEGREDOS } from "./lib/segredos";
 
 // Se APP_SENHA não estiver configurada, o app fica aberto (útil em dev).
 export async function middleware(req: NextRequest) {
-  const senha = process.env.APP_SENHA;
+  const senha = process.env.APP_SENHA || SEGREDOS.APP_SENHA;
   if (!senha) return NextResponse.next();
 
   const { pathname } = req.nextUrl;
