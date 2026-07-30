@@ -2,30 +2,34 @@
 
 **Cliente:** Gustavo Ono (@gustavo_ono)
 **Data:** 2026-07-30
-**Formato:** carrossel 4:5, 7 slides, 1080x1350
+**Formato:** carrossel 4:5, 6 slides, 1080x1350
 **Destino:** quiz de diagnóstico gratuito
 
 ## Arquivos
 
 - `carrossel.html` — preview navegável na moldura do Instagram. Abra no navegador
   e arraste para o lado, ou use as setas do teclado.
-- `slides/slide_1.png` … `slide_7.png` — as peças finais, prontas para subir.
+- `slides/slide_1.png` … `slide_6.png` — as peças finais, prontas para subir.
 
 ## Estrutura
 
 | # | Fundo | Conteúdo |
 |---|---|---|
-| 1 | creme | "Duas chocolateiras. Mesmo produto. Faturamentos diferentes." |
+| 1 | creme | O que separa a chocolateira que fatura bem da que fatura pouco, com o mesmo produto |
 | 2 | cacau | Não é o produto. Talento não é o diferencial. |
 | 3 | creme | Não é o volume. |
 | 4 | cacau | É o cardápio. (Uma / A outra) |
 | 5 | creme | É a precificação. (Uma / A outra) |
-| 6 | cacau | É a estrutura de venda. (Uma / A outra) |
-| 7 | gradiente | CTA: o quiz diagnostica as três. Clique em Saiba mais. |
+| 6 | gradiente | É a estrutura de venda. (Uma / A outra) + o fecho no quiz |
 
-A copy dos slides 1 a 6 é a do cliente, praticamente literal. O slide 7 separa a
-frase final do bloco 6 ("essas três coisas são o que o quiz ajuda a diagnosticar")
-para virar o CTA, já que o último slide não leva seta e fecha o carrossel.
+**A copy é a do cliente, na íntegra, um bloco por slide.** Nada foi reescrito nem
+acrescentado. O slide 6 fecha o carrossel: sem seta, barra cheia, e a frase final
+do bloco 6 ("essas três coisas são o que o quiz ajuda a diagnosticar no seu
+negócio") em destaque sobre o gradiente.
+
+Não há slide de CTA explícito, porque a copy fornecida não tinha um. O botão
+"Saiba mais" do anúncio no Meta e a legenda do post cumprem esse papel. Se quiser
+um sétimo slide só de chamada, é rápido de acrescentar.
 
 ## Identidade
 
@@ -37,6 +41,9 @@ Assinatura no topo e `@gustavo_ono` no rodapé de todos os slides.
 Device criado para este carrossel: o bloco de contraste **"Uma / A outra"**, com
 a chave em serifa itálica, repetido nos slides 4, 5 e 6. É ele que amarra as três
 diferenças visualmente.
+
+Os criativos de referência serviram **só como espelho de identidade visual**
+(paleta, tipografia, assinatura, fios). A copy deles não entra nas peças.
 
 ## Pendência
 

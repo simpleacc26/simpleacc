@@ -118,17 +118,18 @@ body{
 .vs{margin-top:20px}
 .vs-row{display:flex;gap:13px;align-items:flex-start;padding:12px 0}
 .vs-row + .vs-row{border-top:1px solid var(--cream-line)}
-.bg-dark .vs-row + .vs-row{border-top-color:rgba(239,229,214,.2)}
+.bg-dark .vs-row + .vs-row,.bg-grad .vs-row + .vs-row{border-top-color:rgba(239,229,214,.24)}
 .vs-key{font-family:var(--font-display);font-size:17px;font-style:italic;line-height:1.2;flex:0 0 62px;padding-top:1px}
 .vs-a .vs-key{color:var(--brown)}
 .bg-dark .vs-a .vs-key{color:var(--salmon)}
+.bg-grad .vs-a .vs-key{color:#F2C0BC}
 .vs-b .vs-key{color:var(--brown-soft);opacity:.85}
-.bg-dark .vs-b .vs-key{color:rgba(239,229,214,.45)}
+.bg-dark .vs-b .vs-key,.bg-grad .vs-b .vs-key{color:rgba(239,229,214,.5)}
 .vs-tx{font-size:13.5px;line-height:1.45;font-weight:500}
 .bg-light .vs-a .vs-tx{color:var(--ink)}
 .bg-light .vs-b .vs-tx{color:#8A7565}
-.bg-dark .vs-a .vs-tx{color:var(--cream)}
-.bg-dark .vs-b .vs-tx{color:rgba(239,229,214,.5)}
+.bg-dark .vs-a .vs-tx,.bg-grad .vs-a .vs-tx{color:var(--cream)}
+.bg-dark .vs-b .vs-tx,.bg-grad .vs-b .vs-tx{color:rgba(239,229,214,.55)}
 
 .cta-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;background:var(--cream);color:var(--cocoa);font-family:var(--font-text);font-weight:700;font-size:14px;border-radius:30px}
 </style>
@@ -208,13 +209,12 @@ function vs(uma, outra){
 /* ---------- os slides ---------- */
 const SLIDES = [
 
-  // 1 — gancho. Espelha a estrutura do criativo "Duas confeiteiras."
+  // 1 — gancho
   { bg:'light', pos:'center', html: `
     <div class="bracket">
-      <h1 class="t-xl">Duas<br>chocolateiras.</h1>
-      <p class="body sans" style="margin-top:12px;font-size:15px;"><b>Mesmo</b> produto. <b>Faturamentos</b> diferentes.</p>
+      <h1 class="t-lg" style="font-size:31px;">O que separa<br>a chocolateira que<br>fatura bem da que<br>fatura pouco,</h1>
+      <p class="t-lg t-it" style="font-size:31px;margin-top:8px;">com o mesmo produto</p>
     </div>
-    <p class="body sans" style="margin-top:20px;">O que separa a que fatura bem da que fatura pouco?</p>
   `},
 
   // 2 — não é o produto
@@ -255,22 +255,16 @@ const SLIDES = [
     )}
   `},
 
-  // 6 — é a estrutura de venda
-  { bg:'dark', pos:'bottom', html: `
+  // 6 — é a estrutura de venda, e o fecho no quiz
+  { bg:'grad', pos:'bottom', html: `
     <span class="kicker sans">A diferença, 3 de 3</span>
     <h2 class="t-lg">É a estrutura<br>de venda.</h2>
     ${vs(
       'tem rotina de oferta',
       'espera o cliente aparecer'
     )}
-  `},
-
-  // 7 — CTA
-  { bg:'grad', pos:'center', html: `
-    <span class="kicker sans">Diagnóstico gratuito</span>
-    <h2 class="t-lg">Essas três coisas<br>são o que o quiz<br><span class="t-it">diagnostica</span> no seu<br>negócio.</h2>
-    <p class="body sans" style="margin-bottom:24px;">Leva 3 minutos e o resultado sai na hora.</p>
-    <span class="cta-btn">Clique em Saiba mais</span>
+    <div class="rule"></div>
+    <p class="body sans" style="margin-top:14px;font-size:15px;color:var(--cream);">Essas três coisas são o que o quiz ajuda a <b>diagnosticar no seu negócio</b>.</p>
   `},
 
 ];
