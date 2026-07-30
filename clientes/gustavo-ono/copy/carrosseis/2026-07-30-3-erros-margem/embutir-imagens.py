@@ -27,8 +27,8 @@ SAIDA = AQUI / "carrossel.html"
 IMAGENS = {
     "__IMG_GUSTAVO__": AQUI / "assets" / "faixa-gustavo.jpg",
     "__IMG_CORTE__":   AQUI / "assets" / "faixa-corte.jpg",
-    "__IMG_FILEIRA__": AQUI / "assets" / "faixa-fileira.jpg",
-    "__IMG_ANCORA__":  AQUI / "assets" / "faixa-ancora.jpg",
+    "__IMG_CACAU__":     AQUI / "assets" / "faixa-cacau.jpg",
+    "__IMG_DERRETIDO__": AQUI / "assets" / "faixa-derretido.jpg",
     "__IMG_AVATAR__":  AQUI / "assets" / "avatar.png",
 }
 

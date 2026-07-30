@@ -19,8 +19,8 @@
 |---|---|---|---|
 | 1 | cacau | Gustavo, retrato de estúdio | 3 erros que estão comendo a margem da sua chocolateria, sem você perceber |
 | 2 | creme | bombom cortado, recheio à mostra | Erro 01: você não conta seu tempo no custo |
-| 3 | cacau | bombons nos moldes, em fileira | Erro 02: você vende o que o cliente pede |
-| 4 | creme | um bombom só, em close | Erro 03: você não tem produto âncora |
+| 3 | cacau | textura de cacau em pó | Erro 02: você vende o que o cliente pede |
+| 4 | creme | textura de chocolate derretido | Erro 03: você não tem produto âncora |
 | 5 | cacau | sem faixa | Esses erros aparecem no extrato no fim do mês |
 | 6 | salmão | sem faixa | Clique em Saiba mais, responda o quiz e descubra qual está te custando mais |
 
@@ -61,13 +61,22 @@ faixa é um recorte diferente, escolhido pelo que o slide precisa dizer:
 |---|---|---|
 | `faixa-gustavo.jpg` | `IMG_7133.jpg` | rosto inteiro, sem corte: quem fala aparece antes do argumento |
 | `faixa-corte.jpg` | `morango.png` | o bombom cortado mostra o trabalho que existe dentro, serve ao erro do tempo no custo |
-| `faixa-fileira.jpg` | `IMG_4438.jpg` | bombons nos moldes, em fileira: é o cardápio, serve ao erro de vender o que pedem |
-| `faixa-ancora.jpg` | `morango.png` | **um** bombom dominando o quadro: é o produto âncora, serve ao erro 3 |
+| `faixa-cacau.jpg` | fundo do criativo `Estáticos/13.png`, região direita | textura de cacau em pó, genérica, sem objeto recortado |
+| `faixa-derretido.jpg` | fundo do criativo `Estáticos/13.png`, região central | chocolate derretido escorrendo, genérica |
 | `avatar.png` | `gustavo.png` | só o avatar da moldura de preview, não sai nos PNGs |
 
 Notas de tratamento do retrato de estúdio: o recorte para dentro do ciclorama,
 para não pegar a emenda do fundo, e um viés quente leve, para o cinza neutro do
 estúdio conversar com o creme da paleta.
+
+**Sobre as texturas dos slides 3 e 4:** não temos banco de stock, então elas
+saíram do material do próprio cliente. A foto de fundo dos criativos de bolha
+(`8`, `10`, `12`, `13.png` compartilham a mesma imagem) tem uma faixa livre de
+balões abaixo de `y=1090`. Dali saíram duas regiões diferentes: a direita, que é
+cacau em pó fosco, e a central, que é chocolate derretido escorrendo. Como a foto
+original já é de profundidade rasa, a ampliação não denuncia. Se quiserem
+fotografia de chocolate em alta de verdade, precisa vir do cliente ou de banco
+licenciado.
 
 ## Como regerar
 
