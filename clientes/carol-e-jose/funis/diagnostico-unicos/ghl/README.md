@@ -14,12 +14,16 @@ e identidade (logo + paleta reais do ÚNICOS) já estão embutidas.
 ## Passo a passo
 
 ### 1. Planilha (Apps Script)
-1. Abra a planilha de leads → Extensões → Apps Script.
-2. Cole `apps-script.gs`. Rode `testar` uma vez (autorize) para criar as abas
-   **Qualificados** e **Desqualificados** com os cabeçalhos certos. Apague depois as
-   linhas de teste.
-3. Implantar → Nova implantação → App da Web (Executar como: eu · Acesso: qualquer pessoa).
-4. Copie a URL `.../exec`.
+1. Abra a planilha de leads → Extensões → Apps Script. Cole `apps-script.gs` e salve.
+2. Rode a função **`setup`** (menu Executar) e autorize. Ela cria/alinha as abas
+   **Qualificados**, **Desqualificados** e **Painel** (com os cabeçalhos e as fórmulas de
+   *custo por lead aprovado por criativo*). Depois, apague as abas antigas (as com
+   "Q1 - Papel", "Bucket" etc.).
+3. Opcional: rode `testar` para gerar uma linha de exemplo em cada aba (apague depois).
+4. Implantar → Nova implantação → App da Web (Executar como: eu · Acesso: qualquer pessoa).
+5. Copie a URL `.../exec`.
+6. No **Painel**, preencha a coluna **Verba do criativo (R$)** por `utm_content`; o custo
+   por lead aprovado é calculado sozinho.
 
 ### 2. Página do diagnóstico (GHL)
 1. Crie a página do diagnóstico. Adicione um elemento **Custom Code / HTML** e cole

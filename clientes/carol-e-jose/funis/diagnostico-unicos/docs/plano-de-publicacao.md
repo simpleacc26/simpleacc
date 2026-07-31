@@ -35,10 +35,10 @@ O funil já emite estes eventos no `dataLayer`, cada um com `utm_content` (criat
 
 - **No GTM:** criar gatilhos para `diag_lead_aprovado` e `diag_agendamento_click` e mandar
   como conversão para a Meta e/ou GA4, carregando `utm_content`.
-- **Na planilha:** a aba *Qualificados* já grava `tier` + `utm_content`. Dá para montar uma
-  aba **Painel** com: leads aprovados por criativo, e (verba do criativo ÷ nº de aprovados)
-  = **custo por lead aprovado por criativo**. Posso montar essa aba quando tiver acesso de
-  edição, ou entregar as fórmulas prontas para colar.
+- **Na planilha:** a aba *Qualificados* grava `tier` + `utm_content`. A aba **Painel** (criada
+  automaticamente pelo `setup()` do Apps Script) já lista os criativos, conta os aprovados
+  (pleno/tier2) por criativo e calcula o **custo por lead aprovado por criativo** = verba ÷
+  aprovados. Basta preencher a coluna "Verba do criativo" por `utm_content`.
 
 ## 4. Convenção de UTM (para anúncio, GTM e planilha baterem)
 
