@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { questions, TOTAL_PERGUNTAS } from "../data/questions";
+import { questions, MAX_NUM } from "../data/questions";
 import { LandingScreen } from "../components/LandingScreen";
 import { QuestionScreen } from "../components/QuestionScreen";
 import { LeadCaptureForm } from "../components/LeadCaptureForm";
@@ -65,13 +65,12 @@ export function DiagnosticoPage() {
     setStep("question");
   };
 
-  const handleAnswer = (value: string, second?: string, other?: string) => {
+  const handleAnswer = (value: string, other?: string) => {
     const q = questions[idx];
     const a: Answers = { ...answers, [q.id]: value };
-    if (q.secondPart && second) a[q.secondPart.id] = second;
     if (q.allowOther && other) setOtherSetor(other);
     setAnswers(a);
-    track.pergunta(idx + 1, q.id);
+    track.pergunta(q.num, q.id);
 
     if (idx < questions.length - 1) {
       setIdx(idx + 1);
@@ -106,10 +105,9 @@ export function DiagnosticoPage() {
   return (
     <QuestionScreen
       question={q}
-      index={idx + 1}
-      total={TOTAL_PERGUNTAS}
+      index={q.num}
+      total={MAX_NUM}
       answer={answers[q.id]}
-      secondAnswer={q.secondPart ? answers[q.secondPart.id] : undefined}
       otherText={otherSetor}
       onAnswer={handleAnswer}
       onBack={handleBack}

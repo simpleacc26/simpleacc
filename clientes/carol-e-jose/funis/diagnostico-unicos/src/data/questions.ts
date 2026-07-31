@@ -1,8 +1,7 @@
 // Diagnóstico de Maturidade do Negócio — ÚNICOS
-// Estrutura adotada dos documentos reformulados por Carol e José (v4) + margem (decisão do cliente).
-// Regra de vocabulário (Guia da Nova Campanha): o TOPO e a leitura falam a língua da COMUNICAÇÃO
-// (dependência da presença, oportunidade que passa). A qualificação usa a língua da QUALIFICAÇÃO
-// (papel, camada de liderança, faturamento, margem). Nunca misturar as duas.
+// Perguntas, ordem e textos = exatamente o v4 do cliente (feedback do José).
+// Uma pergunta por tela (auto-avanço). A "Pergunta 4" tem duas telas (quem coordena e
+// quantas pessoas), ambas com num=4, contadas como 4 de 7.
 // Sem travessões "—" na copy (regra do cliente).
 
 export interface Option {
@@ -11,32 +10,28 @@ export interface Option {
   description?: string;
 }
 
-export interface SubQuestion {
-  id: string;
-  question: string;
-  options: Option[];
-}
-
 export interface Question {
   /** chave estável usada pela pontuação e pelo roteamento */
   id: string;
+  /** número exibido ao lead ("Pergunta {num} de 7"); a P4 tem duas telas com num=4 */
+  num: number;
   category: string;
   question: string;
   supportText?: string;
-  footer?: string;
-  options: Option[];
   /** habilita campo aberto "Qual?" quando a última opção for "Outro" */
   allowOther?: boolean;
-  /** segunda seleção na mesma tela (Pergunta 4: quem coordena + tamanho do time) */
-  secondPart?: SubQuestion;
+  options: Option[];
 }
 
-const defs: Question[] = [
+/** Máximo exibido no contador ("de 7"). */
+export const MAX_NUM = 7;
+
+export const questions: Question[] = [
   {
     id: "autonomia",
+    num: 1,
     category: "DIAGNÓSTICO",
     question: "Quantos dias seguidos a sua empresa roda sem ninguém precisar te ligar?",
-    footer: "Depois de um certo tamanho, o limite deixa de estar no mercado.",
     options: [
       { value: "1", title: "Nenhum, sempre me procuram" },
       { value: "2", title: "De um a três dias" },
@@ -46,6 +41,7 @@ const defs: Question[] = [
   },
   {
     id: "setor",
+    num: 2,
     category: "IDENTIFICAÇÃO",
     question: "Qual o setor da sua empresa?",
     allowOther: true,
@@ -59,6 +55,7 @@ const defs: Question[] = [
   },
   {
     id: "papel",
+    num: 3,
     category: "QUALIFICAÇÃO",
     question: "Qual é o seu papel na empresa?",
     options: [
@@ -70,6 +67,7 @@ const defs: Question[] = [
   },
   {
     id: "lideranca",
+    num: 4,
     category: "DIAGNÓSTICO",
     question: "Quem coordena as áreas da sua empresa hoje?",
     options: [
@@ -78,20 +76,23 @@ const defs: Question[] = [
       { value: "3", title: "Coordenadores ou gerentes que respondem por uma área inteira" },
       { value: "4", title: "Gestores que já lideram outros líderes" },
     ],
-    secondPart: {
-      id: "tamanho",
-      question: "Quantas pessoas trabalham na empresa hoje?",
-      options: [
-        { value: "1", title: "Até 20" },
-        { value: "2", title: "De 20 a 50" },
-        { value: "3", title: "De 50 a 100" },
-        { value: "4", title: "De 100 a 300" },
-        { value: "5", title: "Mais de 300" },
-      ],
-    },
+  },
+  {
+    id: "tamanho",
+    num: 4,
+    category: "DIAGNÓSTICO",
+    question: "Quantas pessoas trabalham na empresa hoje?",
+    options: [
+      { value: "1", title: "Até 20" },
+      { value: "2", title: "De 20 a 50" },
+      { value: "3", title: "De 50 a 100" },
+      { value: "4", title: "De 100 a 300" },
+      { value: "5", title: "Mais de 300" },
+    ],
   },
   {
     id: "decisao",
+    num: 5,
     category: "DIAGNÓSTICO",
     question: "Quando aparece uma decisão importante, o que costuma acontecer?",
     options: [
@@ -103,6 +104,7 @@ const defs: Question[] = [
   },
   {
     id: "tentativas",
+    num: 6,
     category: "DIAGNÓSTICO",
     question: "O que você já tentou para resolver isso e não funcionou como esperava?",
     options: [
@@ -115,6 +117,7 @@ const defs: Question[] = [
   },
   {
     id: "faturamento",
+    num: 7,
     category: "QUALIFICAÇÃO",
     question: "Qual o faturamento anual da sua empresa?",
     supportText: "Essa informação define o tipo de análise que vamos preparar para você.",
@@ -127,10 +130,3 @@ const defs: Question[] = [
     ],
   },
 ];
-
-// Ordem e perguntas = exatamente como o v4 do cliente (abre pela pergunta de dor,
-// sem margem, faturamento em faixa única para todos os setores).
-export const questions: Question[] = defs;
-
-/** Total de "perguntas" exibidas ao lead (Pergunta 4 conta como uma só, com duas partes). */
-export const TOTAL_PERGUNTAS = questions.length;

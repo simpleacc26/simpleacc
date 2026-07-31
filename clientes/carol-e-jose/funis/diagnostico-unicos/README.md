@@ -9,9 +9,10 @@ em `../../estrategia/`.
 
 Três telas de funil, uma stack:
 
-1. **Diagnóstico** (`/`) — 7 perguntas (exatamente como o v4 do cliente), uma por tela
-   (a Q4 tem duas partes na mesma tela), abrindo pela pergunta de dor (dias sem depender
-   de você) e fechando na captura de lead ("Estágio 2: No Limite", análise por WhatsApp).
+1. **Diagnóstico** (`/`) — 7 perguntas (exatamente como o v4 do cliente), **uma pergunta
+   por tela com auto-avanço**. A "Pergunta 4" tem duas telas (quem coordena + quantas
+   pessoas), ambas contadas como 4 de 7. Abre pela pergunta de dor (dias sem depender de
+   você) e fecha na captura de lead ("Estágio 2: No Limite", análise por WhatsApp).
 2. **Página pós-diagnóstico** (`/agendamento`) — página de agendamento da sessão estratégica,
    com a copy **100% do v8** do cliente (sem adições).
 3. **Comunidade** (`/comunidade`) — caminho dos desqualificados (papel não-dono ou porte

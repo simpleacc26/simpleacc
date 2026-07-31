@@ -176,6 +176,7 @@ export function PosDiagnosticoPage() {
       <section className="section soft">
         <div className="container">
           <span className="label">QUEM CONDUZ</span>
+          <img className="carolimg" src="/caroline.jpg" alt="Caroline Batista" />
           <h2>Caroline Batista</h2>
           <h3 style={{ fontWeight: 500 }}>Estrategista em liderança e crescimento de negócios</h3>
           <div className="selos">

@@ -61,6 +61,7 @@
 .selos { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
 .selo { background: #eef1f6; color: var(--navy-700); border-radius: 99px; padding: 6px 12px; font-size: 12px; font-weight: 600; }
 
+.carolimg { width: 100%; max-width: 300px; border-radius: 14px; box-shadow: var(--shadow-lg); display: block; margin: 6px 0 18px; }
 .authority { margin-top: 26px; padding: 20px; background: #f0ece1; border-radius: var(--radius); }
 .authority .brands { font-family: var(--serif); color: var(--navy); font-weight: 700; font-size: 15px; letter-spacing: .5px; }
 .authority .note { font-size: 12px; color: var(--muted); margin-top: 8px; }

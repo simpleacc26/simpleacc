@@ -21,16 +21,6 @@ function labelDe(id: string, value: string | undefined): string {
   if (q) {
     const opt = q.options.find((o) => o.value === value);
     if (opt) return opt.title;
-    if (q.secondPart && q.secondPart.id === id) {
-      const o2 = q.secondPart.options.find((o) => o.value === value);
-      if (o2) return o2.title;
-    }
-  }
-  // segunda parte (tamanho) tem id próprio
-  const parent = questions.find((x) => x.secondPart && x.secondPart.id === id);
-  if (parent && parent.secondPart) {
-    const o = parent.secondPart.options.find((op) => op.value === value);
-    if (o) return o.title;
   }
   return value;
 }

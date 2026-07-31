@@ -1,4 +1,4 @@
-import { questions, TOTAL_PERGUNTAS } from "../data/questions";
+import { questions, MAX_NUM } from "../data/questions";
 import { Brand } from "./Brand";
 import { OptionButton } from "./Option";
 
@@ -15,7 +15,7 @@ export function LandingScreen({ onSelect }: { onSelect: (value: string) => void 
         </h1>
         <p className="q-support">
           Descubra em que estágio o seu negócio está e o que falta para subir o degrau.
-          {" "}{TOTAL_PERGUNTAS} perguntas, dois minutos. No final você recebe a leitura do estágio do seu
+          {" "}{MAX_NUM} perguntas, dois minutos. No final você recebe a leitura do estágio do seu
           negócio e o que precisa mudar para a empresa andar sem depender da sua presença.
         </p>
 
@@ -27,7 +27,6 @@ export function LandingScreen({ onSelect }: { onSelect: (value: string) => void 
               <OptionButton key={o.value} option={o} selected={false} onSelect={onSelect} />
             ))}
           </div>
-          {q.footer && <p className="q-footer">{q.footer}</p>}
         </div>
       </div>
     </div>

@@ -77,28 +77,28 @@
   };
 
   // ====================== PERGUNTAS (exatamente como o v4 do cliente) ======================
+  // Uma pergunta por tela (auto-avanço). A "Pergunta 4" tem duas telas (quem coordena e
+  // quantas pessoas), ambas contadas como 4 de 7, exatamente o conteúdo do v4.
   var Q = [
-    {id:"autonomia",cat:"DIAGNÓSTICO",q:"Quantos dias seguidos a sua empresa roda sem ninguém precisar te ligar?",
-     foot:"Depois de um certo tamanho, o limite deixa de estar no mercado.",
+    {id:"autonomia",num:1,cat:"DIAGNÓSTICO",q:"Quantos dias seguidos a sua empresa roda sem ninguém precisar te ligar?",
      opts:[["1","Nenhum, sempre me procuram"],["2","De um a três dias"],["3","Cerca de uma semana"],["4","Duas semanas ou mais"]]},
-    {id:"setor",cat:"IDENTIFICAÇÃO",q:"Qual o setor da sua empresa?",other:true,
+    {id:"setor",num:2,cat:"IDENTIFICAÇÃO",q:"Qual o setor da sua empresa?",other:true,
      opts:[["industria","Indústria"],["servicos","Serviços"],["b2b","Operações B2B"],["comercio","Comércio ou varejo"],["outro","Outro"]]},
-    {id:"papel",cat:"QUALIFICAÇÃO",q:"Qual é o seu papel na empresa?",
+    {id:"papel",num:3,cat:"QUALIFICAÇÃO",q:"Qual é o seu papel na empresa?",
      opts:[["dono","Dono ou sócio, decido os rumos"],["socio","Sócio, participo das decisões"],["exec","Diretor ou executivo, respondo ao dono"],["nenhuma","Nenhuma dessas"]]},
-    {id:"lideranca",cat:"DIAGNÓSTICO",q:"Quem coordena as áreas da sua empresa hoje?",
-     opts:[["1","Ninguém, tudo passa por mim"],["2","Encarregados que tocam a rotina, mas me consultam para decidir"],["3","Coordenadores ou gerentes que respondem por uma área inteira"],["4","Gestores que já lideram outros líderes"]],
-     second:{id:"tamanho",q:"Quantas pessoas trabalham na empresa hoje?",
-       opts:[["1","Até 20"],["2","De 20 a 50"],["3","De 50 a 100"],["4","De 100 a 300"],["5","Mais de 300"]]}},
-    {id:"decisao",cat:"DIAGNÓSTICO",q:"Quando aparece uma decisão importante, o que costuma acontecer?",
+    {id:"lideranca",num:4,cat:"DIAGNÓSTICO",q:"Quem coordena as áreas da sua empresa hoje?",
+     opts:[["1","Ninguém, tudo passa por mim"],["2","Encarregados que tocam a rotina, mas me consultam para decidir"],["3","Coordenadores ou gerentes que respondem por uma área inteira"],["4","Gestores que já lideram outros líderes"]]},
+    {id:"tamanho",num:4,cat:"DIAGNÓSTICO",q:"Quantas pessoas trabalham na empresa hoje?",
+     opts:[["1","Até 20"],["2","De 20 a 50"],["3","De 50 a 100"],["4","De 100 a 300"],["5","Mais de 300"]]},
+    {id:"decisao",num:5,cat:"DIAGNÓSTICO",q:"Quando aparece uma decisão importante, o que costuma acontecer?",
      opts:[["1","Resolvo eu mesmo, é mais rápido do que explicar"],["2","Acompanho de perto até a entrega sair"],["3","O time decide até certo ponto e me reporta"],["4","O time decide e resolve sem me envolver"]]},
-    {id:"tentativas",cat:"DIAGNÓSTICO",q:"O que você já tentou para resolver isso e não funcionou como esperava?",
+    {id:"tentativas",num:6,cat:"DIAGNÓSTICO",q:"O que você já tentou para resolver isso e não funcionou como esperava?",
      opts:[["1","Mentoria, consultoria ou aceleradora de gestão"],["2","Contratei gente de mercado para assumir"],["3","Implantei ERP, ferramentas e indicadores"],["4","Tentei me afastar e acabei voltando para o centro"],["5","Todas as alternativas acima"]]},
-    {id:"faturamento",cat:"QUALIFICAÇÃO",q:"Qual o faturamento anual da sua empresa?",
+    {id:"faturamento",num:7,cat:"QUALIFICAÇÃO",q:"Qual o faturamento anual da sua empresa?",
      support:"Essa informação define o tipo de análise que vamos preparar para você.",
      opts:[["1","Até R$1 milhão"],["2","De R$1 a R$3 milhões"],["3","De R$3 a R$10 milhões"],["4","De R$10 a R$30 milhões"],["5","Acima de R$30 milhões"]]}
   ];
-  // Ordem e perguntas = exatamente como o v4 do cliente (abre pela pergunta de dor).
-  var TOTAL = Q.length;
+  var MAXNUM = 7;
 
   // ====================== LÓGICA (rota / aprovação / balde) ======================
   function rota(a){
@@ -165,49 +165,41 @@
   function renderQuestion(){
     var q=Q[state.idx], sel=state.answers[q.id]||null;
     var opts=q.opts;
-    var sub=q.second, subSel=sub?(state.answers[sub.id]||null):null;
     var needOther=q.other&&sel==="outro";
     var isFirst=state.idx===0;
+    var pct=Math.round((q.num/MAXNUM)*100);
     var intro=isFirst?
       '<span class="label">DIAGNÓSTICO DE MATURIDADE DO NEGÓCIO</span>'+
       '<h1 style="font-size:27px;margin-top:8px">Você enxerga as oportunidades e não consegue aproveitar quase nenhuma?</h1>'+
-      '<p class="support">Descubra em que estágio o seu negócio está e o que falta para subir o degrau. '+TOTAL+' perguntas, dois minutos. No final você recebe a leitura do estágio do seu negócio e o que precisa mudar para a empresa andar sem depender da sua presença.</p>':'';
+      '<p class="support">Descubra em que estágio o seu negócio está e o que falta para subir o degrau. '+MAXNUM+' perguntas, dois minutos. No final você recebe a leitura do estágio do seu negócio e o que precisa mudar para a empresa andar sem depender da sua presença.</p>':'';
     var progress=isFirst?'':
-      '<div class="progress"><span style="width:'+Math.round(((state.idx+1)/TOTAL)*100)+'%"></span></div>'+
-      '<div class="pmeta"><span>Pergunta '+(state.idx+1)+' de '+TOTAL+'</span><span>'+Math.round(((state.idx+1)/TOTAL)*100)+'%</span></div>';
+      '<div class="progress"><span style="width:'+pct+'%"></span></div>'+
+      '<div class="pmeta"><span>Pergunta '+q.num+' de '+MAXNUM+'</span><span>'+pct+'%</span></div>';
     var html= intro + progress +
       '<div style="margin-top:'+(isFirst?26:16)+'px"><span class="label">'+q.cat+'</span><h1'+(isFirst?' style="font-size:21px"':'')+'>'+esc(q.q)+'</h1>'+
       (q.support?'<p class="support">'+esc(q.support)+'</p>':'')+
       optionsHTML(opts,sel)+'</div>';
     if(needOther) html+='<div class="field" style="margin-top:12px"><label>Qual?</label><input id="u-other" placeholder="Digite o setor" value="'+esc(state.other||"")+'"></div>';
-    if(sub) html+='<div style="margin-top:26px"><h1 style="font-size:20px">'+esc(sub.q)+'</h1>'+optionsHTML(sub.opts,subSel)+'</div>';
-    if(q.foot) html+='<p class="foot">'+esc(q.foot)+'</p>';
     html+='<div class="navrow">'+(isFirst?'<span></span>':'<button type="button" class="btn btn-ghost" id="u-back">← Voltar</button>')+
-      ((sub||needOther)?'<button type="button" class="btn btn-primary" id="u-cont">Continuar</button>':'<span></span>')+'</div>';
+      (needOther?'<button type="button" class="btn btn-primary" id="u-cont">Continuar</button>':'<span></span>')+'</div>';
     root.innerHTML=html;
 
-    // seleção principal
-    root.querySelectorAll('.options')[0].querySelectorAll('.opt').forEach(function(b){
+    root.querySelector('.options').querySelectorAll('.opt').forEach(function(b){
       b.addEventListener("click",function(){
         var v=b.getAttribute("data-v"); state.answers[q.id]=v;
-        var isSub=!!sub, willNeedOther=q.other&&v==="outro";
-        if(!isSub&&!willNeedOther){ advance(); } else { renderQuestion(); }
+        if(q.other&&v==="outro"){ renderQuestion(); } else { advance(); }
       });
     });
-    // sub-seleção
-    if(sub){ root.querySelectorAll('.options')[1].querySelectorAll('.opt').forEach(function(b){
-      b.addEventListener("click",function(){ state.answers[sub.id]=b.getAttribute("data-v"); renderQuestion(); }); }); }
     var other=document.getElementById("u-other"); if(other) other.addEventListener("input",function(){state.other=other.value;});
     var backBtn=document.getElementById("u-back"); if(backBtn) backBtn.addEventListener("click",back);
     var cont=document.getElementById("u-cont");
     if(cont) cont.addEventListener("click",function(){
-      var ok=!!state.answers[q.id]&&(!sub||!!state.answers[sub.id])&&(!needOther||(state.other||"").trim().length>1);
-      if(ok) advance();
+      if(!!state.answers[q.id]&&(!needOther||(state.other||"").trim().length>1)) advance();
     });
   }
 
   function advance(){
-    var q=Q[state.idx]; dl("diag_pergunta",{pergunta:state.idx+1,pergunta_id:q.id});
+    var q=Q[state.idx]; dl("diag_pergunta",{pergunta:q.num,pergunta_id:q.id});
     if(state.idx<Q.length-1){ state.idx++; renderQuestion(); }
     else finalize();
   }
