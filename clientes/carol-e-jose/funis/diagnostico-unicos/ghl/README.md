@@ -59,6 +59,39 @@ Anúncio ─▶ diagnostico.html
   grava na aba *Qualificados*).
 - A preencher: `POS_URL` (página pós-diagnóstico do GHL, quando criada).
 
+## Deploy oficial na Vercel (páginas para rodar tráfego)
+
+Os `ghl/*.html` são fragmentos. O script **`build-site.sh`** embrulha cada um num
+HTML completo (charset/viewport/title), aponta o `POS_URL` do quiz para
+`/agendamento` (mesma origem) e ainda copia as páginas de validação. Gera assim:
+
+```
+site/
+├─ index.html        (quiz)          →  /
+├─ agendamento.html  (pós-diagnóstico)→  /agendamento
+├─ funil.html        (validação)     →  /funil
+├─ proposta.html     (validação)     →  /proposta
+├─ quiz.html         (validação)     →  /quiz
+└─ vercel.json       (cleanUrls)
+```
+
+Publicar:
+
+```bash
+./build-site.sh /caminho/saida
+cd /caminho/saida
+vercel deploy --prod --yes --scope simpleacc     # token via VERCEL_TOKEN
+```
+
+**No ar (time Simpleacc):**
+- Quiz oficial: <https://unicos-diagnostico.vercel.app/>
+- Pós-diagnóstico: <https://unicos-diagnostico.vercel.app/agendamento>
+- Validação: `/funil`, `/proposta`, `/quiz`
+
+O GTM (`GTM-T9XG58XR`) já está embutido, e o `LEADS_ENDPOINT` aponta para o Web
+App do Apps Script (leads caem na aba *Qualificados*). Para o GHL, o destino de
+produção continua sendo os fragmentos colados nas páginas do GHL.
+
 ## Tracking
 Os eventos vão para o `dataLayer` (use o GTM da própria página do GHL): `diag_inicio`,
 `diag_pergunta`, `diag_resultado`, `diag_lead`, `diag_lead_aprovado`, `diag_fora_papel`,
