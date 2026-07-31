@@ -50,9 +50,19 @@ export function montarHtml(lead) {
   @page { size: A4; margin: 0; }
   * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   html, body { background: #1c1c42; margin: 0; padding: 0; }
-  /* o app usa largura de tela; no A4 reduzimos pra caber sem cortar */
-  #root { width: 1000px; transform: scale(0.7); transform-origin: top left; }
-  .rounded-3xl, .rounded-xl { break-inside: avoid; }
+
+  /* Sem transform: ele quebra a paginação (o Chromium fatia o elemento
+     transformado). Deixamos o layout refluir na largura da folha A4. */
+  #root { width: 794px; }
+  #root .max-w-4xl { max-width: 794px; }
+  #root .p-12 { padding: 28px; }
+  #root .p-10 { padding: 26px; }
+  #root .p-6 { padding: 18px; }
+
+  /* Nenhum bloco visual é cortado ao meio pela quebra de página. */
+  .rounded-3xl, .rounded-xl, .rounded-2xl { break-inside: avoid; page-break-inside: avoid; }
+  h1, h2, h3 { break-after: avoid; page-break-after: avoid; }
+  p, li { break-inside: avoid; orphans: 3; widows: 3; }
 </style>
 </head><body><div id="root">${preenchido}</div></body></html>`;
 }
@@ -64,7 +74,7 @@ export async function gerarPdf(lead, destino) {
   await pagina.emulateMedia({ media: 'print' });
   await pagina.pdf({
     path: destino,
-    width: '210mm',
+    format: 'A4',
     printBackground: true,
     margin: { top: '0', right: '0', bottom: '0', left: '0' },
   });

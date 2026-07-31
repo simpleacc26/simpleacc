@@ -51,6 +51,18 @@ export async function gerarPdf({ nome, pilar }, destino) {
       @page { size: A4; margin: 0; }
       * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       #previewBar { display: none !important; }
+
+      /* Quebra de página: nenhum card é fatiado ao meio. Todos cabem numa
+         página A4, então quando um não cabe no que sobrou, ele desce inteiro. */
+      .card, .rep-head, .rep-foot, .scen, .case, .scarcity, .diag-pill, .cta-wrap {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+      h1, h2, h3 { break-after: avoid; page-break-after: avoid; }
+      p { orphans: 3; widows: 3; }
+
+      /* Respiro no topo e no rodapé de cada página */
+      .doc { padding-top: 28px; padding-bottom: 28px; }
     `,
   });
   await pagina.emulateMedia({ media: 'print' });
