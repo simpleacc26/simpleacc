@@ -47,10 +47,24 @@ e identidade (logo + paleta reais do ÚNICOS) já estão embutidas.
 ## Fluxo
 ```
 Anúncio ─▶ diagnostico.html
-             ├─ dono/sócio + faturamento ≥ R$1M ─▶ salva lead (aba Qualificados)
-             │                                    └▶ POS_URL?balde=…  (agendamento)
-             └─ não-dono OU < R$1M ─▶ conta (aba Desqualificados) ─▶ grupo do WhatsApp
+             ├─ dono/sócio + faturamento ≥ R$1M  (QUALIFICADO)
+             │     └▶ Webhook do Make ─▶ GHL Criar Contato ─▶ GHL Criar Oportunidade
+             │                        ─▶ Google Sheets (aba Qualificados) ─▶ Painel
+             │     └▶ POS_URL?balde=…  (agendamento)
+             └─ não-dono OU < R$1M  (DESQUALIFICADO)
+                   └▶ Apps Script (aba Desqualificados + contagem) ─▶ grupo do WhatsApp
 ```
+
+### Integração V3 (Make)
+- **Cenário:** `Carol e José - V3 (Diagnóstico)` (Make, time Simple Acc).
+- **Webhook:** `https://hook.us2.make.com/58lppb76g43dm59fk9w2sne4tupeqjgn`
+  → é o `MAKE_ENDPOINT` do `diagnostico.html` (recebe só os qualificados).
+- **GHL:** conexão `Time - Únicos`; contato com tags `lead quiz` + `diagnostico-v3`
+  e custom fields `tier`/`balde`; oportunidade no mesmo pipeline/etapa do V2.
+- **Sheets:** grava na aba **Qualificados** da planilha de leads (mesmas 22 colunas
+  que o Painel lê). O Painel recalcula sozinho (gatilho de 5 min), então funciona
+  mesmo o Make gravando direto na planilha.
+- **Desqualificados** continuam indo para o Apps Script (`LEADS_ENDPOINT`).
 
 ## Valores já configurados
 - Calendário GHL: `https://api.leadconnectorhq.com/widget/booking/leFMFKegfdvDRIE1b42I`
