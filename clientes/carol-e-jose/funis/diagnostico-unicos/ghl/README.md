@@ -15,10 +15,14 @@ e identidade (logo + paleta reais do ÚNICOS) já estão embutidas.
 
 ### 1. Planilha (Apps Script)
 1. Abra a planilha de leads → Extensões → Apps Script. Cole `apps-script.gs` e salve.
-2. Rode a função **`setup`** (menu Executar) e autorize. Ela cria/alinha as abas
-   **Qualificados**, **Desqualificados** e **Painel** (com os cabeçalhos e as fórmulas de
-   *custo por lead aprovado por criativo*). Depois, apague as abas antigas (as com
-   "Q1 - Papel", "Bucket" etc.).
+2. Rode a função **`setup`** (menu Executar) e autorize (aceite também a permissão de
+   **gatilhos**). Ela cria/alinha as abas **Qualificados**, **Desqualificados** e
+   **Painel** e instala os gatilhos que mantêm o Painel atualizado. Depois, apague as
+   abas antigas (as com "Q1 - Papel", "Bucket" etc.).
+   > O Painel é calculado no código e gravado como **valores** (não usa fórmula, porque
+   > a planilha está em pt-BR e fórmulas com vírgula davam `#ERRO!`). Ele se atualiza
+   > sozinho: a cada lead novo, num gatilho de 5 min e quando você edita a coluna
+   > *Verba*. Se editar o código, rode `setup` de novo.
 3. Opcional: rode `testar` para gerar uma linha de exemplo em cada aba (apague depois).
 4. Implantar → Nova implantação → App da Web (Executar como: eu · Acesso: qualquer pessoa).
 5. Copie a URL `.../exec`.
@@ -51,7 +55,9 @@ Anúncio ─▶ diagnostico.html
 ## Valores já configurados
 - Calendário GHL: `https://api.leadconnectorhq.com/widget/booking/leFMFKegfdvDRIE1b42I`
 - Comunidade (WhatsApp): `https://chat.whatsapp.com/B6rtIEWe7jcHseToLdfSBE`
-- A preencher: `LEADS_ENDPOINT` (Apps Script) e `POS_URL` (página do GHL).
+- `LEADS_ENDPOINT` (Apps Script) **já configurado e testado** (retorna `{"ok":true}` e
+  grava na aba *Qualificados*).
+- A preencher: `POS_URL` (página pós-diagnóstico do GHL, quando criada).
 
 ## Tracking
 Os eventos vão para o `dataLayer` (use o GTM da própria página do GHL): `diag_inicio`,
