@@ -9,9 +9,9 @@ em `../../estrategia/`.
 
 Três telas de funil, uma stack:
 
-1. **Diagnóstico** (`/`) — 8 perguntas, uma por tela (a Q4 tem duas partes na mesma tela),
-   abrindo pela dor (dias sem depender de você) e fechando na captura de lead
-   ("Estágio 2: No Limite", análise enviada por WhatsApp).
+1. **Diagnóstico** (`/`) — 7 perguntas (exatamente como o v4 do cliente), uma por tela
+   (a Q4 tem duas partes na mesma tela), abrindo pela pergunta de dor (dias sem depender
+   de você) e fechando na captura de lead ("Estágio 2: No Limite", análise por WhatsApp).
 2. **Página pós-diagnóstico** (`/agendamento`) — página de agendamento da sessão estratégica
    (v8), com a **situação/balde** do lead destacada e a reversão de risco.
 3. **Comunidade** (`/comunidade`) — caminho dos desqualificados (papel não-dono ou porte
@@ -28,16 +28,18 @@ Stack: React + Vite + TypeScript. Tracking centralizado no GTM.
 1. **Filtro de papel** é o corte real: `Diretor/executivo` e `Nenhuma dessas` saem do
    agendamento e vão para `/comunidade`.
 2. **Piso de faturamento** R$1M/ano: `Até R$1 milhão` vai para `/comunidade` (Jornada 1).
-3. **Aprovado** = dono/sócio **E** porte ≥ ICP do setor (indústria R$3–10M+, demais R$1–3M+);
-   acima do piso mas abaixo do ICP = **tier 2**, contabilizado à parte.
+3. **Aprovado** (interno, para o tracking) = dono/sócio **E** porte ≥ ICP do setor
+   (indústria R$5M, demais R$2M), lido sobre as faixas do v4; abaixo do ICP = **tier 2**.
+   Não muda as faixas nem o que o lead vê.
 4. **Resultado único** "Estágio 2: No Limite", com **balde** (uma das 4 situações) computado
    por dentro para segmentar leitura, relatório e comercial.
-5. **Margem** permanece como pergunta (Q8), fora dos ganchos de comunicação.
-6. **Reversão de risco** na sessão (bloco 3 da página).
+5. **Perguntas, ordem e faixas = exatamente o v4 do cliente** (feedback do José, 2026-08):
+   abre pela dor, sem margem, faturamento em faixa única para todos os setores.
+6. **Reversão de risco** na sessão (bloco 3 da página) — adição da Simple, a validar.
 
-> ⚠️ Limitação conhecida: as faixas de faturamento da v4 não cortam exatamente em R$5M/R$2M.
-> A classificação pleno/tier2 aproxima pela faixa que contém o corte. Para tier 2 nítido em
-> serviços, desmembrar as faixas (R$1–2M / R$2–5M). Detalhe em `src/lib/scoring.ts`.
+> Nota: as faixas de faturamento são as do v4 (R$1 a R$3M, etc.), mantidas por decisão do
+> cliente (empresas de R$1 a R$3M têm a mesma estrutura). A leitura de ICP por setor é
+> aproximada pela faixa que contém o corte e serve só à métrica interna.
 
 ## Rodar local
 

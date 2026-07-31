@@ -10,6 +10,21 @@ Régua antiga do funil entregava 0 MQL real (4 meses: 359 leads, 0 vendas de mí
 9 de 9 compradores por indicação). Achado central do Guia: **duas camadas de vocabulário
 que nunca se misturam** (comunicação × qualificação). O novo funil aplica isso.
 
+> ## ⚠️ Atualização — feedback do José (2026-08): reverter para o v4 exato
+> O José revisou e **rejeitou três mudanças** que tínhamos proposto. Decisão final:
+> **manter o diagnóstico exatamente como o v4 enviado.** Prevalece sobre o que está abaixo.
+> 1. **Abrir pela pergunta de dor**, não por qualificação. Duas perguntas de qualificação
+>    no começo quebram a expectativa criada pelo anúncio. → desfeita a reordenação "ASK";
+>    ordem = v4 (Q1 = dias sem depender de você).
+> 2. **Faturamento em faixa única** (v4), igual para todos os setores. "De R$1 a R$3 milhões
+>    é a mesma estrutura de empresa, os mesmos problemas." → desfeita a faixa por setor.
+> 3. **Remover a margem.** "Pode ser inflada e simulada, não diz nada e leva para gestão
+>    operacional, que não é o meu caso." → margem fora do diagnóstico.
+>
+> O que a Simple mantém por dentro (não muda o que o lead vê): roteamento, leitura de ICP
+> por setor só para a métrica interna, balde, tracking por criativo, e a reversão de risco
+> na página (esta ainda a validar com o cliente).
+
 ## Decisões
 
 1. **Filtro de papel é o corte real.** `Diretor/executivo, respondo ao dono` e

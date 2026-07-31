@@ -126,25 +126,11 @@ const defs: Question[] = [
       { value: "5", title: "Acima de R$30 milhões" },
     ],
   },
-  {
-    id: "margem",
-    category: "QUALIFICAÇÃO",
-    question: "Da sua receita anual, quanto sobra de lucro para você (margem líquida aproximada)?",
-    supportText: "Fica entre nós. Ajuda a calibrar a análise ao momento real do seu negócio.",
-    options: [
-      { value: "1", title: "Menos de 10%" },
-      { value: "2", title: "Entre 10% e 20%" },
-      { value: "3", title: "Entre 20% e 30%" },
-      { value: "4", title: "Acima de 30%" },
-      { value: "5", title: "Não sei dizer com precisão" },
-    ],
-  },
 ];
 
-// Ordem ASK: baixa fricção primeiro, storytelling clínico (o lead relata, nós
-// diagnosticamos), faturamento e margem sempre no fim.
-const ORDEM_ASK = ["setor", "papel", "autonomia", "decisao", "lideranca", "tentativas", "faturamento", "margem"];
-export const questions: Question[] = ORDEM_ASK.map((id) => defs.find((q) => q.id === id)!);
+// Ordem e perguntas = exatamente como o v4 do cliente (abre pela pergunta de dor,
+// sem margem, faturamento em faixa única para todos os setores).
+export const questions: Question[] = defs;
 
 /** Total de "perguntas" exibidas ao lead (Pergunta 4 conta como uma só, com duas partes). */
 export const TOTAL_PERGUNTAS = questions.length;

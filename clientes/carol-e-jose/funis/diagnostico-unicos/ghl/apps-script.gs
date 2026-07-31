@@ -24,7 +24,7 @@ var HEADERS_QUALIF = [
   'Estágio', 'Balde', 'Tier',
   'Autonomia (dias sem depender de você)', 'Setor', 'Papel',
   'Camada de liderança', 'Tamanho do time', 'Como decide', 'Já tentou',
-  'Faturamento', 'Margem',
+  'Faturamento',
   'UTM Source', 'UTM Medium', 'UTM Campaign', 'UTM Content', 'UTM Term'
 ];
 
@@ -74,7 +74,7 @@ function gravarQualificado(p) {
     p.estagio || '', p.balde || '', p.tier || '',
     p.autonomia || '', p.setor || '', p.papel || '',
     p.camada_lideranca || '', p.tamanho_time || '', p.como_decide || '', p.ja_tentou || '',
-    p.faturamento || '', p.margem || '',
+    p.faturamento || '',
     p.utm_source || '', p.utm_medium || '', p.utm_campaign || '', p.utm_content || '', p.utm_term || ''
   ]);
 }
@@ -92,6 +92,6 @@ function testar() {
   gravarQualificado({ aba: 'qualificado', nome: 'Teste Dono', whatsapp: '51999999999', email: 'teste@empresa.com.br',
     empresa: 'Empresa Teste', estagio: 'Estágio 2: No Limite', balde: 'lideranca', tier: 'pleno',
     autonomia: 'Nenhum, sempre me procuram', setor: 'Indústria', papel: 'Dono ou sócio, decido os rumos',
-    faturamento: 'De R$3 a R$10 milhões', margem: 'Entre 10% e 20%', utm_source: 'teste' });
+    faturamento: 'De R$3 a R$10 milhões', utm_source: 'teste' });
   gravarDesqualificado({ aba: 'desqualificado', motivo: 'papel', balde: 'decisao', utm_source: 'teste' });
 }

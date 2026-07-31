@@ -58,7 +58,6 @@ export async function enviarLead(
   payload.append("como_decide", labelDe("decisao", answers["decisao"]));
   payload.append("ja_tentou", labelDe("tentativas", answers["tentativas"]));
   payload.append("faturamento", labelDe("faturamento", answers["faturamento"]));
-  payload.append("margem", labelDe("margem", answers["margem"]));
 
   // régua / resultado
   payload.append("estagio", resultado.estagio);
