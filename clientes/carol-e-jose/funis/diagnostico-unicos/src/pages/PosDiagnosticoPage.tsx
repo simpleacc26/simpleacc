@@ -86,7 +86,8 @@ export function PosDiagnosticoPage() {
             da sua validação para funcionar.
           </p>
           <p>
-            Nem a melhor estratégia consegue escalar uma operação sobrecarregada. Enquanto essa condição não mudar,
+            Nem a melhor estratégia consegue escalar uma operação sobrecarregada. Seu negócio ficou grande demais
+            para continuar funcionando sobre a capacidade de uma pessoa só. Enquanto essa condição não mudar,
             cada real a mais de faturamento chega como mais peso, e não como mais liberdade.
           </p>
           <p style={{ color: "#fff", fontWeight: 600 }}>
@@ -138,7 +139,7 @@ export function PosDiagnosticoPage() {
           </p>
           <ul className="list-check">
             <li><span className="mk">1.</span> O que exatamente faz a empresa parar quando você não está.</li>
-            <li><span className="mk">2.</span> Como construir um time engajado e autogerenciável, que assuma a entrega em vez de esperar por você.</li>
+            <li><span className="mk">2.</span> Como construir um time engajado, colaborativo e autogerenciável, que assuma a entrega em vez de esperar por você.</li>
             <li><span className="mk">3.</span> Quem, do time que você já tem, tem condição de assumir mais, e o que falta para isso acontecer.</li>
             <li><span className="mk">4.</span> Quanto essa condição está custando por mês no seu negócio, com os seus números na mesa.</li>
           </ul>
