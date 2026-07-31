@@ -7,8 +7,8 @@
 const env = import.meta.env;
 
 export const config = {
-  // Google Tag Manager (já em uso no funil atual: GTM-MP9NJX24).
-  gtmId: (env.VITE_GTM_ID as string) || "GTM-MP9NJX24",
+  // Google Tag Manager (já em uso no funil atual: GTM-T9XG58XR).
+  gtmId: (env.VITE_GTM_ID as string) || "GTM-T9XG58XR",
 
   // Endpoint que recebe o lead (Make/Apps Script) e joga na planilha do Drive.
   // Ex.: https://hook.us2.make.com/xxxxx  ou  URL do Web App do Apps Script.

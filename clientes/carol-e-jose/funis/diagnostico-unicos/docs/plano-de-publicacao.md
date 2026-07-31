@@ -10,7 +10,7 @@ Status: peças prontas e testadas (quiz = v4, página = v8, relatório = copy do
 | **Apps Script publicado** na planilha de leads → URL `/exec` | gravar o lead (`LEADS_ENDPOINT`) | vocês rodam o `ghl/apps-script.gs` |
 | **Página pós-diagnóstico criada no GHL** → URL pública | destino do aprovado (`POS_URL`) | vocês criam a página |
 | **Acesso ao GHL** (quem cola os blocos de código) | publicar as duas páginas | definir |
-| **GTM** (container já é `GTM-MP9NJX24`) | ligar as conversões | confirmar acesso |
+| **GTM** (container já é `GTM-T9XG58XR`) | ligar as conversões | confirmar acesso |
 | **Disparo do relatório no WhatsApp** | como a análise chega ao lead (workflow do GHL? Make?) | definir |
 
 ## 2. Passo a passo de go-live (depois da aprovação)

@@ -62,7 +62,7 @@ Definir no painel da Netlify (Site settings → Environment):
 | `VITE_WHATSAPP` | WhatsApp destino, só dígitos com DDI (ex.: 5551999999999) |
 | `VITE_AGENDAMENTO_URL` | link do Calendário nativo do GHL (aprovados) |
 | `VITE_COMUNIDADE_URL` | link da comunidade / Jornada 1 (desqualificados) |
-| `VITE_GTM_ID` | opcional, default `GTM-MP9NJX24` |
+| `VITE_GTM_ID` | opcional, default `GTM-T9XG58XR` |
 
 ## Deploy (Netlify)
 
