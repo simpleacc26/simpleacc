@@ -29,6 +29,48 @@ export const CODIGO_DO_PILAR = {
   'Mentalidade': 'T',
 };
 
+// Roda dentro do navegador. Tira o que não vai pro PDF e distribui os cards em
+// folhas, agrupando o máximo que cabe em cada uma. O CSS centraliza o grupo na
+// vertical, então o espaço que sobra fica dividido entre topo e rodapé em vez de
+// se acumular embaixo.
+function paginar({ alturaFolha, respiro, espaco }) {
+  const doc = document.querySelector('.doc');
+
+  // No PDF o lead já está com o relatório em mãos: o botão de agendar não
+  // funciona num arquivo, e a assinatura do rodapé é redundante.
+  doc.querySelector('.rep-foot')?.remove();
+  doc.querySelector('.cta')?.remove();
+
+  const blocos = Array.from(doc.children);
+  const util = alturaFolha - 2 * respiro;
+
+  const folhas = [];
+  let atual = [];
+  let altura = 0;
+
+  for (const bloco of blocos) {
+    const h = bloco.getBoundingClientRect().height;
+    const gap = atual.length ? espaco : 0;
+    if (atual.length && altura + gap + h > util) {
+      folhas.push(atual);
+      atual = [];
+      altura = 0;
+    }
+    atual.push(bloco);
+    altura += (atual.length > 1 ? espaco : 0) + h;
+  }
+  if (atual.length) folhas.push(atual);
+
+  doc.innerHTML = '';
+  for (const grupo of folhas) {
+    const folha = document.createElement('div');
+    folha.className = 'folha-pdf';
+    for (const bloco of grupo) folha.appendChild(bloco);
+    doc.appendChild(folha);
+  }
+  return folhas.length;
+}
+
 export async function gerarPdf({ nome, pilar }, destino) {
   const codigo = CODIGO_DO_PILAR[pilar] || pilar;
   if (!['M', 'N', 'V', 'T'].includes(codigo)) {
@@ -52,21 +94,34 @@ export async function gerarPdf({ nome, pilar }, destino) {
       * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
       #previewBar { display: none !important; }
 
-      /* Quebra de página: nenhum card é fatiado ao meio. Todos cabem numa
-         página A4, então quando um não cabe no que sobrou, ele desce inteiro. */
-      .card, .rep-head, .rep-foot, .scen, .case, .scarcity, .diag-pill, .cta-wrap {
+      .card, .rep-head, .scen, .case, .scarcity, .diag-pill, .cta-wrap {
         break-inside: avoid;
         page-break-inside: avoid;
       }
       h1, h2, h3 { break-after: avoid; page-break-after: avoid; }
       p { orphans: 3; widows: 3; }
 
-      /* Respiro no topo e no rodapé de cada página */
-      .doc { padding-top: 28px; padding-bottom: 28px; }
+      /* Cada folha é uma caixa de altura fixa com os cards centralizados
+         na vertical, então não sobra um vazio grande só no rodapé. */
+      .doc { padding-top: 0 !important; padding-bottom: 0 !important; }
+      .folha-pdf {
+        height: 296mm;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 24px;
+        break-after: page;
+        page-break-after: always;
+      }
+      .folha-pdf > * { margin-bottom: 0 !important; margin-top: 0 !important; }
+      .folha-pdf:last-child { break-after: auto; page-break-after: auto; }
     `,
   });
   await pagina.emulateMedia({ media: 'print' });
   await pagina.waitForTimeout(400);
+
+  await pagina.evaluate(paginar, { alturaFolha: 296 * 96 / 25.4, respiro: 30, espaco: 24 });
+  await pagina.waitForTimeout(200);
   await pagina.pdf({
     path: destino,
     format: 'A4',
