@@ -100,6 +100,10 @@
      support:"Fica entre nós. Ajuda a calibrar a análise ao momento real do seu negócio.",
      opts:[["1","Menos de 10%"],["2","Entre 10% e 20%"],["3","Entre 20% e 30%"],["4","Acima de 30%"],["5","Não sei dizer com precisão"]]}
   ];
+  // Ordem ASK: baixa fricção primeiro, storytelling clínico (o lead relata, nós
+  // diagnosticamos), faturamento e margem sempre no fim.
+  var ORDEM_ASK=["setor","papel","autonomia","decisao","lideranca","tentativas","faturamento","margem"];
+  Q=ORDEM_ASK.map(function(id){return Q.filter(function(q){return q.id===id;})[0];});
   var TOTAL = Q.length;
 
   // Faixas de faturamento por setor: cada uma corta EXATAMENTE no ICP do setor.
@@ -171,32 +175,27 @@
     }).join("")+'</div>';
   }
 
-  function renderLanding(){
-    var q=Q[0];
-    root.innerHTML=
-      '<span class="label">DIAGNÓSTICO DE MATURIDADE DO NEGÓCIO</span>'+
-      '<h1 style="font-size:27px;margin-top:8px">Você enxerga as oportunidades e não consegue aproveitar quase nenhuma?</h1>'+
-      '<p class="support">Descubra em que estágio o seu negócio está e o que falta para subir o degrau. '+TOTAL+' perguntas, dois minutos. No final você recebe a leitura do estágio do seu negócio e o que precisa mudar para a empresa andar sem depender da sua presença.</p>'+
-      '<div style="margin-top:26px"><span class="label">'+q.cat+'</span><h1 style="font-size:21px">'+esc(q.q)+'</h1>'+
-      optionsHTML(q.opts,null)+'<p class="foot">'+esc(q.foot)+'</p></div>';
-    bindOptions(function(v){ state.answers[q.id]=v; dl("diag_pergunta",{pergunta:1,pergunta_id:q.id}); state.idx=1; renderQuestion(); });
-  }
-
   function renderQuestion(){
     var q=Q[state.idx], sel=state.answers[q.id]||null;
     var opts=q.dynamic?fatOpts(state.answers):q.opts;
     var sub=q.second, subSel=sub?(state.answers[sub.id]||null):null;
     var needOther=q.other&&sel==="outro";
-    var html=
+    var isFirst=state.idx===0;
+    var intro=isFirst?
+      '<span class="label">DIAGNÓSTICO DE MATURIDADE DO NEGÓCIO</span>'+
+      '<h1 style="font-size:27px;margin-top:8px">Você enxerga as oportunidades e não consegue aproveitar quase nenhuma?</h1>'+
+      '<p class="support">Descubra em que estágio o seu negócio está e o que falta para subir o degrau. '+TOTAL+' perguntas, dois minutos. No final você recebe a leitura do estágio do seu negócio e o que precisa mudar para a empresa andar sem depender da sua presença.</p>':'';
+    var progress=isFirst?'':
       '<div class="progress"><span style="width:'+Math.round(((state.idx+1)/TOTAL)*100)+'%"></span></div>'+
-      '<div class="pmeta"><span>Pergunta '+(state.idx+1)+' de '+TOTAL+'</span><span>'+Math.round(((state.idx+1)/TOTAL)*100)+'%</span></div>'+
-      '<div style="margin-top:16px"><span class="label">'+q.cat+'</span><h1>'+esc(q.q)+'</h1>'+
+      '<div class="pmeta"><span>Pergunta '+(state.idx+1)+' de '+TOTAL+'</span><span>'+Math.round(((state.idx+1)/TOTAL)*100)+'%</span></div>';
+    var html= intro + progress +
+      '<div style="margin-top:'+(isFirst?26:16)+'px"><span class="label">'+q.cat+'</span><h1'+(isFirst?' style="font-size:21px"':'')+'>'+esc(q.q)+'</h1>'+
       (q.support?'<p class="support">'+esc(q.support)+'</p>':'')+
       optionsHTML(opts,sel)+'</div>';
     if(needOther) html+='<div class="field" style="margin-top:12px"><label>Qual?</label><input id="u-other" placeholder="Digite o setor" value="'+esc(state.other||"")+'"></div>';
     if(sub) html+='<div style="margin-top:26px"><h1 style="font-size:20px">'+esc(sub.q)+'</h1>'+optionsHTML(sub.opts,subSel)+'</div>';
     if(q.foot) html+='<p class="foot">'+esc(q.foot)+'</p>';
-    html+='<div class="navrow"><button type="button" class="btn btn-ghost" id="u-back">← Voltar</button>'+
+    html+='<div class="navrow">'+(isFirst?'<span></span>':'<button type="button" class="btn btn-ghost" id="u-back">← Voltar</button>')+
       ((sub||needOther)?'<button type="button" class="btn btn-primary" id="u-cont">Continuar</button>':'<span></span>')+'</div>';
     root.innerHTML=html;
 
@@ -212,7 +211,7 @@
     if(sub){ root.querySelectorAll('.options')[1].querySelectorAll('.opt').forEach(function(b){
       b.addEventListener("click",function(){ state.answers[sub.id]=b.getAttribute("data-v"); renderQuestion(); }); }); }
     var other=document.getElementById("u-other"); if(other) other.addEventListener("input",function(){state.other=other.value;});
-    document.getElementById("u-back").addEventListener("click",back);
+    var backBtn=document.getElementById("u-back"); if(backBtn) backBtn.addEventListener("click",back);
     var cont=document.getElementById("u-cont");
     if(cont) cont.addEventListener("click",function(){
       var ok=!!state.answers[q.id]&&(!sub||!!state.answers[sub.id])&&(!needOther||(state.other||"").trim().length>1);
@@ -220,14 +219,12 @@
     });
   }
 
-  function bindOptions(cb){ root.querySelector(".options").querySelectorAll(".opt").forEach(function(b){ b.addEventListener("click",function(){cb(b.getAttribute("data-v"));}); }); }
-
   function advance(){
     var q=Q[state.idx]; dl("diag_pergunta",{pergunta:state.idx+1,pergunta_id:q.id});
     if(state.idx<Q.length-1){ state.idx++; renderQuestion(); }
     else finalize();
   }
-  function back(){ if(state.idx>1){state.idx--;renderQuestion();} else {state.idx=0;renderLanding();} }
+  function back(){ if(state.idx>0){state.idx--;renderQuestion();} }
 
   function finalize(){
     var a=state.answers, r=rota(a), ap=aprovacao(a), b=balde(a);
@@ -323,6 +320,6 @@
   function merge(o,u){ for(var k in u)o[k]=u[k]; return o; }
   function redirect(url){ if(url&&url.indexOf("PREENCHER")!==0){ window.top.location.href=url; } }
 
-  renderLanding();
+  renderQuestion();
 })();
 </script>

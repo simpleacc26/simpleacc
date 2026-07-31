@@ -31,7 +31,7 @@ export interface Question {
   secondPart?: SubQuestion;
 }
 
-export const questions: Question[] = [
+const defs: Question[] = [
   {
     id: "autonomia",
     category: "DIAGNÓSTICO",
@@ -140,6 +140,11 @@ export const questions: Question[] = [
     ],
   },
 ];
+
+// Ordem ASK: baixa fricção primeiro, storytelling clínico (o lead relata, nós
+// diagnosticamos), faturamento e margem sempre no fim.
+const ORDEM_ASK = ["setor", "papel", "autonomia", "decisao", "lideranca", "tentativas", "faturamento", "margem"];
+export const questions: Question[] = ORDEM_ASK.map((id) => defs.find((q) => q.id === id)!);
 
 /** Total de "perguntas" exibidas ao lead (Pergunta 4 conta como uma só, com duas partes). */
 export const TOTAL_PERGUNTAS = questions.length;
