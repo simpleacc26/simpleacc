@@ -82,8 +82,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   "use strict";
   // ====================== CONFIG (preencher) ======================
   var CONFIG = {
-    // URL do Web App do Apps Script (aba de leads). Ver ghl/apps-script.gs
+    // URL do Web App do Apps Script — recebe os DESQUALIFICADOS (aba Desqualificados
+    // + contagem) e alimenta o Painel. Ver ghl/apps-script.gs
     LEADS_ENDPOINT: "https://script.google.com/macros/s/AKfycbzGjMlxsMfmb6mImX6tqgnSATOADRJDjekqKtHIUZOqsKU6ETrPs1CooYPCZGm-MR6G/exec",
+    // Webhook do Make — recebe os QUALIFICADOS e roda o fluxo comercial:
+    // GHL Criar Contato -> GHL Criar Oportunidade -> Google Sheets (aba Qualificados).
+    // Cenário "Carol e José - V3 (Diagnóstico)".
+    MAKE_ENDPOINT: "https://hook.us2.make.com/58lppb76g43dm59fk9w2sne4tupeqjgn",
     // URL da página pós-diagnóstico publicada no GHL (onde vive pos-diagnostico.html).
     // Se ficar em branco, o aprovado é enviado direto ao calendário do GHL.
     POS_URL: "PREENCHER_URL_DA_PAGINA_POS_DIAGNOSTICO",
@@ -298,15 +303,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     p.append("como_decide",label("decisao",a.decisao));
     p.append("ja_tentou",label("tentativas",a.tentativas));
     p.append("faturamento",label("faturamento",a.faturamento));
-    post(p);
+    // Qualificado -> Make (GHL Contato -> Oportunidade -> Sheets). Fallback: Apps Script.
+    post(p, CONFIG.MAKE_ENDPOINT || CONFIG.LEADS_ENDPOINT);
   }
   function enviarDesqualificado(motivo,b){
     var x=basePayload(),p=x.p; p.append("aba","desqualificado"); p.append("motivo",motivo); p.append("balde",b);
-    post(p);
+    // Desqualificado -> Apps Script (aba Desqualificados + contagem do Painel).
+    post(p, CONFIG.LEADS_ENDPOINT);
   }
-  function post(p){
-    if(!CONFIG.LEADS_ENDPOINT||CONFIG.LEADS_ENDPOINT.indexOf("PREENCHER")===0){ console.warn("[unicos] LEADS_ENDPOINT não configurado"); return; }
-    try{ fetch(CONFIG.LEADS_ENDPOINT,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:p.toString()}); }catch(e){ console.error(e); }
+  function post(p, url){
+    if(!url||url.indexOf("PREENCHER")===0){ console.warn("[unicos] endpoint de leads não configurado"); return; }
+    try{ fetch(url,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:p.toString()}); }catch(e){ console.error(e); }
   }
   function utmQS(){ var s=""; ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(function(k){ if(utm[k])s+="&"+k+"="+encodeURIComponent(utm[k]); }); return s; }
   function merge(o,u){ for(var k in u)o[k]=u[k]; return o; }
