@@ -22,8 +22,10 @@ que nunca se misturam** (comunicação × qualificação). O novo funil aplica i
 >    operacional, que não é o meu caso." → margem fora do diagnóstico.
 >
 > O que a Simple mantém por dentro (não muda o que o lead vê): roteamento, leitura de ICP
-> por setor só para a métrica interna, balde, tracking por criativo, e a reversão de risco
-> na página (esta ainda a validar com o cliente).
+> por setor só para a métrica interna, balde (para planilha/comercial) e tracking por criativo.
+> Toda adição VISÍVEL foi removida (2026-08): sem reversão de risco, sem destaque de "sua
+> situação" na página, e relatório único montado só com a copy aprovada (v4 final + v8).
+> A página é 100% v8.
 
 ## Decisões
 

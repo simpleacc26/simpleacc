@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ÚNICOS — Funil (versão de teste)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#16314f;--navy700:#1e3d61;--gold:#a9802f;--gold300:#d4a84b;--brown:#2d1008;--orange:#d4601a;--bg:#faf8f4;--cream:#f3eee2;--card:#fff;--ink:#20272f;--muted:#5c6672;--line:#e6e1d6;--danger:#9d2f2f;--wa:#128c7e;--wabg:#e5ddd5;--serif:'Playfair Display',Georgia,serif;--sans:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.55;-webkit-font-smoothing:antialiased;}
+.testbar{position:sticky;top:0;z-index:50;background:#1b1400;color:#f3e6cc;font-size:12.5px;padding:8px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;}
+.testbar b{color:var(--gold300);}
+.testbar .rig{display:flex;gap:10px;align-items:center;}
+.testbar .panel{font-family:var(--sans);color:#cdd8e6;}
+.testbar button{background:var(--gold);color:#1b1400;border:none;border-radius:7px;padding:6px 12px;font-weight:700;cursor:pointer;font-size:12.5px;}
+/* logo */
+.topbar{display:flex;justify-content:center;padding:20px 0 10px;}
+.logo{display:inline-flex;flex-direction:column;align-items:center;user-select:none;}
+.logo .word{display:flex;align-items:flex-start;gap:3px;}
+.logo .word span{font-family:var(--serif);font-weight:700;font-size:1.8rem;color:var(--brown);letter-spacing:.04em;line-height:1;}
+.logo .sub{font-family:var(--serif);font-style:italic;font-weight:400;font-size:.73rem;color:rgba(45,16,8,.5);letter-spacing:.22em;margin-top:3px;}
+/* quiz */
+.wrap{width:100%;max-width:640px;margin:0 auto;padding:0 20px;}
+.body{padding:14px 0 40px;}
+.label{font-family:var(--sans);text-transform:uppercase;letter-spacing:2px;font-size:11px;font-weight:700;color:var(--gold);}
+h1{font-family:var(--serif);color:var(--navy);font-size:24px;line-height:1.25;margin:10px 0 4px;font-weight:700;}
+.support{color:var(--muted);font-size:14px;margin-top:6px;}
+.foot{color:var(--gold);font-style:italic;font-size:13px;margin-top:16px;font-family:var(--serif);}
+.progress{height:5px;background:var(--line);border-radius:99px;overflow:hidden;margin:14px 0 4px;}
+.progress>span{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold300));transition:width .3s;}
+.pmeta{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:6px;}
+.options{display:flex;flex-direction:column;gap:10px;margin-top:20px;}
+.opt{text-align:left;width:100%;background:var(--card);border:1.5px solid var(--line);border-radius:9px;padding:15px 16px;font-size:15px;color:var(--ink);cursor:pointer;transition:border-color .15s,background .15s;display:flex;align-items:center;gap:12px;font-family:var(--sans);}
+.opt:hover{border-color:var(--gold300);background:#fbf9f3;}
+.opt.sel{border-color:var(--gold);background:#fbf9f3;box-shadow:inset 0 0 0 1px var(--gold);}
+.opt .dot{width:18px;height:18px;border-radius:50%;flex:0 0 18px;border:2px solid var(--line);}
+.opt.sel .dot{border-color:var(--gold);background:radial-gradient(circle,var(--gold) 46%,transparent 48%);}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--sans);font-weight:700;font-size:16px;border:none;border-radius:10px;padding:15px 22px;cursor:pointer;}
+.btn-primary{background:var(--gold);color:#1b1400;}
+.btn-ghost{background:transparent;color:var(--muted);font-weight:600;}
+.btn[disabled]{opacity:.5;cursor:default;}
+.navrow{display:flex;align-items:center;justify-content:space-between;margin-top:18px;}
+/* página (pos) */
+.pos .sec{padding:44px 0;}
+.pos .sec.navy{background:var(--navy);color:#eaf0f7;}
+.pos .sec.soft{background:var(--cream);}
+.pos .ct{width:100%;max-width:760px;margin:0 auto;padding:0 22px;}
+.pos h1{font-size:32px;}
+.pos h2{font-family:var(--serif);font-size:25px;line-height:1.2;color:var(--navy);margin-bottom:8px;font-weight:700;}
+.pos h3{font-family:var(--serif);font-size:18px;color:var(--navy700);font-weight:700;}
+.pos p{font-size:16px;margin:10px 0;color:#303a45;}
+.pos .navy h2,.pos .navy p{color:#fff;} .pos .navy p{color:#cdd8e6;}
+.pos .label{display:inline-block;margin-bottom:10px;}
+.pos .hero{background:linear-gradient(180deg,#16314f,#1e3d61);color:#fff;padding:40px 0 36px;}
+.pos .hero .label{color:var(--gold300);} .pos .hero h1{color:#fff;font-family:var(--serif);font-weight:700;}
+.pos .hero .subq{font-family:var(--serif);font-style:italic;color:var(--gold300);font-size:18px;margin:10px 0 18px;}
+.pos .hero p{color:#d5deec;}
+.cta{display:inline-flex;align-items:center;justify-content:center;background:var(--gold);color:#1b1400;font-weight:800;font-size:17px;border:none;border-radius:11px;padding:16px 28px;cursor:pointer;text-decoration:none;box-shadow:0 16px 40px rgba(22,49,79,.18);}
+.cta-micro{font-size:13px;color:var(--muted);margin-top:10px;} .pos .navy .cta-micro,.pos .hero .cta-micro{color:#aebbcd;}
+.cta-wrap{margin-top:20px;}
+.sit-list{display:grid;gap:14px;margin-top:20px;}
+.sit{background:var(--card);border:1.5px solid var(--line);border-radius:12px;padding:18px 20px;box-shadow:0 10px 30px rgba(22,49,79,.08);}
+.sit h3{margin:0 0 6px;}
+.list-check{margin:18px 0;display:grid;gap:12px;padding:0;} .list-check li{list-style:none;display:flex;gap:12px;font-size:16px;} .list-check .mk{color:var(--gold);font-weight:800;}
+.calbox{background:#fff;border:1px dashed var(--gold);border-radius:12px;padding:26px;text-align:center;color:var(--muted);font-size:14px;margin-top:16px;}
+.proof-big{text-align:center;background:var(--navy);color:#fff;border-radius:12px;padding:24px;} .proof-big .num{font-family:var(--serif);font-size:36px;color:var(--gold300);font-weight:700;}
+.quote{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-top:14px;box-shadow:0 10px 30px rgba(22,49,79,.08);}
+.quote p{font-style:italic;color:#3a4550;} .quote .who{font-style:normal;font-weight:700;color:var(--navy700);font-size:14px;margin-top:8px;}
+.selos{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0;padding:0;} .selo{background:#eef1f6;color:var(--navy700);border-radius:99px;padding:6px 12px;font-size:12px;font-weight:600;}
+.authority{margin-top:26px;padding:20px;background:var(--cream);border-radius:12px;} .authority .brands{font-family:var(--serif);color:var(--navy);font-weight:700;font-size:15px;} .authority .note{font-size:12px;color:var(--muted);margin-top:8px;}
+.faq{display:grid;gap:12px;margin-top:18px;} .faq details{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:4px 16px;} .faq summary{cursor:pointer;font-weight:700;color:var(--navy);padding:12px 0;font-size:16px;} .faq p{margin:0 0 14px;}
+/* relatório whatsapp */
+.relwrap{background:#0d3b34;padding:34px 0;}
+.relwrap .lead{max-width:760px;margin:0 auto 14px;padding:0 22px;color:#cfe9e3;font-size:13px;}
+.phone{max-width:420px;margin:0 auto;border:10px solid #111;border-radius:34px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.35);}
+.wa-top{background:var(--wa);color:#fff;padding:12px 16px;display:flex;align-items:center;gap:10px;}
+.wa-top .av{width:34px;height:34px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);color:var(--brown);font-weight:700;}
+.wa-top .nm{font-weight:700;font-size:14px;} .wa-top .st{font-size:11px;opacity:.85;}
+.wa-body{background:var(--wabg);padding:16px 12px;}
+.bubble{background:#fff;border-radius:10px;padding:12px 13px;margin:8px 4px;font-size:13.5px;box-shadow:0 1px 1px rgba(0,0,0,.08);color:#111;line-height:1.5;}
+.bubble .hd{font-family:var(--serif);color:var(--navy);font-weight:700;font-size:15px;}
+.bubble.link{background:var(--navy);color:#fff;text-align:center;font-weight:700;} .bubble.link .cta2{color:var(--gold300);}
+.time{font-size:10px;color:#8a8a8a;text-align:right;margin-top:4px;}
+.sechd{max-width:760px;margin:0 auto;padding:22px 22px 0;} .sechd .k{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:700;}
+@media(max-width:480px){h1{font-size:21px;} .pos h1{font-size:26px;}}
+</style></head>
+<body>
+
+<div class="testbar">
+  <div>🧪 <b>Versão de teste</b> · funil ÚNICOS para avaliação. Não é a versão publicada.</div>
+  <div class="rig"><span class="panel" id="panel">responda o diagnóstico ↓</span><button id="restart">Recomeçar</button></div>
+</div>
+
+<!-- QUIZ -->
+<div id="screen-quiz"><div class="wrap"><div class="topbar" id="topbar"></div></div><div class="wrap body" id="screen"></div></div>
+
+<!-- RESULTADO QUALIFICADO: página + relatório -->
+<div id="screen-result" hidden>
+  <div class="pos">
+    <header class="hero"><div class="ct">
+      <div class="topbar" style="justify-content:flex-start"><div class="logo" style="align-items:flex-start"><div class="word"><span style="color:#fff">ÚNICOS</span><svg width="12" height="12" viewBox="0 0 20 20" fill="none" style="margin-top:2px"><path d="M10 0.5 C10 0.5 11.5 7.5 19.5 10 C11.5 12.5 10 19.5 10 19.5 C10 19.5 8.5 12.5 0.5 10 C8.5 7.5 10 0.5 10 0.5Z" fill="#d4601a"/></svg></div><span class="sub" style="color:var(--gold300)">Leadership Club</span></div></div>
+      <span class="label">SEU RESULTADO · DIAGNÓSTICO DE MATURIDADE DO NEGÓCIO</span>
+      <h1>Estágio 2: No Limite</h1>
+      <p class="subq">"A mesma gestão que trouxe a sua empresa até aqui está com a validade vencida."</p>
+      <p>Você chegou aos 7 dígitos com equipe montada, demanda entrando e mercado para crescer. Você enxerga as oportunidades, mas não consegue aproveitar quase nenhuma delas, porque tudo ainda passa por você.</p>
+      <p>Se você não está em cima, as coisas não andam do jeito que deveriam, e os problemas se acumulam. Não porque o time não saiba o que precisa ser feito (ele sabe), só que as pessoas aprenderam que tudo precisa da sua validação para funcionar.</p>
+      <p>Nem a melhor estratégia consegue escalar uma operação sobrecarregada. Seu negócio ficou grande demais para continuar funcionando sobre a capacidade de uma pessoa só. Enquanto essa condição não mudar, cada real a mais de faturamento chega como mais peso, e não como mais liberdade.</p>
+      <p style="color:#fff;font-weight:600">Em 40 minutos é possível identificar exatamente o que mantém a sua empresa dependente de você, e o que precisa mudar para ela crescer sem isso.</p>
+      <div class="cta-wrap"><a class="cta" href="#agendar">Quero agendar minha sessão</a><p class="cta-micro">Sessão individual e online, com data escolhida por você.</p></div>
+    </div></header>
+
+    <section class="sec"><div class="ct">
+      <span class="label">O DIAGNÓSTICO</span><h2>O problema deixou de ser vender</h2>
+      <p>Depois de um certo tamanho, o limite deixa de estar no mercado e passa a estar dentro de casa, em alguma destas quatro situações:</p>
+      <div class="sit-list">
+        <div class="sit"><h3>A demanda cresceu mais rápido do que a empresa consegue acompanhar</h3><p>O time trabalha em hora extra com frequência, os prazos vivem apertados e bons negócios passam sem que ninguém consiga assumir. O dinheiro já está na mesa e você só consegue aproveitar uma fatia dele. E quanto mais demanda entra, maior fica o GAP.</p></div>
+        <div class="sit"><h3>Falta liderança formada, não mão de obra</h3><p>Contratar mais gente para executar não resolveu. O que falta é gente que se aproprie da entrega e das soluções que a empresa precisa para crescer, e não mais um par de mãos. Enquanto a liderança não é formada, quem puxa tudo continua sendo você.</p></div>
+        <div class="sit"><h3>As decisões de maior peso você toma sozinho</h3><p>Não é falta de informação. É não ter, no seu nível, alguém com quem trocar antes de decidir. Alguém que amplie a sua visão sobre a oportunidade ou sobre o problema, numa mesa onde você não precise ser a pessoa mais inteligente. Um erro em empresa deste porte não custa uma reunião, custa margem e meses de operação.</p></div>
+        <div class="sit"><h3>Você contratou processo e ferramenta. O que não mudou foi como o time trabalha</h3><p>Consultoria, sistema de gestão, treinamento, processo escrito. Tudo prometeu uma empresa organizada e nada disso mexeu o ponteiro: as ideias e as soluções continuam partindo de você, e as pessoas continuam esperando por você.</p></div>
+      </div>
+      <p style="margin-top:20px">Reconhecer-se em alguma dessas situações não diz nada sobre a sua competência. Você já provou que sabe fazer a empresa crescer. O que mudou não foi só a sua empresa, foi o ambiente em volta dela. Os seus padrões não estão errados, eles estão desatualizados. Estão com a validade vencida.</p>
+      <p>E manter essa condição tem preço todo mês: entregas que atrasam, oportunidades que passam, margem consumida pela operação sem que você perceba, e um time que aprendeu a esperar por você em vez de assumir.</p>
+    </div></section>
+
+    <section class="sec soft"><div class="ct">
+      <span class="label">A SESSÃO ESTRATÉGICA</span><h2>Quarenta minutos sobre o seu negócio, com quatro respostas objetivas</h2>
+      <p>Seu maior ativo é o seu tempo, e nós respeitamos isso. A sessão diagnóstica não é apresentação comercial nem conteúdo genérico, é uma análise da sua empresa, com os seus números na frente. Ao final da conversa você sai entendendo:</p>
+      <ul class="list-check">
+        <li><span class="mk">1.</span> O que exatamente faz a empresa parar quando você não está.</li>
+        <li><span class="mk">2.</span> Como construir um time engajado, colaborativo e autogerenciável, que assuma a entrega em vez de esperar por você.</li>
+        <li><span class="mk">3.</span> Quem, do time que você já tem, tem condição de assumir mais, e o que falta para isso acontecer.</li>
+        <li><span class="mk">4.</span> Quanto essa condição está custando por mês no seu negócio, com os seus números na mesa.</li>
+      </ul>
+      <p style="margin-top:16px">A condução é feita sobre um método construído em quase 20 anos formando empresários e líderes de empresa, aplicado individualmente ao seu negócio.</p>
+      <div class="cta-wrap"><a class="cta" href="#agendar">Quero agendar minha sessão</a></div>
+    </div></section>
+
+    <section class="sec" id="agendar"><div class="ct">
+      <span class="label">AGENDE SUA SESSÃO</span><h2>Escolha o melhor dia e horário</h2>
+      <p>Sessão individual e online. Se você tem sócio, traga o seu sócio junto: a direção que sai dela é sobre o negócio dos dois.</p>
+      <div class="calbox">[ Calendário do GHL aparece aqui na versão publicada ]<br><span style="font-size:12px">widget/booking/leFMFKegfdvDRIE1b42I</span></div>
+    </div></section>
+
+    <section class="sec soft"><div class="ct">
+      <span class="label">QUEM JÁ PASSOU POR ESSA CONVERSA</span>
+      <div class="proof-big"><div class="num">4x o faturamento em 4 meses</div></div>
+      <div class="quote"><p>"Por mais consolidada que uma empresa possa estar, o mundo sofre transformações muito rápidas e nos exige adaptações rápidas. Estar buscando esse acompanhamento é de suma importância para alcançar êxito e não se perder no meio do caminho."</p><p class="who">Tamiris Felippin · Empresária, membro do ÚNICOS Club</p></div>
+      <div class="quote"><p>"Tudo o que eu aprendi aqui é para o meu negócio e para as pessoas ao meu redor, melhorando a comunicação e implementando de forma clara a cultura e as transformações que eu busco."</p><p class="who">Patrícia Librelotto · Proprietária da Rede de Lojas Lavanda</p></div>
+      <div class="quote"><p>"Em um ano tão desafiador como está sendo 2026, principalmente para quem é empresário, a Carol tem sido muito importante. Desde o início da minha entrada no ÚNICOS, a Carol e o Zé estão nos auxiliando nesse processo de transformação. Não teríamos tido o crescimento que alcançamos sem esse apoio."</p><p class="who">Juliane Marques · Empresária, membro do ÚNICOS Club</p></div>
+    </div></section>
+
+    <section class="sec"><div class="ct">
+      <span class="label">QUEM CONDUZ</span><h2>Caroline Batista</h2><h3 style="font-weight:500">Estrategista em liderança e crescimento de negócios</h3>
+      <div class="selos"><span class="selo">Quase 20 anos formando quem decide</span><span class="selo">+10 mil horas de atendimento</span><span class="selo">+6 mil líderes desenvolvidos</span><span class="selo">+40 empresas acompanhadas</span></div>
+      <p>A Carol não estudou empresa de fora. Empreendedora desde os 20 anos, ela construiu, estruturou e vendeu o próprio negócio, de modo que a mudança que propõe é uma que ela já fez.</p>
+      <p>O mundo em que você abriu a sua empresa não existe mais. O mercado mudou, o cliente mudou e o time mudou, e é por isso que a gestão que fez o negócio nascer não dá conta do negócio que ele é hoje. A dificuldade que você enfrenta não é falta de capacidade, é estar conduzindo o futuro da empresa com a forma de gerir do passado.</p>
+      <div class="authority"><div class="brands">Bem Brasil · Sicredi · Dell Technologies · Gerdau · Unimed · AGCO · Mix Alimentos</div><p style="margin:8px 0 0">Na Bem Brasil, o trabalho de liderança e cultura acompanhou a empresa de R$1,5 bilhão a mais de R$4 bilhões de faturamento.</p><p class="note">Empresas que confiam no nosso trabalho. Referência de autoridade, não promessa de resultado.</p></div>
+    </div></section>
+
+    <section class="sec soft"><div class="ct">
+      <span class="label">PERGUNTAS FREQUENTES</span>
+      <div class="faq">
+        <details><summary>Essa sessão é para mim?</summary><p>É para o empresário, dono ou sócio de empresa que fatura acima de 7 dígitos, com equipe montada e pouca ou nenhuma camada de coordenação abaixo dele. Se hoje quase tudo ainda depende da sua presença para acontecer, é exatamente esse o caso. Se a empresa ainda está construindo a sua base, ou se não é você quem decide o investimento, esse não é o momento.</p></details>
+        <details><summary>Quanto tempo dura?</summary><p>São 40 minutos, individual e online. Se você tem sócio, traga o seu sócio junto. É importante que ele esteja nessa conversa, porque a direção que sai dela é sobre o negócio dos dois. Você sai com clareza sobre o que ajustar e por onde começar.</p></details>
+        <details><summary>Como me preparo?</summary><p>Tenha em mãos o faturamento do último ano, quantas pessoas trabalham com você, quantos cargos de liderança existem hoje e quantos dias seguidos a empresa rodou sem você na última vez em que se afastou. Quanto mais preciso o número, melhor a conversa.</p></details>
+        <details><summary>Quem conduz?</summary><p>A Carol ou um estrategista formado por ela, com o mesmo método e a mesma leitura.</p></details>
+      </div>
+    </div></section>
+
+    <section class="sec navy"><div class="ct">
+      <h2 style="color:#fff">Empresa que não cresce, morre.</h2>
+      <p>Sem mudar isso, crescer só aumenta os problemas existentes.</p>
+      <p>Você já sabe onde isso vai dar nos próximos doze meses se nada mudar, porque acabou de viver os doze anteriores.</p>
+      <p>A diferença começa em uma conversa de 40 minutos sobre o que faz a sua empresa depender de você, e sobre o que muda para ela voltar a aproveitar as oportunidades que hoje passam.</p>
+      <div class="cta-wrap"><a class="cta" href="#agendar">Quero agendar minha sessão</a><p class="cta-micro">Agenda limitada a poucas sessões por semana.</p></div>
+    </div></section>
+  </div>
+
+  <!-- RELATÓRIO (WhatsApp) -->
+  <div class="sechd"><span class="k">O RELATÓRIO · ENVIADO NO WHATSAPP</span></div>
+  <div class="relwrap">
+    <p class="lead">Copy montada com o material aprovado do cliente (tela final do v4 + página v8). É o que o lead recebe no WhatsApp depois de preencher os dados.</p>
+    <div class="phone">
+      <div class="wa-top"><div class="av">Ú</div><div><div class="nm">ÚNICOS · Leadership Club</div><div class="st">online</div></div></div>
+      <div class="wa-body">
+        <div class="bubble">Olá, <b id="rel-nome">[seu nome]</b>. Aqui está a análise completa do seu estágio, a partir das suas respostas.<div class="time">09:41</div></div>
+        <div class="bubble"><span class="hd">Estágio 2: No Limite</span><br>Suas respostas apontam uma empresa que cresceu em volume e a forma de gestão não cresceu junto. A demanda existe, o time existe e sabe o que precisa ser feito, e mesmo assim quase nada anda sem a sua presença. A mesma gestão que trouxe a sua empresa até aqui está com a validade vencida.<div class="time">09:41</div></div>
+        <div class="bubble">E manter essa condição tem preço todo mês: entregas que atrasam, oportunidades que passam, margem consumida pela operação sem que você perceba, e um time que aprendeu a esperar por você em vez de assumir.<div class="time">09:42</div></div>
+        <div class="bubble">A diferença começa em uma conversa de 40 minutos sobre o que faz a sua empresa depender de você, e sobre o que muda para ela voltar a aproveitar as oportunidades que hoje passam.<div class="time">09:42</div></div>
+        <div class="bubble link">Agende sua sessão estratégica<br><span class="cta2">→ escolher dia e horário</span><div class="time" style="color:#aebbcd">09:43</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DESQUALIFICADO: comunidade -->
+<div id="screen-comunidade" hidden>
+  <div class="pos"><header class="hero" style="min-height:70vh;display:flex;align-items:center"><div class="ct">
+    <span class="label">ÚNICOS · CONTEÚDO PARA QUEM LIDERA</span>
+    <h1>Tem material feito para o seu momento.</h1>
+    <p>A sessão estratégica é individual e desenhada para o dono ou sócio que decide os rumos de uma empresa já estruturada. Pelo que você respondeu, faz mais sentido começar por outro caminho, com o mesmo método e a mesma leitura, no ritmo certo para você.</p>
+    <p style="color:#fff;font-weight:600">Entre para a nossa comunidade e receba os conteúdos que preparam a próxima fase do seu negócio.</p>
+    <div class="cta-wrap"><a class="cta" href="https://chat.whatsapp.com/B6rtIEWe7jcHseToLdfSBE" target="_blank" rel="noreferrer">Quero acessar os conteúdos</a></div>
+  </div></header></div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  // ===== PERGUNTAS = v4 do cliente (abre pela dor, 7 perguntas, faixa única, sem margem) =====
+  var Q=[
+    {id:"autonomia",cat:"DIAGNÓSTICO",q:"Quantos dias seguidos a sua empresa roda sem ninguém precisar te ligar?",foot:"Depois de um certo tamanho, o limite deixa de estar no mercado.",
+     opts:[["1","Nenhum, sempre me procuram"],["2","De um a três dias"],["3","Cerca de uma semana"],["4","Duas semanas ou mais"]]},
+    {id:"setor",cat:"IDENTIFICAÇÃO",q:"Qual o setor da sua empresa?",other:true,
+     opts:[["industria","Indústria"],["servicos","Serviços"],["b2b","Operações B2B"],["comercio","Comércio ou varejo"],["outro","Outro"]]},
+    {id:"papel",cat:"QUALIFICAÇÃO",q:"Qual é o seu papel na empresa?",
+     opts:[["dono","Dono ou sócio, decido os rumos"],["socio","Sócio, participo das decisões"],["exec","Diretor ou executivo, respondo ao dono"],["nenhuma","Nenhuma dessas"]]},
+    {id:"lideranca",cat:"DIAGNÓSTICO",q:"Quem coordena as áreas da sua empresa hoje?",
+     opts:[["1","Ninguém, tudo passa por mim"],["2","Encarregados que tocam a rotina, mas me consultam para decidir"],["3","Coordenadores ou gerentes que respondem por uma área inteira"],["4","Gestores que já lideram outros líderes"]],
+     second:{id:"tamanho",q:"Quantas pessoas trabalham na empresa hoje?",opts:[["1","Até 20"],["2","De 20 a 50"],["3","De 50 a 100"],["4","De 100 a 300"],["5","Mais de 300"]]}},
+    {id:"decisao",cat:"DIAGNÓSTICO",q:"Quando aparece uma decisão importante, o que costuma acontecer?",
+     opts:[["1","Resolvo eu mesmo, é mais rápido do que explicar"],["2","Acompanho de perto até a entrega sair"],["3","O time decide até certo ponto e me reporta"],["4","O time decide e resolve sem me envolver"]]},
+    {id:"tentativas",cat:"DIAGNÓSTICO",q:"O que você já tentou para resolver isso e não funcionou como esperava?",
+     opts:[["1","Mentoria, consultoria ou aceleradora de gestão"],["2","Contratei gente de mercado para assumir"],["3","Implantei ERP, ferramentas e indicadores"],["4","Tentei me afastar e acabei voltando para o centro"],["5","Todas as alternativas acima"]]},
+    {id:"faturamento",cat:"QUALIFICAÇÃO",q:"Qual o faturamento anual da sua empresa?",support:"Essa informação define o tipo de análise que vamos preparar para você.",
+     opts:[["1","Até R$1 milhão"],["2","De R$1 a R$3 milhões"],["3","De R$3 a R$10 milhões"],["4","De R$10 a R$30 milhões"],["5","Acima de R$30 milhões"]]}
+  ];
+  var TOTAL=Q.length;
+  function rota(a){if(a.papel==="exec"||a.papel==="nenhuma")return"fora-papel";if(a.faturamento==="1")return"abaixo-piso";return"qualificado";}
+  function aprovacao(a){if(rota(a)!=="qualificado")return"nao-aprovado";var f=+a.faturamento;var c=a.setor==="industria"?3:2;return f>=c?"pleno":"tier2";}
+  var ORDEM=["oportunidade","lideranca","decisao","processo"];
+  function balde(a){var p={oportunidade:0,lideranca:0,decisao:0,processo:0};
+    if(a.autonomia==="1"){p.decisao++;p.lideranca++;}if(a.autonomia==="2")p.lideranca++;
+    if(a.lideranca==="1"){p.lideranca+=2;p.decisao++;}if(a.lideranca==="2")p.lideranca++;
+    var t=+a.tamanho||0,f=+a.faturamento||0;if(t>=4)p.oportunidade++;if(f>=4)p.oportunidade++;if(t>=4&&f>=4)p.oportunidade++;
+    if(a.decisao==="1"){p.decisao+=2;p.lideranca++;}if(a.decisao==="2"){p.decisao++;p.lideranca++;}if(a.decisao==="3")p.lideranca++;
+    switch(a.tentativas){case"1":p.processo++;break;case"2":p.lideranca+=2;break;case"3":p.processo+=2;break;case"4":p.decisao+=2;p.lideranca++;break;case"5":p.processo++;p.lideranca++;p.decisao++;break;}
+    var w=ORDEM[0],b=-1;for(var i=0;i<ORDEM.length;i++)if(p[ORDEM[i]]>b){b=p[ORDEM[i]];w=ORDEM[i];}return w;}
+
+  var st={idx:0,a:{},other:""};
+  var root=document.getElementById("screen");
+  document.getElementById("topbar").innerHTML='<div class="logo"><div class="word"><span>ÚNICOS</span><svg width="14" height="14" viewBox="0 0 20 20" fill="none" style="margin-top:1px"><path d="M10 0.5 C10 0.5 11.5 7.5 19.5 10 C11.5 12.5 10 19.5 10 19.5 C10 19.5 8.5 12.5 0.5 10 C8.5 7.5 10 0.5 10 0.5Z" fill="#d4601a"/></svg></div><span class="sub">Leadership Club</span></div>';
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+  function optsHTML(o,sel){return '<div class="options">'+o.map(function(x){return '<button class="opt'+(sel===x[0]?" sel":"")+'" data-v="'+esc(x[0])+'"><span class="dot"></span><span>'+esc(x[1])+'</span></button>';}).join("")+'</div>';}
+
+  function render(){
+    var q=Q[st.idx],sel=st.a[q.id]||null,sub=q.second,subSel=sub?(st.a[sub.id]||null):null,need=q.other&&sel==="outro",first=st.idx===0;
+    var intro=first?'<span class="label">DIAGNÓSTICO DE MATURIDADE DO NEGÓCIO</span><h1 style="font-size:27px;margin-top:8px">Você enxerga as oportunidades e não consegue aproveitar quase nenhuma?</h1><p class="support">Descubra em que estágio o seu negócio está e o que falta para subir o degrau. '+TOTAL+' perguntas, dois minutos. No final você recebe a leitura do estágio do seu negócio e o que precisa mudar para a empresa andar sem depender da sua presença.</p>':'';
+    var prog=first?'':'<div class="progress"><span style="width:'+Math.round(((st.idx+1)/TOTAL)*100)+'%"></span></div><div class="pmeta"><span>Pergunta '+(st.idx+1)+' de '+TOTAL+'</span><span>'+Math.round(((st.idx+1)/TOTAL)*100)+'%</span></div>';
+    var h=intro+prog+'<div style="margin-top:'+(first?26:16)+'px"><span class="label">'+q.cat+'</span><h1'+(first?' style="font-size:21px"':'')+'>'+esc(q.q)+'</h1>'+(q.support?'<p class="support">'+esc(q.support)+'</p>':'')+optsHTML(q.opts,sel)+'</div>';
+    if(need)h+='<div style="margin-top:12px"><label class="support">Qual?</label><br><input id="oth" style="border:1.5px solid var(--line);border-radius:9px;padding:12px;font-size:15px;width:100%;margin-top:4px" placeholder="Digite o setor" value="'+esc(st.other||"")+'"></div>';
+    if(sub)h+='<div style="margin-top:26px"><h1 style="font-size:20px">'+esc(sub.q)+'</h1>'+optsHTML(sub.opts,subSel)+'</div>';
+    if(q.foot)h+='<p class="foot">'+esc(q.foot)+'</p>';
+    h+='<div class="navrow">'+(first?'<span></span>':'<button class="btn btn-ghost" id="back">← Voltar</button>')+((sub||need)?'<button class="btn btn-primary" id="cont">Continuar</button>':'<span></span>')+'</div>';
+    root.innerHTML=h;
+    root.querySelectorAll('.options')[0].querySelectorAll('.opt').forEach(function(b){b.onclick=function(){var v=b.getAttribute("data-v");st.a[q.id]=v;if(!sub&&!(q.other&&v==="outro"))adv();else render();};});
+    if(sub)root.querySelectorAll('.options')[1].querySelectorAll('.opt').forEach(function(b){b.onclick=function(){st.a[sub.id]=b.getAttribute("data-v");render();};});
+    var o=document.getElementById("oth");if(o)o.oninput=function(){st.other=o.value;};
+    var bk=document.getElementById("back");if(bk)bk.onclick=function(){if(st.idx>0){st.idx--;render();}};
+    var ct=document.getElementById("cont");if(ct)ct.onclick=function(){var ok=!!st.a[q.id]&&(!sub||!!st.a[sub.id])&&(!need||(st.other||"").trim().length>1);if(ok)adv();};
+    window.scrollTo(0,0);
+  }
+  function adv(){if(st.idx<Q.length-1){st.idx++;render();}else finish();}
+
+  function show(id){["screen-quiz","screen-result","screen-comunidade"].forEach(function(s){document.getElementById(s).hidden=(s!==id);});window.scrollTo(0,0);}
+  function finish(){
+    var a=st.a,r=rota(a),ap=aprovacao(a),b=balde(a);
+    var panel=document.getElementById("panel");
+    if(r==="qualificado"){
+      document.getElementById("rel-nome").textContent="[seu nome]";
+      panel.innerHTML='régua: <b>qualificado</b> · aprovação: <b>'+ap+'</b> · balde: <b>'+b+'</b>';
+      show("screen-result");
+    }else{
+      panel.innerHTML='régua: <b>desqualificado</b> · motivo: <b>'+(r==="fora-papel"?"papel (não é dono)":"porte (< R$1M)")+'</b>';
+      show("screen-comunidade");
+    }
+  }
+  document.getElementById("restart").onclick=function(){st={idx:0,a:{},other:""};document.getElementById("panel").innerHTML="responda o diagnóstico ↓";show("screen-quiz");render();};
+  render();
+})();
+</script>
+</body></html>

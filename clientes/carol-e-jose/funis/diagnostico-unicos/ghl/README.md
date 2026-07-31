@@ -7,7 +7,7 @@ e identidade (logo + paleta reais do ÚNICOS) já estão embutidas.
 ## Arquivos
 - `diagnostico.html` — o diagnóstico (8 perguntas + captura de lead).
 - `pos-diagnostico.html` — a página pós-diagnóstico / agendamento, com o **calendário do
-  GHL já embutido** e a situação do lead (balde) destacada.
+  GHL já embutido**. Copy 100% do v8 do cliente (sem adições).
 - `apps-script.gs` — recebe os leads e grava na planilha (qualificado → aba completa,
   desqualificado → contagem).
 

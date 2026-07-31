@@ -63,11 +63,6 @@ export function PosDiagnosticoPage() {
     track.resultado({ pagina: "agendamento", balde: baldeMatch || "", aprovacao: resultado?.aprovacao || "" , ...getUtm() });
   }, [baldeMatch, resultado]);
 
-  // situação do lead primeiro
-  const ordered = baldeMatch
-    ? [...SITUACOES].sort((a, b) => (a.key === baldeMatch ? -1 : b.key === baldeMatch ? 1 : 0))
-    : SITUACOES;
-
   return (
     <div className="pos">
       {/* BLOCO 1 — ABERTURA */}
@@ -105,12 +100,11 @@ export function PosDiagnosticoPage() {
           <h2>O problema deixou de ser vender</h2>
           <p>
             Depois de um certo tamanho, o limite deixa de estar no mercado e passa a estar dentro de casa,
-            em alguma destas quatro situações{baldeMatch ? ". Pelas suas respostas, começamos pela sua:" : ":"}
+            em alguma destas quatro situações:
           </p>
           <div className="sit-list">
-            {ordered.map((s) => (
-              <div key={s.key} className={`sit${s.key === baldeMatch ? " match" : ""}`}>
-                {s.key === baldeMatch && <span className="tag">A sua situação</span>}
+            {SITUACOES.map((s) => (
+              <div key={s.key} className="sit">
                 <h3>{s.titulo}</h3>
                 <p>{s.texto}</p>
               </div>
@@ -143,10 +137,6 @@ export function PosDiagnosticoPage() {
             <li><span className="mk">3.</span> Quem, do time que você já tem, tem condição de assumir mais, e o que falta para isso acontecer.</li>
             <li><span className="mk">4.</span> Quanto essa condição está custando por mês no seu negócio, com os seus números na mesa.</li>
           </ul>
-          <div className="reversal">
-            <strong>Sem risco para o seu tempo:</strong> são 40 minutos com os seus números na mesa. Se você não sair
-            com pelo menos um ponto claro para destravar o crescimento da sua empresa, o tempo foi por nossa conta.
-          </div>
           <p style={{ marginTop: 16 }}>
             A condução é feita sobre um método construído em quase 20 anos formando empresários e líderes de empresa,
             aplicado individualmente ao seu negócio.

@@ -12,8 +12,8 @@ Três telas de funil, uma stack:
 1. **Diagnóstico** (`/`) — 7 perguntas (exatamente como o v4 do cliente), uma por tela
    (a Q4 tem duas partes na mesma tela), abrindo pela pergunta de dor (dias sem depender
    de você) e fechando na captura de lead ("Estágio 2: No Limite", análise por WhatsApp).
-2. **Página pós-diagnóstico** (`/agendamento`) — página de agendamento da sessão estratégica
-   (v8), com a **situação/balde** do lead destacada e a reversão de risco.
+2. **Página pós-diagnóstico** (`/agendamento`) — página de agendamento da sessão estratégica,
+   com a copy **100% do v8** do cliente (sem adições).
 3. **Comunidade** (`/comunidade`) — caminho dos desqualificados (papel não-dono ou porte
    abaixo do piso), sem formulário, contagem anônima.
 
@@ -31,11 +31,13 @@ Stack: React + Vite + TypeScript. Tracking centralizado no GTM.
 3. **Aprovado** (interno, para o tracking) = dono/sócio **E** porte ≥ ICP do setor
    (indústria R$5M, demais R$2M), lido sobre as faixas do v4; abaixo do ICP = **tier 2**.
    Não muda as faixas nem o que o lead vê.
-4. **Resultado único** "Estágio 2: No Limite", com **balde** (uma das 4 situações) computado
-   por dentro para segmentar leitura, relatório e comercial.
-5. **Perguntas, ordem e faixas = exatamente o v4 do cliente** (feedback do José, 2026-08):
-   abre pela dor, sem margem, faturamento em faixa única para todos os setores.
-6. **Reversão de risco** na sessão (bloco 3 da página) — adição da Simple, a validar.
+4. **Resultado único** "Estágio 2: No Limite". O **balde** (uma das 4 situações) é computado
+   só por dentro, para a planilha e o comercial. Não aparece para o lead (a página mostra
+   as 4 situações como no v8, sem destaque).
+5. **Perguntas, ordem, faixas e página = exatamente o v4/v8 do cliente** (feedback do José,
+   2026-08): abre pela dor, sem margem, faturamento em faixa única, e nenhuma adição visível
+   (sem reversão de risco, sem destaque de situação). O relatório é montado só com a copy
+   aprovada (tela final do v4 + v8), a mesma para todos.
 
 > Nota: as faixas de faturamento são as do v4 (R$1 a R$3M, etc.), mantidas por decisão do
 > cliente (empresas de R$1 a R$3M têm a mesma estrutura). A leitura de ICP por setor é
