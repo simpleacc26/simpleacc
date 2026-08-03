@@ -129,3 +129,26 @@ Em vez de trocar a URL nos anúncios (o que reinicia aprendizado), mantenha a **
 - [ ] Se existir alguma **conversão personalizada por regra de URL** no Meta, incluir a URL do GHL na regra. Se for por evento, nada a fazer.
 - [ ] Redirect 302 com preservação de UTM configurado e testado com uma URL de anúncio real (com `?utm_...`).
 - [ ] Só então ativar o redirect. Observar 24-48h antes de desligar a Vercel de vez.
+
+---
+
+## Acentos na página de Agendamento (resolvido)
+
+Ao colar no GHL, a página de agendamento aparecia com "EMPRESÃ¡RIOS", "EDUCAÃ§ÃƒO".
+É mojibake: os bytes UTF-8 do arquivo foram lidos como se fossem de um byte só,
+em algum ponto do caminho até o GHL. O arquivo de origem estava correto, o que
+torna o problema difícil de diagnosticar e fácil de repetir.
+
+Em vez de tentar acertar a cópia, o `agendamento-ghl-embed.html` passou a ser
+**ASCII puro**: nenhum byte acima de 127. Os acentos viram entidades numéricas na
+marcação (`&#225;` = á) e escapes `\uXXXX` dentro do JavaScript. O navegador
+renderiza exatamente o mesmo texto, e nenhuma ferramenta consegue corromper o que
+não tem byte alto.
+
+Verificado: (1) o texto renderizado é idêntico ao do arquivo original, caractere a
+caractere; (2) submetendo os dois arquivos à leitura errada dos bytes, o original
+vira mojibake e o novo não muda.
+
+> Se um dia esse bloco for reeditado, mantenha o arquivo ASCII puro. Para conferir:
+> `python3 -c "print(open('agendamento-ghl-embed.html',encoding='utf-8').read().isascii())"`
+> deve imprimir `True`.
