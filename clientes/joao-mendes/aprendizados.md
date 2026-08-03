@@ -14,12 +14,16 @@ Log do que funciona e do que não funciona com este cliente.
 | 2026-07-17 | Estratégia completa criada (8 seções: Big Idea, Quiz, Página, Anúncios, Diagnóstico, Cadência 12 dias, Tarefas, Recomendações) para o João validar as copies antes de implementar o funil. Google Doc formatado na pasta do Drive. Nota: emojis (💛 👀) corromperam na importação HTML→Doc, revisar antes de mandar pro cliente. | Estratégia v1.0 |
 | 2026-07-21 | Sessão fechada: base + roadmap v1.1 + estratégia mergeados na main (PR #49). Nenhuma skill nova criada (usei roadmap-estrategico-90-dias e estrategia-completa-clientes, ambas já na main). | Fechamento de sessão |
 
+| 2026-08-03 | **Virada do projeto.** Áudios do João (24 e 27/07): expert com 2 fixos atrasados (R$ 6.000) e cartão travado, tráfego parou 4 dias antes do lançamento, empresa dele parou as atividades, expert em silêncio. Encerramento provável. Ele revelou piso de sobrevivência de R$ 4.000/mês, recusou vaga CLT no Pará (90 dias fora da família) e pediu orientação de como monetizar rápido. | Áudios WhatsApp |
+| 2026-08-03 | Diagnóstico da Simple: o problema não é nicho nem pessoa, é o **modelo de remuneração** (2ª parceria que quebra igual: ele financia o negócio do outro sem colchão). Regra nova: nunca entrar sem fixo pago na entrada; participação só em cima do fixo. Ativo subestimado dele: 15 anos de rede em consultoria ambiental (renda pontual e remota, sem CLT). | Análise (sessão) |
+| 2026-08-03 | **Roadmap v2 criado**, pivotado do funil da expert para o João como prestador de serviço. Oferta produtizada: Diagnóstico Express R$ 497 · Setup de Funil R$ 2.500 · Gestão R$ 1.800/mês. Meta: piso R$ 4.000 no dia 15, R$ 10.800/mês recorrentes no dia 90 (6 clientes). Coprodução volta só no dia 90+, com 6 critérios duros. O v1.1 fica como histórico (assume a expert, não se aplica mais). | Roadmap v2.0 |
+
 ## Pendências (próxima sessão)
 
-- **João valida as copies** da estratégia (Google Doc) antes de implementar o funil. É o gate para a próxima etapa.
-- **Implementar o funil de quiz** (skill `gerar-quiz-diag-pag-pos-quiz`) assim que as copies forem aprovadas: faltam insumos do cliente (identidade visual, logo, WhatsApp dedicado, conta Vercel, pasta de destino da planilha de leads).
+- **Entregar e destravar o Roadmap v2** na call que o João pediu (marcar ainda esta semana: ele mandou os áudios em 27/07 e está esperando).
+- **Estratégia e funil da Luana ficam em espera** (contrato em encerramento). O Google Doc da estratégia e o Roadmap v1.1 viram histórico do projeto, não plano ativo.
+- **Produzir com ele os materiais da Fase 2 do v2**: PDF de apresentação dos 3 serviços, modelo de contrato de 1 página e modelo de proposta.
 - **Corrigir emojis** (💛 👀 viraram `ð`) no Google Doc da estratégia antes de enviar ao João. Regerar o Doc ou editar à mão no Drive.
-- **Gravar depoimentos reais** (Fabrícia, Thalita, Carol) em vídeo, com autorização de uso, antes de qualquer copy ir ao ar. Usar a skill `guia-captacao-depoimentos`.
-- **Validar premissas com o Daniel**: conversão da sessão (50% assumida vs 70% declarada) e agenda da Luana (até 2 sessões/dia).
-- **PDF do roadmap**: está no repo e foi entregue na sessão; não foi subido ao Drive (arquivo grande demais para a API a partir da sessão). Subir manualmente na pasta do cliente se quiser centralizar lá.
-- **ClickUp**: tarefa "JOÃO - preparar roadmap (e validar com Daniel)" pode ser marcada com o roadmap pronto.
+- **Em espera junto com o projeto da Luana**: gravação dos depoimentos (Fabrícia, Thalita, Carol) e validação das premissas de conversão e agenda. Só voltam se o contrato for retomado.
+- **PDFs dos roadmaps (v1.1 e v2)**: estão no repo e foram entregues na sessão; não foram subidos ao Drive (arquivo grande demais para a API a partir da sessão). Subir manualmente na pasta do cliente se quiser centralizar lá.
+- **ClickUp**: tarefa "JOÃO - preparar roadmap (e validar com Daniel)" pode ser fechada; abrir a de acompanhamento do v2.

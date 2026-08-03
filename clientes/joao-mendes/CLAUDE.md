@@ -26,10 +26,13 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
   renda R$ 7 mil+, com fé/espiritualidade. "Forte por fora, exausta por
   dentro"; repete padrões em relacionamentos, autoestima e dinheiro. Persona:
   Juliana, 38. Detalhes em `contexto/canvas-produto-cliente-ideal.md`.
-- **O cliente na real é o João** (estrategista @ojuaomendes, acordo 50/50 com a
-  expert): prioridade 1 é vender o high ticket da Luana (@lufelisminooficial);
-  prioridade 2 é posicionar o João e sua captação de experts. Situação
-  financeira urgente — janela de ~30 dias declarada no onboarding (02/07).
-  Detalhes em `contexto/notas-onboarding.md`.
+- **ATENÇÃO, virada em 03/08/2026:** a parceria com a expert Luana está em
+  encerramento (2 fixos atrasados, R$ 6.000, projeto parado). O plano ativo
+  agora é o **Roadmap v2**, que pivota o João de coprodutor para **prestador
+  de serviço pago** (Diagnóstico Express R$ 497, Setup de Funil R$ 2.500,
+  Gestão R$ 1.800/mês). Piso de sobrevivência: R$ 4.000/mês. Regra nova e
+  inegociável: nenhum projeto sem fixo pago na entrada; participação só em
+  cima do fixo. O roadmap v1.1 e a estratégia do funil da Luana são
+  **histórico**, não plano ativo.
 - **Links:** ver `README.md` (Drive, canvas, transcrição, ClickUp).
 - **Contato principal:** João Mendes Jr.; Carlos Durães pela SimpleAcc.

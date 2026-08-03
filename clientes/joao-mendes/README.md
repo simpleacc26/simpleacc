@@ -30,10 +30,12 @@ Call de onboarding em 02/07/2026 (canvas preenchido em 01/07/2026).
 
 ## Projetos
 
-| Projeto                        | Pasta         | Status                     | Deploy |
-| ------------------------------ | ------------- | -------------------------- | ------ |
-| Roadmap Estratégico 90 dias    | `estrategia/` | v1.0, ag. validação Daniel | —      |
-| Funil da Mentoria Reset Mental | `funis/`      | em estruturação            | —      |
+| Projeto                                    | Pasta         | Status                          | Deploy |
+| ------------------------------------------ | ------------- | ------------------------------- | ------ |
+| Roadmap v2 (João como prestador de serviço) | `estrategia/` | **plano ativo** (03/08)         | —      |
+| Roadmap v1.1 (funil da expert)              | `estrategia/` | histórico, projeto em espera    | —      |
+| Estratégia completa / copies do funil       | `estrategia/` | histórico, projeto em espera    | —      |
+| Funil da Mentoria Reset Mental              | `funis/`      | suspenso (contrato encerrando)  | —      |
 
 ## Observações
 
