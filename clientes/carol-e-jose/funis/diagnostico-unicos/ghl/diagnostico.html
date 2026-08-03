@@ -48,7 +48,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 #unicos-diag h1{font-family:var(--serif);color:var(--navy);font-size:24px;line-height:1.25;margin:10px 0 4px;font-weight:700;}
 #unicos-diag h2{font-family:var(--serif);color:var(--navy);font-weight:700;}
 #unicos-diag .support{color:var(--muted);font-size:14px;margin-top:6px;}
-#unicos-diag .foot{color:var(--gold);font-style:italic;font-size:13px;margin-top:16px;font-family:var(--serif);}
+#unicos-diag .foot{color:var(--gold);font-style:italic;font-size:13px;margin-top:8px;padding:12px 0 24px;text-align:center;font-family:var(--serif);}
 #unicos-diag .progress{height:5px;background:var(--line);border-radius:99px;overflow:hidden;margin:14px 0 4px;}
 #unicos-diag .progress>span{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-300));transition:width .3s;}
 #unicos-diag .pmeta{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:6px;}
@@ -75,7 +75,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 @media(max-width:480px){#unicos-diag h1{font-size:21px;}}
 </style>
 
-<div id="unicos-diag"><div class="wrap"><div id="unicos-topbar" class="topbar"></div></div><div class="wrap body" id="unicos-screen"></div></div>
+<div id="unicos-diag"><div class="wrap"><div id="unicos-topbar" class="topbar"></div></div><div class="wrap body" id="unicos-screen"></div><div class="wrap"><p class="foot">Depois de um certo tamanho, o limite deixa de estar no mercado.</p></div></div>
 
 <script>
 (function(){
@@ -230,9 +230,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     var a=state.answers, r=rota(a), ap=aprovacao(a), b=balde(a);
     try{sessionStorage.setItem("unicos_resultado",JSON.stringify({rota:r,aprovacao:ap,balde:b}));}catch(e){}
     dl("diag_resultado",merge({rota:r,aprovacao:ap,balde:b},utm));
-    if(r==="fora-papel"){ dl("diag_fora_papel",utm); enviarDesqualificado("papel",b); redirect(CONFIG.COMUNIDADE_URL); return; }
-    if(r==="abaixo-piso"){ dl("diag_abaixo_piso",utm); enviarDesqualificado("porte",b); redirect(CONFIG.COMUNIDADE_URL); return; }
+    if(r==="fora-papel"){ dl("diag_fora_papel",utm); enviarDesqualificado("papel",b); renderComunidade("papel"); return; }
+    if(r==="abaixo-piso"){ dl("diag_abaixo_piso",utm); enviarDesqualificado("porte",b); renderComunidade("porte"); return; }
     renderLead();
+  }
+
+  // Tela simpática do desqualificado (não é dono/sócio ou porte < R$1M): antes de
+  // mandar para a comunidade, mostra a mensagem e um botão. Não vai direto pro Zap.
+  function renderComunidade(motivo){
+    root.innerHTML=
+      '<span class="label">ÚNICOS · CONTEÚDO PARA QUEM LIDERA</span>'+
+      '<h1 style="margin-top:8px">Tem material feito para o seu momento.</h1>'+
+      '<p class="support">A sessão estratégica é individual e desenhada para o dono ou sócio que decide os rumos de uma empresa já estruturada. Pelo que você respondeu, faz mais sentido começar por outro caminho, com o mesmo método e a mesma leitura, no ritmo certo para você.</p>'+
+      '<p class="support" style="color:var(--navy-700);font-weight:700">Entre para a nossa comunidade e receba os conteúdos que preparam a próxima fase do seu negócio.</p>'+
+      '<button type="button" class="btn btn-primary btn-block" id="u-comunidade" style="margin-top:18px">Quero acessar os conteúdos</button>';
+    document.getElementById("u-comunidade").addEventListener("click",function(){
+      dl("diag_comunidade_click",merge({motivo:motivo},utm));
+      redirect(CONFIG.COMUNIDADE_URL);
+    });
   }
 
   function renderLead(){
