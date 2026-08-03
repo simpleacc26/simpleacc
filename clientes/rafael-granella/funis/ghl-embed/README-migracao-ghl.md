@@ -34,18 +34,17 @@ Para cada step:
 
 ## Passo 3 — Ajustar os links internos (redirects do funil)
 
-Como agora tudo vive no GHL, os redirects precisam apontar pros steps do GHL, não pra Vercel.
+**Nada a editar.** Os embeds já usam caminho relativo, então funcionam em qualquer
+domínio que o funil tiver, sem precisar voltar aqui depois do Passo 5:
 
-1. **No `quiz-ghl-embed.html`**, dentro do `<script>`, edite:
-   ```
-   var RELATORIO_URL = 'https://SEU-DOMINIO/relatorio-b/';
-   ```
-   (troque `SEU-DOMINIO` pelo domínio do funil no GHL). O `WEBHOOK_URL` do Make já está correto, não mexa.
-2. **No `relatorio-ghl-embed.html`**, edite:
-   ```
-   var AGENDA_BASE = 'https://SEU-DOMINIO/agendamento-b';
-   ```
-3. O `agendamento` é o último passo, não redireciona (só abre o WhatsApp). Confira o número: `phone=5554933002628`.
+- `quiz-ghl-embed.html` → `var RELATORIO_URL = '/relatorio-b';`
+- `relatorio-ghl-embed.html` → `var AGENDA_BASE = '/agendamento-b';`
+
+O que você precisa garantir é só isto: os **paths dos steps no GHL** têm que ser
+exatamente `relatorio-b` e `agendamento-b`. Confira em Funnel → cada step → Path.
+
+O `WEBHOOK_URL` do Make já está correto, não mexa. O agendamento é o último
+passo, não redireciona, só abre o WhatsApp; confira o número `phone=5554933002628`.
 
 > Os parâmetros `?pilar=` e `?nome=` são repassados automaticamente de um step pro outro, então a personalização continua funcionando.
 
@@ -80,7 +79,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 ## Passo 5 — Domínio
 
 - **Funnel → Settings → Domain**: aponte pro domínio/subdomínio que você quer (ex.: `quiz.rafaelgranella.com.br` ou um `diagnostico.rafaelgranella.com.br`).
-- Depois de definir o domínio, volte no Passo 3 e coloque o domínio real nos `RELATORIO_URL` e `AGENDA_BASE`.
+- Não precisa voltar no Passo 3: os links internos são relativos e se ajustam sozinhos ao domínio.
 
 ## Passo 6 — Testar ponta a ponta (antes de trocar o anúncio)
 
