@@ -256,16 +256,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       '<p class="support">Preencha os dados abaixo para receber a análise completa do seu estágio no WhatsApp, com o que precisa mudar para você construir o futuro do seu negócio.</p>'+
       '<div style="margin-top:20px">'+
       field("nome","Nome completo","Digite seu nome completo")+
-      field("empresa","Nome da empresa","Razão social ou nome fantasia")+
-      field("email","E-mail corporativo","seunome@suaempresa.com.br","email")+
+      field("email","E-mail","seunome@suaempresa.com.br","email")+
       field("whatsapp","WhatsApp","(51) 99999-9999")+
       '<div class="hint" style="margin:-8px 0 14px">A sua análise é enviada pelo WhatsApp. Use um número válido.</div>'+
-      field("tel","Telefone comercial (opcional)","(51) 3333-3333")+
+      field("empresa","Nome da empresa","Razão social ou nome fantasia")+
       '<div class="notice">A sua análise é enviada pelo WhatsApp. Responda a mensagem automática que você irá receber para confirmar que é um número válido.</div>'+
       '<button type="button" class="btn btn-primary btn-block" id="u-send" style="margin-top:16px">Receber minha análise</button>'+
       '<p class="privacy">Seus dados são usados apenas para enviar a análise. Não compartilhamos com terceiros.</p>'+
       '<div class="navrow"><button type="button" class="btn btn-ghost" id="u-back">← Voltar</button><span></span></div></div>';
-    ["whatsapp","tel"].forEach(function(id){var el=document.getElementById("u-"+id); el.addEventListener("input",function(){el.value=mask(el.value);});});
+    ["whatsapp"].forEach(function(id){var el=document.getElementById("u-"+id); el.addEventListener("input",function(){el.value=mask(el.value);});});
     document.getElementById("u-back").addEventListener("click",function(){state.idx=Q.length-1;renderQuestion();});
     document.getElementById("u-send").addEventListener("click",submitLead);
   }
@@ -274,7 +273,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   function submitLead(){
     var g=function(id){return (document.getElementById("u-"+id).value||"").trim();};
-    var nome=g("nome"),empresa=g("empresa"),email=g("email"),wa=g("whatsapp").replace(/\D/g,""),tel=g("tel").replace(/\D/g,"");
+    var nome=g("nome"),empresa=g("empresa"),email=g("email"),wa=g("whatsapp").replace(/\D/g,"");
     var errs={}; if(nome.length<3)errs.nome="Informe seu nome completo.";
     if(empresa.length<2)errs.empresa="Informe o nome da empresa.";
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))errs.email="E-mail inválido.";
@@ -285,7 +284,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     dl("diag_lead",merge({aprovacao:ap,balde:b},utm));
     if(ap==="pleno"||ap==="tier2") dl("diag_lead_aprovado",merge({aprovacao:ap,balde:b},utm));
     var btn=document.getElementById("u-send"); btn.textContent="Enviando..."; btn.disabled=true;
-    enviarQualificado({nome:nome,empresa:empresa,email:email,whatsapp:wa,tel:tel},ap,b);
+    enviarQualificado({nome:nome,empresa:empresa,email:email,whatsapp:wa,tel:""},ap,b);
     var target = CONFIG.POS_URL && CONFIG.POS_URL.indexOf("PREENCHER")!==0
       ? CONFIG.POS_URL+(CONFIG.POS_URL.indexOf("?")>-1?"&":"?")+"balde="+b+utmQS()
       : CONFIG.AGENDAMENTO_URL;
