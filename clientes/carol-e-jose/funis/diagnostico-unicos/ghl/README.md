@@ -6,8 +6,9 @@ e identidade (logo + paleta reais do ÚNICOS) já estão embutidas.
 
 ## Arquivos
 - `diagnostico.html` — o diagnóstico (8 perguntas + captura de lead).
-- `pos-diagnostico.html` — a página pós-diagnóstico / agendamento, com o **calendário do
-  GHL já embutido**. Copy 100% do v8 do cliente (sem adições).
+- `pos-diagnostico.html` — a página pós-diagnóstico / agendamento, com a **agenda de
+  compromissos do Google Calendar da Carol embutida** (respeita os horários já ocupados
+  dela). Copy 100% do v8 do cliente (sem adições).
 - `apps-script.gs` — recebe os leads e grava na planilha (qualificado → aba completa,
   desqualificado → contagem).
 
@@ -34,14 +35,14 @@ e identidade (logo + paleta reais do ÚNICOS) já estão embutidas.
    `diagnostico.html` inteiro.
 2. No topo do `<script>`, preencha o bloco **CONFIG**:
    - `LEADS_ENDPOINT` → a URL `.../exec` do Apps Script.
-   - `POS_URL` → a URL pública da página pós-diagnóstico no GHL (item 3). Se deixar em
-     branco, o aprovado vai direto ao calendário do GHL.
-   - `AGENDAMENTO_URL` e `COMUNIDADE_URL` já vêm preenchidos (calendário GHL e grupo
-     do WhatsApp).
+   - `POS_URL` → a URL pública da página pós-diagnóstico (item 3). Se deixar em
+     branco, o aprovado vai direto à agenda da Carol (`AGENDAMENTO_URL`).
+   - `AGENDAMENTO_URL` e `COMUNIDADE_URL` já vêm preenchidos (Google Agenda da Carol e
+     grupo do WhatsApp).
 
 ### 3. Página pós-diagnóstico (GHL)
 1. Crie a página de agendamento. Adicione um **Custom Code / HTML** e cole
-   `pos-diagnostico.html`. O calendário do GHL (`leFMFKegfdvDRIE1b42I`) já está embutido.
+   `pos-diagnostico.html`. A agenda de compromissos do Google Calendar da Carol já está embutida.
 2. Copie a URL pública dessa página e cole em `POS_URL` no diagnóstico.
 
 ## Fluxo
@@ -67,7 +68,7 @@ Anúncio ─▶ diagnostico.html
 - **Desqualificados** continuam indo para o Apps Script (`LEADS_ENDPOINT`).
 
 ## Valores já configurados
-- Calendário GHL: `https://api.leadconnectorhq.com/widget/booking/leFMFKegfdvDRIE1b42I`
+- Agenda da Carol (Google Calendar): `https://calendar.google.com/calendar/appointments/schedules/AcZssZ0zy_l57UqviGoP8HlkBEt4a894iIQafVRxFK3CsjMNQWz8E07MRlg8eNdBu1oG5s8cnv3i6ILD` (embed com `?gv=true`)
 - Comunidade (WhatsApp): `https://chat.whatsapp.com/B6rtIEWe7jcHseToLdfSBE`
 - `LEADS_ENDPOINT` (Apps Script) **já configurado e testado** (retorna `{"ok":true}` e
   grava na aba *Qualificados*).
