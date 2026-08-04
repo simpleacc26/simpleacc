@@ -25,10 +25,13 @@ onde o outro parou (o Git é a memória compartilhada).
 - **Quem é:** jornalista, copywriter, estrategista digital e master coach. Cria movimento,
   causa e posicionamento para especialistas. Mora em SC; trabalha só à tarde/noite
   (Deus e família vêm antes — não trabalha de manhã).
-- **Oferta principal:** mentoria em grupo **MMPV™** (Matriz da Identidade → Movimento →
-  Posicionamento → Vendas), **R$ 7 mil** (era R$ 6 mil), 17 alunos — nome e mecanismo em revisão.
-  O que mais gera caixa hoje é a **consultoria individual de movimento/posicionamento, agora a
-  R$ 15 mil**, que chega por indicação. A estruturar: **individual high ticket de R$ 30 mil**.
+- **Produto principal (decidido em 04/08):** mentoria em grupo **MMPV™**, **R$ 7 mil**, 17 alunos.
+  Nome confirmado; o mecanismo é recontado na linguagem de restauração da identidade.
+  A **consultoria de movimento/posicionamento a R$ 15 mil** é porta lateral, por indicação.
+  **Individual de R$ 30 mil** para a base e ultra qualificados.
+- **Big idea:** "Você não precisa parecer maior. Precisa tornar visível quem realmente é."
+  Ela **restaura a identidade de especialistas e líderes** para que ocupem, com autenticidade,
+  autoridade e influência, o espaço que já lhes pertence.
 - **Público / ICP (decidido em 29/07):** **mentores/especialistas iniciantes** — profissionais
   sérios (psicólogos, coaches certificados, advogados, nutricionistas, médicos) presos no 1-a-1,
   faturando R$ 8–25 mil/mês, invisíveis no digital, que já gastaram em curso e social media sem
@@ -43,8 +46,10 @@ onde o outro parou (o Git é a memória compartilhada).
   [call de vendas 24/07 (Fathom)](https://fathom.video/share/4H2YzLfdyBzjF5BGmc4s2chQEGJurYZ3)
 - **Contato principal:** Luana Isse. Braço direito: **Aline Castro** (social seller / SDR).
 
-> Antes de qualquer entrega, leia **`contexto/2026-07-29-decisoes-do-onboarding.md`** (o que
-> está travado) e `contexto/2026-07-29-briefing-luana-isse.md` (números e restrições). O avatar
+> Antes de qualquer entrega, leia **`contexto/2026-08-04-ajustes-de-posicionamento-e-oferta.md`**
+> (o mais recente, atualiza o produto principal e a big idea),
+> `contexto/2026-07-29-decisoes-do-onboarding.md` e
+> `contexto/2026-07-29-briefing-luana-isse.md` (números e restrições). O avatar
 > completo está em `contexto/2026-07-29-canvas-produto-e-cliente-ideal-completo.md`.
 >
 > **Ela tem muitas ideias e quer executar tudo ao mesmo tempo.** Nosso papel é direcionar:
