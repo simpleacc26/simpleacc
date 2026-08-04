@@ -33,6 +33,7 @@ roadmap de 90 dias, funil de quiz, estruturação comercial e materiais de apoio
 
 ## Observações
 
-- ICP refinado: médico dono de clínica **já estabelecida** (R$150k+), não o iniciante.
+- ICP refinado: médico dono de clínica **já estabelecida**, faturamento-alvo **R$50k a R$100k+**
+  (confirmado pelo cliente no canvas final), não o iniciante sem paciente.
 - Identidade visual validada: **navy + dourado** + CTA verde (ver `contexto/04-analise-pagina-atual.md`).
 - Ler `contexto/` e `aprendizados.md` antes de criar qualquer coisa.
