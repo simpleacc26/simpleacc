@@ -258,14 +258,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       '<div style="margin-top:20px">'+
       field("nome","Nome completo","Digite seu nome completo")+
       field("email","E-mail","seunome@suaempresa.com.br","email")+
-      field("whatsapp","WhatsApp","(51) 99999-9999")+
-      '<div class="hint" style="margin:-8px 0 14px">A sua análise é enviada pelo WhatsApp. Use um número válido.</div>'+
+      field("whatsapp","WhatsApp","51996772655")+
+      '<div class="hint" style="margin:-8px 0 14px">A sua análise é enviada pelo WhatsApp. Digite só números, com DDD (ex.: 51996772655).</div>'+
       field("empresa","Nome da empresa","Razão social ou nome fantasia")+
       '<div class="notice">A sua análise é enviada pelo WhatsApp. Responda a mensagem automática que você irá receber para confirmar que é um número válido.</div>'+
       '<button type="button" class="btn btn-primary btn-block" id="u-send" style="margin-top:16px">Receber minha análise</button>'+
       '<p class="privacy">Seus dados são usados apenas para enviar a análise. Não compartilhamos com terceiros.</p>'+
       '<div class="navrow"><button type="button" class="btn btn-ghost" id="u-back">← Voltar</button><span></span></div></div>';
-    ["whatsapp"].forEach(function(id){var el=document.getElementById("u-"+id); el.addEventListener("input",function(){el.value=mask(el.value);});});
+    // WhatsApp: números corridos (sem máscara), pra cair limpo no GHL (ex.: 51996772655).
+    ["whatsapp"].forEach(function(id){var el=document.getElementById("u-"+id); el.addEventListener("input",function(){el.value=el.value.replace(/\D/g,"").slice(0,11);});});
     document.getElementById("u-back").addEventListener("click",function(){state.idx=Q.length-1;renderQuestion();});
     document.getElementById("u-send").addEventListener("click",submitLead);
   }
