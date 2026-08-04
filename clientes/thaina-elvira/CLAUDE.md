@@ -23,15 +23,17 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
 > Fonte da verdade: `estrategia/2026-07-29-canvas-completado-produto-e-cliente-ideal.md`.
 
 - **Marca:** Thai Elvira (Thaina) · o produto do funil é do **Thiago**
-- **Produto pago (carro-chefe):** **Acompanhamento Mulher que Escolhe**, individual,
-  **1 mês com 4 encontros semanais** (um por etapa do método). **R$ 1.000** à
-  vista ou 12x.
-- **Mecanismo de venda:** **sessão estratégica gratuita de 60 min** (Meet, gravada),
-  com pré-work obrigatório (quiz + formulário). Nela o Thiago preenche o **Mapa do
-  Ciclo** com a lead e entrega mapa em 1 página + gravação em 48h. É onde se vende
-  o acompanhamento. **Não confundir a sessão (isca) com o produto (acompanhamento).**
-- **Restrição conhecida:** entrega individual limita a escala. R$ 30 mil/mês pede
-  ~100 sessões + ~120 encontros por mês. Monitorar a agenda do Thiago.
+- **Produto pago (carro-chefe):** **Sessão Mapa do Ciclo**, individual, 60 min ao
+  vivo no Meet (gravada), com pré-work obrigatório (quiz + formulário) e entrega
+  do Mapa do Ciclo em 1 página + gravação em 48h. **R$ 1.000** à vista ou 12x.
+- ⚠️ **NÃO existe sessão estratégica gratuita neste projeto.** A sessão é o produto.
+  O que é gratuito é o quiz e o diagnóstico automático (padrão nomeado + gatilho
+  dominante). A venda dos R$ 1.000 acontece por conversa no WhatsApp, com link de
+  pagamento. Confirmado pela Thaina em 30/07 (áudio em `contexto/fontes/`).
+- **Descartado:** pacote de 4 encontros individuais a R$ 5 a 8 mil (travava a
+  agenda e o preço não se sustenta no nicho).
+- **Em aberto:** o produto de **continuidade** (o degrau acima da sessão). Requisito:
+  não pode ser entrega individual intensiva.
 - **Promessa:** "Pare de buscar ser escolhida e provar seu valor para um homem e
   se torne a mulher que escolhe, com autonomia e controle da própria vida."
 - **Inimigo:** o **Ciclo da Migalha** (5 elos). **Método:** **Mulher que Escolhe**

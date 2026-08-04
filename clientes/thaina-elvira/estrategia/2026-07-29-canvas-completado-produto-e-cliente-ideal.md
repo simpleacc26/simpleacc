@@ -13,37 +13,51 @@ Thiago. A frente de marketing da Thaina segue em standby.
 
 ---
 
-## A OFERTA EM DOIS TEMPOS (leitura validada)
+## A OFERTA (leitura final, confirmada pela Thaina em 30/07)
 
-O canvas descreve **duas coisas diferentes**, e é importante não confundir:
+> **Correção importante:** houve uma ida e volta na leitura deste canvas. A Thaina
+> fechou a questão no áudio de 30/07: *"Esse produto de mil reais, o ticket, ele é
+> uma sessão."* Ou seja, **os R$ 1.000 são o preço da SESSÃO**, e ela é o produto
+> pago. **Não existe sessão estratégica gratuita neste projeto.**
+> Fonte: `contexto/fontes/2026-07-30-audio-thaina-ajuste-da-oferta.txt`.
 
 | | O que é | Preço |
 | --- | --- | --- |
-| **Sessão estratégica** (60 min) | O **mecanismo de venda** do funil, gratuita. Onde o Thiago entrega diagnóstico e direção, e vende o acompanhamento. | Gratuita |
-| **Acompanhamento Mulher que Escolhe** | O **produto pago**: 1 mês, 4 encontros individuais, um por semana (as 4 etapas do método). | **R$ 1.000** à vista ou 12x |
+| Quiz + diagnóstico automático | A isca do funil. Entrega o padrão nomeado e o gatilho dominante. | Gratuito |
+| **Sessão Mapa do Ciclo** (60 min) | O **produto pago**, carro-chefe do funil. | **R$ 1.000** à vista ou 12x |
+| Continuidade | **A definir** (ver abaixo). É o degrau seguinte, vendido dentro da sessão. | a definir |
 
-### A sessão estratégica (isca do funil)
+### A Sessão Mapa do Ciclo (o produto)
 
 - **Formato:** individual, 60 minutos, ao vivo no Meet, gravada. Slots limitados.
 - **Pré-work obrigatório:** quiz + formulário curto. Sem pré-work, sem sessão (remarca).
 - **Roteiro:** ~15 min de escuta guiada · ~25 min de diagnóstico (preencher o Mapa
   do Ciclo com ela) · ~20 min de direcionamento dos 30 dias.
-- **Entrega de valor:** Mapa do Ciclo em 1 página + gravação, em até 48h.
+- **Entrega:** Mapa do Ciclo em 1 página + gravação, em até 48h.
 - **O que NÃO inclui:** suporte contínuo, acompanhamento entre sessões, terapia,
-  pacote de encontros. É o que separa a sessão do acompanhamento (e o que abre
-  espaço para a oferta no fim dela).
-- **Objetivo comercial:** vender o acompanhamento de 4 encontros.
-
-### O acompanhamento (produto pago, R$ 1.000)
-
-- **Formato:** individual. **Duração:** 1 mês, 4 encontros, um por semana.
-- **Estrutura provável (o Thiago ainda vai validar):** um encontro por etapa do
-  método **Mulher que Escolhe**:
-  1. **Regulação** (atravessar a ansiedade sem buscar alívio nele)
-  2. **Reconstrução** (autoestima e suficiência)
-  3. **Clareza** (o relacionamento que ela quer, postura e consciência)
-  4. **Escolha** (critérios, limites, seleção consciente, feminilidade aplicada)
+  pacote de encontros. É o que separa a sessão da continuidade.
 - **Preço:** R$ 1.000, à vista ou em até 12x no cartão.
+
+### O que foi DESCARTADO (e por quê)
+
+O pacote de **4 encontros individuais com ticket alto (R$ 5 a 8 mil)** foi
+considerado e descartado pela Thaina, por dois motivos:
+
+1. **Travaria a agenda** do Thiago (entrega individual intensiva não escala).
+2. **Preço difícil de sustentar:** *"quem que vai pagar cinco, oito mil reais só
+   para resolver uma questão de relacionamento?"*, mesmo falando com público AB.
+
+Ela reconhece que havia um gap de mercado ali (não há high ticket público no
+nicho), mas avaliou que o custo operacional e a barreira de preço não compensam
+neste momento.
+
+### A continuidade (decisão em aberto)
+
+Como os 4 encontros individuais caíram, o degrau acima da sessão está em aberto.
+A Thaina se refere à sessão como "o downsell", o que confirma que ela espera um
+produto principal acima. Requisito: **não pode ser entrega individual intensiva**.
+Opções levadas ao roadmap: turma mensal em grupo, formato híbrido (1 individual +
+3 em grupo) ou sessões avulsas de retorno.
 
 ---
 

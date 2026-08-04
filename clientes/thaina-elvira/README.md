@@ -27,16 +27,17 @@ playbooks. Contrato fechado após a sessão estratégica de 02/07/2026.
 | ------------------ | ---------- | ------------ | ------ |
 | Funil de quiz (v1) | `funis/`   | a iniciar    | —      |
 
-## Oferta do funil (definida em 29/07/2026)
+## Oferta do funil (atualizada em 04/08/2026)
 
-- **Produto pago:** **Acompanhamento Mulher que Escolhe** (do Thiago), individual,
-  1 mês com 4 encontros semanais. **R$ 1.000** à vista ou em 12x.
-- **Mecanismo de venda:** sessão estratégica gratuita de 60 min, com pré-work
-  obrigatório (quiz) e entrega do Mapa do Ciclo em 1 página + gravação.
+- **Produto pago:** **Sessão Mapa do Ciclo** (do Thiago), individual, 60 min ao vivo
+  e gravada, com pré-work obrigatório e entrega do mapa em 1 página. **R$ 1.000**
+  à vista ou em 12x.
+- ⚠️ **Não existe sessão gratuita.** O gratuito é o quiz e o diagnóstico automático.
+  A venda acontece por conversa no WhatsApp.
+- **Continuidade:** em aberto (o degrau acima da sessão). Não pode travar a agenda.
 - **Público:** mulher de 30 a 55 anos, separada, independente, com a vida amorosa
   travada.
 
-Fonte da verdade: `estrategia/2026-07-29-canvas-completado-produto-e-cliente-ideal.md`.
 
 ## Escopo contratado (mentoria anual)
 
