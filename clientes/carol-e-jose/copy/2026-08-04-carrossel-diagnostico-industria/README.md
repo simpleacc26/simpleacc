@@ -33,11 +33,15 @@ depois da dor, nunca antes.
 
 | # | Fundo | Papel | Tag |
 | - | ----- | ----- | --- |
-| 1 | Claro `#faf8f4` | Reconhecimento, com o lockup da marca | INDÚSTRIA · ACIMA DE R$5 MILHÕES |
-| 2 | Navy `#16314f` | Diagnóstico, sem culpar o time | O QUE ACONTECE NA PRÁTICA |
+| 1 | Claro `#faf8f4` | Reconhecimento, texto centralizado | INDÚSTRIA · ACIMA DE R$5 MILHÕES |
+| 2 | Navy `#16314f` | Diagnóstico, sem culpar o time, texto centralizado | O QUE ACONTECE NA PRÁTICA |
 | 3 | Gradiente navy | Frase-âncora sozinha, em serifada itálica | O DIAGNÓSTICO |
 | 4 | Foto + overlay navy | Normalização e custo, com a Carol | O CUSTO DE MANTER |
-| 5 | Gradiente navy | Oferta, botão Saiba mais, sem seta | — |
+| 5 | Gradiente navy | Oferta, com o lockup da marca, sem seta | sem tag |
+
+A marca aparece só no card 5. O card 5 não traz botão de CTA desenhado, porque
+quem cumpre esse papel é o botão nativo "Saiba mais" do anúncio, que é exatamente
+o que a copy manda clicar.
 
 ## Identidade
 

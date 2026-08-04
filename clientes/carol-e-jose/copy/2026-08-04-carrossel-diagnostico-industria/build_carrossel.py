@@ -120,8 +120,7 @@ s1 = slide(
     '<div style="position:absolute;top:-40px;right:-70px;opacity:.05;z-index:0;">'
     + STAR.format(w=300, mt=0, cor=GOLD)
     + "</div>"
-    '<div style="position:absolute;top:32px;left:36px;z-index:2;">' + logo(False) + "</div>"
-    '<div style="position:relative;z-index:2;padding:0 36px 52px;">'
+    '<div style="position:relative;z-index:2;padding:0 36px 20px;">'
     + tag("INDÚSTRIA · ACIMA DE R$5 MILHÕES", GOLD)
     + f'<p class="serif" style="font-size:20px;font-weight:600;color:{GOLD};line-height:1.25;'
     'margin-bottom:14px;letter-spacing:-.2px;">Sua indústria já passa dos R$5 milhões.</p>'
@@ -130,13 +129,14 @@ s1 = slide(
     "que deveriam.</p>"
     "</div>",
     claro=True,
+    centro=True,
 )
 
 # 2 — Diagnóstico. Nomeia a causa sem culpar o time nem o dono.
 s2 = slide(
     1,
     NAVY,
-    '<div style="position:relative;z-index:2;padding:0 36px 52px;">'
+    '<div style="position:relative;z-index:2;padding:0 36px 20px;">'
     + tag("O QUE ACONTECE NA PRÁTICA", GOLD_LIGHT)
     + '<p class="serif" style="font-size:29px;font-weight:700;color:#fff;line-height:1.18;'
     'letter-spacing:-.4px;margin-bottom:18px;">Não é que o time não saiba o que fazer. '
@@ -146,6 +146,7 @@ s2 = slide(
     'line-height:1.5;">As pessoas só aprenderam que nada anda sem o seu aval.</p>'
     "</div>",
     claro=False,
+    centro=True,
 )
 
 # 3 — A verdade que ninguém conta. Frase-âncora, sozinha, sem concorrência visual.
@@ -202,14 +203,8 @@ s5 = slide(
     'line-height:1.55;margin-bottom:12px;">Clique em Saiba mais e responda o Diagnóstico de '
     "Maturidade do Negócio:</p>"
     + '<p class="serif" style="font-size:25px;font-weight:700;color:#fff;line-height:1.22;'
-    'letter-spacing:-.3px;margin-bottom:24px;">descubra o que falta para você construir o '
+    'letter-spacing:-.3px;margin-bottom:34px;">descubra o que falta para você construir o '
     "futuro do seu negócio.</p>"
-    + '<div style="display:inline-flex;align-items:center;gap:8px;padding:13px 30px;'
-    f'background:{LIGHT_BG};color:{NAVY};border-radius:28px;margin-bottom:26px;">'
-    '<span class="sans" style="font-weight:600;font-size:14px;">Saiba mais</span>'
-    '<svg width="15" height="15" viewBox="0 0 24 24" fill="none">'
-    f'<path d="M5 12h13M13 6l6 6-6 6" stroke="{NAVY}" stroke-width="2.5" '
-    'stroke-linecap="round" stroke-linejoin="round"/></svg></div>'
     + '<div style="display:flex;justify-content:center;">' + logo(True) + "</div>"
     "</div>",
     claro=False,
