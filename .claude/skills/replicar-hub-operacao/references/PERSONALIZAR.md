@@ -8,7 +8,7 @@ operação existente).
 
 ## 1. Placeholders
 
-Todo arquivo de `base/` usa `{{CHAVE}}`. O `scripts/criar-hub.sh` troca todos de
+Todo arquivo de `assets/base/` usa `{{CHAVE}}`. O `assets/scripts/criar-hub.sh` troca todos de
 uma vez. Se preferir fazer à mão, esta é a lista completa:
 
 | Placeholder | O que é | Exemplo |
@@ -74,7 +74,7 @@ negócio ou de outro.
 | Regras de estilo da casa | Mantenha | Redefina |
 | Clientes | **Não copie.** Cada operação tem os seus | **Não copie** |
 
-Para copiar: `scripts/copiar-inteligencia.sh` (roda em simulação por padrão).
+Para copiar: `assets/scripts/copiar-inteligencia.sh` (roda em simulação por padrão).
 
 ---
 

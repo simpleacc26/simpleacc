@@ -125,7 +125,7 @@ clientes de uma vez.
 ## 7. O que trazer da operação atual
 
 Se a operação nova é do mesmo negócio, a inteligência já validada vale ouro.
-Use `scripts/copiar-inteligencia.sh` para copiar `prompts/`, `.claude/commands/`
+Use `assets/scripts/copiar-inteligencia.sh` para copiar `prompts/`, `.claude/commands/`
 e `.claude/skills/` do hub existente para o novo.
 
 **Depois de copiar, revise item por item:**

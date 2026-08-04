@@ -3,12 +3,12 @@
 # criar-hub.sh — gera a estrutura de um hub novo a partir de base/
 #
 # Uso:
-#   ./scripts/criar-hub.sh                      (modo interativo, pergunta tudo)
-#   DESTINO=../novo-hub EMPRESA="Nova Op" ... ./scripts/criar-hub.sh
+#   assets/scripts/criar-hub.sh                      (modo interativo, pergunta tudo)
+#   DESTINO=../novo-hub EMPRESA="Nova Op" ... assets/scripts/criar-hub.sh
 #
 # O script copia base/ para o destino e troca os {{PLACEHOLDERS}} pelos valores
 # da operação. Não cria contas nem repositórios: isso é manual, veja
-# docs/01-contas-e-acessos.md e docs/02-github.md.
+# references/01-contas-e-acessos.md e references/02-github.md.
 
 set -euo pipefail
 
@@ -85,6 +85,12 @@ if [ -n "$(ls -A "$DESTINO" 2>/dev/null | grep -v '^\.git$' || true)" ]; then
 fi
 
 cp -R "$BASE_DIR/." "$DESTINO/"
+
+# arquivos que viajam sem ponto no pacote (para sobreviver a zip/upload)
+for par in "dot-gitignore:.gitignore" "dot-github:.github" "dot-claude:.claude"; do
+  origem="${par%%:*}"; destino="${par##*:}"
+  [ -e "$DESTINO/$origem" ] && mv "$DESTINO/$origem" "$DESTINO/$destino"
+done
 echo "✓ estrutura base copiada"
 
 # --------------------------------------------------------------- substituir --
@@ -142,7 +148,7 @@ cat <<EOF
 Próximos passos:
 
   1. Criar a organização e o repositório no GitHub
-     → docs/02-github.md
+     → references/02-github.md
 
   2. Subir a estrutura:
        cd "$DESTINO"
@@ -153,16 +159,16 @@ Próximos passos:
        git push -u origin main
 
   3. Proteger a main, ligar secret scanning e instalar o app do Claude
-     → docs/02-github.md, seções 5 a 7
+     → references/02-github.md, seções 5 a 7
 
   4. Criar o ambiente no Claude Code apontando para o repositório
-     → docs/03-claude-code.md
+     → references/03-claude-code.md
 
   5. Criar o time na Vercel e o Drive Compartilhado
-     → docs/04-vercel.md e docs/05-google-workspace.md
+     → references/04-vercel.md e references/05-google-workspace.md
 
   6. Trazer os prompts e skills da operação existente (opcional):
-       ./scripts/copiar-inteligencia.sh <hub-existente> "$DESTINO"
+       assets/scripts/copiar-inteligencia.sh <hub-existente> "$DESTINO"
 
   7. Preencher as tabelas de comandos/skills em prompts/README.md
      e docs/COMO-USAR.md

@@ -4,12 +4,12 @@
 #                          para um hub novo.
 #
 # Uso:
-#   ./scripts/copiar-inteligencia.sh <hub-origem> <hub-destino> [--aplicar]
+#   assets/scripts/copiar-inteligencia.sh <hub-origem> <hub-destino> [--aplicar]
 #
 # Sem --aplicar, só mostra o que seria copiado (simulação).
 #
 # Só faz sentido quando a operação nova é do MESMO negócio. Se o nicho é outro,
-# copie apenas a estrutura e reescreva o conteúdo — ver docs/09-prompts-e-skills.md.
+# copie apenas a estrutura e reescreva o conteúdo — ver references/09-prompts-e-skills.md.
 
 set -euo pipefail
 
@@ -68,7 +68,7 @@ if [ -d "$CONTA" ]; then
     for s in $soltas; do echo "    $s"; done
     echo
     echo "Se alguma delas for processo da operação, traga para o repositório de"
-    echo "origem antes de replicar. Ver docs/09-prompts-e-skills.md, seção 4."
+    echo "origem antes de replicar. Ver references/09-prompts-e-skills.md, seção 4."
     echo
   fi
 fi

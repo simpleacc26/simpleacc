@@ -42,7 +42,7 @@ crescer a ponto de precisar de CI/CD próprio ou acesso restrito (seção 12 do
 Use o script do kit (recomendado):
 
 ```bash
-./scripts/criar-hub.sh
+assets/scripts/criar-hub.sh
 ```
 
 Ou manualmente:
@@ -50,7 +50,9 @@ Ou manualmente:
 ```bash
 git clone https://github.com/{{ORG_GITHUB}}/{{REPO}}.git
 cd {{REPO}}
-cp -r <kit>/base/. .
+cp -r <kit>/assets/base/. .
+# renomear os arquivos que viajam sem ponto no pacote:
+mv dot-gitignore .gitignore && mv dot-github .github && mv dot-claude .claude
 # trocar os {{PLACEHOLDERS}} — ver PERSONALIZAR.md
 git add -A
 git commit -m "Estrutura inicial do hub"

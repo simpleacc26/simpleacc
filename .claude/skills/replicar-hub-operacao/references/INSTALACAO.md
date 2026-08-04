@@ -32,7 +32,7 @@ Anote. O script vai pedir exatamente isso.
 - [ ] Criar o e-mail do admin e um e-mail por pessoa do time
 - [ ] Criar o **gerenciador de senhas** (1Password, Bitwarden) e colocar tudo lá
 
-📖 `docs/01-contas-e-acessos.md`
+📖 `01-contas-e-acessos.md`
 
 > Enquanto o DNS propaga, siga para o Bloco 2. Não fica travado.
 
@@ -47,7 +47,7 @@ Anote. O script vai pedir exatamente isso.
 - [ ] Convidar as pessoas pelo e-mail do domínio
 - [ ] Ligar **secret scanning** e **push protection**
 
-📖 `docs/02-github.md`
+📖 `02-github.md`
 
 ---
 
@@ -55,7 +55,7 @@ Anote. O script vai pedir exatamente isso.
 
 ```bash
 # a partir da pasta do kit
-./scripts/criar-hub.sh
+assets/scripts/criar-hub.sh
 ```
 
 O script pergunta os valores do quadro acima, copia `base/` para o destino e
@@ -89,7 +89,7 @@ Só depois que a `main` existe:
 ⚠️ Em repositório **privado**, proteção de branch exige **GitHub Team** (pago).
 No Free, a disciplina de branch + PR é acordo do time, não trava técnica.
 
-📖 `docs/02-github.md`, seção 5
+📖 `02-github.md`, seção 5
 
 ---
 
@@ -101,7 +101,7 @@ No Free, a disciplina de branch + PR é acordo do time, não trava técnica.
 - [ ] Ajustar a política de rede (precisa alcançar a Vercel e o registro de pacotes)
 - [ ] Testar: abrir sessão, pedir uma alteração pequena, conferir que o PR abre
 
-📖 `docs/03-claude-code.md`
+📖 `03-claude-code.md`
 
 ---
 
@@ -113,7 +113,7 @@ No Free, a disciplina de branch + PR é acordo do time, não trava técnica.
 - [ ] Anotar o **TEAM_ID** (`team_...`) no gerenciador de senhas
 - [ ] Conferir o estado do **Deployment Protection** (a armadilha do 401)
 
-📖 `docs/04-vercel.md`
+📖 `04-vercel.md`
 
 ---
 
@@ -125,7 +125,7 @@ No Free, a disciplina de branch + PR é acordo do time, não trava técnica.
 - [ ] Dar acesso ao time
 - [ ] Conectar o conector do **Google Drive** com a conta da operação
 
-📖 `docs/05-google-workspace.md`
+📖 `05-google-workspace.md`
 
 ---
 
@@ -136,7 +136,7 @@ No Free, a disciplina de branch + PR é acordo do time, não trava técnica.
 - [ ] Figma, Canva (opcionais)
 - [ ] Conectar no nível da **organização**, não da conta pessoal
 
-📖 `docs/06-conectores.md`
+📖 `06-conectores.md`
 
 ---
 
@@ -146,9 +146,9 @@ Se a operação nova é do **mesmo negócio**:
 
 ```bash
 # simulação primeiro
-./scripts/copiar-inteligencia.sh <hub-existente> <hub-novo>
+assets/scripts/copiar-inteligencia.sh <hub-existente> <hub-novo>
 # depois de conferir a lista
-./scripts/copiar-inteligencia.sh <hub-existente> <hub-novo> --aplicar
+assets/scripts/copiar-inteligencia.sh <hub-existente> <hub-novo> --aplicar
 ```
 
 - [ ] Revisar item por item (nomes, contas, caminhos, assets, exemplos)
@@ -161,7 +161,7 @@ e `_modelo/skill/`) e escreva o conteúdo do zero.
 **só na conta pessoal** de alguém. O script avisa quando detecta. Traga para o
 repositório de origem antes de replicar.
 
-📖 `docs/09-prompts-e-skills.md`
+📖 `09-prompts-e-skills.md`
 
 ---
 
@@ -176,7 +176,7 @@ Faça o primeiro cliente **junto com o time**, para o processo entrar no corpo:
 - [ ] Registrar o aprendizado em `aprendizados.md`
 - [ ] Abrir o PR, revisar junto, mergear
 
-📖 `docs/08-operacao-diaria.md`
+📖 `08-operacao-diaria.md`
 
 ---
 
@@ -187,7 +187,7 @@ Faça o primeiro cliente **junto com o time**, para o processo entrar no corpo:
 - [ ] Tour guiado
 - [ ] Primeira tarefa real, com o PR revisado junto
 
-📖 `docs/07-time-e-onboarding.md`
+📖 `07-time-e-onboarding.md`
 
 ---
 
