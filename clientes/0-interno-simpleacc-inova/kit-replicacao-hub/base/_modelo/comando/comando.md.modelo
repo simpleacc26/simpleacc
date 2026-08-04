@@ -1,0 +1,20 @@
+<!--
+MODELO DE COMANDO — copie para .claude/commands/<nome>.md e preencha.
+O nome do arquivo vira o comando: prompt-mestre.md → /prompt-mestre
+Apague este comentário depois.
+-->
+---
+description: <uma linha: o que o comando faz. aparece na lista de comandos>
+---
+
+Leia o arquivo `prompts/<nome>.md` deste repositório e adote-o integralmente
+como sua instrução-mestra a partir de agora. Siga-o à risca, sem pular etapas:
+comece pela **ETAPA 1**, e só avance conforme as regras do próprio prompt.
+
+Contexto adicional do operador (cliente, objetivo, observações), se houver: $ARGUMENTS
+
+Antes de começar, se você já estiver dentro da pasta de um cliente
+(`clientes/<cliente>/`), leia o `CLAUDE.md` e a pasta `contexto/` desse cliente
+para já chegar nas perguntas com o que a {{EMPRESA}} sabe sobre ele — e salve os
+entregáveis dentro da subpasta certa (`funis/`, `copy/`, `roteiros/`,
+`estrategia/`).

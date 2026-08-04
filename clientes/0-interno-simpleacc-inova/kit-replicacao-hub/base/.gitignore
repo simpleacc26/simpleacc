@@ -1,0 +1,19 @@
+# Dependências (qualquer projeto dentro do monorepo)
+**/node_modules/
+
+# Builds
+**/dist/
+**/build/
+**/.vercel/
+**/.next/
+
+# Ambiente / segredos — NUNCA commitar
+**/.env
+**/.env.local
+**/.env.*.local
+
+# Logs e caches
+**/*.log
+**/.cache/
+**/.DS_Store
+**/Thumbs.db

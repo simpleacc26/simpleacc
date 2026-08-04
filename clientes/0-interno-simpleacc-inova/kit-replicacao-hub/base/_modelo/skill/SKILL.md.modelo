@@ -1,0 +1,58 @@
+<!--
+MODELO DE SKILL — copie a pasta _modelo/skill/ para .claude/skills/<nome>/ e
+renomeie este arquivo para SKILL.md. Apague este comentário depois.
+-->
+---
+name: <nome-da-skill-igual-ao-nome-da-pasta>
+description: >-
+  <O que a skill faz, em 2 a 4 linhas, terminando com as frases que as pessoas
+  usam para pedir isso. É por esta descrição que a IA decide acionar sozinha.
+  Ex.: "Use sempre que alguém pedir para 'montar o funil', 'criar o quiz',
+  'subir a página do cliente'." Diga também o que a skill deve perguntar em vez
+  de inventar.>
+---
+
+# <Nome da Skill> — <o que ela entrega>
+
+## O que esta skill faz
+<Resumo em 3 a 5 linhas: entrada → saída.>
+
+Entregáveis:
+1. <entregável 1>
+2. <entregável 2>
+
+## Regra de ouro: pergunte o que falta, não invente
+Antes de construir, levante o que o cliente precisa fornecer. Se faltar algo
+crítico, **pergunte ao usuário**. O essencial:
+- <insumo obrigatório 1>
+- <insumo obrigatório 2>
+
+## Fluxo (siga na ordem)
+
+```
+1. INTAKE   → levantar insumos (perguntar o que faltar)
+2. <ETAPA>  → <o que fazer>
+3. <ETAPA>  → <o que fazer>
+4. ENTREGA  → salvar na pasta do cliente + link + confirmação
+```
+
+### Passo 1 — Intake
+<O que coletar. Se for longo, mova para `references/intake.md` e referencie.>
+
+### Passo 2 — <Etapa>
+<Instruções. Arquivos-modelo ficam em `assets/` e são copiados, não recriados.>
+
+### Passo 3 — Entrega
+1. Salve o entregável em `clientes/<cliente>/<subpasta>/`.
+2. Registre em `clientes/<cliente>/aprendizados.md`: data + o que foi feito +
+   decisões relevantes.
+3. Branch `cliente/<cliente>/<assunto>` + commit + PR.
+
+## Regras de qualidade
+- [ ] <regra de estilo da casa>
+- [ ] Nada inventado; o que faltava foi perguntado
+- [ ] Entregável versionado no repositório, não só no chat
+
+## Arquivos desta skill
+- `references/<arquivo>.md` — <para quê> (leia só quando precisar)
+- `assets/<arquivo>` — <modelo a copiar>
