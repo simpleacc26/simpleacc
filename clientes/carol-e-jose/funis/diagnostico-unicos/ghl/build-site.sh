@@ -39,6 +39,9 @@ DOCS="$DIR/../docs"
 [ -f "$DOCS/proposta-v3-pronta.html" ]   && cp "$DOCS/proposta-v3-pronta.html"   "$OUT/proposta.html"
 [ -f "$DOCS/quiz-v3-detalhado.html" ]    && cp "$DOCS/quiz-v3-detalhado.html"    "$OUT/quiz.html"
 
+# Documento do diagnóstico (Estágio 2) enviado no 1º contato do WhatsApp (GHL).
+[ -f "$DOCS/diagnostico-estagio-2.pdf" ] && cp "$DOCS/diagnostico-estagio-2.pdf" "$OUT/diagnostico-estagio-2.pdf"
+
 cat > "$OUT/vercel.json" <<'JSON'
 { "cleanUrls": true, "trailingSlash": false }
 JSON
