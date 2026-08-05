@@ -22,6 +22,7 @@ clientes/
 | Eliana Franz               | `eliana-franz/`                | ativo  |
 | Gustavo Ono                | `gustavo-ono/`                 | ativo  |
 | Juliana Godinho            | `juliana-godinho/`             | ativo  |
+| Kainã Barreto              | `kaina-barreto/`               | ativo  |
 | Rafael Granella            | `rafael-granella/`             | ativo  |
 | Rômulo Heleno              | `romulo-heleno/`               | ativo  |
 | Sense Clinic               | `sense-clinic/`                | ativo  |
