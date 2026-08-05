@@ -37,7 +37,7 @@ metodologia** (funil e comercial) + acompanhamento por 1 ano.
 | Canvas do Cliente Ideal | ✅ resolvido na call (3 nichos + formato) |
 | Call de onboarding | ✅ 05/08/26 |
 | **Roadmap Estratégico 90 dias** | ✅ **v1.0 pronto** (prazo era 10/08) |
-| Guia de captação de depoimentos | ⬜ a enviar |
+| **Guia de captação de depoimentos** | ✅ **v1.0 pronto** |
 | Link do Drive para ele subir materiais | ⬜ a enviar |
 | Área de membros (novo bloco: formação interna + workshops) | ⬜ a subir |
 | Materiais extras (Notion do funil + mapas mentais) | ⬜ a enviar |

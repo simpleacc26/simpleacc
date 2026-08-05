@@ -63,6 +63,7 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
 | Arquivo | O que é |
 | --- | --- |
 | `estrategia/2026-08-05-roadmap-estrategico-filipe-chagas.html` + `.pdf` | **Roadmap 90 dias v1.0** (fonte editável + entregável) |
+| `estrategia/2026-08-05-guia-captacao-depoimentos-filipe-chagas.html` + `.pdf` | **Guia de captação de depoimentos v1.0** (referenciado no Passo 15 do roadmap) |
 | `contexto/2026-08-05-notas-onboarding.md` | Números, nichos, objeções reais, situação da gráfica, leitura do Instagram |
 | `contexto/2026-08-03-canvas-produto-e-cliente-ideal.md` | Canvas preenchido pelo cliente |
 | `contexto/2026-08-05-briefing-negocio.md` | Briefing de 1 página (pré-call) |
