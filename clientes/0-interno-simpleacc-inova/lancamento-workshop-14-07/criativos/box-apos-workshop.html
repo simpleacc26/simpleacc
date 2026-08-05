@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{
+    --navy:#15263C; --navy-2:#1E344F; --blue:#2E5A99; --blue-lt:#5E82B6;
+    --steel:#8A9AAE; --line-d:#283A53;
+    --f:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#0d1826}
+  /* Box lateral do checkout "Apos o Workshop voce tera". 900x1440, marca Simple */
+  .box{
+    position:relative;width:900px;height:1440px;overflow:hidden;
+    font-family:var(--f);color:#fff;
+    background:linear-gradient(160deg,#1B2E47 0%,#15263C 60%,#101d2f 100%);
+    padding:84px 54px;display:flex;flex-direction:column;
+  }
+  .box::after{
+    content:"";position:absolute;inset:0;left:52%;top:-6%;
+    background-image:linear-gradient(rgba(94,130,182,.12) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(94,130,182,.12) 1px,transparent 1px);
+    background-size:40px 40px;
+    -webkit-mask-image:linear-gradient(120deg,transparent,#000 70%);
+            mask-image:linear-gradient(120deg,transparent,#000 70%);
+  }
+  .brandrow{display:flex;align-items:center;gap:16px;z-index:2}
+  .wm{font-weight:300;letter-spacing:.32em;font-size:28px;padding-left:.32em}
+  .vsep{width:1px;height:26px;background:var(--line-d)}
+  .kicker{font-size:15px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue-lt);font-weight:600}
+  h2{z-index:2;margin-top:40px;font-weight:600;letter-spacing:-.01em;font-size:68px;line-height:1.03}
+  h2 b{color:var(--blue-lt);font-weight:600}
+  ul{list-style:none;margin-top:56px;z-index:2;display:flex;flex-direction:column;gap:0}
+  li{display:flex;align-items:flex-start;gap:26px;padding:30px 0;border-bottom:1px solid var(--line-d);
+    font-size:40px;line-height:1.4;color:#e4ebf3;font-weight:400}
+  li:last-child{border-bottom:none}
+  li .ck{flex:0 0 auto;width:56px;height:56px;border-radius:50%;background:rgba(46,90,153,.22);
+    border:1px solid var(--blue);display:flex;align-items:center;justify-content:center;margin-top:4px}
+  li .ck svg{width:30px;height:30px;stroke:var(--blue-lt);stroke-width:3;fill:none}
+  li b{color:#fff;font-weight:600}
+</style>
+</head>
+<body>
+  <div class="box">
+    <div class="brandrow">
+      <span class="wm">SIMPLE</span>
+      <span class="vsep"></span>
+      <span class="kicker">Workshop · Funil de Lead Dinâmico</span>
+    </div>
+
+    <h2>Após o Workshop <b>você vai sair com:</b></h2>
+
+    <ul>
+      <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Clareza</b> do Funil de Lead Dinâmico montado na cabeça.</span></li>
+      <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Como fazer o <b>lead se qualificar</b> sozinho antes da call.</span></li>
+      <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>O <b>quiz-diagnóstico</b> que roteia cada perfil.</span></li>
+      <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>A estrutura de <b>tráfego pro público frio</b>, com CAC menor.</span></li>
+      <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>O caminho <b>da aplicação à call</b>, com o filtro&nbsp;<span style="white-space:nowrap">🟢🟡🔴</span>.</span></li>
+      <li><span class="ck"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>O <b>checklist pra modelar</b> no seu negócio.</span></li>
+    </ul>
+  </div>
+</body>
+</html>

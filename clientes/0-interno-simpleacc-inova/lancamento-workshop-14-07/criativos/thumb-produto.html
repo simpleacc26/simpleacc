@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<style>
+  :root{
+    --navy:#15263C; --navy-2:#1E344F; --blue:#2E5A99; --blue-lt:#5E82B6;
+    --steel:#8A9AAE; --line-d:#2A3B54;
+    --f:-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#0d1826}
+  /* Thumbnail do produto no checkout. 800x800 (quadrado), marca Simple */
+  .thumb{
+    position:relative;width:800px;height:800px;overflow:hidden;
+    font-family:var(--f);color:#fff;
+    background:linear-gradient(140deg,#1E344F 0%,#15263C 58%,#101d2f 100%);
+  }
+  .thumb::after{
+    content:"";position:absolute;inset:0;top:40%;
+    background-image:linear-gradient(rgba(94,130,182,.16) 1px,transparent 1px),
+                     linear-gradient(90deg,rgba(94,130,182,.16) 1px,transparent 1px);
+    background-size:50px 50px;
+    -webkit-mask-image:linear-gradient(180deg,transparent,#000 62%);
+            mask-image:linear-gradient(180deg,transparent,#000 62%);
+  }
+  .pad{position:absolute;inset:0;padding:66px 64px 108px;display:flex;flex-direction:column;z-index:2}
+  .brandrow{display:flex;align-items:center;gap:22px}
+  .wm{font-weight:300;letter-spacing:.32em;font-size:46px;padding-left:.32em}
+  .vsep{width:1px;height:38px;background:var(--line-d)}
+  .kicker{font-size:23px;letter-spacing:.24em;text-transform:uppercase;color:var(--blue-lt);font-weight:600}
+  .edicao{align-self:flex-start;margin-top:44px;font-size:24px;letter-spacing:.16em;text-transform:uppercase;
+    font-weight:600;color:#fff;background:var(--blue);padding:14px 32px;border-radius:999px}
+  .title{margin-top:auto}
+  .title h1{font-weight:600;letter-spacing:-.02em;line-height:1.0;font-size:98px}
+  .title h1 b{color:var(--blue-lt);font-weight:600}
+  .meta{display:flex;gap:34px;margin-top:36px}
+  .meta span{font-size:24px;letter-spacing:.1em;text-transform:uppercase;color:var(--steel);font-weight:500;display:flex;align-items:center;gap:14px}
+  .meta span::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--blue-lt)}
+</style>
+</head>
+<body>
+  <div class="thumb">
+    <div class="pad">
+      <div class="brandrow">
+        <span class="wm">SIMPLE</span>
+        <span class="vsep"></span>
+        <span class="kicker">Workshop</span>
+      </div>
+      <span class="edicao">Ingresso</span>
+      <div class="title">
+        <h1>Funil de <b>Lead Dinâmico</b></h1>
+        <div class="meta">
+          <span>28 de Julho</span>
+          <span>14h às 17h</span>
+          <span>Ao vivo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

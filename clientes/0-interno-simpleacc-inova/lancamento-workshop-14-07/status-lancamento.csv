@@ -1,0 +1,40 @@
+Prioridade,Bloco,Tarefa,Status,Responsavel,Observacao
+P0 - Trava venda,Automacao compra,Webhook Kiwify -> Make (compra aprovada),FEITO,CEO/Carlos,Hook LP [L01] - Compra ja no ar
+P0 - Trava venda,Automacao compra,Compra -> CRM GHL (upsert contato + tag comprou ingresso + oportunidade),FEITO E TESTADO,Claude,Cenario 5582298 - 4 modulos verdes no teste
+P0 - Trava venda,Automacao compra,Ativar o cenario (toggle Immediately as data arrives),PENDENTE,Carlos,So ligar o toggle - teste ja passou
+P0 - Trava venda,Automacao compra,Conferir nome/telefone do contato no GHL (upsert),VERIFICAR,Carlos/Claude,Se vier vazio me manda print do output do Webhook
+P0 - Trava venda,Checkout Kiwify,Produto Ingresso R$29,90 (Pix + cartao),FEITO,Carlos,
+P0 - Trava venda,Checkout Kiwify,Order bump Apostila (Workbook),FEITO,Carlos,Alinhar preco R$37 x R$39,90 com Daniel
+P0 - Trava venda,Checkout Kiwify,Order bump Gravacao R$197,FEITO,Carlos,
+P0 - Trava venda,Checkout Kiwify,Banner do topo do checkout (marca Simple),FEITO,Claude,criativos/banner-checkout.png
+P0 - Trava venda,Checkout Kiwify,Copy do checkout (Apos o Workshop + Garantia),RASCUNHO,Daniel,Aprovar copy final
+P0 - Trava venda,Checkout Kiwify,Remover box telefone (11) e prova social do Luiz,PENDENTE,Carlos,
+P0 - Trava venda,Area de membros,Workshop -> colocar link do grupo,PENDENTE,Carlos,
+P0 - Trava venda,Area de membros,Apostila -> PDF + imagem da aula,FEITO,Carlos/Claude,
+P0 - Trava venda,Area de membros,Gravacao -> liberar 1 dia apos (15/07),PENDENTE,Carlos,
+P1 - Trava comparecimento,Boas-vindas WhatsApp,Template de boas-vindas submetido ao Meta,AGUARDANDO META,Daniel/Carlos,Em analise
+P1 - Trava comparecimento,Boas-vindas WhatsApp,Workflow GHL (tag comprou ingresso -> Send WhatsApp),PENDENTE,Carlos,Fazer apos aprovar template - ver ghl-boas-vindas-whatsapp.md
+P1 - Trava comparecimento,Grupo,Criar grupo WhatsApp novo + link,FEITO,Carlos,
+P1 - Trava comparecimento,Grupo,Descricao fixa do grupo,RASCUNHO,Daniel,Texto pronto - aplicar no grupo
+P1 - Trava comparecimento,Regua grupo,Sequencia de copys do grupo (D-7 a D+7),RASCUNHO,Daniel,sequencia-copys-grupo.md - aprovar copy
+P1 - Trava comparecimento,Regua grupo,Agendar a regua do grupo (ferramenta de disparo),PENDENTE,Carlos,
+P1 - Trava comparecimento,URA/SMS,SMS + URA do dia 14 (tag comprou ingresso),RASCUNHO,Carlos,Copy pronta - agendar
+P1 - Trava comparecimento,Base ~2k,Disparo para a base dias 07 e 08 (WhatsApp API + e-mail),RASCUNHO,Carlos/Renan,Copy pronta - agendar
+P1 - Trava comparecimento,Boas-vindas WhatsApp,Templates dos lembretes do dia 14 (formato GHL),A FAZER,Claude,Ofereci gerar p/ submeter junto e adiantar fila Meta
+P1 - Trava comparecimento,Automacao,Redisparo 60 min p/ quem nao entrou no grupo,OPCIONAL,Carlos/Claude,Camada extra
+P2 - Trava a call,Pesquisa,Formulario de pesquisa (Google Form),FEITO,Claude/Carlos,https://forms.gle/4LEbAmbNELgdGgvU7
+P2 - Trava a call,Pesquisa,Vincular respostas da pesquisa a uma planilha,PENDENTE,Carlos,
+P2 - Trava a call,Aplicacao,Formulario de aplicacao (10 perguntas + logica),SCRIPT PRONTO,Carlos,Rodar criar-formularios.gs no Apps Script
+P2 - Trava a call,Aplicacao,Logica de etiqueta verde/amarelo/vermelho na planilha,PENDENTE,Carlos,Regras em aplicacao.md
+P2 - Trava a call,Aplicacao,Conectar aplicacao ao agendamento (Calendly/SDR quarta-sabado),PENDENTE,Carlos,
+P2 - Trava a call,Aplicacao,Confirmacao WhatsApp + lembrete 3h antes da call,PENDENTE,Carlos,
+P3 - Suporte/Cockpit,Torre de Controle,Conteudo das 5 abas adaptado (modelo Rapha),FEITO,Claude,torre/*.csv
+P3 - Suporte/Cockpit,Torre de Controle,Importar os 5 CSVs na planilha (uma aba de cada),PARCIAL,Carlos,
+P3 - Suporte/Cockpit,Torre de Controle,Hiperlinkar coluna Link da copy pro Doc da sequencia,PENDENTE,Carlos,
+P3 - Suporte/Cockpit,Apostila,Casca na marca (HTML) + PDF placeholder,FEITO,Claude,
+P3 - Suporte/Cockpit,Apostila,Conteudo do metodo (da gravacao do workshop),BLOQUEADO,Daniel,Aguardando gravacao
+P3 - Suporte/Cockpit,Apostila,Gerar PDF final e trocar na area de membros,DEPOIS,Claude/Carlos,Apos o conteudo
+P3 - Suporte/Cockpit,Rotina manual,Fallback do grupo 2x/dia (12h e 18h),ROTINA,Carlos/SDR,Cruzar quem comprou x quem entrou
+P3 - Suporte/Cockpit,Pendencias Daniel,Copy final de todas as pecas,AGUARDANDO,Daniel,
+P3 - Suporte/Cockpit,Pendencias Daniel,Cases / prova social com print,AGUARDANDO,Daniel,
+P3 - Suporte/Cockpit,Pendencias Daniel,Gravacao do workshop (apostila + order bump gravacao),AGUARDANDO,Daniel,
