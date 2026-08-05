@@ -5,20 +5,24 @@ Documentos de estratégia, planejamento e diagnósticos (e PDFs gerados).
 | Documento | O que é |
 | --- | --- |
 | [`2026-07-30-o-que-foi-vendido.md`](2026-07-30-o-que-foi-vendido.md) | **Escopo contratado**: produto, preço, entregáveis, o que não está incluso, diagnóstico e riscos. Fonte da verdade — leia antes de prometer qualquer coisa. |
-
-| [`2026-08-05-roadmap-estrategico-kaina-barreto.pdf`](2026-08-05-roadmap-estrategico-kaina-barreto.pdf) | **Roadmap de 90 dias v1.0** (entregável contratado). Fonte editável no `.html` de mesmo nome. 14 páginas, 5 fases, 21 passos, 5 checkpoints. |
+| [`2026-08-05-roadmap-estrategico-kaina-barreto.pdf`](2026-08-05-roadmap-estrategico-kaina-barreto.pdf) | **Roadmap de 90 dias v1.0** — entregável contratado. 14 páginas, 5 fases, 21 passos, 5 checkpoints. Fonte editável no `.html` de mesmo nome. |
+| [`2026-08-05-estrategia.md`](2026-08-05-estrategia.md) | **Estratégia completa v1.0** — as 8 seções do modelo Simple Acc: big idea, copy do quiz, página de aplicação, anúncios, relatório de diagnóstico, cadência de 12 dias, tarefas e recomendações. [Google Doc](https://docs.google.com/document/d/10E40HEroOoyLFd-KkCfY1W7lOMs4d4QybkOqefP9yMc/edit) na pasta `3. Estratégia e Tráfego`. |
 
 ## A produzir
 
-- [ ] **Estratégia do funil de quiz** — usar a skill `quiz-pesquisa-estrategia`
-      (buckets, tipo de quiz, Big Idea).
-- [ ] **Reposicionamento de oferta** — subir o ticket de R$ 2 mil para R$ 4–5 mil e
-      desenhar a esteira de downsell. Gatilho combinado: conversão acima de 30%.
+- [ ] **Implementação do quiz** — a copy já está pronta na estratégia (Seção 2). Falta
+      publicar as páginas. É o Passo 12 do roadmap.
+- [ ] **Reposicionamento de oferta** — subir o ticket de R$ 2 mil para R$ 4 a 5 mil e
+      desenhar a esteira de downsell. Gatilho combinado: conversão acima de 30% medida
+      em volume, não na amostra de 12 calls. É o Passo 21 do roadmap.
 
-## Ordem sugerida
+## Decisões estruturais do roadmap (para não reabrir sem motivo)
 
-1. Roadmap de 90 dias (é o que ele comprou e o que dá clareza imediata).
-2. Funil de quiz (é o que destrava o gargalo real — volume de lead qualificado).
-3. Reposicionamento de oferta (depois que houver volume e conversão medida).
+- **Perfil A adaptado:** ele executa, a Simple orienta. O escopo vendido é mentoria.
+- **Funil de quiz entra no dia 15, não no dia 60** (padrão da casa): o tráfego pago dele
+  já está validado, então não faz sentido esperar vendas manuais para começar.
+- **Aquisição manual não é o motor**, é follow-up de alto rendimento: 20 a 30 abordagens
+  por dia em vez de 60 a 100. Social selling já falhou com ele e o risco de burnout é real.
+- **Conteúdo orgânico a 5 ou 6 posts/semana em lote**, não 12. Ele já tentou 3 por dia.
 
 Prioridade vem do diagnóstico: **conversão já é boa (~30%), o que falta é volume.**
