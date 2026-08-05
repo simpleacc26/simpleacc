@@ -19,28 +19,40 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
 ## Contexto rápido
 
 - **Quem são:** dois sócios, casal de operação da clínica.
-  - **Omar Ali Fares** — biomédico, responsável técnico da clínica. Hoje **não
-    aplica** ("pelo menos por enquanto"); cuida da parte administrativa/negócio.
-    Perfil analítico, quer clareza de escopo e responsabilidade ("o que é meu,
-    o que é seu"). É quem fecha e assina.
-  - **Greicy ("Grace")** — enfermeira com habilitação em harmonização facial.
-    **É ela quem faz todos os procedimentos e grava os vídeos.** Valor central:
+  - **Omar Ali Fares** — engenheiro químico e biomédico, com pós em gestão.
+    **Responsável técnico** (por questão de fornecedores, que dão mais abertura
+    ao biomédico) e responsável por gestão e financeiro. Não aplica. Perfil
+    analítico, quer clareza de escopo ("o que é meu, o que é seu"). É quem fecha
+    e assina.
+  - **Greicy Speroto** — enfermeira esteta há **6 anos**. Faz os procedimentos,
+    o atendimento no WhatsApp, a secretaria, o marketing e grava os próprios
+    vídeos ("sou eu que sirvo o cafezinho, sou eu que limpo"). Valor central:
     naturalidade e honestidade ("não faço nada no paciente que eu não faria em
     mim"). **Tem resistência declarada a abordagem comercial "agressiva"** —
     tratar com cuidado.
 - **Negócio:** clínica de **harmonização facial** em **Chapecó/SC** (~300 mil
-  hab.). Só facial, não faz corporal. Menos de 1 ano de operação, ainda pagando
-  o investimento inicial, **sem caixa** (a mensalidade sai do bolso dos sócios).
+  hab.). Só facial, não faz corporal. **Inaugurada em setembro/2025** (1 ano),
+  ainda pagando o investimento inicial, **sem caixa** (a mensalidade sai do
+  bolso dos sócios).
+- **Instagram:** [@greicysperoto](https://instagram.com/greicysperoto) — "Greicy
+  Speroto Harmonização Facial", 463 posts, 1.325 seguidores. Bio já posicionada
+  em naturalidade: *"para mulheres que querem se cuidar sem exageros"*.
+  **WhatsApp: (49) 99900-0610** (`wa.me/5549999000610`, link da bio).
 - **Procedimentos:** toxina botulínica (Botox), preenchedores (labial, full
   face, mandíbula, mento), bioestimuladores — toda a parte de injetáveis.
-- **Números (declarados na call de vendas, 29/07/26):**
+- **Números (corrigidos no onboarding de 05/08 — valem estes):**
   - Faturamento **R$ 8k–15k/mês** (média 8–12).
-  - **Ticket médio R$ 2.000–2.500**.
-  - **4 a 6 clientes/mês**.
-  - Full face: **a partir de R$ 900/ml**, mínimo ~6 ml, média 10 ml
-    (→ ticket de R$ 5,4k a R$ 9k). Hoje é pouco frequente.
-  - Botox: **R$ 1.940** (duas aplicações), **~37% de margem** — o de menor
-    lucro, mas é o **chamariz** e é **recorrente a cada 3–4 meses**.
+  - **4 a 6 pacientes/mês.**
+  - **Botox: ticket de R$ 1.000** (uma aplicação; na call de vendas foi dito
+    R$ 1.940, mas eram duas). ~3/mês. Menor margem — *"é o boi de piranha"*.
+    Recompra a cada **4 meses**.
+  - **Full face: R$ 5.400–9.000** (6 a 10 ml × R$ 900). **Só ~1/mês** — é o de
+    maior lucro e a grande alavanca do projeto.
+  - **Rinomodelação** (~R$ 900/ml): resultado visível e imediato, ótima para
+    criativo. Também: preenchimento labial e bioestimulador.
+  - Ticket médio real ≈ **R$ 2.000**, mas puxado pelo único full face do mês.
+  - **Capacidade instalada: 36 a 48 atendimentos/mês** (seg/qua/sex meio período
+    + sábado de manhã, 3 pacientes/dia — 2 se for full face). **Usam ~12%.**
 - **Meta:** **R$ 50k/mês** ainda em 2026; **R$ 100k/mês** em 2027. Omar foi
   explícito: se não chegar nesses números, "talvez não seja um negócio para nós".
 - **Gargalo principal:** **volume de leads (topo de funil)**. A conversão de
@@ -56,22 +68,34 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
   especialização, dentistas). **Não** considera dermatologistas concorrentes —
   público diferente. Cidade pequena: reputação e boca a boca pesam muito.
 - **Contrato:** R$ 2.000/mês (tabela R$ 5.000 — preço especial por indicação da
-  **Ana**, cliente em comum). Primeiro mês no cartão em 10x. Verba de tráfego
-  prevista: **R$ 1.000–2.000/mês** para começar.
+  **Ana**, cliente em comum). Primeiro mês no cartão em 10x. **Verba de tráfego:
+  R$ 1.000–1.500/mês**, no cartão de crédito (definido no onboarding).
+- **Time Simple no projeto:** Daniel (comercial/estratégia), **Carlos Durães**
+  (head de operações e entrega, conduz as quinzenais), **Renan Martin** (gestor
+  de tráfego).
 - **Sazonalidade:** 2º semestre é a "safra" do setor (verão chegando).
 - **Vizinhança de carteira:** a Simple já atende a **Eliana Franz**, também em
   Chapecó — mas foco **corporal**, então não é concorrente direta. Omar conhece.
 - **Links:** pasta no Drive "Simple <> Omar e Greicy"
   (https://drive.google.com/drive/folders/1Kel-XUFTB5vpmKGUObuRAXVWnHkaCxCu).
-- **Nome da clínica / Instagram / contatos:** _(a preencher — coletar no onboarding)_
+- **Ainda em aberto:** tabela de preços completa, custo do produto por ml,
+  condições de parcelamento, tamanho da base de pacientes, regras de COREN/CFBM
+  para antes e depois, raio de atendimento.
 
 ## Estado do projeto
 
 - ✅ Call de vendas — 29/07/26 (`contexto/2026-07-29-notas-call-vendas.md`)
-- ✅ Canvas de Produto + Cliente Ideal preenchido pelo cliente — 30/07/26
+- ✅ Canvas de Produto + Cliente Ideal — 30/07/26
   (`contexto/2026-07-30-canvas-produto-cliente-ideal.md`)
-- 🔜 **Call de onboarding — 05/08/26** (perguntas em
-  `estrategia/2026-08-05-perguntas-call-onboarding.md`)
-- ⬜ Análise dos 4 pilares + Roadmap 90 dias
-- ⬜ Funil de lead dinâmico (quiz + páginas + copies + integrações)
-- ⬜ Playbooks comerciais + orientação de implementação
+- ✅ **Onboarding — 05/08/26** (`contexto/2026-08-05-notas-onboarding.md`)
+  → corrigiu ticket do Botox, verba de mídia e mapeou a capacidade real
+- ✅ Direcionamentos de tráfego para o Renan
+  (`estrategia/2026-08-05-direcionamentos-trafego-renan.md`)
+- ✅ Ações do cliente (`estrategia/2026-08-05-acoes-cliente.md`)
+- 🔜 Coleta de acessos pelo Renan (06/08) → **ativação da campanha em até 7 dias**
+- ⬜ Roteiros de vídeo + criativos estáticos e carrossel
+- ⬜ Playbooks comerciais + planilha unificada (comercial + tráfego)
+- ⬜ Processo de captação de depoimentos e de indicação
+
+> **Este projeto não tem roadmap de 90 dias.** O escopo é tráfego pago +
+> suporte comercial, com pit stop quinzenal.
