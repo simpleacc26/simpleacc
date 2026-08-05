@@ -6,11 +6,10 @@ Documentos de estratégia, planejamento e diagnósticos (e PDFs gerados).
 | --- | --- |
 | [`2026-07-30-o-que-foi-vendido.md`](2026-07-30-o-que-foi-vendido.md) | **Escopo contratado**: produto, preço, entregáveis, o que não está incluso, diagnóstico e riscos. Fonte da verdade — leia antes de prometer qualquer coisa. |
 
+| [`2026-08-05-roadmap-estrategico-kaina-barreto.pdf`](2026-08-05-roadmap-estrategico-kaina-barreto.pdf) | **Roadmap de 90 dias v1.0** (entregável contratado). Fonte editável no `.html` de mesmo nome. 14 páginas, 5 fases, 21 passos, 5 checkpoints. |
+
 ## A produzir
 
-- [ ] **Roadmap / plano de ação de 90 dias** — entregável contratado. Usar a skill
-      `roadmap-estrategico-90-dias`. Base: os quatro pilares e as três fases da metodologia,
-      já registrados no doc acima.
 - [ ] **Estratégia do funil de quiz** — usar a skill `quiz-pesquisa-estrategia`
       (buckets, tipo de quiz, Big Idea).
 - [ ] **Reposicionamento de oferta** — subir o ticket de R$ 2 mil para R$ 4–5 mil e

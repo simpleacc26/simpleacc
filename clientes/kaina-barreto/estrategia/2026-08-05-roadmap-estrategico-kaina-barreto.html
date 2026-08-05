@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Roadmap Estratégico Digital · Kainã Barreto</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    padding: 16mm 18mm 24mm 18mm;
+    position: relative;
+    page-break-after: always;
+    background: #fff;
+  }
+  .page:last-child { page-break-after: auto; }
+  .runhead {
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; color: var(--muted);
+    letter-spacing: .06em; text-transform: uppercase;
+    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt;
+  }
+  .runfoot {
+    position: absolute; bottom: 9mm; left: 18mm; right: 18mm;
+    text-align: center; font-size: 7.5pt; color: var(--muted);
+  }
+  .kicker {
+    color: var(--gold); font-size: 9pt; font-weight: bold;
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt;
+  }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
+  .box-dark {
+    background: var(--navy-dark); color: #f5f3ee;
+    padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt;
+  }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light {
+    background: var(--beige); border-left: 3pt solid var(--gold);
+    padding: 10pt 14pt; margin: 11pt 0;
+  }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .fase-header {
+    background: var(--navy-dark); color: #fff;
+    padding: 10pt 16pt; margin-bottom: 10pt;
+    border-left: 4pt solid var(--gold);
+  }
+  .fase-header .fk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .fase-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .fase-header .fd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 12pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 38pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+  .footer-note { margin-top: 24pt; padding-top: 8pt; border-top: 1pt solid var(--gold); font-size: 8.5pt; color: var(--muted); width: 60%; }
+</style>
+</head>
+<body>
+
+<!-- PÁGINA 1 · CAPA -->
+<div class="page cover">
+  <div class="kicker">Plano de Ação Personalizado</div>
+  <h1>Roadmap<br>Estratégico<br>Digital</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    Do presencial em Pelotas à consultoria online previsível.<br>
+    Os primeiros 90 dias. Passo a passo, fase a fase.<br>
+    Sem atalho, sem improviso, sem ideia solta.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">Kainã Barreto</div>
+    <div class="lbl">Mentor Estratégico</div>
+    <div class="val">Daniel Souza</div>
+  </div>
+</div>
+
+<!-- PÁGINA 2 · CONTEXTO E DECISÕES FUNDAMENTAIS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Kainã Barreto</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Começar</div>
+  <h1 style="font-size:19pt;">Contexto e Decisões Fundamentais</h1>
+  <p class="lead">Leia esta página inteira antes de executar qualquer passo. Todas as decisões a seguir partem do que está aqui.</p>
+
+  <div class="box-dark">
+    <div class="bt">A decisão mais importante deste plano</div>
+    <p>Tu não tem problema de venda. Tu tem problema de volume. Em 12 a 14 calls tu converteu perto de 30%, e as horas que tu separou na semana para vender continuam vazias. Isso muda o alvo dos próximos 90 dias: tudo aqui existe para <strong>encher a tua agenda de lead qualificado</strong>, não para te ensinar a vender.</p>
+    <p>Um público, uma promessa: <strong>quem já treina, já é disciplinado e travou.</strong> Não é o iniciante, não é o atleta. É quem faz tudo certo e não vê o espelho responder.</p>
+    <p><strong>O problema quase nunca é disciplina, é ajuste.</strong> Essa frase é o teu território. Nenhum dos três concorrentes que a gente mapeou ocupa ele.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">O produto destes 90 dias</div>
+    <p>Uma oferta, uma promessa: a <strong>consultoria anual Shape10X, R$ 2.000</strong>, entregue no portal com check-in diário, reavaliação a cada 30 dias e garantia de continuidade com 80% de aderência.</p>
+    <p><strong>Downsell autorizado:</strong> quando o anual não fecha por dinheiro, a saída é um plano <strong>mais barato, não mais curto</strong>. Ele existe para rentabilizar a call que já aconteceu e pagar a mídia, nunca para substituir o carro-chefe.</p>
+    <p><strong>Não crie uma segunda oferta nova antes de fechar 5 vendas do anual pelo funil.</strong> Produto novo antes disso é fuga do que está funcionando.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A matemática dos R$ 20 mil/mês</div>
+    <p>10 vendas × R$ 2.000 = <strong>R$ 20.000</strong>. Com a tua conversão real de 30%, são <strong>33 calls por mês</strong>, menos de 2 por dia útil. É menos do que tu já reservou de agenda.</p>
+    <p>Para 33 calls acontecerem com 60% de comparecimento, são <strong>55 agendamentos</strong>. Para 55 agendamentos, com 25% dos leads agendando, são <strong>220 leads qualificados por mês</strong>.</p>
+    <p>220 leads a um CPL de R$ 5 a R$ 10 significam <strong>R$ 1.100 a R$ 2.200 de mídia por mês</strong>. Ou seja: <strong>as duas primeiras vendas do mês pagam a mídia inteira. As outras oito são lucro.</strong></p>
+    <p>Esse número é <strong>operacional, não aspiracional.</strong> É só fazer.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Foco deste roadmap</div>
+    <p>Estes 90 dias terminam em R$ 20 mil/mês com uma oferta só. Quando esse número virar rotina, vem o <strong>Roadmap 2: escala dos R$ 20 mil aos R$ 50 mil</strong>, com reposicionamento de ticket, esteira completa e primeira contratação comercial. Não tente queimar etapas.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 3 · RITMO + ESCOPO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Kainã Barreto</span><span>Página 3</span></div>
+  <div class="kicker">Como Vamos Trabalhar</div>
+  <h1 style="font-size:19pt;">Ritmo e Escopo</h1>
+  <p class="lead">Duas coisas precisam estar claras desde o dia 1: com que frequência a gente se encontra e quem faz o quê.</p>
+
+  <div class="box-light">
+    <div class="bt">Ritmo de acompanhamento</div>
+    <p><strong>Encontro semanal em grupo</strong> durante as 12 semanas, com a fase do negócio destrinchada aula a aula. Se não der para assistir ao vivo, fica gravado.</p>
+    <p><strong>Hot seat quinzenal:</strong> é onde tu leva número, anúncio, copy e gravação de call para análise direta. Chega com material, não com dúvida genérica.</p>
+    <p><strong>Grupo de WhatsApp individual</strong> com o time da Simple para dúvida de criativo, copy, tráfego e call. Não espere a próxima call para perguntar.</p>
+    <p>A execução acontece <strong>entre as calls.</strong> As calls servem para afinar, não para decidir o que fazer. O que fazer já está aqui dentro.</p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Quem faz o quê</div>
+    <p><strong>A Simple entrega:</strong> este plano de 90 dias, as aulas passo a passo na área de membros, os processos comerciais e as IAs que a gente usa aqui dentro, a revisão do teu quiz, das tuas copies, dos teus criativos e das tuas calls no hot seat e no grupo.</p>
+    <p><strong>Kainã executa:</strong> o quiz, as páginas, os criativos, a subida das campanhas, as abordagens e as calls de venda. Tu monta com direcionamento, a gente audita antes de rodar.</p>
+    <p>Essa é uma <strong>mentoria de implementação assistida</strong>, não um serviço feito por nós. Isso é proposital: no fim dos 90 dias a máquina é tua e roda sem depender de ninguém de fora.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Uma nota sobre o teu ritmo</div>
+    <p>Tu chegou aqui trabalhando 16 horas por dia e falando em burnout. Este roadmap foi escrito na ordem certa de propósito: <strong>uma fase por vez</strong>. Se tentar fazer as cinco de uma vez, vai repetir exatamente o que já te desgastou.</p>
+    <p>Quando bater dúvida sobre o que fazer primeiro, a resposta é sempre <strong>a fase de número mais baixo que ainda não fechou.</strong></p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 4 · FASE 1 · CAIXA RÁPIDO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Kainã Barreto</span><span>Página 4</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 1 · Dias 1 a 10</div>
+    <h2>Caixa Rápido</h2>
+    <div class="fd">Tirar os primeiros R$ 1.000 de mídia da operação, não do teu bolso.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que esta fase vem primeiro</div>
+    <p>Na call tu foi direto: não tem grana sobrando, ainda paga a mentoria anterior, e o teu medo real é <strong>sangrar caixa sem sustentar</strong>. Justo. Então o plano não começa pedindo dinheiro teu.</p>
+    <p>Tu já tem 4 alunos no anual, alunos no presencial, ex-alunos e 6.224 seguidores. <strong>Isso é ativo parado</strong>, e é dele que saem os R$ 1.000 da primeira campanha.</p>
+  </div>
+
+  <div class="passo-label">Passo 1</div>
+  <h3>Mapear as oportunidades que já existem</h3>
+  <ul class="check">
+    <li>Montar uma planilha única, até o <strong>dia 3</strong>, com três origens:
+      <ul class="sub">
+        <li>Alunos ativos do online (os 4 do anual) e todos os alunos do presencial</li>
+        <li>Ex-alunos que saíram nos últimos 12 meses, do presencial e do online</li>
+        <li>Leads das 20 mensagens que não fecharam e quem interage no Instagram</li>
+      </ul>
+    </li>
+    <li>Classificar cada nome por oportunidade: <strong>upgrade, indicação, reativação ou venda pendente</strong>. Marca em vermelho a lead do anual que ficou de resolver o cartão: é a venda mais quente que tu tem hoje.</li>
+  </ul>
+
+  <div class="passo-label">Passo 2</div>
+  <h3>Executar as abordagens</h3>
+  <ul class="check">
+    <li><strong>Fechar a venda pendente por call, não por mensagem.</strong> Chama para uma conversa rápida e resolve o problema do cartão junto, na hora.</li>
+    <li><strong>Upgrade:</strong> quem está em plano curto sobe para o anual com o valor já pago abatido.</li>
+    <li><strong>Indicação:</strong> de 3 a 5 nomes de cada aluno ativo e do presencial, com perfil dito na hora: "alguém que treina há anos, é disciplinado e não vê o corpo responder".</li>
+    <li><strong>Reativação de ex-aluno:</strong> mensagem pessoal, sem oferta na primeira linha, convidando para avaliação.</li>
+    <li>Registrar todo contato na planilha no mesmo dia. <strong>Sem registro, não existe.</strong></li>
+  </ul>
+
+  <div class="passo-label">Passo 3</div>
+  <h3>Transformar venda em caixa de mídia</h3>
+  <ul class="check">
+    <li>Venda parcelada no cartão: avaliar <strong>antecipação de recebíveis</strong> para ter o dinheiro agora.</li>
+    <li>Destino do caixa: <strong>mídia e ferramentas</strong>, separados numa reserva com nome de verba de validação. Não é retirada, não é pagar a mentoria antiga.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta desta fase, até o dia 10</div>
+    <p><strong>Base 100% abordada</strong> · de 8 a 12 conversas abertas · <strong>1 venda ou antecipação</strong> · R$ 1.000 de mídia disponíveis.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 5 · FASE 2 · OFERTA E POSICIONAMENTO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Kainã Barreto</span><span>Página 5</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 2 · Dias 1 a 14</div>
+    <h2>Oferta e Posicionamento</h2>
+    <div class="fd">Quando o lead clicar no teu perfil, ele precisa achar o especialista, não mais um personal.</div>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Prioridade máxima</div>
+    <p>Teu perfil já está mais perto do certo do que a maioria: a bio fala em <strong>destravar o corpo de quem treina e não responde mais</strong> e nomeia o Método shape10X. Isso é bom e é raro.</p>
+    <p>O problema é o que vem depois do clique: o link vai <strong>direto para o WhatsApp, sem filtro</strong>. Todo mundo entra, qualificado ou não, e tu vira o filtro humano. É esse lugar que o quiz vai ocupar na Fase 4.</p>
+  </div>
+
+  <div class="passo-label">Passo 4</div>
+  <h3>Fechar a oferta em uma página</h3>
+  <ul class="check">
+    <li>Escrever o ICP em um parágrafo e as <strong>3 dores dominantes</strong> na linguagem exata dele:
+      <ul class="sub">
+        <li>"Eu treino, mas não mudo"</li>
+        <li>"Minha rotina não deixa eu treinar com constância"</li>
+        <li>"Já tentei de tudo e nada funcionou"</li>
+      </ul>
+    </li>
+    <li>Descrever o <strong>WNS em 4 linhas</strong>, sem jargão: ciclo de 90 dias, três blocos e troca de fase disparada pelo corpo, não pelo calendário.</li>
+    <li>Fixar tabela de preço e formas de pagamento por escrito. <strong>Regra:</strong> nunca dar desconto no anual, objeção de valor se resolve com forma de pagamento ou downsell.</li>
+  </ul>
+
+  <div class="passo-label">Passo 5</div>
+  <h3>Montar o PDF de apresentação da consultoria</h3>
+  <ul class="check">
+    <li>De 10 a 15 páginas, modelo na área de membros: diagnóstico, WNS, o que está incluso, prova, garantia, preço.</li>
+    <li>A <strong>garantia de continuidade com 80% de aderência</strong> merece uma página inteira: é o argumento mais forte contra quem já tentou de tudo.</li>
+    <li>O total de <strong>600 kg no powerbuilding</strong> entra como credencial de coerência, não de vaidade.</li>
+  </ul>
+
+  <div class="passo-label">Passo 6</div>
+  <h3>Ajustar o Instagram</h3>
+  <ul class="check">
+    <li>Manter a linha da bio e trocar o destino do link para o quiz assim que ele estiver no ar.</li>
+    <li>Revisar os 4 destaques: <strong>Comece aqui · Quem sou · O Método · Resultados</strong>.</li>
+    <li>Fixar 3 posts: o de identidade ("treino há anos e continuo travado"), o de como funciona a consultoria e um antes e depois.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta desta fase, até o dia 14</div>
+    <p>Oferta em uma página · PDF pronto · perfil ajustado · <strong>tudo validado no hot seat antes de virar anúncio.</strong></p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 6 · FASE 3 · ROTINA COMERCIAL parte 1 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Kainã Barreto</span><span>Página 6</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 3 · Dias 10 a 90</div>
+    <h2>Rotina Comercial</h2>
+    <div class="fd">A conversão tu já tem. O que falta é rotina para ela acontecer todo dia.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que aqui a receita é diferente do padrão</div>
+    <p>No padrão da casa, a aquisição manual é o motor e vem primeiro. <strong>No teu caso, não.</strong> Tu já rodou esse filme: 90 conteúdos, alcance de 200 a 300, social selling sem ninguém novo para prospectar, R$ 12 mil investidos e quase um burnout.</p>
+    <p>Aqui o motor é o <strong>funil de tráfego</strong>, que entra na Fase 4. A rotina comercial existe para <strong>converter e não deixar lead esfriar</strong>, não para gerar demanda do zero na base da força.</p>
+    <p>Isso não é abandonar o manual. É parar de pedir dele uma coisa que ele nunca te deu.</p>
+  </div>
+
+  <div class="passo-label">Passo 7</div>
+  <h3>Assistir às aulas antes de executar</h3>
+  <ul class="check">
+    <li><strong>Call de Vendas 1x1</strong> e <strong>Pré-Vendas</strong> primeiro. São as duas que mexem direto no teu número.</li>
+    <li><strong>Social Selling parte 1 e 2</strong> e <strong>Outbound</strong> depois, com a lente certa: aqui elas servem para trabalhar quem já levantou a mão, não para prospectar frio.</li>
+    <li>Sem isso tu está improvisando, e improviso na frente da venda queima lead bom.</li>
+  </ul>
+
+  <div class="passo-label">Passo 8</div>
+  <h3>Montar o controle de leads</h3>
+  <ul class="check">
+    <li>Uma planilha só, com todo lead vindo do quiz, do direct e do WhatsApp, com <strong>data, origem, status e próximo passo datado</strong>.</li>
+    <li>Status possíveis: novo, contatado, agendado, compareceu, fechou, downsell, perdido.</li>
+    <li>É essa planilha que responde a pergunta que tu não consegue responder hoje: <strong>de onde veio quem comprou.</strong></li>
+  </ul>
+
+  <div class="passo-label">Passo 9</div>
+  <h3>Executar a rotina diária de abordagem</h3>
+  <ul class="check">
+    <li><strong>De 20 a 30 abordagens por dia</strong>, em bloco único de no máximo 1 hora. Menos do que o padrão da casa, e de propósito: aqui elas são de alto rendimento, não de volume bruto.
+      <ul class="sub">
+        <li>Metade para quem completou o quiz e não agendou</li>
+        <li>Um quarto para quem interagiu com conteúdo ou anúncio nos últimos 7 dias</li>
+        <li>Um quarto para a base mapeada na Fase 1 que ainda não foi trabalhada</li>
+      </ul>
+    </li>
+    <li>Sempre personalizada, citando o que a pessoa respondeu ou comentou. Mensagem copiada e colada não converte lead cético.</li>
+    <li><strong>Follow-up obrigatório em 2 dias</strong> para todo lead que não respondeu, sem exceção.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 7 · FASE 3 · ROTINA COMERCIAL parte 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Kainã Barreto</span><span>Página 7</span></div>
+
+  <div class="passo-label">Passo 10</div>
+  <h3>Conduzir a call de vendas</h3>
+  <ul class="check">
+    <li><strong>Gravar todas as calls</strong>, com consentimento, desde a primeira. As 3 primeiras vão para revisão no hot seat.</li>
+    <li><strong>Fechar dentro da call.</strong> Lead que sai da conversa para "ver o cartão depois" esfria e vira follow-up eterno. Se travou no pagamento, resolve ali junto com a pessoa, na tela, sem desligar.</li>
+    <li>Toda call sem fechamento sai com <strong>próximo passo datado</strong>, marcado na hora. Nunca com "qualquer coisa me chama".</li>
+    <li>Nunca recuar no preço. Objeção de valor se responde com <strong>forma de pagamento ou downsell</strong>.</li>
+    <li>Respeitar o teto de agenda: <strong>no máximo 3 calls por dia</strong>. Acima disso a qualidade da quarta cai e tu queima lead que custou dinheiro.</li>
+  </ul>
+
+  <div class="box-dark">
+    <div class="bt">O que muda quando o lead vem do quiz</div>
+    <p>Hoje tu marca reunião com todo mundo porque não tem demanda para filtrar. A partir da Fase 4 isso inverte: quem chega já respondeu de 8 a 12 perguntas sobre o próprio travamento e <strong>chega implicado com o problema</strong>.</p>
+    <p>Um lead qualificado tem três coisas: é do mercado que tu quer atender, tem dinheiro para comprar e <strong>tem urgência</strong>. O quiz cria a terceira.</p>
+    <p>Se a tua conversão cair abaixo de 30% com lead de quiz, o problema não é a call. É a qualificação dentro do quiz. Leva para o hot seat.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Metas numéricas desta fase</div>
+    <p><strong>Dia 30:</strong> de 2 a 4 vendas no mês (de R$ 4.000 a R$ 8.000 no online) · de 10 a 15 calls realizadas · planilha de leads viva.</p>
+    <p><strong>Dia 60:</strong> de 6 a 8 vendas no mês (de R$ 12.000 a R$ 16.000) · de 20 a 25 calls · conversão medida por origem de lead.</p>
+    <p><strong>Dia 90:</strong> <strong>10 vendas no mês, R$ 20.000</strong> · 33 calls · CAC conhecido e estável.</p>
+    <p><strong>Alerta vermelho:</strong> menos de 2 vendas até o dia 30, com funil no ar e calls acontecendo, é problema de <strong>qualificação ou de fechamento</strong>, não de produto. Para de subir orçamento, leva as 3 últimas gravações para o hot seat e ajusta antes de continuar.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 8 · FASE 4 · FUNIL DE QUIZ parte 1 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Kainã Barreto</span><span>Página 8</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 4 · Dias 15 a 45</div>
+    <h2>Funil de Quiz e Tráfego Pago</h2>
+    <div class="fd">O motor. É daqui que sai o volume que a tua agenda está esperando.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Como o funil funciona</div>
+    <p>Anúncio → quiz de diagnóstico → relatório com o erro invisível da pessoa → WhatsApp com o resultado na mão → call de vendas.</p>
+    <p>O quiz faz três trabalhos ao mesmo tempo: <strong>filtra</strong> quem não é teu público, <strong>aquece</strong> quem é, e <strong>cria urgência</strong> ao fazer a pessoa perceber um erro que ela não sabia que estava cometendo. Ela chega na conversa já querendo resolver.</p>
+    <p>Tu já validou o mais difícil: teu criativo de antes e depois trouxe mensagem a R$ 2,50 a R$ 5,50. O que faltava era o que fazer com essa mensagem antes dela virar call.</p>
+  </div>
+
+  <div class="passo-label">Passo 11</div>
+  <h3>Estudar o Método Simple Growth antes de construir</h3>
+  <ul class="check">
+    <li>Aula completa do funil de quiz na área de membros, mais o Growth Model, que é onde estão as métricas e as alavancas.</li>
+    <li>Pede no grupo o vídeo de onboarding passo a passo. Ele te poupa uma semana de tateio.</li>
+  </ul>
+
+  <div class="passo-label">Passo 12</div>
+  <h3>Construir o quiz</h3>
+  <ul class="check">
+    <li><strong>De 8 a 12 perguntas</strong>, divididas em qualificação, dor e intenção. A matéria-prima já é tua: os teus próprios ganchos viram pergunta quase direto.
+      <ul class="sub">
+        <li>"Tu para a série sempre antes da falha?"</li>
+        <li>"Há quanto tempo tu treina sem ver o corpo mudar?"</li>
+        <li>"Tua rotina te deixa treinar quantas vezes por semana de verdade?"</li>
+        <li>"Tu já trocou de treino quantas vezes tentando destravar?"</li>
+      </ul>
+    </li>
+    <li>Incluir <strong>1 pergunta de capacidade de investimento</strong>, sem preço explícito, para separar quem pode comprar de quem só quer dica grátis.</li>
+    <li>O resultado entrega um <strong>diagnóstico nomeado</strong>, não uma nota. A pessoa precisa sair sabendo qual é o erro invisível dela e por que a disciplina que ela tem não estava resolvendo.</li>
+    <li>Fechar o relatório com uma única chamada: agendar a avaliação com tu.</li>
+  </ul>
+
+  <div class="passo-label">Passo 13</div>
+  <h3>Montar a infraestrutura</h3>
+  <ul class="check">
+    <li>Página do quiz e página de resultado publicadas, com captura de nome, WhatsApp e as respostas.</li>
+    <li>Resposta caindo direto na planilha de leads do Passo 8, com origem marcada.</li>
+    <li><strong>Trocar o link da bio</strong> do Instagram: sai o WhatsApp direto, entra o quiz.</li>
+    <li>Número de WhatsApp dedicado ao comercial, separado do teu pessoal.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 9 · FASE 4 · FUNIL DE QUIZ parte 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Kainã Barreto</span><span>Página 9</span></div>
+
+  <div class="passo-label">Passo 14</div>
+  <h3>Preparar os criativos</h3>
+  <ul class="check">
+    <li>Gravar <strong>3 criativos</strong> no mesmo formato low fi que tu já domina, cada um com um ângulo:
+      <ul class="sub">
+        <li>Diagnóstico: o erro invisível de quem treina certo e não muda</li>
+        <li>Identidade: "treino há anos e continuo travado", falado em primeira pessoa</li>
+        <li>Prova: antes e depois de aluno, com a explicação do ajuste que destravou</li>
+      </ul>
+    </li>
+    <li><strong>Ancorar o gancho na dor, não na dica.</strong> Teu Reel de melhor desempenho, o único de identidade, fez 2.359 visualizações contra uma mediana perto de 450 nos ganchos de hábito e de erro técnico. É um dado só, então trata como teste, não como verdade. Mas é o teste mais barato que tu tem para rodar.</li>
+    <li>Enviar os 3 para revisão no grupo antes de subir.</li>
+  </ul>
+
+  <div class="passo-label">Passo 15</div>
+  <h3>Subir a campanha de validação</h3>
+  <ul class="check">
+    <li><strong>R$ 1.000 da Fase 1</strong>, distribuídos ao longo de 30 dias. O objetivo declarado desta verba é <strong>coletar métrica</strong>, não fazer caixa. As vendas que vierem são bônus.</li>
+    <li>Público frio segmentado no teu nicho, mais o remarketing que tu já roda. O remarketing sozinho satura: a base que interage contigo é pequena, foi o teto que tu bateu.</li>
+    <li><strong>Revisar as métricas a cada 7 dias</strong>, com gatilho definido para cada uma:
+      <ul class="sub">
+        <li>CPL acima de R$ 10: o problema é o criativo, troca o gancho</li>
+        <li>Conclusão do quiz abaixo de 40%: o problema são as perguntas, encurta ou simplifica</li>
+        <li>Comparecimento abaixo de 60%: o problema é o follow-up entre agendar e acontecer</li>
+        <li>Conversão em call abaixo de 30%: o problema é a qualificação dentro do quiz</li>
+      </ul>
+    </li>
+    <li>Nunca mexer em mais de uma variável por vez. É a mesma lógica que tu usa quando ajusta o treino de um aluno.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Regra de ouro do tráfego</div>
+    <p>O jogo é <strong>lead certo, não lead barato</strong>. Duas vendas do anual pagam a mídia do mês inteiro, então otimizar por centavo de CPL enquanto o lead não agenda é olhar para o número errado.</p>
+    <p>E vale repetir o que a gente combinou na call: <strong>tu não tira do bolso.</strong> A verba de mídia sai da venda, e a próxima verba sai da venda seguinte.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Meta desta fase, até o dia 45</div>
+    <p>Quiz no ar e link da bio trocado até o dia 30 · 3 criativos rodando · <strong>CPL, taxa de conclusão do quiz e taxa de agendamento medidos e conhecidos</strong> · primeira venda vinda do funil.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 10 · FASE 5 · CONTEÚDO ORGÂNICO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Kainã Barreto</span><span>Página 10</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 5 · Dias 1 a 90, em paralelo</div>
+    <h2>Conteúdo Orgânico</h2>
+    <div class="fd">Roda junto com tudo. Não é pré-requisito para vender.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">O acerto de contas com o conteúdo</div>
+    <p>Tu produziu perto de 90 conteúdos e não gerou venda. A conclusão que tu tirou estava certa: <strong>conteúdo não era o motor.</strong> A conclusão errada seria abandonar.</p>
+    <p>O papel dele aqui é outro: <strong>tempo de tela e prova</strong>. Quem vê teu anúncio, não compra, e depois te encontra postando com consistência, volta para o funil e converte. O conteúdo não puxa a venda sozinho, ele encurta a distância da venda que o tráfego trouxe.</p>
+    <p>Por isso o volume aqui é menor do que tu já tentou. <strong>3 por dia foi o que te levou ao esgotamento.</strong> Não vamos repetir.</p>
+  </div>
+
+  <div class="passo-label">Passo 16</div>
+  <h3>Distribuir por nível de consciência</h3>
+  <ul class="check">
+    <li><strong>Inconsciente do problema:</strong> "tu treina forte e mesmo assim o corpo parou de responder, e isso tem nome".</li>
+    <li><strong>Consciente do problema:</strong> os erros invisíveis que tu já domina, agora sempre fechando na causa, não só na dica.</li>
+    <li><strong>Consciente da solução:</strong> como funciona o WNS, como é uma reavaliação de 30 dias, o que muda quando o plano acompanha o corpo.</li>
+  </ul>
+
+  <div class="passo-label">Passo 17</div>
+  <h3>Rodar uma produção sustentável</h3>
+  <ul class="check">
+    <li><strong>De 5 a 6 publicações por semana</strong>, gravadas em <strong>um único bloco semanal</strong>. Lote, não diário.</li>
+    <li>Manter o formato que tu já domina: low fi, falando para a câmera, legenda queimada. Formato bom conhecido bate formato novo incerto.</li>
+    <li><strong>CTA fixo em todo conteúdo:</strong> o quiz. Sempre o mesmo destino, nunca "chama no direct".</li>
+    <li>Testar de 3 a 5 peças no formato de identidade e comparar contra a tua mediana. É a hipótese do Passo 14, medida no orgânico onde não custa mídia.</li>
+  </ul>
+
+  <div class="passo-label">Passo 18</div>
+  <h3>Coletar prova em vídeo</h3>
+  <ul class="check">
+    <li>Pedir depoimento em vídeo para os alunos que já destravaram. A Simple manda o guia com os tópicos de direcionamento.</li>
+    <li>Prioridade para o caso mais parecido com o ICP: quem treinava há anos e estava travado. É o que gera identificação imediata.</li>
+    <li>Guardar tudo organizado no Drive: vira criativo, vira página, vira destaque.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 11 · BÔNUS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Kainã Barreto</span><span>Página 11</span></div>
+  <div class="fase-header">
+    <div class="fk">Bônus · A partir do dia 60</div>
+    <h2>Expansão de Valor</h2>
+    <div class="fd">Receita que nasce do aluno que tu já conquistou, sem custo de aquisição nenhum.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que isso entra agora e não antes</div>
+    <p>Expansão de valor só faz sentido com base para expandir. Por isso entra no dia 60, quando o funil já está trazendo aluno novo e tu não precisa mais dividir atenção.</p>
+    <p>Tu tem um ativo que quase nenhum concorrente tem: <strong>capacidade de entrega ociosa</strong>. O teu sistema monta um plano em 5 minutos. Tu pode dobrar de alunos sem dobrar de trabalho, e é isso que faz cada real a mais de receita aqui virar praticamente lucro.</p>
+  </div>
+
+  <div class="passo-label">Passo 19</div>
+  <h3>Monetizar o consumo que já acontece</h3>
+  <ul class="check">
+    <li>Todo aluno teu consome <strong>suplemento</strong>. Fechar link de afiliação com uma marca e passar a indicar dentro do acompanhamento.</li>
+    <li>O mesmo para <strong>roupa de treino</strong>, com desconto real para o aluno.</li>
+    <li>Regra inegociável: só indicar o que tu recomendaria de graça. Tua autoridade vale mais que qualquer comissão.</li>
+  </ul>
+
+  <div class="passo-label">Passo 20</div>
+  <h3>Transformar aluno satisfeito em canal</h3>
+  <ul class="check">
+    <li>Criar um <strong>programa simples de indicação</strong>: quem indica alguém que fecha ganha desconto ou tempo a mais de acompanhamento.</li>
+    <li>Pedir a indicação no <strong>melhor momento emocional</strong>: logo depois da reavaliação de 30 dias em que o aluno viu o resultado aparecer.</li>
+  </ul>
+
+  <div class="passo-label">Passo 21</div>
+  <h3>Preparar o próximo degrau de preço</h3>
+  <ul class="check">
+    <li>Com 30 dias de funil rodando, tu vai ter conversão medida em volume, não em amostra de 12 calls.</li>
+    <li><strong>Se a conversão se sustentar acima de 30% com lead de funil, o anual sobe para a faixa de R$ 4.000 a R$ 5.000</strong>, com o plano de hoje virando o degrau de baixo. Essa decisão é tomada no hot seat, com número na mesa.</li>
+    <li>Menos vendas com margem maior é um negócio mais saudável do que muitas vendas apertadas.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta do bônus, até o dia 90</div>
+    <p>Links de afiliação ativos · programa de indicação rodando com pelo menos 5 pedidos feitos · <strong>decisão de ticket tomada com dado, não com achismo.</strong></p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 12 · CHECKPOINTS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Kainã Barreto</span><span>Página 12</span></div>
+  <div class="kicker">Checkpoints de Progresso</div>
+  <h1 style="font-size:19pt;">Como Saber Que Você Está no Caminho Certo</h1>
+  <p class="lead">Cada checkpoint marca o final de uma janela. Se algum item não estiver fechado, leve para a próxima call quinzenal. Ajuste de rota imediato, sem esconder.</p>
+
+  <h3 class="navy" style="margin-top:8pt;">CHECKPOINT 1 · DIA 10 (Caixa)</h3>
+  <ul class="check">
+    <li>Planilha da base completa, com todo nome classificado por oportunidade</li>
+    <li>Base 100% abordada, de 8 a 12 conversas abertas</li>
+    <li>A venda pendente do plano anual resolvida, fechada ou descartada com motivo</li>
+    <li><strong>R$ 1.000 de mídia separados, sem ter saído do teu bolso</strong></li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:8pt;">CHECKPOINT 2 · DIA 14 (Posicionamento)</h3>
+  <ul class="check">
+    <li>Oferta e preço escritos em uma página, com downsell definido</li>
+    <li>PDF de apresentação pronto e validado no hot seat</li>
+    <li>Perfil ajustado: destaques, posts fixados, bio pronta para receber o quiz</li>
+    <li>Aulas de Call de Vendas e Pré-Vendas assistidas</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:8pt;">CHECKPOINT 3 · DIA 30 (Funil no ar)</h3>
+  <ul class="check">
+    <li>Quiz publicado e link da bio trocado</li>
+    <li>3 criativos rodando e primeira campanha de validação subida</li>
+    <li>Planilha de leads viva, com origem marcada em todo registro</li>
+    <li><strong>De 2 a 4 vendas no mês e de 10 a 15 calls realizadas</strong></li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:8pt;">CHECKPOINT 4 · DIA 60 (Métrica estável)</h3>
+  <ul class="check">
+    <li>CPL, taxa de conclusão do quiz, taxa de agendamento e comparecimento conhecidos</li>
+    <li>Rotina de 20 a 30 abordagens por dia acontecendo sem depender de lembrete</li>
+    <li>Depoimentos em vídeo coletados e no Drive</li>
+    <li><strong>De 6 a 8 vendas no mês, de R$ 12.000 a R$ 16.000 no online</strong></li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:8pt;">CHECKPOINT 5 · DIA 90 (Meta)</h3>
+  <ul class="check">
+    <li><strong>10 vendas no mês, R$ 20.000 no online</strong>, com CAC conhecido e estável</li>
+    <li>Expansão de valor rodando: afiliação e indicação ativas</li>
+    <li>Decisão de ticket tomada com dado de conversão em volume</li>
+    <li><strong>Pronto para receber o Roadmap 2</strong></li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 13 · MATERIAIS DE APOIO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Kainã Barreto</span><span>Página 13</span></div>
+  <div class="kicker">Materiais de Apoio</div>
+  <h1 style="font-size:19pt;">Recursos para Executar o Plano</h1>
+  <p class="lead">Todas as aulas e templates abaixo estão disponíveis no portal (área de membros) e no grupo. Se algum link não foi compartilhado, peça no grupo.</p>
+
+  <ul class="check">
+    <li><strong>Vídeo de onboarding passo a passo</strong>
+      <ul class="sub"><li>Onde fica cada coisa e por onde começar. Assista antes de tudo, no dia 1.</li></ul>
+    </li>
+    <li><strong>Call de Vendas 1x1</strong>
+      <ul class="sub"><li>Condução completa da reunião e fechamento dentro da call. Passos 7 e 10.</li></ul>
+    </li>
+    <li><strong>Pré-Vendas e planilha de CRM</strong>
+      <ul class="sub"><li>Do lead que levantou a mão até a reunião acontecer. Passos 8 e 9.</li></ul>
+    </li>
+    <li><strong>Social Selling parte 1 e 2 · Outbound</strong>
+      <ul class="sub"><li>Abordagem e follow-up. Aqui usados para trabalhar quem já levantou a mão. Passo 9.</li></ul>
+    </li>
+    <li><strong>Método Simple Growth</strong>
+      <ul class="sub"><li>O funil de quiz de ponta a ponta: perguntas, relatório, páginas. Passos 11 a 13.</li></ul>
+    </li>
+    <li><strong>Growth Model</strong>
+      <ul class="sub"><li>As métricas do funil e qual alavanca puxar em cada gargalo. Passo 15.</li></ul>
+    </li>
+    <li><strong>Como Montar o Produto High Ticket</strong>
+      <ul class="sub"><li>Estrutura de oferta, ancoragem e downsell. Passos 4 e 21.</li></ul>
+    </li>
+    <li><strong>Modelo de PDF de apresentação</strong>
+      <ul class="sub"><li>Base dos 10 a 15 slides da consultoria. Passo 5.</li></ul>
+    </li>
+    <li><strong>Aula de Tráfego Pago e de Copy</strong>
+      <ul class="sub"><li>Estrutura de campanha, criativo e gancho. Passos 14 e 15.</li></ul>
+    </li>
+    <li><strong>Playbooks, scripts comerciais e as IAs da Simple</strong>
+      <ul class="sub"><li>Os mesmos processos que a gente roda aqui dentro. Use em todas as fases.</li></ul>
+    </li>
+    <li><strong>Guia de captação de depoimentos</strong>
+      <ul class="sub"><li>Tópicos de direcionamento para o aluno gravar. Passo 18.</li></ul>
+    </li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 14 · FECHAMENTO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Kainã Barreto</span><span>Página 14</span></div>
+  <div style="padding-top:40mm;">
+    <div class="kicker">Lembre-se Sempre Disto</div>
+    <h1 style="font-size:19pt;">Antes de Fechar Este Documento</h1>
+    <p style="margin-top:10pt;">Tu construiu um total de 600 kg cobrando de ti mesmo o que ensina. Tu montou um sistema que entrega um plano individual em 5 minutos. Tu converte perto de 30% das conversas que consegue marcar. E mesmo assim tu chegou aqui trabalhando 16 horas por dia e sentindo que não sai do lugar.</p>
+    <p>Não foi falta de esforço. Não foi falta de disciplina. Não foi falta de método de treino.</p>
+    <p><strong class="navy">Foi falta de gente qualificada chegando até ti todo dia.</strong></p>
+    <p>Este roadmap é o método. A execução é sua. A cada 15 dias o mentor estratégico vai te encontrar na conversa quinzenal, mas o que coloca dinheiro no caixa é o que você faz <strong>entre as calls</strong>.</p>
+    <p>Dúvidas no meio do caminho: mande no grupo. Não espere a próxima call para perguntar.</p>
+    <p style="margin-top:12pt;">Tu tem o produto. Tu tem a entrega resolvida. Tu tem a conversão. Tu tem o método.</p>
+    <p><strong class="navy">O próximo passo é começar.</strong></p>
+    <div class="footer-note">Roadmap Estratégico Digital · Kainã Barreto · 90 dias · Versão 1.0</div>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+</body>
+</html>
