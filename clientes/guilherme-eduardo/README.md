@@ -29,7 +29,7 @@ roadmap de 90 dias, funil de quiz, estruturação comercial e materiais de apoio
 | Roadmap 90 dias | `estrategia/` | entregue (21/07), v1.0 | — |
 | Estratégia Completa (copies do funil de quiz) | `estrategia/` | entregue (24/07) | — |
 | Auditoria da apresentação comercial | `estrategia/` | entregue (24/07) | — |
-| Funil de quiz (implementação) | `funis/` | a fazer (usar a estratégia de 24/07) | — |
+| Funil de quiz (Diagnóstico IDR) | `funis/quiz-ges360/` | no ar (24/07) | https://diagnostico-ges360.vercel.app |
 
 ## Observações
 

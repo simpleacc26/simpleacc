@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diagnóstico GES360 · descubra o que trava o faturamento da sua clínica</title>
+  <meta name="description" content="Responda 8 perguntas e receba o seu IDR, o Índice de Dependência de Receita, com o diagnóstico do que trava o faturamento da sua clínica e o próximo passo." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:title" content="Diagnóstico GES360 · o que trava o faturamento da sua clínica" />
+  <meta property="og:description" content="Em 2 minutos, descubra o seu Índice de Dependência de Receita e o próximo passo para faturar mais sem aumentar os atendimentos." />
+  <meta property="og:type" content="website" />
+  <!-- CSS crítico mínimo (evita flash antes do styles.css) -->
+  <style>
+    :root{--bg:#001824;--text:#EEF3F5}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <img class="logo-img" src="logo.png" alt="GES360 Implementação" />
+      </div>
+    </div>
+  </header>
+
+  <!-- Barra de progresso (só aparece durante as perguntas) -->
+  <div class="progress-wrap" id="progress" hidden>
+    <div class="container">
+      <div class="progress-meta">
+        <span id="progress-label">Começando</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div id="app" aria-live="polite"><!-- as telas são renderizadas aqui --></div>
+  </main>
+
+  <p class="foot">GES360 · Guilherme Eduardo · consultoria para clínicas médicas</p>
+
+  <script src="flow.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

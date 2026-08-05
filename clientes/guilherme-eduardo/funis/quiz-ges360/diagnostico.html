@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seu diagnóstico · GES360</title>
+  <meta name="robots" content="noindex" />
+  <style>
+    :root{--bg:#001824;--text:#EEF3F5}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* --- específico do relatório --- */
+    .report-head { text-align: center; padding: 16px 0 6px; }
+    .report-head .selo { margin-bottom: 12px; }
+    .report-head h1 { font-size: 26px; }
+    .etapa { margin: 0 0 18px; }
+    .etapa h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--gold-light); margin: 0 0 8px; }
+    .etapa p { margin: 0 0 10px; }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 8px 0; }
+    .compare .col { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px; background: var(--bg-2); }
+    .compare .col h4 { margin: 0 0 8px; font-size: 14px; }
+    .compare .col.bad h4 { color: #E0645A; }
+    .compare .col.good { background: #0C2F26; border-color: #1E6B36; }
+    .compare .col.good h4 { color: #57C878; }
+    .compare ul { margin: 0; padding-left: 18px; font-size: 15px; color: var(--muted); }
+    .compare .good ul { color: var(--text); }
+    .depo { background: var(--gold-soft); border-left: 3px solid var(--gold); border-radius: var(--radius-sm);
+            padding: 14px; margin: 8px 0; font-size: 15px; color: var(--text); }
+    .cta-box { background: linear-gradient(160deg,#0C2F3E,#0A2331); border: 1px solid var(--border);
+               border-radius: var(--radius); padding: 24px; text-align: center; margin-top: 10px; }
+    .clube { font-size: 15px; color: var(--muted); margin-top: 14px; }
+    .toolbar { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 4px 0 22px; }
+    @media (max-width: 520px){ .compare { grid-template-columns: 1fr; } }
+    @media print {
+      .no-print { display: none !important; }
+      .compare .col, .cta-box, .depo { break-inside: avoid; background: #fff !important; }
+      .etapa { break-inside: avoid; }
+      .etapa h3 { color: #8C6E1C !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <img class="logo-img" src="logo.png" alt="GES360 Implementação" />
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="toolbar no-print">
+      <button class="btn btn-primary" id="whatsapp">Falar com o Guilherme no WhatsApp</button>
+      <button class="btn btn-ghost" id="pdf">Baixar PDF</button>
+    </div>
+    <div class="card screen" id="report"><!-- preenchido por diagnostico.js --></div>
+  </main>
+
+  <p class="foot">Diagnóstico elaborado com base nas suas respostas · GES360 · Guilherme Eduardo</p>
+
+  <script src="flow.js" defer></script>
+  <script src="diagnostico.js" defer></script>
+</body>
+</html>
