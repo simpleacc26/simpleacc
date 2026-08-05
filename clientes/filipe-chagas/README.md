@@ -34,16 +34,24 @@ metodologia** (funil e comercial) + acompanhamento por 1 ano.
 | Item | Status |
 | --- | --- |
 | Canvas do Produto | ✅ preenchido pelo cliente |
-| Canvas do Cliente Ideal | ⬜ em branco — puxar na call de 05/08 |
-| Call de onboarding | 🔜 05/08/26 |
-| Roadmap Estratégico 90 dias | ⬜ até 10/08/26 |
+| Canvas do Cliente Ideal | ✅ resolvido na call (3 nichos + formato) |
+| Call de onboarding | ✅ 05/08/26 |
+| **Roadmap Estratégico 90 dias** | ✅ **v1.0 pronto** (prazo era 10/08) |
 | Guia de captação de depoimentos | ⬜ a enviar |
-| Acesso à área de membros | ⬜ a liberar |
-| Materiais extras (Notion + mapas mentais) | ⬜ a enviar |
+| Link do Drive para ele subir materiais | ⬜ a enviar |
+| Área de membros (novo bloco: formação interna + workshops) | ⬜ a subir |
+| Materiais extras (Notion do funil + mapas mentais) | ⬜ a enviar |
+| Cadernos de cadência + quebras de objeção | ⬜ a enviar |
+| Curadoria das aulas da área de membros | ⬜ a montar |
 
 ## Observações
 
-- **Ticket atual (R$ 2.500–4.500) não é high ticket.** O roadmap promete bater a
-  meta mensal com high ticket — reposicionar preço é o trabalho central.
-- **Prova fina:** um único case (WL Gráfica), sem número e sem depoimento em vídeo.
-- **ICP indefinido:** sem recorte de nicho, quiz e anúncio não performam.
+- **Ticket reposicionado no roadmap:** de R$ 2.500 a R$ 4.500 para uma esteira de
+  R$ 1.200 (diagnóstico) · **R$ 5.000** (implementação) · R$ 800/mês (manutenção).
+  A R$ 3.500 a meta de R$ 15 mil exigiria capacidade 100% lotada todo mês.
+- **Restrição de execução:** ele está em CLT e tem 3h por noite. O roadmap inteiro
+  foi calibrado nisso (Perfil A, ele executa sozinho).
+- **Prova ainda não existe:** o projeto da WL Gráfica não foi entregue. Fase 1 do
+  roadmap é destravar ou encerrar com data.
+- **Instagram desalinhado:** @filipe.estrategista ainda vende social media.
+  Reposicionar antes de qualquer mídia paga.

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Roadmap Estratégico Digital · Filipe Chagas</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    padding: 16mm 18mm 24mm 18mm;
+    position: relative;
+    page-break-after: always;
+    background: #fff;
+  }
+  .page:last-child { page-break-after: auto; }
+  .runhead {
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; color: var(--muted);
+    letter-spacing: .06em; text-transform: uppercase;
+    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt;
+  }
+  .runfoot {
+    position: absolute; bottom: 9mm; left: 18mm; right: 18mm;
+    text-align: center; font-size: 7.5pt; color: var(--muted);
+  }
+  .kicker {
+    color: var(--gold); font-size: 9pt; font-weight: bold;
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt;
+  }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
+  .box-dark {
+    background: var(--navy-dark); color: #f5f3ee;
+    padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt;
+  }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light {
+    background: var(--beige); border-left: 3pt solid var(--gold);
+    padding: 10pt 14pt; margin: 11pt 0;
+  }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .fase-header {
+    background: var(--navy-dark); color: #fff;
+    padding: 10pt 16pt; margin-bottom: 10pt;
+    border-left: 4pt solid var(--gold);
+  }
+  .fase-header .fk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .fase-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .fase-header .fd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 12pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 38pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+  .footer-note { margin-top: 24pt; padding-top: 8pt; border-top: 1pt solid var(--gold); font-size: 8.5pt; color: var(--muted); width: 60%; }
+</style>
+</head>
+<body>
+
+<!-- PÁGINA 1 · CAPA -->
+<div class="page cover">
+  <div class="kicker">Plano de Ação Personalizado</div>
+  <h1>Roadmap<br>Estratégico<br>Digital</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    De gestor de social media a especialista em agentes de IA.<br>
+    Os primeiros 90 dias. Passo a passo, fase a fase.<br>
+    Sem atalho, sem improviso, sem ideia solta.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">Filipe Chagas</div>
+    <div class="lbl">Mentor Estratégico</div>
+    <div class="val">Carlos Durães · Simple Acc</div>
+  </div>
+</div>
+
+<!-- PÁGINA 2 · CONTEXTO E DECISÕES FUNDAMENTAIS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Filipe Chagas</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Começar</div>
+  <h1 style="font-size:19pt;">Contexto e Decisões Fundamentais</h1>
+  <p class="lead">Leia esta página inteira antes de executar qualquer passo. Todas as decisões a seguir partem do que está aqui.</p>
+
+  <div class="box-dark">
+    <div class="bt">A decisão mais importante deste plano</div>
+    <p>Você mapeou três nichos com demanda real: saúde (consultórios), atacado e distribuidoras. A tentação é falar com os três ao mesmo tempo, e com mais um punhado de outros, porque o seu produto de fato serve para quase todo mundo. Nos primeiros 90 dias, não faça isso.</p>
+    <p>A regra aqui é <strong>amplo no segmento, cirúrgico no formato.</strong> Você não vende para "empresas". Você vende para a empresa que vive de orçamento e gasta o dia respondendo as mesmas cinco perguntas. Essa é a dor. O segmento é só o lugar onde ela aparece.</p>
+    <p><strong>O gargalo da empresa tem nome, sobrenome e CPF. Enquanto ele não sair da frente, a empresa não cresce.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A esteira: três peças do mesmo método</div>
+    <p>Você não vai criar produto novo. Vai separar em três o que já faz.</p>
+    <p><strong>1. Diagnóstico D.T.I., R$ 1.200.</strong> A Etapa 1 vendida sozinha, com entrega documentada (diagnóstico operacional, regras de negócio, fluxo comercial, matriz de decisão). Resolve a sua principal objeção: quem acha que é "só uma resposta rápida no WhatsApp" paga pouco para ver o mapa da própria operação e entende sozinho o tamanho do trabalho.</p>
+    <p><strong>2. Implementação D.T.I. completa, R$ 5.000.</strong> O carro-chefe, as cinco etapas. Quem já comprou o diagnóstico abate o valor.</p>
+    <p><strong>3. Manutenção e Evolução, R$ 800 por mês, 12 meses.</strong> Ajuste de base, novas regras, relatório mensal. É o que faz o seu faturamento parar de zerar todo dia 1.</p>
+    <p>Custo de plataforma vai na proposta, sempre, em linha separada. Não crie um quarto produto nos 90 dias.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A matemática dos R$ 15 mil por mês</div>
+    <p>3 implementações x R$ 5.000 = R$ 15.000. Cabe na sua capacidade declarada de 3 a 4 projetos simultâneos, com um de folga.</p>
+    <p>Conversão de sessão estimada em 25% (você ainda não tem esse dado, vamos medir a partir da primeira semana): 3 vendas ÷ 25% = <strong>12 sessões realizadas por mês.</strong> Com comparecimento de 70%, são 17 agendadas. Com 5% de agendamento sobre abordagem qualificada, são <strong>400 abordagens por mês, 100 por semana.</strong></p>
+    <p>Nas suas 3 horas por noite: segunda para montar a lista da semana, de terça a sexta 25 abordagens por dia.</p>
+    <p>Esse número é <strong>operacional, não aspiracional.</strong> É só fazer.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 3 · FOCO, RITMO E RESPONSABILIDADES -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Filipe Chagas</span><span>Página 3</span></div>
+
+  <div class="box-light">
+    <div class="bt">Foco deste roadmap</div>
+    <p>Estes 90 dias tratam de uma coisa só: sair de cerca de R$ 3 mil por mês e chegar a R$ 15 mil por mês, com uma rotina que cabe em 3 horas por noite.</p>
+    <p>Quando bater, vem o Roadmap 2: a escala dos R$ 15 mil aos R$ 40 mil, que passa por ticket de R$ 8 a R$ 12 mil, pela primeira contratação e pela recorrência acumulada. Não tente queimar etapas.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Ritmo de acompanhamento</div>
+    <p>Encontro semanal em grupo, hotseat a cada 15 dias, um ano de mentorias quinzenais e o grupo no WhatsApp aberto todos os dias. Dúvida de entrega e de estratégia vai para o Carlos, no grupo.</p>
+    <p>A execução acontece <strong>entre as calls.</strong> As calls servem para afinar, não para decidir o que fazer. O que fazer já está aqui dentro.</p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Divisão de responsabilidades</div>
+    <p><strong>A Simple entrega:</strong> este roadmap, a metodologia completa do funil de lead dinâmico (quiz, páginas, criativos, campanhas), os playbooks comerciais de pré-vendas e de closer, os cadernos de cadência e as quebras de objeção que a equipe usa hoje, o guia de captação de depoimentos, a curadoria das aulas da área de membros que fazem sentido para você, e o acompanhamento.</p>
+    <p><strong>Filipe executa:</strong> tudo o que produz venda. As abordagens, as sessões estratégicas, o conteúdo, a construção do quiz, as páginas e a subida das campanhas.</p>
+    <p>Este é o ponto que diferencia o seu projeto dos demais: a Simple não implementa o seu funil, ela te ensina a implementar. Por isso este roadmap foi calibrado nas suas 3 horas por noite, e não numa agenda cheia.</p>
+    <p><strong>O método não executa sozinho. Quem coloca dinheiro no caixa é a rotina.</strong></p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 4 · FASE 1 · CAIXA RÁPIDO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Filipe Chagas</span><span>Página 4</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 1 · Dias 1 a 10</div>
+    <h2>Caixa Rápido e Limpeza de Mesa</h2>
+    <div class="fd">O dinheiro mais barato de buscar é o de quem já te conhece.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que esta fase vem primeiro</div>
+    <p>Hoje você tem um cliente. Veio por indicação de um grupo de publicidade, pechinchou pesado, não quer pagar a plataforma (custo que você descobriu tarde) e o projeto ainda não foi entregue porque falta retorno deles. Esse é o retrato comercial atual: nenhuma máquina, uma indicação.</p>
+    <p>Mas você não está começando do zero. Você tem anos de perfil como social media, com clientes de estética, academia e varejo. Tem o grupo de publicidade do Espírito Santo que já te indicou uma vez. Tem os contatos da imersão presencial, ainda quentes. E tem 960 seguidores que te acompanham.</p>
+    <p><strong>Isso é base. Base não abordada é dinheiro parado.</strong></p>
+  </div>
+
+  <div class="passo-label">Passo 1</div>
+  <h3>Destravar ou encerrar o projeto da gráfica</h3>
+  <ul class="check">
+    <li>Marque uma conversa de 20 minutos com a WL Gráfica ainda nesta semana. Leve uma decisão, não uma cobrança: apresente duas saídas e peça que escolham uma.
+      <ul class="sub">
+        <li>Saída A: eles assumem o custo da plataforma e você entrega em 15 dias, com data fechada em documento.</li>
+        <li>Saída B: você entrega o que já está pronto (diagnóstico, base de conhecimento, documentação) como projeto concluído, encerra formalmente e libera a sua agenda.</li>
+      </ul>
+    </li>
+    <li>Em qualquer uma das duas, peça o depoimento em vídeo usando o guia de captação que a Simple vai te enviar.</li>
+    <li>Um projeto aberto há meses não é um cliente. É um peso, e ele está ocupando uma das suas quatro vagas de entrega.</li>
+  </ul>
+
+  <div class="passo-label">Passo 2</div>
+  <h3>Mapear e classificar a base</h3>
+  <ul class="check">
+    <li>Monte uma planilha única com quatro abas: ex-clientes de social media, contatos da imersão, o grupo de publicidade do ES e seguidores que têm empresa.</li>
+    <li>Para cada contato registre nome, empresa, segmento, se a operação vive de orçamento ou de atendimento repetitivo, e quem é o decisor.</li>
+    <li>Marque em amarelo todo contato dos três nichos prioritários: saúde, atacado e distribuidora.</li>
+    <li>Lista fechada até o dia 3. Sem planilha você vai abordar por memória e esquecer metade.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 5 · FASE 1 PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Filipe Chagas</span><span>Página 5</span></div>
+
+  <div class="passo-label">Passo 3</div>
+  <h3>Executar as abordagens de caixa rápido</h3>
+  <ul class="check">
+    <li>Ex-clientes de social media: você mudou de jogo, avise. A mensagem é simples e direta.
+      <ul class="sub">
+        <li>"Parei de fazer social media e passei a implementar agentes de IA para empresas que vivem de orçamento. Lembrei de você por causa do tanto de mensagem repetida que chega no seu WhatsApp. Posso te mostrar em 15 minutos o que dá para tirar da sua mão?"</li>
+      </ul>
+    </li>
+    <li>Contatos da imersão: mande hoje, enquanto ainda lembram de você. Foto junto, o que você faz, e uma pergunta sobre a operação deles.</li>
+    <li>Grupo de publicidade do ES: proponha parceria de indicação com comissão, não uma venda avulsa. Eles já te indicaram uma vez sem nada em troca.</li>
+    <li>Peça de 3 a 5 indicações qualificadas em toda conversa boa, com o perfil descrito na boca deles: "empresa que perde tempo respondendo as mesmas perguntas no WhatsApp".</li>
+    <li>Registre tudo na planilha. Sem registro, não existe.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta desta fase</div>
+    <p><strong>Dia 3:</strong> base 100% mapeada e classificada na planilha.</p>
+    <p><strong>Dia 10:</strong> base 100% abordada, gráfica destravada ou encerrada com data em documento, 5 sessões estratégicas agendadas e o primeiro caixa entrando (1 diagnóstico de R$ 1.200 vendido ou 1 implementação fechada).</p>
+    <p>O caixa desta fase tem destino definido: ferramentas e a verba inicial de mídia da Fase 5. <strong>Não é retirada.</strong></p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Um aviso sobre a sua capacidade</div>
+    <p>Você declarou 3 a 4 projetos simultâneos e cerca de 7 dias por etapa, o que dá de 1 a 2 meses por projeto. Com ticket de R$ 3.500, bater R$ 15 mil exigiria viver 100% lotado, todo mês, para sempre. Sem folga, sem férias e sem margem para crescer.</p>
+    <p>É por isso que o ticket sobe para R$ 5.000 e a manutenção mensal entra na proposta desde a primeira venda. <strong>A conta não fecha com volume. Fecha com preço e com recorrência.</strong></p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 6 · FASE 2 · OFERTA -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Filipe Chagas</span><span>Página 6</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 2 · Dias 1 a 14</div>
+    <h2>Oferta, Preço e Posicionamento</h2>
+    <div class="fd">Antes de aumentar o volume de conversas, arrume o que elas vão encontrar.</div>
+  </div>
+
+  <div class="passo-label">Passo 4</div>
+  <h3>Precificar de novo</h3>
+  <ul class="check">
+    <li>Carro-chefe: implementação D.T.I. completa a <strong>R$ 5.000.</strong></li>
+    <li>Diagnóstico D.T.I. avulso a R$ 1.200, abatido integralmente de quem contrata a implementação depois.</li>
+    <li>Manutenção e Evolução a R$ 800 por mês, 12 meses, apresentada <strong>junto</strong> com a implementação e não meses depois.</li>
+    <li>Custo de plataforma em linha separada da proposta, sempre. Foi o erro da gráfica e não pode se repetir.</li>
+    <li>Regra de preço: nunca dar desconto no valor.
+      <ul class="sub">
+        <li>Objeção de preço se resolve com forma de pagamento (parcelamento no cartão) ou descendo para o diagnóstico. Nunca cortando o número.</li>
+      </ul>
+    </li>
+    <li>Você mesmo já disse que precifica pelo retorno que o agente gera. Então leve o número do retorno para a call, não a sua tabela de horas.</li>
+  </ul>
+
+  <div class="passo-label">Passo 5</div>
+  <h3>Escolher um método e aposentar o outro</h3>
+  <ul class="check">
+    <li>Hoje convivem dois métodos nomeados: o 3A3R, que está na sua bio, e o D.T.I., que está no seu material comercial. Dois métodos comunicam o mesmo que nenhum.</li>
+    <li><strong>O método é o D.T.I.</strong> É ele que descreve o que você entrega hoje, tem entregável nomeado em cada etapa e sustenta o preço de R$ 5.000.</li>
+    <li>Aposente o 3A3R de todos os materiais até o dia 7: bio, apresentações, criativos, assinatura.</li>
+  </ul>
+
+  <div class="passo-label">Passo 6</div>
+  <h3>Montar o PDF de apresentação</h3>
+  <ul class="check">
+    <li>De 10 a 15 slides: o problema (o gargalo tem nome), o D.T.I. etapa por etapa, os entregáveis de cada etapa, o case da gráfica com números, a esteira com preços e os próximos passos.</li>
+    <li>Modelo disponível nos materiais de apoio.</li>
+    <li>É material de call, não de prospecção. Não mande antes de conversar.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 7 · FASE 2 PARTE 2 · INSTAGRAM -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Filipe Chagas</span><span>Página 7</span></div>
+
+  <div class="box-light">
+    <div class="bt">Prioridade máxima desta fase</div>
+    <p>Hoje o seu perfil diz "Gestor de Automação" na primeira linha e, três linhas abaixo, "transformo leads em clientes que retornam e indicam usando o método 3A3R". A categoria é Marketing Agency, os destaques são STORYMAKER, ESTÉTICA, ACADEMIA e JIU-JITSU, os reels recentes falam de clínica de bronzeamento e loja de roupas, e a marca d'água dos posts assina "Filipe Chagas | Social Media".</p>
+    <p>São 960 seguidores olhando um perfil de social media enquanto você tenta vender agentes de IA. Todo lead que você abordar vai clicar no seu perfil antes de responder. <strong>Enquanto o perfil não mudar, ele desmente a sua abordagem.</strong></p>
+  </div>
+
+  <div class="passo-label">Passo 7</div>
+  <h3>Reescrever o perfil do Instagram</h3>
+  <ul class="check">
+    <li>Bio na fórmula quem eu ajudo, qual resultado, qual credencial, qual chamada:
+      <ul class="sub">
+        <li>"Agentes de IA para empresas que vivem de orçamento"</li>
+        <li>"Tiro o gargalo do especialista da frente da operação"</li>
+        <li>"Método D.T.I. · consultórios, atacado e distribuidoras"</li>
+        <li>"Diagnóstico da sua operação no link"</li>
+      </ul>
+    </li>
+    <li>Categoria: sair de Marketing Agency para Consultoria de negócios ou Serviço de tecnologia.</li>
+    <li>Destaques: arquive STORYMAKER, ESTÉTICA, ACADEMIA e JIU-JITSU. Crie quatro novos: "Comece aqui", "Quem sou", "Método D.T.I." e "Resultados".</li>
+    <li>Remova a marca d'água "Social Media" de todos os templates de post.</li>
+    <li>Dois posts fixados: um explicando o D.T.I. e um com o case da gráfica.</li>
+  </ul>
+
+  <div class="passo-label">Passo 8</div>
+  <h3>Publicar as fotos da imersão</h3>
+  <ul class="check">
+    <li>As fotos estão paradas na galeria porque você travou na legenda. A legenda é esta estrutura, em quatro linhas:
+      <ul class="sub">
+        <li>Onde você estava e por quê: "Três dias numa imersão de agentes de IA, com empresários de vários estados."</li>
+        <li>O que mais te marcou, dito como opinião: "Todo mundo quer automatizar mensagem. Quase ninguém quer automatizar conhecimento."</li>
+        <li>O que isso muda no seu trabalho, em uma frase.</li>
+        <li>Uma pergunta para quem está lendo.</li>
+      </ul>
+    </li>
+    <li>Poste até o dia 5. Foto de imersão perde valor rápido.</li>
+    <li>Carrossel com as fotos e stories marcando os empresários que aparecem. Cada marcação é uma porta aberta para a Fase 1.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta desta fase</div>
+    <p><strong>Dia 7:</strong> preços novos definidos, 3A3R aposentado, custo de plataforma dentro do modelo de proposta.</p>
+    <p><strong>Dia 14:</strong> Instagram reposicionado (bio, categoria, quatro destaques, marca d'água), fotos da imersão publicadas e PDF de apresentação pronto.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 8 · FASE 3 · AQUISIÇÃO MANUAL PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Filipe Chagas</span><span>Página 8</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 3 · Dias 1 a 90</div>
+    <h2>Aquisição Manual</h2>
+    <div class="fd">O motor principal dos 90 dias. Roda todos os dias, do primeiro ao último.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que começar pelo manual</div>
+    <p>Você não tem taxa de conversão porque nunca teve volume para medir. Tentou prospectar meses atrás e travou em duas coisas: identificar quem realmente precisa do serviço e chegar no decisor. As duas travas se resolvem com volume e método, não com anúncio.</p>
+    <p>E tem outra razão: a linguagem que vai para o quiz e para os criativos da Fase 5 só aparece conversando. As objeções que você já ouve hoje (é só uma resposta rápida, vai substituir meu funcionário, vai responder errado) são o roteiro da sua copy. Você precisa de mais cem conversas dessas antes de colocar dinheiro em mídia.</p>
+    <p><strong>Tráfego pago não conserta oferta. Ele multiplica o que já funciona.</strong></p>
+  </div>
+
+  <div class="passo-label">Passo 9</div>
+  <h3>Assistir às aulas de aquisição antes de começar</h3>
+  <ul class="check">
+    <li>Social Selling parte 1 e parte 2, Outbound, Call de Vendas 1x1 e Pré-Vendas.</li>
+    <li>Você já viu cerca de 70% da área de membros. Estas quatro são as que importam agora. Se já assistiu, reveja Outbound e Call de Vendas com a caneta na mão.</li>
+    <li>Sem isso você está improvisando, e improviso na frente da venda queima lead bom.</li>
+  </ul>
+
+  <div class="passo-label">Passo 10</div>
+  <h3>Montar a rotina de prospecção que cabe em 3 horas</h3>
+  <ul class="check">
+    <li>A rotina só cabe na sua noite se você separar montar lista de abordar:
+      <ul class="sub">
+        <li>Segunda: montar a lista da semana, 100 empresas dos três nichos, com decisor identificado.</li>
+        <li>De terça a sexta: 25 abordagens por dia mais os follow-ups do dia anterior.</li>
+      </ul>
+    </li>
+    <li>Onde achar as empresas: Google Maps por cidade e segmento, Instagram por hashtag local, associações comerciais, grupos de WhatsApp de empresários e a sua rede do Espírito Santo.</li>
+    <li>Como achar o decisor, que é a sua trava declarada: em empresa pequena o decisor é o dono, e o dono quase sempre está no Instagram da empresa ou responde o WhatsApp comercial. Se quem atender for funcionário, a pergunta é uma só: "quem cuida da parte comercial aí com você?"</li>
+    <li>Planilha de CRM com data da abordagem, resposta, próximo passo e data do follow-up.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 9 · FASE 3 PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Filipe Chagas</span><span>Página 9</span></div>
+
+  <div class="passo-label">Passo 11</div>
+  <h3>Executar as 100 abordagens por semana</h3>
+  <ul class="check">
+    <li>Distribuição: 40% base quente (ex-clientes, indicações, imersão), 40% social selling nos três nichos e 20% outbound frio. Quando a base quente esgotar, o percentual migra para social selling e outbound.</li>
+    <li>Abordagem sempre personalizada, com uma observação real da operação daquela empresa. Copiar e colar mata a taxa de resposta.</li>
+    <li>Follow-up obrigatório em 2 dias. O seu ciclo de fechamento é de 5 dias, então quem some no dia 2 ainda fecha no dia 5.</li>
+    <li>Meta de 400 empresas mapeadas e abordadas até o dia 30.</li>
+  </ul>
+
+  <div class="passo-label">Passo 12</div>
+  <h3>Conduzir a sessão estratégica</h3>
+  <ul class="check">
+    <li>Grave todas as calls (com consentimento) e revise as 3 primeiras com o Carlos na quinzenal.</li>
+    <li>Abra pelo diagnóstico, nunca pelo produto: quantos orçamentos por semana, quanto tempo leva cada um, quem faz, e o que acontece com a empresa quando essa pessoa falta.</li>
+    <li>As suas objeções reais e a resposta de cada uma:
+      <ul class="sub">
+        <li>"É só uma resposta rápida no WhatsApp": mostre a matriz de decisão da gráfica, com mais de 20 situações mapeadas. Complexidade não se discute, se mostra.</li>
+        <li>"Vai substituir meu funcionário": não substitui, devolve o funcionário para o que dá dinheiro. O agente coleta, a pessoa fecha.</li>
+        <li>"Vai responder errado": é exatamente por isso que existe a Etapa 1. Ele responde a partir da base da empresa, não da internet.</li>
+        <li>"Não vejo valor nisso": desça para o diagnóstico de R$ 1.200. Depois do diagnóstico, o valor deixa de ser opinião.</li>
+        <li>Pechincha: nunca no valor. Forma de pagamento ou diagnóstico.</li>
+      </ul>
+    </li>
+    <li>Toda call sem fechamento sai com próximo passo datado. Sem exceção.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Metas numéricas desta fase</div>
+    <p><strong>Dia 30:</strong> 400 abordagens feitas, 12 sessões realizadas, 2 vendas fechadas, de R$ 8 a R$ 10 mil faturados.</p>
+    <p><strong>Dia 60:</strong> acumulado de 5 a 6 vendas, primeiro mês fechando em R$ 15 mil, conversão real medida e no lugar da estimativa.</p>
+    <p><strong>Dia 90:</strong> R$ 15 mil no mês, de 9 a 10 vendas acumuladas e 3 contratos de manutenção ativos.</p>
+    <p><strong>Alerta vermelho:</strong> menos de 2 vendas até o dia 30 com as 400 abordagens feitas é problema de fechamento ou de qualificação, não de produto. Pausar, revisar as gravações com o Carlos e ajustar antes de continuar abordando.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 10 · FASE 4 · CONTEÚDO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Filipe Chagas</span><span>Página 10</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 4 · Dias 1 a 90</div>
+    <h2>Conteúdo e Prova</h2>
+    <div class="fd">Roda em paralelo. Não é pré-requisito para venda.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">O papel do conteúdo nestes 90 dias</div>
+    <p>O conteúdo não vende sozinho neste período. Ele faz outra coisa, igualmente decisiva: sustenta a abordagem. Quando você manda mensagem para o dono de uma distribuidora, ele clica no seu perfil antes de responder, e o que ele encontra ali decide se ele responde ou não. É por isso que o conteúdo entra junto com a prospecção, e não depois dela.</p>
+  </div>
+
+  <div class="passo-label">Passo 13</div>
+  <h3>Publicar por nível de consciência</h3>
+  <ul class="check">
+    <li>Nível 1, quem nem sabe que tem o problema:
+      <ul class="sub">
+        <li>"Se o seu melhor vendedor tirar férias semana que vem, quantos orçamentos deixam de sair?"</li>
+        <li>"Quantas vezes por dia a sua equipe responde a mesma pergunta sobre prazo de entrega?"</li>
+      </ul>
+    </li>
+    <li>Nível 2, quem já sente o problema:
+      <ul class="sub">
+        <li>"Por que contratar mais um atendente não resolve fila de orçamento."</li>
+        <li>"O conhecimento da sua empresa está documentado ou está na cabeça de uma pessoa só?"</li>
+      </ul>
+    </li>
+    <li>Nível 4, quem já entende a solução: bastidor do D.T.I. etapa por etapa, a matriz de decisão da gráfica, o antes e o depois de um atendimento real.</li>
+    <li>Puxe os exemplos dos três nichos: o consultório que pede convênio e carteirinha, a distribuidora que lembra o cliente de repor estoque, a gráfica que pergunta tamanho e acabamento cinco vezes por dia.</li>
+  </ul>
+
+  <div class="passo-label">Passo 14</div>
+  <h3>Rotina semanal realista</h3>
+  <ul class="check">
+    <li>5 publicações por semana, não 12. Você tem 3 horas por noite e a prioridade é abordagem.</li>
+    <li>Produção em lote: um bloco no domingo grava e escreve a semana inteira.</li>
+    <li>Reaproveite: um reel vira carrossel, vira story e vira o texto de uma abordagem.</li>
+    <li>Chamada fixa: diagnóstico da operação no link da bio. Na Fase 5 esse link vira o quiz.</li>
+  </ul>
+
+  <div class="passo-label">Passo 15</div>
+  <h3>Construir a prova que falta</h3>
+  <ul class="check">
+    <li>Você tem um case e nenhum depoimento em vídeo. A Simple vai te enviar o guia de captação com os tópicos de direcionamento.</li>
+    <li>Peça o depoimento no dia da entrega, não meses depois. O cliente está mais satisfeito no dia em que o sistema entra no ar.</li>
+    <li>Grave um vídeo de 2 minutos mostrando o agente da gráfica funcionando. Demonstração vale mais que descrição para quem acha que é "só uma resposta rápida".</li>
+    <li>Meta: 2 depoimentos em vídeo até o dia 60.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 11 · FASE 5 · FUNIL E TRÁFEGO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Filipe Chagas</span><span>Página 11</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 5 · Dias 60 a 90</div>
+    <h2>Funil de Quiz e Tráfego Pago</h2>
+    <div class="fd">Escala do que já provou que converte na mão.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que o funil vem depois</div>
+    <p>O quiz é uma máquina de qualificação. Ele só funciona bem quando é construído com as perguntas que você descobriu conversando: as dores reais, as objeções reais e as palavras que o dono usa. Se você construir o quiz agora, vai construí-lo com suposição.</p>
+    <p><strong>Regra de entrada desta fase: só suba campanha depois de 5 vendas manuais fechadas.</strong> Cinco vendas provam que a oferta converte.</p>
+    <p>Se as 5 vendas vierem antes do dia 60, antecipe a fase. Se não vierem, o problema está na Fase 3 e o dinheiro de mídia continua no seu bolso.</p>
+  </div>
+
+  <div class="passo-label">Passo 16</div>
+  <h3>Estudar o Método Simple Growth e construir o quiz</h3>
+  <ul class="check">
+    <li>Assista ao Método Simple Growth por inteiro antes de montar qualquer tela. O Notion do funil de lead dinâmico e os mapas mentais estão nos materiais de apoio.</li>
+    <li>De 8 a 12 perguntas, em três blocos:
+      <ul class="sub">
+        <li>Qualificação: segmento, porte, volume de atendimento por dia, quem responde hoje.</li>
+        <li>Dor: o que acontece na empresa quando a pessoa-chave falta.</li>
+        <li>Intenção: prazo para resolver e disponibilidade de investimento.</li>
+      </ul>
+    </li>
+    <li>O resultado é um diagnóstico personalizado do gargalo, entregue na própria página de aplicação e não por e-mail. De lá o lead vai direto para o WhatsApp.</li>
+    <li>Planilha de leads em paralelo, com todos os dados. Hoje você gere lead por tag do WhatsApp, e tag não é histórico nem dá para medir.</li>
+  </ul>
+
+  <div class="passo-label">Passo 17</div>
+  <h3>Subir as campanhas</h3>
+  <ul class="check">
+    <li>Verba inicial de validação de R$ 30 por dia, cerca de R$ 900 no mês, financiada pelo caixa das Fases 1 e 3. Confirme esse número com o Carlos antes de subir.</li>
+    <li>Segmentação nos três nichos, por cargo e interesse, começando pela sua região.</li>
+    <li>Revisão de métrica a cada 7 dias, com gatilhos claros:
+      <ul class="sub">
+        <li>Custo por lead fora da meta significa problema de criativo.</li>
+        <li>Conclusão do quiz abaixo de 40% significa problema nas perguntas.</li>
+        <li>Comparecimento abaixo de 60% significa problema de follow-up.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Regra de ouro do tráfego para ticket alto</div>
+    <p>Uma implementação de R$ 5.000 paga meses de mídia. O jogo aqui é <strong>lead certo, não lead barato.</strong></p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 12 · BÔNUS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Filipe Chagas</span><span>Página 12</span></div>
+  <div class="fase-header">
+    <div class="fk">Bônus · A partir do dia 60</div>
+    <h2>Os Ativos Que Só Você Tem</h2>
+    <div class="fd">Plantar agora para colher no mês 4 e no mês 5.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que entra agora</div>
+    <p>Nada aqui é para bater os R$ 15 mil dos 90 dias. Tudo aqui tem ciclo longo e precisa começar a girar antes de você precisar. Não tire foco das Fases 1 a 3 por causa desta página.</p>
+  </div>
+
+  <div class="passo-label">Passo 18</div>
+  <h3>Empacotar um agente vertical</h3>
+  <ul class="check">
+    <li>Você já desenhou logo e produto para um fornecedor de artigos sanitários e de saúde. Isso é um agente vertical pronto pela metade.</li>
+    <li>Empacote um agente de prateleira por nicho (consultório, distribuidora, gráfica) com a base de conhecimento genérica do setor já montada. A personalização cai de 7 dias para 2, o ticket se mantém e a sua capacidade sobe de 4 para 6 projetos simultâneos.</li>
+    <li>É o caminho que resolve o seu teto de entrega sem contratar ninguém.</li>
+    <li>Meta: 1 vertical empacotado até o dia 90.</li>
+  </ul>
+
+  <div class="passo-label">Passo 19</div>
+  <h3>Formalizar a parceria com o grupo de publicidade do ES</h3>
+  <ul class="check">
+    <li>Eles já te indicaram uma vez sem nada em troca. Formalize com comissão de 15 a 20% por projeto fechado.</li>
+    <li>Agência de publicidade vende para exatamente o mesmo dono que você quer atingir e não sabe entregar IA. Você não é concorrente deles, é a peça que falta.</li>
+    <li>Meta: 2 parcerias em conversa até o dia 90.</li>
+  </ul>
+
+  <div class="passo-label">Passo 20</div>
+  <h3>Ativar a rede das formações que você fez</h3>
+  <ul class="check">
+    <li>Os cursos com Luciana Papini e Bruno Gabarra e a imersão presencial te deram acesso a uma turma inteira de gente que faz o mesmo que você.</li>
+    <li>Boa parte dessa turma sabe configurar e não sabe vender, ou vende e não dá conta de entregar. Isso vira subcontratação e passagem de projeto nos dois sentidos.</li>
+    <li>Meta: presença ativa nos grupos e 1 projeto trocado até o dia 90.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 13 · CHECKPOINTS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Filipe Chagas</span><span>Página 13</span></div>
+  <div class="kicker">Checkpoints de Progresso</div>
+  <h1 style="font-size:19pt;">Como Saber Que Você Está no Caminho Certo</h1>
+  <p class="lead">Cada checkpoint marca o final de uma janela. Se algum item não estiver fechado, leve para a próxima call quinzenal. Ajuste de rota imediato, sem esconder.</p>
+
+  <h3 class="navy" style="margin-top:8pt;">CHECKPOINT 1 · DIA 10 (Caixa Rápido)</h3>
+  <ul class="check">
+    <li>Planilha da base montada, classificada e 100% abordada.</li>
+    <li>Projeto da gráfica destravado com data em documento, ou encerrado formalmente.</li>
+    <li>5 sessões estratégicas agendadas.</li>
+    <li>Primeiro caixa entrando: 1 diagnóstico vendido ou 1 implementação fechada.</li>
+  </ul>
+
+  <h3 class="navy">CHECKPOINT 2 · DIA 14 (Oferta e Posicionamento)</h3>
+  <ul class="check">
+    <li>Esteira precificada: R$ 1.200, R$ 5.000 e R$ 800 por mês, com plataforma em linha separada.</li>
+    <li>3A3R aposentado de todos os materiais. O método é o D.T.I.</li>
+    <li>Instagram reposicionado: bio, categoria, quatro destaques novos e marca d'água trocada.</li>
+    <li>Fotos da imersão publicadas e PDF de apresentação pronto.</li>
+  </ul>
+
+  <h3 class="navy">CHECKPOINT 3 · DIA 30 (Primeira Tração)</h3>
+  <ul class="check">
+    <li>400 abordagens feitas e registradas na planilha.</li>
+    <li>12 sessões estratégicas realizadas e gravadas.</li>
+    <li>2 vendas fechadas, de R$ 8 a R$ 10 mil faturados.</li>
+    <li>3 primeiras calls revisadas com o Carlos.</li>
+  </ul>
+
+  <h3 class="navy">CHECKPOINT 4 · DIA 60 (Consistência)</h3>
+  <ul class="check">
+    <li>De 5 a 6 vendas acumuladas e o primeiro mês fechando em R$ 15 mil.</li>
+    <li>Conversão real medida, no lugar da estimativa de 25%.</li>
+    <li>2 depoimentos em vídeo captados.</li>
+    <li>Quiz construído e campanhas prontas para subir.</li>
+  </ul>
+
+  <h3 class="navy">CHECKPOINT 5 · DIA 90 (Meta)</h3>
+  <ul class="check">
+    <li>R$ 15 mil faturados no mês, de 9 a 10 vendas acumuladas.</li>
+    <li>3 contratos de manutenção ativos gerando recorrência.</li>
+    <li>Funil de quiz rodando com verba de validação e métricas revisadas a cada 7 dias.</li>
+    <li>1 agente vertical empacotado e 2 parcerias em conversa.</li>
+    <li><strong>Pronto para receber o Roadmap 2.</strong></li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 14 · MATERIAIS DE APOIO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Filipe Chagas</span><span>Página 14</span></div>
+  <div class="kicker">Materiais de Apoio</div>
+  <h1 style="font-size:19pt;">Recursos para Executar o Plano</h1>
+  <p class="lead">Todas as aulas e templates abaixo estão na área de membros e no grupo. Se algum link não foi compartilhado, peça no grupo.</p>
+
+  <ul class="check">
+    <li><strong>Social Selling parte 1 e parte 2</strong>
+      <ul class="sub"><li>Como abordar sem parecer vendedor no Instagram e no WhatsApp. Base do Passo 11.</li></ul>
+    </li>
+    <li><strong>Outbound</strong>
+      <ul class="sub"><li>Prospecção fria, montagem de lista e identificação do decisor. Resolve a sua trava declarada. Passo 10.</li></ul>
+    </li>
+    <li><strong>Call de Vendas 1x1</strong>
+      <ul class="sub"><li>Condução da sessão estratégica, diagnóstico e fechamento. Assistir antes da primeira call. Passo 12.</li></ul>
+    </li>
+    <li><strong>Pré-Vendas e planilha de CRM</strong>
+      <ul class="sub"><li>Cadência, follow-up e controle. Modelo de planilha para os Passos 2, 10 e 11.</li></ul>
+    </li>
+    <li><strong>Cadernos de cadência e quebras de objeção da Simple</strong>
+      <ul class="sub"><li>A cadência que a equipe usa hoje. É adaptar a ficha para o seu produto. Passos 3 e 11.</li></ul>
+    </li>
+    <li><strong>Playbooks comerciais de pré-vendas e de closer</strong>
+      <ul class="sub"><li>Estrutura completa da operação comercial da Simple. Passo 12.</li></ul>
+    </li>
+    <li><strong>Como Montar o High Ticket</strong>
+      <ul class="sub"><li>Sustentação de preço e construção da esteira. Passo 4.</li></ul>
+    </li>
+    <li><strong>Modelo de PDF de apresentação</strong>
+      <ul class="sub"><li>Estrutura dos 10 a 15 slides do material de call. Passo 6.</li></ul>
+    </li>
+    <li><strong>Guia de captação de depoimentos</strong>
+      <ul class="sub"><li>Tópicos de direcionamento para o cliente gravar um depoimento aproveitável. Passo 15.</li></ul>
+    </li>
+    <li><strong>Método Simple Growth, Notion do funil de lead dinâmico e mapas mentais</strong>
+      <ul class="sub"><li>Construção do quiz, das páginas e das campanhas. Passos 16 e 17.</li></ul>
+    </li>
+    <li><strong>Growth Model</strong>
+      <ul class="sub"><li>Métricas e alavancas para ler os números do funil a cada 7 dias. Passo 17.</li></ul>
+    </li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 15 · FECHAMENTO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Filipe Chagas</span><span>Página 15</span></div>
+  <div style="padding-top:34mm;">
+    <div class="kicker">Lembre-se Sempre Disto</div>
+    <h1 style="font-size:19pt;">Antes de Fechar Este Documento</h1>
+    <p style="margin-top:10pt;">Você saiu de social media, estudou n8n e agentes de IA, foi para uma imersão presencial e voltou com um método próprio na mão. Entrou numa gráfica que dependia inteiramente de uma pessoa e saiu de lá com regras de negócio, glossário, matriz de decisão com mais de 20 situações e oito entregáveis formais. Dez anos de conhecimento que ninguém nunca tinha escrito, e você escreveu.</p>
+    <p>Não foi falta de conhecimento técnico. Não foi falta de método. Não foi falta de vontade.</p>
+    <p><strong class="navy">Foi falta de volume de conversa com gente certa, todo dia, com registro.</strong></p>
+    <p>Este roadmap é o método. A execução é sua. A cada 15 dias o mentor estratégico vai te encontrar na conversa quinzenal, mas o que coloca dinheiro no caixa é o que você faz <strong>entre as calls</strong>, nas suas três horas.</p>
+    <p>Dúvidas no meio do caminho: mande no grupo. Não espere a próxima call para perguntar.</p>
+    <p style="margin-top:12pt;">Você tem um método nomeado e documentado. Você tem um projeto real, com entregável em cada etapa. Você tem três nichos mapeados com demanda comprovada. Você tem uma base inteira de contatos que ainda não sabe o que você virou. E agora você tem o passo a passo.</p>
+    <p><strong class="navy">O próximo passo é começar.</strong></p>
+    <div class="footer-note">Roadmap Estratégico Digital · Filipe Chagas · 90 dias · Versão 1.0</div>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+</body>
+</html>

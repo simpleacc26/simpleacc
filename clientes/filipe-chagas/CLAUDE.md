@@ -16,35 +16,44 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
 3. Salve na pasta certa e registre o aprendizado.
 4. Branch `cliente/filipe-chagas/<assunto>` + PR.
 
-## ⚠️ Este projeto é diferente do padrão
+## ⚠️ Duas restrições que mudam tudo
 
-**A Simple NÃO implementa o funil.** O escopo é estruturação de oferta + roadmap
-+ **acesso à metodologia** (funil e comercial) + acompanhamento. Quem constrói
-quiz, páginas, criativos e campanhas é o próprio Filipe.
-
-Consequência prática: tudo que a gente produzir precisa caber na **capacidade real
-de execução dele** (tempo, time, verba, habilidade técnica). Não gerar plano de
-4 canais para quem executa sozinho.
+1. **A Simple NÃO implementa o funil.** O escopo é oferta + roadmap + **acesso à
+   metodologia** (funil e comercial) + acompanhamento. Quem constrói quiz,
+   páginas, criativos e campanhas é o próprio Filipe.
+2. **Ele está em regime CLT e só tem 3 horas por noite.** Qualquer plano precisa
+   caber nisso. Não gerar rotina de 4 canais nem 12 publicações por semana.
 
 ## Contexto rápido
 
-- **Oferta principal:** implementação de **agentes de IA personalizados** que
-  capturam o conhecimento do especialista-gargalo da empresa e o transformam em
-  um sistema que atende, qualifica e monta orçamento 24h. Não é chatbot.
-- **Mecanismo único — Método D.T.I.:** Diagnóstico → Transformação → Implantação.
+- **Oferta:** implementação de **agentes de IA personalizados** que capturam o
+  conhecimento do especialista-gargalo e viram um sistema que atende, qualifica e
+  monta orçamento 24h, integrado ao WhatsApp. Não é chatbot.
+- **Mecanismo — Método D.T.I.:** Diagnóstico → Transformação → Implantação.
   Frase-síntese dele: *"enquanto outras soluções automatizam mensagens, eu
-  automatizo conhecimento."* Serve a 4 gargalos (comercial, operação,
-  conhecimento, suporte) — o processo é o mesmo, muda o gargalo.
-- **Entrega:** 5 etapas, ~3 a 4 semanas por cliente. Integração com WhatsApp.
-- **Preço atual:** R$ 2.500 a R$ 4.500 por implementação.
-  ⚠️ **Não é high ticket** — e o entregável da Simple é um roadmap para bater a
-  meta mensal *com high ticket*. Subir o ticket é a tensão central do projeto.
-- **Prova:** um único case documentado — **WL Gráfica (ES)**, sem número de
-  resultado e sem depoimento em vídeo. Prova fina para high ticket.
-- **Público / ICP:** **indefinido.** O canvas de cliente ideal veio em branco.
-  Hoje o discurso é "qualquer empresa com gargalo" — amplo demais para quiz e
-  anúncio. Hipótese a validar: gráfica / indústria com orçamento complexo, onde
-  ele já tem repertório e case.
+  automatizo conhecimento."*
+- **Esteira definida no roadmap (v1.0, 05/08/26):**
+  | Produto | Preço | Papel |
+  | --- | --- | --- |
+  | Diagnóstico D.T.I. | R$ 1.200 | Entrada e quebra da objeção principal; abatido da implementação |
+  | Implementação D.T.I. completa | **R$ 5.000** | Carro-chefe (era R$ 2.500 a R$ 4.500) |
+  | Manutenção e Evolução | R$ 800/mês, 12 meses | Recorrência |
+  Custo de plataforma **sempre em linha separada** da proposta.
+- **Números:** faturamento atual ~R$ 3 mil/mês · **meta R$ 15 mil/mês** ·
+  capacidade 3 a 4 projetos simultâneos · ~7 dias por etapa (1 a 2 meses por
+  projeto) · ciclo de fechamento 5 dias · conversão **estimada em 25%** (não tem
+  dado real ainda) · gestão de leads hoje só por tag do WhatsApp.
+- **ICP definido na call:** empresas que **vivem de orçamento** e respondem as
+  mesmas perguntas o dia todo. Três nichos prioritários: **saúde (consultórios),
+  atacado/compras de volume e distribuidoras.** Posicionamento acordado:
+  **amplo no segmento, cirúrgico no formato.**
+- **Instagram:** [@filipe.estrategista](https://instagram.com/filipe.estrategista)
+  — 960 seguidores. ⚠️ **O perfil ainda vende social media** (bio com método
+  "3A3R", categoria Marketing Agency, destaques ESTÉTICA/ACADEMIA, marca d'água
+  "Social Media"). Reposicionar é o Passo 7 do roadmap. **Método oficial é o
+  D.T.I.; o 3A3R foi aposentado.**
+- **Prova:** um projeto (WL Gráfica, ES) **ainda não entregue**, mal precificado,
+  sem custo de plataforma repassado e sem depoimento. Não é case fechado.
 - **Links:** pasta no Drive "Simple <> Filipe Chagas"
   (https://drive.google.com/drive/folders/1kYlMMNN5ZXv9q9BY4R5MXPIjHPeP_14L).
 - **Contato principal:** _(a preencher — WhatsApp/e-mail do Filipe)_
@@ -53,6 +62,8 @@ de execução dele** (tempo, time, verba, habilidade técnica). Não gerar plano
 
 | Arquivo | O que é |
 | --- | --- |
-| `contexto/2026-08-03-canvas-produto-e-cliente-ideal.md` | Canvas preenchido pelo cliente (produto completo, cliente ideal em branco) |
-| `contexto/2026-08-05-briefing-negocio.md` | Briefing objetivo de 1 página — apoio para a call |
-| `estrategia/2026-08-05-pauta-perguntas-onboarding.md` | Pauta de perguntas da call de onboarding |
+| `estrategia/2026-08-05-roadmap-estrategico-filipe-chagas.html` + `.pdf` | **Roadmap 90 dias v1.0** (fonte editável + entregável) |
+| `contexto/2026-08-05-notas-onboarding.md` | Números, nichos, objeções reais, situação da gráfica, leitura do Instagram |
+| `contexto/2026-08-03-canvas-produto-e-cliente-ideal.md` | Canvas preenchido pelo cliente |
+| `contexto/2026-08-05-briefing-negocio.md` | Briefing de 1 página (pré-call) |
+| `estrategia/2026-08-05-pauta-perguntas-onboarding.md` | Pauta usada na call de onboarding |
