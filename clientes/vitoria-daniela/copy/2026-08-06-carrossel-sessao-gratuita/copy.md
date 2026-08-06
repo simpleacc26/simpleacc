@@ -52,7 +52,7 @@ Verba a mais em cima de estrutura furada não corrige nada. Só acelera o preju�
 >
 > O primeiro passo não é investir mais. É saber onde está vazando.
 >
-> Deixei o link da aplicação nos comentários. Eu analiso pessoalmente e devolvo o direcionamento em menos de 24h.
+> Deixei o link nos comentários. Eu analiso pessoalmente e devolvo o direcionamento em menos de 24h.
 >
 > PS: se o alcance subiu e o caixa não mudou, você já tem a resposta.
 
@@ -96,8 +96,16 @@ a promessa numérica "seis dígitos por mês".
 
 ## Pendências
 
-- **A foto no lockup.** O HTML já está pronto para ela: basta salvar o arquivo como
-  `foto-vitoria.jpg` nesta pasta e reexportar
-  sozinho na inicial "V", então a peça nunca quebra.
-- **Confirmar o dourado oficial.** Usei `#C9A24C` sobre preto `#0E0D0B`.
+- **Confirmar o dourado oficial.** Usei `#C9A24C` sobre preto `#0E0D0B`. Se existir hex de
+  marca, troco no objeto `BRAND` e reexporto.
 - **Confirmar o @ dela.** Só aparece no preview, não sai nos PNGs.
+
+## A foto
+
+`foto-vitoria.jpg` é a **DSC_2820 (2)** do ensaio (pasta "Fotos" no Drive), recortada em
+quadrado no rosto e reduzida para 420px, 28KB. O fundo original é preto, então no card
+escuro ela se funde e sobra o rosto dentro do anel dourado.
+
+Para trocar a foto, basta substituir o arquivo mantendo o nome e reexportar. Se o arquivo
+não existir, o `onerror` remove a img e o lockup cai sozinho na inicial "V", então a peça
+nunca quebra.
