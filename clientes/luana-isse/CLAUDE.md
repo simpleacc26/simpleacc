@@ -29,9 +29,13 @@ onde o outro parou (o Git é a memória compartilhada).
   Nome confirmado; o mecanismo é recontado na linguagem de restauração da identidade.
   A **consultoria de movimento/posicionamento a R$ 15 mil** é porta lateral, por indicação.
   **Individual de R$ 30 mil** para a base e ultra qualificados.
-- **Big idea:** "Você não precisa parecer maior. Precisa tornar visível quem realmente é."
-  Ela **restaura a identidade de especialistas e líderes** para que ocupem, com autenticidade,
-  autoridade e influência, o espaço que já lhes pertence.
+- **Big idea (pública):** **"Quem é visto, vende mais."** O movimento dela é contra a
+  invisibilidade digital do especialista excelente e a favor do aumento das vendas dele.
+- **REGRA DE LINGUAGEM (pedido dela, 04/08):** **nunca falar em "resgatar/restaurar identidade"
+  na comunicação** — isso é entrega e overdelivery, não anúncio. Fale de: deixar de ser ignorado,
+  se tornar impossível de ignorar, aumentar o valor percebido, vender mais e cobrar mais.
+  Continua proibido prometer número de faturamento.
+- **Conferência "O Fim da Invisibilidade":** 19/08, 20h. Artes e copies feitas por ela.
 - **Público / ICP (decidido em 29/07):** **mentores/especialistas iniciantes** — profissionais
   sérios (psicólogos, coaches certificados, advogados, nutricionistas, médicos) presos no 1-a-1,
   faturando R$ 8–25 mil/mês, invisíveis no digital, que já gastaram em curso e social media sem
