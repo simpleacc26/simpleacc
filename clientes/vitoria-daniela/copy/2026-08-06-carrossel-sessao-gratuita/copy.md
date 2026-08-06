@@ -28,7 +28,7 @@ Verba a mais em cima de estrutura furada não corrige nada. Só acelera o preju�
 **Tag:** O PRÓXIMO PASSO
 **Título:** O primeiro passo não é investir mais. É saber onde está vazando.
 **Corpo:** Eu analiso pessoalmente cada aplicação e devolvo o direcionamento em menos de 24h. Não é sessão genérica, é leitura do seu momento e dos próximos passos.
-**CTA:** Deixei o link da aplicação nos comentários
+**CTA:** Deixei o link nos comentários
 
 ---
 
@@ -97,7 +97,7 @@ a promessa numérica "seis dígitos por mês".
 ## Pendências
 
 - **A foto no lockup.** O HTML já está pronto para ela: basta salvar o arquivo como
-  `foto-vitoria.jpg` nesta pasta e reexportar. Se o arquivo não existir, o lockup cai
+  `foto-vitoria.jpg` nesta pasta e reexportar
   sozinho na inicial "V", então a peça nunca quebra.
 - **Confirmar o dourado oficial.** Usei `#C9A24C` sobre preto `#0E0D0B`.
 - **Confirmar o @ dela.** Só aparece no preview, não sai nos PNGs.

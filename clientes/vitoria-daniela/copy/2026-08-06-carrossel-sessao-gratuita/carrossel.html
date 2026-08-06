@@ -139,7 +139,7 @@ function lockup(fundo) {
   return `<div style="display:flex;align-items:center;gap:12px;">
     <div style="position:relative;width:46px;height:46px;border-radius:50%;overflow:hidden;flex-shrink:0;background:${fundoCirc};border:1.5px solid ${anel};display:flex;align-items:center;justify-content:center;">
       <span class="serif" style="font-size:19px;font-weight:600;color:${corInic};">${BRAND.inicial}</span>
-      <img src="${FOTO}" onerror="this.remove()" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 18%;">
+      <img src="${FOTO}" onerror="this.remove()" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
     </div>
     <span class="sans" style="font-size:11px;font-weight:600;letter-spacing:2.2px;color:${corTexto};">${BRAND.nome}</span>
   </div>`;
@@ -224,7 +224,7 @@ const SLIDES = [
         ${titulo('O primeiro passo não é investir mais. É saber onde está vazando.', 'gradient', 29)}
         ${paragrafo('Eu analiso pessoalmente cada aplicação e devolvo o direcionamento em menos de 24h. Não é sessão genérica, é leitura do seu momento e dos próximos passos.', 'gradient')}
         <div style="margin-top:22px;">
-          ${botaoCta('Deixei o link da aplicação nos comentários')}
+          ${botaoCta('Deixei o link nos comentários')}
         </div>
       </div>
     </div>
@@ -256,7 +256,7 @@ track.innerHTML = SLIDES.map(renderSlide).join('');
 const avatar = document.getElementById('igAvatar');
 avatar.style.background = BRAND.darkBg;
 avatar.innerHTML = `<span>${BRAND.inicial}</span>
-  <img src="${FOTO}" onerror="this.remove()" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 18%;">`;
+  <img src="${FOTO}" onerror="this.remove()" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">`;
 document.getElementById('igHandle').textContent = BRAND.handle;
 document.getElementById('igSub').textContent = LEGENDA.sub;
 document.getElementById('igCaption').innerHTML =
