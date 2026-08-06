@@ -32,13 +32,25 @@ onde o outro parou (o Git é a memória compartilhada).
   R$ 50 mil — a confirmar).
 - **Promessa central:** converter mais das reuniões que já existem, sem aumentar
   tráfego, sem baixar preço e sem forçar fechamento.
-- **Links:** pasta no Drive — `Simple <> Thiago Menegão`
+- **Modelo do projeto:** **permuta** (não é contrato padrão). A Simple monta o funil do
+  Primal Pitch e leva o Thiago para um workshop com a base de clientes da Simple; em
+  troca, acesso à metodologia gravada + acompanhamento dele. Detalhes e ressalvas em
+  `contexto/2026-08-06-perfil-thiago-e-negocio.md`.
+- **Links:** [@thiagomenegao](https://instagram.com/thiagomenegao) · link.menegao.com.br/primalpitch ·
+  pasta no Drive `Simple <> Thiago Menegão`
   (https://drive.google.com/drive/folders/1dIoYK9gI9oupKBz_Jz2tmLrj4vCTCiPf).
 - **Contato principal:** _(a preencher)_
 
-> Detalhamento completo da oferta em
-> [`contexto/2026-08-06-canvas-produto-cliente-ideal.md`](contexto/2026-08-06-canvas-produto-cliente-ideal.md).
-> As lacunas de onboarding ainda abertas estão listadas no `README.md`.
+> **Leia antes de qualquer entrega:**
+> - [`contexto/2026-08-06-perfil-thiago-e-negocio.md`](contexto/2026-08-06-perfil-thiago-e-negocio.md)
+>   — quem ele é, como pensa, vocabulário próprio, negócio e o desenho da permuta.
+> - [`contexto/2026-08-06-canvas-produto-cliente-ideal.md`](contexto/2026-08-06-canvas-produto-cliente-ideal.md)
+>   — oferta, promessa, mecanismo e preço.
+>
+> ⚠️ **Ele é especialista em condução de reunião de alto valor.** Qualquer call, página
+> ou copy nossa vai ser lida pelo framework dele. Regras não negociáveis: nada de
+> *future pacing* ("imagina daqui 3 meses"), nada de rapport arrastado, e o CTA é sempre
+> **custo de adiar**, nunca projeção de futuro.
 
 ## Atenção: não confundir com outros "Thiago" da base
 
