@@ -24,6 +24,19 @@ que trava quando essa pessoa fica indisponível.
 
 ### Bloco A — Acessos (admin faz antes, ~20 min)
 
+**Se a operação usa conta única (Modelo A):**
+
+- [ ] Convite para a organização `{{ORG_GITHUB}}` com o **GitHub próprio da
+      pessoa**, no time `operacao` (Write) — no GitHub a conta individual é
+      grátis e é o que preserva "quem fez o quê"
+- [ ] Acesso ao **gerenciador de senhas**, no cofre que guarda a conta da
+      operação (senha + 2FA + códigos de recuperação)
+- [ ] Explicar que Claude, Vercel e Drive são acessados **por aquele login
+      único**, e o que isso implica (seção 3 abaixo)
+- [ ] Convite para o ClickUp, se a operação usar
+
+**Se a operação usa conta por pessoa (Modelo B):**
+
 - [ ] E-mail `nome@{{DOMINIO}}` criado no Google Workspace
 - [ ] Convite para a organização `{{ORG_GITHUB}}`, no time `operacao` (Write)
 - [ ] Convite para o time `{{TIME_VERCEL}}` na Vercel (Member)
@@ -76,6 +89,15 @@ se formam.
 6. **Nunca commitar segredo** (senha, token, `.env`).
 7. **Skill ou prompt novo vai para o repositório**, não fica só na sua conta.
 
+**Se o time usa uma conta Claude só, mais três:**
+
+8. **Diga seu nome na 1ª mensagem** (*"Renan aqui. Trabalhar em..."*) — é o que
+   preserva quem fez o quê quando o commit sai com o mesmo autor.
+9. **Não retome sessão antiga.** O histórico é de todo mundo, e é fácil pegar a
+   conversa errada. Abra uma nova e leia a pasta do cliente.
+10. **O limite de uso é compartilhado.** Se você vai gerar coisa pesada (funil,
+    roadmap, PDF), avise o time. Quando o limite estoura, todo mundo para.
+
 ---
 
 ## 4. Como o time divide o trabalho sem se atrapalhar
@@ -94,12 +116,26 @@ responde *o que já foi feito*. Não misture os dois papéis.
 
 ## 5. Offboarding (quando alguém sai)
 
+**Modelo B (conta por pessoa):**
+
 - [ ] Remover do time no GitHub
 - [ ] Remover do time na Vercel
 - [ ] Remover do Drive Compartilhado e do Workspace
 - [ ] Revogar o acesso ao ambiente e à conta Claude
 - [ ] Revogar conectores autorizados com a conta dela
 - [ ] Remover do gerenciador de senhas e **trocar as senhas críticas**
+
+**Modelo A (conta única) — é mais trabalhoso, saiba disso antes de escolher:**
+
+- [ ] Remover do time no GitHub (aqui é revogação limpa, se a conta é individual)
+- [ ] **Trocar a senha da conta da operação** — não existe "revogar o acesso de
+      uma pessoa" numa conta compartilhada
+- [ ] **Regerar o 2FA** e os códigos de recuperação, e atualizar no gerenciador
+- [ ] Remover a pessoa do gerenciador de senhas
+- [ ] Avisar o resto do time da senha nova
+
+> A saída de alguém é o momento em que o custo do Modelo A aparece de uma vez.
+> Se a operação já tem previsão de rotatividade, considere migrar antes.
 - [ ] Conferir se alguma skill/prompt ficou só na conta pessoal dela — se ficou,
       **traga para o repositório antes de revogar o acesso**
 

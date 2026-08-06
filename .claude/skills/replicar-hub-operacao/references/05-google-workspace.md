@@ -18,11 +18,21 @@ Drive é registrado no `README.md` ou no `CLAUDE.md` do cliente, para não se pe
 
 ---
 
-## 1. Plano: Business Standard ou superior
+## 1. Gmail único ou Workspace?
 
-O Business **Starter não tem Drives Compartilhados**. Sem Drive Compartilhado,
-todo arquivo pertence à conta de quem criou: a pessoa sai, o arquivo vai junto.
-Para operação compartilhada, isso é inaceitável. **Business Standard ou acima.**
+**Se a operação usa um Gmail único (Modelo A):** não existe Drive Compartilhado
+no Gmail, mas isso não é problema enquanto for uma conta só — todos os arquivos
+moram no "Meu Drive" dessa conta, e todo mundo entra por ela. Dois cuidados:
+
+- **Monte as pastas já no formato da seção 2**, como se fossem virar Drive
+  Compartilhado. Na migração para Workspace, os arquivos precisam mudar de dono,
+  e uma estrutura já organizada é o que torna isso viável.
+- **Nunca compartilhe uma pasta a partir dessa conta sem conferir o escopo.**
+  Compartilhar a pasta errada expõe o material de todos os clientes.
+
+**Se a operação usa Workspace (Modelo B):** o Business **Starter não tem Drives
+Compartilhados**. Sem Drive Compartilhado, todo arquivo pertence à conta de quem
+criou: a pessoa sai, o arquivo vai junto. **Business Standard ou acima.**
 
 ---
 
@@ -128,8 +138,8 @@ operações mesmo parado. Apps Script costuma ser mais simples e 100% gratuito.
 
 ## 6. Checklist do Workspace
 
-- [ ] Plano **Business Standard ou superior** (com Drives Compartilhados)
-- [ ] Drive Compartilhado `{{EMPRESA}}` criado, com a estrutura acima
+- [ ] Modelo A: pastas do Gmail montadas já no formato de Drive Compartilhado
+- [ ] Modelo B: plano **Business Standard ou superior** e Drive Compartilhado `{{EMPRESA}}` criado
 - [ ] Modelo de pasta de cliente pronto para copiar
 - [ ] Cliente tem acesso **só à pasta dele**
 - [ ] Link da pasta do Drive registrado no `CLAUDE.md` de cada cliente

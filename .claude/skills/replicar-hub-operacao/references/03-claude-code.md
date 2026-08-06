@@ -84,6 +84,42 @@ trocada e de PR que ninguém consegue revisar.
 
 ---
 
+## 4b. Se o time usa uma conta Claude só
+
+Funciona, e é o começo mais barato. Três coisas mudam no dia a dia:
+
+**1. Diga quem você é na primeira mensagem.** Como o commit sai com o mesmo
+autor para todo mundo, o nome na abertura é o que preserva o "quem fez o quê":
+
+```
+Renan aqui. Trabalhar em clientes/<cliente>: <a tarefa>.
+Leia contexto/ e aprendizados.md antes de criar.
+```
+
+Peça que isso vá para o corpo do PR. Com a organização do GitHub em contas
+individuais (ver `01-contas-e-acessos.md`, Bloco 2), o revisor do PR já é
+identificado, e a abertura cobre o autor.
+
+**2. O limite de uso é de todos.** O plano tem limite por conta, não por pessoa.
+Se três pessoas trabalham pesado ao mesmo tempo, o limite chega mais rápido e
+**todo mundo para junto**. Combine os horários de carga pesada (gerar funil,
+roadmap, PDFs) para não colidirem. Se alguém não conseguir abrir sessão, o mais
+provável é limite de sessões simultâneas, não defeito.
+
+**3. O histórico é comum.** Todo mundo vê as sessões de todo mundo, e é fácil
+retomar a conversa errada. Isso torna as duas regras abaixo obrigatórias, não
+recomendadas:
+
+- **Uma sessão = um cliente.** Sem exceção.
+- **Não retome sessão antiga.** Abra uma nova e leia a pasta do cliente. A
+  memória é o Git.
+
+> Quando migrar para conta por pessoa: quando entrar a terceira pessoa, quando o
+> limite começar a travar o time, ou quando alguém sair da operação (com conta
+> única, a saída de alguém obriga a trocar a senha de tudo).
+
+---
+
 ## 5. Duas pessoas ao mesmo tempo
 
 Funciona, desde que cada uma esteja **na sua branch**.
@@ -151,7 +187,8 @@ configurações da conversa. Detalhes em **[06-conectores.md](06-conectores.md)*
 
 - [ ] Ambiente `{{EMPRESA}}` criado, apontando para `{{ORG_GITHUB}}/{{REPO}}`
 - [ ] Política de rede permite publicar na Vercel e instalar dependências
-- [ ] Cada pessoa do time com a própria conta, no e-mail do domínio
+- [ ] Contas definidas: uma conta da operação para todos (Modelo A) **ou** uma por pessoa (Modelo B)
+- [ ] Se a conta é única: 2FA guardado no gerenciador de senhas e convenção do nome na 1ª mensagem combinada
 - [ ] `CLAUDE.md` da raiz preenchido com as regras da operação
 - [ ] `_modelo/cliente/CLAUDE.md` sendo usado a cada cliente novo
 - [ ] Time treinado no formato da 1ª mensagem

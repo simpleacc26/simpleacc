@@ -73,15 +73,27 @@ Pergunte, tudo de uma vez:
 2. **É o mesmo negócio** da operação existente, ou outro nicho? *(decide se os
    prompts e skills são copiados ou reescritos)*
 3. **Quantas pessoas** vão trabalhar nela, e quem administra as contas?
-4. **O que já existe?** (domínio, e-mails, GitHub, Vercel, Drive) — não crie o
-   que já existe
+4. **O que já existe?** (e-mail/domínio, GitHub, Vercel, Drive, conta Claude) —
+   não crie o que já existe. Pergunte explicitamente: **é uma conta só para o
+   time inteiro, ou uma por pessoa?**
 5. **Já tem clientes** em andamento, ou começa vazia?
 
 Resuma o que entendeu antes de seguir.
 
-### Passo 2 — Nomes
+### Passo 2 — Modelo de conta e nomes
 
-Colete os sete valores. Eles parametrizam todos os arquivos:
+**Primeiro, o modelo de conta.** Ele muda os passos 3, 6 e 8:
+
+| Modelo | Quando | O que implica |
+| ------ | ------ | ------------- |
+| **A — conta única da operação** | começo, time pequeno, orçamento apertado | Um e-mail (pode ser Gmail) que todos usam. Sem Drive Compartilhado, limite de uso e histórico compartilhados, e a saída de alguém obriga a trocar senha |
+| **B — conta por pessoa** | time crescendo, rotatividade, limite travando | Domínio + Workspace, conta própria em cada ferramenta |
+
+Em qualquer um dos dois, **recomende separar o GitHub**: lá a conta por pessoa é
+grátis (organização Free) e é o que preserva "quem fez o quê". Trade-offs
+completos em `references/01-contas-e-acessos.md`.
+
+**Depois, os sete valores** que parametrizam todos os arquivos:
 
 | Valor | Exemplo |
 | ----- | ------- |
@@ -93,6 +105,10 @@ Colete os sete valores. Eles parametrizam todos os arquivos:
 | E-mail do admin | `admin@novaop.com.br` |
 | Pasta do interno | `0-interno-novaop` |
 
+No **Modelo A**, se ainda não existe domínio, use o e-mail da operação no lugar
+de `E-mail do admin` e deixe `Domínio` como o que a operação usa hoje (ou o
+domínio futuro, se já estiver decidido). Não invente um domínio: pergunte.
+
 Confirme os sete na tela antes de gerar qualquer coisa.
 
 ### Passo 3 — Contas
@@ -103,16 +119,18 @@ Oriente a criação **nesta ordem** — cada bloco depende do anterior:
 Domínio + Google Workspace → GitHub → Claude → Vercel → Conectores
 ```
 
-Leia `references/01-contas-e-acessos.md` e passe o que importa. Os três pontos
-que mais custam caro quando erram:
+Leia `references/01-contas-e-acessos.md` e passe o que importa. Os pontos que
+mais custam caro quando erram:
 
-- **Workspace Business Standard ou superior** — o Starter não tem Drives
-  Compartilhados, e sem eles todo arquivo fica preso na conta de quem criou
-- **Organização no GitHub**, não repositório pessoal
+- **Organização no GitHub**, não repositório pessoal — vale nos dois modelos
 - **Time Pro na Vercel** — o plano gratuito é pessoal e não permite uso comercial
+- **Modelo B:** Workspace Business Standard ou superior. O Starter não tem
+  Drives Compartilhados, e sem eles todo arquivo fica preso na conta de quem criou
+- **Modelo A:** 2FA da conta única guardado **no gerenciador de senhas**, não no
+  celular de uma pessoa só, senão ela vira o gargalo da operação inteira
 
-E a regra que atravessa tudo: nenhuma conta nasce em e-mail pessoal, e toda
-conta crítica tem **dois** administradores.
+E a regra que atravessa tudo: nenhuma conta nasce no e-mail **pessoal de uma
+pessoa**. Ou é o domínio da empresa, ou um e-mail de função que o time controla.
 
 ### Passo 4 — Gerar a estrutura
 

@@ -9,6 +9,15 @@ de DNS do domínio (que pode levar horas e roda em paralelo).
 
 ## Antes de começar, decida
 
+**Primeiro, o modelo de conta** (muda os Blocos 1, 2 e 5):
+
+| Modelo | Quando | Detalhe |
+| ------ | ------ | ------- |
+| **A — conta única da operação** | começo, time pequeno, orçamento apertado | Um e-mail (pode ser Gmail) que todos usam. **Separe só o GitHub**: lá a conta por pessoa é grátis |
+| **B — conta por pessoa** | time crescendo, rotatividade, limite de uso travando | Domínio + Workspace, e conta própria em cada ferramenta |
+
+Detalhes e trade-offs em `01-contas-e-acessos.md`. Depois, os nomes:
+
 | Decisão | Exemplo | Onde vai aparecer |
 | ------- | ------- | ----------------- |
 | Nome da operação | `Nova Operação` | em tudo |
@@ -23,18 +32,31 @@ Anote. O script vai pedir exatamente isso.
 
 ---
 
-## Bloco 1 — Fundação (60 min + propagação de DNS)
+## Bloco 1 — Fundação
+
+### Modelo A — conta única (15 min)
+
+- [ ] Criar o **e-mail da operação** com nome neutro, de função
+      (`operacaoX@gmail.com`), nunca o nome de uma pessoa
+- [ ] Criar o **gerenciador de senhas** (1Password, Bitwarden)
+- [ ] **Ligar o 2FA** dessa conta e guardar o segundo fator **no gerenciador**,
+      não no celular de uma pessoa só
+- [ ] Guardar os **códigos de recuperação** no mesmo lugar
+- [ ] Combinar com o time: o e-mail da operação é login, **não** é o e-mail
+      público de contato com cliente
+
+### Modelo B — domínio + Workspace (60 min + propagação de DNS)
 
 - [ ] Registrar o **domínio**
 - [ ] Contratar **Google Workspace Business Standard** (ou superior — o Starter
       não tem Drives Compartilhados)
 - [ ] Verificar o domínio no Workspace e apontar o DNS
 - [ ] Criar o e-mail do admin e um e-mail por pessoa do time
-- [ ] Criar o **gerenciador de senhas** (1Password, Bitwarden) e colocar tudo lá
+- [ ] Criar o **gerenciador de senhas** e colocar tudo lá
 
 📖 `01-contas-e-acessos.md`
 
-> Enquanto o DNS propaga, siga para o Bloco 2. Não fica travado.
+> No Modelo B, enquanto o DNS propaga, siga para o Bloco 2. Não fica travado.
 
 ---
 
@@ -44,7 +66,8 @@ Anote. O script vai pedir exatamente isso.
 - [ ] Adicionar um **segundo Owner**
 - [ ] Criar o repositório **privado**, default branch `main`, sem README
 - [ ] Criar os times `admin` e `operacao`
-- [ ] Convidar as pessoas pelo e-mail do domínio
+- [ ] Convidar as pessoas — **mesmo no Modelo A, cada uma com o GitHub próprio**
+      (é grátis, e é o que preserva quem fez o quê)
 - [ ] Ligar **secret scanning** e **push protection**
 
 📖 `02-github.md`
@@ -95,7 +118,10 @@ No Free, a disciplina de branch + PR é acordo do time, não trava técnica.
 
 ## Bloco 5 — Claude Code (30 min)
 
-- [ ] Conta para cada pessoa, com o e-mail do domínio
+- [ ] **Modelo A:** uma conta no e-mail da operação, usada por todos ·
+      **Modelo B:** uma conta por pessoa
+- [ ] Se a conta é única, combinar as três regras extras (nome na 1ª mensagem,
+      não retomar sessão antiga, avisar antes de carga pesada)
 - [ ] Instalar o **app do Claude** no GitHub, com acesso **só a este repositório**
 - [ ] Criar o **ambiente**, apontando para o repositório
 - [ ] Ajustar a política de rede (precisa alcançar a Vercel e o registro de pacotes)
@@ -119,7 +145,9 @@ No Free, a disciplina de branch + PR é acordo do time, não trava técnica.
 
 ## Bloco 7 — Drive (30 min)
 
-- [ ] Criar o **Drive Compartilhado** da operação
+- [ ] **Modelo A:** montar as pastas no "Meu Drive" da conta da operação, já no
+      formato de Drive Compartilhado · **Modelo B:** criar o **Drive
+      Compartilhado** da operação
 - [ ] Montar a estrutura `00 Interno/` e `Clientes/`
 - [ ] Criar o **modelo de pasta de cliente** para copiar a cada cliente novo
 - [ ] Dar acesso ao time
@@ -202,4 +230,5 @@ A estrutura está pronta quando **todas** forem verdade:
 - [ ] Existe pelo menos um comando ou skill funcionando
 - [ ] Todo funil no ar tem URL registrada no `README.md` e integração testada
 - [ ] Nenhuma skill de processo vive só numa conta pessoal
-- [ ] Cada conta crítica tem **dois** administradores
+- [ ] Modelo B: cada conta crítica tem **dois** administradores ·
+      Modelo A: senha e 2FA da conta única acessíveis a mais de uma pessoa

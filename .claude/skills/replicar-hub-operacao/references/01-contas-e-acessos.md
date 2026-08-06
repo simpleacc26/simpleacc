@@ -3,11 +3,47 @@
 Este é o inventário completo do que a operação precisa ter. Crie **nesta ordem**,
 porque cada bloco depende do anterior.
 
-> **Regra número 1 de todas:** nenhuma conta da operação nasce num e-mail pessoal.
-> Toda conta é criada com um e-mail **do domínio da empresa** e, sempre que a
-> ferramenta permitir, com **estrutura de time/organização** — não com login
-> individual compartilhado. Conta pessoal vira refém: quando a pessoa sai, a
-> operação para.
+> **Regra número 1 de todas:** nenhuma conta da operação nasce no e-mail
+> **pessoal de uma pessoa**. Ou nasce num e-mail do domínio da empresa, ou num
+> e-mail **da operação** que o time inteiro controla. Conta no e-mail pessoal de
+> alguém vira refém: quando a pessoa sai, a operação para.
+
+---
+
+## Antes de tudo: escolha o modelo de conta
+
+Existem dois jeitos de operar, e a escolha muda o resto do documento.
+
+### Modelo A — Conta única da operação (mais simples, começo barato)
+
+Um e-mail só (pode ser um Gmail: `operacao@gmail.com`), e **todo mundo entra por
+ele** em todas as ferramentas. É o modelo mais rápido de montar e o mais barato.
+
+**O que você ganha:** custo mínimo, zero convite para gerenciar, ninguém fica
+esperando acesso.
+
+**O que você perde, e precisa compensar:**
+
+| Perda | O que acontece na prática | Como compensar |
+| ----- | ------------------------- | -------------- |
+| **Rastreabilidade** | Todo commit e todo PR saem com o mesmo autor. Você não sabe quem fez o quê. | Convenção: a 1ª mensagem da sessão começa com o nome (*"Renan aqui. Trabalhar em clientes/X: ..."*), e isso vai para o título/corpo do PR |
+| **Limite de uso** | O limite do plano é da **conta**, não da pessoa. Três pessoas gastam o limite três vezes mais rápido, e quando estoura, **todo mundo para junto** | Combine horários de uso pesado; quando doer, é o primeiro item a virar plano de time |
+| **Histórico comum** | Todo mundo vê as sessões de todo mundo, e é fácil retomar a conversa errada | Reforce ainda mais: **uma sessão = um cliente**, e a memória é o Git |
+| **Offboarding** | Não dá para revogar o acesso de uma pessoa: só trocando a senha de tudo | Senha e 2FA no gerenciador de senhas compartilhado, para trocar rápido quando precisar |
+| **Termos de uso** | Compartilhar login individual costuma ir contra os termos da maioria dos serviços | Confira os termos de cada ferramenta antes de escalar o time |
+
+### Modelo B — Conta por pessoa (o que aguenta crescer)
+
+Cada pessoa com o próprio login, e as ferramentas em modo time/organização.
+
+**Recomendação prática:** comece no **Modelo A**, mas **separe o GitHub já no
+dia 1**. No GitHub o Modelo B é **de graça** (organização Free = repositórios
+privados e colaboradores ilimitados), e é justamente onde a falta de
+rastreabilidade dói mais: é o histórico do trabalho. Você fica com o melhor dos
+dois: um login só para o resto, e "quem fez o quê" preservado onde importa.
+
+Migre o resto para o Modelo B quando: entrar a terceira pessoa, o limite de uso
+começar a travar o time, ou alguém sair da operação.
 
 ---
 
@@ -30,24 +66,41 @@ porque cada bloco depende do anterior.
 
 ---
 
-## Bloco 1 — Domínio e e-mails (fundação)
+## Bloco 1 — E-mail da operação (fundação)
 
-| Item | Para quê | Quem cria | Observação |
-| ---- | -------- | --------- | ---------- |
-| **Domínio** (`{{DOMINIO}}`) | identidade da operação; base dos e-mails | Sócio/admin | Registro.br, Cloudflare, Namecheap. Pode ser o mesmo registrador do domínio atual. |
-| **Google Workspace** | e-mails `nome@{{DOMINIO}}`, Drive compartilhado, Docs, Planilhas | Sócio/admin | **Plano Business Standard ou superior.** O Starter **não tem Drives Compartilhados**, e sem eles os arquivos ficam presos na conta de quem criou. |
+### Modelo A — Gmail único da operação (rápido, grátis)
 
-E-mails a criar no dia 1:
+| Item | Para quê | Observação |
+| ---- | -------- | ---------- |
+| **Gmail da operação** | login único de todas as ferramentas | Nome neutro, de função, não de pessoa: `operacaoX@gmail.com`, nunca `joao.silva@gmail.com` |
+| **Gerenciador de senhas** | guardar a senha e o **2FA** dessa conta | Obrigatório aqui. Sem ele, ou o time não tem 2FA, ou só uma pessoa consegue entrar |
 
-| E-mail | Para quê |
-| ------ | -------- |
-| `{{EMAIL_ADMIN}}` | dono das contas (admin de tudo) |
-| um por pessoa do time | acesso individual e rastreável |
-| `contato@{{DOMINIO}}` ou similar | e-mail público, respondido por quem estiver de plantão |
+Cuidados que só existem neste modelo:
 
-**Nunca** use um e-mail de pessoa física para ser o dono de uma conta de
-ferramenta. Se der, crie um e-mail de função (ex.: `ops@{{DOMINIO}}`) e coloque
-como owner, com o admin humano como segundo owner.
+- **Ligue o 2FA e guarde o segundo fator no gerenciador de senhas** (1Password e
+  Bitwarden guardam códigos TOTP). Se o 2FA ficar só no celular de uma pessoa,
+  ela vira o gargalo de toda a operação.
+- **Guarde os códigos de recuperação** no mesmo lugar.
+- **Gmail não tem Drives Compartilhados.** Tudo mora no "Meu Drive" dessa conta.
+  Funciona bem enquanto for uma conta só, mas na migração para Workspace os
+  arquivos precisam mudar de dono, e transferir muitos arquivos é chato. Já
+  organize as pastas como se fossem virar Drive Compartilhado.
+- **Não use esse Gmail como e-mail público** de contato com cliente. Um e-mail
+  no domínio passa outra impressão, e você não quer o login da operação
+  circulando em assinatura de e-mail.
+
+### Modelo B — Domínio + Google Workspace (o que aguenta crescer)
+
+| Item | Para quê | Observação |
+| ---- | -------- | ---------- |
+| **Domínio** (`{{DOMINIO}}`) | identidade da operação; base dos e-mails | Registro.br, Cloudflare, Namecheap |
+| **Google Workspace** | e-mails `nome@{{DOMINIO}}`, Drives Compartilhados, Docs, Planilhas | **Business Standard ou superior.** O Starter **não tem Drives Compartilhados**, e sem eles os arquivos ficam presos na conta de quem criou |
+
+E-mails a criar: `{{EMAIL_ADMIN}}` (dono das contas), um por pessoa, e um
+público (`contato@{{DOMINIO}}`).
+
+**Nas duas opções vale a mesma regra:** o dono das contas é um e-mail **de
+função**, não de pessoa física. Se um dia a pessoa sai, a conta fica.
 
 ---
 
@@ -60,9 +113,15 @@ como owner, com o admin humano como segundo owner.
 
 Detalhes completos em **[02-github.md](02-github.md)**.
 
-> A organização é o que separa "o repositório do Daniel" de "o repositório da
+> A organização é o que separa "o repositório de uma pessoa" do "repositório da
 > empresa". Com organização, a saída de uma pessoa é revogar um acesso; sem
 > organização, é migrar o repositório.
+
+⭐ **Mesmo no Modelo A (conta única), separe o GitHub.** Aqui a conta por pessoa
+custa **zero** (organização Free = repositórios privados e colaboradores
+ilimitados) e resolve o que mais dói na conta compartilhada: saber **quem fez o
+quê**. Crie a organização com o e-mail da operação e convide cada pessoa com o
+GitHub dela. É o único lugar onde vale quebrar o modelo único desde o dia 1.
 
 ---
 
@@ -70,9 +129,19 @@ Detalhes completos em **[02-github.md](02-github.md)**.
 
 | Item | Observação |
 | ---- | ---------- |
-| **Conta por pessoa** | cada pessoa do time tem o próprio login, com o e-mail do domínio |
-| **Plano** | confira no site qual plano da sua região libera **Claude Code na web** e quantas sessões simultâneas. Planos de time centralizam a cobrança e o gerenciamento de assentos. |
-| **Ambiente ("Environment")** | criado uma vez, apontando para o repositório. Todo mundo usa o mesmo. |
+| **Conta** | **Modelo A:** uma conta no e-mail da operação, usada por todos. **Modelo B:** uma por pessoa. |
+| **Plano** | confira no site qual plano da sua região libera **Claude Code na web** e quantas sessões simultâneas. Planos de time centralizam cobrança e assentos. |
+| **Ambiente ("Environment")** | criado uma vez, apontando para o repositório. Todo mundo usa o mesmo, nos dois modelos. |
+
+### Se a conta é compartilhada (Modelo A), saiba disto
+
+| O que muda | Consequência | O que fazer |
+| ---------- | ------------ | ----------- |
+| **O limite de uso é da conta** | Três pessoas gastam o limite três vezes mais rápido. Quando estoura, **todo mundo para junto** | Combine os horários de uso pesado. Quando começar a travar, é o primeiro item a virar plano de time |
+| **Sessões simultâneas** | O plano limita quantas sessões rodam ao mesmo tempo | Se alguém não consegue abrir sessão, provavelmente é isso, não bug |
+| **Histórico comum** | Todo mundo vê as conversas de todo mundo, e é fácil retomar a sessão errada | **Uma sessão = um cliente**, sem exceção. E o que vale está no Git, não na conversa |
+| **Autoria dos commits** | Sai tudo com o mesmo autor | Comece a sessão com o nome: *"Renan aqui. Trabalhar em `clientes/X`: ..."* — vai para o PR |
+| **Termos de uso** | Compartilhar login individual costuma ir contra os termos da maioria dos serviços | Confira os termos antes de escalar o time |
 
 Detalhes completos em **[03-claude-code.md](03-claude-code.md)**.
 
@@ -88,6 +157,10 @@ Veja **[09-prompts-e-skills.md](09-prompts-e-skills.md)**.
 | Item | Plano | Custo de referência | Por quê |
 | ---- | ----- | ------------------- | ------- |
 | **Time** `{{TIME_VERCEL}}` | **Pro** | ~US$ 20/usuário/mês | O plano gratuito (Hobby) é **pessoal e não permite uso comercial**. Sem time, os projetos ficam na conta de uma pessoa. |
+
+No **Modelo A**, o time da Vercel é criado dentro da conta única, com um assento
+só. Resolve bem: publicar funil é tarefa pontual e feita por poucas pessoas. O
+que **não** muda é a exigência do plano Pro para uso comercial.
 
 Detalhes completos em **[04-vercel.md](04-vercel.md)**.
 
@@ -121,30 +194,47 @@ Detalhes completos em **[06-conectores.md](06-conectores.md)**.
 
 ## Custo mensal estimado (referência)
 
-Para uma operação de **3 pessoas**, ordem de grandeza:
+Ordem de grandeza para uma operação de **3 pessoas**:
 
-| Item | Estimativa |
-| ---- | ---------- |
-| Google Workspace Business Standard (3 usuários) | ~US$ 40 |
-| GitHub Team (3 usuários) | ~US$ 12 |
-| Vercel Pro (1 a 2 assentos) | ~US$ 20 a 40 |
-| Claude (3 assentos) | conforme o plano escolhido |
-| ClickUp / Make / Figma / Canva | US$ 0 a 30 |
-| Domínio | ~US$ 15/ano |
+| Item | Modelo A (conta única) | Modelo B (conta por pessoa) |
+| ---- | ---------------------- | --------------------------- |
+| E-mail | US$ 0 (Gmail) | ~US$ 40 (Workspace Business Standard × 3) |
+| GitHub | US$ 0 (org Free) ou ~US$ 12 (Team, se quiser proteger a `main`) | mesmo |
+| Vercel Pro | ~US$ 20 (1 assento) | ~US$ 20 a 40 |
+| Claude | 1 plano | 3 planos ou plano de time |
+| ClickUp / Make / Figma / Canva | US$ 0 a 30 | US$ 0 a 30 |
+| Domínio | opcional | ~US$ 15/ano |
 
-> Os valores acima são **referência de ordem de grandeza** e mudam com o tempo e
-> com a região. Confirme no site de cada ferramenta antes de fechar o orçamento.
-> O mínimo viável para começar: Workspace + GitHub Free + Claude + Vercel Pro.
+> Os valores são **referência de ordem de grandeza** e mudam com o tempo e com a
+> região. Confirme no site de cada ferramenta antes de fechar o orçamento.
+
+O Modelo A economiza principalmente em **e-mail** e em **assentos de Claude**. É
+uma economia real no começo, e vira gargalo quando o limite de uso do plano
+começar a travar o time.
 
 ---
 
 ## Checklist do bloco de contas
 
+**Nos dois modelos:**
+
+- [ ] Gerenciador de senhas criado, com todos os acessos dentro
+- [ ] Organização no GitHub criada (não repositório pessoal)
+- [ ] Time na Vercel criado (não conta pessoal), no plano Pro
+- [ ] Conta dona das ferramentas é um e-mail **de função**, não de pessoa física
+
+**Modelo A (conta única):**
+
+- [ ] Gmail da operação com nome neutro (não o nome de uma pessoa)
+- [ ] **2FA ligado**, com o segundo fator e os códigos de recuperação no gerenciador de senhas
+- [ ] Cada pessoa do time com o **GitHub próprio** convidado na organização
+- [ ] Time combinado sobre a convenção de dizer o nome na 1ª mensagem da sessão
+- [ ] Pastas do Drive já organizadas como se fossem virar Drive Compartilhado
+
+**Modelo B (conta por pessoa):**
+
 - [ ] Domínio registrado e apontando para o Google Workspace
 - [ ] Workspace **Business Standard ou superior** (para ter Drives Compartilhados)
 - [ ] E-mail de cada pessoa criado no domínio
-- [ ] Gerenciador de senhas criado, com todos os acessos dentro
-- [ ] Organização no GitHub criada (não repositório pessoal)
-- [ ] Time na Vercel criado (não conta pessoal)
-- [ ] Cada pessoa com a própria conta Claude, no e-mail do domínio
+- [ ] Cada pessoa com a própria conta Claude
 - [ ] Dois administradores em cada conta crítica (ninguém é ponto único de falha)
