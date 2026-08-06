@@ -27,6 +27,7 @@ clientes/
 | Sense Clinic               | `sense-clinic/`                | ativo  |
 | Stella Grützmann           | `stella-grutzmann/`            | ativo  |
 | Taís Zawatski              | `tais-zawatski/`               | ativo  |
+| Thiago Menegão             | `thiago-menegao/`              | ativo  |
 | Vitória Daniela            | `vitoria-daniela/`             | ativo  |
 | Walescka Bomfim            | `walescka-bomfim/`             | ativo  |
 
