@@ -1,4 +1,4 @@
-# Carrossel: sessão gratuita é o pior jeito de vender serviço caro
+# Carrossel: onde o dinheiro do tráfego vaza
 
 **Data:** 2026-08-06 · **Formato:** carrossel 4 cards, 1080x1350 · **Identidade:** preto e dourado
 **Arquivos:** `carrossel.html` (fonte editável) · `slides/slide_1..4.png` (prontos pra postar)
@@ -8,101 +8,96 @@
 ## Os 4 cards
 
 ### Card 1 · preto
-**Tag:** AQUISIÇÃO
-**Título:** Sessão gratuita é o pior jeito de vender serviço caro.
-**Corpo:** E o problema não é o preço da sessão. É o que o gratuito diz sobre você antes de você abrir a boca.
+**Tag:** TRÁFEGO
+**Título:** 8 em cada 10 empresários que eu converso já queimaram dinheiro em tráfego.
+**Corpo:** E quase nunca o problema estava no tráfego.
 
 ### Card 2 · creme
-**Tag:** PENSA COMIGO
-**Título:** Uma loja de doces dá degustação. E vende um doce de 20 reais.
-**Corpo:** Agora imagine um restaurante premium parando gente na calçada com prato de graça.
-**Remate:** *Ninguém desconfia da degustação. Todo mundo desconfia do banquete.*
+**Tag:** ONDE O DINHEIRO SOME
+**Título:** Anúncio sem estrutura é torneira aberta em cano furado.
+**Corpo:** O dinheiro entra pelo anúncio e vaza no caminho. Vaza no perfil que não sustenta a promessa, na mensagem que ninguém responde a tempo, na proposta que fica sem resposta.
+**Remate:** *Você não tem problema de volume. Você tem vazamento.*
 
 ### Card 3 · preto
-**Tag:** O QUE ACONTECE
-**Título:** Grátis não filtra. Grátis convoca.
-**Corpo:** Sua agenda enche de gente que gostou de conversar, não de gente que decidiu resolver.
-Aí a culpa cai no comercial, no tráfego, no algoritmo. Mas ela começou no anúncio.
+**Tag:** A ORDEM CERTA
+**Título:** Primeiro se estanca. Depois se escala.
+**Corpo:** Ninguém chega no hospital com o braço sangrando e começa treinando condicionamento. Estanca, estabiliza, e só então pensa em performance.
+Verba a mais em cima de estrutura furada não corrige nada. Só acelera o prejuízo.
 
 ### Card 4 · dourado
-**Tag:** A VIRADA
-**Título:** O que qualifica não é o preço. É o esforço de entrada.
-**Corpo:** Quem preenche um formulário, escreve sobre o próprio negócio e espera retorno já decidiu que quer resolver. Quem clica em "agenda grátis" ainda está passeando.
-**CTA:** Deixei o link nos comentários
+**Tag:** O PRÓXIMO PASSO
+**Título:** O primeiro passo não é investir mais. É saber onde está vazando.
+**Corpo:** Eu analiso pessoalmente cada aplicação e devolvo o direcionamento em menos de 24h. Não é sessão genérica, é leitura do seu momento e dos próximos passos.
+**CTA:** Deixei o link da aplicação nos comentários
 
 ---
 
 ## Legenda do post
 
-> Sessão gratuita é o pior jeito de vender serviço caro.
+> 8 em cada 10 empresários que eu converso já queimaram dinheiro em tráfego.
 >
-> Não é sobre o valor da sessão. É sobre o que o gratuito comunica.
+> E quase nunca o problema estava no tráfego.
 >
-> Degustação funciona para decisão barata. Você prova um doce e decide na hora, com 20 reais no bolso. Ninguém precisa confiar em ninguém para isso.
+> O mercado vendeu a ideia de que basta rodar anúncio ou postar todo dia. Aí a pessoa aumenta a verba, o alcance sobe, o custo por lead até melhora, e a venda não vem.
 >
-> Serviço caro não funciona assim. A pessoa não compra o que você faz, ela compra a certeza de que você resolve. E certeza não se entrega na porta de entrada, se constrói antes.
+> Porque o dinheiro não some no anúncio. Ele vaza depois dele.
 >
-> Quando a porta é grátis e aberta, ela enche. Só que enche de quem gostou da ideia de conversar.
+> Vaza no perfil que promete uma coisa e mostra outra. Vaza na mensagem que fica três dias sem resposta. Vaza na proposta enviada que ninguém retomou. Anúncio sem estrutura é torneira aberta em cano furado, você paga pela água que nunca chega no balde.
 >
-> Aí você olha pra agenda cheia, pro custo por lead ótimo, e pra nenhuma venda. E conclui que o problema é o comercial.
+> E a saída não é abrir mais a torneira.
 >
-> O problema começou no anúncio.
+> Ninguém chega no hospital com o braço sangrando e começa treinando condicionamento. Primeiro se estanca o sangue, depois se estabiliza, e só então se pensa em performance. Com negócio é igual. Escalar em cima de estrutura furada não corrige nada, só acelera o prejuízo.
 >
-> O que qualifica não é o preço que você cobra. É o esforço que a pessoa aceita fazer pra chegar até você. Quem preenche, escreve sobre o próprio negócio e espera retorno já decidiu. Quem clica em "agenda grátis" ainda está passeando.
+> Tenho cliente que gastou 20 mil em tráfego e não teve uma venda. O problema nunca esteve na plataforma.
 >
-> Deixei o link nos comentários.
+> O primeiro passo não é investir mais. É saber onde está vazando.
 >
-> PS: se a sua agenda anda cheia e o seu caixa não muda, o problema não é volume.
+> Deixei o link da aplicação nos comentários. Eu analiso pessoalmente e devolvo o direcionamento em menos de 24h.
+>
+> PS: se o alcance subiu e o caixa não mudou, você já tem a resposta.
 
 ---
 
-## O que veio da referência e o que foi adaptado
+## De onde veio cada peça
 
-A estrutura narrativa é a mesma da referência (thread do Daniel Souza):
-gancho de opinião contrária → analogia do mundo real → princípio → CTA.
+A **estrutura narrativa** é a da referência que o Daniel mandou (gancho de opinião
+contrária, analogia, princípio, CTA), porque ela bate com o que a Diretriz de Escrita da
+Vitória pede: gancho de confronto, analogia do mundo real e raciocínio construído junto.
 
-Ela serve bem à Vitória porque a Diretriz de Escrita pede exatamente isso: gancho de
-opinião ou confronto (nunca pergunta genérica), analogia vinda de negócio e dinheiro
-(nunca de cura ou espiritualidade) e raciocínio construído junto, com premissas, em vez de
-diagnóstico imposto.
+O **conteúdo** é todo dela, tirado da página do Método Magna:
 
-**Três coisas da referência foram trocadas porque violam a Diretriz dela:**
+| Elemento | Origem literal no site |
+| --- | --- |
+| "8 em cada 10 empresários" | "De 10 empresários que converso, 8 já gastaram horrores em profissionais meia boca, ou eles próprios já investiram rios de dinheiro em tráfego pago e só queimaram dinheiro" |
+| Torneira e vazamentos (card 2) | "Se as peças não se conectam, você está com uma torneira aberta (de tempo e dinheiro) enquanto tem vários vazamentos no meio do caminho" |
+| Hospital e braço sangrando (card 3) | "se uma pessoa chega no hospital com o braço sangrando muito, a prioridade absoluta do médico é estancar o sangue... Primeiro você resolve a urgência. Depois que o corpo está estabilizado, aí sim você foca em deixá-lo mais forte" |
+| 20 mil sem uma venda (legenda) | "Tenho um cliente que gastou 20 mil em tráfego e não teve UMA venda" |
+| CTA do card 4 | "Eu pessoalmente quero analisar, te direcionar e planejarmos os proximos passos, em menos de 24h" |
 
-| Referência | Por que não passa | O que ficou |
-| --- | --- | --- |
-| "Clique no link que eu preparei um diagnóstico" | Imperativo. "CTA não é ordem, é lógica" | "Deixei o link nos comentários" (a formulação que a própria Diretriz usa como exemplo) |
-| "começar a escalar sua mentoria para seis dígitos por mês" | Promessa numérica. "Não prometer nada. Prova e coerência vendem" | Nenhuma promessa. O card 4 descreve um critério, não um resultado |
-| Público de "mentorias" | O ICP dela é profissional experiente com autoridade offline, não infoprodutor | Linguagem de agenda, comercial e caixa, que é o vocabulário do ICP real |
-
-**Por que este tema:** o assunto é o próprio problema que ela levantou na reunião, o de
-atrair gente desqualificada com métrica boa. Ela fala com autoridade porque está vivendo
-isso, e o carrossel já posiciona a lógica de aplicação com qualificação que o Método Magna
-usa, em vez de sessão aberta.
-
-**Sem foto nesta peça.** O argumento é o produto e a sequência é de raciocínio, igual à
-referência. Foto na capa competiria com o gancho. Se quisermos versão com ela, o lugar é o
-card 4, junto do lockup.
+**O que foi descartado da referência:** a analogia da loja de doces e do restaurante (não é
+dela, e ela já tem metáforas melhores no próprio site), o CTA imperativo "clique no link" e
+a promessa numérica "seis dígitos por mês".
 
 ---
 
 ## Checklist da Diretriz (validado)
 
-- [x] Gancho é opinião e confronto, não pergunta genérica
-- [x] Card 1 puxa o card 2, e cada card abre uma pergunta que o próximo responde
-- [x] Big idea sustentada por premissas (degustação, banquete, esforço de entrada)
-- [x] Antítese como elemento de copy ("Grátis não filtra. Grátis convoca.")
-- [x] CTA lógica e específica, nunca imperativa
-- [x] Nenhuma palavra da lista proibida, nenhum vocabulário terapêutico
-- [x] Nenhum travessão
+- [x] Gancho é dado específico e confronto, não pergunta genérica
+- [x] Analogia vinda de negócio, dinheiro e corpo, nunca de cura, alma ou sombra
+- [x] Raciocínio construído junto, sem diagnóstico imposto
+- [x] Especificidade em vez de categoria genérica (os vazamentos são nomeados um a um)
+- [x] CTA lógica, nunca imperativa
 - [x] Nenhuma promessa de resultado
-- [x] Fala com profissional experiente, não com iniciante
+- [x] Nenhuma palavra da lista proibida, nenhum travessão
+- [x] Fala com profissional experiente que já investe, não com iniciante
 - [x] Último card sem seta, barra em 100%
 
 ---
 
 ## Pendências
 
-- **Confirmar o @ dela.** Usei `@vitoriadaniela` no preview. Não aparece nos PNGs (só no
-  frame do Instagram), então não bloqueia a publicação, mas precisa acertar antes de virar padrão.
-- **Confirmar o dourado exato da marca.** Usei `#C9A24C` com preto quente `#0E0D0B`. Se
-  existir um hex oficial, troco no objeto `BRAND` e reexporto em um minuto.
+- **A foto no lockup.** O HTML já está pronto para ela: basta salvar o arquivo como
+  `foto-vitoria.jpg` nesta pasta e reexportar. Se o arquivo não existir, o lockup cai
+  sozinho na inicial "V", então a peça nunca quebra.
+- **Confirmar o dourado oficial.** Usei `#C9A24C` sobre preto `#0E0D0B`.
+- **Confirmar o @ dela.** Só aparece no preview, não sai nos PNGs.
