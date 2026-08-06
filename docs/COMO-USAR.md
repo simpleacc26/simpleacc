@@ -89,14 +89,29 @@ quando a tarefa combina (ou você pede pelo nome).
 |---|---|---|---|
 | **`/prompt-mestre`** | Comando (funil/copy) | Vira um especialista em **copy de resposta direta + estratégia de funil + front-end**. Conduz diagnóstico → aprofundamento → confirmação → geração. Entrega **página/funil em HTML puro** e/ou **copy de anúncios** (ângulos, headlines, hooks). Pergunta o que falta, não inventa. | Digite `/prompt-mestre` em qualquer sessão. Na pasta de um cliente, já usa o contexto dele. |
 | **Estratégia Completa para Clientes** (`estrategia-completa-clientes`) | Skill (automática) | Pega o **onboarding** (transcrição, notas, áudio, resumo) e gera o **documento de estratégia de 8 seções** (Big Idea, Quiz, Página de Aplicação, Anúncios, Diagnóstico, Cadência 12 dias, Tarefas, Recomendações). Entrega como **Google Doc formatado** no Drive e salva a fonte em `clientes/<cliente>/estrategia/`. | Peça: *"transforma esse onboarding do cliente X em documento de estratégia"*. |
+| **Canvas de Produto + Cliente Ideal** (`gerar-canvas-produto-cliente`) | Skill (automática) | Pré-preenche o **canvas de produto e de cliente ideal** com os dados reais das transcrições, e deixa em branco (com perguntas marcadas) o que só o cliente pode responder. Entrega como Google Doc na pasta dele. | Peça: *"preenche o canvas do cliente X e manda pra ele completar"*. |
+| **Roadmap Estratégico de 90 dias** (`roadmap-estrategico-90-dias`) | Skill (automática) | Transforma onboarding + canvas + calls no **PDF do roadmap** (navy + dourado): decisões fundamentais, caixa rápido, fases com passos e metas, checkpoints e fechamento pessoal. | Peça: *"monta o roadmap estratégico do cliente X"*. |
+| **Pesquisa & Estratégia do Quiz** (`quiz-pesquisa-estrategia`) | Skill (automática) | **Primeira etapa da fábrica de quiz.** Faz o recon de mercado, decide os **buckets**, o **tipo de quiz** e a **Big Idea**. Roda antes de perguntas, páginas ou anúncios. | Peça: *"faz a pesquisa do quiz do cliente X"* ou *"define os buckets"*. |
+| **Criar Funil (HTML puro)** (`criar-funil-quiz`) | Skill (automática) | Conduz diagnóstico → aprofundamento → confirmação → geração e entrega o **funil em HTML puro**: quiz SPIN, tela de loading, CTAs, envio de lead para a planilha e tracking. | Peça: *"cria o funil/quiz do cliente X"*. |
 | **Gerar Quiz + Diagnóstico + Página Pós-Quiz** (`gerar-quiz-diag-pag-pos-quiz`) | Skill (automática) | Pega a **copy aprovada** e **coloca o funil no ar**: quiz + página pós-quiz (diagnóstico + PDF + WhatsApp) na identidade do cliente, **publica na Vercel**, cria a **planilha de leads** no Drive e testa a integração. **Confirma a conta da Simple** antes de publicar (nunca conta pessoal). | Peça: *"monta/implementa o funil do cliente X"* ou *"sobe a página na Vercel"*. |
+| **PDF da leitura emocional** (`leitura-pdf-whatsapp`) | Skill (automática) | Gera a **versão genérica do diagnóstico em PDF**, página única para celular, com botões `wa.me` clicáveis, para o SDR mandar no WhatsApp. | Peça: *"gera o PDF da leitura pro SDR mandar no zap"*. |
+| **Guia de Captação de Depoimentos** (`guia-captacao-depoimentos`) | Skill (automática) | PDF de 4 páginas com o direcionamento para o cliente **pedir e coletar depoimentos em vídeo**: mensagem pronta, dicas de gravação, erros a evitar e checklist. | Peça: *"gera o guia de depoimentos do cliente X"*. |
 
-**Como se encaixam:** Onboarding → *Estratégia Completa* (gera o doc + copy) →
-*Gerar Quiz…* (publica o funil + leads). O `/prompt-mestre` é o coringa para
-páginas/anúncios avulsos.
+**Como se encaixam, no ciclo de um cliente:**
 
-> Outros comandos virão (ex.: `/roteiro`, `/copy`) conforme cadastrarmos novos
-> prompts mestres em `prompts/`.
+```
+Onboarding → Estratégia Completa → Canvas → Roadmap 90 dias
+                                              ↓
+       Pesquisa do Quiz → Criar Funil → Publicar (Vercel + leads)
+                                              ↓
+                          PDF da leitura (SDR) · Guia de depoimentos
+```
+
+O `/prompt-mestre` é o coringa para páginas e anúncios avulsos, fora do ciclo.
+
+> Skill nova ou melhorada **vai para o repositório** (`.claude/skills/`), não
+> fica só na sua conta. Senão o resto do time não a enxerga e ela vira uma
+> segunda versão que desanda.
 
 ---
 

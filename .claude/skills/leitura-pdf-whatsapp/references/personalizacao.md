@@ -76,6 +76,6 @@ embute como `data:` URI (não precisa copiar as imagens para `materiais/`).
 ## Variáveis do gerador (não vão no HTML)
 
 - `WHATSAPP` (obrigatório): número do canal que atende, só dígitos, com DDI 55.
-  Ex.: `5531993196471`. Confirme que é o número que o SDR usa, não só o do funil.
+  Ex.: `5531993196471` (o da Pâmella, no exemplo). Confirme que é o número que o SDR usa, não só o do funil.
 - `WIDTH` (opcional): largura em px. Padrão 400 (validado). Não precisa mexer.
 - `EXEC` (opcional): caminho do Chromium, se a detecção automática falhar.

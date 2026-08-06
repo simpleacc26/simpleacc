@@ -117,6 +117,13 @@ memória que permanece é o Git, não o Drive).
 > Assim, da próxima vez que alguém for evoluir a estratégia, lê a versão anterior
 > no repo e cria a próxima (`-v2`), em vez de recomeçar do zero.
 
+> **Nota de portabilidade:** os caminhos `clientes/<cliente>/...` e o padrão de
+> branch acima são do **monorepo hub da SimpleAcc** (`simpleacc26/simpleacc`).
+> Se você estiver rodando esta skill fora desse repositório (claude.ai ou outro
+> projeto), não pule o versionamento: salve a fonte `.md` onde ficar a base de
+> conhecimento do cliente (Git, Drive ou o que a sessão tiver disponível) e
+> informe o local à pessoa junto com o link do Doc.
+
 ---
 
 ## Checklist antes de entregar
