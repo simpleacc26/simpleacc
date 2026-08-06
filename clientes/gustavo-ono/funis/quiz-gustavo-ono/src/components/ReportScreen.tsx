@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { ArrowRight, Check, X, ShieldCheck } from "lucide-react";
+import { ArrowRight, Check, AlertCircle, MessageCircle, ExternalLink } from "lucide-react";
 import { answerLabels } from "../data/questions";
 import { fbqTrack } from "../analytics";
 import type { LeadData } from "./LeadCaptureForm";
@@ -8,7 +8,10 @@ const ROSE = "#C87B75";
 const CARD = "#2D1108";
 const CARD2 = "#3A1510";
 const BG = "#1A0900";
-const CTA_URL = "https://pay.hotmart.com/X104749935I?bid=1778078139368";
+
+// Preencha com o número do WhatsApp do Gustavo (formato internacional, sem + ou espaços)
+const WHATSAPP_NUMBER = "5511XXXXXXXXX";
+const LOW_TICKET_URL = "https://pay.hotmart.com/X104749935I?bid=1778078139368";
 
 interface ReportScreenProps {
   leadData: LeadData;
@@ -20,69 +23,14 @@ function getLabel(qIdx: number, value: string): string {
   return answerLabels[qIdx]?.[idx] || "";
 }
 
-// ─── CTA Button ──────────────────────────────────────────────────────────────
-
-function CtaBlock({ note }: { note?: string }) {
-  return (
-    <div className="flex flex-col items-center gap-3 py-4">
-      {/* Discount badge */}
-      <div
-        className="text-center px-5 py-2 rounded-full text-sm font-semibold"
-        style={{ backgroundColor: "rgba(200,123,117,0.15)", color: ROSE, border: `1px solid ${ROSE}` }}
-      >
-        🎉 Cupom de desconto aplicado: ECONOMIZE R$ 100
-      </div>
-      {/* Price */}
-      <div className="text-center">
-        <div
-          className="text-sm line-through"
-          style={{ color: "rgba(251,241,238,0.4)" }}
-        >
-          De: R$ 197
-        </div>
-        <div
-          className="text-4xl font-bold"
-          style={{ color: "#FBF1EE", fontFamily: "Lora, Georgia, serif" }}
-        >
-          R$ 97
-        </div>
-        <div className="text-xs mt-0.5" style={{ color: "rgba(251,241,238,0.5)" }}>
-          à vista · acesso imediato
-        </div>
-      </div>
-      {/* Button */}
-      <a
-        href={CTA_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={() => fbqTrack("InitiateCheckout", { value: 97, currency: "BRL", content_name: "Kit Chocolatier" })}
-        className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl w-full max-w-sm justify-center transition-all hover:opacity-90 shadow-lg"
-        style={{
-          backgroundColor: ROSE,
-          color: "#fff",
-          fontWeight: 700,
-          fontSize: "1.05rem",
-          textDecoration: "none",
-          letterSpacing: "-0.01em",
-        }}
-      >
-        ATIVAR MEU CONTEÚDO
-        <ArrowRight className="w-5 h-5" />
-      </a>
-      {/* Payment icons placeholder */}
-      <p className="text-xs text-center" style={{ color: "rgba(251,241,238,0.4)" }}>
-        💳 Pix · Cartão de crédito · Boleto · Parcelamento disponível
-      </p>
-      {note && (
-        <p className="text-xs text-center" style={{ color: "rgba(251,241,238,0.5)" }}>
-          {note}
-        </p>
-      )}
-    </div>
+function buildWhatsAppUrl(name: string): string {
+  const msg = encodeURIComponent(
+    `Olá Gustavo! Me chamo ${name} e acabei de fazer o diagnóstico do seu quiz. Quero agendar a sessão gratuita para entender o que mudar primeiro no meu negócio.`
   );
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`;
 }
 
-// ─── Section wrapper ──────────────────────────────────────────────────────────
+// ─── Layout helpers ──────────────────────────────────────────────────────────
 
 function Section({
   children,
@@ -115,39 +63,96 @@ const headlineStyle: React.CSSProperties = {
   lineHeight: 1.25,
 };
 
-const Rose = ({ children }: { children: React.ReactNode }) => (
-  <strong style={{ color: ROSE }}>{children}</strong>
-);
+// ─── Diagnóstico por pilar ────────────────────────────────────────────────────
 
-// ─── PERSONALIZAÇÃO ───────────────────────────────────────────────────────────
+type PillarStatus = "critico" | "atencao" | "ok";
 
-const FRUSTRATION_BRIDGE: Record<string, string> = {
-  "Falta de segurança técnica":
-    "A insegurança técnica é exatamente o que impede a maioria das confeiteiras de cobrar mais — porque sem dominar a execução, fica impossível vender com confiança.",
-  "Não saber cobrar preço":
-    "Não saber cobrar não é um problema de autoestima — é um problema de produto. Quando o produto justifica visualmente o preço, a negociação some.",
-  "Falta de padrão nos produtos":
-    "A falta de padrão tem uma causa direta: não existe um método técnico consolidado. Com o método certo, cada bombom sai igual ao anterior.",
-  "Medo de errar e perder material":
-    "O medo de errar vem de não ter dominado a técnica completamente. Com o processo ensinado passo a passo, o desperdício cai drasticamente.",
+interface Pilar {
+  name: string;
+  status: PillarStatus;
+  insight: string;
+}
+
+function buildPilares(answers: Record<number, string>): Pilar[] {
+  const profile = answers[0]; // Q0 — combinação
+  const frustration = getLabel(4, answers[4]); // Q4
+  const obstacle = getLabel(6, answers[6]); // Q6
+  const revenue = answers[8]; // Q8 — faturamento
+
+  // Pilar Produto
+  const productStatus: PillarStatus =
+    frustration.includes("segurança técnica") || frustration.includes("padrão") || frustration.includes("errar")
+      ? "critico"
+      : "atencao";
+
+  const productInsight =
+    frustration.includes("segurança técnica")
+      ? "Sua insegurança técnica está limitando o que você consegue cobrar. Produto sem domínio de execução não sustenta preço alto."
+      : frustration.includes("padrão")
+      ? "Falta de padrão indica ausência de método consolidado. Quando o processo é dominado, cada peça sai igual à anterior."
+      : frustration.includes("errar")
+      ? "O medo de desperdiçar material vem de não ter internalizado completamente a técnica. Com o processo certo, o erro cai quase a zero."
+      : "Seu produto tem potencial, mas ainda não está posicionado para justificar preços premium sem negociação.";
+
+  // Pilar Precificação
+  const pricingStatus: PillarStatus =
+    profile === "2" || frustration.includes("cobrar") || Number(revenue) <= 2
+      ? "critico"
+      : "atencao";
+
+  const pricingInsight =
+    frustration.includes("cobrar")
+      ? "Não saber precificar não é falta de autoestima — é falta de método. Preço que o cliente aceita sem questionar é consequência de produto com percepção de valor clara."
+      : profile === "2"
+      ? "Margem baixa é sintoma direto de precificação no chute. Sem calcular custo, hora e posicionamento juntos, o lucro some no volume."
+      : obstacle.includes("concorrência")
+      ? "Concorrência de preço acontece quando o produto não se diferencia. Posicionamento correto elimina comparação direta com concorrentes mais baratos."
+      : "Sua precificação tem espaço para crescer. O gargalo é criar justificativa de valor que chegue antes do preço.";
+
+  // Pilar Estrutura de Venda
+  const structureStatus: PillarStatus =
+    profile === "3" || profile === "4" || obstacle.includes("Imprevisibilidade") || obstacle.includes("estrutura")
+      ? "critico"
+      : "atencao";
+
+  const structureInsight =
+    obstacle.includes("Imprevisibilidade") || profile === "3"
+      ? "Venda sem constância é o sintoma mais claro de ausência de método. Resultado que depende de sorte ou de data especial não escala."
+      : obstacle.includes("estrutura") || profile === "4"
+      ? "Sem estrutura interna, crescimento gera caos ao invés de lucro. A base precisa estar antes do volume."
+      : obstacle.includes("produção")
+      ? "Presa na produção significa que o modelo operacional não está estruturado para crescer. Mais horas na cozinha não resolve — é o modelo que precisa mudar."
+      : "Sua estrutura de venda ainda depende de variáveis externas. Com um método de captação e oferta definido, o resultado para de depender do mês.";
+
+  return [
+    { name: "Produto e posicionamento", status: productStatus, insight: productInsight },
+    { name: "Precificação", status: pricingStatus, insight: pricingInsight },
+    { name: "Estrutura de venda", status: structureStatus, insight: structureInsight },
+  ];
+}
+
+const statusConfig: Record<PillarStatus, { label: string; color: string; bg: string; icon: React.ReactNode }> = {
+  critico: {
+    label: "Gargalo identificado",
+    color: "#F87171",
+    bg: "rgba(248, 113, 113, 0.08)",
+    icon: <AlertCircle className="w-4 h-4 flex-shrink-0" style={{ color: "#F87171" }} />,
+  },
+  atencao: {
+    label: "Precisa de atenção",
+    color: ROSE,
+    bg: "rgba(200, 123, 117, 0.08)",
+    icon: <AlertCircle className="w-4 h-4 flex-shrink-0" style={{ color: ROSE }} />,
+  },
+  ok: {
+    label: "Funcionando bem",
+    color: "#6EE7B7",
+    bg: "rgba(110, 231, 183, 0.08)",
+    icon: <Check className="w-4 h-4 flex-shrink-0" style={{ color: "#6EE7B7" }} />,
+  },
 };
 
-const IMPEDIMENT_BRIDGE: Record<string, string> = {
-  "Ter tempo de focar nas vendas, pois fico presa na produção":
-    "Quando o produto tem alta percepção de valor, você vende menos unidades por mais dinheiro — e sai do ciclo de produção intensa por margem baixa.",
-  "Falta de estrutura para crescer":
-    "Estrutura começa com produto certo no portfólio. Um bombom artístico que se destaca vira o âncora que organiza toda a operação ao redor.",
-  "Concorrência alta e desleal":
-    "Concorrência só é problema quando você está jogando o mesmo jogo que as outras. Bombons artísticos criam uma categoria própria — sem concorrentes diretos.",
-  "Imprevisibilidade nas vendas":
-    "A imprevisibilidade cai quando você tem um produto que as pessoas pedem por indicação — porque viram, quiseram e não encontraram em outro lugar.",
-  "Falta de demanda na minha região":
-    "Demanda local pode ser limitada, mas demanda online não tem fronteira. Um produto fotogênico como o bombom artístico foi feito para vender pelo Instagram.",
-  "Outro":
-    "Independente do obstáculo específico, o ponto de alavanca é sempre o mesmo: ter um produto que se diferencia antes mesmo de você abrir a boca para vender.",
-};
-
-// ─── COMPONENTE PRINCIPAL ─────────────────────────────────────────────────────
+// ─── Componente Principal ─────────────────────────────────────────────────────
 
 export function ReportScreen({ leadData, answers }: ReportScreenProps) {
   useEffect(() => {
@@ -156,195 +161,179 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
   }, []);
 
   const firstName = leadData.name.split(" ")[0];
-  const frustration = getLabel(4, answers[4]);
-  const impediment = getLabel(6, answers[6]);
+  const pilares = buildPilares(answers);
+  const criticos = pilares.filter((p) => p.status === "critico").length;
+  const whatsappUrl = buildWhatsAppUrl(firstName);
 
-  const frustrationBridge =
-    FRUSTRATION_BRIDGE[frustration] ||
-    "Isso que você sente é o sintoma mais claro de que o produto certo ainda não entrou no seu portfólio.";
-  const impedimentBridge =
-    IMPEDIMENT_BRIDGE[impediment] ||
-    "O caminho para superar isso passa por um produto que faz o trabalho de atração e convencimento antes mesmo da venda.";
+  const handleWhatsAppClick = () => {
+    fbqTrack("Contact", { content_name: "Sessão Diagnóstica Gratuita", content_category: "Mentoria" });
+  };
+
+  const handleLowTicketClick = () => {
+    fbqTrack("InitiateCheckout", { value: 97, currency: "BRL", content_name: "Treinamento Bombom Artístico" });
+  };
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: BG }}>
       <div className="max-w-2xl mx-auto px-4 py-8 pb-16">
 
-        {/* ── 1. Header personalizado ── */}
+        {/* ── 1. Cabeçalho ── */}
         <Section>
-          <h1
-            style={{ ...headlineStyle, fontSize: "clamp(1.5rem, 4vw, 2rem)", marginBottom: "1rem" }}
+          <p
+            className="text-sm font-semibold uppercase tracking-widest mb-4"
+            style={{ color: ROSE, letterSpacing: "0.12em" }}
           >
-            {firstName}, com base nas suas respostas, aqui está o que está
-            travando seu negócio de chocolates — e o que você pode fazer{" "}
-            <em style={{ color: ROSE }}>ainda essa semana.</em>
+            Diagnóstico personalizado
+          </p>
+          <h1 style={{ ...headlineStyle, fontSize: "clamp(1.5rem, 4vw, 2rem)", marginBottom: "1rem" }}>
+            {firstName}, analisamos suas respostas.{" "}
+            <em style={{ color: ROSE }}>
+              {criticos > 1
+                ? `Encontramos ${criticos} pontos críticos no seu negócio.`
+                : criticos === 1
+                ? "Encontramos o principal ponto que está travando seu crescimento."
+                : "Seu negócio tem base — o que falta é afinar os pontos certos."}
+            </em>
           </h1>
           <p style={bodyText}>
-            {frustrationBridge}
-          </p>
-          <p className="mt-4" style={bodyText}>
-            {impedimentBridge}
+            Com base nas suas respostas, mapeamos os três pilares que determinam
+            o faturamento de uma chocolateria profissional — e identificamos onde
+            está o gargalo no seu caso.
           </p>
         </Section>
 
-        {/* ── 2. Headline do curso ── */}
+        {/* ── 2. Os três pilares ── */}
         <Section bg={CARD2}>
           <h2
             style={{
               ...headlineStyle,
-              fontSize: "clamp(1.3rem, 3.5vw, 1.75rem)",
-              marginBottom: "0.75rem",
+              fontSize: "clamp(1.1rem, 3vw, 1.4rem)",
+              marginBottom: "1.5rem",
             }}
           >
-            Aprenda a produzir bombons artísticos alto padrão e adicione ao seu
-            cardápio um produto que pode render{" "}
-            <span style={{ color: ROSE }}>até R$ 50 por caixa</span> — ou mais.
+            Os três pilares do seu negócio
           </h2>
-          <p style={{ ...bodyText, fontSize: "0.95rem" }}>
-            Com base nas suas respostas, ficou claro que você não falta talento nem
-            dedicação. O que falta é <Rose>um produto com percepção de valor alta o
-            suficiente</Rose> para justificar preços que fazem diferença no seu
-            faturamento.
-          </p>
+          <div className="space-y-4">
+            {pilares.map((pilar) => {
+              const cfg = statusConfig[pilar.status];
+              return (
+                <div
+                  key={pilar.name}
+                  className="rounded-2xl p-5"
+                  style={{ backgroundColor: cfg.bg, border: `1px solid ${cfg.color}22` }}
+                >
+                  <div className="flex items-center gap-2 mb-2">
+                    {cfg.icon}
+                    <span
+                      className="text-xs font-semibold uppercase tracking-wider"
+                      style={{ color: cfg.color }}
+                    >
+                      {cfg.label}
+                    </span>
+                  </div>
+                  <p
+                    className="font-semibold mb-2"
+                    style={{ color: "#FBF1EE", fontFamily: "Lora, Georgia, serif" }}
+                  >
+                    {pilar.name}
+                  </p>
+                  <p style={{ ...bodyText, fontSize: "0.88rem" }}>{pilar.insight}</p>
+                </div>
+              );
+            })}
+          </div>
         </Section>
 
-        {/* ── 3. Foto do Gustavo ── */}
+        {/* ── 3. Foto do Gustavo + autoridade ── */}
         <Section className="!p-0 overflow-hidden">
           <img
             src="/fotos/gustavo.webp"
             alt="Gustavo Ono — Chocolatier"
             className="w-full"
-            style={{ display: "block", maxHeight: "480px", objectFit: "cover", objectPosition: "top" }}
+            style={{ display: "block", maxHeight: "400px", objectFit: "cover", objectPosition: "top" }}
           />
-          <div className="p-6">
-            <p
-              className="text-center font-semibold"
-              style={{ ...headlineStyle, fontSize: "1.1rem" }}
-            >
-              Gustavo Ono
+          <div className="p-7">
+            <p className="font-semibold mb-1" style={{ ...headlineStyle, fontSize: "1.1rem" }}>
+              Gustavo Ono — Chocolatier
+            </p>
+            <p style={{ ...bodyText, fontSize: "0.9rem" }}>
+              Especialista em chocolateria profissional. Já formou centenas de
+              chocolateiras que passaram de produção artesanal sem método para
+              negócios com cardápio estruturado, precificação calculada e vendas
+              constantes.
             </p>
           </div>
         </Section>
 
-        {/* ── 4. Foto do produto ── */}
-        <Section className="!p-0 overflow-hidden">
-          <img
-            src="/fotos/produto.webp"
-            alt="Bombom Artístico de Morango, Baunilha, Cumaru e Praliné de Avelãs"
-            className="w-full"
-            style={{ display: "block", maxHeight: "440px", objectFit: "cover" }}
-          />
-          <div className="p-6 text-center">
-            <p
-              className="font-semibold"
-              style={{ ...headlineStyle, fontSize: "1rem" }}
-            >
-              Bombom Artístico de Morango, Baunilha, Cumaru e Praliné de Avelãs
-            </p>
-          </div>
-        </Section>
-
-        {/* ── 5. Depoimentos ── */}
+        {/* ── 4. Proposta da sessão ── */}
         <Section>
-          <h2
-            style={{
-              ...headlineStyle,
-              fontSize: "clamp(1.2rem, 3vw, 1.5rem)",
-              marginBottom: "1.5rem",
-              textAlign: "center",
-            }}
-          >
-            Veja como nossas alunas estão{" "}
-            <span style={{ color: ROSE }}>reagindo</span>
-          </h2>
-          <div className="space-y-4">
-            <img src="/fotos/dep2.webp" alt="Depoimento 2" className="w-full rounded-2xl" />
-            <img src="/fotos/dep3.webp" alt="Depoimento 3" className="w-full rounded-2xl" />
-            <img src="/fotos/dep4.webp" alt="Depoimento 4" className="w-full rounded-2xl" />
-          </div>
-        </Section>
-
-        {/* ── 6. O que está incluso ── */}
-        <Section bg={CARD2}>
-          <h2
-            style={{
-              ...headlineStyle,
-              fontSize: "clamp(1.2rem, 3vw, 1.5rem)",
-              marginBottom: "1.25rem",
-            }}
-          >
-            O que você vai aprender no treinamento
-          </h2>
-          <div className="space-y-3">
-            {[
-              "A produção completa do Bombom de Morango, Baunilha, Cumaru e Praliné de Avelã",
-              "Técnica de temperagem correta que garante brilho e estabilidade no produto final",
-              "Como pintar a casca por dentro — criando cores e arte sem sugar o chocolate",
-              "Ganache de morango com equilíbrio perfeito de acidez e doçura",
-              "Creme de baunilha suave e o toque exótico do cumaru",
-              "Praliné de avelãs crocante que transforma a textura e o sabor",
-              "Fechamento e acabamento em nível de chocolateria europeia",
-              "Como precificar e posicionar o bombom artístico no seu cardápio",
-            ].map((item) => (
-              <div key={item} className="flex items-start gap-3">
-                <Check
-                  className="w-4 h-4 mt-0.5 flex-shrink-0"
-                  style={{ color: ROSE }}
-                />
-                <p style={{ color: "rgba(251,241,238,0.85)", fontSize: "0.9rem", lineHeight: 1.55 }}>
-                  {item}
-                </p>
-              </div>
-            ))}
-          </div>
-        </Section>
-
-        {/* ── 7. 1º CTA ── */}
-        <Section>
-          <CtaBlock note="Acesso imediato após a confirmação do pagamento" />
-        </Section>
-
-        {/* ── 8. O que o treinamento vai fazer na sua vida ── */}
-        <Section bg={CARD2}>
           <h2
             style={{
               ...headlineStyle,
               fontSize: "clamp(1.2rem, 3vw, 1.6rem)",
-              marginBottom: "1.25rem",
-              textAlign: "center",
+              marginBottom: "0.75rem",
             }}
           >
-            O que este treinamento é capaz de{" "}
-            <span style={{ color: ROSE }}>fazer na sua vida</span>
+            O próximo passo é uma{" "}
+            <span style={{ color: ROSE }}>sessão diagnóstica gratuita</span> com
+            o Gustavo
           </h2>
-          <div className="space-y-3">
+          <p style={{ ...bodyText, marginBottom: "1.25rem" }}>
+            Em 30 minutos, o Gustavo analisa o seu caso específico — produto,
+            precificação e estrutura — e te mostra exatamente o que mudar
+            primeiro para começar a ver resultado diferente.
+          </p>
+          <div className="space-y-3 mb-6">
             {[
-              "Um bombom artístico premium no seu cardápio, do zero",
-              "Produto com alto valor percebido que justifica preços sem negociação",
-              "Fotos que geram compartilhamento e viralizam no Instagram",
-              "Clientes pedindo por indicação porque viram e ficaram impressionados",
-              "Mais margem com menos volume — saindo da corrida de produção intensa",
-              "Confiança técnica para cobrar o que seu trabalho vale",
+              "Diagnóstico personalizado com base no seu negócio real",
+              "Clareza sobre qual dos pilares está custando mais faturamento agora",
+              "O próximo passo prático para sair do ponto em que você está",
+              "Sem jargão, sem genérico — conversa direta sobre o seu caso",
             ].map((item) => (
               <div key={item} className="flex items-start gap-3">
-                <Check
-                  className="w-4 h-4 mt-0.5 flex-shrink-0"
-                  style={{ color: ROSE }}
-                />
+                <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: ROSE }} />
                 <p style={{ color: "rgba(251,241,238,0.85)", fontSize: "0.9rem", lineHeight: 1.55 }}>
                   {item}
                 </p>
               </div>
             ))}
           </div>
+          <div
+            className="rounded-xl p-4 mb-6 text-center text-sm font-semibold"
+            style={{ backgroundColor: "rgba(200,123,117,0.1)", color: ROSE, border: `1px solid ${ROSE}33` }}
+          >
+            Gratuito · Sem compromisso · 30 minutos pelo WhatsApp
+          </div>
+
+          {/* CTA principal — WhatsApp */}
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleWhatsAppClick}
+            className="flex items-center justify-center gap-3 w-full py-4 px-6 rounded-2xl transition-all hover:opacity-90 shadow-lg"
+            style={{
+              backgroundColor: "#25D366",
+              color: "#fff",
+              fontWeight: 700,
+              fontSize: "1.05rem",
+              textDecoration: "none",
+              letterSpacing: "-0.01em",
+            }}
+          >
+            <MessageCircle className="w-5 h-5" />
+            Quero agendar minha sessão gratuita
+            <ArrowRight className="w-5 h-5" />
+          </a>
+          <p
+            className="text-center text-xs mt-3"
+            style={{ color: "rgba(251,241,238,0.35)" }}
+          >
+            Você será direcionada para o WhatsApp do Gustavo
+          </p>
         </Section>
 
-        {/* ── 9. 2º CTA ── */}
-        <Section>
-          <CtaBlock />
-        </Section>
-
-        {/* ── 10. Tabela comparativa ── */}
+        {/* ── 5. Depoimentos ── */}
         <Section bg={CARD2}>
           <h2
             style={{
@@ -354,138 +343,95 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
               textAlign: "center",
             }}
           >
-            Com o treinamento × sem o treinamento
+            O que dizem as alunas do Gustavo
           </h2>
-          <div className="grid grid-cols-2 gap-3 mb-4">
-            <div
-              className="py-2 px-3 rounded-xl text-center text-sm font-semibold"
-              style={{ backgroundColor: "rgba(200,123,117,0.15)", color: ROSE }}
-            >
-              Sem o treinamento
-            </div>
-            <div
-              className="py-2 px-3 rounded-xl text-center text-sm font-semibold"
-              style={{ backgroundColor: "rgba(200,123,117,0.25)", color: "#FBF1EE" }}
-            >
-              Com o treinamento
-            </div>
+          <div className="space-y-4">
+            <img src="/fotos/dep2.webp" alt="Depoimento" className="w-full rounded-2xl" />
+            <img src="/fotos/dep3.webp" alt="Depoimento" className="w-full rounded-2xl" />
+            <img src="/fotos/dep4.webp" alt="Depoimento" className="w-full rounded-2xl" />
           </div>
-          {[
-            ["Bombons genéricos sem identidade", "Chocolates técnicos, saborosos e especializados"],
-            ["Produto que parece amador", "Bombons que vendem só pela foto"],
-            ["Cliente questiona o preço", "Cliente paga sem negociar"],
-            ["Depende de datas sazonais", "Vendas constantes o ano todo"],
-            ["Copia o que vê no mercado", "Cria receitas com método próprio"],
-            ["Margem apertada e muito trabalho", "Mais lucro com menos volume"],
-          ].map(([sem, com], i) => (
-            <div key={i} className="grid grid-cols-2 gap-3 mb-3">
-              <div
-                className="flex items-start gap-2 p-3 rounded-xl text-sm"
-                style={{
-                  backgroundColor: "rgba(255,80,80,0.06)",
-                  border: "1px solid rgba(255,80,80,0.12)",
-                  color: "rgba(251,241,238,0.6)",
-                  lineHeight: 1.45,
-                }}
-              >
-                <X className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-red-400" />
-                {sem}
-              </div>
-              <div
-                className="flex items-start gap-2 p-3 rounded-xl text-sm"
-                style={{
-                  backgroundColor: "rgba(200,123,117,0.08)",
-                  border: "1px solid rgba(200,123,117,0.2)",
-                  color: "rgba(251,241,238,0.85)",
-                  lineHeight: 1.45,
-                }}
-              >
-                <Check className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: ROSE }} />
-                {com}
-              </div>
-            </div>
-          ))}
         </Section>
 
-        {/* ── 11. Urgência ── */}
-        <div
-          className="rounded-3xl p-7 md:p-10 mb-5 shadow-xl text-center"
-          style={{ backgroundColor: ROSE }}
-        >
+        {/* ── 6. CTA principal repetido ── */}
+        <Section>
           <h2
             style={{
-              fontFamily: "Lora, Georgia, serif",
-              fontWeight: 700,
-              fontSize: "clamp(1.3rem, 4vw, 1.8rem)",
-              color: "#fff",
-              lineHeight: 1.25,
+              ...headlineStyle,
+              fontSize: "clamp(1.1rem, 3vw, 1.4rem)",
               marginBottom: "0.75rem",
+              textAlign: "center",
             }}
           >
-            Participe agora do Treinamento Bombom Artístico
+            Pronta para entender o que mudar primeiro?
           </h2>
-          <p style={{ color: "rgba(255,255,255,0.85)", marginBottom: "1.5rem", fontSize: "0.95rem" }}>
-            Coloque hoje mesmo em seu cardápio um produto que faz o cliente
-            fechar sem questionar o preço.
+          <p
+            className="text-center mb-6"
+            style={{ ...bodyText, fontSize: "0.92rem" }}
+          >
+            A sessão é gratuita e dura 30 minutos. Você sai sabendo exatamente
+            onde está o gargalo e qual é o próximo passo no seu caso.
           </p>
-          <div className="flex flex-col items-center gap-3">
-            <div className="text-sm line-through" style={{ color: "rgba(255,255,255,0.6)" }}>
-              De: R$ 197
-            </div>
-            <div style={{ fontFamily: "Lora, serif", fontSize: "2.5rem", fontWeight: 700, color: "#fff" }}>
-              R$ 97
-            </div>
-            <a
-              href={CTA_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => fbqTrack("InitiateCheckout", { value: 97, currency: "BRL", content_name: "Kit Chocolatier" })}
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl w-full max-w-xs justify-center transition-all hover:opacity-90 shadow-lg"
-              style={{
-                backgroundColor: "#fff",
-                color: ROSE,
-                fontWeight: 700,
-                fontSize: "1rem",
-                textDecoration: "none",
-              }}
-            >
-              ATIVAR MEU CONTEÚDO
-              <ArrowRight className="w-5 h-5" />
-            </a>
-            <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.8rem" }}>
-              💳 Pix · Cartão · Boleto · Parcelamento disponível
-            </p>
-          </div>
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleWhatsAppClick}
+            className="flex items-center justify-center gap-3 w-full py-4 px-6 rounded-2xl transition-all hover:opacity-90 shadow-lg"
+            style={{
+              backgroundColor: "#25D366",
+              color: "#fff",
+              fontWeight: 700,
+              fontSize: "1.05rem",
+              textDecoration: "none",
+              letterSpacing: "-0.01em",
+            }}
+          >
+            <MessageCircle className="w-5 h-5" />
+            Agendar sessão gratuita com o Gustavo
+            <ArrowRight className="w-5 h-5" />
+          </a>
+        </Section>
+
+        {/* ── 7. Alternativa leve — R$97 ── */}
+        <div
+          className="rounded-3xl p-7 mb-5"
+          style={{
+            border: `1px solid rgba(200,123,117,0.2)`,
+            backgroundColor: "rgba(200,123,117,0.04)",
+          }}
+        >
+          <p
+            className="text-xs uppercase tracking-widest mb-3 text-center"
+            style={{ color: "rgba(251,241,238,0.4)" }}
+          >
+            Ou, se preferir começar pela prática
+          </p>
+          <p
+            className="text-center mb-4"
+            style={{ color: "rgba(251,241,238,0.75)", fontSize: "0.9rem", lineHeight: 1.6 }}
+          >
+            Conheça o Treinamento Bombom Artístico — aprenda a produzir um
+            bombom de alto padrão e adicione ao cardápio um produto que pode
+            render até R$ 50 por caixa.
+          </p>
+          <a
+            href={LOW_TICKET_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={handleLowTicketClick}
+            className="flex items-center justify-center gap-2 w-full py-3 px-5 rounded-xl transition-all hover:opacity-80"
+            style={{
+              border: `1px solid rgba(200,123,117,0.4)`,
+              color: ROSE,
+              fontWeight: 600,
+              fontSize: "0.9rem",
+              textDecoration: "none",
+            }}
+          >
+            Ver o Treinamento Bombom Artístico — R$ 97
+            <ExternalLink className="w-4 h-4" />
+          </a>
         </div>
-
-        {/* ── 12. Garantia ── */}
-        <Section bg={CARD2}>
-          <div className="flex flex-col items-center gap-4 text-center">
-            <div
-              className="w-20 h-20 rounded-full flex items-center justify-center"
-              style={{ backgroundColor: "rgba(200,123,117,0.12)", border: `2px solid ${ROSE}` }}
-            >
-              <ShieldCheck className="w-10 h-10" style={{ color: ROSE }} />
-            </div>
-            <h3
-              style={{ ...headlineStyle, fontSize: "1.3rem" }}
-            >
-              Garantia incondicional de 7 dias
-            </h3>
-            <p style={{ ...bodyText, fontSize: "0.9rem", maxWidth: "480px" }}>
-              Se por qualquer motivo você não ficar satisfeita com o treinamento nos primeiros 7 dias, basta
-              enviar uma mensagem e devolvemos 100% do seu investimento — sem perguntas, sem burocracia.
-            </p>
-            <p style={{ ...bodyText, fontSize: "0.85rem", color: "rgba(251,241,238,0.5)" }}>
-              O risco é zero. A decisão é sua.
-            </p>
-          </div>
-        </Section>
-
-        {/* ── 13. CTA final ── */}
-        <Section>
-          <CtaBlock note="Garantia de 7 dias · Sem risco" />
-        </Section>
 
         {/* Footer */}
         <div
