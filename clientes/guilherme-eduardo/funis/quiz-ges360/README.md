@@ -42,8 +42,11 @@ objetivo 0.5). Faixas: 78+ crítica · 60 a 77 alta · 40 a 59 moderada · abaix
 
 ## Pendências para ficar 100%
 
-1. **WhatsApp de destino.** Hoje está com placeholder em `flow.js` (`marca.whatsapp`).
-   Trocar por número real (só dígitos com país, ex.: `5548999112233`) e republicar.
+1. ✅ **WhatsApp de destino** configurado em `flow.js` (`marca.whatsapp = 554896784333`,
+   informado pelo Daniel em 05/08) e no ar.
+   ⚠️ **Conferir:** o número tem 8 dígitos depois do DDD (`9678-4333`). Celular/WhatsApp no
+   Brasil normalmente tem 9 (`99678-4333` → `5548996784333`). Se for esse o caso, corrigir a
+   constante e republicar.
 2. **Integração da planilha.** Passo que só o dono da conta Google faz (2 min):
    abrir a planilha → Extensões → Apps Script → colar `integracao-planilha.gs` → Implantar como
    App da Web ("Qualquer pessoa") → copiar a URL `/exec` → colar em `app.js` na constante

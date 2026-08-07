@@ -9,8 +9,8 @@ window.FLOW = {
   marca: {
     nome: "GES360",
     expert: "Guilherme Eduardo",
-    // Número no formato internacional, só dígitos (ex: 5548999999999)
-    whatsapp: "5548000000000",
+    // Número internacional, só dígitos. Confirmado com o Daniel em 05/08: +55 48 9678-4333
+    whatsapp: "554896784333",
     whatsappMsg:
       "Oi Guilherme! Sou {nome}, acabei de fazer o diagnóstico e meu IDR deu {idr} ({faixa}). Quero entender como sair da dependência da consulta avulsa.",
   },
