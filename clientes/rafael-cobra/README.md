@@ -29,8 +29,21 @@ definido, e de propósito. A análise dos dois lados está pronta em
 
 - Instagram: [@orafaelcobra](https://instagram.com/orafaelcobra) · Threads: @orafaelcobra
 - Pasta no Drive: [Simple <> Rafael Cobra](https://drive.google.com/drive/folders/17kNi9YSfqKd7N33T-_LYXKIKi_YBrQ2M)
+  (dono: carlos.duraes@simpleacc.com.br)
+
+### Mapa da pasta no Drive
+
+| Subpasta | ID |
+| -------- | -- |
+| 1. Documentos | `1zjhp-hJLkuyj7uk_CrU1PNOq-cvInWef` |
+| 2. Material Visual | `1Zyubjj3ZyjPNgynfBJvz6WfRUfGfaHNk` |
+| 3. Estratégia e Tráfego | `1WGik1IBySeZPAfGNf0WEVBlczUIcR1NZ` |
+| 4. Copy | `1tWmu9_uAtBbvlcSeLmvRxFlvYeVMNr9u` |
+| 5. Relatórios e Alinhamentos | `1xkc5Jh3DmFF7PBWHqHxZ0wVuO3E0v-B_` |
+
 - Canvas original no Drive (**vazio — não editar, é o modelo**):
   [Canvas do Produto + Cliente Ideal - 06/08/26](https://docs.google.com/document/d/19lqengtPOwiI3ehD9RtrE8jcpeenYUz5R0W_JwQrEBI/edit)
+  — único arquivo em "1. Documentos" até 07/08/2026.
 
 ## Projetos / entregas
 
