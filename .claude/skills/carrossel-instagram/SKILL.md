@@ -1,7 +1,7 @@
 ---
 name: carrossel-instagram
 description: >-
-  Cria carrossel de Instagram no formato 4:5, na identidade visual do cliente, e
+  Cria carrossel de Instagram (4:5 para feed e 9:16 para Story/Reels) na identidade visual do cliente, e
   exporta cada slide como PNG 1080x1350 pronto para postar. Gera um HTML
   autocontido com preview em frame do Instagram (arrastável) e roda a exportação
   em Playwright sem deformar o layout. Use sempre que alguém pedir "monta um
@@ -119,11 +119,30 @@ Componentes prontos no template: `tag()`, `titulo()`, `paragrafo()`, `lockup()`,
 ## Passo 4: exportar
 
 ```bash
-python3 exportar-slides.py carrossel.html slides/
+python3 exportar-slides.py carrossel.html slides/                             # feed 1080x1350
+python3 exportar-slides.py carrossel-story.html slides-story/ --formato story # 9:16 1080x1920
 ```
 
-Sai `slide_1.png` ... `slide_N.png`, todos 1080x1350. O script detecta a quantidade de
-slides sozinho.
+Sai `slide_1.png` ... `slide_N.png`. O script detecta a quantidade de slides sozinho.
+
+| Formato | Base | Saída | Onde usa |
+| --- | --- | --- | --- |
+| `feed` (padrão) | 420x525 | 1080x1350 | Carrossel de feed |
+| `story` | 405x720 | 1080x1920 | Story e Reels |
+
+### Quando a peça vai virar anúncio
+
+O Meta **corta o 4:5** nas colocações de Story e Reels, então a peça precisa de uma
+segunda versão em 9:16. Não dá pra só reescalar: o layout tem que ser remontado na vertical.
+
+**Área segura.** Em 9:16, a UI do Instagram cobre o topo (nome do perfil, barra de
+progresso) e o rodapé (CTA, legenda). Mantenha todo o conteúdo entre **14% do topo e 21%
+da base**. No layout de 405x720 isso é `top:100px; bottom:150px`, que é o que a classe
+`.safe` faz no exemplo da Vitória Daniela
+(`clientes/vitoria-daniela/copy/2026-08-06-carrossel-sessao-gratuita/carrossel-story.html`).
+
+Outros ajustes do formato vertical: tipografia um pouco maior, porque o Story é visto em
+tela cheia, e sem a seta de swipe, porque o Instagram já indica a progressão sozinho.
 
 ### Por que o layout não pode ser redimensionado
 
