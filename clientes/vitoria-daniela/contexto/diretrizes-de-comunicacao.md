@@ -59,9 +59,29 @@ própria acomodação, sempre com saída prática.
 
 ## 3. O que fazer
 
-**Direto e sem rodeios.** Frase curta, ritmo, cada frase prepara a próxima.
+### ⚠️ A regra da vírgula (a que mais erramos)
 
-- ✅ "Você não precisa parecer rica. Precisa pensar como quem é."
+Está no Guia 1 e vale para **qualquer texto**, sem exceção:
+
+> "Nunca quebre uma ideia em frases curtas separadas por ponto quando ela flui como uma
+> coisa só, use vírgula e escreva do jeito que a Vitória fala, frases mais corridas,
+> conectadas por vírgula, sem parar toda hora."
+
+Ponto só se justifica quando a frase seguinte carrega **fato novo**. Mesmo raciocínio
+cortado em pedaços é erro, e é o que denuncia texto de IA na hora.
+
+O padrão **"Não é X. É Y."** é a assinatura mais óbvia de máquina. A cliente identificou
+isso na primeira entrega. Se a construção aparecer, junte com vírgula ou reescreva.
+
+- ✅ "Você não tem problema de volume, você tem vazamento."
+- ❌ "Você não tem problema de volume. Você tem vazamento."
+- ✅ "E quase nunca o problema estava no tráfego, estava em tudo que vinha depois dele."
+- ❌ "E quase nunca o problema estava no tráfego. Estava no que vinha depois."
+
+**Direto e sem rodeios**, mas sem picotar. O corte é no excesso de palavra, não no meio do
+raciocínio.
+
+- ✅ "Você não precisa parecer rica, precisa pensar como quem é."
 - ❌ "Talvez seja interessante repensar a forma como você se posiciona financeiramente."
 
 **Começa pelo fenômeno humano, nunca pelo serviço.** Abre pela observação do dia a dia,
@@ -180,6 +200,8 @@ profissional, ser você (vs. performar), mediano, prosperidade, confiança.
 - [ ] A CTA é lógica e específica com o ângulo do texto, nunca imperativa nem genérica?
 - [ ] Nenhuma palavra da lista proibida foi usada?
 - [ ] Nenhum travessão?
+- [ ] **Nenhum ponto cortando raciocínio que deveria fluir com vírgula?**
+- [ ] **Nenhum "Não é X. É Y."?**
 - [ ] Nenhuma palavra do vocabulário terapêutico (cura, sombra, alma, colo, essência)?
 - [ ] Soa como a Vitória falando, ou poderia ter sido escrito por qualquer pessoa do mercado?
 - [ ] A peça fala com profissional experiente, e não com iniciante de "poucos seguidores"?

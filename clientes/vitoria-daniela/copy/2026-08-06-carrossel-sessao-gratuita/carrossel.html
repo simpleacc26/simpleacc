@@ -151,7 +151,7 @@ function filete(fundo) {
 }
 
 function botaoCta(texto) {
-  return `<div class="sans" style="display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:${BRAND.darkBg};color:${BRAND.primary};font-weight:600;font-size:13.5px;border-radius:28px;letter-spacing:.2px;">${texto}</div>`;
+  return `<div class="sans" style="display:inline-flex;align-items:center;justify-content:center;text-align:center;padding:14px 30px;background:${BRAND.darkBg};color:${BRAND.primary};font-weight:600;font-size:14px;border-radius:28px;letter-spacing:.2px;">${texto}</div>`;
 }
 
 function barraProgresso(indice, total, fundo) {
@@ -181,50 +181,50 @@ function setaSwipe(fundo) {
 /* ====================== OS 4 CARDS ====================== */
 const SLIDES = [
 
-  /* 1 — GANCHO: o dado dela, virado em confronto. */
+  /* 1 — GANCHO: o dado dela, em frase corrida. Bloco centralizado. */
   { fundo: 'dark', corpo: `
-    <div class="slide-content" style="justify-content:space-between;padding:36px 36px 62px;">
+    <div class="slide-content" style="padding:38px 36px 64px;">
       ${lockup('dark')}
-      <div>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
         ${tag('TRÁFEGO', 'dark')}
-        ${titulo('8 em cada 10 empresários que eu converso já queimaram dinheiro em tráfego.', 'dark', 30)}
+        ${titulo('De cada 10 empresários que eu converso, 8 já queimaram dinheiro em tráfego.', 'dark', 30)}
         ${filete('dark')}
-        ${paragrafo('E quase nunca o problema estava no tráfego.', 'dark')}
+        ${paragrafo('E quase nunca o problema estava no tráfego, estava em tudo que vinha depois dele.', 'dark')}
       </div>
     </div>
   `},
 
   /* 2 — ANALOGIA DELA: a torneira aberta com vazamentos (está no site). */
   { fundo: 'light', corpo: `
-    <div class="slide-content" style="justify-content:flex-end;padding:0 36px 62px;">
+    <div class="slide-content" style="justify-content:center;padding:38px 36px 64px;">
       ${tag('ONDE O DINHEIRO SOME', 'light')}
       ${titulo('Anúncio sem estrutura é torneira aberta em cano furado.', 'light', 31)}
-      ${paragrafo('O dinheiro entra pelo anúncio e vaza no caminho. Vaza no perfil que não sustenta a promessa, na mensagem que ninguém responde a tempo, na proposta que fica sem resposta.', 'light')}
-      <p class="serif" style="font-size:17px;line-height:1.35;color:${BRAND.dark};font-style:italic;margin-top:18px;">Você não tem problema de volume. Você tem vazamento.</p>
+      ${paragrafo('O dinheiro entra pelo anúncio e vaza no caminho, no perfil que promete uma coisa e mostra outra, na mensagem que fica três dias sem resposta, na proposta que foi enviada e ninguém retomou.', 'light')}
+      <p class="serif" style="font-size:17px;line-height:1.35;color:${BRAND.dark};font-style:italic;margin-top:18px;">Você não tem problema de volume, você tem vazamento.</p>
     </div>
   `},
 
   /* 3 — PRINCÍPIO: a ordem certa, com a analogia do hospital que ela usa. */
   { fundo: 'dark', corpo: `
-    <div class="slide-content" style="justify-content:flex-end;padding:0 36px 62px;">
+    <div class="slide-content" style="justify-content:center;padding:38px 36px 64px;">
       ${tag('A ORDEM CERTA', 'dark')}
-      ${titulo('Primeiro se estanca. Depois se escala.', 'dark', 34)}
+      ${titulo('Ninguém estanca um sangramento treinando condicionamento.', 'dark', 31)}
       ${filete('dark')}
-      ${paragrafo('Ninguém chega no hospital com o braço sangrando e começa treinando condicionamento. Estanca, estabiliza, e só então pensa em performance.', 'dark')}
-      ${paragrafo('Verba a mais em cima de estrutura furada não corrige nada. Só acelera o prejuízo.', 'dark', 12)}
+      ${paragrafo('No hospital a prioridade é parar o sangue, estabilizar, e só então pensar em deixar o corpo mais forte.', 'dark')}
+      ${paragrafo('Com o seu negócio é igual, colocar mais verba em cima de estrutura furada não corrige nada, só acelera o prejuízo.', 'dark', 12)}
     </div>
   `},
 
   /* 4 — VIRADA + CTA: o funil real dela (aplicação, análise pessoal em 24h). */
   { fundo: 'gradient', corpo: `
-    <div class="slide-content" style="justify-content:space-between;padding:36px 36px 62px;">
+    <div class="slide-content" style="padding:38px 36px 64px;">
       ${lockup('gradient')}
-      <div>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
         ${tag('O PRÓXIMO PASSO', 'gradient')}
-        ${titulo('O primeiro passo não é investir mais. É saber onde está vazando.', 'gradient', 29)}
-        ${paragrafo('Eu analiso pessoalmente cada aplicação e devolvo o direcionamento em menos de 24h. Não é sessão genérica, é leitura do seu momento e dos próximos passos.', 'gradient')}
-        <div style="margin-top:22px;">
-          ${botaoCta('Deixei o link nos comentários')}
+        ${titulo('Antes de investir mais, vale saber por onde o seu dinheiro está saindo.', 'gradient', 29)}
+        ${paragrafo('Eu analiso pessoalmente cada aplicação e devolvo o direcionamento em menos de 24h, olhando o seu momento e o que precisa ser resolvido primeiro.', 'gradient')}
+        <div style="margin-top:24px;">
+          ${botaoCta('Clique em Saiba Mais')}
         </div>
       </div>
     </div>
