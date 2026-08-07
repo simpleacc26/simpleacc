@@ -97,6 +97,10 @@ const BRAND = {
 /* Foto do lockup. Salve `foto-vitoria.jpg` nesta pasta e ela entra sozinha. */
 const FOTO = 'foto-vitoria.jpg';
 
+/* Versão do card 3: 'hospital' (analogia original dela) ou 'pneu' (sem a
+   palavra sangue, para zero atrito na revisão automatizada do tráfego). */
+const CARD3 = 'hospital';
+
 const LEGENDA = {
   sub:   'Carrossel · 4 cards',
   texto: 'O dinheiro não some no anúncio. Ele vaza depois dele.',
@@ -200,12 +204,24 @@ const SLIDES = [
       ${tag('ONDE O DINHEIRO SOME', 'light')}
       ${titulo('Anúncio sem estrutura é torneira aberta em cano furado.', 'light', 31)}
       ${paragrafo('O dinheiro entra pelo anúncio e vaza no caminho, no perfil que promete uma coisa e mostra outra, na mensagem que fica três dias sem resposta, na proposta que foi enviada e ninguém retomou.', 'light')}
-      <p class="serif" style="font-size:17px;line-height:1.35;color:${BRAND.dark};font-style:italic;margin-top:18px;">Você não tem problema de volume, você tem vazamento.</p>
+      <p class="serif" style="font-size:17px;line-height:1.35;color:${BRAND.dark};font-style:italic;margin-top:18px;">Você paga pela água que nunca chega no balde.</p>
     </div>
   `},
 
-  /* 3 — PRINCÍPIO: a ordem certa, com a analogia do hospital que ela usa. */
-  { fundo: 'dark', corpo: `
+  /* 3 — PRINCÍPIO: a ordem certa.
+     Duas versões. A do hospital é a analogia original dela (está no site) e não
+     viola a política do Meta, que é escrita só sobre imagery. A do pneu evita
+     a palavra "sangue" no texto da imagem, caso queira zero atrito no OCR da
+     revisão automatizada. Troque em CARD3 lá no topo. */
+  { fundo: 'dark', corpo: CARD3 === 'pneu' ? `
+    <div class="slide-content" style="justify-content:center;padding:38px 36px 64px;">
+      ${tag('A ORDEM CERTA', 'dark')}
+      ${titulo('Ninguém pisa no acelerador com o pneu furado.', 'dark', 33)}
+      ${filete('dark')}
+      ${paragrafo('Primeiro se troca o pneu, depois se pensa em velocidade, e com o seu negócio funciona igual.', 'dark')}
+      ${paragrafo('Colocar mais verba em cima de estrutura furada não corrige nada, só acelera o prejuízo.', 'dark', 12)}
+    </div>
+  ` : `
     <div class="slide-content" style="justify-content:center;padding:38px 36px 64px;">
       ${tag('A ORDEM CERTA', 'dark')}
       ${titulo('Ninguém estanca um sangramento treinando condicionamento.', 'dark', 31)}

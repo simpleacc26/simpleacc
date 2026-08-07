@@ -16,13 +16,22 @@
 **Tag:** ONDE O DINHEIRO SOME
 **Título:** Anúncio sem estrutura é torneira aberta em cano furado.
 **Corpo:** O dinheiro entra pelo anúncio e vaza no caminho, no perfil que promete uma coisa e mostra outra, na mensagem que fica três dias sem resposta, na proposta que foi enviada e ninguém retomou.
-**Remate:** *Você não tem problema de volume, você tem vazamento.*
+**Remate:** *Você paga pela água que nunca chega no balde.*
 
-### Card 3 · preto
-**Tag:** A ORDEM CERTA
+### Card 3 · preto — duas versões
+
+**Versão A (padrão, `slide_3.png`), analogia original dela:**
 **Título:** Ninguém estanca um sangramento treinando condicionamento.
 **Corpo:** No hospital a prioridade é parar o sangue, estabilizar, e só então pensar em deixar o corpo mais forte.
 Com o seu negócio é igual, colocar mais verba em cima de estrutura furada não corrige nada, só acelera o prejuízo.
+
+**Versão B (`slide_3-alternativo-pneu.png`), sem a palavra sangue:**
+**Título:** Ninguém pisa no acelerador com o pneu furado.
+**Corpo:** Primeiro se troca o pneu, depois se pensa em velocidade, e com o seu negócio funciona igual.
+Colocar mais verba em cima de estrutura furada não corrige nada, só acelera o prejuízo.
+
+Trocar entre as duas: a constante `CARD3` no topo do `carrossel.html` (`'hospital'` ou
+`'pneu'`), e reexportar.
 
 ### Card 4 · dourado
 **Tag:** O PRÓXIMO PASSO
@@ -40,7 +49,7 @@ Com o seu negócio é igual, colocar mais verba em cima de estrutura furada não
 >
 > É que o dinheiro não some no anúncio, ele vaza depois dele, no perfil que promete uma coisa e mostra outra, na mensagem que fica três dias sem resposta, na proposta que foi enviada e ninguém retomou.
 >
-> Anúncio sem estrutura é torneira aberta em cano furado, você paga pela água que nunca chega no balde, e a saída não é abrir mais a torneira.
+> Anúncio sem estrutura é torneira aberta em cano furado, você paga pela água que nunca chega no balde, e a saída não passa por abrir mais a torneira.
 >
 > Ninguém estanca um sangramento treinando condicionamento, no hospital a prioridade é parar o sangue, estabilizar, e só então pensar em deixar o corpo mais forte, e com negócio funciona exatamente igual.
 >
@@ -100,6 +109,28 @@ ritmo de composição.
 > Nota: "Clique em Saiba Mais" é imperativo, o que a Diretriz dela normalmente evita. Foi
 > pedido direto dela, e faz sentido se a peça for veiculada como anúncio, já que remete ao
 > botão nativo do Instagram.
+
+### Segunda rodada
+
+**Remate do card 2.** *"Você não tem problema de volume, você tem vazamento"* ainda era o
+padrão X/Y, só que com vírgula no lugar do ponto. Trocado por *"Você paga pela água que
+nunca chega no balde"*, que estende a metáfora e nomeia a perda em vez de contrapor.
+
+**Palavra "sangue" no tráfego.** Verificado na política oficial do Meta
+([Violent and Graphic Content](https://transparency.meta.com/policies/ad-standards/objectionable-content/violent-graphic-content/)).
+A política é escrita **exclusivamente sobre `imagery`**: proíbe imagens com "visible
+innards, such as exposed organs, bones, or muscle tissue" e armas apontadas para o
+espectador. **A palavra "blood" não aparece no texto da política, e não há restrição
+textual.** Pela letra da política, não há violação.
+
+O risco residual não é de política, é de operação: como o texto está dentro da imagem, a
+revisão automatizada faz OCR e os classificadores são conservadores, então existe chance de
+cair em revisão manual e atrasar a subida da campanha. Por isso a versão B existe, para
+usar quando a peça for veiculada como anúncio pago e não se queira nenhum atrito.
+
+**Recomendação:** versão A (hospital) no orgânico, já que é a analogia original dela e está
+no site. Versão B (pneu) no tráfego pago. A B ainda ganha coerência com o card 2, porque
+"pneu furado" conversa com "cano furado" e "acelerador" com "acelera o prejuízo".
 
 ---
 
