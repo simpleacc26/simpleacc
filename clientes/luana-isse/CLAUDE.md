@@ -25,15 +25,21 @@ onde o outro parou (o Git é a memória compartilhada).
 - **Quem é:** jornalista, copywriter, estrategista digital e master coach. Cria movimento,
   causa e posicionamento para especialistas. Mora em SC; trabalha só à tarde/noite
   (Deus e família vêm antes — não trabalha de manhã).
-- **Produto principal (decidido em 04/08):** mentoria em grupo **MMPV™**, **R$ 7 mil**, 17 alunos.
+- **Produto principal (decidido em 04/08):** mentoria em grupo **MMPV**, **R$ 7 mil**, 17 alunos.
   Nome confirmado; o mecanismo é recontado na linguagem de restauração da identidade.
   A **consultoria de movimento/posicionamento a R$ 15 mil** é porta lateral, por indicação.
   **Individual de R$ 30 mil** para a base e ultra qualificados.
 - **Big idea (pública):** **"Quem é visto, vende mais."** O movimento dela é contra a
   invisibilidade digital do especialista excelente e a favor do aumento das vendas dele.
-- **REGRA DE LINGUAGEM (pedido dela, 04/08):** **nunca falar em "resgatar/restaurar identidade"
-  na comunicação** — isso é entrega e overdelivery, não anúncio. Fale de: deixar de ser ignorado,
-  se tornar impossível de ignorar, aumentar o valor percebido, vender mais e cobrar mais.
+- **Inimigo nomeado:** a **Ruptura de Valor Percebido** (distância entre o valor que o
+  especialista tem e o que consegue comunicar). O método existe para eliminá-la.
+- **Método:** **MMPV, o Método de Multiplicação do Valor Percebido**. Pilares: Mentalidade
+  (remove bloqueios), Movimento (conhecimento vira causa), Posicionamento (causa vira autoridade
+  percebida), Vendas (autoridade vira faturamento).
+- **REGRA DE LINGUAGEM (04/08, refinada em 05/08):** **nunca falar em "resgatar/restaurar
+  identidade"** solto — isso é entrega, não anúncio. Mas a virada **concreta** entra e é o eixo
+  mais forte: **de especialista técnico a especialista percebido**. Fale de: deixar de ser
+  ignorado, ser lembrado/indicado/valorizado, aumentar o valor percebido, vender e cobrar mais.
   Continua proibido prometer número de faturamento.
 - **Conferência "O Fim da Invisibilidade":** 19/08, 20h. Artes e copies feitas por ela.
 - **Público / ICP (decidido em 29/07):** **mentores/especialistas iniciantes** — profissionais

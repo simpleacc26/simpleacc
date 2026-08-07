@@ -38,8 +38,9 @@ páginas + copies + criativos + tráfego), playbooks comerciais e acompanhamento
 - `contexto/2026-07-29-canvas-produto-e-cliente-ideal-completo.md` — canvas do produto + framework
   completo de avatar (gerado com Furion na call).
 - `contexto/2026-07-29-anotacoes-call-onboarding.md` · `contexto/2026-07-24-call-de-vendas-resumo-e-transcricao.md` — fontes brutas.
-- `estrategia/2026-08-05-roadmap-estrategico-luana-isse-v1-2.html` e `.pdf` — **Roadmap de 90
-  dias vigente (v1.2).** Fonte editável no HTML.
+- `estrategia/2026-08-06-roadmap-estrategico-luana-isse-v1-3.html` e `.pdf` — **Roadmap de 90
+  dias vigente (v1.3).** Fonte editável no HTML.
+- `estrategia/2026-08-05-roadmap-estrategico-luana-isse-v1-2.html` e `.pdf` — v1.2, histórico.
 - `estrategia/2026-08-04-roadmap-estrategico-luana-isse-v1-1.html` e `.pdf` — v1.1, histórico.
 - `estrategia/2026-07-30-roadmap-estrategico-luana-isse.html` e `.pdf` — v1.0, histórico.
 - `estrategia/2026-07-30-guia-captacao-depoimentos-luana-isse.html` e `.pdf` — guia de depoimentos.
