@@ -280,6 +280,39 @@ entre R$97 e R$5.000. Isso já foi descartado, ou nunca foi colocado na mesa?
 
 ---
 
+## Adendo (07/08, mesmo dia) — verificação no código em produção
+
+Depois da sessão, o funil publicado em `quiz-gustavo-ono.vercel.app` foi inspecionado
+diretamente (download do `index.html` e dos bundles servidos pela Vercel). Três
+achados que corrigem suposições feitas durante o conselho:
+
+1. **A ReportScreen com sessão diagnóstica ESTÁ no ar.** O chunk
+   `assets/ReportScreen-bcR0_EZC.js` contém "Quero agendar minha sessão gratuita",
+   "Agendar sessão gratuita com o Gustavo" e "Sessão Diagnóstica Gratuita". A
+   suposição de que a versão de 06/08 não tinha sido publicada estava errada.
+2. **O número de WhatsApp em produção é o placeholder `5511XXXXXXXXX`.** O link
+   gerado é `https://wa.me/5511XXXXXXXXX?text=Olá Gustavo!...`, que o WhatsApp
+   rejeita como número inválido. **O CTA principal do relatório está quebrado em
+   produção.** Isso reconcilia as duas leituras: existe botão de agendar (contra o
+   que o operador acreditava) e não existe caminho funcional para a sessão (como
+   o operador observava na prática).
+3. **GTM e Clarity continuam com placeholder em produção** (`GTM-PLACEHOLDER`,
+   `CLARITY_PLACEHOLDER`) no `index.html`. Só o Meta Pixel (413208557089573) está
+   configurado de verdade. Não há Clarity gravando sessão, o que explica por que
+   ninguém viu o botão falhar.
+
+**Consequência para o diagnóstico do conselho:** a hipótese de que o gargalo é a
+qualificação do lead perde força. Entre maio e 06/08 o relatório terminava no low
+ticket, sem oferta de sessão; de 06/08 em diante passou a ter a oferta com o link
+quebrado. Em nenhum momento do período existiu um caminho funcionando do quiz até
+a agenda do Gustavo. As duas vendas de abril vieram de abordagem manual sobre a
+coorte do Quiz 1.
+
+A proposta de ajustes derivada desta sessão está em
+`2026-08-07-proposta-ajustes-funil.html` (documento para validação do cliente).
+
+---
+
 ## Pendências levantadas que não são da decisão em pauta
 
 - [ ] **Mergear o PR #39.** A base de conhecimento do Gustavo (contexto, estratégia,
