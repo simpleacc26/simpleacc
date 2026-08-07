@@ -26,13 +26,22 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
   renda R$ 7 mil+, com fé/espiritualidade. "Forte por fora, exausta por
   dentro"; repete padrões em relacionamentos, autoestima e dinheiro. Persona:
   Juliana, 38. Detalhes em `contexto/canvas-produto-cliente-ideal.md`.
-- **ATENÇÃO, virada em 03/08/2026:** a parceria com a expert Luana está em
-  encerramento (2 fixos atrasados, R$ 6.000, projeto parado). O plano ativo
-  agora é o **Roadmap v2**, que pivota o João de coprodutor para **prestador
-  de serviço pago** (Diagnóstico Express R$ 497, Setup de Funil R$ 2.500,
-  Gestão R$ 1.800/mês). Piso de sobrevivência: R$ 4.000/mês. Regra nova e
-  inegociável: nenhum projeto sem fixo pago na entrada; participação só em
-  cima do fixo. O roadmap v1.1 e a estratégia do funil da Luana são
-  **histórico**, não plano ativo.
+- **ATENÇÃO, situação em 03/08/2026 (call de alinhamento):** a parceria com a
+  expert Luana está **encerrada de vez** (ela removeu acessos e trocou senhas).
+  O seguro-desemprego acabou e o João está **sem renda em agosto**, pegando
+  bicos (chegou a trabalhar de servente de pedreiro) e com uma consultoria
+  técnica de 13 a 18/08.
+- **O plano ativo é o `Roadmap de Agosto`** (30 dias, sobrevivência), com três
+  frentes e nada além delas: (1) caixa imediato, (2) todo tempo livre na
+  prospecção da **nova parceria** (2 estrategistas + 1 copy + ele; setup mínimo
+  R$ 15.000 + fixo R$ 3.000 a 5.000; meta de 2 experts da saúde em agosto),
+  (3) saúde (suspeita de TDAH, avaliação pela rede pública, sono).
+- Regra inegociável: nenhum projeto sem **setup pago na entrada**; participação
+  só em cima do fixo. Nada de expert que ainda não fatura.
+- **Fora do escopo até setembro:** tráfego local, oferta própria de serviço,
+  marca pessoal e conteúdo. Os roadmaps **v1.1 e v2** e a estratégia do funil
+  da Luana são **histórico**, não plano ativo.
+- **Sensível:** ele não conseguiu pagar a parcela da mentoria e quer pausar ou
+  reestruturar. Pendente de decisão do Daniel.
 - **Links:** ver `README.md` (Drive, canvas, transcrição, ClickUp).
 - **Contato principal:** João Mendes Jr.; Carlos Durães pela SimpleAcc.

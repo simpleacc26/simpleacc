@@ -30,12 +30,13 @@ Call de onboarding em 02/07/2026 (canvas preenchido em 01/07/2026).
 
 ## Projetos
 
-| Projeto                                    | Pasta         | Status                          | Deploy |
-| ------------------------------------------ | ------------- | ------------------------------- | ------ |
-| Roadmap v2 (João como prestador de serviço) | `estrategia/` | **plano ativo** (03/08)         | —      |
-| Roadmap v1.1 (funil da expert)              | `estrategia/` | histórico, projeto em espera    | —      |
-| Estratégia completa / copies do funil       | `estrategia/` | histórico, projeto em espera    | —      |
-| Funil da Mentoria Reset Mental              | `funis/`      | suspenso (contrato encerrando)  | —      |
+| Projeto                                     | Pasta         | Status                       | Deploy |
+| ------------------------------------------- | ------------- | ---------------------------- | ------ |
+| **Roadmap de Agosto (sobrevivência, 30 dias)** | `estrategia/` | **plano ativo** (03/08)      | —      |
+| Roadmap v2 (prestador de serviço)           | `estrategia/` | histórico (superado em 03/08) | —      |
+| Roadmap v1.1 (funil da expert)              | `estrategia/` | histórico                    | —      |
+| Estratégia completa / copies do funil       | `estrategia/` | arquivado (projeto encerrado) | —      |
+| Funil da Mentoria Reset Mental              | `funis/`      | cancelado (parceria encerrada) | —     |
 
 ## Observações
 
