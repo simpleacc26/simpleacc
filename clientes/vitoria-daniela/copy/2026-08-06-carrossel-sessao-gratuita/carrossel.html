@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carrossel Vitória Daniela — Onde o dinheiro do tráfego vaza</title>
+
+<!--
+  CARROSSEL 4 CARDS · VITÓRIA DANIELA · preto e dourado
+  Tema: 8 em cada 10 já queimaram dinheiro com tráfego, e o problema não era o tráfego.
+  Analogias e números tirados da própria página do Método Magna.
+
+  FOTO: basta salvar o arquivo `foto-vitoria.jpg` nesta pasta.
+  Se o arquivo existir, ele entra sozinho no lockup. Se não existir, o lockup
+  cai na inicial "V" automaticamente (o onerror remove a img).
+
+  Exportar: python3 exportar-slides.py carrossel.html slides/
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background:#E9E9EB; font-family:system-ui,-apple-system,sans-serif; display:flex; justify-content:center; padding:32px 16px; }
+
+  .ig-frame { width:420px; background:#fff; border-radius:12px; box-shadow:0 4px 24px rgba(0,0,0,.10); overflow:hidden; }
+  .ig-header { display:flex; align-items:center; gap:10px; padding:12px 14px; border-bottom:1px solid #EFEFEF; }
+  .ig-avatar { width:34px; height:34px; border-radius:50%; overflow:hidden; display:flex; align-items:center; justify-content:center; color:#C9A24C; font-weight:700; font-size:15px; flex-shrink:0; font-family:'Playfair Display',serif; position:relative; }
+  .ig-handle { font-size:13px; font-weight:600; color:#111; line-height:1.3; }
+  .ig-sub { font-size:11px; color:#8E8E8E; line-height:1.3; }
+
+  .carousel-viewport { position:relative; width:100%; aspect-ratio:4/5; overflow:hidden; cursor:grab; touch-action:pan-y; user-select:none; }
+  .carousel-viewport:active { cursor:grabbing; }
+  .carousel-track { display:flex; height:100%; will-change:transform; transition:transform .32s cubic-bezier(.22,.61,.36,1); }
+  .slide { position:relative; width:420px; height:100%; flex-shrink:0; overflow:hidden; display:flex; flex-direction:column; }
+  .slide-content { position:relative; z-index:2; flex:1; display:flex; flex-direction:column; }
+
+  .serif { font-family:'Playfair Display', Georgia, serif; }
+  .sans  { font-family:'DM Sans', system-ui, sans-serif; }
+
+  .ig-dots { display:flex; justify-content:center; align-items:center; gap:5px; padding:12px 0 6px; }
+  .ig-dot { width:6px; height:6px; border-radius:50%; background:#D6D6D6; transition:background .2s; }
+  .ig-dot.active { background:#C9A24C; }
+  .ig-actions { display:flex; align-items:center; gap:14px; padding:6px 14px 4px; }
+  .ig-actions .spacer { flex:1; }
+  .ig-caption { padding:4px 14px 16px; font-size:13px; color:#262626; line-height:1.45; }
+  .ig-caption b { font-weight:600; }
+  .ig-time { display:block; margin-top:8px; font-size:10px; color:#8E8E8E; letter-spacing:.3px; }
+</style>
+</head>
+<body>
+
+<div class="ig-frame">
+  <div class="ig-header">
+    <div class="ig-avatar" id="igAvatar"></div>
+    <div>
+      <div class="ig-handle" id="igHandle"></div>
+      <div class="ig-sub" id="igSub"></div>
+    </div>
+  </div>
+
+  <div class="carousel-viewport" id="viewport">
+    <div class="carousel-track" id="track"></div>
+  </div>
+
+  <div class="ig-dots" id="dots"></div>
+
+  <div class="ig-actions">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1.1L12 21.2l7.7-7.7 1.1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.4 8.4 0 0 1-3.8-.9L3 20.6l1.6-4.9A8.4 8.4 0 0 1 12 3.1a8.4 8.4 0 0 1 9 8.4z"/></svg>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+    <span class="spacer"></span>
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+  </div>
+
+  <div class="ig-caption" id="igCaption"></div>
+</div>
+
+<script>
+/* ====================== MARCA ====================== */
+const BRAND = {
+  nome:    'VITÓRIA DANIELA',
+  handle:  '@vitoriadaniela',      // CONFIRMAR (não sai nos PNGs, só no preview)
+  inicial: 'V',
+
+  primary:     '#C9A24C',
+  light:       '#E6C87F',
+  dark:        '#7A5E1E',
+  lightBg:     '#F4F0E6',
+  lightBorder: '#E2DAC8',
+  darkBg:      '#0E0D0B',
+  tintaEscura: '#2A2007',
+};
+
+/* Foto do lockup. Salve `foto-vitoria.jpg` nesta pasta e ela entra sozinha. */
+const FOTO = 'foto-vitoria.jpg';
+
+/* Versão do card 3: 'hospital' (analogia original dela) ou 'pneu' (sem a
+   palavra sangue, para zero atrito na revisão automatizada do tráfego). */
+const CARD3 = 'hospital';
+
+const LEGENDA = {
+  sub:   'Carrossel · 4 cards',
+  texto: 'O dinheiro não some no anúncio. Ele vaza depois dele.',
+};
+
+const GRADIENTE = `linear-gradient(165deg, ${BRAND.dark} 0%, ${BRAND.primary} 52%, ${BRAND.light} 100%)`;
+
+/* ====================== COMPONENTES ====================== */
+
+/* Rótulo em caixa alta acima do título. Fora de uso nesta peça, a pedido da
+   cliente, mas mantido aqui caso volte a fazer sentido em outro carrossel. */
+function tag(texto, fundo) {
+  const cor = fundo === 'light' ? BRAND.dark
+            : fundo === 'dark'  ? BRAND.primary
+            : 'rgba(42,32,7,0.62)';
+  return `<span class="sans" style="display:inline-block;font-size:10px;font-weight:600;letter-spacing:2.4px;color:${cor};margin-bottom:18px;">${texto}</span>`;
+}
+
+function titulo(texto, fundo, tamanho) {
+  const cor = fundo === 'light' ? BRAND.darkBg
+            : fundo === 'dark'  ? '#F7F4EC'
+            : BRAND.tintaEscura;
+  return `<h2 class="serif" style="font-size:${tamanho || 32}px;font-weight:600;letter-spacing:-0.4px;line-height:1.14;color:${cor};">${texto}</h2>`;
+}
+
+function paragrafo(texto, fundo, margemTopo) {
+  const cor = fundo === 'light' ? '#6A6152'
+            : fundo === 'dark'  ? 'rgba(247,244,236,0.66)'
+            : 'rgba(42,32,7,0.78)';
+  return `<p class="sans" style="font-size:14px;font-weight:400;line-height:1.54;color:${cor};margin-top:${margemTopo || 16}px;">${texto}</p>`;
+}
+
+/**
+ * Lockup com a foto dela. Se `foto-vitoria.jpg` não existir na pasta, o
+ * onerror remove a img e sobra a inicial no círculo dourado.
+ */
+function lockup(fundo) {
+  const corTexto  = fundo === 'light' ? BRAND.darkBg : fundo === 'dark' ? '#F7F4EC' : BRAND.tintaEscura;
+  const fundoCirc = fundo === 'gradient' ? BRAND.darkBg : BRAND.primary;
+  const corInic   = fundo === 'gradient' ? BRAND.primary : BRAND.darkBg;
+  const anel      = fundo === 'gradient' ? BRAND.darkBg : BRAND.primary;
+  return `<div style="display:flex;align-items:center;gap:12px;">
+    <div style="position:relative;width:46px;height:46px;border-radius:50%;overflow:hidden;flex-shrink:0;background:${fundoCirc};border:1.5px solid ${anel};display:flex;align-items:center;justify-content:center;">
+      <span class="serif" style="font-size:19px;font-weight:600;color:${corInic};">${BRAND.inicial}</span>
+      <img src="${FOTO}" onerror="this.remove()" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+    </div>
+    <span class="sans" style="font-size:11px;font-weight:600;letter-spacing:2.2px;color:${corTexto};">${BRAND.nome}</span>
+  </div>`;
+}
+
+function filete(fundo) {
+  const cor = fundo === 'gradient' ? 'rgba(42,32,7,0.28)' : BRAND.primary;
+  return `<div style="width:44px;height:2px;background:${cor};margin:20px 0 0;"></div>`;
+}
+
+function botaoCta(texto) {
+  return `<div class="sans" style="display:inline-flex;align-items:center;justify-content:center;text-align:center;padding:14px 30px;background:${BRAND.darkBg};color:${BRAND.primary};font-weight:600;font-size:14px;border-radius:28px;letter-spacing:.2px;">${texto}</div>`;
+}
+
+function barraProgresso(indice, total, fundo) {
+  const pct = ((indice + 1) / total) * 100;
+  let corTrilho, corPreench, corRotulo;
+  if (fundo === 'light')     { corTrilho='rgba(0,0,0,0.08)';       corPreench=BRAND.primary; corRotulo='rgba(0,0,0,0.32)'; }
+  else if (fundo === 'dark') { corTrilho='rgba(255,255,255,0.12)'; corPreench=BRAND.primary; corRotulo='rgba(255,255,255,0.42)'; }
+  else                       { corTrilho='rgba(42,32,7,0.18)';     corPreench=BRAND.darkBg;  corRotulo='rgba(42,32,7,0.5)'; }
+  return `<div style="position:absolute;bottom:0;left:0;right:0;padding:16px 28px 20px;z-index:10;display:flex;align-items:center;gap:10px;">
+    <div style="flex:1;height:3px;background:${corTrilho};border-radius:2px;overflow:hidden;">
+      <div style="height:100%;width:${pct}%;background:${corPreench};border-radius:2px;"></div>
+    </div>
+    <span class="sans" style="font-size:11px;color:${corRotulo};font-weight:500;">${indice + 1}/${total}</span>
+  </div>`;
+}
+
+function setaSwipe(fundo) {
+  const bg    = fundo === 'light' ? 'rgba(0,0,0,0.05)' : fundo === 'dark' ? 'rgba(201,162,76,0.12)' : 'rgba(42,32,7,0.08)';
+  const traco = fundo === 'light' ? 'rgba(0,0,0,0.25)' : fundo === 'dark' ? 'rgba(201,162,76,0.75)' : 'rgba(42,32,7,0.4)';
+  return `<div style="position:absolute;right:0;top:0;bottom:0;width:48px;z-index:9;display:flex;align-items:center;justify-content:center;background:linear-gradient(to right,transparent,${bg});">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path d="M9 6l6 6-6 6" stroke="${traco}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>`;
+}
+
+/* ====================== OS 4 CARDS ====================== */
+const SLIDES = [
+
+  /* 1 — GANCHO: o dado dela, em frase corrida. Bloco centralizado. */
+  { fundo: 'dark', corpo: `
+    <div class="slide-content" style="padding:38px 36px 64px;">
+      ${lockup('dark')}
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+        ${titulo('De cada 10 empresários que eu converso, 8 já queimaram dinheiro em tráfego.', 'dark', 30)}
+        ${filete('dark')}
+        ${paragrafo('E quase nunca o problema estava no tráfego, estava em tudo que vinha depois dele.', 'dark')}
+      </div>
+    </div>
+  `},
+
+  /* 2 — ANALOGIA DELA: a torneira aberta com vazamentos (está no site). */
+  { fundo: 'light', corpo: `
+    <div class="slide-content" style="justify-content:center;padding:38px 36px 64px;">
+      ${titulo('Anúncio sem estrutura é torneira aberta em cano furado.', 'light', 31)}
+      ${paragrafo('O dinheiro entra pelo anúncio e vaza no caminho, no perfil que promete uma coisa e mostra outra, na mensagem que fica três dias sem resposta, na proposta que foi enviada e ninguém retomou.', 'light')}
+      <p class="serif" style="font-size:17px;line-height:1.35;color:${BRAND.dark};font-style:italic;margin-top:18px;">Você paga pela água que nunca chega no balde.</p>
+    </div>
+  `},
+
+  /* 3 — PRINCÍPIO: a ordem certa.
+     Duas versões. A do hospital é a analogia original dela (está no site) e não
+     viola a política do Meta, que é escrita só sobre imagery. A do pneu evita
+     a palavra "sangue" no texto da imagem, caso queira zero atrito no OCR da
+     revisão automatizada. Troque em CARD3 lá no topo. */
+  { fundo: 'dark', corpo: CARD3 === 'pneu' ? `
+    <div class="slide-content" style="justify-content:center;padding:38px 36px 64px;">
+      ${titulo('Ninguém pisa no acelerador com o pneu furado.', 'dark', 33)}
+      ${filete('dark')}
+      ${paragrafo('Primeiro se troca o pneu, depois se pensa em velocidade, e com o seu negócio funciona igual.', 'dark')}
+      ${paragrafo('Colocar mais verba em cima de estrutura furada não corrige nada, só acelera o prejuízo.', 'dark', 12)}
+    </div>
+  ` : `
+    <div class="slide-content" style="justify-content:center;padding:38px 36px 64px;">
+      ${titulo('Ninguém estanca um sangramento treinando condicionamento.', 'dark', 31)}
+      ${filete('dark')}
+      ${paragrafo('No hospital a prioridade é parar o sangue, estabilizar, e só então pensar em deixar o corpo mais forte.', 'dark')}
+      ${paragrafo('Com o seu negócio é igual, colocar mais verba em cima de estrutura furada não corrige nada, só acelera o prejuízo.', 'dark', 12)}
+    </div>
+  `},
+
+  /* 4 — VIRADA + CTA: o funil real dela (aplicação, análise pessoal em 24h). */
+  { fundo: 'gradient', corpo: `
+    <div class="slide-content" style="padding:38px 36px 64px;">
+      ${lockup('gradient')}
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
+        ${titulo('Antes de investir mais, vale saber por onde o seu dinheiro está saindo.', 'gradient', 29)}
+        ${paragrafo('Eu analiso pessoalmente cada aplicação e devolvo o direcionamento em menos de 24h, olhando o seu momento e o que precisa ser resolvido primeiro.', 'gradient')}
+        <div style="margin-top:24px;">
+          ${botaoCta('Clique em Saiba Mais')}
+        </div>
+      </div>
+    </div>
+  `},
+];
+
+/* ====================== RENDER ====================== */
+const TOTAL = SLIDES.length;
+const LARGURA = 420;
+
+function fundoCss(fundo) {
+  if (fundo === 'light') return `background:${BRAND.lightBg};`;
+  if (fundo === 'dark')  return `background:${BRAND.darkBg};`;
+  return `background:${GRADIENTE};`;
+}
+
+function renderSlide(slide, i) {
+  const ehUltimo = i === TOTAL - 1;
+  return `<div class="slide" style="${fundoCss(slide.fundo)}">
+    ${slide.corpo}
+    ${barraProgresso(i, TOTAL, slide.fundo)}
+    ${ehUltimo ? '' : setaSwipe(slide.fundo)}
+  </div>`;
+}
+
+const track = document.getElementById('track');
+track.innerHTML = SLIDES.map(renderSlide).join('');
+
+const avatar = document.getElementById('igAvatar');
+avatar.style.background = BRAND.darkBg;
+avatar.innerHTML = `<span>${BRAND.inicial}</span>
+  <img src="${FOTO}" onerror="this.remove()" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">`;
+document.getElementById('igHandle').textContent = BRAND.handle;
+document.getElementById('igSub').textContent = LEGENDA.sub;
+document.getElementById('igCaption').innerHTML =
+  `<b>${BRAND.handle}</b> ${LEGENDA.texto}<span class="ig-time">HÁ 2 HORAS</span>`;
+
+const dots = document.getElementById('dots');
+dots.innerHTML = SLIDES.map((_, i) => `<div class="ig-dot${i === 0 ? ' active' : ''}"></div>`).join('');
+
+let indice = 0, arrastando = false, xInicial = 0, deltaX = 0;
+const viewport = document.getElementById('viewport');
+
+function irPara(i, animar = true) {
+  indice = Math.max(0, Math.min(TOTAL - 1, i));
+  track.style.transition = animar ? 'transform .32s cubic-bezier(.22,.61,.36,1)' : 'none';
+  track.style.transform = `translateX(${-indice * LARGURA}px)`;
+  [...dots.children].forEach((d, j) => d.classList.toggle('active', j === indice));
+}
+
+viewport.addEventListener('pointerdown', (e) => {
+  arrastando = true; xInicial = e.clientX; deltaX = 0;
+  viewport.setPointerCapture(e.pointerId);
+  track.style.transition = 'none';
+});
+viewport.addEventListener('pointermove', (e) => {
+  if (!arrastando) return;
+  deltaX = e.clientX - xInicial;
+  track.style.transform = `translateX(${-indice * LARGURA + deltaX}px)`;
+});
+function soltar() {
+  if (!arrastando) return;
+  arrastando = false;
+  if (Math.abs(deltaX) > LARGURA * 0.18) irPara(indice + (deltaX < 0 ? 1 : -1));
+  else irPara(indice);
+}
+viewport.addEventListener('pointerup', soltar);
+viewport.addEventListener('pointercancel', soltar);
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight') irPara(indice + 1);
+  if (e.key === 'ArrowLeft')  irPara(indice - 1);
+});
+
+irPara(0, false);
+</script>
+</body>
+</html>
