@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Gustavo Ono — Proposta de ajustes no funil</title>
+<title>Gustavo Ono — Proposta de adaptação do funil</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
@@ -36,18 +36,17 @@ strong{color:var(--navy700)}
 ul{margin:10px 0 10px 20px}li{margin:6px 0}
 
 /* blocos */
-.alert{background:var(--redbg);border:1px solid #f0c9c5;border-left:4px solid var(--red);border-radius:10px;padding:16px 18px;margin:18px 0}
-.alert .t{font-family:var(--serif);color:var(--red);font-weight:700;font-size:17px;margin-bottom:4px}
-.alert code{background:#fff;border:1px solid #f0c9c5;border-radius:5px;padding:1px 7px;font-size:13px;color:var(--red);font-weight:700}
 .good{background:var(--greenbg);border:1px solid #cfe0cf;border-left:4px solid var(--green);border-radius:10px;padding:16px 18px;margin:18px 0}
 .good .t{font-family:var(--serif);color:var(--green);font-weight:700;font-size:17px;margin-bottom:4px}
 .note{background:var(--cream);border-radius:10px;padding:14px 16px;margin:14px 0;font-size:13.5px;color:var(--muted)}
 .note b{color:var(--navy700)}
+.key{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:10px;padding:16px 18px;margin:18px 0;box-shadow:0 8px 24px rgba(22,49,79,.06)}
+.key .t{font-family:var(--serif);color:var(--navy);font-weight:700;font-size:17px;margin-bottom:4px}
 
 /* tabela */
 .tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:16px 0}
 .tw table{margin:0}
-table{width:100%;min-width:480px;border-collapse:collapse;margin:16px 0;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(22,49,79,.06);font-size:14px}
+table{width:100%;min-width:480px;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(22,49,79,.06);font-size:14px}
 th{background:var(--navy);color:#fff;text-align:left;padding:11px 14px;font-size:12px;letter-spacing:.5px;text-transform:uppercase;font-weight:700}
 td{padding:11px 14px;border-bottom:1px solid var(--line)}
 tr:last-child td{border-bottom:none}
@@ -61,8 +60,8 @@ td.num{font-variant-numeric:tabular-nums;font-weight:600;color:var(--navy700)}
 .step .k{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--gold);font-weight:700}
 .step .t{font-family:var(--serif);color:var(--navy);font-weight:700;font-size:16px;margin:5px 0}
 .step p{font-size:12.5px;color:var(--muted);margin:2px 0}
-.step.dead{border-color:#f0c9c5;background:var(--redbg)}
-.step.dead .k{color:var(--red)}
+.step.flat{background:var(--cream)}
+.step.flat .k{color:var(--muted)}
 
 /* rotas */
 .rota{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0;box-shadow:0 8px 24px rgba(22,49,79,.06);border-left:4px solid var(--gold)}
@@ -111,28 +110,15 @@ td.num{font-variant-numeric:tabular-nums;font-weight:600;color:var(--navy700)}
 
 <div class="head"><div class="wrap">
   <div class="logo"><div class="word">GUSTAVO ONO</div><span class="sub">CHOCOLATIER</span></div>
-  <div class="kick">PROPOSTA DE AJUSTES · FUNIL DE AQUISIÇÃO</div>
-  <h1>O que encontramos no funil e o que propomos mudar</h1>
-  <p>Revisamos o funil inteiro com os dados de tráfego de maio a julho, a base de 184 leads desde fevereiro e o código que está publicado hoje. Encontramos uma falha técnica que explica boa parte do resultado dos últimos meses, e três ajustes de estrutura que mudam o destino dos leads. Este documento é para validação antes de qualquer alteração.</p>
+  <div class="kick">PROPOSTA DE ADAPTAÇÃO · FUNIL DE AQUISIÇÃO</div>
+  <h1>Um caminho para cada perfil que entra no quiz</h1>
+  <p>Revisamos o funil com os dados de tráfego de maio a julho e com a base de 184 leads acumulada desde fevereiro. O quiz atrai e qualifica acima da média do mercado, mas hoje entrega o mesmo destino para perfis muito diferentes entre si. Esta é a proposta de adaptação: separar os caminhos usando o que o quiz já pergunta, e transformar o treinamento de entrada em ponte para a formação. Documento para sua validação antes de qualquer alteração.</p>
   <span class="badge">● 7 de agosto de 2026 · para validação do Gustavo</span>
 </div></div>
 
 <div class="wrap">
 
-<h2><span class="n">1.</span>O que encontramos primeiro</h2>
-<p class="sub2">Antes de qualquer proposta de estratégia, é preciso reportar isto.</p>
-
-<div class="alert">
-  <div class="t">O botão de agendar a sessão está publicado com um número de telefone inválido</div>
-  <p>A página de resultado do quiz tem hoje o botão <strong>"Quero agendar minha sessão gratuita"</strong>. Verificamos o código que está no ar em 07/08: o número de WhatsApp de destino está preenchido com <code>5511XXXXXXXXX</code>, que é o texto de exemplo deixado no lugar do número real.</p>
-  <p>Na prática: toda pessoa que terminou o quiz e clicou no botão foi levada a um link de WhatsApp que não existe. Do lado dela, a conversa nunca abriu. Do nosso lado, o clique foi registrado como interesse. <strong>É uma falha nossa, na implementação, e a correção leva minutos.</strong></p>
-</div>
-
-<p>Isso importa porque muda a leitura do que vinha acontecendo. A ausência de agendamentos vindos do funil não é sinal de que o público está errado ou de que a oferta não interessa: é que <strong>não existia caminho funcionando entre o quiz e a sua agenda</strong>. Antes desta versão, a página de resultado sequer oferecia a sessão: terminava no treinamento de R$ 97.</p>
-
-<div class="note"><b>Conclusão honesta:</b> desde maio, o funil pago nunca teve uma porta aberta para a mentoria. Ele vendeu o produto de entrada com eficiência e não teve como vender o principal. Isso não é diagnóstico de mercado, é de encanamento.</div>
-
-<h2><span class="n">2.</span>Os números, sem maquiagem</h2>
+<h2><span class="n">1.</span>Os números, sem maquiagem</h2>
 <p class="sub2">Dados de tráfego de maio a julho de 2026, direto da planilha de acompanhamento.</p>
 
 <div class="tw"><table>
@@ -160,9 +146,9 @@ td.num{font-variant-numeric:tabular-nums;font-weight:600;color:var(--navy700)}
   <p>Com a mesma verba de julho (R$ 2.304), levando o connect rate de 46,8% para 80%: as 624 pessoas que clicaram virariam <strong>499 visitas em vez de 292</strong>. Mantida a conversão atual da página, isso são <strong>77 leads em vez de 45</strong>, e o custo por lead cai de <strong>R$ 51,20 para cerca de R$ 30</strong>, dentro da faixa de referência, sem investir um real a mais.</p>
 </div>
 
-<p>A causa mais provável é a hospedagem atual da página, que roda num endereço genérico em vez do seu domínio próprio, e o tempo de carregamento no celular. A correção já está encaminhada: migrar a estrutura para a mesma plataforma do seu CRM e apontar o seu domínio.</p>
+<p>A causa mais provável é a hospedagem atual da página, que roda num endereço genérico em vez do seu domínio próprio, somada ao tempo de carregamento no celular. A correção já está encaminhada: migrar a estrutura para a mesma plataforma do seu CRM e apontar o seu domínio.</p>
 
-<h2><span class="n">3.</span>Quem está entrando no funil</h2>
+<h2><span class="n">2.</span>Quem está entrando no funil</h2>
 <p class="sub2">Base de 184 leads desde fevereiro, com o perfil declarado por cada uma no próprio quiz.</p>
 
 <div class="tw"><table>
@@ -177,16 +163,19 @@ td.num{font-variant-numeric:tabular-nums;font-weight:600;color:var(--navy700)}
 
 <p>Olhando por faturamento, o quadro se repete: pouco mais da metade declara faturar até R$ 5.000 por mês. E há um grupo pequeno e valioso, <strong>13 pessoas que declararam faturar acima de R$ 10.000</strong>, que hoje recebe exatamente a mesma página e o mesmo destino que todas as outras.</p>
 
-<div class="note"><b>É esse o ponto central da proposta:</b> o quiz já pergunta tudo o que é necessário para separar quem está pronta para a mentoria de quem está pronta para o treinamento. Ele coleta essa informação e depois a ignora, e todo mundo termina na mesma página, com a mesma oferta.</div>
+<div class="key">
+  <div class="t">É este o ponto central da proposta</div>
+  <p>O quiz <strong>já pergunta tudo o que é necessário</strong> para separar quem está pronta para a formação de quem está pronta para o treinamento de entrada. As respostas sobre perfil e faturamento são coletadas, aparecem na planilha de leads, e depois não influenciam em nada o que a pessoa vê no final. Quem fatura R$ 30 mil e quem ainda não vendeu o primeiro bombom terminam na mesma página, com a mesma oferta, no mesmo momento.</p>
+</div>
 
-<h2><span class="n">4.</span>O funil hoje e o que propomos</h2>
+<h2><span class="n">3.</span>O funil hoje e o que propomos</h2>
 
 <h3>Como está</h3>
 <div class="flow">
   <div class="step"><div class="k">01 · Anúncio</div><div class="t">Instagram</div><p>Chama para o diagnóstico gratuito.</p></div>
-  <div class="step"><div class="k">02 · Quiz</div><div class="t">9 perguntas</div><p>Pergunta perfil, dor e faturamento. Converte bem.</p></div>
-  <div class="step"><div class="k">03 · Relatório</div><div class="t">Igual para todas</div><p>Mesmo diagnóstico, mesma oferta, sem distinção de perfil.</p></div>
-  <div class="step dead"><div class="k">04 · Destino</div><div class="t">Sem saída</div><p>Botão de agendar com número inválido. Sobra o R$ 97.</p></div>
+  <div class="step"><div class="k">02 · Quiz</div><div class="t">9 perguntas</div><p>Pergunta perfil, dor e faturamento. Converte acima da média.</p></div>
+  <div class="step"><div class="k">03 · Relatório</div><div class="t">Diagnóstico</div><p>Aponta os três pilares críticos do negócio dela.</p></div>
+  <div class="step flat"><div class="k">04 · Encerramento</div><div class="t">Igual para todas</div><p>Uma única oferta, sem distinção de momento nem de porte.</p></div>
 </div>
 
 <h3>Como propomos</h3>
@@ -218,8 +207,8 @@ td.num{font-variant-numeric:tabular-nums;font-weight:600;color:var(--navy700)}
 
 <p>Isso também dá ao treinamento de R$ 97 o papel que os números indicam. Ele nunca vai financiar o tráfego sozinho: no ritmo atual cobre por volta de um quinto do investimento. Mas como <strong>filtro que separa quem paga de quem só pesquisa</strong>, ele vale muito mais do que como fonte de receita. Na prática, ele passa a exercer o papel do produto intermediário que hoje não existe entre R$ 97 e R$ 5.000.</p>
 
-<h2><span class="n">5.</span>Os três ajustes no quiz</h2>
-<p class="sub2">O quiz funciona e converte acima da média. Não propomos refazê-lo, e sim três correções pontuais.</p>
+<h2><span class="n">4.</span>Os ajustes no quiz</h2>
+<p class="sub2">O quiz funciona e converte acima da média. Não propomos refazê-lo, e sim quatro correções pontuais.</p>
 
 <div class="qlist">
   <div class="qrow"><span class="num">1</span><div>
@@ -240,7 +229,7 @@ td.num{font-variant-numeric:tabular-nums;font-weight:600;color:var(--navy700)}
   </div></div>
 </div>
 
-<h2><span class="n">6.</span>A copy da página de resultado</h2>
+<h2><span class="n">5.</span>A copy da página de resultado</h2>
 <p class="sub2">O diagnóstico dos três pilares permanece. O que muda é o fechamento de cada rota.</p>
 
 <div class="prev">
@@ -250,7 +239,7 @@ td.num{font-variant-numeric:tabular-nums;font-weight:600;color:var(--navy700)}
     <p>Em 30 minutos, o Gustavo analisa o seu caso específico (produto, precificação e estrutura) e mostra o que mudar primeiro.</p>
   </div>
   <div class="prev-bd">
-    <p style="font-size:13.5px;color:#5c6672;margin-bottom:10px">Três ajustes na copy atual:</p>
+    <p style="font-size:13.5px;color:#5c6672;margin-bottom:10px">Três princípios para esta copy:</p>
     <ul style="font-size:13.5px;color:#5c6672">
       <li><strong>A sessão como continuação do diagnóstico</strong>, não como conversa de vendas. O relatório já apontou os pilares críticos; a sessão é onde você diz o que fazer com eles. Esse encadeamento é o que faz a pessoa querer o próximo passo.</li>
       <li><strong>Dizer que o contato vai acontecer.</strong> "O Gustavo vai te chamar no WhatsApp" transforma quem liga de invasor em esperado. É a correção mais barata da taxa de resposta.</li>
@@ -273,35 +262,35 @@ td.num{font-variant-numeric:tabular-nums;font-weight:600;color:var(--navy700)}
   </div>
 </div>
 
-<h2><span class="n">7.</span>O que precisa existir do lado comercial</h2>
+<h2><span class="n">6.</span>O que precisa existir do lado comercial</h2>
 <p class="sub2">Sem isto, qualquer melhoria no funil fica invisível no mês seguinte.</p>
 
-<p>Hoje não existe registro das reuniões que acontecem. Sabemos que você agenda uma conversa aqui e ali, mas nada disso está anotado em lugar nenhum, o que significa que não conseguimos dizer quantas pessoas foram atendidas, quantas compareceram e o que aconteceu depois. Sem esse registro, não há como saber se um ajuste funcionou.</p>
+<p>Hoje as reuniões que acontecem não ficam registradas em lugar nenhum. Sabemos que você agenda uma conversa aqui e ali, mas sem esse registro não conseguimos dizer quantas pessoas foram atendidas, quantas compareceram e o que aconteceu depois. E sem isso não há como saber se um ajuste funcionou ou não.</p>
 
 <p>Propomos o mínimo que resolve: <strong>três marcações no CRM</strong>: sessão agendada, compareceu, resultado. Nada além disso. Com essas três informações preenchidas, no fim de agosto conseguimos dizer com precisão onde está o gargalo, em vez de deduzir.</p>
 
 <p>Junto disso, a instabilidade do seu número de WhatsApp precisa entrar na conta. Cada queda esfria as conversas em andamento e o contato se perde. A migração para o CRM com número oficial resolve as duas coisas de uma vez: estabiliza o atendimento e corrige o connect rate.</p>
 
-<h2><span class="n">8.</span>Ordem de execução</h2>
+<h2><span class="n">7.</span>Ordem de execução</h2>
 <p class="sub2">Do mais barato e mais rápido para o mais estrutural.</p>
 
 <div class="tl">
-  <div class="item"><div class="when">Imediato · hoje</div><div class="what">Corrigir o número de WhatsApp da página</div><div class="why">Leva minutos e reabre o único caminho que existe hoje entre o quiz e a sua agenda.</div></div>
   <div class="item"><div class="when">Esta semana</div><div class="what">Migrar a estrutura e apontar o domínio próprio</div><div class="why">Corrige o connect rate. Vale cerca de 70% mais leads com a mesma verba, e estabiliza o número de atendimento.</div></div>
-  <div class="item"><div class="when">Esta semana</div><div class="what">Contato direto com as 13 leads de maior faturamento</div><div class="why">São as pessoas com maior chance de fechar a mentoria e já estão na base, sem custo adicional de mídia.</div></div>
+  <div class="item"><div class="when">Esta semana</div><div class="what">Contato direto com as 13 leads de maior faturamento</div><div class="why">São as pessoas com maior chance de fechar a formação e já estão na base, sem custo adicional de mídia.</div></div>
   <div class="item"><div class="when">Próximas duas semanas</div><div class="what">Rotas A e B no relatório e os ajustes do quiz</div><div class="why">Cada perfil passa a receber a oferta compatível com o momento dele.</div></div>
-  <div class="item"><div class="when">Próximas duas semanas</div><div class="what">Sessão como benefício da compra do treinamento</div><div class="why">Transforma comprador em candidato à mentoria e resolve o problema de retorno nas abordagens.</div></div>
+  <div class="item"><div class="when">Próximas duas semanas</div><div class="what">Sessão como benefício da compra do treinamento</div><div class="why">Transforma comprador em candidato à formação e resolve o problema de retorno nas abordagens.</div></div>
+  <div class="item"><div class="when">Este mês</div><div class="what">Registro das sessões no CRM</div><div class="why">Três marcações por reunião. É o que permite ler o funil inteiro no fim do mês.</div></div>
   <div class="item"><div class="when">Este mês</div><div class="what">Reativação das 98 leads da primeira versão do quiz</div><div class="why">É a base de onde saíram as vendas de abril. Estão paradas e não custam mídia nova.</div></div>
 </div>
 
-<h2><span class="n">9.</span>O que esperamos que mude</h2>
+<h2><span class="n">8.</span>O que esperamos que mude</h2>
 <p class="sub2">Os números que vamos acompanhar, para que a conversa do mês que vem seja sobre fato.</p>
 
 <div class="tw"><table>
   <tr><th>Indicador</th><th>Hoje</th><th>Meta</th><th>Prazo</th></tr>
   <tr><td>Connect rate</td><td class="bad">46,8%</td><td class="ok">≥ 75%</td><td>7 dias</td></tr>
   <tr><td>Custo por lead</td><td class="bad">R$ 51,20</td><td class="ok">≤ R$ 35</td><td>14 dias</td></tr>
-  <tr><td>Sessões agendadas pelo funil</td><td class="bad">0 registradas</td><td class="ok">≥ 8 no mês</td><td>30 dias</td></tr>
+  <tr><td>Leads na Rota A separados e contados</td><td class="bad">não existe</td><td class="ok">medido toda semana</td><td>14 dias</td></tr>
   <tr><td>Registro de reuniões no CRM</td><td class="bad">inexistente</td><td class="ok">100% das sessões</td><td>imediato</td></tr>
 </table></div>
 
@@ -312,7 +301,7 @@ td.num{font-variant-numeric:tabular-nums;font-weight:600;color:var(--navy700)}
 </div>
 
 <div class="foot">
-  <p>Documento preparado pela Simple para validação do Gustavo antes da execução. Os números de tráfego vêm da planilha de acompanhamento (maio a julho de 2026) e o perfil dos leads da base de respostas do quiz (184 leads desde fevereiro de 2026). A verificação do botão de agendamento foi feita no código publicado em 07/08/2026.</p>
+  <p>Documento preparado pela Simple para validação do Gustavo antes da execução. Os números de tráfego vêm da planilha de acompanhamento (maio a julho de 2026) e o perfil dos leads da base de respostas do quiz (184 leads desde fevereiro de 2026).</p>
   <p class="sig" style="margin-top:12px">Simple · 7 de agosto de 2026</p>
 </div>
 
