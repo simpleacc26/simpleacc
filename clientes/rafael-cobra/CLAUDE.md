@@ -1,9 +1,10 @@
-# Cliente: <Nome do Cliente>
+# Cliente: Rafael Cobra
 
 Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
 
 ## Estrutura
 - `contexto/`   — quem é, oferta, ICP, análise de mercado, linguagem.
+  - `contexto/fontes/` — **material bruto** como veio do cliente (não interpretar aqui).
 - `estrategia/` — estratégias, planos, diagnósticos.
 - `copy/`       — copy de páginas e anúncios.
 - `roteiros/`   — roteiros de vídeo (datados).
@@ -14,10 +15,61 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
 1. Leia `contexto/` e `aprendizados.md` antes de criar.
 2. Rode `/prompt-mestre` para gerar funil/página/anúncios.
 3. Salve na pasta certa e registre o aprendizado.
-4. Branch `cliente/<slug>/<assunto>` + PR.
+4. Branch `cliente/rafael-cobra/<assunto>` + PR.
 
-## Contexto rápido (preencher)
-- **Oferta principal:** _(a preencher)_
-- **Público / ICP:** _(a preencher)_
-- **Links:** _(a preencher)_
-- **Contato principal:** _(a preencher)_
+## Contexto rápido
+
+- **Quem é:** psicanalista, nicho de **relacionamentos**. Instagram
+  [@orafaelcobra](https://instagram.com/orafaelcobra) — verificado, **333 mil
+  seguidores**, 1.664 posts, audiência construída **organicamente**. Cliente novo;
+  onboarding em **segunda-feira** (material recebido em 06/08/2026).
+
+- **São DOIS produtos, em estágios muito diferentes:**
+  - **Produto 1 — Mentoria para mulheres (relacionamentos).** Produto atual.
+    Nicho mapeado, audiência aquecida. Mentoria em grupo, 12 semanas, 4 módulos.
+    Promessa: romper padrões emocionais que sabotam relacionamentos. Mecanismo:
+    psicanálise aplicada → transformação de **identidade emocional** (explicitamente
+    **não** é técnica de conquista).
+  - **Produto 2 — Mentoria para psicólogos, psicanalistas e afins.** **Ideia
+    nova**, não existe e não foi validada. Nasceu de conversa dele com o Daniel.
+    Promessa: autoridade digital e fluxo constante de pacientes. Mecanismo:
+    "A maioria ensina marketing. Eu ensino posicionamento."
+
+- **DECISÃO EM ABERTO — qual produto entra primeiro.** É a pergunta que ele fez
+  no áudio e que a reunião de segunda vai resolver. **Não decidir isso sozinho.**
+  Análise dos dois lados pronta em
+  `estrategia/2026-08-06-analise-qual-produto-entra-primeiro.md`.
+
+- **ICP P1:** mulher 35–60, superior completo, carreira consolidada
+  (empresária/executiva/médica/advogada/liderança), grandes centros. Competente e
+  admirada profissionalmente, **vida afetiva travada**. Já fez terapia e já leu os
+  livros — e continua repetindo o padrão. Não quer ser vista como carente.
+- **ICP P2:** psicólogo/psicanalista/terapeuta 28–50. Tecnicamente bom e
+  **comercialmente invisível**. Agenda instável, depende de indicação, **medo de
+  gravar vídeo**. Tem **resistência ética a marketing**.
+
+## Cuidados obrigatórios (não repetir erro)
+
+1. **Os canvases foram preenchidos pelo cliente COM AJUDA DE UMA IA.** Não são as
+   palavras cruas dele. Ver `contexto/fontes/README.md`.
+2. **Os preços (R$ 9.997 / R$ 14.997 / faixas R$ 8k–25k) são sugestão do agente
+   de IA** — não são preço praticado nem validado. **Não tratar como dado.**
+3. **"Método Cobra" e "Método Cobra Authority" são propostas do agente.** O "®"
+   do texto original **não tem registro confirmado no INPI** — não reproduzir.
+4. **O destaque "MétodoCobra" já existe no Instagram dele** — pode já existir algo
+   com esse nome. Verificar antes de tratar como nome novo.
+5. **Não há NENHUM dado de negócio:** faturamento, ticket atual, tamanho de lista,
+   volume de atendimento, histórico de lançamento. **Não inventar** — está tudo
+   listado em `contexto/2026-08-06-lacunas-e-perguntas-para-o-onboarding.md`.
+6. **Sigilo profissional na prova social.** Ele é psicanalista; caso clínico tem
+   sigilo. Alinhar o que pode virar prova antes de usar em página de vendas.
+
+## Links
+- **Pasta no Drive:** [Simple <> Rafael Cobra](https://drive.google.com/drive/folders/17kNi9YSfqKd7N33T-_LYXKIKi_YBrQ2M)
+- **Canvas original (vazio, não editar):** [Google Doc](https://docs.google.com/document/d/19lqengtPOwiI3ehD9RtrE8jcpeenYUz5R0W_JwQrEBI/edit)
+- **Canvas preenchido:** `contexto/2026-08-06-canvas-preenchido.html` — _(upload
+  para o Drive pendente de confirmação do nome com o Carlos/Daniel)_
+
+## Contatos
+- **Cliente:** Rafael Cobra — _(WhatsApp/e-mail a preencher)_
+- **Interno:** Carlos Durães · Daniel
