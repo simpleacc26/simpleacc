@@ -160,3 +160,28 @@ original é preto, então no card escuro ela se funde e sobra o rosto dentro do 
 Para trocar a foto, basta substituir o arquivo mantendo o nome e reexportar. Se o arquivo
 não existir, o `onerror` remove a img e o lockup cai sozinho na inicial "V", então a peça
 nunca quebra.
+
+---
+
+## Versão Story / Reels (9:16)
+
+O criativo em 4:5 é cortado pelo Meta nas colocações de Story e Reels, então existe uma
+versão nativa em **1080x1920**: `carrossel-story.html` e `slides-story/`.
+
+**Área segura.** O conteúdo vive entre 100px do topo e 150px da base do layout de 405x720,
+ou seja 13,9% em cima e 20,8% embaixo. É a faixa que a UI do Instagram cobre: nome do
+perfil e barra de progresso no topo, CTA e legenda no rodapé. Nenhum texto sai dessa faixa.
+
+**O que muda da versão de feed:** tipografia um pouco maior (o Story é visto em tela cheia),
+sem a seta de swipe (o Instagram já indica a progressão sozinho) e a barra de progresso
+sobe para dentro da área segura.
+
+A copy é idêntica, e a variante do card 3 (hospital ou pneu) funciona igual, pela mesma
+constante `CARD3`.
+
+**Exportar:**
+
+```bash
+python3 exportar-slides.py carrossel.html slides/                      # feed 1080x1350
+python3 exportar-slides.py carrossel-story.html slides-story/ --formato story   # 1080x1920
+```

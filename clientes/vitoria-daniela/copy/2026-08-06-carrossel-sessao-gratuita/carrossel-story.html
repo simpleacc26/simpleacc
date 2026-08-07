@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carrossel Vitória Daniela — versão Story/Reels 9:16</title>
+
+<!--
+  VERSÃO STORY / REELS · 9:16 · 1080x1920
+  Mesma copy do carrossel de feed, remontada na vertical.
+
+  Base de layout: 405 x 720 (9:16 exato). O export usa
+  device_scale_factor = 1080/405 = 2.6667, o que dá 1080x1920 sem reflow.
+
+  ÁREA SEGURA: o conteúdo vive entre 100px do topo e 150px da base
+  (13,9% e 20,8%), que é o que a UI do Instagram cobre em Story e Reels
+  (nome do perfil e barra de progresso em cima, CTA e legenda embaixo).
+  Nada de texto fora dessa faixa.
+
+  Exportar: python3 exportar-slides.py carrossel-story.html slides-story/ --largura 405 --altura 720
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background:#E9E9EB; font-family:system-ui,-apple-system,sans-serif; display:flex; justify-content:center; padding:24px 16px; }
+
+  .ig-frame { width:405px; background:#000; border-radius:12px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,.18); }
+
+  .carousel-viewport { position:relative; width:100%; aspect-ratio:9/16; overflow:hidden; cursor:grab; touch-action:pan-y; user-select:none; }
+  .carousel-viewport:active { cursor:grabbing; }
+  .carousel-track { display:flex; height:100%; will-change:transform; transition:transform .32s cubic-bezier(.22,.61,.36,1); }
+  .slide { position:relative; width:405px; height:100%; flex-shrink:0; overflow:hidden; }
+
+  /* Faixa onde a UI do Instagram não encosta */
+  .safe {
+    position:absolute; left:0; right:0; top:100px; bottom:150px;
+    padding:0 34px; display:flex; flex-direction:column; z-index:2;
+  }
+  .bloco { flex:1; display:flex; flex-direction:column; justify-content:center; }
+
+  .serif { font-family:'Playfair Display', Georgia, serif; }
+  .sans  { font-family:'DM Sans', system-ui, sans-serif; }
+
+  .ig-dots { display:flex; justify-content:center; align-items:center; gap:5px; padding:10px 0; background:#000; }
+  .ig-dot { width:6px; height:6px; border-radius:50%; background:#3a3a3a; transition:background .2s; }
+  .ig-dot.active { background:#C9A24C; }
+</style>
+</head>
+<body>
+
+<div class="ig-frame">
+  <div class="carousel-viewport" id="viewport">
+    <div class="carousel-track" id="track"></div>
+  </div>
+  <div class="ig-dots" id="dots"></div>
+</div>
+
+<script>
+/* ====================== MARCA (igual à do feed) ====================== */
+const BRAND = {
+  nome:    'VITÓRIA DANIELA',
+  inicial: 'V',
+  primary:     '#C9A24C',
+  light:       '#E6C87F',
+  dark:        '#7A5E1E',
+  lightBg:     '#F4F0E6',
+  darkBg:      '#0E0D0B',
+  tintaEscura: '#2A2007',
+};
+
+const FOTO = 'foto-vitoria.jpg';
+
+/* 'hospital' (original dela) ou 'pneu' (sem a palavra sangue, pro tráfego) */
+const CARD3 = 'hospital';
+
+const GRADIENTE = `linear-gradient(165deg, ${BRAND.dark} 0%, ${BRAND.primary} 52%, ${BRAND.light} 100%)`;
+
+/* ====================== COMPONENTES ====================== */
+
+function titulo(texto, fundo, tamanho) {
+  const cor = fundo === 'light' ? BRAND.darkBg
+            : fundo === 'dark'  ? '#F7F4EC'
+            : BRAND.tintaEscura;
+  return `<h2 class="serif" style="font-size:${tamanho || 35}px;font-weight:600;letter-spacing:-0.4px;line-height:1.13;color:${cor};">${texto}</h2>`;
+}
+
+function paragrafo(texto, fundo, margemTopo) {
+  const cor = fundo === 'light' ? '#6A6152'
+            : fundo === 'dark'  ? 'rgba(247,244,236,0.68)'
+            : 'rgba(42,32,7,0.78)';
+  return `<p class="sans" style="font-size:15.5px;font-weight:400;line-height:1.55;color:${cor};margin-top:${margemTopo || 18}px;">${texto}</p>`;
+}
+
+function lockup(fundo) {
+  const corTexto  = fundo === 'light' ? BRAND.darkBg : fundo === 'dark' ? '#F7F4EC' : BRAND.tintaEscura;
+  const fundoCirc = fundo === 'gradient' ? BRAND.darkBg : BRAND.primary;
+  const corInic   = fundo === 'gradient' ? BRAND.primary : BRAND.darkBg;
+  const anel      = fundo === 'gradient' ? BRAND.darkBg : BRAND.primary;
+  return `<div style="display:flex;align-items:center;gap:12px;">
+    <div style="position:relative;width:48px;height:48px;border-radius:50%;overflow:hidden;flex-shrink:0;background:${fundoCirc};border:1.5px solid ${anel};display:flex;align-items:center;justify-content:center;">
+      <span class="serif" style="font-size:20px;font-weight:600;color:${corInic};">${BRAND.inicial}</span>
+      <img src="${FOTO}" onerror="this.remove()" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;">
+    </div>
+    <span class="sans" style="font-size:11.5px;font-weight:600;letter-spacing:2.2px;color:${corTexto};">${BRAND.nome}</span>
+  </div>`;
+}
+
+function filete(fundo) {
+  const cor = fundo === 'gradient' ? 'rgba(42,32,7,0.28)' : BRAND.primary;
+  return `<div style="width:48px;height:2px;background:${cor};margin:22px 0 0;"></div>`;
+}
+
+function botaoCta(texto) {
+  return `<div class="sans" style="display:inline-flex;align-items:center;justify-content:center;text-align:center;padding:15px 32px;background:${BRAND.darkBg};color:${BRAND.primary};font-weight:600;font-size:15px;border-radius:30px;letter-spacing:.2px;">${texto}</div>`;
+}
+
+/** Barra de progresso, dentro da área segura. */
+function barraProgresso(indice, total, fundo) {
+  const pct = ((indice + 1) / total) * 100;
+  let corTrilho, corPreench, corRotulo;
+  if (fundo === 'light')     { corTrilho='rgba(0,0,0,0.08)';       corPreench=BRAND.primary; corRotulo='rgba(0,0,0,0.32)'; }
+  else if (fundo === 'dark') { corTrilho='rgba(255,255,255,0.12)'; corPreench=BRAND.primary; corRotulo='rgba(255,255,255,0.42)'; }
+  else                       { corTrilho='rgba(42,32,7,0.18)';     corPreench=BRAND.darkBg;  corRotulo='rgba(42,32,7,0.5)'; }
+  return `<div style="display:flex;align-items:center;gap:10px;padding-top:22px;">
+    <div style="flex:1;height:3px;background:${corTrilho};border-radius:2px;overflow:hidden;">
+      <div style="height:100%;width:${pct}%;background:${corPreench};border-radius:2px;"></div>
+    </div>
+    <span class="sans" style="font-size:11.5px;color:${corRotulo};font-weight:500;">${indice + 1}/${total}</span>
+  </div>`;
+}
+
+/* ====================== OS 4 CARDS ====================== */
+const SLIDES = [
+
+  { fundo: 'dark', corpo: `
+    ${lockup('dark')}
+    <div class="bloco">
+      ${titulo('De cada 10 empresários que eu converso, 8 já queimaram dinheiro em tráfego.', 'dark', 35)}
+      ${filete('dark')}
+      ${paragrafo('E quase nunca o problema estava no tráfego, estava em tudo que vinha depois dele.', 'dark')}
+    </div>
+  `},
+
+  { fundo: 'light', corpo: `
+    <div class="bloco">
+      ${titulo('Anúncio sem estrutura é torneira aberta em cano furado.', 'light', 35)}
+      ${paragrafo('O dinheiro entra pelo anúncio e vaza no caminho, no perfil que promete uma coisa e mostra outra, na mensagem que fica três dias sem resposta, na proposta que foi enviada e ninguém retomou.', 'light')}
+      <p class="serif" style="font-size:19px;line-height:1.35;color:${BRAND.dark};font-style:italic;margin-top:22px;">Você paga pela água que nunca chega no balde.</p>
+    </div>
+  `},
+
+  { fundo: 'dark', corpo: CARD3 === 'pneu' ? `
+    <div class="bloco">
+      ${titulo('Ninguém pisa no acelerador com o pneu furado.', 'dark', 37)}
+      ${filete('dark')}
+      ${paragrafo('Primeiro se troca o pneu, depois se pensa em velocidade, e com o seu negócio funciona igual.', 'dark')}
+      ${paragrafo('Colocar mais verba em cima de estrutura furada não corrige nada, só acelera o prejuízo.', 'dark', 14)}
+    </div>
+  ` : `
+    <div class="bloco">
+      ${titulo('Ninguém estanca um sangramento treinando condicionamento.', 'dark', 35)}
+      ${filete('dark')}
+      ${paragrafo('No hospital a prioridade é parar o sangue, estabilizar, e só então pensar em deixar o corpo mais forte.', 'dark')}
+      ${paragrafo('Com o seu negócio é igual, colocar mais verba em cima de estrutura furada não corrige nada, só acelera o prejuízo.', 'dark', 14)}
+    </div>
+  `},
+
+  { fundo: 'gradient', corpo: `
+    ${lockup('gradient')}
+    <div class="bloco">
+      ${titulo('Antes de investir mais, vale saber por onde o seu dinheiro está saindo.', 'gradient', 33)}
+      ${paragrafo('Eu analiso pessoalmente cada aplicação e devolvo o direcionamento em menos de 24h, olhando o seu momento e o que precisa ser resolvido primeiro.', 'gradient')}
+      <div style="margin-top:26px;">
+        ${botaoCta('Clique em Saiba Mais')}
+      </div>
+    </div>
+  `},
+];
+
+/* ====================== RENDER ====================== */
+const TOTAL = SLIDES.length;
+const LARGURA = 405;
+
+function fundoCss(fundo) {
+  if (fundo === 'light') return `background:${BRAND.lightBg};`;
+  if (fundo === 'dark')  return `background:${BRAND.darkBg};`;
+  return `background:${GRADIENTE};`;
+}
+
+function renderSlide(slide, i) {
+  return `<div class="slide" style="${fundoCss(slide.fundo)}">
+    <div class="safe">
+      ${slide.corpo}
+      ${barraProgresso(i, TOTAL, slide.fundo)}
+    </div>
+  </div>`;
+}
+
+const track = document.getElementById('track');
+track.innerHTML = SLIDES.map(renderSlide).join('');
+
+const dots = document.getElementById('dots');
+dots.innerHTML = SLIDES.map((_, i) => `<div class="ig-dot${i === 0 ? ' active' : ''}"></div>`).join('');
+
+let indice = 0, arrastando = false, xInicial = 0, deltaX = 0;
+const viewport = document.getElementById('viewport');
+
+function irPara(i, animar = true) {
+  indice = Math.max(0, Math.min(TOTAL - 1, i));
+  track.style.transition = animar ? 'transform .32s cubic-bezier(.22,.61,.36,1)' : 'none';
+  track.style.transform = `translateX(${-indice * LARGURA}px)`;
+  [...dots.children].forEach((d, j) => d.classList.toggle('active', j === indice));
+}
+
+viewport.addEventListener('pointerdown', (e) => {
+  arrastando = true; xInicial = e.clientX; deltaX = 0;
+  viewport.setPointerCapture(e.pointerId);
+  track.style.transition = 'none';
+});
+viewport.addEventListener('pointermove', (e) => {
+  if (!arrastando) return;
+  deltaX = e.clientX - xInicial;
+  track.style.transform = `translateX(${-indice * LARGURA + deltaX}px)`;
+});
+function soltar() {
+  if (!arrastando) return;
+  arrastando = false;
+  if (Math.abs(deltaX) > LARGURA * 0.18) irPara(indice + (deltaX < 0 ? 1 : -1));
+  else irPara(indice);
+}
+viewport.addEventListener('pointerup', soltar);
+viewport.addEventListener('pointercancel', soltar);
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight') irPara(indice + 1);
+  if (e.key === 'ArrowLeft')  irPara(indice - 1);
+});
+
+irPara(0, false);
+</script>
+</body>
+</html>
