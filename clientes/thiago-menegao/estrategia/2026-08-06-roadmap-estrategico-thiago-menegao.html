@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Roadmap Estratégico Digital · Thiago Menegão</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    padding: 16mm 18mm 24mm 18mm;
+    position: relative;
+    page-break-after: always;
+    background: #fff;
+  }
+  .page:last-child { page-break-after: auto; }
+  .runhead {
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; color: var(--muted);
+    letter-spacing: .06em; text-transform: uppercase;
+    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt;
+  }
+  .runfoot {
+    position: absolute; bottom: 9mm; left: 18mm; right: 18mm;
+    text-align: center; font-size: 7.5pt; color: var(--muted);
+  }
+  .kicker {
+    color: var(--gold); font-size: 9pt; font-weight: bold;
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt;
+  }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
+  .box-dark {
+    background: var(--navy-dark); color: #f5f3ee;
+    padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt;
+  }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light {
+    background: var(--beige); border-left: 3pt solid var(--gold);
+    padding: 10pt 14pt; margin: 11pt 0;
+  }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .fase-header {
+    background: var(--navy-dark); color: #fff;
+    padding: 10pt 16pt; margin-bottom: 10pt;
+    border-left: 4pt solid var(--gold);
+  }
+  .fase-header .fk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .fase-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .fase-header .fd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 12pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 38pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+  .footer-note { margin-top: 24pt; padding-top: 8pt; border-top: 1pt solid var(--gold); font-size: 8.5pt; color: var(--muted); width: 60%; }
+</style>
+</head>
+<body>
+
+<!-- PÁGINA 1 · CAPA -->
+<div class="page cover">
+  <div class="kicker">Plano de Ação Personalizado</div>
+  <h1>Roadmap<br>Estratégico<br>Digital</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    De vinte anos de bastidor corporativo ao método que o mercado ainda não conhece.<br>
+    Os primeiros 90 dias. Passo a passo, fase a fase.<br>
+    Sem atalho, sem improviso, sem ideia solta.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">Thiago Menegão</div>
+    <div class="lbl">Mentor Estratégico</div>
+    <div class="val">Daniel Souza</div>
+  </div>
+</div>
+
+<!-- PÁGINA 2 · CONTEXTO E DECISÕES FUNDAMENTAIS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Thiago Menegão</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Começar</div>
+  <h1 style="font-size:19pt;">Contexto e Decisões Fundamentais</h1>
+  <p class="lead">Leia esta página inteira antes de executar qualquer passo. Todas as decisões a seguir partem do que está aqui.</p>
+
+  <div class="box-dark">
+    <div class="bt">A decisão mais importante deste plano</div>
+    <p>Você tem método, lastro e operação. O que você não tem ainda é mercado sabendo que o PRIMAL PITCH existe. A partir de hoje o projeto tem <strong>um público, uma promessa e uma esteira</strong>: o expert com lastro que fecha em reunião individual, a condução na ordem certa como caminho, e o Protocolo Primal como mecanismo.</p>
+    <p><strong>A big idea que sustenta toda a comunicação: o problema nunca esteve no script, esteve na ordem. A decisão de compra acontece em três camadas, primal, emocional e racional, e quase toda reunião é perdida porque o vendedor entra pela camada errada na hora errada. Você não precisa vender melhor. Você precisa parar de se explicar.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A esteira</div>
+    <p><strong>Carro-chefe: Mentoria PRIMAL PITCH</strong> (o protocolo aplicado com acompanhamento seu, análise de calls reais e calibragem por perfil e por ferida), ticket de referência R$ 15 mil. É o produto que a sessão estratégica vende.</p>
+    <p><strong>Downsell da call: Turma de Fundadores</strong> (as sete etapas gravadas, material de apoio e framework de análise), R$ 2 mil. Só aparece na sessão, quando a objeção for de momento ou de caixa.</p>
+    <p><strong>Entrada e aproveitamento do não-ICP: o Dossiê do quiz</strong>, gratuito, liberado apenas para quem confirma a sessão. Regra dos 90 dias: <strong>nenhum produto novo</strong> além destes três.</p>
+    <p><strong>Premissa a validar na primeira call quinzenal:</strong> o ticket de R$ 15 mil é referência de trabalho para fechar a matemática abaixo. Definido o número final, a conta é refeita e o documento atualizado.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A matemática dos R$ 90 mil/mês</div>
+    <p><strong>6 vendas × R$ 15 mil = R$ 90 mil por mês.</strong> Você declara converter de 60% a 80% das suas reuniões. Esta conta usa <strong>40% de propósito</strong>: em produto novo o gargalo não vai ser o seu fechamento, vai ser ter agendamento qualificado com consistência. <strong>6 vendas ÷ 40% = 15 sessões realizadas por mês.</strong> Com comparecimento de 60%, são <strong>25 agendamentos por mês</strong>, pouco mais de 1 por dia útil: cerca de 10 vindos do funil e 15 da rotina comercial.</p>
+    <p>Esse número é <strong>operacional, não aspiracional.</strong> É só fazer.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 3 · VERBA, RITMO E RESPONSABILIDADES -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Thiago Menegão</span><span>Página 3</span></div>
+
+  <div class="box-light">
+    <div class="bt">Sobre a verba de guerra</div>
+    <p>Você disse que não trabalha com número fixo: coloca a verba, coleta métrica e depois planeja. O método está certo e é o mesmo nosso. Mas verba precisa de alvo para ser calibrada, e é isso que a página anterior entrega.</p>
+    <p>Orçamento inicial de validação: <strong>R$ 3 mil no primeiro mês</strong>, cerca de R$ 100 por dia, financiado pelo caixa rápido da Fase 1. Com ticket de R$ 15 mil, <strong>uma venda paga cinco meses de mídia</strong>. Ao fim dos primeiros 30 dias existe CPL real e a verba é recalibrada com dado, não com estimativa.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Ritmo de acompanhamento</div>
+    <p>Calls quinzenais com o mentor estratégico. No primeiro mês a cadência é semanal, porque é quando as decisões de oferta, copy e quiz precisam de resposta rápida.</p>
+    <p>Dúvidas no grupo: <strong>Carlos Durães</strong> para entrega e estratégia, <strong>Daniel Souza</strong> para direção, gestor de tráfego do projeto para campanha e métrica.</p>
+    <p>A execução acontece <strong>entre as calls.</strong> As calls servem para afinar, não para decidir o que fazer. O que fazer já está aqui dentro.</p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Divisão de responsabilidades</div>
+    <p><strong>A Simple constrói e opera:</strong> estratégia e big idea, copy do quiz, do diagnóstico e das páginas, roteiros e criativos dos anúncios, implementação do funil no Go High Level, automações, integração do WhatsApp, campanhas e leitura de métrica a cada 7 dias.</p>
+    <p><strong>Thiago executa:</strong> canvas do cliente ideal preenchido, materiais no Drive, contratação do CRM, gravação dos vídeos dos criativos, coleta de depoimentos, abordagens diárias da rotina comercial e as sessões estratégicas.</p>
+    <p>O funil coloca lead na porta. <strong>Quem coloca dinheiro no caixa é a rotina comercial.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Foco deste roadmap</div>
+    <p>Estes 90 dias existem para uma coisa: tirar o PRIMAL PITCH do zero e chegar a R$ 90 mil por mês com um sistema de aquisição rodando. Batida a meta, vem o Roadmap 2, que trata da escala dos R$ 90 mil aos R$ 300 mil por mês e da entrada do time comercial na cadeira que hoje é sua. Não tente queimar etapas.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 4 · FASE 1 · CAIXA RÁPIDO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Thiago Menegão</span><span>Página 4</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 1 · Dias 1 a 10</div>
+    <h2>Caixa Rápido</h2>
+    <div class="fd">Primeiras vendas e primeiros depoimentos saem da base que você já tem.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que esta fase vem primeiro</div>
+    <p>O PRIMAL PITCH é produto novo, sem depoimento em vídeo e sem case público. Mas você não começa do zero: tem o grupo de mentoriados que já recebeu o método gravado, a base de leads no Go High Level, a base da Brandée e a rede das palestras e das agências da Galaxy da Hotmart.</p>
+    <p>Essa base faz três coisas ao mesmo tempo: <strong>gera caixa para pagar a mídia, gera os primeiros depoimentos e devolve a linguagem real do comprador</strong>, que alimenta o quiz e os criativos da Fase 5.</p>
+  </div>
+
+  <div class="passo-label">Passo 1</div>
+  <h3>Mapear as oportunidades da base</h3>
+  <ul class="check">
+    <li>Montar uma planilha única com todo mundo que já teve contato com o método, separado por origem
+      <ul class="sub">
+        <li>Mentoriados e ex-mentoriados que já assistiram ao Primal Closing, e as palestras e o treinamento da agência da Galaxy</li>
+        <li>Base de leads dos seus projetos no Go High Level, base da Brandée, rede corporativa e indicações nunca trabalhadas</li>
+      </ul>
+    </li>
+    <li>Classificar cada nome: compra a mentoria, compra a turma de fundadores, ou indica alguém que compra</li>
+    <li>Lista fechada <strong>até o dia 3</strong>. Sem planilha, esta fase não acontece.</li>
+  </ul>
+
+  <div class="passo-label">Passo 2</div>
+  <h3>Executar as abordagens de caixa rápido</h3>
+  <ul class="check">
+    <li>Quem já viu o método: convite direto para a Turma de Fundadores, com vaga e prazo definidos na Fase 2</li>
+    <li>Quem tem perfil de mentoria: convite para sessão estratégica, sem pitch na mensagem</li>
+    <li>Em toda conversa, feche ou não, pedir <strong>de 3 a 5 indicações qualificadas</strong> com o perfil dito em voz alta: expert com lastro que fecha em reunião individual</li>
+    <li>Reativar a base fria do Go High Level com o Dossiê como isca, não com oferta. Registrar tudo no mesmo dia.</li>
+  </ul>
+
+  <div class="passo-label">Passo 3</div>
+  <h3>Converter em caixa e destinar à mídia</h3>
+  <ul class="check">
+    <li>Venda parcelada no cartão: avaliar antecipação de recebíveis para ter a verba de mídia já no mês 1</li>
+    <li>Destino do caixa desta fase: <strong>mídia e ferramentas</strong>, não retirada. Resultado na call da semana 2.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta desta fase</div>
+    <p>Base 100% abordada até o dia 10, <strong>de 5 a 8 sessões agendadas</strong>, <strong>1 venda ou 1 antecipação</strong>, verba de mídia dos primeiros 30 dias em caixa.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 5 · FASE 2 · OFERTA E POSICIONAMENTO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Thiago Menegão</span><span>Página 5</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 2 · Dias 1 a 14</div>
+    <h2>Oferta, Esteira e Posicionamento</h2>
+    <div class="fd">Fechar os três produtos e fazer o perfil sustentar o preço que a oferta pede.</div>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Prioridade máxima</div>
+    <p>Quando o lead sair do quiz e clicar no seu perfil, ele precisa encontrar o criador do PRIMAL PITCH, não um perfil em construção. Hoje o @thiagomenegao tem 2.327 seguidores e uma bio boa, mas o feed ainda não conta a sua história corporativa nem mostra prova. <strong>Você mesmo diz que a pessoa compra você antes de comprar o que você faz.</strong> Esta fase é sobre isso.</p>
+  </div>
+
+  <div class="passo-label">Passo 4</div>
+  <h3>Fechar a esteira e o preço</h3>
+  <ul class="check">
+    <li>Definir o ticket final da Mentoria PRIMAL PITCH, com entregáveis, duração e quantas pessoas por turma</li>
+    <li>Fechar a Turma de Fundadores: <strong>número de vagas, data de abertura e data de fechamento</strong>. Sem prazo não existe fechamento.</li>
+    <li>Resolver a divergência da grade: o canvas traz duas versões do produto, uma de 3 módulos e uma do Módulo 0 ao 6. Vale uma só, e ela vai para a página.</li>
+    <li>Regra de preço: <strong>nunca desconto no carro-chefe</strong>. Objeção de valor vira forma de pagamento ou downsell para a Turma de Fundadores.</li>
+    <li>Validar a versão da Simple para o design de oferta na call da semana 1, que é o que você pediu no onboarding</li>
+  </ul>
+
+  <div class="passo-label">Passo 5</div>
+  <h3>Reescrever o perfil</h3>
+  <ul class="check">
+    <li>Bio na fórmula quem ajudo, resultado, credencial e chamada. Sugestão na sua voz: <em>Ajudo expert com lastro a converter mais das reuniões que já tem · Criador do PRIMAL PITCH · 20 anos entre Mercedes, Itaú e John Deere · Faça o diagnóstico</em></li>
+    <li>Quatro destaques fixos: Comece aqui, Quem sou, O Protocolo, Resultados</li>
+    <li>De 2 a 3 posts fixados: um do método, um da sua trajetória corporativa, um de prova</li>
+    <li>Subir as fotos profissionais que você já tem no Drive e trocar as imagens antigas do feed</li>
+  </ul>
+
+  <div class="passo-label">Passo 6</div>
+  <h3>Abrir a trilha de prova</h3>
+  <ul class="check">
+    <li>Coletar os prints de WhatsApp e mensagens de quem já aplicou o método, organizados por resultado</li>
+    <li>Pedir os depoimentos em vídeo já combinados, começando pelo Daniel, usando o Guia de Captação de Depoimentos que a Simple envia
+      <ul class="sub">
+        <li>Regra sua, que vale para todo mundo: depoimento é sobre o negócio e sobre número, não sobre elogio</li>
+      </ul>
+    </li>
+    <li>Fechar o número de conversão que vai para a página: você cita a virada de 10% para mais de 60%. Defina em cima de quantas reuniões e em que período, porque é isso que sustenta a promessa em anúncio.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 6 · FASE 3 · AQUISIÇÃO MANUAL, PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Thiago Menegão</span><span>Página 6</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 3 · Dias 1 a 90</div>
+    <h2>Aquisição Manual</h2>
+    <div class="fd">O motor principal dos 90 dias. Roda do dia 1 ao dia 90, em paralelo com tudo.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que o manual anda junto com o funil</div>
+    <p>O funil vai ficar pronto entre os dias 15 e 60. Se a venda só começar quando ele subir, você perde dois meses. E tem um motivo maior: <strong>as objeções reais só aparecem na conversa</strong>. É a rotina manual que devolve a frase exata que o seu comprador usa para descrever o problema dele, e é essa frase que vira pergunta de quiz, headline de anúncio e bloco do diagnóstico.</p>
+    <p>Hoje o PRIMAL PITCH tem <strong>zero venda registrada e zero depoimento em vídeo</strong>. Todo dia sem abordagem é um dia sem material para o funil.</p>
+  </div>
+
+  <div class="passo-label">Passo 7</div>
+  <h3>Assistir às aulas de aquisição</h3>
+  <ul class="check">
+    <li>Na área de membros Formação Estrategista High Ticket: Social Selling parte 1 e parte 2, Outbound, Pré-Vendas e Sessão Estratégica</li>
+    <li>Você conduz melhor que a maioria dos closers do mercado, e a call de vendas não é o seu problema. O que muda o jogo aqui é <strong>a camada de antes</strong>: prospecção, cadência e qualificação.</li>
+    <li>Incluir quem for fazer social selling do seu time nas mesmas aulas</li>
+  </ul>
+
+  <div class="passo-label">Passo 8</div>
+  <h3>Estruturar o pré-vendas</h3>
+  <ul class="check">
+    <li>Definir quem faz a abordagem: você no primeiro mês, uma pessoa do time da Brandée a partir do mês 2</li>
+    <li>Montar a planilha de controle no Go High Level: origem, data do contato, follow-up, status e motivo de perda</li>
+    <li>Aplicar a sua própria regra de qualificação em vez de perguntar faturamento, que você mesmo diz que a galera mente
+      <ul class="sub">
+        <li>Tamanho do time, contratos PJ ou CLT, quantas reuniões de venda por mês e qual o ticket que ele pratica</li>
+      </ul>
+    </li>
+    <li>Implantar o Dossiê como mecanismo de comparecimento: entregue só para quem confirma a sessão, como você já faz</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 7 · FASE 3 · PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Thiago Menegão</span><span>Página 7</span></div>
+
+  <div class="passo-label">Passo 9</div>
+  <h3>Executar as abordagens diárias</h3>
+  <ul class="check">
+    <li><strong>De 40 a 60 abordagens por dia útil</strong>, sempre personalizadas. É este número que move o caixa nos primeiros 60 dias.</li>
+    <li>Distribuição sugerida enquanto a base durar: 40% base quente e indicações, 40% social selling no Instagram e LinkedIn, 20% outbound frio</li>
+    <li>Quando a base esgotar, inverter: 60% outbound e social selling, 40% reativação</li>
+    <li>Onde procurar o expert com lastro: quem palestra em evento de negócios, quem anuncia mentoria na Biblioteca de Anúncios, produtores de high ticket na Hotmart e na Kiwify, e o entorno das agências que você já atendeu</li>
+    <li>Follow-up obrigatório em até 2 dias. Meta de <strong>300 perfis mapeados até o dia 10</strong>.</li>
+  </ul>
+
+  <div class="passo-label">Passo 10</div>
+  <h3>Conduzir as sessões estratégicas</h3>
+  <ul class="check">
+    <li>Gravar todas as sessões, com consentimento. As três primeiras entram na call quinzenal.</li>
+    <li>Aqui a análise é ao contrário do padrão: <strong>quem audita a call é você</strong>, com o seu próprio framework de sete etapas. O que a Simple lê é o que vem antes, ou seja, de onde veio o lead, o que ele respondeu no quiz e por que compareceu ou não.</li>
+    <li>Respeitar o teto de agenda: no máximo 3 sessões por dia, para não entrar na quarta reunião sem a energia que a condução exige</li>
+    <li>Toda sessão sem fechamento sai com próximo passo datado, nunca com "me manda a proposta"</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Metas numéricas desta fase</div>
+    <p><strong>Dia 30:</strong> de 8 a 10 sessões realizadas, <strong>2 vendas</strong>, 2 depoimentos em vídeo captados.</p>
+    <p><strong>Dia 60:</strong> 12 sessões realizadas no mês, <strong>4 vendas no mês</strong>, funil no ar alimentando parte dos agendamentos.</p>
+    <p><strong>Dia 90:</strong> 15 sessões realizadas no mês, <strong>6 vendas no mês, R$ 90 mil</strong>, sendo cerca de 10 dos 25 agendamentos vindos do funil.</p>
+    <p><strong>Alerta vermelho:</strong> menos de 2 vendas até o dia 30 com 8 sessões realizadas não é problema de produto nem de fechamento, é <strong>problema de qualificação</strong>. Pausar a prospecção fria, revisar as gravações na call quinzenal e ajustar o filtro antes de continuar.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 8 · FASE 4 · CONTEÚDO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Thiago Menegão</span><span>Página 8</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 4 · Dias 1 a 90</div>
+    <h2>Conteúdo Orgânico e Ativos do Funil</h2>
+    <div class="fd">Roda em paralelo. Não é pré-requisito para venda, é o que faz a venda ficar mais barata.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">O dado que decide o formato</div>
+    <p>No seu perfil, vídeo de palco e de quadro branco faz de 23 mil a 32 mil visualizações. Vídeo falando para a câmera em casa faz de 300 a 900. A única exceção, com 10,3 mil, foi o que abriu com <strong>concorrente com produto pior</strong>, que é gancho de injustiça, exatamente a ferida dominante do seu comprador.</p>
+    <p>Conclusão operacional: <strong>priorize captação em palco, em sala e em flip chart</strong>, e quando gravar sozinho, abra pela injustiça. Você já tem acervo de palestra suficiente para os primeiros 30 dias de corte.</p>
+  </div>
+
+  <div class="passo-label">Passo 11</div>
+  <h3>Publicar nos três níveis de consciência</h3>
+  <ul class="check">
+    <li><strong>Inconsciente do problema:</strong> por que o lead disse que ia pensar e nunca voltou; o que a sua reunião comunica antes de você abrir a boca</li>
+    <li><strong>Consciente do problema:</strong> as três camadas da decisão; por que o desconto no fim da call destrói a venda; a etapa exata em que a conversa travou</li>
+    <li><strong>Consciente do produto:</strong> as sete etapas na prática; análise de call real; bastidor da mentoria</li>
+  </ul>
+
+  <div class="passo-label">Passo 12</div>
+  <h3>Manter a rotina semanal</h3>
+  <ul class="check">
+    <li>12 publicações por semana, produzidas em lote, com corte de palestra como base</li>
+    <li>Chamada fixa para o diagnóstico do quiz assim que ele subir</li>
+    <li>Regra de comunicação inegociável neste projeto: <strong>nada de ancoragem irreal e nada de projeção de futuro</strong>. O fechamento é sempre no custo de continuar adiando, que é a sua linha.</li>
+  </ul>
+
+  <div class="passo-label">Passo 13</div>
+  <h3>Entregar os ativos do funil</h3>
+  <ul class="check">
+    <li>Gravar os vídeos dos criativos com os roteiros que a Simple entrega, preferencialmente em ambiente de sala ou palco</li>
+    <li>Subir no Drive, nas três pastas que o Carlos envia: fotos profissionais, depoimentos e materiais variados</li>
+    <li>Prioridade para case de expert do mesmo nicho do comprador, porque identificação vale mais que volume de prova</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 9 · FASE 5 · FUNIL, PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Thiago Menegão</span><span>Página 9</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 5 · Dias 15 a 60</div>
+    <h2>Funil de Lead Dinâmico e Tráfego</h2>
+    <div class="fd">A Simple constrói e opera. Você aprova, grava e libera acesso.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Como o funil funciona</div>
+    <p>Anúncio leva ao <strong>quiz de diagnóstico</strong>, que qualifica o lead enquanto ele responde. Ao concluir, ele recebe na hora um <strong>relatório personalizado</strong> apontando em qual das sete etapas a condução dele trava. Do relatório sai o convite para o WhatsApp, e do WhatsApp para a sessão estratégica. Os dados caem no CRM mesmo para quem não clicar.</p>
+    <p>Quem tem perfil agenda a sessão e compra a mentoria. <strong>Quem não tem perfil recebe a oferta da Turma de Fundadores</strong>, e é essa venda que paga a mídia do mês. Nenhum lead se perde por não ser ICP.</p>
+  </div>
+
+  <div class="passo-label">Passo 14</div>
+  <h3>Aprovar a estratégia e as peças</h3>
+  <ul class="check">
+    <li>Documento de estratégia completa com oferta, big idea e copies: entregue pela Simple até a terça-feira da semana 1</li>
+    <li>Aprovar em bloco, em até 48 horas por rodada: copy do quiz, copy do diagnóstico, páginas e roteiros de criativo</li>
+    <li>Nas primeiras entregas, o ajuste que interessa é <strong>de tom</strong>. Você conhece o vocabulário desse comprador melhor que qualquer copy, e é isso que a Simple precisa de você nesta etapa.</li>
+    <li>Ponto de atenção do nicho: promessa de ganho tem restrição na política de anúncio da Meta. A copy trabalha condução e conversão de reunião, não promessa de faturamento.</li>
+  </ul>
+
+  <div class="passo-label">Passo 15</div>
+  <h3>Ligar a infraestrutura</h3>
+  <ul class="check">
+    <li>Contratar o Go High Level pelo link que o Carlos envia, R$ 97 por mês pela conta de agência da Simple</li>
+    <li>Conectar o número oficial do WhatsApp que você já contratou na Vivo e integrou à Meta, mais o Instagram, dentro do Go High Level
+      <ul class="sub">
+        <li>Nunca usar WhatsApp Web para o funil: número dedicado e API, como você já tem</li>
+      </ul>
+    </li>
+    <li>Liberar à Simple os acessos de gerenciador de anúncios, domínio menegao.com.br e a pasta do Drive</li>
+    <li>Definir o destino da área de membros do produto: seguir na Hotmart ou migrar, decidido até o dia 30</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 10 · FASE 5 · PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Thiago Menegão</span><span>Página 10</span></div>
+
+  <div class="passo-label">Passo 16</div>
+  <h3>Subir as campanhas e ler a métrica</h3>
+  <ul class="check">
+    <li>Orçamento inicial de validação de R$ 3 mil no primeiro mês, financiado pelo caixa rápido da Fase 1</li>
+    <li>Segmentação: interesse em mentoria, consultoria e vendas de alto valor, públicos semelhantes a partir dos leads que o quiz coletar, e retargeting de quem começou e não terminou o quiz</li>
+    <li>Revisão de métrica a cada 7 dias com o gestor de tráfego, com gatilho de ação definido
+      <ul class="sub">
+        <li>CPL fora da meta: troca de criativo antes de mexer em público</li>
+        <li>Conclusão do quiz abaixo de 40%: o problema está nas perguntas, não no anúncio</li>
+        <li>Comparecimento abaixo de 60%: reforçar o Dossiê e a cadência de confirmação</li>
+        <li>Lead qualificado que não agenda: o gargalo está na copy do diagnóstico</li>
+      </ul>
+    </li>
+    <li>Escalar a verba somente depois de 2 vendas atribuídas ao funil</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Regra de ouro do tráfego high ticket</div>
+    <p>Uma venda de R$ 15 mil paga cinco meses de mídia no orçamento de validação. O jogo aqui <strong>não é lead barato, é lead certo</strong>. Um CPL alto com sessão qualificada vale mais que um CPL baixo enchendo a sua agenda de curioso, e agenda cheia de curioso é o que mais custa caro para quem vende conduzindo.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Meta desta fase</div>
+    <p><strong>Dia 30:</strong> estratégia aprovada, CRM contratado e conectado, copies e quiz em produção.</p>
+    <p><strong>Dia 45:</strong> quiz e página de diagnóstico no ar, primeiras campanhas rodando, primeiro CPL real medido.</p>
+    <p><strong>Dia 60:</strong> funil estabilizado gerando <strong>de 5 a 10 agendamentos por mês</strong> e o primeiro lote de vendas da Turma de Fundadores pagando a mídia.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 11 · BÔNUS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Thiago Menegão</span><span>Página 11</span></div>
+  <div class="fase-header">
+    <div class="fk">Bônus · A partir do dia 60</div>
+    <h2>Os Ativos que Só Você Tem</h2>
+    <div class="fd">Plantados agora, colhidos no mês 4 e no mês 5. Não roubam o foco dos 90 dias.</div>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Por que entram agora e não antes</div>
+    <p>Cada um destes ativos tem ciclo mais longo que uma venda direta. Se entrarem no dia 1, competem com a rotina que paga as contas. Entrando no dia 60, encontram o funil já rodando e viram a alavanca do Roadmap 2.</p>
+  </div>
+
+  <div class="passo-label">Passo 17</div>
+  <h3>Palco como canal de aquisição</h3>
+  <ul class="check">
+    <li>Você é palestrante confirmado do Brandée Experience e o palco é o seu formato de maior tração, dentro e fora do Instagram</li>
+    <li>Integrar palco e CRM: QR do quiz projetado na sala, captura na hora, follow-up em até 48 horas</li>
+    <li>Alinhar a promessa do palco à oferta: quem sai da palestra deve entender que existe um protocolo, não apenas que a decisão tem camadas</li>
+  </ul>
+
+  <div class="passo-label">Passo 18</div>
+  <h3>Workshop com a base da Simple</h3>
+  <ul class="check">
+    <li>Sessão ao vivo para os clientes da Simple, com pitch da mentoria no fim, conforme combinado com o Daniel</li>
+    <li>É a audiência mais qualificada disponível hoje: empresários que já compram serviço de aquisição e cujo gargalo declarado é o fechamento</li>
+    <li>Definir data, formato e responsabilidade do convite na primeira call quinzenal</li>
+  </ul>
+
+  <div class="passo-label">Passo 19</div>
+  <h3>B2B in company</h3>
+  <ul class="check">
+    <li>Seu histórico corporativo com Mercedes, Itaú, Honda, John Deere, Electrolux e Philips abre uma porta que nenhum concorrente do digital tem</li>
+    <li>Formato: treinar time comercial inteiro dentro da empresa, com o protocolo como padrão de condução e critério único de avaliação de call</li>
+    <li>Ciclo de venda mais longo, por isso planta no dia 60. Meta da janela: <strong>3 conversas em andamento</strong>, não fechamento.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 12 · CHECKPOINTS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Thiago Menegão</span><span>Página 12</span></div>
+  <div class="kicker">Checkpoints de Progresso</div>
+  <h1 style="font-size:19pt;">Como Saber Que Você Está no Caminho Certo</h1>
+  <p class="lead">Cada checkpoint marca o final de uma janela. Se algum item não estiver fechado, leve para a próxima call quinzenal. Ajuste de rota imediato, sem esconder.</p>
+
+  <h3 class="navy" style="margin-top:10pt;">CHECKPOINT 1 · DIA 10 (CAIXA)</h3>
+  <ul class="check">
+    <li>Planilha da base completa e 100% abordada</li>
+    <li>De 5 a 8 sessões estratégicas agendadas</li>
+    <li>1 venda fechada ou 1 antecipação feita, com a verba de mídia em caixa</li>
+    <li>Canvas do cliente ideal preenchido e materiais no Drive</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:10pt;">CHECKPOINT 2 · DIA 14 (OFERTA)</h3>
+  <ul class="check">
+    <li>Esteira fechada com os três produtos, preço e entregáveis</li>
+    <li>Vagas e datas da Turma de Fundadores definidas</li>
+    <li>Grade de módulos resolvida em uma versão só</li>
+    <li>Perfil reescrito: bio, destaques, posts fixados e fotos novas</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:10pt;">CHECKPOINT 3 · DIA 30 (TRAÇÃO)</h3>
+  <ul class="check">
+    <li>De 8 a 10 sessões realizadas e 2 vendas fechadas</li>
+    <li>De 40 a 60 abordagens por dia acontecendo de forma consistente</li>
+    <li>2 depoimentos em vídeo captados e número de conversão validado</li>
+    <li>CRM contratado e conectado, estratégia e copies aprovadas</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:10pt;">CHECKPOINT 4 · DIA 60 (SISTEMA)</h3>
+  <ul class="check">
+    <li>Quiz e diagnóstico no ar, campanhas rodando com CPL medido</li>
+    <li>4 vendas no mês e de 5 a 10 agendamentos vindos do funil</li>
+    <li>Turma de Fundadores vendendo e pagando a mídia</li>
+    <li>Rotina de conteúdo em 12 publicações por semana estabilizada</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:10pt;">CHECKPOINT 5 · DIA 90 (META)</h3>
+  <ul class="check">
+    <li>6 vendas no mês e R$ 90 mil faturados</li>
+    <li>25 agendamentos no mês, com cerca de 10 vindos do funil</li>
+    <li>Verba de mídia recalibrada com dado real e escala aprovada</li>
+    <li>3 conversas de B2B in company em andamento</li>
+    <li><strong>Pronto para receber o Roadmap 2.</strong></li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 13 · MATERIAIS DE APOIO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Thiago Menegão</span><span>Página 13</span></div>
+  <div class="kicker">Materiais de Apoio</div>
+  <h1 style="font-size:19pt;">Recursos para Executar o Plano</h1>
+  <p class="lead">Tudo abaixo está na área de membros Formação Estrategista High Ticket e no grupo. Se algum link não foi compartilhado, peça no grupo.</p>
+
+  <ul class="check">
+    <li><strong>Social Selling, partes 1 e 2</strong>
+      <ul class="sub"><li>Como abordar no Instagram e no LinkedIn sem queimar lead bom. Base do Passo 9.</li></ul>
+    </li>
+    <li><strong>Outbound</strong>
+      <ul class="sub"><li>Prospecção fria e cadência de follow-up para quando a base quente esgotar. Passo 9.</li></ul>
+    </li>
+    <li><strong>Pré-Vendas e planilha de CRM</strong>
+      <ul class="sub"><li>Qualificação, controle e cadência antes da sessão. Passo 8.</li></ul>
+    </li>
+    <li><strong>Sessão Estratégica</strong>
+      <ul class="sub"><li>O padrão da Simple para a call. Vale como comparação com o seu protocolo, não como substituição. Passo 10.</li></ul>
+    </li>
+    <li><strong>Posicionamento e Mindset Estratégico</strong>
+      <ul class="sub"><li>Reescrita de perfil, bio e destaques. Passo 5.</li></ul>
+    </li>
+    <li><strong>Guia de Captação de Depoimentos</strong>
+      <ul class="sub"><li>Os tópicos para conduzir o depoimento em vídeo e não receber elogio genérico. Passo 6.</li></ul>
+    </li>
+    <li><strong>Engenharia e Estratégia de Funil, mais o Método Simple Growth</strong>
+      <ul class="sub"><li>Como o funil de quiz é construído, para você aprovar as peças com critério. Passo 14.</li></ul>
+    </li>
+    <li><strong>Tráfego Pago e Growth Model</strong>
+      <ul class="sub"><li>Métricas, alavancas e leitura de campanha nas revisões de 7 dias. Passo 16.</li></ul>
+    </li>
+    <li><strong>Notion de processos e mapas mentais da Simple</strong>
+      <ul class="sub"><li>Enviados pelo Carlos. Referência de operação para adaptar ao seu time.</li></ul>
+    </li>
+    <li><strong>Documento de Estratégia Completa</strong>
+      <ul class="sub"><li>Oferta, big idea e copies do funil. Entregue na semana 1, junto deste roadmap.</li></ul>
+    </li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 14 · FECHAMENTO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Thiago Menegão</span><span>Página 14</span></div>
+  <div style="padding-top:40mm;">
+    <div class="kicker">Lembre-se Sempre Disto</div>
+    <h1 style="font-size:19pt;">Antes de Fechar Este Documento</h1>
+    <p style="margin-top:10pt;">Você estuda comportamento humano desde 1993, se formou engenheiro de computação em 2005 e passou quase duas décadas nos bastidores de Mercedes, Itaú, Honda, John Deere, Electrolux e Philips. Já entregou mais de 50 projetos, gerou mais de um bilhão de reais em receita somada para os seus clientes e, quando entrou no digital em 2012, faturou múltiplos sete dígitos em um fim de semana. Depois virou o seu próprio método para dentro da sua cadeira de vendas e saiu de 10% para mais de 60% de conversão.</p>
+    <p>Não foi falta de método. Não foi falta de repertório. Não foi falta de resultado.</p>
+    <p><strong class="navy">Foi falta de o mercado saber que o PRIMAL PITCH existe.</strong></p>
+    <p>É exatamente isso que estes 90 dias resolvem: um público, uma promessa, uma esteira e um sistema que coloca o expert certo na sua frente com consistência. Este roadmap é o método. A execução é sua. A cada 15 dias o mentor estratégico vai te encontrar na conversa quinzenal, mas o que coloca dinheiro no caixa é o que você faz <strong>entre as calls</strong>.</p>
+    <p>Dúvidas no meio do caminho: mande no grupo. Não espere a próxima call para perguntar.</p>
+    <p style="margin-top:12pt;">Você tem o método que o mercado não tem. Você tem o lastro que ninguém nesse nicho consegue comprar. Você tem a operação e o time para executar. Você tem o método de aquisição.</p>
+    <p><strong class="navy">O próximo passo é começar.</strong></p>
+    <div class="footer-note">Roadmap Estratégico Digital · Thiago Menegão · 90 dias · Versão 1.0</div>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+</body>
+</html>

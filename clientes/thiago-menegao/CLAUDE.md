@@ -26,10 +26,11 @@ onde o outro parou (o Git é a memória compartilhada).
   ensina um sistema de condução de reuniões de venda de alto valor: 6 movimentos
   (Primal Pitch) + 7 etapas (Primal Closing), calibrados por perfil comportamental
   e por ferida emocional. Preço pretendido na turma de fundadores: **R$ 2.000**.
-- **Público / ICP:** expert, mentor ou consultor com produto validado, que já fatura
-  e entrega transformação real, e que **fecha em reunião individual por vídeo**,
-  vendendo programas de ticket alto (ticket médio do avatar na faixa de R$ 5 mil a
-  R$ 50 mil — a confirmar).
+- **Público / ICP (fechado no onboarding):** o expert, mentor ou consultor **com
+  lastro**: bom tecnicamente, com histórico e conhecimento, que fecha em reunião
+  individual ou em palco vendendo alto valor, está com conversão ruim e se sente
+  mal fazendo ancoragem falsa. **Ferida dominante: injustiça** (o conquistador, o
+  traço rígido, que olha performance e quer número), seguida de traição e humilhação.
 - **Promessa central:** converter mais das reuniões que já existem, sem aumentar
   tráfego, sem baixar preço e sem forçar fechamento.
 - **Modelo do projeto:** **permuta** (não é contrato padrão). A Simple monta o funil do
@@ -49,8 +50,20 @@ onde o outro parou (o Git é a memória compartilhada).
 >
 > ⚠️ **Ele é especialista em condução de reunião de alto valor.** Qualquer call, página
 > ou copy nossa vai ser lida pelo framework dele. Regras não negociáveis: nada de
-> *future pacing* ("imagina daqui 3 meses"), nada de rapport arrastado, e o CTA é sempre
-> **custo de adiar**, nunca projeção de futuro.
+> *future pacing* ("imagina daqui 3 meses"), nada de rapport arrastado, **nada de
+> ancoragem irreal** ("valia 200, leva por 10" faz o comprador maduro desdenhar), e o
+> CTA é sempre **custo de adiar**, nunca projeção de futuro.
+
+## Estado do projeto (06/08/2026)
+
+Onboarding feito. Entregues: roadmap de 90 dias e guia de depoimentos
+(`estrategia/`). Pendente até 11/08: documento de estratégia completa com oferta,
+big idea e copies. Tasks abertas dos dois lados em
+[`estrategia/2026-08-06-tasks-pos-onboarding.md`](estrategia/2026-08-06-tasks-pos-onboarding.md).
+
+**Decisão em aberto que afeta tudo:** o único preço definido é R$ 2.000 (turma de
+fundadores, gravado). O roadmap assume uma mentoria de **R$ 15 mil** como carro-chefe
+da sessão estratégica, sinalizada como premissa a validar.
 
 ## Atenção: não confundir com outros "Thiago" da base
 
