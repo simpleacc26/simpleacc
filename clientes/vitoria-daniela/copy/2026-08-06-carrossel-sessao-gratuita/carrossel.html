@@ -110,6 +110,8 @@ const GRADIENTE = `linear-gradient(165deg, ${BRAND.dark} 0%, ${BRAND.primary} 52
 
 /* ====================== COMPONENTES ====================== */
 
+/* Rótulo em caixa alta acima do título. Fora de uso nesta peça, a pedido da
+   cliente, mas mantido aqui caso volte a fazer sentido em outro carrossel. */
 function tag(texto, fundo) {
   const cor = fundo === 'light' ? BRAND.dark
             : fundo === 'dark'  ? BRAND.primary
@@ -190,7 +192,6 @@ const SLIDES = [
     <div class="slide-content" style="padding:38px 36px 64px;">
       ${lockup('dark')}
       <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
-        ${tag('TRÁFEGO', 'dark')}
         ${titulo('De cada 10 empresários que eu converso, 8 já queimaram dinheiro em tráfego.', 'dark', 30)}
         ${filete('dark')}
         ${paragrafo('E quase nunca o problema estava no tráfego, estava em tudo que vinha depois dele.', 'dark')}
@@ -201,7 +202,6 @@ const SLIDES = [
   /* 2 — ANALOGIA DELA: a torneira aberta com vazamentos (está no site). */
   { fundo: 'light', corpo: `
     <div class="slide-content" style="justify-content:center;padding:38px 36px 64px;">
-      ${tag('ONDE O DINHEIRO SOME', 'light')}
       ${titulo('Anúncio sem estrutura é torneira aberta em cano furado.', 'light', 31)}
       ${paragrafo('O dinheiro entra pelo anúncio e vaza no caminho, no perfil que promete uma coisa e mostra outra, na mensagem que fica três dias sem resposta, na proposta que foi enviada e ninguém retomou.', 'light')}
       <p class="serif" style="font-size:17px;line-height:1.35;color:${BRAND.dark};font-style:italic;margin-top:18px;">Você paga pela água que nunca chega no balde.</p>
@@ -215,7 +215,6 @@ const SLIDES = [
      revisão automatizada. Troque em CARD3 lá no topo. */
   { fundo: 'dark', corpo: CARD3 === 'pneu' ? `
     <div class="slide-content" style="justify-content:center;padding:38px 36px 64px;">
-      ${tag('A ORDEM CERTA', 'dark')}
       ${titulo('Ninguém pisa no acelerador com o pneu furado.', 'dark', 33)}
       ${filete('dark')}
       ${paragrafo('Primeiro se troca o pneu, depois se pensa em velocidade, e com o seu negócio funciona igual.', 'dark')}
@@ -223,7 +222,6 @@ const SLIDES = [
     </div>
   ` : `
     <div class="slide-content" style="justify-content:center;padding:38px 36px 64px;">
-      ${tag('A ORDEM CERTA', 'dark')}
       ${titulo('Ninguém estanca um sangramento treinando condicionamento.', 'dark', 31)}
       ${filete('dark')}
       ${paragrafo('No hospital a prioridade é parar o sangue, estabilizar, e só então pensar em deixar o corpo mais forte.', 'dark')}
@@ -236,7 +234,6 @@ const SLIDES = [
     <div class="slide-content" style="padding:38px 36px 64px;">
       ${lockup('gradient')}
       <div style="flex:1;display:flex;flex-direction:column;justify-content:center;">
-        ${tag('O PRÓXIMO PASSO', 'gradient')}
         ${titulo('Antes de investir mais, vale saber por onde o seu dinheiro está saindo.', 'gradient', 29)}
         ${paragrafo('Eu analiso pessoalmente cada aplicação e devolvo o direcionamento em menos de 24h, olhando o seu momento e o que precisa ser resolvido primeiro.', 'gradient')}
         <div style="margin-top:24px;">

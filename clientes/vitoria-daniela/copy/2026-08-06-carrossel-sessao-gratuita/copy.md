@@ -8,12 +8,10 @@
 ## Os 4 cards
 
 ### Card 1 · preto
-**Tag:** TRÁFEGO
 **Título:** De cada 10 empresários que eu converso, 8 já queimaram dinheiro em tráfego.
 **Corpo:** E quase nunca o problema estava no tráfego, estava em tudo que vinha depois dele.
 
 ### Card 2 · creme
-**Tag:** ONDE O DINHEIRO SOME
 **Título:** Anúncio sem estrutura é torneira aberta em cano furado.
 **Corpo:** O dinheiro entra pelo anúncio e vaza no caminho, no perfil que promete uma coisa e mostra outra, na mensagem que fica três dias sem resposta, na proposta que foi enviada e ninguém retomou.
 **Remate:** *Você paga pela água que nunca chega no balde.*
@@ -34,7 +32,6 @@ Trocar entre as duas: a constante `CARD3` no topo do `carrossel.html` (`'hospita
 `'pneu'`), e reexportar.
 
 ### Card 4 · dourado
-**Tag:** O PRÓXIMO PASSO
 **Título:** Antes de investir mais, vale saber por onde o seu dinheiro está saindo.
 **Corpo:** Eu analiso pessoalmente cada aplicação e devolvo o direcionamento em menos de 24h, olhando o seu momento e o que precisa ser resolvido primeiro.
 **CTA:** Clique em Saiba Mais
