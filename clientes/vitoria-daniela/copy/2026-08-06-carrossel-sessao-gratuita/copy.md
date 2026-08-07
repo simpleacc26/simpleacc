@@ -103,7 +103,7 @@ a promessa numérica "seis dígitos por mês".
 ## A foto
 
 `foto-vitoria.jpg` é a **DSC_2820 (2)** do ensaio (pasta "Fotos" no Drive), recortada em
-quadrado no rosto e reduzida para 420px, 28KB. O fundo original é preto, então no card
+quadrado mais aberto (lado 860 do original, centrado em 545x610) e reduzida para 460px, 30KB. O fundo original é preto, então no card
 escuro ela se funde e sobra o rosto dentro do anel dourado.
 
 Para trocar a foto, basta substituir o arquivo mantendo o nome e reexportar. Se o arquivo
