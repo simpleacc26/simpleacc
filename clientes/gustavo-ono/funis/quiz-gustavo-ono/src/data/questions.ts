@@ -114,7 +114,7 @@ export const questions: Question[] = [
       { value: "1", title: "Até R$ 5.000" },
       { value: "2", title: "De R$ 5.000 até R$ 10.000" },
       { value: "3", title: "De R$ 10.000 até R$ 20.000" },
-      { value: "4", title: "Acima de R$ 30.000" },
+      { value: "4", title: "Acima de R$ 20.000" },
     ],
   },
 ];
@@ -176,6 +176,6 @@ export const answerLabels: string[][] = [
     "Até R$ 5.000",
     "De R$ 5.000 até R$ 10.000",
     "De R$ 10.000 até R$ 20.000",
-    "Acima de R$ 30.000",
+    "Acima de R$ 20.000",
   ],
 ];
