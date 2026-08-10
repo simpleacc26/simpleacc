@@ -49,8 +49,10 @@ definido, e de propósito. A análise dos dois lados está pronta em
 
 | Projeto | Pasta | Status | Entrega |
 | ------- | ----- | ------ | ------- |
-| Canvas do Produto + Cliente Ideal (preenchido, 2 produtos) | `contexto/2026-08-06-canvas-preenchido.html` | entregue | [Google Doc](https://docs.google.com/document/d/1TCGdkmiB7ZTT7yjQNLnaCjQXOPCnQH6WssocXS6E6OQ/edit) em "1. Documentos" |
-| Análise "qual produto entra primeiro" (INTERNO) | `estrategia/2026-08-06-analise-priorizacao-interno.html` | entregue | [Google Doc](https://docs.google.com/document/d/1xF9tPNjHz4BV1zrC0z6hpJKxWdUCONxMFXu8Y9Zyz1M/edit) em "3. Estratégia e Tráfego" |
+| **Preparação da call de onboarding** | `estrategia/2026-08-10-preparacao-call-onboarding.md` | **pronto para 11/08** | — |
+| Canvas do Produto + Cliente Ideal (preenchido, 2 produtos) | `contexto/2026-08-06-canvas-preenchido.html` | entregue — **v2** | [Google Doc v2](https://docs.google.com/document/d/1UTuXQeTV9kDgu26H8dBKGFzqwdhDHYledTYc4l2vJ70/edit) em "1. Documentos" |
+| Análise "qual produto entra primeiro" (INTERNO) | `estrategia/2026-08-06-analise-priorizacao-interno.html` | entregue — **v2** | [Google Doc v2](https://docs.google.com/document/d/1d7fM6G8dRmiWQ_OvE-bAXJT82xiaviezYDmNSuv4MDI/edit) em "3. Estratégia e Tráfego" |
+| Negócio, números e história (base) | `contexto/2026-08-04-negocio-numeros-e-historia.md` | v1 | — |
 | Análise em markdown (fonte da versão interna) | `estrategia/2026-08-06-analise-qual-produto-entra-primeiro.md` | pronto para a reunião de segunda | — |
 | Base de contexto + fontes brutas | `contexto/` | v1 | — |
 
@@ -58,6 +60,11 @@ definido, e de propósito. A análise dos dois lados está pronta em
 > Rafael (canvas dos 2 produtos, observações do agente, próximos passos em tom
 > neutro). O Doc de "3. Estratégia e Tráfego" é **interno** — tem as avaliações
 > francas e **não deve ser compartilhado com o cliente**.
+>
+> **APAGAR do Drive (versões v1, sem acento e desatualizadas):**
+> [canvas v1](https://docs.google.com/document/d/1TCGdkmiB7ZTT7yjQNLnaCjQXOPCnQH6WssocXS6E6OQ/edit) ·
+> [análise v1](https://docs.google.com/document/d/1xF9tPNjHz4BV1zrC0z6hpJKxWdUCONxMFXu8Y9Zyz1M/edit).
+> O MCP do Drive não edita nem apaga — só cria. As v2 são as boas.
 >
 > **Atenção ao compartilhamento:** os dois Docs novos herdaram a permissão da
 > pasta (privada, dono carlos.duraes) — **não** o link público que o canvas
