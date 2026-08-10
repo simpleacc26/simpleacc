@@ -3,13 +3,13 @@
    Identidade: navy + dourado GES360, CTA verde
    ============================================================ */
 
-/* ╔════════════════════════════════════════════════════════╗
-   ║  PALETA GES360 (navy + dourado). Ajuste os HEX aqui.      ║
-   ╚════════════════════════════════════════════════════════╝ */
+/* PALETA GES360 (navy + dourado). Ajuste os HEX aqui. */
 :root {
   --bg:         #001824;  /* navy GES360 */
   --bg-2:       #00212F;  /* navy um tom acima */
   --surface:    #0B2836;  /* cartões */
+  --surface-2:  #123241;  /* opções e campos DENTRO do cartão (precisa destacar do cartão) */
+  --surface-3:  #1B4356;  /* opção selecionada */
   --text:       #EEF3F5;  /* texto principal sobre navy */
   --muted:      #9DB2BC;  /* texto secundário */
 
@@ -21,7 +21,8 @@
   --action:     #249C3C;  /* verde do CTA (mesmo da página do cliente) */
   --action-700: #1E8232;  /* hover */
 
-  --border:     #1C3D4C;  /* bordas */
+  --border:     #1C3D4C;  /* bordas discretas (divisórias, cartões) */
+  --border-ui:  #4F8199;  /* bordas de CONTROLE (opções, campos): 3:1 de contraste, WCAG 1.4.11 */
   --ring:       #D9B45A;  /* foco de teclado */
   --err:        #FF9384;  /* erros (contraste sobre navy) */
 
@@ -95,18 +96,23 @@ h2 { font-size: 25px; line-height: 1.25; margin: 0 0 16px; }
 
 /* ---------- opções (auto-avanço) ---------- */
 .options { display: grid; gap: 12px; margin: 22px 0 6px; }
+/* IMPORTANTE: .opt é um <button>. Sem `color` e `font` explícitos ele herda o
+   padrão do navegador (buttontext, escuro) em vez do texto do tema, e some no
+   fundo escuro. E o fundo precisa ser --surface-2, não --surface, senão a caixa
+   fica invisível contra o cartão (que também é --surface). */
 .opt {
   display: flex; align-items: center; gap: 14px;
-  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
-  padding: 17px 16px; cursor: pointer; background: var(--surface); text-align: left;
+  border: 1.5px solid var(--border-ui); border-radius: var(--radius-sm);
+  padding: 17px 16px; cursor: pointer; background: var(--surface-2); text-align: left;
+  color: var(--text); font: inherit;
   transition: border-color .2s, background .2s, transform .15s, box-shadow .2s;
 }
-.opt:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: var(--shadow); }
-.opt .dot { flex: 0 0 22px; height: 22px; border: 2px solid var(--border); border-radius: 50%; display: grid; place-items: center; transition: border-color .2s; }
-.opt .dot::after { content: ""; width: 11px; height: 11px; border-radius: 50%; background: var(--gold); transform: scale(0); transition: transform .18s cubic-bezier(.16,1,.3,1); }
-.opt .txt { font-size: 16px; flex: 1; text-align: left; }
-.opt[aria-checked="true"] { border-color: var(--gold); background: var(--gold-soft); }
-.opt[aria-checked="true"] .dot { border-color: var(--gold); }
+.opt:hover { border-color: var(--gold-light); background: var(--surface-3); transform: translateY(-2px); box-shadow: var(--shadow); }
+.opt .dot { flex: 0 0 22px; height: 22px; border: 2px solid var(--border-ui); border-radius: 50%; display: grid; place-items: center; transition: border-color .2s; }
+.opt .dot::after { content: ""; width: 11px; height: 11px; border-radius: 50%; background: var(--gold-light); transform: scale(0); transition: transform .18s cubic-bezier(.16,1,.3,1); }
+.opt .txt { font-size: 16px; line-height: 1.4; flex: 1; text-align: left; color: var(--text); }
+.opt[aria-checked="true"] { border-color: var(--gold-light); background: var(--surface-3); }
+.opt[aria-checked="true"] .dot { border-color: var(--gold-light); }
 .opt[aria-checked="true"] .dot::after { transform: scale(1); }
 .opt:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
 
@@ -117,9 +123,11 @@ h2 { font-size: 25px; line-height: 1.25; margin: 0 0 16px; }
 .field .opt-tag { color: var(--muted); font-weight: 400; }
 .field input {
   width: 100%; font: inherit; padding: 15px 14px; color: var(--text);
-  border: 1.5px solid var(--border); border-radius: var(--radius-sm); background: var(--surface);
+  border: 1.5px solid var(--border-ui); border-radius: var(--radius-sm); background: var(--surface-2);
   transition: border-color .2s, box-shadow .2s;
 }
+/* placeholder precisa ser legível, mas mais fraco que o valor digitado */
+.field input::placeholder { color: var(--muted); opacity: 1; }
 .field input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px color-mix(in srgb, var(--gold) 26%, transparent); }
 .field input[aria-invalid="true"] { border-color: var(--err); }
 .field .err-msg { color: var(--err); font-size: 14px; margin-top: 6px; display: none; }
@@ -131,11 +139,13 @@ h2 { font-size: 25px; line-height: 1.25; margin: 0 0 16px; }
 
 /* ---------- botões ---------- */
 .actions { display: flex; gap: 12px; align-items: center; margin-top: 24px; }
-.btn { font: inherit; font-weight: 700; cursor: pointer; border: none; border-radius: 99px; padding: 16px 26px; transition: background .2s, transform .12s, box-shadow .2s, opacity .2s; }
+.btn { font: inherit; font-weight: 700; cursor: pointer; border: none; border-radius: 99px; padding: 16px 26px; white-space: nowrap; transition: background .2s, transform .12s, box-shadow .2s, opacity .2s; }
 .btn-primary { background: var(--action); color: #FFFFFF; box-shadow: 0 8px 20px rgba(36,156,60,.30); }
 .btn-primary:hover { background: var(--action-700); transform: translateY(-1px); }
 .btn-primary:disabled { opacity: .55; cursor: not-allowed; transform: none; box-shadow: none; }
-.btn-ghost { background: transparent; color: var(--muted); padding: 16px 14px; }
+/* flex-shrink: 0 senão o botão verde (btn-block, width 100%) espreme o "Voltar"
+   e ele quebra em duas linhas */
+.btn-ghost { background: transparent; color: var(--muted); padding: 16px 14px; flex: 0 0 auto; }
 .btn-ghost:hover { color: var(--text); }
 .btn-block { width: 100%; justify-content: center; display: flex; }
 .btn:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
