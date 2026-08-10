@@ -16,7 +16,7 @@
 1. ~~Ticket R$ 2.000~~ → **RESOLVIDO 10/08/2026: R$ 1.800, em 12x de R$ 150.** ⚠️ Como é 12x, uma venda entra R$ 150 no mês, não R$ 1.800. Ver `../contexto/numeros-e-metricas.md` para a conta corrigida e o impacto no caixa.
 2. **Taxa de agendamento (25%) e comparecimento (60%)** são estimativas de modelo. Ele ainda não mede essas etapas; hoje só sabe que 20 mensagens viraram 4 calls.
 3. ~~WNS não explicado~~ → **RESOLVIDO 10/08/2026:** escala de volume de treino por grupo muscular. **W** = forte, volume baixo · **N** = neutro, moderado · **S** = fraco e prioritário, volume alto. Dá para usar como promessa concreta do diagnóstico.
-4. **Escopo é mentoria, não implementação.** A Simple orienta e revisa; quem executa é o Kainã. Por isso a Seção 7 lista tarefas dele, com o ponto de revisão da Simple em cada uma.
+4. **Escopo é mentoria, não implementação.** Quem executa é o Kainã. Por isso a Seção 7 lista as tarefas dele, com prazo.
 5. **Não há depoimentos nomeados nas fontes.** Onde entra prova, o texto traz `[DEPOIMENTO]` e `[ANTES E DEPOIS]` para preencher. Nada foi inventado.
 6. **Anos de atuação como personal não constam** nas fontes. Marcado como `[ANOS DE ATUAÇÃO]` na seção de autoridade.
 
@@ -24,7 +24,7 @@
 
 # 1. BIG IDEA
 
-> **Tu não está travado por falta de esforço. Está travado porque o teu treino continuou igual enquanto o teu corpo mudou.**
+> **Você não está travado por falta de esforço. Está travado porque o seu treino continuou igual enquanto o seu corpo mudou.**
 
 Quem treina há anos aprendeu uma regra só: resultado é consequência de disciplina. Então, quando o espelho para de responder, sobra uma única explicação possível na cabeça da pessoa — "eu não estou me esforçando o suficiente". E a resposta é sempre mais: mais série, mais dia na academia, mais restrição na comida.
 
@@ -40,9 +40,9 @@ Só que o corpo não responde a esforço. Responde a **estímulo novo no momento
 
 ## Hero
 
-**Título:** Descubra em 2 minutos por que o teu corpo parou de responder
+**Título:** Descubra em 2 minutos por que o seu corpo parou de responder
 
-**Subtítulo:** 9 perguntas rápidas. No fim, tu recebe o diagnóstico do erro invisível que está te mantendo travado — mesmo treinando certo.
+**Subtítulo:** 9 perguntas rápidas. No fim, você recebe o diagnóstico do erro invisível que está te mantendo travado — mesmo treinando certo.
 
 **Tempo estimado:** menos de 2 minutos
 
@@ -52,13 +52,13 @@ Só que o corpo não responde a esforço. Responde a **estímulo novo no momento
 
 ## Perguntas (ordem SPIN — não altere a sequência)
 
-### 1. Situação · Há quanto tempo tu treina de forma constante?
+### 1. Situação · Há quanto tempo você treina de forma constante?
 - Menos de 6 meses
 - De 6 meses a 2 anos
 - De 2 a 5 anos
 - Mais de 5 anos
 
-### 2. Situação · Quantas vezes por semana tu consegue treinar de verdade?
+### 2. Situação · Quantas vezes por semana você consegue treinar de verdade?
 *(o real, não o ideal)*
 - 1 a 2 vezes
 - 3 vezes
@@ -71,19 +71,19 @@ Só que o corpo não responde a esforço. Responde a **estímulo novo no momento
 - Não consigo secar de jeito nenhum
 - Sinto dor em algum movimento e sigo treinando assim mesmo
 
-### 4. Problema · Há quanto tempo tu não vê uma mudança real no teu corpo?
+### 4. Problema · Há quanto tempo você não vê uma mudança real no seu corpo?
 - De 1 a 3 meses
 - De 3 a 6 meses
 - De 6 meses a 1 ano
 - Mais de um ano
 
-### 5. Implicação · Quando tu imagina mais 12 meses exatamente como está hoje, o que vem?
+### 5. Implicação · Quando você imagina mais 12 meses exatamente como está hoje, o que vem?
 - Frustração, sensação de tempo jogado fora
 - Medo de que o meu corpo já tenha travado de vez
 - Cansaço. Já pensei em parar
 - Já me acostumei, não penso mais nisso
 
-### 6. Tentativas · O que tu já tentou para destravar?
+### 6. Tentativas · O que você já tentou para destravar?
 - Troquei de treino por conta própria
 - Usei app ou planilha pronta
 - Já tive personal ou consultoria online
@@ -95,13 +95,13 @@ Só que o corpo não responde a esforço. Responde a **estímulo novo no momento
 - Secar sem perder força
 - Treinar sem dor e sem dúvida
 
-### 8. Perfil · Como é a tua rotina hoje?
+### 8. Perfil · Como é a sua rotina hoje?
 - CLT, horário fixo
 - Autônomo ou liberal, horário variável
 - Estudante com renda própria
 - Rotina imprevisível, com filhos ou dupla jornada
 
-### 9. Qualificação · Se o diagnóstico mostrar exatamente o que ajustar, tu está pronto para investir num acompanhamento individual nos próximos 90 dias?
+### 9. Qualificação · Se o diagnóstico mostrar exatamente o que ajustar, você está pronto para investir num acompanhamento individual nos próximos 90 dias?
 *(SEMPRE por último)*
 - Sim, isso é prioridade pra mim agora
 - Sim, se couber no meu orçamento
@@ -112,9 +112,9 @@ Só que o corpo não responde a esforço. Responde a **estímulo novo no momento
 
 ## Captura de dados
 
-**Título:** Teu diagnóstico está pronto
+**Título:** Seu diagnóstico está pronto
 
-**Subtítulo:** Preenche aqui para receber o relatório completo com o teu erro invisível e o ajuste que destrava o teu ciclo.
+**Subtítulo:** Preenche aqui para receber o relatório completo com o seu erro invisível e o ajuste que destrava o seu ciclo.
 
 **Campos:**
 - Nome
@@ -124,7 +124,7 @@ Só que o corpo não responde a esforço. Responde a **estímulo novo no momento
 
 **Botão:** VER MEU DIAGNÓSTICO
 
-**Aviso de privacidade:** Teus dados ficam só com o Kainã. Sem spam, sem lista de terceiros, sem ligação de robô.
+**Aviso de privacidade:** Seus dados ficam só com o Kainã. Sem spam, sem lista de terceiros, sem ligação de robô.
 
 ---
 
@@ -132,9 +132,9 @@ Só que o corpo não responde a esforço. Responde a **estímulo novo no momento
 
 ## Headline
 
-**Tu treina há anos. E o espelho continua igual.**
+**Você treina há anos. E o espelho continua igual.**
 
-**Subheadline:** O diagnóstico que mostra por que o teu corpo parou de responder e qual ajuste destrava ele em um ciclo de 90 dias. Sem virar atleta. Sem virar outra pessoa.
+**Subheadline:** O diagnóstico que mostra por que o seu corpo parou de responder e qual ajuste destrava ele em um ciclo de 90 dias. Sem virar atleta. Sem virar outra pessoa.
 
 **Botão:** QUERO MEU DIAGNÓSTICO
 
@@ -151,18 +151,18 @@ Só que o corpo não responde a esforço. Responde a **estímulo novo no momento
 
 ## Bloco de dor — espelho do ICP
 
-**Vê se tu se reconhece aqui:**
+**Vê se você se reconhece aqui:**
 
-- Tu não falta treino. Mas faz meses que não vê diferença nenhuma.
-- Tu já trocou de treino várias vezes e sempre acaba voltando pro mesmo lugar.
-- Tu não sabe se a carga está certa. Não sabe se está comendo certo. Treina na dúvida.
-- Tua rotina não colabora, e tu vive negociando entre o que devia fazer e o que dá pra fazer.
-- Tu sente dor em algum movimento e ninguém nunca adaptou nada.
-- Tu já teve resultado antes, perdeu, e agora sente que está começando do zero de novo.
-- E tu já se pegou pensando: "será que meu corpo travou de vez?"
-- E o pior de tudo: por fora, parece que tu não se esforça.
+- Você não falta treino. Mas faz meses que não vê diferença nenhuma.
+- Você já trocou de treino várias vezes e sempre acaba voltando pro mesmo lugar.
+- Você não sabe se a carga está certa. Não sabe se está comendo certo. Treina na dúvida.
+- Sua rotina não colabora, e você vive negociando entre o que devia fazer e o que dá pra fazer.
+- Você sente dor em algum movimento e ninguém nunca adaptou nada.
+- Você já teve resultado antes, perdeu, e agora sente que está começando do zero de novo.
+- E você já se pegou pensando: "será que meu corpo travou de vez?"
+- E o pior de tudo: por fora, parece que você não se esforça.
 
-**Se tu leu isso e se reconheceu em quase tudo, o problema não é o teu esforço. É que ninguém nunca olhou pro teu caso.**
+**Se você leu isso e se reconheceu em quase tudo, o problema não é o seu esforço. É que ninguém nunca olhou pro seu caso.**
 
 ---
 
@@ -172,7 +172,7 @@ Todo mundo te ensinou que resultado é disciplina. Então, quando o corpo para, 
 
 Só que corpo não responde a esforço. Corpo responde a **estímulo novo no momento certo**.
 
-O treino que te fez evoluir seis meses atrás virou manutenção. Não é que ele ficou ruim: é que tu mudou e ele não. E quem está dentro do próprio processo não enxerga isso, porque não tem parâmetro de comparação. Tu vê o esforço. Tu não vê o ajuste que ficou faltando.
+O treino que te fez evoluir seis meses atrás virou manutenção. Não é que ele ficou ruim: é que você mudou e ele não. E quem está dentro do próprio processo não enxerga isso, porque não tem parâmetro de comparação. Você vê o esforço. Você não vê o ajuste que ficou faltando.
 
 **É por isso que trocar de treino sozinho não resolve.** Troca o exercício e mantém a mesma lógica. O corpo entende que nada mudou de verdade.
 
@@ -181,18 +181,18 @@ O treino que te fez evoluir seis meses atrás virou manutenção. Não é que el
 ## Mecanismo único — o Método Shape10X
 
 **1. Diagnóstico antes do plano.**
-Nada de plano genérico chutando causa. Primeiro a avaliação identifica **onde** o teu ciclo travou, e só depois vem o treino.
+Nada de plano genérico chutando causa. Primeiro a avaliação identifica **onde** o seu ciclo travou, e só depois vem o treino.
 
 **2. Classificação muscular individual.**
-O teu plano é montado a partir de como o teu corpo responde, não de uma planilha padrão que serve pra todo mundo.
+O seu plano é montado a partir de como o seu corpo responde, não de uma planilha padrão que serve pra todo mundo.
 
 **3. Ciclo de 90 dias em três blocos.**
 Tensional, intermediário e metabólico. Cada bloco com uma função, na ordem certa.
 
-**4. A troca de bloco é disparada pelo teu corpo, não pelo calendário.**
-Esse é o detalhe que muda tudo. A fase muda quando o teu percentual de gordura chega no limiar, não quando "passou um mês". **O treino muda porque o corpo mudou.**
+**4. A troca de bloco é disparada pelo seu corpo, não pelo calendário.**
+Esse é o detalhe que muda tudo. A fase muda quando o seu percentual de gordura chega no limiar, não quando "passou um mês". **O treino muda porque o corpo mudou.**
 
-**E o ciclo nunca fica solto:** check-in diário, suporte direto no WhatsApp e reavaliação a cada 30 dias. Tu nunca passa mais de um mês seguindo algo que já parou de funcionar.
+**E o ciclo nunca fica solto:** check-in diário, suporte direto no WhatsApp e reavaliação a cada 30 dias. Você nunca passa mais de um mês seguindo algo que já parou de funcionar.
 
 ---
 
@@ -206,14 +206,14 @@ Ele cobra de si exatamente o que ensina. Não é teoria de quem só estudou: é 
 
 ## A oferta — Consultoria Shape10X, ciclo anual
 
-Tu recebe:
+Você recebe:
 
 - **Diagnóstico inicial completo** — avaliação pelo portal e identificação do erro invisível
-- **Plano individual** montado pelo método WNS, entregue no teu portal
+- **Plano individual** montado pelo método WNS, entregue no seu portal
 - **Check-in diário** — ninguém some no meio do processo
 - **Suporte direto no WhatsApp** — dúvida de execução, dor, dificuldade: resolve na hora
-- **Reavaliação a cada 30 dias** — o plano acompanha o teu corpo
-- **Garantia de continuidade:** se tu seguir com 80% ou mais de aderência e não chegar no teu objetivo, **tu continua sendo treinado até chegar, sem pagar nada a mais**
+- **Reavaliação a cada 30 dias** — o plano acompanha o seu corpo
+- **Garantia de continuidade:** se você seguir com 80% ou mais de aderência e não chegar no seu objetivo, **você continua sendo treinado até chegar, sem pagar nada a mais**
 
 Tudo 100% digital: portal do aluno mais WhatsApp. Sem planilha solta, sem grupo, sem videoaula gravada.
 
@@ -224,51 +224,51 @@ Tudo 100% digital: portal do aluno mais WhatsApp. Sem planilha solta, sem grupo,
 
 ## Para quem é / Para quem não é
 
-**✓ É pra ti se:**
-- Tu já treina com constância e não é iniciante
-- Tu faz a tua parte e mesmo assim o corpo não responde
-- Tu quer resultado sério, com uma rotina real, sem virar atleta
-- Tu está disposto a seguir um plano e dar retorno todo dia
+**✓ É pra você se:**
+- Você já treina com constância e não é iniciante
+- Você faz a sua parte e mesmo assim o corpo não responde
+- Você quer resultado sério, com uma rotina real, sem virar atleta
+- Você está disposto a seguir um plano e dar retorno todo dia
 
-**✗ Não é pra ti se:**
-- Tu nunca treinou e quer alguém pra te fazer começar
-- Tu procura resultado em 30 dias sem mudar nada
-- Tu quer só uma ficha de treino pronta, sem acompanhamento
-- Tu não pretende fazer check-in nem responder o acompanhamento
+**✗ Não é pra você se:**
+- Você nunca treinou e quer alguém pra te fazer começar
+- Você procura resultado em 30 dias sem mudar nada
+- Você quer só uma ficha de treino pronta, sem acompanhamento
+- Você não pretende fazer check-in nem responder o acompanhamento
 
 ---
 
 ## FAQ
 
 **"Já tentei consultoria online e não deu certo. Por que aqui seria diferente?"**
-Porque quase toda consultoria entrega plano e some. Aqui o plano é a menor parte: o que faz diferença é o check-in diário e a reavaliação de 30 em 30 dias. Tu nunca passa mais de um mês seguindo algo que já parou de funcionar. Foi exatamente isso que faltou nas outras.
+Porque quase toda consultoria entrega plano e some. Aqui o plano é a menor parte: o que faz diferença é o check-in diário e a reavaliação de 30 em 30 dias. Você nunca passa mais de um mês seguindo algo que já parou de funcionar. Foi exatamente isso que faltou nas outras.
 
 **"Minha rotina é apertada. Vai dar pra seguir?"**
-O plano é montado pra rotina que tu tem, não pra rotina ideal. Se tu treina 3 vezes por semana, o ciclo é desenhado pra 3. O que não funciona é montar pra 5 e tu conseguir 3.
+O plano é montado pra rotina que você tem, não pra rotina ideal. Se você treina 3 vezes por semana, o ciclo é desenhado pra 3. O que não funciona é montar pra 5 e você conseguir 3.
 
 **"Preciso de academia completa?"**
-Não. O plano se adapta ao que tu tem disponível. O que não se adapta é o método.
+Não. O plano se adapta ao que você tem disponível. O que não se adapta é o método.
 
 **"Sinto dor em algum movimento. Tem problema?"**
 Pelo contrário: é uma das primeiras coisas que o diagnóstico levanta. Treinar com dor e sem adaptação é um dos motivos mais comuns de travamento.
 
 **"E se eu fizer tudo e não der resultado?"**
-Aí tu continua sendo treinado sem custo até chegar. A única condição é aderência de 80% ou mais, porque o que eu posso garantir é o ajuste — a execução é tua.
+Aí você continua sendo treinado sem custo até chegar. A única condição é aderência de 80% ou mais, porque o que eu posso garantir é o ajuste — a execução é sua.
 
 ---
 
 ## CTA final
 
-**Antes de mudar qualquer coisa no teu treino, descobre o que travou.**
+**Antes de mudar qualquer coisa no seu treino, descobre o que travou.**
 
 **Botão:** FAZER O DIAGNÓSTICO GRATUITO
-*2 minutos. Sem compromisso. Teus dados ficam só com o Kainã.*
+*2 minutos. Sem compromisso. Seus dados ficam só com o Kainã.*
 
 ---
 
 # 4. COPY DOS ANÚNCIOS
 
-**Big Idea para anúncio:** tu não está travado por falta de esforço. Está travado porque o teu treino continuou igual enquanto o teu corpo mudou.
+**Big Idea para anúncio:** você não está travado por falta de esforço. Está travado porque o seu treino continuou igual enquanto o seu corpo mudou.
 
 **Formato:** manter o padrão low fi que ele já domina — falando para a câmera, legenda queimada, gancho em caixa no topo. Formato bom conhecido bate formato novo incerto.
 
@@ -283,33 +283,33 @@ Aí tu continua sendo treinado sem custo até chegar. A única condição é ade
 
 **Copy curta (~50 palavras):**
 Treino há anos e continuo travado.
-Se essa frase é tua, presta atenção: o problema quase nunca é disciplina.
-Tu não falta treino. Tu não desiste. E mesmo assim o espelho não muda.
+Se essa frase é sua, presta atenção: o problema quase nunca é disciplina.
+Você não falta treino. Você não desiste. E mesmo assim o espelho não muda.
 Isso tem uma causa, e ela tem nome.
-Descobre a tua em 2 minutos.
+Descobre a sua em 2 minutos.
 
 **Copy média (~120 palavras):**
 "Treino há anos. E ainda continuo travado."
-Se tu já pensou isso, essa mensagem é pra ti.
-Tu acorda cedo. Tu vai treinar cansado. Tu segue a dieta na semana inteira.
+Se você já pensou isso, essa mensagem é pra você.
+Você acorda cedo. Você vai treinar cansado. Você segue a dieta na semana inteira.
 E o espelho continua igual.
-Aí vem a parte pior: por fora, parece que tu não se esforça. E tu começa a achar que o problema é contigo.
+Aí vem a parte pior: por fora, parece que você não se esforça. E você começa a achar que o problema é com você.
 Não é.
 Quem treina há anos e travou não travou por preguiça. Travou porque o treino continuou igual enquanto o corpo mudou. E ninguém ajustou.
-Eu montei um diagnóstico de 2 minutos que aponta exatamente onde o teu ciclo parou.
-É gratuito e leva menos tempo que o teu aquecimento.
+Eu montei um diagnóstico de 2 minutos que aponta exatamente onde o seu ciclo parou.
+É gratuito e leva menos tempo que o seu aquecimento.
 
 **Copy longa (~250 palavras):**
 "Treino há anos. E ainda continuo travado."
-Se essa frase é tua, lê até o fim.
-Tu não é o cara que falta treino. Tu não é a pessoa que desiste na terceira semana. Tu acorda cedo, vai cansado, segue a alimentação de segunda a sexta, e mesmo assim o espelho não responde.
-E existe uma parte disso que quase ninguém fala em voz alta: por fora, parece que tu não se esforça. As pessoas olham e tiram a conclusão errada. E aí tu começa a achar que o problema é contigo, que tu não tem genética, que talvez já seja tarde.
+Se essa frase é sua, lê até o fim.
+Você não é o cara que falta treino. Você não é a pessoa que desiste na terceira semana. Você acorda cedo, vai cansado, segue a alimentação de segunda a sexta, e mesmo assim o espelho não responde.
+E existe uma parte disso que quase ninguém fala em voz alta: por fora, parece que você não se esforça. As pessoas olham e tiram a conclusão errada. E aí você começa a achar que o problema é com você, que você não tem genética, que talvez já seja tarde.
 Não é nada disso.
 Eu vou te falar o que eu vejo em quase todo aluno que chega travado: o treino dele continuou igual enquanto o corpo dele mudou. O estímulo que funcionou seis meses atrás virou manutenção. E manutenção não muda ninguém.
 Trocar de treino sozinho também não resolve, porque troca o exercício e mantém a mesma lógica. O corpo entende que nada mudou de verdade.
-O que destrava é ajuste. Ajuste feito na hora certa, a partir de como o teu corpo está respondendo agora, não a partir de uma planilha pronta.
-Eu montei um diagnóstico de 2 minutos que mostra exatamente onde o teu ciclo travou, e o que precisa mudar primeiro.
-É gratuito, são 9 perguntas, e leva menos tempo que o teu aquecimento.
+O que destrava é ajuste. Ajuste feito na hora certa, a partir de como o seu corpo está respondendo agora, não a partir de uma planilha pronta.
+Eu montei um diagnóstico de 2 minutos que mostra exatamente onde o seu ciclo travou, e o que precisa mudar primeiro.
+É gratuito, são 9 perguntas, e leva menos tempo que o seu aquecimento.
 O link está aqui embaixo.
 
 ---
@@ -325,15 +325,15 @@ O link está aqui embaixo.
 Existe um erro que quase todo mundo comete e não enxerga: seguir o mesmo ciclo depois que o corpo já mudou.
 Não é falta de treino. Não é falta de dieta.
 É estímulo velho num corpo novo.
-Descobre em 2 minutos qual é o teu.
+Descobre em 2 minutos qual é o seu.
 
 **Copy média (~120 palavras):**
 O erro invisível de quem treina certo e não muda.
 Não é a série. Não é o suplemento. Não é força de vontade.
 É seguir o mesmo ciclo depois que o corpo já se adaptou a ele.
-O treino que te fez evoluir seis meses atrás hoje só te mantém onde tu está. E como tu continua se esforçando igual, tu não desconfia dele. Desconfia de ti.
-No método que eu uso, a fase do treino não muda por calendário. Muda quando o teu corpo chega no ponto de mudar. É por isso que o resultado volta a aparecer.
-Fiz um diagnóstico de 2 minutos que aponta em qual dos erros tu está.
+O treino que te fez evoluir seis meses atrás hoje só te mantém onde você está. E como você continua se esforçando igual, você não desconfia dele. Desconfia de você.
+No método que eu uso, a fase do treino não muda por calendário. Muda quando o seu corpo chega no ponto de mudar. É por isso que o resultado volta a aparecer.
+Fiz um diagnóstico de 2 minutos que aponta em qual dos erros você está.
 Gratuito, link aqui embaixo.
 
 **Copy longa (~250 palavras):**
@@ -345,7 +345,7 @@ Funciona assim: todo estímulo tem prazo de validade. O treino que te fez evolui
 Aí vem a segunda armadilha: trocar de treino por conta própria. Troca os exercícios, mantém a mesma lógica de sempre, e o corpo entende que nada mudou de verdade. Mais três meses no mesmo lugar.
 No método que eu uso com meus alunos, o ciclo de 90 dias é dividido em três blocos, e a virada de bloco não acontece por calendário. Acontece quando o corpo do aluno chega no ponto de virar. Quem dita é o corpo dele, não a data.
 É isso que faz o resultado voltar a aparecer sem a pessoa precisar treinar mais, e sim treinar no ponto certo.
-Montei um diagnóstico de 2 minutos que aponta qual desses erros está travando o teu ciclo.
+Montei um diagnóstico de 2 minutos que aponta qual desses erros está travando o seu ciclo.
 Gratuito. Link aqui embaixo.
 
 ---
@@ -362,7 +362,7 @@ Gratuito. Link aqui embaixo.
 Não aumentou treino. Não cortou mais comida.
 Ajustou o que estava travando, e o corpo respondeu em um ciclo.
 `[ANTES E DEPOIS]`
-Descobre o que está travando o teu em 2 minutos.
+Descobre o que está travando o seu em 2 minutos.
 
 **Copy média (~120 palavras):**
 `[NOME DO ALUNO]` treinava há `[TEMPO]` anos e tinha parado de ver resultado.
@@ -370,7 +370,7 @@ Não era falta de esforço: ela treinava `[X]` vezes por semana, seguia a dieta,
 A gente não aumentou o volume de treino. Não cortou mais caloria. A gente achou onde o ciclo dela tinha travado e ajustou.
 `[ANTES E DEPOIS]`
 Esse é o ponto que quase ninguém trata: quem já treina não precisa de mais esforço, precisa do ajuste certo.
-Se tu está há meses no mesmo lugar, faz o diagnóstico de 2 minutos e descobre onde o teu travou.
+Se você está há meses no mesmo lugar, faz o diagnóstico de 2 minutos e descobre onde o seu travou.
 Gratuito, link aqui embaixo.
 
 **Copy longa (~250 palavras):**
@@ -381,8 +381,8 @@ A gente não aumentou o treino dela. Não cortou mais comida. Não colocou cardi
 A gente fez uma coisa só: identificou onde o ciclo dela tinha travado, e ajustou o estímulo pro ponto em que o corpo dela estava naquele momento.
 `[ANTES E DEPOIS]`
 Isso aqui é `[PERÍODO]` de acompanhamento, com check-in diário e reavaliação a cada 30 dias. Nada de plano solto: cada vez que o corpo dela respondeu, o plano mudou junto.
-E é isso que eu quero que tu entenda: quem já treina há anos raramente precisa de mais esforço. Precisa de ajuste. O esforço tu já tem. Ele só está sendo aplicado num estímulo que já venceu.
-Se tu está há meses no mesmo lugar, o primeiro passo não é mudar o treino no chute. É descobrir o que travou.
+E é isso que eu quero que você entenda: quem já treina há anos raramente precisa de mais esforço. Precisa de ajuste. O esforço você já tem. Ele só está sendo aplicado num estímulo que já venceu.
+Se você está há meses no mesmo lugar, o primeiro passo não é mudar o treino no chute. É descobrir o que travou.
 Montei um diagnóstico de 2 minutos, com 9 perguntas, que aponta exatamente isso.
 Gratuito. Link aqui embaixo.
 
@@ -390,24 +390,24 @@ Gratuito. Link aqui embaixo.
 
 ## 10 headlines para teste A/B
 
-1. Tu treina há anos. E o espelho continua igual.
+1. Você treina há anos. E o espelho continua igual.
 2. O problema não é disciplina. É ajuste.
 3. Treino há anos e ainda continuo travado.
 4. O erro invisível de quem treina certo e não muda.
-5. Descobre em 2 minutos por que o teu corpo parou de responder.
-6. Tu não é preguiçoso. Teu treino é que está velho.
+5. Descobre em 2 minutos por que o seu corpo parou de responder.
+6. Você não é preguiçoso. Seu treino é que está velho.
 7. Já trocou de treino várias vezes e nada mudou? Tem um motivo.
-8. Faz meses que tu treina e o espelho não responde. Isso tem nome.
+8. Faz meses que você treina e o espelho não responde. Isso tem nome.
 9. Não é falta de esforço. É estímulo velho num corpo novo.
-10. Antes de mudar o teu treino de novo, descobre o que travou.
+10. Antes de mudar o seu treino de novo, descobre o que travou.
 
 ## 5 hooks para vídeo
 
 1. "Treino há anos. E ainda continuo travado."
 2. "O erro invisível de quem treina certo e mesmo assim não muda."
-3. "Se tu já trocou de treino três vezes e voltou pro mesmo lugar, é isso aqui."
-4. "Tu não precisa treinar mais. Tu precisa treinar no ponto certo."
-5. "Seja sincero: tu sabe se a tua carga está certa hoje?"
+3. "Se você já trocou de treino três vezes e voltou pro mesmo lugar, é isso aqui."
+4. "Você não precisa treinar mais. Você precisa treinar no ponto certo."
+5. "Seja sincero: você sabe se a sua carga está certa hoje?"
 
 ---
 
@@ -427,27 +427,27 @@ Gratuito. Link aqui embaixo.
 
 **ETAPA 1 · Abertura personalizada**
 
-{{nome}}, teu diagnóstico está pronto.
+{{nome}}, seu diagnóstico está pronto.
 
-Tu treina há {{tempo_de_treino}}, consegue {{frequencia_real}} treinos por semana de verdade e o que mais te incomoda hoje é: **{{dor_principal}}**.
+Você treina há {{tempo_de_treino}}, consegue {{frequencia_real}} treinos por semana de verdade e o que mais te incomoda hoje é: **{{dor_principal}}**.
 
 Vou te falar exatamente o que isso indica.
 
 ---
 
-**ETAPA 2 · Leitura do teu cenário**
+**ETAPA 2 · Leitura do seu cenário**
 
-Faz {{tempo_sem_resultado}} que tu não vê uma mudança real no corpo. E o que tu já tentou pra resolver foi: {{tentativa}}.
+Faz {{tempo_sem_resultado}} que você não vê uma mudança real no corpo. E o que você já tentou pra resolver foi: {{tentativa}}.
 
 Isso te coloca num grupo bem específico: **quem tem constância e não tem retorno.** Não é o mesmo caso de quem não treina. E, justamente por isso, a solução também não é a mesma.
 
 ---
 
-**ETAPA 3 · O mecanismo do teu problema**
+**ETAPA 3 · O mecanismo do seu problema**
 
 Todo estímulo tem prazo de validade.
 
-O treino que te fez evoluir lá atrás cumpriu a função dele e virou manutenção. Manutenção mantém, não transforma. Como o teu esforço não caiu, tu não desconfia do treino: tu começa a desconfiar de ti.
+O treino que te fez evoluir lá atrás cumpriu a função dele e virou manutenção. Manutenção mantém, não transforma. Como o seu esforço não caiu, você não desconfia do treino: você começa a desconfiar de você.
 
 E quando a pessoa troca de treino por conta própria, geralmente troca os exercícios e mantém a mesma lógica. Pro corpo, nada mudou de verdade.
 
@@ -455,21 +455,21 @@ E quando a pessoa troca de treino por conta própria, geralmente troca os exerc�
 
 **ETAPA 4 · Dois cenários**
 
-**Cenário A — tu segue como está.**
-Mais 6 meses de treino, esforço igual, e o corpo respondendo do mesmo jeito que responde hoje. A tua sensação de que "está perdendo tempo" vira certeza.
+**Cenário A — você segue como está.**
+Mais 6 meses de treino, esforço igual, e o corpo respondendo do mesmo jeito que responde hoje. A sua sensação de que "está perdendo tempo" vira certeza.
 
-**Cenário B — tu ajusta.**
-O mesmo esforço que tu já faz, aplicado no estímulo certo pro ponto em que o teu corpo está agora. O primeiro sinal costuma aparecer dentro do primeiro bloco.
+**Cenário B — você ajusta.**
+O mesmo esforço que você já faz, aplicado no estímulo certo pro ponto em que o seu corpo está agora. O primeiro sinal costuma aparecer dentro do primeiro bloco.
 
-A diferença entre os dois não é quanto tu se dedica. **É se alguém ajusta ou não.**
+A diferença entre os dois não é quanto você se dedica. **É se alguém ajusta ou não.**
 
 ---
 
 **ETAPA 5 · O custo de continuar igual**
 
-Tu me disse que, pensando em mais 12 meses assim, o que vem é: {{implicacao}}.
+Você me disse que, pensando em mais 12 meses assim, o que vem é: {{implicacao}}.
 
-Vale registrar uma coisa. Cada ciclo de 90 dias que passa sem ajuste não é só tempo perdido: é um ciclo em que o teu corpo aprende a economizar em cima do estímulo que tu dá. Quanto mais tempo travado, mais adaptado ele fica.
+Vale registrar uma coisa. Cada ciclo de 90 dias que passa sem ajuste não é só tempo perdido: é um ciclo em que o seu corpo aprende a economizar em cima do estímulo que você dá. Quanto mais tempo travado, mais adaptado ele fica.
 
 Não é tarde demais. Mas também não é neutro.
 
@@ -479,19 +479,19 @@ Não é tarde demais. Mas também não é neutro.
 
 O método que eu uso com meus alunos é um ciclo de 90 dias dividido em três blocos: tensional, intermediário e metabólico.
 
-A parte que muda o jogo é esta: **a virada de bloco não acontece por calendário.** Ela acontece quando o teu corpo chega no ponto de virar. Quem dita o momento é o teu percentual de gordura, não a data no papel.
+A parte que muda o jogo é esta: **a virada de bloco não acontece por calendário.** Ela acontece quando o seu corpo chega no ponto de virar. Quem dita o momento é o seu percentual de gordura, não a data no papel.
 
-E o ciclo nunca fica solto: check-in diário e reavaliação a cada 30 dias. Tu nunca passa mais de um mês seguindo algo que já parou de funcionar.
+E o ciclo nunca fica solto: check-in diário e reavaliação a cada 30 dias. Você nunca passa mais de um mês seguindo algo que já parou de funcionar.
 
 ---
 
-**ETAPA 7 · O que precisa acontecer no teu caso**
+**ETAPA 7 · O que precisa acontecer no seu caso**
 
-Pelo que tu respondeu, o primeiro ajuste no teu caso passa por aqui: **{{gargalo_identificado}}**.
+Pelo que você respondeu, o primeiro ajuste no seu caso passa por aqui: **{{gargalo_identificado}}**.
 
-E considerando a tua rotina de {{perfil_rotina}} com {{frequencia_real}} treinos por semana, o plano precisa ser montado pra essa realidade. Montar pra 5 dias e tu conseguir 3 é a receita de travar de novo.
+E considerando a sua rotina de {{perfil_rotina}} com {{frequencia_real}} treinos por semana, o plano precisa ser montado pra essa realidade. Montar pra 5 dias e você conseguir 3 é a receita de travar de novo.
 
-Teu objetivo declarado é: {{objetivo}}. Isso é atingível dentro de um ciclo, com o ajuste certo.
+Seu objetivo declarado é: {{objetivo}}. Isso é atingível dentro de um ciclo, com o ajuste certo.
 
 ---
 
@@ -507,19 +507,19 @@ Teu objetivo declarado é: {{objetivo}}. Isso é atingível dentro de um ciclo, 
 
 O diagnóstico aponta onde travou. O que destrava é o plano montado em cima disso.
 
-Eu abro algumas avaliações por semana pra conversar sobre o caso individualmente, ver os teus números e montar o teu ciclo. Sem compromisso e sem enrolação: se eu achar que não é o teu momento, eu vou te dizer.
+Eu abro algumas avaliações por semana pra conversar sobre o caso individualmente, ver os seus números e montar o seu ciclo. Sem compromisso e sem enrolação: se eu achar que não é o seu momento, eu vou te dizer.
 
 `[AGENDAR MINHA AVALIAÇÃO]`
 
 ---
 
-**Rodapé:** Kainã Barreto · Consultoria Shape10X · Método WNS · Diagnóstico gerado a partir das tuas respostas.
+**Rodapé:** Kainã Barreto · Consultoria Shape10X · Método WNS · Diagnóstico gerado a partir das suas respostas.
 
 ---
 
 # 6. CADÊNCIA DE FOLLOW-UP — 12 DIAS
 
-**Voz:** do Kainã. Gaúcho, "tu", direto, sem tom de robô e sem tom de vendedor insistente. O ICP é cético por acúmulo de tentativa — mensagem de call center queima o lead na primeira linha.
+**Voz:** do Kainã. Gaúcho, "você", direto, sem tom de robô e sem tom de vendedor insistente. O ICP é cético por acúmulo de tentativa — mensagem de call center queima o lead na primeira linha.
 
 **Regra de ouro:** o follow-up é sempre sobre **o problema dele**, nunca sobre a compra. Se cada mensagem entregar uma leitura a mais do caso, a insistência não parece insistência.
 
@@ -539,51 +539,51 @@ Eu abro algumas avaliações por semana pra conversar sobre o caso individualmen
 ## Dia a dia
 
 **DIA 1 · manhã** *(imediatamente após o quiz)*
-Fala {{nome}}, aqui é o Kainã. Teu diagnóstico saiu: `[LINK]`
-Dá uma lida com calma e me diz uma coisa quando terminar: fez sentido o ponto que apareceu no teu caso?
+Fala {{nome}}, aqui é o Kainã. Seu diagnóstico saiu: `[LINK]`
+Dá uma lida com calma e me diz uma coisa quando terminar: fez sentido o ponto que apareceu no seu caso?
 
 **DIA 1 · tarde**
 Só pra confirmar que chegou aí (manda só o emoji de olhos)
 
 **DIA 2 · manhã**
-{{nome}}, uma coisa que eu não coloquei no relatório e vale pra ti: {{insight_do_gargalo}}.
-É o erro mais comum de quem responde igual a ti no quiz.
+{{nome}}, uma coisa que eu não coloquei no relatório e vale pra você: {{insight_do_gargalo}}.
+É o erro mais comum de quem responde igual a você no quiz.
 
 **DIA 3 · tarde**
-Deixa eu te perguntar uma coisa direta: há quanto tempo tu está tentando resolver isso sozinho?
+Deixa eu te perguntar uma coisa direta: há quanto tempo você está tentando resolver isso sozinho?
 
 **DIA 4 · manhã** *(mensagem de valor)*
-Um teste rápido que tu pode fazer essa semana, de graça: {{dica_pratica_ligada_ao_gargalo}}.
-Se o resultado for {{sinal}}, é confirmação do que apareceu no teu diagnóstico.
+Um teste rápido que você pode fazer essa semana, de graça: {{dica_pratica_ligada_ao_gargalo}}.
+Se o resultado for {{sinal}}, é confirmação do que apareceu no seu diagnóstico.
 
 **DIA 5 · tarde**
 (manda só o emoji de olhos, sem texto nenhum)
 
 **DIA 6 · manhã** *(LIGAÇÃO)*
-Ligar. Se não atender, mandar: "Te liguei agora. Era rápido, sobre o teu diagnóstico. Me chama quando puder falar."
+Ligar. Se não atender, mandar: "Te liguei agora. Era rápido, sobre o seu diagnóstico. Me chama quando puder falar."
 
 **DIA 7 · tarde**
-{{nome}}, sem enrolação: tu quer resolver isso agora ou prefere que eu te procure daqui um tempo?
+{{nome}}, sem enrolação: você quer resolver isso agora ou prefere que eu te procure daqui um tempo?
 As duas respostas estão certas, só quero saber pra não ficar te enchendo.
 
 **DIA 8 · manhã** *(prova)*
 Olha o caso da/do {{nome_aluno}}: `[ANTES E DEPOIS]`
-Ela treinava há anos e estava exatamente no ponto que apareceu no teu diagnóstico.
+Ela treinava há anos e estava exatamente no ponto que apareceu no seu diagnóstico.
 
 **DIA 9 · tarde**
 Tenho dois horários abertos essa semana pra avaliação: {{horario_1}} ou {{horario_2}}.
-Qual encaixa melhor pra ti?
+Qual encaixa melhor pra você?
 
 **DIA 10 · manhã** *(ÁUDIO PESSOAL, até 40 segundos)*
-Roteiro: "{{nome}}, gravei rápido porque digitar isso ia ficar frio. Eu passei 5 anos treinando travado, então eu sei exatamente a sensação de fazer tudo certo e não ver resposta. Não estou te cobrando nada. Só não queria que tu passasse mais um ciclo inteiro sem saber o que ajustar. Se não for o momento, me diz que eu paro de te procurar de boa."
+Roteiro: "{{nome}}, gravei rápido porque digitar isso ia ficar frio. Eu passei 5 anos treinando travado, então eu sei exatamente a sensação de fazer tudo certo e não ver resposta. Não estou te cobrando nada. Só não queria que você passasse mais um ciclo inteiro sem saber o que ajustar. Se não for o momento, me diz que eu paro de te procurar de boa."
 
 **DIA 11 · tarde** *(remoção de fricção)*
-Se o que travou foi valor ou forma de pagamento, me diz. Eu tenho mais de um formato de acompanhamento e a gente acha o que cabe pra ti.
+Se o que travou foi valor ou forma de pagamento, me diz. Eu tenho mais de um formato de acompanhamento e a gente acha o que cabe pra você.
 
 **DIA 12 · manhã** *(pré break-up)*
 {{nome}}, vou parar de te procurar por aqui pra não virar chateação.
-Teu diagnóstico continua valendo e fica salvo: `[LINK]`
-Quando for a tua hora, me chama que eu te atendo. Bom treino (emoji de bíceps)
+Seu diagnóstico continua valendo e fica salvo: `[LINK]`
+Quando for a sua hora, me chama que eu te atendo. Bom treino (emoji de bíceps)
 
 ---
 
@@ -593,61 +593,61 @@ Quando for a tua hora, me chama que eu te atendo. Bom treino (emoji de bíceps)
 
 # 7. TAREFAS — ONBOARDING E PRIMEIROS MOVIMENTOS
 
-> **Adaptação de escopo:** o contrato do Kainã é **mentoria**, não implementação. Diferente dos projetos em que a Simple executa, aqui **quem executa é ele** e a Simple orienta e revisa. Cada tarefa abaixo traz o ponto de revisão da Simple. Os prazos espelham o Roadmap de 90 dias.
+> **Adaptação de escopo:** o contrato do Kainã é **mentoria**, não implementação. Quem executa é ele. Os prazos abaixo espelham o Roadmap de 90 dias.
 
 ## Bloco 1 · Caixa (dias 1 a 10)
 
-| Tarefa | Responsável | Prazo | Revisão Simple |
-| --- | --- | --- | --- |
-| Montar a planilha da base (alunos ativos, presencial, ex-alunos, 20 leads não fechados, quem interage) | Kainã | Dia 3 | Conferir classificação no hot seat |
-| Fechar a venda pendente do plano anual **por call**, não por mensagem | Kainã | Dia 5 | Revisar a gravação |
-| Pedir de 3 a 5 indicações por aluno ativo, com perfil dito na hora | Kainã | Dia 8 | Script no grupo |
-| Separar R$ 1.000 de verba de validação (avaliar antecipação de recebíveis) | Kainã | Dia 10 | Checkpoint 1 |
+| Tarefa | Responsável | Prazo |
+| --- | --- | --- |
+| Montar a planilha da base (alunos ativos, presencial, ex-alunos, 20 leads não fechados, quem interage) | Kainã | Dia 3 |
+| Fechar a venda pendente do plano anual **por call**, não por mensagem | Kainã | Dia 5 |
+| Pedir de 3 a 5 indicações por aluno ativo, com perfil dito na hora | Kainã | Dia 8 |
+| Separar R$ 1.000 de verba de validação (avaliar antecipação de recebíveis) | Kainã | Dia 10 |
 
 ## Bloco 2 · Oferta e posicionamento (dias 1 a 14)
 
-| Tarefa | Responsável | Prazo | Revisão Simple |
-| --- | --- | --- | --- |
-| Escrever a oferta em uma página: ICP, 3 dores, WNS em 4 linhas, preço e downsell | Kainã | Dia 10 | Validação no hot seat |
-| Montar o PDF de apresentação da consultoria (10 a 15 páginas) | Kainã | Dia 14 | Revisão antes do primeiro uso |
-| Ajustar destaques e posts fixados do Instagram | Kainã | Dia 14 | Feedback no grupo |
-| **Definir o preço oficial do anual** (R$ 1.800 do canvas ou R$ 2.000 da call) | Kainã | Dia 7 | Decisão registrada |
+| Tarefa | Responsável | Prazo |
+| --- | --- | --- |
+| Escrever a oferta em uma página: ICP, 3 dores, WNS em 4 linhas, preço e downsell | Kainã | Dia 10 |
+| Montar o PDF de apresentação da consultoria (10 a 15 páginas) | Kainã | Dia 14 |
+| Ajustar destaques e posts fixados do Instagram | Kainã | Dia 14 |
+| **Definir o preço oficial do anual** (R$ 1.800 do canvas ou R$ 2.000 da call) | Kainã | Dia 7 |
 
 ## Bloco 3 · Funil e CRM (dias 15 a 45) — **ataca o gargalo central**
 
-| Tarefa | Responsável | Prazo | Revisão Simple |
-| --- | --- | --- | --- |
-| Construir o quiz de 9 perguntas com a copy da Seção 2 | Kainã | Dia 25 | Revisão de perguntas e lógica |
-| Publicar a página de resultado com o relatório da Seção 5 | Kainã | Dia 28 | Revisão de copy |
-| Ligar as respostas na planilha de leads, com origem marcada | Kainã | Dia 28 | Conferência do fluxo |
-| **Trocar o link da bio: sai o WhatsApp direto, entra o quiz** | Kainã | Dia 30 | Confirmação |
-| Número de WhatsApp dedicado ao comercial | Kainã | Dia 30 | — |
+| Tarefa | Responsável | Prazo |
+| --- | --- | --- |
+| Construir o quiz de 9 perguntas com a copy da Seção 2 | Kainã | Dia 25 |
+| Publicar a página de resultado com o relatório da Seção 5 | Kainã | Dia 28 |
+| Ligar as respostas na planilha de leads, com origem marcada | Kainã | Dia 28 |
+| **Trocar o link da bio: sai o WhatsApp direto, entra o quiz** | Kainã | Dia 30 |
+| Número de WhatsApp dedicado ao comercial | Kainã | Dia 30 |
 
 ## Bloco 4 · Conteúdo e criativos (dias 15 a 90)
 
-| Tarefa | Responsável | Prazo | Revisão Simple |
-| --- | --- | --- | --- |
-| Gravar os 3 criativos dos ângulos da Seção 4 | Kainã | Dia 30 | Revisão antes de subir |
-| Testar de 3 a 5 peças no formato de identidade e comparar com a mediana | Kainã | Dia 45 | Leitura dos números juntos |
-| Reduzir produção para 5 ou 6 posts por semana, gravados em lote | Kainã | Contínuo | — |
-| Coletar depoimentos em vídeo dos alunos que destravaram | Kainã | Dia 60 | Simple envia o guia de captação |
+| Tarefa | Responsável | Prazo |
+| --- | --- | --- |
+| Gravar os 3 criativos dos ângulos da Seção 4 | Kainã | Dia 30 |
+| Testar de 3 a 5 peças no formato de identidade e comparar com a mediana | Kainã | Dia 45 |
+| Reduzir produção para 5 ou 6 posts por semana, gravados em lote | Kainã | Contínuo |
+| Coletar depoimentos em vídeo dos alunos que destravaram | Kainã | Dia 60 |
 
 ## Bloco 5 · Comercial e scripts (dias 10 a 90)
 
-| Tarefa | Responsável | Prazo | Revisão Simple |
-| --- | --- | --- | --- |
-| Assistir Call de Vendas 1x1 e Pré-Vendas | Kainã | Dia 12 | — |
-| Implantar a cadência de 12 dias da Seção 6 | Kainã | Dia 30 | Revisão das mensagens |
-| Gravar todas as calls; levar as 3 primeiras ao hot seat | Kainã | Contínuo | Análise no hot seat |
-| Passar a fechar dentro da call, com o pagamento resolvido na tela | Kainã | Imediato | — |
+| Tarefa | Responsável | Prazo |
+| --- | --- | --- |
+| Assistir Call de Vendas 1x1 e Pré-Vendas | Kainã | Dia 12 |
+| Implantar a cadência de 12 dias da Seção 6 | Kainã | Dia 30 |
+| Gravar todas as calls; levar as 3 primeiras ao hot seat | Kainã | Contínuo |
+| Passar a fechar dentro da call, com o pagamento resolvido na tela | Kainã | Imediato |
 
 ## Bloco 6 · Mídia (dias 30 a 90)
 
-| Tarefa | Responsável | Prazo | Revisão Simple |
-| --- | --- | --- | --- |
-| Subir a campanha de validação com os R$ 1.000 | Kainã | Dia 32 | Revisão de estrutura e público |
-| Revisar métricas a cada 7 dias com os gatilhos definidos | Kainã | Semanal | Hot seat quinzenal |
-| Escalar orçamento a partir do CAC medido | Kainã | Dia 60+ | Decisão conjunta |
+| Tarefa | Responsável | Prazo |
+| --- | --- | --- |
+| Subir a campanha de validação com os R$ 1.000 | Kainã | Dia 32 |
+| Revisar métricas a cada 7 dias com os gatilhos definidos | Kainã | Semanal |
+| Escalar orçamento a partir do CAC medido | Kainã | Dia 60+ |
 
 ## Checklist geral
 

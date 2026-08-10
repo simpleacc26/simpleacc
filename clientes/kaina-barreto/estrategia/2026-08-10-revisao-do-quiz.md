@@ -37,13 +37,13 @@ algo sobre o lead.
 
 É a melhor pergunta dos três concorrentes (HS Team) e ele não tem equivalente.
 
-> **"Quanto tu acha que já gastou tentando resolver isso nos últimos 12 meses?"**
+> **"Quanto você acha que já gastou tentando resolver isso nos últimos 12 meses?"**
 > Mais de R$ 5.000 · De R$ 2.000 a R$ 5.000 · De R$ 500 a R$ 2.000 · Menos de R$ 500 · Nada
 
 Ela faz três trabalhos de uma vez:
 - **Qualifica de verdade.** Quem já gastou R$ 3 mil tentando resolver tem capacidade e disposição comprovadas, não declaradas.
 - **Amplifica a dor por custo afundado.** A pessoa faz a conta na hora e percebe o tamanho do desperdício. É o momento em que ela para de achar que "vai resolver sozinha".
-- **Alimenta o diagnóstico.** "Tu já colocou R$ 3 mil nisso e continua travado. O problema não é falta de investimento, é que ninguém ajustou."
+- **Alimenta o diagnóstico.** "Você já colocou R$ 3 mil nisso e continua travado. O problema não é falta de investimento, é que ninguém ajustou."
 
 Faixas menores que as do HS Team porque o público dele é classe média, não o mesmo bolso.
 
@@ -53,8 +53,8 @@ O Team Garin abre com uma tela que reposiciona o quiz antes de começar, e é o 
 "formulário" de "triagem". Proposta na voz dele:
 
 > **Antes de começar, dois minutos de atenção.**
-> Tu vai responder 6 perguntas rápidas pra eu entender exatamente onde teu ciclo travou.
-> Eu levo isso a sério: é com essas respostas que eu monto teu diagnóstico, não é formulário
+> Você vai responder 6 perguntas rápidas pra eu entender exatamente onde seu ciclo travou.
+> Eu levo isso a sério: é com essas respostas que eu monto seu diagnóstico, não é formulário
 > de cadastro. Responde com calma e com sinceridade, principalmente nas que doem.
 > **[COMEÇAR MEU DIAGNÓSTICO]**
 
@@ -63,8 +63,8 @@ O Team Garin abre com uma tela que reposiciona o quiz antes de começar, e é o 
 Todas as 4 são de múltipla escolha. Isso é rápido, mas não gera nenhum texto na voz do lead, e
 texto na voz do lead é o que faz a abordagem do WhatsApp parecer humana em vez de robô.
 
-> **"Se tu pudesse destravar uma coisa só no teu corpo hoje, qual seria? E o que isso muda na tua vida?"**
-> *(Escreve com detalhe. É a partir daqui que eu monto teu diagnóstico, e eu leio todas.)*
+> **"Se você pudesse destravar uma coisa só no seu corpo hoje, qual seria? E o que isso muda na sua vida?"**
+> *(Escreve com detalhe. É a partir daqui que eu monto seu diagnóstico, e eu leio todas.)*
 
 O Team Garin cola escassez aqui ("abro 10 vagas por mês") justamente pra fazer a pessoa
 escrever mais. **Só use escassez se for verdade** — no caso dele, é: ele tem teto real de agenda
@@ -112,14 +112,14 @@ Ainda fica abaixo dos concorrentes e ganha a qualificação que falta.
 **Tela 0 · Boas-vindas** *(texto acima)*
 
 **1 · Contexto**
-"Como está teu acompanhamento hoje?"
+"Como está seu acompanhamento hoje?"
 - Treino sozinho, sem acompanhamento nenhum
 - Tenho app ou planilha pronta, mas não é feita pra mim
 - Já tive personal ou consultoria, parei e não voltei
 - Tenho acompanhamento agora, mas não estou satisfeito
 
 **2 · Tempo de travamento** *(nova, entra no lugar da constância)*
-"Há quanto tempo tu não vê mudança real no corpo?"
+"Há quanto tempo você não vê mudança real no corpo?"
 - Menos de 3 meses
 - De 3 a 6 meses
 - De 6 meses a 1 ano
@@ -133,7 +133,7 @@ Ainda fica abaixo dos concorrentes e ganha a qualificação que falta.
 - "Sinto que meu treino é genérico, acho que teria mais resultado com algo individualizado pra mim"
 
 **4 · Investimento passado** ⭐ *(nova)*
-"Quanto tu acha que já gastou tentando resolver isso nos últimos 12 meses?"
+"Quanto você acha que já gastou tentando resolver isso nos últimos 12 meses?"
 - Mais de R$ 5.000
 - De R$ 2.000 a R$ 5.000
 - De R$ 500 a R$ 2.000
@@ -141,17 +141,17 @@ Ainda fica abaixo dos concorrentes e ganha a qualificação que falta.
 - Nada ainda
 
 **5 · Investimento futuro** *(dele, sem mexer)*
-"Como está tua relação com investimento em treino/orientação hoje?"
+"Como está sua relação com investimento em treino/orientação hoje?"
 - Nunca investi nada além da mensalidade da academia
 - Já gastei com app ou plano pronto, mas não deu resultado
 - Já gastei com personal ou nutricionista, mas não continuei
 - Tenho acompanhamento com outra pessoa agora, mas estou insatisfeito ou o contrato tá perto de acabar
 
 **6 · Aberta** ⭐ *(nova)*
-"Se tu pudesse destravar uma coisa só no teu corpo hoje, qual seria? E o que isso muda na tua vida?"
+"Se você pudesse destravar uma coisa só no seu corpo hoje, qual seria? E o que isso muda na sua vida?"
 
 **7 · Urgência** *(dele, sem mexer)*
-"O quanto tu quer ajustar isso agora?"
+"O quanto você quer ajustar isso agora?"
 - Muito, não aguento mais esperar
 - Bastante, mas consigo esperar mais um pouco
 - Moderado, sem muita pressa
@@ -173,7 +173,7 @@ E aqui o WNS vira ativo de copy, agora que sabemos o que é: classificação de 
 por grupo muscular (W = forte, volume baixo · N = neutro, volume moderado · S = fraco e
 prioritário, volume alto). Dá pra usar isso como a promessa concreta do diagnóstico:
 
-> "No fim tu não recebe uma nota. Tu recebe onde teu ciclo travou e qual grupo muscular está
+> "No fim você não recebe uma nota. Você recebe onde seu ciclo travou e qual grupo muscular está
 > pedindo prioridade."
 
 Isso é específico, é dele, e nenhum concorrente consegue copiar sem copiar o método.
