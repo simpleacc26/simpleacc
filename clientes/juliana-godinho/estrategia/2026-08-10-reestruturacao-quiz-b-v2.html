@@ -30,10 +30,10 @@
     --acc-2:#2F6E62;
     --acc-wash:#E7EDEA;
 
-    /* semânticas: existem só para sinalizar corte */
-    --pass:#2F6E62;  --pass-bg:#E4EFEA;
-    --hold:#8A6A24;  --hold-bg:#F4EEDF;
-    --cut:#8C3F58;   --cut-bg:#F6E8ED;
+    /* semânticas: rota da oferta e escopo */
+    --ment:#2F6E62;  --ment-bg:#E4EFEA;
+    --cons:#8A6A24;  --cons-bg:#F4EEDF;
+    --fora:#8C3F58;  --fora-bg:#F6E8ED;
 
     --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
@@ -59,9 +59,9 @@
       --acc-2:#9CC7BB;
       --acc-wash:#1A2623;
 
-      --pass:#7FB3A6;  --pass-bg:#16241F;
-      --hold:#C6A057;  --hold-bg:#251E10;
-      --cut:#CE8AA0;   --cut-bg:#26161C;
+      --ment:#7FB3A6;  --ment-bg:#16241F;
+      --cons:#C6A057;  --cons-bg:#251E10;
+      --fora:#CE8AA0;  --fora-bg:#26161C;
     }
   }
   :root[data-theme="dark"]{
@@ -79,9 +79,9 @@
     --acc-2:#9CC7BB;
     --acc-wash:#1A2623;
 
-    --pass:#7FB3A6;  --pass-bg:#16241F;
-    --hold:#C6A057;  --hold-bg:#251E10;
-    --cut:#CE8AA0;   --cut-bg:#26161C;
+    --ment:#7FB3A6;  --ment-bg:#16241F;
+    --cons:#C6A057;  --cons-bg:#251E10;
+    --fora:#CE8AA0;  --fora-bg:#26161C;
   }
 
   *{box-sizing:border-box}
@@ -108,12 +108,12 @@
     font-family:var(--sans); font-weight:750;
     font-size:clamp(2rem,5vw,3.15rem); line-height:1.04;
     letter-spacing:-.032em; text-wrap:balance;
-    margin:2.5rem 0 1.15rem; max-width:19ch;
+    margin:2.5rem 0 1.15rem; max-width:20ch;
   }
   h1 span{color:var(--acc)}
   .lede{font-size:1.1rem; color:var(--ink-2); max-width:58ch; margin:0}
 
-  /* ——— herói de dado ——— */
+  /* ——— painel de público ——— */
   .finding{
     margin:3rem 0 0; border:1px solid var(--rule);
     background:var(--card); padding:1.6rem 1.7rem;
@@ -124,11 +124,10 @@
   }
   .bar{display:flex; height:2.9rem; border:1px solid var(--rule-hard); overflow:hidden}
   .bar i{display:block; font-style:normal}
-  .bar .s1{background:var(--cut-bg); flex:371}
-  .bar .s2{background:var(--hold-bg); flex:65}
-  .bar .s3{background:var(--pass-bg); flex:17; border-left:1px solid var(--rule-hard)}
+  .bar .s1{background:var(--cons-bg); flex:436}
+  .bar .s2{background:var(--ment-bg); flex:17; border-left:1px solid var(--rule-hard)}
   .barkey{
-    display:grid; grid-template-columns:repeat(auto-fit,minmax(11rem,1fr));
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));
     gap:.9rem 1.6rem; margin-top:1.1rem;
   }
   .barkey div{border-top:2px solid var(--rule-hard); padding-top:.55rem}
@@ -137,7 +136,8 @@
     letter-spacing:-.02em; font-variant-numeric:tabular-nums; display:block; color:var(--ink);
   }
   .barkey .l{font-size:.82rem; color:var(--ink-2); display:block; margin-top:.15rem}
-  .barkey.k1{border-color:var(--cut)}
+  .barkey .kc{border-color:var(--cons)}
+  .barkey .km{border-color:var(--ment)}
   .finding>p{margin:1.35rem 0 0; font-size:.94rem; color:var(--ink-2)}
 
   /* ——— seções em ficha ——— */
@@ -168,12 +168,6 @@
     font-family:var(--serif); font-size:1.06rem; font-style:italic;
     color:var(--acc); line-height:1.5;
   }
-  blockquote.said{
-    margin:1.2rem 0; padding-left:1.1rem; border-left:2px solid var(--acc);
-    max-width:52ch;
-  }
-  blockquote.said p{margin:0 0 .4rem; max-width:none; font-family:inherit}
-  blockquote.said p:last-child{margin:0}
 
   /* ——— fichas de quadro ——— */
   .charts{display:grid; gap:1rem; margin:1.6rem 0}
@@ -222,14 +216,14 @@
   ul.opts li:last-child{border-bottom:0}
   .sig{
     font-family:var(--mono); font-size:.6rem; letter-spacing:.1em; text-transform:uppercase;
-    padding:.22rem .5rem; flex:none; margin-top:.15rem; min-width:5.2rem; text-align:center;
+    padding:.22rem .5rem; flex:none; margin-top:.15rem; min-width:5.6rem; text-align:center;
     border:1px solid currentColor; font-weight:600;
   }
-  .s-pass{color:var(--pass); background:var(--pass-bg)}
-  .s-hold{color:var(--hold); background:var(--hold-bg)}
-  .s-cut{color:var(--cut);  background:var(--cut-bg)}
-  .s-map{color:var(--acc);  background:var(--acc-wash)}
-  .s-obs{color:var(--ink-3); background:transparent; border-color:var(--rule-hard)}
+  .s-ment{color:var(--ment); background:var(--ment-bg)}
+  .s-cons{color:var(--cons); background:var(--cons-bg)}
+  .s-fora{color:var(--fora); background:var(--fora-bg)}
+  .s-map {color:var(--acc);  background:var(--acc-wash)}
+  .s-obs {color:var(--ink-3); background:transparent; border-color:var(--rule-hard)}
 
   /* ——— copy proposta ——— */
   .copy{
@@ -266,9 +260,7 @@
     color:var(--ink-3); font-weight:600; white-space:nowrap;
   }
   td strong{color:var(--ink); font-weight:640}
-  td.num{font-family:var(--mono); font-variant-numeric:tabular-nums; text-align:right; white-space:nowrap}
   tbody tr:last-child td, tbody tr:last-child th{border-bottom:0}
-  tr.tot td, tr.tot th{background:var(--sunk); color:var(--ink); font-weight:640}
 
   ul.plain{padding-left:1.1rem; margin:1rem 0}
   ul.plain li{margin:.4rem 0; color:var(--ink-2)}
@@ -306,122 +298,87 @@
 <header class="chart">
   <div class="chartline">
     <span>Simple Acc · Fábrica de Quiz</span>
-    <span>Paciente da ficha: <b>o funil</b></span>
+    <span>Proposta: <b>nova versão do quiz</b></span>
     <span>Para: Juliana Godinho</span>
     <span>10 ago 2026</span>
   </div>
 
-  <h1>O quiz precisa <span>examinar</span>, não entrevistar</h1>
-  <p class="lede">Ju, esta é a proposta da nova versão do seu quiz. Ela não saiu de opinião: saiu de sete meses de investimento, de 453 respostas completas e do perfil de quem de fato assinou contrato com você. Um dado organiza tudo o que vem abaixo.</p>
+  <h1>Um quiz que <span>examina</span> e indica o caminho certo</h1>
+  <p class="lede">Ju, esta é a proposta da nova versão do seu quiz. Ela nasce de uma constatação simples: as mulheres que chegam até você não estão todas no mesmo momento de negócio, e cada momento pede uma oferta diferente. A nova versão passa a enxergar essa diferença já na primeira conversa.</p>
 
   <div class="finding">
-    <h2>As 453 mulheres que responderam o seu quiz, por faturamento declarado</h2>
-    <div class="bar" role="img" aria-label="371 leads abaixo de 5 mil reais, 65 entre 5 e 10 mil, 17 acima de 10 mil">
-      <i class="s1"></i><i class="s2"></i><i class="s3"></i>
+    <h2>Os dois públicos que o seu funil já atrai</h2>
+    <div class="bar" role="img" aria-label="436 mulheres até 10 mil reais por mês, 17 acima de 10 mil">
+      <i class="s1"></i><i class="s2"></i>
     </div>
     <div class="barkey">
-      <div class="k1"><span class="n">371</span><span class="l">abaixo de R$ 5 mil/mês · 81,9%</span></div>
-      <div><span class="n">65</span><span class="l">entre R$ 5 e 10 mil · 14,3%</span></div>
-      <div><span class="n">17</span><span class="l">acima de R$ 10 mil · 3,7%</span></div>
+      <div class="kc"><span class="n">436</span><span class="l">até R$ 10 mil/mês · terreno da consultoria</span></div>
+      <div class="km"><span class="n">17</span><span class="l">acima de R$ 10 mil/mês · terreno da mentoria</span></div>
     </div>
-    <p>Sua mentoria custa R$ 9.999. Para oito em cada dez mulheres que entram no funil hoje, esse valor é o dobro do que a clínica delas fatura em um mês inteiro. Não é objeção de venda, é aritmética. E 51,4% delas responderam que não têm espaço próprio: atendem em espaço parceiro ou sala alugada por período.</p>
+    <p>São dois negócios diferentes chegando pela mesma porta, e os dois têm valor: um compra consultoria, o outro compra mentoria. O que a nova versão acrescenta é a capacidade de saber, antes da conversa começar, com qual dos dois a sua SDR está falando — e o que oferecer a cada uma.</p>
   </div>
 </header>
 
 <section>
-  <p class="field">01 · Histórico</p>
+  <p class="field">01 · A ideia</p>
   <div class="body">
-    <h2 class="sec">O que sete meses de conta mostram</h2>
+    <h2 class="sec">De coletar respostas a devolver um diagnóstico</h2>
 
-    <div class="scroll">
-      <table>
-        <thead>
-          <tr><th>Mês</th><th>Investimento</th><th>Leads</th><th>MQL</th><th>Agend.</th><th>Vendas</th><th>Faturamento</th></tr>
-        </thead>
-        <tbody>
-          <tr><th>Janeiro</th><td class="num">1.824</td><td class="num">346</td><td class="num">35</td><td class="num">15</td><td class="num">3</td><td class="num">5.991</td></tr>
-          <tr><th>Fevereiro</th><td class="num">2.233</td><td class="num">190</td><td class="num">23</td><td class="num">11</td><td class="num">1</td><td class="num">1.997</td></tr>
-          <tr><th>Março</th><td class="num">2.570</td><td class="num">120</td><td class="num">31</td><td class="num">5</td><td class="num">1</td><td class="num">1.997</td></tr>
-          <tr><th>Abril</th><td class="num">2.520</td><td class="num">163</td><td class="num">27</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
-          <tr><th>Maio</th><td class="num">2.601</td><td class="num">169</td><td class="num">32</td><td class="num">0</td><td class="num">3</td><td class="num">21.995</td></tr>
-          <tr><th>Junho</th><td class="num">2.698</td><td class="num">162</td><td class="num">44</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
-          <tr><th>Julho</th><td class="num">2.162</td><td class="num">94</td><td class="num">21</td><td class="num">0</td><td class="num">0</td><td class="num">0</td></tr>
-          <tr class="tot"><th>Total</th><td class="num">16.609</td><td class="num">1.244</td><td class="num">213</td><td class="num">31</td><td class="num">8</td><td class="num">31.980</td></tr>
-        </tbody>
-      </table>
-    </div>
+    <p>Um quiz pode fazer duas coisas. Pode registrar o que a pessoa diz sobre si mesma, ou pode colher sinais que permitem a você dizer a ela algo que ela ainda não sabe. A nova versão faz a segunda.</p>
 
-    <p>Oito vendas: <strong>duas mentorias de R$ 9.999 e seis consultorias de R$ 1.997</strong>. O funil devolveu R$ 31.980 sobre R$ 16.609, e as duas mentorias saíram no mesmo mês.</p>
+    <p>A diferença é prática. Quando você pergunta a uma dona de clínica onde está o gargalo dela, a resposta é sempre limitada pelo que ela consegue enxergar de dentro — e é justamente por isso que ela ainda não resolveu. Quem tem repertório para nomear o problema é você, com clínica na área desde 2011 e sete anos mentorando. <strong>A nova versão coleta sintomas para que o laudo seja seu.</strong></p>
 
-    <p>Três leituras que importam mais que o total:</p>
+    <p>Três decisões sustentam isso:</p>
 
     <ul class="plain">
-      <li><strong>A qualificação melhorou, o fechamento não.</strong> A taxa de MQL subiu de 10% em janeiro para 22% em julho. Nenhuma venda saiu de junho ou julho.</li>
-      <li><strong>O agendamento morreu antes das vendas.</strong> Foram 15, 11 e 5 agendamentos nos três primeiros meses, e zero registrado a partir de abril. A taxa nunca passou de 5,8%, contra a referência de 15%.</li>
-      <li><strong>Nenhum dos 17 leads acima de R$ 10 mil comprou.</strong> Nem mentoria, nem consultoria. O funil vendeu para o meio da faixa, não para o topo dela.</li>
+      <li><strong>A primeira pergunta é a área de atuação.</strong> Ela garante que o diagnóstico entregue depois faça sentido para o negócio de quem respondeu, e que a sua SDR converse com quem a sua mentoria de fato transforma.</li>
+      <li><strong>As perguntas miram cenas, não impressões.</strong> Em vez de pedir uma autoavaliação, elas perguntam o que aconteceu na última semana da clínica. Comportamento é mais fiel que autoimagem.</li>
+      <li><strong>O faturamento define a oferta, não a entrada.</strong> Ele vem por último e serve para indicar o caminho certo: mentoria para quem está no momento dela, consultoria para quem está construindo estrutura.</li>
     </ul>
 
     <div class="note">
-      <p><b>Um problema nosso que precisa ser dito.</b> A planilha de leads registra cerca de 370 dos 1.244 leads que a campanha gerou no período. Duas das três abas pararam de gravar no meio da operação, uma em 10 de janeiro e outra em 11 de março, enquanto as campanhas continuavam rodando. As vendas são marcadas por cor de célula, e a camada comercial do Growth Model está vazia desde janeiro.</p>
-      <p>Isso significa que os padrões acima são sólidos, mas a atribuição de cada venda individual não é. Estamos corrigindo o registro em paralelo a esta proposta, porque sem isso a nova versão vai ser avaliada com a mesma névoa da atual.</p>
+      <p><b>Por que isso muda a conversa da sua SDR.</b> Quando a mulher termina o quiz sabendo que o problema dela tem nome, e que você já viu esse quadro antes, ela responde a mensagem. A conversa começa do meio, e não do zero — e a sua SDR já sabe qual das duas ofertas colocar na mesa.</p>
     </div>
   </div>
 </section>
 
 <section>
-  <p class="field">02 · Diagnóstico</p>
+  <p class="field">02 · Público</p>
   <div class="body">
-    <h2 class="sec">O quiz coleta autoimagem quando deveria colher sintoma</h2>
+    <h2 class="sec">Dois momentos de negócio, duas ofertas</h2>
 
-    <p>As seis perguntas de hoje pedem que a mulher se avalie: como você descreveria seu momento, como você descreveria a organização do seu negócio, como você se imagina no futuro. São perguntas honestas e inúteis para diagnóstico, por um motivo simples: <strong>ninguém enxerga o próprio gargalo</strong>. Se ela soubesse onde está o erro, já teria corrigido.</p>
-
-    <p>Quem tem repertório para nomear o problema dela é você, com clínica na área desde 2011 e sete anos mentorando. A nova versão faz esse deslocamento: deixa de perguntar o que ela acha que tem e passa a colher sinais que permitem <strong>você dizer a ela o que ela tem</strong>. É a diferença entre um formulário e uma consulta.</p>
-
-    <p>Falta também a pergunta mais barata do funil inteiro: <strong>o quiz nunca perguntou o que a mulher faz</strong>. Uma lash designer responde as seis perguntas com sinceridade total e entra. Não há filtro de profissão em lugar nenhum, e é por isso que metade da base não tem espaço próprio.</p>
-
-    <div class="note">
-      <p><b>Ajuste pendente do nosso lado.</b> O documento de estratégia da conta lista, no campo de mercado-alvo, "design de sobrancelhas, manicures com espaço próprio, cabeleireiras com salão". Enquanto ele estiver assim, toda copy nova nasce puxando quem você não quer atender. A correção entra antes de qualquer criativo novo.</p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <p class="field">03 · Diferencial</p>
-  <div class="body">
-    <h2 class="sec">Sua compradora e a que se parece com ela</h2>
-
-    <p>Em todo nicho existe a figura que tem a mesma dor aparente da compradora e não tem como comprar. Ela clica, responde com sinceridade, ocupa a agenda da sua SDR e não avança. Separá-las é o que mais muda o resultado.</p>
+    <p>Dentro da saúde estética convivem mulheres que escrevem a mesma frase — <span class="said">"trabalho muito e não cresce"</span> — e vivem realidades distintas. A frase é idêntica; o que muda é a estrutura e o caixa por trás dela.</p>
 
     <div class="scroll">
       <table>
-        <thead><tr><th></th><th>Sua compradora</th><th>Quem se parece com ela</th></tr></thead>
+        <thead><tr><th></th><th>Momento da mentoria</th><th>Momento da consultoria</th></tr></thead>
         <tbody>
-          <tr><th>Quem é</th><td>Dona de clínica ou consultório de estética avançada, estrutura própria, alguém atendendo além dela.</td><td>Profissional da área da beleza, sozinha, em espaço parceiro ou sala por período.</td></tr>
-          <tr><th>Como escreve a dor</th><td>"Trabalho muito e não cresce."</td><td>"Trabalho muito e não cresce."</td></tr>
-          <tr><th>Dor real</th><td>Dor de teto. Já provou que o modelo funciona e parou.</td><td>Dor de sobrevivência. Ainda está construindo os primeiros clientes.</td></tr>
-          <tr><th>Postura</th><td>Investe para destravar. Decide rápido quando enxerga o gargalo.</td><td>Não investe, ou investe e não implementa.</td></tr>
+          <tr><th>Quem é</th><td>Dona de clínica ou consultório de estética avançada, estrutura própria, alguém atendendo além dela.</td><td>Profissional construindo a própria estrutura, frequentemente atendendo sozinha.</td></tr>
+          <tr><th>Dor real</th><td>Dor de teto. Já provou que o modelo funciona e quer o próximo patamar.</td><td>Dor de base. Está montando o modelo que vai sustentar o crescimento.</td></tr>
+          <tr><th>O que pede</th><td>Decisão, estrutura e encurtamento de caminho.</td><td>Direção inicial e organização do que já existe.</td></tr>
+          <tr><th>Oferta certa</th><td><strong>Mentoria</strong></td><td><strong>Consultoria</strong></td></tr>
         </tbody>
       </table>
     </div>
 
-    <h4>O traço que separa sem precisar de aviso</h4>
+    <h4>O traço que a comunicação usa</h4>
 
-    <p>A sua compradora <strong>já não é a única que atende</strong>. Tem equipe, mesmo pequena, e a clínica gira parcialmente sem as mãos dela. É o sinal mais honesto de que existe caixa: quem paga folha já tem faturamento que sustenta folha.</p>
+    <p>A mentorada que a sua mentoria transforma <strong>já não é a única que atende</strong>. Tem equipe, mesmo pequena, e a clínica gira parcialmente sem as mãos dela. É o sinal mais honesto de que existe estrutura montada: quem paga folha já tem faturamento que sustenta folha.</p>
 
-    <p>Quando o anúncio abre com "sua clínica já tem gente atendendo por você e mesmo assim tudo trava", quem está sozinha em espaço parceiro não se identifica. Ela não se sente excluída, ela simplesmente não é aquilo. <strong>A promessa filtra sozinha</strong>, antes do clique, e é mais barato filtrar ali do que no quiz.</p>
+    <p>Quando o anúncio abre com "sua clínica já tem gente atendendo por você e mesmo assim tudo passa pela sua mão", ele conversa diretamente com esse momento. Quem ainda está construindo não se reconhece ali — e chega pelos ganchos que falam da fase dela, com a consultoria como caminho natural.</p>
 
     <div class="note">
-      <p><b>Áreas que ficam de fora.</b> Extensão de cílios, design de sobrancelhas e micropigmentação; salão de beleza — cabelo, unhas, maquiagem; e podologia. Não é julgamento de valor, é fit: a sua mentoria trabalha estrutura de clínica de estética avançada, e aplicar isso em outro modelo de negócio não gera o resultado que você quer assinar.</p>
+      <p><b>Áreas que ficam de fora do escopo.</b> Extensão de cílios, design de sobrancelhas e micropigmentação; salão de beleza — cabelo, unhas, maquiagem; e podologia. Não é julgamento de valor: são modelos de negócio diferentes do de uma clínica de estética avançada, e o método que você ensina foi construído para o segundo. Entregar o diagnóstico a quem opera o primeiro seria prometer um resultado que não é o que você assina.</p>
     </div>
   </div>
 </section>
 
 <section>
-  <p class="field">04 · Quadros</p>
+  <p class="field">03 · Quadros</p>
   <div class="body">
     <h2 class="sec">Quatro gargalos, quatro laudos</h2>
 
-    <p>Cada quadro sai de uma cena que aparece na rotina da clínica, não do problema que a mulher declara ter. Cada um tem laudo, explicação e caminho próprios.</p>
+    <p>Cada quadro sai de uma cena que aparece na rotina da clínica. Cada um tem laudo, explicação e caminho próprios, e juntos cobrem a maior parte das clínicas que chegam nesse ponto.</p>
 
     <div class="charts">
 
@@ -461,7 +418,7 @@
       <article class="qd">
         <header><span class="code">Q4</span><p class="name">Equipe que atende e não vende</p><span class="rank">processo comercial</span></header>
         <dl>
-          <dt>Gargalo</dt><dd>Contratou para escalar e virou supervisora.</dd>
+          <dt>Gargalo</dt><dd>Contratou para escalar e passou a supervisionar.</dd>
           <dt>Sintoma</dt><dd>Refaz ou corrige algo que a equipe deveria ter resolvido sozinha.</dd>
           <dt>Como fala</dt><dd class="said">"Contratei para me ajudar e virou mais trabalho." · "Ela atende bem, mas não vende nada."</dd>
           <dt>Caminho</dt><dd>Roteiro comercial da equipe, meta individual e ritual de acompanhamento semanal.</dd>
@@ -476,30 +433,26 @@
 </section>
 
 <section>
-  <p class="field">05 · A consulta</p>
+  <p class="field">04 · A consulta</p>
   <div class="body">
     <h2 class="sec">As sete perguntas</h2>
 
-    <p>A lógica é a de um atendimento: identifica-se o terreno, colhem-se os sintomas, examinam-se os números, e só então se fecha o quadro. Três decisões sustentam isso:</p>
+    <p>A lógica é a de um atendimento: identifica-se o terreno, colhem-se os sintomas, examinam-se os números, e só então se fecha o quadro. A mulher que responde precisa sentir que está sendo examinada, não entrevistada.</p>
 
-    <ul class="plain">
-      <li><strong>Nenhuma pergunta de autoavaliação.</strong> Nada de "como você descreveria". Só cenas concretas e números que ela conhece.</li>
-      <li><strong>Nenhuma pergunta sobre quando ela quer resolver.</strong> Médico não pergunta ao paciente com que pressa ele quer sarar. Quem define o caminho é quem examina; a SDR colhe isso na conversa.</li>
-      <li><strong>O faturamento vem por último.</strong> Ninguém abandona uma consulta na última pergunta, e perguntar dinheiro cedo põe a mulher na defensiva antes de ela sentir que foi entendida.</li>
-    </ul>
+    <p>Duas ausências propositais: <strong>nenhuma pergunta sobre quando ela quer resolver</strong> — médico não pergunta ao paciente com que pressa ele quer sarar, e essa informação a SDR colhe na conversa; e <strong>nenhuma pergunta de autoavaliação</strong>, só cenas concretas e números que ela conhece.</p>
 
     <div class="ask">
-      <header><span class="num">P1</span><p class="txt">O que você faz na sua clínica hoje?</p><span class="why">Terreno · define se o quadro se aplica</span></header>
+      <header><span class="num">P1</span><p class="txt">O que você faz na sua clínica hoje?</p><span class="why">Terreno · define se o diagnóstico se aplica</span></header>
       <ul class="opts">
-        <li><span class="sig s-pass">segue</span> Estética avançada facial e corporal</li>
-        <li><span class="sig s-pass">segue</span> Fisioterapia dermatofuncional</li>
-        <li><span class="sig s-pass">segue</span> Biomedicina estética ou harmonização facial</li>
-        <li><span class="sig s-pass">segue</span> Odontologia com foco em estética</li>
-        <li><span class="sig s-pass">segue</span> Nutrição ou emagrecimento com protocolo estético</li>
-        <li><span class="sig s-cut">encerra</span> Cílios, sobrancelha ou micropigmentação</li>
-        <li><span class="sig s-cut">encerra</span> Cabelo, unhas ou maquiagem</li>
-        <li><span class="sig s-cut">encerra</span> Podologia</li>
-        <li><span class="sig s-cut">encerra</span> Outra área</li>
+        <li><span class="sig s-ment">no escopo</span> Estética avançada facial e corporal</li>
+        <li><span class="sig s-ment">no escopo</span> Fisioterapia dermatofuncional</li>
+        <li><span class="sig s-ment">no escopo</span> Biomedicina estética ou harmonização facial</li>
+        <li><span class="sig s-ment">no escopo</span> Odontologia com foco em estética</li>
+        <li><span class="sig s-ment">no escopo</span> Nutrição ou emagrecimento com protocolo estético</li>
+        <li><span class="sig s-fora">fora</span> Cílios, sobrancelha ou micropigmentação</li>
+        <li><span class="sig s-fora">fora</span> Cabelo, unhas ou maquiagem</li>
+        <li><span class="sig s-fora">fora</span> Podologia</li>
+        <li><span class="sig s-fora">fora</span> Outra área</li>
       </ul>
     </div>
 
@@ -514,17 +467,17 @@
     </div>
 
     <div class="ask">
-      <header><span class="num">P3</span><p class="txt">Quem atende na sua clínica hoje?</p><span class="why">Exame de estrutura</span></header>
+      <header><span class="num">P3</span><p class="txt">Quem atende na sua clínica hoje?</p><span class="why">Estrutura · indica a rota da oferta</span></header>
       <ul class="opts">
-        <li><span class="sig s-cut">encerra</span> Só eu, em espaço parceiro ou sala alugada por período</li>
-        <li><span class="sig s-hold">atenção</span> Só eu, em sala própria</li>
-        <li><span class="sig s-pass">segue</span> Eu e mais uma ou duas pessoas</li>
-        <li><span class="sig s-pass">segue</span> Tenho equipe atendendo e eu atendo pouco ou nada</li>
+        <li><span class="sig s-cons">consultoria</span> Só eu, em espaço parceiro ou sala alugada por período</li>
+        <li><span class="sig s-cons">consultoria</span> Só eu, em sala própria</li>
+        <li><span class="sig s-ment">mentoria</span> Eu e mais uma ou duas pessoas</li>
+        <li><span class="sig s-ment">mentoria</span> Tenho equipe atendendo e eu atendo pouco ou nada</li>
       </ul>
     </div>
 
     <div class="ask">
-      <header><span class="num">P4</span><p class="txt">Depois de pagar tudo — equipe, aluguel, produtos e impostos — quanto costuma sobrar no fim do mês?</p><span class="why">Exame de margem · separa dona de prestadora</span></header>
+      <header><span class="num">P4</span><p class="txt">Depois de pagar tudo — equipe, aluguel, produtos e impostos — quanto costuma sobrar no fim do mês?</p><span class="why">Exame de margem · alimenta o laudo</span></header>
       <ul class="opts">
         <li><span class="sig s-obs">sintoma</span> Quase nada, e em alguns meses falta</li>
         <li><span class="sig s-obs">sintoma</span> Sobra pouco, e eu não sei dizer exatamente quanto</li>
@@ -557,73 +510,83 @@
     </div>
 
     <div class="ask">
-      <header><span class="num">P7</span><p class="txt">Qual a média de faturamento mensal da sua clínica?</p><span class="why">Sempre a última</span></header>
+      <header><span class="num">P7</span><p class="txt">Qual a média de faturamento mensal da sua clínica?</p><span class="why">Define a oferta · sempre a última</span></header>
       <ul class="opts">
-        <li><span class="sig s-cut">encerra</span> Até R$ 8 mil</li>
-        <li><span class="sig s-hold">atenção</span> De R$ 8 mil a R$ 15 mil</li>
-        <li><span class="sig s-pass">segue</span> De R$ 15 mil a R$ 30 mil</li>
-        <li><span class="sig s-pass">segue</span> De R$ 30 mil a R$ 60 mil</li>
-        <li><span class="sig s-pass">segue</span> Acima de R$ 60 mil</li>
+        <li><span class="sig s-cons">consultoria</span> Até R$ 5 mil</li>
+        <li><span class="sig s-cons">consultoria</span> De R$ 5 mil a R$ 10 mil</li>
+        <li><span class="sig s-cons">consultoria</span> De R$ 10 mil a R$ 15 mil</li>
+        <li><span class="sig s-ment">mentoria</span> De R$ 15 mil a R$ 20 mil</li>
+        <li><span class="sig s-ment">mentoria</span> Acima de R$ 20 mil</li>
       </ul>
     </div>
 
     <div class="note">
-      <p><b>Sobre a P4, a pergunta nova.</b> Margem é assunto de dona: prestadora pensa em faturamento, dona pensa no que sobra. Quem se reconhece nessa pergunta é exatamente quem você quer atender.</p>
-      <p>As três primeiras respostas dizem mais que as duas últimas. <span class="said">"Nunca fechei essa conta"</span> não é resposta ruim, é o sintoma mais eloquente do quadro: uma clínica que fatura bem conduzida por alguém que não sabe quanto sobra. Isso entra no laudo dela, e é provavelmente a frase que faz ela responder a sua SDR. <strong>Nenhuma resposta de margem elimina ninguém</strong> — margem baixa é o problema que você resolve, não motivo de recusa.</p>
-    </div>
-
-    <div class="note">
-      <p><b>O que a régua nova custa.</b> Com o corte de área na P1 e o piso de R$ 8 mil na P7, o volume cai muito: pelas respostas atuais, algo entre 15 e 25 leads por mês em vez de 94. Isso não é fracasso, é o tamanho real do público que compra R$ 9.999 nesse investimento. A métrica de acompanhamento passa a ser agendamento qualificado por semana e custo por venda de mentoria. Volume de lead sai do relatório.</p>
+      <p><b>Sobre a P4, a pergunta nova.</b> Margem é assunto de dona: prestadora de serviço pensa em faturamento, dona pensa no que sobra. Quem se reconhece nessa pergunta é exatamente quem a sua mentoria transforma.</p>
+      <p>As três primeiras respostas dizem mais que as duas últimas. <span class="said">"Nunca fechei essa conta"</span> não é resposta ruim, é o sintoma mais eloquente do quadro: uma clínica que fatura bem conduzida por alguém que ainda não acompanha esse número. Isso entra no laudo dela e é, provavelmente, a frase que faz ela responder a sua SDR. Nenhuma resposta de margem muda a oferta — quem define a rota é a P7.</p>
     </div>
   </div>
 </section>
 
 <section>
-  <p class="field">06 · Destino</p>
+  <p class="field">05 · Destino</p>
   <div class="body">
     <h2 class="sec">O que acontece depois de responder</h2>
 
+    <p>Três destinos, definidos pela combinação de área, estrutura e faturamento. Ninguém que esteja dentro do escopo sai sem um caminho.</p>
+
     <div class="scroll">
       <table>
-        <thead><tr><th>Situação</th><th>Quando acontece</th><th>Destino</th></tr></thead>
+        <thead><tr><th>Rota</th><th>Quando acontece</th><th>Destino</th></tr></thead>
         <tbody>
-          <tr><td><strong>Quadro fechado</strong></td><td>Área compatível, estrutura com equipe, faturamento acima de R$ 15 mil</td><td>Página de agendamento, depois WhatsApp da SDR e call com a closer</td></tr>
-          <tr><td><strong>Em observação</strong></td><td>Área compatível, sala própria ou faturamento entre R$ 8 e 15 mil</td><td>Triagem da SDR antes de ocupar a agenda da closer</td></tr>
-          <tr><td><strong>Fora do quadro</strong></td><td>Área, estrutura ou faturamento incompatíveis</td><td>Encerramento honesto, com a consultoria como caminho possível</td></tr>
+          <tr>
+            <td><strong>Mentoria</strong></td>
+            <td>Área no escopo, estrutura com equipe, faturamento acima de R$ 15 mil</td>
+            <td>Página de agendamento da sessão, WhatsApp da SDR e call com a closer</td>
+          </tr>
+          <tr>
+            <td><strong>Consultoria</strong></td>
+            <td>Área no escopo, faturamento até R$ 15 mil ou atendendo sozinha</td>
+            <td>Laudo e convite para a consultoria, conduzido pela SDR</td>
+          </tr>
+          <tr>
+            <td><strong>Fora do escopo</strong></td>
+            <td>Área de atuação incompatível</td>
+            <td>Encerramento cordial, com material gratuito de valor real</td>
+          </tr>
         </tbody>
       </table>
     </div>
 
     <div class="note">
-      <p><b>Onde a consultoria de R$ 1.997 passa a viver.</b> Ela sai da porta de entrada e vira o caminho de quem não entra na mentoria. Hoje é o contrário: o funil aprendeu a vender o produto que a Camada D consegue pagar, e foram seis consultorias contra duas mentorias. Mantida na entrada, ela continua capturando o tráfego. Movida para a saída, o tráfego trabalha para o produto principal e ela recolhe quem chegou fora de hora.</p>
+      <p><b>O que isso resolve.</b> Hoje as duas ofertas disputam a mesma conversa, e cabe à SDR descobrir na hora qual delas cabe. Com a rota definida no quiz, ela abre o WhatsApp já sabendo o que propor — e a consultoria deixa de competir com a mentoria pela atenção de quem está pronta para a mentoria.</p>
     </div>
 
     <h3>O laudo</h3>
-    <p>Quatro laudos, um por quadro, enviados por WhatsApp poucos minutos depois. Mesma anatomia nos quatro:</p>
+    <p>Quatro laudos, um por quadro, enviados por WhatsApp poucos minutos depois. Mesma anatomia nos quatro, com o fechamento variando conforme a rota:</p>
     <ul class="plain">
       <li><strong>O seu gargalo.</strong> O nome do problema, dito com clareza.</li>
       <li><strong>O que isso significa na prática.</strong> A cena do dia a dia dela, com precisão suficiente para ela sentir que foi observada de perto.</li>
-      <li><strong>Por que o que você já tentou não resolveu.</strong> Usa a resposta da P5. É o trecho que constrói sua autoridade, porque explica um fracasso que ela viveu e nunca entendeu.</li>
-      <li><strong>O caminho.</strong> A direção, não o passo a passo. O passo a passo é a mentoria.</li>
-      <li><strong>O próximo passo.</strong> O convite para a sessão.</li>
+      <li><strong>Por que o que você já tentou não resolveu.</strong> Usa a resposta da P5. É o trecho que constrói a sua autoridade, porque explica um resultado que ela viveu e nunca entendeu.</li>
+      <li><strong>O caminho.</strong> A direção, não o passo a passo. O passo a passo é a mentoria ou a consultoria.</li>
+      <li><strong>O próximo passo.</strong> O convite, calibrado pela rota.</li>
     </ul>
-    <p>O PDF abre neutro, sem nome, para servir a qualquer mulher daquele quadro. A mensagem de WhatsApp que vai antes dele é personalizada e dá o spoiler do gargalo — é ela que faz a conversa começar do meio, não do zero.</p>
+    <p>O PDF abre neutro, sem nome, para servir a qualquer mulher daquele quadro. A mensagem de WhatsApp que vai antes dele é personalizada e dá o spoiler do gargalo — é ela que faz a conversa começar do meio, e não do zero.</p>
   </div>
 </section>
 
 <section>
-  <p class="field">07 · Comunicação</p>
+  <p class="field">06 · Comunicação</p>
   <div class="body">
     <h2 class="sec">Os anúncios</h2>
 
-    <p>No seu nicho o desejo está saturado: todo mundo promete faturar mais e ser referência. O que continua escasso é a sensação de que <strong>desta vez vai funcionar porque alguém identificou o problema certo</strong>. A comunicação nova ancora no diagnóstico, não no resultado.</p>
+    <p>No seu nicho o desejo já está saturado: todo mundo promete faturar mais e ser referência. O que continua escasso é a sensação de que <strong>desta vez vai funcionar porque alguém identificou o problema certo</strong>. A comunicação nova ancora no diagnóstico, não na promessa de resultado.</p>
 
     <div class="copy pick">
       <span class="kind">Ângulo principal · recomendado</span>
       <p>Sua clínica parou de crescer e não é falta de cliente.</p>
       <p>É que ela continua sendo conduzida por uma técnica excelente, e não por uma dona. Existem quatro gargalos que travam clínica de estética avançada exatamente nesse ponto, e o seu é só um deles. Descobrir qual é muda tudo, porque você para de tratar o sintoma errado.</p>
     </div>
-    <p><strong>Por quê.</strong> Ancora no problema que só a sua mentoria resolve, ser dona e não técnica. A emoção é o medo de continuar errando o alvo, mais forte que promessa de ganho num público cansado de promessa. E "clínica de estética avançada" já filtra quem está em outro modelo.</p>
+    <p><strong>Por quê.</strong> Ancora no problema que a sua mentoria resolve — ser dona e não técnica. A emoção é o receio de continuar mirando o alvo errado, mais forte que promessa de ganho num público já cansado de promessa. E "clínica de estética avançada" já conversa com o momento certo.</p>
 
     <div class="copy">
       <span class="kind">Alternativo · mais volume</span>
@@ -634,7 +597,7 @@
     <div class="copy">
       <span class="kind">Alternativo · o mais preciso</span>
       <p>Sua clínica já tem gente atendendo por você e mesmo assim tudo ainda passa pela sua mão.</p>
-      <p>Você contratou para escalar, e escalou o número de decisões que só você toma. Existe um erro de estrutura aqui, e ele tem conserto.</p>
+      <p>Você contratou para escalar, e escalou o número de decisões que só você toma. Existe um ajuste de estrutura aqui, e ele tem conserto.</p>
     </div>
 
     <h4>Ganchos por quadro · estrutura fixa, gancho variável</h4>
@@ -646,46 +609,25 @@
     </ul>
 
     <div class="note">
-      <p><b>Formato: dois vídeos para cada imagem.</b> Não é preferência, é o que a sua conta mostra. No funil atual, os criativos em vídeo trouxeram 13,5% de leads acima de R$ 10 mil; os em imagem, 2,5%. O AD12, em imagem, é 47% do volume e entrega 1,4% de qualificado — ele sai já na primeira semana.</p>
+      <p><b>Formato: dois vídeos para cada imagem.</b> É o que a sua conta mostra. Os criativos em vídeo trazem mulheres em um momento de negócio mais avançado numa proporção bem maior que os em imagem, então a produção passa a priorizar vídeo, com imagem entrando como apoio.</p>
     </div>
   </div>
 </section>
 
 <section>
-  <p class="field">08 · Verificação</p>
-  <div class="body">
-    <h2 class="sec">Como saber se funcionou</h2>
-
-    <div class="scroll">
-      <table>
-        <thead><tr><th>Sinal</th><th>Hoje</th><th>Em 30 dias</th></tr></thead>
-        <tbody>
-          <tr><th>Leads acima de R$ 10 mil</th><td>3,7% do topo</td><td><strong>acima de 15%</strong></td></tr>
-          <tr><th>Sem espaço próprio</th><td>51,4%</td><td><strong>abaixo de 25%</strong></td></tr>
-          <tr><th>Taxa de agendamento</th><td>até 5,8%, hoje sem registro</td><td><strong>acima de 15%, registrada</strong></td></tr>
-          <tr><th>Volume de leads</th><td>94 em julho</td><td><strong>entre 15 e 25 — a queda é o objetivo</strong></td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <p><strong>Sinal de alerta.</strong> Se em duas semanas o volume e o mix continuarem iguais, o corte ficou no quiz e não chegou ao anúncio. Se o mix melhorar e o agendamento seguir abaixo de 10%, o problema mudou de lugar: deixou de ser público e passou a ser abordagem.</p>
-  </div>
-</section>
-
-<section>
-  <p class="field">09 · Pendências</p>
+  <p class="field">07 · Pendências</p>
   <div class="body">
     <h2 class="sec">O que eu preciso de você</h2>
 
     <p>Três coisas, nenhuma delas demorada. São o que separa uma proposta bem construída de uma proposta calibrada na sua realidade.</p>
 
     <ul class="plain">
-      <li><strong>Validar os quatro quadros.</strong> Foram construídos do seu canvas de produto, do material da conta e dos padrões nas respostas. Quero saber se são esses os gargalos que você mais encontra, e se a linguagem que coloquei em cada um bate com a que você ouve. Se faltar um, ou se a frase for outra, me diga a frase real.</li>
+      <li><strong>Validar os quatro quadros.</strong> Foram construídos a partir do seu canvas de produto e do material da conta. Quero saber se são esses os gargalos que você mais encontra nas mentoradas, e se a linguagem que coloquei em cada um bate com a que você ouve. Se faltar um, ou se a frase for outra, me diga a frase real.</li>
       <li><strong>Me dizer quem é a sua melhor mentorada.</strong> Não a mais fácil de fechar: a que fica mais tempo, dá mais resultado e menos trabalho. A comunicação principal é calibrada nela.</li>
-      <li><strong>As duas mentorias de maio.</strong> Como cada uma chegou até você, o que ela disse na call e quanto tempo levou. São os dois únicos casos de R$ 9.999 que esse funil produziu, e eles valem mais que qualquer referência de mercado.</li>
+      <li><strong>Como chegaram as duas mentorias de maio.</strong> Por onde cada uma veio, o que ela disse na call e quanto tempo levou. São os dois casos mais recentes do produto principal, e valem mais que qualquer referência de mercado.</li>
     </ul>
 
-    <p>Do nosso lado seguem em paralelo, sem depender da sua resposta: a correção do documento de estratégia, o conserto do registro de leads e o desligamento do AD12.</p>
+    <p>Se você tiver gravação de call com uma mentorada de cada quadro, melhor ainda: com isso eu troco a linguagem que escrevi pela que essas mulheres usam de verdade, e os laudos passam a soar como você, não como a minha interpretação de você.</p>
   </div>
 </section>
 
