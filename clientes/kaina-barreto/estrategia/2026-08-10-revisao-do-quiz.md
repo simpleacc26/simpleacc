@@ -58,17 +58,18 @@ O Team Garin abre com uma tela que reposiciona o quiz antes de começar, e é o 
 > de cadastro. Responde com calma e com sinceridade, principalmente nas que doem.
 > **[COMEÇAR MEU DIAGNÓSTICO]**
 
-### 3. Falta uma pergunta aberta
+### 3. ~~Pergunta aberta~~ · avaliada e descartada
 
-Todas as 4 são de múltipla escolha. Isso é rápido, mas não gera nenhum texto na voz do lead, e
-texto na voz do lead é o que faz a abordagem do WhatsApp parecer humana em vez de robô.
+Eu tinha recomendado incluir uma pergunta aberta, no modelo do Team Garin, para gerar texto na
+voz do lead e alimentar a abordagem no WhatsApp.
 
-> **"Se você pudesse destravar uma coisa só no seu corpo hoje, qual seria? E o que isso muda na sua vida?"**
-> *(Escreve com detalhe. É a partir daqui que eu monto seu diagnóstico, e eu leio todas.)*
+**Decisão do Daniel em 10/08: fica fora, para não perder volume de lead.** Campo de texto é o
+maior ponto de abandono de qualquer formulário, e a prioridade agora é encher a agenda.
 
-O Team Garin cola escassez aqui ("abro 10 vagas por mês") justamente pra fazer a pessoa
-escrever mais. **Só use escassez se for verdade** — no caso dele, é: ele tem teto real de agenda
-de calls, então "abro X avaliações por semana" é honesto.
+**O que se perde e como compensar:** perde-se a fala espontânea da pessoa antes do contato. A
+compensação é a primeira mensagem do WhatsApp, que passa a ter essa função: ela abre nomeando a
+trava e faz uma pergunta que obriga a pessoa a escrever. É a mesma matéria-prima, colhida um
+passo depois.
 
 ### 4. Falta barra de progresso
 
@@ -102,12 +103,13 @@ E tem o dado do próprio negócio dele: o gargalo **não é volume de lead bruto
 qualificado**. Ele já teve 20 leads que viraram 4 calls. Não adianta encher de gente que
 completa rápido; adianta chegar menos gente e mais gente certa.
 
-**Recomendação: 7 perguntas.** As 4 dele, mais as duas que faltam, mais a segmentação corrigida.
-Ainda fica abaixo dos concorrentes e ganha a qualificação que falta.
+**Recomendação: 6 perguntas.** As 4 dele, mais a de tempo de travamento e a de quanto já gastou,
+com a segmentação da primeira corrigida. Fica bem abaixo dos concorrentes (que rodam de 8 a 12)
+e ainda assim ganha a qualificação financeira que faltava.
 
 ---
 
-## Versão recomendada — 7 perguntas
+## Versão recomendada — 6 perguntas
 
 **Tela 0 · Boas-vindas** *(texto acima)*
 
@@ -147,17 +149,14 @@ Ainda fica abaixo dos concorrentes e ganha a qualificação que falta.
 - Já gastei com personal ou nutricionista, mas não continuei
 - Tenho acompanhamento com outra pessoa agora, mas estou insatisfeito ou o contrato tá perto de acabar
 
-**6 · Aberta** ⭐ *(nova)*
-"Se você pudesse destravar uma coisa só no seu corpo hoje, qual seria? E o que isso muda na sua vida?"
-
-**7 · Urgência** *(dele, sem mexer)*
+**6 · Urgência** *(dele, sem mexer)*
 "O quanto você quer ajustar isso agora?"
 - Muito, não aguento mais esperar
 - Bastante, mas consigo esperar mais um pouco
 - Moderado, sem muita pressa
 - Ainda só queria entender melhor, por enquanto
 
-**Captura:** nome + WhatsApp *(depois das 7, nunca antes)*
+**Captura:** nome + WhatsApp *(depois das 6, nunca antes)*
 
 ---
 
@@ -182,7 +181,7 @@ Isso é específico, é dele, e nenhum concorrente consegue copiar sem copiar o 
 
 ## Pendências para fechar
 
-- [ ] Confirmar com ele se topa ir de 4 para 7 perguntas (é a única mudança que muda o resultado dele)
+- [ ] Confirmar com ele se topa ir de 4 para 6 perguntas (é a única mudança que muda o resultado dele)
 - [ ] Definir se a escassez é real: quantas avaliações por semana ele aguenta de fato?
 - [ ] Em qual ferramenta ele vai montar (os concorrentes usam leadfy, yayforms e inlead) — ou página própria, que seria diferencial visual
 - [ ] Ler o relatório de execução dele (artifact) para cruzar com os buckets que ele já definiu
