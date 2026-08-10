@@ -19,9 +19,9 @@
 
 var CABECALHO = [
   "Data/Hora", "Nome", "WhatsApp", "E-mail",
-  "IDR", "Faixa IDR", "Perfil do Lead", "Gargalo",
-  "Situação", "Cobrança", "Problema", "Implicação", "Tentativas", "Objetivo",
-  "Especialidade", "Faturamento", "Frente", "Origem",
+  "IDR", "Faixa IDR", "Perfil do Lead", "Classificação", "Gargalo",
+  "Situação", "Cobrança", "Problema", "Há quanto tempo", "Implicação", "Tentativas", "Objetivo",
+  "Especialidade", "Faturamento", "Prontidão", "Frente", "Origem",
   "UTM Source", "UTM Medium", "UTM Campaign", "UTM Content", "UTM Term"
 ];
 
@@ -48,15 +48,18 @@ function doPost(e) {
       d.idr === 0 ? 0 : (d.idr || ""), // IDR
       d.faixa_idr || "",        // Faixa IDR
       d.perfil_lead || "",      // Perfil do Lead (ICP ou não)
+      d.classificacao || "",    // Classificação (fora / nutrir / qualificado)
       d.gargalo || "",          // Gargalo principal
       d.situacao || "",         // Situação
       d.cobranca || "",         // Cobrança
       d.problema || "",         // Problema
+      d.tempo || "",            // Há quanto tempo
       d.implicacao || "",       // Implicação
       d.tentativas || "",       // Tentativas
       d.objetivo || "",         // Objetivo
       d.especialidade || "",    // Especialidade
       d.faturamento || "",      // Faturamento
+      d.prontidao || "",        // Prontidão
       d.frente || "GES360",     // Frente
       d.origem || "",           // Origem
       d.utm_source || "",       // UTM Source
@@ -85,15 +88,18 @@ function _teste() {
   doPost({ postData: { contents: JSON.stringify({
     nome: "Dr. Teste Simple", whatsapp: "(48) 99911-2233", email: "teste@simpleacc.com.br",
     idr: 86, faixa_idr: "Dependência crítica", perfil_lead: "ICP (agendar diagnóstico)",
+    classificacao: "qualificado",
     gargalo: "modelo de receita",
     situacao: "Clínica ou consultório próprio, atendo e cuido de tudo",
     cobranca: "Só consulta avulsa",
     problema: "Dependo de consulta avulsa e não sobra no fim do mês",
+    tempo: "Vários anos, virou o jeito que a clínica funciona",
     implicacao: "Pior: mais cansado e com menos tempo para a família",
     tentativas: "Tráfego pago ou anúncios",
     objetivo: "Faturar mais sem aumentar o número de atendimentos",
     especialidade: "Nutrologia, medicina integrativa ou emagrecimento",
     faturamento: "De R$ 50 mil a R$ 100 mil",
+    prontidao: "Sim, quero resolver de vez e entendo que é um investimento",
     frente: "GES360", origem: "teste",
     utm_source: "meta", utm_medium: "cpc", utm_campaign: "ges360-diagnostico",
     utm_content: "angulo-dor", utm_term: "" }) } });

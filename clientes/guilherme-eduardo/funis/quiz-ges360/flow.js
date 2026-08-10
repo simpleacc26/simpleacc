@@ -3,9 +3,19 @@
    Toda a copy do quiz vive aqui. Copy aprovada na Estratégia
    Completa de 24/07/2026. Estrutura de índice nomeado (IDR)
    seguindo o modelo do Diagnóstico Executivo (IDE).
+   Estrutura invisível espelhada do quiz de alta conversão da
+   Pâmella (SPIN de 10 passos, qualificação no fim, tela de
+   loading, relatório com CTAs distribuídos), igual ao Felipe.
    Regra: zero travessões.
    ============================================================ */
 window.FLOW = {
+  config: {
+    storeKey: "ges360_funil_quiz",
+    frente: "GES360",
+    funil: "ges360",
+    diagnosticoUrl: "diagnostico.html",
+  },
+
   marca: {
     nome: "GES360",
     expert: "Guilherme Eduardo",
@@ -19,14 +29,18 @@ window.FLOW = {
     selo: "Diagnóstico GES360 · para médicos donos de clínica",
     titulo: "Descubra o que está travando o faturamento da sua clínica.",
     subtitulo:
-      "Responda 8 perguntas e receba o seu IDR, o Índice de Dependência de Receita, com o diagnóstico do que trava o seu faturamento hoje.",
-    tempo: "Leva 2 minutos · 8 perguntas · resultado na hora",
+      "Responda 10 perguntas e receba o seu IDR, o Índice de Dependência de Receita, com o diagnóstico do que trava o seu faturamento hoje.",
+    tempo: "Leva 2 minutos · resultado na hora",
     cta: "Começar meu diagnóstico",
   },
 
-  /* Cada opção tem:
+  /* Ordem SPIN: baixa fricção primeiro, qualificação (faturamento + prontidão)
+     por último, igual ao quiz da Pâmella e ao do Felipe.
+     Cada opção tem:
      - report: frase usada no relatório
-     - score:  peso no IDR (0 a 100, quanto maior, maior a dependência) */
+     - score:  peso no IDR (0 a 100, quanto maior, maior a dependência)
+     As perguntas "tempo" e "prontidao" não têm score: não entram no cálculo do
+     IDR, só na leitura do relatório e na qualificação do lead. */
   steps: [
     {
       id: "situacao",
@@ -75,6 +89,17 @@ window.FLOW = {
         { value: "sem-programa", label: "Não tenho um programa estruturado para oferecer",
           report: "não ter um programa estruturado para oferecer",
           gargalo: "estruturação da oferta", score: 90 },
+      ],
+    },
+    {
+      id: "tempo",
+      etapa: "Há quanto tempo",
+      pergunta: "Há quanto tempo a sua clínica funciona nesse modelo?",
+      options: [
+        { value: "recente", label: "Comecei nos últimos meses", report: "alguns meses" },
+        { value: "ano", label: "Mais de 1 ano", report: "mais de um ano" },
+        { value: "anos", label: "Vários anos, virou o jeito que a clínica funciona", report: "vários anos" },
+        { value: "sempre", label: "Desde que eu abri a clínica", report: "desde que você abriu a clínica" },
       ],
     },
     {
@@ -138,10 +163,22 @@ window.FLOW = {
       etapa: "Faturamento",
       pergunta: "Qual o faturamento mensal da sua clínica hoje?",
       options: [
-        { value: "ate-20", label: "Até R$ 20 mil", score: 90, icp: false },
-        { value: "20-50", label: "De R$ 20 mil a R$ 50 mil", score: 75, icp: false },
+        { value: "ate-20", label: "Até R$ 20 mil", score: 90, icp: false, foraDeArea: true },
+        { value: "20-50", label: "De R$ 20 mil a R$ 50 mil", score: 75, icp: false, foraDeArea: true },
         { value: "50-100", label: "De R$ 50 mil a R$ 100 mil", score: 55, icp: true },
         { value: "acima-100", label: "Acima de R$ 100 mil", score: 40, icp: true },
+      ],
+    },
+    {
+      id: "prontidao",
+      etapa: "O próximo passo",
+      pergunta:
+        "Você busca um processo estruturado para montar o seu modelo de receita recorrente, mesmo que represente um investimento maior do que um curso ou uma ferramenta?",
+      options: [
+        { value: "sim", label: "Sim, quero resolver de vez e entendo que é um investimento" },
+        { value: "entender", label: "Sim, mas preciso entender melhor como funciona antes" },
+        { value: "depois", label: "Ainda não é prioridade pra mim agora", nutrir: true },
+        { value: "pesquisando", label: "Só estou pesquisando por enquanto", nutrir: true },
       ],
     },
   ],

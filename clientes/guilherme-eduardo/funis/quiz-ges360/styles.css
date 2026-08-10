@@ -3,9 +3,9 @@
    Identidade: navy + dourado GES360, CTA verde
    ============================================================ */
 
-/* ╔══════════════════════════════════════════════════════════╗
+/* ╔════════════════════════════════════════════════════════╗
    ║  PALETA GES360 (navy + dourado). Ajuste os HEX aqui.      ║
-   ╚══════════════════════════════════════════════════════════╝ */
+   ╚════════════════════════════════════════════════════════╝ */
 :root {
   --bg:         #001824;  /* navy GES360 */
   --bg-2:       #00212F;  /* navy um tom acima */
@@ -141,6 +141,15 @@ h2 { font-size: 25px; line-height: 1.25; margin: 0 0 16px; }
 .btn:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
 .spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(255,255,255,.5); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; vertical-align: -3px; margin-right: 8px; }
 @keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---------- tela de carregamento (antes do diagnóstico) ---------- */
+.loading-card { text-align: center; padding: 42px 26px; }
+.loading-card .eyebrow { display: block; }
+.load-track { height: 10px; background: #12313F; border-radius: 99px; overflow: hidden; margin: 24px 0 4px; }
+.load-bar { height: 100%; width: 0; border-radius: 99px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+#load-msg { min-height: 1.5em; transition: opacity .2s; }
+@media (max-width: 520px){ .loading-card { padding: 32px 18px; } }
 
 /* ---------- resume banner ---------- */
 .resume { background: var(--gold-soft); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 16px; margin: 14px 0; font-size: 15px; }

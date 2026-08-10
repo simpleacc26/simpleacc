@@ -32,7 +32,24 @@
     .cta-box { background: linear-gradient(160deg,#0C2F3E,#0A2331); border: 1px solid var(--border);
                border-radius: var(--radius); padding: 24px; text-align: center; margin-top: 10px; }
     .clube { font-size: 15px; color: var(--muted); margin-top: 14px; }
-    .toolbar { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 4px 0 22px; }
+    /* CTA distribuído: aparece 3 vezes ao longo do relatório, não só no fim */
+    .cta-inline { text-align: center; margin: 22px 0; }
+    .cta-inline .btn { width: 100%; max-width: 420px; }
+    /* método GES360 */
+    .metodo { margin: 0; padding-left: 18px; }
+    .metodo li { margin: 0 0 8px; }
+    .metodo strong { color: var(--gold-light); }
+    /* bloco de autoridade (Quem é o Guilherme) */
+    .autor { display: flex; align-items: center; gap: 15px; margin: 2px 0 14px; }
+    .autor-foto { width: 92px; height: 92px; flex: 0 0 92px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); }
+    .autor-nome { display: block; font-family: var(--font-serif); font-size: 19px; font-weight: 700; letter-spacing: .05em; color: var(--gold-light); line-height: 1.15; }
+    .autor-cargo { display: block; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
+    .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0 6px; }
+    .cred { border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--gold-soft); padding: 13px 14px; }
+    .cred .n { font-family: var(--font-serif); font-size: 21px; font-weight: 700; color: var(--gold-light); line-height: 1.05; }
+    .cred .d { font-size: 12.5px; color: var(--muted); margin-top: 3px; }
+    .cred.full { grid-column: 1 / -1; }
+    @media (max-width: 520px){ .cred-grid { grid-template-columns: 1fr; } }
     @media (max-width: 520px){ .compare { grid-template-columns: 1fr; } }
     @media print {
       .no-print { display: none !important; }
@@ -52,10 +69,8 @@
   </header>
 
   <main class="container">
-    <div class="toolbar no-print">
-      <button class="btn btn-primary" id="whatsapp">Falar com o Guilherme no WhatsApp</button>
-      <button class="btn btn-ghost" id="pdf">Baixar PDF</button>
-    </div>
+    <!-- Sem barra de "Baixar PDF" no topo: a ação vem dos CTAs distribuídos
+         dentro do relatório (mesmo padrão do quiz da Pâmella e do Felipe). -->
     <div class="card screen" id="report"><!-- preenchido por diagnostico.js --></div>
   </main>
 
