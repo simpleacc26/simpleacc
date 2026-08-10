@@ -47,11 +47,23 @@ definido, e de propósito. A análise dos dois lados está pronta em
 
 ## Projetos / entregas
 
-| Projeto | Pasta | Status | Deploy |
-| ------- | ----- | ------ | ------ |
-| Canvas do Produto + Cliente Ideal (preenchido, 2 produtos) | `contexto/2026-08-06-canvas-preenchido.html` | pronto — **upload ao Drive pendente de confirmação do nome** | — |
-| Análise "qual produto entra primeiro" | `estrategia/` | pronto para a reunião de segunda | — |
+| Projeto | Pasta | Status | Entrega |
+| ------- | ----- | ------ | ------- |
+| Canvas do Produto + Cliente Ideal (preenchido, 2 produtos) | `contexto/2026-08-06-canvas-preenchido.html` | entregue | [Google Doc](https://docs.google.com/document/d/1TCGdkmiB7ZTT7yjQNLnaCjQXOPCnQH6WssocXS6E6OQ/edit) em "1. Documentos" |
+| Análise "qual produto entra primeiro" (INTERNO) | `estrategia/2026-08-06-analise-priorizacao-interno.html` | entregue | [Google Doc](https://docs.google.com/document/d/1xF9tPNjHz4BV1zrC0z6hpJKxWdUCONxMFXu8Y9Zyz1M/edit) em "3. Estratégia e Tráfego" |
+| Análise em markdown (fonte da versão interna) | `estrategia/2026-08-06-analise-qual-produto-entra-primeiro.md` | pronto para a reunião de segunda | — |
 | Base de contexto + fontes brutas | `contexto/` | v1 | — |
+
+> **Separação deliberada:** o Doc de "1. Documentos" é a versão que pode ir ao
+> Rafael (canvas dos 2 produtos, observações do agente, próximos passos em tom
+> neutro). O Doc de "3. Estratégia e Tráfego" é **interno** — tem as avaliações
+> francas e **não deve ser compartilhado com o cliente**.
+>
+> **Atenção ao compartilhamento:** os dois Docs novos herdaram a permissão da
+> pasta (privada, dono carlos.duraes) — **não** o link público que o canvas
+> original tem. Ou seja, o Rafael **não** enxerga o canvas preenchido até que
+> alguém compartilhe com ele de propósito. Isso é bom para o Doc interno e é um
+> passo a fazer para o Doc do canvas.
 
 ## Observações
 

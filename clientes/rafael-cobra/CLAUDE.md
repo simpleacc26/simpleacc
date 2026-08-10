@@ -67,8 +67,14 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
 ## Links
 - **Pasta no Drive:** [Simple <> Rafael Cobra](https://drive.google.com/drive/folders/17kNi9YSfqKd7N33T-_LYXKIKi_YBrQ2M)
 - **Canvas original (vazio, não editar):** [Google Doc](https://docs.google.com/document/d/19lqengtPOwiI3ehD9RtrE8jcpeenYUz5R0W_JwQrEBI/edit)
-- **Canvas preenchido:** `contexto/2026-08-06-canvas-preenchido.html` — _(upload
-  para o Drive pendente de confirmação do nome com o Carlos/Daniel)_
+- **Canvas preenchido (pode ir ao cliente):** [Google Doc](https://docs.google.com/document/d/1TCGdkmiB7ZTT7yjQNLnaCjQXOPCnQH6WssocXS6E6OQ/edit)
+  · fonte: `contexto/2026-08-06-canvas-preenchido.html`
+- **Análise de priorização (INTERNO — não compartilhar):** [Google Doc](https://docs.google.com/document/d/1xF9tPNjHz4BV1zrC0z6hpJKxWdUCONxMFXu8Y9Zyz1M/edit)
+  · fonte: `estrategia/2026-08-06-analise-priorizacao-interno.html`
+
+> **Dois documentos, de propósito.** O canvas é a versão que pode ir ao Rafael;
+> a análise tem avaliações francas e fica na Simple. Ao atualizar qualquer um,
+> mexa no HTML do repo e **suba um Doc novo** — o MCP do Drive não edita no lugar.
 
 ## Contatos
 - **Cliente:** Rafael Cobra — _(WhatsApp/e-mail a preencher)_
