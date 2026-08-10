@@ -77,7 +77,12 @@ objetivo 0.5). Faixas: 78+ crítica · 60 a 77 alta · 40 a 59 moderada · abaix
    abrir a planilha → Extensões → Apps Script → colar `integracao-planilha.gs` → Implantar como
    App da Web ("Qualquer pessoa") → copiar a URL `/exec` → colar em `app.js` na constante
    `LEADS_ENDPOINT` → republicar → enviar um lead de teste e conferir a linha na planilha.
-3. **Depoimentos reais** no relatório (hoje os cases estão em texto, sem print/vídeo).
+3. ✅ **Depoimentos reais** no relatório: 8 prints do Dr. Kayo, servidos 3 por lead conforme o
+   gargalo e o objetivo (ver `depoimentos/README.md`).
+   ⚠️ **Ainda não estão no ar.** O código e as imagens estão no repo e testados, mas o deploy
+   pelo MCP da Vercel manda os arquivos embutidos e 528 KB de imagem não passam por ali. Para
+   publicar: ligar o projeto `diagnostico-ges360` ao repositório no painel da Vercel (aí todo
+   push publica sozinho) ou rodar `vercel deploy --prod` desta pasta pelo CLI.
 4. **Foto do Guilherme** no bloco "Quem é o Guilherme". O CSS `.autor-foto` já está pronto: basta
    colocar `guilherme.webp` na pasta e adicionar
    `<img class="autor-foto" src="guilherme.webp" alt="Guilherme Eduardo" />` dentro de `.autor`,

@@ -109,6 +109,54 @@ if (!a._completedAt && !a.problema) {
   /* CTA reutilizável, distribuído pela página (o lead clica quando se sentir pronto) */
   const ctaInline = `<div class="cta-inline"><button class="btn btn-primary cta-wpp">${ctaLabel}</button></div>`;
 
+  /* ---------- Depoimentos (prints reais do Dr. Kayo, com autorização) ----------
+     São servidos por gargalo e por objetivo, igual ao CTA: o lead vê a prova que
+     responde exatamente à objeção dele, não uma galeria genérica.
+     Só entram prints SEM nome de paciente. Ver depoimentos/README.md. */
+  const PRINTS = {
+    /* Atenção: este print é do dia 22/05, com o mês ainda em curso (R$ 64.761).
+       A legenda diz isso de propósito: sem essa frase o número parece
+       contradizer o R$ 86.771 do fechamento citado logo acima. */
+    tabela:   { src: "kayo-4756.webp", w: 720, h: 1256,
+      cap: "Antes de começar, ele tinha medo de que ninguém fosse pagar pelos programas. Este print é do dia 22 de maio, com o mês ainda em curso: fechou em R$ 86.771." },
+    resultado:{ src: "kayo-4761.webp", w: 720, h: 1256,
+      cap: "O fechamento do mês: R$ 86.771. A resposta dele foi \"inacreditável, minha ficha não caiu\"." },
+    preco:    { src: "kayo-4750.webp", w: 720, h: 1256,
+      cap: "Sobre o medo de que o paciente ache caro: \"ninguém pediu desconto, ninguém achou caro\"." },
+    conversao:{ src: "kayo-4748.webp", w: 720, h: 735,
+      cap: "Três pacientes atendidos, três programas fechados. Quando perguntamos o que mudou: \"minha confiança e a forma de entregar\"." },
+    oferta:   { src: "kayo-4747.webp", w: 720, h: 735,
+      cap: "Com o programa estruturado e o preço definido: 3 programas fechados em um único dia, com 100% de conversão." },
+    plantao:  { src: "kayo-4763.webp", w: 720, h: 1256,
+      cap: "Ele dava plantão de 18 horas na UTI às terças por R$ 1.500. Nesta terça, fechou um programa de R$ 9 mil na própria clínica." },
+    perfil:   { src: "kayo-4767.webp", w: 720, h: 735,
+      cap: "Um programa de R$ 4.400 e dois de R$ 3.000, com três pacientes novos que ele mesmo classificaria como \"sem perfil\"." },
+    /* Mesmo caso do print da tabela: aqui o mês estava em R$ 75.571 (+268%),
+       e por isso a legenda situa a data. No fechamento virou +322%. */
+    retorno:  { src: "kayo-4759.webp", w: 720, h: 1256,
+      cap: "Conversa do meio de maio, com o mês em R$ 75.571. Sobre o investimento na implementação, a resposta dele: \"dentre todos os investimentos que eu fiz, esse foi o de maior retorno\"." },
+  };
+  /* 2º print: responde ao gargalo apontado na P3 */
+  const porGargalo = {
+    "modelo de receita": PRINTS.resultado,
+    "precificação e apresentação do programa": PRINTS.preco,
+    "conversão dentro da consulta": PRINTS.conversao,
+    "estruturação da oferta": PRINTS.oferta,
+  }[gargalo] || PRINTS.resultado;
+  /* 3º print: responde ao objetivo declarado na P7 */
+  const porObjetivo = {
+    "sair-plantao": PRINTS.plantao,
+    "vender-natural": PRINTS.perfil,
+  }[valor("objetivo")] || PRINTS.retorno;
+
+  const figura = (p) => `
+      <figure class="depo-shot">
+        <img src="depoimentos/${p.src}" width="${p.w}" height="${p.h}" loading="lazy" decoding="async"
+             alt="Print de conversa no WhatsApp com o Dr. Kayo Andrade" />
+        <figcaption>${p.cap}</figcaption>
+      </figure>`;
+  const galeriaDepoimentos = [PRINTS.tabela, porGargalo, porObjetivo].map(figura).join("");
+
   report.innerHTML = `
     <div class="report-head">
       <span class="selo">Diagnóstico personalizado</span>
@@ -230,13 +278,13 @@ if (!a._completedAt && !a.problema) {
 
     <div class="etapa">
       <h3>Isso já aconteceu antes</h3>
-      <div class="depo">Uma clínica saiu de R$ 20.546 em abril para R$ 86.771 em maio e sustentou
-      R$ 71.800 em junho, sem aumentar dias de atendimento. O que mudou não foi a agenda, foi o
-      modelo de receita.</div>
-      <div class="depo">Em outro caso, foram 3 programas apresentados e 3 fechados no mesmo dia,
-      somando R$ 16 mil em um único dia de atendimento.</div>
+      <p>O Dr. Kayo Andrade é médico e aplicou o GES360 dentro da própria clínica. Ele saiu de
+      <strong>R$ 20.546 em abril para R$ 86.771 em maio</strong>, e sustentou R$ 71.800 em junho,
+      sem aumentar um único dia de atendimento. Abaixo estão as conversas, publicadas com
+      autorização dele.</p>
+      ${galeriaDepoimentos}
       <p class="hint">O que esses casos têm em comum: nenhum deles precisou de mais pacientes
-      para faturar mais.</p>
+      para faturar mais. O que mudou foi o modelo de receita.</p>
     </div>
 
     <div class="cta-box">
