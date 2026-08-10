@@ -107,8 +107,8 @@ autossabotagem toda semana e quer resolver a causa, não só aliviar por mais
 um tempo. Pra quem está pronta pra um processo estruturado, não pra mais uma
 sessão avulsa.
 
-**CTA:** Se isso é você, quero te conhecer. Faça a leitura emocional gratuita
-e eu te mostro o caminho.
+**CTA:** Se isso é você, toque em Saiba mais e faça sua leitura emocional
+gratuita. Eu te mostro o caminho.
 
 > Nota: esta é a peça mais próxima em estrutura ao criativo "Procuro por..."
 > que já performou bem, só que qualifica **e desqualifica** com mais clareza
@@ -145,7 +145,8 @@ novo.
 A hipnoterapia clínica vai direto no furo. Acessa a origem, ressignifica e
 reprograma, pra você parar de encher o balde toda semana.
 
-**CTA:** Faça a leitura emocional gratuita e descubra onde está o seu furo.
+**CTA:** Toque em Saiba mais e faça a leitura emocional gratuita. Descubra
+onde está o seu furo.
 
 ---
 
@@ -153,29 +154,33 @@ reprograma, pra você parar de encher o balde toda semana.
 
 | Campo | |
 |---|---|
-| **Status** | Rascunho, falta inserir print de avaliação real |
+| **Status** | Rascunho para revisão, print real já localizado |
 | **Produto** | Sessão de Avaliação → leitura emocional (quiz) |
 | **Público** | Fundo, cético quanto a funcionar pro caso dela |
 | **Formato** | Estático |
-| **Sugestão de visual** | Print real de avaliação 5 estrelas (já existem 8 em `depoimentos/01.jpeg` a `08.jpeg` no funil) ao lado de uma foto da Pâmella |
+| **Sugestão de visual** | Print real de WhatsApp de paciente (pasta **Depoimentos** no Drive da cliente, `Simple <> Pâmella Mello / 2. Material Visual / Depoimentos`, arquivo `WhatsApp Image 2026-06-29 at 08.47.45 (3).jpeg`), ao lado de uma foto da Pâmella. É um relato real, não uma nota em estrelas |
 
 **Hooks para teste:**
 1. Ela também achou que não tinha jeito.
-2. Nota 5 estrelas de quem jurava que já tinha tentado de tudo.
-3. Não sou eu quem digo. São elas.
+2. "Nunca pensei que fosse possível me sentir assim."
+3. Não sou eu quem digo. É quem já viveu isso.
 
 **Copy (legenda):**
 
-[Inserir print real de avaliação 5 estrelas, de preferência de paciente que
-já tinha feito terapia convencional por anos antes de chegar até aqui]
+[Print real, mensagem de paciente após a primeira sessão: "Me senti ótima...
+foi libertador. Te juro, nunca pensei que fosse possível me sentir assim.
+Uma paz, aquela certeza de que cada dia irei ficar melhor." Arquivo
+`WhatsApp Image 2026-06-29 at 08.47.45 (3).jpeg`, pasta Depoimentos no
+Drive]
 
-Toda vez que eu leio uma avaliação dessas, penso na mesma coisa: quantas
+Toda vez que eu leio uma mensagem dessas, penso na mesma coisa: quantas
 pessoas ainda não sabem que existe um caminho diferente pra elas.
 
 Se você também já tentou de tudo e sente que o padrão sempre volta, talvez a
 diferença não esteja em tentar mais, e sim em tentar de um jeito diferente.
 
-**CTA:** Faça a leitura emocional gratuita e descubra o seu caminho.
+**CTA:** Toque em Saiba mais e faça a leitura emocional gratuita. Descubra o
+seu caminho.
 
 ---
 
@@ -203,8 +208,8 @@ Cada slide deve ter no máximo 1-2 frases (regra de pouco texto por card).
 7. **Mecanismo:** A hipnoterapia clínica trabalha exatamente aí, na raiz. Um
    processo com começo, meio e fim, não mais uma sessão pra aliviar essa
    semana.
-8. **CTA:** Descubra o que ainda não foi tratado em você. Arrasta pro link e
-   faça sua leitura emocional gratuita, leva 2 minutos.
+8. **CTA:** Descubra o que ainda não foi tratado em você. Toque em Saiba
+   mais e faça sua leitura emocional gratuita, leva 2 minutos.
 
 ---
 
@@ -226,8 +231,9 @@ Cada slide deve ter no máximo 1-2 frases (regra de pouco texto por card).
 5. É pra quem quer resolver a causa, não só aliviar por mais um tempo.
 6. Não é pra quem busca uma sessão avulsa, sem compromisso com o processo.
 7. Minha agenda é pequena de propósito. Prefiro profundidade a volume.
-8. **CTA:** Se você se reconheceu até aqui, faz a leitura emocional gratuita.
-   Em 2 minutos eu te mostro se faz sentido a gente conversar.
+8. **CTA:** Se você se reconheceu até aqui, toque em Saiba mais e faça a
+   leitura emocional gratuita. Em 2 minutos eu te mostro se faz sentido a
+   gente conversar.
 
 ---
 
@@ -250,8 +256,8 @@ Cada slide deve ter no máximo 1-2 frases (regra de pouco texto por card).
 6. E você volta a se sentir exatamente onde estava antes.
 7. **Mecanismo:** A hipnoterapia clínica vai direto no furo. Investiga a
    origem, ressignifica e reprograma o padrão.
-8. **CTA:** Chega de encher o balde toda semana. Faz a leitura emocional
-   gratuita e descubra onde está o seu furo.
+8. **CTA:** Chega de encher o balde toda semana. Toque em Saiba mais, faça a
+   leitura emocional gratuita e descubra onde está o seu furo.
 
 ---
 
@@ -259,21 +265,26 @@ Cada slide deve ter no máximo 1-2 frases (regra de pouco texto por card).
 
 | Campo | |
 |---|---|
-| **Status** | Rascunho, falta inserir prints reais |
+| **Status** | Rascunho para revisão, prints reais já localizados |
 | **Produto** | Sessão de Avaliação → leitura emocional (quiz) |
 | **Público** | Fundo, cético |
 | **Slides** | 8 |
+| **Fonte dos prints** | Drive `Simple <> Pâmella Mello / 2. Material Visual / Depoimentos` (21 prints reais de WhatsApp, sem uso em anúncio ainda) |
 
 1. **Capa:** Ela também achou que não tinha jeito.
-2. [Print real de avaliação 1]
+2. [Print real, mensagem de paciente: "Estou me sentindo aliviada, feliz e
+   com o coração leve... essa sessão foi libertadora. Sinto que é o início
+   de uma nova vida!" Arquivo `WhatsApp Image 2026-06-29 at 08.47.45 (2).jpeg`]
 3. Fez terapia convencional por anos. Achou que aquilo era só como ela era.
-4. [Print real de avaliação 2]
-5. Toda vez que eu leio uma avaliação dessas, penso na mesma coisa.
+4. [Print real, mensagem de outra paciente: "A segunda sessão foi
+   excelente! Já comecei a notar algumas mudanças reais no meu dia a dia!"
+   Arquivo `WhatsApp Image 2026-06-29 at 08.47.44 (1).jpeg`]
+5. Toda vez que eu leio uma mensagem dessas, penso na mesma coisa.
 6. Quantas pessoas ainda não sabem que existe um caminho diferente pra elas.
 7. A diferença não está em tentar mais. Está em tentar de um jeito
    diferente, que vai até a origem emocional do padrão.
-8. **CTA:** Se você se reconheceu em alguma dessas histórias, faz a leitura
-   emocional gratuita. É o primeiro passo.
+8. **CTA:** Se você se reconheceu em alguma dessas histórias, toque em
+   Saiba mais e faça a leitura emocional gratuita. É o primeiro passo.
 
 ---
 
@@ -323,8 +334,8 @@ fim. Na maioria dos casos, isso acontece em até 3 meses."
 
 **[CTA]**
 "Se você já perdeu tempo demais tentando sozinha, deixa eu te mostrar o
-caminho. Clica no link, faz a leitura emocional gratuita, leva 2 minutos, e
-eu te conto exatamente o que ainda não foi tratado em você."
+caminho. Toca em Saiba mais, faz a leitura emocional gratuita, leva 2
+minutos, e eu te conto exatamente o que ainda não foi tratado em você."
 
 **Nota de produção:** ambiente acolhedor da clínica, tom de conversa próxima,
 sem cortes bruscos. Deixar meio segundo de pausa antes de "Não é falta de
@@ -374,9 +385,9 @@ poder ir fundo com cada uma."
 investiga, ressignifica e reprograma, num processo com começo, meio e fim."
 
 **[CTA]**
-"Se você se reconheceu até aqui, eu quero te conhecer. Clica no link, faz a
-leitura emocional gratuita, e eu te mostro se faz sentido a gente dar esse
-próximo passo juntas."
+"Se você se reconheceu até aqui, eu quero te conhecer. Toca em Saiba mais,
+faz a leitura emocional gratuita, e eu te mostro se faz sentido a gente dar
+esse próximo passo juntas."
 
 **Nota de produção:** tom mais sério e direto na abertura (a desqualificação
 gera autoridade), suaviza no CTA final. Câmera fixa, sem cortes de cena.
@@ -423,8 +434,8 @@ reprograma a resposta emocional, num processo com começo, meio e fim."
 
 **[CTA]**
 "Se você já perdeu a conta de quantas vezes encheu o balde, talvez seja hora
-de tampar o furo. Clica no link, faz a leitura emocional gratuita, e eu te
-mostro exatamente onde ele está."
+de tampar o furo. Toca em Saiba mais, faz a leitura emocional gratuita, e eu
+te mostro exatamente onde ele está."
 
 **Nota de produção:** usar gesto físico ou objeto real pra reforçar a
 metáfora visualmente. Câmera fixa, tom explicativo e calmo, quase didático,
@@ -436,9 +447,10 @@ sem pressa.
 
 | Campo | |
 |---|---|
-| **Status** | Rascunho, falta inserir depoimento real |
+| **Status** | Rascunho para revisão, depoimentos reais já localizados |
 | **Duração alvo** | ~80s |
-| **Formato** | Reels, Pâmella mostrando print de avaliação na tela |
+| **Formato** | Reels, Pâmella mostrando print de WhatsApp na tela |
+| **Fonte dos depoimentos** | Drive `Simple <> Pâmella Mello / 2. Material Visual / Depoimentos` |
 
 **Aberturas alternativas:**
 1. "Eu quero te mostrar uma coisa que recebi essa semana."
@@ -451,9 +463,11 @@ Pâmella mostrando o celular pra câmera: "Eu quero te mostrar uma coisa que
 recebi essa semana."
 
 **[Desenvolvimento]**
-"[Ler ou parafrasear um depoimento real de avaliação, de preferência de
-alguém que fez terapia convencional por anos, achava que aquilo era só do
-jeito dela, e depois do processo se sentiu uma pessoa nova]
+"[Ler ou parafrasear a mensagem real: "Me senti ótima... foi libertador. Te
+juro, nunca pensei que fosse possível me sentir assim. Uma paz, aquela
+certeza de que cada dia irei ficar melhor." Arquivo `WhatsApp Image
+2026-06-29 at 08.47.45 (3).jpeg`, mensagem enviada logo após a primeira
+sessão]
 
 Toda vez que eu leio uma mensagem dessas, eu penso na mesma coisa. Quantas
 pessoas ainda estão exatamente onde essa paciente estava há um tempo atrás,
@@ -465,18 +479,21 @@ diferente. Um processo que vai até a origem emocional do padrão, não só até
 o sintoma."
 
 **[Prova adicional]**
-"E não é só ela. Tem outras histórias parecidas, de pessoas que carregaram
-alguma coisa por anos e que, num processo de poucos meses, sentiram uma
-virada de verdade. [inserir trecho breve de um segundo depoimento real]"
+"E não é só ela. [Ler trecho breve de um segundo depoimento real: "Estou me
+sentindo em paz, leve, e uma certeza imensa de que vou ficar cada dia
+melhor... hoje sei que vou escrever vários capítulos novos na minha vida,
+porque sou capaz." Arquivo `WhatsApp Image 2026-06-29 at 08.47.44.jpeg`]"
 
 **[CTA]**
 "Se você se reconheceu em alguma dessas histórias, eu quero te mostrar o
-caminho também. Clica no link, faz a leitura emocional gratuita, e vamos
-entender juntas o seu cenário."
+caminho também. Toca em Saiba mais, faz a leitura emocional gratuita, e
+vamos entender juntas o seu cenário."
 
-**Nota de produção:** usar prints reais de avaliação em tela cheia por 2-3
-segundos cada, com a voz da Pâmella narrando por cima. Tom emocionado, sem
-performar demais.
+**Nota de produção:** usar os prints reais em tela cheia por 2 a 3 segundos
+cada, com a voz da Pâmella narrando por cima. Tom emocionado, sem performar
+demais. Antes de gravar, confirmar com a Pâmella se pode usar esses dois
+prints especificamente (nome/rosto da paciente, se aparecer, deve ser
+coberto ou recortado).
 
 ---
 
@@ -514,13 +531,19 @@ Gatilhos principais: ancoragem/contraste (A), autoridade/especificidade (B),
 
 ## Pendências antes de publicar
 
-- [ ] Inserir prints reais de avaliação nas peças #E04, #C04 e #V04 (fonte:
-      `depoimentos/01.jpeg` a `08.jpeg` do funil, ou avaliações mais recentes
-      do Google/Instagram da clínica).
+- [x] **Prints reais para as peças #E04, #C04 e #V04.** Localizados no Drive
+      em `Simple <> Pâmella Mello / 2. Material Visual / Depoimentos` (21
+      prints reais de mensagens de pacientes no WhatsApp, ainda sem uso em
+      anúncio). São diferentes dos 8 depoimentos que já estão embutidos na
+      página pós-quiz (`depoimentos/01.jpeg` a `08.jpeg` no funil), então dá
+      pra usar sem repetir criativo já visto por quem completou o quiz.
+      Arquivos escolhidos e citações exatas estão em cada peça acima.
+- [ ] Antes de publicar, confirmar com a Pâmella se pode usar os prints
+      específicos escolhidos (nome/rosto da paciente, se aparecer no print,
+      precisa ser coberto ou recortado).
 - [ ] Validar com Renan/Carlos qual ângulo entra primeiro em teste, dado o
       volume de verba disponível esta semana.
-- [ ] Confirmar se o CTA deve sempre apontar para o quiz (`funil-hipnose.vercel.app`,
-      padrão atual e recomendado, mantém pixel/planilha de leads íntegros) ou
-      se algum ângulo testa CTA direto para o WhatsApp como no criativo de
-      referência "Procuro por..." (perde a qualificação e o rastreio do quiz,
-      usar com cautela).
+- [x] **CTA.** Decidido: todas as peças usam o botão **Saiba mais**,
+      levando para o quiz (`funil-hipnose.vercel.app`). Mantém pixel e
+      planilha de leads íntegros. Nenhuma peça testa CTA direto para o
+      WhatsApp.
