@@ -1,0 +1,11 @@
+node_modules
+dist
+.env
+.env.local
+*.local
+.DS_Store
+.vite
+*.tsbuildinfo
+
+# build estático gerado por ghl/build-site.sh
+ghl/site/

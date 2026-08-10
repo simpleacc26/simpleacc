@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Diagnóstico de Maturidade: a lógica de cada pergunta · ÚNICOS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#16314f;--navy700:#1e3d61;--gold:#a9802f;--gold300:#d4a84b;--brown:#2d1008;--orange:#d4601a;--bg:#faf8f4;--cream:#f3eee2;--card:#fff;--ink:#20272f;--muted:#5c6672;--line:#e6e1d6;--serif:'Playfair Display',Georgia,serif;--sans:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;}
+.wrap{max-width:820px;margin:0 auto;padding:0 24px;}
+.head{background:linear-gradient(180deg,#16314f,#1e3d61);color:#fff;padding:40px 0 34px;border-bottom:3px solid var(--gold);}
+.logo{display:inline-flex;flex-direction:column;margin-bottom:16px;}
+.logo .word{display:flex;align-items:flex-start;gap:3px;}
+.logo .word span{font-family:var(--serif);font-weight:700;font-size:1.5rem;color:#fff;letter-spacing:.04em;line-height:1;}
+.logo .sub{font-family:var(--serif);font-style:italic;font-size:.62rem;color:var(--gold300);letter-spacing:.22em;margin-top:2px;}
+.head .kick{font-family:var(--sans);text-transform:uppercase;letter-spacing:2px;font-size:11px;color:var(--gold300);font-weight:700;}
+.head h1{font-family:var(--serif);font-size:30px;line-height:1.2;margin:8px 0 6px;font-weight:700;}
+.head p{color:#cdd8e6;font-size:15px;}
+h2{font-family:var(--serif);color:var(--navy);font-size:23px;margin:34px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line);}
+h2 .n{color:var(--gold);font-size:18px;margin-right:8px;}
+h3{font-family:var(--serif);color:var(--navy700);font-size:18px;margin:22px 0 4px;}
+p{margin:9px 0;}
+ul,ol{margin:8px 0 12px 22px;}
+li{margin:4px 0;}
+strong{color:var(--navy700);}
+.lead{background:var(--cream);border-left:3px solid var(--gold);padding:14px 18px;margin:18px 0;font-size:15px;color:var(--navy700);}
+.chip{display:inline-block;font-family:var(--sans);font-size:10px;letter-spacing:1px;text-transform:uppercase;font-weight:700;padding:2px 9px;border-radius:20px;margin-left:6px;vertical-align:middle;}
+.c-com{background:#e9eef1;color:#3f5c66;border:1px solid #cdd9dd;}
+.c-qual{background:#f5ecd6;color:#8a6d1f;border:1px solid #e6d3a3;}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px;}
+thead th{background:var(--navy);color:#fff;text-align:left;padding:8px 10px;font-family:var(--sans);font-size:11px;letter-spacing:.5px;text-transform:uppercase;}
+tbody td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
+tbody tr:nth-child(even){background:#fbfaf6;}
+td.n{color:var(--gold);font-weight:700;text-align:center;width:26px;}
+.q{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:14px 0;box-shadow:0 8px 24px rgba(22,49,79,.06);}
+.q .qh{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;}
+.q .qh .id{font-family:var(--serif);color:var(--navy);font-size:18px;font-weight:700;}
+.q .txt{font-style:italic;color:var(--navy700);margin:8px 0;font-size:15px;}
+.q .role{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--gold);font-weight:700;}
+.q .opts{font-size:13px;color:var(--muted);margin:6px 0;}
+.q .why{font-size:14px;}
+.q .why b{color:var(--navy700);}
+.balde{background:#fbfaf6;border:1px solid var(--line);border-radius:10px;padding:12px 16px;margin:10px 0;}
+.balde .t{font-family:var(--serif);color:var(--navy);font-weight:700;}
+.foot{margin:36px 0 60px;padding-top:14px;border-top:1px solid var(--line);color:var(--muted);font-size:13px;font-style:italic;}
+.note{font-size:13px;color:var(--muted);}
+code{background:#eef1f6;border-radius:5px;padding:1px 6px;font-size:13px;color:var(--navy700);}
+</style></head>
+<body>
+<div class="head"><div class="wrap">
+  <div class="logo"><div class="word"><span>ÚNICOS</span>
+    <svg width="12" height="12" viewBox="0 0 20 20" fill="none" style="margin-top:2px"><path d="M10 0.5 C10 0.5 11.5 7.5 19.5 10 C11.5 12.5 10 19.5 10 19.5 C10 19.5 8.5 12.5 0.5 10 C8.5 7.5 10 0.5 10 0.5Z" fill="#d4601a"/></svg>
+  </div><span class="sub">Leadership Club</span></div>
+  <div class="kick">DOCUMENTO TÉCNICO · DIAGNÓSTICO DE MATURIDADE</div>
+  <h1>A lógica por trás de cada pergunta</h1>
+  <p>O que o Diagnóstico de Maturidade do Negócio segue, e o porquê de cada escolha. Base: os documentos de reformulação enviados pelo José (Guia da Nova Campanha, Diagnóstico v4, Página v8, Copies v6).</p>
+</div></div>
+
+<div class="wrap">
+
+<h2><span class="n">1.</span>O contexto e o princípio</h2>
+<p>Quatro meses de campanha entregaram <strong>359 leads, 0 compradores de mídia paga e 9 de 9 compradores por indicação</strong>. A régua do quiz chegou a marcar leads como MQL, mas o comercial não confirmou nenhum. O diagnóstico do José aponta a causa raiz, e é dela que este diagnóstico parte:</p>
+<div class="lead">O achado central: existem <strong>duas camadas de vocabulário que nunca podem se misturar</strong>. A camada de <strong>comunicação</strong> (dependência da presença, oportunidade que passa, o time que sabe e mesmo assim não anda) é a que o dono reconhece e nomeia. A camada de <strong>qualificação</strong> (papel, camada de liderança, faturamento) é técnica, o lead não nomeia como problema. Anúncio e página falam a primeira. O quiz e a régua usam a segunda, mas <em>vestida</em> na primeira, para o dono continuar se reconhecendo enquanto responde.</p>
+<p>Então o diagnóstico tem dois trabalhos ao mesmo tempo: <strong>contar uma história</strong> em que o dono se vê no espelho, e <strong>ser uma régua</strong> que separa dono de não-dono e mede o porte real. Cada pergunta faz uma das duas coisas, e a ordem delas é a jornada do próprio Framework de Comunicação: o dono que levou a empresa até aqui, mas hoje é o freio dela.</p>
+
+<h2><span class="n">2.</span>O arco (storytelling)</h2>
+<p>A ordem é a que o cliente enviou, e tem uma razão. A pessoa é impactada pelo anúncio (que fala da dor) e entra no diagnóstico já naquela expectativa. Por isso ele <strong>abre pela pergunta-chave de dor</strong>, não por qualificação: começar pedindo setor ou cargo quebraria a expectativa criada pelo anúncio. Os dados de porte vêm depois, quando o dono já está dentro da história. Funciona como um consultório: o lead <strong>relata</strong> e quem <strong>diagnostica</strong> o estágio e a situação é o especialista, a partir das respostas. O lead nunca se autodiagnostica.</p>
+<table>
+<thead><tr><th>#</th><th>Pergunta</th><th>Camada</th><th>O que faz na história</th></tr></thead>
+<tbody>
+<tr><td class="n">1</td><td>Dias sem depender de você</td><td>Comunicação</td><td><strong>Abre pela dor.</strong> Mantém a expectativa do anúncio: "quando saio, não anda".</td></tr>
+<tr><td class="n">2</td><td>Setor</td><td>Identificação</td><td>Baixa fricção; contextualiza a leitura por nicho.</td></tr>
+<tr><td class="n">3</td><td>Papel</td><td>Qualificação</td><td><strong>O filtro que realmente exclui.</strong> Dono x não-dono.</td></tr>
+<tr><td class="n">4</td><td>Camada de liderança + tamanho</td><td>Qualificação</td><td>Mede a dependência estrutural (quem decide abaixo de você) e o porte.</td></tr>
+<tr><td class="n">5</td><td>Como a decisão anda</td><td>Diagnóstico</td><td>Aprofunda o reconhecimento e alimenta o balde.</td></tr>
+<tr><td class="n">6</td><td>O que já tentou</td><td>Diagnóstico</td><td>Marcador de ICP ("já tentou antes") e prepara "seus padrões estão desatualizados".</td></tr>
+<tr><td class="n">7</td><td>Faturamento</td><td>Qualificação</td><td>Corte de porte, no fim.</td></tr>
+</tbody></table>
+<p class="note">Legenda de camada: <span class="chip c-com">Comunicação</span> o que o dono reconhece · <span class="chip c-qual">Qualificação</span> o que a régua precisa medir.</p>
+
+<h2><span class="n">3.</span>Pergunta a pergunta</h2>
+
+<div class="q"><div class="qh"><span class="id">Q1</span><span class="role">Abertura · a dor</span></div>
+<p class="txt">"Quantos dias seguidos a sua empresa roda sem ninguém precisar te ligar?"</p>
+<p class="opts">Nenhum, sempre me procuram · De um a três dias · Cerca de uma semana · Duas semanas ou mais</p>
+<p class="why"><b>O que segue:</b> a pergunta-chave de dor, no vocabulário de comunicação. <b>Por quê:</b> a pessoa vem do anúncio, que fala dessa dor. Abrir aqui <b>mantém a expectativa</b>; abrir com setor ou cargo (qualificação) quebraria. "Dias sem depender de você" é o que o dono sente no corpo e conecta direto com o anúncio ("quando você não está, não anda"). Também é o primeiro sinal do balde.</p></div>
+
+<div class="q"><div class="qh"><span class="id">Q2</span><span class="role">Identificação</span></div>
+<p class="txt">"Qual o setor da sua empresa?"</p>
+<p class="opts">Indústria · Serviços · Operações B2B · Comércio ou varejo · Outro</p>
+<p class="why"><b>O que segue:</b> a regra "porte é relativo ao setor" (Guia). <b>Por quê:</b> baixa fricção logo após a dor, e contextualiza a leitura de ICP por nicho (indústria e serviço não têm o mesmo porte de referência).</p></div>
+
+<div class="q"><div class="qh"><span class="id">Q3</span><span class="role">Filtro de dono · o corte real</span></div>
+<p class="txt">"Qual é o seu papel na empresa?"</p>
+<p class="opts">Dono ou sócio, decido os rumos · Sócio, participo das decisões · Diretor ou executivo, respondo ao dono · Nenhuma dessas</p>
+<p class="why"><b>O que segue:</b> a tese do Guia de que o corte que realmente exclui é o <b>de papel, não o de faturamento</b> (faturamento é autodeclarado e inflável; papel não). <b>Por quê:</b> foi por aqui que entrava o lead que o comercial não fechava. As duas primeiras opções seguem; <b>"Diretor/executivo" e "Nenhuma dessas" saem do agendamento</b> e vão para a comunidade.</p></div>
+
+<div class="q"><div class="qh"><span class="id">Q4</span><span class="role">Camada de liderança + porte</span></div>
+<p class="txt">"Quem coordena as áreas da sua empresa hoje?" + "Quantas pessoas trabalham na empresa hoje?"</p>
+<p class="opts">Ninguém, tudo passa por mim → Gestores que já lideram outros líderes · Até 20 → Mais de 300</p>
+<p class="why"><b>O que segue:</b> a estrutura por trás da dor. <b>Por quê:</b> "quem coordena abaixo de você" é a medida mais honesta e menos fraudável da dependência do dono. Duas partes na mesma tela para não alongar. Alimenta o balde e cruza com o porte.</p></div>
+
+<div class="q"><div class="qh"><span class="id">Q5</span><span class="role">Comportamento</span></div>
+<p class="txt">"Quando aparece uma decisão importante, o que costuma acontecer?"</p>
+<p class="opts">Resolvo eu mesmo · Acompanho de perto · O time decide e me reporta · O time decide sem me envolver</p>
+<p class="why"><b>O que segue:</b> o balde "decisões sozinho" da página v8. <b>Por quê:</b> mede o grau de gargalo decisório (o dono como funil de decisão) e é um dos principais insumos para o especialista escolher a situação dominante.</p></div>
+
+<div class="q"><div class="qh"><span class="id">Q6</span><span class="role">Marcador de ICP</span></div>
+<p class="txt">"O que você já tentou para resolver isso e não funcionou como esperava?"</p>
+<p class="opts">Mentoria/consultoria · Contratei gente de mercado · Implantei ERP/ferramentas · Tentei me afastar e voltei · Todas</p>
+<p class="why"><b>O que segue:</b> o marcador "já tentou antes" que o Guia lista como sinal de ICP. <b>Por quê:</b> filtra o comprador de primeira viagem e prepara a mensagem "seus padrões não estão errados, estão desatualizados". Cada opção aponta para um balde (ERP → processo, contratou gente → liderança, tentou se afastar → decisão).</p></div>
+
+<div class="q"><div class="qh"><span class="id">Q7</span><span class="role">Filtro de porte · no fim</span></div>
+<p class="txt">"Qual o faturamento anual da sua empresa?"</p>
+<p class="opts">Até R$1 milhão · De R$1 a R$3 milhões · De R$3 a R$10 milhões · De R$10 a R$30 milhões · Acima de R$30 milhões</p>
+<p class="why"><b>O que segue:</b> as faixas que o cliente enviou, com base na realidade operacional: empresas de R$1 a R$3 milhões têm a mesma estrutura e os mesmos problemas, por isso ficam numa faixa só. <b>Por quê:</b> é o corte de porte, deixado para o fim. "Até R$1 milhão" fica abaixo do piso e vai para a comunidade. A leitura de ICP por setor (indústria R$5M, serviço R$2M, do Guia) é aplicada por dentro, sem quebrar as faixas.</p></div>
+
+<h2><span class="n">4.</span>A régua de qualificação</h2>
+<p>Três cortes, nesta ordem de prioridade:</p>
+<ol>
+<li><strong>Papel (Q3):</strong> não-dono (executivo contratado ou "nenhuma dessas") não segue para o agendamento. Vai para o grupo da comunidade.</li>
+<li><strong>Piso de faturamento (Q7):</strong> "Até R$1 milhão" fica abaixo do piso absoluto e também vai para a comunidade.</li>
+<li><strong>Porte por setor (Q7):</strong> entre os que passam, a leitura de ICP do Guia (indústria R$5M, demais R$2M) marca internamente <code>pleno</code> ou <code>tier 2</code>, para a métrica de custo por lead aprovado. Não muda as faixas nem o que o lead vê.</li>
+</ol>
+
+<h2><span class="n">5.</span>Os baldes (as 4 situações)</h2>
+<p>O resultado que o lead vê é único: <strong>Estágio 2: No Limite</strong>. Mas por dentro o diagnóstico calcula qual das quatro situações da página é a <strong>dominante</strong> dele, para personalizar a leitura e orientar o comercial. Cada resposta soma pontos para um ou mais baldes; o de maior pontuação vence.</p>
+<div class="balde"><span class="t">Oportunidade que passa</span>: demanda maior que a capacidade. Puxado por porte alto e time grande com baixa autonomia.</div>
+<div class="balde"><span class="t">Falta liderança formada</span>: puxado por "tudo passa por mim", "contratei gente de mercado", time sem camada de coordenação.</div>
+<div class="balde"><span class="t">Decisões sozinho</span>: puxado por "resolvo eu mesmo", "tentei me afastar e voltei", nenhum dia de autonomia.</div>
+<div class="balde"><span class="t">Contratou processo, o time não mudou</span>: puxado por "implantei ERP/ferramentas", "mentoria/consultoria".</div>
+<p class="note">Os pesos ficam num único arquivo (<code>scoring</code>), fáceis de calibrar depois com dados reais. Empate resolve pela ordem em que as situações aparecem na página.</p>
+
+<h2><span class="n">6.</span>Aprovado, tier 2, desqualificado e a régua nova</h2>
+<p>A métrica do contrato deixou de ser "custo por lead" e passou a ser <strong>custo por lead aprovado, por criativo</strong>. Por isso cada resposta e cada evento carregam o resultado da régua e o criativo (utm_content):</p>
+<ul>
+<li><strong>Aprovado pleno:</strong> dono/sócio + porte no ICP do setor. Vai para a planilha e para o agendamento.</li>
+<li><strong>Aprovado tier 2:</strong> dono/sócio acima do piso mas abaixo do ICP. Segue no funil, contabilizado à parte.</li>
+<li><strong>Desqualificado:</strong> não-dono ou abaixo do piso. Só é contado (anônimo) e vai para a comunidade.</li>
+</ul>
+
+<h2><span class="n">7.</span>O que é do cliente e o que a Simple adiciona</h2>
+<p>As perguntas, a ordem, as faixas de faturamento e os textos são <strong>exatamente os do v4 enviado por Carol e José</strong>. O que a Simple acrescenta fica por dentro, sem mudar o que o lead vê nem quebrar a estrutura enviada:</p>
+<ul>
+<li>O <strong>roteamento</strong>: não-dono e faturamento abaixo do piso vão para a comunidade.</li>
+<li>A leitura de <strong>ICP por setor</strong> (do Guia) para marcar aprovado pleno / tier 2.</li>
+<li>O <strong>balde</strong> (situação dominante) calculado a partir das respostas.</li>
+<li>O <strong>tracking</strong> por criativo, para medir custo por lead aprovado.</li>
+<li>O nome <strong>Diagnóstico de Maturidade do Negócio</strong> (nunca "quiz"), como no material do cliente.</li>
+</ul>
+
+<p class="foot">Diagnóstico de Maturidade do Negócio · Documento técnico interno. A cada calibragem de pesos ou faixas, atualizar este documento e o arquivo de lógica do funil.</p>
+</div>
+</body></html>

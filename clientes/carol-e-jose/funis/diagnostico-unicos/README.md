@@ -1,0 +1,85 @@
+# Diagnóstico de Maturidade do Negócio — ÚNICOS
+
+Funil do cliente Carol e José (ÚNICOS · Leadership Club). Reconstruído do zero a partir
+dos documentos reformulados por Carol e José após o Pit Stop de 24/07 (Guia da Nova
+Campanha, Diagnóstico v4, Página Pós-Diagnóstico v8) e das decisões do cliente registradas
+em `../../estrategia/`.
+
+## O que é
+
+Três telas de funil, uma stack:
+
+1. **Diagnóstico** (`/`) — 7 perguntas (exatamente como o v4 do cliente), **uma pergunta
+   por tela com auto-avanço**. A "Pergunta 4" tem duas telas (quem coordena + quantas
+   pessoas), ambas contadas como 4 de 7. Abre pela pergunta de dor (dias sem depender de
+   você) e fecha na captura de lead ("Estágio 2: No Limite", análise por WhatsApp).
+2. **Página pós-diagnóstico** (`/agendamento`) — página de agendamento da sessão estratégica,
+   com a copy **100% do v8** do cliente (sem adições).
+3. **Comunidade** (`/comunidade`) — caminho dos desqualificados (papel não-dono ou porte
+   abaixo do piso), sem formulário, contagem anônima.
+
+Stack: React + Vite + TypeScript. Tracking centralizado no GTM.
+
+> **Produção = GHL.** O que vai para o ar são os arquivos self-contained em [`ghl/`](./ghl/)
+> (HTML/CSS/JS puro para colar no GHL, com a logo e a paleta reais + Apps Script da
+> planilha). Esta versão React é a **referência de manutenção** da copy e da lógica.
+
+## Decisões que viraram regra (ver `src/lib/scoring.ts`)
+
+1. **Filtro de papel** é o corte real: `Diretor/executivo` e `Nenhuma dessas` saem do
+   agendamento e vão para `/comunidade`.
+2. **Piso de faturamento** R$1M/ano: `Até R$1 milhão` vai para `/comunidade` (Jornada 1).
+3. **Aprovado** (interno, para o tracking) = dono/sócio **E** porte ≥ ICP do setor
+   (indústria R$5M, demais R$2M), lido sobre as faixas do v4; abaixo do ICP = **tier 2**.
+   Não muda as faixas nem o que o lead vê.
+4. **Resultado único** "Estágio 2: No Limite". O **balde** (uma das 4 situações) é computado
+   só por dentro, para a planilha e o comercial. Não aparece para o lead (a página mostra
+   as 4 situações como no v8, sem destaque).
+5. **Perguntas, ordem, faixas e página = exatamente o v4/v8 do cliente** (feedback do José,
+   2026-08): abre pela dor, sem margem, faturamento em faixa única, e nenhuma adição visível
+   (sem reversão de risco, sem destaque de situação). O relatório é montado só com a copy
+   aprovada (tela final do v4 + v8), a mesma para todos.
+
+> Nota: as faixas de faturamento são as do v4 (R$1 a R$3M, etc.), mantidas por decisão do
+> cliente (empresas de R$1 a R$3M têm a mesma estrutura). A leitura de ICP por setor é
+> aproximada pela faixa que contém o corte e serve só à métrica interna.
+
+## Rodar local
+
+```bash
+npm install
+cp .env.example .env.local   # preencha os valores
+npm run dev
+```
+
+## Configuração (não versionada) — `PREENCHER` antes de publicar
+
+Definir no painel da Netlify (Site settings → Environment):
+
+| Variável | O que é |
+|---|---|
+| `VITE_LEADS_ENDPOINT` | endpoint do Make/Apps Script que grava o lead na planilha |
+| `VITE_WHATSAPP` | WhatsApp destino, só dígitos com DDI (ex.: 5551999999999) |
+| `VITE_AGENDAMENTO_URL` | link do Calendário nativo do GHL (aprovados) |
+| `VITE_COMUNIDADE_URL` | link da comunidade / Jornada 1 (desqualificados) |
+| `VITE_GTM_ID` | opcional, default `GTM-T9XG58XR` |
+
+## Deploy (Netlify)
+
+O `netlify.toml` já aponta `base`/`publish` para esta subpasta e trata o SPA. Conectar o
+repositório na conta/time da **Simple** na Netlify e apontar para este diretório; a Netlify
+builda a cada push. Preencher as variáveis acima antes do primeiro deploy.
+
+## Tracking e a régua nova
+
+A métrica do contrato passou de "custo por lead" para **"custo por lead aprovado, por
+criativo"**. Todo evento carrega `utm_content` (criativo) + `aprovacao` (pleno/tier2) +
+`balde`. Eventos no `dataLayer`: `diag_inicio`, `diag_pergunta`, `diag_resultado`,
+`diag_lead`, `diag_lead_aprovado`, `diag_fora_papel`, `diag_abaixo_piso`,
+`diag_agendamento_click`, `diag_comunidade_click`.
+
+## Pendências do cliente para publicar
+
+- Endpoint de leads + planilha no Drive (colunas já previstas em `src/lib/leads.ts`).
+- Número de WhatsApp, link do GHL e link da comunidade.
+- Logo oficial do ÚNICOS (hoje usamos wordmark tipográfico).

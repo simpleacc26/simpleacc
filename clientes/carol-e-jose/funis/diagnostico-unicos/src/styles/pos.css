@@ -1,0 +1,80 @@
+/* Página pós-diagnóstico (agendamento) — ÚNICOS */
+
+.pos { background: var(--bg); color: var(--ink); }
+.pos .section { padding: 46px 0; }
+.pos .section.navy { background: var(--navy); color: #eaf0f7; }
+.pos .section.soft { background: #f0ece1; }
+.pos .container { width: 100%; max-width: 760px; margin: 0 auto; padding: 0 22px; }
+
+.pos h1 { font-size: 34px; line-height: 1.15; color: var(--navy); }
+.pos .navy h1, .pos .navy h2, .pos .navy h3 { color: #fff; }
+.pos h2 { font-size: 25px; line-height: 1.2; color: var(--navy); margin-bottom: 8px; }
+.pos h3 { font-size: 18px; color: var(--navy-700); }
+.pos p { font-size: 16px; margin: 10px 0; color: #303a45; }
+.pos .navy p { color: #cdd8e6; }
+.pos .label { display: inline-block; margin-bottom: 10px; }
+
+.pos .hero { background: linear-gradient(180deg, #0f2244, #17305c); color: #fff; padding: 52px 0 46px; }
+.pos .hero .label { color: var(--gold-300); }
+.pos .hero h1 { color: #fff; }
+.pos .hero .sub { font-family: var(--serif); font-style: italic; color: var(--gold-300); font-size: 18px; margin: 10px 0 18px; }
+.pos .hero p { color: #d5deec; }
+
+.cta {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--gold); color: #1b1400; font-weight: 800; font-size: 17px;
+  border: none; border-radius: 11px; padding: 17px 30px; cursor: pointer;
+  text-decoration: none; box-shadow: var(--shadow-lg);
+}
+.cta:hover { filter: brightness(1.06); }
+.cta-micro { font-size: 13px; color: var(--muted); margin-top: 10px; }
+.pos .navy .cta-micro, .pos .hero .cta-micro { color: #aebbcd; }
+.cta-wrap { margin-top: 22px; }
+
+.sit-list { display: grid; gap: 14px; margin-top: 20px; }
+.sit {
+  background: var(--card); border: 1.5px solid var(--line); border-radius: var(--radius);
+  padding: 18px 20px; box-shadow: var(--shadow);
+}
+.sit.match { border-color: var(--gold); box-shadow: inset 0 0 0 1px var(--gold), var(--shadow); }
+.sit .tag { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; color: var(--gold); }
+.sit h3 { margin: 4px 0 6px; }
+
+.list-check { margin: 18px 0; display: grid; gap: 12px; }
+.list-check li { list-style: none; display: flex; gap: 12px; font-size: 16px; }
+.list-check .mk { color: var(--gold); font-weight: 800; }
+
+.reversal {
+  background: #fbf6e9; border: 1px solid #e6d3a3; border-left: 4px solid var(--gold);
+  border-radius: 10px; padding: 16px 18px; margin-top: 20px; color: var(--navy-700); font-size: 15px;
+}
+
+.proof-big {
+  text-align: center; background: var(--navy); color: #fff; border-radius: var(--radius);
+  padding: 26px; box-shadow: var(--shadow-lg);
+}
+.proof-big .num { font-family: var(--serif); font-size: 40px; color: var(--gold-300); font-weight: 700; }
+.quote { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; margin-top: 14px; box-shadow: var(--shadow); }
+.quote p { font-style: italic; color: #3a4550; }
+.quote .who { font-style: normal; font-weight: 700; color: var(--navy-700); font-size: 14px; margin-top: 8px; }
+
+.selos { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0; }
+.selo { background: #eef1f6; color: var(--navy-700); border-radius: 99px; padding: 6px 12px; font-size: 12px; font-weight: 600; }
+
+.carolimg { width: 100%; max-width: 300px; border-radius: 14px; box-shadow: var(--shadow-lg); display: block; margin: 6px 0 18px; }
+.authority { margin-top: 26px; padding: 20px; background: #f0ece1; border-radius: var(--radius); }
+.authority .brands { font-family: var(--serif); color: var(--navy); font-weight: 700; font-size: 15px; letter-spacing: .5px; }
+.authority .note { font-size: 12px; color: var(--muted); margin-top: 8px; }
+
+.faq { display: grid; gap: 12px; margin-top: 18px; }
+.faq details { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 4px 16px; box-shadow: var(--shadow); }
+.faq summary { cursor: pointer; font-weight: 700; color: var(--navy); padding: 12px 0; font-size: 16px; }
+.faq p { margin: 0 0 14px; }
+
+.closing h2 { font-size: 30px; }
+
+@media (max-width: 560px) {
+  .pos h1 { font-size: 27px; }
+  .pos .hero h1 { font-size: 26px; }
+  .proof-big .num { font-size: 33px; }
+}

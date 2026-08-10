@@ -1,0 +1,340 @@
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T9XG58XR');</script>
+<!-- End Google Tag Manager -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T9XG58XR"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- ============================================================================
+     DIAGNÓSTICO DE MATURIDADE DO NEGÓCIO — ÚNICOS  (self-contained p/ GHL)
+     Cole este arquivo inteiro num elemento "Custom Code / HTML" de uma página
+     do GHL. Sem build, sem dependências. Ajuste o bloco CONFIG abaixo.
+
+     GTM: o bloco acima faz a página funcionar sozinha (ex.: na Vercel). Se for
+     publicar no GHL, o ideal é pôr o GTM no "Head Tracking Code" da página do
+     GHL e remover o bloco acima, para não carregar o container duas vezes.
+     ============================================================================ -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+<style>
+#unicos-diag{
+  --navy:#16314f; --navy-700:#1e3d61; --gold:#a9802f; --gold-300:#d4a84b;
+  --brown:#2d1008; --orange:#d4601a; --bg:#faf8f4; --cream:#f3eee2;
+  --card:#fff; --ink:#20272f; --muted:#5c6672; --line:#e6e1d6; --danger:#9d2f2f;
+  --serif:'Playfair Display',Georgia,'Times New Roman',serif;
+  --sans:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  font-family:var(--sans); color:var(--ink); background:var(--bg);
+  line-height:1.55; -webkit-font-smoothing:antialiased;
+  min-height:100vh; box-sizing:border-box;
+}
+#unicos-diag *{box-sizing:border-box;}
+#unicos-diag .wrap{width:100%;max-width:640px;margin:0 auto;padding:0 20px;}
+#unicos-diag .body{padding:14px 0 40px;}
+/* logo */
+#unicos-diag .topbar{display:flex;justify-content:center;padding:20px 0 10px;}
+#unicos-diag .logo{display:inline-flex;flex-direction:column;align-items:center;user-select:none;}
+#unicos-diag .logo .word{display:flex;align-items:flex-start;gap:3px;}
+#unicos-diag .logo .word span{font-family:var(--serif);font-weight:700;font-size:1.8rem;color:var(--brown);letter-spacing:.04em;line-height:1;}
+#unicos-diag .logo .star{width:14px;height:14px;margin-top:2px;flex-shrink:0;}
+#unicos-diag .logo .sub{font-family:var(--serif);font-style:italic;font-weight:400;font-size:.73rem;color:rgba(45,16,8,.5);letter-spacing:.22em;margin-top:3px;}
+/* comuns */
+#unicos-diag .label{font-family:var(--sans);text-transform:uppercase;letter-spacing:2px;font-size:11px;font-weight:700;color:var(--gold);}
+#unicos-diag h1{font-family:var(--serif);color:var(--navy);font-size:24px;line-height:1.25;margin:10px 0 4px;font-weight:700;}
+#unicos-diag h2{font-family:var(--serif);color:var(--navy);font-weight:700;}
+#unicos-diag .support{color:var(--muted);font-size:14px;margin-top:6px;}
+#unicos-diag .foot{color:var(--gold);font-style:italic;font-size:13px;margin-top:8px;padding:12px 0 24px;text-align:center;font-family:var(--serif);}
+#unicos-diag .progress{height:5px;background:var(--line);border-radius:99px;overflow:hidden;margin:14px 0 4px;}
+#unicos-diag .progress>span{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-300));transition:width .3s;}
+#unicos-diag .pmeta{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-top:6px;}
+#unicos-diag .options{display:flex;flex-direction:column;gap:10px;margin-top:20px;}
+#unicos-diag .opt{text-align:left;width:100%;background:var(--card);border:1.5px solid var(--line);border-radius:9px;padding:15px 16px;font-size:15px;color:var(--ink);cursor:pointer;transition:border-color .15s,background .15s;display:flex;align-items:center;gap:12px;font-family:var(--sans);}
+#unicos-diag .opt:hover{border-color:var(--gold-300);background:#fbf9f3;}
+#unicos-diag .opt.sel{border-color:var(--gold);background:#fbf9f3;box-shadow:inset 0 0 0 1px var(--gold);}
+#unicos-diag .opt .dot{width:18px;height:18px;border-radius:50%;flex:0 0 18px;border:2px solid var(--line);}
+#unicos-diag .opt.sel .dot{border-color:var(--gold);background:radial-gradient(circle,var(--gold) 46%,transparent 48%);}
+#unicos-diag .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--sans);font-weight:700;font-size:16px;border:none;border-radius:10px;padding:15px 22px;cursor:pointer;}
+#unicos-diag .btn-primary{background:var(--gold);color:#1b1400;}
+#unicos-diag .btn-ghost{background:transparent;color:var(--muted);font-weight:600;}
+#unicos-diag .btn-block{width:100%;}
+#unicos-diag .btn[disabled]{opacity:.5;cursor:default;}
+#unicos-diag .navrow{display:flex;align-items:center;justify-content:space-between;margin-top:18px;}
+#unicos-diag .field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
+#unicos-diag .field label{font-size:13px;font-weight:600;color:var(--navy-700);}
+#unicos-diag .field input{border:1.5px solid var(--line);border-radius:9px;padding:13px 14px;font-size:15px;font-family:var(--sans);color:var(--ink);background:#fff;}
+#unicos-diag .field input:focus{outline:none;border-color:var(--gold);}
+#unicos-diag .hint{font-size:12px;color:var(--muted);}
+#unicos-diag .err{font-size:12px;color:var(--danger);}
+#unicos-diag .notice{background:#fbf6e9;border:1px solid #ecdcae;border-radius:9px;padding:12px 14px;font-size:13px;color:var(--navy-700);margin-top:8px;}
+#unicos-diag .privacy{font-size:12px;color:var(--muted);text-align:center;margin-top:12px;}
+@media(max-width:480px){#unicos-diag h1{font-size:21px;}}
+</style>
+
+<div id="unicos-diag"><div class="wrap"><div id="unicos-topbar" class="topbar"></div></div><div class="wrap body" id="unicos-screen"></div><div class="wrap"><p class="foot">Depois de um certo tamanho, o limite deixa de estar no mercado.</p></div></div>
+
+<script>
+(function(){
+  "use strict";
+  // ====================== CONFIG (preencher) ======================
+  var CONFIG = {
+    // URL do Web App do Apps Script — recebe os DESQUALIFICADOS (aba Desqualificados
+    // + contagem) e alimenta o Painel. Ver ghl/apps-script.gs
+    LEADS_ENDPOINT: "https://script.google.com/macros/s/AKfycbzGjMlxsMfmb6mImX6tqgnSATOADRJDjekqKtHIUZOqsKU6ETrPs1CooYPCZGm-MR6G/exec",
+    // Webhook do Make — recebe os QUALIFICADOS e roda o fluxo comercial:
+    // GHL Criar Contato -> GHL Criar Oportunidade -> Google Sheets (aba Qualificados).
+    // Cenário "Carol e José - V3 (Diagnóstico)".
+    MAKE_ENDPOINT: "https://hook.us2.make.com/58lppb76g43dm59fk9w2sne4tupeqjgn",
+    // URL da página pós-diagnóstico publicada no GHL (onde vive pos-diagnostico.html).
+    // Se ficar em branco, o aprovado é enviado direto ao calendário do GHL.
+    POS_URL: "PREENCHER_URL_DA_PAGINA_POS_DIAGNOSTICO",
+    // Agenda de compromissos do Google Calendar da Carol (fallback de agendamento; a página
+    // pós já embute esse calendário) e grupo da comunidade (desqualificados).
+    AGENDAMENTO_URL: "https://calendar.google.com/calendar/appointments/schedules/AcZssZ0zy_l57UqviGoP8HlkBEt4a894iIQafVRxFK3CsjMNQWz8E07MRlg8eNdBu1oG5s8cnv3i6ILD",
+    COMUNIDADE_URL: "https://chat.whatsapp.com/B6rtIEWe7jcHseToLdfSBE"
+  };
+
+  // ====================== PERGUNTAS (exatamente como o v4 do cliente) ======================
+  // Uma pergunta por tela (auto-avanço). A "Pergunta 4" tem duas telas (quem coordena e
+  // quantas pessoas), ambas contadas como 4 de 7, exatamente o conteúdo do v4.
+  var Q = [
+    {id:"autonomia",num:1,cat:"DIAGNÓSTICO",q:"Quantos dias seguidos a sua empresa roda sem ninguém precisar te ligar?",
+     opts:[["1","Nenhum, sempre me procuram"],["2","De um a três dias"],["3","Cerca de uma semana"],["4","Duas semanas ou mais"]]},
+    {id:"setor",num:2,cat:"IDENTIFICAÇÃO",q:"Qual o setor da sua empresa?",other:true,
+     opts:[["industria","Indústria"],["servicos","Serviços"],["b2b","Operações B2B"],["comercio","Comércio ou varejo"],["outro","Outro"]]},
+    {id:"papel",num:3,cat:"QUALIFICAÇÃO",q:"Qual é o seu papel na empresa?",
+     opts:[["dono","Dono ou sócio, decido os rumos"],["socio","Sócio, participo das decisões"],["exec","Diretor ou executivo, respondo ao dono"],["nenhuma","Nenhuma dessas"]]},
+    {id:"lideranca",num:4,cat:"DIAGNÓSTICO",q:"Quem coordena as áreas da sua empresa hoje?",
+     opts:[["1","Ninguém, tudo passa por mim"],["2","Encarregados que tocam a rotina, mas me consultam para decidir"],["3","Coordenadores ou gerentes que respondem por uma área inteira"],["4","Gestores que já lideram outros líderes"]]},
+    {id:"tamanho",num:4,cat:"DIAGNÓSTICO",q:"Quantas pessoas trabalham na empresa hoje?",
+     opts:[["1","Até 20"],["2","De 20 a 50"],["3","De 50 a 100"],["4","De 100 a 300"],["5","Mais de 300"]]},
+    {id:"decisao",num:5,cat:"DIAGNÓSTICO",q:"Quando aparece uma decisão importante, o que costuma acontecer?",
+     opts:[["1","Resolvo eu mesmo, é mais rápido do que explicar"],["2","Acompanho de perto até a entrega sair"],["3","O time decide até certo ponto e me reporta"],["4","O time decide e resolve sem me envolver"]]},
+    {id:"tentativas",num:6,cat:"DIAGNÓSTICO",q:"O que você já tentou para resolver isso e não funcionou como esperava?",
+     opts:[["1","Mentoria, consultoria ou aceleradora de gestão"],["2","Contratei gente de mercado para assumir"],["3","Implantei ERP, ferramentas e indicadores"],["4","Tentei me afastar e acabei voltando para o centro"],["5","Todas as alternativas acima"]]},
+    {id:"faturamento",num:7,cat:"QUALIFICAÇÃO",q:"Qual o faturamento anual da sua empresa?",
+     support:"Essa informação define o tipo de análise que vamos preparar para você.",
+     opts:[["1","Até R$1 milhão"],["2","De R$1 a R$3 milhões"],["3","De R$3 a R$10 milhões"],["4","De R$10 a R$30 milhões"],["5","Acima de R$30 milhões"]]}
+  ];
+  var MAXNUM = 7;
+
+  // ====================== LÓGICA (rota / aprovação / balde) ======================
+  function rota(a){
+    if(a.papel==="exec"||a.papel==="nenhuma") return "fora-papel";
+    if(a.faturamento==="1") return "abaixo-piso"; // "Até R$1 milhão"
+    return "qualificado";
+  }
+  function aprovacao(a){
+    if(rota(a)!=="qualificado") return "nao-aprovado";
+    // ICP por setor (Guia): indústria R$5M, demais R$2M. Nas faixas do v4 (aprox.):
+    var fat=parseInt(a.faturamento||"0",10);
+    var corte=(a.setor==="industria")?3:2;
+    return fat>=corte?"pleno":"tier2";
+  }
+  var ORDEM=["oportunidade","lideranca","decisao","processo"];
+  function balde(a){
+    var p={oportunidade:0,lideranca:0,decisao:0,processo:0};
+    if(a.autonomia==="1"){p.decisao+=1;p.lideranca+=1;}
+    if(a.autonomia==="2"){p.lideranca+=1;}
+    if(a.lideranca==="1"){p.lideranca+=2;p.decisao+=1;}
+    if(a.lideranca==="2"){p.lideranca+=1;}
+    var tam=parseInt(a.tamanho||"0",10), fat=parseInt(a.faturamento||"0",10);
+    if(tam>=4)p.oportunidade+=1; if(fat>=4)p.oportunidade+=1; if(tam>=4&&fat>=4)p.oportunidade+=1;
+    if(a.decisao==="1"){p.decisao+=2;p.lideranca+=1;}
+    if(a.decisao==="2"){p.decisao+=1;p.lideranca+=1;}
+    if(a.decisao==="3"){p.lideranca+=1;}
+    switch(a.tentativas){
+      case"1":p.processo+=1;break; case"2":p.lideranca+=2;break; case"3":p.processo+=2;break;
+      case"4":p.decisao+=2;p.lideranca+=1;break; case"5":p.processo+=1;p.lideranca+=1;p.decisao+=1;break;
+    }
+    var win=ORDEM[0],best=-1;
+    for(var i=0;i<ORDEM.length;i++){if(p[ORDEM[i]]>best){best=p[ORDEM[i]];win=ORDEM[i];}}
+    return win;
+  }
+
+  // ====================== ESTADO ======================
+  var state={idx:0,answers:{},other:"",subSel:undefined};
+  var utm=captureUtm();
+  dl("diag_inicio",utm);
+
+  function captureUtm(){
+    var p=new URLSearchParams(location.search), keys=["utm_source","utm_medium","utm_campaign","utm_content","utm_term"], o={},has=false;
+    keys.forEach(function(k){o[k]=p.get(k)||"";if(o[k])has=true;});
+    try{ if(has)sessionStorage.setItem("unicos_utm",JSON.stringify(o)); else{var s=sessionStorage.getItem("unicos_utm"); if(s)o=JSON.parse(s);} }catch(e){}
+    return o;
+  }
+  function dl(ev,data){ try{window.dataLayer=window.dataLayer||[];var o={event:ev};for(var k in data)o[k]=data[k];window.dataLayer.push(o);}catch(e){} }
+
+  var root=document.getElementById("unicos-screen");
+  document.getElementById("unicos-topbar").innerHTML =
+    '<div class="logo"><div class="word"><span>ÚNICOS</span>'+
+    '<svg class="star" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 0.5 C10 0.5 11.5 7.5 19.5 10 C11.5 12.5 10 19.5 10 19.5 C10 19.5 8.5 12.5 0.5 10 C8.5 7.5 10 0.5 10 0.5Z" fill="#d4601a"/></svg>'+
+    '</div><span class="sub">Leadership Club</span></div>';
+
+  function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];});}
+
+  function optionsHTML(opts,selected){
+    return '<div class="options">'+opts.map(function(o){
+      var sel=selected===o[0]?" sel":"";
+      return '<button type="button" class="opt'+sel+'" data-v="'+esc(o[0])+'"><span class="dot"></span><span>'+esc(o[1])+'</span></button>';
+    }).join("")+'</div>';
+  }
+
+  function renderQuestion(){
+    var q=Q[state.idx], sel=state.answers[q.id]||null;
+    var opts=q.opts;
+    var needOther=q.other&&sel==="outro";
+    var isFirst=state.idx===0;
+    var pct=Math.round((q.num/MAXNUM)*100);
+    var intro=isFirst?
+      '<span class="label">DIAGNÓSTICO DE MATURIDADE DO NEGÓCIO</span>'+
+      '<h1 style="font-size:27px;margin-top:8px">Você enxerga as oportunidades e não consegue aproveitar quase nenhuma?</h1>'+
+      '<p class="support">Descubra em que estágio o seu negócio está e o que falta para subir o degrau. '+MAXNUM+' perguntas, dois minutos. No final você recebe a leitura do estágio do seu negócio e o que precisa mudar para a empresa andar sem depender da sua presença.</p>':'';
+    var progress=isFirst?'':
+      '<div class="progress"><span style="width:'+pct+'%"></span></div>'+
+      '<div class="pmeta"><span>Pergunta '+q.num+' de '+MAXNUM+'</span><span>'+pct+'%</span></div>';
+    var html= intro + progress +
+      '<div style="margin-top:'+(isFirst?26:16)+'px"><span class="label">'+q.cat+'</span><h1'+(isFirst?' style="font-size:21px"':'')+'>'+esc(q.q)+'</h1>'+
+      (q.support?'<p class="support">'+esc(q.support)+'</p>':'')+
+      optionsHTML(opts,sel)+'</div>';
+    if(needOther) html+='<div class="field" style="margin-top:12px"><label>Qual?</label><input id="u-other" placeholder="Digite o setor" value="'+esc(state.other||"")+'"></div>';
+    html+='<div class="navrow">'+(isFirst?'<span></span>':'<button type="button" class="btn btn-ghost" id="u-back">← Voltar</button>')+
+      (needOther?'<button type="button" class="btn btn-primary" id="u-cont">Continuar</button>':'<span></span>')+'</div>';
+    root.innerHTML=html;
+
+    root.querySelector('.options').querySelectorAll('.opt').forEach(function(b){
+      b.addEventListener("click",function(){
+        var v=b.getAttribute("data-v"); state.answers[q.id]=v;
+        if(q.other&&v==="outro"){ renderQuestion(); } else { advance(); }
+      });
+    });
+    var other=document.getElementById("u-other"); if(other) other.addEventListener("input",function(){state.other=other.value;});
+    var backBtn=document.getElementById("u-back"); if(backBtn) backBtn.addEventListener("click",back);
+    var cont=document.getElementById("u-cont");
+    if(cont) cont.addEventListener("click",function(){
+      if(!!state.answers[q.id]&&(!needOther||(state.other||"").trim().length>1)) advance();
+    });
+  }
+
+  function advance(){
+    var q=Q[state.idx]; dl("diag_pergunta",{pergunta:q.num,pergunta_id:q.id});
+    if(state.idx<Q.length-1){ state.idx++; renderQuestion(); }
+    else finalize();
+  }
+  function back(){ if(state.idx>0){state.idx--;renderQuestion();} }
+
+  function finalize(){
+    var a=state.answers, r=rota(a), ap=aprovacao(a), b=balde(a);
+    try{sessionStorage.setItem("unicos_resultado",JSON.stringify({rota:r,aprovacao:ap,balde:b}));}catch(e){}
+    dl("diag_resultado",merge({rota:r,aprovacao:ap,balde:b},utm));
+    if(r==="fora-papel"){ dl("diag_fora_papel",utm); enviarDesqualificado("papel",b); renderComunidade("papel"); return; }
+    if(r==="abaixo-piso"){ dl("diag_abaixo_piso",utm); enviarDesqualificado("porte",b); renderComunidade("porte"); return; }
+    renderLead();
+  }
+
+  // Tela simpática do desqualificado (não é dono/sócio ou porte < R$1M): antes de
+  // mandar para a comunidade, mostra a mensagem e um botão. Não vai direto pro Zap.
+  function renderComunidade(motivo){
+    root.innerHTML=
+      '<span class="label">ÚNICOS · CONTEÚDO PARA QUEM LIDERA</span>'+
+      '<h1 style="margin-top:8px">Tem material feito para o seu momento.</h1>'+
+      '<p class="support">A sessão estratégica é individual e desenhada para o dono ou sócio que decide os rumos de uma empresa já estruturada. Pelo que você respondeu, faz mais sentido começar por outro caminho, com o mesmo método e a mesma leitura, no ritmo certo para você.</p>'+
+      '<p class="support" style="color:var(--navy-700);font-weight:700">Entre para a nossa comunidade e receba os conteúdos que preparam a próxima fase do seu negócio.</p>'+
+      '<button type="button" class="btn btn-primary btn-block" id="u-comunidade" style="margin-top:18px">Quero acessar os conteúdos</button>';
+    document.getElementById("u-comunidade").addEventListener("click",function(){
+      dl("diag_comunidade_click",merge({motivo:motivo},utm));
+      redirect(CONFIG.COMUNIDADE_URL);
+    });
+  }
+
+  function renderLead(){
+    root.innerHTML=
+      '<span class="label">SEU RESULTADO</span><h1>Estágio 2: No Limite</h1>'+
+      '<p class="support">Preencha os dados abaixo para receber a análise completa do seu estágio no WhatsApp, com o que precisa mudar para você construir o futuro do seu negócio.</p>'+
+      '<div style="margin-top:20px">'+
+      field("nome","Nome completo","Digite seu nome completo")+
+      field("email","E-mail","seunome@suaempresa.com.br","email")+
+      field("whatsapp","WhatsApp","51996772655")+
+      '<div class="hint" style="margin:-8px 0 14px">A sua análise é enviada pelo WhatsApp. Digite só números, com DDD (ex.: 51996772655).</div>'+
+      field("empresa","Nome da empresa","Razão social ou nome fantasia")+
+      '<div class="notice">A sua análise é enviada pelo WhatsApp. Responda a mensagem automática que você irá receber para confirmar que é um número válido.</div>'+
+      '<button type="button" class="btn btn-primary btn-block" id="u-send" style="margin-top:16px">Receber minha análise</button>'+
+      '<p class="privacy">Seus dados são usados apenas para enviar a análise. Não compartilhamos com terceiros.</p>'+
+      '<div class="navrow"><button type="button" class="btn btn-ghost" id="u-back">← Voltar</button><span></span></div></div>';
+    // WhatsApp: números corridos (sem máscara), pra cair limpo no GHL (ex.: 51996772655).
+    ["whatsapp"].forEach(function(id){var el=document.getElementById("u-"+id); el.addEventListener("input",function(){el.value=el.value.replace(/\D/g,"").slice(0,11);});});
+    document.getElementById("u-back").addEventListener("click",function(){state.idx=Q.length-1;renderQuestion();});
+    document.getElementById("u-send").addEventListener("click",submitLead);
+  }
+  function field(id,label,ph,type){ return '<div class="field"><label for="u-'+id+'">'+label+'</label><input id="u-'+id+'" type="'+(type||"text")+'" placeholder="'+ph+'"><span class="err" id="e-'+id+'"></span></div>'; }
+  function mask(v){var d=v.replace(/\D/g,"").slice(0,11); if(d.length<=2)return d; if(d.length<=7)return "("+d.slice(0,2)+") "+d.slice(2); return "("+d.slice(0,2)+") "+d.slice(2,7)+"-"+d.slice(7);}
+
+  function submitLead(){
+    var g=function(id){return (document.getElementById("u-"+id).value||"").trim();};
+    var nome=g("nome"),empresa=g("empresa"),email=g("email"),wa=g("whatsapp").replace(/\D/g,"");
+    var errs={}; if(nome.length<3)errs.nome="Informe seu nome completo.";
+    if(empresa.length<2)errs.empresa="Informe o nome da empresa.";
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))errs.email="E-mail inválido.";
+    if(wa.length!==11)errs.whatsapp="WhatsApp com DDD (11 dígitos).";
+    ["nome","empresa","email","whatsapp"].forEach(function(id){document.getElementById("e-"+id).textContent=errs[id]||"";});
+    if(Object.keys(errs).length)return;
+    var a=state.answers, ap=aprovacao(a), b=balde(a);
+    dl("diag_lead",merge({aprovacao:ap,balde:b},utm));
+    if(ap==="pleno"||ap==="tier2") dl("diag_lead_aprovado",merge({aprovacao:ap,balde:b},utm));
+    var btn=document.getElementById("u-send"); btn.textContent="Enviando..."; btn.disabled=true;
+    enviarQualificado({nome:nome,empresa:empresa,email:email,whatsapp:wa,tel:""},ap,b);
+    var target = CONFIG.POS_URL && CONFIG.POS_URL.indexOf("PREENCHER")!==0
+      ? CONFIG.POS_URL+(CONFIG.POS_URL.indexOf("?")>-1?"&":"?")+"balde="+b+utmQS()
+      : CONFIG.AGENDAMENTO_URL;
+    setTimeout(function(){ redirect(target); },600);
+  }
+
+  function label(id,val){ for(var i=0;i<Q.length;i++){var q=Q[i];
+      if(q.id===id&&q.opts){for(var j=0;j<q.opts.length;j++)if(q.opts[j][0]===val)return q.opts[j][1];}
+      if(q.second&&q.second.id===id){for(var k=0;k<q.second.opts.length;k++)if(q.second.opts[k][0]===val)return q.second.opts[k][1];}
+    } return val||""; }
+
+  function basePayload(){
+    var a=state.answers, p=new URLSearchParams();
+    p.append("data",new Date().toISOString());
+    p.append("utm_source",utm.utm_source||"");p.append("utm_medium",utm.utm_medium||"");
+    p.append("utm_campaign",utm.utm_campaign||"");p.append("utm_content",utm.utm_content||"");p.append("utm_term",utm.utm_term||"");
+    return {a:a,p:p};
+  }
+  function enviarQualificado(lead,ap,b){
+    var x=basePayload(),a=x.a,p=x.p;
+    p.append("aba","qualificado");
+    p.append("nome",lead.nome);p.append("empresa",lead.empresa);p.append("email",lead.email);
+    p.append("whatsapp",lead.whatsapp);p.append("telefone_comercial",lead.tel);
+    p.append("estagio","Estágio 2: No Limite");p.append("balde",b);p.append("tier",ap);
+    p.append("autonomia",label("autonomia",a.autonomia));
+    p.append("setor",a.setor==="outro"&&state.other?("Outro: "+state.other):label("setor",a.setor));
+    p.append("papel",label("papel",a.papel));
+    p.append("camada_lideranca",label("lideranca",a.lideranca));
+    p.append("tamanho_time",label("tamanho",a.tamanho));
+    p.append("como_decide",label("decisao",a.decisao));
+    p.append("ja_tentou",label("tentativas",a.tentativas));
+    p.append("faturamento",label("faturamento",a.faturamento));
+    // Qualificado -> Make (GHL Contato -> Oportunidade -> Sheets). Fallback: Apps Script.
+    post(p, CONFIG.MAKE_ENDPOINT || CONFIG.LEADS_ENDPOINT);
+  }
+  function enviarDesqualificado(motivo,b){
+    var x=basePayload(),p=x.p; p.append("aba","desqualificado"); p.append("motivo",motivo); p.append("balde",b);
+    // Desqualificado -> Apps Script (aba Desqualificados + contagem do Painel).
+    post(p, CONFIG.LEADS_ENDPOINT);
+  }
+  function post(p, url){
+    if(!url||url.indexOf("PREENCHER")===0){ console.warn("[unicos] endpoint de leads não configurado"); return; }
+    try{ fetch(url,{method:"POST",mode:"no-cors",headers:{"Content-Type":"application/x-www-form-urlencoded"},body:p.toString()}); }catch(e){ console.error(e); }
+  }
+  function utmQS(){ var s=""; ["utm_source","utm_medium","utm_campaign","utm_content","utm_term"].forEach(function(k){ if(utm[k])s+="&"+k+"="+encodeURIComponent(utm[k]); }); return s; }
+  function merge(o,u){ for(var k in u)o[k]=u[k]; return o; }
+  function redirect(url){ if(url&&url.indexOf("PREENCHER")!==0){ window.top.location.href=url; } }
+
+  renderQuestion();
+})();
+</script>
