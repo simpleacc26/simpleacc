@@ -19,10 +19,28 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
 
 ## Contexto rápido
 
-- **Quem é:** psicanalista, nicho de **relacionamentos**. Instagram
+> **Leia primeiro:** `contexto/2026-08-04-negocio-numeros-e-historia.md` — é a
+> fonte com os números reais (vem da call de vendas, não do canvas de IA).
+> Para a call de onboarding: `estrategia/2026-08-10-preparacao-call-onboarding.md`.
+
+- **Quem é:** psicanalista, **46 anos**, nicho de **relacionamentos**. Instagram
   [@orafaelcobra](https://instagram.com/orafaelcobra) — verificado, **333 mil
-  seguidores**, 1.664 posts, audiência construída **organicamente**. Cliente novo;
-  onboarding em **segunda-feira** (material recebido em 06/08/2026).
+  seguidores** (já teve 375 mil), audiência construída **organicamente**.
+  Ex-remador da **seleção brasileira**, melhor atleta do país por 8 anos.
+  Onboarding em **11/08/2026**.
+
+- **Números de hoje:** **R$ 22–23 mil/mês**, **18–20 pacientes**, sessão
+  **R$ 350** (tem paciente pagando 550 e 650 sem reclamar). Capacidade: 30+.
+  **Está sozinho, sem equipe.** Vendas vêm de **indicação** e link na bio.
+- **Já vendeu high ticket:** mentoria de relacionamento a **R$ 12 mil**.
+- **Contexto pessoal (sensível):** filha **Maria Eduarda**, 16 anos, em tratamento
+  de câncer desde maio/2024 (chegou a R$ 9 mil/semana). Isso o descapitalizou e o
+  fez parar 1,5 ano. Esposa: **Dani**. Ele trouxe o assunto por conta própria e
+  disse "não negocio isso, só estou contextualizando" — **não é alavanca de
+  venda, não vira tema central**.
+- **Contrato Simple:** R$ 15 mil (de R$ 20 mil) ou 12× R$ 1.500. Meta: R$ 100
+  mil/mês; fase 1 = 2 a 5 vendas high ticket/mês.
+- **Atenção de calendário:** **viagem aos EUA em outubro**, dentro dos 90 dias.
 
 - **São DOIS produtos, em estágios muito diferentes:**
   - **Produto 1 — Mentoria para mulheres (relacionamentos).** Produto atual.

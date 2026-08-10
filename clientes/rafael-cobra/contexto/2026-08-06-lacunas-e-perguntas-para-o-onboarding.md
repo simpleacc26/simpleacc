@@ -4,6 +4,20 @@
 - **Para:** reunião de onboarding com o Rafael Cobra (segunda-feira)
 - **Regra:** nada aqui foi informado. **Não preencher com suposição.**
 
+> ## ⚠️ SUPERADO EM 10/08/2026 — não use este arquivo para se preparar
+>
+> Este documento foi escrito **antes** de a transcrição da call de vendas de
+> 04/08 aparecer. **A maior parte das "lacunas" abaixo já estava respondida lá.**
+>
+> - Os números do negócio estão em `2026-08-04-negocio-numeros-e-historia.md`.
+> - As perguntas certas para a call estão em
+>   `../estrategia/2026-08-10-preparacao-call-onboarding.md`.
+>
+> **Não leve as perguntas deste arquivo para a reunião** — várias já foram
+> respondidas pelo Rafael, e repetir entrega que ninguém leu o material.
+>
+> Fica no repositório como registro do que se sabia em 06/08.
+
 ---
 
 ## 1. Buraco grande: não temos NENHUM número de negócio

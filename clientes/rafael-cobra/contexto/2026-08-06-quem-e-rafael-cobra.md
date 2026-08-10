@@ -3,8 +3,17 @@
 - **Data:** 06/08/2026
 - **Fontes:** tudo em `fontes/` (áudio, WhatsApp do Carlos, prints do Instagram,
   os dois canvases).
-- **Status:** cliente **novo**. Reunião de onboarding marcada para
-  **segunda-feira**.
+- **Status:** cliente **novo**. Reunião de onboarding em **11/08/2026**.
+
+> ## ⚠️ PARCIALMENTE SUPERADO EM 10/08/2026
+>
+> Este arquivo foi escrito só com os canvases (preenchidos por IA) e os prints.
+> Depois apareceu a **transcrição da call de vendas de 04/08**, que traz os
+> números reais e desmente algumas coisas daqui — em especial a seção 8
+> ("O que NÃO sabemos"), que hoje está em grande parte respondida.
+>
+> **Fonte que manda:** `2026-08-04-negocio-numeros-e-historia.md` (seção 8 tem a
+> tabela de correções). A análise de ICP e linguagem abaixo **continua válida**.
 
 ---
 
