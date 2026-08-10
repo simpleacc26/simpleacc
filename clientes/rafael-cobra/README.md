@@ -1,21 +1,31 @@
 # Rafael Cobra
 
-**Cliente novo** (material de onboarding recebido em 06/08/2026; reunião de
-onboarding em **segunda-feira**). Psicanalista, nicho de **relacionamentos**, com
-uma audiência de **333 mil seguidores construída organicamente** no Instagram
-([@orafaelcobra](https://instagram.com/orafaelcobra), verificado).
+**Cliente novo.** Call de vendas em 04/08/2026, canvases em 06/08, **onboarding
+em 11/08**. Psicanalista, 46 anos, nicho de **relacionamentos**, com **333 mil
+seguidores construídos organicamente** no Instagram
+([@orafaelcobra](https://instagram.com/orafaelcobra), verificado). Ex-remador da
+seleção brasileira.
+
+**Onde o negócio está hoje:** R$ 22–23 mil/mês, 18–20 pacientes, sessão a R$ 350,
+**sem equipe**, vendas por indicação. Já vendeu **mentoria de R$ 12 mil**. Meta
+pactuada: R$ 100 mil/mês.
 
 Ele chega à SimpleAcc com **dois produtos na mesa**, não um:
 
 1. **Mentoria para mulheres (relacionamentos)** — o produto da trajetória dele.
-   Nicho mapeado, audiência aquecida, linguagem validada.
-2. **Mentoria para psicólogos, psicanalistas e afins** — ideia nova (conversada
-   com o Daniel), sobre posicionamento digital e agenda cheia. Ticket maior, mas
-   público ainda não construído.
+   Nicho mapeado, audiência aquecida, linguagem validada, high ticket já vendido.
+2. **Mentoria para psicólogos, psicanalistas e afins** — ideia nova, sugerida por
+   um amigo dele. Ticket maior, mas público ainda não construído.
 
-**Qual dos dois entra primeiro é a decisão da reunião de segunda** — não foi
-definido, e de propósito. A análise dos dois lados está pronta em
-`estrategia/2026-08-06-analise-qual-produto-entra-primeiro.md`.
+**Qual dos dois entra primeiro é a decisão do onboarding.** Análise dos dois
+lados em `estrategia/`; **para conduzir a call use**
+`estrategia/2026-08-10-preparacao-call-onboarding.md`.
+
+> ⚠️ **Contexto pessoal sensível:** a filha dele, Maria Eduarda (16), está em
+> tratamento de câncer desde maio/2024 — chegou a custar R$ 9 mil/semana e o
+> descapitalizou. Ele trouxe o assunto por conta própria e disse *"eu não negocio
+> isso, só estou contextualizando"*. **Não é alavanca de venda e não vira tema
+> central.** Esposa: Dani.
 
 ## Contatos
 
@@ -79,11 +89,16 @@ definido, e de propósito. A análise dos dois lados está pronta em
   **os preços, que são chute do agente**, e os nomes "Método Cobra" /
   "Método Cobra Authority", que são **proposta do agente** e trazem um "®" **sem
   registro confirmado**. Detalhes em `contexto/fontes/README.md`.
-- **O destaque "MétodoCobra" já existe no perfil dele** — pode já haver algo com
-  esse nome. Verificar antes de tratar como criação nova.
-- **Não temos nenhum número de negócio:** faturamento, ticket atual, lista, volume
-  de atendimento, histórico de lançamento. Tudo listado em
-  `contexto/2026-08-06-lacunas-e-perguntas-para-o-onboarding.md` — é pauta da segunda.
+- **"Método Cobra" já existe**, com logotipo próprio no destaque do perfil — não é
+  criação do agente. Falta saber o que é hoje e se tem INPI.
+- **Os números do negócio existem** e estão em
+  `contexto/2026-08-04-negocio-numeros-e-historia.md` (vieram da call de vendas).
+  O arquivo `contexto/2026-08-06-lacunas-...md` está **superado** — não usar.
+- **Quick win visível:** ele tem paciente pagando R$ 550 e R$ 650 sem reclamar e
+  disse que "se aumentar os dois agora, vão pagar rindo". Reajustar a base é caixa
+  em semanas, sem mídia e sem funil.
+- **Ele já se queimou com agência** (não monetizaram um boom de 100 mil
+  seguidores). Não soar agência nem terceirização — ele pediu "peguem pela mão".
 - **Prova social precisa de cuidado ético:** ele é psicanalista e caso clínico tem
   sigilo. Alinhar o que pode ser usado antes de publicar.
 - Hipótese a verificar: os maiores números do Instagram vêm de **fora do formato
