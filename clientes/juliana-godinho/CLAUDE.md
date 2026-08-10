@@ -34,4 +34,7 @@ onde o outro parou (o Git é a memória compartilhada).
 
 > Leia `contexto/2026-08-10-contexto-negocio-e-funil.md` antes de criar qualquer
 > coisa. A reestruturação vigente está em
-> `estrategia/2026-08-10-reestruturacao-quiz-b.html`.
+> `estrategia/2026-08-10-reestruturacao-quiz-b-v2.html` (identidade porcelana +
+> eucalipto, formato de prontuário). A `-quiz-b.html` e o PDF são a versão
+> anterior, em preto e dourado, mantidos só como histórico — a identidade foi
+> refeita porque repetia a paleta usada em outro cliente.
