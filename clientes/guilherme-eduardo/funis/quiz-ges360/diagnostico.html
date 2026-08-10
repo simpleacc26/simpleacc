@@ -35,6 +35,15 @@
                      border: 1px solid var(--border-ui); background: #ECE5DD; }
     .depo-shot figcaption { font-size: 14px; line-height: 1.45; color: var(--muted);
                             margin-top: 9px; padding-left: 11px; border-left: 3px solid var(--gold); }
+    /* citação: fala literal, com atribuição e data. Não imita um print. */
+    .depo-quote { margin: 18px 0 6px; padding: 16px 18px; background: var(--gold-soft);
+                  border: 1px solid var(--border); border-left: 3px solid var(--gold);
+                  border-radius: var(--radius-sm); }
+    .depo-quote p { margin: 0; font-size: 16px; line-height: 1.5; color: var(--text); }
+    .depo-quote p::before { content: "“"; }
+    .depo-quote p::after  { content: "”"; }
+    .depo-quote cite { display: block; margin-top: 10px; font-style: normal; font-size: 13px;
+                       letter-spacing: .02em; color: var(--gold-light); }
     .cta-box { background: linear-gradient(160deg,#0C2F3E,#0A2331); border: 1px solid var(--border);
                border-radius: var(--radius); padding: 24px; text-align: center; margin-top: 10px; }
     .clube { font-size: 15px; color: var(--muted); margin-top: 14px; }

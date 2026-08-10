@@ -109,3 +109,32 @@ certo nos 3 caminhos (fora / nutrir / qualificado).
 > ⚠️ O Chromium deste container não tem saída para a internet, então o teste roda contra o
 > servidor local. Depois de publicar, confira que os arquivos no ar batem com os do repo
 > (`curl` + `cmp`), que é o que garante o mesmo comportamento em produção.
+
+## ⚠️ Como está publicado hoje (arranjo temporário)
+
+O deploy pelo MCP da Vercel embute os arquivos na chamada e **substitui o snapshot
+inteiro**. O funil completo não cabe numa chamada só, então ele foi quebrado em
+projetos separados na Vercel. **Isto é gambiarra e precisa ser desfeito.**
+
+| Projeto Vercel | O que serve |
+| --- | --- |
+| `diagnostico-ges360` | `index.html`, `diagnostico.html`, `flow.js`, `app.js` (o link público) |
+| `ges360-cdn` | `styles.css` |
+| `ges360-relatorio` | `diagnostico.js` |
+| `ges360-assets` | os prints do Dr. Kayo |
+
+Por isso os HTMLs publicados apontam para URLs absolutas, enquanto **os arquivos
+deste repositório usam caminhos relativos e são autocontidos** (a versão certa).
+
+### Como desfazer (2 minutos, resolve de vez)
+
+Na Vercel, projeto `diagnostico-ges360` → Settings → Git → conectar em
+`simpleacc26/simpleacc`, root `clientes/guilherme-eduardo/funis/quiz-ges360`.
+A partir daí:
+
+- todo push publica sozinho, sem passar por chamada de ferramenta;
+- os **8 prints** entram, não só 2, e em qualidade cheia;
+- os 4 projetos extras podem ser apagados.
+
+Enquanto isso não acontece, quem editar este funil precisa republicar **cada
+projeto separadamente**, respeitando a tabela acima.

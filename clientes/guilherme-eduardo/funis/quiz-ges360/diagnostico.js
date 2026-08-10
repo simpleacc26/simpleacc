@@ -109,53 +109,51 @@ if (!a._completedAt && !a.problema) {
   /* CTA reutilizável, distribuído pela página (o lead clica quando se sentir pronto) */
   const ctaInline = `<div class="cta-inline"><button class="btn btn-primary cta-wpp">${ctaLabel}</button></div>`;
 
-  /* ---------- Depoimentos (prints reais do Dr. Kayo, com autorização) ----------
-     São servidos por gargalo e por objetivo, igual ao CTA: o lead vê a prova que
-     responde exatamente à objeção dele, não uma galeria genérica.
-     Só entram prints SEM nome de paciente. Ver depoimentos/README.md. */
+  /* ---------- Depoimentos (Dr. Kayo Andrade, com autorização em contrato) ------
+     Servidos por gargalo e por objetivo, igual ao CTA: o lead vê a prova que
+     responde à objeção dele, não uma galeria genérica.
+     Só entra material SEM nome de paciente. Ver depoimentos/README.md.
+
+     Vão como PRINT os dois que só funcionam como print: a tabela de evolução da
+     receita e a conversa sobre preço. O terceiro vai como CITAÇÃO atribuída,
+     com data. É a mesma fala; recriar um print de WhatsApp em HTML seria
+     fabricar a aparência de um documento, e isso não se faz.
+     Os outros 6 prints aprovados ficam em depoimentos/ para o time usar no
+     WhatsApp: não cabem no deploy (ver README). */
   const PRINTS = {
     /* Atenção: este print é do dia 22/05, com o mês ainda em curso (R$ 64.761).
        A legenda diz isso de propósito: sem essa frase o número parece
        contradizer o R$ 86.771 do fechamento citado logo acima. */
-    tabela:   { src: "kayo-4756.webp", w: 720, h: 1256,
+    tabela:   { src: "kayo-4756.webp", w: 470, h: 681,
       cap: "Antes de começar, ele tinha medo de que ninguém fosse pagar pelos programas. Este print é do dia 22 de maio, com o mês ainda em curso: fechou em R$ 86.771." },
-    resultado:{ src: "kayo-4761.webp", w: 720, h: 1256,
-      cap: "O fechamento do mês: R$ 86.771. A resposta dele foi \"inacreditável, minha ficha não caiu\"." },
-    preco:    { src: "kayo-4750.webp", w: 720, h: 1256,
-      cap: "Sobre o medo de que o paciente ache caro: \"ninguém pediu desconto, ninguém achou caro\"." },
-    conversao:{ src: "kayo-4748.webp", w: 720, h: 735,
-      cap: "Três pacientes atendidos, três programas fechados. Quando perguntamos o que mudou: \"minha confiança e a forma de entregar\"." },
-    oferta:   { src: "kayo-4747.webp", w: 720, h: 735,
-      cap: "Com o programa estruturado e o preço definido: 3 programas fechados em um único dia, com 100% de conversão." },
-    plantao:  { src: "kayo-4763.webp", w: 720, h: 1256,
-      cap: "Ele dava plantão de 18 horas na UTI às terças por R$ 1.500. Nesta terça, fechou um programa de R$ 9 mil na própria clínica." },
-    perfil:   { src: "kayo-4767.webp", w: 720, h: 735,
-      cap: "Um programa de R$ 4.400 e dois de R$ 3.000, com três pacientes novos que ele mesmo classificaria como \"sem perfil\"." },
-    /* Mesmo caso do print da tabela: aqui o mês estava em R$ 75.571 (+268%),
-       e por isso a legenda situa a data. No fechamento virou +322%. */
-    retorno:  { src: "kayo-4759.webp", w: 720, h: 1256,
-      cap: "Conversa do meio de maio, com o mês em R$ 75.571. Sobre o investimento na implementação, a resposta dele: \"dentre todos os investimentos que eu fiz, esse foi o de maior retorno\"." },
+    preco:    { src: "kayo-4750.webp", w: 560, h: 419,
+      cap: "Sobre o medo de que o paciente ache caro, depois de fechar 3 programas em um dia: \"ninguém pediu desconto, ninguém achou caro\"." },
   };
-  /* 2º print: responde ao gargalo apontado na P3 */
-  const porGargalo = {
-    "modelo de receita": PRINTS.resultado,
-    "precificação e apresentação do programa": PRINTS.preco,
-    "conversão dentro da consulta": PRINTS.conversao,
-    "estruturação da oferta": PRINTS.oferta,
-  }[gargalo] || PRINTS.resultado;
-  /* 3º print: responde ao objetivo declarado na P7 */
-  const porObjetivo = {
-    "sair-plantao": PRINTS.plantao,
-    "vender-natural": PRINTS.perfil,
-  }[valor("objetivo")] || PRINTS.retorno;
 
+  /* Citação por objetivo. Texto literal do Dr. Kayo, com a data, apresentado
+     como citação e não como imagem de conversa. */
+  const CITACOES = {
+    "sair-plantao": { fala: "Eu dava plantão na UTI nas terças. Ganhava R$ 1.500 por 18 horas de plantão. Hoje, em plena terça-feira, fechei um programa de acompanhamento de R$ 9 mil.", quando: "9 de junho" },
+    "vender-natural": { fala: "Quem foi que fechou hoje 1 programa de R$ 4.400 e 2 programas de R$ 3.000 tendo apenas 3 pacientes novos \"sem perfil\"?", quando: "16 de junho" },
+    "_padrao": { fala: "Dentre todos os investimentos que eu fiz, esse foi o de maior retorno. Muito obrigado!", quando: "26 de maio, quando o mês já passava de R$ 75 mil" },
+  };
+  const cit = CITACOES[valor("objetivo")] || CITACOES._padrao;
+
+  /* Os prints são servidos pelo projeto ges360-assets na Vercel, não por esta
+     pasta: o deploy do funil embute os arquivos na chamada e imagem não cabe.
+     Os originais ficam versionados em depoimentos/ (mesmos bytes). */
+  const CDN = "https://ges360-assets.vercel.app/";
   const figura = (p) => `
       <figure class="depo-shot">
-        <img src="depoimentos/${p.src}" width="${p.w}" height="${p.h}" loading="lazy" decoding="async"
-             alt="Print de conversa no WhatsApp com o Dr. Kayo Andrade" />
+        <img src="${CDN}${p.src}" width="${p.w}" height="${p.h}" loading="lazy" decoding="async"
+             alt="Print de conversa de WhatsApp com o Dr. Kayo Andrade" />
         <figcaption>${p.cap}</figcaption>
       </figure>`;
-  const galeriaDepoimentos = [PRINTS.tabela, porGargalo, porObjetivo].map(figura).join("");
+  const galeriaDepoimentos = [PRINTS.tabela, PRINTS.preco].map(figura).join("") + `
+      <blockquote class="depo-quote">
+        <p>${cit.fala}</p>
+        <cite>Dr. Kayo Andrade, por WhatsApp, ${cit.quando}</cite>
+      </blockquote>`;
 
   report.innerHTML = `
     <div class="report-head">
