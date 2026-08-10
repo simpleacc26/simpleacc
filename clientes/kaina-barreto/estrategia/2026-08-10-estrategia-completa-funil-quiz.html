@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Estratégia Completa · Funil de Lead Dinâmico · Kainã Barreto</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a; --navy-dark: #14213d; --gold: #b8863b;
+    --beige: #f4f1ea; --text: #333a45; --muted: #8a8f98;
+  }
+  body { font-family: Arial, Helvetica, sans-serif; color: var(--text); font-size: 9.5pt; line-height: 1.42; }
+  .page { width: 210mm; height: 297mm; overflow: hidden; padding: 15mm 17mm 22mm 17mm;
+          position: relative; page-break-after: always; background: #fff; }
+  .page:last-child { page-break-after: auto; }
+  .runhead { display: flex; justify-content: space-between; font-size: 7pt; color: var(--muted);
+             letter-spacing: .06em; text-transform: uppercase; border-bottom: .4pt solid #d9d5cc;
+             padding-bottom: 4pt; margin-bottom: 10pt; }
+  .runfoot { position: absolute; bottom: 8mm; left: 17mm; right: 17mm; text-align: center;
+             font-size: 7pt; color: var(--muted); }
+  .sec { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em;
+         text-transform: uppercase; margin-bottom: 5pt; }
+  h1 { color: var(--navy); font-size: 21pt; line-height: 1.12; margin-bottom: 6pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 11pt; font-size: 9.5pt; }
+  .bt { color: var(--navy); font-weight: bold; font-size: 8.5pt; letter-spacing: .07em;
+        text-transform: uppercase; margin: 12pt 0 4pt; }
+  .box-dark { background: var(--navy-dark); color: #f5f3ee; padding: 10pt 13pt; margin: 9pt 0; border-radius: 2pt; }
+  .box-dark .bt { color: #fff; margin-top: 0; }
+  .box-dark p { margin-bottom: 4pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light { background: var(--beige); border-left: 3pt solid var(--gold); padding: 9pt 13pt; margin: 9pt 0; }
+  .box-light .bt { margin-top: 0; }
+  .box-light p:last-child { margin-bottom: 0; }
+  p { margin-bottom: 5pt; }
+  ul { list-style: none; margin-bottom: 6pt; }
+  ul li { padding-left: 12pt; position: relative; margin-bottom: 3pt; }
+  ul li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 7pt; top: 1.5pt; }
+  ul.alt li::before { content: "·"; font-size: 11pt; top: -1pt; }
+  .navy { color: var(--navy); }
+  .q { color: var(--navy); font-weight: bold; margin: 8pt 0 3pt; }
+  .cover { padding-top: 55mm; }
+  .cover .kick { color: var(--gold); font-size: 9pt; font-weight: bold; letter-spacing: .14em; text-transform: uppercase; }
+  .cover h1 { font-size: 34pt; line-height: 1.08; margin: 8pt 0 12pt; }
+  .cover .rule { width: 32mm; height: 2pt; background: var(--gold); margin: 9mm 0 7mm 2mm; }
+  .cover .sub { font-size: 12pt; color: #4a5160; line-height: 1.55; }
+  .cover .meta { position: absolute; bottom: 28mm; left: 17mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 9pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- PG 1 · CAPA -->
+<div class="page cover">
+  <div class="kick">Estratégia Completa</div>
+  <h1>Funil de<br>Lead Dinâmico</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    Quiz, página pós-quiz e anúncios.<br>
+    A copy inteira do funil, pronta para implementar.<br>
+    Método WNS · Consultoria Shape10X.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">Kainã Barreto</div>
+    <div class="lbl">Estrategista</div>
+    <div class="val">Daniel Souza · Carlos Durães</div>
+  </div>
+</div>
+
+<!-- PG 2 · O FUNIL EM UMA PÁGINA -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Kainã Barreto</span><span>Página 2</span></div>
+  <div class="sec">Antes de ler a copy</div>
+  <h1>O Funil em Uma Página</h1>
+  <p class="lead">Leia esta página antes de aprovar as copies. Tudo o que vem depois parte destas decisões.</p>
+
+  <div class="bt">O caminho do lead</div>
+  <p><strong>Anúncio → Quiz gratuito → Página pós-quiz com o diagnóstico → WhatsApp → Venda da consultoria</strong></p>
+  <p>A página pós-quiz não vende e não mostra preço. O trabalho dela é entregar o diagnóstico, nomear a trava, apresentar o método WNS e levar a pessoa ao WhatsApp querendo saber o que fazer com aquilo. A oferta da consultoria anual acontece na avaliação, depois da conversa.</p>
+  <p><strong>Por que assim:</strong> R$ 1.800 é um valor que esse público considera, não compra por impulso. Checkout direto do quiz derrubaria a conversão, e ainda perderíamos as objeções reais que só aparecem na conversa. Hoje a conversão em call já é de cerca de 30%: o funil existe para encher a agenda, não para substituir a call.</p>
+
+  <div class="bt">A esteira hoje</div>
+  <p><strong>Carro-chefe:</strong> consultoria anual Shape10X, R$ 1.800 em 12x de R$ 150. É o que este funil vende.</p>
+  <p><strong>Downsell:</strong> plano mais barato, nunca mais curto. Existe para rentabilizar a call que já aconteceu, nunca para substituir o anual.</p>
+  <p><strong>Continuidade:</strong> renovação do ciclo e expansão de valor (afiliação de suplemento e roupa, indicação). Entra a partir do dia 60.</p>
+
+  <div class="box-dark">
+    <div class="bt">O detalhe financeiro que muda a operação</div>
+    <p>Como o anual é 12x, <strong>uma venda entra R$ 150 no mês, não R$ 1.800</strong>. Com 11 vendas, entram R$ 1.650 de caixa contra R$ 1.235 a R$ 2.470 de mídia. O funil empata.</p>
+    <p><strong>Por isso a antecipação de recebíveis é regra, não opção.</strong> Antecipada, uma venda entra perto de R$ 1.620 e banca o mês inteiro de anúncio.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">O que a copy precisa compensar</div>
+    <p>Ainda não há depoimentos coletados. Enquanto não chegam, a página compensa com a autoridade (atleta de powerbuilding, total de 600 kg) e com a força do mecanismo. Onde houver <strong>[DEPOIMENTO]</strong> ou <strong>[ANTES E DEPOIS]</strong>, é espaço reservado para entrar assim que o material existir.</p>
+    <p>A favor: o criativo de antes e depois dele já trouxe mensagem a R$ 2,50 a R$ 5,50. O que faltava era o que fazer com a mensagem antes dela virar call.</p>
+  </div>
+  <div class="runfoot">Funil de lead dinâmico · copy pronta para implementar</div>
+</div>
+
+<!-- PG 3 · BIG IDEA -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Kainã Barreto</span><span>Página 3</span></div>
+  <div class="sec">Seção 1</div>
+  <h1>Big Idea</h1>
+  <p class="lead">A ideia que sustenta o quiz, a página, os anúncios e a call de vendas.</p>
+
+  <div class="box-dark">
+    <div class="bt">A big idea</div>
+    <p style="font-size:11pt;"><strong>Você não está travado por falta de esforço. Está travado porque o seu treino continuou igual enquanto o seu corpo mudou.</strong></p>
+  </div>
+
+  <p>Quem treina há anos aprendeu uma regra só: resultado é consequência de disciplina. Então, quando o espelho para de responder, sobra uma explicação possível na cabeça da pessoa: "eu não estou me esforçando o suficiente". E a resposta é sempre mais. Mais série, mais dia na academia, mais restrição na comida.</p>
+  <p>Só que corpo não responde a esforço. Responde a <strong>estímulo novo no momento certo</strong>. O ciclo que funcionou seis meses atrás virou manutenção, e manutenção não muda ninguém. O erro é invisível porque não está no que a pessoa faz: está no que ninguém ajustou.</p>
+  <p>A virada do Kainã é sair da guerra de dicas e nomear a causa: existem <strong>quatro travas</strong> que fazem um corpo parar de responder, e enquanto ninguém identifica qual delas é a dominante, a pessoa fica tratando o sintoma errado.</p>
+
+  <div class="box-light">
+    <div class="bt">A frase que resume a transformação</div>
+    <p style="font-size:11pt;"><strong>De quem treina e não muda para quem finalmente ajustou o que precisava.</strong></p>
+  </div>
+
+  <div class="bt">As 4 travas do ciclo</div>
+  <ul>
+    <li><strong>1. Trava de estímulo:</strong> o corpo já se adaptou ao treino atual. É a mais comum em quem treina há anos e mudou pouco a lógica do plano.</li>
+    <li><strong>2. Trava de constância:</strong> o plano foi montado para uma rotina que a pessoa não tem. Ela não falha por preguiça, falha porque o plano nunca coube na vida dela.</li>
+    <li><strong>3. Trava de recuperação:</strong> sono ruim, dor ignorada, volume mal distribuído entre grupos. O estímulo até chega, mas o corpo não consegue responder.</li>
+    <li><strong>4. Trava de nutrição:</strong> o treino está certo e o combustível não sustenta. Proteína abaixo do necessário é o caso clássico.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Por que essa big idea é forte neste mercado</div>
+    <p>Os três concorrentes mapeados (HS Team, Team Garin e Muscle Lab) já usam a dor no quiz: "me esforço e não vejo resultados proporcionais", "estagnação". A dor não é mais território livre.</p>
+    <p><strong>O que segue livre é a causa.</strong> Nenhum dos três entrega diagnóstico nenhum: coletam as respostas e mandam para o comercial. A pessoa responde dez perguntas sobre si e recebe "em breve entraremos em contato". Nomear a trava é o espaço que ninguém ocupou.</p>
+  </div>
+  <div class="runfoot">Funil de lead dinâmico · copy pronta para implementar</div>
+</div>
+
+<!-- PG 4 · QUIZ P1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Kainã Barreto</span><span>Página 4</span></div>
+  <div class="sec">Seção 2 · Parte 1</div>
+  <h1>Copy do Quiz</h1>
+  <p class="lead">Capta, qualifica e já entrega o diagnóstico que abre a conversa no WhatsApp.</p>
+
+  <div class="box-light">
+    <div class="bt">Como ler esta seção</div>
+    <p>Cada pergunta alimenta uma das quatro travas. Isso faz o quiz servir a duas funções ao mesmo tempo: qualifica o lead e entrega, antes da conversa, o diagnóstico do caso dele. É o que permite abrir o WhatsApp já falando da trava da pessoa, e não com um "oi, tudo bem?".</p>
+    <p><strong>Partiu da versão que o Kainã já escreveu.</strong> As perguntas 1, 3, 5 e 7 são dele, com ajuste mínimo. As 2, 4 e 6 entram para fechar a qualificação e alimentar o diagnóstico.</p>
+  </div>
+
+  <div class="bt">Tela de abertura</div>
+  <p><strong>Título:</strong> Descubra em 2 minutos por que o seu corpo parou de responder</p>
+  <p><strong>Texto:</strong> Você vai responder 7 perguntas rápidas para eu entender exatamente onde o seu ciclo travou. Eu levo isso a sério: é com essas respostas que eu monto o seu diagnóstico, não é formulário de cadastro. Responda com calma e com sinceridade, principalmente nas que doem.</p>
+  <p><strong>Tempo estimado:</strong> 2 minutos · <strong>CTA:</strong> Começar meu diagnóstico</p>
+
+  <div class="bt">As 7 perguntas · padrão SPIN, qualificação por último</div>
+
+  <div class="q">P1 · Situação. Como está o seu acompanhamento hoje?</div>
+  <ul class="alt">
+    <li>a) Treino sozinho, sem acompanhamento nenhum</li>
+    <li>b) Tenho app ou planilha pronta, mas não é feita para mim</li>
+    <li>c) Já tive personal ou consultoria, parei e não voltei</li>
+    <li>d) Tenho acompanhamento agora, mas não estou satisfeito</li>
+  </ul>
+
+  <div class="q">P2 · Situação. Há quanto tempo você não vê mudança real no corpo? (trava 1: estímulo)</div>
+  <ul class="alt">
+    <li>a) Menos de 3 meses</li>
+    <li>b) De 3 a 6 meses</li>
+    <li>c) De 6 meses a 1 ano</li>
+    <li>d) Mais de um ano</li>
+  </ul>
+
+  <div class="q">P3 · Problema. Qual dessas frases mais parece com você? (define a trava dominante)</div>
+  <ul class="alt">
+    <li>a) "Eu treino, mas não vejo mudança no corpo" → estímulo</li>
+    <li>b) "Minha rotina não me deixa treinar com constância" → constância</li>
+    <li>c) "Já tentei várias coisas diferentes, mas nada trouxe resultado que durasse" → estímulo</li>
+    <li>d) "Sinto que meu treino é genérico, acho que teria mais resultado com algo individualizado" → recuperação</li>
+  </ul>
+  <div class="runfoot">Funil de lead dinâmico · copy pronta para implementar</div>
+</div>
+
+<!-- PG 5 · QUIZ P2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Kainã Barreto</span><span>Página 5</span></div>
+  <div class="sec">Seção 2 · Parte 2</div>
+  <h1>Copy do Quiz: perguntas 4 a 7</h1>
+
+  <div class="q">P4 · Implicação e qualificação. Quanto você acha que já gastou tentando resolver isso nos últimos 12 meses?</div>
+  <ul class="alt">
+    <li>a) Mais de R$ 5.000</li>
+    <li>b) De R$ 2.000 a R$ 5.000</li>
+    <li>c) De R$ 500 a R$ 2.000</li>
+    <li>d) Menos de R$ 500</li>
+    <li>e) Nada ainda</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Por que esta é a pergunta mais importante do quiz</div>
+    <p>Ela faz três trabalhos de uma vez. <strong>Qualifica com histórico</strong>, não com declaração: quem já gastou R$ 3 mil tem capacidade e disposição comprovadas. <strong>Amplifica a dor por custo afundado</strong>: a pessoa faz a conta na hora. E <strong>alimenta o diagnóstico</strong>, que devolve "você já colocou R$ 3 mil nisso e continua travado, então o problema não é investimento, é que ninguém ajustou".</p>
+    <p>É a melhor pergunta dos três concorrentes, e nenhum deles usa no quiz de fitness com faixas calibradas para classe média. Perguntar o que já foi gasto não gera a defensiva que "quanto você pode investir" gera.</p>
+  </div>
+
+  <div class="q">P5 · Tentativas. Como está a sua relação com investimento em treino e orientação hoje?</div>
+  <ul class="alt">
+    <li>a) Nunca investi nada além da mensalidade da academia</li>
+    <li>b) Já gastei com app ou plano pronto, mas não deu resultado</li>
+    <li>c) Já gastei com personal ou nutricionista, mas não continuei</li>
+    <li>d) Tenho acompanhamento com outra pessoa agora, mas estou insatisfeito ou o contrato está perto de acabar</li>
+  </ul>
+
+  <div class="q">P6 · Aberta. Se você pudesse destravar uma coisa só no seu corpo hoje, qual seria? E o que isso muda na sua vida?</div>
+  <p><em>Microcopy: escreva com detalhe. É a partir daqui que eu monto o seu diagnóstico, e eu leio todas.</em></p>
+
+  <div class="q">P7 · Urgência. O quanto você quer ajustar isso agora?</div>
+  <ul class="alt">
+    <li>a) Muito, não aguento mais esperar</li>
+    <li>b) Bastante, mas consigo esperar mais um pouco</li>
+    <li>c) Moderado, sem muita pressa</li>
+    <li>d) Ainda só queria entender melhor, por enquanto</li>
+  </ul>
+
+  <div class="bt">Captura de dados · depois das 7, nunca antes</div>
+  <p><strong>Título:</strong> Seu diagnóstico está pronto</p>
+  <p><strong>Subtítulo:</strong> Preencha para ver a trava que está segurando o seu ciclo e o ajuste que destrava.</p>
+  <p><strong>Campos:</strong> nome · WhatsApp com DDD · idade</p>
+  <p><strong>CTA:</strong> Ver meu diagnóstico · <strong>Privacidade:</strong> seus dados ficam só comigo. Sem spam, sem lista de terceiros.</p>
+  <div class="runfoot">Funil de lead dinâmico · copy pronta para implementar</div>
+</div>
+
+<!-- PG 6 · POS-QUIZ P1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Kainã Barreto</span><span>Página 6</span></div>
+  <div class="sec">Seção 3 · Parte 1</div>
+  <h1>Página Pós-Quiz</h1>
+  <p class="lead">A peça central deste funil. Ela não vende: ela entrega o diagnóstico e faz a pessoa querer conversar.</p>
+
+  <div class="box-dark">
+    <div class="bt">Por que ela é o diferencial competitivo</div>
+    <p>Os três concorrentes terminam o quiz em "obrigado, em breve entraremos em contato". A pessoa investe dois minutos falando do próprio corpo e não recebe nada de volta.</p>
+    <p>Aqui ela recebe o diagnóstico. <strong>Esse é o produto grátis</strong>, e é o que sustenta a promessa da marca: se a tese é "não é disciplina, é ajuste", a página precisa provar isso mostrando qual ajuste falta.</p>
+  </div>
+
+  <div class="bt">Regras da página</div>
+  <ul>
+    <li><strong>Não mostra preço em lugar nenhum.</strong> O valor entra na conversa, depois do acolhimento.</li>
+    <li><strong>Personaliza com as respostas.</strong> Os campos entre chaves duplas são preenchidos pelo que a pessoa marcou.</li>
+    <li><strong>Nunca sugere falta de esforço.</strong> Regra inegociável: o público é disciplinado e sabe disso. Qualquer frase que soe como "você não se esforça" quebra a confiança na hora.</li>
+    <li><strong>Um CTA só, repetido.</strong> Falar comigo no WhatsApp. Nada de dois caminhos.</li>
+  </ul>
+
+  <div class="bt">Os 9 blocos, na ordem</div>
+  <ul class="alt">
+    <li>1. O resultado dele: a trava nomeada</li>
+    <li>2. Leitura do cenário com as respostas dele</li>
+    <li>3. O mecanismo do problema: por que a trava se formou</li>
+    <li>4. Por que o que ele já tentou não funcionou</li>
+    <li>5. O custo de continuar igual</li>
+    <li>6. O mecanismo da solução: WNS e o ciclo de 90 dias</li>
+    <li>7. Para quem é e para quem não é</li>
+    <li>8. FAQ</li>
+    <li>9. CTA final</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Os quatro resultados possíveis</div>
+    <p>A página tem quatro versões do bloco 1, uma por trava: <strong>estímulo, constância, recuperação e nutrição</strong>. O resto é comum. Isso dá personalização real com pouco trabalho de implementação.</p>
+  </div>
+  <div class="runfoot">Funil de lead dinâmico · copy pronta para implementar</div>
+</div>
+
+<!-- PG 7 · POS-QUIZ P2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Kainã Barreto</span><span>Página 7</span></div>
+  <div class="sec">Seção 3 · Parte 2</div>
+  <h1>A Copy, Bloco a Bloco</h1>
+
+  <div class="bt">Bloco 1 · O resultado dele</div>
+  <p><strong>Kicker:</strong> Diagnóstico de {{nome}}</p>
+  <p><strong>Título, versão trava de estímulo:</strong> A sua trava é de estímulo. O seu corpo já se adaptou ao treino que você faz.</p>
+  <p><strong>Versão constância:</strong> A sua trava é de constância. O seu plano nunca coube na rotina que você tem de verdade.</p>
+  <p><strong>Versão recuperação:</strong> A sua trava é de recuperação. O estímulo chega, mas o seu corpo não consegue responder a ele.</p>
+  <p><strong>Versão nutrição:</strong> A sua trava é de nutrição. O treino está certo e o combustível não sustenta.</p>
+  <p><strong>Linha de apoio:</strong> Isso não é diagnóstico de preguiça. É o oposto: só trava assim quem estava fazendo a parte dele.</p>
+
+  <div class="bt">Bloco 2 · A leitura do seu cenário</div>
+  <p>Você treina há {{tempo}}, com {{acompanhamento}}, e faz {{tempo_sem_resultado}} que não vê mudança real no corpo. O que você já tentou para resolver foi {{tentativa}}.</p>
+  <p>Isso coloca você num grupo bem específico: <strong>quem tem constância e não tem retorno</strong>. Não é o mesmo caso de quem não treina, e é por isso que a solução também não é a mesma.</p>
+  <p>E tem um número que vale olhar de frente: você marcou que já investiu {{valor_gasto}} tentando resolver isso nos últimos 12 meses. Não é falta de esforço nem falta de investimento. É falta de ajuste.</p>
+
+  <div class="bt">Bloco 3 · Por que a sua trava se formou</div>
+  <p>Todo estímulo tem prazo de validade. O treino que fez você evoluir lá atrás cumpriu a função dele e virou manutenção. Manutenção mantém, não transforma.</p>
+  <p>Como o seu esforço não caiu, você não desconfia do treino. Você começa a desconfiar de si mesmo. E aí vem a pergunta que quase todo mundo carrega sem falar em voz alta: <em>"será que o meu corpo travou de vez?"</em></p>
+  <p>Não travou. O que aconteceu é mais simples e mais chato: ninguém olhou para o seu caso e mudou o que precisava mudar, na hora que precisava mudar.</p>
+  <div class="runfoot">Funil de lead dinâmico · copy pronta para implementar</div>
+</div>
+
+<!-- PG 8 · POS-QUIZ P3 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Kainã Barreto</span><span>Página 8</span></div>
+  <div class="sec">Seção 3 · Parte 3</div>
+  <h1>A Copy, Bloco a Bloco</h1>
+
+  <div class="bt">Bloco 4 · Por que o que você tentou não funcionou</div>
+  <p><strong>Trocar de treino sozinho.</strong> Troca os exercícios e mantém a mesma lógica. Para o corpo, nada mudou de verdade. Foi por isso que a terceira troca deu no mesmo lugar da primeira.</p>
+  <p><strong>App e planilha pronta.</strong> Não é ruim, é genérico. Foi montado para uma média de pessoas, e a média não tem o seu histórico, a sua rotina e os seus grupos musculares fracos.</p>
+  <p><strong>Treinar mais.</strong> Volume a mais em cima de um corpo que não está recuperando não acelera nada. Às vezes atrasa.</p>
+  <p><strong>Mexer só na comida.</strong> Resolve quando a trava é de nutrição. Nos outros três casos, corta energia de um corpo que já não estava respondendo.</p>
+
+  <div class="bt">Bloco 5 · O custo de continuar igual</div>
+  <p>Vale registrar uma coisa que quase ninguém fala. Cada ciclo de 90 dias que passa sem ajuste não é só tempo perdido: é um ciclo em que o seu corpo aprende a economizar em cima do estímulo que você dá. Quanto mais tempo travado, mais adaptado ele fica.</p>
+  <p>Não é tarde demais. Mas também não é neutro.</p>
+
+  <div class="bt">Bloco 6 · O que destrava: o método WNS</div>
+  <p>O trabalho é um <strong>ciclo de 90 dias em três blocos</strong>: tensional, intermediário e metabólico. Cada um com uma função, na ordem certa.</p>
+  <p>E tem duas coisas dentro dele que você não encontra em plano pronto:</p>
+  <ul>
+    <li><strong>Classificação WNS.</strong> Cada grupo muscular seu é classificado como <strong>W</strong> (forte, recebe volume baixo), <strong>N</strong> (neutro, volume moderado) ou <strong>S</strong> (fraco e prioritário, volume alto). O volume vai para onde o seu corpo precisa, não distribuído igual para todo mundo.</li>
+    <li><strong>A virada de bloco é disparada pelo seu corpo, não pelo calendário.</strong> A fase muda quando o seu percentual de gordura chega no limiar, não quando "passou um mês". Quem dita o momento é você, não a data.</li>
+  </ul>
+  <p>E o ciclo nunca fica solto: check-in diário e reavaliação a cada 30 dias. Você nunca passa mais de um mês seguindo algo que já parou de funcionar.</p>
+
+  <div class="box-light">
+    <div class="bt">Quem vai te acompanhar</div>
+    <p><strong>Kainã Barreto</strong>, personal trainer e atleta de powerbuilding com total de 600 kg. Ele cobra de si exatamente o que ensina: o método que aplica nos alunos é o mesmo que usa no próprio treino, todo dia. <strong>[DEPOIMENTO]</strong></p>
+  </div>
+  <div class="runfoot">Funil de lead dinâmico · copy pronta para implementar</div>
+</div>
+
+<!-- PG 9 · POS-QUIZ P4 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Kainã Barreto</span><span>Página 9</span></div>
+  <div class="sec">Seção 3 · Parte 4</div>
+  <h1>Qualificação, FAQ e CTA</h1>
+
+  <div class="bt">Bloco 7 · Para quem é e para quem não é</div>
+  <p><strong>É para você se:</strong></p>
+  <ul class="alt">
+    <li>Você já treina com constância e não é iniciante</li>
+    <li>Você faz a sua parte e mesmo assim o corpo não responde</li>
+    <li>Você quer resultado sério dentro da rotina que tem, sem virar atleta</li>
+    <li>Você está disposto a seguir um plano e dar retorno todo dia</li>
+  </ul>
+  <p><strong>Não é para você se:</strong></p>
+  <ul class="alt">
+    <li>Você nunca treinou e quer alguém para te fazer começar</li>
+    <li>Você procura resultado em 30 dias sem mudar nada</li>
+    <li>Você quer só uma ficha de treino, sem acompanhamento</li>
+    <li>Você não pretende fazer check-in nem responder o acompanhamento</li>
+  </ul>
+
+  <div class="bt">Bloco 8 · FAQ</div>
+  <p><strong>"Já tentei consultoria online e não deu certo. Por que aqui seria diferente?"</strong><br>
+  Porque quase toda consultoria entrega plano e some. Aqui o plano é a menor parte: o que muda o jogo é o check-in diário e a reavaliação de 30 em 30 dias. Você nunca passa mais de um mês seguindo algo que já parou de funcionar. Foi exatamente isso que faltou nas outras.</p>
+  <p><strong>"Minha rotina é apertada. Vai dar para seguir?"</strong><br>
+  O plano é montado para a rotina que você tem, não para a ideal. Se você treina 3 vezes por semana, o ciclo é desenhado para 3. O que não funciona é montar para 5 e você conseguir 3.</p>
+  <p><strong>"Sinto dor em algum movimento. Tem problema?"</strong><br>
+  Pelo contrário: é uma das primeiras coisas que o diagnóstico levanta. Treinar com dor e sem adaptação é um dos motivos mais comuns de travamento.</p>
+  <p><strong>"Preciso de academia completa?"</strong><br>
+  Não. O plano se adapta ao que você tem disponível. O que não se adapta é o método.</p>
+  <p><strong>"E se eu fizer tudo e não der resultado?"</strong><br>
+  Você continua sendo treinado sem custo até chegar. A única condição é aderência de 80% ou mais, porque o que eu garanto é o ajuste. A execução é sua.</p>
+
+  <div class="box-dark">
+    <div class="bt">Bloco 9 · CTA final</div>
+    <p><strong>Agora você sabe qual é a sua trava. O próximo passo é saber o que fazer com ela.</strong></p>
+    <p>Me chama no WhatsApp que eu te explico como seria o seu ciclo, com base no que você respondeu aqui. Sem compromisso: se eu achar que não é o seu momento, eu vou te dizer.</p>
+    <p><strong>[FALAR COM O KAINÃ NO WHATSAPP]</strong></p>
+  </div>
+  <div class="runfoot">Funil de lead dinâmico · copy pronta para implementar</div>
+</div>
+
+<!-- PG 10 · ANUNCIOS P1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Kainã Barreto</span><span>Página 10</span></div>
+  <div class="sec">Seção 4 · Parte 1</div>
+  <h1>Copy dos Anúncios</h1>
+  <p class="lead">Três ângulos e 20 criativos escritos: 5 estáticos, 5 carrosséis e 10 vídeos.</p>
+
+  <div class="box-light">
+    <div class="bt">Regras que valem para todos os anúncios</div>
+    <p>O destino é sempre o <strong>quiz gratuito</strong>, nunca o WhatsApp direto. Nenhum anúncio cita preço. E a régua que não se quebra: <strong>nunca sugerir falta de esforço</strong>, nunca prometer prazo de resultado, nunca usar corpo alheio como promessa.</p>
+    <p>Formato: manter o padrão low fi que ele já domina, falando para a câmera, legenda queimada, gancho em caixa no topo. Formato conhecido que funciona bate formato novo incerto.</p>
+  </div>
+
+  <div class="bt">Ângulo 1 · Identidade e dor</div>
+  <p><strong>Estratégia:</strong> dizer a frase que a pessoa fala para si mesma e nunca disse em voz alta. É o ângulo com o melhor sinal orgânico da conta dele: o Reel de identidade fez 2.359 visualizações contra mediana perto de 450 nos ganchos de dica.</p>
+  <p><strong>Hook:</strong> "Treino há anos. E ainda continuo travado."</p>
+  <p><strong>Copy curta:</strong> Treino há anos e continuo travado. Se essa frase é sua, presta atenção: o problema quase nunca é disciplina. Você não falta treino, você não desiste, e mesmo assim o espelho não muda. Isso tem causa, e ela tem nome. Descubra a sua em 2 minutos.</p>
+  <p><strong>Copy média:</strong> "Treino há anos. E ainda continuo travado." Se você já pensou isso, essa mensagem é para você. Você acorda cedo, vai treinar cansado, segue a dieta a semana inteira. E o espelho continua igual. Aí vem a parte pior: por fora, parece que você não se esforça, e você começa a achar que o problema é com você. Não é. Quem treina há anos e travou não travou por preguiça: travou porque o treino continuou igual enquanto o corpo mudou, e ninguém ajustou. Eu montei um diagnóstico de 2 minutos que aponta exatamente onde o seu ciclo parou. É gratuito e leva menos tempo que o seu aquecimento.</p>
+  <p><strong>Copy longa:</strong> "Treino há anos. E ainda continuo travado." Se essa frase é sua, leia até o fim. Você não é quem falta treino. Não é quem desiste na terceira semana. Você acorda cedo, vai cansado, segue a alimentação de segunda a sexta, e mesmo assim o espelho não responde. E existe uma parte disso que quase ninguém fala: por fora, parece que você não se esforça. As pessoas olham e tiram a conclusão errada. Aí você começa a achar que o problema é com você, que não tem genética, que talvez já seja tarde. Não é nada disso. O que eu vejo em quase todo aluno que chega travado é o mesmo: o treino dele continuou igual enquanto o corpo dele mudou. O estímulo que funcionou seis meses atrás virou manutenção, e manutenção não muda ninguém. Trocar de treino sozinho também não resolve, porque troca o exercício e mantém a lógica. O que destrava é ajuste feito na hora certa, a partir de como o seu corpo está respondendo agora. Fiz um diagnóstico de 2 minutos, 7 perguntas, que mostra qual das quatro travas está segurando o seu ciclo. Link aqui embaixo.</p>
+  <div class="runfoot">Funil de lead dinâmico · copy pronta para implementar</div>
+</div>
+
+<!-- PG 11 · ANUNCIOS P2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Kainã Barreto</span><span>Página 11</span></div>
+  <div class="sec">Seção 4 · Parte 2</div>
+  <h1>Ângulo 2 · Mecanismo Único</h1>
+
+  <p><strong>Estratégia:</strong> entregar valor real e criar a percepção de um erro que a pessoa não sabia que cometia. É o formato que ele já produz bem e que gera comentário, agora fechando na causa em vez de parar na dica.</p>
+  <p><strong>Hook:</strong> "O erro invisível de quem treina certo e mesmo assim não muda."</p>
+
+  <div class="bt">Copy curta</div>
+  <p>Existe um erro que quase todo mundo comete e não enxerga: seguir o mesmo ciclo depois que o corpo já se adaptou. Não é falta de treino. Não é falta de dieta. É estímulo velho num corpo novo. Descubra em 2 minutos qual das quatro travas é a sua.</p>
+
+  <div class="bt">Copy média</div>
+  <p>O erro invisível de quem treina certo e não muda. Não é a série, não é o suplemento, não é força de vontade. É seguir o mesmo ciclo depois que o corpo já se adaptou a ele. O treino que fez você evoluir seis meses atrás hoje só te mantém onde está. E como você continua se esforçando igual, você não desconfia dele: desconfia de si. No método que eu uso, cada grupo muscular é classificado por prioridade e a fase do treino não muda por calendário, muda quando o seu corpo chega no ponto. É por isso que o resultado volta a aparecer sem você precisar treinar mais. Fiz um diagnóstico de 2 minutos que aponta em qual erro você está. Gratuito, link aqui embaixo.</p>
+
+  <div class="bt">Copy longa</div>
+  <p>O erro invisível de quem treina certo e mesmo assim não muda. Vou ser direto: na maioria das vezes que alguém chega travado até mim, não tem nada de errado com o esforço da pessoa. Ela treina, come razoavelmente bem, é constante. O erro está em outro lugar, e é por isso que ele é invisível: ela está seguindo o mesmo ciclo depois que o corpo já se adaptou a ele. Funciona assim: todo estímulo tem prazo de validade. O treino que fez você evoluir seis meses atrás cumpriu o papel dele e virou manutenção. Manutenção mantém, não transforma. E como o esforço não caiu, ninguém desconfia do treino: a pessoa desconfia de si mesma. Aí vem a segunda armadilha, trocar de treino por conta própria. Troca os exercícios, mantém a mesma lógica, e o corpo entende que nada mudou. Mais três meses no mesmo lugar. No meu método o ciclo de 90 dias tem três blocos, cada grupo muscular recebe volume conforme a prioridade dele, e a virada de bloco acontece quando o corpo chega no ponto de virar, não quando a data chega. É isso que faz o resultado voltar sem a pessoa treinar mais, e sim treinar no ponto certo. Montei um diagnóstico de 2 minutos que aponta qual trava está segurando o seu ciclo. Link aqui embaixo.</p>
+  <div class="runfoot">Funil de lead dinâmico · copy pronta para implementar</div>
+</div>
+
+<!-- PG 12 · ANUNCIOS P3 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Kainã Barreto</span><span>Página 12</span></div>
+  <div class="sec">Seção 4 · Parte 3</div>
+  <h1>Ângulo 3 · Prova e Transformação</h1>
+
+  <p><strong>Estratégia:</strong> identificação por resultado de gente igual à pessoa, não de atleta. O ICP não quer virar fisiculturista e tem medo explícito de ser visto como obcecado, então a prova precisa ser de alguém com rotina normal.</p>
+  <p><strong>Hook:</strong> "Ela treinava há 4 anos e não via mudança. Mudou uma coisa só."</p>
+
+  <div class="bt">Copy curta</div>
+  <p>[NOME] treinava há anos e não via mudança nenhuma. Não aumentou treino, não cortou mais comida. Ajustou o que estava travando, e o corpo respondeu dentro de um ciclo. [ANTES E DEPOIS] Descubra o que está travando o seu em 2 minutos.</p>
+
+  <div class="bt">Copy média</div>
+  <p>[NOME] treinava há [TEMPO] anos e tinha parado de ver resultado. Não era falta de esforço: treinava [X] vezes por semana, seguia a dieta, fazia tudo que já tinham mandado. A gente não aumentou o volume de treino nem cortou mais caloria. A gente achou onde o ciclo dela tinha travado e ajustou. [ANTES E DEPOIS] Esse é o ponto que quase ninguém trata: quem já treina não precisa de mais esforço, precisa do ajuste certo. Se você está há meses no mesmo lugar, faça o diagnóstico de 2 minutos e descubra onde o seu travou.</p>
+
+  <div class="bt">Copy longa</div>
+  <p>[NOME] chegou para mim depois de [TEMPO] anos treinando sem ver o corpo mudar. E não era descaso: treinava [X] vezes por semana, com rotina apertada de [CONTEXTO], e mesmo assim não faltava. Seguia a alimentação de segunda a sexta. Fazia tudo o que já tinham mandado fazer. O que ela me disse na primeira conversa foi mais ou menos isso: "eu faço tudo certo, então por que não funciona?" A gente não aumentou o treino dela. Não cortou mais comida. Não colocou cardio em jejum. Fez uma coisa só: identificou onde o ciclo dela tinha travado e ajustou o estímulo para o ponto em que o corpo dela estava naquele momento. [ANTES E DEPOIS] Isso aí é [PERÍODO] de acompanhamento, com check-in diário e reavaliação a cada 30 dias. Nada de plano solto: cada vez que o corpo dela respondeu, o plano mudou junto. E é isso que eu quero que você entenda: quem já treina há anos raramente precisa de mais esforço. Precisa de ajuste. O esforço você já tem, ele só está sendo aplicado num estímulo que já venceu. Se você está há meses no mesmo lugar, o primeiro passo não é mudar o treino no chute, é descobrir o que travou. Montei um diagnóstico de 2 minutos com 7 perguntas que aponta exatamente isso. Link aqui embaixo.</p>
+
+  <div class="box-light">
+    <div class="bt">Enquanto não houver depoimento</div>
+    <p>Este ângulo só entra no ar quando existir pelo menos um caso com autorização. Até lá, rodar apenas os ângulos 1 e 2 e priorizar a coleta: é a tarefa do dia 60 do roadmap.</p>
+  </div>
+  <div class="runfoot">Funil de lead dinâmico · copy pronta para implementar</div>
+</div>
+
+<!-- PG 13 · ESTATICOS -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Kainã Barreto</span><span>Página 13</span></div>
+  <div class="sec">Seção 4 · Parte 4</div>
+  <h1>Os 5 Estáticos</h1>
+  <p class="lead">Texto sobre fundo limpo, estilo print de conversa. Funciona neste nicho porque parece desabafo, não anúncio.</p>
+
+  <div class="bt">Estático 1 · Identidade</div>
+  <p><strong>Arte:</strong> "Treino há 5 anos. Mudei de treino três vezes. E o espelho é o mesmo."</p>
+  <p><strong>Legenda:</strong> Não é falta de disciplina. Existem quatro travas que fazem um corpo parar de responder, e trocar de treino sozinho não resolve nenhuma delas. Descubra a sua em 2 minutos. Link na bio.</p>
+
+  <div class="bt">Estático 2 · Identidade</div>
+  <p><strong>Arte:</strong> "Por fora parece que eu não me esforço. Por dentro eu não falto um treino."</p>
+  <p><strong>Legenda:</strong> Essa distância entre o que você faz e o que aparece tem explicação, e não é sobre você. Diagnóstico gratuito de 2 minutos.</p>
+
+  <div class="bt">Estático 3 · Mecanismo</div>
+  <p><strong>Arte:</strong> "São quatro travas. Você só precisa destravar uma. Quase ninguém acerta qual."</p>
+  <p><strong>Legenda:</strong> Estímulo, constância, recuperação e nutrição. Cada pessoa tem uma trava dominante diferente, e é por isso que dica genérica não funciona. Descubra a sua em 2 minutos.</p>
+
+  <div class="bt">Estático 4 · Mecanismo</div>
+  <p><strong>Arte:</strong> "Treinar mais é a resposta errada para quase todo mundo que está travado."</p>
+  <p><strong>Legenda:</strong> Volume a mais em cima de um corpo que não está recuperando não acelera nada, às vezes atrasa. O que destrava é ajuste, não esforço extra. Faça o diagnóstico gratuito.</p>
+
+  <div class="bt">Estático 5 · Prova</div>
+  <p><strong>Arte:</strong> "A gente não aumentou o treino dela. Ajustou onde estava travado." <strong>[ANTES E DEPOIS]</strong></p>
+  <p><strong>Legenda:</strong> Mesmo esforço, estímulo certo. Um ciclo de diferença. Descubra o que está travando o seu em 2 minutos.</p>
+
+  <div class="box-light">
+    <div class="bt">Nota de produção</div>
+    <p>Fundo claro e tipografia grande, sem foto de corpo nos estáticos 1 a 4. A ausência de corpo é proposital: reforça que o assunto é a causa, não a estética, e conversa com quem tem medo de ser visto como obcecado.</p>
+  </div>
+  <div class="runfoot">Funil de lead dinâmico · copy pronta para implementar</div>
+</div>
+
+<!-- PG 14 · CARROSSEIS 1-3 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Kainã Barreto</span><span>Página 14</span></div>
+  <div class="sec">Seção 4 · Parte 5</div>
+  <h1>Os 5 Carrosséis</h1>
+  <p class="lead">Um slide por ideia, frases curtas. O último slide sempre leva ao quiz.</p>
+
+  <div class="bt">Carrossel 1 · As quatro travas</div>
+  <ul class="alt">
+    <li>1. Você treina certo e o corpo não responde. Isso tem quatro causas possíveis.</li>
+    <li>2. Trava de estímulo: o corpo já se adaptou ao treino que você faz.</li>
+    <li>3. Trava de constância: o plano nunca coube na rotina que você tem de verdade.</li>
+    <li>4. Trava de recuperação: o estímulo chega, mas o corpo não consegue responder.</li>
+    <li>5. Trava de nutrição: o treino está certo e o combustível não sustenta.</li>
+    <li>6. Cada pessoa tem uma dominante. Descubra a sua em 2 minutos. Link na bio.</li>
+  </ul>
+
+  <div class="bt">Carrossel 2 · O erro de trocar de treino</div>
+  <ul class="alt">
+    <li>1. Você já trocou de treino tentando destravar. Deu no mesmo.</li>
+    <li>2. Porque trocar exercício não é trocar estímulo.</li>
+    <li>3. O corpo não lê o nome do exercício. Ele lê volume, intensidade e frequência.</li>
+    <li>4. Se a lógica continua igual, para ele nada mudou.</li>
+    <li>5. É por isso que a terceira troca dá no mesmo lugar da primeira.</li>
+    <li>6. Descubra o que precisa mudar de verdade. Diagnóstico gratuito, link na bio.</li>
+  </ul>
+
+  <div class="bt">Carrossel 3 · O que é W, N e S</div>
+  <ul class="alt">
+    <li>1. Nem todo grupo muscular seu precisa do mesmo volume de treino.</li>
+    <li>2. W: grupo forte. Recebe volume baixo, porque já responde bem.</li>
+    <li>3. N: grupo neutro. Volume moderado, para manter.</li>
+    <li>4. S: grupo fraco e prioritário. Volume alto, porque é ele que está segurando o seu shape.</li>
+    <li>5. Plano pronto distribui igual para todo mundo. Por isso ele empaca.</li>
+    <li>6. Quer saber quais são os seus S? Começa pelo diagnóstico. Link na bio.</li>
+  </ul>
+  <div class="runfoot">Funil de lead dinâmico · copy pronta para implementar</div>
+</div>
+
+<!-- PG 15 · CARROSSEIS 4-5 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Kainã Barreto</span><span>Página 15</span></div>
+  <div class="sec">Seção 4 · Parte 5</div>
+  <h1>Carrosséis 4 e 5</h1>
+
+  <div class="bt">Carrossel 4 · Cena · "As frases que você já disse para si mesmo"</div>
+  <ul class="alt">
+    <li>1. "Será que meu corpo travou de vez?"</li>
+    <li>2. "Eu faço tudo certo, então por que não funciona?"</li>
+    <li>3. "Deve ser genética."</li>
+    <li>4. "Talvez eu já esteja velho demais para mudar isso."</li>
+    <li>5. Nenhuma dessas é verdade. Todas aparecem quando ninguém explica a causa.</li>
+    <li>6. Existe uma explicação, e ela cabe em 2 minutos. Link na bio.</li>
+  </ul>
+
+  <div class="bt">Carrossel 5 · Por que o plano muda quando o corpo muda</div>
+  <ul class="alt">
+    <li>1. A maioria dos planos muda de fase no dia 30. Por que dia 30?</li>
+    <li>2. Porque é fácil de organizar. Não porque o corpo pediu.</li>
+    <li>3. No meu método a fase vira quando o seu percentual de gordura chega no limiar.</li>
+    <li>4. Quem dita o momento é o seu corpo, não a data no papel.</li>
+    <li>5. É a diferença entre seguir um cronograma e seguir um processo.</li>
+    <li>6. Comece pelo diagnóstico: 2 minutos, gratuito. Link na bio.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Nota de produção</div>
+    <p>Slide 1 é o que decide o teste: precisa funcionar sozinho na timeline. Frase curta, alto contraste, sem logo. O slide final é sempre o mesmo em todos os cinco, para virar assinatura visual reconhecível.</p>
+  </div>
+  <div class="runfoot">Funil de lead dinâmico · copy pronta para implementar</div>
+</div>
+
+<!-- PG 16 · VIDEOS 1-4 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Kainã Barreto</span><span>Página 16</span></div>
+  <div class="sec">Seção 4 · Parte 6</div>
+  <h1>Os 10 Vídeos · roteiros 1 a 4</h1>
+  <p class="lead">Talking head do Kainã, vertical, de 30 a 60 segundos. O hook precisa segurar nos 3 primeiros segundos.</p>
+
+  <div class="bt">Vídeo 1 · Identidade</div>
+  <p><strong>Hook:</strong> "Treino há anos. E ainda continuo travado."</p>
+  <p><strong>Desenvolvimento:</strong> se essa frase é sua, o problema quase nunca é disciplina. Você não falta treino, não desiste, e mesmo assim o espelho não muda. E ainda tem a parte que ninguém fala: por fora parece que você não se esforça.</p>
+  <p><strong>CTA:</strong> tem um diagnóstico gratuito de 2 minutos que mostra qual das quatro travas está segurando o seu ciclo. Link aqui embaixo.</p>
+
+  <div class="bt">Vídeo 2 · Cena</div>
+  <p><strong>Hook:</strong> "Você já trocou de treino três vezes e voltou pro mesmo lugar. Deixa eu te explicar o que aconteceu."</p>
+  <p><strong>Desenvolvimento:</strong> trocar exercício não é trocar estímulo. O corpo não lê o nome do exercício, ele lê volume, intensidade e frequência. Se a lógica continua igual, para ele nada mudou.</p>
+  <p><strong>CTA:</strong> convite para o diagnóstico.</p>
+
+  <div class="bt">Vídeo 3 · Cena</div>
+  <p><strong>Hook:</strong> "Se você sente dor em algum movimento e continua treinando igual, isso aqui é para você."</p>
+  <p><strong>Desenvolvimento:</strong> dor ignorada não é resistência, é informação. Ela muda a forma como você executa, tira volume de onde precisa e coloca onde não deveria. Treinar com dor sem adaptação é uma das travas mais comuns.</p>
+  <p><strong>CTA:</strong> convite para o diagnóstico.</p>
+
+  <div class="bt">Vídeo 4 · Cena</div>
+  <p><strong>Hook:</strong> "Seja sincero: você sabe se a sua carga está certa hoje?"</p>
+  <p><strong>Desenvolvimento:</strong> a maioria das pessoas treina na dúvida. Não sabe se a carga está certa, não sabe se está comendo o suficiente, e mesmo assim continua. Esse desgaste mental cansa mais que o treino.</p>
+  <p><strong>CTA:</strong> convite para o diagnóstico.</p>
+  <div class="runfoot">Funil de lead dinâmico · copy pronta para implementar</div>
+</div>
+
+<!-- PG 17 · VIDEOS 5-7 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Kainã Barreto</span><span>Página 17</span></div>
+  <div class="sec">Seção 4 · Parte 6</div>
+  <h1>Roteiros 5 a 7 · mecanismo</h1>
+
+  <div class="bt">Vídeo 5 · Mecanismo</div>
+  <p><strong>Hook:</strong> "O erro invisível de quem treina certo e mesmo assim não muda."</p>
+  <p><strong>Desenvolvimento:</strong> todo estímulo tem prazo de validade. O treino que te fez evoluir seis meses atrás cumpriu a função e virou manutenção. Manutenção mantém, não transforma. E como o esforço não caiu, você não desconfia do treino: desconfia de si.</p>
+  <p><strong>CTA:</strong> diagnóstico de 2 minutos, link embaixo.</p>
+
+  <div class="bt">Vídeo 6 · Mecanismo</div>
+  <p><strong>Hook:</strong> "Nem todo músculo seu precisa do mesmo volume de treino. E é aí que quase todo plano erra."</p>
+  <p><strong>Desenvolvimento:</strong> explicar W, N e S em linguagem simples. Grupo forte recebe volume baixo, neutro recebe moderado, e o fraco, que é o que está segurando o seu shape, recebe volume alto. Plano pronto distribui igual para todo mundo.</p>
+  <p><strong>CTA:</strong> "quer saber quais são os seus grupos prioritários? Começa pelo diagnóstico."</p>
+
+  <div class="bt">Vídeo 7 · Mecanismo</div>
+  <p><strong>Hook:</strong> "Por que o seu treino muda no dia 30? Quem decidiu isso?"</p>
+  <p><strong>Desenvolvimento:</strong> a maioria dos planos vira de fase por calendário, porque é fácil de organizar. Não porque o corpo pediu. No meu método a virada acontece quando o percentual de gordura chega no limiar. Quem dita é o corpo, não a data.</p>
+  <p><strong>CTA:</strong> convite para o diagnóstico.</p>
+
+  <div class="box-light">
+    <div class="bt">Regra de gravação</div>
+    <p>Um bloco de gravação por semana, de 5 a 6 peças por vez. Nada de gravar todo dia: ele já tentou 3 conteúdos por dia e isso o levou ao esgotamento sem gerar venda. O papel do conteúdo aqui é tempo de tela e prova, não geração de demanda. Quem gera demanda é o tráfego.</p>
+  </div>
+  <div class="runfoot">Funil de lead dinâmico · copy pronta para implementar</div>
+</div>
+
+<!-- PG 18 · VIDEOS 8-10 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Kainã Barreto</span><span>Página 18</span></div>
+  <div class="sec">Seção 4 · Parte 6</div>
+  <h1>Roteiros 8 a 10 · autoridade e prova</h1>
+
+  <div class="bt">Vídeo 8 · Autoridade</div>
+  <p><strong>Hook:</strong> "Eu puxo 600 kg somados. E não é por isso que você deveria me ouvir."</p>
+  <p><strong>Desenvolvimento:</strong> o número serve para uma coisa só, mostrar que eu cobro de mim o que ensino. O que resolve o seu caso não é o meu shape, é o processo que eu uso para descobrir onde o seu corpo travou. Coisa que eu aplico em mim toda semana.</p>
+  <p><strong>CTA:</strong> convite para o diagnóstico.</p>
+
+  <div class="bt">Vídeo 9 · Objeção</div>
+  <p><strong>Hook:</strong> "Você já pagou personal, já pagou app, e continua no mesmo lugar. Faz sentido desconfiar."</p>
+  <p><strong>Desenvolvimento:</strong> a diferença não está em quem monta o plano, está em quem acompanha depois. Plano entregue e abandonado é o padrão do mercado. Check-in diário e reavaliação a cada 30 dias mudam o jogo porque você nunca fica um mês seguindo algo que já parou de funcionar.</p>
+  <p><strong>CTA:</strong> "antes de contratar qualquer coisa, faça o diagnóstico. É gratuito."</p>
+
+  <div class="bt">Vídeo 10 · Prova</div>
+  <p><strong>Hook:</strong> "[NOME] treinava há [TEMPO] anos sem ver mudança. Olha o que a gente ajustou."</p>
+  <p><strong>Desenvolvimento:</strong> contar o caso com o antes e depois na tela. Não aumentamos treino, não cortamos comida. Identificamos a trava e ajustamos o estímulo para o ponto em que o corpo dela estava.</p>
+  <p><strong>CTA:</strong> convite para o diagnóstico. <strong>Só entra no ar com depoimento e autorização.</strong></p>
+
+  <div class="box-dark">
+    <div class="bt">Ordem de subida sugerida</div>
+    <p>Comece com <strong>vídeos 1, 5 e 6</strong> mais os <strong>estáticos 1 e 3</strong>. Cobrem os dois ângulos que não dependem de prova social e testam a hipótese mais importante: se dor e identidade batem mesmo o conteúdo de dica na mídia paga, como já bateram no orgânico.</p>
+  </div>
+  <div class="runfoot">Funil de lead dinâmico · copy pronta para implementar</div>
+</div>
+
+<!-- PG 19 · HEADLINES -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Kainã Barreto</span><span>Página 19</span></div>
+  <div class="sec">Seção 4 · Parte 7</div>
+  <h1>Headlines e Hooks para Teste</h1>
+
+  <div class="bt">10 headlines para teste A/B</div>
+  <ul class="alt">
+    <li>1. Você treina há anos. E o espelho continua igual.</li>
+    <li>2. O problema não é disciplina. É ajuste.</li>
+    <li>3. Treino há anos e ainda continuo travado.</li>
+    <li>4. O erro invisível de quem treina certo e não muda.</li>
+    <li>5. Descubra em 2 minutos por que o seu corpo parou de responder.</li>
+    <li>6. Você não é preguiçoso. O seu treino é que está velho.</li>
+    <li>7. Já trocou de treino várias vezes e nada mudou? Tem um motivo.</li>
+    <li>8. São quatro travas. Você só precisa destravar uma.</li>
+    <li>9. Não é falta de esforço. É estímulo velho num corpo novo.</li>
+    <li>10. Antes de mudar o seu treino de novo, descubra o que travou.</li>
+  </ul>
+
+  <div class="bt">10 hooks para vídeo</div>
+  <ul class="alt">
+    <li>1. "Treino há anos. E ainda continuo travado."</li>
+    <li>2. "O erro invisível de quem treina certo e mesmo assim não muda."</li>
+    <li>3. "Se você já trocou de treino três vezes e voltou pro mesmo lugar, é isso aqui."</li>
+    <li>4. "Você não precisa treinar mais. Você precisa treinar no ponto certo."</li>
+    <li>5. "Seja sincero: você sabe se a sua carga está certa hoje?"</li>
+    <li>6. "Nem todo músculo seu precisa do mesmo volume. E é aí que quase todo plano erra."</li>
+    <li>7. "Por que o seu treino muda no dia 30? Quem decidiu isso?"</li>
+    <li>8. "Eu puxo 600 kg somados. E não é por isso que você deveria me ouvir."</li>
+    <li>9. "Você já pagou personal, já pagou app, e continua no mesmo lugar."</li>
+    <li>10. "Se você sente dor e continua treinando igual, isso aqui é para você."</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Como ler o teste</div>
+    <p>Gatilhos de decisão, revisados a cada 7 dias: <strong>CPL acima de R$ 10</strong> significa trocar o gancho, não a segmentação. <strong>Conclusão do quiz abaixo de 40%</strong> significa encurtar ou simplificar pergunta. <strong>Comparecimento abaixo de 60%</strong> é problema de follow-up, não de anúncio. <strong>Conversão em call abaixo de 30%</strong> é qualificação dentro do quiz.</p>
+    <p>Nunca mexer em mais de uma variável por vez. É a mesma lógica que ele usa quando ajusta o treino de um aluno.</p>
+  </div>
+  <div class="runfoot">Funil de lead dinâmico · copy pronta para implementar</div>
+</div>
+
+<!-- PG 20 · CADENCIA P1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Kainã Barreto</span><span>Página 20</span></div>
+  <div class="sec">Seção 5 · Parte 1</div>
+  <h1>Cadência de Atendimento · 12 dias</h1>
+  <p class="lead">Na voz do Kainã. Ele atende sozinho: não existe SDR neste momento.</p>
+
+  <div class="box-light">
+    <div class="bt">Regra de tom neste nicho</div>
+    <p>O público é <strong>cético por acúmulo de tentativa</strong>: já pagou personal, já pagou app, já se decepcionou. Mensagem com cara de call center queima o lead na primeira linha.</p>
+    <p>E a regra que não se quebra: <strong>nada que soe como falta de esforço</strong>. Nem em tom de brincadeira. O follow-up é sempre sobre o problema dele, nunca sobre a compra. Se cada mensagem entregar uma leitura a mais do caso, a insistência não parece insistência.</p>
+    <p>O preço entra depois do diagnóstico conversado, nunca na primeira mensagem.</p>
+  </div>
+
+  <div class="bt">Dia a dia</div>
+  <ul>
+    <li><strong>Dia 1 (chegada):</strong> {{nome}}, aqui é o Kainã. Vi que você fez o diagnóstico e o resultado foi <strong>trava de {{trava}}</strong>. Me conta uma coisa: fez sentido para o seu caso?</li>
+    <li><strong>Dia 1 (depois da resposta):</strong> escutar antes de ofertar. Devolver a trava com as palavras dele, usando o que ele escreveu na pergunta aberta, e só então explicar como funcionaria.</li>
+    <li><strong>Dia 2 (a leitura):</strong> uma coisa que não coube no relatório e vale para o seu caso: {{insight_da_trava}}. É o erro mais comum de quem responde parecido com você.</li>
+    <li><strong>Dia 3:</strong> deixa eu te perguntar direto: há quanto tempo você está tentando resolver isso sozinho?</li>
+    <li><strong>Dia 4 (valor):</strong> um teste que você pode fazer essa semana, de graça: {{dica_ligada_a_trava}}. Se o resultado for {{sinal}}, é confirmação do que apareceu no diagnóstico.</li>
+    <li><strong>Dia 5:</strong> check-in curto, uma linha só.</li>
+    <li><strong>Dia 6 (ligação):</strong> ligar. Se não atender: "te liguei agora, era rápido, sobre o seu diagnóstico. Me chama quando puder falar."</li>
+  </ul>
+  <div class="runfoot">Funil de lead dinâmico · copy pronta para implementar</div>
+</div>
+
+<!-- PG 21 · CADENCIA P2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Kainã Barreto</span><span>Página 21</span></div>
+  <div class="sec">Seção 5 · Parte 2</div>
+  <h1>Cadência: dias 7 a 12 e os níveis</h1>
+
+  <ul>
+    <li><strong>Dia 7 (a pergunta honesta):</strong> {{nome}}, sem enrolação: você quer resolver isso agora ou prefere que eu te procure daqui um tempo? As duas respostas estão certas, só quero saber para não ficar te enchendo.</li>
+    <li><strong>Dia 8 (prova):</strong> olha o caso do {{nome_aluno}}: <strong>[ANTES E DEPOIS]</strong>. Estava exatamente no ponto que apareceu no seu diagnóstico.</li>
+    <li><strong>Dia 9 (agendamento):</strong> tenho dois horários abertos essa semana para avaliação: {{horario_1}} ou {{horario_2}}. Qual encaixa melhor?</li>
+    <li><strong>Dia 10 (áudio pessoal, até 40 segundos):</strong> "{{nome}}, gravei rápido porque digitar isso ia ficar frio. Eu já passei anos treinando travado, então eu sei bem a sensação de fazer tudo certo e não ver resposta. Não estou te cobrando nada. Só não queria que você passasse mais um ciclo inteiro sem saber o que ajustar. Se não for o momento, me diz que eu paro de te procurar de boa."</li>
+    <li><strong>Dia 11 (objeção de valor):</strong> se o que travou foi o investimento, me diz. O anual sai em 12x, e vale fazer a conta: quanto você já gastou tentando resolver isso por conta própria nos últimos 12 meses?</li>
+    <li><strong>Dia 12 (pré break-up):</strong> {{nome}}, vou parar de te procurar por aqui para não virar chateação. Seu diagnóstico continua valendo e fica salvo. Quando for a sua hora, me chama. Bom treino.</li>
+  </ul>
+
+  <div class="bt">Os níveis de follow-up</div>
+  <ul class="alt">
+    <li><strong>N1 · fez o quiz e não respondeu:</strong> reengajar pelo diagnóstico, nunca pela oferta.</li>
+    <li><strong>N2 · engajou e sumiu:</strong> retomar de onde parou, citando o que ele escreveu.</li>
+    <li><strong>N3 · quer agendar e adia:</strong> propor dois horários fechados, nunca "me avisa quando puder".</li>
+    <li><strong>N4 · não compareceu:</strong> sem cobrança e sem culpa. Reoferecer uma vez.</li>
+    <li><strong>N5 · fez a avaliação e não fechou:</strong> tratar a objeção real. Se for dinheiro, downsell mais barato, nunca mais curto.</li>
+    <li><strong>N6 · não é o momento:</strong> uma mensagem por mês, sempre de valor, nunca oferta.</li>
+  </ul>
+
+  <div class="box-dark">
+    <div class="bt">A regra que mais vai render</div>
+    <p><strong>Fechar dentro da call.</strong> Ele já perdeu uma venda anual porque a pessoa saiu para "ver o cartão". Isso não é objeção de preço, é objeção de momento, e some quando o pagamento é resolvido ali na tela, junto.</p>
+  </div>
+  <div class="runfoot">Funil de lead dinâmico · copy pronta para implementar</div>
+</div>
+
+<!-- PG 22 · RECOMENDACOES P1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Kainã Barreto</span><span>Página 22</span></div>
+  <div class="sec">Seção 6 · Parte 1</div>
+  <h1>Recomendações Estratégicas</h1>
+  <p class="lead">O que a Simple recomenda além da copy.</p>
+
+  <div class="bt">Sobre a arquitetura do funil</div>
+  <p>Levar o quiz para uma página de diagnóstico, e não para o WhatsApp direto, é a decisão certa aqui por três motivos: R$ 1.800 exige consideração, ainda não existe prova social estruturada, e o diagnóstico é o único diferencial que nenhum concorrente entrega. O ganho extra é operacional: as objeções reais aparecem na conversa, e cada uma volta como melhoria no quiz e na página.</p>
+  <p><strong>O ajuste mais barato de todos:</strong> o link da bio do Instagram hoje vai direto para o WhatsApp, sem filtro nenhum. Todo mundo entra, qualificado ou não, e ele vira o filtro humano. Trocar esse link pelo quiz é uma semana de trabalho e resolve o gargalo que ele descreveu como "marco reunião com todo mundo".</p>
+
+  <div class="bt">Sobre o gargalo real</div>
+  <p>Ele chegou achando que precisava melhorar como vende. Os números dizem outra coisa: 12 a 14 calls com cerca de 30% de conversão, e horas de agenda reservadas que ele não consegue preencher. <strong>Isso é gargalo de entrada, não de fechamento.</strong></p>
+  <p>Consequência prática: não gastar as 12 semanas de mentoria treinando pitch. Se ele mantiver 30% e a agenda encher, a meta sai. Se melhorar o pitch e a agenda continuar vazia, não muda nada.</p>
+
+  <div class="bt">Sobre o preço e o caixa</div>
+  <p>O anual em 12x de R$ 150 tem uma consequência que precisa estar clara: <strong>uma venda entra R$ 150 no mês, não R$ 1.800</strong>. Com 11 vendas entram R$ 1.650 contra R$ 1.235 a R$ 2.470 de mídia. O funil empata.</p>
+  <p><strong>Recomendação:</strong> antecipação de recebíveis como regra fixa da operação, não como recurso de emergência. Antecipada, uma venda entra perto de R$ 1.620 e banca o mês de anúncio inteiro. Vale também testar um desconto pequeno para pagamento à vista, que resolve o mesmo problema sem custo de antecipação.</p>
+
+  <div class="bt">Sobre subir o ticket</div>
+  <p>Ficou combinado subir para R$ 4 a 5 mil quando a conversão passar de 30%. Ele já está nesse patamar, mas <strong>numa amostra de 12 a 14 calls</strong>, o que ainda não é conversão, é coincidência estatística. Manter R$ 1.800 até ter 30 calls ou mais vindas do funil. Subir cedo, com lead frio e sem prova social, derruba a única coisa que hoje funciona.</p>
+  <div class="runfoot">Funil de lead dinâmico · copy pronta para implementar</div>
+</div>
+
+<!-- PG 23 · RECOMENDACOES P2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Kainã Barreto</span><span>Página 23</span></div>
+  <div class="sec">Seção 6 · Parte 2</div>
+  <h1>Recomendações Estratégicas</h1>
+
+  <div class="bt">Sobre a prova social</div>
+  <p>É a maior lacuna do funil hoje. O ângulo 3 inteiro, o estático 5, o vídeo 10 e o bloco de prova da página estão escritos e parados esperando material.</p>
+  <p><strong>Prioridade de coleta:</strong> aluno que treinava há anos e destravou, com rotina normal. Não o melhor shape da carteira: o caso mais parecido com quem vai ler. O ICP tem medo explícito de ser visto como obcecado, então prova de fisiculturista afasta em vez de aproximar.</p>
+
+  <div class="bt">Sobre o conteúdo orgânico</div>
+  <p>O conteúdo não é o motor e não deve ser tratado como tal. Ele já produziu perto de 90 peças com alcance de 200 a 300 e zero venda, e isso quase o levou ao esgotamento. O papel dele aqui é <strong>tempo de tela e prova</strong>: quem vê o anúncio, não converte, e depois encontra o perfil ativo, volta e converte.</p>
+  <p>De 5 a 6 publicações por semana, gravadas em um bloco só. E um teste que vale rodar: <strong>3 a 5 peças no formato de identidade em primeira pessoa</strong>, comparadas contra a mediana dele. O único Reel nesse formato fez 2.359 visualizações contra mediana de 450. É um ponto fora da curva, não uma prova, mas é o teste mais barato que existe e ele decide o gancho de toda a mídia paga.</p>
+
+  <div class="bt">Sobre a capacidade ociosa, que quase ninguém tem</div>
+  <p>Ele monta um plano individual em cerca de 5 minutos com o sistema de IA que construiu. Isso significa que pode multiplicar alunos sem multiplicar carga operacional: <strong>cada aluno a mais entra com margem quase cheia</strong>. É o ativo mais subestimado do negócio e é o que torna o investimento em mídia seguro, porque a entrega não quebra quando o volume chega.</p>
+
+  <div class="bt">Sobre o risco que pode fazer isso não acontecer</div>
+  <p>Ele chegou trabalhando 16 horas por dia e usou a palavra burnout. Isso não é traço de personalidade, é risco de execução: foi o que fez ele largar o social selling e perder alunos do presencial no meio do caminho.</p>
+  <p><strong>Recomendação de condução:</strong> uma frente por vez, na ordem do roadmap. Se ele estiver tocando três coisas ao mesmo tempo, o certo é mandar parar duas. E uma vitória rápida e visível vale mais do que profundidade teórica: a primeira métrica real do funil, mesmo modesta, é o que segura ele nos primeiros 30 dias contra a comparação com a mentoria de R$ 12 mil que não resolveu.</p>
+
+  <div class="box-dark">
+    <div class="bt">A ordem de implementação</div>
+    <p>1. Quiz no ar e link da bio trocado. 2. Página pós-quiz com os quatro diagnósticos. 3. Vídeos 1, 5 e 6 mais estáticos 1 e 3 subindo com R$ 1.000 de validação. 4. Cadência de 12 dias rodando. 5. Coleta de depoimento, que destrava o ângulo 3.</p>
+  </div>
+  <div class="runfoot">Funil de lead dinâmico · copy pronta para implementar</div>
+</div>
+
+</body>
+</html>
