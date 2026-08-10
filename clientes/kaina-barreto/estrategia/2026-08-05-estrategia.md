@@ -1,7 +1,7 @@
 # [Simple Acc] ESTRATÉGIA — KAINÃ BARRETO / SHAPE10X
 
 **Estrategista:** Daniel Souza (Simple Acc) · **Expert:** Kainã Barreto
-**Data:** 05/08/2026 · **Versão:** 1.0
+**Data:** 05/08/2026 · **Versão:** 1.1 (premissas 1 e 3 resolvidas em 10/08)
 **Google Doc:** https://docs.google.com/document/d/10E40HEroOoyLFd-KkCfY1W7lOMs4d4QybkOqefP9yMc/edit
 (pasta `Simple <> Kainã Barreto / 3. Estratégia e Tráfego`)
 
@@ -13,9 +13,9 @@
 
 ## Premissas assumidas (confirmar com o cliente)
 
-1. **Ticket adotado: R$ 2.000** no plano anual, número dito na call de 30/07. O canvas de produto registra R$ 1.800. Toda a matemática deste documento usa R$ 2.000.
+1. ~~Ticket R$ 2.000~~ → **RESOLVIDO 10/08/2026: R$ 1.800, em 12x de R$ 150.** ⚠️ Como é 12x, uma venda entra R$ 150 no mês, não R$ 1.800. Ver `../contexto/numeros-e-metricas.md` para a conta corrigida e o impacto no caixa.
 2. **Taxa de agendamento (25%) e comparecimento (60%)** são estimativas de modelo. Ele ainda não mede essas etapas; hoje só sabe que 20 mensagens viraram 4 calls.
-3. **A sigla WNS não foi explicada** em nenhuma fonte. Usada aqui como nome próprio do método, sem expansão.
+3. ~~WNS não explicado~~ → **RESOLVIDO 10/08/2026:** escala de volume de treino por grupo muscular. **W** = forte, volume baixo · **N** = neutro, moderado · **S** = fraco e prioritário, volume alto. Dá para usar como promessa concreta do diagnóstico.
 4. **Escopo é mentoria, não implementação.** A Simple orienta e revisa; quem executa é o Kainã. Por isso a Seção 7 lista tarefas dele, com o ponto de revisão da Simple em cada uma.
 5. **Não há depoimentos nomeados nas fontes.** Onde entra prova, o texto traz `[DEPOIMENTO]` e `[ANTES E DEPOIS]` para preencher. Nada foi inventado.
 6. **Anos de atuação como personal não constam** nas fontes. Marcado como `[ANOS DE ATUAÇÃO]` na seção de autoridade.

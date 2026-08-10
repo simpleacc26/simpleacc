@@ -16,7 +16,11 @@ resultado não aparece. É o território estratégico do negócio — ver `conco
 ## Mecanismo único — método WNS
 
 - Ciclo de **90 dias** dividido em **3 blocos**: **tensional → intermediário → metabólico**.
-- **Classificação muscular individual** do aluno.
+- **Classificação muscular individual (WNS)** do aluno: é uma escala de **volume de treino por
+  grupo muscular**, não uma sigla de palavras. Confirmado por ele em 10/08/2026:
+  - **W** = grupo forte → **volume baixo**
+  - **N** = grupo neutro → **volume moderado**
+  - **S** = grupo fraco / prioritário → **volume alto**
 - **Transição de fase disparada por limiar de percentual de gordura**, não por calendário.
   ⇒ o corpo do aluno dita quando muda de fase, não uma tabela pronta.
 
@@ -56,7 +60,7 @@ antes de enviar). Capacidade de entrega não é gargalo.
 
 | Item | Situação |
 | --- | --- |
-| Plano anual (produto HT) | **R$ 2.000** dito na call · **R$ 1.800** no canvas ⚠️ **confirmar qual é o vigente** |
+| Plano anual (produto HT) | **R$ 1.800 · 12x de R$ 150** ✅ confirmado por ele em 10/08/2026. O "R$ 2.000" da call era arredondamento. |
 | Alunos ativos no anual | 4 (em 30/07/2026) |
 | Planos mais curtos | Semestral / trimestral / mensal — usados hoje como saída quando o anual não fecha |
 | Reposicionamento acordado | Subir para **R$ 4–5 mil quando a conversão passar de 30%** |
@@ -72,8 +76,10 @@ antes de enviar). Capacidade de entrega não é gargalo.
 
 ## Pontos em aberto
 
-- [ ] Preço oficial do anual: R$ 1.800 ou R$ 2.000?
+- [x] ~~Preço oficial do anual~~ → **R$ 1.800 em 12x de R$ 150** (confirmado 10/08/2026)
+- [x] ~~O que significa WNS~~ → escala de volume por grupo muscular (W/N/S), acima
+- [ ] **A meta de R$ 20 mil/mês é valor contratado ou caixa que entra no mês?** ⚠️ ver `numeros-e-metricas.md`
+- [ ] Ele vende à vista também, ou 12x é a única forma? Qual o percentual de cada uma?
 - [ ] Preços dos planos semestral / trimestral / mensal.
 - [ ] Qual é exatamente o "tier superior" com prioridade de suporte (existe hoje ou é plano?).
-- [ ] O que significa a sigla **WNS** (não foi registrado nas fontes).
 - [ ] Casos de antes/depois disponíveis para prova — quantos, com autorização de uso?

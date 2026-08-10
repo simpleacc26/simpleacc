@@ -31,7 +31,7 @@ da SimpleAcc (fechada em 30/07/2026).
   plano individual pelo método **WNS** (ciclos de 90 dias em 3 blocos), check-in diário,
   reavaliação a cada 30 dias, suporte no WhatsApp, garantia de continuidade com 80%+ de aderência.
   Entrega no portal `shape10x.com` + WhatsApp.
-- **Ticket atual:** plano anual **R$ 2.000** (canvas registra R$ 1.800 — *confirmar*).
+- **Ticket atual:** plano anual **R$ 1.800, cobrado em 12x de R$ 150** (confirmado 10/08/2026).
   Meta de reposicionamento: R$ 4–5 mil, com downsells mais baratos.
 - **Público / ICP dele:** 25–45 anos, ~55% homens / ~45% mulheres, classe média,
   **já treina com consistência** e travou — "eu treino, mas não mudo".

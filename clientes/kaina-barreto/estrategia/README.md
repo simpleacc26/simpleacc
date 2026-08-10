@@ -6,6 +6,7 @@ Documentos de estratégia, planejamento e diagnósticos (e PDFs gerados).
 | --- | --- |
 | [`2026-07-30-o-que-foi-vendido.md`](2026-07-30-o-que-foi-vendido.md) | **Escopo contratado**: produto, preço, entregáveis, o que não está incluso, diagnóstico e riscos. Fonte da verdade — leia antes de prometer qualquer coisa. |
 | [`2026-08-05-roadmap-estrategico-kaina-barreto.pdf`](2026-08-05-roadmap-estrategico-kaina-barreto.pdf) | **Roadmap de 90 dias v1.0** — entregável contratado. 14 páginas, 5 fases, 21 passos, 5 checkpoints. Fonte editável no `.html` de mesmo nome. |
+| [`2026-08-10-revisao-do-quiz.md`](2026-08-10-revisao-do-quiz.md) | **Revisão do quiz que ele montou** (4 perguntas) contra os 3 fluxos de concorrente. Devolutiva prometida no grupo. Recomenda ir para 7 perguntas. |
 | [`2026-08-05-estrategia.md`](2026-08-05-estrategia.md) | **Estratégia completa v1.0** — as 8 seções do modelo Simple Acc: big idea, copy do quiz, página de aplicação, anúncios, relatório de diagnóstico, cadência de 12 dias, tarefas e recomendações. [Google Doc](https://docs.google.com/document/d/10E40HEroOoyLFd-KkCfY1W7lOMs4d4QybkOqefP9yMc/edit) na pasta `3. Estratégia e Tráfego`. |
 
 ## A produzir
@@ -15,6 +16,12 @@ Documentos de estratégia, planejamento e diagnósticos (e PDFs gerados).
 - [ ] **Reposicionamento de oferta** — subir o ticket de R$ 2 mil para R$ 4 a 5 mil e
       desenhar a esteira de downsell. Gatilho combinado: conversão acima de 30% medida
       em volume, não na amostra de 12 calls. É o Passo 21 do roadmap.
+
+## ⚠️ Pendência que trava a próxima versão
+
+**A meta de R$ 20 mil/mês é valor contratado ou caixa recebido no mês?** Com o anual em 12x de
+R$ 150, as duas leituras produzem planos diferentes. Detalhe em
+[`../contexto/numeros-e-metricas.md`](../contexto/numeros-e-metricas.md).
 
 ## Decisões estruturais do roadmap (para não reabrir sem motivo)
 
