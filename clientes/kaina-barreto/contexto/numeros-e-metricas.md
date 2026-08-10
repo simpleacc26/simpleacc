@@ -127,18 +127,19 @@ venda paga a mídia do mês.
 
 Isso precisa entrar no roadmap como regra, não como sugestão.
 
-## A pergunta que trava o resto ⚠️
+## Decidido: a meta é valor contratado ✅
 
-**A meta de R$ 20 mil/mês é valor contratado ou caixa recebido no mês?**
+Definido com o Daniel em 10/08/2026: **os R$ 20 mil/mês são valor contratado**, ou seja,
+11 vendas × R$ 1.800 fechadas no mês. É como foi falado na call de vendas.
 
-- **Se for contratado:** o plano de 90 dias continua de pé, com os números corrigidos acima, e a
-  antecipação vira regra obrigatória para financiar mídia.
-- **Se for caixa:** a meta não cabe em 90 dias com o ticket atual. As saídas seriam subir o
-  ticket antes do previsto, vender mais à vista com desconto, ou remarcar a meta dos 90 dias
-  para valor contratado e deixar o caixa como meta do Roadmap 2.
+Duas consequências que passam a valer como regra:
 
-Não dá para escolher por ele: as duas leituras produzem planos diferentes. Ficou registrado
-como pendência de decisão com o Daniel e o cliente.
+1. **A antecipação de recebíveis é obrigatória**, não opcional. Sem ela o funil não se paga:
+   11 vendas entram R$ 1.650 no mês contra R$ 1.235 a 2.470 de mídia. Com antecipação, uma
+   venda sozinha (perto de R$ 1.620 líquidos) banca o mês.
+2. **Caixa recorrente é meta do Roadmap 2, não destes 90 dias.** Ao fim dos 90 dias ele terá
+   ~33 alunos ativos pagando R$ 150, ou seja, perto de R$ 5 mil/mês de recorrência já
+   construída, além do contratado. Esse é o número que vira base da régua seguinte.
 
 ## Dado novo a confirmar: conversão pode estar bem melhor
 

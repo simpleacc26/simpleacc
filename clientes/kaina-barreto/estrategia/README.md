@@ -17,11 +17,11 @@ Documentos de estratégia, planejamento e diagnósticos (e PDFs gerados).
       desenhar a esteira de downsell. Gatilho combinado: conversão acima de 30% medida
       em volume, não na amostra de 12 calls. É o Passo 21 do roadmap.
 
-## ⚠️ Pendência que trava a próxima versão
+## Decisões de número (10/08/2026)
 
-**A meta de R$ 20 mil/mês é valor contratado ou caixa recebido no mês?** Com o anual em 12x de
-R$ 150, as duas leituras produzem planos diferentes. Detalhe em
-[`../contexto/numeros-e-metricas.md`](../contexto/numeros-e-metricas.md).
+- **Meta de R$ 20 mil/mês = valor contratado** (11 vendas × R$ 1.800), não caixa recebido.
+- **Antecipação de recebíveis é regra obrigatória**, porque em 12x uma venda entra R$ 150 no mês.
+- Caixa recorrente (~R$ 5 mil/mês ao fim dos 90 dias) é meta do Roadmap 2.
 
 ## Decisões estruturais do roadmap (para não reabrir sem motivo)
 
