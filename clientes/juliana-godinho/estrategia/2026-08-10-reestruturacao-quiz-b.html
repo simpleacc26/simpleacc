@@ -1,0 +1,578 @@
+<title>Reestruturação do Funil — Quiz B · Ju Godinho</title>
+<style>
+  :root{
+    --ink:#241A22; --ink-2:#4A3A42; --mute:#8A7A81;
+    --bone:#F7F3F2; --surface:#FFFFFF; --edge:#E4DAD9;
+    --wine:#6E1E3C; --wine-soft:#F2E4EA;
+    --pass:#3E6B52; --pass-soft:#E6EFE9;
+    --cut:#A8443A;  --cut-soft:#F7E5E2;
+    --hold:#8A6A2F; --hold-soft:#F5EDDC;
+    --serif:Georgia,'Iowan Old Style','Palatino Linotype',Palatino,serif;
+    --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,'SF Mono',Menlo,Consolas,monospace;
+    --wrap:min(100% - 2.5rem, 60rem);
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --ink:#F0E8EA; --ink-2:#C6B6BC; --mute:#9B8891;
+      --bone:#171216; --surface:#201A1F; --edge:#372C34;
+      --wine:#E39BB4; --wine-soft:#3A2029;
+      --pass:#8FC3A5; --pass-soft:#1E2E25;
+      --cut:#E39588;  --cut-soft:#33201D;
+      --hold:#D9B871; --hold-soft:#2E2617;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#F0E8EA; --ink-2:#C6B6BC; --mute:#9B8891;
+    --bone:#171216; --surface:#201A1F; --edge:#372C34;
+    --wine:#E39BB4; --wine-soft:#3A2029;
+    --pass:#8FC3A5; --pass-soft:#1E2E25;
+    --cut:#E39588;  --cut-soft:#33201D;
+    --hold:#D9B871; --hold-soft:#2E2617;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bone); color:var(--ink);
+    font-family:var(--sans); font-size:17px; line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{width:var(--wrap); margin-inline:auto}
+  p,li{max-width:68ch}
+
+  /* ---------- cabeçalho ---------- */
+  header{padding:4.5rem 0 3rem; border-bottom:1px solid var(--edge)}
+  .eyebrow{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--wine); margin:0 0 1.4rem;
+  }
+  h1{
+    font-family:var(--serif); font-weight:400; font-size:clamp(2.1rem,5.2vw,3.4rem);
+    line-height:1.08; letter-spacing:-.015em; text-wrap:balance; margin:0 0 1.2rem;
+  }
+  h1 em{font-style:italic; color:var(--wine)}
+  .thesis{font-size:1.15rem; color:var(--ink-2); max-width:60ch; margin:0}
+  .meta{
+    display:flex; flex-wrap:wrap; gap:.6rem 2rem; margin-top:2.4rem;
+    font-family:var(--mono); font-size:.76rem; color:var(--mute);
+    text-transform:uppercase; letter-spacing:.08em;
+  }
+
+  /* ---------- seções ---------- */
+  section{padding:3.5rem 0; border-bottom:1px solid var(--edge)}
+  section:last-of-type{border-bottom:0}
+  h2{
+    font-family:var(--serif); font-weight:400; font-size:clamp(1.5rem,3.2vw,2.05rem);
+    line-height:1.2; letter-spacing:-.01em; text-wrap:balance;
+    margin:0 0 1.6rem; display:flex; gap:.85rem; align-items:baseline;
+  }
+  h2 .num{
+    font-family:var(--mono); font-size:.8rem; color:var(--wine);
+    letter-spacing:.08em; flex:none; padding-top:.2em;
+  }
+  h3{
+    font-family:var(--sans); font-weight:650; font-size:1.02rem;
+    letter-spacing:.01em; margin:2.4rem 0 .9rem;
+  }
+  h4{
+    font-family:var(--mono); font-weight:500; font-size:.74rem;
+    letter-spacing:.14em; text-transform:uppercase; color:var(--mute);
+    margin:1.8rem 0 .7rem;
+  }
+
+  /* ---------- números ---------- */
+  .figs{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(9.5rem,1fr));
+    gap:1px; background:var(--edge); border:1px solid var(--edge); margin:2rem 0;
+  }
+  .fig{background:var(--surface); padding:1.15rem 1.25rem}
+  .fig b{
+    display:block; font-family:var(--mono); font-size:1.5rem; font-weight:500;
+    letter-spacing:-.02em; font-variant-numeric:tabular-nums; line-height:1.15;
+  }
+  .fig span{display:block; font-size:.79rem; color:var(--mute); margin-top:.35rem; line-height:1.35}
+  .fig.bad b{color:var(--cut)} .fig.good b{color:var(--pass)}
+
+  /* ---------- tabelas ---------- */
+  .scroll{overflow-x:auto; margin:1.8rem 0; border:1px solid var(--edge); background:var(--surface)}
+  table{border-collapse:collapse; width:100%; font-size:.87rem}
+  th,td{padding:.62rem .85rem; text-align:left; border-bottom:1px solid var(--edge); white-space:nowrap}
+  th{
+    font-family:var(--mono); font-size:.7rem; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--mute); font-weight:500; background:var(--bone);
+  }
+  td.n{font-family:var(--mono); font-variant-numeric:tabular-nums; text-align:right}
+  tbody tr:last-child td{border-bottom:0}
+  tr.total td{font-weight:650; background:var(--bone)}
+  .zero{color:var(--cut); font-weight:600}
+
+  /* ---------- razão de triagem ---------- */
+  .q{border:1px solid var(--edge); background:var(--surface); margin:1.5rem 0}
+  .q > header{
+    padding:1rem 1.25rem; border-bottom:1px solid var(--edge); border-top:0;
+    display:flex; gap:.8rem; align-items:baseline; flex-wrap:wrap;
+  }
+  .q > header .qid{
+    font-family:var(--mono); font-size:.72rem; letter-spacing:.1em;
+    color:var(--wine); flex:none;
+  }
+  .q > header .qtext{font-weight:600; font-size:.98rem; margin:0; max-width:none}
+  .q > header .role{
+    font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--mute); width:100%;
+  }
+  .opts{list-style:none; margin:0; padding:0}
+  .opts li{
+    display:flex; gap:.85rem; align-items:flex-start; max-width:none;
+    padding:.6rem 1.25rem; border-bottom:1px solid var(--edge); font-size:.93rem;
+  }
+  .opts li:last-child{border-bottom:0}
+  .tag{
+    font-family:var(--mono); font-size:.63rem; letter-spacing:.09em; text-transform:uppercase;
+    padding:.22rem .5rem; border-radius:2px; flex:none; margin-top:.12rem; min-width:4.6rem; text-align:center;
+  }
+  .t-pass{background:var(--pass-soft); color:var(--pass)}
+  .t-cut{background:var(--cut-soft); color:var(--cut)}
+  .t-neu{background:var(--bone); color:var(--mute); border:1px solid var(--edge)}
+  .t-hold{background:var(--hold-soft); color:var(--hold)}
+
+  /* ---------- blocos de copy ---------- */
+  .copy{
+    border-left:2px solid var(--wine); background:var(--surface);
+    padding:1.1rem 1.35rem; margin:1.1rem 0; font-size:.95rem;
+  }
+  .copy p{margin:0 0 .8rem} .copy p:last-child{margin:0}
+  .copy .fmt{
+    font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--mute); display:block; margin-bottom:.7rem;
+  }
+
+  /* ---------- notas ---------- */
+  .note{
+    border:1px solid var(--edge); border-left:3px solid var(--hold);
+    background:var(--surface); padding:1.05rem 1.3rem; margin:1.8rem 0;
+    font-size:.92rem; color:var(--ink-2);
+  }
+  .note b{color:var(--ink)}
+  .note p{margin:0 0 .7rem} .note p:last-child{margin:0}
+
+  ul.plain{padding-left:1.15rem}
+  ul.plain li{margin:.42rem 0}
+  strong{font-weight:650}
+  code{font-family:var(--mono); font-size:.85em; background:var(--wine-soft); color:var(--wine); padding:.12em .38em; border-radius:2px}
+
+  footer{padding:3rem 0 4.5rem; color:var(--mute); font-size:.84rem}
+  footer p{max-width:70ch}
+
+  @media (max-width:640px){
+    body{font-size:16px}
+    th,td{white-space:normal}
+    .opts li{flex-wrap:wrap; gap:.5rem}
+  }
+</style>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Simple Acc · Documento de decisão</p>
+  <h1>Reestruturação do funil:<br>do <em>volume</em> para a <em>triagem</em></h1>
+  <p class="thesis">O funil da Ju Godinho não falhou em converter. Ele falhou em escolher com quem falava. Este documento especifica o Quiz B, os anúncios e a instrumentação que faltam para vender a mentoria de forma repetível.</p>
+  <div class="meta">
+    <span>Cliente · Juliana Godinho</span>
+    <span>10 ago 2026</span>
+    <span>Base · jan a jul 2026</span>
+  </div>
+</header>
+
+<section>
+  <h2><span class="num">01</span> Onde estamos</h2>
+
+  <p>Sete meses de operação do funil de quiz, com dois quizzes rodando em paralelo até maio e um terceiro desde 18 de junho.</p>
+
+  <div class="figs">
+    <div class="fig"><b>R$ 16.608</b><span>investidos em mídia</span></div>
+    <div class="fig"><b>1.244</b><span>leads gerados</span></div>
+    <div class="fig"><b>213</b><span>MQLs</span></div>
+    <div class="fig"><b>8</b><span>vendas</span></div>
+    <div class="fig good"><b>R$ 31.980</b><span>faturamento · ROAS 1,93</span></div>
+    <div class="fig bad"><b>2</b><span>mentorias de R$ 9.999</span></div>
+  </div>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Mês</th><th>Investimento</th><th>Leads</th><th>MQLs</th><th>Agend.</th><th>Vendas</th><th>Faturamento</th><th>CPL</th></tr></thead>
+      <tbody>
+        <tr><td>Janeiro</td><td class="n">1.824</td><td class="n">346</td><td class="n">35</td><td class="n">15</td><td class="n">3</td><td class="n">5.991</td><td class="n">5,27</td></tr>
+        <tr><td>Fevereiro</td><td class="n">2.233</td><td class="n">190</td><td class="n">23</td><td class="n">11</td><td class="n">1</td><td class="n">1.997</td><td class="n">11,75</td></tr>
+        <tr><td>Março</td><td class="n">2.570</td><td class="n">120</td><td class="n">31</td><td class="n">5</td><td class="n">1</td><td class="n">1.997</td><td class="n">21,42</td></tr>
+        <tr><td>Abril</td><td class="n">2.520</td><td class="n">163</td><td class="n">27</td><td class="n zero">0</td><td class="n zero">0</td><td class="n">0</td><td class="n">15,46</td></tr>
+        <tr><td>Maio</td><td class="n">2.601</td><td class="n">169</td><td class="n">32</td><td class="n zero">0</td><td class="n">3</td><td class="n">21.995</td><td class="n">15,39</td></tr>
+        <tr><td>Junho</td><td class="n">2.698</td><td class="n">162</td><td class="n">44</td><td class="n zero">0</td><td class="n zero">0</td><td class="n">0</td><td class="n">16,65</td></tr>
+        <tr><td>Julho</td><td class="n">2.162</td><td class="n">94</td><td class="n">21</td><td class="n zero">0</td><td class="n zero">0</td><td class="n">0</td><td class="n">23,00</td></tr>
+        <tr class="total"><td>Total</td><td class="n">16.608</td><td class="n">1.244</td><td class="n">213</td><td class="n">31</td><td class="n">8</td><td class="n">31.980</td><td class="n">13,35</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>A composição das oito vendas: <strong>seis consultorias de R$ 1.997</strong> e <strong>duas mentorias de R$ 9.999</strong>, ambas em maio. O produto principal foi vendido duas vezes em sete meses, ao custo de R$ 8.304 de mídia por venda contra um ticket de R$ 9.999.</p>
+
+  <h3>O perfil de quem entra</h3>
+
+  <p>Das 453 fichas de quiz registradas, a distribuição de faturamento declarado é a seguinte.</p>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Faturamento declarado</th><th>Leads</th><th>Participação</th><th>Quiz 01</th><th>Quiz 02</th><th>Quiz 18.06</th></tr></thead>
+      <tbody>
+        <tr><td>Menos de R$ 5 mil</td><td class="n">371</td><td class="n">81,9%</td><td class="n">89,7%</td><td class="n">83,1%</td><td class="n">73,4%</td></tr>
+        <tr><td>R$ 5 mil a R$ 10 mil</td><td class="n">65</td><td class="n">14,3%</td><td class="n">8,3%</td><td class="n">14,9%</td><td class="n">19,5%</td></tr>
+        <tr><td>R$ 10 mil a R$ 15 mil</td><td class="n">10</td><td class="n">2,2%</td><td class="n">1,4%</td><td class="n">1,3%</td><td class="n">3,9%</td></tr>
+        <tr><td>Acima de R$ 15 mil</td><td class="n">7</td><td class="n">1,5%</td><td class="n">0,7%</td><td class="n">0,6%</td><td class="n">3,2%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ul class="plain">
+    <li><strong>51,4%</strong> responderam que não têm espaço próprio e dependem de espaços parceiros.</li>
+    <li><strong>17 leads em oito meses</strong> declararam faturar acima de R$ 10 mil. Nenhum deles está entre as oito compradoras.</li>
+    <li><strong>8 leads</strong> marcaram o perfil que a estratégia chama de alvo: bom fluxo, bom faturamento, mas estagnou.</li>
+    <li>Das oito compradoras, <strong>três são rastreáveis</strong> até a ficha de quiz. As três declararam menos de R$ 5 mil, sem espaço próprio, com conhecimento técnico e nenhum empresarial. As três compraram a consultoria de R$ 1.997.</li>
+  </ul>
+
+  <h3>O criativo decide quem entra</h3>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Criativo · funil atual</th><th>Formato</th><th>Leads</th><th>Acima de R$ 10 mil</th><th>Abaixo de R$ 5 mil</th></tr></thead>
+      <tbody>
+        <tr><td>AD12 · Ainda nos próximos</td><td>Imagem</td><td class="n">73</td><td class="n zero">1,4%</td><td class="n">87,7%</td></tr>
+        <tr><td>AD05 · Travou no faturamento</td><td>Vídeo</td><td class="n">52</td><td class="n">13,5%</td><td class="n">67,3%</td></tr>
+        <tr><td>AD13 · Você já tem clientes</td><td>Vídeo</td><td class="n">12</td><td class="n">8,3%</td><td class="n">50,0%</td></tr>
+        <tr><td>AD10 · O problema</td><td>Imagem</td><td class="n">6</td><td class="n zero">0,0%</td><td class="n">66,7%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>Vídeo qualifica <strong>13%</strong>, imagem qualifica <strong>2,5%</strong>. O AD12 responde por quase metade do volume do funil atual e é o criativo que menos qualifica.</p>
+
+  <div class="note">
+    <p><b>Sinal recente que sustenta a tese.</b> A proporção de leads acima de R$ 10 mil vem subindo: 0,8% em janeiro, 6,4% em julho, 16,7% nos primeiros dias de agosto. O ajuste de criativo e público já começou a funcionar. O Quiz B acelera um movimento que a conta já mostra, não inventa um do zero.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">02</span> O diagnóstico</h2>
+
+  <p>O funil aprendeu a vender o produto que a audiência que ele atrai consegue comprar. Ele captura, de forma consistente e barata, profissionais que faturam menos de R$ 5 mil e não têm estrutura própria. Esse público compra consultoria de R$ 1.997 e não compra mentoria de R$ 9.999. Não é objeção de venda, é aritmética: o ticket da mentoria equivale a dois meses de faturamento dessas leads.</p>
+
+  <p>Três consequências se encadeiam a partir daí.</p>
+
+  <ul class="plain">
+    <li><strong>A taxa de agendamento nunca passou de 5,8%</strong>, contra um piso de 15% no próprio painel. A SDR aborda leads que não têm como comprar, e a conversa morre antes da call.</li>
+    <li><strong>A consultoria de R$ 1.997 virou o produto do funil.</strong> Estando disponível na entrada, ela absorve o esforço comercial e salva o mês, o que adia a percepção de que a mentoria não está sendo vendida.</li>
+    <li><strong>O quiz não pergunta a profissão.</strong> São seis perguntas sobre momento, desafio, organização, faturamento e futuro, e nenhuma sobre o que a mulher de fato faz. Lash designer, sobrancelha, salão e podologia respondem tudo com sinceridade e entram.</li>
+  </ul>
+
+  <div class="note">
+    <p><b>Correção necessária no material de origem.</b> O documento Central Estratégica lista, no campo Mercado-Alvo, "design de sobrancelhas, manicures com espaço próprio, cabeleireiras com salão". Enquanto esse trecho existir, toda copy nova nasce puxando o público que se quer excluir. Corrigir antes de escrever qualquer anúncio.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">03</span> A decisão</h2>
+
+  <p>O funil passa a existir para <strong>uma única finalidade: agendar call qualificada para a mentoria de R$ 9.999</strong>. Isso implica três movimentos que só fazem sentido juntos.</p>
+
+  <ul class="plain">
+    <li><strong>A consultoria de R$ 1.997 sai da entrada.</strong> Ela volta depois da call, como saída da closer para quem não fecha a mentoria. Mantida na porta, ela recaptura o funil.</li>
+    <li><strong>O corte sobe para o anúncio.</strong> Filtrar só no quiz significa pagar pelo clique antes de descobrir que a pessoa não serve. A promessa do anúncio passa a excluir por identidade.</li>
+    <li><strong>A métrica muda.</strong> Volume de lead sai do relatório. Entram custo por lead-alvo e agendamento qualificado por semana.</li>
+  </ul>
+
+  <p>O efeito esperado é uma queda de aproximadamente 80% no volume de leads. Isso é o objetivo, não um efeito colateral. Em julho, o funil produziu 6 leads acima de R$ 10 mil ao custo de R$ 2.162, ou <strong>R$ 360 por lead-alvo</strong>. É esse número que precisa cair, não o CPL.</p>
+</section>
+
+<section>
+  <h2><span class="num">04</span> Quiz B — especificação</h2>
+
+  <p>Sete perguntas, na ordem abaixo. O princípio é <strong>filtro barato primeiro</strong>: quem não serve sai nas duas primeiras perguntas, antes de investir tempo e antes de gerar expectativa.</p>
+
+  <h4>Promessa de abertura</h4>
+  <div class="copy">
+    <span class="fmt">Headline do quiz</span>
+    <p>Diagnóstico do Teto: descubra por que sua clínica parou de crescer mesmo com a agenda cheia.</p>
+    <p>Sete perguntas, dois minutos. Para donas de clínica ou consultório de estética avançada que já faturam e travaram.</p>
+  </div>
+
+  <div class="q">
+    <header>
+      <span class="qid">Q1</span>
+      <p class="qtext">Qual dessas opções descreve melhor o que você faz hoje?</p>
+      <span class="role">Corte duro por profissão · resposta única</span>
+    </header>
+    <ul class="opts">
+      <li><span class="tag t-pass">passa</span> Estética avançada facial e corporal (clínica ou consultório)</li>
+      <li><span class="tag t-pass">passa</span> Fisioterapia dermatofuncional</li>
+      <li><span class="tag t-pass">passa</span> Biomedicina estética ou harmonização facial</li>
+      <li><span class="tag t-pass">passa</span> Odontologia com foco em estética</li>
+      <li><span class="tag t-pass">passa</span> Nutrição ou emagrecimento com protocolo estético</li>
+      <li><span class="tag t-cut">corta</span> Extensão de cílios ou lash design</li>
+      <li><span class="tag t-cut">corta</span> Design de sobrancelhas ou micropigmentação</li>
+      <li><span class="tag t-cut">corta</span> Salão de beleza, cabelo, unhas ou maquiagem</li>
+      <li><span class="tag t-cut">corta</span> Podologia</li>
+      <li><span class="tag t-cut">corta</span> Outra área</li>
+    </ul>
+  </div>
+
+  <div class="q">
+    <header>
+      <span class="qid">Q2</span>
+      <p class="qtext">Como é a sua estrutura de atendimento hoje?</p>
+      <span class="role">Corte duro por estrutura · resposta única</span>
+    </header>
+    <ul class="opts">
+      <li><span class="tag t-cut">corta</span> Atendo em espaço parceiro, alugo cadeira ou sala por período</li>
+      <li><span class="tag t-cut">corta</span> Atendo em domicílio</li>
+      <li><span class="tag t-hold">limite</span> Tenho sala própria e atendo sozinha</li>
+      <li><span class="tag t-pass">passa</span> Tenho clínica própria com 1 ou 2 pessoas na equipe</li>
+      <li><span class="tag t-pass">passa</span> Tenho clínica própria com 3 pessoas ou mais</li>
+    </ul>
+  </div>
+
+  <div class="q">
+    <header>
+      <span class="qid">Q3</span>
+      <p class="qtext">Qual a média de faturamento mensal da sua clínica nos últimos 3 meses?</p>
+      <span class="role">Régua nova · resposta única</span>
+    </header>
+    <ul class="opts">
+      <li><span class="tag t-cut">corta</span> Menos de R$ 8 mil</li>
+      <li><span class="tag t-hold">limite</span> R$ 8 mil a R$ 15 mil</li>
+      <li><span class="tag t-pass">passa</span> R$ 15 mil a R$ 30 mil</li>
+      <li><span class="tag t-pass">passa</span> R$ 30 mil a R$ 60 mil</li>
+      <li><span class="tag t-pass">passa</span> Acima de R$ 60 mil</li>
+    </ul>
+  </div>
+
+  <div class="q">
+    <header>
+      <span class="qid">Q4</span>
+      <p class="qtext">Olhando os últimos 6 meses, o que descreve melhor o seu faturamento?</p>
+      <span class="role">Diagnóstico do teto · não filtra, alimenta a call</span>
+    </header>
+    <ul class="opts">
+      <li><span class="tag t-neu">neutra</span> Cresceu, mas o lucro não acompanhou</li>
+      <li><span class="tag t-neu">neutra</span> Estabilizou num teto e não passa dele</li>
+      <li><span class="tag t-neu">neutra</span> Oscila muito, tem mês bom e mês ruim</li>
+      <li><span class="tag t-neu">neutra</span> Cresce, mas depende 100% da minha presença</li>
+    </ul>
+  </div>
+
+  <div class="q">
+    <header>
+      <span class="qid">Q5</span>
+      <p class="qtext">Se você tivesse que apontar onde está o gargalo hoje, apontaria para:</p>
+      <span class="role">Hipótese da lead · insumo direto para a closer</span>
+    </header>
+    <ul class="opts">
+      <li><span class="tag t-neu">neutra</span> Preço e margem</li>
+      <li><span class="tag t-neu">neutra</span> Retenção e recompra das clientes</li>
+      <li><span class="tag t-neu">neutra</span> Processo comercial e conversão</li>
+      <li><span class="tag t-neu">neutra</span> Equipe</li>
+      <li><span class="tag t-neu">neutra</span> Não sei dizer, e é isso que mais me incomoda</li>
+    </ul>
+  </div>
+
+  <div class="q">
+    <header>
+      <span class="qid">Q6</span>
+      <p class="qtext">Quanto do seu tempo hoje é gasto atendendo cliente?</p>
+      <span class="role">Grau de aprisionamento operacional · prioriza a fila da SDR</span>
+    </header>
+    <ul class="opts">
+      <li><span class="tag t-neu">neutra</span> Praticamente todo, sou eu que atendo</li>
+      <li><span class="tag t-neu">neutra</span> A maior parte, com alguma ajuda</li>
+      <li><span class="tag t-neu">neutra</span> Metade, divido com a equipe</li>
+      <li><span class="tag t-neu">neutra</span> Pouco, já consigo trabalhar no negócio</li>
+    </ul>
+  </div>
+
+  <div class="q">
+    <header>
+      <span class="qid">Q7</span>
+      <p class="qtext">Se o diagnóstico apontar um caminho claro, quando você pretende agir?</p>
+      <span class="role">Compromisso · define ordem de abordagem</span>
+    </header>
+    <ul class="opts">
+      <li><span class="tag t-pass">passa</span> Quero resolver nos próximos 30 dias</li>
+      <li><span class="tag t-pass">passa</span> Nos próximos 90 dias, se fizer sentido</li>
+      <li><span class="tag t-hold">limite</span> Estou avaliando, sem prazo</li>
+      <li><span class="tag t-hold">limite</span> Só quero entender meu diagnóstico por enquanto</li>
+    </ul>
+  </div>
+
+  <h3>Classificação e destino</h3>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Faixa</th><th>Condição</th><th>Destino</th><th>Prazo da SDR</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Verde</strong></td><td>Q1 passa · Q2 clínica própria · Q3 acima de R$ 15 mil</td><td>Página de agendamento direto</td><td>Contato em até 2 horas</td></tr>
+        <tr><td><strong>Amarelo</strong></td><td>Q1 passa · Q2 sala própria ou clínica · Q3 entre R$ 8 e 15 mil</td><td>Página de agendamento com triagem</td><td>Contato em até 24 horas</td></tr>
+        <tr><td><strong>Vermelho</strong></td><td>Qualquer corte em Q1, Q2 ou Q3</td><td>Tela de encerramento com material gratuito</td><td>Sem abordagem</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>A faixa vermelha continua sendo registrada, com origem e motivo do corte. Esse dado é o que permite, em 30 dias, excluir profissões diretamente no público do Meta e parar de pagar pelo clique.</p>
+
+  <h4>Tela de encerramento · faixa vermelha</h4>
+  <div class="copy">
+    <span class="fmt">Copy da tela de saída</span>
+    <p>Seu diagnóstico ficou pronto, e ele é honesto: o programa da Ju não é para o seu momento agora.</p>
+    <p>A mentoria trabalha com donas de clínica que já faturam acima de R$ 15 mil e travaram no crescimento. Aplicar esse método antes de ter estrutura e volume não acelera nada, só antecipa frustração.</p>
+    <p>Preparei um material com os três primeiros passos para chegar lá. Ele é gratuito e não tem continuidade comercial.</p>
+  </div>
+
+  <div class="note">
+    <p><b>Por que encerrar em vez de oferecer a consultoria.</b> Oferecer o produto de R$ 1.997 nessa tela reconstrói exatamente o funil que se está desmontando. A recusa honesta preserva a autoridade da Ju no nicho, e essas mulheres voltam quando crescem.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">05</span> Copy dos anúncios</h2>
+
+  <p>Prioridade de produção em vídeo, na proporção de dois vídeos para cada imagem. O dado da conta é direto: vídeo qualifica cinco vezes melhor. Três ângulos, cada um com uma função distinta no corte.</p>
+
+  <h3>Ângulo 1 · O teto</h3>
+  <p>Fala com quem já cresceu e parou. Substitui a promessa atual de "romper a barreira dos R$ 20 mil", que convida quem está abaixo dela.</p>
+
+  <div class="copy">
+    <span class="fmt">Vídeo · 45 a 60 segundos</span>
+    <p>Sua clínica cresceu até certo ponto e parou. A agenda está cheia, a equipe está rodando, e mesmo assim o faturamento não passa do mesmo número há meses.</p>
+    <p>Isso não é falta de esforço, e também não é falta de cliente. É que o modelo que te trouxe até aqui tem um teto, e você bateu nele.</p>
+    <p>Eu tenho clínica desde 2011 e mentoro donas de clínica desde 2018. O que destrava esse teto não é técnica nova nem mais post, é decisão de dona.</p>
+    <p>Fiz um diagnóstico de sete perguntas que aponta qual dos cinco gargalos está travando o seu crescimento. Leva dois minutos e é para quem já fatura acima de R$ 15 mil. Toque em Saiba Mais e responda.</p>
+  </div>
+
+  <div class="copy">
+    <span class="fmt">Imagem · texto do anúncio</span>
+    <p>Faturamento parado no mesmo número há seis meses, com a agenda mais cheia do que nunca.</p>
+    <p>Se isso descreve a sua clínica, o problema não é volume de cliente. É que existe um gargalo específico segurando o crescimento, e ele quase nunca está onde a dona acha que está.</p>
+    <p>Diagnóstico do Teto: sete perguntas, dois minutos, e você descobre qual é o seu. Toque em Saiba Mais.</p>
+  </div>
+
+  <h3>Ângulo 2 · Faturamento não é lucro</h3>
+  <p>Fala com quem tem movimento e não tem sobra. É o ângulo que melhor separa dona de clínica de prestadora de serviço.</p>
+
+  <div class="copy">
+    <span class="fmt">Vídeo · 45 a 60 segundos</span>
+    <p>Você olha o extrato no fim do mês e não entende. A clínica atendeu mais que no mês passado, faturou mais, e sobrou menos.</p>
+    <p>Isso tem nome e tem conta. Na maioria das clínicas que eu analiso, o dinheiro está vazando em três lugares: precificação feita por comparação com a concorrente, pacote promocional que queima margem, e cliente que faz uma vez e não volta.</p>
+    <p>Nenhum desses três se resolve vendendo mais. Os três se resolvem decidindo diferente.</p>
+    <p>Responda o diagnóstico de sete perguntas e descubra qual dos três está drenando a sua margem agora.</p>
+  </div>
+
+  <h3>Ângulo 3 · Exclusão explícita</h3>
+  <p>Repele por identidade, não por régua. É o ângulo que mais reduz custo por lead-alvo porque o corte acontece antes do clique.</p>
+
+  <div class="copy">
+    <span class="fmt">Vídeo · 30 a 45 segundos</span>
+    <p>Esse diagnóstico não é para todo mundo da área da beleza, e eu prefiro dizer isso antes de você gastar dois minutos.</p>
+    <p>Não é para lash, sobrancelha, salão ou podologia. Não é para quem ainda atende em espaço parceiro. E não é para quem está construindo os primeiros clientes.</p>
+    <p>É para dona de clínica ou consultório de estética avançada que já fatura acima de R$ 15 mil por mês e sente que estacionou.</p>
+    <p>Se esse é o seu caso, são sete perguntas e o diagnóstico sai na hora.</p>
+  </div>
+
+  <div class="note">
+    <p><b>Regra de estilo mantida.</b> Nenhuma copy usa travessão, conforme a convenção da Simple Acc para texto que vai ao lead. Rótulos e títulos deste documento podem usar.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">06</span> Instrumentação</h2>
+
+  <p>Esta seção não é acessória. Sem ela, o Quiz B será avaliado exatamente como o anterior: sobe, roda três meses, e ninguém consegue dizer se funcionou.</p>
+
+  <p>O que a auditoria dos registros mostrou:</p>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Aba da planilha de leads</th><th>Última linha gravada</th><th>Leads registrados</th><th>Situação</th></tr></thead>
+      <tbody>
+        <tr><td>Quiz 01</td><td>10/01/2026</td><td class="n">145</td><td>Parou de gravar com a campanha no ar</td></tr>
+        <tr><td>Quiz 02</td><td>11/03/2026</td><td class="n">154</td><td>Parou de gravar com a campanha no ar</td></tr>
+        <tr><td>Quiz 18.06</td><td>07/08/2026</td><td class="n">154</td><td>Ativa e completa</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>A campanha reportou 1.244 leads entre janeiro e julho. A planilha guarda cerca de 370 desse período, o que dá <strong>aproximadamente 30% de cobertura</strong>. Duas das três abas pararam de gravar no meio da operação e isso não foi detectado por meses.</p>
+
+  <h4>O que precisa estar em pé antes do Quiz B subir</h4>
+  <ul class="plain">
+    <li><strong>Coluna de status em texto</strong>, com valores fixos: <code>novo</code>, <code>abordado</code>, <code>agendado</code>, <code>compareceu</code>, <code>venda_mentoria</code>, <code>venda_consultoria</code>, <code>perdido</code>. Hoje a única marcação de venda é cor de célula, que não sobrevive a exportação nem a troca de pessoa.</li>
+    <li><strong>Coluna de origem obrigatória em toda venda.</strong> Enquanto vendas de Instagram, base antiga e prospecção da SDR entrarem na conta do tráfego, ninguém na operação vai acreditar que existe um problema no funil.</li>
+    <li><strong>Monitor de gravação.</strong> Um alerta simples quando a planilha passa 48 horas sem linha nova enquanto a campanha está ativa.</li>
+    <li><strong>Limpeza dos números travados.</strong> Os campos de comparecimento, vendas e conversão do Growth Model repetem 51, 10 e 19,61% em todos os meses. Célula vazia é honesta, número errado é pior que ausência.</li>
+    <li><strong>Camada comercial preenchida semanalmente:</strong> reuniões marcadas, comparecimentos, no-shows e vendas. Hoje CAC real, ticket médio e ROAS real aparecem como erro de divisão há sete meses.</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="num">07</span> Critérios de sucesso</h2>
+
+  <p>Metas definidas contra a linha de base de julho, não contra expectativa.</p>
+
+  <div class="scroll">
+    <table>
+      <thead><tr><th>Indicador</th><th>Base (jul)</th><th>30 dias</th><th>90 dias</th></tr></thead>
+      <tbody>
+        <tr><td>Leads acima de R$ 15 mil no topo</td><td class="n">6,4%</td><td class="n">25%</td><td class="n">40%</td></tr>
+        <tr><td>Leads sem espaço próprio</td><td class="n">51,4%</td><td class="n">abaixo de 20%</td><td class="n">abaixo de 10%</td></tr>
+        <tr><td>Custo por lead-alvo</td><td class="n">R$ 360</td><td class="n">R$ 280</td><td class="n">R$ 200</td></tr>
+        <tr><td>Taxa de agendamento</td><td class="n">0%</td><td class="n">15%</td><td class="n">20%</td></tr>
+        <tr><td>Mentorias vendidas</td><td class="n">0</td><td class="n">1</td><td class="n">3</td></tr>
+        <tr><td>Cobertura de registro</td><td class="n">30%</td><td class="n">100%</td><td class="n">100%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4>Sinais de alerta</h4>
+  <ul class="plain">
+    <li><strong>Volume não cai em duas semanas.</strong> Se o número de leads continuar próximo de 90 por mês, o corte ficou no quiz e não chegou ao anúncio. Refazer a promessa, não a pergunta.</li>
+    <li><strong>Mix melhora e agendamento continua abaixo de 10% aos 60 dias.</strong> O problema mudou de lugar e passou a ser abordagem da SDR ou oferta, não público. A mesa volta a se reunir com esse dado.</li>
+    <li><strong>A camada comercial continua vazia após duas semanas.</strong> Não é problema de ferramenta e sim de responsável. É a única linha deste documento que não se resolve com copy.</li>
+  </ul>
+
+  <h4>Sequência de execução</h4>
+  <ul class="plain">
+    <li><strong>Esta semana.</strong> Desligar o AD12 e realocar a verba para o AD05 em vídeo. Corrigir o campo Mercado-Alvo da Central Estratégica. Criar a coluna de status e a de origem.</li>
+    <li><strong>Próximas duas semanas.</strong> Quiz B no ar com as sete perguntas e as três telas de destino. Três vídeos novos, um por ângulo. Consultoria retirada da entrada.</li>
+    <li><strong>Trinta dias.</strong> Primeira leitura de mix e custo por lead-alvo. Exclusão de profissões no público do Meta a partir dos dados da faixa vermelha.</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="num">08</span> Ressalvas</h2>
+
+  <p>O que neste documento é observação e o que é inferência.</p>
+
+  <ul class="plain">
+    <li><strong>Observado.</strong> Todos os números de mídia, lead, MQL e faturamento vêm do Growth Model e do Controle de Métricas. A distribuição de perfil vem das 453 fichas registradas. O comportamento dos criativos vem do cruzamento entre ficha e UTM.</li>
+    <li><strong>Confirmado pelo cliente.</strong> As duas vendas de mentoria de R$ 9.999.</li>
+    <li><strong>Inferido.</strong> A atribuição das três compradoras rastreáveis às três vendas de janeiro de R$ 1.997, feita pela aritmética de valor e quiz de origem. Não há confirmação documental.</li>
+    <li><strong>Não estabelecido.</strong> A origem de cinco das oito compradoras. Elas não aparecem em nenhuma das três abas, nem por e-mail nem por telefone, mas o registro cobre apenas 30% dos leads do período. Ausência na planilha não prova ausência no funil.</li>
+    <li><strong>Amostra pequena.</strong> As três compradoras rastreáveis compartilham perfil idêntico nos três eixos, o que é direcional e não conclusivo. O sinal mais forte está do outro lado: nenhum dos 17 leads acima de R$ 10 mil comprou.</li>
+  </ul>
+
+  <div class="note">
+    <p><b>A pergunta que fica.</b> Cinco vendas vieram de canais que ninguém está medindo, incluindo Instagram, base antiga e prospecção direta da SDR. Esse conjunto converteu melhor que o tráfego pago no mesmo período. Antes de escalar o Quiz B, vale uma semana entendendo como essas cinco foram vendidas. É possível que o funil que funciona já exista e não seja o de anúncio.</p>
+  </div>
+</section>
+
+<footer>
+  <p>Simple Acc · Documento de decisão para Juliana Godinho · 10 de agosto de 2026. Fontes: Ju Godinho Growth Model 2026, Ju Godinho Controle de Métricas, Simple_ACC Juliana Lead Score Tráfego, Central Estratégica, Briefing e Canvas de Produto e Cliente Ideal.</p>
+</footer>
+
+</div>
