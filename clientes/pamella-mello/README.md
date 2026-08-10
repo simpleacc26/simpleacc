@@ -19,9 +19,11 @@ clínica.
 ## Links úteis
 
 - Gerenciador de anúncios (Meta):
-- Funil de quiz (produção):
+- Funil de quiz (produção): https://funil-hipnose.vercel.app (Vercel, projeto `funil-hipnose`)
 - CRM:
+- Drive: pasta "Simple <> Pâmella Mello" (mapa completo em `contexto/dossie-cliente.md`)
 - Planilhas comerciais (Drive): centralizadas no Drive, acesso já liberado ao time
+- Instagram: @pamellahipnose
 - Grupo de WhatsApp: canal oficial de atualização entre os Pit Stops
 
 ## Projetos
