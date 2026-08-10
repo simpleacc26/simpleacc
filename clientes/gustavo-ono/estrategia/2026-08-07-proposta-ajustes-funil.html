@@ -1,236 +1,259 @@
 <!DOCTYPE html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Gustavo Ono — Proposta de adaptação do funil</title>
+<title>Gustavo Ono — Proposta de reestruturação do funil</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#16314f;--navy700:#1e3d61;--gold:#a9802f;--gold300:#d4a84b;
-  --bg:#faf8f4;--cream:#f3eee2;--card:#fff;--ink:#20272f;--muted:#5c6672;--line:#e6e1d6;
-  --cocoa:#1a0900;--cocoa2:#2b1408;--rose:#c87b75;
-  --red:#b3261e;--redbg:#fdf0ef;--green:#1f6b4f;--greenbg:#eef4ee;
-  --serif:'Playfair Display',Georgia,serif;
-  --sans:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  --bg:#1A0900;--card:#2D1108;--card2:#3A1510;
+  --rose:#C87B75;--rose-dim:rgba(200,123,117,.16);--rose-line:rgba(200,123,117,.28);
+  --cream:#FBF1EE;--muted:rgba(251,241,238,.60);--muted2:rgba(251,241,238,.44);
+  --ok:#6EE7B7;--warn:#F87171;
+  --serif:'Lora',Georgia,serif;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:var(--sans);color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);color:var(--cream);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
 .wrap{max-width:880px;margin:0 auto;padding:0 24px}
 
 /* header */
-.head{background:linear-gradient(180deg,#16314f,#1e3d61);color:#fff;padding:44px 0 38px;border-bottom:3px solid var(--gold)}
-.logo{display:inline-flex;flex-direction:column;margin-bottom:18px}
-.logo .word{font-family:var(--serif);font-weight:700;font-size:1.5rem;color:#fff;letter-spacing:.06em;line-height:1}
-.logo .sub{font-family:var(--serif);font-style:italic;font-size:.62rem;color:var(--gold300);letter-spacing:.22em;margin-top:3px}
-.head .kick{text-transform:uppercase;letter-spacing:2px;font-size:11px;color:var(--gold300);font-weight:700}
-.head h1{font-family:var(--serif);font-size:32px;line-height:1.18;margin:10px 0 10px}
-.head p{color:#cdd8e6;font-size:15px;max-width:660px}
-.badge{display:inline-block;margin-top:16px;background:rgba(212,168,123,.16);border:1px solid var(--gold300);color:#f3e6cc;border-radius:99px;padding:6px 14px;font-size:12px;font-weight:700;letter-spacing:.4px}
+.head{background:linear-gradient(170deg,#2D1108 0%,#1A0900 78%);padding:52px 0 44px;border-bottom:1px solid var(--rose-line);position:relative}
+.head::after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:1px;background:linear-gradient(90deg,transparent,var(--rose),transparent)}
+.logo{display:inline-flex;flex-direction:column;margin-bottom:22px}
+.logo .word{font-family:var(--serif);font-weight:600;font-size:1.45rem;color:var(--cream);letter-spacing:.14em;line-height:1}
+.logo .sub{font-family:var(--serif);font-style:italic;font-size:.64rem;color:var(--rose);letter-spacing:.3em;margin-top:5px}
+.head .kick{text-transform:uppercase;letter-spacing:2.2px;font-size:11px;color:var(--rose);font-weight:600}
+.head h1{font-family:var(--serif);font-weight:600;font-size:33px;line-height:1.2;margin:12px 0 12px;color:var(--cream)}
+.head p{color:var(--muted);font-size:15.5px;max-width:680px}
 
 /* tipografia */
-h2{font-family:var(--serif);color:var(--navy);font-size:24px;margin:44px 0 6px}
-h2 .n{color:var(--gold);font-size:18px;margin-right:8px}
-h3{font-family:var(--serif);color:var(--navy700);font-size:18px;margin:22px 0 6px}
-.sub2{color:var(--muted);font-size:14px;margin-bottom:16px}
-p{margin:10px 0}
-strong{color:var(--navy700)}
-ul{margin:10px 0 10px 20px}li{margin:6px 0}
+h2{font-family:var(--serif);font-weight:600;color:var(--cream);font-size:25px;margin:52px 0 6px;line-height:1.3}
+h2 .n{color:var(--rose);font-size:17px;margin-right:10px;font-family:var(--sans);font-weight:700;letter-spacing:.06em}
+h3{font-family:var(--serif);font-weight:600;color:var(--rose);font-size:18px;margin:26px 0 6px}
+.sub2{color:var(--muted2);font-size:14px;margin-bottom:18px}
+p{margin:11px 0;color:rgba(251,241,238,.88)}
+strong{color:var(--cream);font-weight:600}
+ul{margin:10px 0 10px 20px}li{margin:7px 0;color:rgba(251,241,238,.85)}
 
 /* blocos */
-.good{background:var(--greenbg);border:1px solid #cfe0cf;border-left:4px solid var(--green);border-radius:10px;padding:16px 18px;margin:18px 0}
-.good .t{font-family:var(--serif);color:var(--green);font-weight:700;font-size:17px;margin-bottom:4px}
-.note{background:var(--cream);border-radius:10px;padding:14px 16px;margin:14px 0;font-size:13.5px;color:var(--muted)}
-.note b{color:var(--navy700)}
-.key{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:10px;padding:16px 18px;margin:18px 0;box-shadow:0 8px 24px rgba(22,49,79,.06)}
-.key .t{font-family:var(--serif);color:var(--navy);font-weight:700;font-size:17px;margin-bottom:4px}
+.key{background:var(--card);border:1px solid var(--rose-line);border-left:3px solid var(--rose);border-radius:14px;padding:20px 22px;margin:22px 0}
+.key .t{font-family:var(--serif);color:var(--rose);font-weight:600;font-size:18px;margin-bottom:6px}
+.note{background:rgba(200,123,117,.07);border:1px solid var(--rose-line);border-radius:14px;padding:18px 20px;margin:20px 0;font-size:14px;color:var(--muted)}
+.note b{color:var(--cream)}
 
 /* tabela */
-.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:16px 0}
-.tw table{margin:0}
-table{width:100%;min-width:480px;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 8px 24px rgba(22,49,79,.06);font-size:14px}
-th{background:var(--navy);color:#fff;text-align:left;padding:11px 14px;font-size:12px;letter-spacing:.5px;text-transform:uppercase;font-weight:700}
-td{padding:11px 14px;border-bottom:1px solid var(--line)}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:18px 0}
+table{width:100%;min-width:440px;border-collapse:collapse;background:var(--card);border:1px solid var(--rose-line);border-radius:14px;overflow:hidden;font-size:14.5px}
+th{background:var(--card2);color:var(--rose);text-align:left;padding:12px 16px;font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:700}
+td{padding:12px 16px;border-bottom:1px solid rgba(200,123,117,.14);color:rgba(251,241,238,.88)}
 tr:last-child td{border-bottom:none}
-td.num{font-variant-numeric:tabular-nums;font-weight:600;color:var(--navy700)}
-.bad{color:var(--red);font-weight:700}
-.ok{color:var(--green);font-weight:700}
+td.num{font-variant-numeric:tabular-nums;font-weight:600;color:var(--cream);white-space:nowrap}
+tr.hi td{background:rgba(200,123,117,.1)}
 
 /* fluxo */
-.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}
-.step{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;box-shadow:0 8px 24px rgba(22,49,79,.06)}
-.step .k{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--gold);font-weight:700}
-.step .t{font-family:var(--serif);color:var(--navy);font-weight:700;font-size:16px;margin:5px 0}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:20px 0}
+.step{background:var(--card);border:1px solid var(--rose-line);border-radius:14px;padding:16px}
+.step .k{font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:var(--rose);font-weight:700}
+.step .t{font-family:var(--serif);color:var(--cream);font-weight:600;font-size:16px;margin:6px 0}
 .step p{font-size:12.5px;color:var(--muted);margin:2px 0}
-.step.flat{background:var(--cream)}
-.step.flat .k{color:var(--muted)}
+
+/* fluxo proposto com bifurcação */
+.split{margin:20px 0}
+.split .trunk{background:var(--card);border:1px solid var(--rose-line);border-radius:14px;padding:16px 20px;text-align:center}
+.split .trunk .t{font-family:var(--serif);color:var(--cream);font-size:17px;font-weight:600}
+.split .trunk p{font-size:13px;color:var(--muted);margin:3px 0 0}
+.split .fork{text-align:center;color:var(--rose);font-size:22px;line-height:1;margin:8px 0;letter-spacing:.4em}
+.split .branches{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.branch{background:var(--card);border:1px solid var(--rose-line);border-radius:14px;padding:16px 18px;border-top:3px solid var(--rose)}
+.branch.b2{border-top-color:rgba(200,123,117,.45)}
+.branch .k{font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:var(--rose);font-weight:700}
+.branch .t{font-family:var(--serif);color:var(--cream);font-weight:600;font-size:16.5px;margin:6px 0 4px}
+.branch p{font-size:13px;color:var(--muted);margin:3px 0}
+.merge{background:linear-gradient(180deg,rgba(110,231,183,.09),rgba(110,231,183,.04));border:1px solid rgba(110,231,183,.3);border-radius:14px;padding:16px 20px;margin-top:12px;text-align:center}
+.merge .k{font-size:10px;text-transform:uppercase;letter-spacing:1.2px;color:var(--ok);font-weight:700}
+.merge .t{font-family:var(--serif);color:var(--cream);font-weight:600;font-size:16.5px;margin:6px 0 4px}
+.merge p{font-size:13px;color:var(--muted);margin:2px 0}
 
 /* rotas */
-.rota{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px 20px;margin:14px 0;box-shadow:0 8px 24px rgba(22,49,79,.06);border-left:4px solid var(--gold)}
-.rota .rt{font-family:var(--serif);color:var(--navy);font-size:18px;font-weight:700}
-.rota .cond{display:inline-block;background:var(--cream);border:1px solid var(--line);border-radius:6px;padding:3px 9px;font-size:12px;color:var(--navy700);margin:8px 6px 8px 0;font-weight:600}
-.rota .dest{font-size:14px;color:var(--muted);margin-top:6px}
-.rota .dest b{color:var(--navy700)}
-.rota.b{border-left-color:var(--rose)}
-.rota.c{border-left-color:var(--green)}
+.rota{background:var(--card);border:1px solid var(--rose-line);border-radius:16px;padding:20px 22px;margin:16px 0;border-left:3px solid var(--rose)}
+.rota .rt{font-family:var(--serif);color:var(--cream);font-size:19px;font-weight:600}
+.rota .cond{display:inline-block;background:var(--rose-dim);border:1px solid var(--rose-line);border-radius:7px;padding:4px 10px;font-size:12px;color:var(--rose);margin:10px 6px 8px 0;font-weight:600}
+.rota .dest{font-size:14.5px;color:rgba(251,241,238,.85);margin-top:6px}
+.rota .dest b{color:var(--cream);font-weight:600}
+.rota.c{border-left-color:var(--ok)}
+.rota.c .cond{color:var(--ok);background:rgba(110,231,183,.1);border-color:rgba(110,231,183,.3)}
 
-/* preview marca do cliente */
-.prev{border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 16px 40px rgba(22,49,79,.12);margin:16px 0}
-.prev-hd{background:linear-gradient(180deg,var(--cocoa),var(--cocoa2));color:#FBF1EE;padding:22px 24px}
+/* preview */
+.prev{border:1px solid var(--rose-line);border-radius:16px;overflow:hidden;margin:18px 0}
+.prev-hd{background:linear-gradient(170deg,var(--card2),var(--card));padding:24px 26px;border-bottom:1px solid var(--rose-line)}
 .prev-hd .k{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--rose);font-weight:700}
-.prev-hd h4{font-family:var(--serif);font-size:20px;margin:6px 0 4px;color:#FBF1EE}
-.prev-hd p{font-size:13.5px;color:rgba(251,241,238,.8);margin:4px 0}
-.prev-bd{background:#fff;padding:18px 24px}
-.cta-prev{display:inline-block;background:#25D366;color:#fff;font-weight:800;border-radius:10px;padding:11px 20px;font-size:14px;margin:8px 0}
-.cta-prev.gold{background:var(--gold);color:#1b1400}
-.cta-sec{display:block;font-size:12.5px;color:var(--muted);margin-top:8px;text-decoration:underline}
+.prev-hd h4{font-family:var(--serif);font-size:21px;margin:8px 0 6px;color:var(--cream);font-weight:600;line-height:1.3}
+.prev-hd p{font-size:13.5px;color:var(--muted);margin:4px 0}
+.prev-bd{padding:20px 26px;background:rgba(45,17,8,.45)}
+.prev-bd ul{margin-left:18px}
+.prev-bd li{font-size:13.5px;color:var(--muted)}
+.prev-bd li strong{color:var(--cream)}
+.cta-prev{display:inline-block;background:#25D366;color:#08240f;font-weight:700;border-radius:11px;padding:12px 22px;font-size:14.5px;margin:12px 0 0}
+.cta-prev.rose{background:var(--rose);color:#2A0D06}
+.cta-sec{display:block;font-size:12.5px;color:var(--muted2);margin-top:10px}
 
 /* checklist */
-.qlist{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:4px 8px;margin:14px 0;box-shadow:0 8px 24px rgba(22,49,79,.06)}
-.qrow{display:flex;gap:12px;padding:12px;border-bottom:1px solid var(--line);align-items:baseline}
+.qlist{background:var(--card);border:1px solid var(--rose-line);border-radius:16px;padding:4px 10px;margin:18px 0}
+.qrow{display:flex;gap:14px;padding:16px 12px;border-bottom:1px solid rgba(200,123,117,.14);align-items:baseline}
 .qrow:last-child{border-bottom:none}
-.qrow .num{color:var(--gold);font-weight:700;font-family:var(--serif);width:22px;flex-shrink:0}
-.qrow .qt{font-weight:600;color:var(--navy700);font-size:14.5px}
-.qrow .qm{color:var(--muted);font-size:12.5px;margin-top:2px}
-.tag{display:inline-block;font-size:9px;letter-spacing:.5px;text-transform:uppercase;font-weight:700;padding:2px 7px;border-radius:20px;margin-left:6px;background:#f5ecd6;color:#8a6d1f;border:1px solid #e6d3a3;vertical-align:middle}
-.tag.n{background:#e9eef1;color:#3f5c66;border-color:#cdd9dd}
+.qrow .num{color:var(--rose);font-weight:600;font-family:var(--serif);font-size:17px;width:24px;flex-shrink:0}
+.qrow .qt{font-weight:600;color:var(--cream);font-size:15px}
+.qrow .qm{color:var(--muted);font-size:13px;margin-top:4px}
+.tag{display:inline-block;font-size:9px;letter-spacing:.6px;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:20px;margin-left:8px;background:var(--rose-dim);color:var(--rose);border:1px solid var(--rose-line);vertical-align:middle}
+.tag.n{background:rgba(251,241,238,.07);color:var(--muted);border-color:rgba(251,241,238,.16)}
 
-/* cronograma */
-.tl{border-left:2px solid var(--line);margin:18px 0 18px 8px;padding-left:22px}
-.tl .item{position:relative;margin-bottom:20px}
-.tl .item::before{content:'';position:absolute;left:-29px;top:5px;width:12px;height:12px;border-radius:50%;background:var(--gold);border:2px solid var(--bg)}
-.tl .when{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:var(--gold);font-weight:700}
-.tl .what{font-family:var(--serif);color:var(--navy);font-size:16px;font-weight:700;margin:2px 0 3px}
-.tl .why{font-size:13.5px;color:var(--muted)}
+/* passos */
+.steps{counter-reset:s;margin:20px 0}
+.stp{position:relative;padding:18px 20px 18px 68px;background:var(--card);border:1px solid var(--rose-line);border-radius:14px;margin-bottom:12px}
+.stp::before{counter-increment:s;content:counter(s,decimal-leading-zero);position:absolute;left:20px;top:18px;font-family:var(--serif);font-size:22px;color:var(--rose);font-weight:600;line-height:1}
+.stp .what{font-family:var(--serif);color:var(--cream);font-size:17px;font-weight:600;margin-bottom:3px}
+.stp .why{font-size:13.5px;color:var(--muted)}
 
-.foot{margin:40px 0 60px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
-.foot .sig{font-family:var(--serif);font-style:italic;color:var(--navy700);font-size:14px}
-@media(max-width:640px){.flow{grid-template-columns:1fr 1fr}.head h1{font-size:26px}table{font-size:13px}th,td{padding:9px 10px}}
-@media print{.head{background:var(--navy)!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}}
+.foot{margin:48px 0 64px;padding-top:20px;border-top:1px solid var(--rose-line);color:var(--muted2);font-size:13px}
+.foot .sig{font-family:var(--serif);font-style:italic;color:var(--rose);font-size:14px;margin-top:12px}
+
+@media(max-width:640px){
+  .flow{grid-template-columns:1fr 1fr}.split .branches{grid-template-columns:1fr}
+  .head h1{font-size:26px}h2{font-size:22px}
+  table{font-size:13.5px}th,td{padding:10px 12px}
+  .stp{padding:16px 16px 16px 60px}.stp::before{left:16px}
+}
+@media print{
+  :root{--bg:#fff;--card:#fbf7f5;--card2:#f3e9e6;--cream:#2A0D06;--muted:#6b5450;--muted2:#8a736e;--rose:#9c4f47;--rose-line:rgba(156,79,71,.3)}
+  body{background:#fff;color:#2A0D06;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .head{background:#fff!important;border-bottom:2px solid var(--rose)}
+  .head p,.sub2{color:#6b5450}
+  p,li{color:#2A0D06}
+  .prev-bd{background:#fbf7f5}
+}
 </style></head>
 <body>
 
 <div class="head"><div class="wrap">
   <div class="logo"><div class="word">GUSTAVO ONO</div><span class="sub">CHOCOLATIER</span></div>
-  <div class="kick">PROPOSTA DE ADAPTAÇÃO · FUNIL DE AQUISIÇÃO</div>
+  <div class="kick">PROPOSTA DE REESTRUTURAÇÃO · FUNIL DE AQUISIÇÃO</div>
   <h1>Um caminho para cada perfil que entra no quiz</h1>
-  <p>Revisamos o funil com os dados de tráfego de maio a julho e com a base de 184 leads acumulada desde fevereiro. O quiz atrai e qualifica acima da média do mercado, mas hoje entrega o mesmo destino para perfis muito diferentes entre si. Esta é a proposta de adaptação: separar os caminhos usando o que o quiz já pergunta, e transformar o treinamento de entrada em ponte para a formação. Documento para sua validação antes de qualquer alteração.</p>
-  <span class="badge">● 7 de agosto de 2026 · para validação do Gustavo</span>
+  <p>Com seis meses de funil rodando e 184 respostas acumuladas no quiz, temos hoje uma base de dados que no início não existia. Ela mostra que os perfis que entram são bem diferentes entre si, e abre uma possibilidade nova: entregar a cada um a oferta certa para o momento dele, dentro da mesma estrutura. Esta é a proposta de reestruturação.</p>
 </div></div>
 
 <div class="wrap">
 
-<h2><span class="n">1.</span>Os números, sem maquiagem</h2>
-<p class="sub2">Dados de tráfego de maio a julho de 2026, direto da planilha de acompanhamento.</p>
-
-<div class="tw"><table>
-  <tr><th>Métrica</th><th>Maio</th><th>Junho</th><th>Julho</th><th>Referência</th></tr>
-  <tr><td>Investimento</td><td class="num">R$ 1.282</td><td class="num">R$ 2.042</td><td class="num">R$ 2.304</td><td>n/d</td></tr>
-  <tr><td>Cliques no anúncio</td><td class="num">436</td><td class="num">451</td><td class="num">624</td><td>n/d</td></tr>
-  <tr><td><strong>Visitas na página</strong></td><td class="num">205</td><td class="num">198</td><td class="num">292</td><td>n/d</td></tr>
-  <tr><td><strong>Connect rate</strong></td><td class="bad">47,0%</td><td class="bad">43,9%</td><td class="bad">46,8%</td><td>≥ 80%</td></tr>
-  <tr><td>Leads gerados</td><td class="num">0</td><td class="num">39</td><td class="num">45</td><td>n/d</td></tr>
-  <tr><td>Custo por lead</td><td class="num">n/d</td><td class="bad">R$ 52,36</td><td class="bad">R$ 51,20</td><td>R$ 5 a R$ 32</td></tr>
-  <tr><td>Conversão da página</td><td class="num">0%</td><td class="ok">19,7%</td><td class="ok">15,4%</td><td>10% a 15%</td></tr>
-  <tr><td>Taxa de leads qualificados</td><td class="num">n/d</td><td class="ok">43,6%</td><td class="ok">42,2%</td><td>≥ 20%</td></tr>
-</table></div>
-
-<p>Duas leituras saem daqui, e elas são opostas.</p>
-
-<h3>O que está funcionando bem</h3>
-<p>A página converte <strong>acima da referência</strong> (15,4% contra uma faixa esperada de 10 a 15%) e a qualidade dos leads é <strong>o dobro do esperado</strong> (42% de qualificados contra referência de 20%). O quiz faz bem o trabalho dele: quem chega, responde, e quem responde tem perfil.</p>
-
-<h3>Onde o dinheiro está vazando</h3>
-<p>O <strong>connect rate de 46,8%</strong> é o número mais caro da operação. Ele mede quantas pessoas que clicaram no anúncio realmente carregaram a página. <strong>Mais da metade some no caminho</strong>: você paga pelo clique e a pessoa nunca chega. A referência de mercado é 80%.</p>
-
-<div class="good">
-  <div class="t">O que a correção do connect rate vale, em número</div>
-  <p>Com a mesma verba de julho (R$ 2.304), levando o connect rate de 46,8% para 80%: as 624 pessoas que clicaram virariam <strong>499 visitas em vez de 292</strong>. Mantida a conversão atual da página, isso são <strong>77 leads em vez de 45</strong>, e o custo por lead cai de <strong>R$ 51,20 para cerca de R$ 30</strong>, dentro da faixa de referência, sem investir um real a mais.</p>
-</div>
-
-<p>A causa mais provável é a hospedagem atual da página, que roda num endereço genérico em vez do seu domínio próprio, somada ao tempo de carregamento no celular. A correção já está encaminhada: migrar a estrutura para a mesma plataforma do seu CRM e apontar o seu domínio.</p>
-
-<h2><span class="n">2.</span>Quem está entrando no funil</h2>
-<p class="sub2">Base de 184 leads desde fevereiro, com o perfil declarado por cada uma no próprio quiz.</p>
+<h2><span class="n">01</span>Quem entra no funil hoje</h2>
+<p class="sub2">Perfil declarado pelas próprias leads, no quiz, ao longo de toda a operação.</p>
 
 <div class="tw"><table>
   <tr><th>Perfil declarado</th><th>Leads</th><th>Proporção</th></tr>
   <tr><td>"Ainda quero começar a vender chocolates"</td><td class="num">23</td><td class="num">27%</td></tr>
   <tr><td>"Ainda não, mas quero que sejam o carro-chefe"</td><td class="num">31</td><td class="num">36%</td></tr>
   <tr><td>"Os chocolates finos são menos de 50% das vendas"</td><td class="num">10</td><td class="num">11%</td></tr>
-  <tr><td><strong>"Sim, são meu carro-chefe"</strong></td><td class="num">22</td><td class="num">26%</td></tr>
+  <tr class="hi"><td><strong>"Sim, são meu carro-chefe"</strong></td><td class="num">22</td><td class="num">26%</td></tr>
 </table></div>
 
-<p><strong>63% de quem entra ainda não tem o chocolate como negócio principal.</strong> São pessoas que querem começar, ou que fazem chocolate como parte de outra coisa. É um público legítimo e comprador. Só não é comprador de uma formação de R$ 5.000 hoje.</p>
+<p>O funil vem atraindo dois públicos ao mesmo tempo, e ambos são valiosos. Cerca de <strong>um quarto já tem o chocolate como negócio principal</strong>: são as chocolateiras com operação rodando, faturamento acontecendo e problemas de estrutura, precificação e constância. É o perfil da formação.</p>
 
-<p>Olhando por faturamento, o quadro se repete: pouco mais da metade declara faturar até R$ 5.000 por mês. E há um grupo pequeno e valioso, <strong>13 pessoas que declararam faturar acima de R$ 10.000</strong>, que hoje recebe exatamente a mesma página e o mesmo destino que todas as outras.</p>
+<p>Os outros <strong>63% ainda estão construindo</strong>. Querem começar, ou fazem chocolate como parte de outra coisa. É gente comprometida e compradora, mas com uma necessidade diferente: querem dar o primeiro passo bem dado, não reorganizar uma operação que ainda não existe.</p>
+
+<p>Pelo faturamento a leitura se repete. Pouco mais da metade declara faturar até R$ 5.000 por mês, e há um grupo menor e muito valioso, <strong>13 pessoas que declararam faturar acima de R$ 10.000</strong>, com plena capacidade de investir na formação.</p>
 
 <div class="key">
-  <div class="t">É este o ponto central da proposta</div>
-  <p>O quiz <strong>já pergunta tudo o que é necessário</strong> para separar quem está pronta para a formação de quem está pronta para o treinamento de entrada. As respostas sobre perfil e faturamento são coletadas, aparecem na planilha de leads, e depois não influenciam em nada o que a pessoa vê no final. Quem fatura R$ 30 mil e quem ainda não vendeu o primeiro bombom terminam na mesma página, com a mesma oferta, no mesmo momento.</p>
+  <div class="t">A oportunidade que os dados abriram</div>
+  <p>Quando o funil foi montado, não havia histórico: a decisão certa era oferecer o mesmo caminho para todo mundo e observar quem aparecia. Seis meses depois, com 184 respostas, sabemos exatamente quem aparece. E as perguntas que o quiz já faz sobre perfil e faturamento são suficientes para separar os grupos com segurança, sem precisar acrescentar nada.</p>
+  <p style="margin-bottom:0">A proposta é usar essa informação que já está sendo coletada para <strong>direcionar cada lead para a oferta compatível com o momento dela</strong>.</p>
 </div>
 
-<h2><span class="n">3.</span>O funil hoje e o que propomos</h2>
+<h2><span class="n">02</span>O funil hoje e o que propomos</h2>
 
 <h3>Como está</h3>
 <div class="flow">
   <div class="step"><div class="k">01 · Anúncio</div><div class="t">Instagram</div><p>Chama para o diagnóstico gratuito.</p></div>
-  <div class="step"><div class="k">02 · Quiz</div><div class="t">9 perguntas</div><p>Pergunta perfil, dor e faturamento. Converte acima da média.</p></div>
+  <div class="step"><div class="k">02 · Quiz</div><div class="t">9 perguntas</div><p>Coleta perfil, dor e faturamento de cada lead.</p></div>
   <div class="step"><div class="k">03 · Relatório</div><div class="t">Diagnóstico</div><p>Aponta os três pilares críticos do negócio dela.</p></div>
-  <div class="step flat"><div class="k">04 · Encerramento</div><div class="t">Igual para todas</div><p>Uma única oferta, sem distinção de momento nem de porte.</p></div>
+  <div class="step"><div class="k">04 · Encerramento</div><div class="t">Caminho único</div><p>Um mesmo destino para todos os perfis que chegam.</p></div>
 </div>
 
 <h3>Como propomos</h3>
-<p>Uma estrutura só, com o mesmo anúncio e o mesmo quiz. O que muda é o <strong>destino ao final</strong>, decidido pelas respostas que a pessoa já deu, sem perguntar nada a mais e sem criar uma segunda campanha.</p>
+<p>A mesma estrutura, o mesmo anúncio e o mesmo quiz. O que muda é o <strong>destino ao final</strong>, definido pelas respostas que a lead já deu. Sem perguntar nada a mais, sem criar uma segunda campanha e sem dividir a verba.</p>
+
+<div class="split">
+  <div class="trunk">
+    <div class="t">Anúncio → Quiz → Diagnóstico dos três pilares</div>
+    <p>Idêntico para todas. É aqui que o perfil e o faturamento são identificados.</p>
+  </div>
+  <div class="fork">▼ ▼</div>
+  <div class="branches">
+    <div class="branch">
+      <div class="k">Rota A</div>
+      <div class="t">Já tem negócio rodando</div>
+      <p>Convite para a sessão diagnóstica com o Gustavo.</p>
+    </div>
+    <div class="branch b2">
+      <div class="k">Rota B</div>
+      <div class="t">Ainda está construindo</div>
+      <p>Treinamento Bombom Artístico como oferta principal.</p>
+    </div>
+  </div>
+  <div class="merge">
+    <div class="k">Rota C · as duas se reencontram aqui</div>
+    <div class="t">Quem compra o treinamento ganha a sessão</div>
+    <p>A compra de R$ 97 passa a dar direito à conversa de 30 minutos com o Gustavo.</p>
+  </div>
+</div>
 
 <div class="rota">
   <div class="rt">Rota A · Já tem negócio de chocolate rodando</div>
   <span class="cond">Chocolate é carro-chefe (ou mais de 50%)</span><span class="cond">Fatura acima de R$ 5 mil</span>
-  <div class="dest">Recebe o diagnóstico dos três pilares e o convite para a <b>sessão diagnóstica de 30 minutos com você</b>. O treinamento de R$ 97 aparece como opção secundária, discreta, para quem preferir começar sozinha.</div>
+  <div class="dest">Recebe o diagnóstico dos três pilares e o convite para a <b>sessão diagnóstica de 30 minutos com você</b>. O treinamento de R$ 97 continua disponível como opção secundária, para quem preferir começar sozinha.</div>
 </div>
 
-<div class="rota b">
+<div class="rota">
   <div class="rt">Rota B · Ainda vai começar ou está no início</div>
   <span class="cond">"Ainda quero começar"</span><span class="cond">Fatura até R$ 5 mil</span>
-  <div class="dest">Recebe o mesmo diagnóstico, com o <b>Treinamento Bombom Artístico de R$ 97 como oferta principal</b>. Não recebe convite para a sessão. Não é descarte: é o caminho certo para quem ainda não tem operação para diagnosticar, e protege a sua agenda.</div>
+  <div class="dest">Recebe o mesmo diagnóstico, com o <b>Treinamento Bombom Artístico de R$ 97 como oferta principal</b>. É o produto certo para quem está dando o primeiro passo, e concentra a sua agenda em quem já tem operação para analisar.</div>
 </div>
 
 <div class="rota c">
   <div class="rt">Rota C · Quem compra o treinamento de R$ 97</div>
-  <span class="cond">Qualquer rota, após a compra</span>
-  <div class="dest">Na página de obrigado e no acompanhamento seguinte, <b>a sessão com você entra como benefício da compra</b>. Essa é a mudança mais importante da proposta, e a explicamos abaixo.</div>
+  <span class="cond">Vale para as duas rotas, após a compra</span>
+  <div class="dest">Na página de obrigado e no acompanhamento seguinte, <b>a sessão com você entra como benefício da compra</b>. É a mudança mais importante da proposta, e o motivo está abaixo.</div>
 </div>
 
-<div class="good">
-  <div class="t">Por que a Rota C resolve o problema de retorno no WhatsApp</div>
-  <p>Hoje, quando alguém do seu time chama uma lead do quiz, está abordando uma pessoa que pediu um diagnóstico, recebeu o diagnóstico e considerou o assunto encerrado. Falar de um programa de R$ 5.000 nesse momento é uma abordagem fria sobre um contato que não esperava contato, e é isso que derruba a taxa de resposta, não o script.</p>
-  <p>Quando a conversa acontece com <strong>alguém que acabou de comprar</strong>, três coisas mudam: a pessoa provou que paga, ela está esperando o contato porque ele foi prometido na compra, e o assunto é a entrega do que ela adquiriu, não uma venda nova. A taxa de resposta de comprador não é comparável à de lead frio.</p>
+<div class="note">
+  <b>Por que a Rota C muda a taxa de resposta no WhatsApp.</b> Uma lead que fez o quiz pediu um diagnóstico, recebeu o diagnóstico e considerou o assunto resolvido. Quando o contato chega depois falando de um programa de R$ 5.000, ele chega sem que ela estivesse esperando, e é isso que derruba a resposta, muito mais do que o script usado.
+  <p style="margin:10px 0 0">Com quem <b>acabou de comprar</b>, três coisas mudam: a pessoa já provou que investe, ela está esperando o contato porque ele foi prometido na compra, e o assunto é a entrega do que ela adquiriu, não uma venda nova. A taxa de resposta de comprador não se compara à de lead frio.</p>
 </div>
 
-<p>Isso também dá ao treinamento de R$ 97 o papel que os números indicam. Ele nunca vai financiar o tráfego sozinho: no ritmo atual cobre por volta de um quinto do investimento. Mas como <strong>filtro que separa quem paga de quem só pesquisa</strong>, ele vale muito mais do que como fonte de receita. Na prática, ele passa a exercer o papel do produto intermediário que hoje não existe entre R$ 97 e R$ 5.000.</p>
+<p>Isso também dá ao treinamento de R$ 97 um segundo papel, além da receita. Ele passa a funcionar como <strong>a ponte entre o primeiro contato e a formação</strong>: quem paga R$ 97 se identifica sozinha como alguém disposta a investir, e chega na sua frente já tendo experimentado o seu método. Na prática, ele ocupa o espaço de produto intermediário que hoje não existe entre R$ 97 e R$ 5.000.</p>
 
-<h2><span class="n">4.</span>Os ajustes no quiz</h2>
-<p class="sub2">O quiz funciona e converte acima da média. Não propomos refazê-lo, e sim quatro correções pontuais.</p>
+<h2><span class="n">03</span>Os ajustes no quiz</h2>
+<p class="sub2">O quiz converte acima da referência de mercado. Não propomos refazê-lo, e sim quatro ajustes pontuais.</p>
 
 <div class="qlist">
   <div class="qrow"><span class="num">1</span><div>
-    <span class="qt">Usar as respostas de perfil e faturamento para decidir o destino</span><span class="tag">essencial</span>
-    <div class="qm">As perguntas "os chocolates são o carro-chefe?" e "qual seu faturamento mensal?" já existem e são respondidas por todas. Hoje elas não influenciam para onde a pessoa vai. Passam a definir a rota A ou B.</div>
+    <span class="qt">Usar perfil e faturamento para definir o destino</span><span class="tag">essencial</span>
+    <div class="qm">As perguntas "os chocolates são o carro-chefe?" e "qual o seu faturamento mensal?" já existem e todas respondem. Passam a definir se a lead segue pela Rota A ou pela Rota B. É o ajuste que viabiliza toda a proposta.</div>
   </div></div>
   <div class="qrow"><span class="num">2</span><div>
-    <span class="qt">Devolver a pergunta sobre curso anterior</span><span class="tag n">recomendado</span>
-    <div class="qm">A primeira versão do quiz perguntava se a pessoa já havia feito algum curso de chocolataria, com a opção "fiz e ainda me sinto insegura". A versão atual não pergunta. Quem já pagou por um curso antes é quem tem mais chance de investir de novo. É o melhor sinal de compra que se pode coletar, e hoje está sendo perdido.</div>
+    <span class="qt">Retomar a pergunta sobre curso anterior</span><span class="tag n">recomendado</span>
+    <div class="qm">A primeira versão do quiz perguntava se a pessoa já havia feito algum curso de chocolataria, com a opção "fiz e ainda me sinto insegura". Olhando o histórico, quem já investiu em um curso antes é quem tem mais chance de investir de novo, e é um dos sinais de compra mais fortes que dá para coletar. Vale trazer de volta.</div>
   </div></div>
   <div class="qrow"><span class="num">3</span><div>
-    <span class="qt">Trocar a pergunta que não coleta informação</span><span class="tag n">recomendado</span>
-    <div class="qm">A pergunta "se você dominasse mais técnicas, isso te ajudaria a vender mais?" oferece três opções: "com certeza", "acredito que sim" e "muito provável". Como todas são versões de sim, ela não distingue ninguém. É o lugar natural para receber a pergunta do item 2.</div>
+    <span class="qt">Liberar espaço na pergunta de potencial</span><span class="tag n">recomendado</span>
+    <div class="qm">A pergunta "se você dominasse mais técnicas, isso te ajudaria a vender mais?" tem três opções de concordância: "com certeza", "acredito que sim" e "muito provável". Ela funciona bem como reforço de compromisso, mas não separa perfis. É o lugar natural para receber a pergunta do item anterior, sem alongar o quiz.</div>
   </div></div>
   <div class="qrow"><span class="num">4</span><div>
-    <span class="qt">Dar uma opção honesta a quem ainda não começou</span><span class="tag n">ajuste fino</span>
-    <div class="qm">A primeira pergunta oferece só alternativas que pressupõem um negócio em andamento ("minha margem é baixa", "meu negócio vende sem constância"). Quem ainda não começou precisa escolher alguma delas mesmo assim, o que distorce o diagnóstico que ela recebe depois.</div>
+    <span class="qt">Acolher quem ainda não começou logo na primeira pergunta</span><span class="tag n">ajuste fino</span>
+    <div class="qm">A pergunta de abertura oferece alternativas que pressupõem um negócio em andamento ("minha margem é baixa", "meu negócio vende sem constância"). Como 27% das leads ainda vão começar, incluir uma opção que fale com elas deixa o diagnóstico mais preciso desde a primeira tela.</div>
   </div></div>
 </div>
 
-<h2><span class="n">5.</span>A copy da página de resultado</h2>
-<p class="sub2">O diagnóstico dos três pilares permanece. O que muda é o fechamento de cada rota.</p>
+<h2><span class="n">04</span>A copy da página de resultado</h2>
+<p class="sub2">O diagnóstico dos três pilares permanece como está. O que muda é o fechamento de cada rota.</p>
 
 <div class="prev">
   <div class="prev-hd">
@@ -239,11 +262,11 @@ td.num{font-variant-numeric:tabular-nums;font-weight:600;color:var(--navy700)}
     <p>Em 30 minutos, o Gustavo analisa o seu caso específico (produto, precificação e estrutura) e mostra o que mudar primeiro.</p>
   </div>
   <div class="prev-bd">
-    <p style="font-size:13.5px;color:#5c6672;margin-bottom:10px">Três princípios para esta copy:</p>
-    <ul style="font-size:13.5px;color:#5c6672">
+    <p style="font-size:13.5px;color:var(--muted);margin:0 0 8px">Três princípios para esta copy:</p>
+    <ul>
       <li><strong>A sessão como continuação do diagnóstico</strong>, não como conversa de vendas. O relatório já apontou os pilares críticos; a sessão é onde você diz o que fazer com eles. Esse encadeamento é o que faz a pessoa querer o próximo passo.</li>
-      <li><strong>Dizer que o contato vai acontecer.</strong> "O Gustavo vai te chamar no WhatsApp" transforma quem liga de invasor em esperado. É a correção mais barata da taxa de resposta.</li>
-      <li><strong>A ação parte dela.</strong> O botão abre a conversa com mensagem pronta, em vez de esperar abordagem, e assim o contato sempre entra pelo número que estiver ativo.</li>
+      <li><strong>Avisar que o contato vai acontecer.</strong> "O Gustavo vai te chamar no WhatsApp" transforma quem liga em alguém esperado. É a forma mais barata de melhorar a taxa de resposta.</li>
+      <li><strong>A ação parte dela.</strong> O botão abre a conversa com mensagem pronta, em vez de ela aguardar a abordagem, e assim o contato sempre entra pelo número que estiver ativo.</li>
     </ul>
     <span class="cta-prev">Quero agendar minha sessão gratuita</span>
     <span class="cta-sec">Ou, se preferir começar pela prática: Treinamento Bombom Artístico por R$ 97</span>
@@ -257,52 +280,52 @@ td.num{font-variant-numeric:tabular-nums;font-weight:600;color:var(--navy700)}
     <p>Mesmo diagnóstico, mesma clareza sobre o gargalo, e a oferta certa para o momento dela.</p>
   </div>
   <div class="prev-bd">
-    <p style="font-size:13.5px;color:#5c6672">A copy atual da página já atende bem esta rota: toca a dor e oferta o treinamento. A mudança é que ela deixa de disputar espaço com o convite para a sessão, e passa a ser a única chamada da página para esse perfil.</p>
-    <span class="cta-prev gold">Quero o Treinamento Bombom Artístico por R$ 97</span>
+    <p style="font-size:13.5px;color:var(--muted);margin:0">A copy atual da página já atende bem esta rota: toca a dor e apresenta o treinamento. A mudança é que ela passa a ser a única chamada da página para esse perfil, sem dividir a atenção com o convite para a sessão.</p>
+    <span class="cta-prev rose">Quero o Treinamento Bombom Artístico por R$ 97</span>
   </div>
 </div>
 
-<h2><span class="n">6.</span>O que precisa existir do lado comercial</h2>
-<p class="sub2">Sem isto, qualquer melhoria no funil fica invisível no mês seguinte.</p>
+<h2><span class="n">05</span>O acompanhamento comercial</h2>
+<p class="sub2">A parte da proposta que depende de você, e sem a qual as outras ficam impossíveis de avaliar.</p>
 
-<p>Hoje as reuniões que acontecem não ficam registradas em lugar nenhum. Sabemos que você agenda uma conversa aqui e ali, mas sem esse registro não conseguimos dizer quantas pessoas foram atendidas, quantas compareceram e o que aconteceu depois. E sem isso não há como saber se um ajuste funcionou ou não.</p>
+<p>Hoje conseguimos enxergar o funil com bastante precisão até o ponto em que a lead entra na base: quantas pessoas viram o anúncio, quantas clicaram, quantas responderam o quiz e qual o perfil de cada uma. <strong>Da conversa em diante, a visão acaba.</strong></p>
 
-<p>Propomos o mínimo que resolve: <strong>três marcações no CRM</strong>: sessão agendada, compareceu, resultado. Nada além disso. Com essas três informações preenchidas, no fim de agosto conseguimos dizer com precisão onde está o gargalo, em vez de deduzir.</p>
+<p>Sabemos que você agenda e realiza reuniões, mas essas conversas não estão sendo registradas em lugar nenhum. Sem elas, não conseguimos dizer quantas sessões aconteceram no mês, quantas pessoas compareceram, quantas viraram venda e, principalmente, <strong>em qual etapa exatamente a lead está parando</strong>. Toda decisão sobre o que ajustar depois vira suposição.</p>
 
-<p>Junto disso, a instabilidade do seu número de WhatsApp precisa entrar na conta. Cada queda esfria as conversas em andamento e o contato se perde. A migração para o CRM com número oficial resolve as duas coisas de uma vez: estabiliza o atendimento e corrige o connect rate.</p>
-
-<h2><span class="n">7.</span>Ordem de execução</h2>
-<p class="sub2">Do mais barato e mais rápido para o mais estrutural.</p>
-
-<div class="tl">
-  <div class="item"><div class="when">Esta semana</div><div class="what">Migrar a estrutura e apontar o domínio próprio</div><div class="why">Corrige o connect rate. Vale cerca de 70% mais leads com a mesma verba, e estabiliza o número de atendimento.</div></div>
-  <div class="item"><div class="when">Esta semana</div><div class="what">Contato direto com as 13 leads de maior faturamento</div><div class="why">São as pessoas com maior chance de fechar a formação e já estão na base, sem custo adicional de mídia.</div></div>
-  <div class="item"><div class="when">Próximas duas semanas</div><div class="what">Rotas A e B no relatório e os ajustes do quiz</div><div class="why">Cada perfil passa a receber a oferta compatível com o momento dele.</div></div>
-  <div class="item"><div class="when">Próximas duas semanas</div><div class="what">Sessão como benefício da compra do treinamento</div><div class="why">Transforma comprador em candidato à formação e resolve o problema de retorno nas abordagens.</div></div>
-  <div class="item"><div class="when">Este mês</div><div class="what">Registro das sessões no CRM</div><div class="why">Três marcações por reunião. É o que permite ler o funil inteiro no fim do mês.</div></div>
-  <div class="item"><div class="when">Este mês</div><div class="what">Reativação das 98 leads da primeira versão do quiz</div><div class="why">É a base de onde saíram as vendas de abril. Estão paradas e não custam mídia nova.</div></div>
+<div class="key">
+  <div class="t">O que pedimos: as abas comerciais da Growth Model preenchidas todo mês</div>
+  <p>A planilha Growth Model já existe e já está montada com as abas comerciais prontas para receber esses números. O que falta é o preenchimento mensal, do seu lado, com os dados que só você tem:</p>
+  <ul style="margin-top:10px">
+    <li><strong>Reuniões marcadas no mês</strong></li>
+    <li><strong>Comparecimentos e no-shows</strong></li>
+    <li><strong>Vendas realizadas e faturamento</strong></li>
+    <li><strong>Valor efetivamente recebido no mês</strong> (entradas e parcelas)</li>
+  </ul>
+  <p style="margin-bottom:0">Com esses campos preenchidos, conseguimos calcular taxa de agendamento, taxa de comparecimento, taxa de fechamento, custo real por cliente e retorno sobre o investido. São esses números que dizem se o próximo ajuste deve ser no anúncio, no quiz, na página ou na conversa. Sem eles, seguimos otimizando a parte que enxergamos e trabalhando no escuro justamente na etapa onde a venda acontece.</p>
 </div>
 
-<h2><span class="n">8.</span>O que esperamos que mude</h2>
-<p class="sub2">Os números que vamos acompanhar, para que a conversa do mês que vem seja sobre fato.</p>
+<p>É o item de menor esforço e maior retorno da proposta inteira: são quatro campos por mês, e é o que permite que toda decisão daqui em diante seja tomada com base em dado, e não em impressão.</p>
 
-<div class="tw"><table>
-  <tr><th>Indicador</th><th>Hoje</th><th>Meta</th><th>Prazo</th></tr>
-  <tr><td>Connect rate</td><td class="bad">46,8%</td><td class="ok">≥ 75%</td><td>7 dias</td></tr>
-  <tr><td>Custo por lead</td><td class="bad">R$ 51,20</td><td class="ok">≤ R$ 35</td><td>14 dias</td></tr>
-  <tr><td>Leads na Rota A separados e contados</td><td class="bad">não existe</td><td class="ok">medido toda semana</td><td>14 dias</td></tr>
-  <tr><td>Registro de reuniões no CRM</td><td class="bad">inexistente</td><td class="ok">100% das sessões</td><td>imediato</td></tr>
-</table></div>
+<h2><span class="n">06</span>Ordem de execução</h2>
+<p class="sub2">A sequência proposta, do mais simples ao mais estrutural.</p>
 
-<p>Se ao fim de 30 dias o connect rate estiver corrigido, o custo por lead dentro da faixa e as sessões acontecendo e registradas, teremos pela primeira vez uma leitura confiável do funil inteiro, e aí a conversa passa a ser sobre taxa de fechamento, que é onde ela deveria estar desde o começo.</p>
+<div class="steps">
+  <div class="stp"><div class="what">Migrar a estrutura e apontar o seu domínio</div><div class="why">A página passa a rodar no seu endereço próprio, junto do CRM. Melhora o aproveitamento do tráfego que já é pago hoje e estabiliza o número de atendimento.</div></div>
+  <div class="stp"><div class="what">Contato direto com as 13 leads de maior faturamento</div><div class="why">São as pessoas com maior capacidade de investir na formação, já estão na base e não custam mídia nova.</div></div>
+  <div class="stp"><div class="what">Implementar as Rotas A e B no relatório</div><div class="why">Cada perfil passa a receber a oferta compatível com o momento dele, dentro da mesma estrutura.</div></div>
+  <div class="stp"><div class="what">Aplicar os quatro ajustes no quiz</div><div class="why">Ativa a separação das rotas e recupera o sinal de compra mais forte que o quiz já coletou no passado.</div></div>
+  <div class="stp"><div class="what">Ativar a sessão como benefício da compra do treinamento</div><div class="why">Transforma quem compra o R$ 97 em candidata à formação, e faz o contato acontecer sobre alguém que já está esperando por ele.</div></div>
+  <div class="stp"><div class="what">Preenchimento mensal das abas comerciais da Growth Model</div><div class="why">Fecha o ciclo de medição e permite que as próximas decisões sejam embasadas em dado do início ao fim do funil.</div></div>
+  <div class="stp"><div class="what">Reativação das 98 leads da primeira versão do quiz</div><div class="why">É a base de onde saíram as vendas de abril. Estão paradas e não custam mídia nova.</div></div>
+</div>
 
 <div class="note">
-  <b>Uma observação para a próxima conversa.</b> Hoje existem dois produtos: o treinamento de R$ 97 e a formação de R$ 5.000. A distância entre eles é grande, e a maior parte da base qualificada está exatamente no meio do caminho: pessoas faturando entre R$ 5 mil e R$ 10 mil, para quem R$ 5.000 representa mais de metade de um mês de faturamento. A Rota C ameniza isso usando o treinamento como ponte, mas vale colocar na mesa se faz sentido desenhar uma oferta intermediária. Não é decisão para esta semana.
+  <b>Uma observação para a próxima conversa.</b> Hoje existem dois produtos: o treinamento de R$ 97 e a formação de R$ 5.000. A distância entre eles é grande, e boa parte da base qualificada está exatamente no meio do caminho: pessoas faturando entre R$ 5 mil e R$ 10 mil, para quem R$ 5.000 representa mais de metade de um mês de faturamento. A Rota C ameniza isso usando o treinamento como ponte, mas vale colocar na mesa, mais para frente, se faz sentido desenhar uma oferta intermediária.
 </div>
 
 <div class="foot">
-  <p>Documento preparado pela Simple para validação do Gustavo antes da execução. Os números de tráfego vêm da planilha de acompanhamento (maio a julho de 2026) e o perfil dos leads da base de respostas do quiz (184 leads desde fevereiro de 2026).</p>
-  <p class="sig" style="margin-top:12px">Simple · 7 de agosto de 2026</p>
+  <p>O perfil das leads apresentado neste documento vem da base de respostas do quiz, com 184 leads acumulados desde fevereiro de 2026.</p>
+  <p class="sig">Simple</p>
 </div>
 
 </div>
