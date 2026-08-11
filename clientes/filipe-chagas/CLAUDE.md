@@ -23,6 +23,8 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
    páginas, criativos e campanhas é o próprio Filipe.
 2. **Ele está em regime CLT e só tem 3 horas por noite.** Qualquer plano precisa
    caber nisso. Não gerar rotina de 4 canais nem 12 publicações por semana.
+   Ele pretende sair do CLT, mas **sem prazo fechado** — a saída é consequência
+   do faturamento, não pré-requisito. Não colocar prazo em material nenhum.
 
 ## Contexto rápido
 
@@ -56,6 +58,10 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
   sem custo de plataforma repassado e sem depoimento. Não é case fechado.
 - **Links:** pasta no Drive "Simple <> Filipe Chagas"
   (https://drive.google.com/drive/folders/1kYlMMNN5ZXv9q9BY4R5MXPIjHPeP_14L).
+- **Verba de tráfego:** R$ 1.500/mês (R$ 50/dia), a partir do dia 60, financiada
+  pelo caixa rápido.
+- **Mentor Estratégico nos materiais:** Daniel Souza (padrão da Simple).
+  Carlos Durães é o contato de entrega e estratégia no dia a dia.
 - **Contato principal:** _(a preencher — WhatsApp/e-mail do Filipe)_
 
 ## Onde estão as coisas

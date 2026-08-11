@@ -137,10 +137,22 @@ Encontro semanal em grupo · hotseat a cada 15 dias · 1 ano de mentorias quinze
 mensagem para ela) · convite aberto para passar uma semana no escritório em
 Alphaville (sem programação fixa — "chega aí e trabalha com a gente").
 
-## O que ainda não foi perguntado
+## Definições fechadas depois da call
 
-- **Verba de tráfego.** Não entrou na call, e o funil da metodologia depende de
-  anúncio. É a lacuna mais relevante.
-- Confirmar se o faturamento atual (~R$ 3 mil) é recorrente ou pontual.
-- Detalhes do CLT: carga horária, se pretende sair, em quanto tempo.
+- **Verba de tráfego: R$ 1.500/mês** (R$ 50/dia), a partir do dia 60, financiada
+  pelo caixa das Fases 1 e 3. Definido pelo Daniel em 11/08.
+- **Saída do CLT: ele pretende sair, sem prazo fechado.** Orientação da Simple:
+  não colocar prazo no roadmap. A saída vem quando o faturamento e a
+  lucratividade justificarem dedicar o dia inteiro. Até lá, todo plano tem que
+  caber nas 3 horas por noite.
+- **Mentor Estratégico no material: Daniel Souza** (padrão da Simple). O Carlos
+  segue como contato de entrega e estratégia no dia a dia.
+
+## O que ainda não foi confirmado
+
+- **Faturamento atual (~R$ 3 mil/mês).** Na transcrição o Carlos pergunta "hoje
+  nós estamos em quanto?" e em seguida diz "Três, tá?". A resposta do Filipe não
+  foi transcrita, então a leitura é indireta. O roadmap usa "cerca de R$ 3 mil"
+  em um único lugar (box "Foco deste roadmap", página 3). Se o número for outro,
+  é uma linha para corrigir. Dá para confirmar na gravação por volta de 00:05:54.
 - Se existe algum outro cliente além da gráfica.
