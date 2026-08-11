@@ -218,3 +218,90 @@ VIAGEM EUA .......... outubro (dentro dos 90 dias!)
 2. **O que o Rafael entrega e até quando** — depoimentos, acesso ao Instagram,
    material do método, orçamento de mídia.
 3. **O calendário até outubro**, contando com a viagem.
+
+---
+
+# PARTE 2 — Perguntas complementares (ângulos ainda não cobertos)
+
+As 31 acima fecham o essencial. Estas aqui são as que fazem a call **agregar** em
+vez de só coletar — e várias abrem oportunidade de receita que ninguém mapeou.
+
+## A. Métricas que ninguém pediu (e mudam o plano inteiro)
+
+32. **Quanto tempo um paciente fica com você, em média?** 6 meses? 2 anos?
+    → Sem isso não dá para calcular LTV, e LTV é o que decide se vale reempacotar
+    em pacote fechado ou manter sessão avulsa.
+33. **De cada 10 pessoas que chegam falando com você, quantas viram paciente?**
+    → O Daniel citou conversão na call, mas o número real dele nunca apareceu. Se
+    ele converte 7 de 10, o gargalo é volume. Se converte 2, é qualificação.
+34. **Como é a primeira conversa hoje?** A pessoa manda direct, você responde,
+    marca call, ou já cai direto no agendamento?
+    → É o desenho do comercial atual. Não dá para melhorar o que não está mapeado.
+35. **Quantos pacientes você perdeu nos últimos 3 meses, e por quê?**
+36. **Quanto batem seus stories hoje?** Você citou 40–50 mil na época do boom.
+    → Mede a base viva. 333 mil seguidores com story de 2 mil é uma realidade;
+    com story de 20 mil é outra completamente diferente.
+
+## B. Ativos que podem estar dormindo
+
+37. **O que é a "Comunidade" do destaque?** É paga? Quantas pessoas? Está ativa?
+    → Se já existe comunidade com gente dentro, isso é receita recorrente parada.
+38. **E o "João & Maria"?** É produto, conteúdo, parceria?
+39. **Você tem os contatos das pessoas que compraram a mentoria de R$ 12 mil?**
+    → Base quente que já comprou caro de você uma vez.
+40. **Quantas palestras/podcasts você fez, e tem convite em aberto?**
+    → Seu maior reel é uma participação em podcast (103 mil views, ~30× a mediana
+    dos reels de casa). Isso pode ser canal de aquisição, não acaso.
+41. **O post fixado trouxe 100 mil seguidores.** Você consegue reconstruir o que
+    fez ele explodir? Já tentou refazer aquilo?
+    → Se ele souber o mecanismo, isso vira estrutura de conteúdo, não sorte.
+
+## C. Desenho da oferta (testar apetite, não só coletar)
+
+42. **Se você atendesse 10 pessoas num acompanhamento de R$ 3.500/mês em vez de
+    30 sessões avulsas — mesma receita, um terço das horas. Isso te interessa ou
+    te incomoda?**
+    → Testa em 30 segundos se ele topa reempacotar. É a pergunta mais barata da
+    call e a que mais muda o roadmap.
+43. **Quando um paciente melhora, o que acontece?** Ele sai, ou tem um próximo
+    passo com você?
+    → Se não tem, existe um produto de continuidade óbvio a criar.
+44. **Você prefere vender para 5 pessoas caro ou 50 pessoas barato?**
+45. **O que você já tentou que não quer repetir nunca mais?** (e-book, lançamento,
+    o modelo da agência)
+
+## D. Pessoas e rede
+
+46. **Quem é o amigo que sugeriu a mentoria para terapeutas?**
+    → Ele está no seu mercado-alvo e tem rede. Pode ser primeiro aluno, parceiro
+    de distribuição ou fonte de validação — de graça.
+47. **Você ainda tem contato com a galera do mastermind?**
+    → É exatamente o público do Produto 2, e já te conhece.
+48. **O Daniel comentou de um profissional que poderia entrar no projeto.** Isso
+    ainda está de pé? Você quer?
+49. **A agência errou em quê, exatamente?** Não monetizaram o boom — mas o que
+    faltou: estratégia, execução, ou você não deu o material?
+    → Evita repetir o padrão. E ele vai te dizer o que espera de vocês.
+
+## E. As duas perguntas de fechamento que valem mais que qualquer diagnóstico
+
+50. **Na sua opinião, qual é o seu maior gargalo hoje?**
+    → Deixa ele diagnosticar. Se bater com o que vocês veem, tem alinhamento; se
+    divergir, é melhor descobrir agora.
+51. **O que você NÃO quer fazer de jeito nenhum?**
+    → Tom apelativo, expor a família, promessa que ele não assina. Descobrir esse
+    limite antes de produzir evita retrabalho e desgaste.
+
+---
+
+## Como usar as duas partes
+
+Não são 51 perguntas para uma call. **A Parte 1 é o roteiro**; a Parte 2 é banco
+de perguntas para puxar quando sobrar tempo ou quando a conversa abrir a porta.
+
+Se a call for de 1 hora, o mínimo viável é:
+- **Bloco 1** (preço e base) — é o dinheiro mais rápido
+- **Bloco 3** (Método Cobra) — é o que destrava o empacotamento
+- **Pergunta 42** (apetite de reempacotamento) — muda o roadmap
+- **Pergunta 26** (lista de espera de terapeutas) — resolve o Produto 2 com dado
+- **Bloco 7** (fechamento e combinados)
