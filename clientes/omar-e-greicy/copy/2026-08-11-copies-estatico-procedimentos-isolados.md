@@ -1,19 +1,20 @@
 # Copies curtas — Estático — Rinomodelação, Preenchimento Labial e Bioestimulador
 
 > Formato: hook + CTA direto, para post/imagem única. Narrador: Greicy.
+> Sem menção a valor/investimento, sem jargão técnico, linguagem próxima e emocional (não clínica).
 
-## Rinomodelação — o nariz define o perfil
+## Rinomodelação — a foto de perfil que você evita
 
-O nariz é o que mais define o perfil de um rosto, e às vezes o que incomoda ali é só um detalhe, uma giba, uma ponta caída. Não precisa de cirurgia pra ajustar isso. Com rinomodelação, 1 ml já muda o perfil, sem anestesia geral, sem recuperação longa. Se você já pensou nisso e tem a partir de R$ 900 pra resolver sem virar cirurgia, chama no whatsapp e marca sua avaliação.
+Se tem uma coisa que você evita em toda foto, é o perfil. E o motivo, quase sempre, é o nariz. Dá pra ajustar o que incomoda sem virar uma decisão gigante, sem te tirar da rotina. Se você tem 30 anos pra cima e quer entender o que é possível no seu, chama no whatsapp e marca sua avaliação.
 
 ---
 
-## Preenchimento labial — ajusta, não aumenta
+## Preenchimento labial — mais bonita, não maior
 
-Preenchimento labial bem feito não aumenta seu lábio, ajusta ele. Contorno, simetria, proporção com o resto do rosto, isso é o que muda o resultado de exagerado pra natural. Se o medo do bico de pato é o que te trava, e você já pode investir a partir de R$ 900 pra fazer isso direito, marca sua avaliação comigo. Chama no whatsapp.
+Mexer na boca bem feito não deixa ela maior, deixa ela mais bonita. Proporção com o resto do rosto é o que muda o resultado de exagerado pra natural. Se você tem 30 anos pra cima e o medo de sair parecendo outra pessoa é o que te trava, marca sua avaliação comigo. Chama no whatsapp.
 
 ---
 
 ## Bioestimulador — o que ninguém vê começar
 
-Se o que te incomoda não é um ponto específico do rosto, e sim a pele mais fina, mais flácida, talvez o que você precise não seja preenchimento, seja estímulo. Bioestimulador de colágeno faz seu próprio corpo produzir mais colágeno, com resultado gradual, sem aquele "antes e depois" de um dia pro outro. Se você tem a partir de R$ 900 pra investir num tratamento de médio prazo, chama no whatsapp e marca sua avaliação.
+Se o que te incomoda não é um ponto específico do rosto, e sim a pele mais fina, mais sem viço, talvez o caminho não seja preencher, seja estimular. Sua própria pele se recupera aos poucos, sem aquele antes e depois de um dia pro outro. Se você tem 30 anos pra cima e quer entender se faz sentido pra você, chama no whatsapp e marca sua avaliação.
