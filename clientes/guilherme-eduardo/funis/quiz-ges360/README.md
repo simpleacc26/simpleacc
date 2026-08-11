@@ -66,6 +66,7 @@ objetivo 0.5). Faixas: 78+ crítica · 60 a 77 alta · 40 a 59 moderada · abaix
 | `diagnostico.html` / `diagnostico.js` | Página pós-quiz: calcula o IDR e monta o relatório personalizado com os 3 CTAs |
 | `styles.css` | Identidade GES360 (navy `#001824`, dourado `#B49024`, CTA verde `#249C3C`) |
 | `logo.webp` | Logo GES360 oficial, enviada pelo cliente em 11/08 (520x137, fundo transparente). Substituiu o recorte de baixa qualidade que tinha sido extraído da apresentação comercial. |
+| `favicon.png` | Ícone da aba: o **G** da logo, recortado do arquivo oficial, sobre o navy da marca (180x180) |
 | `integracao-planilha.gs` | Apps Script que grava os leads na planilha |
 
 ## Pendências para ficar 100%
@@ -121,7 +122,7 @@ projetos separados na Vercel. **Isto é gambiarra e precisa ser desfeito.**
 | `ges360-cdn` | `styles.css` |
 | `ges360-relatorio` | `diagnostico.js`, `kayo-4767.webp`, `kayo-4763.webp` |
 | `ges360-assets` | `kayo-4756.webp`, `kayo-4750.webp` |
-| **jsDelivr** (não é Vercel) | `logo.webp`, direto deste repositório |
+| **jsDelivr** (não é Vercel) | `logo.webp` e `favicon.png`, direto deste repositório |
 
 Por isso os HTMLs publicados apontam para URLs absolutas, enquanto **os arquivos
 deste repositório usam caminhos relativos e são autocontidos** (a versão certa).
@@ -144,8 +145,8 @@ a fazer com essa informação:
 2. vale revisar se este monorepo deve mesmo ser público: ele tem estratégia,
    precificação e material de clientes.
 
-Ao trocar o `logo.webp`, é preciso **atualizar o commit fixado na URL** e republicar
-os dois HTMLs, senão a página continua mostrando a versão antiga.
+Ao trocar o `logo.webp` ou o `favicon.png`, é preciso **atualizar o commit fixado na
+URL** e republicar os dois HTMLs, senão a página continua mostrando a versão antiga.
 
 ### Como desfazer (2 minutos, resolve de vez)
 

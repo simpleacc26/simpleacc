@@ -26,7 +26,7 @@ window.FLOW = {
   },
 
   hero: {
-    selo: "Diagnóstico GES360 · para médicos donos de clínica",
+    selo: "Diagnóstico GES360 · para médicos donos de clínicas",
     titulo: "Descubra o que está travando o faturamento da sua clínica.",
     subtitulo:
       "Responda 10 perguntas e receba o seu IDR, o Índice de Dependência de Receita, com o diagnóstico do que trava o seu faturamento hoje.",
