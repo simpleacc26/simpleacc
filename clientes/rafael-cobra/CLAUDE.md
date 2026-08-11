@@ -53,14 +53,16 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
     psicanálise aplicada → transformação de **identidade emocional** (explicitamente
     **não** é técnica de conquista).
   - **Produto 2 — Mentoria para psicólogos, psicanalistas e afins.** **Ideia
-    nova**, não existe e não foi validada. Nasceu de conversa dele com o Daniel.
+    nova**, não existe e não foi validada. Sugerida por **um amigo dele**, num
+    encontro com pessoas próximas; só depois foi levada à Simple.
     Promessa: autoridade digital e fluxo constante de pacientes. Mecanismo:
     "A maioria ensina marketing. Eu ensino posicionamento."
 
 - **DECISÃO EM ABERTO — qual produto entra primeiro.** É a pergunta que ele fez
-  no áudio e que a reunião de segunda vai resolver. **Não decidir isso sozinho.**
-  Análise dos dois lados pronta em
-  `estrategia/2026-08-06-analise-qual-produto-entra-primeiro.md`.
+  no áudio e que o onboarding resolve. **Não decidir isso sozinho.** Análise dos
+  dois lados em `estrategia/2026-08-06-analise-qual-produto-entra-primeiro.md`.
+  Na call de vendas o Daniel já sequenciou a mentoria para terapeutas como
+  **expansão de valor**, não como primeiro passo.
 
 - **ICP P1:** mulher 35–60, superior completo, carreira consolidada
   (empresária/executiva/médica/advogada/liderança), grandes centros. Competente e
@@ -75,23 +77,25 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
 1. **Os canvases foram preenchidos pelo cliente COM AJUDA DE UMA IA.** Não são as
    palavras cruas dele. Ver `contexto/fontes/README.md`.
 2. **Os preços (R$ 9.997 / R$ 14.997 / faixas R$ 8k–25k) são sugestão do agente
-   de IA** — não são preço praticado nem validado. **Não tratar como dado.**
+   de IA** — não são preço praticado. Mas atenção: ele **já vendeu mentoria a
+   R$ 12 mil**, então a faixa não é fantasia; o número exato é que está aberto.
 3. **"Método Cobra" e "Método Cobra Authority" são propostas do agente.** O "®"
    do texto original **não tem registro confirmado no INPI** — não reproduzir.
-4. **O destaque "MétodoCobra" já existe no Instagram dele** — pode já existir algo
-   com esse nome. Verificar antes de tratar como nome novo.
-5. **Não há NENHUM dado de negócio:** faturamento, ticket atual, tamanho de lista,
-   volume de atendimento, histórico de lançamento. **Não inventar** — está tudo
-   listado em `contexto/2026-08-06-lacunas-e-perguntas-para-o-onboarding.md`.
+4. **"Método Cobra" JÁ EXISTE**, com logotipo próprio no destaque (confirmado no
+   print de 10/08). Não é criação do agente. Falta saber o que é hoje e se tem INPI.
+5. **Os dados de negócio EXISTEM** — vieram da call de vendas de 04/08 e estão em
+   `contexto/2026-08-04-negocio-numeros-e-historia.md`. O arquivo
+   `contexto/2026-08-06-lacunas-...md` está **superado, não usar**. Antes de
+   declarar lacuna, **procure a transcrição da call de vendas**.
 6. **Sigilo profissional na prova social.** Ele é psicanalista; caso clínico tem
    sigilo. Alinhar o que pode virar prova antes de usar em página de vendas.
 
 ## Links
 - **Pasta no Drive:** [Simple <> Rafael Cobra](https://drive.google.com/drive/folders/17kNi9YSfqKd7N33T-_LYXKIKi_YBrQ2M)
 - **Canvas original (vazio, não editar):** [Google Doc](https://docs.google.com/document/d/19lqengtPOwiI3ehD9RtrE8jcpeenYUz5R0W_JwQrEBI/edit)
-- **Canvas preenchido (pode ir ao cliente):** [Google Doc](https://docs.google.com/document/d/1TCGdkmiB7ZTT7yjQNLnaCjQXOPCnQH6WssocXS6E6OQ/edit)
+- **Canvas preenchido v2 (pode ir ao cliente):** [Google Doc](https://docs.google.com/document/d/1UTuXQeTV9kDgu26H8dBKGFzqwdhDHYledTYc4l2vJ70/edit)
   · fonte: `contexto/2026-08-06-canvas-preenchido.html`
-- **Análise de priorização (INTERNO — não compartilhar):** [Google Doc](https://docs.google.com/document/d/1xF9tPNjHz4BV1zrC0z6hpJKxWdUCONxMFXu8Y9Zyz1M/edit)
+- **Análise de priorização v2 (INTERNO — não compartilhar):** [Google Doc](https://docs.google.com/document/d/1d7fM6G8dRmiWQ_OvE-bAXJT82xiaviezYDmNSuv4MDI/edit)
   · fonte: `estrategia/2026-08-06-analise-priorizacao-interno.html`
 
 > **Dois documentos, de propósito.** O canvas é a versão que pode ir ao Rafael;
