@@ -1,0 +1,291 @@
+<!-- ===== GHL EMBED: RELATORIO (fonte legivel) =====
+     NAO cole este arquivo no GHL. Cole o gerado: ../relatorio-ghl-embed.html
+     Este aqui e a fonte editavel; o embed e gerado por build-ascii.py.
+     GTM/Pixel: NAO vao aqui. Vao em Funnel -> Settings -> Tracking Code.
+     EDITAR: WHATSAPP e LOW_TICKET_URL logo abaixo do inicio do <script>.
+================================================= -->
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  .go-rel *{box-sizing:border-box;margin:0;padding:0}
+  .go-rel{
+    --bg:#1A0900;--card:#2D1108;--card2:#3A1510;--rose:#C87B75;--cream:#FBF1EE;
+    --muted:rgba(251,241,238,.62);--line:rgba(200,123,117,.25);
+    --warn:#F87171;--ok:#6EE7B7;
+    background:var(--bg);color:var(--cream);font-family:'Inter',system-ui,sans-serif;
+    min-height:100dvh;padding:28px 16px 56px;line-height:1.65;
+  }
+  .go-rel .wrap{max-width:620px;margin:0 auto}
+  .go-rel h1,.go-rel h2,.go-rel h3,.go-rel .serif{font-family:'Lora',Georgia,serif;font-weight:600}
+  .go-rel .card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px 24px;margin-bottom:18px}
+  .go-rel .card.alt{background:var(--card2)}
+  .go-rel .kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);font-weight:700;margin-bottom:12px}
+  .go-rel h1{font-size:clamp(1.45rem,4.5vw,2rem);line-height:1.25;margin-bottom:14px}
+  .go-rel h1 em{color:var(--rose);font-style:italic}
+  .go-rel h2{font-size:clamp(1.15rem,3.6vw,1.5rem);line-height:1.3;margin-bottom:12px}
+  .go-rel h2 span{color:var(--rose)}
+  .go-rel p{color:rgba(251,241,238,.85);margin-bottom:12px}
+  .go-rel .pilar{border-radius:18px;padding:18px 20px;margin-bottom:14px}
+  .go-rel .pilar .st{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:8px;display:block}
+  .go-rel .pilar .nm{font-family:'Lora',Georgia,serif;font-weight:600;font-size:16px;margin-bottom:6px;color:var(--cream)}
+  .go-rel .pilar p{font-size:14px;margin:0;color:rgba(251,241,238,.82)}
+  .go-rel .pilar.crit{background:rgba(248,113,113,.09);border:1px solid rgba(248,113,113,.28)}
+  .go-rel .pilar.crit .st{color:var(--warn)}
+  .go-rel .pilar.aten{background:rgba(110,231,183,.07);border:1px solid rgba(110,231,183,.24)}
+  .go-rel .pilar.aten .st{color:var(--ok)}
+  .go-rel .foto{width:100%;display:block;max-height:400px;object-fit:cover;object-position:top;border-radius:24px 24px 0 0}
+  .go-rel .card.nopad{padding:0;overflow:hidden}
+  .go-rel .card.nopad .inner{padding:24px}
+  .go-rel ul{list-style:none;margin:0 0 20px}
+  .go-rel li{position:relative;padding-left:26px;font-size:14.5px;color:rgba(251,241,238,.85);margin-bottom:10px}
+  .go-rel li::before{content:'';position:absolute;left:4px;top:9px;width:9px;height:9px;border:2px solid var(--rose);border-top:none;border-right:none;transform:rotate(-45deg)}
+  .go-rel .selo{background:rgba(200,123,117,.1);border:1px solid rgba(200,123,117,.3);border-radius:14px;padding:14px;text-align:center;font-size:14px;font-weight:600;color:var(--rose);margin-bottom:20px}
+  .go-rel .bonus{background:rgba(200,123,117,.1);border:1px solid rgba(200,123,117,.36);border-radius:18px;padding:20px;margin-bottom:20px}
+  .go-rel .bonus .kicker{margin-bottom:8px}
+  .go-rel .bonus p{font-size:14.5px;margin:0}
+  .go-rel .bonus strong{color:var(--cream)}
+  .go-rel .cta{
+    display:block;width:100%;text-align:center;border-radius:18px;padding:17px 20px;
+    font-weight:700;font-size:16px;text-decoration:none;border:none;cursor:pointer;font-family:inherit;
+  }
+  .go-rel .cta.zap{background:#25D366;color:#08240f}
+  .go-rel .cta.rose{background:var(--rose);color:#2A0D06}
+  .go-rel .sub{text-align:center;font-size:12.5px;color:rgba(251,241,238,.4);margin-top:12px}
+  .go-rel .dep{width:100%;border-radius:18px;display:block;margin-bottom:14px}
+  .go-rel .alt2{border:1px solid rgba(200,123,117,.2);background:rgba(200,123,117,.04);border-radius:24px;padding:26px 24px;margin-bottom:18px;text-align:center}
+  .go-rel .alt2 .kicker{color:rgba(251,241,238,.4)}
+  .go-rel .alt2 a{display:block;border:1px solid rgba(200,123,117,.42);color:var(--rose);border-radius:14px;padding:13px;text-decoration:none;font-weight:600;font-size:14.5px;margin-top:14px}
+  .go-rel .foot{text-align:center;padding-top:22px;border-top:1px solid rgba(200,123,117,.14)}
+  .go-rel .foot p{font-size:12px;color:rgba(251,241,238,.3);margin:0 0 4px}
+</style>
+
+<div class="go-rel"><div class="wrap" id="goRel"></div></div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ── EDITAR AQUI ────────────────────────────────────────────────────────────
+  // WhatsApp do Gustavo, formato internacional, so digitos. Sem isso o botao
+  // de agendamento da Rota A nao abre conversa nenhuma.
+  var WHATSAPP = '55DDNUMEROAQUI';
+  var LOW_TICKET_URL = 'https://pay.hotmart.com/X104749935I?bid=1778078139368';
+  // Imagens: hoje apontam para a Vercel, que segue no ar durante a migracao.
+  // Depois de validar, suba na Midia do GHL e troque a base abaixo.
+  var IMG = 'https://quiz-gustavo-ono.vercel.app/fotos/';
+  // ───────────────────────────────────────────────────────────────────────────
+
+  var LABELS = [
+    ['Estou em crescimento mas preciso melhorar','Minha margem de lucro é baixa','Meu negócio vende sem constância','Não tenho organização interna para crescer','Ainda estou começando e quero fazer certo desde o início'],
+    ['Sim, são meu carro-chefe','Os chocolates finos são menos de 50% das minhas vendas','Ainda não, mas quero que sejam o carro-chefe','Ainda quero começar a vender chocolates'],
+    ['Menos de 1 ano','1 a 3 anos','3 a 6 anos','6 a 10 anos','Mais de 10 anos'],
+    ['Paixão e prazer','Reconhecimento profissional','Independência financeira','Renda extra'],
+    ['Falta de segurança técnica','Não saber cobrar preço','Falta de padrão nos produtos','Medo de errar e perder material'],
+    ['Eventos (aniversários, casamentos, festas)','Delivery','Vendas à pronta entrega na loja','Encomendas para datas especiais (ex: Páscoa, Natal)','Internet / redes sociais','Outro'],
+    ['Ter tempo de focar nas vendas, pois fico presa na produção','Falta de estrutura para crescer','Concorrência alta e desleal','Imprevisibilidade nas vendas','Falta de demanda na minha região','Outro'],
+    ['Nunca fiz um curso','Só vídeos gratuitos e conteúdo solto','Já paguei por um curso e ainda me sinto insegura','Já paguei por um curso e evoluí, mas quero ir além'],
+    ['Até R$ 5.000','De R$ 5.000 até R$ 10.000','De R$ 10.000 até R$ 20.000','Acima de R$ 20.000']
+  ];
+
+  var p = new URLSearchParams(window.location.search);
+  var nome = (p.get('n') || '').trim();
+  var primeiro = nome ? nome.split(' ')[0] : '';
+  var rota = p.get('r') === 'A' ? 'A' : 'B';
+  var codigos = (p.get('a') || '').split('-');
+
+  function label(qi) {
+    var v = parseInt(codigos[qi], 10);
+    return (LABELS[qi] && LABELS[qi][v - 1]) || '';
+  }
+
+  function track(ev, data) {
+    try { if (window.fbq) window.fbq('track', ev, data || {}); } catch (e) {}
+    try { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: ev }); } catch (e) {}
+  }
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c];
+    });
+  }
+
+  // ── Diagnóstico por pilar (mesma lógica do app React) ──────────────────────
+  function pilares() {
+    var perfil = codigos[0];
+    var frustracao = label(4);
+    var obstaculo = label(6);
+    var faturamento = parseInt(codigos[8], 10) || 0;
+
+    var prodCrit = /segurança técnica|padrão|errar/.test(frustracao);
+    var prodTexto = /segurança técnica/.test(frustracao)
+      ? 'Sua insegurança técnica está limitando o que você consegue cobrar. Produto sem domínio de execução não sustenta preço alto.'
+      : /padrão/.test(frustracao)
+      ? 'Falta de padrão indica ausência de método consolidado. Quando o processo é dominado, cada peça sai igual à anterior.'
+      : /errar/.test(frustracao)
+      ? 'O medo de desperdiçar material vem de não ter internalizado completamente a técnica. Com o processo certo, o erro cai quase a zero.'
+      : 'Seu produto tem potencial, mas ainda não está posicionado para justificar preços premium sem negociação.';
+
+    var precoCrit = (perfil === '2' || /cobrar/.test(frustracao) || faturamento <= 2);
+    var precoTexto = /cobrar/.test(frustracao)
+      ? 'Não saber precificar não é falta de autoestima, é falta de método. Preço que o cliente aceita sem questionar é consequência de produto com percepção de valor clara.'
+      : perfil === '2'
+      ? 'Margem baixa é sintoma direto de precificação no chute. Sem calcular custo, hora e posicionamento juntos, o lucro some no volume.'
+      : /Concorrência/.test(obstaculo)
+      ? 'Concorrência de preço acontece quando o produto não se diferencia. Posicionamento correto elimina comparação direta com concorrentes mais baratos.'
+      : 'Sua precificação tem espaço para crescer. O gargalo é criar justificativa de valor que chegue antes do preço.';
+
+    var estrCrit = (perfil === '3' || perfil === '4' || perfil === '5' ||
+                    /Imprevisibilidade|estrutura/.test(obstaculo));
+    var estrTexto = (/Imprevisibilidade/.test(obstaculo) || perfil === '3')
+      ? 'Venda sem constância é o sintoma mais claro de ausência de método. Resultado que depende de sorte ou de data especial não escala.'
+      : (/estrutura/.test(obstaculo) || perfil === '4')
+      ? 'Sem estrutura interna, crescimento gera caos ao invés de lucro. A base precisa estar antes do volume.'
+      : /produção/.test(obstaculo)
+      ? 'Presa na produção significa que o modelo operacional não está estruturado para crescer. Mais horas na cozinha não resolve, é o modelo que precisa mudar.'
+      : 'Sua estrutura de venda ainda depende de variáveis externas. Com um método de captação e oferta definido, o resultado para de depender do mês.';
+
+    return [
+      { nome: 'Produto e posicionamento', crit: prodCrit, texto: prodTexto },
+      { nome: 'Precificação', crit: precoCrit, texto: precoTexto },
+      { nome: 'Estrutura de venda', crit: estrCrit, texto: estrTexto }
+    ];
+  }
+
+  function blocoSessao() {
+    var msg = encodeURIComponent('Olá Gustavo! Me chamo ' + (primeiro || 'uma aluna') +
+      ' e acabei de fazer o diagnóstico do seu quiz. Quero agendar a sessão gratuita para entender o que mudar primeiro no meu negócio.');
+    var url = 'https://wa.me/' + WHATSAPP + '?text=' + msg;
+    return '<div class="card">' +
+      '<h2>O próximo passo é uma <span>sessão diagnóstica gratuita</span> com o Gustavo</h2>' +
+      '<p>Você acabou de ver onde estão os gargalos. Em 30 minutos, o Gustavo olha o seu caso específico, produto, precificação e estrutura, e te diz o que mudar primeiro e em que ordem.</p>' +
+      '<ul>' +
+        '<li>O porquê de cada pilar do seu diagnóstico estar onde está</li>' +
+        '<li>Qual deles está custando mais faturamento agora</li>' +
+        '<li>O próximo passo prático, aplicável já na sua próxima produção</li>' +
+        '<li>Conversa direta sobre o seu negócio, sem conteúdo genérico</li>' +
+      '</ul>' +
+      '<div class="selo">Gratuito &middot; Sem compromisso &middot; 30 minutos pelo WhatsApp</div>' +
+      '<a class="cta zap" id="goZapCta" href="' + url + '" target="_blank" rel="noopener noreferrer">Quero agendar minha sessão gratuita</a>' +
+      '<p class="sub">Ao tocar no botão, a conversa abre direto com o Gustavo, com a sua mensagem já escrita.</p>' +
+      '</div>';
+  }
+
+  function blocoTreinamento() {
+    return '<div class="card">' +
+      '<h2>' + (primeiro ? esc(primeiro) + ', o' : 'O') + ' seu próximo passo é ter <span>um produto que se vende sozinho</span></h2>' +
+      '<p>Antes de organizar preço, cardápio e constância, existe uma etapa que vem primeiro: ter na mão um produto que a cliente prova, elogia e volta para comprar. É por aí que começa quem constrói uma chocolateria que dá lucro de verdade.</p>' +
+      '<p>O Treinamento Bombom Artístico é exatamente esse começo. Você aprende a produzir um bombom de alto padrão do zero ao acabamento, com o método que o Gustavo usa nos próprios produtos.</p>' +
+      '<ul>' +
+        '<li>A técnica completa do bombom artístico, do zero ao acabamento</li>' +
+        '<li>O passo a passo que elimina o medo de errar e perder material</li>' +
+        '<li>Como precificar esse produto para vender com margem real</li>' +
+        '<li>Um item pronto para entrar no seu cardápio ainda este mês</li>' +
+      '</ul>' +
+      '<div class="bonus">' +
+        '<div class="kicker">Incluso no treinamento</div>' +
+        '<p>Quem entra no treinamento ganha uma <strong>conversa de 30 minutos com o Gustavo</strong> para revisar o seu caso depois que colocar a técnica em prática. Ele te chama no WhatsApp assim que a sua inscrição for confirmada.</p>' +
+      '</div>' +
+      '<a class="cta rose" id="goLtCta" href="' + LOW_TICKET_URL + '" target="_blank" rel="noopener noreferrer">Quero o Treinamento Bombom Artístico</a>' +
+      '<p class="sub">Acesso imediato por R$ 97, com a conversa com o Gustavo inclusa.</p>' +
+      '</div>';
+  }
+
+  function blocoRepeticao() {
+    var msg = encodeURIComponent('Olá Gustavo! Me chamo ' + (primeiro || 'uma aluna') +
+      ' e acabei de fazer o diagnóstico do seu quiz. Quero agendar a sessão gratuita.');
+    var url = 'https://wa.me/' + WHATSAPP + '?text=' + msg;
+    if (rota === 'A') {
+      return '<div class="card" style="text-align:center">' +
+        '<h2>Pronta para entender o que mudar primeiro?</h2>' +
+        '<p>A sessão é gratuita e dura 30 minutos. Você sai sabendo exatamente onde está o gargalo e qual é o próximo passo no seu caso.</p>' +
+        '<a class="cta zap" id="goZapCta2" href="' + url + '" target="_blank" rel="noopener noreferrer">Agendar sessão gratuita com o Gustavo</a>' +
+        '</div>';
+    }
+    return '<div class="card" style="text-align:center">' +
+      '<h2>Pronta para começar pelo produto certo?</h2>' +
+      '<p>São R$ 97 pelo treinamento completo, com a conversa de 30 minutos com o Gustavo inclusa. Você sai com uma técnica dominada e um produto novo para vender.</p>' +
+      '<a class="cta rose" id="goLtCta2" href="' + LOW_TICKET_URL + '" target="_blank" rel="noopener noreferrer">Garantir minha vaga no treinamento</a>' +
+      '</div>';
+  }
+
+  function blocoAlternativa() {
+    return '<div class="alt2">' +
+      '<div class="kicker">Ou, se preferir começar pela prática</div>' +
+      '<p>Conheça o Treinamento Bombom Artístico e adicione ao cardápio um produto de alto padrão, que pode render até R$ 50 por caixa.</p>' +
+      '<a id="goLtCta3" href="' + LOW_TICKET_URL + '" target="_blank" rel="noopener noreferrer">Ver o Treinamento Bombom Artístico por R$ 97</a>' +
+      '</div>';
+  }
+
+  function render() {
+    var ps = pilares();
+    var criticos = ps.filter(function (x) { return x.crit; }).length;
+    var manchete = criticos > 1
+      ? 'Encontramos ' + criticos + ' pontos críticos no seu negócio.'
+      : criticos === 1
+      ? 'Encontramos o principal ponto que está travando seu crescimento.'
+      : 'Seu negócio tem base, o que falta é afinar os pontos certos.';
+
+    var html = '<div class="card">' +
+      '<div class="kicker">Diagnóstico personalizado</div>' +
+      '<h1>' + (primeiro ? esc(primeiro) + ', analisamos' : 'Analisamos') + ' suas respostas. <em>' + manchete + '</em></h1>' +
+      '<p>Com base nas suas respostas, mapeamos os tres pilares que determinam o faturamento de uma chocolateria profissional, e identificamos onde está o gargalo no seu caso.</p>' +
+      '</div>';
+
+    html += '<div class="card alt"><h2>Os tres pilares do seu negócio</h2>';
+    ps.forEach(function (x) {
+      html += '<div class="pilar ' + (x.crit ? 'crit' : 'aten') + '">' +
+        '<span class="st">' + (x.crit ? 'Gargalo identificado' : 'Precisa de atenção') + '</span>' +
+        '<div class="nm">' + esc(x.nome) + '</div><p>' + esc(x.texto) + '</p></div>';
+    });
+    html += '</div>';
+
+    html += '<div class="card nopad">' +
+      '<img class="foto" src="' + IMG + 'gustavo.webp" alt="Gustavo Ono, chocolatier">' +
+      '<div class="inner"><p style="font-family:Lora,Georgia,serif;font-weight:600;font-size:17px;margin-bottom:6px">Gustavo Ono, Chocolatier</p>' +
+      '<p style="font-size:14px;margin:0">Especialista em chocolateria profissional. Já formou centenas de chocolateiras que passaram de produção artesanal sem método para negócios com cardápio estruturado, precificação calculada e vendas constantes.</p></div></div>';
+
+    html += (rota === 'A' ? blocoSessao() : blocoTreinamento());
+
+    html += '<div class="card alt" style="text-align:center"><h2>O que dizem as alunas do Gustavo</h2>' +
+      '<img class="dep" src="' + IMG + 'dep2.webp" alt="Depoimento de aluna">' +
+      '<img class="dep" src="' + IMG + 'dep3.webp" alt="Depoimento de aluna">' +
+      '<img class="dep" src="' + IMG + 'dep4.webp" alt="Depoimento de aluna">' +
+      '</div>';
+
+    html += blocoRepeticao();
+    if (rota === 'A') html += blocoAlternativa();
+
+    html += '<div class="foot"><p>&copy; Gustavo Ono &middot; Todos os direitos reservados</p>' +
+      (nome ? '<p>Este diagnóstico foi gerado com base nas respostas de ' + esc(nome) + '.</p>' : '') +
+      '</div>';
+
+    document.getElementById('goRel').innerHTML = html;
+
+    ['goZapCta','goZapCta2'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.addEventListener('click', function () {
+        track('Contact', { content_name: 'Sessao Diagnostica Gratuita' });
+      });
+    });
+    ['goLtCta','goLtCta2','goLtCta3'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.addEventListener('click', function () {
+        track('InitiateCheckout', { value: 97, currency: 'BRL', content_name: 'Treinamento Bombom Artistico' });
+      });
+    });
+  }
+
+  // Sem respostas na URL a pessoa caiu aqui de fora do funil. Manda de volta
+  // para o quiz em vez de mostrar um diagnostico vazio.
+  if (!p.get('a')) {
+    window.location.replace('/quiz');
+    return;
+  }
+
+  if (!/^\d{12,13}$/.test(WHATSAPP)) {
+    try { console.error('[relatorio] WHATSAPP nao configurado: a Rota A nao vai funcionar.'); } catch (e) {}
+  }
+
+  track('ViewContent', { content_name: 'Relatorio Quiz' });
+  render();
+})();
+</script>

@@ -1,0 +1,291 @@
+<!-- ===== GHL EMBED: RELATORIO (fonte legivel) =====
+     NAO cole este arquivo no GHL. Cole o gerado: ../relatorio-ghl-embed.html
+     Este aqui e a fonte editavel; o embed e gerado por build-ascii.py.
+     GTM/Pixel: NAO vao aqui. Vao em Funnel -> Settings -> Tracking Code.
+     EDITAR: WHATSAPP e LOW_TICKET_URL logo abaixo do inicio do <script>.
+================================================= -->
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  .go-rel *{box-sizing:border-box;margin:0;padding:0}
+  .go-rel{
+    --bg:#1A0900;--card:#2D1108;--card2:#3A1510;--rose:#C87B75;--cream:#FBF1EE;
+    --muted:rgba(251,241,238,.62);--line:rgba(200,123,117,.25);
+    --warn:#F87171;--ok:#6EE7B7;
+    background:var(--bg);color:var(--cream);font-family:'Inter',system-ui,sans-serif;
+    min-height:100dvh;padding:28px 16px 56px;line-height:1.65;
+  }
+  .go-rel .wrap{max-width:620px;margin:0 auto}
+  .go-rel h1,.go-rel h2,.go-rel h3,.go-rel .serif{font-family:'Lora',Georgia,serif;font-weight:600}
+  .go-rel .card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px 24px;margin-bottom:18px}
+  .go-rel .card.alt{background:var(--card2)}
+  .go-rel .kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);font-weight:700;margin-bottom:12px}
+  .go-rel h1{font-size:clamp(1.45rem,4.5vw,2rem);line-height:1.25;margin-bottom:14px}
+  .go-rel h1 em{color:var(--rose);font-style:italic}
+  .go-rel h2{font-size:clamp(1.15rem,3.6vw,1.5rem);line-height:1.3;margin-bottom:12px}
+  .go-rel h2 span{color:var(--rose)}
+  .go-rel p{color:rgba(251,241,238,.85);margin-bottom:12px}
+  .go-rel .pilar{border-radius:18px;padding:18px 20px;margin-bottom:14px}
+  .go-rel .pilar .st{font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:8px;display:block}
+  .go-rel .pilar .nm{font-family:'Lora',Georgia,serif;font-weight:600;font-size:16px;margin-bottom:6px;color:var(--cream)}
+  .go-rel .pilar p{font-size:14px;margin:0;color:rgba(251,241,238,.82)}
+  .go-rel .pilar.crit{background:rgba(248,113,113,.09);border:1px solid rgba(248,113,113,.28)}
+  .go-rel .pilar.crit .st{color:var(--warn)}
+  .go-rel .pilar.aten{background:rgba(110,231,183,.07);border:1px solid rgba(110,231,183,.24)}
+  .go-rel .pilar.aten .st{color:var(--ok)}
+  .go-rel .foto{width:100%;display:block;max-height:400px;object-fit:cover;object-position:top;border-radius:24px 24px 0 0}
+  .go-rel .card.nopad{padding:0;overflow:hidden}
+  .go-rel .card.nopad .inner{padding:24px}
+  .go-rel ul{list-style:none;margin:0 0 20px}
+  .go-rel li{position:relative;padding-left:26px;font-size:14.5px;color:rgba(251,241,238,.85);margin-bottom:10px}
+  .go-rel li::before{content:'';position:absolute;left:4px;top:9px;width:9px;height:9px;border:2px solid var(--rose);border-top:none;border-right:none;transform:rotate(-45deg)}
+  .go-rel .selo{background:rgba(200,123,117,.1);border:1px solid rgba(200,123,117,.3);border-radius:14px;padding:14px;text-align:center;font-size:14px;font-weight:600;color:var(--rose);margin-bottom:20px}
+  .go-rel .bonus{background:rgba(200,123,117,.1);border:1px solid rgba(200,123,117,.36);border-radius:18px;padding:20px;margin-bottom:20px}
+  .go-rel .bonus .kicker{margin-bottom:8px}
+  .go-rel .bonus p{font-size:14.5px;margin:0}
+  .go-rel .bonus strong{color:var(--cream)}
+  .go-rel .cta{
+    display:block;width:100%;text-align:center;border-radius:18px;padding:17px 20px;
+    font-weight:700;font-size:16px;text-decoration:none;border:none;cursor:pointer;font-family:inherit;
+  }
+  .go-rel .cta.zap{background:#25D366;color:#08240f}
+  .go-rel .cta.rose{background:var(--rose);color:#2A0D06}
+  .go-rel .sub{text-align:center;font-size:12.5px;color:rgba(251,241,238,.4);margin-top:12px}
+  .go-rel .dep{width:100%;border-radius:18px;display:block;margin-bottom:14px}
+  .go-rel .alt2{border:1px solid rgba(200,123,117,.2);background:rgba(200,123,117,.04);border-radius:24px;padding:26px 24px;margin-bottom:18px;text-align:center}
+  .go-rel .alt2 .kicker{color:rgba(251,241,238,.4)}
+  .go-rel .alt2 a{display:block;border:1px solid rgba(200,123,117,.42);color:var(--rose);border-radius:14px;padding:13px;text-decoration:none;font-weight:600;font-size:14.5px;margin-top:14px}
+  .go-rel .foot{text-align:center;padding-top:22px;border-top:1px solid rgba(200,123,117,.14)}
+  .go-rel .foot p{font-size:12px;color:rgba(251,241,238,.3);margin:0 0 4px}
+</style>
+
+<div class="go-rel"><div class="wrap" id="goRel"></div></div>
+
+<script>
+(function () {
+  'use strict';
+
+  // \u2500\u2500 EDITAR AQUI \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+  // WhatsApp do Gustavo, formato internacional, so digitos. Sem isso o botao
+  // de agendamento da Rota A nao abre conversa nenhuma.
+  var WHATSAPP = '55DDNUMEROAQUI';
+  var LOW_TICKET_URL = 'https://pay.hotmart.com/X104749935I?bid=1778078139368';
+  // Imagens: hoje apontam para a Vercel, que segue no ar durante a migracao.
+  // Depois de validar, suba na Midia do GHL e troque a base abaixo.
+  var IMG = 'https://quiz-gustavo-ono.vercel.app/fotos/';
+  // \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+
+  var LABELS = [
+    ['Estou em crescimento mas preciso melhorar','Minha margem de lucro \u00e9 baixa','Meu neg\u00f3cio vende sem const\u00e2ncia','N\u00e3o tenho organiza\u00e7\u00e3o interna para crescer','Ainda estou come\u00e7ando e quero fazer certo desde o in\u00edcio'],
+    ['Sim, s\u00e3o meu carro-chefe','Os chocolates finos s\u00e3o menos de 50% das minhas vendas','Ainda n\u00e3o, mas quero que sejam o carro-chefe','Ainda quero come\u00e7ar a vender chocolates'],
+    ['Menos de 1 ano','1 a 3 anos','3 a 6 anos','6 a 10 anos','Mais de 10 anos'],
+    ['Paix\u00e3o e prazer','Reconhecimento profissional','Independ\u00eancia financeira','Renda extra'],
+    ['Falta de seguran\u00e7a t\u00e9cnica','N\u00e3o saber cobrar pre\u00e7o','Falta de padr\u00e3o nos produtos','Medo de errar e perder material'],
+    ['Eventos (anivers\u00e1rios, casamentos, festas)','Delivery','Vendas \u00e0 pronta entrega na loja','Encomendas para datas especiais (ex: P\u00e1scoa, Natal)','Internet / redes sociais','Outro'],
+    ['Ter tempo de focar nas vendas, pois fico presa na produ\u00e7\u00e3o','Falta de estrutura para crescer','Concorr\u00eancia alta e desleal','Imprevisibilidade nas vendas','Falta de demanda na minha regi\u00e3o','Outro'],
+    ['Nunca fiz um curso','S\u00f3 v\u00eddeos gratuitos e conte\u00fado solto','J\u00e1 paguei por um curso e ainda me sinto insegura','J\u00e1 paguei por um curso e evolu\u00ed, mas quero ir al\u00e9m'],
+    ['At\u00e9 R$ 5.000','De R$ 5.000 at\u00e9 R$ 10.000','De R$ 10.000 at\u00e9 R$ 20.000','Acima de R$ 20.000']
+  ];
+
+  var p = new URLSearchParams(window.location.search);
+  var nome = (p.get('n') || '').trim();
+  var primeiro = nome ? nome.split(' ')[0] : '';
+  var rota = p.get('r') === 'A' ? 'A' : 'B';
+  var codigos = (p.get('a') || '').split('-');
+
+  function label(qi) {
+    var v = parseInt(codigos[qi], 10);
+    return (LABELS[qi] && LABELS[qi][v - 1]) || '';
+  }
+
+  function track(ev, data) {
+    try { if (window.fbq) window.fbq('track', ev, data || {}); } catch (e) {}
+    try { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: ev }); } catch (e) {}
+  }
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c];
+    });
+  }
+
+  // \u2500\u2500 Diagn\u00f3stico por pilar (mesma l\u00f3gica do app React) \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+  function pilares() {
+    var perfil = codigos[0];
+    var frustracao = label(4);
+    var obstaculo = label(6);
+    var faturamento = parseInt(codigos[8], 10) || 0;
+
+    var prodCrit = /seguran\u00e7a t\u00e9cnica|padr\u00e3o|errar/.test(frustracao);
+    var prodTexto = /seguran\u00e7a t\u00e9cnica/.test(frustracao)
+      ? 'Sua inseguran\u00e7a t\u00e9cnica est\u00e1 limitando o que voc\u00ea consegue cobrar. Produto sem dom\u00ednio de execu\u00e7\u00e3o n\u00e3o sustenta pre\u00e7o alto.'
+      : /padr\u00e3o/.test(frustracao)
+      ? 'Falta de padr\u00e3o indica aus\u00eancia de m\u00e9todo consolidado. Quando o processo \u00e9 dominado, cada pe\u00e7a sai igual \u00e0 anterior.'
+      : /errar/.test(frustracao)
+      ? 'O medo de desperdi\u00e7ar material vem de n\u00e3o ter internalizado completamente a t\u00e9cnica. Com o processo certo, o erro cai quase a zero.'
+      : 'Seu produto tem potencial, mas ainda n\u00e3o est\u00e1 posicionado para justificar pre\u00e7os premium sem negocia\u00e7\u00e3o.';
+
+    var precoCrit = (perfil === '2' || /cobrar/.test(frustracao) || faturamento <= 2);
+    var precoTexto = /cobrar/.test(frustracao)
+      ? 'N\u00e3o saber precificar n\u00e3o \u00e9 falta de autoestima, \u00e9 falta de m\u00e9todo. Pre\u00e7o que o cliente aceita sem questionar \u00e9 consequ\u00eancia de produto com percep\u00e7\u00e3o de valor clara.'
+      : perfil === '2'
+      ? 'Margem baixa \u00e9 sintoma direto de precifica\u00e7\u00e3o no chute. Sem calcular custo, hora e posicionamento juntos, o lucro some no volume.'
+      : /Concorr\u00eancia/.test(obstaculo)
+      ? 'Concorr\u00eancia de pre\u00e7o acontece quando o produto n\u00e3o se diferencia. Posicionamento correto elimina compara\u00e7\u00e3o direta com concorrentes mais baratos.'
+      : 'Sua precifica\u00e7\u00e3o tem espa\u00e7o para crescer. O gargalo \u00e9 criar justificativa de valor que chegue antes do pre\u00e7o.';
+
+    var estrCrit = (perfil === '3' || perfil === '4' || perfil === '5' ||
+                    /Imprevisibilidade|estrutura/.test(obstaculo));
+    var estrTexto = (/Imprevisibilidade/.test(obstaculo) || perfil === '3')
+      ? 'Venda sem const\u00e2ncia \u00e9 o sintoma mais claro de aus\u00eancia de m\u00e9todo. Resultado que depende de sorte ou de data especial n\u00e3o escala.'
+      : (/estrutura/.test(obstaculo) || perfil === '4')
+      ? 'Sem estrutura interna, crescimento gera caos ao inv\u00e9s de lucro. A base precisa estar antes do volume.'
+      : /produ\u00e7\u00e3o/.test(obstaculo)
+      ? 'Presa na produ\u00e7\u00e3o significa que o modelo operacional n\u00e3o est\u00e1 estruturado para crescer. Mais horas na cozinha n\u00e3o resolve, \u00e9 o modelo que precisa mudar.'
+      : 'Sua estrutura de venda ainda depende de vari\u00e1veis externas. Com um m\u00e9todo de capta\u00e7\u00e3o e oferta definido, o resultado para de depender do m\u00eas.';
+
+    return [
+      { nome: 'Produto e posicionamento', crit: prodCrit, texto: prodTexto },
+      { nome: 'Precifica\u00e7\u00e3o', crit: precoCrit, texto: precoTexto },
+      { nome: 'Estrutura de venda', crit: estrCrit, texto: estrTexto }
+    ];
+  }
+
+  function blocoSessao() {
+    var msg = encodeURIComponent('Ol\u00e1 Gustavo! Me chamo ' + (primeiro || 'uma aluna') +
+      ' e acabei de fazer o diagn\u00f3stico do seu quiz. Quero agendar a sess\u00e3o gratuita para entender o que mudar primeiro no meu neg\u00f3cio.');
+    var url = 'https://wa.me/' + WHATSAPP + '?text=' + msg;
+    return '<div class="card">' +
+      '<h2>O pr\u00f3ximo passo \u00e9 uma <span>sess\u00e3o diagn\u00f3stica gratuita</span> com o Gustavo</h2>' +
+      '<p>Voc\u00ea acabou de ver onde est\u00e3o os gargalos. Em 30 minutos, o Gustavo olha o seu caso espec\u00edfico, produto, precifica\u00e7\u00e3o e estrutura, e te diz o que mudar primeiro e em que ordem.</p>' +
+      '<ul>' +
+        '<li>O porqu\u00ea de cada pilar do seu diagn\u00f3stico estar onde est\u00e1</li>' +
+        '<li>Qual deles est\u00e1 custando mais faturamento agora</li>' +
+        '<li>O pr\u00f3ximo passo pr\u00e1tico, aplic\u00e1vel j\u00e1 na sua pr\u00f3xima produ\u00e7\u00e3o</li>' +
+        '<li>Conversa direta sobre o seu neg\u00f3cio, sem conte\u00fado gen\u00e9rico</li>' +
+      '</ul>' +
+      '<div class="selo">Gratuito &middot; Sem compromisso &middot; 30 minutos pelo WhatsApp</div>' +
+      '<a class="cta zap" id="goZapCta" href="' + url + '" target="_blank" rel="noopener noreferrer">Quero agendar minha sess\u00e3o gratuita</a>' +
+      '<p class="sub">Ao tocar no bot\u00e3o, a conversa abre direto com o Gustavo, com a sua mensagem j\u00e1 escrita.</p>' +
+      '</div>';
+  }
+
+  function blocoTreinamento() {
+    return '<div class="card">' +
+      '<h2>' + (primeiro ? esc(primeiro) + ', o' : 'O') + ' seu pr\u00f3ximo passo \u00e9 ter <span>um produto que se vende sozinho</span></h2>' +
+      '<p>Antes de organizar pre\u00e7o, card\u00e1pio e const\u00e2ncia, existe uma etapa que vem primeiro: ter na m\u00e3o um produto que a cliente prova, elogia e volta para comprar. \u00c9 por a\u00ed que come\u00e7a quem constr\u00f3i uma chocolateria que d\u00e1 lucro de verdade.</p>' +
+      '<p>O Treinamento Bombom Art\u00edstico \u00e9 exatamente esse come\u00e7o. Voc\u00ea aprende a produzir um bombom de alto padr\u00e3o do zero ao acabamento, com o m\u00e9todo que o Gustavo usa nos pr\u00f3prios produtos.</p>' +
+      '<ul>' +
+        '<li>A t\u00e9cnica completa do bombom art\u00edstico, do zero ao acabamento</li>' +
+        '<li>O passo a passo que elimina o medo de errar e perder material</li>' +
+        '<li>Como precificar esse produto para vender com margem real</li>' +
+        '<li>Um item pronto para entrar no seu card\u00e1pio ainda este m\u00eas</li>' +
+      '</ul>' +
+      '<div class="bonus">' +
+        '<div class="kicker">Incluso no treinamento</div>' +
+        '<p>Quem entra no treinamento ganha uma <strong>conversa de 30 minutos com o Gustavo</strong> para revisar o seu caso depois que colocar a t\u00e9cnica em pr\u00e1tica. Ele te chama no WhatsApp assim que a sua inscri\u00e7\u00e3o for confirmada.</p>' +
+      '</div>' +
+      '<a class="cta rose" id="goLtCta" href="' + LOW_TICKET_URL + '" target="_blank" rel="noopener noreferrer">Quero o Treinamento Bombom Art\u00edstico</a>' +
+      '<p class="sub">Acesso imediato por R$ 97, com a conversa com o Gustavo inclusa.</p>' +
+      '</div>';
+  }
+
+  function blocoRepeticao() {
+    var msg = encodeURIComponent('Ol\u00e1 Gustavo! Me chamo ' + (primeiro || 'uma aluna') +
+      ' e acabei de fazer o diagn\u00f3stico do seu quiz. Quero agendar a sess\u00e3o gratuita.');
+    var url = 'https://wa.me/' + WHATSAPP + '?text=' + msg;
+    if (rota === 'A') {
+      return '<div class="card" style="text-align:center">' +
+        '<h2>Pronta para entender o que mudar primeiro?</h2>' +
+        '<p>A sess\u00e3o \u00e9 gratuita e dura 30 minutos. Voc\u00ea sai sabendo exatamente onde est\u00e1 o gargalo e qual \u00e9 o pr\u00f3ximo passo no seu caso.</p>' +
+        '<a class="cta zap" id="goZapCta2" href="' + url + '" target="_blank" rel="noopener noreferrer">Agendar sess\u00e3o gratuita com o Gustavo</a>' +
+        '</div>';
+    }
+    return '<div class="card" style="text-align:center">' +
+      '<h2>Pronta para come\u00e7ar pelo produto certo?</h2>' +
+      '<p>S\u00e3o R$ 97 pelo treinamento completo, com a conversa de 30 minutos com o Gustavo inclusa. Voc\u00ea sai com uma t\u00e9cnica dominada e um produto novo para vender.</p>' +
+      '<a class="cta rose" id="goLtCta2" href="' + LOW_TICKET_URL + '" target="_blank" rel="noopener noreferrer">Garantir minha vaga no treinamento</a>' +
+      '</div>';
+  }
+
+  function blocoAlternativa() {
+    return '<div class="alt2">' +
+      '<div class="kicker">Ou, se preferir come\u00e7ar pela pr\u00e1tica</div>' +
+      '<p>Conhe\u00e7a o Treinamento Bombom Art\u00edstico e adicione ao card\u00e1pio um produto de alto padr\u00e3o, que pode render at\u00e9 R$ 50 por caixa.</p>' +
+      '<a id="goLtCta3" href="' + LOW_TICKET_URL + '" target="_blank" rel="noopener noreferrer">Ver o Treinamento Bombom Art\u00edstico por R$ 97</a>' +
+      '</div>';
+  }
+
+  function render() {
+    var ps = pilares();
+    var criticos = ps.filter(function (x) { return x.crit; }).length;
+    var manchete = criticos > 1
+      ? 'Encontramos ' + criticos + ' pontos cr\u00edticos no seu neg\u00f3cio.'
+      : criticos === 1
+      ? 'Encontramos o principal ponto que est\u00e1 travando seu crescimento.'
+      : 'Seu neg\u00f3cio tem base, o que falta \u00e9 afinar os pontos certos.';
+
+    var html = '<div class="card">' +
+      '<div class="kicker">Diagn\u00f3stico personalizado</div>' +
+      '<h1>' + (primeiro ? esc(primeiro) + ', analisamos' : 'Analisamos') + ' suas respostas. <em>' + manchete + '</em></h1>' +
+      '<p>Com base nas suas respostas, mapeamos os tres pilares que determinam o faturamento de uma chocolateria profissional, e identificamos onde est\u00e1 o gargalo no seu caso.</p>' +
+      '</div>';
+
+    html += '<div class="card alt"><h2>Os tres pilares do seu neg\u00f3cio</h2>';
+    ps.forEach(function (x) {
+      html += '<div class="pilar ' + (x.crit ? 'crit' : 'aten') + '">' +
+        '<span class="st">' + (x.crit ? 'Gargalo identificado' : 'Precisa de aten\u00e7\u00e3o') + '</span>' +
+        '<div class="nm">' + esc(x.nome) + '</div><p>' + esc(x.texto) + '</p></div>';
+    });
+    html += '</div>';
+
+    html += '<div class="card nopad">' +
+      '<img class="foto" src="' + IMG + 'gustavo.webp" alt="Gustavo Ono, chocolatier">' +
+      '<div class="inner"><p style="font-family:Lora,Georgia,serif;font-weight:600;font-size:17px;margin-bottom:6px">Gustavo Ono, Chocolatier</p>' +
+      '<p style="font-size:14px;margin:0">Especialista em chocolateria profissional. J\u00e1 formou centenas de chocolateiras que passaram de produ\u00e7\u00e3o artesanal sem m\u00e9todo para neg\u00f3cios com card\u00e1pio estruturado, precifica\u00e7\u00e3o calculada e vendas constantes.</p></div></div>';
+
+    html += (rota === 'A' ? blocoSessao() : blocoTreinamento());
+
+    html += '<div class="card alt" style="text-align:center"><h2>O que dizem as alunas do Gustavo</h2>' +
+      '<img class="dep" src="' + IMG + 'dep2.webp" alt="Depoimento de aluna">' +
+      '<img class="dep" src="' + IMG + 'dep3.webp" alt="Depoimento de aluna">' +
+      '<img class="dep" src="' + IMG + 'dep4.webp" alt="Depoimento de aluna">' +
+      '</div>';
+
+    html += blocoRepeticao();
+    if (rota === 'A') html += blocoAlternativa();
+
+    html += '<div class="foot"><p>&copy; Gustavo Ono &middot; Todos os direitos reservados</p>' +
+      (nome ? '<p>Este diagn\u00f3stico foi gerado com base nas respostas de ' + esc(nome) + '.</p>' : '') +
+      '</div>';
+
+    document.getElementById('goRel').innerHTML = html;
+
+    ['goZapCta','goZapCta2'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.addEventListener('click', function () {
+        track('Contact', { content_name: 'Sessao Diagnostica Gratuita' });
+      });
+    });
+    ['goLtCta','goLtCta2','goLtCta3'].forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) el.addEventListener('click', function () {
+        track('InitiateCheckout', { value: 97, currency: 'BRL', content_name: 'Treinamento Bombom Artistico' });
+      });
+    });
+  }
+
+  // Sem respostas na URL a pessoa caiu aqui de fora do funil. Manda de volta
+  // para o quiz em vez de mostrar um diagnostico vazio.
+  if (!p.get('a')) {
+    window.location.replace('/quiz');
+    return;
+  }
+
+  if (!/^\d{12,13}$/.test(WHATSAPP)) {
+    try { console.error('[relatorio] WHATSAPP nao configurado: a Rota A nao vai funcionar.'); } catch (e) {}
+  }
+
+  track('ViewContent', { content_name: 'Relatorio Quiz' });
+  render();
+})();
+</script>

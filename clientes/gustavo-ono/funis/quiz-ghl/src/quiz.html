@@ -1,0 +1,303 @@
+<!-- ===== GHL EMBED: QUIZ (fonte legivel) =====
+     NAO cole este arquivo no GHL. Cole o gerado: ../quiz-ghl-embed.html
+     Este aqui e a fonte editavel; o embed e gerado por build-ascii.py.
+     GTM/Pixel: NAO vao aqui. Vao em Funnel -> Settings -> Tracking Code.
+============================================ -->
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  .go-quiz *{box-sizing:border-box;margin:0;padding:0}
+  .go-quiz{
+    --bg:#1A0900;--card:#2D1108;--card2:#3A1510;--rose:#C87B75;--cream:#FBF1EE;
+    --muted:rgba(251,241,238,.62);--line:rgba(200,123,117,.25);
+    background:var(--bg);color:var(--cream);font-family:'Inter',system-ui,sans-serif;
+    min-height:100dvh;padding:28px 16px 56px;line-height:1.6;
+  }
+  .go-quiz .wrap{max-width:560px;margin:0 auto}
+  .go-quiz h1,.go-quiz h2,.go-quiz .serif{font-family:'Lora',Georgia,serif;font-weight:600}
+  .go-quiz .kicker{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);font-weight:700;margin-bottom:10px}
+  .go-quiz h1{font-size:clamp(1.5rem,5vw,2rem);line-height:1.25;margin-bottom:12px}
+  .go-quiz h1 em{color:var(--rose);font-style:italic}
+  .go-quiz .lead{color:var(--muted);font-size:15px;margin-bottom:22px}
+  .go-quiz .card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px 22px;margin-bottom:16px}
+  .go-quiz .qnum{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--rose);font-weight:700;margin-bottom:8px}
+  .go-quiz h2{font-size:clamp(1.1rem,4vw,1.35rem);line-height:1.35;margin-bottom:6px}
+  .go-quiz .support{color:var(--muted);font-size:13px;margin-bottom:16px}
+  .go-quiz .opt{
+    display:block;width:100%;text-align:left;background:var(--card2);color:var(--cream);
+    border:1px solid var(--line);border-radius:14px;padding:15px 17px;margin-bottom:10px;
+    font:inherit;font-size:14.5px;cursor:pointer;transition:border-color .15s,background .15s;
+  }
+  .go-quiz .opt:hover{border-color:var(--rose);background:#41180f}
+  .go-quiz .opt.sel{border-color:var(--rose);background:rgba(200,123,117,.16)}
+  .go-quiz .bar{height:5px;background:var(--card2);border-radius:99px;overflow:hidden;margin-bottom:18px}
+  .go-quiz .bar span{display:block;height:100%;background:var(--rose);border-radius:99px;transition:width .3s}
+  .go-quiz .back{background:none;border:none;color:var(--muted);font:inherit;font-size:13px;cursor:pointer;padding:8px 0;text-decoration:underline}
+  .go-quiz label{display:block;font-size:13px;color:var(--muted);margin:0 0 6px}
+  .go-quiz input{
+    width:100%;background:var(--card2);border:1px solid var(--line);border-radius:12px;
+    padding:13px 15px;color:var(--cream);font:inherit;font-size:15px;margin-bottom:14px;
+  }
+  .go-quiz input:focus{outline:none;border-color:var(--rose)}
+  .go-quiz .err{color:#F87171;font-size:12px;margin:-10px 0 12px}
+  .go-quiz .cta{
+    display:block;width:100%;background:var(--rose);color:#2A0D06;border:none;border-radius:16px;
+    padding:16px;font:inherit;font-weight:700;font-size:16px;cursor:pointer;margin-top:6px;
+  }
+  .go-quiz .cta[disabled]{opacity:.45;cursor:not-allowed}
+  .go-quiz .privacy{font-size:12px;color:var(--muted);margin-top:12px;text-align:center}
+  .go-quiz .spinner{width:46px;height:46px;border:3px solid var(--card2);border-top-color:var(--rose);border-radius:50%;margin:0 auto 20px;animation:go-spin 1s linear infinite}
+  @keyframes go-spin{to{transform:rotate(360deg)}}
+  .go-quiz .loading{text-align:center;padding:60px 0}
+  .go-quiz .loading p{color:var(--muted);font-size:14px;margin-top:8px}
+</style>
+
+<div class="go-quiz"><div class="wrap" id="goRoot"></div></div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ── Configuração ───────────────────────────────────────────────────────────
+  // Passo do relatório dentro do mesmo funil (caminho relativo, funciona em
+  // qualquer domínio que o funil tiver).
+  var RELATORIO_URL = '/relatorio';
+
+  // Envio do lead. Ver README: o endpoint primário deve ser o webhook de
+  // entrada do próprio GHL, não o do Make. Ad blockers bloqueiam
+  // hook.us2.make.com no navegador (aconteceu com este cliente em julho/2026,
+  // uma semana inteira de leads perdidos sem aviso). O secundário é a rede de
+  // segurança: se o primeiro cair, o lead ainda chega.
+  var ENDPOINT_PRIMARIO = 'COLE_AQUI_O_INBOUND_WEBHOOK_DO_GHL';
+  var ENDPOINT_FALLBACK = 'https://hook.us2.make.com/SEU_WEBHOOK_AQUI';
+
+  var questions = [
+    { cat: 'PERFIL', q: 'Qual dessas opções mais combina com você hoje?', o: [
+      'Estou em crescimento mas preciso melhorar',
+      'Minha margem de lucro é baixa',
+      'Meu negócio vende sem constância',
+      'Não tenho organização interna para crescer',
+      'Ainda estou começando e quero fazer certo desde o início'
+    ]},
+    { cat: 'PRODUTO', q: 'Os chocolates são o "carro-chefe" do seu negócio?', o: [
+      'Sim, são meu carro-chefe',
+      'Os chocolates finos são menos de 50% das minhas vendas',
+      'Ainda não, mas quero que sejam o carro-chefe',
+      'Ainda quero começar a vender chocolates'
+    ]},
+    { cat: 'EXPERIÊNCIA', q: 'Há quanto tempo você tem sua loja/atelier?', o: [
+      'Menos de 1 ano', '1 a 3 anos', '3 a 6 anos', '6 a 10 anos', 'Mais de 10 anos'
+    ]},
+    { cat: 'MOTIVAÇÃO', q: 'O que mais te motiva a trabalhar com chocolates?', o: [
+      'Paixão e prazer', 'Reconhecimento profissional', 'Independência financeira', 'Renda extra'
+    ]},
+    { cat: 'FRUSTRAÇÃO', q: 'O que mais te frustra quando tenta vender chocolates?', o: [
+      'Falta de segurança técnica', 'Não saber cobrar preço',
+      'Falta de padrão nos produtos', 'Medo de errar e perder material'
+    ]},
+    { cat: 'VENDAS', q: 'Qual dessas opções representa seu maior canal de vendas?', o: [
+      'Eventos (aniversários, casamentos, festas)', 'Delivery',
+      'Vendas à pronta entrega na loja', 'Encomendas para datas especiais (ex: Páscoa, Natal)',
+      'Internet / redes sociais', 'Outro'
+    ]},
+    { cat: 'OBSTÁCULO', q: 'O que você acredita que mais te impede de crescer hoje?', o: [
+      'Ter tempo de focar nas vendas, pois fico presa na produção',
+      'Falta de estrutura para crescer', 'Concorrência alta e desleal',
+      'Imprevisibilidade nas vendas', 'Falta de demanda na minha região', 'Outro'
+    ]},
+    { cat: 'EXPERIÊNCIA', q: 'Você já fez algum curso de chocolataria?', o: [
+      'Nunca fiz um curso',
+      'Só vídeos gratuitos e conteúdo solto',
+      'Já paguei por um curso e ainda me sinto insegura',
+      'Já paguei por um curso e evoluí, mas quero ir além'
+    ]},
+    { cat: 'FATURAMENTO', q: 'Qual é a média do seu faturamento mensal hoje?',
+      s: 'Essa informação nos ajuda a personalizar o diagnóstico para o seu momento.', o: [
+      'Até R$ 5.000', 'De R$ 5.000 até R$ 10.000', 'De R$ 10.000 até R$ 20.000', 'Acima de R$ 20.000'
+    ]}
+  ];
+
+  var FIELDS = ['combinacao','carro_chefe','tempo','motivacao','frustracao',
+                'canal_de_vendas','impedimento','curso_anterior','seguranca'];
+
+  // ── Roteamento (mesma regra do app React, ver src/lib/rota.ts) ──────────────
+  // Rota A: já tem operação rodando E fatura acima de R$ 5 mil.
+  // Qualquer outro caso, incluindo resposta faltando, cai na B.
+  function getRota(ans) {
+    var carro = ans[1], fat = ans[8];
+    if (!carro || !fat) return 'B';
+    var temOperacao = (carro === '1' || carro === '2');
+    var acimaDoPiso = (fat !== '1');
+    return (temOperacao && acimaDoPiso) ? 'A' : 'B';
+  }
+
+  var answers = {};
+  var idx = 0;
+  var lead = null;
+  var root = document.getElementById('goRoot');
+
+  function track(ev, data) {
+    try { if (window.fbq) window.fbq('track', ev, data || {}); } catch (e) {}
+    try { window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: ev }); } catch (e) {}
+  }
+
+  function utms() {
+    var p = new URLSearchParams(window.location.search), o = {};
+    ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(function (k) {
+      o[k] = p.get(k) || '';
+    });
+    return o;
+  }
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c];
+    });
+  }
+
+  function renderQuestion() {
+    var q = questions[idx];
+    var pct = Math.round((idx / questions.length) * 100);
+    var html = '';
+    if (idx === 0) {
+      html += '<div class="kicker">Diagnóstico gratuito</div>' +
+              '<h1>Descubra o que está <em>travando o crescimento</em> do seu negócio de chocolates</h1>' +
+              '<p class="lead">São 9 perguntas rápidas. No final você recebe um diagnóstico dos tres pilares que definem o faturamento de uma chocolateria.</p>';
+    } else {
+      html += '<div class="bar"><span style="width:' + pct + '%"></span></div>';
+    }
+    html += '<div class="card">' +
+              '<div class="qnum">' + (idx + 1) + ' de ' + questions.length + ' &middot; ' + esc(q.cat) + '</div>' +
+              '<h2>' + esc(q.q) + '</h2>' +
+              (q.s ? '<p class="support">' + esc(q.s) + '</p>' : '');
+    q.o.forEach(function (opt, i) {
+      var sel = answers[idx] === String(i + 1) ? ' sel' : '';
+      html += '<button type="button" class="opt' + sel + '" data-v="' + (i + 1) + '">' + esc(opt) + '</button>';
+    });
+    html += '</div>';
+    if (idx > 0) html += '<button type="button" class="back" id="goBack">Voltar</button>';
+    root.innerHTML = html;
+
+    Array.prototype.forEach.call(root.querySelectorAll('.opt'), function (b) {
+      b.addEventListener('click', function () {
+        answers[idx] = b.getAttribute('data-v');
+        if (idx === 0) track('CompleteRegistration');
+        if (idx < questions.length - 1) { idx++; renderQuestion(); }
+        else { renderForm(); }
+      });
+    });
+    var back = document.getElementById('goBack');
+    if (back) back.addEventListener('click', function () { idx--; renderQuestion(); });
+    window.scrollTo(0, 0);
+  }
+
+  function renderForm() {
+    root.innerHTML =
+      '<div class="bar"><span style="width:100%"></span></div>' +
+      '<div class="card">' +
+        '<div class="qnum">Última etapa</div>' +
+        '<h2>Para onde enviamos o seu diagnóstico?</h2>' +
+        '<p class="support">Preencha para ver o resultado completo das suas respostas.</p>' +
+        '<label for="goNome">Seu nome completo</label>' +
+        '<input id="goNome" type="text" autocomplete="name" placeholder="Digite seu nome completo">' +
+        '<label for="goZap">WhatsApp com DDD</label>' +
+        '<input id="goZap" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(11) 99999-9999">' +
+        '<label for="goMail">Seu melhor e-mail</label>' +
+        '<input id="goMail" type="email" autocomplete="email" placeholder="seuemail@exemplo.com">' +
+        '<div class="err" id="goErr" style="display:none"></div>' +
+        '<button type="button" class="cta" id="goSend">Ver meu diagnóstico</button>' +
+        '<p class="privacy">Seus dados são confidenciais e usados apenas para enviar o diagnóstico.</p>' +
+      '</div>';
+
+    var zap = document.getElementById('goZap');
+    zap.addEventListener('input', function () {
+      var d = zap.value.replace(/\D/g, '').slice(0, 11);
+      zap.value = d.length > 6 ? '(' + d.slice(0,2) + ') ' + d.slice(2,7) + '-' + d.slice(7)
+                : d.length > 2 ? '(' + d.slice(0,2) + ') ' + d.slice(2)
+                : d;
+    });
+
+    document.getElementById('goSend').addEventListener('click', function () {
+      var nome = document.getElementById('goNome').value.trim();
+      var fone = zap.value.replace(/\D/g, '');
+      var mail = document.getElementById('goMail').value.trim();
+      var err = document.getElementById('goErr');
+      var problema = '';
+      if (nome.length < 3) problema = 'Digite seu nome completo.';
+      else if (fone.length < 10) problema = 'Digite um WhatsApp válido com DDD.';
+      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) problema = 'Digite um e-mail válido.';
+      if (problema) { err.textContent = problema; err.style.display = 'block'; return; }
+      err.style.display = 'none';
+      lead = { nome: nome, whatsapp: fone, email: mail };
+      enviar();
+    });
+    window.scrollTo(0, 0);
+  }
+
+  function enviar() {
+    var rota = getRota(answers);
+    var payload = {
+      nome: lead.nome, email: lead.email, whatsapp: lead.whatsapp, rota: rota, origem: 'quiz-ghl'
+    };
+    var u = utms();
+    Object.keys(u).forEach(function (k) { payload[k] = u[k]; });
+    FIELDS.forEach(function (f, i) {
+      var v = answers[i];
+      payload[f] = (v && questions[i]) ? questions[i].o[parseInt(v, 10) - 1] || '' : '';
+    });
+
+    track('Lead', { content_name: 'Quiz Diagnostico' });
+    renderLoading();
+
+    // Primeiro o endpoint do GHL. Se ele falhar (bloqueio, rede, 4xx/5xx),
+    // tenta o Make. O redirect nao espera nenhum dos dois: a lead nunca fica
+    // presa numa tela de carregamento por causa de rede.
+    postar(ENDPOINT_PRIMARIO, payload).catch(function () {
+      return postar(ENDPOINT_FALLBACK, payload);
+    }).catch(function () {
+      try { console.error('[quiz] lead nao entregue em nenhum endpoint'); } catch (e) {}
+    });
+
+    setTimeout(function () {
+      var qs = '?n=' + encodeURIComponent(lead.nome) +
+               '&r=' + rota +
+               '&a=' + encodeURIComponent(serializar());
+      window.location.href = RELATORIO_URL + qs;
+    }, 3600);
+  }
+
+  function postar(url, payload) {
+    if (!url || url.indexOf('COLE_AQUI') === 0 || url.indexOf('SEU_WEBHOOK') > -1) {
+      return Promise.reject(new Error('endpoint nao configurado'));
+    }
+    return fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+      keepalive: true
+    }).then(function (r) {
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return r;
+    });
+  }
+
+  // Respostas viajam para o relatório como string compacta: "1-3-2-..."
+  function serializar() {
+    var out = [];
+    for (var i = 0; i < questions.length; i++) out.push(answers[i] || '');
+    return out.join('-');
+  }
+
+  function renderLoading() {
+    root.innerHTML =
+      '<div class="loading">' +
+        '<div class="spinner"></div>' +
+        '<h2>Analisando suas respostas</h2>' +
+        '<p>Estamos cruzando o seu perfil com os tres pilares do negócio.</p>' +
+      '</div>';
+    window.scrollTo(0, 0);
+  }
+
+  track('PageView');
+  renderQuestion();
+})();
+</script>
