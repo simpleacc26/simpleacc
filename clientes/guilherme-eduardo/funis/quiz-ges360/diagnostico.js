@@ -114,12 +114,13 @@ if (!a._completedAt && !a.problema) {
      responde à objeção dele, não uma galeria genérica.
      Só entra material SEM nome de paciente. Ver depoimentos/README.md.
 
-     Vão como PRINT os dois que só funcionam como print: a tabela de evolução da
-     receita e a conversa sobre preço. O terceiro vai como CITAÇÃO atribuída,
-     com data. É a mesma fala; recriar um print de WhatsApp em HTML seria
-     fabricar a aparência de um documento, e isso não se faz.
-     Os outros 6 prints aprovados ficam em depoimentos/ para o time usar no
-     WhatsApp: não cabem no deploy (ver README). */
+     São 4 PRINTS reais em ordem narrativa (dado duro, objeção de preço, objeção
+     de público, aspiração) mais 1 CITAÇÃO atribuída com data, que varia com o
+     objetivo. A citação nunca repete o que já está nos prints. Recriar um print
+     de WhatsApp em HTML seria fabricar a aparência de um documento, e isso não
+     se faz: por isso ela vai como citação, não como imagem.
+     Os outros 4 prints aprovados ficam em depoimentos/ para o time usar no
+     WhatsApp (ver README). */
   const PRINTS = {
     /* Atenção: este print é do dia 22/05, com o mês ainda em curso (R$ 64.761).
        A legenda diz isso de propósito: sem essa frase o número parece
@@ -128,28 +129,35 @@ if (!a._completedAt && !a.problema) {
       cap: "Antes de começar, ele tinha medo de que ninguém fosse pagar pelos programas. Este print é do dia 22 de maio, com o mês ainda em curso: fechou em R$ 86.771." },
     preco:    { src: "kayo-4750.webp", w: 560, h: 419,
       cap: "Sobre o medo de que o paciente ache caro, depois de fechar 3 programas em um dia: \"ninguém pediu desconto, ninguém achou caro\"." },
+    perfil:   { src: "kayo-4767.webp", w: 400, h: 378,
+      cap: "Um programa de R$ 4.400 e dois de R$ 3.000, fechados com três pacientes novos que ele mesmo classificaria como \"sem perfil\"." },
+    plantao:  { src: "kayo-4763.webp", w: 400, h: 516,
+      cap: "Ele dava plantão de 18 horas na UTI às terças, por R$ 1.500. Nesta terça, fechou um programa de R$ 9 mil dentro da própria clínica." },
   };
 
   /* Citação por objetivo. Texto literal do Dr. Kayo, com a data, apresentado
      como citação e não como imagem de conversa. */
+  /* As falas aqui não repetem nenhum dos 4 prints acima, de propósito. */
   const CITACOES = {
-    "sair-plantao": { fala: "Eu dava plantão na UTI nas terças. Ganhava R$ 1.500 por 18 horas de plantão. Hoje, em plena terça-feira, fechei um programa de acompanhamento de R$ 9 mil.", quando: "9 de junho" },
-    "vender-natural": { fala: "Quem foi que fechou hoje 1 programa de R$ 4.400 e 2 programas de R$ 3.000 tendo apenas 3 pacientes novos \"sem perfil\"?", quando: "16 de junho" },
+    "sair-plantao": { fala: "Estou pisando em nuvens. Fazendo o que eu amo fazer, e sendo reconhecido e bem remunerado por isso. Nunca estive tão realizado.", quando: "9 de junho" },
+    "vender-natural": { fala: "O que mudou? Minha confiança e a forma de entregar. Eu não preciso tentar convencê-los: ao final da consulta eles já estão convencidos.", quando: "19 de maio" },
     "_padrao": { fala: "Dentre todos os investimentos que eu fiz, esse foi o de maior retorno. Muito obrigado!", quando: "26 de maio, quando o mês já passava de R$ 75 mil" },
   };
   const cit = CITACOES[valor("objetivo")] || CITACOES._padrao;
 
-  /* Os prints são servidos pelo projeto ges360-assets na Vercel, não por esta
-     pasta: o deploy do funil embute os arquivos na chamada e imagem não cabe.
-     Os originais ficam versionados em depoimentos/ (mesmos bytes). */
-  const CDN = "https://ges360-assets.vercel.app/";
+  /* Única constante a mexer para trocar de onde vêm os prints. Aqui no
+     repositório ela é um caminho relativo, e o funil é autocontido: basta
+     publicar esta pasta inteira. A publicação temporária em projetos separados
+     na Vercel troca esta linha pela URL do projeto de assets (ver README). */
+  const ASSETS = "depoimentos/";
   const figura = (p) => `
       <figure class="depo-shot">
-        <img src="${CDN}${p.src}" width="${p.w}" height="${p.h}" loading="lazy" decoding="async"
+        <img src="${ASSETS}${p.src}" width="${p.w}" height="${p.h}" loading="lazy" decoding="async"
              alt="Print de conversa de WhatsApp com o Dr. Kayo Andrade" />
         <figcaption>${p.cap}</figcaption>
       </figure>`;
-  const galeriaDepoimentos = [PRINTS.tabela, PRINTS.preco].map(figura).join("") + `
+  /* Ordem narrativa: dado duro, objeção de preço, objeção de público, aspiração. */
+  const galeriaDepoimentos = [PRINTS.tabela, PRINTS.preco, PRINTS.perfil, PRINTS.plantao].map(figura).join("") + `
       <blockquote class="depo-quote">
         <p>${cit.fala}</p>
         <cite>Dr. Kayo Andrade, por WhatsApp, ${cit.quando}</cite>
