@@ -12,11 +12,13 @@ resultado e relatório com CTAs distribuídos. Identidade visual, copy e o IDR s
 
 ## No ar
 
-- **Quiz (link do anúncio):** https://diagnostico-ges360.vercel.app
-  O anúncio deve apontar para a **raiz com UTMs**: `https://diagnostico-ges360.vercel.app/?utm_source=meta&utm_medium=cpc&utm_campaign=...`
+- **Quiz (link do anúncio):** https://quiz-guilhermeeduardo.vercel.app
+  O anúncio deve apontar para a **raiz com UTMs**: `https://quiz-guilhermeeduardo.vercel.app/?utm_source=meta&utm_medium=cpc&utm_campaign=...`
   (nunca para `/index.html`, o servidor limpa a URL e derruba a query).
 - **Página pós-quiz:** `/diagnostico.html` (gerada automaticamente, não é link de anúncio).
-- **Projeto Vercel:** `diagnostico-ges360` no time **Simpleacc**.
+- **Projeto Vercel:** `quiz-guilhermeeduardo` no time **Simpleacc**.
+  O endereço antigo (`diagnostico-ges360.vercel.app`) continua no ar e serve a mesma
+  coisa, mas **não é mais o link oficial**. Não use em anúncio.
 - **Planilha de leads:** https://docs.google.com/spreadsheets/d/1S_ANYgaapyLVf7oQoGwNyxYkASRXlzHFs-QgfHGvt_Q/edit
   (Drive do cliente, pasta "3. Estratégia e Tráfego").
 
@@ -63,7 +65,7 @@ objetivo 0.5). Faixas: 78+ crítica · 60 a 77 alta · 40 a 59 moderada · abaix
 | `app.js` | Motor: render, auto-avanço, máscara, validação, tela de carregamento, UTMs, sessionStorage, `classificarLead()`, `enviarLead()` |
 | `diagnostico.html` / `diagnostico.js` | Página pós-quiz: calcula o IDR e monta o relatório personalizado com os 3 CTAs |
 | `styles.css` | Identidade GES360 (navy `#001824`, dourado `#B49024`, CTA verde `#249C3C`) |
-| `logo.png` | Logo GES360 (extraído da apresentação comercial, fundo transparente) |
+| `logo.webp` | Logo GES360 oficial, enviada pelo cliente em 11/08 (520x137, fundo transparente). Substituiu o recorte de baixa qualidade que tinha sido extraído da apresentação comercial. |
 | `integracao-planilha.gs` | Apps Script que grava os leads na planilha |
 
 ## Pendências para ficar 100%
@@ -87,9 +89,9 @@ objetivo 0.5). Faixas: 78+ crítica · 60 a 77 alta · 40 a 59 moderada · abaix
 
 ## Como republicar
 
-O deploy foi feito pelo MCP da Vercel no time Simpleacc, projeto `diagnostico-ges360`.
+O deploy foi feito pelo MCP da Vercel no time Simpleacc, projeto `quiz-guilhermeeduardo`.
 Pelo CLI: `vercel deploy <esta pasta> --prod --yes --scope <TEAM_ID da Simpleacc>`.
-A URL de produção (`diagnostico-ges360.vercel.app`) é a pública; as URLs com sufixo do time
+A URL de produção (`quiz-guilhermeeduardo.vercel.app`) é a pública; as URLs com sufixo do time
 ficam atrás do Deployment Protection (302 para login).
 
 ## Teste local
@@ -115,11 +117,11 @@ projetos separados na Vercel. **Isto é gambiarra e precisa ser desfeito.**
 
 | Projeto Vercel | O que serve |
 | --- | --- |
-| `diagnostico-ges360` | `index.html`, `diagnostico.html`, `flow.js`, `app.js` (o link público) |
+| `quiz-guilhermeeduardo` | `index.html`, `diagnostico.html`, `flow.js`, `app.js` (o link público) |
 | `ges360-cdn` | `styles.css` |
 | `ges360-relatorio` | `diagnostico.js`, `kayo-4767.webp`, `kayo-4763.webp` |
 | `ges360-assets` | `kayo-4756.webp`, `kayo-4750.webp` |
-| **jsDelivr** (não é Vercel) | `logo.png`, direto deste repositório |
+| **jsDelivr** (não é Vercel) | `logo.webp`, direto deste repositório |
 
 Por isso os HTMLs publicados apontam para URLs absolutas, enquanto **os arquivos
 deste repositório usam caminhos relativos e são autocontidos** (a versão certa).
@@ -127,7 +129,7 @@ deste repositório usam caminhos relativos e são autocontidos** (a versão cert
 ### ⚠️ O logo vem do repositório, via jsDelivr
 
 O logo é servido por
-`https://cdn.jsdelivr.net/gh/simpleacc26/simpleacc@<commit>/clientes/guilherme-eduardo/funis/quiz-ges360/logo.png`,
+`https://cdn.jsdelivr.net/gh/simpleacc26/simpleacc@<commit>/clientes/guilherme-eduardo/funis/quiz-ges360/logo.webp`,
 com o **commit fixado** (imutável, nunca quebra por mudança de branch).
 
 Isso existe porque arquivo binário passa pelo MCP em base64 e um único caractere
@@ -142,12 +144,12 @@ a fazer com essa informação:
 2. vale revisar se este monorepo deve mesmo ser público: ele tem estratégia,
    precificação e material de clientes.
 
-Ao trocar o `logo.png`, é preciso **atualizar o commit fixado na URL** e republicar
+Ao trocar o `logo.webp`, é preciso **atualizar o commit fixado na URL** e republicar
 os dois HTMLs, senão a página continua mostrando a versão antiga.
 
 ### Como desfazer (2 minutos, resolve de vez)
 
-Na Vercel, projeto `diagnostico-ges360` → Settings → Git → conectar em
+Na Vercel, projeto `quiz-guilhermeeduardo` → Settings → Git → conectar em
 `simpleacc26/simpleacc`, root `clientes/guilherme-eduardo/funis/quiz-ges360`.
 A partir daí:
 

@@ -61,7 +61,8 @@ img { max-width: 100%; display: block; }
   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
 }
 .brand .brand-tag { font-size: 10.5px; letter-spacing: .42em; text-transform: uppercase; color: var(--gold); padding-left: .42em; }
-/* Quando tiver o arquivo: troque .brand por <img class="logo-img" src="logo.png"> */
+/* O topo usa <img class="logo-img" src="logo.webp">. As regras .brand-name/.brand-tag
+   abaixo eram o wordmark tipografico usado antes do arquivo existir. */
 .brand .logo-img { height: 64px; width: auto; }
 
 /* ---------- progresso ---------- */
