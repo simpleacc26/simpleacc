@@ -150,6 +150,45 @@ if (!a._completedAt && !a.problema) {
       <p class="hint">O que essas histórias têm em comum: pararam de só trabalhar mais e instalaram método no negócio.</p>
     </div>
 
+    <div class="etapa">
+      <h3>Quem é o __ESPECIALISTA__</h3>
+      <!-- BLOCO DE AUTORIDADE. OBRIGATÓRIO, mesmo quando há depoimentos.
+           Depoimento prova que funciona para os outros; autoridade prova por que
+           confiar em QUEM entrega. Num funil high ticket os dois trabalham juntos.
+           Quando ainda não existem depoimentos reais, este bloco sustenta sozinho
+           a prova social (é o que fizemos no funil do Felipe Damasceno).
+           REGRA DE FONTE: só entra aqui o que está ESCRITO como texto afirmativo
+           no material do cliente (deck, bio, site). Elemento que aparece DENTRO
+           de uma arte (capa de livro na mesa, tela de celular, gráfico, prêmio)
+           é cenário, não credencial. Na dúvida, pergunte antes de publicar. -->
+      <div class="autor">
+        <img class="autor-foto" src="especialista.webp" alt="__ESPECIALISTA__" />
+        <div>
+          <span class="autor-nome">__ESPECIALISTA__</span>
+          <span class="autor-cargo">__CARGO_1__ · __CARGO_2__ · __CARGO_3__</span>
+        </div>
+      </div>
+      <p>__BIO_CURTA__ Uma frase de origem: o que ele viveu na pele que o levou a
+      criar o método. Conecta a dor do lead com a história de quem entrega.</p>
+      <div class="cred-grid">
+        <!-- Use os números REAIS da faixa de credenciais do cliente. 4 itens é o
+             ideal (grade 2x2 fecha certinho). Um 5º vira .cred.full, ocupando a
+             linha inteira. -->
+        <div class="cred"><div class="n">__NUMERO_1__</div><div class="d">__CONTEXTO_1__</div></div>
+        <div class="cred"><div class="n">__NUMERO_2__</div><div class="d">__CONTEXTO_2__</div></div>
+        <div class="cred"><div class="n">__NUMERO_3__</div><div class="d">__CONTEXTO_3__</div></div>
+        <div class="cred"><div class="n">__NUMERO_4__</div><div class="d">__CONTEXTO_4__</div></div>
+      </div>
+      <!-- Opcional: chips do ecossistema/marcas/veículos do especialista. Some o
+           bloco inteiro se o cliente não tiver. -->
+      <p class="hint" style="margin-top:14px">__LABEL_ECOSSISTEMA__</p>
+      <div class="eco">
+        <span class="eco-chip"><b>__MARCA_1__</b> · __DESC_1__</span>
+        <span class="eco-chip"><b>__MARCA_2__</b> · __DESC_2__</span>
+        <span class="eco-chip"><b>__MARCA_3__</b> · __DESC_3__</span>
+      </div>
+    </div>
+
     <div class="cta-box">
       <h2 style="margin-top:0">O próximo passo, ${nome}</h2>
       <p>Dar o primeiro passo é simples, e no seu tempo.</p>

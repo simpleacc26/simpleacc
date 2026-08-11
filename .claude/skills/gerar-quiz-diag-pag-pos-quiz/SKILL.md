@@ -2,8 +2,12 @@
 name: gerar-quiz-diag-pag-pos-quiz
 description: >-
   Implementa e PUBLICA o funil visual de um cliente (Simple Acc): o quiz, a
-  página pós-quiz (relatório/diagnóstico) e o PDF, seguindo a estrutura aprovada
-  (modelo Lucas Sobreiro, estrutura espelhada no funil validado da Pâmella). Publica na Vercel e
+  página pós-quiz (relatório/diagnóstico) e o PDF, seguindo a ESTRUTURA INVISÍVEL
+  canônica da casa (linhagem Pâmella Mello → Lucas Sobreiro → Felipe Damasceno,
+  documentada em references/estrutura-invisivel.md: sem título repetido acima das
+  perguntas, tela de carregamento, 9 passos SPIN com as porteiras no fim,
+  relatório em 9 blocos, CTAs distribuídos, depoimentos + bloco de autoridade).
+  Publica na Vercel e
   entrega o link no final, cria a planilha de leads no Drive do cliente e deixa
   a integração funil→planilha feita E testada, aplicando a identidade visual do
   cliente. Use sempre que alguém pedir para "montar/implementar o funil", "criar
@@ -45,6 +49,23 @@ crítico, **pergunte ao usuário** (ou peça o material). Veja a lista completa 
 
 Nunca use travessão (traço longo) na copy (regra do cliente: "fica com cara de
 IA"). Use vírgula, dois-pontos, parênteses ou ponto final. Faixas como "de X a Y".
+**Emoji: só com autorização**, o padrão é sem (público de empresário estranha).
+
+## 📐 LEIA ISTO ANTES DE CONSTRUIR
+
+**`references/estrutura-invisivel.md` é o blueprint canônico do funil.** Ordem das
+telas, o que é obrigatório, o que nunca fazer, e os detalhes técnicos que já
+quebraram na prática. Ele existe para o usuário **não ter que repetir estas
+decisões toda sessão**. Leia inteiro antes da primeira linha de código.
+
+O resumo do que ele trava (não improvise nenhum destes):
+- **Sem título/rótulo de etapa repetido** acima de cada pergunta. Só a tela 1 tem hero.
+- **Tela de carregamento** obrigatória entre a captura e o relatório (~4,7s, 3 mensagens).
+- **9 passos SPIN**, com as 2 perguntas-porteira (faturamento + prontidão) **no fim**.
+- **Relatório em 9 blocos** na ordem, com espelho do cenário e reframe.
+- **Mínimo 3 CTAs distribuídos**, e CTA final adaptado às 3 faixas de qualificação.
+- **Depoimentos E bloco de autoridade do especialista.** Não é ou/ou.
+- Sem travessão, sem emoji não autorizado.
 
 ## Fluxo (siga na ordem)
 
@@ -96,10 +117,20 @@ Informe: **link do funil** (raiz, com instrução de usar `?utm_...` no anúncio
 **link da planilha**, e a confirmação de que a integração foi testada. Liste
 pendências do cliente, se houver (ex.: depoimentos reais).
 
-## Particularidades e aprendizados (funil Lucas)
+## Particularidades e aprendizados
 
-Modelo Lucas Sobreiro (estrutura espelhada no funil validado da Pâmella), live em
-quiz-lucas-sobreiro.vercel.app. Respeite sempre:
+Linhagem: Pâmella Mello (o de maior conversão) → Lucas Sobreiro → **Felipe
+Damasceno, a referência atual** (quiz-felipe-damasceno.vercel.app). Respeite sempre:
+
+0. **Prova social = depoimentos + autoridade.** O bloco "Quem é o especialista"
+   (foto, nome, cargo, parágrafo de origem, grade de credenciais reais, chips do
+   ecossistema) é **obrigatório**, com ou sem depoimentos. Se ainda não existem
+   depoimentos reais, ele sustenta a prova social sozinho e o funil sobe assim.
+   🚨 **Só vira claim o que está ESCRITO como texto afirmativo no material do
+   cliente.** Objeto que aparece dentro de uma arte (capa de livro na mesa, tela
+   de celular, prêmio) é cenário, não credencial. Já publicamos "autor de um
+   livro" que não existia por ter lido a capa numa foto do deck. Na dúvida,
+   pergunte antes.
 
 1. **Reescreva 100% da copy** ao adaptar, INCLUSIVE a tela de loading e TODAS as
    labels de opção. Nunca deixe resíduo do funil-modelo (ex.: falar em "leitura
@@ -123,14 +154,29 @@ quiz-lucas-sobreiro.vercel.app. Respeite sempre:
    Vercel para funil COM imagens: o payload base64 é cortado e há risco de imagem
    corrompida); publique a partir de uma subpasta com nome limpo para dar domínio
    limpo; use o TEAM_ID no `--scope`; confira `whoami`/`teams` antes.
+9. **Nome do projeto na Vercel = a URL,** e não dá pra renomear pelo MCP. Escolha
+   `quiz-<cliente>` já na primeira publicação; trocar depois exige projeto novo.
+10. **Publicação substitui a árvore inteira:** arquivo que faltar no envio vira
+    404 silencioso (já derrubou o CSS de um funil no ar). **Depois de todo deploy,
+    confira cada asset com `curl -o /dev/null -w '%{http_code}'`.** Esse check já
+    pegou dois erros reais.
+11. **`:hover` gruda no iOS** e faz as opções parecerem pré-selecionadas ao
+    arrastar o dedo. Isole em `@media (hover: hover) and (pointer: fine)`, some
+    `-webkit-tap-highlight-color: transparent` e use `:active` pro toque.
+12. **Preview da Vercel fica atrás do SSO** e o cliente não abre. Só link de
+    `target: production` é publicamente acessível.
 
 Base técnica (já no motor): loading ~5s, envio do lead em `application/json` +
 `keepalive`, data em horário de Brasília, qualificação por intenção, sem travessão.
 
 ## Checklist final
-- [ ] Copy 100% do cliente (zero texto do modelo), sem travessões
+- [ ] **`references/estrutura-invisivel.md` lido e seguido** (checklist próprio no fim dele)
+- [ ] Copy 100% do cliente (zero texto do modelo), sem travessões, sem emoji não autorizado
 - [ ] Identidade do cliente aplicada (cores + logo + fontes)
-- [ ] 1ª pergunta na 1ª tela · auto-avanço · máscara WhatsApp · e-mail obrigatório · UTMs
+- [ ] 1ª pergunta na 1ª tela · **sem título repetido nas demais** · auto-avanço · máscara WhatsApp · e-mail obrigatório · UTMs
+- [ ] **Tela de carregamento** no ar entre a captura e o relatório
+- [ ] **Depoimentos E bloco de autoridade**, com claims só do que está escrito no material
+- [ ] **Todos os assets em 200** depois do deploy (curl em cada arquivo)
 - [ ] **Conta confirmada: deploy na conta/time da Simple (NUNCA pessoal)**, `vercel whoami`/`teams ls` checados
 - [ ] Publicado na Vercel do cliente, URL limpa e pública (testada com curl/navegador)
 - [ ] Planilha criada no Drive do cliente, com colunas certas (+ UTM)

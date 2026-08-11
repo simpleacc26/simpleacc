@@ -39,6 +39,20 @@
     @media (max-width: 520px){ .depo-gallery { grid-template-columns: 1fr; } }
     .cta-inline { text-align: center; margin: 22px 0; }
     .cta-inline .btn { width: 100%; max-width: 420px; }
+    /* --- bloco de autoridade do especialista (obrigatório) --- */
+    .autor { display: flex; align-items: center; gap: 15px; margin: 2px 0 14px; }
+    .autor-foto { width: 92px; height: 92px; flex: 0 0 92px; border-radius: 50%; object-fit: cover; object-position: 50% 22%; border: 2px solid var(--primary); }
+    .autor-nome { display: block; font-family: var(--font-serif); font-size: 19px; font-weight: 700; letter-spacing: .05em; color: var(--primary-700); line-height: 1.15; }
+    .autor-cargo { display: block; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
+    .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0 6px; }
+    .cred { border: 1px solid var(--border); border-radius: var(--radius-sm); background: color-mix(in srgb, var(--primary) 5%, var(--surface)); padding: 13px 14px; }
+    .cred .n { font-family: var(--font-serif); font-size: 21px; font-weight: 700; color: var(--primary-700); line-height: 1.05; }
+    .cred .d { font-size: 12.5px; color: var(--muted); margin-top: 3px; }
+    .cred.full { grid-column: 1 / -1; }
+    .eco { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .eco-chip { border: 1px solid var(--border); border-radius: 999px; padding: 7px 13px; font-size: 12.5px; color: var(--muted); background: var(--surface); }
+    .eco-chip b { color: var(--primary); font-weight: 700; letter-spacing: .02em; }
+    @media (max-width: 520px){ .cred-grid { grid-template-columns: 1fr; } }
     .cta-box { background: color-mix(in srgb, var(--primary) 7%, var(--surface)); border: 1px solid color-mix(in srgb, var(--primary) 26%, var(--border)); border-radius: var(--radius); padding: 22px; text-align: center; margin-top: 8px; }
     .clube { font-size: 15px; color: var(--muted); margin-top: 14px; }
     .toolbar { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 4px 0 22px; }
