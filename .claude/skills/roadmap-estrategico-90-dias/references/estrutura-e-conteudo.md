@@ -152,8 +152,9 @@ mentor, ajustar antes de continuar."
    roteiros da Simple; coletar depoimentos em vídeo (a skill
    `guia-captacao-depoimentos` gera o guia; citar que a Simple envia os
    tópicos); subir tudo no Drive; prioridade para cases do nicho
-   (identificação). Perfil A: preparar os 3 criativos (diagnóstico, erro
-   comum, resultado) analisando concorrentes mapeados.
+   (identificação). Gravar variações suficientes para montar **3 conjuntos de
+   10 anúncios cada** (ver abaixo). Perfil A: preparar os 3 criativos
+   (diagnóstico, erro comum, resultado) analisando concorrentes mapeados.
 
 ## Fase de Funil e Tráfego Pago
 
@@ -164,11 +165,23 @@ mentor, ajustar antes de continuar."
   valida tom nas primeiras entregas), infraestrutura (GHL ~R$ 97/mês quando o
   Carlos sinalizar, API WhatsApp ~R$ 100/mês, número dedicado, nunca WhatsApp
   Web, liberar acessos), subir campanhas (gestor de tráfego nomeado,
-  orçamento inicial de validação financiado pelo caixa rápido, segmentação do
-  nicho, revisão de métricas a cada 7 dias com gatilhos: CPL fora da meta →
-  criativo; conclusão do quiz < 40% → perguntas; comparecimento < 60% →
-  follow-up). Fecha com box "Regra de ouro do tráfego high ticket": uma venda
-  paga meses de mídia; o jogo é lead certo, não lead barato.
+  orçamento inicial de validação financiado pelo caixa rápido, **estrutura de
+  partida de 3 conjuntos com 10 anúncios cada** (ver padrão abaixo),
+  segmentação do nicho, revisão de métricas a cada 7 dias com gatilhos: CPL
+  fora da meta → criativo; conclusão do quiz < 40% → perguntas; comparecimento
+  < 60% → follow-up). Fecha com box "Regra de ouro do tráfego high ticket":
+  uma venda paga meses de mídia; o jogo é lead certo, não lead barato.
+
+### Padrão de largada de criativos (Daniel, aplicar em TODO roadmap)
+
+Estrutura inicial de campanha padronizada: **3 conjuntos de anúncios, cada um
+com 10 anúncios (30 criativos no total)**, cobrindo 3 ângulos da estratégia,
+adaptados ao nicho do cliente. No caso base (Felipe): dor, mecanismo e
+autoridade. Adapte os ângulos à big idea do cliente (ex.: relacionamento =
+a dor de aceitar migalhas, o mecanismo de "ela primeiro", a prova dos
+depoimentos). Volume alto na largada para a Meta encontrar o criativo vencedor
+rápido. Cite os 3 conjuntos tanto na **Meta da fase de Conteúdo** (criativos
+prontos para montar os 3 conjuntos) quanto no **passo de subir campanhas**.
 - **Perfil A (Rômulo), dias 60 a 90**: box "Por que o funil vem depois"
   (quiz com dados reais converte 3x mais; tráfego escala desejo validado).
   Passos: estudar o Método Simple Growth, construir o quiz (8 a 12 perguntas
