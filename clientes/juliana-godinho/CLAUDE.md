@@ -22,12 +22,19 @@ onde o outro parou (o Git é a memória compartilhada).
 
 ## Contexto rápido
 
-- **Oferta principal:** mentoria para profissionais de saúde estética, R$ 9.999.
-  Consultoria de R$ 1.997 como downsell (fora da entrada do funil a partir de ago/26).
-- **Público / ICP:** dona de clínica ou consultório de **estética avançada**,
-  fisioterapia dermatofuncional, biomedicina estética, odontologia estética ou
-  nutrição com protocolo estético. Estrutura própria, acima de R$ 15 mil/mês.
-  **Não é público:** lash, sobrancelha, salão de beleza, podologia.
+- **Oferta principal:** mentoria para profissionais da saúde estética, R$ 9.999.
+  **EDP** — produto de R$ 1.997 (fora da entrada do funil a partir de ago/26).
+  **Nunca chamar o EDP de "consultoria".** A Ju não vende consultoria.
+- **Público / ICP:** profissional da saúde estética que atua com **estética
+  avançada**, com clínica ou consultório já funcionando, agenda cheia ou perto
+  disso, e que percebeu que trabalhar mais não é mais crescer.
+  **Equipe não é pré-requisito** — muitas trabalham sozinhas; equipe é próximo passo.
+  **Não é público:** lash, sobrancelha, micropigmentação, salão de beleza,
+  podologia, **nutrição** e **odontologia**.
+  → **Leia `contexto/2026-08-10-icp-oficial-palavras-da-ju.md` antes de escrever
+  qualquer coisa.** É a fonte de verdade do ICP, nas palavras da própria cliente,
+  e prevalece sobre qualquer outro documento.
+- **Vocabulário:** sempre "clínica ou consultório"; "promoção", nunca "pacote".
 - **Funil:** anúncio → quiz → página de agendamento → WhatsApp (SDR) → call (closer).
 - **Time:** Ju + 1 SDR + 1 closer. Simple Acc no tráfego/funil (Renan Martini).
 - **Contato principal:** _(a preencher)_
