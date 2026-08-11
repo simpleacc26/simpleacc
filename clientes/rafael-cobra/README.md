@@ -1,7 +1,9 @@
 # Rafael Cobra
 
-**Cliente novo.** Call de vendas em 04/08/2026, canvases em 06/08, **onboarding
-em 11/08**. Psicanalista, 46 anos, nicho de **relacionamentos**, com **333 mil
+**Cliente novo — proposta FECHADA.** Call de vendas em 04/08/2026, canvases em
+06/08, **onboarding em 11/08**. Contrato: **R$ 15 mil** (de R$ 20 mil) ou
+12× R$ 1.500 — consultoria de implementação. Entregáveis conferidos em
+`estrategia/2026-08-11-entregaveis-contratados.md`. Psicanalista, 46 anos, nicho de **relacionamentos**, com **333 mil
 seguidores construídos organicamente** no Instagram
 ([@orafaelcobra](https://instagram.com/orafaelcobra), verificado). Ex-remador da
 seleção brasileira.
@@ -59,6 +61,7 @@ lados em `estrategia/`; **para conduzir a call use**
 
 | Projeto | Pasta | Status | Entrega |
 | ------- | ----- | ------ | ------- |
+| **Entregáveis contratados (checklist)** | `estrategia/2026-08-11-entregaveis-contratados.md` | **fechado — executar** | — |
 | **Preparação da call de onboarding** | `estrategia/2026-08-10-preparacao-call-onboarding.md` | **pronto para 11/08** | — |
 | Canvas do Produto + Cliente Ideal (preenchido, 2 produtos) | `contexto/2026-08-06-canvas-preenchido.html` | entregue — **v2** | [Google Doc v2](https://docs.google.com/document/d/1UTuXQeTV9kDgu26H8dBKGFzqwdhDHYledTYc4l2vJ70/edit) em "1. Documentos" |
 | Análise "qual produto entra primeiro" (INTERNO) | `estrategia/2026-08-06-analise-priorizacao-interno.html` | entregue — **v2** | [Google Doc v2](https://docs.google.com/document/d/1d7fM6G8dRmiWQ_OvE-bAXJT82xiaviezYDmNSuv4MDI/edit) em "3. Estratégia e Tráfego" |

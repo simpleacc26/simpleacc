@@ -38,8 +38,12 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
   fez parar 1,5 ano. Esposa: **Dani**. Ele trouxe o assunto por conta própria e
   disse "não negocio isso, só estou contextualizando" — **não é alavanca de
   venda, não vira tema central**.
-- **Contrato Simple:** R$ 15 mil (de R$ 20 mil) ou 12× R$ 1.500. Meta: R$ 100
-  mil/mês; fase 1 = 2 a 5 vendas high ticket/mês.
+- **Contrato Simple: FECHADO.** R$ 15 mil (de R$ 20 mil) ou 12× R$ 1.500 —
+  **consultoria de implementação** (não é agência nem co-produção). Meta: R$ 100
+  mil/mês; fase 1 = 2 a 5 vendas high ticket/mês. **Checklist de entregáveis em
+  `estrategia/2026-08-11-entregaveis-contratados.md`** — a lista veio da call de
+  vendas; o **deck enviado por e-mail é o documento que vale e ainda não está no
+  repo**.
 - **Atenção de calendário:** **viagem aos EUA em outubro**, dentro dos 90 dias.
 
 - **São DOIS produtos, em estágios muito diferentes:**
