@@ -1,11 +1,17 @@
 /* ============================================================
    INTEGRAÇÃO LEADS -> GOOGLE SHEETS  (Google Apps Script)
    Recebe os leads do funil e grava na planilha automaticamente.
-   Plano B do Make: use este arquivo se preferir Apps Script direto
-   na planilha, sem cenário no Make.
+
+   ⚠️ Neste funil o Apps Script é a rota PRINCIPAL, não o plano B: ele é
+   gratuito e não consome operação do Make (decisão do Daniel em 11/08).
+
+   Planilha: "Planilha de Leads - Thaina e Thiago (Diagnóstico do Ciclo) -
+   Simple Acc", na pasta "3. Estratégia e Tráfego" do Drive do cliente.
+   ID 1aAl3LvOLWJVAmC64IhvbA4B3reiHTPoi5d2sYWsJap4
+   O cabeçalho abaixo já está na planilha, e o ensureHeader() o mantém.
 
    COMO ATIVAR (2 minutos, uma vez só):
-   1. Abra a planilha "Leads · Diagnóstico do Ciclo · Mulher que Escolhe"
+   1. Abra a planilha acima
    2. Menu  Extensões  ->  Apps Script
    3. Apague o conteúdo e cole TODO este arquivo. Salve.
    4. Botão  Implantar  ->  Nova implantação

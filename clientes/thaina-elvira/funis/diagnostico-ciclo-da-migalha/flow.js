@@ -36,11 +36,13 @@ window.FLOW = {
     cta: "Começar meu diagnóstico",
   },
 
-  /* Ordem SPIN: baixa fricção primeiro, qualificação (perfil + prontidão) por
-     último. Em 'report' fica a frase usada no relatório de diagnóstico.
-     'peso' alimenta a leitura de intensidade do ciclo (3 = ciclo mais ativo).
-     tempo, objetivo, perfil e prontidão não têm peso: não entram na
-     intensidade, só na leitura e na qualificação.
+  /* Ordem SPIN: baixa fricção primeiro, as duas porteiras (perfil e prontidão)
+     por último. Em 'report' fica a frase usada no relatório de diagnóstico.
+     'peso' alimenta o cálculo do ICM, o Índice do Ciclo da Migalha
+     (3 = ciclo mais ativo, 0 = menos).
+     tempo, objetivo, perfil e prontidão não têm peso: não entram no ICM,
+     só na leitura e na qualificação.
+     O campo 'etapa' é organização interna: NUNCA é renderizado na tela.
      Cada pergunta alimenta um elo do Mapa do Ciclo, então o quiz é ao mesmo
      tempo captação e pré-work da sessão. */
   steps: [
@@ -51,7 +53,7 @@ window.FLOW = {
       options: [
         { value: "indefinido", label: "Estou vivendo algo com alguém, mas nada se define", peso: 3,
           report: "viver algo que não se define" },
-        { value: "sozinha", label: "Estou sozinha e querendo um relacionamento de verdade", peso: 1,
+        { value: "sozinha", label: "Estou sozinha e querendo um relacionamento de verdade", peso: 0,
           report: "estar sozinha e querendo algo de verdade" },
         { value: "saindo", label: "Estou saindo de um relacionamento que me machucou", peso: 2,
           report: "estar saindo de uma relação que machucou" },
@@ -71,7 +73,7 @@ window.FLOW = {
           report: "o sumiço seguido do retorno como se nada tivesse acontecido" },
         { value: "indefinicao", label: "Nunca fica claro o que a gente é, e eu não pergunto", peso: 3,
           report: "a falta de definição sobre o que vocês são" },
-        { value: "promessa", label: "Ele diz que quer, mas nunca dá o próximo passo", peso: 2,
+        { value: "promessa", label: "Ele diz que quer, mas nunca dá o próximo passo", peso: 1,
           report: "a promessa que nunca vira próximo passo" },
       ],
     },
@@ -93,15 +95,15 @@ window.FLOW = {
           report: "cobrar, discutir e depois se arrepender",
           padrao: "Ciclo da Cobrança",
           padraoDesc: "o ciclo se sustenta na cobrança seguida de arrependimento, e o alívio vem quando ele reage." },
-        { value: "afastamento", label: "Finjo indiferença e espero que ele venha atrás", peso: 2,
+        { value: "afastamento", label: "Finjo indiferença e espero que ele venha atrás", peso: 1,
           report: "fingir indiferença e esperar que ele venha atrás",
           padrao: "Ciclo do Afastamento",
           padraoDesc: "o ciclo se sustenta no afastamento estratégico, que é outra forma de esperar a migalha." },
       ],
     },
     {
-      /* Passo adicionado no padrão do funil do Felipe: enriquece a leitura do
-         relatório e não entra no cálculo da intensidade. */
+      /* Passo 3 do blueprint ("há quanto tempo"): cronifica a dor. Enriquece a
+         leitura do relatório e não entra no cálculo do ICM. */
       id: "tempo",
       etapa: "Há quanto tempo",
       pergunta: "Há quanto tempo esse padrão se repete na sua vida?",
@@ -121,7 +123,7 @@ window.FLOW = {
           report: "tudo continuar do mesmo jeito" },
         { value: "sozinha", label: "Sozinha, e é o que mais me dói pensar", peso: 3,
           report: "chegar lá sozinha" },
-        { value: "repetindo", label: "Com outra pessoa, repetindo a mesma história", peso: 2,
+        { value: "repetindo", label: "Com outra pessoa, repetindo a mesma história", peso: 1,
           report: "repetir a mesma história com outra pessoa" },
         { value: "nao-penso", label: "Não consigo nem imaginar, prefiro não pensar", peso: 2,
           report: "nem conseguir imaginar" },

@@ -22,10 +22,15 @@
     .padrao-badge { display: inline-flex; flex-direction: column; align-items: center; gap: 4px; margin: 2px 0 12px; padding: 16px 26px; border-radius: var(--radius); border: 1px solid color-mix(in srgb, var(--rose) 34%, var(--border)); background: var(--rose-soft); }
     .padrao-nome { font-family: var(--font-serif); font-size: 27px; font-weight: 700; line-height: 1.1; color: var(--rose-light); }
     .padrao-elo { font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
-    .chip { display: inline-block; font-size: 12.5px; font-weight: 600; padding: 6px 13px; border-radius: 99px; border: 1px solid var(--border); background: var(--surface); color: var(--muted); }
-    .chip.int-alta { color: #E0917A; border-color: rgba(224,145,122,.45); }
-    .chip.int-media { color: var(--champagne); border-color: rgba(223,195,160,.4); }
-    .chip.int-leve { color: #8FC4A8; border-color: rgba(143,196,168,.4); }
+    /* selo do ICM, o índice nomeado do funil */
+    .icm-badge { display: inline-flex; flex-direction: column; align-items: center; gap: 2px; margin: 4px 0 10px; padding: 12px 24px; border-radius: var(--radius); border: 1px solid var(--border); background: var(--rose-soft); }
+    .icm-badge .icm-num { font-family: var(--font-serif); font-size: 38px; font-weight: 700; line-height: 1; color: var(--rose-light); }
+    .icm-badge .icm-label { font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+    .icm-alto .icm-num { color: #E0917A; }
+    .icm-medio .icm-num { color: var(--champagne); }
+    .icm-baixo .icm-num { color: #8FC4A8; }
+    .icm-exp { font-size: 13.5px; color: var(--muted); margin: 0 auto; max-width: 420px; }
+    .icm-exp strong { color: var(--rose-light); }
     .report-head .hint { display: block; margin-top: 12px; }
 
     /* --- blocos da página --- */
@@ -77,6 +82,18 @@
     .autor-foto { width: 84px; height: 84px; flex: 0 0 84px; border-radius: 50%; object-fit: cover; border: 2px solid var(--rose); }
     .autor-nome { display: block; font-family: var(--font-serif); font-size: 19px; font-weight: 700; letter-spacing: .05em; color: var(--rose-light); line-height: 1.15; }
     .autor-cargo { display: block; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
+    .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0 6px; }
+    .cred { border: 1px solid var(--border); border-radius: var(--radius-sm); background: color-mix(in srgb, var(--rose) 5%, var(--surface)); padding: 13px 14px; }
+    .cred .n { font-family: var(--font-serif); font-size: 21px; font-weight: 700; color: var(--rose-light); line-height: 1.05; }
+    .cred .d { font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+    .cred.full { grid-column: 1 / -1; }
+    @media (max-width: 520px){ .cred-grid { grid-template-columns: 1fr; } }
+
+    /* galeria de depoimentos. Ainda sem prints reais: quando chegarem, converter
+       para WebP ~520px e somar um bloco .etapa com esta galeria antes da autoridade. */
+    .depo-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0 6px; }
+    .depo-shot { width: 100%; height: auto; display: block; border-radius: var(--radius-sm); border: 1px solid var(--border); box-shadow: var(--shadow); background: #fff; }
+    @media (max-width: 520px){ .depo-gallery { grid-template-columns: 1fr; } }
 
     /* --- CTA final --- */
     .cta-box { background: color-mix(in srgb, var(--rose) 8%, var(--surface)); border: 1px solid color-mix(in srgb, var(--rose) 26%, var(--border)); border-radius: var(--radius); padding: 24px 22px; text-align: center; margin-top: 8px; }

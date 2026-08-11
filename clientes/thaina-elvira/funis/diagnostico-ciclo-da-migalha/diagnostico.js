@@ -1,11 +1,14 @@
 /* ============================================================
    DIAGNÓSTICO DO CICLO. Monta o relatório a partir das respostas do
-   quiz (sessionStorage), nomeia o padrão, aponta o elo dominante e
-   habilita os CTAs de WhatsApp distribuídos pela página.
-   Estrutura invisível espelhada do quiz de alta conversão da Pâmella,
-   no padrão já ajustado no funil do Felipe Damasceno (espelho do
-   cenário, reframe, lacuna, método, CTAs distribuídos, CTA final
-   adaptado à qualificação).
+   quiz (sessionStorage), nomeia o padrão, calcula o ICM e habilita os
+   CTAs de WhatsApp distribuídos pela página.
+
+   Segue o blueprint canônico da casa
+   (.claude/skills/gerar-quiz-diag-pag-pos-quiz/references/estrutura-invisivel.md):
+   cabeçalho com selo do índice, "antes de tudo", espelho do cenário,
+   reframe, dois caminhos, método, próximo passo, CTAs distribuídos,
+   bloco de autoridade e CTA final adaptado às 3 faixas.
+
    ⚠️ Sem preço, sem checkout e sem pré-agendamento pago. Um único
    destino: o WhatsApp. Decisão da call de 04/08.
    Padrão de escrita: nunca usar travessões (traço longo).
@@ -28,24 +31,38 @@ function opcao(stepId) {
   const val = (getState().answers || {})[stepId];
   return (step && step.options.find(o => o.value === val)) || null;
 }
-function valor(stepId) { return (getState().answers || {})[stepId]; }
 function esc(s) { return String(s == null ? "" : s).replace(/[<>&]/g, c => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c])); }
 
-/* Intensidade do ciclo, a partir dos pesos de situação, gatilho, reação,
-   implicação e tentativas. Tempo, objetivo, perfil e prontidão não entram.
-   Máximo 15. Descreve o ciclo, nunca a pessoa. */
-function calcIntensidade() {
+/* ICM, Índice do Ciclo da Migalha. Sai dos pesos (0 a 3) só das perguntas de
+   diagnóstico: situação, gatilho, reação, implicação e tentativas. Tempo,
+   objetivo e as duas porteiras (perfil e prontidão) não pontuam.
+   Corte padrão da casa: ≥66% Alto, 33 a 65% Médio, abaixo disso Baixo.
+   Observação honesta: este quiz não tem alternativa de "está tudo bem", então o
+   piso real é ~53%. Na prática o ICM sai Alto ou Médio, nunca Baixo. */
+function calcICM() {
   const a = getState().answers || {};
-  let soma = 0;
+  let soma = 0, max = 0;
   ["situacao", "gatilho", "reacao", "implicacao", "tentativas"].forEach(id => {
     const step = F.steps.find(s => s.id === id);
     if (!step) return;
+    max += Math.max(...step.options.map(o => o.peso || 0));
     const opt = step.options.find(o => o.value === a[id]);
     soma += (opt && opt.peso) || 0;
   });
-  if (soma >= 12) return { nivel: "Intensa", cor: "int-alta" };
-  if (soma >= 9) return { nivel: "Moderada", cor: "int-media" };
-  return { nivel: "Leve", cor: "int-leve" };
+  const pct = max ? Math.round((soma / max) * 100) : 0;
+  let nivel = "Baixo", cor = "icm-baixo";
+  if (pct >= 66) { nivel = "Alto"; cor = "icm-alto"; }
+  else if (pct >= 33) { nivel = "Médio"; cor = "icm-medio"; }
+  return { pct, nivel, cor };
+}
+
+/* Régua de qualificação. Mesma do app.js, repetida aqui porque o relatório é
+   uma página separada e não carrega o app.js. */
+function classificar(ans) {
+  if (ans.perfil === "casada" && ans.situacao !== "sem-valor") return "fora";
+  if (ans.prontidao === "depois") return "nutrir";
+  if (ans.prontidao === "prioridade" || ans.prontidao === "se-funciona") return "fila-quente";
+  return "qualificado";
 }
 
 const a = getState().answers || {};
@@ -62,7 +79,7 @@ if (!a._completedAt && !a.reacao) {
 } else {
   const nome = esc((a.nomeResp || "").split(" ")[0]);
   const saud = nome ? nome + ", " : "";
-  const intens = calcIntensidade();
+  const icm = calcICM();
   const padraoDesc = (optReacao && optReacao.padraoDesc) || "o ciclo se sustenta na busca por um alívio que vem de fora.";
 
   const situacao = frase("situacao") || "o que você está vivendo hoje";
@@ -75,7 +92,7 @@ if (!a._completedAt && !a.reacao) {
 
   const classe = classificar(a);
 
-  /* CTA adaptado ao nível de qualificação (perfil + prontidão) */
+  /* CTA final adaptado às 3 faixas. Ninguém leva porta na cara. */
   let ctaLabel, ctaExtra, fecho;
   if (classe === "fora") {
     ctaLabel = "Falar com a equipe no WhatsApp";
@@ -88,10 +105,11 @@ if (!a._completedAt && !a.reacao) {
   } else {
     ctaLabel = "Quero entender o meu ciclo completo";
     ctaExtra = '<p class="hint">Fale com a nossa equipe no WhatsApp. A gente te explica como funciona a sessão, tira as suas dúvidas e vê se faz sentido para o seu momento. Sem compromisso.</p>';
-    fecho = '<p class="fecho">A conversa é discreta e fica só entre nós.</p>';
+    fecho = '<p class="fecho">A agenda do Thiago é limitada por semana, porque cada sessão é individual e preparada antes.</p>';
   }
   /* CTA reutilizável, distribuído pela página (ela clica quando se sentir
-     pronta). Aparece depois do bloco 3, depois do bloco 6 e no fim. */
+     pronta). Mínimo 3 no total: depois dos dois caminhos, depois do método e no
+     fim. Quem se convenceu no meio não precisa rolar até o fim. */
   const ctaInline = (texto) => `
     <div class="cta-inline">
       <button class="btn btn-primary cta-wpp">${ctaLabel}</button>
@@ -106,17 +124,27 @@ if (!a._completedAt && !a.reacao) {
         <span class="padrao-nome">${esc(padrao)}</span>
         <span class="padrao-elo">Elo dominante: a reação</span>
       </div>
-      <span class="chip ${intens.cor}">Intensidade do ciclo: ${intens.nivel}</span>
+      <div class="icm-badge ${icm.cor}">
+        <span class="icm-num">${icm.pct}%</span>
+        <span class="icm-label">ICM ${icm.nivel}</span>
+      </div>
+      <p class="icm-exp"><strong>ICM, Índice do Ciclo da Migalha:</strong> mede o quanto o seu ciclo está ativo hoje, a partir de cinco das suas respostas.</p>
       <p class="hint">Elaborado com base nas suas respostas · ${new Date().toLocaleDateString("pt-BR")}</p>
     </div>
 
     <div class="etapa">
+      <h3>Antes de tudo</h3>
+      <p>${saud}li com atenção tudo o que você respondeu. E quero começar por uma coisa que talvez
+      ninguém tenha te dito: <strong>o que você vive não é burrice, não é carência e não é falta de
+      sorte.</strong> É um mecanismo, e mecanismo tem como desmontar.</p>
+    </div>
+
+    <div class="etapa">
       <h3>O seu resultado</h3>
-      <p>${saud}pelas suas respostas, o que dispara o seu ciclo é <strong>${gatilho}</strong>, e a forma como
+      <p>Pelas suas respostas, o que dispara o seu ciclo é <strong>${gatilho}</strong>, e a forma como
       você busca alívio é <strong>${reacao}</strong>. É daí que vem o nome: <strong>${esc(padrao)}</strong>,
       onde ${padraoDesc}</p>
-      <p>Isso não é coincidência, e não é falta de sorte. Continue lendo: em dois minutos você vai entender
-      exatamente por que a mesma história se repete.</p>
+      <p>Continue lendo: em dois minutos você vai entender exatamente por que a mesma história se repete.</p>
     </div>
 
     <div class="etapa">
@@ -137,7 +165,7 @@ if (!a._completedAt && !a.reacao) {
     <div class="etapa">
       <h3>Você viu um elo. O seu ciclo tem cinco.</h3>
       <p>O que prende uma mulher inteligente numa história que ela mesma sabe que não leva a lugar nenhum
-      não é burrice e não é carência. É um mecanismo, e ele funciona assim:</p>
+      não é falta de inteligência. É um mecanismo, e ele funciona assim:</p>
       <ol class="elos">
         <li><strong>O gatilho.</strong> Uma incerteza dispara: a demora, o esfriamento, a frase ambígua.
           <span class="seu">No seu caso: ${gatilho}.</span></li>
@@ -175,32 +203,12 @@ if (!a._completedAt && !a.reacao) {
       <p>Pior: algumas dessas técnicas <strong>alimentam o ciclo</strong>. Fingir indiferença para ele vir
       atrás é, na prática, mais uma forma de esperar a migalha. Muda a roupa, mantém o mecanismo.</p>
       <p>Terapia ajuda, e muito, mas trabalha em outro tempo e em outro lugar. O que quase ninguém te
-      ofereceu foi o mapa: o desenho do seu ciclo específico, com o ponto exato onde intervir.</p>
+      ofereceu foi o mapa: o desenho do seu ciclo específico, com o ponto exato onde intervir.
+      <strong>Não é falta de esforço seu; é a causa que não foi endereçada.</strong></p>
     </div>
 
     <div class="etapa">
-      <h3>Quem é o Thiago</h3>
-      <div class="autor">
-        <div class="autor-ini" aria-hidden="true">T</div>
-        <div>
-          <span class="autor-nome">THIAGO</span>
-          <span class="autor-cargo">Criador do Método Mulher que Escolhe</span>
-        </div>
-      </div>
-      <p>Quase todo conselho que você recebe vem de outra mulher vivendo o mesmo, ou de quem vende técnica
-      de conquista.</p>
-      <p>O Thiago ocupa um lugar diferente: <strong>é um homem explicando, sem julgamento e sem passar a mão
-      na sua cabeça, o que costuma acontecer do outro lado.</strong> A diferença entre estar interessado e
-      estar disponível. O que significa o esfriamento depois de duas semanas intensas. Por que o "oi sumida"
-      funciona tão bem.</p>
-      <p>Ele não está tentando te conquistar, e não está defendendo os homens. Está do seu lado, dizendo o
-      que os seus amigos não dizem para não te magoar.</p>
-      <p>Foi acompanhando dezenas de mulheres nesse processo, sem cobrar nada, que ele mapeou o Ciclo da
-      Migalha e transformou isso em método.</p>
-    </div>
-
-    <div class="etapa">
-      <h3>O método e a sessão</h3>
+      <h3>O método e o que acontece na sessão</h3>
       <p><strong>O Método Mulher que Escolhe</strong> tem quatro etapas:</p>
       <ol class="metodo">
         <li><strong>Regulação:</strong> atravessar a ansiedade sem buscar alívio nele.</li>
@@ -218,7 +226,7 @@ if (!a._completedAt && !a.reacao) {
         <li>o mapa por escrito em uma página e a <strong>gravação da conversa</strong>, para rever quando a ansiedade bater</li>
       </ul>
       <p>Em uma frase: você entra confusa e com culpa, e sai com mapa, direção e um caminho possível. O que
-      você disse querer, <strong>${objetivo}</strong>, começa por aí.</p>
+      você disse querer, <strong>${objetivo}</strong>, começa por aí. E não começa por ele: começa por você.</p>
     </div>
 
     ${ctaInline("A equipe responde no WhatsApp e explica como funciona.")}
@@ -264,6 +272,38 @@ if (!a._completedAt && !a.reacao) {
         o seu caso do que entrou.</p></details>
     </div>
 
+    <div class="etapa">
+      <h3>Quem é o Thiago</h3>
+      <div class="autor">
+        <!-- Quando vier a foto oficial, trocar por:
+             <img class="autor-foto" src="thiago.webp" alt="Thiago" /> -->
+        <div class="autor-ini" aria-hidden="true">T</div>
+        <div>
+          <span class="autor-nome">THIAGO</span>
+          <span class="autor-cargo">Criador do Método Mulher que Escolhe</span>
+        </div>
+      </div>
+      <p>Quase todo conselho que você recebe vem de outra mulher vivendo o mesmo, ou de quem vende técnica
+      de conquista.</p>
+      <p>O Thiago ocupa um lugar diferente: <strong>é um homem explicando, sem julgamento e sem passar a mão
+      na sua cabeça, o que costuma acontecer do outro lado.</strong> A diferença entre estar interessado e
+      estar disponível. O que significa o esfriamento depois de duas semanas intensas. Por que o "oi sumida"
+      funciona tão bem.</p>
+      <p>Ele não está tentando te conquistar, e não está defendendo os homens. Está do seu lado, dizendo o
+      que os seus amigos não dizem para não te magoar.</p>
+      <p>Foi acompanhando dezenas de mulheres nesse processo, sem cobrar nada, que ele mapeou o Ciclo da
+      Migalha e transformou isso em método.</p>
+      <!-- ⚠️ Só entra aqui o que está ESCRITO no material do cliente. Estes 4 itens
+           saem da estratégia aprovada. Quando o Thiago mandar credenciais reais
+           (formação, tempo de atuação, número de atendimentos), troque por elas. -->
+      <div class="cred-grid">
+        <div class="cred"><div class="n">Dezenas</div><div class="d">de mulheres acompanhadas nesse processo, sem cobrar nada</div></div>
+        <div class="cred"><div class="n">5 elos</div><div class="d">o Ciclo da Migalha, mapeado por ele</div></div>
+        <div class="cred"><div class="n">4 etapas</div><div class="d">do Método Mulher que Escolhe</div></div>
+        <div class="cred"><div class="n">60 min</div><div class="d">individuais e ao vivo, com o mapa por escrito</div></div>
+      </div>
+    </div>
+
     <div class="cta-box">
       <h2 style="margin-top:0">O próximo passo${nome ? ", " + nome : ""}</h2>
       <p>Você já sabe o nome do seu padrão. Falta o mapa inteiro.</p>
@@ -272,16 +312,8 @@ if (!a._completedAt && !a.reacao) {
         <button class="btn btn-primary cta-wpp">${ctaLabel}</button>
       </div>
       ${fecho}
+      <p class="fecho">A conversa é discreta e fica só entre nós.</p>
     </div>`;
-}
-
-/* Mesma régua do app.js. Repetida aqui porque o relatório é uma página
-   separada e não carrega o app.js. */
-function classificar(ans) {
-  if (ans.perfil === "casada" && ans.situacao !== "sem-valor") return "fora";
-  if (ans.prontidao === "depois") return "nutrir";
-  if (ans.prontidao === "prioridade" || ans.prontidao === "se-funciona") return "fila-quente";
-  return "qualificado";
 }
 
 /* ---------- WhatsApp (CTAs distribuídos) ---------- */

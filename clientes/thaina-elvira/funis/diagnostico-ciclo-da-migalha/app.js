@@ -10,9 +10,13 @@
    Vazio = só loga no console. ---- */
 const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
 
-/* Planilha de leads. Webhook do Make (ou Apps Script) que grava na planilha
-   de leads do funil. ⚠️ PENDÊNCIA: criar a planilha e o cenário e colar a URL
-   aqui. Vazio = não envia (só salva local + segue pro diagnóstico). */
+/* Planilha de leads. Neste funil a integração é por GOOGLE APPS SCRIPT, não por
+   Make: é gratuita e não consome operação (decisão do Daniel em 11/08).
+   A planilha já existe: "Planilha de Leads - Thaina e Thiago (Diagnóstico do
+   Ciclo) - Simple Acc", ID 1aAl3LvOLWJVAmC64IhvbA4B3reiHTPoi5d2sYWsJap4.
+   ⚠️ PENDÊNCIA: implantar o integracao-planilha.gs (o passo de autorização é do
+   dono da conta Google) e colar aqui a URL que termina em /exec.
+   Vazio = não envia (só salva local + segue pro diagnóstico). */
 const LEADS_ENDPOINT = "";
 
 /* UTMs capturadas da URL no carregamento (a página do quiz não muda de URL até
@@ -282,8 +286,8 @@ function renderLoading() {
   const dur = reduce ? 800 : 4700;
   const msgs = [
     "Lendo as suas respostas...",
-    "Localizando o elo que sustenta o seu ciclo...",
-    "Montando o seu diagnóstico personalizado...",
+    "Calculando o seu ICM, o Índice do Ciclo da Migalha...",
+    "Montando o seu Diagnóstico do Ciclo personalizado...",
   ];
   const screen = el(`
     <section class="card screen loading-card">
