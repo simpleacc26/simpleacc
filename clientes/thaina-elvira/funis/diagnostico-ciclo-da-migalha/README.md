@@ -142,41 +142,53 @@ Cabeçalho com o padrão nomeado e o selo do ICM, e depois:
 9. quem é o Thiago (autoridade + grade)
 10. **CTA 3**, adaptado à qualificação
 
-## Planilha de leads (por Apps Script, não por Make)
+## No ar
 
-A planilha já existe, com as 22 colunas certas:
-**[Planilha de Leads - Thaina e Thiago (Diagnóstico do Ciclo) - Simple Acc](https://docs.google.com/spreadsheets/d/1aAl3LvOLWJVAmC64IhvbA4B3reiHTPoi5d2sYWsJap4/edit)**
-(pasta "3. Estratégia e Tráfego" do Drive do cliente).
+**https://quiz-thaina-thiago.vercel.app**
 
-A integração vai por **Google Apps Script**, e não por cenário no Make, porque é
-gratuita e não consome operação do plano (o plano do time é Core, 10.000
-operações/mês). Decisão do Daniel em 11/08. Bônus: o Apps Script grava pela
-primeira aba (`getSheets()[0]`), então a armadilha do nome de aba "Untitled"
-que quebra o `addRow` do Make não existe aqui.
+Produção, no time da Simple na Vercel (`team_bD5dst9eSAc4qVaaynXWifXr`), projeto
+`quiz-thaina-thiago`. Os 8 assets foram conferidos em 200 depois do deploy.
 
-Para ligar (o passo de autorização do Google é do dono da conta, 2 minutos):
+⚠️ O alias `quiz-thaina-thiago-simpleacc.vercel.app` responde **302** (fica atrás
+do SSO do time). O link público é o curto acima. Rodar tráfego apontando para a
+**raiz com query** (`/?utm_source=...&utm_campaign=...`), nunca para `/index.html`.
 
-1. Abra a planilha → **Extensões → Apps Script**
-2. Apague o conteúdo, cole todo o `integracao-planilha.gs` e salve
-3. **Implantar → Nova implantação → App da Web**, executar como *Eu*, acesso
-   *Qualquer pessoa* → Implantar → Autorizar
-4. Copie a URL que termina em `/exec` e me mande: eu colo em
-   `app.js → LEADS_ENDPOINT` e rodo o lead de teste de ponta a ponta
+## Planilha de leads (Make → Sheets, ligado e testado)
 
-Só considere pronto depois que uma linha de teste cair na planilha, com as UTMs.
-Valide **lendo a planilha**, nunca o status HTTP.
+- **Planilha**: [Planilha de Leads - Thaina e Thiago (Diagnóstico do Ciclo) - Simple Acc](https://docs.google.com/spreadsheets/d/1aAl3LvOLWJVAmC64IhvbA4B3reiHTPoi5d2sYWsJap4/edit),
+  pasta "3. Estratégia e Tráfego" do Drive do cliente.
+  ID `1aAl3LvOLWJVAmC64IhvbA4B3reiHTPoi5d2sYWsJap4`, aba **`Untitled`**, 22 colunas.
+- **Cenário Make**: "[Thaina e Thiago] Diagnóstico do Ciclo → Sheets"
+  (id 5917422, time Simple Acc), trigger webhook instantâneo, ativo.
+- **Endpoint** em `app.js → LEADS_ENDPOINT`.
+- **Testado**: dois leads de teste caíram na planilha com as 22 colunas e as
+  UTMs, com a data em horário de Brasília. Apagar essas duas linhas antes de
+  subir tráfego.
 
-## Pendências para publicar
+⚠️ O POST precisa ir com `Content-Type: application/json`. Com `text/plain` o
+webhook do Make não parseia o corpo e a linha cai vazia, sem erro nenhum. O
+webhook devolve `access-control-allow-origin: *` (conferido com o Origin do
+funil), então o envio do navegador passa.
 
-1. **WhatsApp de atendimento** (bloqueante): preencher `flow.js → marca.whatsapp`
-   com o número em formato internacional, só dígitos. Enquanto tiver "X", os
-   CTAs não abrem o WhatsApp e a página mostra um aviso de configuração no topo.
-2. **URL do Apps Script** (bloqueante): ver a seção acima.
-3. **Deploy na Vercel**: publicar só esta pasta, no time da Simple (nunca conta
-   pessoal), com o nome de projeto `quiz-thaina-thiago` (o nome vira a URL e não
-   dá para renomear depois). Conferir todos os assets com `curl` depois do
-   deploy: publicação substitui a árvore inteira e arquivo faltando vira 404 mudo.
-4. **Logo oficial**: hoje usa o emblema de ciclo aberto em SVG + marca em texto.
+⚠️ A aba se chama **`Untitled`** porque a planilha nasceu de um CSV. O `addRow`
+referencia a aba pelo NOME: se alguém renomear, o módulo quebra com
+`400 Unable to parse range` e o Make desativa o cenário.
+
+O `integracao-planilha.gs` fica no repo como plano B (caso um dia se queira sair
+do Make e usar Apps Script direto na planilha).
+
+O **WhatsApp de atendimento** é o `+55 11 94514-8716` (`flow.js → marca.whatsapp`).
+A trava continua no código: se o número um dia sair ou voltar a ter "X", os CTAs
+param de abrir o WhatsApp e a página mostra um aviso no topo, de propósito.
+
+## Pendências
+
+1. **Republicar a partir desta pasta**: os deploys até aqui foram feitos pelo MCP
+   da Vercel, com os arquivos colados sem os blocos de comentário (a lógica e o
+   texto do funil são idênticos ao repo). No próximo deploy, publicar a pasta
+   direto pelo `vercel` CLI para produção e repo ficarem iguais byte a byte.
+2. **Apagar as 2 linhas de teste** da planilha antes de subir tráfego.
+3. **Logo oficial**: hoje usa o emblema de ciclo aberto em SVG + marca em texto.
    Quando vier o arquivo, colocar `logo.png` e ativar `<img class="logo-img">`.
 5. **Foto do Thiago**: hoje o bloco de autoridade usa a inicial. Quando vier a
    foto, trocar `.autor-ini` por `<img class="autor-foto" src="thiago.webp">`

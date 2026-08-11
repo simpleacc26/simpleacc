@@ -10,14 +10,12 @@
    Vazio = só loga no console. ---- */
 const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
 
-/* Planilha de leads. Neste funil a integração é por GOOGLE APPS SCRIPT, não por
-   Make: é gratuita e não consome operação (decisão do Daniel em 11/08).
-   A planilha já existe: "Planilha de Leads - Thaina e Thiago (Diagnóstico do
-   Ciclo) - Simple Acc", ID 1aAl3LvOLWJVAmC64IhvbA4B3reiHTPoi5d2sYWsJap4.
-   ⚠️ PENDÊNCIA: implantar o integracao-planilha.gs (o passo de autorização é do
-   dono da conta Google) e colar aqui a URL que termina em /exec.
+/* Planilha de leads. Webhook do Make que grava na planilha
+   "Planilha de Leads - Thaina e Thiago (Diagnóstico do Ciclo) - Simple Acc"
+   (ID 1aAl3LvOLWJVAmC64IhvbA4B3reiHTPoi5d2sYWsJap4, aba "Untitled"),
+   cenário "[Thaina e Thiago] Diagnóstico do Ciclo → Sheets" (id 5917422).
    Vazio = não envia (só salva local + segue pro diagnóstico). */
-const LEADS_ENDPOINT = "";
+const LEADS_ENDPOINT = "https://hook.us2.make.com/ihw791qjf1jhlz4es96meisghjvu3313";
 
 /* UTMs capturadas da URL no carregamento (a página do quiz não muda de URL até
    o envio, então isso preserva os parâmetros do anúncio). */

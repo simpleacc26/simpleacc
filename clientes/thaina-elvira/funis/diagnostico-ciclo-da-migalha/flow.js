@@ -19,10 +19,11 @@ window.FLOW = {
   marca: {
     nome: "Mulher que Escolhe",
     expert: "Thiago",
-    /* ⚠️ PENDÊNCIA: trocar pelo WhatsApp oficial de atendimento, formato
-       internacional e só dígitos (ex.: "5511999999999"). Enquanto tiver "X",
-       o botão não abre o WhatsApp (evita mandar lead para número errado). */
-    whatsapp: "55XXXXXXXXXXX",
+    /* WhatsApp de atendimento, formato internacional e só dígitos.
+       (+55 11 94514-8716, informado pelo Daniel em 11/08.)
+       Se algum dia voltar a ter "X", o botão não abre o WhatsApp de propósito,
+       para não mandar lead para número errado. */
+    whatsapp: "5511945148716",
     // Texto que abre no WhatsApp ({nome} e {padrao} são trocados na hora)
     whatsappMsg: "Oi! Sou {nome}, acabei de fazer o diagnóstico e meu resultado foi {padrao}. Quero entender melhor como funciona a sessão.",
   },
