@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { ArrowRight, Check, AlertCircle, MessageCircle, ExternalLink } from "lucide-react";
 import { answerLabels } from "../data/questions";
 import { fbqTrack } from "../analytics";
+import { getRota } from "../lib/rota";
 import type { LeadData } from "./LeadCaptureForm";
 
 const ROSE = "#C87B75";
@@ -9,9 +10,20 @@ const CARD = "#2D1108";
 const CARD2 = "#3A1510";
 const BG = "#1A0900";
 
-// Preencha com o número do WhatsApp do Gustavo (formato internacional, sem + ou espaços)
-const WHATSAPP_NUMBER = "5511XXXXXXXXX";
+// Número do WhatsApp do Gustavo, formato internacional, só dígitos (ex.: 5511987654321).
+// Definido em VITE_WHATSAPP_NUMBER (.env local e Environment Variables na Vercel).
+const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER ?? "";
 const LOW_TICKET_URL = "https://pay.hotmart.com/X104749935I?bid=1778078139368";
+
+if (!/^\d{12,13}$/.test(WHATSAPP_NUMBER)) {
+  // A Rota A inteira depende deste número. Sem ele o botão de agendamento não
+  // abre conversa nenhuma, e a lead qualificada morre na página.
+  console.error(
+    "[quiz] VITE_WHATSAPP_NUMBER ausente ou inválido:",
+    JSON.stringify(WHATSAPP_NUMBER),
+    "— o CTA de agendamento da Rota A não vai funcionar."
+  );
+}
 
 interface ReportScreenProps {
   leadData: LeadData;
@@ -164,6 +176,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
   const pilares = buildPilares(answers);
   const criticos = pilares.filter((p) => p.status === "critico").length;
   const whatsappUrl = buildWhatsAppUrl(firstName);
+  const rota = getRota(answers);
 
   const handleWhatsAppClick = () => {
     fbqTrack("Contact", { content_name: "Sessão Diagnóstica Gratuita", content_category: "Mentoria" });
@@ -265,73 +278,161 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
           </div>
         </Section>
 
-        {/* ── 4. Proposta da sessão ── */}
-        <Section>
-          <h2
-            style={{
-              ...headlineStyle,
-              fontSize: "clamp(1.2rem, 3vw, 1.6rem)",
-              marginBottom: "0.75rem",
-            }}
-          >
-            O próximo passo é uma{" "}
-            <span style={{ color: ROSE }}>sessão diagnóstica gratuita</span> com
-            o Gustavo
-          </h2>
-          <p style={{ ...bodyText, marginBottom: "1.25rem" }}>
-            Em 30 minutos, o Gustavo analisa o seu caso específico — produto,
-            precificação e estrutura — e te mostra exatamente o que mudar
-            primeiro para começar a ver resultado diferente.
-          </p>
-          <div className="space-y-3 mb-6">
-            {[
-              "Diagnóstico personalizado com base no seu negócio real",
-              "Clareza sobre qual dos pilares está custando mais faturamento agora",
-              "O próximo passo prático para sair do ponto em que você está",
-              "Sem jargão, sem genérico — conversa direta sobre o seu caso",
-            ].map((item) => (
-              <div key={item} className="flex items-start gap-3">
-                <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: ROSE }} />
-                <p style={{ color: "rgba(251,241,238,0.85)", fontSize: "0.9rem", lineHeight: 1.55 }}>
-                  {item}
-                </p>
-              </div>
-            ))}
-          </div>
-          <div
-            className="rounded-xl p-4 mb-6 text-center text-sm font-semibold"
-            style={{ backgroundColor: "rgba(200,123,117,0.1)", color: ROSE, border: `1px solid ${ROSE}33` }}
-          >
-            Gratuito · Sem compromisso · 30 minutos pelo WhatsApp
-          </div>
+        {/* ── 4. Oferta principal, por rota ── */}
+        {rota === "A" ? (
+          <Section>
+            <h2
+              style={{
+                ...headlineStyle,
+                fontSize: "clamp(1.2rem, 3vw, 1.6rem)",
+                marginBottom: "0.75rem",
+              }}
+            >
+              O próximo passo é uma{" "}
+              <span style={{ color: ROSE }}>sessão diagnóstica gratuita</span> com
+              o Gustavo
+            </h2>
+            <p style={{ ...bodyText, marginBottom: "1.25rem" }}>
+              Você acabou de ver onde estão os gargalos. Em 30 minutos, o Gustavo
+              olha o seu caso específico, produto, precificação e estrutura, e te
+              diz o que mudar primeiro e em que ordem.
+            </p>
+            <div className="space-y-3 mb-6">
+              {[
+                "O porquê de cada pilar do seu diagnóstico estar onde está",
+                "Qual deles está custando mais faturamento agora",
+                "O próximo passo prático, aplicável já na sua próxima produção",
+                "Conversa direta sobre o seu negócio, sem conteúdo genérico",
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: ROSE }} />
+                  <p style={{ color: "rgba(251,241,238,0.85)", fontSize: "0.9rem", lineHeight: 1.55 }}>
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <div
+              className="rounded-xl p-4 mb-6 text-center text-sm font-semibold"
+              style={{ backgroundColor: "rgba(200,123,117,0.1)", color: ROSE, border: `1px solid ${ROSE}33` }}
+            >
+              Gratuito · Sem compromisso · 30 minutos pelo WhatsApp
+            </div>
 
-          {/* CTA principal — WhatsApp */}
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={handleWhatsAppClick}
-            className="flex items-center justify-center gap-3 w-full py-4 px-6 rounded-2xl transition-all hover:opacity-90 shadow-lg"
-            style={{
-              backgroundColor: "#25D366",
-              color: "#fff",
-              fontWeight: 700,
-              fontSize: "1.05rem",
-              textDecoration: "none",
-              letterSpacing: "-0.01em",
-            }}
-          >
-            <MessageCircle className="w-5 h-5" />
-            Quero agendar minha sessão gratuita
-            <ArrowRight className="w-5 h-5" />
-          </a>
-          <p
-            className="text-center text-xs mt-3"
-            style={{ color: "rgba(251,241,238,0.35)" }}
-          >
-            Você será direcionada para o WhatsApp do Gustavo
-          </p>
-        </Section>
+            {/* CTA principal: a conversa parte dela */}
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleWhatsAppClick}
+              className="flex items-center justify-center gap-3 w-full py-4 px-6 rounded-2xl transition-all hover:opacity-90 shadow-lg"
+              style={{
+                backgroundColor: "#25D366",
+                color: "#fff",
+                fontWeight: 700,
+                fontSize: "1.05rem",
+                textDecoration: "none",
+                letterSpacing: "-0.01em",
+              }}
+            >
+              <MessageCircle className="w-5 h-5" />
+              Quero agendar minha sessão gratuita
+              <ArrowRight className="w-5 h-5" />
+            </a>
+            <p
+              className="text-center text-xs mt-3"
+              style={{ color: "rgba(251,241,238,0.35)" }}
+            >
+              Ao tocar no botão, a conversa abre direto com o Gustavo, com a sua
+              mensagem já escrita.
+            </p>
+          </Section>
+        ) : (
+          <Section>
+            <h2
+              style={{
+                ...headlineStyle,
+                fontSize: "clamp(1.2rem, 3vw, 1.6rem)",
+                marginBottom: "0.75rem",
+              }}
+            >
+              {firstName}, o seu próximo passo é ter{" "}
+              <span style={{ color: ROSE }}>um produto que se vende sozinho</span>
+            </h2>
+            <p style={{ ...bodyText, marginBottom: "1.25rem" }}>
+              Antes de organizar preço, cardápio e constância, existe uma etapa
+              que vem primeiro: ter na mão um produto que a cliente prova, elogia
+              e volta para comprar. É por aí que começa quem constrói uma
+              chocolateria que dá lucro de verdade.
+            </p>
+            <p style={{ ...bodyText, marginBottom: "1.25rem" }}>
+              O Treinamento Bombom Artístico é exatamente esse começo. Você
+              aprende a produzir um bombom de alto padrão do zero ao acabamento,
+              com o método que o Gustavo usa nos próprios produtos.
+            </p>
+            <div className="space-y-3 mb-6">
+              {[
+                "A técnica completa do bombom artístico, do zero ao acabamento",
+                "O passo a passo que elimina o medo de errar e perder material",
+                "Como precificar esse produto para vender com margem real",
+                "Um item pronto para entrar no seu cardápio ainda este mês",
+              ].map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: ROSE }} />
+                  <p style={{ color: "rgba(251,241,238,0.85)", fontSize: "0.9rem", lineHeight: 1.55 }}>
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Rota C: a sessão entra como bônus de quem compra */}
+            <div
+              className="rounded-2xl p-5 mb-6"
+              style={{ backgroundColor: "rgba(200,123,117,0.1)", border: `1px solid ${ROSE}44` }}
+            >
+              <p
+                className="text-xs uppercase tracking-widest mb-2"
+                style={{ color: ROSE, letterSpacing: "0.12em" }}
+              >
+                Incluso no treinamento
+              </p>
+              <p style={{ color: "rgba(251,241,238,0.9)", fontSize: "0.92rem", lineHeight: 1.6 }}>
+                Quem entra no treinamento ganha uma{" "}
+                <strong style={{ color: "#FBF1EE" }}>
+                  conversa de 30 minutos com o Gustavo
+                </strong>{" "}
+                para revisar o seu caso depois que colocar a técnica em prática.
+                Ele te chama no WhatsApp assim que a sua inscrição for confirmada.
+              </p>
+            </div>
+
+            <a
+              href={LOW_TICKET_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleLowTicketClick}
+              className="flex items-center justify-center gap-3 w-full py-4 px-6 rounded-2xl transition-all hover:opacity-90 shadow-lg"
+              style={{
+                backgroundColor: ROSE,
+                color: "#2A0D06",
+                fontWeight: 700,
+                fontSize: "1.05rem",
+                textDecoration: "none",
+                letterSpacing: "-0.01em",
+              }}
+            >
+              Quero o Treinamento Bombom Artístico
+              <ArrowRight className="w-5 h-5" />
+            </a>
+            <p
+              className="text-center text-xs mt-3"
+              style={{ color: "rgba(251,241,238,0.35)" }}
+            >
+              Acesso imediato por R$ 97, com a conversa com o Gustavo inclusa.
+            </p>
+          </Section>
+        )}
 
         {/* ── 5. Depoimentos ── */}
         <Section bg={CARD2}>
@@ -352,7 +453,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
           </div>
         </Section>
 
-        {/* ── 6. CTA principal repetido ── */}
+        {/* ── 6. CTA repetido, por rota ── */}
         <Section>
           <h2
             style={{
@@ -362,76 +463,101 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
               textAlign: "center",
             }}
           >
-            Pronta para entender o que mudar primeiro?
+            {rota === "A"
+              ? "Pronta para entender o que mudar primeiro?"
+              : "Pronta para começar pelo produto certo?"}
           </h2>
           <p
             className="text-center mb-6"
             style={{ ...bodyText, fontSize: "0.92rem" }}
           >
-            A sessão é gratuita e dura 30 minutos. Você sai sabendo exatamente
-            onde está o gargalo e qual é o próximo passo no seu caso.
+            {rota === "A"
+              ? "A sessão é gratuita e dura 30 minutos. Você sai sabendo exatamente onde está o gargalo e qual é o próximo passo no seu caso."
+              : "São R$ 97 pelo treinamento completo, com a conversa de 30 minutos com o Gustavo inclusa. Você sai com uma técnica dominada e um produto novo para vender."}
           </p>
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={handleWhatsAppClick}
-            className="flex items-center justify-center gap-3 w-full py-4 px-6 rounded-2xl transition-all hover:opacity-90 shadow-lg"
-            style={{
-              backgroundColor: "#25D366",
-              color: "#fff",
-              fontWeight: 700,
-              fontSize: "1.05rem",
-              textDecoration: "none",
-              letterSpacing: "-0.01em",
-            }}
-          >
-            <MessageCircle className="w-5 h-5" />
-            Agendar sessão gratuita com o Gustavo
-            <ArrowRight className="w-5 h-5" />
-          </a>
+          {rota === "A" ? (
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleWhatsAppClick}
+              className="flex items-center justify-center gap-3 w-full py-4 px-6 rounded-2xl transition-all hover:opacity-90 shadow-lg"
+              style={{
+                backgroundColor: "#25D366",
+                color: "#fff",
+                fontWeight: 700,
+                fontSize: "1.05rem",
+                textDecoration: "none",
+                letterSpacing: "-0.01em",
+              }}
+            >
+              <MessageCircle className="w-5 h-5" />
+              Agendar sessão gratuita com o Gustavo
+              <ArrowRight className="w-5 h-5" />
+            </a>
+          ) : (
+            <a
+              href={LOW_TICKET_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleLowTicketClick}
+              className="flex items-center justify-center gap-3 w-full py-4 px-6 rounded-2xl transition-all hover:opacity-90 shadow-lg"
+              style={{
+                backgroundColor: ROSE,
+                color: "#2A0D06",
+                fontWeight: 700,
+                fontSize: "1.05rem",
+                textDecoration: "none",
+                letterSpacing: "-0.01em",
+              }}
+            >
+              Garantir minha vaga no treinamento
+              <ArrowRight className="w-5 h-5" />
+            </a>
+          )}
         </Section>
 
-        {/* ── 7. Alternativa leve — R$97 ── */}
-        <div
-          className="rounded-3xl p-7 mb-5"
-          style={{
-            border: `1px solid rgba(200,123,117,0.2)`,
-            backgroundColor: "rgba(200,123,117,0.04)",
-          }}
-        >
-          <p
-            className="text-xs uppercase tracking-widest mb-3 text-center"
-            style={{ color: "rgba(251,241,238,0.4)" }}
-          >
-            Ou, se preferir começar pela prática
-          </p>
-          <p
-            className="text-center mb-4"
-            style={{ color: "rgba(251,241,238,0.75)", fontSize: "0.9rem", lineHeight: 1.6 }}
-          >
-            Conheça o Treinamento Bombom Artístico — aprenda a produzir um
-            bombom de alto padrão e adicione ao cardápio um produto que pode
-            render até R$ 50 por caixa.
-          </p>
-          <a
-            href={LOW_TICKET_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={handleLowTicketClick}
-            className="flex items-center justify-center gap-2 w-full py-3 px-5 rounded-xl transition-all hover:opacity-80"
+        {/* ── 7. Alternativa secundária: só na Rota A ── */}
+        {rota === "A" && (
+          <div
+            className="rounded-3xl p-7 mb-5"
             style={{
-              border: `1px solid rgba(200,123,117,0.4)`,
-              color: ROSE,
-              fontWeight: 600,
-              fontSize: "0.9rem",
-              textDecoration: "none",
+              border: `1px solid rgba(200,123,117,0.2)`,
+              backgroundColor: "rgba(200,123,117,0.04)",
             }}
           >
-            Ver o Treinamento Bombom Artístico — R$ 97
-            <ExternalLink className="w-4 h-4" />
-          </a>
-        </div>
+            <p
+              className="text-xs uppercase tracking-widest mb-3 text-center"
+              style={{ color: "rgba(251,241,238,0.4)" }}
+            >
+              Ou, se preferir começar pela prática
+            </p>
+            <p
+              className="text-center mb-4"
+              style={{ color: "rgba(251,241,238,0.75)", fontSize: "0.9rem", lineHeight: 1.6 }}
+            >
+              Conheça o Treinamento Bombom Artístico e adicione ao cardápio um
+              produto de alto padrão, que pode render até R$ 50 por caixa.
+            </p>
+            <a
+              href={LOW_TICKET_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleLowTicketClick}
+              className="flex items-center justify-center gap-2 w-full py-3 px-5 rounded-xl transition-all hover:opacity-80"
+              style={{
+                border: `1px solid rgba(200,123,117,0.4)`,
+                color: ROSE,
+                fontWeight: 600,
+                fontSize: "0.9rem",
+                textDecoration: "none",
+              }}
+            >
+              Ver o Treinamento Bombom Artístico por R$ 97
+              <ExternalLink className="w-4 h-4" />
+            </a>
+          </div>
+        )}
 
         {/* Footer */}
         <div

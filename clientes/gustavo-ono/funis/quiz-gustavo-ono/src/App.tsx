@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect, useState } from "react";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { questions } from "./data/questions";
 import { fbqTrack } from "./analytics";
+import { getRota } from "./lib/rota";
 import { LandingScreen } from "./components/LandingScreen";
 import { QuestionScreen } from "./components/QuestionScreen";
 import { LeadCaptureForm, type LeadData } from "./components/LeadCaptureForm";
@@ -103,6 +104,8 @@ function QuizFlow() {
       return questions[index].options[parseInt(value) - 1]?.title || "";
     };
 
+    // A ordem espelha as perguntas do quiz e define as colunas na planilha de
+    // leads. Ao mexer aqui, ajuste também o mapeamento no cenário do Make.
     const fieldNames = [
       "combinacao",
       "carro_chefe",
@@ -111,7 +114,7 @@ function QuizFlow() {
       "frustracao",
       "canal_de_vendas",
       "impedimento",
-      "dominasse",
+      "curso_anterior",
       "seguranca",
     ];
 
@@ -119,6 +122,7 @@ function QuizFlow() {
       nome: data.name,
       email: data.email,
       whatsapp: data.phone,
+      rota: getRota(answers),
       utm_source: utm.utm_source,
       utm_medium: utm.utm_medium,
       utm_campaign: utm.utm_campaign,

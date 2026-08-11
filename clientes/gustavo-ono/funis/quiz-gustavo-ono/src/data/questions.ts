@@ -21,6 +21,7 @@ export const questions: Question[] = [
       { value: "2", title: "Minha margem de lucro é baixa" },
       { value: "3", title: "Meu negócio vende sem constância" },
       { value: "4", title: "Não tenho organização interna para crescer" },
+      { value: "5", title: "Ainda estou começando e quero fazer certo desde o início" },
     ],
   },
   // Q1
@@ -94,14 +95,15 @@ export const questions: Question[] = [
       { value: "6", title: "Outro" },
     ],
   },
-  // Q7
+  // Q7 — histórico de investimento em formação (sinal de compra)
   {
-    category: "POTENCIAL",
-    question: "Se você dominasse mais técnicas de produção e vendas de chocolates finos, isso te ajudaria a vender mais?",
+    category: "EXPERIÊNCIA",
+    question: "Você já fez algum curso de chocolataria?",
     options: [
-      { value: "1", title: "Com certeza" },
-      { value: "2", title: "Acredito que sim" },
-      { value: "3", title: "Muito provável" },
+      { value: "1", title: "Nunca fiz um curso" },
+      { value: "2", title: "Só vídeos gratuitos e conteúdo solto" },
+      { value: "3", title: "Já paguei por um curso e ainda me sinto insegura" },
+      { value: "4", title: "Já paguei por um curso e evoluí, mas quero ir além" },
     ],
   },
   // Q8 — qualificação
@@ -114,7 +116,7 @@ export const questions: Question[] = [
       { value: "1", title: "Até R$ 5.000" },
       { value: "2", title: "De R$ 5.000 até R$ 10.000" },
       { value: "3", title: "De R$ 10.000 até R$ 20.000" },
-      { value: "4", title: "Acima de R$ 30.000" },
+      { value: "4", title: "Acima de R$ 20.000" },
     ],
   },
 ];
@@ -125,6 +127,7 @@ export const answerLabels: string[][] = [
     "Minha margem de lucro é baixa",
     "Meu negócio vende sem constância",
     "Não tenho organização interna para crescer",
+    "Ainda estou começando e quero fazer certo desde o início",
   ],
   [
     "Sim, são meu carro-chefe",
@@ -168,9 +171,10 @@ export const answerLabels: string[][] = [
     "Outro",
   ],
   [
-    "Com certeza",
-    "Acredito que sim",
-    "Muito provável",
+    "Nunca fiz um curso",
+    "Só vídeos gratuitos e conteúdo solto",
+    "Já paguei por um curso e ainda me sinto insegura",
+    "Já paguei por um curso e evoluí, mas quero ir além",
   ],
   [
     "Até R$ 5.000",
