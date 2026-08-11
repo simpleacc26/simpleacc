@@ -119,11 +119,33 @@ projetos separados na Vercel. **Isto é gambiarra e precisa ser desfeito.**
 | --- | --- |
 | `diagnostico-ges360` | `index.html`, `diagnostico.html`, `flow.js`, `app.js` (o link público) |
 | `ges360-cdn` | `styles.css` |
-| `ges360-relatorio` | `diagnostico.js` |
-| `ges360-assets` | os prints do Dr. Kayo |
+| `ges360-relatorio` | `diagnostico.js`, `kayo-4767.webp`, `kayo-4763.webp` |
+| `ges360-assets` | `kayo-4756.webp`, `kayo-4750.webp` |
+| **jsDelivr** (não é Vercel) | `logo.png`, direto deste repositório |
 
 Por isso os HTMLs publicados apontam para URLs absolutas, enquanto **os arquivos
 deste repositório usam caminhos relativos e são autocontidos** (a versão certa).
+
+### ⚠️ O logo vem do repositório, via jsDelivr
+
+O logo é servido por
+`https://cdn.jsdelivr.net/gh/simpleacc26/simpleacc@<commit>/clientes/guilherme-eduardo/funis/quiz-ges360/logo.png`,
+com o **commit fixado** (imutável, nunca quebra por mudança de branch).
+
+Isso existe porque arquivo binário passa pelo MCP em base64 e um único caractere
+trocado no caminho corrompe a imagem, o que aconteceu de fato aqui. Servir do
+repositório tira o binário da jogada.
+
+**A dependência a conhecer:** isso só funciona porque `simpleacc26/simpleacc` é um
+repositório **público**. Se ele virar privado, o logo some da página. Duas coisas
+a fazer com essa informação:
+
+1. Se o repo for fechado, ligar o projeto ao Git na Vercel **antes** (resolve tudo);
+2. vale revisar se este monorepo deve mesmo ser público: ele tem estratégia,
+   precificação e material de clientes.
+
+Ao trocar o `logo.png`, é preciso **atualizar o commit fixado na URL** e republicar
+os dois HTMLs, senão a página continua mostrando a versão antiga.
 
 ### Como desfazer (2 minutos, resolve de vez)
 
@@ -132,8 +154,10 @@ Na Vercel, projeto `diagnostico-ges360` → Settings → Git → conectar em
 A partir daí:
 
 - todo push publica sozinho, sem passar por chamada de ferramenta;
-- os **8 prints** entram, não só 2, e em qualidade cheia;
-- os 4 projetos extras podem ser apagados.
+- os **8 prints** entram, não só 4, e em qualidade cheia (hoje 2 estão recomprimidos);
+- o logo volta a ser servido pelo próprio projeto, sem depender do jsDelivr nem
+  de o repositório ser público;
+- os 3 projetos extras podem ser apagados.
 
 Enquanto isso não acontece, quem editar este funil precisa republicar **cada
 projeto separadamente**, respeitando a tabela acima.
