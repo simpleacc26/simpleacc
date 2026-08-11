@@ -1,0 +1,522 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposta de Reformulação — Quiz de Diagnóstico de Liderança — Daniele Christensen</title>
+<style>
+  :root{
+    --navy:#16314f;
+    --navy-2:#1f4066;
+    --gold:#a9802f;
+    --ink:#22262f;
+    --muted:#5c6472;
+    --line:#e3e1d8;
+    --paper:#fdfcf9;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:#eceae2;font-family:Georgia,'Times New Roman',serif;color:var(--ink);line-height:1.62}
+  .page{max-width:900px;margin:0 auto;background:var(--paper);padding:56px 64px 80px}
+  .brand{font-family:'Helvetica Neue',Arial,sans-serif;letter-spacing:.18em;font-size:13px;font-weight:700;color:var(--gold);text-transform:uppercase}
+  .brand-sub{font-family:'Helvetica Neue',Arial,sans-serif;font-size:11px;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin-top:2px}
+  h1{font-family:Georgia,serif;font-size:31px;line-height:1.25;color:var(--navy);margin:22px 0 2px}
+  .subtitle{font-style:italic;color:var(--muted);font-size:16px;margin:0 0 22px}
+  hr.rule{border:none;border-top:2px solid var(--navy);margin:0 0 28px}
+  .note{font-family:'Helvetica Neue',Arial,sans-serif;font-size:13.5px;font-style:italic;color:var(--muted);border-left:3px solid var(--gold);background:#faf7ee;padding:12px 18px;margin:0 0 32px}
+  h2{font-family:'Helvetica Neue',Arial,sans-serif;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--navy);border-bottom:1px solid var(--line);padding-bottom:8px;margin:46px 0 16px}
+  h2 .num{display:inline-block;background:var(--navy);color:#fff;width:22px;height:22px;border-radius:50%;text-align:center;line-height:22px;font-size:12px;margin-right:10px}
+  h3{font-family:Georgia,serif;font-size:18px;color:var(--navy);margin:30px 0 4px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .tag{font-family:'Helvetica Neue',Arial,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 10px;border-radius:999px;white-space:nowrap}
+  .tag.aproveita{background:#e7f0e6;color:#3c6b3a}
+  .tag.reformula{background:#faeedc;color:#9a5b13}
+  .tag.nova{background:#e6edfb;color:#2a4d9e}
+  .tag.sai{background:#f7e4e4;color:#9c3535}
+  .tag.dani{background:#efe7f7;color:#5b3a8c}
+  .impact{font-family:'Helvetica Neue',Arial,sans-serif;font-style:italic;font-size:12.5px;color:var(--gold);margin:2px 0 10px}
+  p{margin:10px 0}
+  ul,ol{margin:10px 0;padding-left:22px}
+  li{margin:5px 0}
+  strong{color:var(--navy)}
+  .proposto{background:#f3f5fb;border-left:4px solid var(--navy);padding:16px 20px;margin:14px 0;font-family:'Helvetica Neue',Arial,sans-serif;font-size:14px}
+  .proposto .label{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--navy-2);font-weight:700;margin-bottom:8px;display:block}
+  .proposto .q{font-weight:700;margin:0 0 8px;color:var(--ink)}
+  .proposto ul{margin:0;padding-left:20px}
+  .proposto .rota{color:var(--gold);font-weight:600;font-size:12.5px}
+  .why{font-family:'Helvetica Neue',Arial,sans-serif;font-size:13.5px;color:var(--ink);margin-top:10px}
+  .why b{color:var(--navy)}
+  table{width:100%;border-collapse:collapse;margin:14px 0 8px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:13px}
+  thead th{background:var(--navy);color:#fff;text-align:left;padding:10px 12px;font-weight:600;letter-spacing:.02em}
+  tbody td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+  tbody tr:nth-child(odd){background:#f7f6f1}
+  td.num{color:var(--gold);font-weight:700;font-family:Georgia,serif}
+  .divider{border:none;border-top:1px dashed var(--line);margin:26px 0}
+  .principle{background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:4px;padding:14px 20px;margin:12px 0;font-family:'Helvetica Neue',Arial,sans-serif;font-size:13.5px}
+  .principle .pk{display:block;font-weight:700;color:var(--navy);font-size:11px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:5px}
+  .callout{background:#f6f3ea;border:1px solid #e6dcc2;border-radius:6px;padding:16px 20px;margin:16px 0;font-family:'Helvetica Neue',Arial,sans-serif;font-size:13.5px}
+  .callout .k{font-weight:700;color:var(--gold);text-transform:uppercase;font-size:10.5px;letter-spacing:.06em;display:block;margin-bottom:6px}
+  .bigidea{background:var(--navy);color:#fff;padding:22px 26px;border-radius:6px;margin:16px 0;font-family:Georgia,serif;font-size:17px;line-height:1.55;font-style:italic}
+  .promessa{background:#fff;border:2px solid var(--navy);border-radius:6px;padding:20px 24px;margin:16px 0}
+  .promessa .h{font-family:Georgia,serif;font-size:19px;color:var(--navy);font-weight:700;margin:0 0 8px;line-height:1.35}
+  .promessa .s{font-family:'Helvetica Neue',Arial,sans-serif;font-size:13.5px;color:var(--muted);margin:0}
+  /* etapas */
+  .etapas{display:flex;gap:16px;margin:18px 0;flex-wrap:wrap}
+  .etapa{flex:1 1 300px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--navy);border-radius:5px;padding:18px 20px;font-family:'Helvetica Neue',Arial,sans-serif;font-size:13.5px}
+  .etapa .et{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:700}
+  .etapa .en{font-family:Georgia,serif;font-size:17px;color:var(--navy);margin:4px 0 8px}
+  .etapa ul{padding-left:18px;margin:8px 0 0}
+  /* fluxo ramificado */
+  .fluxo{background:#fff;border:1px solid var(--line);border-radius:6px;padding:22px 24px;margin:16px 0;font-family:'Helvetica Neue',Arial,sans-serif;font-size:13.5px}
+  .fluxo .linha{padding:7px 0;border-bottom:1px dotted var(--line)}
+  .fluxo .linha:last-child{border-bottom:none}
+  .fluxo .pk{display:inline-block;width:34px;color:var(--gold);font-weight:700;font-family:Georgia,serif}
+  .fluxo .marca{font-size:11.5px;color:var(--muted);font-style:italic}
+  .ramo{display:flex;gap:14px;margin-top:14px;flex-wrap:wrap}
+  .ramo-col{flex:1 1 280px;border:1px solid var(--line);border-radius:5px;padding:14px 16px;background:#f7f6f1}
+  .ramo-col.a{border-left:4px solid var(--navy)}
+  .ramo-col.b{border-left:4px solid var(--gold)}
+  .ramo-col .rt{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--navy);margin-bottom:6px}
+  footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);font-family:'Helvetica Neue',Arial,sans-serif;font-size:12px;color:var(--muted);font-style:italic}
+  @media print{ body{background:#fff} .page{padding:0 8mm} }
+  @media (max-width:640px){ .page{padding:32px 22px} table{font-size:12px} }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="brand">Simple Acc</div>
+  <div class="brand-sub">Documento de proposta · Versão 3 · Funil de aquisição</div>
+
+  <h1>Proposta de Reformulação do Quiz de Diagnóstico de Liderança</h1>
+  <p class="subtitle">Daniele Christensen · Intensity</p>
+  <hr class="rule">
+
+  <div class="note">
+    Esta versão incorpora a sua análise: a nova lógica de pontuação que você propôs foi adotada integralmente, e as três perguntas que você levantou sobre o formato mudaram a arquitetura, que agora é um fluxo único em vez de dois formulários separados. Nada foi aplicado ao funil ainda. A implementação só acontece depois da sua validação, e o quiz que está no ar segue funcionando normalmente até lá.
+  </div>
+
+  <h2><span class="num">1</span>Por que reformular</h2>
+  <p>O quiz atual cumpre bem duas funções: gera volume e converte. A taxa de conversão da página está acima da média de mercado e o custo por lead está saudável. O que esta proposta ataca é outra coisa, mais profunda: <strong>o quiz de hoje pede que o lead se autoavalie, quando ele deveria ser diagnosticado.</strong></p>
+  <p>Essa diferença parece sutil, mas muda tudo. Quem se autoavalia sai do quiz do mesmo jeito que entrou, porque só recebeu de volta o que ele mesmo declarou. Quem é diagnosticado sai com uma informação nova sobre si, e é isso que gera a vontade de conversar com você.</p>
+  <p>Junto com isso, a proposta reposiciona o funil para falar de forma direta com <strong>quem realmente decide</strong>, seja o dono ou sócio, seja o executivo que tem autonomia de verdade sobre o próprio orçamento.</p>
+
+  <h2><span class="num">2</span>A metodologia por trás desta reformulação</h2>
+  <p>A reconstrução segue o <strong>Método ASK</strong>, referência mundial em funis de diagnóstico, que a Simple Acc aplica nos funis de quiz. Ele parte de três princípios, e é a partir deles que cada decisão deste documento foi tomada.</p>
+
+  <div class="principle">
+    <span class="pk">Princípio 1 · O lead nunca se autodiagnostica</span>
+    Quem diagnostica é você. A lógica é a mesma da consulta médica: o médico não pergunta ao paciente qual é a doença dele. Ele observa os sintomas, diagnostica e só então prescreve. O quiz precisa funcionar assim, coletando sintomas para devolver um diagnóstico que o lead não teria chegado sozinho.
+  </div>
+
+  <div class="principle">
+    <span class="pk">Princípio 2 · As perguntas miram comportamento, não opinião</span>
+    Perguntar "como você avalia a sua liderança" traz a resposta que a pessoa gostaria de dar sobre si mesma. Perguntar "o que aconteceu nos últimos 90 dias" traz o fato. Comportamento passado é dado. Opinião sobre si mesmo é autoimagem, e autoimagem quase sempre é mais generosa que a realidade.
+  </div>
+
+  <div class="principle">
+    <span class="pk">Princípio 3 · A segmentação vem do sintoma, não do problema declarado</span>
+    O lead é agrupado pelo que ele relata viver no dia a dia, não pelo nome que ele dá ao próprio problema. Cada grupo recebe um diagnóstico específico, escrito para aquele cenário. É isso que faz o documento final parecer feito sob medida.
+  </div>
+
+  <h3 style="margin-top:34px">Onde o quiz atual se afasta desses princípios</h3>
+  <table>
+    <thead><tr><th style="width:44%">Pergunta atual</th><th>O que acontece hoje</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>"Hoje, sua liderança é guiada principalmente por: critérios claros e método estruturado / experiência e bom senso / intuição e tentativa e erro / reação às situações conforme surgem"</td>
+        <td>É um autodiagnóstico, e com um efeito colateral importante: cerca de <strong>1 em cada 5 respondentes marca "critérios claros e método estruturado"</strong> e termina o quiz com a sensação de que está tudo certo. A pergunta acaba anestesiando a dor em vez de revelá-la.</td>
+      </tr>
+      <tr>
+        <td>"<strong>Na sua avaliação</strong>, qual tem sido o risco mais recorrente na sua gestão?"</td>
+        <td>O enunciado pede opinião sobre si mesmo. O lead responde o que ele acha que acontece, não o que de fato aconteceu.</td>
+      </tr>
+      <tr>
+        <td>Faturamento posicionado no meio do fluxo</td>
+        <td>A pergunta de qualificação aparece antes de o lead estar investido na conversa. No método, ela vem no fim, quando a atenção já foi conquistada e o abandono custa mais caro para ele.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2><span class="num">3</span>A arquitetura: um fluxo, dois blocos</h2>
+  <p>Esta é a principal novidade desta versão, e ela nasce das perguntas que você levantou na sua análise. A conclusão é que o instrumento que você criou e o quiz de captação não devem ser dois formulários separados, e também não devem ser um formulário longo único. Devem ser <strong>um fluxo só, com a captura do contato no meio</strong>.</p>
+  <p>O raciocínio é o seguinte. Um quiz que recebe tráfego frio precisa ser curto para converter, porque cada pergunta a mais no começo é gente que desiste antes de virar lead. Já um instrumento de diagnóstico precisa ser profundo para gerar uma leitura de qualidade. Colocando a captura do contato entre os dois, cada um faz o que faz de melhor sem prejudicar o outro.</p>
+
+  <div class="etapas">
+    <div class="etapa">
+      <div class="et">Bloco 1</div>
+      <div class="en">Quiz de captação</div>
+      <p style="margin:0">Oito perguntas, curtas e de baixa fricção.</p>
+      <ul>
+        <li>Identifica o cenário do lead</li>
+        <li>Qualifica por perfil e por porte</li>
+        <li>Termina com nome, e-mail e WhatsApp</li>
+      </ul>
+      <p style="margin:12px 0 0;color:var(--gold);font-weight:600">Neste ponto o lead já está capturado.</p>
+    </div>
+    <div class="etapa">
+      <div class="et">Bloco 2</div>
+      <div class="en">Diagnóstico completo</div>
+      <p style="margin:0">O seu instrumento, na sequência do mesmo fluxo, como continuação convidada.</p>
+      <ul>
+        <li>Gera a nota por bloco e a nota final</li>
+        <li>Alimenta a conversa da sessão</li>
+        <li>É lido com o lead na call, como você propôs</li>
+        <li>Quem completa se qualifica sozinho pela intenção</li>
+      </ul>
+    </div>
+  </div>
+
+  <p>Na prática, depois de preencher os dados de contato o lead não cai numa tela de encerramento. Ele encontra um convite para continuar, algo como: <em>"o seu diagnóstico está pronto. Se quiser que a devolutiva na sessão seja mais precisa, responda mais algumas perguntas agora."</em> E o instrumento completo vem na sequência.</p>
+
+  <h3 style="margin-top:30px">Os três pontos que você levantou</h3>
+
+  <div class="principle">
+    <span class="pk">O closer vai ter que analisar duas pesquisas?</span>
+    Não. Os dois blocos gravam no mesmo registro do mesmo lead, então o closer abre uma tela só e vê tudo junto: o cenário identificado, as respostas do quiz e a nota do diagnóstico. Eram dois momentos de preenchimento, nunca dois lugares de consulta.
+  </div>
+
+  <div class="principle">
+    <span class="pk">O SDR vai ter que perseguir um segundo formulário?</span>
+    Não, e esta foi a observação que mais mudou o desenho. No formato anterior, o segundo formulário viria depois do agendamento, o que criava exatamente esse problema: o lead aceitava a reunião e podia nunca preencher, sobrando para o SDR cobrar. Com os dois blocos no mesmo fluxo, é um link só e uma sessão só. O SDR não ganha nenhuma tarefa nova.
+  </div>
+
+  <div class="principle">
+    <span class="pk">Um formulário longo já não geraria compromisso e curiosidade?</span>
+    Gera, e você está certa nisso. Quem responde um diagnóstico longo quer saber o que aquilo significa, e chega na sessão mais curioso e mais comprometido. O risco nunca esteve em quem termina, e sim em quem nunca começa: em tráfego frio, um formulário longo logo de cara derruba muito a quantidade de gente que chega ao fim. Colocando a captura no meio, o compromisso que você descreveu continua acontecendo, só que sem custar os leads que teriam desistido no caminho.
+  </div>
+
+  <div class="callout">
+    <span class="k">Por que este desenho é seguro</span>
+    Como a captura acontece antes do bloco profundo, quem abandonar no meio do caminho já é lead e já recebeu o diagnóstico do cenário. Isso significa que dá para medir na primeira semana quantas pessoas completam o bloco 2, sem ter arriscado o topo do funil. Se poucos completarem, ajustamos o tamanho. Se muitos completarem, a sua intuição estava certa desde o início e o funil só ganhou profundidade de graça.
+  </div>
+
+  <p>Sobre entregar o diagnóstico apenas na call, a sugestão é um meio-termo: o lead recebe <strong>a identificação do gargalo</strong> logo após o quiz, que é a recompensa que sustenta a conclusão e gera confiança para continuar, e <strong>a leitura completa com a nota</strong> fica para a sessão. Ele ganha o suficiente para querer avançar, e continua tendo motivo para comparecer.</p>
+
+  <h2><span class="num">4</span>A ideia central</h2>
+  <p>Todo o funil passa a girar em torno de uma única tese, que é também o território exclusivo do seu trabalho:</p>
+  <div class="bigidea">
+    "A sua empresa cresceu, mas o jeito como você decide sobre gente continua o mesmo de quando era você e mais três pessoas. É por isso que toda decisão difícil ainda trava na sua mesa: ninguém nunca te deu um critério para tomá-la."
+  </div>
+
+  <h2><span class="num">5</span>A nova promessa</h2>
+  <p>A promessa atual já está certa na origem, porque promete descobrir algo, e não avaliar o lead. O ajuste é de mira e de entrega: prometer um <em>diagnóstico</em> em vez de um <em>plano</em>. Plano soa como tarefa para o lead executar. Diagnóstico soa como laudo que ele recebe.</p>
+  <div class="promessa">
+    <p class="h">Descubra qual decisão sobre pessoas está travando o crescimento da sua empresa, e por que ela ainda não foi tomada.</p>
+    <p class="s">São 8 perguntas rápidas e você recebe o seu diagnóstico.</p>
+  </div>
+
+  <h2><span class="num">6</span>Os 4 diagnósticos</h2>
+  <p>O lead é agrupado em um dos quatro cenários abaixo a partir da resposta da P2. Vale registrar uma convergência importante: <strong>os blocos de análise do seu instrumento chegaram praticamente nos mesmos quatro cenários</strong>, por um caminho independente. Isso é um sinal forte de que a segmentação está correta.</p>
+  <table>
+    <thead><tr><th style="width:32px">#</th><th style="width:24%">Cenário</th><th style="width:26%">Gargalo real</th><th>Bloco correspondente no seu instrumento</th></tr></thead>
+    <tbody>
+      <tr><td class="num">1</td><td><strong>O Adiador</strong></td><td>Ausência de critério para decidir sobre pessoas</td><td>Bloco A (exigência e permissividade) e E4 (feedback assertivo sem medo de ser impopular)</td></tr>
+      <tr><td class="num">2</td><td><strong>O Gargalo</strong></td><td>Sobrecarga concentrada na liderança</td><td>Bloco B (autonomia da equipe, "o que fazemos agora?")</td></tr>
+      <tr><td class="num">3</td><td><strong>Time que não Assume</strong></td><td>Falta de responsabilização</td><td>Bloco D (delegação, time maduro) e A2 (culpar mercado, cliente, preço)</td></tr>
+      <tr><td class="num">4</td><td><strong>Plano que não Vira Execução</strong></td><td>Desalinhamento entre meta e prática</td><td>Bloco C (reuniões e prazos) e D2 (confiança nas metas do ano)</td></tr>
+    </tbody>
+  </table>
+  <p>O bloco E do seu instrumento, que trata de cultura, alinhamento às diretrizes e retenção dos melhores, abre uma quinta dimensão que o quiz de captação não cobre. Ela permanece no Bloco 2, onde há espaço para tratá-la com a profundidade que ela pede.</p>
+
+  <h2><span class="num">7</span>O arco do novo quiz, com a ramificação</h2>
+  <p>A ramificação por papel é a sua contribuição mais importante para esta proposta, e ela foi adotada. O raciocínio é direto: as perguntas que qualificam um dono não são as mesmas que qualificam um executivo contratado. Para o dono, o que importa é o porte e a saúde da empresa. Para o executivo, o que importa é a autonomia real dele e a remuneração dele.</p>
+
+  <div class="fluxo">
+    <div class="linha"><span class="pk">P0</span> Hoje você é <span class="marca">· roteia o caminho</span></div>
+    <div class="linha"><span class="pk">P1</span> Setor da empresa</div>
+    <div class="linha"><span class="pk">P2</span> O que mais se repetiu nos últimos 90 dias <span class="marca">· define o diagnóstico</span></div>
+    <div class="linha"><span class="pk">P3</span> O que já tentou para resolver</div>
+    <div class="linha"><span class="pk">P4</span> Decisões que acontecem sem você</div>
+    <div class="linha"><span class="pk">P5</span> O que você não quer que aconteça em 12 meses</div>
+    <div class="ramo">
+      <div class="ramo-col a">
+        <div class="rt">Caminho A · Dono ou sócio</div>
+        <div>P6. Faturamento mensal da empresa</div>
+        <div>P7. Margem líquida</div>
+      </div>
+      <div class="ramo-col b">
+        <div class="rt">Caminho B · Executivo CLT ou PJ</div>
+        <div>P6. Autonomia para decidir investimento</div>
+        <div>P7. Remuneração mensal</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout">
+    <span class="k">A ramificação não alonga o quiz</span>
+    Cada lead responde oito perguntas, independente do caminho. Ele vê apenas duas das quatro perguntas finais, porque as outras duas são do outro caminho. A ramificação é gratuita em termos de fricção, e ainda assim permite fazer a pergunta certa para cada perfil.
+  </div>
+
+  <div class="callout">
+    <span class="k">Por que o papel sobe para o começo e o dinheiro continua no fim</span>
+    O que o método manda deixar para o fim são as perguntas de dinheiro, porque elas funcionam como pedágio e derrubam a conversão se aparecem cedo. Essas continuam no fim. A pergunta de papel é diferente: ela é de identidade, não de julgamento, e ninguém trava para responder se é dono ou gerente. No topo, ela ainda ganha uma segunda função, que é fazer quem é do perfil se sentir reconhecido logo na primeira tela.
+  </div>
+
+  <h2><span class="num">8</span>Pergunta a pergunta</h2>
+  <p style="font-family:'Helvetica Neue',Arial,sans-serif;font-size:12.5px;color:var(--muted)">
+    <span class="tag aproveita">Aproveita</span> vem do quiz atual &nbsp;·&nbsp;
+    <span class="tag reformula">Reformula</span> aproveita a lógica, muda o texto &nbsp;·&nbsp;
+    <span class="tag nova">Nova</span> pergunta nova &nbsp;·&nbsp;
+    <span class="tag sai">Sai</span> deixa de existir &nbsp;·&nbsp;
+    <span class="tag dani">Do seu instrumento</span> incorporada do seu material
+  </p>
+
+  <hr class="divider">
+
+  <h3>P0. Hoje você é <span class="tag dani">Do seu instrumento</span></h3>
+  <p class="impact">É a pergunta que define todo o restante do caminho.</p>
+  <div class="proposto">
+    <span class="label">Texto proposto</span>
+    <p class="q">Hoje você é:</p>
+    <ul>
+      <li>Proprietário, dono ou sócio <span class="rota">→ Caminho A</span></li>
+      <li>Diretor, CLT ou PJ <span class="rota">→ Caminho B</span></li>
+      <li>Gestor ou coordenador, CLT ou PJ <span class="rota">→ Caminho B</span></li>
+      <li>Fui promovido recentemente à liderança <span class="rota">→ Caminho B</span></li>
+    </ul>
+  </div>
+  <p class="why"><b>Por quê:</b> como você apontou, a abordagem muda por completo conforme o perfil. Fazer essa separação logo no início permite qualificar cada um pelo critério que de fato importa para ele, sem submeter o dono a perguntas que só fazem sentido para um contratado, e vice-versa.</p>
+
+  <hr class="divider">
+
+  <h3>P1. Setor da empresa <span class="tag nova">Nova</span></h3>
+  <div class="proposto">
+    <span class="label">Texto proposto</span>
+    <p class="q">Em qual setor a sua empresa atua?</p>
+    <ul><li>Serviços</li><li>Comércio ou varejo</li><li>Indústria</li><li>Saúde</li><li>Tecnologia</li><li>Outro</li></ul>
+  </div>
+  <p class="why"><b>Por quê:</b> pergunta de baixa fricção, fácil de responder, que faz o lead começar. De quebra entrega ao time comercial um dado de contexto útil antes do primeiro contato.</p>
+
+  <hr class="divider">
+
+  <h3>P2. O que mais se repetiu nos últimos 90 dias <span class="tag reformula">Reformula</span> <span class="tag dani">Do seu instrumento</span></h3>
+  <p class="impact">Pergunta mais importante do quiz. É ela que define qual diagnóstico o lead recebe.</p>
+  <p>As opções abaixo foram reescritas a partir da linguagem do seu instrumento, e essa foi uma das mudanças mais valiosas desta versão. As situações que você descreveu são concretas o suficiente para o lead reconhecer uma cena que ele viveu, e não apenas concordar com um conceito.</p>
+  <div class="proposto">
+    <span class="label">Texto proposto</span>
+    <p class="q">Pensando nos últimos 90 dias, qual dessas situações mais se repetiu na sua empresa?</p>
+    <ul>
+      <li>Tem hora que eu deveria manter a exigência e acabo cedendo, para não desgastar a relação <span class="rota">→ O Adiador</span></li>
+      <li>Minha equipe vem me perguntar o que fazemos agora, em vez de agir sobre o que já estava combinado <span class="rota">→ O Gargalo</span></li>
+      <li>As pessoas justificam o resultado com o mercado, o cliente ou o preço, em vez de assumir a responsabilidade <span class="rota">→ Time que não Assume</span></li>
+      <li>A gente sai da reunião com tudo combinado e registrado, e os prazos não são cumpridos <span class="rota">→ Plano que não Vira Execução</span></li>
+    </ul>
+  </div>
+  <p class="why"><b>Por quê:</b> ninguém erra ao responder o que aconteceu nos últimos 90 dias, e quase todo mundo erra ao responder como se avalia. Ancorar no tempo transforma a resposta em dado confiável e, ao mesmo tempo, faz o lead reviver a cena. É esse o momento em que a dor acorda.</p>
+
+  <hr class="divider">
+
+  <h3>P3. O que já tentou <span class="tag nova">Nova</span></h3>
+  <div class="proposto">
+    <span class="label">Texto proposto</span>
+    <p class="q">O que você já tentou para resolver isso?</p>
+    <ul>
+      <li>Conversei, dei feedback, cheguei mais perto da pessoa</li>
+      <li>Troquei quem não estava entregando, contratei gente nova</li>
+      <li>Coloquei processo, ferramenta ou indicador</li>
+      <li>Assumi de volta e fui fazer eu mesmo</li>
+      <li>Fiz curso ou mentoria de liderança</li>
+    </ul>
+  </div>
+  <p class="why"><b>Por quê:</b> é a pergunta que dá ao diagnóstico o seu momento mais forte. Quando o documento diz "você já tentou trocar as pessoas, e não resolveu, e o motivo é este", ele deixa de parecer texto genérico e passa a parecer alguém que conhece a história daquele lead. É também aqui que fica claro, para ele, que o problema não era falta de esforço.</p>
+
+  <hr class="divider">
+
+  <h3>P4. Decisões que acontecem sem você <span class="tag sai">Sai</span> <span class="tag nova">Nova</span></h3>
+  <p>Entra no lugar de duas perguntas que saem: a de estilo de liderança, que era autodiagnóstico, e a de número de pessoas na equipe, que media tamanho mas não media dependência.</p>
+  <div class="proposto">
+    <span class="label">Texto proposto</span>
+    <p class="q">Hoje, quantas decisões sobre pessoas acontecem na sua empresa sem passar por você?</p>
+    <ul>
+      <li>Praticamente nenhuma, tudo passa por mim</li>
+      <li>Poucas, só as pequenas</li>
+      <li>Boa parte, mas as difíceis sempre voltam para mim</li>
+      <li>A maioria, meu time decide e depois me informa</li>
+    </ul>
+  </div>
+  <p class="why"><b>Por quê:</b> mede a mesma coisa que a pergunta antiga tentava medir, só que por comportamento observável em vez de autoimagem. Ninguém se descreve como alguém que decide no improviso, mas todo mundo consegue dizer com precisão quanta coisa ainda passa pela própria mesa.</p>
+
+  <hr class="divider">
+
+  <h3>P5. O que você não quer que aconteça <span class="tag reformula">Reformula</span></h3>
+  <div class="proposto">
+    <span class="label">Texto proposto</span>
+    <p class="q">Se nada mudar nos próximos 12 meses, o que mais te incomoda imaginar?</p>
+    <ul>
+      <li>Continuar sendo o único que resolve o que é difícil</li>
+      <li>Perder gente boa por causa de decisão que eu adiei</li>
+      <li>Chegar em dezembro exatamente no mesmo lugar de hoje</li>
+      <li>Seguir sem tempo para pensar no negócio</li>
+    </ul>
+  </div>
+  <p class="why"><b>Por quê:</b> perguntar o que a pessoa quer conquistar gera resposta protocolar, porque todo mundo quer tudo. Perguntar o que ela não quer que aconteça gera resposta honesta, porque cada um tem um medo específico. Além de ser um dado mais útil, deixa a consequência da inação viva na cabeça do lead exatamente no momento em que ele avança para o resultado.</p>
+
+  <hr class="divider">
+
+  <h3 style="color:var(--navy-2)">Caminho A · Dono ou sócio</h3>
+
+  <h3>P6. Faturamento mensal <span class="tag aproveita">Aproveita</span> <span class="tag reformula">Reformula</span></h3>
+  <div class="proposto">
+    <span class="label">Texto proposto</span>
+    <p class="q">Qual é o faturamento médio mensal da sua empresa?</p>
+    <ul>
+      <li>Até R$ 100.000</li>
+      <li>De R$ 100.000 até R$ 200.000</li>
+      <li>De R$ 200.000 até R$ 300.000</li>
+      <li>De R$ 300.000 até R$ 500.000</li>
+      <li>Acima de R$ 500.000</li>
+    </ul>
+    <p class="rota" style="margin:10px 0 0">Qualifica a partir de R$ 200.000 por mês.</p>
+  </div>
+  <p class="why"><b>Observação sobre a conversão de escala:</b> o seu instrumento trabalha com faturamento anual. A sugestão é padronizar em mensal nos dois blocos, para que as réguas conversem entre si. Vale registrar que a faixa "entre 1 e 49 milhões por ano" do seu material equivale a algo entre R$ 83 mil e R$ 4 milhões por mês, o que é uma amplitude grande demais para uma pontuação única. Na conversão para mensal essa faixa se abre nas cinco acima.</p>
+
+  <hr class="divider">
+
+  <h3>P7. Margem <span class="tag nova">Nova</span></h3>
+  <div class="proposto">
+    <span class="label">Texto proposto</span>
+    <p class="q">Da sua receita mensal, quanto sobra de lucro para você (margem líquida aproximada)?</p>
+    <ul><li>Menos de 10%</li><li>Entre 10% e 20%</li><li>Entre 20% e 30%</li><li>Acima de 30%</li><li>Não sei dizer com precisão</li></ul>
+  </div>
+  <p class="why"><b>Por quê, em duas funções:</b> primeiro, ela fala a língua de quem é dono, porque dono raciocina em margem e lucro. Segundo, cruzada com o faturamento declarado, dá ao time um sinal de consistência: faturamento alto ao lado de "não sei dizer com precisão" merece uma checagem antes de investir uma sessão.</p>
+
+  <hr class="divider">
+
+  <h3 style="color:var(--gold)">Caminho B · Executivo CLT ou PJ</h3>
+
+  <h3>P6. Autonomia para decidir investimento <span class="tag dani">Do seu instrumento</span></h3>
+  <div class="proposto">
+    <span class="label">Texto proposto</span>
+    <p class="q">Qual é o seu nível de autonomia para decidir sobre investimento em desenvolvimento, seu ou da sua equipe de gestores?</p>
+    <ul>
+      <li>Total, a decisão é minha</li>
+      <li>Parcial, decido até um determinado valor</li>
+      <li>Quase nenhuma, preciso de aprovação</li>
+      <li>Nenhuma</li>
+    </ul>
+  </div>
+  <p class="why"><b>Por quê:</b> esta é a pergunta que resolve o ponto mais difícil do funil, e ela veio do seu material. Uma empresa pode faturar muito bem e a pessoa que responde não ter qualquer autonomia sobre o próprio orçamento. Faturamento nunca captura isso sozinho. E como ela aparece apenas neste caminho, o dono jamais é submetido a ela.</p>
+
+  <hr class="divider">
+
+  <h3>P7. Remuneração mensal <span class="tag dani">Do seu instrumento</span></h3>
+  <div class="proposto">
+    <span class="label">Texto proposto</span>
+    <p class="q">Qual é a sua remuneração média mensal?</p>
+    <ul>
+      <li>Acima de R$ 100.000</li>
+      <li>De R$ 50.000 a R$ 99.000</li>
+      <li>De R$ 20.000 a R$ 49.000</li>
+      <li>De R$ 10.000 a R$ 19.000</li>
+      <li>De R$ 5.000 a R$ 9.000</li>
+      <li>Menos de R$ 5.000</li>
+    </ul>
+  </div>
+  <p class="why"><b>Por quê:</b> mantém as faixas que você definiu. Junto com a autonomia, é o que permite identificar o executivo que de fato pode decidir e pagar, sem descartar um perfil que é comprador real só porque não é sócio.</p>
+
+  <h2><span class="num">9</span>A nova lógica de qualificação</h2>
+  <p>Com a ramificação, o corte deixa de ser feito pelo nome do cargo e passa a ser feito pela <strong>capacidade real de decidir e de pagar</strong>, que é o que a régua sempre tentou capturar. A pontuação abaixo é a que você propôs, e ela é adotada integralmente.</p>
+
+  <h3 style="color:var(--navy-2)">Caminho A · Dono ou sócio: P4 + P6</h3>
+  <p>Esta foi a sua correção mais importante, e ela melhora o desenho anterior por um motivo objetivo: a versão que eu havia proposto somava faturamento e margem, que medem <strong>a mesma coisa</strong>, ou seja, capacidade financeira. A sua combina <strong>necessidade</strong> (quanto ainda passa pelo dono) com <strong>capacidade</strong> (faturamento). É a qualificação certa, porque um lead só compra quando tem os dois.</p>
+  <table>
+    <thead><tr><th style="width:70%">P4 · Decisões que acontecem sem você</th><th>Pontos</th></tr></thead>
+    <tbody>
+      <tr><td>Praticamente nenhuma, tudo passa por mim</td><td>10</td></tr>
+      <tr><td>Poucas, só as pequenas</td><td>8</td></tr>
+      <tr><td>Boa parte, mas as difíceis sempre voltam para mim</td><td>4</td></tr>
+      <tr><td>A maioria, meu time decide e depois me informa</td><td>0</td></tr>
+    </tbody>
+  </table>
+  <table>
+    <thead><tr><th style="width:70%">P6 · Faturamento médio mensal</th><th>Pontos</th></tr></thead>
+    <tbody>
+      <tr><td>Até R$ 100.000</td><td>0</td></tr>
+      <tr><td>De R$ 100.000 até R$ 200.000</td><td>1</td></tr>
+      <tr><td>De R$ 200.000 até R$ 300.000</td><td>4</td></tr>
+      <tr><td>De R$ 300.000 até R$ 500.000</td><td>8</td></tr>
+      <tr><td>Acima de R$ 500.000</td><td>10</td></tr>
+    </tbody>
+  </table>
+  <p>A margem (P7) sai da pontuação, como você definiu, e permanece no quiz apenas como sinal de consistência para o time comercial.</p>
+
+  <div class="callout">
+    <span class="k">Um ajuste técnico necessário: piso no faturamento</span>
+    Com P4 e P6 somando até 20, a mesma nota final pode significar coisas opostas. Um dono com "tudo passa por mim" (10) faturando até R$ 100 mil (0) soma 10. Um dono cujo time já decide (0) faturando acima de R$ 500 mil (10) também soma 10. São dois leads completamente diferentes, e o primeiro não tem como pagar o programa.
+    <br><br>
+    Por isso a sugestão é que a régua tenha <strong>piso no P6 além da nota total</strong>: só qualifica quem pontuar no mínimo 4 no faturamento, o que corresponde ao corte de R$ 200 mil que você já validou. A partir daí, a soma ordena a prioridade de contato. Assim o piso de porte não é furado por acúmulo de dor.
+  </div>
+
+  <h3 style="color:var(--gold)">Caminho B · Executivo CLT ou PJ: P6 + P7</h3>
+  <table>
+    <thead><tr><th style="width:70%">P6 · Autonomia para decidir investimento</th><th>Pontos</th></tr></thead>
+    <tbody>
+      <tr><td>Total, a decisão é minha</td><td>10</td></tr>
+      <tr><td>Parcial, decido até um determinado valor</td><td>6</td></tr>
+      <tr><td>Quase nenhuma, preciso de aprovação</td><td>0</td></tr>
+      <tr><td>Nenhuma</td><td>0</td></tr>
+    </tbody>
+  </table>
+  <table>
+    <thead><tr><th style="width:70%">P7 · Remuneração média mensal</th><th>Pontos</th></tr></thead>
+    <tbody>
+      <tr><td>Acima de R$ 100.000</td><td>10</td></tr>
+      <tr><td>De R$ 50.000 a R$ 99.000</td><td>8</td></tr>
+      <tr><td>De R$ 20.000 a R$ 49.000</td><td>6</td></tr>
+      <tr><td>De R$ 10.000 a R$ 19.000</td><td>4</td></tr>
+      <tr><td>De R$ 5.000 a R$ 9.000</td><td>2</td></tr>
+      <tr><td>Menos de R$ 5.000</td><td>1</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <span class="k">Uma pergunta em aberto para você decidir</span>
+    Se o P4 mede necessidade e isso vale para o dono, valeria também para o executivo? Um diretor com autonomia total e remuneração alta, mas cujo time já decide praticamente tudo, também não precisaria do programa. Pode ser uma escolha proposital sua, já que no Caminho B a restrição principal é outra, que é ter autoridade e dinheiro. Fica registrado para você confirmar se o P4 deve ou não entrar também neste caminho.
+  </div>
+
+  <p>Na prática, a régua faz com que um diretor com autonomia total e remuneração alta siga para a sessão, e um gestor sem autonomia e com remuneração baixa não siga, mesmo trabalhando em uma empresa grande. Todos respondem o quiz inteiro e recebem o diagnóstico. A qualificação orienta a prioridade de contato do time comercial, não barra ninguém.</p>
+  <div class="callout">
+    <span class="k">O que esperar do resultado</span>
+    Um quiz mais seletivo tende a reduzir o volume bruto de leads e a elevar a proporção de leads dentro do perfil. É uma troca proposital de quantidade por qualidade, e o indicador principal deixa de ser o número de leads e passa a ser quantos deles chegam a uma sessão e avançam.
+  </div>
+
+  <h2><span class="num">10</span>Bloco 2 · O diagnóstico completo</h2>
+  <p>O instrumento que você desenvolveu é aproveitado integralmente aqui, com a sua estrutura de blocos e o seu sistema de pontuação. Ele aparece logo depois da captura do contato, como continuação do mesmo fluxo, e é lido com o lead na call, exatamente como você propôs.</p>
+  <p>Dois pontos técnicos para alinharmos na hora de transformá-lo em formulário online:</p>
+  <ol>
+    <li><strong>Deixar a direção da escala explícita.</strong> As questões são positivas e a escala é invertida, com Sempre valendo zero e Nunca valendo dez, então nota alta significa mais dificuldade. Já o P0 e as perguntas de porte usam nota alta como melhor encaixe. A soma final continua coerente, porque bom encaixe somado a alta dificuldade indica lead com necessidade real, mas isso precisa estar escrito no material para que ninguém leia ao contrário na operação.</li>
+    <li><strong>Padronizar faturamento em mensal</strong> nos dois blocos, conforme observado na P6 do Caminho A.</li>
+  </ol>
+
+  <h2><span class="num">11</span>O que aproveitamos de cada material</h2>
+  <table>
+    <thead><tr><th style="width:30%">Elemento</th><th style="width:16%">Origem</th><th>Destino</th></tr></thead>
+    <tbody>
+      <tr><td>Ramificação por papel no início</td><td>Seu instrumento</td><td>Adotada como P0, define os dois caminhos</td></tr>
+      <tr><td>Autonomia de investimento e remuneração</td><td>Seu instrumento</td><td>Adotadas como qualificação do Caminho B</td></tr>
+      <tr><td>Linguagem das situações do dia a dia</td><td>Seu instrumento</td><td>Reescreve as opções da P2</td></tr>
+      <tr><td>Blocos de análise A a E</td><td>Seu instrumento</td><td>Formam o Bloco 2, e validam os quatro cenários</td></tr>
+      <tr><td>Entrega do diagnóstico na call</td><td>Sua proposta</td><td>Adotada para a leitura completa, com o gargalo entregue antes</td></tr>
+      <tr><td>A promessa do quiz</td><td>Quiz atual</td><td>Mantida na essência, com ajuste de entrega</td></tr>
+      <tr><td>Opções de risco recorrente</td><td>Quiz atual</td><td>Viram a base dos quatro cenários</td></tr>
+      <tr><td>Pergunta dos 12 meses</td><td>Quiz atual</td><td>Mantida, com o eixo invertido para perda</td></tr>
+      <tr><td>Relatório enviado ao lead</td><td>Quiz atual</td><td>Vira quatro diagnósticos, um por cenário</td></tr>
+      <tr><td>Pergunta de estilo de liderança</td><td>Quiz atual</td><td>Sai, por ser autodiagnóstico</td></tr>
+      <tr><td>Pergunta de número de pessoas</td><td>Quiz atual</td><td>Sai, medida de forma melhor pela P4</td></tr>
+    </tbody>
+  </table>
+
+  <h2><span class="num">12</span>Próximos passos</h2>
+  <ol>
+    <li>Sua validação deste documento e dos quatro diagnósticos, que seguem em peça separada.</li>
+    <li>Alinhamento dos dois pontos técnicos do Bloco 2.</li>
+    <li>Implementação do quiz de captação: perguntas, ramificação, agrupamento por cenário e régua de qualificação.</li>
+    <li>Montagem do Bloco 2 como continuação do mesmo fluxo, com o cálculo automatizado.</li>
+    <li>Teste de ponta a ponta nos dois caminhos, incluindo o envio do diagnóstico correto para cada cenário.</li>
+    <li>Alinhamento da página de agendamento à mesma régua, para que a comunicação seja coerente do anúncio até a sessão.</li>
+  </ol>
+
+  <footer>Enquanto não houver validação, o funil no ar segue como está.</footer>
+
+</div>
+</body>
+</html>

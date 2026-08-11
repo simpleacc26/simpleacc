@@ -1,0 +1,312 @@
+<title>Página pós-quiz · Diagnóstico de Liderança · Grokker</title>
+<style>
+  :root{
+    --bg:#0a0a0a;
+    --surface:#161514;
+    --surface2:#12110f;
+    --line:#262523;
+    --ink:#f0ede8;
+    --muted:#96938d;
+    --accent:#f18700;
+    --accent-hi:#ff9c2a;
+    --gold:#e9b949;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .stamp{
+    background:#141310;border-bottom:1px solid var(--line);
+    padding:10px 20px;text-align:center;
+    font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#7d7a74;
+  }
+  .wrap{max-width:700px;margin:0 auto;padding:0 22px}
+  .brand{padding:34px 0 0;display:flex;justify-content:center}
+  .wm{font-size:19px;font-weight:800;letter-spacing:.30em;color:#fff}
+  .wm .o{color:var(--gold)}
+
+  .eyebrow{
+    font-size:11px;letter-spacing:.20em;text-transform:uppercase;
+    color:var(--accent);font-weight:700;margin:44px 0 14px;
+  }
+  h1{
+    font-size:clamp(29px,6vw,42px);line-height:1.14;letter-spacing:-.02em;
+    font-weight:800;margin:0 0 18px;text-wrap:balance;color:#fff;
+  }
+  .lede{font-size:17px;color:#cfcbc5;margin:0 0 30px}
+
+  .cta{
+    display:block;width:100%;text-align:center;text-decoration:none;
+    background:var(--accent);color:#140d02;
+    font-size:15px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;
+    padding:19px 22px;border-radius:6px;
+    transition:background .15s ease,transform .15s ease;
+  }
+  .cta:hover{background:var(--accent-hi)}
+  .cta:active{transform:translateY(1px)}
+  .cta:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+  .undercta{font-size:13px;color:var(--muted);text-align:center;margin:12px 0 0}
+
+  section{border-top:1px solid var(--line);margin-top:52px;padding-top:44px}
+  h2{
+    font-size:clamp(21px,4.2vw,27px);line-height:1.26;letter-spacing:-.012em;
+    font-weight:800;margin:0 0 16px;text-wrap:balance;color:#fff;
+  }
+  h3{font-size:17px;font-weight:800;color:#fff;margin:0 0 7px;line-height:1.32}
+  p{margin:0 0 15px;font-size:16px;color:#d6d2cc}
+  .kicker{
+    font-size:11px;letter-spacing:.20em;text-transform:uppercase;
+    color:var(--accent);font-weight:700;margin:0 0 12px;
+  }
+  strong{color:#fff;font-weight:700}
+
+  .cards{display:flex;flex-direction:column;gap:12px;margin:20px 0 8px}
+  .card{
+    background:var(--surface);border:1px solid var(--line);
+    border-left:3px solid var(--accent);border-radius:5px;padding:17px 19px;
+  }
+  .card b{display:block;color:#fff;font-size:15.5px;margin-bottom:5px}
+  .card span{font-size:15px;color:#bfbbb5}
+
+  .sit{display:flex;flex-direction:column;gap:0;margin-top:22px}
+  .sit article{border-top:1px solid var(--line);padding:22px 0}
+  .sit article:last-child{border-bottom:1px solid var(--line)}
+  .sit .num{
+    font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--gold);font-weight:700;margin:0 0 8px;
+  }
+  .sit p{font-size:15.5px;color:#bfbbb5;margin:0}
+
+  .quatro{display:flex;flex-direction:column;gap:11px;margin:20px 0 8px;padding:0;list-style:none}
+  .quatro li{
+    position:relative;padding-left:26px;font-size:16px;color:#d6d2cc;
+  }
+  .quatro li::before{
+    content:"";position:absolute;left:0;top:9px;width:9px;height:9px;
+    transform:rotate(45deg);background:linear-gradient(150deg,#f7d774,#d99b1a);
+  }
+
+  .bio{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:26px 24px;margin-top:8px}
+  .bio .nome{font-size:19px;font-weight:800;color:#fff;margin:0 0 3px}
+  .bio .reg{font-size:12.5px;color:var(--muted);margin:0 0 16px;letter-spacing:.02em}
+  .bio p{font-size:15.5px;color:#c7c3bd}
+  .bio p:last-of-type{margin-bottom:0}
+
+  .creds{
+    display:grid;grid-template-columns:1fr;gap:1px;
+    background:var(--line);border:1px solid var(--line);border-radius:6px;
+    overflow:hidden;margin-top:20px;
+  }
+  @media(min-width:560px){.creds{grid-template-columns:1fr 1fr}}
+  .creds div{background:var(--surface2);padding:15px 17px}
+  .creds b{display:block;color:var(--gold);font-size:15.5px;font-weight:800;line-height:1.3}
+  .creds span{display:block;font-size:13.5px;color:var(--muted);margin-top:3px}
+
+  .duas{display:flex;flex-direction:column;gap:12px;margin-top:22px}
+  .col{border:1px solid var(--line);border-radius:6px;padding:19px 20px;background:var(--surface2)}
+  .col.sim{border-left:3px solid var(--accent)}
+  .col.nao{border-left:3px solid #3a3835}
+  .col .tit{font-size:14px;font-weight:800;color:#fff;margin:0 0 12px;letter-spacing:.02em}
+  .col.nao .tit{color:var(--muted)}
+  .col ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+  .col li{position:relative;padding-left:22px;font-size:15px;color:#c7c3bd;line-height:1.5}
+  .col.sim li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;transform:rotate(45deg);background:var(--accent)}
+  .col.nao li{color:#8f8c86}
+  .col.nao li::before{content:"";position:absolute;left:0;top:11px;width:9px;height:1.5px;background:#4a4744}
+
+  .depo{display:flex;flex-direction:column;gap:12px;margin-top:20px}
+  .slot{
+    border:1px dashed #34322f;border-radius:6px;background:#101010;
+    padding:26px 20px;text-align:center;
+  }
+  .slot b{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#6f6c67;font-weight:700}
+  .slot span{display:block;font-size:13.5px;color:#57544f;margin-top:6px}
+
+  .faq{display:flex;flex-direction:column;gap:0;margin-top:8px}
+  .faq div{border-bottom:1px solid var(--line);padding:17px 0}
+  .faq div:first-child{border-top:1px solid var(--line)}
+  .faq b{display:block;color:#fff;font-size:16px;margin-bottom:6px}
+  .faq span{font-size:15.5px;color:#bfbbb5}
+
+  .fecho{text-align:center;padding-top:46px}
+  .fecho h2{margin-bottom:12px}
+  .fecho p{color:#cfcbc5}
+
+  footer{
+    border-top:1px solid var(--line);margin-top:56px;padding:26px 0 50px;
+    text-align:center;
+  }
+  footer .f1{font-size:14px;color:#e6e3de;font-weight:700}
+  footer .f2{font-size:12.5px;color:var(--muted);margin-top:5px}
+  footer .f3{font-size:12.5px;color:var(--gold);font-style:italic;margin-top:11px}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="stamp">Proposta de copy · Simple Acc · Página pós-quiz · Para validação</div>
+
+<div class="wrap">
+
+  <div class="brand"><div class="wm">GR<span class="o">O</span>KKER</div></div>
+
+  <p class="eyebrow">Diagnóstico de Liderança · Seu resultado</p>
+  <h1>Seu cenário já tem nome. Falta saber por que ele se instalou.</h1>
+  <p class="lede">O seu Diagnóstico de Liderança completo está pronto. É a leitura das suas respostas: o que o seu cenário significa na prática, por que o que você já tentou não resolveu, e qual é o caminho para destravar.</p>
+
+  <a class="cta" href="https://wa.me/555599768528?text=Quero%20receber%20meu%20Diagn%C3%B3stico%20de%20Lideran%C3%A7a">Receber meu diagnóstico</a>
+  <p class="undercta">Chega no seu WhatsApp em segundos. Sem custo.</p>
+
+  <section>
+    <p class="kicker">O que você acabou de responder</p>
+    <h2>Em uma frase, você disse onde a sua liderança está travando.</h2>
+    <p>Pode ter sido a decisão sobre alguém que você vem empurrando há meses. Pode ser que quase tudo que importa ainda passe por você antes de acontecer. Pode ser o time que explica o resultado com o mercado, o cliente ou o preço. Ou o plano que sai da reunião combinado e registrado, e não vira execução.</p>
+    <p><strong>Os quatro cenários têm a mesma raiz</strong>, e é sobre ela que o seu diagnóstico fala. Não sobre a sua equipe.</p>
+  </section>
+
+  <section>
+    <p class="kicker">O que costuma aparecer junto</p>
+    <h2>Quem chega até aqui quase sempre reconhece pelo menos duas destas cenas.</h2>
+    <p>Não são problemas diferentes. São quatro formas que o mesmo gargalo encontra de aparecer na rotina de quem lidera.</p>
+
+    <div class="sit">
+      <article>
+        <p class="num">Situação 01</p>
+        <h3>Decisões sobre pessoas que chegam tarde demais</h3>
+        <p>Você já sabe quem não está no padrão. Já ensaiou a conversa, já deu mais um prazo, já pensou em trocar. E a decisão segue sendo empurrada, porque falta uma régua que diga o que é aceitável, o que já não é e em quanto tempo se corrige. Sem essa régua, cada decisão sobre gente vira aposta emocional, e o custo dela aparece no resultado antes de aparecer na conversa.</p>
+      </article>
+      <article>
+        <p class="num">Situação 02</p>
+        <h3>Correria constante e tempo nenhum para o estratégico</h3>
+        <p>O dia é tomado pelo urgente e o que realmente move a empresa fica para depois. Você trabalha muito, sai exausto, e ainda assim tem a sensação de não ter avançado no que importa. O problema raramente é agenda. É que ninguém no time tem critério para decidir sem você, então tudo volta para a sua mesa.</p>
+      </article>
+      <article>
+        <p class="num">Situação 03</p>
+        <h3>Insegurança na hora de conduzir</h3>
+        <p>Dar um feedback direto, cobrar um resultado, encerrar um ciclo. Você faz, mas com um peso que não deveria existir, sempre entre parecer duro demais e permissivo demais. Isso não é falta de perfil. É falta de método, e método é a única coisa que transforma conversa difícil em rotina de gestão.</p>
+      </article>
+      <article>
+        <p class="num">Situação 04</p>
+        <h3>Equipe sem engajamento real</h3>
+        <p>As pessoas cumprem tarefa, mas ninguém se sente dono do número. O resultado ruim sempre tem uma explicação externa e ela passa sem ser examinada. Quando isso se repete, deixa de ser desculpa e vira cultura, e cultura não se muda com discurso motivacional.</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">O que você vai receber</p>
+    <h2>Um documento com a leitura do seu caso, não um relatório genérico.</h2>
+    <div class="cards">
+      <div class="card"><b>O seu gargalo</b><span>O nome do problema real, e não o sintoma que aparece no dia a dia.</span></div>
+      <div class="card"><b>O que isso significa</b><span>A leitura do que está por trás, sem terceirizar a culpa para a sua equipe.</span></div>
+      <div class="card"><b>Por que o que você já tentou não resolveu</b><span>Conversa, troca de gente, processo, ferramenta, indicador. Por que nada disso segurou.</span></div>
+      <div class="card"><b>O caminho</b><span>A direção para destravar, com critério, e não com mais esforço.</span></div>
+    </div>
+  </section>
+
+  <a class="cta" style="margin-top:34px" href="https://wa.me/555599768528?text=Quero%20receber%20meu%20Diagn%C3%B3stico%20de%20Lideran%C3%A7a">Quero meu diagnóstico</a>
+  <p class="undercta">Leitura de poucos minutos. Você recebe mesmo que não queira seguir depois.</p>
+
+  <section>
+    <p class="kicker">Por que pelo WhatsApp</p>
+    <h2>Diagnóstico é documento. Documento se entrega na mão.</h2>
+    <p>Você toca no botão, a mensagem já vai escrita, e o seu diagnóstico chega logo em seguida, direto na conversa.</p>
+    <ul class="quatro">
+      <li>Sem preencher outro formulário para receber.</li>
+      <li>Sem esperar e-mail que cai em promoções.</li>
+      <li>Sem precisar falar com vendedor antes de ler.</li>
+    </ul>
+  </section>
+
+  <section>
+    <p class="kicker">Quem assina o diagnóstico</p>
+    <h2>Quem lê as suas respostas.</h2>
+    <div class="bio">
+      <p class="nome">Dra. Adm. Daniele Christensen</p>
+      <p class="reg">Doutora em Administração · CRA-RS 13.798 · Criadora do INTENSITY</p>
+      <p>Empreendedora desde os 19 anos, especialista em Desenvolvimento de Gestão e Liderança Adulta. São mais de 15 anos formando donos, sócios, diretores, gerentes e coordenadores, dentro das empresas, com o time real e o problema real na mesa.</p>
+      <p>Nesse caminho ela desenvolveu uma metodologia que vai além da teoria motivacional. É um sistema que une autoconhecimento guiado por diagnóstico, com <strong>Perfil Comportamental e Análise de Gestão em 40 fatores</strong>, ferramentas práticas de planejamento e execução, e um método estruturado de condução de pessoas.</p>
+      <p>É desse mesmo sistema que sai a leitura que você vai receber. O documento não opina sobre a sua liderança. Ele lê o seu cenário pela mesma régua que ela usa dentro das empresas que acompanha.</p>
+    </div>
+
+    <div class="creds">
+      <div><b>+15 anos</b><span>formando gestores e líderes dentro das empresas</span></div>
+      <div><b>40 fatores</b><span>de análise de gestão, além do perfil comportamental</span></div>
+      <div><b>+30 ferramentas</b><span>de gestão validadas na prática</span></div>
+      <div><b>+R$20 milhões</b><span>em receita gerada para clientes acompanhados</span></div>
+    </div>
+  </section>
+
+  <a class="cta" style="margin-top:34px" href="https://wa.me/555599768528?text=Quero%20receber%20meu%20Diagn%C3%B3stico%20de%20Lideran%C3%A7a">Receber meu diagnóstico agora</a>
+
+  <section>
+    <p class="kicker">Para quem esse diagnóstico foi escrito</p>
+    <h2>Ele não serve para todo mundo, e isso é proposital.</h2>
+    <p>A leitura parte de um contexto específico: quem já tem empresa rodando, time formado e decisão na mão. Se esse não é o seu caso, o documento vai soar distante, e é melhor você saber disso antes de pedir.</p>
+    <div class="duas">
+      <div class="col sim">
+        <p class="tit">Faz sentido para você se</p>
+        <ul>
+          <li>Você é dono, sócio ou diretor, e a decisão final sobre pessoas passa por você.</li>
+          <li>A empresa já tem operação e faturamento consolidados, e o gargalo agora é de gestão, não de venda.</li>
+          <li>Você lidera um time e sente que o resultado depende demais da sua presença.</li>
+          <li>Você já tentou resolver com conversa, troca de gente, processo ou ferramenta, e o problema voltou.</li>
+        </ul>
+      </div>
+      <div class="col nao">
+        <p class="tit">Não faz sentido se</p>
+        <ul>
+          <li>Você está buscando conteúdo motivacional ou frase de efeito sobre liderança.</li>
+          <li>Você não tem equipe sob a sua responsabilidade hoje.</li>
+          <li>Você quer uma resposta pronta sem olhar para a própria forma de decidir.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">Quem já passou por esse processo</p>
+    <h2>O que muda quando a gestão ganha critério.</h2>
+    <p>Os relatos abaixo são de donos e gestores que passaram pelo diagnóstico e seguiram no acompanhamento.</p>
+    <div class="depo">
+      <div class="slot"><b>Espaço reservado · Depoimento 01</b><span>inserir o print já usado na página atual</span></div>
+      <div class="slot"><b>Espaço reservado · Depoimento 02</b><span>inserir o print já usado na página atual</span></div>
+      <div class="slot"><b>Espaço reservado · Depoimento 03</b><span>inserir o print já usado na página atual</span></div>
+      <div class="slot"><b>Espaço reservado · Depoimento 04</b><span>inserir o print já usado na página atual</span></div>
+    </div>
+  </section>
+
+  <section>
+    <p class="kicker">Perguntas frequentes</p>
+    <h2>Antes de você clicar.</h2>
+    <div class="faq">
+      <div><b>O diagnóstico tem algum custo?</b><span>Não. É gratuito, e você recebe independente de qualquer conversa comercial.</span></div>
+      <div><b>Quanto tempo leva para chegar?</b><span>Chega logo depois que você envia a mensagem. Não é agendamento, é entrega.</span></div>
+      <div><b>Quem escreve o diagnóstico?</b><span>A leitura é da Dra. Daniele Christensen, a partir da mesma metodologia que ela aplica dentro das empresas que acompanha.</span></div>
+      <div><b>E se eu não for o dono da empresa?</b><span>O documento funciona igual. Ele parte de quem responde por um time e por um resultado, seja você sócio, diretor ou gestor.</span></div>
+      <div><b>Preciso ter uma equipe grande?</b><span>Não. O que pesa é o nível de responsabilidade que você carrega, não o tamanho do organograma.</span></div>
+      <div><b>Vou receber uma enxurrada de mensagem depois?</b><span>Não. Você recebe o seu diagnóstico e a orientação do próximo passo. Se não quiser seguir, é só dizer.</span></div>
+      <div><b>E depois de ler o diagnóstico, o que acontece?</b><span>Quem quiser ir mais fundo recebe um link para a leitura completa da gestão, que leva cerca de 3 minutos, e ao terminar já escolhe o horário de uma Sessão Estratégica Gratuita com a Dra. Daniele.</span></div>
+    </div>
+  </section>
+
+  <section class="fecho">
+    <h2>A partir daqui existem duas saídas.</h2>
+    <p>Você fecha essa página e segue conduzindo do mesmo jeito, na base do improviso, esperando que o próximo mês seja diferente. Ou você lê, em poucos minutos, o que está travando a sua liderança e por quê, e decide o que fazer com isso.</p>
+    <p><strong>O diagnóstico já está pronto. Falta só você pedir.</strong></p>
+    <a class="cta" style="margin-top:22px" href="https://wa.me/555599768528?text=Quero%20receber%20meu%20Diagn%C3%B3stico%20de%20Lideran%C3%A7a">Receber meu diagnóstico</a>
+    <p class="undercta">Sem custo. Sem agendamento. Chega direto no seu WhatsApp.</p>
+  </section>
+
+  <footer>
+    <p class="f1">Dra. Adm. Daniele Christensen</p>
+    <p class="f2">Doutora em Administração · CRA-RS 13.798 · Criadora do INTENSITY</p>
+    <p class="f3">Liderança adulta exige critério, coragem e método.</p>
+  </footer>
+
+</div>

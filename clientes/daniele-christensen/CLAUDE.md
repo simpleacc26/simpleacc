@@ -25,12 +25,16 @@ onde o outro parou (o Git é a memória compartilhada).
 - **Oferta principal:** Intensity — programa de 12 meses de desenvolvimento em
   gestão e liderança adulta, ticket R$ 24.000. Detalhes em
   `contexto/produto-e-oferta.md`.
-- **Público / ICP:** gestores/donos/líderes recém-promovidos, 30–55 anos,
-  responsabilidade direta sobre pessoas e resultado. Camadas de qualificação
-  A (ouro) a D (vampiro de tempo) em `estrategia/central-estrategica.md`.
+- **Público / ICP (atualizado em ago/26):** **dono ou sócio** de empresa que
+  fatura **acima de R$200 mil/mês**, com decisão final sobre pessoas e
+  orçamento. O vazamento histórico do funil não era faturamento, era
+  cargo/autonomia — ver `aprendizados.md`. Camadas A (ouro) a D em
+  `estrategia/central-estrategica.md`.
 - **Links (site, páginas, Drive):** ver `README.md`.
 - **Contato principal:** Dra. Daniele Christensen (Instagram
-  `@daniele.doutoradelideres`).
-- **Funil ativo:** quiz de diagnóstico → LP → Sessão Diagnóstica → venda do
-  Intensity. Copy em `copy/`, métricas e cadência em
-  `estrategia/funil-e-comercial.md`.
+  `@daniele.doutoradelideres`). Do lado da Grokker, Priscila. CRM: Pulsar.
+- **Funil (desenho novo, ago/26):** anúncio → quiz (Etapa 1) → cenário na tela →
+  **página pós-quiz com botão para o WhatsApp** → lead manda mensagem (abre a
+  janela de 24h) → áudio da Dani + PDF do diagnóstico + link da Etapa 2 →
+  Etapa 2 → agendamento da Sessão Estratégica. Contexto e divisão de escopo com
+  a Pulsar em `estrategia/reuniao-pulsar-novo-fluxo-e-prioridades.md`.
