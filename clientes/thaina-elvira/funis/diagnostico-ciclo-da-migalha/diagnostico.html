@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Seu Diagnóstico do Ciclo · Mulher que Escolhe</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <style>
+    :root{--bg:#1A1016;--text:#F5EDE9}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* --- específico do relatório --- */
+    .report-head { text-align: center; padding: 20px 0 10px; border-bottom: 1px solid var(--border); margin-bottom: 26px; }
+    .report-head .selo { margin-bottom: 12px; }
+    .report-head h1 { font-size: 24px; margin-bottom: 16px; }
+
+    /* selo do padrão nomeado (o equivalente ao "resultado" dela) */
+    .padrao-badge { display: inline-flex; flex-direction: column; align-items: center; gap: 4px; margin: 2px 0 12px; padding: 16px 26px; border-radius: var(--radius); border: 1px solid color-mix(in srgb, var(--rose) 34%, var(--border)); background: var(--rose-soft); }
+    .padrao-nome { font-family: var(--font-serif); font-size: 27px; font-weight: 700; line-height: 1.1; color: var(--rose-light); }
+    .padrao-elo { font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+    .chip { display: inline-block; font-size: 12.5px; font-weight: 600; padding: 6px 13px; border-radius: 99px; border: 1px solid var(--border); background: var(--surface); color: var(--muted); }
+    .chip.int-alta { color: #E0917A; border-color: rgba(224,145,122,.45); }
+    .chip.int-media { color: var(--champagne); border-color: rgba(223,195,160,.4); }
+    .chip.int-leve { color: #8FC4A8; border-color: rgba(143,196,168,.4); }
+    .report-head .hint { display: block; margin-top: 12px; }
+
+    /* --- blocos da página --- */
+    .etapa { margin: 0 0 30px; }
+    .etapa h3 { font-family: var(--font-serif); font-size: 21px; line-height: 1.25; color: var(--rose-light); margin: 0 0 12px; font-weight: 700; }
+    .etapa p { margin: 0 0 12px; }
+
+    /* os 5 elos, com o trecho personalizado destacado */
+    .elos { margin: 4px 0 14px; padding-left: 20px; }
+    .elos li { margin: 0 0 12px; }
+    .elos strong { color: var(--text); }
+    .elos .seu { display: block; margin-top: 4px; font-size: 15px; color: var(--rose-light); font-style: italic; }
+    .metodo { margin: 0 0 14px; padding-left: 20px; }
+    .metodo li { margin: 0 0 8px; }
+    .metodo strong { color: var(--primary-700); }
+    .entrega { margin: 0 0 14px; padding-left: 20px; }
+    .entrega li { margin: 0 0 8px; }
+
+    /* dois caminhos / para quem é */
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0 4px; }
+    .compare .col { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px; background: var(--surface); }
+    .compare .col h4 { margin: 0 0 8px; font-size: 14px; }
+    .compare .col.bad h4 { color: var(--muted); }
+    .compare .col.good { background: color-mix(in srgb, var(--rose) 7%, var(--surface)); border-color: color-mix(in srgb, var(--rose) 30%, var(--border)); }
+    .compare ul { margin: 0; padding-left: 18px; font-size: 15px; color: var(--muted); }
+    .compare .good ul { color: var(--text); }
+    @media (max-width: 520px){ .compare { grid-template-columns: 1fr; } }
+
+    /* FAQ em acordeão (a página é longa de propósito) */
+    .faq { border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface); padding: 0 14px; margin: 0 0 10px; }
+    .faq summary { cursor: pointer; padding: 14px 0; font-weight: 600; font-size: 16px; list-style: none; display: flex; justify-content: space-between; gap: 12px; align-items: center; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; color: var(--rose); font-size: 22px; line-height: 1; }
+    .faq[open] summary::after { content: "–"; }
+    .faq[open] summary { color: var(--rose-light); }
+    .faq p { margin: 0 0 14px; font-size: 15.5px; color: var(--muted); }
+    .faq summary:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; border-radius: 6px; }
+
+    /* --- CTA distribuído (3 vezes na página, mesmo destino) --- */
+    .cta-inline { text-align: center; margin: 30px 0; padding: 22px 16px; border-radius: var(--radius); border: 1px solid color-mix(in srgb, var(--rose) 24%, var(--border)); background: color-mix(in srgb, var(--rose) 6%, var(--surface)); }
+    .cta-inline .btn { width: 100%; max-width: 420px; }
+    .cta-inline .hint { display: block; margin: 12px 0 0; }
+
+    /* --- bloco de autoridade (Quem é o Thiago) --- */
+    .autor { display: flex; align-items: center; gap: 15px; margin: 2px 0 16px; }
+    /* Enquanto não houver foto oficial, entra a inicial. Quando vier o arquivo,
+       trocar por <img class="autor-foto" src="thiago.webp" alt="Thiago"> */
+    .autor-ini { width: 84px; height: 84px; flex: 0 0 84px; border-radius: 50%; display: grid; place-items: center; border: 2px solid var(--rose); background: var(--rose-soft); font-family: var(--font-serif); font-size: 36px; font-weight: 700; color: var(--rose-light); }
+    .autor-foto { width: 84px; height: 84px; flex: 0 0 84px; border-radius: 50%; object-fit: cover; border: 2px solid var(--rose); }
+    .autor-nome { display: block; font-family: var(--font-serif); font-size: 19px; font-weight: 700; letter-spacing: .05em; color: var(--rose-light); line-height: 1.15; }
+    .autor-cargo { display: block; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
+
+    /* --- CTA final --- */
+    .cta-box { background: color-mix(in srgb, var(--rose) 8%, var(--surface)); border: 1px solid color-mix(in srgb, var(--rose) 26%, var(--border)); border-radius: var(--radius); padding: 24px 22px; text-align: center; margin-top: 8px; }
+    .cta-box .btn { width: 100%; max-width: 420px; }
+    .fecho { font-size: 15px; color: var(--muted); margin-top: 16px; }
+
+    /* aviso de configuração pendente (some quando o WhatsApp for preenchido) */
+    .setup-warn { background: rgba(224,145,122,.14); border: 1px solid rgba(224,145,122,.45); color: var(--err); border-radius: var(--radius-sm); padding: 11px 14px; margin: 0 0 18px; font-size: 14px; }
+
+    @media print {
+      .no-print, .cta-inline, .setup-warn { display: none !important; }
+      body { background: #fff; }
+      .card { box-shadow: none; border-color: #ddd; margin: 0; }
+      .topbar, .foot { color: #000; }
+      .etapa, .compare .col, .cta-box, .faq { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <!-- Quando tiver o logo oficial, troque por: <img class="logo-img" src="logo.png" alt="Mulher que Escolhe"> -->
+        <svg class="emblem" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <path d="M25.2 13.2 A20 20 0 1 1 13.2 38.8" fill="none" stroke="#C9899B" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="25.2" cy="13.2" r="3.6" fill="#C9899B"/>
+          <path d="M27 33.5 l4.5 4.5 L41 27" fill="none" stroke="#DFC3A0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand-name">Mulher que Escolhe</span>
+        <span class="brand-tag">com Thiago</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card screen" id="report"><!-- preenchido por diagnostico.js --></div>
+  </main>
+
+  <p class="foot">Diagnóstico elaborado a partir das suas respostas · uso pessoal</p>
+
+  <script src="flow.js" defer></script>
+  <script src="diagnostico.js" defer></script>
+</body>
+</html>

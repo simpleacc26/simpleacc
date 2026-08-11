@@ -44,6 +44,10 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
 - **Análise de mercado:** `contexto/2026-07-23-raio-x-mercado-relacionamento.md`
   (nicho estágio 4 em sedução/feminilidade; a ponte para o território clínico
   está vazia; "migalha" é vilão validado e sem dono).
+- **Funil no ar (código):** `funis/diagnostico-ciclo-da-migalha/` (quiz de 9
+  passos + página pós-quiz). A copy toda vive em `flow.js` e em `diagnostico.js`.
+  ⚠️ A página pós-quiz **não vende**: sobe consciência e leva ao WhatsApp. Sem
+  preço, sem checkout. Se pedirem preço na página, é mudança de estratégia.
 - **Escopo contratado (mentoria anual):** 1 versão do funil (quiz + páginas + 12 copies), encontros quinzenais (individual + grupo), área de membros, playbooks comerciais, suporte no grupo de WhatsApp.
 - **Contato principal:** Thaina Elvira — adm@thaielvira.com.br
 - **Decisão de investimento compartilhada com:** Thiago (sócio/parceiro).

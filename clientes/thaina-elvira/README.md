@@ -23,9 +23,9 @@ playbooks. Contrato fechado após a sessão estratégica de 02/07/2026.
 
 ## Projetos
 
-| Projeto            | Pasta      | Status       | Deploy |
-| ------------------ | ---------- | ------------ | ------ |
-| Funil de quiz (v1) | `funis/`   | a iniciar    | —      |
+| Projeto | Pasta | Status | Deploy |
+| ------- | ----- | ------ | ------ |
+| Diagnóstico do Ciclo (quiz + página pós-quiz) | `funis/diagnostico-ciclo-da-migalha` | implementado, aguardando WhatsApp e planilha de leads | a publicar na Vercel |
 
 ## Oferta do funil (atualizada em 04/08/2026)
 
