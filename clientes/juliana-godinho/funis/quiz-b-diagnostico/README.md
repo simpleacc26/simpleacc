@@ -14,6 +14,17 @@ A especificação completa (por que cada pergunta existe, os quadros, os laudos 
 a copy dos anúncios) está em
 `../../estrategia/2026-08-10-reestruturacao-quiz-b-v2.html`.
 
+## Identidade
+
+Extraída do quiz que ela já tem no ar em `quiz.julianagodinho.com.br`:
+ouro **`#C9A84C`**, fundo quente claro, cartões brancos, Inter.
+
+Aqui o tratamento é mais premium, sem virar cópia: fundo mais fechado
+(`#F4F2ED`), chrome em espresso `#171412` com filete dourado, cantos de 4px no
+lugar de 14px, ouro usado como filete e acento em vez de preenchimento, e
+**Cormorant Garamond** nas perguntas com Inter na interface. O losango dourado
+substitui o radio redondo.
+
 ## Lógica implementada
 
 | Ponto | Regra |
@@ -29,8 +40,7 @@ respostas, para conferir a lógica. Esse bloco não vai para a versão final.
 ## O que ainda NÃO existe
 
 - Integração com CRM ou planilha de leads. O formulário não envia nada.
-- Identidade visual da Ju. Está com a paleta do documento de proposta
-  (porcelana e eucalipto) como placeholder, aguardando logo, cores e fontes.
+- **Logo** da Ju. A marca está como lockup tipográfico até chegar o arquivo.
 - Página pós-quiz completa, PDF do laudo e disparo de WhatsApp.
 - Pixel, UTMs e rastreamento.
 

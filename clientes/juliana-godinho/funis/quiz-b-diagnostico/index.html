@@ -3,139 +3,212 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Diagnóstico · Ju Godinho</title>
-<meta name="description" content="Descubra em 2 minutos qual gargalo está travando o crescimento da sua clínica ou consultório de estética avançada.">
+<title>Diagnóstico · Juliana Godinho</title>
+<meta name="description" content="Descubra qual gargalo está travando o crescimento da sua clínica ou consultório de estética avançada.">
 <meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#F5F6F4; --card:#FFFFFF; --sunk:#EDEFEC;
-    --rule:#DBE0DA; --rule-hard:#C3CBC1;
-    --ink:#16211E; --ink-2:#4A5852; --ink-3:#78857E;
-    --acc:#1F4A45; --acc-2:#2F6E62; --acc-wash:#E7EDEA;
-    --ment:#2F6E62; --edp:#8A6A24; --fora:#8C3F58;
-    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
-    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
-    --wrap:min(100% - 2.5rem, 40rem);
+    --bg:#F4F2ED;
+    --card:#FFFFFF;
+    --espresso:#171412;
+    --ink:#141210;
+    --ink-2:#4C4640;
+    --ink-3:#8C8279;
+    --line:#E4DFD6;
+    --line-2:#D6CFC2;
+
+    --gold:#C9A84C;
+    --gold-deep:#A2802F;
+    --gold-tint:#FBF4E0;
+    --gold-hair:rgba(201,168,76,.32);
+
+    --ment:#7A6224;
+    --edp:#8C7A52;
+    --fora:#8A5B4E;
+
+    --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+    --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    --wrap:min(100% - 2.5rem, 42rem);
+    --r:4px;
   }
-  *{box-sizing:border-box}
-  html{background:var(--paper)}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{background:var(--bg)}
   body{
-    margin:0; background:var(--paper); color:var(--ink);
-    font-family:var(--sans); font-size:17px; line-height:1.6;
-    -webkit-font-smoothing:antialiased; min-height:100vh;
+    background:var(--bg); color:var(--ink); font-family:var(--sans);
+    font-size:17px; line-height:1.6; -webkit-font-smoothing:antialiased;
+    min-height:100vh; display:flex; flex-direction:column;
   }
   .wrap{width:var(--wrap); margin-inline:auto}
 
-  .topbar{border-bottom:1px solid var(--rule); background:var(--card)}
-  .topbar .wrap{
-    display:flex; align-items:baseline; justify-content:space-between;
-    gap:1rem; padding:1rem 0; flex-wrap:wrap;
+  /* —— chrome —— */
+  .bar{background:var(--espresso); border-bottom:1px solid rgba(201,168,76,.22)}
+  .bar .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:1rem; padding:1.05rem 0;
   }
-  .brand{font-weight:750; letter-spacing:-.02em; font-size:1rem}
-  .brand small{
-    display:block; font-family:var(--mono); font-size:.62rem; letter-spacing:.16em;
-    text-transform:uppercase; color:var(--acc); font-weight:600; margin-top:.15rem;
+  .mark{
+    font-family:var(--sans); font-weight:600; font-size:.74rem;
+    letter-spacing:.34em; text-transform:uppercase; color:#F2EDE3;
   }
-  .steps{font-family:var(--mono); font-size:.68rem; letter-spacing:.12em; color:var(--ink-3); text-transform:uppercase}
+  .mark i{
+    display:block; font-style:normal; font-weight:400; font-size:.58rem;
+    letter-spacing:.26em; color:var(--gold); margin-top:.3rem;
+  }
+  .count{
+    font-family:var(--sans); font-size:.68rem; letter-spacing:.2em;
+    text-transform:uppercase; color:rgba(242,237,227,.5);
+    font-variant-numeric:tabular-nums;
+  }
+  .count b{color:var(--gold); font-weight:600}
 
-  .track{height:3px; background:var(--rule)}
-  .fill{height:100%; width:0; background:var(--acc); transition:width .4s cubic-bezier(.4,0,.2,1)}
-
-  main{padding:3rem 0 4rem}
-  .screen{animation:in .4s ease both}
-  @keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-  @media (prefers-reduced-motion:reduce){.screen{animation:none}.fill{transition:none}}
-
-  .eyebrow{
-    font-family:var(--mono); font-size:.66rem; letter-spacing:.16em; text-transform:uppercase;
-    color:var(--acc); font-weight:600; margin:0 0 1rem;
+  .track{height:2px; background:rgba(201,168,76,.16)}
+  .fill{
+    height:100%; width:0;
+    background:linear-gradient(90deg,var(--gold-deep),var(--gold));
+    transition:width .55s cubic-bezier(.33,1,.68,1);
   }
-  h1{
-    font-weight:750; font-size:clamp(1.75rem,5vw,2.6rem); line-height:1.08;
-    letter-spacing:-.03em; text-wrap:balance; margin:0 0 1rem;
-  }
-  h2.q{
-    font-weight:700; font-size:clamp(1.3rem,3.6vw,1.7rem); line-height:1.2;
-    letter-spacing:-.022em; text-wrap:balance; margin:0 0 1.6rem;
-  }
-  .lede{font-size:1.05rem; color:var(--ink-2); margin:0 0 1.6rem}
-  .fine{font-size:.9rem; color:var(--ink-3); border-left:2px solid var(--rule-hard); padding-left:.9rem; margin:0 0 2rem}
 
-  .opts{display:flex; flex-direction:column; gap:.6rem; margin:0 0 1.5rem}
+  main{flex:1; padding:4rem 0 5rem}
+  .screen{animation:rise .5s cubic-bezier(.33,1,.68,1) both}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){
+    .screen{animation:none} .fill{transition:none} .opt{transition:none}
+  }
+
+  /* —— tipografia —— */
+  .kicker{
+    font-size:.66rem; font-weight:600; letter-spacing:.24em; text-transform:uppercase;
+    color:var(--gold-deep); margin-bottom:1.5rem; display:flex; align-items:center; gap:.85rem;
+  }
+  .kicker::after{content:""; flex:1; height:1px; background:var(--gold-hair)}
+
+  h1.q{
+    font-family:var(--serif); font-weight:500;
+    font-size:clamp(1.9rem,5.2vw,2.85rem); line-height:1.16;
+    letter-spacing:-.005em; text-wrap:balance; color:var(--ink);
+    margin-bottom:2.1rem; max-width:22ch;
+  }
+  h1.q em{font-style:italic; color:var(--gold-deep)}
+
+  /* —— opções —— */
+  .opts{display:flex; flex-direction:column; gap:.55rem; margin-bottom:1.6rem}
   .opt{
-    text-align:left; width:100%; background:var(--card); border:1px solid var(--rule);
-    padding:.95rem 1.1rem .95rem 2.9rem; color:var(--ink); font-family:inherit;
-    font-size:.98rem; line-height:1.4; cursor:pointer; position:relative;
-    transition:border-color .15s, background .15s, transform .1s;
+    position:relative; width:100%; text-align:left; cursor:pointer;
+    background:var(--card); border:1px solid var(--line); border-radius:var(--r);
+    padding:1.05rem 1.3rem 1.05rem 3.1rem;
+    font-family:var(--sans); font-size:1rem; line-height:1.45; color:var(--ink-2);
+    transition:border-color .2s, background .2s, color .2s, box-shadow .2s;
   }
   .opt::before{
-    content:""; position:absolute; left:1.05rem; top:1.15rem;
-    width:1rem; height:1rem; border:1.5px solid var(--rule-hard); border-radius:50%;
-    transition:border-color .15s, background .15s, box-shadow .15s;
+    content:""; position:absolute; left:1.3rem; top:1.32rem;
+    width:.5rem; height:.5rem; border:1px solid var(--line-2);
+    transform:rotate(45deg); transition:all .2s;
   }
-  .opt:hover{border-color:var(--acc); background:var(--acc-wash)}
-  .opt:hover::before{border-color:var(--acc)}
-  .opt.on{border-color:var(--acc); background:var(--acc-wash)}
-  .opt.on::before{background:var(--acc); border-color:var(--acc); box-shadow:inset 0 0 0 3px var(--card)}
-  .opt:focus-visible{outline:2px solid var(--acc); outline-offset:2px}
-  .opt .multi{
-    position:absolute; right:1rem; top:1.05rem; font-family:var(--mono);
-    font-size:.6rem; letter-spacing:.1em; color:var(--ink-3); text-transform:uppercase;
+  .opt:hover{
+    border-color:var(--gold-hair); background:#FDFBF6; color:var(--ink);
+    box-shadow:0 2px 18px rgba(20,18,16,.05);
+  }
+  .opt:hover::before{border-color:var(--gold)}
+  .opt.on{
+    border-color:var(--gold); background:var(--gold-tint); color:var(--ink);
+  }
+  .opt.on::before{background:var(--gold); border-color:var(--gold)}
+  .opt:focus-visible{outline:1px solid var(--gold-deep); outline-offset:3px}
+  .hint{
+    display:block; margin-top:.4rem; font-size:.72rem; letter-spacing:.12em;
+    text-transform:uppercase; color:var(--ink-3); font-weight:500;
   }
 
+  /* —— botões —— */
   .cta{
-    display:inline-block; background:var(--acc); color:#fff; border:0;
-    font-family:inherit; font-size:1rem; font-weight:650; padding:.9rem 1.8rem;
-    cursor:pointer; transition:filter .15s, transform .1s;
+    display:inline-flex; align-items:center; gap:.8rem;
+    background:var(--espresso); color:#F7F3EA; border:0; border-radius:var(--r);
+    font-family:var(--sans); font-size:.82rem; font-weight:600;
+    letter-spacing:.16em; text-transform:uppercase;
+    padding:1.05rem 2.2rem; cursor:pointer;
+    transition:background .2s, transform .12s;
   }
-  .cta:hover{filter:brightness(1.12)}
-  .cta:focus-visible{outline:2px solid var(--acc); outline-offset:3px}
-  .cta[disabled]{opacity:.4; cursor:not-allowed}
+  .cta:hover{background:#241F1A; transform:translateY(-1px)}
+  .cta:focus-visible{outline:1px solid var(--gold); outline-offset:3px}
+  .cta span{color:var(--gold); font-size:1rem; line-height:1}
 
-  .nav{display:flex; align-items:center; gap:1.2rem; margin-top:1.6rem}
+  .nav{display:flex; align-items:center; gap:1.5rem; margin-top:2rem}
   .back{
-    background:none; border:0; color:var(--ink-3); font-family:inherit;
-    font-size:.9rem; cursor:pointer; padding:.4rem 0;
+    background:none; border:0; cursor:pointer; padding:.3rem 0;
+    font-family:var(--sans); font-size:.7rem; font-weight:500;
+    letter-spacing:.18em; text-transform:uppercase; color:var(--ink-3);
+    transition:color .2s;
   }
-  .back:hover{color:var(--acc)}
+  .back:hover{color:var(--gold-deep)}
 
-  .field{display:flex; flex-direction:column; gap:.35rem; margin-bottom:1rem}
-  .field label{font-family:var(--mono); font-size:.66rem; letter-spacing:.13em; text-transform:uppercase; color:var(--ink-3)}
-  .field input{
-    background:var(--card); border:1px solid var(--rule); padding:.8rem .95rem;
-    color:var(--ink); font-family:inherit; font-size:1rem;
-  }
-  .field input:focus{outline:none; border-color:var(--acc)}
-
-  .laudo{border:1px solid var(--rule); background:var(--card); margin:0 0 1.5rem}
-  .laudo header{padding:1rem 1.25rem; background:var(--sunk); border-bottom:1px solid var(--rule)}
-  .laudo .tag{
-    font-family:var(--mono); font-size:.62rem; letter-spacing:.14em; text-transform:uppercase;
-    font-weight:600; display:block; margin-bottom:.3rem;
-  }
-  .laudo h3{margin:0; font-size:1.2rem; font-weight:750; letter-spacing:-.02em}
-  .laudo .bd{padding:1.2rem 1.25rem}
-  .laudo p{margin:0 0 .9rem}
-  .laudo p:last-child{margin:0}
-  .t-ment{color:var(--ment)} .t-edp{color:var(--edp)} .t-fora{color:var(--fora)}
-
-  .debug{
-    border:1px dashed var(--rule-hard); background:var(--sunk); padding:.9rem 1.1rem;
-    font-family:var(--mono); font-size:.72rem; color:var(--ink-2); margin-top:2rem;
-    line-height:1.7;
-  }
-  .debug b{color:var(--acc); font-weight:600}
-
-  footer{
-    border-top:1px solid var(--rule); padding:1.5rem 0 2.5rem;
-    font-family:var(--mono); font-size:.64rem; letter-spacing:.1em;
+  /* —— formulário —— */
+  .field{display:flex; flex-direction:column; gap:.45rem; margin-bottom:1.15rem}
+  .field label{
+    font-size:.64rem; font-weight:600; letter-spacing:.2em;
     text-transform:uppercase; color:var(--ink-3);
   }
+  .field input{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--r);
+    padding:.95rem 1.1rem; font-family:var(--sans); font-size:1rem; color:var(--ink);
+    transition:border-color .2s;
+  }
+  .field input:focus{outline:none; border-color:var(--gold)}
+  .field input::placeholder{color:#B9B1A7}
+  .lede{font-size:1.02rem; color:var(--ink-2); margin-bottom:2rem; max-width:46ch}
+
+  /* —— laudo —— */
+  .laudo{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--r);
+    box-shadow:0 6px 40px rgba(20,18,16,.06); overflow:hidden; margin-bottom:2rem;
+  }
+  .laudo .top{
+    padding:2rem 2rem 1.6rem; border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,#FCFAF5,var(--card));
+  }
+  .laudo .badge{
+    font-size:.62rem; font-weight:600; letter-spacing:.24em; text-transform:uppercase;
+    color:var(--gold-deep); display:block; margin-bottom:.9rem;
+  }
+  .laudo h2{
+    font-family:var(--serif); font-weight:500; font-size:clamp(1.7rem,4.4vw,2.4rem);
+    line-height:1.14; letter-spacing:-.005em; color:var(--ink);
+  }
+  .laudo .bd{padding:1.9rem 2rem 2.1rem}
+  .laudo p{margin-bottom:1.15rem; color:var(--ink-2)}
+  .laudo p:last-child{margin-bottom:0}
+  .laudo p strong{color:var(--ink); font-weight:600}
+  .rule{height:1px; background:var(--gold-hair); margin:1.5rem 0}
+
+  /* —— bloco de teste —— */
+  .dbg{
+    border:1px dashed var(--line-2); border-radius:var(--r); background:#EFEDE7;
+    padding:1.1rem 1.3rem; font-size:.76rem; line-height:1.85; color:var(--ink-2);
+    font-variant-numeric:tabular-nums;
+  }
+  .dbg b{
+    display:block; font-size:.62rem; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--gold-deep); margin-bottom:.6rem; font-weight:600;
+  }
+
   .flag{
-    background:var(--acc); color:#fff; text-align:center;
-    font-family:var(--mono); font-size:.62rem; letter-spacing:.16em;
-    text-transform:uppercase; padding:.45rem 1rem; font-weight:600;
+    background:var(--gold); color:#221B08; text-align:center; font-size:.6rem;
+    font-weight:600; letter-spacing:.24em; text-transform:uppercase; padding:.5rem 1rem;
+  }
+  footer{
+    border-top:1px solid var(--line); padding:1.6rem 0 2.4rem;
+    font-size:.62rem; font-weight:500; letter-spacing:.2em;
+    text-transform:uppercase; color:var(--ink-3);
+  }
+
+  @media(max-width:560px){
+    main{padding:2.6rem 0 3.5rem}
+    .laudo .top{padding:1.5rem 1.4rem 1.2rem}
+    .laudo .bd{padding:1.4rem}
+    .opt{padding:.95rem 1.1rem .95rem 2.8rem}
+    .mark{letter-spacing:.24em; font-size:.68rem}
   }
 </style>
 </head>
@@ -143,52 +216,52 @@
 
 <div class="flag">Versão de teste · sem integração com CRM ou planilha</div>
 
-<div class="topbar">
+<div class="bar">
   <div class="wrap">
-    <div class="brand">Ju Godinho<small>Diagnóstico</small></div>
-    <div class="steps" id="steps"></div>
+    <div class="mark">Juliana Godinho<i>Diagnóstico</i></div>
+    <div class="count" id="count"></div>
   </div>
 </div>
 <div class="track"><div class="fill" id="fill"></div></div>
 
 <main><div class="wrap"><div class="screen" id="screen"></div></div></main>
 
-<footer><div class="wrap">Simple Acc · Quiz B · protótipo para validação interna</div></footer>
+<footer><div class="wrap">Simple Acc · Quiz B · protótipo para validação</div></footer>
 
 <script>
 const QUADROS = {
   Q1:{
-    nome:"A agenda virou o teto",
+    nome:"A agenda virou o seu teto",
     laudo:"O seu gargalo hoje não é falta de cliente, é que o crescimento está amarrado às suas horas. Você chegou no ponto em que a semana inteira vai para o atendimento e não sobra tempo para olhar o negócio. Enquanto o faturamento depender de quantas pessoas cabem na sua agenda, ele tem um teto, e você já encostou nele.",
-    caminho:"O caminho é separar o tempo de atender do tempo de tocar o negócio, e definir o que sai da sua mão primeiro."
+    caminho:"Separar o tempo de atender do tempo de tocar o negócio, e definir o que sai da sua mão primeiro."
   },
   Q2:{
     nome:"Sempre as mesmas clientes",
     laudo:"As suas clientes são fiéis e voltam sempre, e isso é mérito seu. O problema é que não está entrando cliente nova, e sem fluxo novo o faturamento fica preso no tamanho da carteira que você já tem. Você não tem um problema de fidelização, tem um problema de entrada.",
-    caminho:"O caminho é criar fluxo de cliente nova sem depender de indicação, e subir o valor do que já é vendido para a base atual."
+    caminho:"Criar fluxo de cliente nova sem depender de indicação, e subir o valor do que já é vendido para a base atual."
   },
   Q3:{
-    nome:"Vende com desconto",
-    laudo:"A promoção virou a forma de vender. Ela resolve o mês e cobra o preço no seguinte: o movimento aumenta, a margem some junto, e a sua base aprende a esperar o desconto para comprar. Faturar mais e sobrar menos não é impressão sua, é a consequência direta disso.",
-    caminho:"O caminho é clareza de números primeiro, preço por valor depois, até a promoção deixar de ser o que sustenta a venda."
+    nome:"A promoção virou o seu jeito de vender",
+    laudo:"A promoção resolve o mês e cobra o preço no seguinte. O movimento aumenta, a margem some junto, e a sua base aprende a esperar o desconto para comprar. Faturar mais e sobrar menos não é impressão sua, é a consequência direta disso.",
+    caminho:"Clareza de números primeiro, preço por valor depois, até a promoção deixar de ser o que sustenta a venda."
   },
   Q4:{
-    nome:"Cobra menos do que vale",
-    laudo:"Você entrega muito mais do que cobra. O receio de perder quem já vem faz você segurar o preço, e aí o seu trabalho fica ancorado num valor que não corresponde ao que ele realmente vale. Aumentar a tabela sozinho não resolve, porque o que falta não é preço, é o que sustenta o preço.",
-    caminho:"O caminho é construir tratamentos de maior valor e o posicionamento que sustenta o preço, em vez de mexer só na tabela."
+    nome:"Você cobra menos do que entrega",
+    laudo:"O receio de perder quem já vem faz você segurar o preço, e aí o seu trabalho fica ancorado num valor que não corresponde ao que ele realmente vale. Aumentar a tabela sozinho não resolve, porque o que falta não é preço, é o que sustenta o preço.",
+    caminho:"Construir tratamentos de maior valor e o posicionamento que sustenta o preço, em vez de mexer só na tabela."
   }
 };
 
 const PERGUNTAS = [
   { id:"carro", tipo:"unica",
-    texto:"Qual desses tratamentos responde pela maior parte do seu faturamento hoje?",
+    texto:"Qual desses tratamentos responde pela <em>maior parte</em> do seu faturamento hoje?",
     opts:[
       {t:"Tratamentos corporais"},{t:"Tratamentos faciais"},{t:"Injetáveis"},
       {t:"Pós-operatório"},{t:"Depilação a laser"},{t:"Tricologia"},
       {t:"Nenhuma dessas", fora:true}
     ]},
   { id:"cena", tipo:"unica",
-    texto:"Pense na última semana na sua clínica ou consultório. Qual dessas cenas aconteceu mais vezes?",
+    texto:"Pense na última semana. Qual dessas cenas aconteceu <em>mais vezes</em> na sua clínica ou consultório?",
     opts:[
       {t:"Terminei a semana só atendendo, sem tempo de postar nem de me organizar", q:"Q1"},
       {t:"Olhei a agenda e vi que são quase sempre as mesmas clientes", q:"Q2"},
@@ -200,7 +273,7 @@ const PERGUNTAS = [
     opts:[{t:"Só eu"},{t:"Eu e mais uma pessoa"},{t:"Eu e uma equipe pequena"},
           {t:"Tenho equipe atendendo e eu atendo pouco"},{t:"Só administro, não atendo"}]},
   { id:"margem", tipo:"unica",
-    texto:"Depois de pagar aluguel, produtos, impostos e quem trabalha com você, quanto costuma sobrar no fim do mês?",
+    texto:"Depois de pagar aluguel, produtos, impostos e quem trabalha com você, <em>quanto costuma sobrar</em> no fim do mês?",
     opts:[{t:"Quase nada, e em alguns meses falta"},{t:"Sobra pouco, e eu não sei dizer exatamente quanto"},
           {t:"Nunca fechei essa conta, não sei responder"},{t:"Sobra o suficiente para eu me pagar e reinvestir um pouco"},
           {t:"Sobra bem, e eu acompanho esse número de perto"}]},
@@ -216,56 +289,47 @@ const PERGUNTAS = [
 ];
 
 const TOTAL = PERGUNTAS.length;
-const R = {};           // respostas
-let etapa = 0;          // 0 = capa, 1..6 = perguntas, 7 = captura, 8 = resultado
+const R = {};
+let etapa = 1;       // abre direto na pergunta 1
 let fora = false;
 
 const screen = document.getElementById('screen');
 const fill = document.getElementById('fill');
-const steps = document.getElementById('steps');
+const count = document.getElementById('count');
+const pad = n => String(n).padStart(2,'0');
 
-function progresso(){
+function chrome(){
   let pct = 0;
   if(etapa >= 1 && etapa <= TOTAL) pct = ((etapa - 1) / TOTAL) * 100;
-  else if(etapa > TOTAL) pct = 100;
+  else pct = 100;
   fill.style.width = pct + '%';
-  steps.textContent = (etapa >= 1 && etapa <= TOTAL) ? `Pergunta ${etapa} de ${TOTAL}` : '';
+  count.innerHTML = (etapa >= 1 && etapa <= TOTAL)
+    ? `<b>${pad(etapa)}</b> / ${pad(TOTAL)}` : '';
 }
 
 function render(){
-  progresso();
+  chrome();
   window.scrollTo({top:0,behavior:'smooth'});
   if(fora) return telaFora();
-  if(etapa === 0) return capa();
   if(etapa <= TOTAL) return pergunta(etapa - 1);
   if(etapa === TOTAL + 1) return captura();
   return resultado();
 }
 
-function capa(){
-  screen.innerHTML = `
-    <p class="eyebrow">Para donas de clínica ou consultório de estética avançada</p>
-    <h1>Sua agenda está cheia e mesmo assim o dinheiro não sobra.</h1>
-    <p class="lede">Mesmo com muita certificação, muita técnica e bons resultados, chega um ponto em que atender mais para de resolver. São seis perguntas, menos de dois minutos, e no final você descobre qual dos quatro gargalos está travando o seu crescimento.</p>
-    <p class="fine">Este diagnóstico foi feito para quem já tem clínica ou consultório funcionando, com clientes e faturamento. Se você ainda está começando, ele não vai te ajudar.</p>
-    <button class="cta" id="go">Começar o diagnóstico</button>`;
-  document.getElementById('go').onclick = () => { etapa = 1; render(); };
-}
-
 function pergunta(i){
   const P = PERGUNTAS[i];
   const sel = R[P.id];
-  const marcado = o => P.tipo === 'multipla'
-    ? (Array.isArray(sel) && sel.includes(o)) : sel === o;
+  const on = k => P.tipo === 'multipla'
+    ? (Array.isArray(sel) && sel.includes(k)) : sel === k;
   screen.innerHTML = `
-    <p class="eyebrow">Pergunta ${i+1} de ${TOTAL}</p>
-    <h2 class="q">${P.texto}</h2>
+    <p class="kicker">Pergunta ${pad(i+1)}</p>
+    <h1 class="q">${P.texto}</h1>
     <div class="opts">${P.opts.map((o,k)=>
-      `<button class="opt${marcado(k)?' on':''}" data-k="${k}">${o.t}${
-        P.tipo==='multipla' ? '<span class="multi">pode marcar mais de uma</span>' : ''}</button>`
-    ).join('')}</div>
-    ${P.tipo==='multipla' ? '<button class="cta" id="next">Continuar</button>' : ''}
-    <div class="nav">${i>0 ? '<button class="back" id="back">Voltar</button>' : ''}</div>`;
+      `<button class="opt${on(k)?' on':''}" data-k="${k}">${o.t}</button>`).join('')}</div>
+    ${P.tipo==='multipla'
+      ? '<span class="hint">Pode marcar mais de uma</span><div class="nav"><button class="cta" id="next">Continuar <span>&rarr;</span></button>'
+        + (i>0?'<button class="back" id="back">Voltar</button>':'') + '</div>'
+      : (i>0?'<div class="nav"><button class="back" id="back">Voltar</button></div>':'')}`;
 
   screen.querySelectorAll('.opt').forEach(b => {
     b.onclick = () => {
@@ -274,15 +338,13 @@ function pergunta(i){
         const arr = Array.isArray(R[P.id]) ? R[P.id] : [];
         const at = arr.indexOf(k);
         at >= 0 ? arr.splice(at,1) : arr.push(k);
-        R[P.id] = arr;
-        b.classList.toggle('on');
-        return;
+        R[P.id] = arr; b.classList.toggle('on'); return;
       }
       R[P.id] = k;
       if(P.opts[k].fora){ fora = true; render(); return; }
       screen.querySelectorAll('.opt').forEach(x => x.classList.remove('on'));
       b.classList.add('on');
-      setTimeout(() => { etapa = i + 2; render(); }, 170);
+      setTimeout(() => { etapa = i + 2; render(); }, 200);
     };
   });
   const nx = document.getElementById('next');
@@ -292,29 +354,36 @@ function pergunta(i){
 }
 
 function telaFora(){
-  fill.style.width = '100%'; steps.textContent = '';
+  fill.style.width = '100%'; count.innerHTML = '';
   screen.innerHTML = `
     <div class="laudo">
-      <header><span class="tag t-fora">Fora do escopo</span><h3>Este diagnóstico não foi feito para o seu momento</h3></header>
+      <div class="top">
+        <span class="badge">Diagnóstico encerrado</span>
+        <h2>Este diagnóstico não foi construído para o seu momento</h2>
+      </div>
       <div class="bd">
-        <p>Ele foi construído para clínicas e consultórios de estética avançada, e o que a Ju ensina parte dessa realidade específica. Aplicar isso em outro modelo de negócio não geraria o resultado que ela quer assinar, e preferimos dizer isso agora a te fazer perder tempo.</p>
+        <p>Ele parte da realidade específica de clínicas e consultórios de estética avançada, e é dela que sai tudo o que a Juliana ensina. Preferimos te dizer isso agora a te fazer percorrer um caminho que não vai te levar a lugar nenhum.</p>
         <p>Obrigado por ter chegado até aqui.</p>
       </div>
     </div>
     <div class="nav"><button class="back" id="reset">Recomeçar</button></div>`;
-  document.getElementById('reset').onclick = () => { fora = false; etapa = 0; for(const k in R) delete R[k]; render(); };
+  document.getElementById('reset').onclick = () => {
+    fora = false; etapa = 1; for(const k in R) delete R[k]; render();
+  };
 }
 
 function captura(){
   screen.innerHTML = `
-    <p class="eyebrow">Último passo</p>
-    <h2 class="q">Seu diagnóstico está pronto.</h2>
-    <p class="lede">Preencha para ver o seu resultado e receber a análise completa no WhatsApp.</p>
+    <p class="kicker">Último passo</p>
+    <h1 class="q">O seu diagnóstico está <em>pronto</em>.</h1>
+    <p class="lede">Preencha para ver o resultado e receber a análise completa no WhatsApp.</p>
     <div class="field"><label>Nome</label><input type="text" id="nome" placeholder="Seu nome"></div>
     <div class="field"><label>WhatsApp com DDD</label><input type="tel" id="fone" placeholder="(00) 00000-0000"></div>
     <div class="field"><label>E-mail</label><input type="email" id="mail" placeholder="voce@email.com"></div>
-    <button class="cta" id="ver">Ver meu diagnóstico</button>
-    <div class="nav"><button class="back" id="back">Voltar</button></div>`;
+    <div class="nav">
+      <button class="cta" id="ver">Ver meu diagnóstico <span>&rarr;</span></button>
+      <button class="back" id="back">Voltar</button>
+    </div>`;
   document.getElementById('ver').onclick = () => {
     R._nome = document.getElementById('nome').value.trim();
     R._fone = document.getElementById('fone').value.trim();
@@ -325,41 +394,44 @@ function captura(){
 }
 
 function resultado(){
-  fill.style.width = '100%'; steps.textContent = '';
+  fill.style.width = '100%'; count.innerHTML = '';
   const qKey = PERGUNTAS[1].opts[R.cena].q;
   const Q = QUADROS[qKey];
   const rota = PERGUNTAS[5].opts[R.faturamento].rota;
   const nome = R._nome ? R._nome.split(' ')[0] : '';
 
   const convite = rota === 'mentoria'
-    ? `<p><strong>O seu próximo passo.</strong> Pelo que você respondeu, o seu momento é o de construir empresa, não o de organizar o começo. A Ju abre algumas sessões por semana para conversar sobre isso pessoalmente. Vamos te chamar no WhatsApp para marcar a sua.</p>`
+    ? `<p><strong>O seu próximo passo.</strong> Pelo que você respondeu, o seu momento é o de construir empresa, não o de organizar o começo. A Juliana abre algumas sessões por semana para conversar sobre isso pessoalmente, e vamos te chamar no WhatsApp para marcar a sua.</p>`
     : `<p><strong>O seu próximo passo.</strong> Pelo que você respondeu, o caminho mais curto para você agora é o EDP, que trabalha exatamente a base do que você está construindo. Vamos te chamar no WhatsApp com os detalhes.</p>`;
 
   screen.innerHTML = `
-    <p class="eyebrow">${nome ? nome + ', seu' : 'Seu'} diagnóstico</p>
+    <p class="kicker">${nome ? nome + ', este é o seu diagnóstico' : 'O seu diagnóstico'}</p>
     <div class="laudo">
-      <header>
-        <span class="tag ${rota === 'mentoria' ? 't-ment' : 't-edp'}">O seu gargalo</span>
-        <h3>${Q.nome}</h3>
-      </header>
+      <div class="top">
+        <span class="badge">O seu gargalo</span>
+        <h2>${Q.nome}</h2>
+      </div>
       <div class="bd">
         <p>${Q.laudo}</p>
-        <p><strong>Por onde se resolve.</strong> ${Q.caminho} Não é o passo a passo, é a direção. O passo a passo é o que a Ju constrói com você.</p>
+        <div class="rule"></div>
+        <p><strong>Por onde se resolve.</strong> ${Q.caminho} Isso é a direção, não o passo a passo. O passo a passo é o que a Juliana constrói com você.</p>
         ${convite}
       </div>
     </div>
-    <div class="debug">
-      <b>Modo teste, o lead não vê este bloco</b><br>
+    <div class="dbg">
+      <b>Modo teste · o lead não vê este bloco</b>
       Quadro: ${qKey} · ${Q.nome}<br>
       Rota: ${rota === 'mentoria' ? 'MENTORIA (R$ 9.999)' : 'EDP (R$ 1.997)'}<br>
       Carro-chefe: ${PERGUNTAS[0].opts[R.carro].t}<br>
       Quem atende: ${PERGUNTAS[2].opts[R.equipe].t}<br>
       Margem: ${PERGUNTAS[3].opts[R.margem].t}<br>
-      Já tentou: ${(R.tentou||[]).map(k=>PERGUNTAS[4].opts[k].t).join(' | ') || 'nada marcado'}<br>
+      Já tentou: ${(R.tentou||[]).map(k=>PERGUNTAS[4].opts[k].t).join(' · ') || 'nada marcado'}<br>
       Faturamento: ${PERGUNTAS[5].opts[R.faturamento].t}
     </div>
     <div class="nav"><button class="back" id="reset">Testar outro caminho</button></div>`;
-  document.getElementById('reset').onclick = () => { etapa = 0; fora = false; for(const k in R) delete R[k]; render(); };
+  document.getElementById('reset').onclick = () => {
+    etapa = 1; fora = false; for(const k in R) delete R[k]; render();
+  };
 }
 
 render();
