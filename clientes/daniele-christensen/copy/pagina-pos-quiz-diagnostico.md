@@ -37,9 +37,10 @@ O agendamento não desapareceu, mudou de lugar, e acontece no fim da Etapa 2.
   fluxo não dispara.
 - **"Liderança", "Gestão" e "Diagnóstico" sempre com inicial maiúscula**, em
   qualquer posição da frase. Pedido da cliente, vale para toda peça desta conta.
-- A página **não cita quantidade de perguntas** da Etapa 2, só o tempo. A cliente
-  pediu para falar em **5 minutos** aqui, enquanto os PDFs e o áudio dizem
-  "menos de 3 minutos". Ver "Pendências" abaixo.
+- A página **não cita quantidade de perguntas** da Etapa 2, só o tempo: "menos
+  de 3 minutos", igual aos PDFs e ao áudio. A cliente tinha pedido 5 minutos
+  aqui; fechado em 3 em ago/26, depois que o protótipo da Etapa 2 permitiu
+  cronometrar.
 
 ## Pendências para alinhar com a cliente
 
@@ -47,8 +48,6 @@ O agendamento não desapareceu, mudou de lugar, e acontece no fim da Etapa 2.
   documento, e documento se entrega em mãos", que está aplicado literalmente. A
   frase provavelmente deveria ser "Diagnóstico **é** documento, e documento se
   entrega em mãos", que é o sentido original. Confirmar antes de publicar.
-- **Tempo da Etapa 2.** A página diz 5 minutos, os PDFs e o áudio dizem menos de
-  3. Precisa ser o mesmo número nas três peças.
 - Tema escuro único, deliberado, espelhando a página atual da cliente.
 - A copy precisa continuar amarrada ao quiz novo (`estrategia/proposta-quiz-metodo-ask.html`):
   a promessa da página é a continuação direta do cenário entregue no fim do quiz.

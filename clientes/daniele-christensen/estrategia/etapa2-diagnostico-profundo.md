@@ -49,9 +49,8 @@ minutinhos"*.
 O protótipo confirma a conta. O número aparece na abertura do formulário, no
 áudio e nos PDFs.
 
-> **Pendência:** a página pós-quiz hoje promete **5 minutos**, e o resto do
-> material promete 3. É a mesma peça anunciada com dois números para o mesmo
-> lead. Falta decidir qual vale e uniformizar.
+Fechado em 3 minutos em ago/26. A página pós-quiz prometia 5 e foi corrigida;
+página, áudio, PDFs e formulário agora dizem o mesmo número.
 
 ### 3. Quem recebe
 
@@ -194,11 +193,10 @@ implementação começar.
 
 ## Pendências
 
-1. **3 ou 5 minutos.** Decidir e uniformizar página, áudio, PDFs e formulário.
-2. **A agenda da última tela.** Widget embutido ou redirecionamento.
-3. **Quem hospeda.** A recomendação é a Simple, pelo mesmo motor da Etapa 1, com
+1. **A agenda da última tela.** Widget embutido ou redirecionamento.
+2. **Quem hospeda.** A recomendação é a Simple, pelo mesmo motor da Etapa 1, com
    a Pulsar recebendo um webhook só. Não foi fechado na reunião.
-4. **"A gente lê junto".** O material fala em primeira pessoa, como se a Dani
+3. **"A gente lê junto".** O material fala em primeira pessoa, como se a Dani
    conduzisse a sessão; a documentação descreve o Closer conduzindo. O texto da
    última tela do formulário está neutro (*"quem conduz a sua sessão"*) para não
    prometer a presença dela, mas o áudio e os 4 PDFs ainda prometem.
