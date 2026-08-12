@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Criativo estático — Body Contour Pro — Dra. Marcela Filgueiras</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   PALETA — leitura dos criativos atuais da Clínica Vital (a confirmar)
+   ========================================================================== */
+:root{
+  --creme:#F4EFE8;
+  --verde:#587D5F;
+  --verde-escuro:#3C4A3F;
+  --grafite:#2F3A42;
+  --apoio:#6B6B6B;
+  --off-white:#FFFDF9;
+  --linha:#E3DBD0;
+
+  --font-head:'Playfair Display',Georgia,serif;   /* stand-in da serifada display */
+  --font-body:'Montserrat','Helvetica Neue',Arial,sans-serif; /* stand-in da sans */
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:var(--font-body);background:#E7E3DE;
+  min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px 16px;
+  -webkit-font-smoothing:antialiased;
+}
+.serif{font-family:var(--font-head);}
+.sans{font-family:var(--font-body);}
+
+.ig-frame{width:420px;background:#fff;overflow:hidden;box-shadow:0 18px 50px rgba(0,0,0,.14);border-radius:12px;}
+.carousel-viewport{width:420px;aspect-ratio:4/5;overflow:hidden;position:relative;}
+.carousel-track{display:flex;height:100%;}
+
+.slide{
+  flex:0 0 420px;width:420px;height:100%;position:relative;overflow:hidden;
+  background:var(--creme);display:flex;flex-direction:column;
+}
+
+/* ---- FOTO -------------------------------------------------------------
+   SLOT: troque este bloco por <img class="foto" src="data:image/jpeg;base64,...">
+   (foto da Dra. Marcela, enquadrada do peito para cima, olhando pra câmera)
+   ---------------------------------------------------------------------- */
+.foto-slot{
+  height:178px;flex:0 0 178px;position:relative;
+  background:linear-gradient(150deg,var(--verde-escuro) 0%,var(--verde) 100%);
+  display:flex;align-items:center;justify-content:center;
+}
+.foto-slot .marca{
+  font-family:var(--font-body);font-size:9px;letter-spacing:2.4px;text-transform:uppercase;
+  color:rgba(255,255,255,.72);text-align:center;line-height:1.7;
+}
+.foto-slot .marca b{display:block;font-size:11px;letter-spacing:3px;color:#fff;font-weight:600;}
+.foto{width:100%;height:178px;object-fit:cover;object-position:center 22%;display:block;}
+
+/* véu para o kicker respirar em cima da foto */
+.foto-slot::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:56px;
+  background:linear-gradient(to top,rgba(244,239,232,.92),transparent);
+}
+
+/* ---- CONTEÚDO ---------------------------------------------------------- */
+.corpo{flex:1;display:flex;flex-direction:column;padding:18px 32px 0;}
+
+.tag{
+  display:inline-block;font-size:10px;font-weight:700;letter-spacing:2.6px;
+  text-transform:uppercase;color:var(--verde);margin-bottom:10px;
+}
+.titulo{
+  font-family:var(--font-head);font-size:25px;font-weight:600;line-height:1.12;
+  letter-spacing:-.4px;color:var(--grafite);text-transform:uppercase;
+}
+.titulo em{font-style:normal;color:var(--verde);}
+
+.regua{width:46px;height:2px;background:var(--verde);margin:13px 0 11px;}
+
+.texto{
+  font-size:12px;line-height:1.55;color:var(--apoio);font-weight:400;
+}
+.texto strong{color:var(--grafite);font-weight:600;}
+.texto + .texto{margin-top:8px;}
+
+/* ---- ASSINATURA + FECHO ------------------------------------------------ */
+.assinatura{
+  margin-top:auto;display:flex;align-items:center;gap:10px;
+  padding:11px 0 9px;border-top:1px solid var(--linha);
+}
+.assinatura .selo{
+  width:34px;height:34px;border-radius:50%;background:var(--verde);flex:0 0 34px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-head);font-size:15px;color:#fff;
+}
+.assinatura .quem b{
+  display:block;font-size:11.5px;font-weight:600;color:var(--grafite);letter-spacing:.2px;
+}
+.assinatura .quem span{
+  display:block;font-size:9.5px;color:var(--apoio);letter-spacing:.6px;margin-top:1px;
+}
+
+.fecho{
+  background:var(--verde-escuro);padding:11px 32px;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.fecho .cta{
+  font-size:11.5px;font-weight:700;letter-spacing:.6px;color:var(--off-white);
+  text-transform:uppercase;line-height:1.35;
+}
+.fecho .cta em{font-style:normal;color:#CFE0D2;}
+.fecho .seta{
+  width:30px;height:30px;border-radius:50%;flex:0 0 30px;
+  border:1px solid rgba(255,255,255,.35);
+  display:flex;align-items:center;justify-content:center;
+}
+</style>
+</head>
+<body>
+
+<div class="ig-frame">
+  <div class="carousel-viewport">
+    <div class="carousel-track">
+      <div class="slide">
+
+        <!-- FOTO (slot: substituir por <img class="foto" src="data:image/jpeg;base64,..."> ) -->
+        <div class="foto-slot">
+          <div class="marca">
+            <b>Dra. Marcela Filgueiras</b>
+            espaço reservado para a foto
+          </div>
+        </div>
+
+        <div class="corpo">
+          <span class="tag">Body Contour Pro</span>
+
+          <h1 class="titulo">O evento já tem data.<br><em>Aquela região</em> você segue adiando.</h1>
+
+          <div class="regua"></div>
+
+          <p class="texto">
+            O <strong>Body Contour Pro</strong> foi pensado para a região que ainda incomoda,
+            mesmo quando o resto já está bem.
+          </p>
+          <p class="texto">
+            Antes de qualquer sessão, uma <strong>consulta médica</strong> para entender seu
+            histórico e sua composição corporal.
+          </p>
+
+          <div class="assinatura">
+            <div class="selo">M</div>
+            <div class="quem">
+              <b>Dra. Marcela Filgueiras</b>
+              <span>CRM-MG 00000 · RQE 0000 · Clínica Vital, Itajubá</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="fecho">
+          <div class="cta">Agende sua <em>consulta médica</em><br>na Clínica Vital</div>
+          <div class="seta">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h13M13 6l6 6-6 6" stroke="#FFFDF9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
