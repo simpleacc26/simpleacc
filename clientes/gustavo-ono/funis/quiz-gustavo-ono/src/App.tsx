@@ -44,13 +44,22 @@ function QuizFlow() {
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    setUtm({
+    const capturado: UtmParams = {
       utm_source: params.get("utm_source") || "",
       utm_medium: params.get("utm_medium") || "",
       utm_campaign: params.get("utm_campaign") || "",
       utm_content: params.get("utm_content") || "",
       utm_term: params.get("utm_term") || "",
-    });
+    };
+    setUtm(capturado);
+    // Guardado para o relatório montar o link da Hotmart com a origem. A rota
+    // /resultado não recebe as UTMs na URL, então sem isso a venda do low
+    // ticket chega na Hotmart sem saber de qual campanha veio.
+    try {
+      sessionStorage.setItem("quizUtms", JSON.stringify(capturado));
+    } catch (e) {
+      /* modo privado sem storage: segue sem origem, não quebra o funil */
+    }
     fbqTrack("PageView");
   }, []);
 

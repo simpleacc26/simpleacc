@@ -15,6 +15,30 @@ const BG = "#120A06";
 const WHATSAPP_NUMBER = import.meta.env.VITE_WHATSAPP_NUMBER ?? "";
 const LOW_TICKET_URL = "https://pay.hotmart.com/X104749935I?bid=1778078139368";
 
+/**
+ * Monta o link do checkout carregando a origem da venda.
+ *
+ * A Hotmart mostra os parâmetros `src` e `sck` no relatório de vendas, então é
+ * por aqui que se descobre quais compras do treinamento vieram do quiz, e de
+ * qual rota e campanha. Sem isso a venda entra sem origem e não dá para
+ * reconstruir depois.
+ *
+ *   src = quiz-rotaA | quiz-rotaB
+ *   sck = a utm_campaign que trouxe a lead, quando existir
+ */
+function buildLowTicketUrl(rota: string): string {
+  const url = new URL(LOW_TICKET_URL);
+  url.searchParams.set("src", `quiz-rota${rota}`);
+  try {
+    const utms = JSON.parse(sessionStorage.getItem("quizUtms") || "{}");
+    const campanha = utms.utm_campaign || utms.utm_content || "";
+    if (campanha) url.searchParams.set("sck", String(campanha).slice(0, 100));
+  } catch (e) {
+    /* sem storage: segue só com o src */
+  }
+  return url.toString();
+}
+
 if (!/^\d{12,13}$/.test(WHATSAPP_NUMBER)) {
   // A Rota A inteira depende deste número. Sem ele o botão de agendamento não
   // abre conversa nenhuma, e a lead qualificada morre na página.
@@ -178,6 +202,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
   const criticos = pilares.filter((p) => p.status === "critico").length;
   const whatsappUrl = buildWhatsAppUrl(firstName);
   const rota = getRota(answers);
+  const lowTicketUrl = buildLowTicketUrl(rota);
 
   const handleWhatsAppClick = () => {
     fbqTrack("Contact", { content_name: "Sessão Diagnóstica Gratuita", content_category: "Mentoria" });
@@ -387,29 +412,8 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
               ))}
             </div>
 
-            {/* Rota C: a sessão entra como bônus de quem compra */}
-            <div
-              className="rounded-2xl p-5 mb-6"
-              style={{ backgroundColor: "rgba(176,141,87,0.1)", border: `1px solid ${ROSE}44` }}
-            >
-              <p
-                className="text-xs uppercase tracking-widest mb-2"
-                style={{ color: ROSE, letterSpacing: "0.12em" }}
-              >
-                Incluso no treinamento
-              </p>
-              <p style={{ color: "rgba(242,232,217,0.9)", fontSize: "0.92rem", lineHeight: 1.6 }}>
-                Quem entra no treinamento ganha uma{" "}
-                <strong style={{ color: "#F2E8D9" }}>
-                  conversa de 30 minutos com o Gustavo
-                </strong>{" "}
-                para revisar o seu caso depois que colocar a técnica em prática.
-                Ele te chama no WhatsApp assim que a sua inscrição for confirmada.
-              </p>
-            </div>
-
             <a
-              href={LOW_TICKET_URL}
+              href={lowTicketUrl}
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleLowTicketClick}
@@ -430,7 +434,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
               className="text-center text-xs mt-3"
               style={{ color: "rgba(242,232,217,0.35)" }}
             >
-              Acesso imediato por R$ 97, com a conversa com o Gustavo inclusa.
+              Acesso imediato ao treinamento completo por R$ 97.
             </p>
           </Section>
         )}
@@ -474,7 +478,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
           >
             {rota === "A"
               ? "A sessão é gratuita e dura 30 minutos. Você sai sabendo exatamente onde está o gargalo e qual é o próximo passo no seu caso."
-              : "São R$ 97 pelo treinamento completo, com a conversa de 30 minutos com o Gustavo inclusa. Você sai com uma técnica dominada e um produto novo para vender."}
+              : "São R$ 97 pelo treinamento completo. Você sai com uma técnica dominada e um produto novo para entrar no seu cardápio."}
           </p>
           {rota === "A" ? (
             <a
@@ -498,7 +502,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
             </a>
           ) : (
             <a
-              href={LOW_TICKET_URL}
+              href={lowTicketUrl}
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleLowTicketClick}
@@ -541,7 +545,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
               produto de alto padrão, que pode render até R$ 50 por caixa.
             </p>
             <a
-              href={LOW_TICKET_URL}
+              href={lowTicketUrl}
               target="_blank"
               rel="noopener noreferrer"
               onClick={handleLowTicketClick}
