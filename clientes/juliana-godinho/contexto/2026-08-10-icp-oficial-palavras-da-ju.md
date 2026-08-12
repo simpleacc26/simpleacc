@@ -120,6 +120,12 @@ Feedback dado pela Ju com a tela compartilhada, passando pergunta por pergunta.
 - A pergunta de entrada passa a ser **área de atuação**, com os termos que o
   segmento reconhece. Quem é de fora simplesmente não se encontra na lista e
   marca "outra área".
+
+  > **Revisto em 12/08:** a pergunta de área saiu do quiz a pedido do operador,
+  > porque a pergunta de carro-chefe já dá o mesmo contexto. O corte de escopo
+  > passou para ela: a lista só traz tratamentos de estética avançada e ganhou a
+  > opção "nenhuma dessas", que encerra. O princípio continua o mesmo, quem é de
+  > fora não se encontra na lista e sai sozinha, sem ser nomeada.
 - **Pode ter mais de 4 opções.** Carlos: *"se for preciso, coloca mais opção, não
   tem problema"*.
 - Áreas que a Ju atende: estética avançada, estética e massoterapia, biomedicina

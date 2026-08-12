@@ -29,3 +29,4 @@ adicionar uma linha. É a memória que se acumula ao longo do tempo.
 | 2026-08-11 | **Com agenda cheia, o que não sobe é o dinheiro que sobra, não o faturamento.** Usar "o dinheiro não sobra ou sobra pouco". | Pit Stop 11/08 |
 | 2026-08-11 | **Quadros e laudos são bastidor.** A Ju disse que a linguagem deles não tem a ver com ela. São para orientar SDR e closer; a mentorada nunca lê esses nomes. | Pit Stop 11/08 |
 | 2026-08-11 | **Incluir quem administra ou gerencia clínica sem ser da área técnica.** "Tem gente que monta clínica e vem fazer mentoria e não é da área." | Pit Stop 11/08 |
+| 2026-08-12 | **O corte de escopo do quiz mora na pergunta de carro-chefe.** A pergunta de área de atuação foi removida por redundância; a lista de tratamentos só traz estética avançada e tem "nenhuma dessas" como saída. Se essa pergunta mudar, o filtro do funil inteiro muda junto. | Decisão de operação |
