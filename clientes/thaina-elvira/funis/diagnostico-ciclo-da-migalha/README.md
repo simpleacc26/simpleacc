@@ -166,9 +166,8 @@ dourado champanhe `#E8C77E`**, serifada de display nos títulos, botão dourado
 cheio com texto escuro. Os tokens ficam todos no `:root` do `styles.css`.
 
 Decisões de layout pedidas pelo Daniel em 12/08:
-- **Sem contador "Pergunta X de N"** na barra de progresso: mostrar o total fazia
-  o quiz parecer longo. Ficaram só a barra, o percentual e um rótulo nas pontas
-  ("Começando" e "Última pergunta").
+- **Só a barra de progresso**, sem número nenhum: nem contador "Pergunta X de N"
+  nem percentual. Número ali faz o quiz parecer longo e medido.
 - **Sem rodapé** nas duas páginas.
 - Topo com o nome completo: **"com Thiago Vitório"**.
 - **Foto do Thiago** (`thiago.webp`, 224px, exibida a 104px) no bloco de
