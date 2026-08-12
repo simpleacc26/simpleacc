@@ -124,12 +124,12 @@ function buildPilares(answers: Record<number, string>): Pilar[] {
 
   const productInsight =
     frustration.includes("segurança técnica")
-      ? "Sua insegurança técnica está limitando o que você consegue cobrar. Produto sem domínio de execução não sustenta preço alto."
+      ? "Quando você ainda não tem certeza se o brilho vai pegar ou se a peça vai soltar direito da forma, essa dúvida acaba entrando no preço sem que você perceba, porque quem produz na insegurança tende a cobrar na insegurança também."
       : frustration.includes("padrão")
-      ? "Falta de padrão indica ausência de método consolidado. Quando o processo é dominado, cada peça sai igual à anterior."
+      ? "Uma peça linda todo mundo consegue fazer uma vez, e o que separa quem vende de vez em quando de quem vende o ano inteiro é conseguir repetir aquela mesma peça na terceira, na décima e na centésima encomenda sem precisar torcer para dar certo."
       : frustration.includes("errar")
-      ? "O medo de desperdiçar material vem de não ter internalizado completamente a técnica. Com o processo certo, o erro cai quase a zero."
-      : "Seu produto tem potencial, mas ainda não está posicionado para justificar preços premium sem negociação.";
+      ? "Esse medo de perder material tem um custo que quase ninguém coloca na conta, porque ele faz você produzir menos do que poderia, testar menos do que gostaria e às vezes recusar encomenda que daria conta de entregar."
+      : "O seu produto tem potencial, mas ainda chega ao cliente sem aquilo que faz alguém aceitar o preço sem pedir desconto, que é entender de cara por que aquele chocolate custa o que custa.";
 
   // Pilar Precificação
   const pricingStatus: PillarStatus =
@@ -139,12 +139,12 @@ function buildPilares(answers: Record<number, string>): Pilar[] {
 
   const pricingInsight =
     frustration.includes("cobrar")
-      ? "Não saber precificar não é falta de autoestima, é falta de método. Preço que o cliente aceita sem questionar é consequência de produto com percepção de valor clara."
+      ? "Na hora em que o cliente pergunta quanto custa, o que decide o número que sai da sua boca é o quanto você confia na conta que fez antes. Sem essa conta pronta sobra o chute, e o chute quase sempre puxa o valor para baixo, porque o medo de perder a venda acaba pesando mais do que a margem."
       : profile === "2"
-      ? "Margem baixa é sintoma direto de precificação no chute. Sem calcular custo, hora e posicionamento juntos, o lucro some no volume."
+      ? "Margem apertada costuma nascer de uma conta incompleta, aquela que soma o chocolate e a embalagem mas deixa de fora as suas horas, a energia, o deslocamento e o material que se perdeu no caminho. Aí o dinheiro entra no mês e mesmo assim não sobra nada no fim dele."
       : obstacle.includes("concorrência")
-      ? "Concorrência de preço acontece quando o produto não se diferencia. Posicionamento correto elimina comparação direta com concorrentes mais baratos."
-      : "Sua precificação tem espaço para crescer. O gargalo é criar justificativa de valor que chegue antes do preço.";
+      ? "Quando o cliente coloca o seu preço lado a lado com o de outra pessoa, o que costuma faltar é ele ter enxergado alguma diferença antes de chegar no valor. Um posicionamento bem construído tira você dessa comparação antes mesmo dela acontecer."
+      : "A sua precificação tem espaço para subir, e o caminho passa por fazer o cliente entender o valor do que está comprando antes de ele ouvir o número, e não depois.";
 
   // Pilar Estrutura de Venda
   const structureStatus: PillarStatus =
@@ -154,12 +154,12 @@ function buildPilares(answers: Record<number, string>): Pilar[] {
 
   const structureInsight =
     obstacle.includes("Imprevisibilidade") || profile === "3"
-      ? "Venda sem constância é o sintoma mais claro de ausência de método. Resultado que depende de sorte ou de data especial não escala."
+      ? "Depender da Páscoa e do Natal para salvar o ano é o que mais cansa, porque você vive dois meses de correria seguidos de dez meses de espera, sem conseguir planejar nada no meio do caminho. A constância aparece no dia em que o cliente passa a ter um motivo para procurar você em maio e em agosto, do mesmo jeito que procura em abril."
       : obstacle.includes("estrutura") || profile === "4"
-      ? "Sem estrutura interna, crescimento gera caos ao invés de lucro. A base precisa estar antes do volume."
+      ? "Crescer sem organização por dentro costuma piorar a rotina antes de melhorar o faturamento, porque o volume chega acompanhado de retrabalho, prazo apertado e aquela sensação de estar sempre correndo atrás do próprio pedido."
       : obstacle.includes("produção")
-      ? "Presa na produção significa que o modelo operacional não está estruturado para crescer. Mais horas na cozinha não resolve. O que precisa mudar é o modelo."
-      : "Sua estrutura de venda ainda depende de variáveis externas. Com um método de captação e oferta definido, o resultado para de depender do mês.";
+      ? "Passar o dia inteiro dentro da cozinha e ainda sentir que faltou tempo para vender é o sinal mais claro de que a produção ocupou o espaço que deveria ser do negócio, e acrescentar mais horas na bancada não devolve esse espaço para você."
+      : "Hoje o seu resultado ainda depende bastante do que vem de fora, de quem lembrou de você, da data no calendário ou da indicação que apareceu. Com um caminho definido para atrair e ofertar, o mês para de ser surpresa.";
 
   return [
     { name: "Produto e posicionamento", status: productStatus, insight: productInsight },
@@ -231,13 +231,15 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
                 ? `Encontramos ${criticos} pontos críticos no seu negócio.`
                 : criticos === 1
                 ? "Encontramos o principal ponto que está travando seu crescimento."
-                : "Seu negócio tem base. O que falta é afinar os pontos certos."}
+                : "Seu negócio já tem base, e o que falta agora é afinar alguns pontos."}
             </em>
           </h1>
           <p style={bodyText}>
-            Com base nas suas respostas, mapeamos os três pilares que determinam
-            o faturamento de uma chocolateria profissional, e identificamos onde
-            está o gargalo no seu caso.
+            O que você respondeu diz bastante coisa sobre o momento em que o seu
+            negócio está, e foi isso que organizamos aqui embaixo. São três
+            pilares, os mesmos que costumam decidir quanto uma chocolateria
+            consegue faturar todo mês, e em cada um deles dá para ver se o seu
+            está sustentando o negócio ou puxando ele para trás.
           </p>
         </Section>
 
@@ -289,23 +291,25 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
             className="text-xs font-semibold uppercase tracking-widest mb-4"
             style={{ color: ROSE, letterSpacing: "0.14em" }}
           >
-            Por que estes três e não outros
+            Por que estes três
           </p>
           <h2 style={{ ...headlineStyle, fontSize: "clamp(1.15rem, 3vw, 1.5rem)", marginBottom: "1rem" }}>
-            O que trava uma chocolateria quase nunca é falta de talento.
-            É <span style={{ color: ROSE }}>improviso vestido de esforço</span>.
+            Porque <span style={{ color: ROSE }}>nenhum dos três se sustenta
+            sozinho</span>
           </h2>
           <p style={{ ...bodyText, marginBottom: "0.9rem" }}>
-            Receita solta sem entender o porquê. Produto bonito sem cardápio por
-            trás. Preço no chute. Venda que depende da Páscoa e do Natal. Cada
-            uma dessas coisas parece pequena sozinha, e juntas elas explicam por
-            que tanta gente trabalha muito e vê pouco dinheiro no fim do mês.
+            Dá para dominar a temperagem como pouca gente domina e ainda assim
+            fechar o mês no vermelho, porque um preço mal calculado consegue
+            transformar trabalho bem feito em prejuízo. Do mesmo jeito, dá para
+            ter a conta do custo redondinha e mesmo assim viver de mês bom
+            seguido de mês vazio, quando não existe nada trazendo cliente fora
+            das datas comemorativas.
           </p>
           <p style={{ ...bodyText, marginBottom: 0 }}>
-            Produto, precificação e estrutura de venda são os três pilares porque
-            eles se seguram. Técnica sem preço certo vira prejuízo bonito. Preço
-            certo sem constância vira mês bom seguido de mês vazio. É por isso
-            que resolver um de cada vez raramente funciona.
+            É por isso que olhamos os três juntos. Mexer em um só costuma trazer
+            aquele alívio que dura algumas semanas e some no mês seguinte,
+            enquanto a virada de patamar acontece quando produto, preço e vendas
+            param de puxar cada um para um lado.
           </p>
         </Section>
 
