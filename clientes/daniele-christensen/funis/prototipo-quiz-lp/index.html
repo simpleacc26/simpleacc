@@ -68,6 +68,9 @@
     padding:14px 15px;color:var(--ink);font:inherit;font-size:16px;
   }
   .campo input:focus{outline:none;border-color:var(--accent)}
+  .campo input.ruim{border-color:#c9705f}
+  .campo .erro{display:none;font-size:13px;color:#e08b79;margin-top:6px}
+  .campo.falhou .erro{display:block}
   .env{
     width:100%;background:var(--accent);color:#140d02;border:none;border-radius:6px;
     font:inherit;font-size:14px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
@@ -465,26 +468,97 @@ function responder(chave,q,o,idx){
   render();
 }
 
+function so(v){ return (v||"").replace(/\D/g,""); }
+
+function mascara(v){
+  var d = so(v).slice(0,11);
+  if(d.length <= 2) return d.length ? "(" + d : "";
+  if(d.length <= 6) return "(" + d.slice(0,2) + ") " + d.slice(2);
+  if(d.length <= 10) return "(" + d.slice(0,2) + ") " + d.slice(2,6) + "-" + d.slice(6);
+  return "(" + d.slice(0,2) + ") " + d.slice(2,7) + "-" + d.slice(7);
+}
+
+// cada validador devolve "" quando está certo, ou a mensagem do erro
+function valeNome(v){
+  v = (v||"").trim().replace(/\s+/g," ");
+  if(!v) return "Preencha o seu nome.";
+  if(/\d/.test(v)) return "Nome não leva número.";
+  var partes = v.split(" ").filter(function(p){ return p.length >= 2; });
+  if(partes.length < 2) return "Digite o seu nome e o sobrenome.";
+  return "";
+}
+
+function valeEmail(v){
+  v = (v||"").trim();
+  if(!v) return "Preencha o seu e-mail.";
+  if(!/^[^\s@]+@[^\s@.]+(\.[^\s@.]+)+$/.test(v)) return "E-mail inválido. Confira, algo como nome@empresa.com.br.";
+  return "";
+}
+
+function valeZap(v){
+  var d = so(v);
+  if(!d) return "Preencha o seu WhatsApp.";
+  if(d.length < 10) return "Faltam dígitos. Informe o DDD e o número, com 10 ou 11 dígitos.";
+  if(d.length > 11) return "Número longo demais. São 10 ou 11 dígitos com o DDD.";
+  if(Number(d.slice(0,2)) < 11) return "DDD inválido.";
+  if(d.length === 11 && d.charAt(2) !== "9") return "Número de celular inválido. Confira os dígitos.";
+  return "";
+}
+
+function limpaErro(label,input){
+  label.classList.remove("falhou");
+  input.classList.remove("ruim");
+}
+
 function telaContato(tela){
   tela.appendChild(el("p","passo","Último passo"));
   tela.appendChild(el("h2","perg","Para onde enviamos o seu Diagnóstico?"));
   tela.appendChild(el("p","ajuda","O seu cenário já foi identificado. Falta só o endereço da entrega."));
 
   var f = el("form");
-  [["Nome completo","text","nome"],["E-mail","email","email"],["WhatsApp com DDD","tel","zap"]].forEach(function(c){
+  f.noValidate = true;
+  var campos = {};
+
+  [["Nome completo","text","nome"],
+   ["E-mail","email","email"],
+   ["WhatsApp com DDD","tel","zap"]
+  ].forEach(function(c){
     var l = el("label","campo");
     l.appendChild(el("span",null,c[0]));
     var inp = document.createElement("input");
-    inp.type = c[1]; inp.required = true; inp.name = c[2];
+    inp.type = c[1]; inp.name = c[2]; inp.required = true; inp.autocomplete = "off";
+    if(c[2] === "zap"){
+      inp.inputMode = "numeric";
+      inp.placeholder = "(00) 00000-0000";
+      inp.maxLength = 16;
+      inp.oninput = function(){ inp.value = mascara(inp.value); limpaErro(l,inp); };
+    } else {
+      inp.oninput = function(){ limpaErro(l,inp); };
+    }
     l.appendChild(inp);
+    l.appendChild(el("span","erro",""));
+    campos[c[2]] = {label:l, input:inp};
     f.appendChild(l);
   });
+
   var s = el("button","env","Ver o meu Diagnóstico");
   s.type = "submit";
   f.appendChild(s);
+
   f.onsubmit = function(e){
     e.preventDefault();
-    R.nome = f.nome.value; R.email = f.email.value; R.zap = f.zap.value;
+    var ok = true, primeiro = null;
+    [["nome",valeNome],["email",valeEmail],["zap",valeZap]].forEach(function(par){
+      var c = campos[par[0]], msg = par[1](c.input.value);
+      if(!msg){ limpaErro(c.label,c.input); return; }
+      c.label.querySelector(".erro").textContent = msg;
+      c.label.classList.add("falhou"); c.input.classList.add("ruim");
+      ok = false; if(!primeiro) primeiro = c.input;
+    });
+    if(!ok){ primeiro.focus(); return; }
+    R.nome = campos.nome.input.value.trim();
+    R.email = campos.email.input.value.trim();
+    R.zap = campos.zap.input.value;
     concluir();
   };
   tela.appendChild(f);
