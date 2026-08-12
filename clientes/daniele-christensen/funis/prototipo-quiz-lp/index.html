@@ -593,11 +593,21 @@ function pontos(){
   if(R.via === "B") return (R.pt_b6||0) + (R.pt_b7||0);
   return 0;
 }
-function qualificado(){
-  if(R.via === "A") return (R.pt_a6||0) >= 4;          // piso: R$200 mil por mês
-  if(R.via === "B") return (R.pt_b6||0) >= 6;          // autonomia total ou parcial
-  return false;
+// devolve "" quando qualifica, ou o motivo da reprovação
+function motivo(){
+  if(R.via === "A"){
+    if((R.pt_a6||0) < 4) return "faturamento abaixo de R$ 200 mil";
+    return "";
+  }
+  if(R.via === "B"){
+    if(R.P0 !== 1) return "cargo fora do ICP (só diretor qualifica)";
+    if((R.pt_b6||0) < 6) return "sem autonomia para decidir investimento";
+    if((R.pt_b7||0) < 6) return "remuneração abaixo de R$ 20 mil";
+    return "";
+  }
+  return "quiz incompleto";
 }
+function qualificado(){ return motivo() === ""; }
 
 function linha(k,v,cls){
   var d = el("div","row");
@@ -614,6 +624,7 @@ function atualizaPainel(){
   g.appendChild(linha("Nome", R.nome || "—"));
   g.appendChild(linha("WhatsApp", R.zap || "—"));
   g.appendChild(linha("Caminho", R.via === "A" ? "A · dono ou sócio" : "B · executivo CLT ou PJ"));
+  g.appendChild(linha("Cargo", R._p0 || "—"));
   g.appendChild(linha("Cenário", CENARIOS[R.cen].nome));
   g.appendChild(linha("Diagnóstico enviado", "Diagnostico-0" + (R.cen+1) + ".pdf"));
   g.appendChild(linha("Setor", R._p1 || "—"));
@@ -621,6 +632,7 @@ function atualizaPainel(){
   g.appendChild(linha(R.via === "A" ? "Margem" : "Remuneração", (R.via === "A" ? R._a7 : R._b7) || "—"));
   g.appendChild(linha("Pontuação", pontos() + " de 20"));
   g.appendChild(linha("Régua", q ? "qualificado" : "não qualificado", q ? "ok" : "no"));
+  if(!q) g.appendChild(linha("Motivo", motivo(), "no"));
 }
 
 function togglePainel(){
