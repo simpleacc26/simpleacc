@@ -31,7 +31,7 @@ O agendamento não desapareceu, mudou de lugar, e acontece no fim da Etapa 2.
 
 - **4 CTAs**, todos com o mesmo texto ("Receber meu Diagnóstico no WhatsApp") e
   apontando para o mesmo link, com a mesma mensagem pré-preenchida:
-  `https://wa.me/555599768528?text=Quero%20receber%20meu%20Diagn%C3%B3stico%20de%20Lideran%C3%A7a`
+  `https://wa.me/5555996185023?text=Quero%20receber%20meu%20Diagn%C3%B3stico%20de%20Lideran%C3%A7a`
 - Esse texto pré-preenchido **precisa bater exatamente com o gatilho configurado
   na Pulsar**. É a única dependência externa da página: se mudar de um lado só, o
   fluxo não dispara.

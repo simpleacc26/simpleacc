@@ -10,6 +10,8 @@ O Meta bloqueia e limita a entrega de template para contato frio que nunca falou
 
 Por isso o botão da página leva para o WhatsApp com mensagem pré-escrita, em vez de levar direto para uma agenda. Tudo o que está neste documento só funciona dentro dessa janela.
 
+**Número:** (55) 99618-5023, ou seja, `wa.me/5555996185023`
+
 **Mensagem pré-preenchida do botão:** `Quero receber meu Diagnóstico de Liderança`
 
 Esse texto precisa bater exatamente com o gatilho configurado na Pulsar. Se mudar em um lado e não no outro, o fluxo não dispara. É a única dependência externa da página.
