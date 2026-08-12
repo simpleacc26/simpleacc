@@ -3,7 +3,7 @@
 
 Roda uma vez (ou quando trocar de fonte). Deixa o `carrossel.html` totalmente
 self-contained: o preview e o export usam exatamente os mesmos arquivos de
-fonte, sem depender da rede na hora de gerar os PNGs — que é o jeito de
+fonte, sem depender da rede na hora de gerar os PNGs, que é o jeito de
 garantir que os slides não sejam exportados com a fonte fallback do sistema.
 """
 
@@ -44,7 +44,7 @@ def main() -> None:
     css = fetch(CSS_URL).decode("utf-8")
 
     blocks = re.findall(r"@font-face\s*\{[^}]*\}", css)
-    # Só o subset latin — cobre acentos do português, travessão e aspas curvas.
+    # Só o subset latin: cobre acentos do português e aspas curvas.
     latin = [b for b in blocks if "U+0000-00FF" in b]
     if not latin:
         raise SystemExit("Nenhum bloco latin encontrado no CSS do Google Fonts.")
@@ -76,7 +76,7 @@ def main() -> None:
         flags=re.DOTALL,
     )
     HTML.write_text(new, encoding="utf-8")
-    print(f"\nOK — {len(out)} fontes embutidas em {HTML.name} "
+    print(f"\nOK. {len(out)} fontes embutidas em {HTML.name} "
           f"({len(new) / 1024:.0f} KB no total).")
 
 

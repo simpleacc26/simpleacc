@@ -98,7 +98,7 @@
 
   .carousel-viewport{
     width:100%;
-    aspect-ratio:4/5;
+    aspect-ratio:1/1;
     overflow:hidden;
     position:relative;
     cursor:grab;
@@ -213,7 +213,7 @@ function step(num, title, desc, theme, isLast){
   const titleC= theme === 'light' ? DARK : (theme === 'dark' ? '#fff' : DARK);
   const descC = theme === 'light' ? MUTED : (theme === 'dark' ? 'rgba(255,255,255,0.55)' : 'rgba(28,28,66,0.6)');
   const border = isLast ? 'none' : `1px solid ${line}`;
-  return `<div style="display:flex;align-items:flex-start;gap:16px;padding:13px 0;border-bottom:${border};">
+  return `<div style="display:flex;align-items:flex-start;gap:16px;padding:10px 0;border-bottom:${border};">
     <span class="serif" style="font-size:26px;font-weight:300;color:${numC};min-width:34px;line-height:1;">${num}</span>
     <div>
       <span class="sans" style="display:block;font-size:14px;font-weight:600;color:${titleC};margin-bottom:3px;">${title}</span>
@@ -247,23 +247,23 @@ const SLIDES = [
   { theme:'light', align:'center', html: t => `
       <h2 class="serif head" style="font-size:31px;color:${DARK};">Agenda cheia.<br/>Receita estagnada.</h2>
       <div style="height:18px;"></div>
-      <p class="sans body" style="color:${MUTED};">Se os dois acontecem ao mesmo tempo no seu negócio de mentoria, existe uma explicação. E ela tem conserto.</p>
+      <p class="sans body" style="color:${MUTED};">Se os dois acontecem ao mesmo tempo no seu negócio de mentoria, existe uma explicação. E ela tem solução.</p>
   `},
 
   /* 2. PROBLEMA */
   { theme:'dark', align:'center', html: t => `
       <h2 class="serif head" style="font-size:30px;color:${B};">Você já tentou de tudo. E o patamar continua o mesmo.</h2>
       <div style="height:16px;"></div>
-      <p class="sans body" style="color:rgba(255,255,255,0.62);">Todo mentor que trava repete a mesma sequência de tentativas.</p>
-      <div style="height:20px;"></div>
+      <p class="sans body" style="color:rgba(255,255,255,0.62);">Todo mentor que trava em um determinado faturamento repete a mesma sequência de tentativas.</p>
+      <div style="height:16px;"></div>
       <div style="display:flex;flex-wrap:wrap;gap:8px;">
         ${strikePill('Aumentar o preço')}
         ${strikePill('Tráfego pago')}
         ${strikePill('Formato em grupo')}
         ${strikePill('Postar mais')}
       </div>
-      <div style="height:20px;"></div>
-      <p class="sans" style="margin:0;font-size:13px;line-height:1.5;color:rgba(255,255,255,0.45);">Todas mexem na superfície. Nenhuma toca na estrutura.</p>
+      <div style="height:16px;"></div>
+      <p class="sans" style="margin:0;font-size:13px;line-height:1.5;color:rgba(255,255,255,0.45);">Todas mexem na superfície, mas nenhuma toca na estrutura.</p>
   `},
 
   /* 3. VIRADA (gradiente da marca) */
@@ -288,9 +288,7 @@ const SLIDES = [
       <h2 class="serif head" style="font-size:29px;color:${B};">Processo de vendas e mentalidade</h2>
       <div style="height:12px;"></div>
       ${step('03','Processo de vendas','Indicação e networking até rendem, mas oscilam. Com um processo de aquisição estruturado, o faturamento fica previsível.', t)}
-      ${step('04','Mentalidade','O pilar que ninguém quer encarar e o que mais trava. Crenças operando como teto invisível.', t, true)}
-      <div style="height:16px;"></div>
-      ${quoteBox('Pilar 04', 'Cobrar R$115.000 por ano exige uma identidade diferente de cobrar R$15.000.', t)}
+      ${step('04','Mentalidade','Cobrar R$115.000 por ano exige uma identidade diferente de cobrar R$15.000. É o pilar que ninguém quer encarar e o que mais trava.', t, true)}
   `},
 
   /* 6. COMO DESCOBRIR */
@@ -299,7 +297,7 @@ const SLIDES = [
       <div style="height:14px;"></div>
       ${step('01','Responda 7 perguntas','Sobre o seu modelo de entrega, o seu gargalo real e o seu objetivo para os próximos 12 meses.', t)}
       ${step('02','Receba o diagnóstico','Personalizado: qual pilar está travando o seu próximo salto e o que ele está custando.', t)}
-      ${step('03','Agende a sessão','Análise individual do seu negócio com o time do Rafael. Sem pitch, sem fórmula genérica.', t, true)}
+      ${step('03','Agende a sessão','Análise individual do seu negócio em uma sessão gratuita.', t, true)}
   `},
 
   /* 7. CTA (sem seta, barra em 100%) */
@@ -309,11 +307,9 @@ const SLIDES = [
       <p class="sans body" style="color:rgba(28,28,66,0.7);">O diagnóstico é gratuito, leva 30 segundos e você sai com clareza do próximo movimento.</p>
       <div style="height:26px;"></div>
       <div class="sans" style="display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:${DARK};color:${B};font-weight:600;font-size:14px;border-radius:28px;">
-        Fazer meu diagnóstico
+        Clique em Saiba Mais
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="${B}" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </div>
-      <div style="height:18px;"></div>
-      <p class="sans" style="margin:0;font-size:11px;letter-spacing:.6px;color:rgba(28,28,66,0.62);">quiz.rafaelgranella.com.br</p>
   `},
 ];
 
