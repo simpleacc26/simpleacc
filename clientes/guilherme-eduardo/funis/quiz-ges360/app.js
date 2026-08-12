@@ -111,15 +111,12 @@ function clearSaved() { try { sessionStorage.removeItem(STORE_KEY); } catch (e) 
 function el(html) { const t = document.createElement("template"); t.innerHTML = html.trim(); return t.content.firstElementChild; }
 function scrollTop() { window.scrollTo({ top: 0, behavior: "smooth" }); }
 
+/* Barra sem número: nem "Pergunta X de N", nem porcentagem. Os dois anunciam o
+   tamanho da fila e fazem o quiz parecer longo justo no começo, quando o lead
+   ainda pode desistir. A barra enchendo já diz que anda e que tem fim. */
 function updateProgress(stepIdx) {
-  const total = F.steps.length;
-  const human = stepIdx + 1;
-  const pct = Math.round((stepIdx / total) * 100);
-  const label = stepIdx === 0 ? "Começando" : (stepIdx === total - 1 ? "Última pergunta" : `Pergunta ${human} de ${total}`);
   progressEl.hidden = false;
-  document.getElementById("progress-label").textContent = label;
-  document.getElementById("progress-pct").textContent = `${pct}%`;
-  document.getElementById("progress-bar").style.width = `${pct}%`;
+  document.getElementById("progress-bar").style.width = `${Math.round((stepIdx / F.steps.length) * 100)}%`;
 }
 
 /* ============================================================
@@ -142,7 +139,7 @@ function renderStep(i) {
   /* Só a 1ª tela tem título e subtítulo. As demais começam direto na pergunta,
      sem rótulo de etapa em cima (ficava repetitivo), como no quiz da Pâmella. */
   const intro = i === 0 ? `
-      <span class="selo">${F.hero.selo}</span>
+      ${F.hero.selo ? `<span class="selo">${F.hero.selo}</span>` : ""}
       <h1>${F.hero.titulo}</h1>
       <p class="lead">${F.hero.subtitulo}</p>
       <p class="hint" style="margin:6px 0 20px">${F.hero.tempo}</p>` : "";

@@ -66,8 +66,10 @@ img { max-width: 100%; display: block; }
 .brand .logo-img { height: 64px; width: auto; }
 
 /* ---------- progresso ---------- */
-.progress-wrap { position: sticky; top: 0; z-index: 20; background: linear-gradient(180deg, var(--bg) 70%, transparent); padding: 10px 0 8px; }
-.progress-meta { display: flex; justify-content: space-between; font-size: 13px; color: var(--gold-deep); font-weight: 600; margin: 0 2px 7px; }
+/* Só a barra, sem rótulo nem porcentagem (ver updateProgress() em app.js).
+   O padding é maior que o original porque a linha de texto que ficava em cima
+   saiu, e sem ela a barra encostava no topo. */
+.progress-wrap { position: sticky; top: 0; z-index: 20; background: linear-gradient(180deg, var(--bg) 70%, transparent); padding: 16px 0 14px; }
 .progress-track { height: 7px; background: #12313F; border-radius: 99px; overflow: hidden; }
 .progress-bar { height: 100%; width: 0; border-radius: 99px; transition: width .45s cubic-bezier(.16,1,.3,1);
   background: linear-gradient(90deg, var(--gold), var(--gold-light)); }

@@ -25,11 +25,14 @@ window.FLOW = {
       "Oi Guilherme! Sou {nome}, acabei de fazer o diagnóstico e meu IDR deu {idr} ({faixa}). Quero entender como sair da dependência da consulta avulsa.",
   },
 
+  /* Sem número de perguntas em lugar nenhum, e sem selo. Dizer "responda 10
+     perguntas" antes de começar dá ao lead o tamanho da tarefa e um motivo para
+     desistir. O "leva 2 minutos" fica, porque fala de esforço, não de volume.
+     O `selo` é opcional: se voltar a existir aqui, o app volta a mostrá-lo. */
   hero: {
-    selo: "Diagnóstico GES360 · para médicos donos de clínicas",
     titulo: "Descubra o que está travando o faturamento da sua clínica.",
     subtitulo:
-      "Responda 10 perguntas e receba o seu IDR, o Índice de Dependência de Receita, com o diagnóstico do que trava o seu faturamento hoje.",
+      "Responda abaixo e receba o seu IDR, o Índice de Dependência de Receita, com o diagnóstico do que trava o seu faturamento hoje.",
     tempo: "Leva 2 minutos · resultado na hora",
     cta: "Começar meu diagnóstico",
   },

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Diagnóstico GES360 · descubra o que trava o faturamento da sua clínica</title>
-  <meta name="description" content="Responda 10 perguntas e receba o seu IDR, o Índice de Dependência de Receita, com o diagnóstico do que trava o faturamento da sua clínica e o próximo passo." />
+  <meta name="description" content="Descubra o seu IDR, o Índice de Dependência de Receita, com o diagnóstico do que trava o faturamento da sua clínica e o próximo passo. Leva 2 minutos." />
   <meta name="robots" content="index, follow" />
   <meta property="og:title" content="Diagnóstico GES360 · o que trava o faturamento da sua clínica" />
   <meta property="og:description" content="Em 2 minutos, descubra o seu Índice de Dependência de Receita e o próximo passo para faturar mais sem aumentar os atendimentos." />
@@ -28,13 +28,10 @@
     </div>
   </header>
 
-  <!-- Barra de progresso (só aparece durante as perguntas) -->
+  <!-- Barra de progresso (só aparece durante as perguntas).
+       Sem rótulo e sem porcentagem de propósito: ver updateProgress() em app.js. -->
   <div class="progress-wrap" id="progress" hidden>
     <div class="container">
-      <div class="progress-meta">
-        <span id="progress-label">Começando</span>
-        <span id="progress-pct">0%</span>
-      </div>
       <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
     </div>
   </div>
