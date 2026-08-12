@@ -90,9 +90,11 @@ quando a tarefa combina (ou você pede pelo nome).
 | **`/prompt-mestre`** | Comando (funil/copy) | Vira um especialista em **copy de resposta direta + estratégia de funil + front-end**. Conduz diagnóstico → aprofundamento → confirmação → geração. Entrega **página/funil em HTML puro** e/ou **copy de anúncios** (ângulos, headlines, hooks). Pergunta o que falta, não inventa. | Digite `/prompt-mestre` em qualquer sessão. Na pasta de um cliente, já usa o contexto dele. |
 | **Estratégia Completa para Clientes** (`estrategia-completa-clientes`) | Skill (automática) | Pega o **onboarding** (transcrição, notas, áudio, resumo) e gera o **documento de estratégia de 8 seções** (Big Idea, Quiz, Página de Aplicação, Anúncios, Diagnóstico, Cadência 12 dias, Tarefas, Recomendações). Entrega como **Google Doc formatado** no Drive e salva a fonte em `clientes/<cliente>/estrategia/`. | Peça: *"transforma esse onboarding do cliente X em documento de estratégia"*. |
 | **Gerar Quiz + Diagnóstico + Página Pós-Quiz** (`gerar-quiz-diag-pag-pos-quiz`) | Skill (automática) | Pega a **copy aprovada** e **coloca o funil no ar**: quiz + página pós-quiz (diagnóstico + PDF + WhatsApp) na identidade do cliente, **publica na Vercel**, cria a **planilha de leads** no Drive e testa a integração. **Confirma a conta da Simple** antes de publicar (nunca conta pessoal). | Peça: *"monta/implementa o funil do cliente X"* ou *"sobe a página na Vercel"*. |
+| **Carrossel de Instagram** (`carrossel-instagram`) | Skill (automática) | Vira um tema (ou uma estratégia/roteiro que já existe) em **carrossel de Instagram** na identidade do cliente: HTML com preview na moldura do IG para você arrastar e aprovar, **PNGs 1080x1350 prontos pra postar** (um por slide, com barra de progresso e seta embutidas) e a legenda. Pergunta a marca antes, não inventa identidade. | Peça: *"faz um carrossel pro Instagram do cliente X sobre Y"*. |
 
 **Como se encaixam:** Onboarding → *Estratégia Completa* (gera o doc + copy) →
-*Gerar Quiz…* (publica o funil + leads). O `/prompt-mestre` é o coringa para
+*Gerar Quiz…* (publica o funil + leads) → *Carrossel de Instagram* (transforma o
+que já foi escrito em post pro feed). O `/prompt-mestre` é o coringa para
 páginas/anúncios avulsos.
 
 > Outros comandos virão (ex.: `/roteiro`, `/copy`) conforme cadastrarmos novos

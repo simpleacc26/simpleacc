@@ -15,5 +15,6 @@
 # Logs e caches
 **/*.log
 **/.cache/
+**/__pycache__/
 **/.DS_Store
 **/Thumbs.db
