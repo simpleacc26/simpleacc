@@ -597,6 +597,7 @@ function pontos(){
 function motivo(){
   if(R.via === "A"){
     if((R.pt_a6||0) < 4) return "faturamento abaixo de R$ 200 mil";
+    if((R.pt_p4||0) < 4) return "sem necessidade: o time já decide sem o dono";
     return "";
   }
   if(R.via === "B"){
