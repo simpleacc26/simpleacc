@@ -139,7 +139,7 @@ function buildPilares(answers: Record<number, string>): Pilar[] {
 
   const pricingInsight =
     frustration.includes("cobrar")
-      ? "Não saber precificar não é falta de autoestima — é falta de método. Preço que o cliente aceita sem questionar é consequência de produto com percepção de valor clara."
+      ? "Não saber precificar não é falta de autoestima, é falta de método. Preço que o cliente aceita sem questionar é consequência de produto com percepção de valor clara."
       : profile === "2"
       ? "Margem baixa é sintoma direto de precificação no chute. Sem calcular custo, hora e posicionamento juntos, o lucro some no volume."
       : obstacle.includes("concorrência")
@@ -158,7 +158,7 @@ function buildPilares(answers: Record<number, string>): Pilar[] {
       : obstacle.includes("estrutura") || profile === "4"
       ? "Sem estrutura interna, crescimento gera caos ao invés de lucro. A base precisa estar antes do volume."
       : obstacle.includes("produção")
-      ? "Presa na produção significa que o modelo operacional não está estruturado para crescer. Mais horas na cozinha não resolve — é o modelo que precisa mudar."
+      ? "Presa na produção significa que o modelo operacional não está estruturado para crescer. Mais horas na cozinha não resolve. O que precisa mudar é o modelo."
       : "Sua estrutura de venda ainda depende de variáveis externas. Com um método de captação e oferta definido, o resultado para de depender do mês.";
 
   return [
@@ -231,12 +231,12 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
                 ? `Encontramos ${criticos} pontos críticos no seu negócio.`
                 : criticos === 1
                 ? "Encontramos o principal ponto que está travando seu crescimento."
-                : "Seu negócio tem base — o que falta é afinar os pontos certos."}
+                : "Seu negócio tem base. O que falta é afinar os pontos certos."}
             </em>
           </h1>
           <p style={bodyText}>
             Com base nas suas respostas, mapeamos os três pilares que determinam
-            o faturamento de uma chocolateria profissional — e identificamos onde
+            o faturamento de uma chocolateria profissional, e identificamos onde
             está o gargalo no seu caso.
           </p>
         </Section>
@@ -283,24 +283,99 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
           </div>
         </Section>
 
-        {/* ── 3. Foto do Gustavo + autoridade ── */}
+        {/* ── 2b. O mecanismo: por que estes três pilares ── */}
+        <Section>
+          <p
+            className="text-xs font-semibold uppercase tracking-widest mb-4"
+            style={{ color: ROSE, letterSpacing: "0.14em" }}
+          >
+            Por que estes três e não outros
+          </p>
+          <h2 style={{ ...headlineStyle, fontSize: "clamp(1.15rem, 3vw, 1.5rem)", marginBottom: "1rem" }}>
+            O que trava uma chocolateria quase nunca é falta de talento.
+            É <span style={{ color: ROSE }}>improviso vestido de esforço</span>.
+          </h2>
+          <p style={{ ...bodyText, marginBottom: "0.9rem" }}>
+            Receita solta sem entender o porquê. Produto bonito sem cardápio por
+            trás. Preço no chute. Venda que depende da Páscoa e do Natal. Cada
+            uma dessas coisas parece pequena sozinha, e juntas elas explicam por
+            que tanta gente trabalha muito e vê pouco dinheiro no fim do mês.
+          </p>
+          <p style={{ ...bodyText, marginBottom: 0 }}>
+            Produto, precificação e estrutura de venda são os três pilares porque
+            eles se seguram. Técnica sem preço certo vira prejuízo bonito. Preço
+            certo sem constância vira mês bom seguido de mês vazio. É por isso
+            que resolver um de cada vez raramente funciona.
+          </p>
+        </Section>
+
+        {/* ── 3. Quem é o Gustavo ── */}
         <Section className="!p-0 overflow-hidden">
           <img
             src="/fotos/gustavo.webp"
-            alt="Gustavo Ono — Chocolatier"
+            alt="Gustavo Ono, chocolatier"
             className="w-full"
             style={{ display: "block", maxHeight: "400px", objectFit: "cover", objectPosition: "top" }}
           />
-          <div className="p-7">
-            <p className="font-semibold mb-1" style={{ ...headlineStyle, fontSize: "1.1rem" }}>
-              Gustavo Ono — Chocolatier
+          <div className="p-7 md:p-10">
+            <p
+              className="text-xs font-semibold uppercase tracking-widest mb-3"
+              style={{ color: ROSE, letterSpacing: "0.14em" }}
+            >
+              Quem vai olhar o seu caso
             </p>
-            <p style={{ ...bodyText, fontSize: "0.9rem" }}>
-              Especialista em chocolateria profissional. Já formou centenas de
-              chocolateiras que passaram de produção artesanal sem método para
-              negócios com cardápio estruturado, precificação calculada e vendas
-              constantes.
+            <h2 style={{ ...headlineStyle, fontSize: "clamp(1.15rem, 3vw, 1.45rem)", marginBottom: "1rem" }}>
+              O Gustavo começou vendendo chocolate para completar a renda,
+              trabalhando de auxiliar administrativo.
+            </h2>
+            <p style={{ ...bodyText, fontSize: "0.95rem", marginBottom: "0.85rem" }}>
+              Ainda no ensino médio, sem cozinha profissional, sem estrutura e
+              sem ninguém para dizer o que fazer primeiro. A mesma cozinha de
+              casa de onde a maioria das nossas alunas começa.
             </p>
+            <p style={{ ...bodyText, fontSize: "0.95rem", marginBottom: "0.85rem" }}>
+              Anos depois entrou no <strong style={{ color: "#F2E8D9" }}>Que Seja
+              Doce, da GNT</strong>, competindo contra profissionais formados,
+              sem nunca ter trabalhado numa cozinha de restaurante.{" "}
+              <strong style={{ color: "#F2E8D9" }}>Venceu.</strong> Depois disso
+              passou pelas cozinhas de Paola Carosella e Morena Leite, virou{" "}
+              <strong style={{ color: "#F2E8D9" }}>Granchef Cordon Noir</strong>,
+              foi capa da revista Padaria 2000 e levou suas receitas para a TV
+              Gazeta.
+            </p>
+            <p style={{ ...bodyText, fontSize: "0.95rem", marginBottom: "0.85rem" }}>
+              Só que o método que ele ensina hoje não nasceu em nenhum desses
+              lugares. Nasceu dando aula dentro da cozinha das próprias alunas,
+              com o que elas tinham em casa. Foi ali que ficou claro o que este
+              diagnóstico mostra: técnica sozinha não tira ninguém do lugar.
+            </p>
+            <p style={{ ...bodyText, fontSize: "0.95rem", marginBottom: "1.25rem" }}>
+              São <strong style={{ color: "#F2E8D9" }}>10 anos de chocolataria</strong>,
+              milhares de alunas formadas no Brasil e no exterior, e um livro
+              publicado, o <em>Arte em Chocolate</em>.
+            </p>
+
+            <div
+              className="grid grid-cols-2 gap-3 pt-5"
+              style={{ borderTop: `1px solid ${ROSE}33` }}
+            >
+              {[
+                ["Que Seja Doce", "vencedor, GNT"],
+                ["Granchef", "Cordon Noir"],
+                ["Padaria 2000", "capa da revista"],
+                ["Arte em Chocolate", "livro publicado"],
+              ].map(([titulo, sub]) => (
+                <div key={titulo}>
+                  <p
+                    className="font-semibold"
+                    style={{ ...headlineStyle, fontSize: "0.98rem", lineHeight: 1.3 }}
+                  >
+                    {titulo}
+                  </p>
+                  <p style={{ color: "rgba(242,232,217,0.5)", fontSize: "0.78rem" }}>{sub}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </Section>
 

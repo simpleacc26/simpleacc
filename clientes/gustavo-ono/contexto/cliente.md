@@ -118,6 +118,46 @@ falta de padronização, operação comercial sem cardápio, precificação e ca
 
 ---
 
+---
+
+## Autoridade e trajetória (pesquisa 12/08/2026)
+
+Levantado no site dele (`gustavoono.com.br/gustavo-ono/`), em busca na web e no
+Canvas do Produto. É a matéria-prima de prova social e storytelling para copy.
+
+**Credenciais**
+
+- **Vencedor do "Que Seja Doce"**, da GNT
+- **Granchef Cordon Noir**
+- **Capa da revista Padaria 2000**
+- Apresenta receitas no **Revista da Manhã**, da TV Gazeta
+- Livro publicado: **"Gustavo Ono: Arte em Chocolate"**
+- **10 anos** de carreira, milhares de alunas no Brasil e no exterior
+- Especialidade declarada: **pintura artística em chocolate**
+
+**A trajetória, que é o ativo mais valioso para a copy**
+
+Começou vendendo chocolate para completar a renda ainda no ensino médio,
+trabalhando como jovem aprendiz auxiliar administrativo. Entrou na faculdade de
+gastronomia, descobriu o Que Seja Doce e competiu **sem nunca ter trabalhado em
+cozinha profissional**. Venceu. Depois passou por cozinhas de **Paola Carosella**
+e **Morena Leite**, além de confeitarias, chocolaterias e buffets.
+
+Voltou a ensinar dando aula **dentro da cozinha das próprias alunas**, com os
+recursos que elas tinham. Foi daí que nasceu o método, e depois vieram os cursos
+presenciais pelo Brasil e a operação online.
+
+**Por que isso importa na copy:** ele começou exatamente onde o ICP está hoje,
+cozinha de casa, sem estrutura, vendendo para completar renda. É a ponte de
+identificação que nenhum concorrente da lista consegue fazer com a mesma
+legitimidade, e ela vem acompanhada de credencial nacional. Usar as duas juntas,
+nessa ordem: primeiro a identificação, depois a prova.
+
+**Outros produtos dele na Hotmart** (úteis para pensar esteira): Clube Método
+Ono, Curso de Chocolateria e Desenvoltura de Cores, Chocolateria Comercial,
+A Química do Ganache, Doces de Luxo. Também vende insumos, como pasta de
+pistache, na loja própria.
+
 ## Links Úteis
 
 - Drive do cliente: https://drive.google.com/drive/folders/1Nn7jaE_vdnrTt-D2ptLO7r3ot8QzPjWS
