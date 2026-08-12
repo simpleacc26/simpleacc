@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Carrossel | Alivance Club — Os 4 pilares</title>
-<!-- Fontes embutidas em base64 por embed_fonts.py — não editar à mão. -->
+<title>Carrossel | Alivance Club · Os 4 pilares</title>
+<!-- Fontes embutidas em base64 por embed_fonts.py. Não editar à mão. -->
 <!-- FONTS:START -->
 <style>
 @font-face {
@@ -112,8 +112,10 @@
     display:flex;flex-direction:column;
   }
   /* Direita com 54px: a seta de swipe ocupa 48px e o texto não pode entrar
-     debaixo dela. Uniforme em todos os slides pra manter a mesma coluna. */
-  .slide-inner{flex:1;display:flex;flex-direction:column;padding:0 54px 52px 36px;}
+     debaixo dela. Uniforme em todos os slides pra manter a mesma coluna.
+     Topo e base com 52px iguais: sem isso o `justify-content:center` centraria
+     na área acima da barra de progresso, e não no meio real do slide. */
+  .slide-inner{flex:1;display:flex;flex-direction:column;padding:52px 54px 52px 36px;}
 
   .ig-dots{display:flex;justify-content:center;gap:5px;padding:12px 0 4px;}
   .ig-dot{width:6px;height:6px;border-radius:50%;background:#D5D5D5;transition:background .2s;}
@@ -124,7 +126,6 @@
   .ig-caption .h{font-weight:600;}
   .ig-time{display:block;margin-top:6px;font-size:10px;letter-spacing:.4px;color:#8E8E8E;text-transform:uppercase;}
 
-  .tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;}
   h2.head{margin:0;font-weight:600;letter-spacing:-.4px;line-height:1.13;}
   p.body{margin:0;font-size:14px;font-weight:400;line-height:1.55;}
 </style>
@@ -155,7 +156,7 @@
   </div>
 
   <div class="ig-caption">
-    <span class="h">rafaelgranella</span> Agenda cheia e receita estagnada ao mesmo tempo? O problema não é esforço, é estrutura. Os 4 pilares que definem o teto do seu negócio de mentoria — e como descobrir qual está travando o seu. Diagnóstico gratuito no link da bio.
+    <span class="h">rafaelgranella</span> Agenda cheia e receita estagnada ao mesmo tempo? Tem explicação. São quatro pilares que definem o teto de um negócio de mentoria, e o crescimento para no mais fraco deles. Descubra qual está travando o seu: diagnóstico gratuito no link da bio.
     <span class="ig-time">Há 2 horas</span>
   </div>
 </div>
@@ -172,7 +173,7 @@ const SURF   = '#292859';  /* superfície do quiz */
 const MUTED  = '#857C6B';
 const GRAD   = `linear-gradient(165deg, ${BD} 0%, ${B} 50%, ${BL} 100%)`;
 
-/* Três "temas" de fundo. 'grad' é dourado com texto índigo — é o padrão do
+/* Três "temas" de fundo. 'grad' é dourado com texto índigo, que é o padrão do
    quiz (estado selecionado / botão de CTA: fundo #C8B28B, texto #1c1c42). */
 const THEME = {
   light: { arrowBg:'rgba(0,0,0,0.06)',        arrowStroke:'rgba(0,0,0,0.25)',
@@ -204,22 +205,7 @@ function swipeArrow(theme){
   </div>`;
 }
 
-function tag(text, theme){
-  const color = theme === 'light' ? BD : (theme === 'dark' ? BL : 'rgba(28,28,66,0.72)');
-  return `<span class="sans tag" style="color:${color};margin-bottom:16px;">${text}</span>`;
-}
-
-function lockup(theme){
-  const ring   = theme === 'grad' ? DARK : B;
-  const letter = theme === 'grad' ? B : DARK;
-  const name   = theme === 'light' ? DARK : (theme === 'dark' ? '#fff' : DARK);
-  return `<div style="display:flex;align-items:center;gap:12px;">
-    <div class="serif" style="width:40px;height:40px;border-radius:50%;background:${ring};display:flex;align-items:center;justify-content:center;font-size:18px;font-weight:600;color:${letter};">A</div>
-    <span class="sans" style="font-size:13px;font-weight:600;letter-spacing:.5px;color:${name};">ALIVANCE CLUB</span>
-  </div>`;
-}
-
-/* linha numerada (pilar / passo). `isLast` tira a divisória do último item —
+/* linha numerada (pilar / passo). `isLast` tira a divisória do último item;
    senão sobra uma linha pendurada acima da barra de progresso. */
 function step(num, title, desc, theme, isLast){
   const line  = theme === 'light' ? BORDER : (theme === 'dark' ? 'rgba(255,255,255,0.10)' : 'rgba(28,28,66,0.15)');
@@ -254,23 +240,21 @@ function quoteBox(label, quote, theme){
 }
 
 /* ===================== SLIDES ===================== */
+/* Todos os slides centralizados na vertical: o bloco de texto fica no miolo da
+   área segura, longe da barra de progresso e das bordas. */
 const SLIDES = [
-  /* 1 — HERO */
+  /* 1. HERO */
   { theme:'light', align:'center', html: t => `
-      ${lockup(t)}
-      <div style="height:30px;"></div>
-      ${tag('DIAGNÓSTICO ALIVANCE', t)}
       <h2 class="serif head" style="font-size:31px;color:${DARK};">Agenda cheia.<br/>Receita estagnada.</h2>
       <div style="height:18px;"></div>
-      <p class="sans body" style="color:${MUTED};">Quando os dois acontecem ao mesmo tempo, o problema não é o seu esforço. É a estrutura do seu negócio.</p>
+      <p class="sans body" style="color:${MUTED};">Se os dois acontecem ao mesmo tempo no seu negócio de mentoria, existe uma explicação. E ela tem conserto.</p>
   `},
 
-  /* 2 — PROBLEMA */
-  { theme:'dark', align:'flex-end', html: t => `
-      ${tag('O QUE TODO MUNDO TENTA', t)}
-      <h2 class="serif head" style="font-size:30px;color:${B};">Você já tentou de tudo. E o patamar não mudou.</h2>
+  /* 2. PROBLEMA */
+  { theme:'dark', align:'center', html: t => `
+      <h2 class="serif head" style="font-size:30px;color:${B};">Você já tentou de tudo. E o patamar continua o mesmo.</h2>
       <div style="height:16px;"></div>
-      <p class="sans body" style="color:rgba(255,255,255,0.62);">Todo mentor que trava repete a mesma sequência. Nenhuma dessas ações ataca a causa.</p>
+      <p class="sans body" style="color:rgba(255,255,255,0.62);">Todo mentor que trava repete a mesma sequência de tentativas.</p>
       <div style="height:20px;"></div>
       <div style="display:flex;flex-wrap:wrap;gap:8px;">
         ${strikePill('Aumentar o preço')}
@@ -279,42 +263,38 @@ const SLIDES = [
         ${strikePill('Postar mais')}
       </div>
       <div style="height:20px;"></div>
-      <p class="sans" style="margin:0;font-size:13px;line-height:1.5;color:rgba(255,255,255,0.45);">São ajustes de superfície num problema de estrutura.</p>
+      <p class="sans" style="margin:0;font-size:13px;line-height:1.5;color:rgba(255,255,255,0.45);">Todas mexem na superfície. Nenhuma toca na estrutura.</p>
   `},
 
-  /* 3 — VIRADA (gradiente da marca) */
+  /* 3. VIRADA (gradiente da marca) */
   { theme:'grad', align:'center', html: t => `
-      ${tag('A VIRADA', t)}
-      <h2 class="serif head" style="font-size:32px;color:${DARK};">O seu teto não é de esforço. É de estrutura.</h2>
+      <h2 class="serif head" style="font-size:32px;color:${DARK};">O seu teto tem quatro pilares.</h2>
       <div style="height:18px;"></div>
-      <p class="sans body" style="color:rgba(28,28,66,0.65);">Um negócio de educação se sustenta em quatro pilares. O crescimento para no mais fraco deles, não no que você mais trabalha.</p>
+      <p class="sans body" style="color:rgba(28,28,66,0.7);">Método, modelo de negócio, processo de vendas e mentalidade. O crescimento para no mais fraco deles, mesmo que você trabalhe dobrado nos outros três.</p>
       <div style="height:22px;"></div>
-      ${quoteBox('O que define o seu teto', 'Quando um pilar trava, o negócio inteiro para de subir.', t)}
+      ${quoteBox('A regra', 'Quando um pilar trava, o negócio inteiro para de subir.', t)}
   `},
 
-  /* 4 — PILARES 01 e 02 */
-  { theme:'light', align:'flex-end', html: t => `
-      ${tag('OS 4 PILARES · 01–02', t)}
+  /* 4. PILARES 01 e 02 */
+  { theme:'light', align:'center', html: t => `
       <h2 class="serif head" style="font-size:29px;color:${DARK};">Método e modelo de negócio</h2>
       <div style="height:14px;"></div>
-      ${step('01','Método','Seu conhecimento precisa virar sistema. Enquanto ele mora só na sua cabeça, a entrega depende da sua presença — e o cliente recebe a sua versão do dia, não consistência.', t)}
+      ${step('01','Método','Seu conhecimento precisa virar sistema. Enquanto ele mora só na sua cabeça, a entrega depende da sua presença e o cliente recebe a sua versão do dia.', t)}
       ${step('02','Modelo de negócio','Como você empacota, precifica e entrega define o teto. Sessão avulsa tem um teto. Programa fechado tem outro. Clube bem estruturado tem outro completamente.', t, true)}
   `},
 
-  /* 5 — PILARES 03 e 04 */
-  { theme:'dark', align:'flex-end', html: t => `
-      ${tag('OS 4 PILARES · 03–04', t)}
+  /* 5. PILARES 03 e 04 */
+  { theme:'dark', align:'center', html: t => `
       <h2 class="serif head" style="font-size:29px;color:${B};">Processo de vendas e mentalidade</h2>
       <div style="height:12px;"></div>
-      ${step('03','Processo de vendas','Depender de indicação e networking não é estratégia, é aposta. Com processo, o faturamento deixa de oscilar.', t)}
-      ${step('04','Mentalidade','O pilar que ninguém quer encarar — e o que mais trava. Crenças operando como teto invisível.', t, true)}
+      ${step('03','Processo de vendas','Indicação e networking até rendem, mas oscilam. Com um processo de aquisição estruturado, o faturamento fica previsível.', t)}
+      ${step('04','Mentalidade','O pilar que ninguém quer encarar e o que mais trava. Crenças operando como teto invisível.', t, true)}
       <div style="height:16px;"></div>
       ${quoteBox('Pilar 04', 'Cobrar R$115.000 por ano exige uma identidade diferente de cobrar R$15.000.', t)}
   `},
 
-  /* 6 — COMO DESCOBRIR */
-  { theme:'light', align:'flex-end', html: t => `
-      ${tag('COMO DESCOBRIR O SEU', t)}
+  /* 6. COMO DESCOBRIR */
+  { theme:'light', align:'center', html: t => `
       <h2 class="serif head" style="font-size:30px;color:${DARK};">Um diagnóstico em 30 segundos</h2>
       <div style="height:14px;"></div>
       ${step('01','Responda 7 perguntas','Sobre o seu modelo de entrega, o seu gargalo real e o seu objetivo para os próximos 12 meses.', t)}
@@ -322,13 +302,11 @@ const SLIDES = [
       ${step('03','Agende a sessão','Análise individual do seu negócio com o time do Rafael. Sem pitch, sem fórmula genérica.', t, true)}
   `},
 
-  /* 7 — CTA (sem seta, barra em 100%) */
+  /* 7. CTA (sem seta, barra em 100%) */
   { theme:'grad', align:'center', html: t => `
-      ${lockup(t)}
-      <div style="height:28px;"></div>
       <h2 class="serif head" style="font-size:31px;color:${DARK};">Descubra o que está travando o seu próximo salto.</h2>
       <div style="height:16px;"></div>
-      <p class="sans body" style="color:rgba(28,28,66,0.65);">O diagnóstico é gratuito, leva 30 segundos e você sai com clareza do próximo movimento.</p>
+      <p class="sans body" style="color:rgba(28,28,66,0.7);">O diagnóstico é gratuito, leva 30 segundos e você sai com clareza do próximo movimento.</p>
       <div style="height:26px;"></div>
       <div class="sans" style="display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:${DARK};color:${B};font-weight:600;font-size:14px;border-radius:28px;">
         Fazer meu diagnóstico

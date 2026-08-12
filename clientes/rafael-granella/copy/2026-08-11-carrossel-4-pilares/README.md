@@ -1,4 +1,4 @@
-# Carrossel Instagram — Os 4 pilares (Alivance Club)
+# Carrossel Instagram: Os 4 pilares (Alivance Club)
 
 Carrossel de 7 slides para o Instagram do Rafael Granella (Alivance Club), no
 formato 4:5, exportado em **1080×1350 PNG** pronto para subir.
@@ -9,35 +9,51 @@ Tema: **os 4 pilares que definem o teto de um negócio de mentoria** (Método,
 Modelo de negócio, Processo de vendas, Mentalidade), fechando no CTA do
 Diagnóstico (o quiz).
 
-Todo o conteúdo veio do material que já existe do cliente — não foi inventado:
+Todo o conteúdo veio do material que já existe do cliente, nada foi inventado:
 
 | Slide | O que é | Fonte |
 | ----- | ------- | ----- |
 | 1 | Hook "Agenda cheia. Receita estagnada." | `quiz-alivance/src/data/questions.ts` (implicação: "Minha receita está estagnada mesmo com agenda cheia") |
 | 2 | O que já tentaram e não resolveu | `questions.ts` (necessidade: aumentar preço, formato em grupo, tráfego pago) |
-| 3 | Virada: o teto é de estrutura, não de esforço | `ReportScreen.tsx` (`PILLARS`) |
-| 4 | Pilares 01 Método · 02 Modelo de negócio | `ReportScreen.tsx` (`PILLARS`) |
-| 5 | Pilares 03 Processo de vendas · 04 Mentalidade | `ReportScreen.tsx` (`PILLARS`) |
+| 3 | O teto e os quatro pilares | `ReportScreen.tsx` (`PILLARS`) |
+| 4 | Pilares 01 Método, 02 Modelo de negócio | `ReportScreen.tsx` (`PILLARS`) |
+| 5 | Pilares 03 Processo de vendas, 04 Mentalidade | `ReportScreen.tsx` (`PILLARS`) |
 | 6 | Como funciona o diagnóstico (3 passos) | fluxo do quiz + `ReportScreen.tsx` (copy do CTA) |
 | 7 | CTA para o quiz | `ReportScreen.tsx` (CTA "sem pitch, sem fórmula genérica") |
 
+## Regras de copy (definidas pelo Daniel)
+
+Valem para qualquer alteração futura neste carrossel:
+
+1. **Sem travessões.** Nem na copy dos slides, nem na legenda.
+2. **Sem a construção "não é X, é Y"** (e variantes como "seu problema não é X,
+   é Y"). Tem cara de texto de IA.
+3. **Sem labels/tags** acima dos títulos.
+4. **Sem logo e sem o nome da marca** nos slides. A assinatura fica só na URL do
+   último slide.
+5. **Texto centralizado na vertical**, longe das bordas e da barra de progresso.
+
+> Nota: o pilar 03 no relatório original do cliente diz "Depender de indicação e
+> networking não é uma estratégia. É uma aposta." Como é exatamente a construção
+> da regra 2, foi reescrito aqui. A frase original continua no `ReportScreen.tsx`.
+
 ## Identidade visual
 
-Puxada do quiz (`clientes/rafael-granella/quiz-alivance/`), a pedido do Daniel —
+Puxada do quiz (`clientes/rafael-granella/quiz-alivance/`), a pedido do Daniel:
 mesma paleta e mesma tipografia dos criativos e do site.
 
 | Token | Valor | De onde vem |
 | ----- | ----- | ----------- |
 | `BRAND_PRIMARY` | `#C8B28B` | dourado do quiz |
 | `BRAND_LIGHT` | `#DDCBAD` | derivado (+20%) |
-| `BRAND_DARK` | `#8C7857` | derivado (−30%) |
+| `BRAND_DARK` | `#8C7857` | derivado (menos 30%) |
 | `LIGHT_BG` | `#F6F2E9` | creme quente, derivado do dourado |
 | `LIGHT_BORDER` | `#E6DECD` | derivado |
 | `DARK_BG` | `#1C1C42` | índigo do quiz |
 | superfície | `#292859` | card do quiz |
 
-- **Títulos:** Fahkwang · **Corpo:** Inter — as duas do quiz.
-- **Ritmo:** creme → índigo → dourado → creme → índigo → creme → dourado.
+- **Títulos:** Fahkwang. **Corpo:** Inter. As duas do quiz.
+- **Ritmo:** creme, índigo, dourado, creme, índigo, creme, dourado.
 - Os slides de gradiente usam **dourado com texto índigo**, que é o padrão do
   quiz (opção selecionada e botão de CTA são `bg #C8B28B` + `texto #1c1c42`).
 
@@ -71,17 +87,18 @@ python3 export_slides.py
 - As fontes estão **embutidas em base64** no HTML. Isso é de propósito: garante
   que o export não saia com fonte fallback se a rede falhar. O
   `export_slides.py` aborta se as fontes não carregarem.
-- O `.slide-inner` tem `padding-right: 54px` porque a seta de swipe ocupa 48px —
-  sem isso o texto passa por baixo dela.
+- O `.slide-inner` tem `padding-right: 54px` porque a seta de swipe ocupa 48px.
+  Sem isso o texto passa por baixo dela.
+- O `padding-top` e o `padding-bottom` são iguais (52px) de propósito: com
+  `justify-content:center`, se só a base tivesse padding o texto centralizaria
+  na área acima da barra de progresso, e não no meio real do slide.
 - O último slide não tem seta (sinaliza o fim) e tem a barra de progresso em 100%.
 
 ## Pendências
 
 - **Confirmar o @ do Instagram do Rafael.** Está `@rafaelgranella` no frame de
-  preview, inferido do domínio `rafaelgranella.com.br` — não achei o handle
+  preview, inferido do domínio `rafaelgranella.com.br`. Não achei o handle
   versionado no repo. Isso só afeta o preview, não os PNGs.
-- **Logo.** Não há logo do Alivance Club versionado no repo; os slides 1 e 7 usam
-  a inicial "A" em círculo. Se existir SVG, dá pra trocar em `lockup()`.
 - O `CLAUDE.md` do cliente diz que `quiz-alivance/` é "teste antigo, fora de
   uso", mas o `README.md` dele lista o quiz como ativo em produção
-  (`quiz.rafaelgranella.com.br`). Vale alinhar — a paleta daqui saiu do quiz.
+  (`quiz.rafaelgranella.com.br`). Vale alinhar, porque a paleta daqui saiu do quiz.
