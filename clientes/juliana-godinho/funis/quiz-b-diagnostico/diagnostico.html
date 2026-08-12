@@ -74,6 +74,9 @@
   .cta.escuro{background:var(--espresso);color:#F7F3EA}
   .cta.escuro span{color:var(--gold)}
   .aviso{font-size:.85rem;color:var(--ink-3);margin-top:1rem}
+  .cta-wrap{margin-top:2.4rem;text-align:center}
+  .cta-wrap .aviso{max-width:36ch;margin-inline:auto}
+  .sessao .cta-wrap{margin-top:2.6rem}
   .sessao .aviso{color:rgba(242,237,227,.5)}
 
   /* autoridade */
@@ -117,10 +120,19 @@
 
   @media(max-width:760px){
     .autor{grid-template-columns:1fr;gap:1.8rem}
-    .retrato{max-width:20rem}
-    section{padding:3.2rem 0}
-    .head{padding:3.2rem 0 2.8rem}
-    .bloco{padding:1.5rem 1.4rem}
+    .retrato{max-width:16rem;margin-inline:auto}
+    section{padding:2.8rem 0}
+    section.tight{padding:2.2rem 0}
+    .head{padding:2.8rem 0 2.4rem}
+    .bloco{padding:1.4rem 1.3rem}
+    body{font-size:16.5px}
+    p{margin-bottom:1rem}
+    h3{margin:1.7rem 0 .7rem}
+    .rule{margin:1.7rem 0}
+    .cta{display:flex;width:100%;justify-content:center;padding:1.15rem 1.4rem;font-size:.76rem;letter-spacing:.12em}
+    .cta-wrap{margin-top:2rem}
+    .pilar{padding:1.25rem 1.3rem}
+    .grid2{gap:.7rem}
   }
   @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   @media print{
@@ -164,27 +176,30 @@ if(!A || !A.quadro){
 } else {
   const nome = esc((A.nome||'').split(' ')[0]);
   const pilares = A.pilares.map((p,k)=>
-    `<div class="pilar${k===A.pilarIdx?' on':''}"><b>${esc(p.n)}</b><p>${esc(p.d)}</p></div>`).join('');
-  const tentativas = (A.tentativas||[]).map(t=>`<p>${esc(t)}</p>`).join('');
+    `<div class="pilar${k===A.pilarIdx?' on':''}"><b>${p.n}</b><p>${p.d}</p></div>`).join('');
+  const tentativas = (A.tentativas||[]).map(t=>`<p>${t}</p>`).join('');
 
   el.innerHTML = `
   <div class="head"><div class="narrow">
     <p class="kick">${nome ? esc(nome)+', este é o seu diagnóstico' : 'O seu diagnóstico'}</p>
-    <h1>${esc(A.quadro)}</h1>
-    <p class="sub">Este é o gargalo principal que apareceu nas suas respostas. Ele não é o único ponto do seu negócio, mas é o que está segurando o crescimento agora.</p>
+    <h1>${A.quadro}</h1>
+    <p class="sub">Foi o que apareceu nas suas respostas. Não é o único ponto do seu negócio, mas <strong>é o que está segurando o crescimento agora</strong>.</p>
   </div></div>
 
   <section><div class="narrow"><div class="bloco">
     <h3>O que eu vi nas suas respostas</h3>
-    <p>${esc(A.cenario)}</p>
+    <p>${A.cenario}</p>
     <h3>Por que isso está acontecendo</h3>
-    <p>${esc(A.porque)}</p>
+    <p>${A.porque}</p>
     ${tentativas ? '<h3>Por que o que você já tentou não resolveu</h3>'+tentativas : ''}
     <div class="rule"></div>
     <h3>E não é falta de técnica</h3>
-    <p>Você recebeu anos de formação. Aprendeu procedimento, protocolo, atendimento. Mas nenhuma faculdade, nenhum curso e nenhuma especialização te ensinou a gerir um negócio, a se posicionar como referência e a cobrar pelo valor real do que você entrega.</p>
-    <p>Existe uma diferença enorme entre ser uma ótima profissional e ser uma empresária que cresce, e essa diferença não está na técnica. O que se repete em quase todas as profissionais que passam por aqui é o mesmo: muito talento, muita dedicação e nenhuma estrutura empresarial. Não porque são incapazes, mas porque ninguém nunca ensinou essa parte.</p>
-  </div></div></section>
+    <p>Você aprendeu procedimento, protocolo, atendimento. Mas <strong>nenhum curso te ensinou a gerir um negócio</strong>, a se posicionar como referência e a cobrar pelo valor real do que entrega.</p>
+    <p><strong>Existe uma diferença enorme entre ser uma ótima profissional e ser uma empresária que cresce.</strong> E essa diferença não está na técnica.</p>
+    <p>O que se repete em quase todas que passam por aqui é o mesmo: muito talento, muita dedicação e nenhuma estrutura. Não porque são incapazes, mas <strong>porque ninguém nunca ensinou essa parte</strong>.</p>
+  </div>
+  <div class="cta-wrap"><a class="cta" href="https://wa.me/553192744259?text=Oi%21%20Acabei%20de%20fazer%20o%20diagn%C3%B3stico%20e%20quero%20agendar%20minha%20sess%C3%A3o%20estrat%C3%A9gica.">Quero destravar isso <span>&rarr;</span></a><p class="aviso">Fale com o time da Juliana no WhatsApp.</p></div>
+  </div></section>
 
   <section class="tight"><div class="wrap">
     <div class="narrow center" style="margin-bottom:2.4rem">
@@ -193,7 +208,8 @@ if(!A || !A.quadro){
     </div>
     <div class="grid2">${pilares}</div>
     <div class="narrow" style="margin-top:2rem">
-      <p><strong>No seu caso, o ponto de partida é ${esc(A.pilarNome.toLowerCase())}.</strong> ${esc(A.pilarPor)}</p>
+      <p><strong>No seu caso, o ponto de partida é ${A.pilarNome.toLowerCase()}.</strong> ${A.pilarPor}</p>
+      <div class="cta-wrap"><a class="cta" href="https://wa.me/553192744259?text=Oi%21%20Acabei%20de%20fazer%20o%20diagn%C3%B3stico%20e%20quero%20agendar%20minha%20sess%C3%A3o%20estrat%C3%A9gica.">Quero começar por aqui <span>&rarr;</span></a></div>
     </div>
   </div></section>
 
@@ -201,16 +217,15 @@ if(!A || !A.quadro){
     <div class="narrow center" style="margin-bottom:2.4rem">
       <p class="kick">O próximo passo</p>
       <h2>O que acontece na sua sessão estratégica</h2>
-      <p>Não é palestra genérica e não é PDF com dicas. É sentar e olhar para o seu negócio de verdade, por 30 a 40 minutos, com uma especialista do time da Juliana.</p>
+      <p><strong>Não é palestra genérica e não é PDF com dicas.</strong> É sentar e olhar para o seu negócio de verdade, por 30 a 40 minutos, com uma especialista do time da Juliana.</p>
     </div>
     <div class="grid2">
       <div class="card"><b>Diagnóstico do seu negócio</b><p>A análise do momento atual da sua clínica ou consultório, com os gargalos que estão impedindo o crescimento e as oportunidades que você ainda não está aproveitando.</p></div>
       <div class="card"><b>Plano personalizado</b><p>Um caminho claro e prático do que você precisa fazer primeiro, segundo e terceiro para sair de onde está.</p></div>
       <div class="card"><b>Clareza sobre os próximos passos</b><p>Você sai da sessão sabendo exatamente o que fazer para estruturar a sua clínica ou consultório como um negócio lucrativo, organizado e sustentável.</p></div>
     </div>
-    <div class="narrow center" style="margin-top:2.6rem">
-      <a class="cta" href="https://wa.me/553192744259?text=Oi%21%20Acabei%20de%20fazer%20o%20diagn%C3%B3stico%20e%20quero%20agendar%20minha%20sess%C3%A3o%20estrat%C3%A9gica.">Quero agendar minha sessão <span>&rarr;</span></a>
-      <p class="aviso">Toda semana são poucos horários, porque a análise é personalizada e leva tempo para ser bem feita.</p>
+    <div class="narrow">
+      <div class="cta-wrap"><a class="cta" href="https://wa.me/553192744259?text=Oi%21%20Acabei%20de%20fazer%20o%20diagn%C3%B3stico%20e%20quero%20agendar%20minha%20sess%C3%A3o%20estrat%C3%A9gica.">Quero agendar minha sessão <span>&rarr;</span></a><p class="aviso"><strong>Toda semana são poucos horários</strong>, porque a análise é personalizada e leva tempo para ser bem feita.</p></div>
     </div>
   </div></section>
 
@@ -222,6 +237,7 @@ if(!A || !A.quadro){
     <div class="provas">
       <div class="slot-prova">Espaço reservado para os prints de WhatsApp das alunas, os mesmos que já estão na página atual. Aguardando os arquivos.</div>
     </div>
+    <div class="narrow"><div class="cta-wrap"><a class="cta" href="https://wa.me/553192744259?text=Oi%21%20Acabei%20de%20fazer%20o%20diagn%C3%B3stico%20e%20quero%20agendar%20minha%20sess%C3%A3o%20estrat%C3%A9gica.">Quero o meu resultado <span>&rarr;</span></a></div></div>
   </div></section>
 
   <section><div class="wrap">
@@ -232,15 +248,16 @@ if(!A || !A.quadro){
       <div>
         <p class="kick">Quem assina esse diagnóstico</p>
         <h2>Juliana Godinho</h2>
-        <p>Fisioterapeuta dermatofuncional, empresária desde 2008 e no mercado da estética desde 2011. Construiu a própria clínica do zero, em Belo Horizonte, passando pelos mesmos apertos pelos quais você está passando agora.</p>
-        <p>Hoje essa clínica é referência na cidade e fatura acima de um milhão por ano. O que a levou até ali não foi mais um curso técnico, foi entender que era uma empresária e que o negócio precisava de gestão, posicionamento e estrutura.</p>
-        <p>Desde 2018 ela mentora profissionais da estética, e é idealizadora do Método Estética do Poder, que já impactou mais de cinco mil alunas em todo o Brasil. Com MBA em Consultoria Empresarial e mais de catorze anos de mercado, hoje lidera um time de especialistas que ajuda profissionais da saúde estética a estruturarem negócios sólidos, lucrativos e reconhecidos.</p>
+        <p>Fisioterapeuta dermatofuncional, no mercado da estética desde 2011. <strong>Construiu a própria clínica do zero</strong>, em Belo Horizonte, passando pelos mesmos apertos pelos quais você está passando agora.</p>
+        <p>Hoje essa clínica é referência na cidade e <strong>fatura acima de um milhão por ano</strong>. O que a levou até ali <strong>não foi mais um curso técnico</strong>, foi entender que era uma empresária.</p>
+        <p>Desde 2018 ela mentora profissionais da estética e é idealizadora do <strong>Método Estética do Poder</strong>.</p>
         <ul class="creds">
           <li>Mais de 5.000 profissionais impactadas</li>
           <li>Mais de 14 anos no mercado da estética</li>
           <li>Clínica própria com faturamento acima de R$ 1 milhão por ano</li>
           <li>MBA em Consultoria Empresarial</li>
         </ul>
+        <div class="cta-wrap"><a class="cta" href="https://wa.me/553192744259?text=Oi%21%20Acabei%20de%20fazer%20o%20diagn%C3%B3stico%20e%20quero%20agendar%20minha%20sess%C3%A3o%20estrat%C3%A9gica.">Quero falar com o time da Ju <span>&rarr;</span></a></div>
       </div>
     </div>
   </div></section>
@@ -271,7 +288,7 @@ if(!A || !A.quadro){
 
   <section class="tight"><div class="narrow"><div class="dbg">
     <b>Modo teste · o lead não vê este bloco</b>
-    Quadro: ${esc(A.quadroId)} · ${esc(A.quadro)}<br>
+    Quadro: ${esc(A.quadroId)} · ${A.quadro}<br>
     Rota: ${A.rota==='mentoria'?'MENTORIA (R$ 9.999)':'EDP (R$ 1.997)'}<br>
     Pilar de partida: ${esc(A.pilarNome)}<br>
     Lead: ${esc(A.nome)} · ${esc(A.fone)} · ${esc(A.mail)}<br>

@@ -90,6 +90,16 @@ de vendas dela, nesta ordem:
 7. **FAQ** — as 6 perguntas da página dela
 8. **Fechamento** — os 3 "pare de" e o CTA final
 
+**Seis CTAs**, um por quebra da página: depois do laudo, depois dos pilares,
+dentro do bloco da sessão, depois da prova social, depois da autoridade e no
+fechamento. Todos apontam para o mesmo WhatsApp, com rótulos diferentes para não
+soarem repetitivos. No mobile viram botão de largura cheia.
+
+A copy do laudo usa `<strong>` nas frases que carregam o diagnóstico e quebras
+de parágrafo a cada ideia, para o texto não virar mancha no celular. Por isso a
+copy própria não passa por `esc()` na montagem; só o dado do lead (nome,
+telefone, e-mail) continua escapado.
+
 Tem botão **Baixar em PDF** (`window.print()` com `@media print` que esconde
 chrome, FAQ e CTAs), então o mesmo laudo serve de anexo para a cadência da SDR.
 
