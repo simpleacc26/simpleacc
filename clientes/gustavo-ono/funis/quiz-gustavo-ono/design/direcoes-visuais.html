@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Gustavo Ono — Direções de identidade visual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@300;400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:#0E0906;color:#EDE3D0;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+header{padding:56px 0 40px;border-bottom:1px solid rgba(237,227,208,.14)}
+.kick{font-size:11px;letter-spacing:2.4px;text-transform:uppercase;color:#C9A227;font-weight:600}
+h1{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:500;line-height:1.15;margin:14px 0 12px}
+header p{color:rgba(237,227,208,.62);max-width:640px;font-size:15.5px}
+h2{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;margin:56px 0 6px}
+.sub{color:rgba(237,227,208,.5);font-size:14px;margin-bottom:22px}
+
+/* paleta extraída */
+.swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:20px 0 8px}
+.sw{border-radius:12px;overflow:hidden;border:1px solid rgba(237,227,208,.14)}
+.sw .chip{height:88px}
+.sw .meta{padding:11px 13px;background:rgba(237,227,208,.04)}
+.sw .nm{font-size:13px;font-weight:600}
+.sw .hex{font-size:11.5px;color:rgba(237,227,208,.5);font-variant-numeric:tabular-nums;letter-spacing:.4px}
+.sw .from{font-size:11px;color:#C9A227;margin-top:3px}
+
+/* comparativo */
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;margin-top:18px}
+.dir{border-radius:18px;overflow:hidden;border:1px solid rgba(237,227,208,.16)}
+.dir .tag{padding:14px 18px;background:rgba(237,227,208,.05);border-bottom:1px solid rgba(237,227,208,.12)}
+.dir .tag .n{font-size:10.5px;letter-spacing:1.6px;text-transform:uppercase;color:#C9A227;font-weight:700}
+.dir .tag .t{font-family:'Cormorant Garamond',serif;font-size:20px;margin-top:3px}
+.dir .tag .d{font-size:12.5px;color:rgba(237,227,208,.55);margin-top:4px;line-height:1.5}
+
+/* amostra do relatório, herda variáveis de cada direção */
+.demo{padding:26px 22px}
+.demo .eyebrow{font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;margin-bottom:12px}
+.demo .h{font-size:23px;line-height:1.22;margin-bottom:10px}
+.demo .h em{font-style:italic}
+.demo .p{font-size:13.5px;line-height:1.7;margin-bottom:18px}
+.demo .pil{border-radius:13px;padding:15px 16px;margin-bottom:12px}
+.demo .pil .st{font-size:9.5px;letter-spacing:1.3px;text-transform:uppercase;font-weight:700;display:block;margin-bottom:6px}
+.demo .pil .nm{font-size:15px;margin-bottom:5px}
+.demo .pil .tx{font-size:12.5px;line-height:1.6;opacity:.86}
+.demo .cta{display:block;text-align:center;border-radius:12px;padding:14px;font-weight:600;font-size:14.5px;margin-top:18px;letter-spacing:.2px}
+.demo .sec{display:block;text-align:center;font-size:12px;margin-top:11px;opacity:.55;text-decoration:underline}
+
+/* DIREÇÃO A — Cacau & Bordô */
+.dA .demo{background:#140C08;color:#F0E6D8;font-family:'Inter',sans-serif}
+.dA .eyebrow{color:#B08D57}
+.dA .h{font-family:'Cormorant Garamond',serif;font-weight:500;color:#F5EDE1}
+.dA .h em{color:#B08D57}
+.dA .p{color:rgba(240,230,216,.72)}
+.dA .pil{background:#1F120C;border:1px solid rgba(176,141,87,.22)}
+.dA .pil .st{color:#8E2841}
+.dA .pil .nm{font-family:'Cormorant Garamond',serif;font-weight:600;color:#F5EDE1}
+.dA .cta{background:#8E2841;color:#FBF5EC}
+.dA .sec{color:#B08D57}
+
+/* DIREÇÃO B — Linho & Cacau (claro) */
+.dB .demo{background:#F3EBDD;color:#2A1A12;font-family:'Jost',sans-serif}
+.dB .eyebrow{color:#8E2841}
+.dB .h{font-family:'Fraunces',serif;font-weight:600;color:#241009}
+.dB .h em{color:#8E2841;font-style:normal}
+.dB .p{color:rgba(42,26,18,.76)}
+.dB .pil{background:#FBF6EC;border:1px solid rgba(42,26,18,.13)}
+.dB .pil .st{color:#8E2841}
+.dB .pil .nm{font-family:'Fraunces',serif;font-weight:600;color:#241009}
+.dB .cta{background:#241009;color:#F3EBDD}
+.dB .sec{color:#6B4A38}
+
+/* DIREÇÃO C — Musgo & Dourado */
+.dC .demo{background:#12211C;color:#E9E2D2;font-family:'Inter',sans-serif}
+.dC .eyebrow{color:#C9A227}
+.dC .h{font-family:'Cormorant Garamond',serif;font-weight:500;color:#F2EDE0}
+.dC .h em{color:#C9A227}
+.dC .p{color:rgba(233,226,210,.72)}
+.dC .pil{background:#1A2E27;border:1px solid rgba(201,162,39,.2)}
+.dC .pil .st{color:#C9A227}
+.dC .pil .nm{font-family:'Cormorant Garamond',serif;font-weight:600;color:#F2EDE0}
+.dC .cta{background:#C9A227;color:#12211C}
+.dC .sec{color:rgba(233,226,210,.6)}
+
+/* hoje */
+.hoje .demo{background:#1A0900;color:#FBF1EE;font-family:'Inter',sans-serif}
+.hoje .eyebrow{color:#C87B75}
+.hoje .h{font-family:Georgia,serif;font-weight:600;color:#FBF1EE}
+.hoje .h em{color:#C87B75}
+.hoje .p{color:rgba(251,241,238,.82)}
+.hoje .pil{background:rgba(248,113,113,.09);border:1px solid rgba(248,113,113,.28)}
+.hoje .pil .st{color:#F87171}
+.hoje .pil .nm{font-family:Georgia,serif;font-weight:600}
+.hoje .cta{background:#25D366;color:#fff}
+.hoje .sec{color:rgba(251,241,238,.5)}
+.hoje{border-color:rgba(237,227,208,.1);opacity:.9}
+.hoje .tag .n{color:rgba(237,227,208,.4)}
+
+.nota{background:rgba(201,162,39,.07);border:1px solid rgba(201,162,39,.26);border-left:3px solid #C9A227;border-radius:12px;padding:18px 20px;margin:26px 0;font-size:14px;color:rgba(237,227,208,.8)}
+.nota b{color:#EDE3D0}
+footer{margin:56px 0 70px;padding-top:20px;border-top:1px solid rgba(237,227,208,.14);color:rgba(237,227,208,.42);font-size:13px}
+@media(max-width:720px){h1{font-size:30px}}
+</style></head>
+<body>
+
+<header><div class="wrap">
+  <div class="kick">Gustavo Ono · Chocolatier</div>
+  <h1>Três direções de identidade visual para o funil</h1>
+  <p>A paleta que está no ar hoje não veio da marca: foi escolhida na montagem do quiz. Estas três direções partem do material real do Gustavo, as fotos de produto e o avental dele, e estão aplicadas ao mesmo trecho do relatório para comparação direta.</p>
+</div></header>
+
+<div class="wrap">
+
+<h2>A paleta que sai do material dele</h2>
+<p class="sub">Cores tiradas das fotos de produto e do retrato, não inventadas.</p>
+<div class="swatches">
+  <div class="sw"><div class="chip" style="background:#140C08"></div><div class="meta"><div class="nm">Cacau escuro</div><div class="hex">#140C08</div><div class="from">o chocolate e o avental</div></div></div>
+  <div class="sw"><div class="chip" style="background:#8E2841"></div><div class="meta"><div class="nm">Bordô</div><div class="hex">#8E2841</div><div class="from">a camisa e a casca do bombom</div></div></div>
+  <div class="sw"><div class="chip" style="background:#B08D57"></div><div class="meta"><div class="nm">Dourado velho</div><div class="hex">#B08D57</div><div class="from">as ilustrações de cacau no avental</div></div></div>
+  <div class="sw"><div class="chip" style="background:#2A4A3C"></div><div class="meta"><div class="nm">Verde-musgo</div><div class="hex">#2A4A3C</div><div class="from">a cerâmica do prato</div></div></div>
+  <div class="sw"><div class="chip" style="background:#EDE3D0"></div><div class="meta"><div class="nm">Linho</div><div class="hex">#EDE3D0</div><div class="from">o tecido e a louça</div></div></div>
+</div>
+
+<div class="nota">
+  <b>O que provavelmente está lendo como infantil.</b> O rosé <code>#C87B75</code> que está no ar não aparece em nenhuma foto do Gustavo. Rosa empoeirado é vocabulário de confeitaria caseira e de papelaria, não de atelier de chocolate. Some a isso o verde do botão de WhatsApp, que entra na tela sem relação nenhuma com a paleta, e o conjunto perde a sofisticação que o produto dele tem.
+</div>
+
+<h2>As três direções, no mesmo trecho</h2>
+<p class="sub">Cabeçalho do diagnóstico, um pilar e o botão. É onde a diferença aparece.</p>
+
+<div class="cols">
+
+  <div class="dir dA">
+    <div class="tag"><div class="n">Direção A</div><div class="t">Cacau &amp; Bordô</div>
+      <div class="d">O caminho mais direto. Fundo de chocolate amargo, bordô nos alertas, dourado velho nos detalhes. Serifada clássica nos títulos.</div></div>
+    <div class="demo">
+      <div class="eyebrow">Diagnóstico personalizado</div>
+      <div class="h">Ana, analisamos suas respostas. <em>Encontramos 2 pontos críticos no seu negócio.</em></div>
+      <div class="p">Mapeamos os três pilares que determinam o faturamento de uma chocolateria profissional.</div>
+      <div class="pil"><span class="st">Gargalo identificado</span><div class="nm">Precificação</div>
+        <div class="tx">Não saber precificar não é falta de autoestima, é falta de método.</div></div>
+      <div class="cta">Quero agendar minha sessão gratuita</div>
+      <span class="sec">Ou conheça o Treinamento Bombom Artístico</span>
+    </div>
+  </div>
+
+  <div class="dir dB">
+    <div class="tag"><div class="n">Direção B</div><div class="t">Linho &amp; Cacau</div>
+      <div class="d">Inverte o jogo: fundo claro de linho, tipografia de revista gastronômica. Editorial, respira mais, destaca foto de produto.</div></div>
+    <div class="demo">
+      <div class="eyebrow">Diagnóstico personalizado</div>
+      <div class="h">Ana, analisamos suas respostas. <em>Encontramos 2 pontos críticos no seu negócio.</em></div>
+      <div class="p">Mapeamos os três pilares que determinam o faturamento de uma chocolateria profissional.</div>
+      <div class="pil"><span class="st">Gargalo identificado</span><div class="nm">Precificação</div>
+        <div class="tx">Não saber precificar não é falta de autoestima, é falta de método.</div></div>
+      <div class="cta">Quero agendar minha sessão gratuita</div>
+      <span class="sec">Ou conheça o Treinamento Bombom Artístico</span>
+    </div>
+  </div>
+
+  <div class="dir dC">
+    <div class="tag"><div class="n">Direção C</div><div class="t">Musgo &amp; Dourado</div>
+      <div class="d">A menos óbvia. Sai do marrom e usa o verde da cerâmica dele com dourado. Alto padrão, quase joalheria, e nenhum concorrente usa.</div></div>
+    <div class="demo">
+      <div class="eyebrow">Diagnóstico personalizado</div>
+      <div class="h">Ana, analisamos suas respostas. <em>Encontramos 2 pontos críticos no seu negócio.</em></div>
+      <div class="p">Mapeamos os três pilares que determinam o faturamento de uma chocolateria profissional.</div>
+      <div class="pil"><span class="st">Gargalo identificado</span><div class="nm">Precificação</div>
+        <div class="tx">Não saber precificar não é falta de autoestima, é falta de método.</div></div>
+      <div class="cta">Quero agendar minha sessão gratuita</div>
+      <span class="sec">Ou conheça o Treinamento Bombom Artístico</span>
+    </div>
+  </div>
+
+  <div class="dir hoje">
+    <div class="tag"><div class="n">Como está hoje</div><div class="t">Cacau &amp; Rosé</div>
+      <div class="d">Para comparação. Repare no rosé e no verde do botão, que não conversam com nada do produto.</div></div>
+    <div class="demo">
+      <div class="eyebrow">Diagnóstico personalizado</div>
+      <div class="h">Ana, analisamos suas respostas. <em>Encontramos 2 pontos críticos no seu negócio.</em></div>
+      <div class="p">Mapeamos os três pilares que determinam o faturamento de uma chocolateria profissional.</div>
+      <div class="pil"><span class="st">Gargalo identificado</span><div class="nm">Precificação</div>
+        <div class="tx">Não saber precificar não é falta de autoestima, é falta de método.</div></div>
+      <div class="cta">Quero agendar minha sessão gratuita</div>
+      <span class="sec">Ou conheça o Treinamento Bombom Artístico</span>
+    </div>
+  </div>
+
+</div>
+
+<h2>Duas coisas que mudam além da cor</h2>
+<p class="sub">Paleta sozinha não tira o ar amador.</p>
+
+<div class="nota" style="border-left-color:#8E2841;background:rgba(142,40,65,.09);border-color:rgba(142,40,65,.3)">
+  <b>O botão verde de WhatsApp.</b> Ele é o maior ruído da tela hoje. Verde padrão de aplicativo dentro de uma paleta de chocolate grita "template". A ação continua sendo o WhatsApp, mas o botão passa a usar a cor da marca, com o ícone discreto ao lado. Ninguém deixa de entender para onde vai.
+</div>
+
+<div class="nota" style="border-left-color:#B08D57">
+  <b>A tipografia.</b> Hoje o título usa Lora, que é competente e genérica. Uma serifada de contraste alto, como Cormorant nas direções A e C ou Fraunces na B, muda a percepção de preço antes de a pessoa ler a primeira palavra. É o ajuste mais barato de todos: uma linha de CSS.
+</div>
+
+<footer>
+  As cores foram amostradas das fotos em <code>public/fotos/</code> e do material visual do Drive do cliente. Escolhida a direção, a aplicação é troca de variáveis CSS no quiz e no relatório, sem mexer em estrutura nem em copy.
+</footer>
+
+</div>
+</body></html>
