@@ -79,6 +79,52 @@
   .env:hover{background:var(--accent-hi)}
   .nota{font-size:12.5px;color:#6f6c67;text-align:center;margin-top:12px}
 
+  /* ---------- tela de processamento ---------- */
+  #carregando{display:none;padding:64px 0 40px}
+  #carregando.on{display:block}
+  #carregando .kick{
+    font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--accent);font-weight:700;margin:0 0 12px;text-align:center;
+  }
+  #carregando .tit{
+    font-size:clamp(21px,4.4vw,27px);font-weight:800;color:#fff;line-height:1.26;
+    margin:0 0 30px;text-align:center;text-wrap:balance;
+  }
+  .etapas{display:flex;flex-direction:column;gap:2px;max-width:420px;margin:0 auto}
+  .etapa{
+    display:flex;align-items:center;gap:13px;padding:14px 4px;
+    font-size:15.5px;color:#5f5c58;transition:color .3s ease;
+  }
+  .etapa.ativa{color:#fff}
+  .etapa.feita{color:#9c9891}
+  .marca{
+    flex:0 0 auto;width:20px;height:20px;border-radius:50%;
+    border:2px solid #2f2d2a;position:relative;transition:.3s ease;
+  }
+  .etapa.ativa .marca{
+    border-color:#3a3733;border-top-color:var(--accent);
+    animation:girar .8s linear infinite;
+  }
+  .etapa.feita .marca{border-color:var(--accent);background:var(--accent)}
+  .etapa.feita .marca::after{
+    content:"";position:absolute;left:5px;top:1px;width:5px;height:10px;
+    border:solid #140d02;border-width:0 2px 2px 0;transform:rotate(45deg);
+  }
+  @keyframes girar{to{transform:rotate(360deg)}}
+  .cargabar{
+    height:3px;background:#1e1c19;border-radius:2px;overflow:hidden;
+    max-width:420px;margin:30px auto 0;
+  }
+  .cargabar i{
+    display:block;height:100%;width:0;
+    background:linear-gradient(90deg,#d99b1a,#f18700);
+  }
+  .cargabar.roda i{width:100%;transition:width 2.9s linear}
+  @media (prefers-reduced-motion:reduce){
+    .etapa.ativa .marca{animation:none;border-top-color:var(--accent)}
+    .cargabar.roda i{transition:none;width:100%}
+  }
+
   /* ---------- reveal do cenário ---------- */
   #reveal{display:none;text-align:center;padding:60px 0 20px}
   #reveal.on{display:block}
@@ -182,12 +228,24 @@
     <div id="tela"></div>
   </div>
 
+  <!-- ============ PROCESSANDO ============ -->
+  <div id="carregando">
+    <p class="kick">Um instante</p>
+    <p class="tit">Estamos lendo as suas respostas.</p>
+    <div class="etapas">
+      <div class="etapa" id="et0"><span class="marca"></span><span>Enviando as suas respostas</span></div>
+      <div class="etapa" id="et1"><span class="marca"></span><span>Cruzando com a régua da metodologia</span></div>
+      <div class="etapa" id="et2"><span class="marca"></span><span>Gerando o seu Diagnóstico de Liderança</span></div>
+    </div>
+    <div class="cargabar" id="cargabar"><i></i></div>
+  </div>
+
   <!-- ============ REVEAL ============ -->
   <div id="reveal">
     <p class="kick">Cenário identificado</p>
     <p class="nome" id="revNome"></p>
     <p id="revSub"></p>
-    <p class="dots">montando o seu Diagnóstico</p>
+    <p class="dots">seu Diagnóstico está pronto</p>
   </div>
 
   <!-- ============ PÁGINA PÓS-QUIZ ============ -->
@@ -565,16 +623,42 @@ function telaContato(tela){
   window.scrollTo(0,0);
 }
 
+var relogios = [];
+function limpaRelogios(){ relogios.forEach(clearTimeout); relogios = []; }
+function daqui(ms,fn){ relogios.push(setTimeout(fn,ms)); }
+
+// 4 segundos entre o clique no botão e o Diagnóstico na tela:
+// 2,9s de processamento e 1,1s de revelação do cenário
 function concluir(){
   document.getElementById("prog").style.width = "100%";
   document.getElementById("quiz").classList.add("oculto");
-  var c = CENARIOS[R.cen === undefined ? 0 : R.cen];
-  document.getElementById("revNome").textContent = c.nome;
-  document.getElementById("revSub").textContent = c.sub;
-  document.getElementById("reveal").classList.add("on");
-  window.scrollTo(0,0);
   atualizaPainel();
-  setTimeout(mostrarLP, 2100);
+
+  var etapas = [document.getElementById("et0"),
+                document.getElementById("et1"),
+                document.getElementById("et2")];
+  etapas.forEach(function(e){ e.className = "etapa"; });
+  var carga = document.getElementById("cargabar");
+  carga.classList.remove("roda");
+  document.getElementById("carregando").classList.add("on");
+  window.scrollTo(0,0);
+
+  void carga.offsetWidth;          // reinicia a animação da barra
+  carga.classList.add("roda");
+  etapas[0].classList.add("ativa");
+
+  daqui(1000, function(){ etapas[0].className = "etapa feita"; etapas[1].classList.add("ativa"); });
+  daqui(2000, function(){ etapas[1].className = "etapa feita"; etapas[2].classList.add("ativa"); });
+  daqui(2900, function(){
+    etapas[2].className = "etapa feita";
+    document.getElementById("carregando").classList.remove("on");
+    var c = CENARIOS[R.cen === undefined ? 0 : R.cen];
+    document.getElementById("revNome").textContent = c.nome;
+    document.getElementById("revSub").textContent = c.sub;
+    document.getElementById("reveal").classList.add("on");
+    window.scrollTo(0,0);
+  });
+  daqui(4000, mostrarLP);
 }
 
 function mostrarLP(){
@@ -597,7 +681,6 @@ function pontos(){
 function motivo(){
   if(R.via === "A"){
     if((R.pt_a6||0) < 4) return "faturamento abaixo de R$ 200 mil";
-    if((R.pt_p4||0) < 4) return "sem necessidade: o time já decide sem o dono";
     return "";
   }
   if(R.via === "B"){
@@ -644,7 +727,9 @@ function togglePainel(){
 }
 
 function reiniciar(){
+  limpaRelogios();
   R = {}; i = 0;
+  document.getElementById("carregando").classList.remove("on");
   document.getElementById("lp").classList.remove("on");
   document.getElementById("reveal").classList.remove("on");
   document.getElementById("quiz").classList.remove("oculto");
@@ -656,7 +741,9 @@ function pular(cen){
   R = {cen:cen, via:"A", pt_p4:10, pt_a6:8, _p1:"Serviços",
        _a6:"De R$ 300.000 até R$ 500.000", _a7:"Entre 20% e 30%",
        nome:"(atalho de demonstração)", zap:"—"};
+  limpaRelogios();
   document.getElementById("quiz").classList.add("oculto");
+  document.getElementById("carregando").classList.remove("on");
   document.getElementById("reveal").classList.remove("on");
   atualizaPainel();
   mostrarLP();
