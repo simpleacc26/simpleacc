@@ -60,8 +60,18 @@ async def export_slides() -> None:
 
         # As fontes estão embutidas em base64, mas se alguém trocar por <link>
         # e a rede falhar o export sairia com fonte fallback. Falha alto.
+        #
+        # O `load()` antes do `check()` é necessário: o navegador só carrega uma
+        # @font-face quando algum elemento a usa, então um peso que este
+        # carrossel não usa apareceria como ausente sem nunca ter falhado.
         missing = await page.evaluate(
-            "fonts => fonts.filter(f => !document.fonts.check(f))", REQUIRED_FONTS
+            """async (fonts) => {
+                await Promise.all(
+                    fonts.map(f => document.fonts.load(f).catch(() => {}))
+                );
+                return fonts.filter(f => !document.fonts.check(f));
+            }""",
+            REQUIRED_FONTS,
         )
         if missing:
             raise SystemExit(f"ERRO: fontes não carregaram: {missing}")
