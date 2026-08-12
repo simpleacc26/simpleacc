@@ -107,11 +107,13 @@ function clearSaved() { try { sessionStorage.removeItem(STORE_KEY); } catch (e) 
 function el(html) { const t = document.createElement("template"); t.innerHTML = html.trim(); return t.content.firstElementChild; }
 function scrollTop() { window.scrollTo({ top: 0, behavior: "smooth" }); }
 
+/* Sem contador "Pergunta X de N" de propósito: mostrar o total faz o quiz
+   parecer longo e derruba a conclusão. Fica só a barra, o percentual e um
+   rótulo nas duas pontas. */
 function updateProgress(stepIdx) {
   const total = F.steps.length;
-  const human = stepIdx + 1;
   const pct = Math.round((stepIdx / total) * 100);
-  const label = stepIdx === 0 ? "Começando" : (stepIdx === total - 1 ? "Última pergunta" : `Pergunta ${human} de ${total}`);
+  const label = stepIdx === 0 ? "Começando" : (stepIdx === total - 1 ? "Última pergunta" : "");
   progressEl.hidden = false;
   document.getElementById("progress-label").textContent = label;
   document.getElementById("progress-pct").textContent = `${pct}%`;

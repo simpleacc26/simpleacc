@@ -1,4 +1,4 @@
-# Diagnóstico do Ciclo · Mulher que Escolhe (Thiago)
+# Diagnóstico do Ciclo · Mulher que Escolhe (Thiago Vitório)
 
 Funil de quiz do produto de relacionamento do Thiago (cliente Thaina Elvira).
 Transforma a copy aprovada (`clientes/thaina-elvira/estrategia/2026-08-04-estrategia-thaina-elvira.pdf`)
@@ -43,12 +43,12 @@ Stack: HTML/CSS/JS puro, sem build, sem dependências. Construído seguindo o
 2. **As porteiras são perfil e prontidão, não faturamento e prontidão.** O ICP
    deste produto é definido por momento de vida, não por renda. A regra de
    corte é o cruzamento perfil x situação da estratégia.
-3. **A grade de credenciais traz fatos do método, não credenciais pessoais.**
-   O Thiago ainda não tem histórico público nesta área (dito na call de 04/08:
-   *"ele não tem tanto histórico nessa área"*). Pela regra do blueprint, só vira
-   claim o que está escrito no material, então a grade usa os quatro números que
-   existem na estratégia aprovada. **Quando ele mandar credenciais reais,
-   troque.** Marcado com comentário no `diagnostico.js`.
+3. **O bloco de autoridade não tem grade de credenciais.** A primeira versão
+   trazia uma grade de números (5 elos, 4 etapas, 60 min) e o Daniel derrubou:
+   ali é para apresentar o Thiago brevemente, não para repetir método e etapas,
+   que já aparecem no bloco anterior. O bloco agora é foto, nome, o que ele faz e
+   uma fala dele, tirados das páginas atuais (thiagorvitorio.com.br e o
+   Diagnóstico da Autossabotagem). Nada de claim que não esteja escrito lá.
 4. **O ICM vai de 27% a 100% e sai "Alto" em ~77% das combinações.** O quiz não
    tem alternativa de "está tudo bem", porque quem clica no anúncio já está no
    ciclo. Os cortes do blueprint (≥66 Alto, 33 a 65 Médio) foram mantidos, e
@@ -67,7 +67,8 @@ ajuste de copy.
 - `index.html`: quiz (uma pergunta por tela, sem título repetido em cima, auto-avanço, barra de progresso).
 - `diagnostico.html` + `diagnostico.js`: página pós-quiz (nomeia o padrão, aponta o elo dominante, 3 CTAs de WhatsApp).
 - `flow.js`: **toda a copy** (config, marca, hero, 9 perguntas com pesos, captura). Editar aqui.
-- `styles.css`: identidade (tema dark vinho + rosé, proposto).
+- `styles.css`: identidade do Thiago (preto quente + dourado champanhe).
+- `thiago.webp`: foto dele, no bloco de autoridade da página pós-quiz.
 - `app.js`: motor do funil (render, validação, tela de loading, UTMs, sessionStorage, POST dos leads).
 - `integracao-planilha.gs`: Google Apps Script da planilha de leads (plano B do Make).
 
@@ -139,19 +140,39 @@ Cabeçalho com o padrão nomeado e o selo do ICM, e depois:
 6. o método e o que acontece na sessão (fecha devolvendo o objetivo dela) → **CTA 2**
 7. para quem é e para quem não é
 8. perguntas que sempre aparecem (FAQ em acordeão)
-9. quem é o Thiago (autoridade + grade)
+9. quem é o Thiago (foto, quem ele é e por que ouvir ele)
 10. **CTA 3**, adaptado à qualificação
 
 ## No ar
 
-**https://quiz-thaina-thiago.vercel.app**
+**https://quiz-thiagovitorio.vercel.app**
 
 Produção, no time da Simple na Vercel (`team_bD5dst9eSAc4qVaaynXWifXr`), projeto
-`quiz-thaina-thiago`. Os 8 assets foram conferidos em 200 depois do deploy.
+`quiz-thiagovitorio`. Os 9 assets conferidos em 200 depois do deploy, e o
+`thiago.webp` conferido por sha256 (o base64 chegou íntegro).
 
-⚠️ O alias `quiz-thaina-thiago-simpleacc.vercel.app` responde **302** (fica atrás
-do SSO do time). O link público é o curto acima. Rodar tráfego apontando para a
-**raiz com query** (`/?utm_source=...&utm_campaign=...`), nunca para `/index.html`.
+⚠️ O projeto antigo `quiz-thaina-thiago` foi aposentado (o nome do projeto vira a
+URL e não dá para renomear, então trocar de domínio exige projeto novo). Ele
+ainda responde: **remover pelo painel da Vercel** para ninguém divulgar o link
+errado. O alias com sufixo `-simpleacc` fica atrás do SSO do time e responde 302,
+então o link público é sempre o curto. Rodar tráfego apontando para a **raiz com
+query** (`/?utm_source=...&utm_campaign=...`), nunca para `/index.html`.
+
+## Identidade visual
+
+Tirada das páginas atuais do Thiago (thiagorvitorio.com.br, o Kit SOS
+Antimigalhas e o Diagnóstico da Autossabotagem): **preto quente `#0C0A09` +
+dourado champanhe `#E8C77E`**, serifada de display nos títulos, botão dourado
+cheio com texto escuro. Os tokens ficam todos no `:root` do `styles.css`.
+
+Decisões de layout pedidas pelo Daniel em 12/08:
+- **Sem contador "Pergunta X de N"** na barra de progresso: mostrar o total fazia
+  o quiz parecer longo. Ficaram só a barra, o percentual e um rótulo nas pontas
+  ("Começando" e "Última pergunta").
+- **Sem rodapé** nas duas páginas.
+- Topo com o nome completo: **"com Thiago Vitório"**.
+- **Foto do Thiago** (`thiago.webp`, 224px, exibida a 104px) no bloco de
+  autoridade da página pós-quiz.
 
 ## Planilha de leads (Make → Sheets, ligado e testado)
 
@@ -190,15 +211,11 @@ param de abrir o WhatsApp e a página mostra um aviso no topo, de propósito.
 2. **Apagar as 2 linhas de teste** da planilha antes de subir tráfego.
 3. **Logo oficial**: hoje usa o emblema de ciclo aberto em SVG + marca em texto.
    Quando vier o arquivo, colocar `logo.png` e ativar `<img class="logo-img">`.
-5. **Foto do Thiago**: hoje o bloco de autoridade usa a inicial. Quando vier a
-   foto, trocar `.autor-ini` por `<img class="autor-foto" src="thiago.webp">`
-   (a classe já existe no CSS).
-6. **Credenciais reais do Thiago**: trocar a grade de 4 itens por credenciais
-   escritas por ele. Só entra o que estiver escrito, nunca objeto de cena.
-7. **Depoimentos**: quando os primeiros prints chegarem (ver
+5. **Remover o projeto antigo** `quiz-thaina-thiago` no painel da Vercel.
+6. **Depoimentos**: quando os primeiros prints chegarem (ver
    `estrategia/2026-07-21-guia-captacao-depoimentos.pdf`), converter para WebP
    ~520px e somar uma `.depo-gallery` antes do bloco de autoridade (CSS pronto).
-8. **Pixel da Meta e GA4**: preencher `app.js → TRACKING_CONFIG`.
+7. **Pixel da Meta e GA4**: preencher `app.js → TRACKING_CONFIG`.
 
 ## Deploy
 

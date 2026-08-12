@@ -275,33 +275,23 @@ if (!a._completedAt && !a.reacao) {
     <div class="etapa">
       <h3>Quem é o Thiago</h3>
       <div class="autor">
-        <!-- Quando vier a foto oficial, trocar por:
-             <img class="autor-foto" src="thiago.webp" alt="Thiago" /> -->
-        <div class="autor-ini" aria-hidden="true">T</div>
+        <img class="autor-foto" src="thiago.webp" alt="Thiago Vitório" width="104" height="104" />
         <div>
-          <span class="autor-nome">THIAGO</span>
-          <span class="autor-cargo">Criador do Método Mulher que Escolhe</span>
+          <span class="autor-nome">THIAGO VITÓRIO</span>
+          <span class="autor-cargo">Orientador de pessoas em colapso</span>
+          <span class="autor-handle">@thiagorvitorio</span>
         </div>
       </div>
-      <p>Quase todo conselho que você recebe vem de outra mulher vivendo o mesmo, ou de quem vende técnica
-      de conquista.</p>
-      <p>O Thiago ocupa um lugar diferente: <strong>é um homem explicando, sem julgamento e sem passar a mão
-      na sua cabeça, o que costuma acontecer do outro lado.</strong> A diferença entre estar interessado e
-      estar disponível. O que significa o esfriamento depois de duas semanas intensas. Por que o "oi sumida"
-      funciona tão bem.</p>
-      <p>Ele não está tentando te conquistar, e não está defendendo os homens. Está do seu lado, dizendo o
-      que os seus amigos não dizem para não te magoar.</p>
-      <p>Foi acompanhando dezenas de mulheres nesse processo, sem cobrar nada, que ele mapeou o Ciclo da
-      Migalha e transformou isso em método.</p>
-      <!-- ⚠️ Só entra aqui o que está ESCRITO no material do cliente. Estes 4 itens
-           saem da estratégia aprovada. Quando o Thiago mandar credenciais reais
-           (formação, tempo de atuação, número de atendimentos), troque por elas. -->
-      <div class="cred-grid">
-        <div class="cred"><div class="n">Dezenas</div><div class="d">de mulheres acompanhadas nesse processo, sem cobrar nada</div></div>
-        <div class="cred"><div class="n">5 elos</div><div class="d">o Ciclo da Migalha, mapeado por ele</div></div>
-        <div class="cred"><div class="n">4 etapas</div><div class="d">do Método Mulher que Escolhe</div></div>
-        <div class="cred"><div class="n">60 min</div><div class="d">individuais e ao vivo, com o mapa por escrito</div></div>
-      </div>
+      <p>Empresário e orientador de pessoas em colapso emocional.</p>
+      <p class="autor-fala">"Passei pelos meus próprios colapsos, nas três frentes que mais importam:
+      profissional, pessoal e familiar. Não saí deles com fórmula pronta. Saí enxergando o padrão que mantém
+      alguém preso, e sabendo devolver direção quando tudo parece sem saída."</p>
+      <p>Nos atendimentos que ele faz, o padrão que mais aparece é esse: uma mulher inteligente, que dá conta
+      de todas as áreas da vida, mas que diante do sumiço de um homem volta a aceitar o que jurou que não
+      aceitaria. <strong>Não por fraqueza: porque na hora da crise, a ansiedade decide antes dela.</strong></p>
+      <p>É por isso que ele ocupa um lugar diferente de quase todo conselho que você recebe. Não está
+      tentando te conquistar e não está defendendo os homens: é um homem dizendo, sem julgamento e sem passar
+      a mão na sua cabeça, o que costuma acontecer do outro lado.</p>
     </div>
 
     <div class="cta-box">

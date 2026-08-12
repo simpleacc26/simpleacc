@@ -18,7 +18,7 @@ window.FLOW = {
 
   marca: {
     nome: "Mulher que Escolhe",
-    expert: "Thiago",
+    expert: "Thiago Vitório",
     /* WhatsApp de atendimento, formato internacional e só dígitos.
        (+55 11 94514-8716, informado pelo Daniel em 11/08.)
        Se algum dia voltar a ter "X", o botão não abre o WhatsApp de propósito,
