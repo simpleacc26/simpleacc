@@ -66,7 +66,12 @@
   .opt.on{border-color:var(--gold); background:var(--gold-tint); color:var(--ink)}
   .opt.on::before{background:var(--gold); border-color:var(--gold)}
   .opt:focus-visible{outline:1px solid var(--gold-deep); outline-offset:3px}
-  .hint{display:block; margin-top:.4rem; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3); font-weight:500}
+  .hint{
+    display:inline-block; margin:-1.2rem 0 1.3rem; padding:.4rem .8rem;
+    background:var(--gold-tint); border:1px solid var(--gold-hair); border-radius:var(--r);
+    font-size:.68rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--gold-deep); font-weight:600;
+  }
 
   .cta{display:inline-flex; align-items:center; gap:.8rem; background:var(--espresso); color:#F7F3EA; border:0; border-radius:var(--r); font-family:var(--sans); font-size:.82rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase; padding:1.05rem 2.2rem; cursor:pointer; transition:background .2s, transform .12s}
   .cta:hover{background:#241F1A; transform:translateY(-1px)}
@@ -269,9 +274,10 @@ function pergunta(i){
   screen.innerHTML = `
     <p class="kicker">Pergunta ${pad(i+1)}</p>
     <h1 class="q">${P.texto}</h1>
+    ${P.tipo==='multipla' ? '<p class="hint">Pode marcar mais de uma</p>' : ''}
     <div class="opts">${P.opts.map((o,k)=>`<button class="opt${on(k)?' on':''}" data-k="${k}">${o.t}</button>`).join('')}</div>
     ${P.tipo==='multipla'
-      ? '<span class="hint">Pode marcar mais de uma</span><div class="nav"><button class="cta" id="next">Continuar <span>&rarr;</span></button>'+(i>0?'<button class="back" id="back">Voltar</button>':'')+'</div>'
+      ? '<div class="nav"><button class="cta" id="next">Continuar <span>&rarr;</span></button>'+(i>0?'<button class="back" id="back">Voltar</button>':'')+'</div>'
       : (i>0?'<div class="nav"><button class="back" id="back">Voltar</button></div>':'')}`;
   screen.querySelectorAll('.opt').forEach(b=>{
     b.onclick = () => {

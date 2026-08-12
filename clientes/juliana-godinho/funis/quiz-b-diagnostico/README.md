@@ -103,8 +103,11 @@ chrome, FAQ e CTAs), então o mesmo laudo serve de anexo para a cadência da SDR
   `#retrato` por `<img src="ju.jpg" alt="Juliana Godinho">`.
 - **Depoimentos.** O bloco de prova social está com um espaço reservado
   aguardando os prints de WhatsApp que já existem na página atual.
-- **Número do WhatsApp.** Os CTAs apontam para um `wa.me` com número
-  placeholder (`5500000000000`). Trocar antes de qualquer teste com lead real.
+- **Conferir o número do WhatsApp.** Os CTAs apontam para
+  `wa.me/553192744259`, montado a partir do número informado
+  (+55 31 9274-4259). Esse número tem 8 dígitos depois do DDD, e celular no
+  Brasil tem 9. Se for celular, o certo é `5531992744259`. **Abrir o link e
+  confirmar antes de rodar tráfego.**
 - Página pós-quiz completa, PDF do laudo e disparo de WhatsApp.
 - Pixel e rastreamento (as UTMs já são capturadas).
 
@@ -140,8 +143,23 @@ print(json.dumps({
 PY
 curl -s -X POST -H "Authorization: Bearer $VERCEL_TOKEN" \
   -H "Content-Type: application/json" --data-binary @/tmp/payload.json \
-  "https://api.vercel.com/v13/deployments?teamId=team_bD5dst9eSAc4qVaaynXWifXr&skipAutoDetectionConfirmation=1"
+  "https://api.vercel.com/v13/deployments?teamId=team_bD5dst9eSAc4qVaaynXWifXr&skipAutoDetectionConfirmation=1&forceNew=1"
 ```
+
+> **Atenção ao publicar.** Sem `forceNew=1`, a Vercel reaproveita um deploy
+> anterior de mesmo conteúdo e o domínio limpo continua servindo a versão velha
+> do CDN. Depois de publicar, reaponte os dois aliases para o novo deploy:
+>
+> ```bash
+> for A in quiz-ju-godinho.vercel.app quiz-ju-godinho-simpleacc.vercel.app; do
+>   curl -s -X POST -H "Authorization: Bearer $VERCEL_TOKEN" \
+>     -H "Content-Type: application/json" -d "{\"alias\":\"$A\"}" \
+>     "https://api.vercel.com/v2/deployments/<NOVO_DPL_ID>/aliases?teamId=team_bD5dst9eSAc4qVaaynXWifXr"
+> done
+> ```
+>
+> Confira o `etag` da resposta contra o `md5sum` do arquivo local antes de dar
+> por publicado.
 
 ## Contatos
 
