@@ -40,6 +40,10 @@
   p{margin-bottom:1.15rem;color:var(--ink-2)}
   p:last-child{margin-bottom:0}
   strong{color:var(--ink);font-weight:600}
+  /* em fundo escuro o negrito precisa clarear, nunca escurecer */
+  .head strong,.sessao strong,.fim strong,.paras strong{color:#FBF7EF}
+  .sessao .aviso strong,.head .sub strong{color:var(--gold)}
+  .sessao .kick,.fim .kick{color:var(--gold)}
   .center{text-align:center}
   .rule{height:1px;background:var(--gold-hair);margin:2.2rem 0}
 
@@ -92,11 +96,13 @@
   .creds li::before{content:"";width:.42rem;height:.42rem;background:var(--gold);transform:rotate(45deg);flex:none}
 
   /* prova */
-  .provas{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1rem}
-  .prova{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:1.4rem 1.5rem}
-  .prova p{font-size:.95rem;font-style:italic;font-family:var(--serif);font-size:1.1rem;line-height:1.5;color:var(--ink);margin-bottom:.9rem}
-  .prova cite{font-style:normal;font-size:.64rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
-  .slot-prova{border:1px dashed var(--line-2);border-radius:var(--r);background:#EFEDE7;padding:1.6rem;text-align:center;color:var(--ink-3);font-size:.78rem;grid-column:1/-1}
+  .provas{display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:start}
+  .provas .col{display:grid;gap:1rem;align-content:start}
+  .prova{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:.85rem .85rem 1.15rem;box-shadow:0 4px 26px rgba(20,18,16,.06)}
+  .prova img{width:100%;height:auto;border-radius:2px;background:#EFEDE7}
+  .prova figcaption{display:flex;gap:.7rem;align-items:baseline;margin:1rem .5rem 0;font-size:.7rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;line-height:1.6;color:var(--gold-deep)}
+  .prova figcaption::before{content:"";width:.4rem;height:.4rem;background:var(--gold);transform:rotate(45deg);flex:none;position:relative;top:-.15rem}
+  .nota-prova{font-size:.85rem;color:var(--ink-3);text-align:center;margin-top:1.4rem}
 
   /* faq */
   .faq{border-top:1px solid var(--line)}
@@ -133,6 +139,8 @@
     .cta-wrap{margin-top:2rem}
     .pilar{padding:1.25rem 1.3rem}
     .grid2{gap:.7rem}
+    .provas{grid-template-columns:1fr;gap:.7rem}
+    .provas .col{gap:.7rem}
   }
   @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   @media print{
@@ -142,6 +150,9 @@
     .head,.sessao,.fim{background:#fff!important;color:#141210!important}
     .head h1,.sessao h2,.fim h2{color:#141210!important}
     .head .sub,.sessao p,.paras li{color:#4C4640!important}
+    .head strong,.sessao strong,.fim strong,.paras strong{color:#141210!important}
+    .sessao .aviso strong,.head .sub strong,.sessao .kick,.fim .kick{color:#A2802F!important}
+    .provas{grid-template-columns:1fr}
     section{padding:1.6rem 0;break-inside:avoid}
     *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   }
@@ -198,7 +209,7 @@ if(!A || !A.quadro){
     <p><strong>Existe uma diferença enorme entre ser uma ótima profissional e ser uma empresária que cresce.</strong> E essa diferença não está na técnica.</p>
     <p>O que se repete em quase todas que passam por aqui é o mesmo: muito talento, muita dedicação e nenhuma estrutura. Não porque são incapazes, mas <strong>porque ninguém nunca ensinou essa parte</strong>.</p>
   </div>
-  <div class="cta-wrap"><a class="cta" href="https://wa.me/553192744259?text=Oi%21%20Acabei%20de%20fazer%20o%20diagn%C3%B3stico%20e%20quero%20agendar%20minha%20sess%C3%A3o%20estrat%C3%A9gica.">Quero destravar isso <span>&rarr;</span></a><p class="aviso">Fale com o time da Juliana no WhatsApp.</p></div>
+  <div class="cta-wrap"><a class="cta" href="https://wa.me/553192744259">Quero destravar isso <span>&rarr;</span></a><p class="aviso">Fale com o time da Juliana no WhatsApp.</p></div>
   </div></section>
 
   <section class="tight"><div class="wrap">
@@ -209,7 +220,7 @@ if(!A || !A.quadro){
     <div class="grid2">${pilares}</div>
     <div class="narrow" style="margin-top:2rem">
       <p><strong>No seu caso, o ponto de partida é ${A.pilarNome.toLowerCase()}.</strong> ${A.pilarPor}</p>
-      <div class="cta-wrap"><a class="cta" href="https://wa.me/553192744259?text=Oi%21%20Acabei%20de%20fazer%20o%20diagn%C3%B3stico%20e%20quero%20agendar%20minha%20sess%C3%A3o%20estrat%C3%A9gica.">Quero começar por aqui <span>&rarr;</span></a></div>
+      <div class="cta-wrap"><a class="cta" href="https://wa.me/553192744259">Quero começar por aqui <span>&rarr;</span></a></div>
     </div>
   </div></section>
 
@@ -225,7 +236,7 @@ if(!A || !A.quadro){
       <div class="card"><b>Clareza sobre os próximos passos</b><p>Você sai da sessão sabendo exatamente o que fazer para estruturar a sua clínica ou consultório como um negócio lucrativo, organizado e sustentável.</p></div>
     </div>
     <div class="narrow">
-      <div class="cta-wrap"><a class="cta" href="https://wa.me/553192744259?text=Oi%21%20Acabei%20de%20fazer%20o%20diagn%C3%B3stico%20e%20quero%20agendar%20minha%20sess%C3%A3o%20estrat%C3%A9gica.">Quero agendar minha sessão <span>&rarr;</span></a><p class="aviso"><strong>Toda semana são poucos horários</strong>, porque a análise é personalizada e leva tempo para ser bem feita.</p></div>
+      <div class="cta-wrap"><a class="cta" href="https://wa.me/553192744259">Quero agendar minha sessão <span>&rarr;</span></a><p class="aviso"><strong>Toda semana são poucos horários</strong>, porque a análise é personalizada e leva tempo para ser bem feita.</p></div>
     </div>
   </div></section>
 
@@ -235,9 +246,29 @@ if(!A || !A.quadro){
       <h2>Quem já passou por essa metodologia</h2>
     </div>
     <div class="provas">
-      <div class="slot-prova">Espaço reservado para os prints de WhatsApp das alunas, os mesmos que já estão na página atual. Aguardando os arquivos.</div>
+      <div class="col">
+        <figure class="prova">
+          <img src="prova-1.png" width="438" height="527" loading="lazy" alt="Mensagem de uma mentorada: 'Meu amor, batemos 100k mês passado. Quando começamos nossa jornada juntas eu vendia menos de 15k no mês, lembra.'">
+          <figcaption>De menos de R$ 15 mil para R$ 100 mil no mês</figcaption>
+        </figure>
+        <figure class="prova">
+          <img src="prova-4.png" width="410" height="156" loading="lazy" alt="Mensagem de uma mentorada: 'Ju, aumentei a limpeza de pele e o jato de plasma, ninguém reclamou e ninguém desmarcou. Como a gente tem crenças, né!'">
+          <figcaption>Subiu o preço e ninguém desmarcou</figcaption>
+        </figure>
+      </div>
+      <div class="col">
+        <figure class="prova">
+          <img src="prova-3.png" width="420" height="336" loading="lazy" alt="Mensagem de uma mentorada: 'Foi do desespero e da vontade de desistir. Conversei com você, voltei a fazer mentoria e em uma única semana fechei R$ 7.000 de procedimento.'">
+          <figcaption>R$ 7 mil fechados em uma semana</figcaption>
+        </figure>
+        <figure class="prova">
+          <img src="prova-2.png" width="411" height="206" loading="lazy" alt="Mensagem de uma mentorada: 'Ju, separa o meu troféu que meu 50k veio. Estou ainda sem acreditar que em uma cidade de 20 mil habitantes eu consegui esse faturamento.'">
+          <figcaption>R$ 50 mil numa cidade de 20 mil habitantes</figcaption>
+        </figure>
+      </div>
     </div>
-    <div class="narrow"><div class="cta-wrap"><a class="cta" href="https://wa.me/553192744259?text=Oi%21%20Acabei%20de%20fazer%20o%20diagn%C3%B3stico%20e%20quero%20agendar%20minha%20sess%C3%A3o%20estrat%C3%A9gica.">Quero o meu resultado <span>&rarr;</span></a></div></div>
+    <p class="nota-prova">Mensagens reais de mentoradas da Ju, publicadas com autorização.</p>
+    <div class="narrow"><div class="cta-wrap"><a class="cta" href="https://wa.me/553192744259">Quero o meu resultado <span>&rarr;</span></a></div></div>
   </div></section>
 
   <section><div class="wrap">
@@ -257,7 +288,7 @@ if(!A || !A.quadro){
           <li>Clínica própria com faturamento acima de R$ 1 milhão por ano</li>
           <li>MBA em Consultoria Empresarial</li>
         </ul>
-        <div class="cta-wrap"><a class="cta" href="https://wa.me/553192744259?text=Oi%21%20Acabei%20de%20fazer%20o%20diagn%C3%B3stico%20e%20quero%20agendar%20minha%20sess%C3%A3o%20estrat%C3%A9gica.">Quero falar com o time da Ju <span>&rarr;</span></a></div>
+        <div class="cta-wrap"><a class="cta" href="https://wa.me/553192744259">Quero falar com o time da Ju <span>&rarr;</span></a></div>
       </div>
     </div>
   </div></section>
@@ -283,7 +314,7 @@ if(!A || !A.quadro){
       <li>Pare de depender de promoções e indicações.</li>
       <li>Pare de se sentir insegura na hora de falar de preço.</li>
     </ul>
-    <a class="cta" href="https://wa.me/553192744259?text=Oi%21%20Acabei%20de%20fazer%20o%20diagn%C3%B3stico%20e%20quero%20agendar%20minha%20sess%C3%A3o%20estrat%C3%A9gica.">Quero agendar minha sessão <span>&rarr;</span></a>
+    <a class="cta" href="https://wa.me/553192744259">Quero agendar minha sessão <span>&rarr;</span></a>
   </div></section>
 
   <section class="tight"><div class="narrow"><div class="dbg">

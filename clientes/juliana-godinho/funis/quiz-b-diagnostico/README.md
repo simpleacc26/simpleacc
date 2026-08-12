@@ -85,7 +85,7 @@ de vendas dela, nesta ordem:
    já tentou não resolveu, e "não é falta de técnica" (adaptado da VSL)
 3. **Os 4 pilares** em cards, com o pilar de partida dela destacado em dourado
 4. **A sessão estratégica** em bloco escuro, com os 3 cards e o CTA
-5. **Prova social** — espaço reservado para os prints das alunas
+5. **Prova social** — os quatro prints reais de mentoradas, em duas colunas
 6. **Autoridade** — retrato, bio, credenciais. É o bloco que faltava
 7. **FAQ** — as 6 perguntas da página dela
 8. **Fechamento** — os 3 "pare de" e o CTA final
@@ -100,6 +100,24 @@ de parágrafo a cada ideia, para o texto não virar mancha no celular. Por isso 
 copy própria não passa por `esc()` na montagem; só o dado do lead (nome,
 telefone, e-mail) continua escapado.
 
+> **Negrito em bloco escuro.** A regra global é `strong{color:var(--ink)}`, que é
+> quase preto. Nos blocos escuros (`.head`, `.sessao`, `.fim`) o negrito precisa
+> **clarear**, nunca escurecer, senão a frase destacada some no fundo. Já existe
+> regra para os três blocos e para o `.kick`. **Ao criar um bloco escuro novo,
+> inclua o `strong` dele nessa lista** e confira também no `@media print`, onde
+> o fundo vira branco e a cor tem de voltar a ser escura.
+
+## Prova social
+
+Quatro prints reais de mentoradas (`prova-1` a `prova-4`), vindos da pasta do
+Drive da conta. Foram **recortados** para tirar a margem morta da captura e, no
+caso do `prova-4`, um pedaço de outra imagem que aparecia cortado no topo.
+
+Cada print tem uma legenda curta com o resultado, para quem passa o olho sem
+parar para ler a conversa, e um `alt` com o teor da mensagem. O layout é de duas
+colunas explícitas (não `columns`, que desequilibrava), distribuídas para as
+duas terminarem na mesma altura; no celular vira coluna única.
+
 Tem botão **Baixar em PDF** (`window.print()` com `@media print` que esconde
 chrome, FAQ e CTAs), então o mesmo laudo serve de anexo para a cadência da SDR.
 
@@ -111,8 +129,13 @@ chrome, FAQ e CTAs), então o mesmo laudo serve de anexo para a cadência da SDR
 - **Foto em resolução maior.** A que está no ar (`ju.png`, 312x391) veio de uma
   captura de tela e serve bem no protótipo, mas fica macia em tela retina.
   Para produção, pedir o arquivo original e trocar o mesmo `ju.png`.
-- **Depoimentos.** O bloco de prova social está com um espaço reservado
-  aguardando os prints de WhatsApp que já existem na página atual.
+- **Acentos no display.** A Cormorant Garamond desenha os acentos muito altos e
+  fora de eixo: "clínica" sai com o agudo sobre o "l" e "Você" sai com o
+  circunflexo solto. Não é defeito do arquivo (o woff2 embutido é
+  byte a byte o que o Google Fonts serve, e o desenho é igual em todos os pesos
+  de 300 a 700), é o desenho da fonte. Numa página inteira em português isso
+  aparece em quase todo título. **Decisão da conta:** trocar a fonte de display
+  por uma com acentuação correta (EB Garamond fica no mesmo gênero) ou aceitar.
 - **Conferir o número do WhatsApp.** Os CTAs apontam para
   `wa.me/553192744259`, montado a partir do número informado
   (+55 31 9274-4259). Esse número tem 8 dígitos depois do DDD, e celular no
@@ -126,6 +149,14 @@ chrome, FAQ e CTAs), então o mesmo laudo serve de anexo para a cadência da SDR
 | Arquivo | O que é |
 | --- | --- |
 | `ju.png` | Retrato da Ju usado na seção de autoridade. Origem: pasta `2. Material Visual` no Drive da conta. Servido como arquivo, não embutido, para não inchar o HTML. |
+| `prova-1.png` | Print: "batemos 100k mês passado", de quem vendia menos de 15k. |
+| `prova-2.png` | Print: 50k numa cidade de 20 mil habitantes. |
+| `prova-3.png` | Print: R$ 7 mil fechados em uma semana depois de voltar para a mentoria. |
+| `prova-4.png` | Print: subiu o preço da limpeza de pele e do jato de plasma e ninguém desmarcou. |
+
+Os quatro prints vieram da pasta do Drive da conta e estão recortados. **Os
+originais sem recorte ficam no Drive** — se precisar refazer o corte, é de lá
+que se puxa.
 
 A fonte é o único recurso embutido no HTML, como data URI. Não há chamada a
 domínio externo em nenhuma das duas páginas.
