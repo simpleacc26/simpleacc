@@ -88,6 +88,24 @@
   .bio .reg{font-size:12.5px;color:var(--muted);margin:0 0 16px;letter-spacing:.02em}
   .bio p{font-size:15.5px;color:#c7c3bd}
   .bio p:last-of-type{margin-bottom:0}
+  .bio .topo{display:flex;flex-direction:column;gap:18px;margin-bottom:16px}
+  @media(min-width:520px){
+    .bio .topo{flex-direction:row;align-items:center;gap:20px}
+    .bio .ident{flex:1 1 auto}
+  }
+  .bio .ident .nome, .bio .ident .reg{margin-bottom:0}
+  .bio .ident .reg{margin-top:4px}
+  .retrato{
+    flex:0 0 auto;width:132px;height:165px;border-radius:6px;overflow:hidden;
+    background:#101010;border:1px solid #2a2825;position:relative;
+  }
+  .retrato img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;display:block}
+  .retrato.vazio{
+    border:1px dashed #34322f;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;padding:10px;
+  }
+  .retrato.vazio b{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6f6c67;font-weight:700;line-height:1.5}
+  .retrato.vazio span{font-size:11.5px;color:#54514d;margin-top:5px;line-height:1.4}
 
   .creds{
     display:grid;grid-template-columns:1fr;gap:1px;
@@ -204,8 +222,13 @@
     <p class="kicker">Quem assina o Diagnóstico</p>
     <h2>Quem lê as suas respostas.</h2>
     <div class="bio">
-      <p class="nome">Dra. Adm. Daniele Christensen</p>
-      <p class="reg">Doutora em Administração · CRA-RS 13.798 · Criadora do INTENSITY</p>
+      <div class="topo">
+        <div class="retrato vazio"><b>Foto</b><span>Dra. Daniele</span></div>
+        <div class="ident">
+          <p class="nome">Dra. Adm. Daniele Christensen</p>
+          <p class="reg">Doutora em Administração · CRA-RS 13.798 · Criadora do INTENSITY</p>
+        </div>
+      </div>
       <p>Empreendedora desde os 19 anos, especialista em Desenvolvimento de Gestão e Liderança Adulta. São mais de 15 anos formando donos, sócios, diretores, gerentes e coordenadores, dentro das empresas, com o time real e o problema real na mesa.</p>
       <p>Nesse caminho ela desenvolveu uma metodologia que vai além da teoria motivacional. É um sistema que une autoconhecimento guiado por Diagnóstico, com <strong>Perfil Comportamental e Análise de Gestão em 40 fatores</strong>, ferramentas práticas de planejamento e execução, e um método estruturado de condução de pessoas.</p>
       <p>É desse mesmo sistema que sai a leitura que você vai receber. O documento não opina sobre a sua Liderança. Ele lê o seu cenário pela mesma régua que ela usa dentro das empresas que acompanha.</p>
