@@ -3,7 +3,13 @@
 Protótipo navegável do Quiz B, para validação interna e com a cliente antes da
 implementação definitiva.
 
-**No ar:** https://quiz-ju-godinho.vercel.app
+**No ar:**
+- Quiz: https://quiz-ju-godinho.vercel.app
+- Página do diagnóstico: https://quiz-ju-godinho.vercel.app/diagnostico.html
+
+Dois arquivos. O quiz salva as respostas no `sessionStorage` e leva para a
+página do diagnóstico, que monta o texto a partir delas. Quem abre a página
+direto, sem ter respondido, cai numa tela que convida a responder.
 
 ## O que é
 
@@ -69,11 +75,36 @@ Nome, WhatsApp e e-mail são **os três obrigatórios**. Máscara
 por campo com `aria-live` e foco no primeiro campo inválido. As **UTMs** da URL
 são capturadas e viajam junto do lead.
 
+## Estrutura da página do diagnóstico
+
+Abre com o laudo personalizado e depois herda os blocos já validados na página
+de vendas dela, nesta ordem:
+
+1. **Cabeçalho escuro** com o gargalo nomeado
+2. **O laudo** — o que vi nas respostas, por que acontece, por que o que ela
+   já tentou não resolveu, e "não é falta de técnica" (adaptado da VSL)
+3. **Os 4 pilares** em cards, com o pilar de partida dela destacado em dourado
+4. **A sessão estratégica** em bloco escuro, com os 3 cards e o CTA
+5. **Prova social** — espaço reservado para os prints das alunas
+6. **Autoridade** — retrato, bio, credenciais. É o bloco que faltava
+7. **FAQ** — as 6 perguntas da página dela
+8. **Fechamento** — os 3 "pare de" e o CTA final
+
+Tem botão **Baixar em PDF** (`window.print()` com `@media print` que esconde
+chrome, FAQ e CTAs), então o mesmo laudo serve de anexo para a cadência da SDR.
+
 ## O que ainda NÃO existe
 
 - Integração com CRM ou planilha de leads. O formulário valida, mas não envia.
 - `sessionStorage` para retomar de onde parou, que o playbook pede.
 - **Logo** da Ju. A marca está como lockup tipográfico até chegar o arquivo.
+- **Foto da Ju** na seção de autoridade. Hoje há um monograma no lugar.
+  Para trocar, basta pôr o arquivo na pasta e substituir a `div.slot` dentro de
+  `#retrato` por `<img src="ju.jpg" alt="Juliana Godinho">`.
+- **Depoimentos.** O bloco de prova social está com um espaço reservado
+  aguardando os prints de WhatsApp que já existem na página atual.
+- **Número do WhatsApp.** Os CTAs apontam para um `wa.me` com número
+  placeholder (`5500000000000`). Trocar antes de qualquer teste com lead real.
 - Página pós-quiz completa, PDF do laudo e disparo de WhatsApp.
 - Pixel e rastreamento (as UTMs já são capturadas).
 

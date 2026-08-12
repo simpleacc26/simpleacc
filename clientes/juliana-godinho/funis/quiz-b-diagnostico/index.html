@@ -377,64 +377,32 @@ function resultado(){
   const qKey = PERGUNTAS[1].opts[R.cena].q;
   const Q = QUADROS[qKey];
   const rota = PERGUNTAS[5].opts[R.faturamento].rota;
-  const nome = esc((R._nome||'').split(' ')[0]);
+  const P = PILAR_DO_QUADRO[qKey];
 
-  const cenario = `Você tem uma clínica ou consultório ${frase('carro')}. ${frase('equipe')} ${frase('margem')}`;
-  const tentativas = frase('tentou');
-  const bloco_tentativas = tentativas.length
-    ? `<h3>Por que o que você já tentou não resolveu</h3>` + tentativas.map(t=>`<p>${t}</p>`).join('')
-    : '';
-
-  const P = PILAR_DO_QUADRO[qKey], pilar = PILARES[P.i];
-  const pilares_html = PILARES.map((p,k)=>
-    `<p${k===P.i?' class="destaque"':''}><strong>${p.n}.</strong> ${p.d}</p>`).join('');
-
-  const convite = rota === 'mentoria'
-    ? `<p>Pelo que você respondeu, o seu momento não é o de organizar o começo. É o de construir empresa, e é exatamente sobre isso que essa conversa vai ser.</p>`
-    : `<p>Pelo que você respondeu, o caminho mais curto para você agora passa por estruturar a base do que você está construindo, e é sobre isso que essa conversa vai ser.</p>`;
+  const payload = {
+    nome:R._nome, fone:R._fone, mail:R._mail,
+    quadroId:qKey, quadro:Q.nome, porque:Q.porque, caminho:Q.caminho, rota:rota,
+    cenario:`Você tem uma clínica ou consultório ${frase('carro')}. ${frase('equipe')} ${frase('margem')}`,
+    tentativas: frase('tentou'),
+    pilares: PILARES, pilarIdx:P.i, pilarNome:PILARES[P.i].n, pilarPor:P.por,
+    utm: UTM,
+    debug: [
+      'carro-chefe: '+PERGUNTAS[0].opts[R.carro].t,
+      'quem atende: '+PERGUNTAS[2].opts[R.equipe].t,
+      'margem: '+PERGUNTAS[3].opts[R.margem].t,
+      'já tentou: '+((R.tentou||[]).map(k=>PERGUNTAS[4].opts[k].t).join(' + ')||'nada'),
+      'faturamento: '+PERGUNTAS[5].opts[R.faturamento].t
+    ],
+    em: new Date().toISOString()
+  };
+  try{ sessionStorage.setItem('jugodinho_quizb', JSON.stringify(payload)); }catch(e){}
 
   screen.innerHTML = `
-    <p class="kicker">${nome ? nome + ', este é o seu diagnóstico' : 'O seu diagnóstico'}</p>
-    <div class="laudo">
-      <div class="top"><span class="badge">O seu gargalo principal</span><h2>${Q.nome}</h2></div>
-      <div class="bd">
-        <h3>O que eu vi nas suas respostas</h3>
-        <p>${cenario}</p>
-        <h3>Por que isso está acontecendo</h3>
-        <p>${Q.porque}</p>
-        ${bloco_tentativas}
-        <div class="rule"></div>
-        <h3>E não é falta de técnica</h3>
-        <p>Você recebeu anos de formação. Aprendeu procedimento, protocolo, atendimento. Mas nenhuma faculdade, nenhum curso e nenhuma especialização te ensinou a gerir um negócio, a se posicionar como referência e a cobrar pelo valor real do que você entrega.</p>
-        <p>Existe uma diferença enorme entre ser uma ótima profissional e ser uma empresária que cresce, e essa diferença não está na técnica. O que eu vejo se repetir em quase todas as profissionais que passam por aqui é o mesmo: muito talento, muita dedicação e nenhuma estrutura empresarial. Não porque elas são incapazes, mas porque ninguém nunca ensinou essa parte.</p>
-        <h3>Os quatro pilares que sustentam um negócio lucrativo</h3>
-        ${pilares_html}
-        <p><strong>No seu caso, o ponto de partida é ${pilar.n.toLowerCase()}.</strong> ${P.por}</p>
-        <div class="rule"></div>
-        <h3>O que acontece na sessão estratégica</h3>
-        <p>Não é palestra genérica e não é PDF com dicas. É sentar e olhar para o seu negócio de verdade, por 30 a 40 minutos, com uma especialista do time da Juliana.</p>
-        <p><strong>Diagnóstico do seu negócio.</strong> A análise do seu momento atual, com os gargalos que estão travando o crescimento e as oportunidades que você ainda não está aproveitando.</p>
-        <p><strong>Plano personalizado.</strong> O que fazer primeiro, segundo e terceiro para sair de onde você está.</p>
-        <p><strong>Clareza sobre os próximos passos.</strong> Você sai sabendo exatamente o que fazer para estruturar a sua clínica ou consultório como um negócio lucrativo e organizado.</p>
-        <h3>O seu próximo passo</h3>
-        ${convite}
-        <p>Toda semana são poucos horários, porque a análise é personalizada e leva tempo para ser bem feita. Vamos te chamar no WhatsApp para reservar o seu.</p>
-      </div>
-    </div>
-    <div class="dbg">
-      <b>Modo teste · o lead não vê este bloco</b>
-      Quadro: ${qKey} · ${Q.nome}<br>
-      Rota: ${rota==='mentoria'?'MENTORIA (R$ 9.999)':'EDP (R$ 1.997)'}<br>
-      Lead: ${esc(R._nome)} · ${esc(R._fone)} · ${esc(R._mail)}<br>
-      Carro-chefe: ${PERGUNTAS[0].opts[R.carro].t}<br>
-      Quem atende: ${PERGUNTAS[2].opts[R.equipe].t}<br>
-      Margem: ${PERGUNTAS[3].opts[R.margem].t}<br>
-      Já tentou: ${(R.tentou||[]).map(k=>PERGUNTAS[4].opts[k].t).join(' · ')||'nada marcado'}<br>
-      Faturamento: ${PERGUNTAS[5].opts[R.faturamento].t}<br>
-      UTMs: ${Object.keys(UTM).length?JSON.stringify(UTM):'nenhuma na URL'}
-    </div>
-    <div class="nav"><button class="back" id="reset">Testar outro caminho</button></div>`;
-  document.getElementById('reset').onclick=()=>{ etapa=1; fora=false; for(const k in R) delete R[k]; render(); };
+    <p class="kicker">Pronto</p>
+    <h1 class="q">Estamos montando o seu <em>diagnóstico</em>.</h1>
+    <p class="lede">Leva só um instante.</p>`;
+  const qs = location.search || '';
+  setTimeout(()=>{ location.href = 'diagnostico.html' + qs; }, 900);
 }
 
 render();
