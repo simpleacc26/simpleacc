@@ -98,9 +98,9 @@ chrome, FAQ e CTAs), então o mesmo laudo serve de anexo para a cadência da SDR
 - Integração com CRM ou planilha de leads. O formulário valida, mas não envia.
 - `sessionStorage` para retomar de onde parou, que o playbook pede.
 - **Logo** da Ju. A marca está como lockup tipográfico até chegar o arquivo.
-- **Foto da Ju** na seção de autoridade. Hoje há um monograma no lugar.
-  Para trocar, basta pôr o arquivo na pasta e substituir a `div.slot` dentro de
-  `#retrato` por `<img src="ju.jpg" alt="Juliana Godinho">`.
+- **Foto em resolução maior.** A que está no ar (`ju.png`, 312x391) veio de uma
+  captura de tela e serve bem no protótipo, mas fica macia em tela retina.
+  Para produção, pedir o arquivo original e trocar o mesmo `ju.png`.
 - **Depoimentos.** O bloco de prova social está com um espaço reservado
   aguardando os prints de WhatsApp que já existem na página atual.
 - **Conferir o número do WhatsApp.** Os CTAs apontam para
@@ -110,6 +110,15 @@ chrome, FAQ e CTAs), então o mesmo laudo serve de anexo para a cadência da SDR
   confirmar antes de rodar tráfego.**
 - Página pós-quiz completa, PDF do laudo e disparo de WhatsApp.
 - Pixel e rastreamento (as UTMs já são capturadas).
+
+## Assets
+
+| Arquivo | O que é |
+| --- | --- |
+| `ju.png` | Retrato da Ju usado na seção de autoridade. Origem: pasta `2. Material Visual` no Drive da conta. Servido como arquivo, não embutido, para não inchar o HTML. |
+
+A fonte é o único recurso embutido no HTML, como data URI. Não há chamada a
+domínio externo em nenhuma das duas páginas.
 
 ## Como rodar local
 

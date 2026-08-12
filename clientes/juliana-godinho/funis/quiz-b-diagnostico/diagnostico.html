@@ -78,8 +78,9 @@
 
   /* autoridade */
   .autor{display:grid;grid-template-columns:minmax(0,20rem) 1fr;gap:2.8rem;align-items:start}
-  .retrato{position:relative;border-radius:var(--r);overflow:hidden;background:var(--espresso);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;border:1px solid var(--line-2)}
-  .retrato img{width:100%;height:100%;object-fit:cover}
+  .retrato{position:relative;border-radius:var(--r);overflow:hidden;background:var(--espresso);aspect-ratio:4/5;border:1px solid var(--line-2);box-shadow:0 8px 44px rgba(20,18,16,.12)}
+  .retrato::after{content:"";position:absolute;inset:0;border:1px solid rgba(201,168,76,.35);border-radius:var(--r);pointer-events:none}
+  .retrato img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
   .retrato .slot{text-align:center;padding:2rem;color:rgba(242,237,227,.5)}
   .retrato .slot b{display:block;font-family:var(--serif);font-size:2.6rem;color:var(--gold);margin-bottom:.6rem;font-weight:500}
   .retrato .slot span{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;line-height:1.8}
@@ -226,7 +227,7 @@ if(!A || !A.quadro){
   <section><div class="wrap">
     <div class="autor">
       <div class="retrato" id="retrato">
-        <div class="slot"><b>JG</b><span>Foto da Ju<br>aguardando arquivo</span></div>
+        <img src="ju.png" alt="Juliana Godinho" width="312" height="391">
       </div>
       <div>
         <p class="kick">Quem assina esse diagnóstico</p>
