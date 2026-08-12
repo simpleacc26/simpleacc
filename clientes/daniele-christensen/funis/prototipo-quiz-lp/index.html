@@ -90,39 +90,24 @@
     font-size:clamp(21px,4.4vw,27px);font-weight:800;color:#fff;line-height:1.26;
     margin:0 0 30px;text-align:center;text-wrap:balance;
   }
-  .etapas{display:flex;flex-direction:column;gap:2px;max-width:420px;margin:0 auto}
-  .etapa{
-    display:flex;align-items:center;gap:13px;padding:14px 4px;
-    font-size:15.5px;color:#5f5c58;transition:color .3s ease;
+  .carga{max-width:440px;margin:0 auto}
+  .carga .linha{
+    display:flex;align-items:baseline;justify-content:space-between;
+    gap:16px;margin-bottom:12px;
   }
-  .etapa.ativa{color:#fff}
-  .etapa.feita{color:#9c9891}
-  .marca{
-    flex:0 0 auto;width:20px;height:20px;border-radius:50%;
-    border:2px solid #2f2d2a;position:relative;transition:.3s ease;
+  .carga .frase{
+    font-size:15.5px;color:#c7c3bd;transition:opacity .25s ease;
+    min-height:24px;
   }
-  .etapa.ativa .marca{
-    border-color:#3a3733;border-top-color:var(--accent);
-    animation:girar .8s linear infinite;
+  .carga .frase.some{opacity:0}
+  .carga .pct{
+    font-size:22px;font-weight:800;color:var(--gold);
+    font-variant-numeric:tabular-nums;flex:0 0 auto;
   }
-  .etapa.feita .marca{border-color:var(--accent);background:var(--accent)}
-  .etapa.feita .marca::after{
-    content:"";position:absolute;left:5px;top:1px;width:5px;height:10px;
-    border:solid #140d02;border-width:0 2px 2px 0;transform:rotate(45deg);
-  }
-  @keyframes girar{to{transform:rotate(360deg)}}
-  .cargabar{
-    height:3px;background:#1e1c19;border-radius:2px;overflow:hidden;
-    max-width:420px;margin:30px auto 0;
-  }
+  .cargabar{height:4px;background:#1e1c19;border-radius:3px;overflow:hidden}
   .cargabar i{
-    display:block;height:100%;width:0;
+    display:block;height:100%;width:0;border-radius:3px;
     background:linear-gradient(90deg,#d99b1a,#f18700);
-  }
-  .cargabar.roda i{width:100%;transition:width 2.9s linear}
-  @media (prefers-reduced-motion:reduce){
-    .etapa.ativa .marca{animation:none;border-top-color:var(--accent)}
-    .cargabar.roda i{transition:none;width:100%}
   }
 
   /* ---------- reveal do cenário ---------- */
@@ -251,12 +236,13 @@
   <div id="carregando">
     <p class="kick">Um instante</p>
     <p class="tit">Estamos lendo as suas respostas.</p>
-    <div class="etapas">
-      <div class="etapa" id="et0"><span class="marca"></span><span>Enviando as suas respostas</span></div>
-      <div class="etapa" id="et1"><span class="marca"></span><span>Cruzando com a régua da metodologia</span></div>
-      <div class="etapa" id="et2"><span class="marca"></span><span>Gerando o seu Diagnóstico de Liderança</span></div>
+    <div class="carga">
+      <div class="linha">
+        <span class="frase" id="cargaFrase">Enviando as suas respostas</span>
+        <span class="pct" id="cargaPct">0%</span>
+      </div>
+      <div class="cargabar"><i id="cargaBar"></i></div>
     </div>
-    <div class="cargabar" id="cargabar"><i></i></div>
   </div>
 
   <!-- ============ REVEAL ============ -->
@@ -647,8 +633,50 @@ function telaContato(tela){
   window.scrollTo(0,0);
 }
 
+var FRASES = [
+  [0,  "Enviando as suas respostas"],
+  [28, "Cruzando com a régua da metodologia"],
+  [58, "Identificando o seu cenário"],
+  [84, "Gerando o seu Diagnóstico de Liderança"]
+];
+var pulso = null;
+var PASSO = 30;   // ms entre cada atualização do número
+
+// barra de 0 a 100% no tempo dado, trocando a frase conforme avança
+function corre(duracao){
+  var bar = document.getElementById("cargaBar");
+  var pct = document.getElementById("cargaPct");
+  var fra = document.getElementById("cargaFrase");
+
+  if(pulso) clearInterval(pulso);
+  fra.textContent = FRASES[0][1];
+  fra.classList.remove("some");
+  pct.textContent = "0%";
+
+  bar.style.width = "0%";
+
+  var passado = 0, atual = 0;
+  pulso = setInterval(function(){
+    passado += PASSO;
+    var v = Math.min(100, Math.round((passado / duracao) * 100));
+    bar.style.width = v + "%";
+    pct.textContent = v + "%";
+    var i = 0;
+    for(var k = 0; k < FRASES.length; k++){ if(v >= FRASES[k][0]) i = k; }
+    if(i !== atual){
+      atual = i;
+      fra.classList.add("some");
+      setTimeout(function(){ fra.textContent = FRASES[i][1]; fra.classList.remove("some"); }, 160);
+    }
+    if(v >= 100){ clearInterval(pulso); pulso = null; }
+  }, PASSO);
+}
+
 var relogios = [];
-function limpaRelogios(){ relogios.forEach(clearTimeout); relogios = []; }
+function limpaRelogios(){
+  relogios.forEach(clearTimeout); relogios = [];
+  if(pulso){ clearInterval(pulso); pulso = null; }
+}
 function daqui(ms,fn){ relogios.push(setTimeout(fn,ms)); }
 
 // 4 segundos entre o clique no botão e o Diagnóstico na tela:
@@ -658,23 +686,11 @@ function concluir(){
   document.getElementById("quiz").classList.add("oculto");
   atualizaPainel();
 
-  var etapas = [document.getElementById("et0"),
-                document.getElementById("et1"),
-                document.getElementById("et2")];
-  etapas.forEach(function(e){ e.className = "etapa"; });
-  var carga = document.getElementById("cargabar");
-  carga.classList.remove("roda");
   document.getElementById("carregando").classList.add("on");
   window.scrollTo(0,0);
+  corre(2900);
 
-  void carga.offsetWidth;          // reinicia a animação da barra
-  carga.classList.add("roda");
-  etapas[0].classList.add("ativa");
-
-  daqui(1000, function(){ etapas[0].className = "etapa feita"; etapas[1].classList.add("ativa"); });
-  daqui(2000, function(){ etapas[1].className = "etapa feita"; etapas[2].classList.add("ativa"); });
   daqui(2900, function(){
-    etapas[2].className = "etapa feita";
     document.getElementById("carregando").classList.remove("on");
     var c = CENARIOS[R.cen === undefined ? 0 : R.cen];
     document.getElementById("revNome").textContent = c.nome;
