@@ -68,12 +68,12 @@ compradora, em quiz, anúncio ou copy.
 **Dentro do escopo:** profissionais da saúde estética que atuam com **estética
 avançada**.
 
-**Fora do escopo — não são público:**
+**Fora do escopo, não são público:**
 - extensão de cílios, design de sobrancelhas, micropigmentação
 - salão de beleza (cabelo, unhas, maquiagem)
 - podologia
-- **nutrição** — a Ju não atende
-- **odontologia** — não é foco principal
+- **nutrição**, a Ju não atende
+- **odontologia**, não é foco principal
 
 ### Tratamentos que a mentorada realiza
 
@@ -84,12 +84,14 @@ tricologia.
 ### Sobre a agenda
 
 A cena real é **mais cliente frequente do que cliente nova**, e não o contrário.
-A base é fiel; o que trava é o ticket e o modelo, não a retenção. Não construir
-quadro de "cliente que não volta".
+A base é fiel, então não construir quadro de "cliente que não volta".
+
+> Refinado no Pit Stop de 11/08: o gargalo aí é **falta de cliente nova**, não o
+> ticket. Ver o adendo no fim deste arquivo.
 
 ---
 
-## Erro cometido em 10/08/2026 — não repetir
+## Erro cometido em 10/08/2026, não repetir
 
 A primeira versão da proposta do Quiz B listava nutrição e odontologia como
 público, e usava "já tem equipe" como o traço que separa a compradora. As duas
@@ -125,8 +127,8 @@ Feedback dado pela Ju com a tela compartilhada, passando pergunta por pergunta.
   cirurgia plástica, lipedema, emagrecimento e criolipólise, depilação a laser,
   tricologia.
 - Incluir **quem administra ou gerencia uma clínica ou consultório sem ser da
-  área técnica** — *"tem gente que monta clínica e vem fazer mentoria e não é da
-  área"*.
+  área técnica**. Ju: *"tem gente que monta clínica e vem fazer mentoria e não é
+  da área"*.
 - **Nutrição continua fora**, mesmo ligada a emagrecimento.
 - Sem campo aberto para escrever.
 
