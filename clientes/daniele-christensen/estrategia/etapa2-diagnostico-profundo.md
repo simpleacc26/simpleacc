@@ -184,6 +184,32 @@ São 15 campos de resposta, 5 de bloco, o TD, o bloco dominante e a etiqueta de
 Lead Hot. A documentação pede que o dado esteja no CRM em até 5 minutos; sendo
 webhook na conclusão, é imediato.
 
+### Onde as respostas ficam
+
+Dois destinos, cada um para um público:
+
+**Planilha própria da Etapa 2**, no Drive: `[Simple Acc] Grokker — Etapa 2 ·
+Diagnóstico completo (respostas)`. Uma linha por lead. As colunas A a U são o que
+o formulário escreve (identificação e as 15 notas); as colunas V a AE são
+fórmula e calculam sozinhas os cinco blocos, o TD, o bloco dominante, o nome do
+gargalo, a etiqueta de Lead Hot e a ponte com o cenário da Etapa 1. À direita,
+fora do caminho dos dados, há um painel que se atualiza sozinho: total de
+respostas, TD médio, quantos Leads Hot, média por bloco, distribuição do bloco
+dominante, faixas de TD e o cruzamento com o cenário da Etapa 1.
+
+Ela é separada da `Planilha de Leads` da Etapa 1 de propósito, porque o acesso de
+edição daquela se perdeu.
+
+**Card do lead na Pulsar**, que é onde o comercial opera. Mesmos números, pelo
+webhook, no momento em que o lead termina.
+
+O ponto que não pode se perder: **ninguém calcula nada à mão**. O cálculo
+acontece no navegador do lead e o que trafega já vai pronto. Se alguém precisar
+transportar resposta para descobrir a nota antes da call, o funil volta a ter
+trabalho manual e o Closer fica refém de a conta ter sido feita.
+
+Detalhes de manutenção da planilha estão dentro dela, no bloco "Como ler".
+
 ### A agenda
 
 A última tela do formulário é onde o calendário aparece. É o único ponto em que

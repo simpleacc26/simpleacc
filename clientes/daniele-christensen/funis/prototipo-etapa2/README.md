@@ -5,7 +5,13 @@ WhatsApp e escolher o horário da sessão estratégica.
 
 ## O que é
 
-Página única, HTML puro, sem build e sem dependência. Abre direto no navegador:
+Página única, HTML puro, sem build e sem dependência.
+
+**No ar:** https://grokker-etapa2-diagnostico-simpleacc.vercel.app
+(projeto `grokker-etapa2-diagnostico` na Vercel, conta simpleacc, sem proteção de
+login, com `noindex` no HTML e no header `X-Robots-Tag`.)
+
+Também abre direto do disco:
 
 ```
 clientes/daniele-christensen/funis/prototipo-etapa2/index.html
@@ -30,6 +36,12 @@ Dá para simular o link real com os parâmetros que a Pulsar vai mandar:
 ```
 index.html?lead=abc123&nome=Marcelo&cenario=O%20Gargalo
 ```
+
+## Planilha de respostas
+
+`planilha/` tem o gerador do CSV que virou a planilha da Etapa 2 no Drive. É lá
+que as respostas caem, com o cálculo já feito por fórmula. Detalhes e o contrato
+de colunas em `estrategia/etapa2-diagnostico-profundo.md`.
 
 ## O que não está aqui
 
