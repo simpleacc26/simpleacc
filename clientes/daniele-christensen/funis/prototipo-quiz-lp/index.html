@@ -483,8 +483,7 @@ function valeNome(v){
   v = (v||"").trim().replace(/\s+/g," ");
   if(!v) return "Preencha o seu nome.";
   if(/\d/.test(v)) return "Nome não leva número.";
-  var partes = v.split(" ").filter(function(p){ return p.length >= 2; });
-  if(partes.length < 2) return "Digite o seu nome e o sobrenome.";
+  if(v.replace(/\s/g,"").length < 3) return "Digite o seu nome, com pelo menos 3 letras.";
   return "";
 }
 
