@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Seu diagnóstico · Luana Isse</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <style>
+    :root{--bg:#F2ECE1;--text:#211A15}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* --- específico do relatório --- */
+    .report-head { text-align: center; padding: 20px 0 6px; }
+    .report-head .selo { margin-bottom: 12px; }
+    .report-head h1 { font-size: 26px; }
+    .etapa { margin: 0 0 16px; }
+    .etapa h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--primary); margin: 0 0 8px; }
+    .etapa p { margin: 0 0 10px; }
+
+    /* selo do índice (IRV) */
+    .irv { display: flex; align-items: center; gap: 16px; justify-content: center; text-align: left;
+      border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin: 6px 0 12px;
+      background: color-mix(in srgb, var(--primary) 7%, var(--surface)); }
+    .irv-num { font-family: var(--font-serif); font-size: 42px; font-weight: 700; line-height: 1; color: var(--primary-700); }
+    .irv-txt { font-weight: 700; font-size: 16px; color: var(--text); }
+    .irv-txt span { display: block; font-weight: 400; font-size: 13px; color: var(--muted); margin-top: 3px; max-width: 260px; }
+    .irv.alta .irv-num { color: #A8412A; }
+    .irv.media .irv-num { color: var(--primary-700); }
+    .irv.baixa .irv-num { color: #4C7A4A; }
+
+    .metodo { margin: 0; padding-left: 18px; }
+    .metodo li { margin: 0 0 8px; }
+    .metodo strong { color: var(--primary-700); }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 8px 0; }
+    .compare .col { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px; background: var(--surface); }
+    .compare .col h4 { margin: 0 0 8px; font-size: 14px; }
+    .compare .col.bad h4 { color: var(--muted); }
+    .compare .col.good { background: color-mix(in srgb, var(--primary) 6%, var(--surface)); border-color: color-mix(in srgb, var(--primary) 30%, var(--border)); }
+    .compare ul { margin: 0; padding-left: 18px; font-size: 15px; color: var(--muted); }
+    .compare .good ul { color: var(--text); }
+    .cta-inline { text-align: center; margin: 22px 0; }
+    .cta-inline .btn { width: 100%; max-width: 420px; }
+
+    /* --- bloco de autoridade --- */
+    .autor { display: flex; align-items: center; gap: 15px; margin: 2px 0 14px; }
+    .autor-marca { width: 92px; height: 92px; flex: 0 0 92px; border-radius: 50%;
+      display: grid; place-items: center; border: 2px solid var(--primary);
+      background: color-mix(in srgb, var(--primary) 10%, var(--surface));
+      font-family: var(--font-serif); font-size: 30px; font-weight: 700; letter-spacing: .04em; color: var(--primary-700); }
+    .autor-nome { display: block; font-family: var(--font-serif); font-size: 19px; font-weight: 700; letter-spacing: .05em; color: var(--primary-700); line-height: 1.15; }
+    .autor-cargo { display: block; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
+    .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0 6px; }
+    .cred { border: 1px solid var(--border); border-radius: var(--radius-sm); background: color-mix(in srgb, var(--primary) 5%, var(--surface)); padding: 13px 14px; }
+    .cred .n { font-family: var(--font-serif); font-size: 21px; font-weight: 700; color: var(--primary-700); line-height: 1.05; }
+    .cred .d { font-size: 12.5px; color: var(--muted); margin-top: 3px; }
+    .cred.full { grid-column: 1 / -1; }
+    .eco { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .eco-chip { border: 1px solid var(--border); border-radius: 999px; padding: 7px 13px; font-size: 12.5px; color: var(--muted); background: var(--surface); }
+    .eco-chip b { color: var(--primary); font-weight: 700; letter-spacing: .02em; }
+
+    .cta-box { background: color-mix(in srgb, var(--primary) 7%, var(--surface)); border: 1px solid color-mix(in srgb, var(--primary) 26%, var(--border)); border-radius: var(--radius); padding: 22px; text-align: center; margin-top: 8px; }
+    .clube { font-size: 15px; color: var(--muted); margin-top: 14px; }
+
+    @media (max-width: 520px){
+      .compare { grid-template-columns: 1fr; }
+      .cred-grid { grid-template-columns: 1fr; }
+      .irv { flex-direction: column; text-align: center; gap: 8px; }
+      .irv-txt span { max-width: none; }
+    }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #fff; }
+      .card { box-shadow: none; border-color: #ddd; margin: 0; }
+      .topbar, .foot { color: #000; }
+      .etapa, .compare .col, .cta-box { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <span class="brand-name">Luana Isse</span>
+        <span class="brand-tag">Método MMPV</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card screen" id="report"></div>
+  </main>
+
+  <p class="foot">Diagnóstico gerado a partir das suas respostas · Luana Isse · Método MMPV</p>
+
+  <script src="flow.js" defer></script>
+  <script src="diagnostico.js" defer></script>
+</body>
+</html>
