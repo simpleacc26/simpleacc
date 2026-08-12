@@ -54,6 +54,9 @@ as respostas reais. Não são quatro laudos fixos.
 | "Por que isso está acontecendo" | Texto do quadro |
 | "Por que o que você já tentou não resolveu" | P5, um parágrafo por item marcado. Some se ela não marcar nada |
 | "O que precisa mudar" | Caminho do quadro |
+| "E não é falta de técnica" | Fixo, adaptado da VSL da Ju |
+| "Os quatro pilares" | Fixos, da página de vendas. O pilar de partida vem do quadro |
+| "O que acontece na sessão estratégica" | Fixo, da página de vendas |
 | "O seu próximo passo" | P6 define mentoria ou EDP |
 
 Combinando os eixos, são **mais de 3.800 laudos possíveis**, e nenhum lead lê o

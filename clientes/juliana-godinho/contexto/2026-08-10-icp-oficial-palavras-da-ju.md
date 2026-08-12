@@ -172,3 +172,43 @@ voltam sempre, mesmo assim você atende sempre as mesmas pessoas"*.
 Os laudos e quadros são **bastidor**. Ju: *"essa linguagem aqui não tem muito a
 ver comigo"*. Renan confirmou que é contexto interno. A mentorada nunca lê esses
 nomes.
+
+---
+
+## Fatos da marca e da oferta (doc COPY 2026, abas PÁGINAS e VSL)
+
+- **EDP = Estética do Poder.** É o nome do método da Ju, não uma sigla interna
+  qualquer. "Idealizadora do Método Estética do Poder, que já impactou mais de
+  5.000 alunas em todo o Brasil."
+- **Quem é a Ju:** fisioterapeuta dermatofuncional, empresária desde 2008,
+  empreende na estética desde 2011. Clínica própria referência em **Belo
+  Horizonte**, faturamento **acima de R$ 1 milhão por ano**. MBA em Consultoria
+  Empresarial. Mentora desde 2018, **+5.000 alunas**.
+- **A oferta de topo é a sessão estratégica**, não "call". Dura **30 a 40
+  minutos**, é **100% online pelo Google Meet**, e é feita por **uma especialista
+  do time**, não pela Ju. A lead pode levar a sócia. Vagas semanais restritas.
+- **Os 4 pilares** da página: posicionamento profissional, marketing de
+  diferenciação, experiência do cliente, gestão financeira.
+- **Os 4 desafios** da página: agenda vazia ou instável, desorganização
+  financeira total, invisibilidade no mercado, falta de estratégia clara.
+
+### Frases da própria Ju que valem reaproveitar
+
+- "Existe uma diferença enorme entre ser uma ótima profissional e ser uma
+  empresária que cresce. E essa diferença não está na técnica."
+- "Muito talento, muita dedicação, e zero estrutura empresarial. Não porque elas
+  são incapazes. Mas porque ninguém nunca ensinou essa parte."
+- "Você baixou preço uma vez pra não perder cliente. Talvez mais de uma vez. E
+  cada vez que fez isso, sentiu que estava indo na direção errada, mas não sabia
+  o que fazer diferente."
+- "Não vou te dar uma palestra genérica. Não vou te mandar um PDF com dicas."
+- Fechamento da página: "Pare de trabalhar além do seu limite e ter pouco
+  retorno financeiro. Pare de depender de promoções e indicações. Pare de se
+  sentir insegura na hora de falar de preço."
+
+### Divergência de número a resolver
+
+O documento de copy promete **R$ 50 mil/mês** e fala em "50, 100 mil por mês" na
+VSL. A página no ar hoje promete **R$ 20 mil/mês**. São duas versões da mesma
+promessa e ninguém no material diz qual vale. **Perguntar à Ju antes de escrever
+copy nova**, porque esse número define a régua de faturamento do funil inteiro.
