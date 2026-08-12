@@ -102,3 +102,65 @@ A cliente leu e disse que o documento **não parecia feito para ela**.
 são este arquivo e o `[Juliana Godinho] Canvas do Cliente Ideal + Produto`
 no Drive. Varrer o material da conta antes de escrever, e na dúvida perguntar
 à cliente em vez de completar a lacuna.
+
+---
+
+## Adendo — Pit Stop de 11/08/2026
+
+Feedback dado pela Ju com a tela compartilhada, passando pergunta por pergunta.
+
+### Áreas e formação
+
+- **Nunca escrever "área da beleza" numa lista onde também aparece biomedicina.**
+  Palavras da Ju: *"se uma biomédica chegar e vê escrito área da beleza, ela pode
+  nem preencher o formulário"*. As profissionais da saúde não gostam de estar no
+  mesmo bloco da esteticista.
+- A pergunta de entrada passa a ser **área de atuação**, com os termos que o
+  segmento reconhece. Quem é de fora simplesmente não se encontra na lista e
+  marca "outra área".
+- **Pode ter mais de 4 opções.** Carlos: *"se for preciso, coloca mais opção, não
+  tem problema"*.
+- Áreas que a Ju atende: estética avançada, estética e massoterapia, biomedicina
+  estética e harmonização, fisioterapia dermatofuncional, pós-operatório de
+  cirurgia plástica, lipedema, emagrecimento e criolipólise, depilação a laser,
+  tricologia.
+- Incluir **quem administra ou gerencia uma clínica ou consultório sem ser da
+  área técnica** — *"tem gente que monta clínica e vem fazer mentoria e não é da
+  área"*.
+- **Nutrição continua fora**, mesmo ligada a emagrecimento.
+- Sem campo aberto para escrever.
+
+### Linguagem
+
+- **Tom coloquial.** Nada de termo técnico ou corporativo.
+- **"Carga de atendimento" elas não usam.** A pergunta certa é *"o que você fez
+  para vender mais?"*.
+- **Sem travessão.** Palavras da Ju: dá *"a sensação de tô respondendo,
+  confessando com a inteligência"*.
+- Elas não têm consciência de "decidir no improviso" nem de "atender demais".
+  Não construir pergunta em cima disso.
+- Quando mexem no preço, **elas baixam**, não aumentam. Quando fazem promoção,
+  **dão desconto para a base inteira**, não para fechar um atendimento.
+
+### A dor real da agenda
+
+**O problema não é fidelização.** Palavras da Ju: *"elas falam que tem cliente
+fiel, mas não vem cliente novo"*, *"vendem os pacotes e têm os mesmos clientes,
+precisam de um fluxo novo"*. A queixa que elas verbalizam é **atender sempre as
+mesmas pessoas**. Foi a frase que ela aprovou na hora: *"suas clientes são fiéis,
+voltam sempre, mesmo assim você atende sempre as mesmas pessoas"*.
+
+### Copy
+
+- **"Isso não é falta de esforço" está saturado.** Ju: *"a gente tá ouvindo muito
+  nas copies agora"*.
+- Frase que ela mesma sugeriu: *"mesmo você tendo muita certificação, muita
+  técnica e bons resultados, não vai resolver atendendo mais"*.
+- Com agenda cheia, o que não sobe **não é o faturamento, é o dinheiro que
+  sobra**. Ju: *"tá com a agenda, mas o dinheiro não sobra ou sobra pouco"*.
+
+### Sobre os quadros
+
+Os laudos e quadros são **bastidor**. Ju: *"essa linguagem aqui não tem muito a
+ver comigo"*. Renan confirmou que é contexto interno. A mentorada nunca lê esses
+nomes.
