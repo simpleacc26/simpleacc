@@ -17,8 +17,10 @@ resultado e relatório com CTAs distribuídos. Identidade visual, copy e o IDR s
   (nunca para `/index.html`, o servidor limpa a URL e derruba a query).
 - **Página pós-quiz:** `/diagnostico.html` (gerada automaticamente, não é link de anúncio).
 - **Projeto Vercel:** `quiz-guilhermeeduardo` no time **Simpleacc**.
-  O endereço antigo (`diagnostico-ges360.vercel.app`) continua no ar e serve a mesma
-  coisa, mas **não é mais o link oficial**. Não use em anúncio.
+  O endereço antigo (`diagnostico-ges360.vercel.app`) agora só **redireciona** para cá,
+  preservando as UTMs (ver `redirect-dominio-antigo/`). Ele chegou a servir uma cópia
+  parada do funil, **sem o webhook**, e por isso engolia leads em silêncio. Não use em
+  anúncio: use sempre o endereço oficial.
 - **Planilha de leads:** https://docs.google.com/spreadsheets/d/1S_ANYgaapyLVf7oQoGwNyxYkASRXlzHFs-QgfHGvt_Q/edit
   (Drive do cliente, pasta "3. Estratégia e Tráfego").
 

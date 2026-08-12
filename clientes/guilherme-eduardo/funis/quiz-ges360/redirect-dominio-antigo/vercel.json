@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/:path*",
+      "destination": "https://quiz-guilhermeeduardo.vercel.app/:path*",
+      "permanent": false
+    }
+  ]
+}

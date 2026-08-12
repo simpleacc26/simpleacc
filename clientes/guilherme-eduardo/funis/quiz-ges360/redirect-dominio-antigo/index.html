@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="robots" content="noindex" />
+  <title>Diagnóstico GES360</title>
+  <!-- Rede de segurança. O redirect de verdade está em vercel.json e acontece no
+       servidor; isto só existe caso aquele não pegue por algum motivo.
+       Este projeto NAO serve mais o funil: ele só manda para o endereço oficial,
+       quiz-guilhermeeduardo.vercel.app, preservando as UTMs. Motivo: enquanto
+       ele servia uma cópia antiga, quem entrava por aqui respondia o quiz e o
+       lead NÃO ia para a planilha, porque a cópia antiga estava sem o webhook. -->
+  <script>
+    location.replace("https://quiz-guilhermeeduardo.vercel.app/" + location.search + location.hash);
+  </script>
+</head>
+<body>
+  <p>Redirecionando para <a href="https://quiz-guilhermeeduardo.vercel.app/">quiz-guilhermeeduardo.vercel.app</a>.</p>
+</body>
+</html>
