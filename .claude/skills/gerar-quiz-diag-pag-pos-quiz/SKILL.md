@@ -126,6 +126,13 @@ quiz-lucas-sobreiro.vercel.app. Respeite sempre:
    quem atende).
 5. **Identidade = marca REAL do cliente** (Instagram/brandbook), não uma paleta
    genérica inventada; paleta de exemplo só até o brandbook chegar.
+
+> 📌 **Leia `references/ajustes-validados.md` antes de construir.** São as
+> correções feitas com o Daniel em funis reais (barra de progresso sem número,
+> bloco de autoridade sem grade de método, calibragem do índice, trava do
+> WhatsApp, coluna do resultado na planilha, troca de domínio na Vercel).
+> Onde ele divergir dos outros arquivos, **ele vale**.
+
 6. **Depoimentos:** prints reais, convertidos para WebP ~520px (funil leve).
    Nunca inventar depoimento.
 7. **Make -> Sheets:** a aba de um CSV importado nasce "Untitled" (não "Página1");

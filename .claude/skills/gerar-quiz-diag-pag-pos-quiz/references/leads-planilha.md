@@ -15,6 +15,18 @@ Os "campos do quiz" (`q1..qN`) são as respostas (situação, problema, etc.) em
 texto legível. `Qualificacao` = `qualificado` / `nutrir` (vem do `app.js`, régua
 por faturamento + prontidão).
 
+> **Some também a coluna do RESULTADO NOMEADO** (o padrão/perfil que o
+> diagnóstico deu para o lead), ao lado da classificação. É o que transforma a
+> planilha em roteiro de atendimento: antes de responder, a pessoa olha a linha
+> e já sabe o diagnóstico, sem abrir mais nada.
+>
+> **Vale usar 4 faixas de classificação** (`fila-quente`, `qualificado`,
+> `nutrir`, `fora`) mesmo que a página mostre só 3 CTAs. A quarta serve para
+> priorizar a fila do atendimento e não muda nada na página.
+>
+> Na entrega, mande ao cliente um **resumo do que cada coluna significa**,
+> principalmente as faixas. Ele vai operar essa planilha todo dia.
+
 > **A aba de um CSV importado nasce com o nome "Untitled"** (não "Página1"). Guarde
 > isso: os módulos do Make referenciam a aba pelo NOME.
 

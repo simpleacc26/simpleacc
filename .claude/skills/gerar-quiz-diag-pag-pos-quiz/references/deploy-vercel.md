@@ -39,11 +39,26 @@ byte-perfect). Nunca commite o token.
 - **Depoimentos:** converta os prints reais do cliente para **WebP com ~520px de
   largura** antes de subir (funil leve, LCP baixo). Nomeie `01.webp`, `02.webp`...
   na ordem de exibição. Nunca invente depoimento.
+- **Se não houver CLI nem token no ambiente** e o deploy tiver que sair pelo MCP
+  mesmo assim: encolha cada imagem ao mínimo que a tela usa (ex.: foto exibida a
+  104px vira um WebP de 224px, ~4 KB) e **confira o sha256 do arquivo publicado
+  contra o local**. É a única forma de saber se o base64 chegou íntegro.
+  ```bash
+  curl -s "$BASE/foto.webp" | sha256sum && sha256sum <funil>/foto.webp
+  ```
 
 ## 1. Deploy só da subpasta, com nome de projeto limpo
 O nome do projeto vira o domínio de produção (`<projeto>.vercel.app`), que é
 **público**. Para uma URL branded, deploye a partir de uma pasta com o nome
 desejado:
+
+> ⚠️ **Escolha o nome certo na primeira publicação.** Trocar de domínio depois
+> exige **projeto novo**, e o antigo continua respondendo: peça para removerem
+> no painel, senão alguém divulga o link errado.
+>
+> ⚠️ **O alias com o sufixo do time responde 302** (fica atrás do SSO), mesmo em
+> produção. O link público é sempre o curto. Teste os dois com `curl` antes de
+> entregar.
 ```
 # copie só os arquivos de runtime (sem .gs/README) p/ uma pasta nomeada bonito
 DST=/tmp/<nome-limpo-do-cliente>
