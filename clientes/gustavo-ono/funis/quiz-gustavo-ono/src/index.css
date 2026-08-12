@@ -1,6 +1,9 @@
 @import '@fontsource-variable/inter';
-@import '@fontsource-variable/lora';
-@import '@fontsource-variable/lora/wght-italic.css';
+/* Cormorant Garamond: serifada de contraste alto. Substituiu a Lora em 12/08,
+   junto da paleta cacau + bordo + dourado. Auto-hospedada de proposito: fonte
+   do Google Fonts via CDN era o maior request bloqueante no mobile. */
+@import '@fontsource-variable/cormorant-garamond';
+@import '@fontsource-variable/cormorant-garamond/wght-italic.css';
 
 @tailwind base;
 @tailwind components;
@@ -18,7 +21,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: #1a0900;
+  background-color: #120a06;
 }
 
 #root {

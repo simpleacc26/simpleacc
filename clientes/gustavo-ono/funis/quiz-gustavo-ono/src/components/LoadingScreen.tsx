@@ -43,20 +43,20 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
   return (
     <div
       className="min-h-screen flex items-center justify-center p-6"
-      style={{ backgroundColor: "#1A0900" }}
+      style={{ backgroundColor: "#120A06" }}
     >
       <div className="w-full max-w-sm flex flex-col items-center gap-8">
         {/* Ícone / logo */}
         <div
           className="w-16 h-16 rounded-full flex items-center justify-center"
-          style={{ backgroundColor: "rgba(200, 123, 117, 0.12)", border: "1px solid rgba(200,123,117,0.25)" }}
+          style={{ backgroundColor: "rgba(176, 141, 87, 0.12)", border: "1px solid rgba(176,141,87,0.25)" }}
         >
           <svg
             width="28"
             height="28"
             viewBox="0 0 24 24"
             fill="none"
-            stroke="#C87B75"
+            stroke="#B08D57"
             strokeWidth="1.5"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -70,7 +70,7 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
         <div className="w-full text-center">
           <p
             className="text-sm mb-6 transition-all duration-500"
-            style={{ color: "rgba(251, 241, 238, 0.7)", minHeight: "1.25rem" }}
+            style={{ color: "rgba(242, 232, 217, 0.7)", minHeight: "1.25rem" }}
           >
             {label}
           </p>
@@ -78,17 +78,17 @@ export function LoadingScreen({ onComplete }: LoadingScreenProps) {
           {/* Barra */}
           <div
             className="w-full h-1.5 rounded-full overflow-hidden"
-            style={{ backgroundColor: "rgba(200, 123, 117, 0.15)" }}
+            style={{ backgroundColor: "rgba(176, 141, 87, 0.15)" }}
           >
             <div
               className="h-full rounded-full transition-all duration-100 ease-linear"
-              style={{ width: `${progress}%`, backgroundColor: "#C87B75" }}
+              style={{ width: `${progress}%`, backgroundColor: "#B08D57" }}
             />
           </div>
 
           <div
             className="mt-3 text-xs tabular-nums"
-            style={{ color: "rgba(200, 123, 117, 0.6)" }}
+            style={{ color: "rgba(176, 141, 87, 0.6)" }}
           >
             {Math.round(progress)}%
           </div>

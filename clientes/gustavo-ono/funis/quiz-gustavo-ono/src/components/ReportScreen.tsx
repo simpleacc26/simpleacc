@@ -5,10 +5,10 @@ import { fbqTrack } from "../analytics";
 import { getRota } from "../lib/rota";
 import type { LeadData } from "./LeadCaptureForm";
 
-const ROSE = "#C87B75";
-const CARD = "#2D1108";
-const CARD2 = "#3A1510";
-const BG = "#1A0900";
+const ROSE = "#B08D57";
+const CARD = "#1E120C";
+const CARD2 = "#26160E";
+const BG = "#120A06";
 
 // Número do WhatsApp do Gustavo, formato internacional, só dígitos (ex.: 5511987654321).
 // Definido em VITE_WHATSAPP_NUMBER (.env local e Environment Variables na Vercel).
@@ -64,14 +64,15 @@ function Section({
 }
 
 const bodyText: React.CSSProperties = {
-  color: "rgba(251, 241, 238, 0.82)",
+  color: "rgba(242, 232, 217, 0.82)",
   lineHeight: 1.75,
 };
 
 const headlineStyle: React.CSSProperties = {
-  fontFamily: "Lora, Georgia, serif",
-  fontWeight: 700,
-  color: "#FBF1EE",
+  fontFamily: "Cormorant Garamond, Georgia, serif",
+  fontWeight: 600,
+  letterSpacing: "-0.01em",
+  color: "#F2E8D9",
   lineHeight: 1.25,
 };
 
@@ -146,21 +147,21 @@ function buildPilares(answers: Record<number, string>): Pilar[] {
 const statusConfig: Record<PillarStatus, { label: string; color: string; bg: string; icon: React.ReactNode }> = {
   critico: {
     label: "Gargalo identificado",
-    color: "#F87171",
-    bg: "rgba(248, 113, 113, 0.08)",
-    icon: <AlertCircle className="w-4 h-4 flex-shrink-0" style={{ color: "#F87171" }} />,
+    color: "#A8324B",
+    bg: "rgba(168, 50, 75, 0.10)",
+    icon: <AlertCircle className="w-4 h-4 flex-shrink-0" style={{ color: "#A8324B" }} />,
   },
   atencao: {
     label: "Precisa de atenção",
     color: ROSE,
-    bg: "rgba(200, 123, 117, 0.08)",
+    bg: "rgba(176, 141, 87, 0.08)",
     icon: <AlertCircle className="w-4 h-4 flex-shrink-0" style={{ color: ROSE }} />,
   },
   ok: {
     label: "Funcionando bem",
-    color: "#6EE7B7",
-    bg: "rgba(110, 231, 183, 0.08)",
-    icon: <Check className="w-4 h-4 flex-shrink-0" style={{ color: "#6EE7B7" }} />,
+    color: "#8A9279",
+    bg: "rgba(138, 146, 121, 0.10)",
+    icon: <Check className="w-4 h-4 flex-shrink-0" style={{ color: "#8A9279" }} />,
   },
 };
 
@@ -246,7 +247,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
                   </div>
                   <p
                     className="font-semibold mb-2"
-                    style={{ color: "#FBF1EE", fontFamily: "Lora, Georgia, serif" }}
+                    style={{ color: "#F2E8D9", fontFamily: "Cormorant Garamond, Georgia, serif" }}
                   >
                     {pilar.name}
                   </p>
@@ -306,7 +307,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3">
                   <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: ROSE }} />
-                  <p style={{ color: "rgba(251,241,238,0.85)", fontSize: "0.9rem", lineHeight: 1.55 }}>
+                  <p style={{ color: "rgba(242,232,217,0.85)", fontSize: "0.9rem", lineHeight: 1.55 }}>
                     {item}
                   </p>
                 </div>
@@ -314,7 +315,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
             </div>
             <div
               className="rounded-xl p-4 mb-6 text-center text-sm font-semibold"
-              style={{ backgroundColor: "rgba(200,123,117,0.1)", color: ROSE, border: `1px solid ${ROSE}33` }}
+              style={{ backgroundColor: "rgba(176,141,87,0.1)", color: ROSE, border: `1px solid ${ROSE}33` }}
             >
               Gratuito · Sem compromisso · 30 minutos pelo WhatsApp
             </div>
@@ -327,7 +328,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
               onClick={handleWhatsAppClick}
               className="flex items-center justify-center gap-3 w-full py-4 px-6 rounded-2xl transition-all hover:opacity-90 shadow-lg"
               style={{
-                backgroundColor: "#25D366",
+                backgroundColor: "#8E2841",
                 color: "#fff",
                 fontWeight: 700,
                 fontSize: "1.05rem",
@@ -341,7 +342,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
             </a>
             <p
               className="text-center text-xs mt-3"
-              style={{ color: "rgba(251,241,238,0.35)" }}
+              style={{ color: "rgba(242,232,217,0.35)" }}
             >
               Ao tocar no botão, a conversa abre direto com o Gustavo, com a sua
               mensagem já escrita.
@@ -379,7 +380,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
               ].map((item) => (
                 <div key={item} className="flex items-start gap-3">
                   <Check className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: ROSE }} />
-                  <p style={{ color: "rgba(251,241,238,0.85)", fontSize: "0.9rem", lineHeight: 1.55 }}>
+                  <p style={{ color: "rgba(242,232,217,0.85)", fontSize: "0.9rem", lineHeight: 1.55 }}>
                     {item}
                   </p>
                 </div>
@@ -389,7 +390,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
             {/* Rota C: a sessão entra como bônus de quem compra */}
             <div
               className="rounded-2xl p-5 mb-6"
-              style={{ backgroundColor: "rgba(200,123,117,0.1)", border: `1px solid ${ROSE}44` }}
+              style={{ backgroundColor: "rgba(176,141,87,0.1)", border: `1px solid ${ROSE}44` }}
             >
               <p
                 className="text-xs uppercase tracking-widest mb-2"
@@ -397,9 +398,9 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
               >
                 Incluso no treinamento
               </p>
-              <p style={{ color: "rgba(251,241,238,0.9)", fontSize: "0.92rem", lineHeight: 1.6 }}>
+              <p style={{ color: "rgba(242,232,217,0.9)", fontSize: "0.92rem", lineHeight: 1.6 }}>
                 Quem entra no treinamento ganha uma{" "}
-                <strong style={{ color: "#FBF1EE" }}>
+                <strong style={{ color: "#F2E8D9" }}>
                   conversa de 30 minutos com o Gustavo
                 </strong>{" "}
                 para revisar o seu caso depois que colocar a técnica em prática.
@@ -415,7 +416,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
               className="flex items-center justify-center gap-3 w-full py-4 px-6 rounded-2xl transition-all hover:opacity-90 shadow-lg"
               style={{
                 backgroundColor: ROSE,
-                color: "#2A0D06",
+                color: "#1A0F09",
                 fontWeight: 700,
                 fontSize: "1.05rem",
                 textDecoration: "none",
@@ -427,7 +428,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
             </a>
             <p
               className="text-center text-xs mt-3"
-              style={{ color: "rgba(251,241,238,0.35)" }}
+              style={{ color: "rgba(242,232,217,0.35)" }}
             >
               Acesso imediato por R$ 97, com a conversa com o Gustavo inclusa.
             </p>
@@ -483,7 +484,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
               onClick={handleWhatsAppClick}
               className="flex items-center justify-center gap-3 w-full py-4 px-6 rounded-2xl transition-all hover:opacity-90 shadow-lg"
               style={{
-                backgroundColor: "#25D366",
+                backgroundColor: "#8E2841",
                 color: "#fff",
                 fontWeight: 700,
                 fontSize: "1.05rem",
@@ -504,7 +505,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
               className="flex items-center justify-center gap-3 w-full py-4 px-6 rounded-2xl transition-all hover:opacity-90 shadow-lg"
               style={{
                 backgroundColor: ROSE,
-                color: "#2A0D06",
+                color: "#1A0F09",
                 fontWeight: 700,
                 fontSize: "1.05rem",
                 textDecoration: "none",
@@ -522,19 +523,19 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
           <div
             className="rounded-3xl p-7 mb-5"
             style={{
-              border: `1px solid rgba(200,123,117,0.2)`,
-              backgroundColor: "rgba(200,123,117,0.04)",
+              border: `1px solid rgba(176,141,87,0.2)`,
+              backgroundColor: "rgba(176,141,87,0.04)",
             }}
           >
             <p
               className="text-xs uppercase tracking-widest mb-3 text-center"
-              style={{ color: "rgba(251,241,238,0.4)" }}
+              style={{ color: "rgba(242,232,217,0.4)" }}
             >
               Ou, se preferir começar pela prática
             </p>
             <p
               className="text-center mb-4"
-              style={{ color: "rgba(251,241,238,0.75)", fontSize: "0.9rem", lineHeight: 1.6 }}
+              style={{ color: "rgba(242,232,217,0.75)", fontSize: "0.9rem", lineHeight: 1.6 }}
             >
               Conheça o Treinamento Bombom Artístico e adicione ao cardápio um
               produto de alto padrão, que pode render até R$ 50 por caixa.
@@ -546,7 +547,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
               onClick={handleLowTicketClick}
               className="flex items-center justify-center gap-2 w-full py-3 px-5 rounded-xl transition-all hover:opacity-80"
               style={{
-                border: `1px solid rgba(200,123,117,0.4)`,
+                border: `1px solid rgba(176,141,87,0.4)`,
                 color: ROSE,
                 fontWeight: 600,
                 fontSize: "0.9rem",
@@ -562,12 +563,12 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
         {/* Footer */}
         <div
           className="text-center pt-6"
-          style={{ borderTop: "1px solid rgba(200,123,117,0.12)" }}
+          style={{ borderTop: "1px solid rgba(176,141,87,0.12)" }}
         >
-          <p className="text-xs" style={{ color: "rgba(251,241,238,0.3)" }}>
+          <p className="text-xs" style={{ color: "rgba(242,232,217,0.3)" }}>
             © Gustavo Ono · Todos os direitos reservados
           </p>
-          <p className="text-xs mt-1" style={{ color: "rgba(251,241,238,0.2)" }}>
+          <p className="text-xs mt-1" style={{ color: "rgba(242,232,217,0.2)" }}>
             Este diagnóstico foi gerado com base nas respostas de {leadData.name}.
           </p>
         </div>

@@ -23,14 +23,14 @@ export function QuestionScreen({
   return (
     <div
       className="min-h-screen flex items-center justify-center p-5"
-      style={{ backgroundColor: "#1A0900" }}
+      style={{ backgroundColor: "#120A06" }}
     >
       <div className="max-w-2xl w-full">
         <div className="mb-6">
           <ProgressBar current={currentQuestion} total={totalQuestions} />
           <div
             className="mt-2 text-sm"
-            style={{ color: "rgba(200, 123, 117, 0.7)" }}
+            style={{ color: "rgba(176, 141, 87, 0.7)" }}
           >
             Pergunta {currentQuestion} de {totalQuestions}
           </div>
@@ -38,7 +38,7 @@ export function QuestionScreen({
 
         <div
           className="rounded-3xl p-8 md:p-10 shadow-2xl"
-          style={{ backgroundColor: "#2D1108" }}
+          style={{ backgroundColor: "#1E120C" }}
         >
           <h2
             className="mb-3"
@@ -46,8 +46,8 @@ export function QuestionScreen({
               fontSize: "clamp(1.2rem, 3vw, 1.6rem)",
               fontWeight: 600,
               lineHeight: 1.35,
-              color: "#FBF1EE",
-              fontFamily: "Lora, Georgia, serif",
+              color: "#F2E8D9",
+              fontFamily: "Cormorant Garamond, Georgia, serif",
             }}
           >
             {question.question}
@@ -55,7 +55,7 @@ export function QuestionScreen({
           {question.supportText && (
             <p
               className="mb-6 text-sm"
-              style={{ color: "rgba(251, 241, 238, 0.6)" }}
+              style={{ color: "rgba(242, 232, 217, 0.6)" }}
             >
               {question.supportText}
             </p>

@@ -8,11 +8,11 @@ export function ProgressBar({ current, total }: ProgressBarProps) {
   return (
     <div
       className="w-full h-1 rounded-full overflow-hidden"
-      style={{ backgroundColor: "rgba(200, 123, 117, 0.2)" }}
+      style={{ backgroundColor: "rgba(176, 141, 87, 0.2)" }}
     >
       <div
         className="h-full transition-all duration-500 ease-out"
-        style={{ width: `${percentage}%`, backgroundColor: "#C87B75" }}
+        style={{ width: `${percentage}%`, backgroundColor: "#B08D57" }}
       />
     </div>
   );

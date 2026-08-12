@@ -71,21 +71,21 @@ export function LeadCaptureForm({ onSubmit, onBack }: LeadCaptureFormProps) {
   };
 
   const borderFor = (valid: boolean, touched: boolean) =>
-    touched && !valid ? "rgba(255, 100, 100, 0.5)" : "rgba(200, 123, 117, 0.3)";
+    touched && !valid ? "rgba(255, 100, 100, 0.5)" : "rgba(176, 141, 87, 0.3)";
 
   const TOTAL_QUESTIONS = 9;
 
   return (
     <div
       className="min-h-screen flex items-center justify-center p-5"
-      style={{ backgroundColor: "#1A0900" }}
+      style={{ backgroundColor: "#120A06" }}
     >
       <div className="max-w-xl w-full">
         <div className="mb-6">
           <ProgressBar current={TOTAL_QUESTIONS} total={TOTAL_QUESTIONS} />
           <div
             className="mt-2 text-sm"
-            style={{ color: "rgba(200, 123, 117, 0.7)" }}
+            style={{ color: "rgba(176, 141, 87, 0.7)" }}
           >
             Quase lá...
           </div>
@@ -93,7 +93,7 @@ export function LeadCaptureForm({ onSubmit, onBack }: LeadCaptureFormProps) {
 
         <div
           className="rounded-3xl p-8 md:p-10 shadow-2xl"
-          style={{ backgroundColor: "#2D1108" }}
+          style={{ backgroundColor: "#1E120C" }}
         >
           <h2
             className="mb-2"
@@ -101,15 +101,15 @@ export function LeadCaptureForm({ onSubmit, onBack }: LeadCaptureFormProps) {
               fontSize: "clamp(1.3rem, 3vw, 1.7rem)",
               fontWeight: 600,
               lineHeight: 1.3,
-              color: "#FBF1EE",
-              fontFamily: "Lora, Georgia, serif",
+              color: "#F2E8D9",
+              fontFamily: "Cormorant Garamond, Georgia, serif",
             }}
           >
             Seu diagnóstico está pronto.
           </h2>
           <p
             className="mb-8"
-            style={{ color: "rgba(251, 241, 238, 0.7)", fontSize: "0.95rem" }}
+            style={{ color: "rgba(242, 232, 217, 0.7)", fontSize: "0.95rem" }}
           >
             Informe seus dados para receber a análise personalizada.
           </p>
@@ -117,8 +117,8 @@ export function LeadCaptureForm({ onSubmit, onBack }: LeadCaptureFormProps) {
           <div className="flex flex-col gap-5">
             {/* Nome */}
             <div>
-              <label className="block mb-2 text-sm font-medium" style={{ color: "#FBF1EE" }}>
-                Nome completo <span style={{ color: "#C87B75" }}>*</span>
+              <label className="block mb-2 text-sm font-medium" style={{ color: "#F2E8D9" }}>
+                Nome completo <span style={{ color: "#B08D57" }}>*</span>
               </label>
               <input
                 type="text"
@@ -130,9 +130,9 @@ export function LeadCaptureForm({ onSubmit, onBack }: LeadCaptureFormProps) {
                 style={{
                   ...inputBase,
                   borderColor: borderFor(isValidName(name), Boolean(name)),
-                  color: "#FBF1EE",
+                  color: "#F2E8D9",
                 }}
-                onFocus={(e) => (e.target.style.borderColor = "#C87B75")}
+                onFocus={(e) => (e.target.style.borderColor = "#B08D57")}
                 onBlur={(e) =>
                   (e.target.style.borderColor = borderFor(isValidName(name), Boolean(name)))
                 }
@@ -147,8 +147,8 @@ export function LeadCaptureForm({ onSubmit, onBack }: LeadCaptureFormProps) {
 
             {/* WhatsApp */}
             <div>
-              <label className="block mb-2 text-sm font-medium" style={{ color: "#FBF1EE" }}>
-                WhatsApp com DDD <span style={{ color: "#C87B75" }}>*</span>
+              <label className="block mb-2 text-sm font-medium" style={{ color: "#F2E8D9" }}>
+                WhatsApp com DDD <span style={{ color: "#B08D57" }}>*</span>
               </label>
               <input
                 type="tel"
@@ -159,9 +159,9 @@ export function LeadCaptureForm({ onSubmit, onBack }: LeadCaptureFormProps) {
                 style={{
                   ...inputBase,
                   borderColor: borderFor(isValidPhone(phone), Boolean(phone)),
-                  color: "#FBF1EE",
+                  color: "#F2E8D9",
                 }}
-                onFocus={(e) => (e.target.style.borderColor = "#C87B75")}
+                onFocus={(e) => (e.target.style.borderColor = "#B08D57")}
                 onBlur={(e) =>
                   (e.target.style.borderColor = borderFor(isValidPhone(phone), Boolean(phone)))
                 }
@@ -176,8 +176,8 @@ export function LeadCaptureForm({ onSubmit, onBack }: LeadCaptureFormProps) {
 
             {/* E-mail */}
             <div>
-              <label className="block mb-2 text-sm font-medium" style={{ color: "#FBF1EE" }}>
-                E-mail <span style={{ color: "#C87B75" }}>*</span>
+              <label className="block mb-2 text-sm font-medium" style={{ color: "#F2E8D9" }}>
+                E-mail <span style={{ color: "#B08D57" }}>*</span>
               </label>
               <input
                 type="email"
@@ -187,9 +187,9 @@ export function LeadCaptureForm({ onSubmit, onBack }: LeadCaptureFormProps) {
                 style={{
                   ...inputBase,
                   borderColor: borderFor(isValidEmail(email), Boolean(email)),
-                  color: "#FBF1EE",
+                  color: "#F2E8D9",
                 }}
-                onFocus={(e) => (e.target.style.borderColor = "#C87B75")}
+                onFocus={(e) => (e.target.style.borderColor = "#B08D57")}
                 onBlur={(e) =>
                   (e.target.style.borderColor = borderFor(isValidEmail(email), Boolean(email)))
                 }
@@ -205,9 +205,9 @@ export function LeadCaptureForm({ onSubmit, onBack }: LeadCaptureFormProps) {
 
           <div
             className="mt-5 flex items-start gap-2 text-xs"
-            style={{ color: "rgba(251, 241, 238, 0.5)" }}
+            style={{ color: "rgba(242, 232, 217, 0.5)" }}
           >
-            <Lock className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: "#C87B75" }} />
+            <Lock className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" style={{ color: "#B08D57" }} />
             <p>Seus dados são confidenciais e usados apenas para enviar o diagnóstico.</p>
           </div>
 

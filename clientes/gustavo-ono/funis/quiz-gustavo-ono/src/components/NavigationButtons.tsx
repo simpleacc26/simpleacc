@@ -23,7 +23,7 @@ export function NavigationButtons({
         <button
           onClick={onBack}
           className="flex items-center gap-2 hover:opacity-70 transition-opacity"
-          style={{ color: "#C87B75" }}
+          style={{ color: "#B08D57" }}
         >
           <ChevronLeft className="w-4 h-4" />
           <span>Voltar</span>
@@ -41,7 +41,7 @@ export function NavigationButtons({
           className="px-8 py-3 rounded-xl tracking-tight transition-all shadow-lg"
           style={{
             letterSpacing: "-0.01em",
-            backgroundColor: canContinue ? "#C87B75" : "rgba(200, 123, 117, 0.3)",
+            backgroundColor: canContinue ? "#B08D57" : "rgba(176, 141, 87, 0.3)",
             color: canContinue ? "#fff" : "rgba(255, 255, 255, 0.4)",
             cursor: canContinue ? "pointer" : "not-allowed",
             opacity: canContinue ? 1 : 0.5,
