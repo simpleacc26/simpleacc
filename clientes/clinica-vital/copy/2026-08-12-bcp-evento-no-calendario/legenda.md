@@ -1,25 +1,34 @@
 # Criativo estático — Body Contour Pro — "O evento já tem data"
 
 - **Origem:** doc `[CLÍNICA VITAL] Copies`, lote 27.07, copy **#01** (Status: Aprovado Clínica Vital, Produto: Body Contour Pro)
-- **Formato:** estático, 1 card, 1080x1350 (4:5)
+- **Formato:** carrossel, 3 cards, 1080x1350 (4:5)
 - **Veiculação:** feed/anúncio no perfil **@dra.marcelafilgueiras**
-- **Fonte editável:** `criativo.html` · **Arte:** `slides/card_1.png`
+- **Fonte editável:** `carrossel.html` · **Artes:** `slides/card_1..3.png`
 
-## Texto do card
+## Texto dos cards
 
-**Tag:** BODY CONTOUR PRO
+**Card 1 · gancho (creme)**
+- Tag: BODY CONTOUR PRO
+- Título: O evento já tem data. **Aquela região** você segue adiando.
+- Apoio: A data vai chegando e a decisão continua para depois.
+- Rodapé: @dra.marcelafilgueiras
 
-**Título:** O evento já tem data. Aquela região você segue adiando.
+**Card 2 · para a região certa (verde escuro)**
+- Tag: PARA A REGIÃO CERTA
+- Título: A região que ainda incomoda, mesmo quando o resto já está bem.
+- Rótulo: *Áreas de atenção*
+- Lista: Abdômen · Flancos · Braços · Costas · Infraglúteo e axila · Parte interna das coxas
+- Apoio: **Gordura localizada persistente** tem comportamento próprio e muitas vezes não responde só a dieta e exercício.
 
-**Corpo:**
-O Body Contour Pro foi pensado para a região que ainda incomoda, mesmo quando o
-resto já está bem.
-Antes de qualquer sessão, uma consulta médica para entender seu histórico e sua
-composição corporal.
+**Card 3 · consulta primeiro + CTA (creme)**
+- Tag: O PRIMEIRO PASSO
+- Título: Antes de qualquer sessão, uma **consulta médica**.
+- Apoio: Eu preciso entender seu histórico, sua composição corporal e o que faz sentido para o seu caso. A indicação é decidida caso a caso. Às vezes a resposta é o Body Contour Pro, às vezes não é.
+- Botão: AGENDE SUA CONSULTA
+- Assinatura: Dra. Marcela Filgueiras · CRM-MG 00000 · RQE 0000 · Clínica Vital, Itajubá
 
-**Assinatura:** Dra. Marcela Filgueiras · CRM-MG 00000 · RQE 0000 · Clínica Vital, Itajubá
-
-**Fecho:** AGENDE SUA CONSULTA MÉDICA NA CLÍNICA VITAL
+Barra de progresso em todos os cards; seta de swipe nos cards 1 e 2, ausente no 3.
+A lista de áreas veio dos criativos atuais da clínica, para manter o repertório da marca.
 
 ## Legenda do post
 
@@ -72,8 +81,8 @@ Clínica Vital, Itajubá
 
 1. **CRM e RQE da Dra. Marcela.** Estão como `CRM-MG 00000 · RQE 0000` no card e na
    legenda. Sem o número real a peça não pode ir ao ar: é exigência do CFM.
-2. **Foto da Dra. Marcela** em arquivo. O topo do card está com um bloco verde
-   reservado. Trocar o `<div class="foto-slot">` por
-   `<img class="foto" src="data:image/jpeg;base64,...">`.
+2. **Foto da Dra. Marcela** em arquivo, se quiser foto no carrossel. A versão atual
+   é toda tipográfica, sem espaço reservado sobrando. O card 1 comporta uma faixa
+   de foto na metade de cima sem mexer no resto.
 3. **Fontes oficiais.** Playfair Display e Montserrat entraram como aproximação da
    serifada display e da sans dos criativos atuais. Confirmar os nomes reais.

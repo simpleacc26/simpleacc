@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Carrossel Body Contour Pro — Dra. Marcela Filgueiras</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   PALETA — leitura dos criativos atuais da Clínica Vital (a confirmar)
+   ========================================================================== */
+:root{
+  --creme:#F4EFE8;
+  --verde:#587D5F;
+  --verde-claro:#8FB098;
+  --verde-escuro:#3C4A3F;
+  --grafite:#2F3A42;
+  --apoio:#6B6B6B;
+  --off-white:#FFFDF9;
+  --linha:#E3DBD0;
+
+  --font-head:'Playfair Display',Georgia,serif;
+  --font-body:'Montserrat','Helvetica Neue',Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:var(--font-body);background:#E7E3DE;
+  min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px 16px;
+  -webkit-font-smoothing:antialiased;
+}
+.serif{font-family:var(--font-head);}
+
+/* ---- moldura do IG (só preview; o export esconde) ---------------------- */
+.ig-frame{width:420px;background:#fff;overflow:hidden;border-radius:12px;box-shadow:0 18px 50px rgba(0,0,0,.14);}
+.ig-header{display:flex;align-items:center;gap:10px;padding:12px 14px;}
+.ig-avatar{width:34px;height:34px;border-radius:50%;background:var(--verde);flex:0 0 34px;
+  display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-head);font-size:15px;}
+.ig-who strong{display:block;font-size:13px;font-weight:600;color:#111;}
+.ig-who span{display:block;font-size:11px;color:#8E8E8E;}
+.carousel-viewport{width:420px;aspect-ratio:4/5;overflow:hidden;position:relative;cursor:grab;touch-action:pan-y;}
+.carousel-track{display:flex;height:100%;transition:transform .34s cubic-bezier(.4,0,.2,1);}
+.ig-dots{display:flex;justify-content:center;gap:5px;padding:11px 0 2px;}
+.ig-dots i{width:6px;height:6px;border-radius:50%;background:#DBDBDB;}
+.ig-dots i.on{background:var(--verde);}
+.ig-actions{display:flex;gap:14px;padding:9px 14px 4px;}
+.ig-caption{padding:2px 14px 16px;font-size:13px;line-height:1.45;color:#262626;}
+
+/* ---- slide -------------------------------------------------------------- */
+.slide{
+  flex:0 0 420px;width:420px;height:100%;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;padding:0 32px 52px;justify-content:flex-end;
+}
+.slide[data-tone="light"]{background:var(--creme);color:var(--grafite);}
+.slide[data-tone="dark"]{background:var(--verde-escuro);color:var(--off-white);}
+
+/* filete vertical verde, assinatura gráfica do carrossel */
+.slide::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:7px;background:var(--verde);
+}
+.slide[data-tone="dark"]::before{background:var(--verde-claro);}
+
+.tag{
+  font-size:10px;font-weight:700;letter-spacing:2.6px;text-transform:uppercase;
+  color:var(--verde);margin-bottom:14px;
+}
+[data-tone="dark"] .tag{color:var(--verde-claro);}
+
+.titulo{
+  font-family:var(--font-head);font-weight:600;font-size:27px;line-height:1.14;
+  letter-spacing:-.4px;text-transform:uppercase;
+}
+.titulo.sm{font-size:23px;}
+.titulo em{font-style:normal;color:var(--verde);}
+[data-tone="dark"] .titulo em{color:var(--verde-claro);}
+
+.regua{width:44px;height:2px;background:var(--verde);margin:16px 0 13px;}
+[data-tone="dark"] .regua{background:var(--verde-claro);}
+
+.texto{font-size:12.5px;line-height:1.6;color:var(--apoio);}
+[data-tone="dark"] .texto{color:rgba(255,253,249,.72);}
+.texto strong{color:var(--grafite);font-weight:600;}
+[data-tone="dark"] .texto strong{color:var(--off-white);}
+.texto + .texto{margin-top:9px;}
+
+/* rótulo manuscrito verde, recurso da marca */
+.rotulo{
+  font-family:var(--font-head);font-style:italic;font-size:15px;color:var(--verde);
+  margin:18px 0 9px;
+}
+[data-tone="dark"] .rotulo{color:var(--verde-claro);}
+
+/* lista de áreas em duas colunas, com travessão curto */
+.areas{display:grid;grid-template-columns:1fr 1fr;gap:5px 14px;}
+.areas li{
+  list-style:none;font-size:12px;line-height:1.4;color:var(--apoio);
+  padding-left:12px;position:relative;
+}
+[data-tone="dark"] .areas li{color:rgba(255,253,249,.78);}
+.areas li::before{
+  content:"";position:absolute;left:0;top:8px;width:6px;height:1px;background:var(--verde);
+}
+[data-tone="dark"] .areas li::before{background:var(--verde-claro);}
+
+/* CTA + assinatura */
+.cta{
+  display:inline-flex;align-self:flex-start;align-items:center;gap:9px;
+  margin-top:20px;padding:12px 24px;border-radius:26px;
+  background:var(--verde);color:var(--off-white);
+  font-size:12.5px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;
+}
+[data-tone="dark"] .cta{background:var(--creme);color:var(--verde-escuro);}
+
+.assina{
+  margin-top:22px;padding-top:12px;border-top:1px solid var(--linha);
+  font-size:10px;line-height:1.55;letter-spacing:.5px;color:var(--apoio);
+}
+[data-tone="dark"] .assina{border-top-color:rgba(255,253,249,.18);color:rgba(255,253,249,.6);}
+.assina b{display:block;font-size:11.5px;font-weight:600;letter-spacing:.2px;color:var(--grafite);}
+[data-tone="dark"] .assina b{color:var(--off-white);}
+
+.handle{
+  margin-top:20px;font-size:10px;letter-spacing:1.4px;
+  color:var(--apoio);text-transform:lowercase;
+}
+[data-tone="dark"] .handle{color:rgba(255,253,249,.5);}
+
+/* barra + seta injetadas por JS */
+.pbar{position:absolute;bottom:0;left:0;right:0;padding:16px 28px 20px;z-index:10;
+  display:flex;align-items:center;gap:10px;}
+.pbar .track{flex:1;height:3px;border-radius:2px;overflow:hidden;}
+.pbar .fill{height:100%;border-radius:2px;}
+.pbar .count{font-size:11px;font-weight:500;}
+.swipe{position:absolute;right:0;top:0;bottom:0;width:48px;z-index:9;
+  display:flex;align-items:center;justify-content:center;}
+</style>
+</head>
+<body>
+
+<div class="ig-frame">
+
+  <div class="ig-header">
+    <div class="ig-avatar serif">M</div>
+    <div class="ig-who">
+      <strong>dra.marcelafilgueiras</strong>
+      <span>Clínica Vital, Itajubá</span>
+    </div>
+  </div>
+
+  <div class="carousel-viewport">
+    <div class="carousel-track">
+
+      <!-- 1 · GANCHO ------------------------------------------------------ -->
+      <div class="slide" data-tone="light">
+        <p class="tag">Body Contour Pro</p>
+        <h2 class="titulo">O evento já tem data.<br><em>Aquela região</em> você segue adiando.</h2>
+        <div class="regua"></div>
+        <p class="texto">
+          A data vai chegando e a decisão continua para depois.
+        </p>
+        <span class="handle">@dra.marcelafilgueiras</span>
+      </div>
+
+      <!-- 2 · PARA QUE SERVE + ÁREAS -------------------------------------- -->
+      <div class="slide" data-tone="dark">
+        <p class="tag">Para a região certa</p>
+        <h2 class="titulo sm">A região que ainda incomoda, mesmo quando o resto já está bem.</h2>
+        <p class="rotulo">Áreas de atenção</p>
+        <ul class="areas">
+          <li>Abdômen</li>
+          <li>Flancos</li>
+          <li>Braços</li>
+          <li>Costas</li>
+          <li>Infraglúteo e axila</li>
+          <li>Parte interna das coxas</li>
+        </ul>
+        <p class="texto" style="margin-top:14px;">
+          <strong>Gordura localizada persistente</strong> tem comportamento próprio e
+          muitas vezes não responde só a dieta e exercício.
+        </p>
+      </div>
+
+      <!-- 3 · CONSULTA PRIMEIRO + CTA ------------------------------------- -->
+      <div class="slide" data-tone="light">
+        <p class="tag">O primeiro passo</p>
+        <h2 class="titulo sm">Antes de qualquer sessão, uma <em>consulta médica</em>.</h2>
+        <div class="regua"></div>
+        <p class="texto">
+          Eu preciso entender seu <strong>histórico</strong>, sua <strong>composição
+          corporal</strong> e o que faz sentido para o seu caso.
+        </p>
+        <p class="texto">
+          A indicação é decidida caso a caso. Às vezes a resposta é o Body Contour Pro,
+          às vezes não é.
+        </p>
+        <div class="cta">Agende sua consulta</div>
+        <div class="assina">
+          <b>Dra. Marcela Filgueiras</b>
+          CRM-MG 00000 · RQE 0000 · Clínica Vital, Itajubá
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="ig-dots"></div>
+  <div class="ig-actions">
+    <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="1.7" stroke-linecap="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1L12 21l7.7-7.6 1.1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+    <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="1.7" stroke-linecap="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.8-.9L3 20.5l1.5-4.4A8.4 8.4 0 0 1 12 3.1a8.4 8.4 0 0 1 9 8.4z"/></svg>
+  </div>
+  <div class="ig-caption"><b>dra.marcelafilgueiras</b> Aquela região que você foi deixando pra depois.</div>
+
+</div>
+
+<script>
+const track  = document.querySelector('.carousel-track');
+const slides = [...document.querySelectorAll('.slide')];
+const TOTAL  = slides.length;
+const W = 420;
+
+function progressBar(i, total, isLight){
+  const pct = ((i + 1) / total) * 100;
+  const t = isLight ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.14)';
+  const f = isLight ? 'var(--verde)' : '#fff';
+  const l = isLight ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.45)';
+  return `<div class="pbar"><div class="track" style="background:${t};">
+      <div class="fill" style="width:${pct}%;background:${f};"></div></div>
+      <span class="count" style="color:${l};">${i + 1}/${total}</span></div>`;
+}
+function swipeArrow(isLight){
+  const bg = isLight ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.08)';
+  const st = isLight ? 'rgba(0,0,0,0.25)' : 'rgba(255,255,255,0.35)';
+  return `<div class="swipe" style="background:linear-gradient(to right,transparent,${bg});">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M9 6l6 6-6 6" stroke="${st}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg></div>`;
+}
+slides.forEach((s, i) => {
+  const isLight = s.dataset.tone === 'light';
+  s.insertAdjacentHTML('beforeend', progressBar(i, TOTAL, isLight));
+  if (i !== TOTAL - 1) s.insertAdjacentHTML('beforeend', swipeArrow(isLight));
+});
+
+const dots = document.querySelector('.ig-dots');
+dots.innerHTML = slides.map(() => '<i></i>').join('');
+const dotEls = [...dots.children];
+let cur = 0, startX = 0, drag = false, delta = 0;
+function goTo(i){
+  cur = Math.max(0, Math.min(TOTAL - 1, i));
+  track.style.transition = 'transform .34s cubic-bezier(.4,0,.2,1)';
+  track.style.transform = `translateX(${-cur * W}px)`;
+  dotEls.forEach((d, k) => d.classList.toggle('on', k === cur));
+}
+const vp = document.querySelector('.carousel-viewport');
+vp.addEventListener('pointerdown', e => { drag = true; startX = e.clientX; delta = 0;
+  track.style.transition = 'none'; vp.setPointerCapture(e.pointerId); });
+vp.addEventListener('pointermove', e => { if(!drag) return; delta = e.clientX - startX;
+  track.style.transform = `translateX(${-cur * W + delta}px)`; });
+function end(){ if(!drag) return; drag = false;
+  if (Math.abs(delta) > 55) goTo(cur + (delta < 0 ? 1 : -1)); else goTo(cur); }
+vp.addEventListener('pointerup', end);
+vp.addEventListener('pointercancel', end);
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') goTo(cur + 1);
+  if (e.key === 'ArrowLeft')  goTo(cur - 1);
+});
+goTo(0);
+</script>
+</body>
+</html>
