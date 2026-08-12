@@ -138,27 +138,37 @@ Tem uma cena que se repete em quase toda clínica em que eu entro. O dono é exc
 
 ## Copies para criativo estático (5)
 
-_Texto para a legenda do anúncio. A arte leva só o título._
+_Formato estilo Twitter (modelo validado da casa): o texto do card vai na arte, como se fosse um post teu. A legenda vai no anúncio._
 
 ### Estático 1 · Agenda cheia não é lucro
 
-Tu atende o dia inteiro, sai de lá morto, e no fim do mês o que sobra não conversa com o tanto que tu trabalhou. A conclusão fácil é que falta paciente. Quase nunca falta. O que falta é processo: alguém conduzindo o orçamento até o fim, agenda confirmada, preço no lugar e um dono que consegue olhar pro negócio de fora. Enquanto isso não existe, cada paciente novo só aumenta o teu cansaço. Se a tua clínica já fatura a partir de trinta mil e tu prefere arrumar a casa antes de acelerar, responde o diagnóstico gratuito aqui do link. São dois minutos, tu recebe a leitura da tua clínica com o gargalo apontado e o próximo passo mais lucrativo pro teu momento, e se fizer sentido tu fala comigo direto por ali. Sem formulário longo e sem ninguém te empurrando nada.
+**Texto do card:** Agenda cheia não é lucro. Tu atende o dia inteiro, sai de lá morto, e no fim do mês o que sobra não conversa com o tanto que tu trabalhou. Isso não é falta de esforço. É modelo.
+
+**Legenda:** Se a tua clínica já fatura a partir de trinta mil, o diagnóstico gratuito mostra onde está o vazamento. Dois minutos, no link.
 
 ### Estático 2 · O dinheiro que já está dentro da tua clínica
 
-Antes de gastar mais em anúncio, olha pra dentro. O orçamento que foi embora sem ninguém dar retorno, o paciente que disse que ia pensar e nunca mais recebeu uma mensagem, o horário que abriu porque ninguém confirmou, o preço que está parado há três anos. Isso tudo é dinheiro que já é teu e que escapa todo mês, e nenhum desses buracos precisa de um paciente novo pra ser fechado. Clínica que arruma isso costuma crescer sem atender uma hora a mais. Se a tua fatura a partir de trinta mil, responde o diagnóstico gratuito no link e descobre quanto está escapando na tua. Em dois minutos tu sai com a leitura do teu momento e o próximo passo, e se fizer sentido a gente conversa a partir dali.
+**Texto do card:** Tem dinheiro parado na tua clínica agora, e ele não precisa de nenhum paciente novo pra aparecer. Está no orçamento que ninguém respondeu, no paciente que sumiu depois do elogio, no horário que ninguém confirmou.
+
+**Legenda:** Antes de gastar mais em anúncio, olha pra dentro. Diagnóstico gratuito de dois minutos no link, e tu já vê quanto está escapando na tua.
 
 ### Estático 3 · Empresa que depende do dono tem teto
 
-Faz o teste: tira duas semanas de férias de verdade e olha o que acontece com o faturamento da tua clínica. Se ele cai junto contigo, tu não tem uma empresa, tu tem um emprego que te paga um pouco melhor e te cobra muito mais. E o pior é a conta que vem depois, porque pra faturar mais tu precisa estar mais presente, e tu já não tem de onde tirar hora. A saída não é contratar no susto, é montar um processo que roda sem ti. Se a tua clínica fatura a partir de trinta mil e tu está disposto a executar, e não só a concordar, responde o diagnóstico gratuito no link. São dois minutos e tu já enxerga o que precisa sair das tuas costas primeiro.
+**Texto do card:** Tira duas semanas de férias de verdade e olha o faturamento. Se ele cai junto contigo, tu não tem uma empresa. Tu tem um emprego que te paga um pouco melhor e te cobra muito mais.
+
+**Legenda:** Crescer sem depender de ti é método, não sorte. Se a tua clínica fatura a partir de trinta mil, responde o diagnóstico gratuito no link.
 
 ### Estático 4 · Vinte e dois anos vendo empresa por dentro
 
-Passei vinte e dois anos no comercial do Banco do Brasil olhando empresa por dentro: balanço, faturamento, operação. Vi negócio bom quebrar por falta de processo e negócio mediano crescer tranquilo por ter um. Quando saí pra mentorar, escolhi a saúde, porque é onde essa diferença é mais gritante: profissional excelente na técnica, com potencial guardado dentro do próprio negócio, travado porque ninguém ensinou a parte comercial. Hoje eu instalo processo comercial em clínica, e a virada costuma vir sem ninguém atender uma hora a mais. Se a tua clínica já fatura a partir de trinta mil e travou num patamar, responde o diagnóstico gratuito no link. Em dois minutos tu recebe a leitura da tua clínica e o próximo passo, e se fizer sentido pros dois lados tu fala comigo pra desenhar o desdobramento.
+**Texto do card:** Passei vinte e dois anos no comercial de banco olhando empresa por dentro. As que cresciam tinham processo. As que dependiam do dom do dono tinham teto. A tua clínica tem qual dos dois?
+
+**Legenda:** Hoje eu instalo processo comercial em clínica. Diagnóstico gratuito de dois minutos no link, e a gente olha a tua por dentro.
 
 ### Estático 5 · Atender não é vender
 
-Atender é resolver o problema de quem já decidiu. Vender é conduzir quem ainda está em dúvida até a decisão certa. Na saúde essas duas coisas se confundem o tempo todo, e o resultado é sempre o mesmo: o paciente elogia o teu trabalho, pede o orçamento, diz que vai pensar e some, e ninguém ali dentro tem a função de puxar aquele fio de volta. Não é falta de técnica tua, é falta de processo comercial, e processo se instala com a equipe que tu já tem, seja em ti, seja em quem está no atendimento. Se a tua clínica fatura a partir de trinta mil e tu está cansado de perder venda depois do elogio, responde o diagnóstico gratuito no link. Dois minutos, e tu já enxerga onde está furando no teu balcão.
+**Texto do card:** Atender é resolver o problema de quem já decidiu. Vender é conduzir quem ainda está em dúvida. A tua clínica atende muito bem: o paciente elogia, diz que vai pensar, e some.
+
+**Legenda:** Não é falta de técnica tua, é falta de processo comercial. Se tu fatura a partir de trinta mil, responde o diagnóstico gratuito no link.
 
 
 ---
