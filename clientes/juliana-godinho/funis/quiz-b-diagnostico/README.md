@@ -22,8 +22,12 @@ ouro **`#C9A84C`**, fundo quente claro, cartões brancos, Inter.
 Aqui o tratamento é mais premium, sem virar cópia: fundo mais fechado
 (`#F4F2ED`), chrome em espresso `#171412` com filete dourado, cantos de 4px no
 lugar de 14px, ouro usado como filete e acento em vez de preenchimento, e
-**Cormorant Garamond** nas perguntas com Inter na interface. O losango dourado
-substitui o radio redondo.
+**Cormorant Garamond** nas perguntas com a pilha de sistema na interface. O
+losango dourado substitui o radio redondo.
+
+A fonte está **embutida como data URI** (variável, 37 KB, subset latino), para
+respeitar a regra de zero dependência externa do playbook. Não há Google Fonts
+nem CDN.
 
 ## Lógica implementada
 
@@ -37,12 +41,38 @@ substitui o radio redondo.
 A tela de resultado mostra um **bloco de teste** com o quadro, a rota e todas as
 respostas, para conferir a lógica. Esse bloco não vai para a versão final.
 
+## Como o laudo é personalizado
+
+Segue o padrão da casa (`.claude/skills/gerar-quiz-diag-pag-pos-quiz`): **cada
+opção carrega uma frase de laudo** no campo `r`, e o texto final é montado com
+as respostas reais. Não são quatro laudos fixos.
+
+| Bloco do laudo | De onde vem |
+| --- | --- |
+| Título, o gargalo nomeado | P2 (cena) define o quadro |
+| "O que eu vi nas suas respostas" | P1 (carro-chefe) + P3 (quem atende) + P4 (margem), costurados numa frase |
+| "Por que isso está acontecendo" | Texto do quadro |
+| "Por que o que você já tentou não resolveu" | P5, um parágrafo por item marcado. Some se ela não marcar nada |
+| "O que precisa mudar" | Caminho do quadro |
+| "O seu próximo passo" | P6 define mentoria ou EDP |
+
+Combinando os eixos, são **mais de 3.800 laudos possíveis**, e nenhum lead lê o
+mesmo texto que outro com respostas diferentes.
+
+## Captura
+
+Nome, WhatsApp e e-mail são **os três obrigatórios**. Máscara
+`(XX) XXXXX-XXXX` no telefone, validação de formato no e-mail, mensagem de erro
+por campo com `aria-live` e foco no primeiro campo inválido. As **UTMs** da URL
+são capturadas e viajam junto do lead.
+
 ## O que ainda NÃO existe
 
-- Integração com CRM ou planilha de leads. O formulário não envia nada.
+- Integração com CRM ou planilha de leads. O formulário valida, mas não envia.
+- `sessionStorage` para retomar de onde parou, que o playbook pede.
 - **Logo** da Ju. A marca está como lockup tipográfico até chegar o arquivo.
 - Página pós-quiz completa, PDF do laudo e disparo de WhatsApp.
-- Pixel, UTMs e rastreamento.
+- Pixel e rastreamento (as UTMs já são capturadas).
 
 ## Como rodar local
 
