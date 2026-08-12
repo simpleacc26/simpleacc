@@ -10,9 +10,10 @@
    Vazio = só loga no console. ---- */
 const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
 
-/* Planilha de leads (Google Apps Script). Cole aqui a URL /exec da implantação
-   e republique. Vazio = não envia (só salva local + segue pro diagnóstico). */
-const LEADS_ENDPOINT = "";
+/* Webhook do Make que grava o lead na planilha. Cenário
+   "[Guilherme Eduardo] Diagnóstico IDR (GES360) → Sheets" no time Simple Acc.
+   Vazio = não envia (só salva local + segue pro diagnóstico). */
+const LEADS_ENDPOINT = "https://hook.us2.make.com/r18d4hny5o7c7hce9cfcn09fhyja8d6c";
 
 /* UTMs capturadas da URL no carregamento (a página do quiz não muda de URL até
    o envio, então isso preserva os parâmetros do anúncio). */
@@ -83,13 +84,15 @@ function enviarLead() {
     origem: document.referrer || location.href,
     ...URL_UTMS,
   };
-  /* text/plain + no-cors de propósito: o endpoint é um Apps Script Web App, que
-     não responde ao preflight OPTIONS. Com application/json o navegador dispara
-     o preflight e o POST falha. keepalive garante a entrega mesmo com a troca
-     de página logo em seguida. */
+  /* application/json normal, com CORS. O destino é webhook do Make, que responde
+     ao preflight OPTIONS com Access-Control-Allow-Origin: *. Isto é o oposto do
+     que valia quando o destino era Apps Script, que não responde ao preflight e
+     por isso exigia text/plain + no-cors. Se um dia voltar para Apps Script,
+     precisa voltar também esse par.
+     keepalive garante a entrega mesmo com a troca de página logo em seguida. */
   try {
-    fetch(LEADS_ENDPOINT, { method: "POST", mode: "no-cors", keepalive: true,
-      headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(lead) })
+    fetch(LEADS_ENDPOINT, { method: "POST", keepalive: true,
+      headers: { "Content-Type": "application/json" }, body: JSON.stringify(lead) })
       .catch(() => { /* não bloqueia o lead */ });
   } catch (e) { /* não bloqueia o lead */ }
 }

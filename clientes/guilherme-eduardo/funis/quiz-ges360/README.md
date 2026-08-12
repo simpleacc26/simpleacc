@@ -67,17 +67,16 @@ objetivo 0.5). Faixas: 78+ crítica · 60 a 77 alta · 40 a 59 moderada · abaix
 | `styles.css` | Identidade GES360 (navy `#001824`, dourado `#B49024`, CTA verde `#249C3C`) |
 | `logo.webp` | Logo GES360 oficial, enviada pelo cliente em 11/08 (520x137, fundo transparente). Substituiu o recorte de baixa qualidade que tinha sido extraído da apresentação comercial. |
 | `favicon.png` | Ícone da aba: o **G** da logo, recortado do arquivo oficial, sobre o navy da marca (180x180) |
-| `integracao-planilha.gs` | Apps Script que grava os leads na planilha |
 
 ## Pendências para ficar 100%
 
 1. ✅ **WhatsApp de destino confirmado e no ar:** `+55 48 99678-4333`, em `flow.js`
    (`marca.whatsapp = 5548996784333`). O primeiro número informado tinha 8 dígitos depois do
    DDD; o Daniel confirmou em 11/08 que o certo é com 9.
-2. **Integração da planilha.** Passo que só o dono da conta Google faz (2 min):
-   abrir a planilha → Extensões → Apps Script → colar `integracao-planilha.gs` → Implantar como
-   App da Web ("Qualquer pessoa") → copiar a URL `/exec` → colar em `app.js` na constante
-   `LEADS_ENDPOINT` → republicar → enviar um lead de teste e conferir a linha na planilha.
+2. ✅ **Integração da planilha pronta e testada, via Make.** O lead vai para o webhook
+   `https://hook.us2.make.com/r18d4hny5o7c7hce9cfcn09fhyja8d6c` (`LEADS_ENDPOINT` em `app.js`),
+   e o cenário **"[Guilherme Eduardo] Diagnóstico IDR (GES360) → Sheets"** (time Simple Acc,
+   ID 5924272) grava as 26 colunas na planilha. Testado ponta a ponta.
 3. ✅ **Depoimentos reais no ar**: 4 prints do Dr. Kayo em ordem narrativa mais 1 citação que
    varia com o objetivo do lead (ver `depoimentos/README.md`).
    ⚠️ Dos 8 aprovados, **só 4 estão publicados**, e 2 deles em versão recomprimida (400 px),
