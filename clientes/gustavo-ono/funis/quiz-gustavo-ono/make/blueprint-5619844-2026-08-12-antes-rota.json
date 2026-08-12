@@ -1,0 +1,132 @@
+{
+  "name": "[Gustavo Ono] Quiz Novo (quiz-gustavo-ono.vercel.app)",
+  "flow": [
+    {
+      "id": 1,
+      "mapper": {},
+      "module": "gateway:CustomWebHook",
+      "version": 1,
+      "metadata": {
+        "restore": { "parameters": { "hook": { "data": { "editable": "true" }, "label": "quiz-gustavo-ono-novo" } } },
+        "designer": { "x": 0, "y": 0 },
+        "interface": [
+          { "name": "nome", "type": "text" }, { "name": "email", "type": "text" },
+          { "name": "whatsapp", "type": "text" }, { "name": "combinacao", "type": "text" },
+          { "name": "carro_chefe", "type": "text" }, { "name": "tempo", "type": "text" },
+          { "name": "motivacao", "type": "text" }, { "name": "frustracao", "type": "text" },
+          { "name": "canal_de_vendas", "type": "text" }, { "name": "impedimento", "type": "text" },
+          { "name": "dominasse", "type": "text" }, { "name": "seguranca", "type": "text" },
+          { "name": "utm_source", "type": "text" }, { "name": "utm_medium", "type": "text" },
+          { "name": "utm_campaign", "type": "text" }, { "name": "utm_content", "type": "text" },
+          { "name": "utm_term", "type": "text" }
+        ],
+        "parameters": [
+          { "name": "hook", "type": "hook:gateway-webhook", "label": "Webhook", "required": true },
+          { "name": "maxResults", "type": "number", "label": "Maximum number of results" }
+        ]
+      },
+      "parameters": { "hook": 2557867, "maxResults": 1 }
+    },
+    {
+      "id": 2,
+      "mapper": {
+        "dnd": false, "email": "{{1.email}}", "phone": "{{1.whatsapp}}",
+        "address": {}, "firstName": "{{1.nome}}",
+        "customField": {
+          "12LQr0wEe1E8gMjYzWWr": "{{1.tempo}}", "4mc6vYWLv0xhR1jyOmH1": "{{1.utm_campaign}}",
+          "BMPRUmFSEmt7qXObeGe7": "{{1.dominasse}}", "DAJKK9gJl8OPG9g5raWf": "{{1.impedimento}}",
+          "GmxK4WwoIQyA6bwQl3Zy": "{{1.seguranca}}", "SeKmVIV3b0YXtvTN0etE": "{{1.combinacao}}",
+          "ZUMVRotDudI7YengEu1r": "{{1.utm_source}}", "hjkNBrdIDNZSilUEZtpw": "{{1.utm_term}}",
+          "iXqghDKczEKkGCerAXbi": "{{1.frustracao}}", "qDISkrGxFcoHM926YYYh": "{{1.motivacao}}",
+          "qzN9AilivmlNMUdRSmDs": "{{1.carro_chefe}}", "xoJbXwyfwU5j1dh5ejFn": "{{1.utm_content}}",
+          "zkis30fguHPyWUkeRPMG": "{{1.canal_de_vendas}}"
+        }
+      },
+      "module": "highlevel:createAContact",
+      "onerror": [ { "id": 5, "module": "builtin:Ignore", "version": 1, "metadata": { "designer": { "x": 579, "y": 153 } } } ],
+      "version": 1,
+      "metadata": {
+        "restore": {
+          "expect": {
+            "dnd": { "mode": "chose" }, "tags": { "mode": "chose" },
+            "address": { "nested": { "country": { "mode": "chose" } } },
+            "timezone": { "mode": "chose", "label": "Empty" }
+          },
+          "parameters": { "__IMTCONN__": { "data": { "scoped": "true", "connection": "highlevel3" }, "label": "[Gustavo Ono] GHL (Location: CRM Gustavo Ono)" } }
+        },
+        "designer": { "x": 279, "y": 3 },
+        "parameters": [ { "name": "__IMTCONN__", "type": "account:highlevel,highlevel3", "label": "Connection", "required": true } ]
+      },
+      "parameters": { "__IMTCONN__": 7491643 }
+    },
+    {
+      "id": 3,
+      "mapper": {
+        "title": "{{1.nome}}", "select": "existing", "status": "open", "contact": "{{2.id}}",
+        "stageId": "50f82557-8e8a-4572-8075-a685bf301fab", "pipeline": "FUuWd9SFvwOT4s2M1iBQ"
+      },
+      "module": "highlevel:createAnOpportunity",
+      "version": 1,
+      "metadata": {
+        "restore": {
+          "expect": {
+            "tags": { "mode": "chose" }, "select": { "label": "Use an existing contact" },
+            "status": { "mode": "chose", "label": "Open" }, "contact": { "mode": "edit" },
+            "stageId": { "mode": "chose", "label": "New Lead" },
+            "pipeline": { "mode": "chose", "label": "Funil do Marketing" },
+            "assignedTo": { "mode": "chose" }
+          },
+          "parameters": { "__IMTCONN__": { "data": { "scoped": "true", "connection": "highlevel3" }, "label": "[Gustavo Ono] GHL (Location: CRM Gustavo Ono)" } }
+        },
+        "designer": { "x": 579, "y": -147 },
+        "parameters": [ { "name": "__IMTCONN__", "type": "account:highlevel,highlevel3", "label": "Connection", "required": true } ]
+      },
+      "parameters": { "__IMTCONN__": 7491643 }
+    },
+    {
+      "id": 4,
+      "mapper": {
+        "mode": "fromAll",
+        "values": {
+          "Data": "{{now}}", "Nome": "{{1.nome}}", "Email": "{{1.email}}", "Tempo": "{{1.tempo}}",
+          "UTM Term": "{{1.utm_term}}", "WhatsApp": "{{1.whatsapp}}", "Dominasse": "{{1.dominasse}}",
+          "Segurança": "{{1.seguranca}}", "UTM Source": "{{1.utm_source}}", "Carro-chefe": "{{1.carro_chefe}}",
+          "Impedimento": "{{1.impedimento}}", "Motivação": "{{1.motivacao}}", "UTM Content": "{{1.utm_content}}",
+          "Combinação": "{{1.combinacao}}", "Frustração": "{{1.frustracao}}", "UTM Campaign": "{{1.utm_campaign}}",
+          "Canal de Vendas": "{{1.canal_de_vendas}}"
+        },
+        "sheetId": "quiz novo",
+        "spreadsheetId": "1oOgRcaOIWHCMHXgIxywLQ-81qEhosvEGrtKqQfPQnpM",
+        "includesHeaders": true, "insertDataOption": "INSERT_ROWS", "useColumnHeaders": true,
+        "valueInputOption": "USER_ENTERED", "insertUnformatted": false
+      },
+      "module": "google-sheets:addRow",
+      "version": 2,
+      "metadata": {
+        "restore": {
+          "expect": {
+            "mode": { "label": "Select from all" }, "sheetId": { "mode": "chose", "label": "quiz novo" },
+            "includesHeaders": { "label": "Yes" }, "insertDataOption": { "mode": "chose", "label": "Insert rows" },
+            "useColumnHeaders": { "label": "Yes" }, "valueInputOption": { "mode": "chose", "label": "User entered" },
+            "insertUnformatted": { "mode": "chose" }
+          },
+          "parameters": { "__IMTCONN__": { "data": { "scoped": "true", "connection": "google" }, "label": "My Google connection (ssouzadaniel.ads@gmail.com)" } }
+        },
+        "designer": { "x": 886, "y": 6 },
+        "parameters": [ { "name": "__IMTCONN__", "type": "account:google", "label": "Connection", "required": true } ]
+      },
+      "parameters": { "__IMTCONN__": 5139463 }
+    }
+  ],
+  "metadata": {
+    "instant": true, "version": 1,
+    "designer": { "orphans": [] },
+    "scenario": {
+      "dlq": false, "slots": null, "dataloss": false, "maxErrors": 3, "autoCommit": true,
+      "roundtrips": 1, "sequential": false, "confidential": false, "freshVariables": false,
+      "autoCommitTriggerLast": true
+    }
+  },
+  "scheduling": { "type": "immediately", "maximum_runs_per_minute": 100 },
+  "interface": { "input": [], "output": [] }
+}
