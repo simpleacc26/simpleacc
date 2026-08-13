@@ -11,6 +11,7 @@ verdade** (um arquivo `.md` nesta pasta) e um **comando** correspondente em
 | --------- | -------------------------- | -------- |
 | `/prompt-mestre`  | `prompts/funil-html.md`    | Criar funil/página completa em HTML puro ou anúncios (copy + criativo). Conduz diagnóstico → aprofundamento → geração. |
 | `/copy-hormozi`   | `prompts/copy-hormozi.md`  | Gerar copies estáticas e roteiros de vídeo em storytelling (modelo Alex Hormozi: hook de identidade, problema reformulado, prova, CTA construído com filtro de ICP embutido). Funciona pra qualquer cliente/nicho. Conduz diagnóstico → geração. |
+| `/mesa-de-guerra` | `prompts/mesa-de-guerra.md` | Conselho estratégico com 4 conselheiros (Russell Brunson, Alex Hormozi, Luiz Filho e Matuta) para decisão de negócio: oferta, escala, time, operação, caixa, crise. Conduz diagnóstico → análise dos 4 (leitura, riscos, soluções, ajuste, critérios de sucesso) → síntese com prioridade da semana/mês/trimestre. |
 
 ## Skills disponíveis
 
