@@ -45,6 +45,9 @@ onde o outro parou (o Git é a memória compartilhada).
 > **Leia antes de qualquer entrega:**
 > - [`contexto/2026-08-06-perfil-thiago-e-negocio.md`](contexto/2026-08-06-perfil-thiago-e-negocio.md)
 >   — quem ele é, como pensa, vocabulário próprio, negócio e o desenho da permuta.
+> - [`contexto/2026-08-06-canvas-cliente-ideal-completo.md`](contexto/2026-08-06-canvas-cliente-ideal-completo.md)
+>   — **o mais importante**: ICP completo, crenças, medos, gatilhos de compra, objeções
+>   por ferida, 4 perfis, concorrência e níveis de consciência.
 > - [`contexto/2026-08-06-canvas-produto-cliente-ideal.md`](contexto/2026-08-06-canvas-produto-cliente-ideal.md)
 >   — oferta, promessa, mecanismo e preço.
 >
@@ -53,6 +56,10 @@ onde o outro parou (o Git é a memória compartilhada).
 > *future pacing* ("imagina daqui 3 meses"), nada de rapport arrastado, **nada de
 > ancoragem irreal** ("valia 200, leva por 10" faz o comprador maduro desdenhar), e o
 > CTA é sempre **custo de adiar**, nunca projeção de futuro.
+>
+> ⚠️ **E o avatar dele acredita que conduzir é manipular.** Copy que soe a pressão,
+> dominação ou controle do lead é barreira ativa de compra. Sempre condução,
+> responsabilidade e clareza. **Entrar pela causa, nunca pela solução.**
 
 ## Estado do projeto (06/08/2026)
 
