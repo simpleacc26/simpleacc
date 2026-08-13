@@ -208,25 +208,20 @@ python3 -m http.server 8000
 Vercel, projeto `quiz-ju-godinho`, na conta/time **Simple Acc**
 (`team_bD5dst9eSAc4qVaaynXWifXr`). Deploy feito por API a partir desta pasta.
 
-Para republicar depois de editar o `index.html`, use um token da Vercel por
+Para republicar, use o `deploy.sh` desta pasta com um token da Vercel por
 variável de ambiente. **Nunca** coloque token em arquivo do repositório.
 
 ```bash
 export VERCEL_TOKEN=...   # token da conta da Simple, nunca commitado
-python3 - <<'PY' > /tmp/payload.json
-import json
-html = open('index.html', encoding='utf-8').read()
-print(json.dumps({
-  "name": "quiz-ju-godinho",
-  "target": "production",
-  "projectSettings": {"framework": None},
-  "files": [{"file": "index.html", "data": html, "encoding": "utf-8"}],
-}))
-PY
-curl -s -X POST -H "Authorization: Bearer $VERCEL_TOKEN" \
-  -H "Content-Type: application/json" --data-binary @/tmp/payload.json \
-  "https://api.vercel.com/v13/deployments?teamId=team_bD5dst9eSAc4qVaaynXWifXr&skipAutoDetectionConfirmation=1&forceNew=1"
+./deploy.sh               # produção
+./deploy.sh preview       # URL de preview, não mexe no domínio limpo
 ```
+
+> **Mande sempre a pasta inteira.** Cada deploy da Vercel é um snapshot
+> completo e imutável — não existe atualização parcial. O snippet que estava
+> aqui antes enviava só o `index.html`, o que teria apagado do ar o
+> `diagnostico.html` e as cinco imagens. O `deploy.sh` monta o payload a partir
+> de tudo que está na pasta, menos `README.md` e ele mesmo.
 
 > **Atenção ao publicar.** Sem `forceNew=1`, a Vercel reaproveita um deploy
 > anterior de mesmo conteúdo e o domínio limpo continua servindo a versão velha
