@@ -295,6 +295,11 @@ como decisões realmente acontecem. O resto é técnica de vendas."*
 
 ## 16. Divergências e pendências desta versão
 
+0. **O produto já está pronto** (verificado em 06/08 na área de membros
+   `alunos.thiagomenegao.com.br`): **Protocolo Primal Closing**, 7 módulos, um por etapa,
+   com arte própria. Isso **resolve a divergência das duas grades de módulos** que o canvas
+   trazia: vale a organização por etapas. Confirmar se o que vai para o funil é só o
+   Primal Closing ou o pacote com os 6 movimentos do Primal Pitch.
 1. **Provas continua em branco.** É o único campo vazio, e segue sendo o gargalo de copy.
 2. **Preço:** o campo diz R$ 2.000 na turma de fundadores, mas a tabela de objeções trata
    *"R$ 500 é barato demais, deve ser raso"*. Confirmar qual preço está valendo.

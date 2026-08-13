@@ -75,5 +75,9 @@ Entregues em `estrategia/`: roadmap de 90 dias (v2.0), estratégia completa com 
 copies do funil (v2.0) e guia de depoimentos. Tasks abertas dos dois lados em
 `estrategia/2026-08-06-tasks-pos-onboarding.md`.
 
-**O que trava tudo:** o material gravado hoje é encontro com turma de mentoriados,
-não curso produzido. Precisa ser regravado como aula antes de qualquer mídia subir.
+**O produto está pronto e publicado:** área de membros própria em
+`alunos.thiagomenegao.com.br`, produto **Protocolo Primal Closing**, 7 módulos (um por
+etapa) com identidade visual autoral.
+
+**O único gargalo é prova:** zero depoimento em vídeo. É a Fase 1 do roadmap e a única
+coisa que depende dele.
