@@ -4,6 +4,35 @@
 Documento para o time técnico do HDM implementar o endpoint que vai receber os
 leads do quiz direto no CRM.
 
+---
+
+## STATUS DA CONEXÃO (13/08/2026)
+
+**Endpoint recebido:** `https://n8n.digienge.ai/webhook/quizzreceitainvisivel`
+
+| Verificação | Resultado |
+| ----------- | --------- |
+| CORS (preflight `OPTIONS`) | **OK.** Responde 204 liberando a origem `https://quiz-evandro-fernandes.vercel.app` e o header `x-api-key`. |
+| `POST` com `X-Api-Key` (o curl de exemplo do HDM) | **403** `Authorization data is wrong!` |
+| `POST` com `Authorization: Bearer` | 403 |
+| `POST` com Basic Auth (chave como usuário ou senha) | 403 |
+| `POST` sem autenticação | 403 |
+
+**Diagnóstico:** a resposta vem com o header `www-authenticate: Basic realm="Webhook"`.
+Isso indica que o nó de Webhook do n8n está configurado como **Basic Auth**,
+enquanto a chave enviada é de **Header Auth**. Por isso nenhuma forma de
+autenticação passa, **inclusive o curl de exemplo do próprio HDM**.
+
+**O que resolve, do lado do HDM (qualquer uma das três):**
+1. Trocar o nó para **Header Auth** com nome `X-Api-Key` e o valor da chave enviada; ou
+2. Manter **Basic Auth** e informar o par usuário e senha; ou
+3. Desligar a autenticação do nó (a origem já está travada por CORS).
+
+Assim que ajustarem, a chave entra no funil, republicamos e fazemos o disparo de
+teste. O funil já está preparado para os dois formatos.
+
+---
+
 - **Funil:** https://quiz-evandro-fernandes.vercel.app
 - **Quem envia:** o próprio funil (JavaScript no navegador do lead)
 - **Quando:** no momento em que o lead conclui o formulário final (nome, WhatsApp,

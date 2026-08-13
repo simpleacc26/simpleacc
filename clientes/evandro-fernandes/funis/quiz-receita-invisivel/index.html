@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Diagnóstico de Receita Invisível · Evandro Fernandes</title>
+  <title>Diagnóstico de Receita Invisível · HDM</title>
   <meta name="description" content="Descubra quanto de receita a sua empresa perde sem perceber nos 3 funis (Marketing, Comercial e CS) e o próximo passo para recuperar, sem aumentar o tráfego." />
-  <!-- CSS crítico mínimo (evita flash antes do styles.css) -->
+  <meta name="theme-color" content="#030507" />
+  <!-- CSS crítico mínimo (evita flash claro antes do styles.css) -->
   <style>
-    :root{--bg:#F5F1E8;--text:#23303f}
-    body{margin:0;background:var(--bg);color:var(--text);
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+    :root{--bg:#030507;--text:#eef2ff}
+    html,body{background:#030507}
+    body{margin:0;color:var(--text);
+      font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
   </style>
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -17,21 +19,18 @@
   <header class="topbar">
     <div class="container">
       <div class="brand">
-        <!-- PENDENTE: quando tiver o logo do HDM, troque tudo abaixo por:
-             <img class="logo-img" src="logo.png" alt="Evandro Fernandes · HDM"> -->
-        <span class="brand-name">Evandro Fernandes</span>
-        <span class="brand-tag">Receita Invisível · HDM</span>
+        <!-- PENDENTE: quando tiver o SVG/PNG do logo, troque tudo abaixo por:
+             <img class="logo-img" src="logo.svg" alt="HDM · Human Data Management"> -->
+        <span class="brand-name">HDM</span>
+        <span class="brand-tag">Human Data Management</span>
       </div>
     </div>
   </header>
 
-  <!-- Barra de progresso (só aparece durante as perguntas) -->
+  <!-- Barra de progresso: só a barra, sem número. Anunciar o tamanho da fila
+       ("Pergunta 3 de 7") faz o quiz parecer longo justo na abertura. -->
   <div class="progress-wrap" id="progress" hidden>
     <div class="container">
-      <div class="progress-meta">
-        <span id="progress-label">Passo 1 de 7</span>
-        <span id="progress-pct">0%</span>
-      </div>
       <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
     </div>
   </div>
@@ -40,7 +39,7 @@
     <div id="app" aria-live="polite"><!-- as telas são renderizadas aqui --></div>
   </main>
 
-  <p class="foot">Evandro Fernandes · Recuperação de Receita com a metodologia HDM</p>
+  <p class="foot">HDM · Human Data Management · Evandro Fernandes</p>
 
   <script src="flow.js" defer></script>
   <script src="app.js" defer></script>

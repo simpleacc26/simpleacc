@@ -9,16 +9,19 @@ window.FLOW = {
     expert: "Evandro Fernandes",
     // PENDENTE: trocar pelo WhatsApp real do Evandro (só dígitos, com DDI 55).
     whatsapp: "5500000000000",
-    // Texto que abre no WhatsApp (o {nome} é trocado pelo nome do lead)
-    whatsappMsg: "Oi! Sou {nome}, acabei de fazer o Diagnóstico de Receita Invisível e quero entender onde minha empresa está perdendo receita.",
+    // Texto que abre no WhatsApp. {nome} vira o nome do lead e {gargalo} vira o
+    // índice do diagnóstico dele, para o SDR já abrir a conversa com contexto.
+    whatsappMsg: "Oi! Sou {nome}, fiz o Diagnóstico de Receita Invisível e o meu ponto foi: {gargalo}. Quero entender onde minha empresa está perdendo receita.",
   },
 
   hero: {
-    selo: "Diagnóstico de Receita Invisível · para negócios digitais",
+    // selo é opcional: apagar a linha tira o selo sem mexer no motor.
+    selo: "Diagnóstico de Receita Invisível",
     titulo: "Descubra quanto de receita a sua empresa perde sem perceber.",
     subtitulo:
       "Responda algumas perguntas rápidas e receba um diagnóstico de quanto escapa nos seus 3 funis (Marketing, Comercial e CS) e qual é o próximo passo para recuperar, sem aumentar o tráfego.",
-    tempo: "Leva ~2 minutos · 7 perguntas",
+    // Tempo pode e ajuda (fala de esforço). Quantidade de perguntas, não.
+    tempo: "Leva 2 minutos",
     cta: "Começar",
   },
 

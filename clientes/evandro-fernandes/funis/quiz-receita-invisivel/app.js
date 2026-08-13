@@ -7,8 +7,15 @@
    Vazio = só loga no console. ---- */
 const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
 
-/* Planilha de leads via Make (webhook instantâneo -> Google Sheets addRow).
-   Vazio = não envia (só salva local + segue pro diagnóstico). */
+/* ---- Destinos do lead ----------------------------------------------------
+   CRM_ENDPOINT: webhook do cliente (n8n do HDM). É o destino principal.
+   CRM_API_KEY:  a chave entra aqui. Deixada vazia de propósito: a chave não
+                 fica versionada no Git, e hoje o endpoint recusa toda forma de
+                 autenticação (ver especificacao-webhook-leads.md).
+   LEADS_ENDPOINT: backup nosso (Make -> planilha). Fica sempre ligado, para
+                 nenhum lead se perder se o CRM estiver fora do ar. */
+const CRM_ENDPOINT   = "https://n8n.digienge.ai/webhook/quizzreceitainvisivel";
+const CRM_API_KEY    = "";
 const LEADS_ENDPOINT = "https://hook.us2.make.com/bb1vst7dea8fyim5mfs9rh4vfo4rdf1v";
 
 /* UTMs capturadas da URL no carregamento (a página do quiz não muda de URL até
@@ -33,10 +40,8 @@ function trackEvent(name, data = {}) {
   } catch (e) { /* tracking nunca quebra o funil */ }
 }
 
-/* Envia o lead pra planilha (Google Apps Script). Manda as respostas já em
-   texto legível. Fire-and-forget: nunca trava o fluxo do lead. */
-function enviarLead() {
-  if (!LEADS_ENDPOINT) return;
+/* Monta o lead com as respostas já em texto legível. */
+function montarLead() {
   const a = state.answers;
   const label = (stepId) => {
     const s = F.steps.find((x) => x.id === stepId);
@@ -53,11 +58,24 @@ function enviarLead() {
     frente: "Receita Invisível", origem: document.referrer || location.href,
     ...URL_UTMS,
   };
-  try {
-    // Make espera application/json; keepalive sobrevive ao redirect pro diagnóstico.
-    fetch(LEADS_ENDPOINT, { method: "POST",
-      headers: { "Content-Type": "application/json" }, body: JSON.stringify(lead), keepalive: true });
-  } catch (e) { /* não bloqueia o lead */ }
+  return lead;
+}
+
+/* Envia o lead. Fire and forget nos dois destinos: nunca trava o fluxo, e o
+   keepalive faz o POST sobreviver ao redirect pro diagnóstico. */
+function enviarLead() {
+  const lead = montarLead();
+  const post = (url, headers) => {
+    try {
+      fetch(url, { method: "POST", headers, body: JSON.stringify(lead), keepalive: true });
+    } catch (e) { /* não bloqueia o lead */ }
+  };
+  if (CRM_ENDPOINT) {
+    const h = { "Content-Type": "application/json" };
+    if (CRM_API_KEY) h["X-Api-Key"] = CRM_API_KEY;
+    post(CRM_ENDPOINT, h);
+  }
+  if (LEADS_ENDPOINT) post(LEADS_ENDPOINT, { "Content-Type": "application/json" });
 }
 
 const STORE_KEY = "evandro_receita_invisivel";
@@ -77,14 +95,11 @@ function clearSaved() { try { sessionStorage.removeItem(STORE_KEY); } catch (e) 
 function el(html) { const t = document.createElement("template"); t.innerHTML = html.trim(); return t.content.firstElementChild; }
 function scrollTop() { window.scrollTo({ top: 0, behavior: "smooth" }); }
 
+/* Só a barra enchendo: sem "Pergunta X de N" e sem porcentagem. Os dois
+   anunciam o tamanho da fila e fazem o quiz parecer longo logo na abertura. */
 function updateProgress(stepIdx) {
-  const total = F.steps.length;
-  const human = stepIdx + 1;
-  const pct = Math.round((stepIdx / total) * 100);
-  const label = stepIdx === 0 ? "Começando" : (stepIdx === total - 1 ? "Última pergunta" : `Pergunta ${human} de ${total}`);
+  const pct = Math.round((stepIdx / F.steps.length) * 100);
   progressEl.hidden = false;
-  document.getElementById("progress-label").textContent = label;
-  document.getElementById("progress-pct").textContent = `${pct}%`;
   document.getElementById("progress-bar").style.width = `${pct}%`;
 }
 
@@ -105,20 +120,21 @@ function renderStep(i) {
       <span class="txt">${o.label}</span>
     </button>`).join("");
 
+  /* Só a 1ª tela leva título e selo. Repetir rótulo de etapa em cima de cada
+     pergunta cansa. O selo é opcional: sai do flow.js sem mexer no motor. */
   const intro = i === 0 ? `
-      <span class="selo">${F.hero.selo}</span>
+      ${F.hero.selo ? `<span class="selo">${F.hero.selo}</span>` : ""}
       <h1>${F.hero.titulo}</h1>
       <p class="hint" style="margin:-4px 0 20px">${F.hero.tempo}</p>` : "";
   const screen = el(`
     <section class="card screen">
       ${intro}
-      <p class="eyebrow">${step.etapa}</p>
       <h2 id="q-${step.id}">${step.pergunta}</h2>
       <div class="options" role="radiogroup" aria-labelledby="q-${step.id}">${opts}</div>
       <div class="actions">
         ${i > 0
-          ? '<button class="btn btn-ghost" id="back">← Voltar</button>'
-          : '<span class="hint">Toque na opção que mais combina. Avança sozinho 💛</span>'}
+          ? '<button class="btn btn-ghost btn-short" id="back">← Voltar</button>'
+          : '<span class="hint">Toque na opção que mais combina. Avança sozinho.</span>'}
       </div>
     </section>`);
   app.replaceChildren(screen);
@@ -176,7 +192,7 @@ function renderCaptura() {
       <form id="form" novalidate>
         ${fields}
         <div class="actions">
-          <button class="btn btn-ghost" id="back" type="button">← Voltar</button>
+          <button class="btn btn-ghost btn-short" id="back" type="button">← Voltar</button>
           <button class="btn btn-primary btn-block" id="submit" type="submit">${c.cta}</button>
         </div>
         <p class="hint" style="margin-top:14px">${c.privacidade}</p>

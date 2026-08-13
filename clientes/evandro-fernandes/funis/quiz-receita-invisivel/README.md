@@ -21,10 +21,18 @@ python3 -m http.server 8099
 # abra http://localhost:8099/index.html?utm_source=teste
 ```
 
+## Identidade visual (HDM)
+Paleta extraída do site oficial (`hdmfy.com.br/assets/css/style.css`), não
+inventada: fundo `#030507`, realce `#00E3BB` para `#30B9FF`, texto `#eef2ff`,
+cartões translúcidos, raio 20px. Fonte da marca é Inter (usada se existir na
+máquina; sem Google Fonts, por performance). Tema escuro com `@media print`
+invertendo para claro, para o "Salvar em PDF" sair legível.
+
 ## Publicação (Vercel · time Simpleacc)
 - **Projeto:** `quiz-evandro-fernandes` (`prj_9gwlLW8TG5yVauoDFe1714KyjhAq`), time Simpleacc (`team_bD5dst9eSAc4qVaaynXWifXr`).
 - **URL de produção:** https://quiz-evandro-fernandes-simpleacc.vercel.app (deploy READY).
-- ⚠️ **BLOQUEIO:** o time tem **Vercel Authentication (Deployment Protection) ON**, então a URL redireciona pra login (302). Um admin precisa desligar em **Project → Settings → Deployment Protection → Vercel Authentication → Off**. Só depois o funil fica público. (Os tools de protection do MCP retornam "not found", não dá pra desligar por aqui.)
+- ✅ **Público:** o domínio limpo responde **200** (13/08/2026). A URL com sufixo do time (`...-simpleacc.vercel.app`) segue atrás da Vercel Authentication e dá 302: **entregue sempre o domínio limpo**.
+- Integridade conferida com `curl` + `cmp`: os 6 arquivos no ar são idênticos ao repo.
 - Anúncio deve apontar pra raiz com query (`/?utm_source=...`), nunca `/index.html`.
 
 ## Planilha de leads (integração montada)
