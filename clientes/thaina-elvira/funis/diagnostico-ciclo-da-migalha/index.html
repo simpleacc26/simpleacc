@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Diagnóstico do Ciclo · Thiago Vitório</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="description" content="Descubra qual ciclo está travando a sua vida amorosa. Responda em 2 minutos e receba um diagnóstico personalizado, com o padrão que se repete nas suas relações." />
+  <!-- CSS crítico mínimo (evita flash antes do styles.css) -->
+  <style>
+    :root{--bg:#0C0A09;--text:#F5F0E8}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <!-- Quando tiver o logo oficial, troque tudo abaixo por:
+             <img class="logo-img" src="logo.png" alt="Thiago Vitório"> -->
+        <svg class="emblem" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+          <path d="M25.2 13.2 A20 20 0 1 1 13.2 38.8" fill="none" stroke="#E8C77E" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="25.2" cy="13.2" r="3.6" fill="#E8C77E"/>
+          <path d="M27 33.5 l4.5 4.5 L41 27" fill="none" stroke="#C9A24A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand-name">Mulher que Escolhe</span>
+        <span class="brand-tag">com Thiago Vitório</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Barra de progresso (só aparece durante as perguntas).
+       Só a barra: sem contador "Pergunta X de N" e sem percentual, que fazem o
+       quiz parecer longo e medido. -->
+  <div class="progress-wrap" id="progress" hidden>
+    <div class="container">
+      <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div id="app" aria-live="polite"><!-- as telas são renderizadas aqui --></div>
+  </main>
+
+  <script src="flow.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

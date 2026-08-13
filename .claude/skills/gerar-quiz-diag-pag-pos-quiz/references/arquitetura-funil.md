@@ -32,7 +32,9 @@ funil-<cliente>/
   o estado inicia no passo 0 e o passo 0 renderiza o intro + a 1ª pergunta.)
 - **Auto-avanço**: ao escolher a opção, vai pra próxima sozinho (sem botão
   "Continuar"). Maior conclusão/connect rate. Mantém botão "Voltar".
-- **Uma pergunta por tela** + barra de progresso ("Começando", "Pergunta X de N").
+- **Uma pergunta por tela** + barra de progresso **sem número nenhum**: nem
+  contador "Pergunta X de N", nem percentual. Número ali faz o quiz parecer
+  longo e medido, e derruba a conclusão. (Ver `ajustes-validados.md`.)
 - **Captura no fim**: peça o mínimo. Padrão atual: Nome, **WhatsApp (com máscara
   `(XX) XXXXX-XXXX`)**, **E-mail (obrigatório)**. Enquadre como "pra onde
   enviamos seu diagnóstico" (sobe o connect rate).

@@ -23,9 +23,21 @@ playbooks. Contrato fechado após a sessão estratégica de 02/07/2026.
 
 ## Projetos
 
-| Projeto            | Pasta      | Status       | Deploy |
-| ------------------ | ---------- | ------------ | ------ |
-| Funil de quiz (v1) | `funis/`   | a iniciar    | —      |
+| Projeto | Pasta | Status | Deploy |
+| ------- | ----- | ------ | ------ |
+| Diagnóstico do Ciclo (quiz + página pós-quiz) | `funis/diagnostico-ciclo-da-migalha` | implementado, aguardando WhatsApp e planilha de leads | a publicar na Vercel |
+
+## Oferta do funil (atualizada em 04/08/2026)
+
+- **Produto pago:** **Sessão Mapa do Ciclo** (do Thiago), individual, 60 min ao vivo
+  e gravada, com pré-work obrigatório e entrega do mapa em 1 página. **R$ 1.000**
+  à vista ou em 12x.
+- ⚠️ **Não existe sessão gratuita.** O gratuito é o quiz e o diagnóstico automático.
+  A venda acontece por conversa no WhatsApp.
+- **Continuidade:** em aberto (o degrau acima da sessão). Não pode travar a agenda.
+- **Público:** mulher de 30 a 55 anos, separada, independente, com a vida amorosa
+  travada.
+
 
 ## Escopo contratado (mentoria anual)
 
