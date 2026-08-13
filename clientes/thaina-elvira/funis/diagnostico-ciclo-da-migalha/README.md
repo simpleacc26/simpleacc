@@ -218,10 +218,41 @@ Na Meta, o jeito à prova de erro é deixar o "Website URL" limpo
 **"Parâmetros de URL"** do anúncio, com as macros dinâmicas. Assim cada anúncio
 se identifica sozinho e ninguém esquece de trocar na duplicação.
 
+### Passo a passo no Gerenciador da Meta
+
+É no **nível do anúncio**, não da campanha nem do conjunto.
+
+1. Abre o anúncio → **Editar** → rola até a seção **"Rastreamento"**
+2. Campo **"Parâmetros de URL"** (em algumas contas ele aparece logo abaixo da
+   "URL do site", com o link "Criar parâmetro de URL" ao lado)
+3. Na **URL do site**, só `https://quiz-thiagovitorio.vercel.app/`
+4. Nos **Parâmetros de URL**, isto, **sem o `?` na frente** (a Meta põe sozinha):
+
+```
+utm_source=meta&utm_medium=paid&utm_campaign={{campaign.name}}&utm_content={{adset.name}}&utm_term={{ad.name}}
+```
+
+Macros disponíveis: `{{campaign.name}}`, `{{adset.name}}`, `{{ad.name}}`,
+`{{site_source_name}}` (vira `fb`, `ig`, `msg` ou `an`) e `{{placement}}`.
+Existem as versões com `.id`, que não quebram com acento, mas enchem a planilha
+de número: prefira os nomes e arrume a nomenclatura das campanhas.
+
+Para separar Facebook de Instagram, use `utm_source={{site_source_name}}`.
+Decida antes de subir: misturar os dois padrões no meio da campanha bagunça o
+relatório.
+
+**Conferência:** no anúncio, "Visualizar" → **"Ver link de destino"** mostra a
+URL já montada, com as macros resolvidas. É onde se vê se o nome da campanha vai
+virar `%20`.
+
 **Regras que evitam sujeira na planilha:**
 
-- **Nunca em dois lugares ao mesmo tempo.** Se os parâmetros estiverem no
-  Website URL E no campo de parâmetros, a Meta duplica e a leitura sai errada.
+- **Nunca em dois lugares ao mesmo tempo.** Se os parâmetros estiverem na URL do
+  site E no campo de parâmetros, a Meta junta os dois e vem
+  `?utm_source=meta?utm_source=meta`.
+- **Sem o `?` no começo** do campo de parâmetros.
+- **Anúncio que manda direto para o WhatsApp ou para o perfil** não tem esse
+  campo e não gera linha na planilha. Só os que apontam para o site.
 - **Nome de campanha, conjunto e anúncio sem acento e sem espaço.** As macros
   copiam o nome literal: "Campanha Mulheres 35+ | Frio" chega na planilha como
   `Campanha%20Mulheres%2035+%20|%20Frio`. Use `mulheres-35-frio`.
