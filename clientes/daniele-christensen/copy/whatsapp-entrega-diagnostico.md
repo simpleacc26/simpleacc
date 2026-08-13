@@ -16,6 +16,24 @@ Por isso o botão da página leva para o WhatsApp com mensagem pré-escrita, em 
 
 Esse texto precisa bater exatamente com o gatilho configurado na Pulsar. Se mudar em um lado e não no outro, o fluxo não dispara. É a única dependência externa da página.
 
+## Pendência bloqueante: a automação antiga ainda está no ar
+
+**Constatado em 12/08/2026.** Quem clica no botão da página e manda a mensagem
+recebe a régua antiga do SDR, não esta:
+
+> Olá! Correria por aí? Me diz uma coisa: faz sentido pra você olhar com mais
+> profundidade onde sua Liderança pode estar hoje? Se fizer, a gente pode falar
+> 5 min e eu te explico como funciona a Sessão Diagnóstica.
+
+Três problemas: oferece a sessão **antes** da Etapa 2, quando no fluxo novo ela
+só é agendada no fim do formulário; não entrega o diagnóstico que o botão
+prometeu, então a promessa da página fica sem lastro; e reintroduz "5 min", que
+foi justamente o número que unificamos em 3.
+
+Nada disso se resolve na página nem no quiz: é **troca de automação na Pulsar**,
+da régua antiga para a sequência descrita abaixo. Enquanto não for trocada, o
+funil novo entrega uma coisa e o WhatsApp responde outra.
+
 ## Sequência da entrega
 
 Disparo automático, na ordem:

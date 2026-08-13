@@ -124,8 +124,7 @@
   /* ---------- página pós-quiz ---------- */
   #lp{display:none}
   #lp.on{display:block}
-  #lp .eyebrow{font-size:11px;letter-spacing:.20em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:44px 0 14px}
-  #lp h1{font-size:clamp(29px,6vw,42px);line-height:1.14;letter-spacing:-.02em;font-weight:800;margin:0 0 18px;text-wrap:balance;color:#fff}
+  #lp h1{font-size:clamp(29px,6vw,42px);line-height:1.14;letter-spacing:-.02em;font-weight:800;margin:44px 0 18px;text-wrap:balance;color:#fff}
   #lp .lede{font-size:17px;color:#cfcbc5;margin:0 0 30px}
   #lp .cta{
     display:block;width:100%;text-align:center;text-decoration:none;background:var(--accent);color:#140d02;
@@ -255,7 +254,6 @@
 
   <!-- ============ PÁGINA PÓS-QUIZ ============ -->
   <div id="lp">
-    <p class="eyebrow" id="lpEyebrow">Diagnóstico de Liderança · Seu resultado</p>
     <h1>Seu cenário já tem nome. Falta saber por que ele se instalou.</h1>
     <p class="lede">O seu Diagnóstico de Liderança está pronto. É a leitura das suas respostas: o que o seu cenário significa na prática, por que o que você já tentou não resolveu, e qual é o caminho para destravar.</p>
 
@@ -420,7 +418,6 @@ var P = {
     ops:[{t:"Serviços"},{t:"Comércio ou varejo"},{t:"Indústria"},{t:"Saúde"},{t:"Tecnologia"},{t:"Outro"}]},
   p2:{ id:"P2", passo:"Pergunta 3 de 8",
     titulo:"Pensando nos últimos 90 dias, qual dessas situações mais se repetiu na sua empresa?",
-    ajuda:"É esta resposta que define o seu Diagnóstico.",
     ops:[
       {t:"Tem hora que eu deveria manter a exigência e acabo cedendo, para não desgastar a relação", cen:0},
       {t:"Minha equipe vem me perguntar o que fazemos agora, em vez de agir sobre o que já estava combinado", cen:1},
@@ -429,7 +426,7 @@ var P = {
     ]},
   p3:{ id:"P3", passo:"Pergunta 4 de 8", titulo:"O que você já tentou para resolver isso?",
     ops:[
-      {t:"Conversei, dei feedback, cheguei mais perto da pessoa"},
+      {t:"Conversei, dei feedback, cheguei mais perto"},
       {t:"Troquei quem não estava entregando, contratei gente nova"},
       {t:"Coloquei processo, ferramenta ou indicador"},
       {t:"Assumi de volta e fui fazer eu mesmo"},
@@ -579,8 +576,8 @@ function limpaErro(label,input){
 
 function telaContato(tela){
   tela.appendChild(el("p","passo","Último passo"));
-  tela.appendChild(el("h2","perg","Para onde enviamos o seu Diagnóstico?"));
-  tela.appendChild(el("p","ajuda","O seu cenário já foi identificado. Falta só o endereço da entrega."));
+  tela.appendChild(el("h2","perg","Falta só identificar você."));
+  tela.appendChild(el("p","ajuda","O seu cenário já foi identificado. Preencha para ver o resultado."));
 
   var f = el("form");
   f.noValidate = true;
@@ -608,7 +605,7 @@ function telaContato(tela){
     f.appendChild(l);
   });
 
-  var s = el("button","env","Ver o meu Diagnóstico");
+  var s = el("button","env","Ver o meu cenário");
   s.type = "submit";
   f.appendChild(s);
 
@@ -704,8 +701,6 @@ function concluir(){
 function mostrarLP(){
   document.getElementById("reveal").classList.remove("on");
   var cen = R.cen === undefined ? 0 : R.cen;
-  document.getElementById("lpEyebrow").textContent =
-    "Diagnóstico de Liderança · Seu cenário: " + CENARIOS[cen].nome;
   var arts = document.querySelectorAll("#lp .sit article");
   for(var k=0;k<arts.length;k++){ arts[k].classList.toggle("seu", Number(arts[k].dataset.cen) === cen); }
   document.getElementById("lp").classList.add("on");

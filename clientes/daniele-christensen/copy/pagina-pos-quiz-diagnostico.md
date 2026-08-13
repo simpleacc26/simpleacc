@@ -42,6 +42,17 @@ O agendamento não desapareceu, mudou de lugar, e acontece no fim da Etapa 2.
   aqui; fechado em 3 em ago/26, depois que o protótipo da Etapa 2 permitiu
   cronometrar.
 
+## Correções pedidas pela cliente (12/08/2026)
+
+- **Saiu a linha laranja do topo** ("Diagnóstico de Liderança · Seu resultado" /
+  "Seu cenário: X"). O respiro que ela dava passou para a margem do h1.
+- **Fim da duplicação do pedido.** A cliente apontou que o lead clicava para
+  receber o Diagnóstico no fim do quiz e clicava de novo para receber o
+  Diagnóstico na página. Agora o quiz entrega o **cenário** na tela (botão "Ver
+  o meu cenário", e a tela de contato diz "Falta só identificar você") e a
+  página é o único lugar que pede o **documento** ("Receber meu Diagnóstico no
+  WhatsApp"). Verbos e objetos diferentes, um pedido só.
+
 ## Pendências para alinhar com a cliente
 
 - **Título da seção "Por que pelo WhatsApp".** Ela pediu "Diagnóstico e
