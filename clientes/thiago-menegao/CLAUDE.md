@@ -56,17 +56,17 @@ onde o outro parou (o Git é a memória compartilhada).
 
 ## Estado do projeto (06/08/2026)
 
-Onboarding feito. Entregues: roadmap de 90 dias e guia de depoimentos
-(`estrategia/`). Pendente até 11/08: documento de estratégia completa com oferta,
-big idea e copies. Tasks abertas dos dois lados em
-[`estrategia/2026-08-06-tasks-pos-onboarding.md`](estrategia/2026-08-06-tasks-pos-onboarding.md).
+**Objetivo do funil: vender o PRIMAL PITCH gravado a R$ 2 mil.** Não é funil de
+high ticket. Ele já vende alto valor por fora e cobra **R$ 9 mil a hora** de
+consultoria; este é um canal adicional, de venda direta, que **não pode consumir
+a agenda dele**.
 
-**Decisão em aberto que afeta tudo:** o único preço definido é R$ 2.000 (turma de
-fundadores, gravado). O roadmap assume uma mentoria de **R$ 15 mil** como carro-chefe
-da sessão estratégica, sinalizada como premissa a validar.
+> **Régua que decide qualquer dúvida:** 1 hora dele = R$ 9 mil = 4,5 vendas do
+> produto. Se a solução exige a presença dele, está errada.
 
-## Atenção: não confundir com outros "Thiago" da base
+Entregues em `estrategia/`: roadmap de 90 dias (v2.0), estratégia completa com as
+copies do funil (v2.0) e guia de depoimentos. Tasks abertas dos dois lados em
+`estrategia/2026-08-06-tasks-pos-onboarding.md`.
 
-Existem no Drive materiais de **Thaina Elvira e Thiago (Vitorio)** e de **Raquel e
-Thiago** — são clientes diferentes. Este cliente é **Thiago Menegão**, do
-**Protocolo Primal**.
+**O que trava tudo:** o material gravado hoje é encontro com turma de mentoriados,
+não curso produzido. Precisa ser regravado como aula antes de qualquer mídia subir.
