@@ -71,7 +71,7 @@ Tem tatuagem que não tem nada a ver com nenhum ex. É só a marca de uma fase q
 > Por que esse ângulo: "nome do ex" (10/07) é sobre relação encerrada; este é sobre fase de vida em geral, carreira/maternidade/mudança, propositalmente sem citar relacionamento.
 > Onde usar: público 28-40 anos, remarketing de quem visitou perfil.
 
-### 4. Tatuagem · Você não precisa decidir hoje
+### 4. Tatuagem · Você não precisa decidir hoje ⚠️ REPROVADO (feedback do cliente, 31/07)
 
 Você não precisa ter certeza de nada pra mandar uma mensagem aqui. Muita gente adia a remoção achando que precisa estar cem por cento decidida antes de perguntar qualquer coisa, como se mandar mensagem já fosse um compromisso de fazer o procedimento. E aí passa mais um ano, mais dois, só porque a dúvida virou uma trava maior que o próprio incômodo com a tatuagem. A avaliação aqui na Sense Clinic não te obriga a nada. Você vem, entende o que é possível pro seu caso, o número de sessões e o valor, e decide depois, com calma. Manda a foto da sua tatuagem no WhatsApp agora, é só pra tirar a dúvida, sem nenhum compromisso de fechar nada. Toca no botão.
 
@@ -99,7 +99,7 @@ Você resolve tudo pra todo mundo, e deixa exatamente o seu próprio incômodo p
 > Por que esse ângulo: fala de autopriorização, distinto de "permissão/autocuidado" já usado, que era sobre tabu, não sobre ordem de prioridades da rotina.
 > Onde usar: mães, mulheres com rotina cheia, remarketing.
 
-### 8. Clareamento · A pesquisa da madrugada
+### 8. Clareamento · A pesquisa da madrugada ⚠️ REPROVADO (feedback do cliente, 31/07: muito parecido com o roteiro 5 de tatuagem)
 
 Você já pesquisou "clareamento íntimo funciona mesmo" às onze da noite, sozinha, no celular? Um site promete resultado em uma sessão, outro fala que não existe milagre, um fórum conta uma experiência boa, outro uma decepção. E você fecha o navegador sem saber em quem confiar. A dúvida não é sua culpa. É muita informação solta, sem ninguém olhando pro seu caso específico: o seu tipo de pele, a causa das suas manchas, a região exata. Aqui na Sense Clinic a Ana Paula avalia isso pessoalmente antes de indicar qualquer protocolo, com peeling e laser pensados pra sua situação, não pra situação de ninguém mais. Para de pesquisar sozinha de madrugada. Chama a gente no WhatsApp, com discrição, e recebe uma resposta real sobre o seu caso.
 
@@ -145,6 +145,25 @@ Você cuida tanto do rosto, e esquece que as mãos e o colo contam a sua idade a
 > **Pendente de confirmação:** preço, e qual especialista realiza esse procedimento (assumimos Ana Paula por ser a especialista em pigmentação da clínica; favor confirmar).
 
 ---
+
+## Feedback do cliente (31/07/2026)
+
+Aprovados com destaque, "com um bom repertório mesmo, como se fosse humano": todos os
+roteiros de tatuagem (1, 2, 3, 5) e de clareamento (6, 7, 9, 10). Os novos serviços (11,
+12, 13) seguem pendentes de validação de preço/data, não avaliados quanto ao tom ainda.
+
+Reprovados:
+- **Roteiro 4 (Tatuagem · Você não precisa decidir hoje):** não emplacou. Não repetir esse
+  ângulo de "redução de fricção pra só perguntar" nas próximas levas sem repensar a
+  abordagem.
+- **Roteiro 8 (Clareamento · A pesquisa da madrugada):** ficou parecido demais com o
+  Roteiro 5 de tatuagem (Resposta pro seu caso, não genérica). Aprendizado pro
+  `/prompt-mestre-copy`: "pesquisa sozinha à noite / informação contraditória online" é um
+  esqueleto de ângulo forte o bastante pra ser reconhecível entre públicos diferentes,
+  mesmo com dor e contexto trocados. Evitar espelhar esse tipo de estrutura entre as duas
+  frentes (tatuagem x clareamento) nas próximas matrizes de ângulo.
+
+Cliente pediu para não produzir substitutos agora.
 
 ## O que validar com o cliente
 
