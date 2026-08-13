@@ -128,8 +128,9 @@ const UTM_KEY = (((window.FLOW||{}).config||{}).storeKey || "funil") + "_utms";
 - na Meta, deixar o Website URL limpo e usar o campo **"Parâmetros de URL"** com
   macros (`{{campaign.name}}`, `{{adset.name}}`, `{{ad.name}}`), **nunca nos
   dois lugares**, senão duplica;
-- **nome de campanha, conjunto e anúncio sem acento e sem espaço**: a macro
-  copia o nome literal e a planilha recebe `%20` e `|`;
+- nome de campanha com espaço e símbolo **não quebra**: o `URLSearchParams`
+  decodifica e a planilha recebe o nome legível (testado). Usar hífen segue
+  sendo boa prática, mas não é bloqueante;
 - fixar `utm_source` e `utm_medium` na mão, macro só para os nomes;
 - **testar com um lead real antes de subir verba** e conferir as 5 colunas.
 

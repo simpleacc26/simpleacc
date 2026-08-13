@@ -253,9 +253,10 @@ virar `%20`.
 - **Sem o `?` no começo** do campo de parâmetros.
 - **Anúncio que manda direto para o WhatsApp ou para o perfil** não tem esse
   campo e não gera linha na planilha. Só os que apontam para o site.
-- **Nome de campanha, conjunto e anúncio sem acento e sem espaço.** As macros
-  copiam o nome literal: "Campanha Mulheres 35+ | Frio" chega na planilha como
-  `Campanha%20Mulheres%2035+%20|%20Frio`. Use `mulheres-35-frio`.
+- **Nome de campanha com espaço e símbolo NÃO quebra.** Testado: o funil
+  decodifica a URL, e "Campanha Mulheres 35+ | Frio" chega na planilha exatamente
+  assim, legível. Usar `mulheres-35-frio` continua sendo boa prática (filtro,
+  leitura, outras ferramentas), mas não é bloqueante para subir a campanha.
 - **Padronize `utm_source` e `utm_medium` na mão** (`meta` e `paid`), e deixe as
   macros só para campanha, conjunto e anúncio.
 - O `fbclid` que a Meta acrescenta sozinha não atrapalha: o funil ignora.
