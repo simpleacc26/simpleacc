@@ -68,11 +68,15 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
     Promessa: autoridade digital e fluxo constante de pacientes. Mecanismo:
     "A maioria ensina marketing. Eu ensino posicionamento."
 
-- **DECISÃO EM ABERTO — qual produto entra primeiro.** É a pergunta que ele fez
-  no áudio e que o onboarding resolve. **Não decidir isso sozinho.** Análise dos
-  dois lados em `estrategia/2026-08-06-analise-qual-produto-entra-primeiro.md`.
-  Na call de vendas o Daniel já sequenciou a mentoria para terapeutas como
-  **expansão de valor**, não como primeiro passo.
+- **DECIDIDO (12/08) — entra o PRODUTO 1 (relacionamentos).** Recomendação
+  unânime da mesa de guerra em
+  `estrategia/2026-08-12-war-room-qual-produto-primeiro.md`. Motivos: toda a base
+  (333 mil + lista do WhatsApp + pacientes) é do P1; a meta de R$ 100 mil é
+  aritmeticamente impossível vendendo hora; ele já vendeu esse produto por
+  R$ 12 mil; e 4h/dia com TDAH não comportam duas frentes.
+  **O P2 não foi descartado — foi sequenciado**, com teste de custo zero (lista de
+  espera) rodando em paralelo. Argumento-chave: **executar o P1 constrói o case
+  do P2** — hoje o case dele são 18 pacientes e R$ 22 mil/mês.
 
 - **ICP P1:** mulher 35–60, superior completo, carreira consolidada
   (empresária/executiva/médica/advogada/liderança), grandes centros. Competente e
