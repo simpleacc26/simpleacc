@@ -17,15 +17,29 @@ const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
    Vazio = não envia (só salva local + segue pro diagnóstico). */
 const LEADS_ENDPOINT = "https://hook.us2.make.com/ihw791qjf1jhlz4es96meisghjvu3313";
 
-/* UTMs capturadas da URL no carregamento (a página do quiz não muda de URL até
-   o envio, então isso preserva os parâmetros do anúncio). */
+/* UTMs capturadas da URL no carregamento e GUARDADAS NA SESSÃO.
+   A página do quiz não muda de URL até o envio, então a leitura da URL já
+   resolveria o caso normal. O sessionStorage cobre o caso que quebrava: a lead
+   recarrega ou volta pelo histórico numa URL sem os parâmetros, aceita o
+   "continuar de onde parou" e o lead cairia na planilha sem origem nenhuma.
+   Regra: se a URL tem UTM, ela manda e é regravada. Se não tem, usa a guardada. */
+const UTM_KEY = (((window.FLOW || {}).config || {}).storeKey || "funil") + "_utms";
 function getUTMs() {
   const p = new URLSearchParams(location.search);
-  return {
+  const daUrl = {
     utm_source: p.get("utm_source") || "", utm_medium: p.get("utm_medium") || "",
     utm_campaign: p.get("utm_campaign") || "", utm_content: p.get("utm_content") || "",
     utm_term: p.get("utm_term") || "",
   };
+  try {
+    if (Object.values(daUrl).some((v) => v)) {
+      sessionStorage.setItem(UTM_KEY, JSON.stringify(daUrl));
+      return daUrl;
+    }
+    const salvo = JSON.parse(sessionStorage.getItem(UTM_KEY));
+    if (salvo) return { ...daUrl, ...salvo };
+  } catch (e) { /* sessionStorage bloqueado: segue com o que veio da URL */ }
+  return daUrl;
 }
 const URL_UTMS = getUTMs();
 function trackEvent(name, data = {}) {

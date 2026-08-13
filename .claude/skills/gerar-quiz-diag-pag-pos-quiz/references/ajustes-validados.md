@@ -110,6 +110,37 @@ o que a lead já tentou e o que ela quer.
 Entregue ao cliente um **resumo do que cada coluna significa**, principalmente
 as faixas de classificação. Ele vai operar a planilha todo dia.
 
+## 6.1 UTMs (furo real, já corrigido no motor)
+
+**Guarde as UTMs no `sessionStorage`, não confie só na URL.** O motor lia
+`location.search` uma vez, no carregamento. Se a lead recarregasse ou voltasse
+pelo histórico numa URL sem os parâmetros e aceitasse o "continuar de onde
+parou", o lead caía na planilha **sem origem nenhuma**. Confirmado rodando o
+funil antes e depois da correção.
+
+```js
+const UTM_KEY = (((window.FLOW||{}).config||{}).storeKey || "funil") + "_utms";
+// se a URL tem UTM, ela manda e é regravada; se não tem, usa a guardada
+```
+
+**Para o gestor de tráfego**, entregue por escrito:
+- apontar o anúncio para a **raiz com a query** (`/?utm_source=...`);
+- na Meta, deixar o Website URL limpo e usar o campo **"Parâmetros de URL"** com
+  macros (`{{campaign.name}}`, `{{adset.name}}`, `{{ad.name}}`), **nunca nos
+  dois lugares**, senão duplica;
+- **nome de campanha, conjunto e anúncio sem acento e sem espaço**: a macro
+  copia o nome literal e a planilha recebe `%20` e `|`;
+- fixar `utm_source` e `utm_medium` na mão, macro só para os nomes;
+- **testar com um lead real antes de subir verba** e conferir as 5 colunas.
+
+Lembre o cliente de que **só entra na planilha quem termina o quiz**: visita não
+vira linha, então a conta de CPL sai por lead completo, não por clique.
+
+> Conferido na Vercel: `/index.html?utm_...` **também preserva a query** (serve
+> 200, sem redirect). O `arquitetura-funil.md` sugere que o servidor derruba a
+> query nesse caminho: não foi o caso aqui. Use a raiz assim mesmo, por
+> convenção, mas não trate como bug se alguém usar o /index.html.
+
 ## 7. Deploy
 
 **Trocar de domínio exige projeto novo.** O nome do projeto na Vercel vira a

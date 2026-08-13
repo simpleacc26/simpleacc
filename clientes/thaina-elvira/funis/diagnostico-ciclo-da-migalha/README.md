@@ -201,6 +201,48 @@ O **WhatsApp de atendimento** é o `+55 11 94514-8716` (`flow.js → marca.whats
 A trava continua no código: se o número um dia sair ou voltar a ter "X", os CTAs
 param de abrir o WhatsApp e a página mostra um aviso no topo, de propósito.
 
+## UTMs (o que o gestor de tráfego precisa fazer)
+
+O funil lê as UTMs da URL no carregamento, guarda na sessão e manda junto com o
+lead. Só chegam na planilha os leads que **terminam o quiz**: visita sem
+conversão não vira linha.
+
+**No anúncio, apontar sempre para a raiz com a query:**
+
+```
+https://quiz-thiagovitorio.vercel.app/?utm_source=meta&utm_medium=paid&utm_campaign={{campaign.name}}&utm_content={{adset.name}}&utm_term={{ad.name}}
+```
+
+Na Meta, o jeito à prova de erro é deixar o "Website URL" limpo
+(`https://quiz-thiagovitorio.vercel.app/`) e colocar os parâmetros no campo
+**"Parâmetros de URL"** do anúncio, com as macros dinâmicas. Assim cada anúncio
+se identifica sozinho e ninguém esquece de trocar na duplicação.
+
+**Regras que evitam sujeira na planilha:**
+
+- **Nunca em dois lugares ao mesmo tempo.** Se os parâmetros estiverem no
+  Website URL E no campo de parâmetros, a Meta duplica e a leitura sai errada.
+- **Nome de campanha, conjunto e anúncio sem acento e sem espaço.** As macros
+  copiam o nome literal: "Campanha Mulheres 35+ | Frio" chega na planilha como
+  `Campanha%20Mulheres%2035+%20|%20Frio`. Use `mulheres-35-frio`.
+- **Padronize `utm_source` e `utm_medium` na mão** (`meta` e `paid`), e deixe as
+  macros só para campanha, conjunto e anúncio.
+- O `fbclid` que a Meta acrescenta sozinha não atrapalha: o funil ignora.
+
+**Teste antes de subir verba:** abra a URL com as UTMs, responda o quiz inteiro
+e confira as 5 colunas de UTM na planilha. Leva dois minutos e é a única prova
+que vale.
+
+### Detalhes que a gente conferiu neste funil
+
+- **`/index.html?utm_...` também funciona aqui.** Testei: a Vercel serve com 200
+  e não redireciona, então a query sobrevive. Ainda assim use a raiz, que é a
+  convenção e não depende do comportamento do servidor.
+- **As UTMs ficam guardadas na sessão** (`sessionStorage`), não só na URL. Antes
+  disso existia um furo real: se a lead recarregasse ou voltasse pelo histórico
+  numa URL sem os parâmetros e aceitasse o "continuar de onde parou", o lead caía
+  na planilha **sem origem nenhuma**. Corrigido e testado em 12/08.
+
 ## Pendências
 
 1. **Republicar a partir desta pasta**: os deploys até aqui foram feitos pelo MCP
