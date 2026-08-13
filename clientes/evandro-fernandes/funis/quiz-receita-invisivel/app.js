@@ -134,7 +134,7 @@ function renderStep(i) {
       <div class="actions">
         ${i > 0
           ? '<button class="btn btn-ghost btn-short" id="back">← Voltar</button>'
-          : '<span class="hint">Toque na opção que mais combina. Avança sozinho.</span>'}
+          : '<span class="hint">Selecione a opção que mais se aproxima da sua realidade.</span>'}
       </div>
     </section>`);
   app.replaceChildren(screen);
@@ -185,7 +185,7 @@ function renderCaptura() {
 
   const screen = el(`
     <section class="card screen">
-      <p class="eyebrow">Quase lá</p>
+      <p class="eyebrow">Última etapa</p>
       <h2>${c.titulo}</h2>
       <p class="lead">${c.subtitulo}</p>
       <div class="errors" id="err" role="alert" aria-live="assertive"></div>
@@ -229,7 +229,7 @@ function renderCaptura() {
       const msg = screen.querySelector(`#${f.id}-err`);
       const val = input.value.trim();
       let problem = "";
-      if (f.required && !val) problem = "Esse campo é obrigatório.";
+      if (f.required && !val) problem = "Campo obrigatório.";
       else if (f.type === "tel" && val && val.replace(/\D/g, "").length < 11) problem = "Informe o WhatsApp completo com DDD.";
       else if (f.type === "email" && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) problem = "Informe um e-mail válido.";
       if (problem) {
@@ -242,7 +242,7 @@ function renderCaptura() {
       }
     });
     if (problems.length) {
-      errBox.textContent = "Confira os campos: " + problems.join(", ") + ".";
+      errBox.textContent = "Revise os campos: " + problems.join(", ") + ".";
       errBox.classList.add("show"); errBox.focus?.();
       trackEvent("field_error", { step_id: "captura", fields: problems });
       return;

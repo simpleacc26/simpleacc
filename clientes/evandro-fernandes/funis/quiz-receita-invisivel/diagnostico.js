@@ -71,7 +71,7 @@ if (!a._completedAt && !a.problema) {
 
     <div class="etapa">
       <h3>Antes de tudo</h3>
-      <p>Oi, ${nome}. Li com atenção o que você respondeu, e quero começar por uma boa
+      <p>Olá, ${nome}. Li com atenção o que você respondeu, e quero começar por uma boa
       notícia: <strong>o dinheiro que falta na sua empresa não sumiu. Ele vaza, e o que
       vaza dá para recuperar.</strong></p>
     </div>
@@ -99,7 +99,7 @@ if (!a._completedAt && !a.problema) {
 
     ${ctaInline(
       nutrir ? "Quero organizar meus dados" : "Quero saber quanto estou perdendo",
-      "Conversa direta com o time do Evandro, sem compromisso."
+      "Conversa direta com a equipe do Evandro, sem compromisso."
     )}
 
     <div class="etapa">
@@ -155,17 +155,17 @@ if (!a._completedAt && !a.problema) {
       </p>
     </div>
 
-    ${ctaInline("Falar com o time agora", "")}
+    ${ctaInline("Falar com a equipe", "")}
 
     <div class="cta-box">
       <h2>O próximo passo, ${nome}</h2>
       ${nutrir
         ? `<p>Pelo momento do seu negócio, o caminho mais inteligente agora é começar
-           organizando os dados na plataforma HDM, e escalar depois. O time te mostra por
+           organizando os dados na plataforma HDM, e escalar depois. A equipe indica por
            onde iniciar, no seu ritmo.</p>`
         : `<p>Uma <strong>sessão estratégica gratuita</strong> com o Evandro: o diagnóstico
            do seu momento e o desenho do próximo passo para recuperar a sua Receita
-           Invisível. Sem compromisso e sem enrolação.</p>`}
+           Invisível. Sem compromisso e com objetividade.</p>`}
       <div class="actions" style="justify-content:center">
         <button class="btn btn-primary btn-block js-wa">${nutrir ? "Quero começar pela plataforma" : "Quero minha sessão estratégica"}</button>
       </div>

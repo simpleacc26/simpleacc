@@ -53,17 +53,28 @@
 
 /* ---------- base ---------- */
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+
+/* Fundo em duas camadas, para não sobrar faixa em nenhum tamanho de tela:
+   o html leva a cor sólida (cobre qualquer sobra e mata o flash claro) e o body
+   leva o gradiente com min-height 100vh (cobre a viewport inteira mesmo com
+   conteúdo curto). Sem background-attachment fixed: ele dimensiona o fundo pela
+   viewport e deixa sem pintura o que passa disso, virando uma faixa branca. */
+html {
+  scroll-behavior: smooth;
+  /* Mesma cor em que o gradiente do body TERMINA. Se ficar diferente, qualquer
+     sobra abaixo do body vira um degrau visível no rodapé. */
+  background: var(--bg-2);
+}
 body {
   margin: 0;
-  font-family: var(--font);
-  font-size: 17px; line-height: 1.55;
-  color: var(--text);
+  min-height: 100vh;
   background:
     radial-gradient(1100px 620px at 50% -8%, rgba(0,227,187,.10), transparent 62%),
     radial-gradient(900px 520px at 88% 4%, rgba(48,185,255,.08), transparent 60%),
     linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
-  background-attachment: fixed;
+  font-family: var(--font);
+  font-size: 17px; line-height: 1.55;
+  color: var(--text);
   -webkit-font-smoothing: antialiased;
 }
 img { max-width: 100%; display: block; }
@@ -84,9 +95,14 @@ img { max-width: 100%; display: block; }
 .brand .logo-img { height: 46px; width: auto; }
 
 /* ---------- progresso (sem número, só a barra) ---------- */
+/* Barra sticky translúcida com desfoque. Fundo sólido aqui vira uma tarja preta
+   de ponta a ponta no desktop, porque a faixa ocupa a largura toda enquanto o
+   resto da página tem o brilho da marca. */
 .progress-wrap {
   position: sticky; top: 0; z-index: 20;
-  background: linear-gradient(180deg, var(--bg) 62%, transparent);
+  background: rgba(3, 5, 7, .62);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
   padding: 14px 0 10px;
 }
 .progress-track { height: 5px; background: rgba(255,255,255,.08); border-radius: 99px; overflow: hidden; }

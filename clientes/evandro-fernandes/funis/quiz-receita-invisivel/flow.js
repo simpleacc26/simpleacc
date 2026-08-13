@@ -11,7 +11,7 @@ window.FLOW = {
     whatsapp: "5500000000000",
     // Texto que abre no WhatsApp. {nome} vira o nome do lead e {gargalo} vira o
     // índice do diagnóstico dele, para o SDR já abrir a conversa com contexto.
-    whatsappMsg: "Oi! Sou {nome}, fiz o Diagnóstico de Receita Invisível e o meu ponto foi: {gargalo}. Quero entender onde minha empresa está perdendo receita.",
+    whatsappMsg: "Olá! Sou {nome}. Concluí o Diagnóstico de Receita Invisível e o meu ponto principal foi: {gargalo}. Gostaria de entender onde a minha empresa está perdendo receita.",
   },
 
   hero: {
@@ -130,13 +130,13 @@ window.FLOW = {
   captura: {
     titulo: "Seu diagnóstico está pronto.",
     subtitulo:
-      "Pra onde enviamos? Deixe seu WhatsApp e e-mail que a equipe do Evandro te manda o diagnóstico da sua Receita Invisível e o próximo passo, sem compromisso.",
+      "Para onde devemos enviar? Informe seu WhatsApp e e-mail: a equipe do Evandro enviará o seu diagnóstico de Receita Invisível e o próximo passo recomendado, sem compromisso.",
     campos: [
-      { id: "nomeResp", label: "Seu nome", type: "text", required: true, autocomplete: "name", placeholder: "Como podemos te chamar?" },
-      { id: "whatsapp", label: "Seu WhatsApp (com DDD)", type: "tel", required: true, autocomplete: "tel", placeholder: "(11) 99999-9999", mask: "phone" },
-      { id: "email", label: "Seu e-mail", type: "email", required: true, autocomplete: "email", placeholder: "voce@empresa.com" },
+      { id: "nomeResp", label: "Nome", type: "text", required: true, autocomplete: "name", placeholder: "Nome e sobrenome" },
+      { id: "whatsapp", label: "WhatsApp (com DDD)", type: "tel", required: true, autocomplete: "tel", placeholder: "(11) 99999-9999", mask: "phone" },
+      { id: "email", label: "E-mail corporativo", type: "email", required: true, autocomplete: "email", placeholder: "nome@empresa.com.br" },
     ],
-    cta: "Ver meu diagnóstico agora",
-    privacidade: "🔒 Usamos seus dados só para te enviar o diagnóstico e o próximo passo, conforme a LGPD e com o seu consentimento. Nada de spam.",
+    cta: "Ver meu diagnóstico",
+    privacidade: "🔒 Seus dados serão utilizados apenas para o envio do diagnóstico e o contato da equipe, conforme a LGPD e com o seu consentimento. Sem spam.",
   },
 };
