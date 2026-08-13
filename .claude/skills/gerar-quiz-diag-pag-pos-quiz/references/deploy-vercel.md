@@ -3,6 +3,18 @@
 Objetivo: funil no ar numa **URL limpa e pública**, na conta/time Vercel do
 cliente (geralmente o time da empresa). Entregue o link no final.
 
+## Escolha do caminho (leia antes)
+
+| Caminho | Quando | Observação |
+| --- | --- | --- |
+| **Projeto ligado ao Git** | sempre que der | **Preferido.** `create_git_project` com `rootDirectory` na pasta do funil. Todo push publica sozinho, imagem sobe sem limite, nada de snapshot. |
+| CLI (`vercel deploy`) | CLI disponível e autenticado | Ver passos abaixo. |
+| MCP (`deploy_to_vercel`) | sem CLI | Funciona, mas tem armadilhas sérias: leia a seção do MCP. |
+
+Ligar ao Git resolve de uma vez os problemas de tamanho, de binário corrompido
+e de arquivo esquecido no snapshot. Se o funil vive num monorepo, use
+`rootDirectory` (ex.: `clientes/<cliente>/funis/<funil>`).
+
 ## Regras de segurança
 - **NUNCA** deploye a raiz do workspace (tem dados de outros clientes). Publique
   **só a subpasta do funil**.
@@ -75,3 +87,55 @@ A mesma URL atualiza sozinha.
 ## 5. Entrega
 Confirme por curl que a URL final é **200** e serve o conteúdo. Entregue:
 `https://<nome-limpo>.vercel.app` e lembre: **anúncio aponta pra raiz com `?utm_...`**.
+
+---
+
+## Deploy pelo MCP (`deploy_to_vercel`), quando não há CLI
+
+Funciona, mas tem três armadilhas que já custaram caro:
+
+**1. Cada deploy SUBSTITUI o snapshot inteiro.** Arquivo que você não mandou na
+chamada é **apagado** do ar. Sempre monte a lista completa do projeto, não só o
+que mudou. Já derrubou funil em produção duas vezes por causa disso.
+
+**2. Texto vai como texto; binário vai em base64 e é frágil.** Arquivo de texto
+não infla, então o gargalo real é **imagem**, não tamanho total. E um único
+caractere trocado no base64 corrompe o arquivo: o PNG chega com o tamanho certo,
+abre no `file`, responde 200, e mesmo assim o stream está quebrado.
+
+**Não mande imagem por base64.** Sirva do próprio repositório (se ele for
+público) via jsDelivr, com o **commit fixado**:
+```
+https://cdn.jsdelivr.net/gh/<owner>/<repo>@<commit>/<caminho>/logo.webp
+```
+É imutável, não depende de branch e tira o binário da jogada. Se o repositório
+for privado, aí não tem jeito: ligue o projeto ao Git.
+
+**3. Confirme com `cmp`, não com status 200.** Baixe o que está no ar e compare
+byte a byte com o repositório:
+```
+curl -s https://<url>/app.js -o /tmp/live.js && cmp /tmp/live.js <funil>/app.js
+```
+Status 200 não é prova de integridade. Foi o `cmp` que pegou o logo corrompido.
+
+## ⚠️ Trocar o funil de endereço: o antigo REDIRECIONA
+
+Se o funil mudar de URL, **o endereço antigo não pode continuar servindo uma
+cópia**. A cópia congela no estado daquele momento e envelhece sozinha: quem
+entrar por ela responde o quiz inteiro, vê o diagnóstico normalmente e o lead
+**não é enviado**, porque aquele `app.js` velho ainda está sem o endpoint. Nada
+quebra na tela, então ninguém percebe até faltar linha na planilha.
+
+Publique no projeto antigo só um redirect, preservando a query string para não
+perder as UTMs:
+```json
+{ "redirects": [
+  { "source": "/:path*",
+    "destination": "https://<novo>.vercel.app/:path*",
+    "permanent": false }
+] }
+```
+Use `permanent: false` (307): 301 fica cacheado no navegador e é sofrido de
+desfazer. Vale a pena deixar também um `index.html` com
+`location.replace(... + location.search + location.hash)` como rede de
+segurança.
