@@ -110,11 +110,6 @@
     background:var(--gold-tint); border-left:2px solid var(--gold);
     padding:.85rem 1.1rem; margin-left:-.15rem;
   }
-
-  .dbg{border:1px dashed var(--line-2); border-radius:var(--r); background:#EFEDE7; padding:1.1rem 1.3rem; font-size:.76rem; line-height:1.85; color:var(--ink-2); font-variant-numeric:tabular-nums}
-  .dbg b{display:block; font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; color:var(--gold-deep); margin-bottom:.6rem; font-weight:600}
-
-  .flag{background:var(--gold); color:#221B08; text-align:center; font-size:.6rem; font-weight:600; letter-spacing:.24em; text-transform:uppercase; padding:.5rem 1rem}
   footer{border-top:1px solid var(--line); padding:1.6rem 0 2.4rem; font-size:.62rem; font-weight:500; letter-spacing:.2em; text-transform:uppercase; color:var(--ink-3)}
 
   @media(max-width:560px){
@@ -127,8 +122,6 @@
 </style>
 </head>
 <body>
-
-<div class="flag">Versão de teste · sem integração com CRM ou planilha</div>
 
 <div class="bar">
   <div class="wrap">
@@ -242,6 +235,9 @@ const PILAR_DO_QUADRO = {
 const TOTAL = PERGUNTAS.length;
 const R = {};
 let etapa = 1, fora = false;
+
+/* webhook do Make — cenário "V4 - Ju Godinho (Quiz B)" */
+const WEBHOOK = 'https://hook.us2.make.com/xm49y796rjznhxylkfx1grmgg9wgkbc2';
 
 /* UTMs da URL, para viajar junto do lead */
 const UTM = (() => {
@@ -402,6 +398,33 @@ function resultado(){
     em: new Date().toISOString()
   };
   try{ sessionStorage.setItem('jugodinho_quizb', JSON.stringify(payload)); }catch(e){}
+
+  /* lead para o Make → planilha "V4 - Quiz" + GoHighLevel.
+     keepalive faz a requisição sobreviver ao redirect para o diagnóstico;
+     falha de rede não pode segurar o lead na tela, então o erro é engolido. */
+  try{
+    fetch(WEBHOOK, {
+      method: 'POST',
+      keepalive: true,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        nome: R._nome, numero: R._fone, email: R._mail,
+        q1: PERGUNTAS[0].opts[R.carro].t,
+        q2: PERGUNTAS[1].opts[R.cena].t,
+        q3: PERGUNTAS[2].opts[R.equipe].t,
+        q4: PERGUNTAS[3].opts[R.margem].t,
+        q5: (R.tentou||[]).map(k=>PERGUNTAS[4].opts[k].t).join(' + ') || 'nada',
+        q6: PERGUNTAS[5].opts[R.faturamento].t,
+        gargalo: Q.nome,
+        rota: rota==='mentoria' ? 'Mentoria (R$ 9.999)' : 'EDP (R$ 1.997)',
+        pilar: PILARES[P.i].n,
+        utm_source: UTM.utm_source || '', utm_medium: UTM.utm_medium || '',
+        utm_campaign: UTM.utm_campaign || '', utm_term: UTM.utm_term || '',
+        utm_content: UTM.utm_content || '',
+        data: payload.em
+      })
+    }).catch(()=>{});
+  }catch(e){}
 
   screen.innerHTML = `
     <p class="kicker">Pronto</p>

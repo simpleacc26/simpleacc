@@ -1,7 +1,8 @@
 # Quiz B — Diagnóstico · Ju Godinho
 
-Protótipo navegável do Quiz B, para validação interna e com a cliente antes da
-implementação definitiva.
+Quiz B da Ju, em produção, rodando como **teste A/B contra o quiz atual**
+(`quiz.julianagodinho.com.br`). Os dois ficam no ar ao mesmo tempo e gravam em
+abas separadas da mesma planilha.
 
 **No ar:**
 - Quiz: https://quiz-ju-godinho.vercel.app
@@ -44,8 +45,38 @@ nem CDN.
 | **Rota da oferta** | P6 (faturamento). Até R$ 10 mil vai para o EDP; acima de R$ 10 mil vai para a mentoria. |
 | **Sinal, sem efeito na rota** | P3 (quem atende), P4 (margem) e P5 (o que já fez). Alimentam o laudo. |
 
-A tela de resultado mostra um **bloco de teste** com o quadro, a rota e todas as
-respostas, para conferir a lógica. Esse bloco não vai para a versão final.
+## Integração
+
+Ao terminar o quiz, o `index.html` faz `POST` para o webhook do Make com
+`keepalive: true`, para a requisição sobreviver ao redirect para o diagnóstico.
+Falha de rede é engolida: o lead nunca fica preso numa tela de erro.
+
+| Peça | Onde |
+| --- | --- |
+| Cenário Make | `V4 - Ju Godinho (Quiz B)`, id `5937136` |
+| Webhook | `https://hook.us2.make.com/xm49y796rjznhxylkfx1grmgg9wgkbc2` |
+| Planilha | `[Simple_ACC Juliana] Lead Score - Tráfego`, aba **`V4 - Quiz`** |
+| CRM | GoHighLevel da Ju (`QMyNQVqmEyUtRM62u4Zr`), pipeline "Fúnil de Marketing" |
+| Tags aplicadas | `quiz-diagnostico` + `quiz-b-diagnostico` |
+
+**A ordem dos módulos é planilha → CRM, de propósito.** No cenário do quiz
+antigo (V3) o CRM vem primeiro, então uma falha da GHL derruba a execução e o
+lead se perde. Aqui a linha da planilha é gravada antes de qualquer chamada à
+GHL, e os dois módulos da GHL têm `Ignore`: se o CRM cair, o lead ainda está
+salvo e recuperável.
+
+Campos enviados: `nome`, `numero`, `email`, `q1`–`q6` (as seis respostas em
+texto), `gargalo`, `rota`, `pilar`, as cinco UTMs e `data`.
+
+> **Campos personalizados da GHL.** As respostas do quiz vão para a planilha
+> completas, mas dentro do CRM só gravam nome, telefone, e-mail e UTMs. Os
+> campos personalizados que existem na conta da Ju estão rotulados com as
+> perguntas do **quiz antigo** e reaproveitá-los faria o CRM mentir para o SDR.
+> Os 9 campos novos (`Quiz B - ...`) precisam ser criados **na mão**, pela
+> interface da GHL: a conexão do Make é *Location OAuth 2.0*, cujos 12 escopos
+> leem campos personalizados mas não criam — a API devolve
+> `401 The token is not authorized for this scope`. Depois de criados, basta
+> acrescentar os ids no `customFields` do módulo 3 do cenário.
 
 ## Como o laudo é personalizado
 
@@ -123,7 +154,8 @@ chrome, FAQ e CTAs), então o mesmo laudo serve de anexo para a cadência da SDR
 
 ## O que ainda NÃO existe
 
-- Integração com CRM ou planilha de leads. O formulário valida, mas não envia.
+- Os **9 campos personalizados** `Quiz B - ...` na GHL (ver "Integração" acima).
+  Até existirem, as respostas ficam só na planilha.
 - `sessionStorage` para retomar de onde parou, que o playbook pede.
 - **Logo** da Ju. A marca está como lockup tipográfico até chegar o arquivo.
 - **Foto em resolução maior.** A que está no ar (`ju.png`, 312x391) veio de uma

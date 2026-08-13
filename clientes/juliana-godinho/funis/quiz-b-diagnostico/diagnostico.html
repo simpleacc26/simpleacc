@@ -22,8 +22,6 @@
   .wrap{width:var(--wrap);margin-inline:auto}
   .narrow{width:var(--narrow);margin-inline:auto}
   img{max-width:100%;display:block}
-
-  .flag{background:var(--gold);color:#221B08;text-align:center;font-size:.6rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;padding:.5rem 1rem}
   .bar{background:var(--espresso);border-bottom:1px solid rgba(201,168,76,.22)}
   .bar .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.05rem 0;flex-wrap:wrap}
   .mark{font-weight:600;font-size:.74rem;letter-spacing:.34em;text-transform:uppercase;color:#F2EDE3}
@@ -119,9 +117,6 @@
   .paras{list-style:none;display:grid;gap:.7rem;max-width:34rem;margin:2rem auto 2.4rem;text-align:left}
   .paras li{display:flex;gap:.9rem;align-items:baseline;color:rgba(242,237,227,.8);font-size:1rem}
   .paras li::before{content:"";width:.42rem;height:.42rem;background:var(--gold);transform:rotate(45deg);flex:none}
-
-  .dbg{border:1px dashed var(--line-2);border-radius:var(--r);background:#EFEDE7;padding:1.1rem 1.3rem;font-size:.76rem;line-height:1.85;color:var(--ink-2)}
-  .dbg b{display:block;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:.6rem;font-weight:600}
   footer{border-top:1px solid var(--line);padding:1.8rem 0 2.6rem;font-size:.62rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);text-align:center}
 
   @media(max-width:760px){
@@ -146,7 +141,7 @@
   @media print{
     @page{margin:14mm}
     body{background:#fff}
-    .flag,.pdf,.faq,.cta,.dbg,footer{display:none!important}
+    .pdf,.faq,.cta,footer{display:none!important}
     .head,.sessao,.fim{background:#fff!important;color:#141210!important}
     .head h1,.sessao h2,.fim h2{color:#141210!important}
     .head .sub,.sessao p,.paras li{color:#4C4640!important}
@@ -159,8 +154,6 @@
 </style>
 </head>
 <body>
-
-<div class="flag">Versão de teste · sem integração com CRM ou planilha</div>
 
 <div class="bar"><div class="wrap">
   <div class="mark">Juliana Godinho<i>Diagnóstico</i></div>
@@ -315,18 +308,7 @@ if(!A || !A.quadro){
       <li>Pare de se sentir insegura na hora de falar de preço.</li>
     </ul>
     <a class="cta" href="https://wa.me/553192744259">Quero agendar minha sessão <span>&rarr;</span></a>
-  </div></section>
-
-  <section class="tight"><div class="narrow"><div class="dbg">
-    <b>Modo teste · o lead não vê este bloco</b>
-    Quadro: ${esc(A.quadroId)} · ${A.quadro}<br>
-    Rota: ${A.rota==='mentoria'?'MENTORIA (R$ 9.999)':'EDP (R$ 1.997)'}<br>
-    Pilar de partida: ${esc(A.pilarNome)}<br>
-    Lead: ${esc(A.nome)} · ${esc(A.fone)} · ${esc(A.mail)}<br>
-    Respostas: ${(A.debug||[]).map(esc).join(' · ')}<br>
-    UTMs: ${A.utm && Object.keys(A.utm).length ? esc(JSON.stringify(A.utm)) : 'nenhuma na URL'}<br>
-    <a href="index.html" style="color:var(--gold-deep)">Testar outro caminho</a>
-  </div></div></section>`;
+  </div></section>`;
 }
 </script>
 </body>
