@@ -7,8 +7,10 @@ window.FLOW = {
   marca: {
     nome: "Evandro Fernandes",
     expert: "Evandro Fernandes",
-    // PENDENTE: trocar pelo WhatsApp real do Evandro (só dígitos, com DDI 55).
-    whatsapp: "5500000000000",
+    // WhatsApp dos CTAs (só dígitos, com DDI). Informado em 13/08/2026 como
+    // 55 11 51941273. São 12 dígitos, formato de linha fixa: se for celular,
+    // falta o 9 e o correto seria 5511951941273. A CONFIRMAR antes de tráfego.
+    whatsapp: "551151941273",
     // Texto que abre no WhatsApp. {nome} vira o nome do lead e {gargalo} vira o
     // índice do diagnóstico dele, para o SDR já abrir a conversa com contexto.
     whatsappMsg: "Olá! Sou {nome}. Concluí o Diagnóstico de Receita Invisível e o meu ponto principal foi: {gargalo}. Gostaria de entender onde a minha empresa está perdendo receita.",

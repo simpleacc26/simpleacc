@@ -35,16 +35,37 @@ invertendo para claro, para o "Salvar em PDF" sair legível.
 - Integridade conferida com `curl` + `cmp`: os 6 arquivos no ar são idênticos ao repo.
 - Anúncio deve apontar pra raiz com query (`/?utm_source=...`), nunca `/index.html`.
 
-## Planilha de leads (integração montada)
-- **Planilha:** https://docs.google.com/spreadsheets/d/1A1xFuIldVeAM7S0HQfza4hj-GZRZxAqahlFRqoJc1Gk/edit (dona: daniel@simpleacc.com.br), cabeçalho pronto (19 colunas).
-- **Make:** cenário `[Evandro Fernandes] Diagnóstico Receita Invisível → Sheets` (id **5805664**, ATIVO), time `1317940`, conexão Google `5139463`. Webhook → google-sheets:addRow (fromAll, aba `Untitled`).
-- **Webhook:** `https://hook.us2.make.com/bb1vst7dea8fyim5mfs9rh4vfo4rdf1v` (já ligado no `LEADS_ENDPOINT` do `app.js`, envio em `application/json`+`keepalive`).
-- ⚠️ **1 clique pendente:** a conexão do Make grava como **ssouzadaniel.ads@gmail.com**, que ainda NÃO tem acesso à planilha (teste retornou `403 PERMISSION_DENIED`). **Compartilhar a planilha com ssouzadaniel.ads@gmail.com como Editor.** Depois disso o lead cai sozinho (verificar a aba: se der "Unable to parse range", o nome da aba não é `Untitled` e ajusto no cenário).
+## Destino dos leads: só o CRM do cliente
+Decisão de 13/08/2026: **sem backup em planilha**. O lead vai direto para o
+webhook do HDM (`CRM_ENDPOINT` no `app.js`), sem passar por Make/Sheets, para não
+gerar custo de operações.
 
-## PENDÊNCIAS (precisam do cliente/admin)
-- [ ] **Admin Vercel:** desligar a Deployment Protection (acima).
-- [ ] **WhatsApp oficial** do Evandro/time (hoje placeholder `5500000000000` em `flow.js`).
-- [ ] **Logo e paleta oficiais** do HDM (hoje placeholder Simple/HDM; trocar slot do logo nos 2 HTML).
-- [ ] **Depoimentos reais** (case JusExpert) para os `[DEPOIMENTO]` em `diagnostico.js`.
-- [ ] Ligar `LEADS_ENDPOINT` (Make webhook) + testar ponta a ponta.
+- O cenário Make `[Evandro Fernandes] ... → Sheets` (id 5805664) está **inativo** e
+  o `LEADS_ENDPOINT` está vazio. Nada consome operação.
+- A planilha criada (`docs.google.com/spreadsheets/d/1A1xFuIldVeAM7S0HQfza4hj-GZRZxAqahlFRqoJc1Gk`)
+  ficou sem uso. Pode ser apagada ou guardada para outro fim.
+- **Consequência a vigiar:** enquanto a autenticação do webhook não for corrigida,
+  o funil não tem destino nenhum para lead. Não subir tráfego antes disso.
+- Para reativar o backup um dia: colar a URL do webhook em `LEADS_ENDPOINT` e
+  reativar o cenário no Make.
+
+## PENDÊNCIAS
+
+**Bloqueia subir tráfego:**
+- [ ] **Autenticação do webhook do HDM.** Hoje volta 403 em toda forma (ver
+      `especificacao-webhook-leads.md`). Sem isso o lead não tem destino nenhum.
+- [ ] **Onde guardar a `CRM_API_KEY`.** Decidir entre commitar no `app.js` (fica
+      visível no navegador, que é o desenho de CORS que o HDM montou) ou um proxy
+      serverless com env var. Enquanto não decidir, a constante fica vazia.
+- [ ] **WhatsApp oficial** do Evandro (hoje `5500000000000` em `flow.js`). São os
+      3 CTAs do relatório que abrem o `wa.me`.
+
+**Melhora a entrega, não bloqueia:**
+- [ ] **Logo oficial** em SVG/PNG (hoje wordmark "HDM" em texto). A paleta já é a
+      real, extraída do site.
+- [ ] **Aprovar com o Evandro as 4 citações** atribuídas a ele em `diagnostico.js`.
+- [ ] **Prova visual real** (prints/vídeo) para além do case JusExpert.
 - [ ] (Opcional) IDs de GA4 / Meta Pixel em `TRACKING_CONFIG` no `app.js`.
+
+**Resolvido:** deploy público (200), identidade HDM, integridade conferida com
+`curl`+`cmp`, tom formalizado para alto ticket.

@@ -7,16 +7,19 @@
    Vazio = só loga no console. ---- */
 const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
 
-/* ---- Destinos do lead ----------------------------------------------------
-   CRM_ENDPOINT: webhook do cliente (n8n do HDM). É o destino principal.
-   CRM_API_KEY:  a chave entra aqui. Deixada vazia de propósito: a chave não
-                 fica versionada no Git, e hoje o endpoint recusa toda forma de
+/* ---- Destino do lead -----------------------------------------------------
+   CRM_ENDPOINT: webhook do cliente (n8n do HDM). É o destino ÚNICO: o lead cai
+                 direto no CRM dele.
+   CRM_API_KEY:  a chave entra aqui. Vazia de propósito por dois motivos: chave
+                 não é versionada no Git, e hoje o endpoint recusa toda forma de
                  autenticação (ver especificacao-webhook-leads.md).
-   LEADS_ENDPOINT: backup nosso (Make -> planilha). Fica sempre ligado, para
-                 nenhum lead se perder se o CRM estiver fora do ar. */
+   LEADS_ENDPOINT: desligado por decisão de 13/08/2026. O backup em Make/Sheets
+                 foi descartado para não gerar custo de operações, já que o
+                 destino final é o CRM do cliente. Para reativar, basta colar a
+                 URL do webhook aqui e reativar o cenário no Make. */
 const CRM_ENDPOINT   = "https://n8n.digienge.ai/webhook/quizzreceitainvisivel";
 const CRM_API_KEY    = "";
-const LEADS_ENDPOINT = "https://hook.us2.make.com/bb1vst7dea8fyim5mfs9rh4vfo4rdf1v";
+const LEADS_ENDPOINT = "";
 
 /* UTMs capturadas da URL no carregamento (a página do quiz não muda de URL até
    o envio, então isso preserva os parâmetros do anúncio). */
