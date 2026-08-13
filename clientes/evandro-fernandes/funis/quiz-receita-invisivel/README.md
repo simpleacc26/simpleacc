@@ -12,6 +12,7 @@ Stack: HTML/CSS/JS puro, sem dependências, sem build. Mobile-first.
 - `app.js` · motor (render, validação, máscara, UTMs, sessionStorage, envio do lead)
 - `styles.css` · identidade (tokens no `:root`)
 - `diagnostico.html` + `diagnostico.js` · relatório auto-preenchido + Baixar PDF + WhatsApp
+- `favicon.png` · ícone oficial do HDM, 64px
 - `integracao-planilha.gs` · Apps Script da planilha de leads
 
 ## Como rodar local
@@ -28,10 +29,10 @@ cartões translúcidos, raio 20px. Fonte da marca é Inter (usada se existir na
 máquina; sem Google Fonts, por performance). Tema escuro com `@media print`
 invertendo para claro, para o "Salvar em PDF" sair legível.
 
-**Favicon:** é o ícone oficial do HDM (`img/HDM_ICONE_ROXO@2x.png` do site),
-recortado, reduzido para 64px e embutido em data URI nos dois HTMLs. Embutido de
-propósito: se o site do cliente sair do ar ou trocar o caminho da imagem, a aba
-do funil não quebra. O logo não foi redesenhado, é o arquivo dele (roxo `#806ACE`).
+**Favicon:** `favicon.png` é o ícone oficial do HDM (`img/HDM_ICONE_ROXO@2x.png`
+do site), recortado no bounding box e reduzido para 64px. Servido junto com o
+funil, e não linkado do site do cliente, para a aba não quebrar se ele trocar o
+caminho da imagem. O logo não foi redesenhado, é o arquivo dele (roxo `#806ACE`).
 
 ## Publicação (Vercel · time Simpleacc)
 - **Projeto:** `quiz-evandro-fernandes` (`prj_9gwlLW8TG5yVauoDFe1714KyjhAq`), time Simpleacc (`team_bD5dst9eSAc4qVaaynXWifXr`).
