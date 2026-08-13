@@ -27,7 +27,7 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
   [@orafaelcobra](https://instagram.com/orafaelcobra) — verificado, **333 mil
   seguidores** (já teve 375 mil), audiência construída **organicamente**.
   Ex-remador da **seleção brasileira**, melhor atleta do país por 8 anos.
-  Onboarding em **11/08/2026**.
+  Onboarding **feito em 11/08/2026**. **Roadmap prometido para quinta, 13/08.**
 
 - **Números de hoje:** **R$ 22–23 mil/mês**, **18–20 pacientes**, sessão
   **R$ 350** (tem paciente pagando 550 e 650 sem reclamar). Capacidade: 30+.
@@ -45,6 +45,16 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
   vendas; o **deck enviado por e-mail é o documento que vale e ainda não está no
   repo**.
 - **Atenção de calendário:** **viagem aos EUA em outubro**, dentro dos 90 dias.
+- **TDAH (declarado por ele na onboarding, tratado).** Pediu explicitamente
+  material **objetivo, guiado e em ORDEM**: *"o que me pega mais no sentido
+  positivo é a ordem. Começa aqui, vai para cá."* E **cada passo precisa de um
+  porquê** — *"se não tiver um porquê, nenhum vídeo de 10 segundos eu gravo."*
+  **Todo entregável para ele deve ser numerado, sequencial e justificado.**
+- **Disponibilidade: ~4h/dia, fracionadas** (leva e busca o filho de 8 anos;
+  treino no Flamengo seg/qua/sex de manhã). Blocos curtos, nunca maratona.
+- **Ativo escondido:** ele marca **todo lead do WhatsApp com um emoji de cobrinha**
+  no nome. Buscar pelo emoji devolve a base inteira — é o caminho mais curto para
+  caixa rápido.
 
 - **São DOIS produtos, em estágios muito diferentes:**
   - **Produto 1 — Mentoria para mulheres (relacionamentos).** Produto atual.
