@@ -28,6 +28,11 @@ cartões translúcidos, raio 20px. Fonte da marca é Inter (usada se existir na
 máquina; sem Google Fonts, por performance). Tema escuro com `@media print`
 invertendo para claro, para o "Salvar em PDF" sair legível.
 
+**Favicon:** é o ícone oficial do HDM (`img/HDM_ICONE_ROXO@2x.png` do site),
+recortado, reduzido para 64px e embutido em data URI nos dois HTMLs. Embutido de
+propósito: se o site do cliente sair do ar ou trocar o caminho da imagem, a aba
+do funil não quebra. O logo não foi redesenhado, é o arquivo dele (roxo `#806ACE`).
+
 ## Publicação (Vercel · time Simpleacc)
 - **Projeto:** `quiz-evandro-fernandes` (`prj_9gwlLW8TG5yVauoDFe1714KyjhAq`), time Simpleacc (`team_bD5dst9eSAc4qVaaynXWifXr`).
 - **URL de produção:** https://quiz-evandro-fernandes-simpleacc.vercel.app (deploy READY).
@@ -52,20 +57,23 @@ gerar custo de operações.
 ## PENDÊNCIAS
 
 **Bloqueia subir tráfego:**
-- [ ] **Autenticação do webhook do HDM.** Hoje volta 403 em toda forma (ver
-      `especificacao-webhook-leads.md`). Sem isso o lead não tem destino nenhum.
+- [ ] **Autenticação do webhook do HDM.** Reconferido em 13/08 às 20h35: volta 403
+      em toda forma, com `www-authenticate: Basic` (o nó está em Basic Auth e a
+      chave é de Header Auth). Diagnóstico completo e o curl de conferência em
+      `especificacao-webhook-leads.md`. Sem isso o lead não tem destino nenhum.
 - [ ] **Onde guardar a `CRM_API_KEY`.** Decidir entre commitar no `app.js` (fica
       visível no navegador, que é o desenho de CORS que o HDM montou) ou um proxy
-      serverless com env var. Enquanto não decidir, a constante fica vazia.
-- [ ] **WhatsApp oficial** do Evandro (hoje `5500000000000` em `flow.js`). São os
-      3 CTAs do relatório que abrem o `wa.me`.
+      serverless com env var. Enquanto não decidir, a constante fica vazia — e
+      enquanto vazia, o POST sai sem header nenhum e leva 403 mesmo que o nó seja
+      corrigido. São dois bloqueios em série, resolver os dois.
 
 **Melhora a entrega, não bloqueia:**
-- [ ] **Logo oficial** em SVG/PNG (hoje wordmark "HDM" em texto). A paleta já é a
-      real, extraída do site.
+- [ ] **Logo oficial** em SVG/PNG para o topo da página (hoje wordmark "HDM" em
+      texto). A paleta e o favicon já são os reais, tirados do site.
 - [ ] **Aprovar com o Evandro as 4 citações** atribuídas a ele em `diagnostico.js`.
 - [ ] **Prova visual real** (prints/vídeo) para além do case JusExpert.
 - [ ] (Opcional) IDs de GA4 / Meta Pixel em `TRACKING_CONFIG` no `app.js`.
 
-**Resolvido:** deploy público (200), identidade HDM, integridade conferida com
+**Resolvido:** deploy público (200), identidade HDM, favicon oficial, WhatsApp
+dos CTAs (`551151941273`, conta comercial DigiEnge), integridade conferida com
 `curl`+`cmp`, tom formalizado para alto ticket.

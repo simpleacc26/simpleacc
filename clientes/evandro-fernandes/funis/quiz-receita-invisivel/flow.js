@@ -7,9 +7,9 @@ window.FLOW = {
   marca: {
     nome: "Evandro Fernandes",
     expert: "Evandro Fernandes",
-    // WhatsApp dos CTAs (só dígitos, com DDI). Informado em 13/08/2026 como
-    // 55 11 51941273. São 12 dígitos, formato de linha fixa: se for celular,
-    // falta o 9 e o correto seria 5511951941273. A CONFIRMAR antes de tráfego.
+    // WhatsApp dos CTAs (só dígitos, com DDI). Conta comercial da DigiEnge,
+    // +55 11 5194-1273. São 12 dígitos porque é WhatsApp Business em linha fixa,
+    // não celular: confirmado no perfil em 13/08/2026, não falta o 9.
     whatsapp: "551151941273",
     // Texto que abre no WhatsApp. {nome} vira o nome do lead e {gargalo} vira o
     // índice do diagnóstico dele, para o SDR já abrir a conversa com contexto.

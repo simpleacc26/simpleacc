@@ -10,26 +10,54 @@ leads do quiz direto no CRM.
 
 **Endpoint recebido:** `https://n8n.digienge.ai/webhook/quizzreceitainvisivel`
 
+Reconferido em 13/08/2026, 20h35, depois do teste em que o Evandro acompanhou e
+o lead não chegou no CRM. Todos os resultados abaixo são reproduzíveis por curl.
+
 | Verificação | Resultado |
 | ----------- | --------- |
-| CORS (preflight `OPTIONS`) | **OK.** Responde 204 liberando a origem `https://quiz-evandro-fernandes.vercel.app` e o header `x-api-key`. |
+| O caminho existe? (`POST` num path inventado dá 404) | **Existe.** O nosso path responde **403**, não 404: o workflow está publicado e ativo. |
+| Host no ar (`GET https://n8n.digienge.ai/`) | 200 |
+| CORS (preflight `OPTIONS`) | **OK.** 204 liberando a origem `https://quiz-evandro-fernandes.vercel.app`, os métodos `OPTIONS, POST` e o header `x-api-key`. |
 | `POST` com `X-Api-Key` (o curl de exemplo do HDM) | **403** `Authorization data is wrong!` |
 | `POST` com `Authorization: Bearer` | 403 |
-| `POST` com Basic Auth (chave como usuário ou senha) | 403 |
+| `POST` com Basic Auth (chave como usuário, como senha, e `admin` + chave) | 403 |
 | `POST` sem autenticação | 403 |
 
-**Diagnóstico:** a resposta vem com o header `www-authenticate: Basic realm="Webhook"`.
-Isso indica que o nó de Webhook do n8n está configurado como **Basic Auth**,
-enquanto a chave enviada é de **Header Auth**. Por isso nenhuma forma de
-autenticação passa, **inclusive o curl de exemplo do próprio HDM**.
+**Diagnóstico:** o 403 vem acompanhado do header `www-authenticate: Basic realm="Webhook"`.
+Quem emite esse header é o ramo de **Basic Auth** do nó de Webhook do n8n. Ou
+seja: o nó está em **Basic Auth**, enquanto a chave que recebemos é de **Header
+Auth** (`X-Api-Key`). Não é chave errada, é **método de autenticação diferente** —
+por isso nada passa, **inclusive o curl de exemplo do próprio HDM**.
+
+A configuração do CORS confirma a leitura: ela libera justamente o header
+`x-api-key`, ou seja, foi montada pensando em **Header Auth**. O que ficou para
+trás foi o seletor *Authentication* do nó, que continua em **Basic Auth**.
+
+**Por que o teste do dia 13 não chegou:** além disso, a `CRM_API_KEY` está vazia
+no funil publicado (a chave não entra no Git). Então o navegador enviou o POST
+**sem nenhum header de autenticação** e levou 403. Mesmo com a chave preenchida
+levaria 403, pelo motivo acima. São dois bloqueios em série, nesta ordem.
 
 **O que resolve, do lado do HDM (qualquer uma das três):**
-1. Trocar o nó para **Header Auth** com nome `X-Api-Key` e o valor da chave enviada; ou
-2. Manter **Basic Auth** e informar o par usuário e senha; ou
-3. Desligar a autenticação do nó (a origem já está travada por CORS).
+1. No nó de Webhook, trocar *Authentication* de **Basic Auth** para **Header Auth**,
+   com nome `X-Api-Key` e o valor da chave já enviada; ou
+2. Manter **Basic Auth** e nos passar o par usuário e senha; ou
+3. Desligar a autenticação do nó (a origem já está travada por CORS, só o
+   domínio do funil consegue chamar).
 
-Assim que ajustarem, a chave entra no funil, republicamos e fazemos o disparo de
-teste. O funil já está preparado para os dois formatos.
+**Como conferir que resolveu, sem depender do funil.** Rodando isto de qualquer
+terminal, tem que voltar **200**:
+
+```bash
+curl -i -X POST https://n8n.digienge.ai/webhook/quizzreceitainvisivel \
+  -H "Content-Type: application/json" \
+  -H "X-Api-Key: <a chave>" \
+  -d '{"nome":"TESTE","email":"teste@simpleacc.com.br","whatsapp":"5511999999999"}'
+```
+
+Enquanto voltar 403, o lead não chega — não adianta repetir o teste pelo site.
+Assim que der 200, a chave entra no funil, republicamos e fazemos o disparo de
+teste de ponta a ponta.
 
 ---
 
