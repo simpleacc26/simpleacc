@@ -1,7 +1,15 @@
 # Protótipo navegável: quiz novo + página pós-quiz
 
-Arquivo único e autocontido (`index.html`), sem dependências. Abrir no navegador
-ou hospedar em qualquer lugar estático.
+**No ar:** https://grokker-quiz-diagnostico-simpleacc.vercel.app
+(projeto `grokker-quiz-diagnostico` na Vercel, conta simpleacc, sem proteção de
+login, com `X-Robots-Tag: noindex`.)
+
+`index.html` + `dani.jpg`, sem dependências. Abre no navegador ou em qualquer
+hospedagem estática.
+
+**Ao publicar uma versão nova**, suba os dois arquivos juntos: o HTML aponta
+para `dani.jpg` por caminho relativo. A Etapa 2 tem projeto próprio, em
+`funis/prototipo-etapa2/`.
 
 **Para que serve:** validar com a cliente a conexão entre as duas peças, ou
 seja, que a promessa do quiz e a promessa da página são a mesma. Não é o funil
