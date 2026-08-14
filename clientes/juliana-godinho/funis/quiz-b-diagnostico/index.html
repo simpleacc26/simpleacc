@@ -61,8 +61,13 @@
     transition:border-color .2s, background .2s, color .2s, box-shadow .2s;
   }
   .opt::before{content:""; position:absolute; left:1.3rem; top:1.32rem; width:.5rem; height:.5rem; border:1px solid var(--line-2); transform:rotate(45deg); transition:all .2s}
-  .opt:hover{border-color:var(--gold-hair); background:#FDFBF6; color:var(--ink); box-shadow:0 2px 18px rgba(20,18,16,.05)}
-  .opt:hover::before{border-color:var(--gold)}
+  /* Só para quem tem cursor de verdade. No toque o :hover gruda no último item
+     tocado, e como cada pergunta recria os botões, o que nasce naquela posição
+     já aparece colorido — parecendo pré-selecionado em toda pergunta. */
+  @media (hover:hover) and (pointer:fine){
+    .opt:hover{border-color:var(--gold-hair); background:#FDFBF6; color:var(--ink); box-shadow:0 2px 18px rgba(20,18,16,.05)}
+    .opt:hover::before{border-color:var(--gold)}
+  }
   .opt.on{border-color:var(--gold); background:var(--gold-tint); color:var(--ink)}
   .opt.on::before{background:var(--gold); border-color:var(--gold)}
   .opt:focus-visible{outline:1px solid var(--gold-deep); outline-offset:3px}
@@ -298,7 +303,8 @@ function telaFora(){
       <div class="top"><span class="badge">Diagnóstico encerrado</span>
       <h2>Este diagnóstico não foi construído para o seu momento</h2></div>
       <div class="bd">
-        <p>Ele parte da realidade específica de clínicas e consultórios de estética avançada, e é dela que sai tudo o que a Juliana ensina. Preferimos te dizer isso agora a te fazer percorrer um caminho que não ia te levar a lugar nenhum.</p>
+        <p>Ele parte da realidade específica de clínicas e consultórios de estética avançada, e é dela que sai tudo o que a Juliana ensina. Preferimos te dizer isso com sinceridade agora, em vez de te levar por um caminho desenhado para outra realidade.</p>
+        <p>Isso não diz nada sobre o seu trabalho — diz sobre o recorte deste diagnóstico.</p>
         <p>Obrigado por ter chegado até aqui.</p>
       </div>
     </div>
