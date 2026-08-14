@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<title>Vaga garantida | Imersão Mentores Alivance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<!-- CONFIGURACAO: usar os mesmos valores do index.html -->
+<script>
+  window.CONFIG = {
+    whatsapp: "5551000000000",
+    // Endpoint que recebe as respostas do questionario (pode ser o mesmo dos leads).
+    webhookRespostas: ""
+  };
+</script>
+
+<style>
+  :root{
+    --navy:#1c1c42;--card:#292859;--gold:#c8b28b;--line:rgba(200,178,139,.20);
+    --w:#fff;--w95:rgba(255,255,255,.95);--w80:rgba(255,255,255,.80);
+    --w60:rgba(255,255,255,.60);--w40:rgba(255,255,255,.40);
+    --head:"Fahkwang","Trebuchet MS",system-ui,sans-serif;
+    --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:
+      radial-gradient(120% 70% at 50% 0%, rgba(200,178,139,.14) 0%, rgba(200,178,139,0) 58%),
+      var(--navy);
+    color:var(--w80);font-family:var(--body);font-size:17px;line-height:1.65;
+    min-height:100dvh;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:620px;margin:0 auto;padding:clamp(48px,9vw,86px) 22px 70px}
+  .kicker{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+  h1{font-family:var(--head);font-weight:500;letter-spacing:-.02em;line-height:1.22;
+     font-size:clamp(1.7rem,4.6vw,2.4rem);color:var(--w95);margin-bottom:18px}
+  p{margin-bottom:16px}
+  .card{background:var(--card);border:1px solid rgba(200,178,139,.14);border-radius:18px;padding:28px 26px;margin-top:30px}
+  label{display:block;font-family:var(--head);font-size:1.02rem;color:var(--w95);margin:26px 0 12px;font-weight:500}
+  label:first-of-type{margin-top:0}
+  .ops{display:flex;flex-wrap:wrap;gap:9px}
+  .op{
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:10px;
+    padding:12px 16px;color:var(--w80);font-size:14.5px;cursor:pointer;font-family:var(--body);
+    transition:.15s;
+  }
+  .op:hover{border-color:var(--line)}
+  .op.on{background:var(--gold);border-color:var(--gold);color:var(--navy);font-weight:600}
+  textarea{
+    width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);
+    border-radius:11px;padding:15px 16px;color:var(--w);font-family:var(--body);font-size:16px;
+    min-height:110px;resize:vertical;
+  }
+  textarea:focus{outline:0;border-color:var(--gold);background:rgba(200,178,139,.07)}
+  textarea::placeholder{color:var(--w40)}
+  .btn{
+    display:block;width:100%;background:var(--gold);color:var(--navy);border:0;border-radius:12px;
+    padding:18px;font-family:var(--body);font-size:17px;font-weight:700;cursor:pointer;margin-top:30px;
+  }
+  .btn:disabled{opacity:.55;cursor:default}
+  .zap{
+    display:inline-block;margin-top:26px;color:var(--gold);font-size:15px;
+    text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:2px;
+  }
+  .ok{display:none;text-align:center;padding:16px 0}
+  .ok.on{display:block}
+  .dados{font-size:13.5px;color:var(--w40);margin-top:34px;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="kicker">Imersão Mentores Alivance &middot; 11 de setembro</div>
+  <h1>Vaga garantida. Agora me conta com quem eu vou falar no dia 11.</h1>
+  <p>
+    Você vai receber a confirmação e os detalhes no e-mail e no WhatsApp. Antes disso,
+    responde essas três perguntas. Elas levam um minuto e são o que me permite chegar no
+    dia 11 sabendo quem está na sala, o que ajuda muito na hora do hotseat.
+  </p>
+
+  <div class="card" id="bloco">
+    <form id="form">
+      <label>O que você faz hoje?</label>
+      <div class="ops" data-campo="atuacao">
+        <button type="button" class="op">Mentoria</button>
+        <button type="button" class="op">Consultoria</button>
+        <button type="button" class="op">Treinamento</button>
+        <button type="button" class="op">Coaching</button>
+        <button type="button" class="op">Outro</button>
+      </div>
+
+      <label>Quanto o seu negócio fatura por mês hoje?</label>
+      <div class="ops" data-campo="faturamento">
+        <button type="button" class="op">Até R$10 mil</button>
+        <button type="button" class="op">R$10 mil a R$30 mil</button>
+        <button type="button" class="op">R$30 mil a R$100 mil</button>
+        <button type="button" class="op">Acima de R$100 mil</button>
+      </div>
+
+      <label for="travamento">Qual é o maior travamento do seu negócio hoje?</label>
+      <textarea id="travamento" placeholder="Escreve do seu jeito, sem formalidade."></textarea>
+
+      <button type="submit" class="btn" id="enviar">Enviar</button>
+    </form>
+
+    <div class="ok" id="ok">
+      <p style="font-family:var(--head);color:var(--gold);font-size:1.2rem;margin-bottom:10px">Recebido.</p>
+      <p style="margin-bottom:0">Nos vemos dia 11 de setembro, no Iguatemi Trust Business. Chega às 7h59 para o welcome coffee.</p>
+    </div>
+  </div>
+
+  <a class="zap" id="zap" href="#" target="_blank" rel="noopener">Falar com a organização no WhatsApp</a>
+
+  <p class="dados">
+    Sexta-feira, 11 de setembro de 2026. Welcome coffee às 7h59, evento das 8h59 às 18h59.
+    Iguatemi Trust Business, Av. Dr. Nilo Peçanha, Bela Vista, Porto Alegre.
+  </p>
+
+</div>
+
+<script>
+(function () {
+  var C = window.CONFIG || {};
+  var respostas = {};
+
+  document.getElementById("zap").href = "https://wa.me/" + C.whatsapp + "?text=" +
+    encodeURIComponent("Oi! Acabei de garantir minha vaga na Imersão Mentores Alivance do dia 11 de setembro.");
+
+  Array.prototype.forEach.call(document.querySelectorAll(".ops"), function (grupo) {
+    grupo.addEventListener("click", function (e) {
+      if (!e.target.classList.contains("op")) return;
+      Array.prototype.forEach.call(grupo.children, function (b) { b.classList.remove("on"); });
+      e.target.classList.add("on");
+      respostas[grupo.dataset.campo] = e.target.textContent.trim();
+    });
+  });
+
+  document.getElementById("form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    respostas.travamento = document.getElementById("travamento").value.trim();
+
+    var lead = {};
+    try { lead = JSON.parse(localStorage.getItem("alivance_lead") || "{}"); } catch (x) {}
+
+    var envio = Object.assign({ tipo: "pos-compra" }, lead, respostas);
+
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: "questionario_respondido" });
+
+    var pronto = function () {
+      document.getElementById("form").style.display = "none";
+      document.getElementById("ok").classList.add("on");
+    };
+
+    if (C.webhookRespostas) {
+      fetch(C.webhookRespostas, {
+        method: "POST", mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(envio)
+      }).then(pronto).catch(pronto);
+      setTimeout(pronto, 2500);
+    } else {
+      pronto();
+    }
+  });
+})();
+</script>
+</body>
+</html>
