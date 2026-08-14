@@ -20,11 +20,24 @@ onde o outro parou (o Git é a memória compartilhada).
 3. Salve os entregáveis na pasta certa (acima) e **registre o aprendizado** em `aprendizados.md`.
 4. Trabalhe numa branch `cliente/rafael-granella/<assunto>` e abra PR.
 
-## Contexto rápido (preencher)
+## Contexto rápido
 
-- **Oferta principal:** _(a preencher)_
-- **Público / ICP:** _(a preencher)_
-- **Links (site, páginas, Make, Figma, Drive):** _(a preencher)_
-- **Contato principal:** _(a preencher)_
+- **Oferta principal:** mentoria do Alivance Mentoring Club (ticket ainda não documentado
+  aqui). Rafael Granella também opera ALV Eventos Corporativos e o podcast O Ciclo, e o
+  Club integra a MLS — Mentoring League Society (sócios Flávio Augusto, Caio Carneiro e
+  Joel Jota).
+- **Público / ICP:** mentores, coaches, treinadores, consultores empresariais,
+  conselheiros, psicólogos e empresários montando seu negócio de educação. Faturamento
+  declarado a partir de ~R$20k/mês — atenção: o número declarado no quiz costuma vir
+  inflado (ver `aprendizados.md`).
+- **Funil hoje:** anúncio → quiz → follow-up no WhatsApp pela Isa → call com o Rafa.
+  Campanha de mensagens direto pro WhatsApp foi pausada em 13/08 por trazer lead ruim.
+- **Evento em campanha:** Imersão Mentores Alivance, POA, 11/09/2026, ingresso R$1.500,
+  50 vagas — ficha completa em `contexto/evento-mentores-alivance-poa-2026-09-11.md`.
+- **Infra:** subconta do HighLevel pausada desde ~12/08 (transição para a agência Zion);
+  leads caindo direto em planilha. Não construir entrega crítica no HL até estabilizar.
+- **Contatos:** Rafael Granella (rafael@alivance.com.br), Isadora dos Anjos — comercial
+  (isadora@alivance.com.br), Deise Pereira — operação/eventos (deise@alivance.com.br).
+  Do lado da Simple: Renan Martini.
 
 > Nota: a pasta `quiz-alivance/` é um teste antigo, fora de uso. Não tratar como entrega ativa.
