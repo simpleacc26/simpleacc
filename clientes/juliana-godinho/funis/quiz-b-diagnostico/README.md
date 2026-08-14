@@ -188,11 +188,6 @@ chrome, FAQ e CTAs), então o mesmo laudo serve de anexo para a cadência da SDR
   de 300 a 700), é o desenho da fonte. Numa página inteira em português isso
   aparece em quase todo título. **Decisão da conta:** trocar a fonte de display
   por uma com acentuação correta (EB Garamond fica no mesmo gênero) ou aceitar.
-- **Conferir o número do WhatsApp.** Os CTAs apontam para
-  `wa.me/553192744259`, montado a partir do número informado
-  (+55 31 9274-4259). Esse número tem 8 dígitos depois do DDD, e celular no
-  Brasil tem 9. Se for celular, o certo é `5531992744259`. **Abrir o link e
-  confirmar antes de rodar tráfego.**
 - Página pós-quiz completa, PDF do laudo e disparo de WhatsApp.
 - Pixel e rastreamento (as UTMs já são capturadas).
 
