@@ -68,15 +68,37 @@ salvo e recuperável.
 Campos enviados: `nome`, `numero`, `email`, `q1`–`q6` (as seis respostas em
 texto), `gargalo`, `rota`, `pilar`, as cinco UTMs e `data`.
 
-> **Campos personalizados da GHL.** As respostas do quiz vão para a planilha
-> completas, mas dentro do CRM só gravam nome, telefone, e-mail e UTMs. Os
-> campos personalizados que existem na conta da Ju estão rotulados com as
-> perguntas do **quiz antigo** e reaproveitá-los faria o CRM mentir para o SDR.
-> Os 9 campos novos (`Quiz B - ...`) precisam ser criados **na mão**, pela
-> interface da GHL: a conexão do Make é *Location OAuth 2.0*, cujos 12 escopos
-> leem campos personalizados mas não criam — a API devolve
-> `401 The token is not authorized for this scope`. Depois de criados, basta
-> acrescentar os ids no `customFields` do módulo 3 do cenário.
+### Campos personalizados da GHL
+
+Os 9 campos do Quiz B ficam na pasta **`Quiz 4`** da conta, separados dos do
+quiz antigo — que continuam existindo, rotulados com as perguntas antigas, e
+não devem ser reaproveitados: fariam o CRM mentir para o SDR.
+
+| Campo | ID |
+| --- | --- |
+| 4 - Carro chefe | `msVXz5C3oLmwNK45INHf` |
+| 4 - Cena que mais se repetiu | `bsao35YrovZJiL9CeuU2` |
+| 4 - Quem atende hoje | `wWK55GDyoRS54uevrqVp` |
+| 4 - Quanto sobra no fim do mês | `i1u3qRAMXhh9xDjR7BdR` |
+| 4 - O que já fez para vender mais | `U39AmhsTKnaX8VVkVP40` |
+| 4 - Faturamento mensal | `zWelJAytH8vfjwUj2q0E` |
+| 4 - Gargalo diagnosticado | `6Fe6PjmfvG5i6ghPDRwn` |
+| 4 - Rota indicada | `CrMhcgYdQBtJivqeuyvq` |
+| 4 - Pilar de partida | `9KJKo5EyaE1gftTFoGpT` |
+
+> **Campo novo tem de ser criado na interface da GHL.** A conexão do Make é
+> *Location OAuth 2.0*, e seus 12 escopos leem campos personalizados mas não
+> criam — a API devolve `401 The token is not authorized for this scope`.
+> Nenhuma das conexões GoHighLevel do time tem escopo de agência. Criado o
+> campo, o id sai pelo RPC `listCustomFields` e entra no `customFields` do
+> módulo 3.
+
+> **Conferindo se um valor gravou.** `map()` **não** avalia dentro de filtro do
+> Make, só em mapeamento — um filtro do tipo `contains` sobre o array de campos
+> dá falso negativo, porque o array serializa como `[{object},{object}...]`.
+> Para ver o valor real, mapeie
+> `{{join(map(N.body.contact.customFields; "value"); " ~ ")}}` para algum lugar
+> legível.
 
 ## Como o laudo é personalizado
 
@@ -154,8 +176,6 @@ chrome, FAQ e CTAs), então o mesmo laudo serve de anexo para a cadência da SDR
 
 ## O que ainda NÃO existe
 
-- Os **9 campos personalizados** `Quiz B - ...` na GHL (ver "Integração" acima).
-  Até existirem, as respostas ficam só na planilha.
 - `sessionStorage` para retomar de onde parou, que o playbook pede.
 - **Logo** da Ju. A marca está como lockup tipográfico até chegar o arquivo.
 - **Foto em resolução maior.** A que está no ar (`ju.png`, 312x391) veio de uma
