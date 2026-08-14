@@ -8,45 +8,34 @@ leads do quiz direto no CRM.
 
 ## STATUS DA CONEXÃO (13/08/2026)
 
-**Endpoint recebido:** `https://n8n.digienge.ai/webhook/quizzreceitainvisivel`
+**Endpoint:** `https://n8n.digienge.ai/webhook/quizzreceitainvisivel`
 
-Reconferido em 13/08/2026, 20h35, depois do teste em que o Evandro acompanhou e
-o lead não chegou no CRM. Todos os resultados abaixo são reproduzíveis por curl.
+### ✅ CONECTADO (13/08/2026, 19h40)
 
-| Verificação | Resultado |
-| ----------- | --------- |
-| O caminho existe? (`POST` num path inventado dá 404) | **Existe.** O nosso path responde **403**, não 404: o workflow está publicado e ativo. |
-| Host no ar (`GET https://n8n.digienge.ai/`) | 200 |
-| CORS (preflight `OPTIONS`) | **OK.** 204 liberando a origem `https://quiz-evandro-fernandes.vercel.app`, os métodos `OPTIONS, POST` e o header `x-api-key`. |
-| `POST` com `X-Api-Key` (o curl de exemplo do HDM) | **403** `Authorization data is wrong!` |
-| `POST` com `Authorization: Bearer` | 403 |
-| `POST` com Basic Auth (chave como usuário, como senha, e `admin` + chave) | 403 |
-| `POST` sem autenticação | 403 |
+O HDM **desligou a autenticação** do nó de Webhook e a integração passou a
+funcionar. Conferido por curl às 20h50: `POST` sem header de auth volta
+**HTTP 200** `{"message":"Workflow was started"}`. O Evandro confirmou no grupo
+que o lead entrou no CRM ("Sem trava, integrado com sucesso").
 
-**Diagnóstico:** o 403 vem acompanhado do header `www-authenticate: Basic realm="Webhook"`.
-Quem emite esse header é o ramo de **Basic Auth** do nó de Webhook do n8n. Ou
-seja: o nó está em **Basic Auth**, enquanto a chave que recebemos é de **Header
-Auth** (`X-Api-Key`). Não é chave errada, é **método de autenticação diferente** —
-por isso nada passa, **inclusive o curl de exemplo do próprio HDM**.
+**Como estava travado antes (fica registrado para não se repetir):** o nó estava
+em **Basic Auth** enquanto a chave enviada era de **Header Auth** (`X-Api-Key`).
+O 403 vinha com `www-authenticate: Basic realm="Webhook"`, que é o header emitido
+pelo ramo de Basic Auth do n8n. Não era chave errada, era método diferente — por
+isso nem o curl de exemplo do próprio HDM passava. O CORS deles já liberava
+`x-api-key`, ou seja, a intenção era Header Auth e o seletor do nó ficou para
+trás. Prova de que o problema era só autenticação: path inventado dava 404 e o
+path deles dava 403, logo o workflow existia e estava ativo.
 
-A configuração do CORS confirma a leitura: ela libera justamente o header
-`x-api-key`, ou seja, foi montada pensando em **Header Auth**. O que ficou para
-trás foi o seletor *Authentication* do nó, que continua em **Basic Auth**.
+### ⏳ PENDENTE: religar a trava com `X-Api-Key`
 
-**Por que o teste do dia 13 não chegou:** além disso, a `CRM_API_KEY` está vazia
-no funil publicado (a chave não entra no Git). Então o navegador enviou o POST
-**sem nenhum header de autenticação** e levou 403. Mesmo com a chave preenchida
-levaria 403, pelo motivo acima. São dois bloqueios em série, nesta ordem.
+O HDM vai reativar a autenticação. Quando reativar, precisa ser **Header Auth**
+com nome `X-Api-Key` (não Basic Auth, que foi o que travou da primeira vez).
 
-**O que resolve, do lado do HDM (qualquer uma das três):**
-1. No nó de Webhook, trocar *Authentication* de **Basic Auth** para **Header Auth**,
-   com nome `X-Api-Key` e o valor da chave já enviada; ou
-2. Manter **Basic Auth** e nos passar o par usuário e senha; ou
-3. Desligar a autenticação do nó (a origem já está travada por CORS, só o
-   domínio do funil consegue chamar).
+Do nosso lado isso exige preencher a `CRM_API_KEY` no `app.js` e republicar.
+**Enquanto a chave estiver vazia e a trava ligada, o funil volta a levar 403** e
+o lead para de chegar. Os dois lados têm que virar juntos.
 
-**Como conferir que resolveu, sem depender do funil.** Rodando isto de qualquer
-terminal, tem que voltar **200**:
+Conferência que qualquer um roda, sem depender do site (tem que voltar 200):
 
 ```bash
 curl -i -X POST https://n8n.digienge.ai/webhook/quizzreceitainvisivel \
@@ -55,9 +44,29 @@ curl -i -X POST https://n8n.digienge.ai/webhook/quizzreceitainvisivel \
   -d '{"nome":"TESTE","email":"teste@simpleacc.com.br","whatsapp":"5511999999999"}'
 ```
 
-Enquanto voltar 403, o lead não chega — não adianta repetir o teste pelo site.
-Assim que der 200, a chave entra no funil, republicamos e fazemos o disparo de
-teste de ponta a ponta.
+### ⚠️ MAPEAMENTO DE CAMPOS NO CRM (achado em 13/08, precisa de ajuste)
+
+O lead chega, mas o CRM do HDM **não está lendo o payload todo**. Pelo print do
+registro do primeiro lead:
+
+| Problema | O que aconteceu | Impacto |
+| -------- | --------------- | ------- |
+| **`qualificacao` lido como moeda** | Nosso campo é o texto `"De R$ 300 mil a 1 milhão por mês"`. O CRM tirou os dígitos (`3001`) e gravou **Faturamento: R$ 3.001,00**. | Grave. Um lead de R$300 mil a 1 milhão/mês entra como três mil reais, e a qualificação inverte. |
+| **`qualificado` ignorado** | O campo `nutrir`/`qualificado`, que existe justamente para rotear, não aparece no registro. | O corte de qualificação do quiz não chega no CRM. |
+| **4 respostas descartadas** | Só `situacao` virou "Observações" e `perfil` virou "Cargo". `problema`, `implicacao`, `necessidade` e `objetivo` não aparecem. | Perde-se o contexto que faz o SDR abrir a conversa sabendo a dor. |
+| **Tags genéricas** | Entrou com `elementor` e `formulario-site`. | O CRM está tratando o quiz como formulário de site comum. |
+
+**O que pedir ao time do HDM:**
+1. Mapear `qualificacao` como **texto**, nunca como campo de moeda/número. Se
+   quiserem faturamento numérico, a gente inclui um campo novo (`faturamento_min`
+   e `faturamento_max` em número) — é só pedir.
+2. Usar o campo **`qualificado`** (`nutrir` / `qualificado`) para roteamento. Ele
+   é contrato estável; o texto de `qualificacao` é copy e muda em teste A/B.
+3. Gravar as 7 respostas (`situacao`, `problema`, `implicacao`, `necessidade`,
+   `objetivo`, `perfil`, `qualificacao`), não só duas.
+
+Todos os campos já vão no payload hoje (ver seção 4). Não falta nada do nosso
+lado: é mapeamento no CRM.
 
 ---
 

@@ -41,6 +41,12 @@ caminho da imagem. O logo não foi redesenhado, é o arquivo dele (roxo `#806ACE
 - Integridade conferida com `curl` + `cmp`: os 6 arquivos no ar são idênticos ao repo.
 - Anúncio deve apontar pra raiz com query (`/?utm_source=...`), nunca `/index.html`.
 
+## Estado da integração (13/08/2026, 19h40)
+**Conectado.** O HDM desligou a trava do nó e o lead passou a cair no CRM dele.
+Conferido por curl: `POST` sem auth volta 200 `{"message":"Workflow was started"}`.
+Falta religar a autenticação (`X-Api-Key`, Header Auth) e corrigir o mapeamento
+dos campos do lado deles. Ver `especificacao-webhook-leads.md`.
+
 ## Destino dos leads: só o CRM do cliente
 Decisão de 13/08/2026: **sem backup em planilha**. O lead vai direto para o
 webhook do HDM (`CRM_ENDPOINT` no `app.js`), sem passar por Make/Sheets, para não
@@ -58,15 +64,18 @@ gerar custo de operações.
 ## PENDÊNCIAS
 
 **Bloqueia subir tráfego:**
-- [ ] **Autenticação do webhook do HDM.** Reconferido em 13/08 às 20h35: volta 403
-      em toda forma, com `www-authenticate: Basic` (o nó está em Basic Auth e a
-      chave é de Header Auth). Diagnóstico completo e o curl de conferência em
-      `especificacao-webhook-leads.md`. Sem isso o lead não tem destino nenhum.
+- [ ] **Mapeamento dos campos no CRM do HDM.** O lead chega, mas o CRM lê o texto
+      `"De R$ 300 mil a 1 milhão por mês"` como **R$ 3.001,00**, ignora o campo
+      `qualificado` (o que serve para rotear) e descarta 4 das 7 respostas. Subir
+      tráfego assim inverte a qualificação. Detalhe e o que pedir ao time deles em
+      `especificacao-webhook-leads.md`.
+- [ ] **Religar a trava `X-Api-Key` junto com a nossa chave.** O HDM vai reativar
+      a autenticação (tem que ser **Header Auth**, não Basic). No mesmo momento
+      precisamos preencher a `CRM_API_KEY` e republicar: se só um lado virar, o
+      funil volta a levar 403 e o lead para de chegar.
 - [ ] **Onde guardar a `CRM_API_KEY`.** Decidir entre commitar no `app.js` (fica
       visível no navegador, que é o desenho de CORS que o HDM montou) ou um proxy
-      serverless com env var. Enquanto não decidir, a constante fica vazia — e
-      enquanto vazia, o POST sai sem header nenhum e leva 403 mesmo que o nó seja
-      corrigido. São dois bloqueios em série, resolver os dois.
+      serverless com env var.
 
 **Melhora a entrega, não bloqueia:**
 - [ ] **Logo oficial** em SVG/PNG para o topo da página (hoje wordmark "HDM" em
