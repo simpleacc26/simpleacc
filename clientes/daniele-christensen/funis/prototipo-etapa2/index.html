@@ -166,8 +166,8 @@
   <!-- ---------- abertura ---------- -->
   <div class="tela on" id="inicio">
     <span class="selo">Etapa 2 · Diagnóstico completo</span>
-    <h1 id="ola">Agora eu preciso enxergar a sua Gestão por dentro.</h1>
-    <p class="sub">O documento que você recebeu é o retrato da superfície. Para desenvolver um diagnóstico mais completo do seu negócio, precisamos aprofundar um pouco mais. Em menos de 5 minutos você responde <b>15 perguntas curtas, só de dar nota</b>, e é o que sai delas que mostra onde a sua Gestão está travando de verdade.</p>
+    <h1 id="ola">Agora eu preciso enxergar a sua Gestão/Liderança por dentro.</h1>
+    <p class="sub">O documento que você recebeu é o retrato da superfície. Para desenvolver um diagnóstico mais completo do seu negócio, precisamos aprofundar um pouco mais. Em menos de 5 minutos você responde <b>15 perguntas curtas, só de marcar</b>, e é o que sai delas que mostra onde a sua Gestão/Liderança está travando de verdade.</p>
 
     <div class="comofunciona">
       <h3>Como responder</h3>
@@ -180,7 +180,7 @@
       <p class="aviso">Responda pensando em como as coisas são hoje, não em como deveriam ser. Ninguém além da Dra. Daniele e do time dela vê estas respostas, e a leitura só faz sentido se for honesta.</p>
     </div>
 
-    <button class="cta" onclick="comecar()">Começar o diagnóstico gratuito</button>
+    <button class="cta" onclick="comecar()">Começar o Diagnóstico gratuito</button>
   </div>
 
   <!-- ---------- perguntas ---------- -->
@@ -201,8 +201,8 @@
   <!-- ---------- fim ---------- -->
   <div class="tela" id="fim">
     <div class="certo">✓</div>
-    <h1>Pronto. Agora a Dra. Daniele vai analisar as suas respostas.</h1>
-    <p class="sub">O resultado a gente lê junto com um especialista, na conversa, e não mais em um relatório para você ler sozinho.</p>
+    <h1>Pronto! Já tenho suas respostas.</h1>
+    <p class="sub">O resultado a gente lê junto com um Especialista, na conversa, e não mais em um relatório para você ler sozinho.</p>
 
     <div class="cx">
       <h3>O que acontece agora</h3>
@@ -521,7 +521,7 @@ function preencher(qual){
 
 if(LEAD.nome){
   document.getElementById("ola").textContent =
-    LEAD.nome + ", agora eu preciso enxergar a sua Gestão por dentro.";
+    LEAD.nome + ", agora eu preciso enxergar a sua Gestão/Liderança por dentro.";
 }
 atualizaPainel();
 mostra("inicio");
