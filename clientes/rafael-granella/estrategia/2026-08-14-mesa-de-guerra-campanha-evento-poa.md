@@ -54,10 +54,20 @@ R$1.500 — página com copy + formulário de aplicação, ou botão direto para
 
 - **R$150 a R$200/dia** de mídia para o evento.
 
+### Confirmado depois da sessão (14/08)
+
+- **Não existe checkout.** A venda do ingresso é feita na conversa, para base e convidados.
+  Isso valida a tese da mesa (o motor é o convite direto) e cria uma tarefa: criar um único
+  link de pagamento (cartão parcelado + Pix) até 18/08, usado tanto na página quanto no
+  WhatsApp — um link só, uma lista só de quem pagou, que vira a lista de credenciamento.
+  Alternativa com mais recursos e taxa maior: Sympla. Critério de escolha: o que estiver no
+  ar até 18/08.
+- **HighLevel não é bloqueio.** É possível abrir automação à parte, com site próprio jogando
+  os leads direto em planilha.
+
 ### Faltou (a mesa se recusou a chutar)
 
 - Quantas das 50 vagas já estão comprometidas com membros isentos.
-- Se existe checkout online ativo hoje.
 - Tamanho da base própria em POA / raio de 150 km.
 - Ticket da mentoria (back-end) e resultado de edições anteriores do evento.
 
@@ -90,7 +100,10 @@ porta principal.**
   comercial que já está saturado.
 - **WhatsApp-first** é exatamente o mecanismo que a equipe pausou nesta semana por trazer
   lead ruim. Repeti-lo com um produto pago de entrada é repetir o erro com mais fricção.
-- **Checkout direto** tira carga humana: quem decide sozinho, paga sozinho.
+- **Pagamento direto** tira carga humana: quem decide sozinho, paga sozinho. Como não existe
+  checkout hoje, a venda manual funciona para base e convidados (é assim que já vendem), mas
+  não sobrevive ao tráfego pago — cada lead frio exigiria uma negociação de pagamento com a
+  Deise, uma a uma, e é aí que a conversão morre.
 - **Captura antes do checkout** (nome, WhatsApp, e-mail) é obrigatória por dois motivos:
   não perder quem não compra na primeira visita, e dar à Meta um evento de conversão com
   volume — o volume de compras será baixo demais para otimizar por compra.
