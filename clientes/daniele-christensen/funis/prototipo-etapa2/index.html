@@ -119,7 +119,11 @@
   .cx{
     background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:22px;margin:26px 0 0;
   }
-  .cx h3{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 12px;font-weight:700}
+  .cx h3{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 14px;font-weight:700}
+  .cx p{font-size:15.5px;color:#c2beb8;margin:0 0 13px}
+  .cx p:last-child{margin-bottom:0}
+  .cx p b{color:#fff;font-weight:700}
+  .cx .fim{color:#ded9d3}
   .agenda{
     border:1px dashed #3a3833;border-radius:8px;padding:34px 22px;text-align:center;color:var(--muted);
     font-size:14px;margin:14px 0 0;background:#0d0c0b;
@@ -162,22 +166,21 @@
   <!-- ---------- abertura ---------- -->
   <div class="tela on" id="inicio">
     <span class="selo">Etapa 2 · Diagnóstico completo</span>
-    <h1 id="ola">Antes da sua sessão, preciso enxergar a sua gestão por dentro.</h1>
-    <p class="sub">O documento que você recebeu é o retrato da superfície. São <b>15 perguntas curtas, só de dar nota</b>, e é o resultado delas que lemos juntos na sessão.</p>
+    <h1 id="ola">Agora eu preciso enxergar a sua Gestão por dentro.</h1>
+    <p class="sub">O documento que você recebeu é o retrato da superfície. Para desenvolver um diagnóstico mais completo do seu negócio, precisamos aprofundar um pouco mais. Em menos de 5 minutos você responde <b>15 perguntas curtas, só de dar nota</b>, e é o que sai delas que mostra onde a sua Gestão está travando de verdade.</p>
 
     <div class="comofunciona">
       <h3>Como responder</h3>
       <div class="escala">
-        <div><span>Sempre</span> acontece o tempo todo, é assim que funciona aqui</div>
+        <div><span>Sempre</span> acontece o tempo todo</div>
         <div><span>Geralmente</span> acontece na maioria das vezes</div>
-        <div><span>Às vezes</span> acontece, mas não dá para contar com isso</div>
+        <div><span>Às vezes</span> acontece com pouca frequência</div>
         <div><span>Nunca</span> não acontece</div>
       </div>
       <p class="aviso">Responda pensando em como as coisas são hoje, não em como deveriam ser. Ninguém além da Dra. Daniele e do time dela vê estas respostas, e a leitura só faz sentido se for honesta.</p>
     </div>
 
-    <button class="cta" onclick="comecar()">Começar o diagnóstico</button>
-    <p class="solta">Menos de 3 minutos. No fim, você escolhe o horário da sua sessão.</p>
+    <button class="cta" onclick="comecar()">Começar o diagnóstico gratuito</button>
   </div>
 
   <!-- ---------- perguntas ---------- -->
@@ -198,8 +201,17 @@
   <!-- ---------- fim ---------- -->
   <div class="tela" id="fim">
     <div class="certo">✓</div>
-    <h1>Pronto. Agora eu já sei onde olhar.</h1>
-    <p class="sub">Seu diagnóstico completo foi recebido e vai para as mãos de quem conduz a sua sessão. <b>O resultado a gente lê junto</b>, na conversa, e não em mais um relatório para você ler sozinho.</p>
+    <h1>Pronto. Agora a Dra. Daniele vai analisar as suas respostas.</h1>
+    <p class="sub">O resultado a gente lê junto com um especialista, na conversa, e não mais em um relatório para você ler sozinho.</p>
+
+    <div class="cx">
+      <h3>O que acontece agora</h3>
+      <p>Seu Diagnóstico está completo. A parte difícil você já fez. A maioria para no meio. Você não.</p>
+      <p>Mas respostas sem interpretação não dizem muita coisa. O valor está em alguém que entende de Gestão lendo ele com você. É isso que acontece na <b>Sessão Estratégica Gratuita</b>. Em 45 minutos, um Especialista da minha equipe ouve você, analisa o seu cenário ao vivo e mostra onde sua Gestão está perdendo resultado e o caminho.</p>
+      <p>Se você não decide sozinho sobre Gestão, venha com quem decide. Sócio, Diretor ou Chefe: quem participa, entende e decide. Quem fica de fora, adia, e o problema continua custando caro todo mês.</p>
+      <p>Lembrando: a reunião é totalmente gratuita. Se notarmos que podemos ajudar, apresentamos uma Solução, sem pressão. Mesmo que você não avance conosco, sai com uma leitura profissional do seu momento. Daremos o nosso melhor nesta reunião.</p>
+      <p class="fim">A Agenda é limitada porque cada Sessão é individual, estudada e preparada com antecedência. Escolha seu horário agora e garanta a sua. ⬇️</p>
+    </div>
 
     <div class="cx">
       <h3>Escolha o horário da sua sessão</h3>
@@ -207,15 +219,6 @@
         <b>Agenda entra aqui</b>
         Widget do calendário do time comercial.<br>Nesta demonstração é só um espaço reservado.
       </div>
-    </div>
-
-    <div class="cx">
-      <h3>O que acontece agora</h3>
-      <ul class="lista">
-        <li>Você escolhe o horário e <b>recebe a confirmação no WhatsApp</b>.</li>
-        <li>Quem conduz a sessão <b>estuda o seu caso antes</b>, com as suas respostas na mão.</li>
-        <li>Na conversa, a gente abre o resultado junto e trata <b>o ponto onde a sua gestão está travando</b>.</li>
-      </ul>
     </div>
 
     <footer><p>Grokker · Dra. Daniele Christensen · Suas respostas são confidenciais.</p></footer>
@@ -243,10 +246,10 @@ var BLOCOS = {
 // escala de frequência de 4 pontos, com pontuação INVERTIDA:
 // nota alta = gap maior de gestão.
 var ESCALA = [
-  {t:"Sempre",     pt:0},
-  {t:"Geralmente", pt:4},
-  {t:"Às vezes",   pt:8},
-  {t:"Nunca",      pt:10}
+  {t:"Sempre",     d:"acontece o tempo todo",        pt:0},
+  {t:"Geralmente", d:"acontece na maioria das vezes", pt:4},
+  {t:"Às vezes",   d:"acontece com pouca frequência", pt:8},
+  {t:"Nunca",      d:"não acontece",                  pt:10}
 ];
 
 var PERGUNTAS = [
@@ -264,7 +267,7 @@ var PERGUNTAS = [
   {id:"E2", b:"E", t:"O quanto as pessoas agem de forma alinhada às Diretrizes da empresa (Missão, Visão, Valores) e às Competências Comportamentais desejadas?"},
   {id:"E3", b:"E", t:"O quanto o Onboarding auxilia a alinhar o comportamento diário das pessoas e é utilizado como parâmetro em reuniões, avaliações de desempenho, feedback e decisões importantes sobre pessoas?"},
   {id:"E4", b:"E", t:'O quanto você se sente preparado para dar feedbacks assertivos, sem medo de ser firme, impopular, perder pessoas da equipe, ou ser "macio" demais a ponto de não atingir o objetivo?'},
-  {id:"E5", b:"E", t:"O quanto você está satisfeito com a retenção/permanência dos melhores colaboradores da sua equipe/empresa?"}
+  {id:"E5", b:"E", t:"O quanto você se sente satisfeito com a retenção/permanência dos melhores colaboradores da sua equipe/empresa?"}
 ];
 
 // ponte entre o cenário da Etapa 1 e os blocos da Etapa 2, para o Closer
@@ -341,7 +344,6 @@ function render(){
   palco.innerHTML = "";
   document.getElementById("prog").style.width = Math.round((i/PERGUNTAS.length)*100) + "%";
 
-  palco.appendChild(el("p","bloco","Bloco " + q.b + " · " + BLOCOS[q.b].nome));
   palco.appendChild(el("p","passo","Pergunta " + (i+1) + " de " + PERGUNTAS.length));
   palco.appendChild(el("h2","perg",q.t));
 
@@ -350,6 +352,7 @@ function render(){
     var b = el("button","op");
     b.type = "button";
     b.appendChild(el("span",null,o.t));
+    b.appendChild(el("i",null,o.d));
     b.onclick = function(){ responder(q.id, o.pt); };
     box.appendChild(b);
   });
@@ -377,7 +380,7 @@ var FRASES = [
   [0,  "Enviando as suas respostas"],
   [30, "Calculando as notas por bloco"],
   [62, "Cruzando com o seu cenário da Etapa 1"],
-  [86, "Preparando o material da sua sessão"]
+  [86, "Preparando a leitura do seu caso"]
 ];
 var pulso = null, relogios = [], PASSO = 30;
 
@@ -518,7 +521,7 @@ function preencher(qual){
 
 if(LEAD.nome){
   document.getElementById("ola").textContent =
-    LEAD.nome + ", antes da sua sessão, preciso enxergar a sua gestão por dentro.";
+    LEAD.nome + ", agora eu preciso enxergar a sua Gestão por dentro.";
 }
 atualizaPainel();
 mostra("inicio");

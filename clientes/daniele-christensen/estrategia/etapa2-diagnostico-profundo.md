@@ -49,8 +49,12 @@ minutinhos"*.
 O protótipo confirma a conta. O número aparece na abertura do formulário, no
 áudio e nos PDFs.
 
-Fechado em 3 minutos em ago/26. A página pós-quiz prometia 5 e foi corrigida;
-página, áudio, PDFs e formulário agora dizem o mesmo número.
+Fechado em 3 minutos em ago/26 e **reaberto em 13/08**: na revisão da Etapa 2 a
+Dani pediu "em menos de 5 minutos" na abertura do formulário, que é o que está
+publicado. As outras peças (página pós-quiz, áudio, PDFs) continuam dizendo
+menos de 3 minutos. **Falta unificar de novo**, e a recomendação é ficar em 5:
+é o número que a cliente escolheu duas vezes, e prometer folga e entregar rápido
+é melhor que o contrário.
 
 ### 3. Quem recebe
 
@@ -80,8 +84,11 @@ Três mecanismos da documentação existiam só para sustentar a ordem antiga e 
 ## O que foi mantido da documentação, sem alteração
 
 O instrumento em si é propriedade intelectual da Grokker e a documentação proíbe
-mexer na redação das perguntas, na ordem dos blocos e na escala. **Nada disso foi
-tocado.** O que segue é transcrição fiel.
+mexer na redação das perguntas, na ordem dos blocos e na escala. O que segue é
+transcrição fiel, com **uma única alteração, pedida pela própria cliente em
+13/08**: a pergunta E5 passou de "O quanto você **está** satisfeito" para "O
+quanto você **se sente** satisfeito". A autorização vem da Grokker, que é a dona
+do instrumento.
 
 ### Escala
 
@@ -140,6 +147,22 @@ agora, olhando o bloco A, dá para ver exatamente por quê"*.
 Continua sendo a da Etapa 1 (dono ≥ R$ 200 mil/mês; executivo ≥ R$ 10 mil com
 autonomia), sempre em base **mensal**. A Etapa 2 qualifica o problema, não o
 bolso.
+
+### O que o lead vê, e quando
+
+A abertura do formulário **não menciona a Sessão Estratégica**. Quem chega ali
+ainda não sabe que ela existe, e antecipar a oferta transforma um passo curto em
+compromisso comercial antes da hora. A sessão só aparece na tela final, depois
+de o lead ter respondido, quando o esforço já foi feito e a oferta soa como
+consequência.
+
+A tela final tem uma ordem deliberada: confirmação, depois o texto que explica
+por que a leitura precisa de um especialista, e só então a agenda. O argumento
+vem antes do calendário; se a agenda aparecesse primeiro, o lead escolheria
+horário sem entender o que ganha com ele.
+
+Os nomes dos blocos (A a E) **não aparecem** para o lead. São nomenclatura
+interna e, na tela, só criavam ruído entre a pergunta e a resposta.
 
 ### Confidencialidade
 
