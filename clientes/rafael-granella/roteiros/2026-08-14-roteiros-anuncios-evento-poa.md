@@ -1,4 +1,4 @@
-# Roteiros de anúncio — Imersão Mentores Alivance (POA, 11/09/2026)
+# Roteiros de anúncio | Imersão Mentores Alivance (POA, 11/09/2026)
 
 Seis roteiros para o Rafa gravar, todos em texto corrido, para falar com as próprias
 palavras. Instruções de gravação, enquadramento e entrega estão no
