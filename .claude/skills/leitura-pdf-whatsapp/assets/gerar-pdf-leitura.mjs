@@ -10,7 +10,7 @@
      3) IMAGENS EMBUTIDAS: converte <img src="...jpeg/png"> em data URI.
 
    Uso:
-     SRC=.../leitura.html OUT=.../leitura.pdf WHATSAPP=5531993196471 \
+     SRC=.../leitura.html OUT=.../leitura.pdf WHATSAPP=55DDNNNNNNNNN \
      WIDTH=400 node gerar-pdf-leitura.mjs
 
    Acha o Chromium sozinho (prefere headless_shell). Força com EXEC=<caminho>.

@@ -16,12 +16,22 @@ verdade** (um arquivo `.md` nesta pasta) e um **comando** correspondente em
 Skills ficam em `.claude/skills/` e são acionadas automaticamente pela IA quando
 a tarefa combina (ou você pode pedir pelo nome).
 
-| Skill (nome interno)            | Para quê |
-| ------------------------------- | -------- |
-| `estrategia-completa-clientes`  | **Estratégia Completa para Clientes** — a partir do onboarding (transcrição/notas), gera o documento de estratégia de 8 seções e entrega como Google Doc formatado na pasta do cliente no Drive. |
-| `gerar-quiz-diag-pag-pos-quiz`  | **Gerar Quiz + Diagnóstico + Página Pós-Quiz** — pega a copy aprovada (da skill acima), monta o quiz + página pós-quiz + PDF na identidade do cliente, **publica na Vercel** (confere a conta da Simple antes), cria a planilha de leads no Drive e testa a integração. |
-| `guia-captacao-depoimentos`     | **Guia de Captação de Depoimentos** — gera o PDF de 4 páginas (identidade dos roadmaps) com o direcionamento para o cliente pedir e coletar depoimentos em vídeo: mensagem pronta com 4 tópicos, dicas de gravação, erros a evitar e checklist. Personaliza nome, segmento e particularidades do nicho. |
-| `roadmap-estrategico-90-dias`   | **Roadmap Estratégico de 90 dias** — transforma os materiais de base do cliente (onboarding, canvas, calls) no PDF de roadmap na identidade navy + dourado, com a estrutura validada (Rômulo + Lucas): decisões fundamentais, caixa rápido, fases com passos e metas, checkpoints, materiais de apoio e fechamento personalizado. Sem travessões e com paginação validada. |
+Ordem aproximada em que entram no ciclo de um cliente:
+
+| # | Skill (nome interno) | Para quê |
+| - | -------------------- | -------- |
+| 1 | `estrategia-completa-clientes` | **Estratégia Completa para Clientes** — a partir do onboarding (transcrição/notas), gera o documento de estratégia de 8 seções e entrega como Google Doc formatado na pasta do cliente no Drive. |
+| 2 | `gerar-canvas-produto-cliente` | **Canvas de Produto + Cliente Ideal** — pré-preenche o canvas com os dados reais extraídos das transcrições e deixa em branco, com perguntas marcadas, o que só o cliente pode responder. Entrega como Google Doc na pasta dele. |
+| 3 | `roadmap-estrategico-90-dias` | **Roadmap Estratégico de 90 dias** — transforma os materiais de base (onboarding, canvas, calls) no PDF de roadmap na identidade navy + dourado: decisões fundamentais, caixa rápido, fases com passos e metas, checkpoints e fechamento personalizado. Sem travessões e com paginação validada. |
+| 4 | `quiz-pesquisa-estrategia` | **Pesquisa & Estratégia do Quiz** — primeira etapa da fábrica de quiz: recon de mercado, voz do mercado, decide os 3 a 5 buckets pelo critério high ticket, o tipo de quiz (Type/Killer/Score) e a Big Idea. Roda **antes** de perguntas, páginas ou anúncios. |
+| 5 | `criar-funil-quiz` | **Criar Funil (HTML puro)** — conduz diagnóstico → aprofundamento → confirmação → geração e entrega o funil em HTML/CSS/JS vanilla, com quiz SPIN, tela de loading, CTAs distribuídos, envio de lead para a planilha e tracking. |
+| 6 | `gerar-quiz-diag-pag-pos-quiz` | **Gerar Quiz + Diagnóstico + Página Pós-Quiz** — pega a copy aprovada, monta o quiz + página pós-quiz + PDF na identidade do cliente, **publica na Vercel** (confere a conta da Simple antes), cria a planilha de leads no Drive e testa a integração. |
+| 7 | `leitura-pdf-whatsapp` | **PDF da leitura emocional (SDR)** — gera a versão genérica do diagnóstico em página única para o SDR mandar no WhatsApp, com botões `wa.me` clicáveis e os depoimentos embutidos. |
+| 8 | `guia-captacao-depoimentos` | **Guia de Captação de Depoimentos** — PDF de 4 páginas com o direcionamento para o cliente pedir e coletar depoimentos em vídeo: mensagem pronta com 4 tópicos, dicas de gravação, erros a evitar e checklist. |
+
+> **Regra:** skill do time mora **aqui, no repositório**. Skill instalada só na
+> conta pessoal de alguém não existe para o resto do time e vira uma segunda
+> versão que desanda. Melhorou numa sessão? Commite a melhoria.
 
 ## Como usar
 

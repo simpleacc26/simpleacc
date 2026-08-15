@@ -120,7 +120,7 @@ O gerador faz três coisas que o `--print-to-pdf` sozinho não faz: **página ú
 ```bash
 SRC=clientes/<cliente>/materiais/leitura-emocional-generica.html \
 OUT=clientes/<cliente>/materiais/leitura-emocional-generica.pdf \
-WHATSAPP=5531993196471 \
+WHATSAPP=55DDNNNNNNNNN \
 WIDTH=400 \
 node .claude/skills/leitura-pdf-whatsapp/assets/gerar-pdf-leitura.mjs
 ```
