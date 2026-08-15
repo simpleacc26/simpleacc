@@ -10,16 +10,27 @@ const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
 /* ---- Destino do lead -----------------------------------------------------
    CRM_ENDPOINT: webhook do cliente (n8n do HDM). É o destino ÚNICO: o lead cai
                  direto no CRM dele.
-   CRM_API_KEY:  a chave entra aqui. Vazia de propósito por dois motivos: chave
-                 não é versionada no Git, e hoje o endpoint recusa toda forma de
-                 autenticação (ver especificacao-webhook-leads.md).
+   CRM_API_KEY:  vem do config.local.js, que NÃO é versionado (regra do manual:
+                 chave não entra no Git). O modelo versionado é o
+                 config.example.js. Se o arquivo não existir, o lead vai sem o
+                 header de autenticação, que é o que o endpoint aceita hoje.
    LEADS_ENDPOINT: desligado por decisão de 13/08/2026. O backup em Make/Sheets
                  foi descartado para não gerar custo de operações, já que o
                  destino final é o CRM do cliente. Para reativar, basta colar a
                  URL do webhook aqui e reativar o cenário no Make. */
 const CRM_ENDPOINT   = "https://n8n.digienge.ai/webhook/quizzreceitainvisivel";
-const CRM_API_KEY    = "";
+const CRM_API_KEY    = (window.HDM_CONFIG && window.HDM_CONFIG.crmApiKey) || "";
 const LEADS_ENDPOINT = "";
+
+/* Aviso alto no console: se o HDM ligar a trava X-Api-Key e a chave não estiver
+   aqui, todo lead passa a levar 403 em silêncio (o fetch é fire and forget). */
+if (!CRM_API_KEY) {
+  console.warn(
+    "[HDM] Sem CRM_API_KEY: o lead vai sem o header X-Api-Key. " +
+    "Isso funciona enquanto o webhook do HDM estiver sem trava. " +
+    "Se ligarem a trava, copie config.example.js para config.local.js e cole a chave."
+  );
+}
 
 /* UTMs capturadas da URL no carregamento (a página do quiz não muda de URL até
    o envio, então isso preserva os parâmetros do anúncio). */

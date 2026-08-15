@@ -17,3 +17,6 @@
 **/.cache/
 **/.DS_Store
 **/Thumbs.db
+
+# Config com chave de API dos funis (o par versionado é o config.example.js)
+**/config.local.js

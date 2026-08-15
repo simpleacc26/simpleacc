@@ -13,6 +13,8 @@ Stack: HTML/CSS/JS puro, sem dependências, sem build. Mobile-first.
 - `styles.css` · identidade (tokens no `:root`)
 - `diagnostico.html` + `diagnostico.js` · relatório auto-preenchido + Baixar PDF + WhatsApp
 - `favicon.png` · ícone oficial do HDM, 64px
+- `config.example.js` · modelo da config (versionado, sem chave)
+- `config.local.js` · a chave real do webhook. **No `.gitignore`, nunca commitar.**
 - `integracao-planilha.gs` · Apps Script da planilha de leads
 
 ## Como rodar local
@@ -40,6 +42,25 @@ caminho da imagem. O logo não foi redesenhado, é o arquivo dele (roxo `#806ACE
 - ✅ **Público:** o domínio limpo responde **200** (13/08/2026). A URL com sufixo do time (`...-simpleacc.vercel.app`) segue atrás da Vercel Authentication e dá 302: **entregue sempre o domínio limpo**.
 - Integridade conferida com `curl` + `cmp`: os 6 arquivos no ar são idênticos ao repo.
 - Anúncio deve apontar pra raiz com query (`/?utm_source=...`), nunca `/index.html`.
+
+## A chave do webhook (`X-Api-Key`)
+A chave **não entra no Git** (regra do manual). Ela vive no `config.local.js`,
+que está no `.gitignore`. O par versionado é o `config.example.js`.
+
+```
+cp config.example.js config.local.js   # e cole a chave real dentro
+```
+
+O `index.html` carrega o `config.local.js` **antes** do `app.js` (ambos com
+`defer`, que preserva a ordem). O `app.js` lê `window.HDM_CONFIG.crmApiKey`; se o
+arquivo não existir, manda o lead **sem** o header e avisa no console. Testado em
+navegador de verdade nos dois caminhos: com o arquivo a chave de 64 caracteres
+chega ao motor; sem ele o quiz continua renderizando normalmente.
+
+⚠️ **Ao publicar:** o `deploy_to_vercel` substitui o snapshot inteiro, então o
+`config.local.js` precisa ir junto em toda publicação, senão a chave some do ar
+em silêncio. Para recuperá-la depois:
+`curl https://quiz-evandro-fernandes.vercel.app/config.local.js`
 
 ## Estado da integração (13/08/2026, 19h40)
 **Conectado.** O HDM desligou a trava do nó e o lead passou a cair no CRM dele.
