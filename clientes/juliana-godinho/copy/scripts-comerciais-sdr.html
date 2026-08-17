@@ -128,16 +128,6 @@
   p{margin:0 0 1rem; max-width:68ch}
   strong{color:var(--ink); font-weight:600}
 
-  /* ── achados do diagnóstico ──────────────────────────── */
-  .achados{display:grid; gap:.7rem; margin:0; padding:0; list-style:none}
-  @media(min-width:48rem){.achados{grid-template-columns:1fr 1fr}}
-  .achados li{
-    background:var(--card); border:1px solid var(--line); border-radius:var(--r);
-    border-left:2px solid var(--erro); padding:1rem 1.15rem;
-  }
-  .achados b{display:block; font-size:.94rem; margin-bottom:.3rem}
-  .achados p{margin:0; font-size:.87rem; color:var(--ink-2); max-width:none}
-  .achados q{color:var(--erro); font-style:italic}
 
   /* ── tabela ──────────────────────────────────────────── */
   .rolagem{overflow-x:auto; margin:0 0 1.4rem; border:1px solid var(--line); border-radius:var(--r)}
@@ -207,19 +197,6 @@
   .nota p{max-width:none; margin:0 0 .6rem}
   .nota p:last-child{margin:0}
 
-  /* ── par de colunas ──────────────────────────────────── */
-  .par{display:grid; gap:1.1rem; margin-bottom:1.6rem}
-  @media(min-width:48rem){.par{grid-template-columns:1fr 1fr}}
-  .caixa{
-    background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:1.1rem 1.2rem;
-  }
-  .caixa h4{
-    margin:0 0 .55rem; font-size:.72rem; font-family:var(--mono); letter-spacing:.16em;
-    text-transform:uppercase; color:var(--gold-deep); font-weight:400;
-  }
-  .caixa ul{margin:0; padding-left:1.1rem; font-size:.88rem; color:var(--ink-2)}
-  .caixa li{margin-bottom:.4rem}
-  .caixa li:last-child{margin-bottom:0}
 
   .rodape{
     border-top:1px solid var(--line); margin-top:1rem; padding:2rem 0 3rem;
@@ -257,7 +234,6 @@
 
   <nav class="indice" aria-label="Índice">
     <ol>
-      <li><a href="#quebrado"><span class="n">00</span>O que está quebrado</a></li>
       <li><a href="#virada"><span class="n">01</span>A virada de base</a></li>
       <li><a href="#qualificacao"><span class="n">02</span>Frente 1 · Qualificação</a></li>
       <li><a href="#ligacao"><span class="n">03</span>Frente 1 · Ligação</a></li>
@@ -265,58 +241,10 @@
       <li><a href="#noshow"><span class="n">05</span>Frente 3 · Anti no-show</a></li>
       <li><a href="#regua"><span class="n">06</span>Quem vai para a sessão</a></li>
       <li><a href="#medir"><span class="n">07</span>O que medir</a></li>
-      <li><a href="#aberto"><span class="n">08</span>Decisões pendentes</a></li>
     </ol>
   </nav>
 
   <main>
-
-    <!-- ══════════ 00 ══════════ -->
-    <section id="quebrado">
-      <h2><span class="eyebrow">Diagnóstico</span>Por que o script atual não traz retorno</h2>
-      <p class="sub">
-        Sete problemas, e nenhum deles é de redação. A cadência que está no Drive foi
-        escrita para um funil que não existe mais.
-      </p>
-
-      <ul class="achados">
-        <li>
-          <b>Não existe qualificação</b>
-          <p>O documento inteiro é follow-up. Vai da entrega do diagnóstico direto para
-          <q>me fala seus horários</q>. A queixa de lead desqualificada nasce aqui.</p>
-        </li>
-        <li>
-          <b>A SDR entrega a conclusão pronta</b>
-          <p><q>O que trava: sua operação está no modelo de prestadora de serviço</q> chega
-          antes de a lead falar. Menegão trata isso como o erro número um.</p>
-        </li>
-        <li>
-          <b>A SDR vira Salvadora</b>
-          <p><q>Me responde aqui que eu te ajudo</q>. O problema do negócio da lead passa a
-          ser da SDR, e quem carrega o problema perde o poder.</p>
-        </li>
-        <li>
-          <b>Carência escrita</b>
-          <p><q>Faz 3 dias que estou tentando contato</q>, <q>essa é minha última tentativa</q>,
-          <q>você preencheu o quiz por engano?</q></p>
-        </li>
-        <li>
-          <b>Escassez que a operação desmente</b>
-          <p><q>Vagas quase esgotadas</q> com zero agendamentos desde abril. Quem escreve não
-          acredita, e isso sai no tom.</p>
-        </li>
-        <li>
-          <b>Quebra regras da conta</b>
-          <p><q>Não por falta de esforço. Por falta dessa estrutura</q> é a frase que a Ju
-          disse estar saturada, e ainda no padrão de antítese.</p>
-        </li>
-        <li>
-          <b>Anti no-show não existe</b>
-          <p>Existe reação depois da falta. Antes dela, nada. Com agendamento nunca acima de
-          5,8%, cada sessão é cara demais para depender da memória da lead.</p>
-        </li>
-      </ul>
-    </section>
 
     <!-- ══════════ 01 ══════════ -->
     <section id="virada">
@@ -682,28 +610,6 @@
         <p><b>Sinal de alerta.</b> Se a taxa de resposta subir e a de agendamento continuar
         igual, o problema deixou de ser a abordagem e passou a ser a oferta da sessão. Aí a
         próxima conversa é sobre a sessão estratégica, não sobre o script.</p>
-      </div>
-    </section>
-
-    <!-- ══════════ 08 ══════════ -->
-    <section id="aberto">
-      <h2><span class="eyebrow">Pendências</span>O que ainda precisa de resposta</h2>
-
-      <div class="par">
-        <div class="caixa">
-          <h4>Com a Ju</h4>
-          <ul>
-            <li><strong>Qual promessa de faturamento vale.</strong> A página no ar diz R$ 20 mil, o doc de copy diz R$ 50 mil e a VSL fala em 50 a 100 mil. Os scripts não citam número, mas a closer precisa da resposta porque na sessão ele aparece.</li>
-            <li><strong>O valor exato a dizer na M9.</strong> Está escrito "quase dez mil reais". Se ela preferir o número cheio ou uma faixa, é troca de uma linha.</li>
-          </ul>
-        </div>
-        <div class="caixa">
-          <h4>Com o time</h4>
-          <ul>
-            <li><strong>O que fazer com a lead de rota EDP</strong>, descrito na régua acima.</li>
-            <li><strong>Treino de traços e estratos.</strong> Os cinco traços de caráter e as camadas de maturidade do Menegão ficaram fora daqui de propósito: são ferramenta de closer dentro da sessão, e sem treino viram rotulação amadora.</li>
-          </ul>
-        </div>
       </div>
     </section>
 
