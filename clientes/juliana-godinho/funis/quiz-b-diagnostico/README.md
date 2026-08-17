@@ -59,6 +59,15 @@ Falha de rede é engolida: o lead nunca fica preso numa tela de erro.
 | CRM | GoHighLevel da Ju (`QMyNQVqmEyUtRM62u4Zr`), pipeline "Fúnil de Marketing" |
 | Tags aplicadas | `quiz-diagnostico` + `quiz-b-diagnostico` |
 
+**A ordem dos módulos é planilha → CRM, de propósito.** No cenário do quiz
+antigo (V3) o CRM vem primeiro, então uma falha da GHL derruba a execução e o
+lead se perde. Aqui a linha da planilha é gravada antes de qualquer chamada à
+GHL, e os dois módulos da GHL têm `Ignore`: se o CRM cair, o lead ainda está
+salvo e recuperável.
+
+Campos enviados: `nome`, `numero`, `email`, `q1`–`q6` (as seis respostas em
+texto), `gargalo`, `rota`, `pilar`, as cinco UTMs e `data`.
+
 ### Desqualificadas
 
 Quem responde "Nenhuma dessas" na P1 é cortada antes da captura, então nunca
@@ -102,15 +111,6 @@ páginas empurram eventos no `dataLayer`:
 
 O GTM é a **única dependência externa** das páginas, e abre exceção à regra de
 zero dependência do playbook. A fonte continua embutida como data URI.
-
-**A ordem dos módulos é planilha → CRM, de propósito.** No cenário do quiz
-antigo (V3) o CRM vem primeiro, então uma falha da GHL derruba a execução e o
-lead se perde. Aqui a linha da planilha é gravada antes de qualquer chamada à
-GHL, e os dois módulos da GHL têm `Ignore`: se o CRM cair, o lead ainda está
-salvo e recuperável.
-
-Campos enviados: `nome`, `numero`, `email`, `q1`–`q6` (as seis respostas em
-texto), `gargalo`, `rota`, `pilar`, as cinco UTMs e `data`.
 
 ### Campos personalizados da GHL
 
