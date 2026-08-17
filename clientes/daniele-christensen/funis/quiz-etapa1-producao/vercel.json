@@ -1,0 +1,16 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/dani.jpg",
+      "destination": "https://grokker-quiz-diagnostico-simpleacc.vercel.app/dani.jpg"
+    }
+  ]
+}
