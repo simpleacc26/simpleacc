@@ -239,7 +239,7 @@
     <h1>Seu cenário já tem nome. Falta saber por que ele se instalou.</h1>
     <p class="lede">O seu Diagnóstico de Liderança/Gestão está pronto. É a leitura das suas respostas: o que o seu cenário significa na prática, por que o que você já tentou não resolveu, e qual é o caminho para destravar.</p>
 
-    <a class="cta" href="https://wa.me/5555996185023?text=Quero%20receber%20meu%20Diagn%C3%B3stico%20de%20Lideran%C3%A7a">Receber meu Diagnóstico no WhatsApp</a>
+    <a data-onde="topo" class="cta" href="https://wa.me/5555996185023?text=Quero%20receber%20meu%20Diagn%C3%B3stico%20de%20Lideran%C3%A7a">Receber meu Diagnóstico no WhatsApp</a>
     <p class="undercta">Chega no seu WhatsApp em segundos. Sem custo.</p>
 
     <section>
@@ -289,7 +289,7 @@
       </div>
     </section>
 
-    <a class="cta" style="margin-top:34px" href="https://wa.me/5555996185023?text=Quero%20receber%20meu%20Diagn%C3%B3stico%20de%20Lideran%C3%A7a">Receber meu Diagnóstico no WhatsApp</a>
+    <a data-onde="meio" class="cta" style="margin-top:34px" href="https://wa.me/5555996185023?text=Quero%20receber%20meu%20Diagn%C3%B3stico%20de%20Lideran%C3%A7a">Receber meu Diagnóstico no WhatsApp</a>
     <p class="undercta">Chega no seu WhatsApp em segundos. Sem custo.</p>
 
     <section>
@@ -322,7 +322,7 @@
       </div>
     </section>
 
-    <a class="cta" style="margin-top:34px" href="https://wa.me/5555996185023?text=Quero%20receber%20meu%20Diagn%C3%B3stico%20de%20Lideran%C3%A7a">Receber meu Diagnóstico no WhatsApp</a>
+    <a data-onde="bio" class="cta" style="margin-top:34px" href="https://wa.me/5555996185023?text=Quero%20receber%20meu%20Diagn%C3%B3stico%20de%20Lideran%C3%A7a">Receber meu Diagnóstico no WhatsApp</a>
     <p class="undercta">Chega no seu WhatsApp em segundos. Sem custo.</p>
 
     <section>
@@ -367,7 +367,7 @@
       <h2>A partir daqui existem duas saídas.</h2>
       <p>Você fecha essa página e segue conduzindo do mesmo jeito, esperando que o próximo mês seja diferente. Ou você lê, em poucos minutos, o que está travando a sua Liderança e por que isso acontece, e decide o que fazer com isso.</p>
       <p><strong>O Diagnóstico já está pronto. Falta só você solicitar.</strong></p>
-      <a class="cta" style="margin-top:22px" href="https://wa.me/5555996185023?text=Quero%20receber%20meu%20Diagn%C3%B3stico%20de%20Lideran%C3%A7a">Receber meu Diagnóstico no WhatsApp</a>
+      <a data-onde="fecho" class="cta" style="margin-top:22px" href="https://wa.me/5555996185023?text=Quero%20receber%20meu%20Diagn%C3%B3stico%20de%20Lideran%C3%A7a">Receber meu Diagnóstico no WhatsApp</a>
       <p class="undercta">Sem custo. Chega direto no seu WhatsApp.</p>
     </section>
 
@@ -472,6 +472,53 @@ var DESTINOS = [
   "https://hook.us2.make.com/v0ungryn21i7gk3q0ld4rxamf3g2m5tp"
 ];
 var envio = "não enviado";
+
+/* ------------------------------------------------------------ medição -----
+   O GTM não inventa evento: ele só escuta o que a página empurra para o
+   dataLayer. Sem estes dois pushes o contêiner enxerga carregamento de página
+   e mais nada — não existe "lead" nem "clique" para virar conversão.
+   O dataLayer é criado pelo snippet do GTM; a guarda existe porque o protótipo
+   roda sem GTM e não pode quebrar por isso.                                  */
+
+function dl(evento, dados){
+  window.dataLayer = window.dataLayer || [];
+  var e = {event: evento};
+  for(var k in dados){ if(Object.prototype.hasOwnProperty.call(dados,k)) e[k] = dados[k]; }
+  window.dataLayer.push(e);
+}
+
+// o clique no WhatsApp abre a janela de 24h: é o passo que a campanha otimiza,
+// e o que diz se o lead virou conversa ou parou na página.
+var CLIQUE_ZAP = "https://hook.us2.make.com/l8nl0chvehsk2aonkg1hi5y34ok2ndap";
+var zapAvisado = false;
+
+document.addEventListener("click", function(ev){
+  var alvo = ev.target;
+  var a = alvo && alvo.closest ? alvo.closest("#lp a.cta") : null;
+  if(!a) return;
+
+  var onde = a.getAttribute("data-onde") || "?";
+  dl("clique_whatsapp", {
+    posicao: onde,
+    cenario: R.cen === undefined ? "" : CENARIOS[R.cen].nome,
+    qualificado: qualificado() ? "sim" : "nao"
+  });
+
+  // a planilha só precisa saber que clicou, não quantas vezes
+  if(zapAvisado) return;
+  zapAvisado = true;
+  var corpo = JSON.stringify({
+    telefone: telefoneCanonico(R.zap),
+    nome: R.nome || "",
+    posicao: onde,
+    clicado_em: new Date().toISOString()
+  });
+  // o clique navega para fora: fetch seria cancelado no meio, o beacon não
+  try{
+    if(navigator.sendBeacon) navigator.sendBeacon(CLIQUE_ZAP, new Blob([corpo], {type:"text/plain"}));
+    else fetch(CLIQUE_ZAP, {method:"POST", body:corpo, keepalive:true});
+  }catch(e){}
+});
 
 // telefone canônico: só dígitos, com o 55 na frente. É esse valor que a Pulsar
 // devolve na URL da Etapa 2, e que a Etapa 2 repassa sem reformatar.
@@ -745,6 +792,12 @@ function concluir(){
   document.getElementById("prog").style.width = "100%";
   document.getElementById("quiz").classList.add("oculto");
   enviar();
+  dl("quiz_concluido", {
+    cenario: CENARIOS[R.cen].nome,
+    qualificado: qualificado() ? "sim" : "nao",
+    pontuacao: pontos(),
+    caminho: R.via
+  });
   atualizaPainel();
 
   document.getElementById("carregando").classList.add("on");
