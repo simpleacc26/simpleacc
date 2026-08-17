@@ -63,12 +63,23 @@ Depois é preciso **republicar** para a função pegar o valor novo.
 **Conferir sem expor a chave:**
 ```bash
 curl https://quiz-evandro-fernandes.vercel.app/api/lead
-# {"ok":true,"destino":"...","chaveConfigurada":true}
+# {"chaveConfigurada":true,"tamanho":64,"temEspacoNasPontas":false,"digital":"a236dc3cb61e"}
 ```
-`chaveConfigurada` diz só se a variável existe, nunca o valor. Enquanto for
-`false`, a função encaminha **sem** autenticação, que é o que o endpoint do HDM
-aceita com a trava desligada. Por isso cadastrar a chave e o HDM religar a trava
-podem acontecer em momentos diferentes, sem perder lead.
+Nenhum desses campos devolve o segredo. `digital` é o sha256 truncado: compare
+com o esperado e você sabe que a chave está byte a byte certa.
+
+**Por que a impressão digital importa:** enquanto a trava do HDM estiver
+desligada, o endpoint aceita qualquer coisa, então **um POST 200 não prova que a
+chave está certa**. Uma chave com um espaço colado junto passaria no teste e só
+falharia quando ligassem a trava, com os leads sumindo em silêncio. `tamanho` e
+`temEspacoNasPontas` pegam exatamente esse erro.
+
+Enquanto `chaveConfigurada` for `false`, a função encaminha **sem** autenticação.
+Por isso cadastrar a chave e o HDM religar a trava podem acontecer em momentos
+diferentes, sem perder lead.
+
+**Conferido em 16/08/2026:** tamanho 64, sem espaços, digital `a236dc3cb61e`,
+igual ao valor que o Evandro enviou. Pode religar a trava.
 
 ## Estado da integração (13/08/2026, 19h40)
 **Conectado.** O HDM desligou a trava do nó e o lead passou a cair no CRM dele.
@@ -98,12 +109,8 @@ gerar custo de operações.
       `qualificado` (o que serve para rotear) e descarta 4 das 7 respostas. Subir
       tráfego assim inverte a qualificação. Detalhe e o que pedir ao time deles em
       `especificacao-webhook-leads.md`.
-- [ ] **Cadastrar a `HDM_CRM_API_KEY` no painel da Vercel** e republicar. Sem
-      isso o proxy encaminha sem autenticação: funciona hoje, mas para de
-      funcionar no minuto em que o HDM religar a trava. Conferir com
-      `curl .../api/lead` → `chaveConfigurada: true`.
-- [ ] **Avisar o HDM que a trava tem que ser Header Auth**, não Basic (foi Basic
-      que travou tudo na primeira tentativa).
+- [ ] **HDM religar a trava como Header Auth**, não Basic (foi Basic que travou
+      tudo na primeira tentativa). Do nosso lado já está tudo pronto e conferido.
 
 **Melhora a entrega, não bloqueia:**
 - [ ] **Logo oficial** em SVG/PNG para o topo da página (hoje wordmark "HDM" em

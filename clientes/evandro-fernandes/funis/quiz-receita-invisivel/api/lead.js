@@ -15,16 +15,29 @@
    Responde { chaveConfigurada: true|false }, sem devolver o valor.
    ============================================================ */
 
+const crypto = require("crypto");
+
 const DESTINO = "https://n8n.digienge.ai/webhook/quizzreceitainvisivel";
 
 module.exports = async (req, res) => {
   // GET = diagnóstico. Serve para saber se a variável de ambiente chegou,
   // sem precisar disparar um lead de teste no CRM do cliente.
   if (req.method === "GET") {
+    const chave = process.env.HDM_CRM_API_KEY || "";
     return res.status(200).json({
       ok: true,
       destino: DESTINO,
-      chaveConfigurada: Boolean(process.env.HDM_CRM_API_KEY),
+      chaveConfigurada: Boolean(chave),
+      // Impressão digital, não a chave. Enquanto a trava do HDM estiver
+      // desligada o endpoint aceita qualquer coisa, então um POST 200 NÃO prova
+      // que a chave está certa: um espaço colado junto passaria despercebido até
+      // ligarem a trava e os leads sumirem. Estes três campos comparam com o
+      // valor esperado sem nunca devolver o segredo.
+      tamanho: chave.length,
+      temEspacoNasPontas: chave !== chave.trim(),
+      digital: chave
+        ? crypto.createHash("sha256").update(chave).digest("hex").slice(0, 12)
+        : null,
     });
   }
 
