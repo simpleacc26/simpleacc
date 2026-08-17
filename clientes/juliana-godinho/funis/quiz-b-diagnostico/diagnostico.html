@@ -3,6 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MVZDHB3M');</script>
+<!-- End Google Tag Manager -->
 <title>O seu diagnóstico · Juliana Godinho</title>
 <meta name="robots" content="noindex,nofollow">
 <style>
@@ -153,6 +160,10 @@
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MVZDHB3M"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <div class="bar"><div class="wrap">
   <div class="mark">Juliana Godinho<i>Diagnóstico</i></div>
@@ -166,6 +177,15 @@ const STORE = "jugodinho_quizb";
 const A = (() => { try { return JSON.parse(sessionStorage.getItem(STORE)) || null } catch(e){ return null } })();
 const esc = s => String(s==null?'':s).replace(/[<>&]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));
 const el = document.getElementById('pagina');
+
+/* Camada de dados do GTM. Sem tag configurada no container o evento fica só no
+   dataLayer e nada dispara, então empurrar é inofensivo. */
+function dl(evento, extra){
+  try{
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event: evento }, extra || {}));
+  }catch(e){}
+}
 
 if(!A || !A.quadro){
   el.innerHTML = `<section><div class="narrow center">
@@ -306,6 +326,24 @@ if(!A || !A.quadro){
     </ul>
     <a class="cta" href="https://wa.me/5531992744259">Quero agendar minha sessão <span>&rarr;</span></a>
   </div></section>`;
+
+  dl('quiz_completo', {
+    quiz_quadro: A.quadroId, quiz_gargalo: A.quadro,
+    quiz_rota: A.rota === 'mentoria' ? 'mentoria' : 'edp',
+    quiz_pilar: A.pilarNome
+  });
+
+  /* Delegado no documento: os 6 CTAs nascem do innerHTML acima, e delegar evita
+     religar ouvinte a cada um. O evento sobe antes da navegação para o
+     WhatsApp; nenhum preventDefault, o link segue normal. */
+  document.addEventListener('click', ev => {
+    const a = ev.target.closest('a.cta[href*="wa.me"]');
+    if(!a) return;
+    dl('whatsapp_click', {
+      quiz_cta: a.textContent.replace(/\s+/g,' ').trim(),
+      quiz_rota: A.rota === 'mentoria' ? 'mentoria' : 'edp'
+    });
+  });
 }
 </script>
 </body>

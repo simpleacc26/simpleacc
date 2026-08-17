@@ -3,6 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MVZDHB3M');</script>
+<!-- End Google Tag Manager -->
 <title>Diagnóstico · Juliana Godinho</title>
 <meta name="description" content="Descubra qual gargalo está travando o crescimento da sua clínica ou consultório de estética avançada.">
 <meta name="robots" content="noindex,nofollow">
@@ -126,6 +133,10 @@
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MVZDHB3M"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <div class="bar">
   <div class="wrap">
@@ -238,6 +249,17 @@ const TOTAL = PERGUNTAS.length;
 const R = {};
 let etapa = 1, fora = false;
 
+/* Camada de dados do GTM. Empurrar é inofensivo: sem tag configurada no
+   container, o evento fica só no dataLayer e nada é disparado. O quiz é uma
+   página só que troca de tela, então sem isso o GTM veria um pageview para o
+   funil inteiro. */
+function dl(evento, extra){
+  try{
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event: evento }, extra || {}));
+  }catch(e){}
+}
+
 /* webhook do Make — cenário "V4 - Ju Godinho (Quiz B)" */
 const WEBHOOK = 'https://hook.us2.make.com/xm49y796rjznhxylkfx1grmgg9wgkbc2';
 
@@ -266,6 +288,19 @@ function render(){
   return resultado();
 }
 
+/* Sai da pergunta i. Centraliza o avanço porque há dois caminhos — resposta
+   única avança sozinha, múltipla avança pelo "Continuar" — e os dois precisam
+   registrar o mesmo evento. */
+function avancar(i, resposta){
+  if(i === 0) dl('quiz_start');
+  dl('quiz_pergunta', {
+    quiz_pergunta_num: i+1,
+    quiz_pergunta_id: PERGUNTAS[i].id,
+    quiz_resposta: resposta
+  });
+  etapa = i+2; render();
+}
+
 function pergunta(i){
   const P = PERGUNTAS[i], sel = R[P.id];
   const on = k => P.tipo==='multipla' ? (Array.isArray(sel)&&sel.includes(k)) : sel===k;
@@ -286,13 +321,18 @@ function pergunta(i){
         R[P.id]=arr; b.classList.toggle('on'); return;
       }
       R[P.id]=k;
-      if(P.opts[k].fora){ fora=true; render(); return; }
+      if(P.opts[k].fora){
+        dl('quiz_fora_escopo', { quiz_pergunta_id:P.id, quiz_resposta:P.opts[k].t });
+        fora=true; render(); return;
+      }
       screen.querySelectorAll('.opt').forEach(x=>x.classList.remove('on'));
       b.classList.add('on');
-      setTimeout(()=>{ etapa=i+2; render(); },200);
+      setTimeout(()=>{ avancar(i, P.opts[k].t); },200);
     };
   });
-  const nx=document.getElementById('next'); if(nx) nx.onclick=()=>{ etapa=i+2; render(); };
+  const nx=document.getElementById('next'); if(nx) nx.onclick=()=>{
+    avancar(i, (R[P.id]||[]).map(k=>P.opts[k].t).join(' + ') || 'nada');
+  };
   const bk=document.getElementById('back'); if(bk) bk.onclick=()=>{ etapa=i; render(); };
 }
 
@@ -364,6 +404,7 @@ function captura(){
     });
     if(primeiro){ primeiro.focus(); return; }
     R._nome = nome.value.trim(); R._fone = fone.value.trim(); R._mail = mail.value.trim();
+    dl('quiz_lead');
     etapa = TOTAL + 2; render();
   };
   document.getElementById('back').onclick = () => { etapa = TOTAL; render(); };
