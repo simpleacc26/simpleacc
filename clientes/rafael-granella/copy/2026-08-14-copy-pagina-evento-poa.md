@@ -16,11 +16,12 @@ construído. Preço único de R$1.500 para todo mundo.
 PORTO ALEGRE · 11 DE SETEMBRO · 50 VAGAS
 
 **Título**
-Sua mentoria funciona. O seu negócio de mentoria, não.
+Você já entrega bem. Vamos montar o negócio em volta disso.
 
 **Subtítulo**
-Um dia inteiro em Porto Alegre para transformar o que você já entrega bem em um negócio de
-educação que vende sem depender de você aparecer.
+Um dia inteiro em Porto Alegre, com cinquenta mentores e consultores na sala, para
+transformar o trabalho que você já faz bem em um negócio de educação que cresce sem depender
+de você aparecer o tempo todo.
 
 **Linha de dados**
 Sexta-feira, 11 de setembro. Iguatemi Trust Business, Porto Alegre. Das 8h59 às 18h59.
@@ -29,7 +30,10 @@ Sexta-feira, 11 de setembro. Iguatemi Trust Business, Porto Alegre. Das 8h59 às
 Quero garantir minha vaga
 
 **Abaixo do botão**
-São 50 lugares na sala. Ingresso de R$1.500.
+São 50 lugares na sala, e a inscrição fecha quando eles acabarem.
+
+> O preço não aparece na primeira dobra de propósito: o lead precisa passar pelo filtro de
+> perfil, pelo problema e pela autoridade antes de ver o valor.
 
 ---
 
@@ -40,7 +44,9 @@ Antes de qualquer coisa, veja se é para você.
 
 **Texto de entrada**
 Esse evento tem cinquenta lugares e eu prefiro a sala cheia de gente certa do que cheia de
-gente. Então lê essas duas listas com honestidade antes de comprar.
+gente, então dá uma olhada honesta nessas duas listas antes de comprar.
+
+*Na página, a primeira lista usa check dourado e a segunda usa x branco suave.*
 
 **É para você se**
 - Você já vive de mentoria, consultoria, treinamento ou coaching, e tem cliente pagando hoje.
@@ -63,17 +69,18 @@ gente. Então lê essas duas listas com honestidade antes de comprar.
 O problema quase nunca é a sua entrega.
 
 **Texto**
-Eu convivo com mentor, consultor e treinador há mais de dez anos, e o padrão se repete. A
-entrega é boa. O cliente sai satisfeito. Ele indica. E o faturamento não sai do lugar.
+Eu convivo com mentor, consultor e treinador há mais de dez anos, e tem um padrão que se
+repete quase sempre: a entrega é boa, o cliente sai satisfeito e ainda indica, mas o
+faturamento continua no mesmo lugar do ano passado.
 
-Não é falta de competência e não é falta de conteúdo. É que o negócio inteiro passa por uma
-pessoa só. Você prospecta, você vende, você entrega, você faz o pós, você posta. Cada cliente
-novo custa mais uma hora sua, e as suas horas acabaram no ano passado.
+Não é falta de competência e nem de conteúdo, é que o negócio inteiro passa por uma pessoa
+só. Você prospecta, vende, entrega, faz o pós e ainda posta, então cada cliente novo custa
+mais uma hora sua, e as suas horas já acabaram faz tempo.
 
-O custo disso não aparece de uma vez. Aparece assim: você recusa trabalho porque não tem
-agenda, você segura o preço porque tem medo de perder o cliente, você fica dois meses sem
-vender porque parou de postar, e no fim do ano você trabalhou mais do que nunca e olha o
-extrato sem entender o que aconteceu.
+O custo disso vai aparecendo aos poucos: você recusa trabalho porque não tem agenda, segura o
+preço com medo de perder o cliente, passa dois meses sem vender porque parou de postar, e no
+fim do ano trabalhou mais do que nunca sem entender direito por que o resultado não
+acompanhou.
 
 ---
 
@@ -83,16 +90,15 @@ extrato sem entender o que aconteceu.
 Isso não se resolve com mais conteúdo. Se resolve com modelo.
 
 **Texto**
-Modelo de negócio é o que decide o que você vende, por quanto, para quem, por qual caminho
-essa pessoa chega até você, e o que acontece depois que ela compra. Quando isso está de pé,
-o preço sobe sem drama, a agenda para de ser o teto do faturamento e a venda deixa de
+Modelo de negócio é o que define o que você vende, por quanto, para quem, por qual caminho
+essa pessoa chega até você e o que acontece depois que ela compra. Quando isso está de pé, o
+preço sobe sem drama, a agenda para de ser o teto do seu faturamento e a venda deixa de
 depender de inspiração.
 
-Eu não aprendi isso em curso. Eu aprendi errando, reconstruindo, e depois entrando numa liga
-onde todo mundo já tinha resolvido esse problema antes de mim.
-
-No dia 11 de setembro eu abro esse caminho inteiro, do jeito que ele funciona hoje, com
-número na tela e sem parte escondida.
+Eu não aprendi isso em curso, aprendi errando e reconstruindo, e depois entrando numa liga
+onde todo mundo já tinha resolvido esse problema antes de mim. No dia 11 de setembro eu abro
+esse caminho inteiro, do jeito que ele funciona hoje, com número na tela e sem parte
+escondida.
 
 ---
 
@@ -101,19 +107,24 @@ número na tela e sem parte escondida.
 **Título**
 Quem vai conduzir o dia
 
-**Texto**
-Eu sou o Rafael Granella. Empreendo há mais de dezoito anos, sou líder do Alivance Mentoring
-Club, apresento o podcast O Ciclo e coordeno o núcleo comercial e de vendas do Club M.
+**Fotos** (da pasta Material Visual > Fotos, no Drive do cliente)
+Retrato do Rafa no palco ao lado do texto, e a foto do encontro da Mentoring League Society
+logo abaixo, com a legenda "Encontro da Mentoring League Society".
 
-O Alivance é um club dentro da Mentoring League Society, a liga que tem como sócios Flávio
-Augusto, Caio Carneiro e Joel Jota, com cerca de dez mil empresários no ecossistema.
+**Texto**
+Eu sou o Rafael Granella, empreendo há mais de dezoito anos e lidero o Alivance Mentoring
+Club, além de apresentar o podcast O Ciclo e coordenar o núcleo comercial e de vendas do
+Club M.
+
+O Alivance é um club dentro da Mentoring League Society, a liga que tem Flávio Augusto, Caio
+Carneiro e Joel Jota como sócios e reúne cerca de dez mil empresários no ecossistema.
 
 Sou mentor e treinador comportamental formado pelo IFT, master practitioner em PNL, analista
-comportamental DISC e eneagrama, hipnoterapeuta e autor best-seller. Ganhei o prêmio As
+comportamental DISC e eneagrama, hipnoterapeuta e autor best-seller, ganhei o prêmio As
 Melhores Perguntas de Vendas do Agendor em 2016 e criei os métodos RICOM e 15x1.
 
-Passei por mais de cinco mil clientes e mais de quinhentos mentorados até aqui. O que eu vou
-abrir no dia 11 é o que sobrou de tudo isso depois que eu tirei o que não funciona.
+Passei por mais de cinco mil clientes e mais de quinhentos mentorados até aqui, e o que eu
+vou abrir no dia 11 é o que sobrou de tudo isso depois que eu tirei o que não funciona.
 
 ---
 
@@ -186,10 +197,11 @@ O ingresso
 
 **Texto**
 São R$1.500 por um dia inteiro comigo e com mais quarenta e nove pessoas que estão no mesmo
-jogo que você. É o mesmo valor para todo mundo, venha você pelo anúncio, por indicação ou
+jogo que você, e é o mesmo valor para todo mundo, venha você pelo anúncio, por indicação ou
 pelo meu convite direto.
 
-Membros do Club entram sem pagar ingresso. Se você é membro, fala comigo antes de comprar.
+Membros do Club entram sem pagar ingresso, então se você é membro, fala comigo antes de
+comprar.
 
 **Botão**
 Quero garantir minha vaga
@@ -232,18 +244,19 @@ confirmar a sua presença, porque a vaga continua ocupando um dos cinquenta luga
 Sobre a decisão
 
 **Texto**
-Se você chegou até aqui e ficou em dúvida, provavelmente a dúvida não é o valor. É se mais
-um dia de evento vai mudar alguma coisa, porque você já foi em outros e voltou igual.
+Se você chegou até aqui e ainda ficou em dúvida, provavelmente ela não é sobre o valor, é
+sobre se mais um dia de evento vai mudar alguma coisa, porque você já foi em outros e voltou
+igual.
 
-Justo. Então eu vou ser específico sobre o que é diferente aqui: não tem palco motivacional,
-não tem venda de esteira no final, e não tem plateia de duzentas pessoas ouvindo uma
-palestra genérica. São cinquenta lugares, o dia inteiro em cima de modelo de negócio,
-aquisição e venda, e o seu caso pode ser olhado na frente da sala.
+É justo, então deixa eu ser específico sobre o que muda aqui: não tem palco motivacional, não
+tem venda de esteira no final e não tem plateia de duzentas pessoas ouvindo uma palestra
+genérica. São cinquenta lugares, o dia inteiro em cima de modelo de negócio, aquisição e
+venda, e o seu caso pode ser olhado na frente da sala.
 
-Se você é mentor, consultor, treinador ou coach e já vive disso, garanta a sua vaga agora,
-enquanto ainda existe uma. Você fecha o pagamento em dois minutos, recebe a confirmação no
-e-mail e não precisa negociar com ninguém para entrar. Quando os cinquenta lugares
-acabarem, a página sai do ar e a próxima data eu ainda não tenho.
+Se você é mentor, consultor, treinador ou coach e já vive disso, garante a sua vaga enquanto
+ainda tem uma. Você fecha o pagamento em dois minutos, recebe a confirmação no e-mail e não
+precisa negociar com ninguém para entrar, e quando os cinquenta lugares acabarem a página sai
+do ar.
 
 **Botão**
 Quero garantir minha vaga
