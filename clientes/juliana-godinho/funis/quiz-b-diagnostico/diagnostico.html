@@ -327,11 +327,29 @@ if(!A || !A.quadro){
     <a class="cta" href="https://wa.me/5531992744259">Quero agendar minha sessão <span>&rarr;</span></a>
   </div></section>`;
 
-  dl('quiz_completo', {
-    quiz_quadro: A.quadroId, quiz_gargalo: A.quadro,
-    quiz_rota: A.rota === 'mentoria' ? 'mentoria' : 'edp',
-    quiz_pilar: A.pilarNome
-  });
+  /* O evento de conversão dispara aqui, e não no envio do formulário, porque no
+     formulário a página navega logo em seguida e a tag costuma ser cortada antes
+     de completar a requisição — conversão perdida. Aqui a página está parada.
+
+     Em troca aparece o risco oposto: recarregar o diagnóstico contaria o mesmo
+     lead de novo. Por isso o disparo é travado por lead_id. O id vem do quiz e
+     também vai para a planilha, então dá para casar a contagem do gerenciador
+     com as linhas gravadas e enxergar qualquer diferença. */
+  const CHAVE_CONV = 'jugodinho_quizb_convertido';
+  const jaContou = (() => {
+    try{ return sessionStorage.getItem(CHAVE_CONV) === A.id; }catch(e){ return false; }
+  })();
+
+  if(!jaContou){
+    try{ sessionStorage.setItem(CHAVE_CONV, A.id || '1'); }catch(e){}
+    dl('quiz_completo', {
+      lead_id: A.id || '',
+      event_id: A.id || '',
+      quiz_quadro: A.quadroId, quiz_gargalo: A.quadro,
+      quiz_rota: A.rota === 'mentoria' ? 'mentoria' : 'edp',
+      quiz_pilar: A.pilarNome
+    });
+  }
 
   /* Delegado no documento: os 6 CTAs nascem do innerHTML acima, e delegar evita
      religar ouvinte a cada um. O evento sobe antes da navegação para o
@@ -340,6 +358,7 @@ if(!A || !A.quadro){
     const a = ev.target.closest('a.cta[href*="wa.me"]');
     if(!a) return;
     dl('whatsapp_click', {
+      lead_id: A.id || '',
       quiz_cta: a.textContent.replace(/\s+/g,' ').trim(),
       quiz_rota: A.rota === 'mentoria' ? 'mentoria' : 'edp'
     });

@@ -263,19 +263,21 @@ function dl(evento, extra){
 /* webhook do Make — cenário "V4 - Ju Godinho (Quiz B)" */
 const WEBHOOK = 'https://hook.us2.make.com/xm49y796rjznhxylkfx1grmgg9wgkbc2';
 
-/* webhook separado, cenário "V4 - Ju Godinho (Desqualificados)". Quem é cortada
-   na P1 nunca chega a informar nome, telefone ou e-mail — então aqui vai só a
-   contagem: o que cortou e de qual criativo veio. Nada identifica a pessoa. */
-const WEBHOOK_FORA = 'https://hook.us2.make.com/7o322cozb1s2n1fw2xwx3tknppvrgn04';
+/* webhook do Make — cenário "V4 - Ju Godinho (Desqualificados)".
+   Contagem anônima: quem é cortada na P1 não chegou a informar nome, telefone
+   nem e-mail, então só viaja o motivo do corte e as UTMs. Sem isso o descarte
+   some sem deixar rastro e não dá para saber quanto orçamento está indo para o
+   público errado, nem de qual criativo. */
+const WEBHOOK_FORA = 'https://hook.us2.make.com/ibk31xw6a4uvzxss7t5a9lwmg5afrrrm';
 
-/* Envia sem segurar a tela: keepalive para sobreviver à navegação e erro
-   engolido, porque nenhum registro nosso pode travar o lead. */
-function enviar(url, dados){
+/* keepalive faz a requisição sobreviver à saída da página; erro de rede é
+   engolido para nunca segurar a pessoa numa tela travada. */
+function enviar(url, corpo){
   try{
     fetch(url, {
       method:'POST', keepalive:true,
       headers:{ 'Content-Type':'application/json' },
-      body: JSON.stringify(dados)
+      body: JSON.stringify(corpo)
     }).catch(()=>{});
   }catch(e){}
 }
@@ -449,7 +451,17 @@ function resultado(){
   const rota = PERGUNTAS[5].opts[R.faturamento].rota;
   const P = PILAR_DO_QUADRO[qKey];
 
+  /* Identificador único do lead. Serve para três coisas: deduplicar o evento
+     de conversão se a pessoa recarregar o diagnóstico, casar a contagem do GTM
+     com as linhas da planilha, e servir de event_id caso a Meta passe a receber
+     o mesmo evento pelo navegador e pela API. */
+  const leadId = (() => {
+    try{ if(crypto && crypto.randomUUID) return crypto.randomUUID(); }catch(e){}
+    return 'l-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2,10);
+  })();
+
   const payload = {
+    id: leadId,
     nome:R._nome, fone:R._fone, mail:R._mail,
     quadroId:qKey, quadro:Q.nome, porque:Q.porque, caminho:Q.caminho, rota:rota,
     cenario:`Você tem uma clínica ou consultório ${frase('carro')}. ${frase('equipe')} ${frase('margem')}`,
@@ -469,6 +481,7 @@ function resultado(){
 
   /* lead para o Make → planilha "V4 - Quiz" + GoHighLevel */
   enviar(WEBHOOK, {
+    lead_id: leadId,
     nome: R._nome, numero: R._fone, email: R._mail,
     q1: PERGUNTAS[0].opts[R.carro].t,
     q2: PERGUNTAS[1].opts[R.cena].t,
