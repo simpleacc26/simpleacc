@@ -127,11 +127,8 @@
   .assina{margin-top:20px;padding-top:16px;border-top:1px solid #201e1c}
   .assina .nome{font-size:15.5px;font-weight:800;color:#fff;margin:0 0 3px}
   .assina .reg{font-size:12.5px;color:var(--muted);margin:0;letter-spacing:.02em}
-  .agenda{
-    border:1px dashed #3a3833;border-radius:8px;padding:34px 22px;text-align:center;color:var(--muted);
-    font-size:14px;margin:14px 0 0;background:#0d0c0b;
-  }
-  .agenda b{display:block;color:#e6e3de;font-size:15.5px;font-weight:700;margin-bottom:6px}
+  #agenda{margin:14px 0 0;border-radius:8px;overflow:hidden;background:#fff;min-height:700px}
+  @media(max-width:520px){#agenda{min-height:1000px}}
   .lista{margin:0;padding:0;list-style:none}
   .lista li{
     position:relative;padding:0 0 0 22px;margin:0 0 11px;font-size:15px;color:#bdb9b3;
@@ -222,10 +219,7 @@
 
     <div class="cx">
       <h3>Escolha o horário da sua sessão</h3>
-      <div class="agenda">
-        <b>Agenda entra aqui</b>
-        Widget do calendário do time comercial.<br>Nesta demonstração é só um espaço reservado.
-      </div>
+      <div id="agenda"></div>
     </div>
 
     <footer><p>Grokker · Dra. Daniele Christensen · Suas respostas são confidenciais.</p></footer>
@@ -295,10 +289,21 @@ var i = 0;    // pergunta atual
 // .../etapa2?lead=<id>&nome=<primeiro nome>&cenario=<cenário da Etapa 1>
 function lerLink(){
   var p = new URLSearchParams(location.search);
+  // o telefone vem pronto na URL que a Pulsar manda no WhatsApp. Ele é repassado
+  // como veio, sem recapturar nem reformatar: é a chave que acha o lead lá.
+  var chaves = ["telefone","phone","whatsapp","zap","tel","celular"];
+  var fone = "", campo = "";
+  for(var k = 0; k < chaves.length; k++){
+    var v = p.get(chaves[k]);
+    if(v){ fone = v; campo = chaves[k]; break; }
+  }
   return {
     id:      p.get("lead")    || "demo-0001",
     nome:    p.get("nome")    || "",
-    cenario: p.get("cenario") || "O Gargalo"
+    email:   p.get("email")   || "",
+    cenario: p.get("cenario") || "O Gargalo",
+    telefone: fone,
+    campoTelefone: campo
   };
 }
 
@@ -429,8 +434,52 @@ function concluir(){
   document.getElementById("prog").style.width = "100%";
   mostra("carregando");
   corre(2400);
+  enviar();
   atualizaPainel();
-  daqui(2600, function(){ mostra("fim"); });
+  daqui(2600, function(){ mostra("fim"); montaAgenda(); });
+}
+
+var WEBHOOK = "https://pulsar.app.n8n.cloud/webhook/grokker-quiz-etapa2";
+var envio = "não enviado";
+
+// o lead nunca espera pelo envio: falhou, a agenda aparece do mesmo jeito
+function enviar(){
+  var corpo = JSON.stringify(payload());
+  envio = "enviando";
+  try{
+    fetch(WEBHOOK, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: corpo,
+      keepalive: true
+    }).then(function(r){
+      envio = r.ok ? "enviado (" + r.status + ")" : "erro HTTP " + r.status;
+      atualizaPainel();
+    }).catch(function(){
+      // CORS bloqueado ou rede fora: o beacon vai como text/plain, sem preflight
+      var ok = navigator.sendBeacon && navigator.sendBeacon(WEBHOOK, new Blob([corpo], {type:"text/plain"}));
+      envio = ok ? "enviado pelo beacon" : "falhou";
+      atualizaPainel();
+    });
+  }catch(e){ envio = "falhou: " + e.message; }
+}
+
+// o Calendly só carrega depois que o lead termina, para não pesar o formulário
+var agendaPronta = false;
+function montaAgenda(){
+  if(agendaPronta) return;
+  agendaPronta = true;
+  var url = "https://calendly.com/sucessodocliente-grokkeronline/30min";
+  var q = ["hide_gdpr_banner=1", "background_color=12110f", "text_color=f0ede8", "primary_color=f18700"];
+  if(LEAD.nome)  q.push("name="  + encodeURIComponent(LEAD.nome));
+  if(LEAD.email) q.push("email=" + encodeURIComponent(LEAD.email));
+  var alvo = document.getElementById("agenda");
+  alvo.className = "calendly-inline-widget";
+  alvo.setAttribute("data-url", url + "?" + q.join("&"));
+  var t = document.createElement("script");
+  t.src = "https://assets.calendly.com/assets/external/widget.js";
+  t.async = true;
+  document.body.appendChild(t);
 }
 
 /* -------------------------------------------------------- painel de demo */
@@ -443,6 +492,8 @@ function payload(){
     lead_id: LEAD.id,
     etapa: 2,
     cenario_etapa1: LEAD.cenario,
+    telefone: LEAD.telefone,
+    nome: LEAD.nome,
     respostas: {},
     blocos: {},
     td: Number(n.TD.toFixed(2)),
@@ -476,6 +527,9 @@ function atualizaPainel(){
 
   var n = notas(), dom = dominante(n), hot = quente(n);
   g.appendChild(linha("Lead", LEAD.id));
+  g.appendChild(linha("Telefone da URL",
+    LEAD.telefone ? LEAD.telefone + "  (parâmetro ?" + LEAD.campoTelefone + "=)" : "AUSENTE",
+    LEAD.telefone ? null : "no"));
   g.appendChild(linha("Cenário da Etapa 1", LEAD.cenario));
   Object.keys(BLOCOS).forEach(function(b){
     g.appendChild(linha("Bloco " + b + " · " + BLOCOS[b].nome, um(n[b]), n[b] === 10 ? "no" : null));
@@ -484,6 +538,7 @@ function atualizaPainel(){
   g.appendChild(linha("Bloco dominante", dom + " · " + BLOCOS[dom].nome, "quente"));
   g.appendChild(linha("Lead Hot", hot ? "sim" : "não", hot ? "quente" : null));
   g.appendChild(linha("Abrir a call por", PONTE[LEAD.cenario] || "—"));
+  g.appendChild(linha("Webhook Etapa 2", envio, envio.indexOf("enviado") === 0 ? "ok" : "no"));
 
   j.textContent = JSON.stringify(payload(), null, 2);
 }
@@ -522,6 +577,7 @@ function preencher(qual){
   var p = document.getElementById("painel");
   if(!p.classList.contains("aberto")) togglePainel();
   mostra("fim");
+  montaAgenda();
 }
 
 /* ------------------------------------------------------------------ arranque */

@@ -176,25 +176,39 @@ estraga o diagnóstico.
 ### O link
 
 Precisa carregar a identificação do lead, senão o CRM não sabe quem preencheu e
-os follow-ups batem em quem já respondeu. O protótipo lê três parâmetros:
+os follow-ups batem em quem já respondeu. O protótipo lê:
 
 ```
-/etapa2?lead=<id>&nome=<primeiro nome>&cenario=<cenário da Etapa 1>
+/etapa2?lead=<id>&nome=<primeiro nome>&email=<e-mail>&telefone=<telefone da Etapa 1>&cenario=<cenário da Etapa 1>
 ```
 
-`nome` personaliza a abertura. `cenario` é o que permite mostrar a ponte ao
-Closer. Ambos são opcionais; `lead` não.
+`nome` personaliza a abertura e pré-preenche a agenda, junto com `email`.
+`cenario` é o que permite mostrar a ponte ao Closer. Só `lead` é obrigatório.
+
+`telefone` é a chave de cruzamento entre as duas etapas e por isso tem uma
+regra própria: **o formulário não pergunta o telefone e não reformata o que
+recebe**. O valor que vier na URL é o valor que volta no webhook, caractere por
+caractere. Foi o pedido da Pulsar e é o comportamento certo: se a Etapa 2
+recapturasse o número, o lead poderia digitar diferente do que digitou na Etapa 1
+e os dois registros deixariam de casar. Por tolerância a integrações que nomeiam
+o parâmetro de outro jeito, também são aceitos `phone`, `whatsapp`, `zap`, `tel`
+e `celular` — o primeiro que aparecer vence, e o painel de demonstração mostra
+qual deles foi lido, para conferir a integração sem adivinhação.
 
 ### O envio ao CRM
 
 Um webhook único, disparado quando as 15 perguntas terminam, com tudo calculado
 do nosso lado. O Closer não deve receber respostas cruas para somar na mão.
 
+`POST https://pulsar.app.n8n.cloud/webhook/grokker-quiz-etapa2`
+
 ```json
 {
-  "lead_id": "...",
+  "lead_id": "abc123",
   "etapa": 2,
   "cenario_etapa1": "O Gargalo",
+  "telefone": "5511987654321",
+  "nome": "Marcelo",
   "respostas": { "A1": 10, "A2": 4, "...": "..." },
   "blocos": { "A": 7, "B": 9, "C": 7, "D": 8, "E": 8 },
   "td": 7.8,
@@ -204,8 +218,42 @@ do nosso lado. O Closer não deve receber respostas cruas para somar na mão.
 ```
 
 São 15 campos de resposta, 5 de bloco, o TD, o bloco dominante e a etiqueta de
-Lead Hot. A documentação pede que o dado esteja no CRM em até 5 minutos; sendo
-webhook na conclusão, é imediato.
+Lead Hot, mais a identificação. A documentação pede que o dado esteja no CRM em
+até 5 minutos; sendo webhook na conclusão, é imediato.
+
+`cenario_etapa1` chega exatamente com uma das quatro grafias da Etapa 1, com
+acento e maiúscula: `O Adiador`, `O Gargalo`, `Time que não Assume`,
+`Plano que não Vira Execução`. `telefone` é o eco do parâmetro da URL.
+
+O disparo não bloqueia o lead: sai por `fetch` com `keepalive`, e se falhar cai
+para `navigator.sendBeacon`. O beacon vai como `text/plain` para não pedir
+preflight, então **o endpoint precisa aceitar os dois content-types** e liberar
+CORS para o domínio da página.
+
+### O webhook da Etapa 1
+
+Mesmo mecanismo, no fim do quiz:
+
+`POST https://pulsar.app.n8n.cloud/webhook/grokker-quiz-etapa1`
+
+```json
+{
+  "etapa": 1,
+  "enviado_em": "2026-08-17T13:05:00.000Z",
+  "nome": "Marcelo", "email": "...", "telefone": "5511987654321",
+  "telefone_digitado": "(11) 98765-4321",
+  "cenario": "O Gargalo", "cenario_indice": 1,
+  "diagnostico_pdf": "Diagnostico-02-o-gargalo.pdf",
+  "caminho": "A", "cargo": "...", "setor": "...",
+  "faturamento": "...", "margem": "...", "autonomia": "...", "remuneracao": "...",
+  "pontuacao": 7, "qualificado": true, "motivo": "...",
+  "respostas": { "P0": "...", "P7": "..." }
+}
+```
+
+`telefone` vem normalizado (só dígitos, com o 55 na frente) e é **esse** o valor
+que precisa voltar na URL da Etapa 2. `telefone_digitado` guarda o que o lead
+escreveu, para conferência. `diagnostico_pdf` diz qual dos quatro PDFs enviar.
 
 ### Onde as respostas ficam
 
@@ -235,17 +283,31 @@ Detalhes de manutenção da planilha estão dentro dela, no bloco "Como ler".
 
 ### A agenda
 
-A última tela do formulário é onde o calendário aparece. É o único ponto em que
-dependemos da Pulsar para fechar a etapa: ou embutimos o widget da agenda deles,
-ou redirecionamos para ela levando o `lead_id`. Precisa ser definido antes de a
-implementação começar.
+**Resolvido:** é o Calendly da Grokker, embutido na última tela.
+
+```
+https://calendly.com/sucessodocliente-grokkeronline/30min
+```
+
+Widget inline, carregado só quando o lead chega à tela final — antes disso o
+script nem entra na página. `nome` e `email` da URL vão como prefill, então o
+lead não redigita o que já informou na Etapa 1, e as cores acompanham o tema
+escuro para o calendário não parecer um corpo estranho colado no fim.
+
+A agenda vem **depois** do texto que explica por que a leitura precisa de um
+especialista. A ordem é deliberada e está descrita em "O que o lead vê, e quando".
 
 ## Pendências
 
-1. **A agenda da última tela.** Widget embutido ou redirecionamento.
-2. **Quem hospeda.** A recomendação é a Simple, pelo mesmo motor da Etapa 1, com
+1. **Quem hospeda.** A recomendação é a Simple, pelo mesmo motor da Etapa 1, com
    a Pulsar recebendo um webhook só. Não foi fechado na reunião.
-3. **"A gente lê junto".** O material fala em primeira pessoa, como se a Dani
+2. **"A gente lê junto".** O material fala em primeira pessoa, como se a Dani
    conduzisse a sessão; a documentação descreve o Closer conduzindo. O texto da
    última tela do formulário está neutro (*"quem conduz a sua sessão"*) para não
    prometer a presença dela, mas o áudio e os 4 PDFs ainda prometem.
+3. **CORS no n8n.** Os dois webhooks precisam liberar o domínio das páginas, e
+   aceitar `application/json` e `text/plain` (o fallback do beacon). Enquanto
+   não estiver liberado, o envio falha silenciosamente para o lead — o painel de
+   demonstração é onde isso aparece.
+4. **3 ou 5 minutos.** A abertura da Etapa 2 diz "menos de 5 minutos"; áudio e
+   PDFs ainda dizem 3.

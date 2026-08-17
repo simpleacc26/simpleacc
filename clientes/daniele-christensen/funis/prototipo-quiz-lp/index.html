@@ -383,10 +383,10 @@
 "use strict";
 
 var CENARIOS = [
-  {nome:"O Adiador", sub:"Ausência de critério para decidir sobre pessoas."},
-  {nome:"O Gargalo", sub:"Sobrecarga de decisão concentrada na liderança."},
-  {nome:"Time que não Assume", sub:"Falta de responsabilização pelo resultado."},
-  {nome:"Plano que não Vira Execução", sub:"Desalinhamento entre a meta e a prática."}
+  {nome:"O Adiador", sub:"Ausência de critério para decidir sobre pessoas.", pdf:"Diagnostico-01-o-adiador.pdf"},
+  {nome:"O Gargalo", sub:"Sobrecarga de decisão concentrada na liderança.", pdf:"Diagnostico-02-o-gargalo.pdf"},
+  {nome:"Time que não Assume", sub:"Falta de responsabilização pelo resultado.", pdf:"Diagnostico-03-time-que-nao-assume.pdf"},
+  {nome:"Plano que não Vira Execução", sub:"Desalinhamento entre a meta e a prática.", pdf:"Diagnostico-04-plano-que-nao-vira-execucao.pdf"}
 ];
 
 var P = {
@@ -461,6 +461,69 @@ var P = {
       {t:"Acima de R$ 100.000", pt:10}
     ]}
 };
+
+var WEBHOOK = "https://pulsar.app.n8n.cloud/webhook/grokker-quiz-etapa1";
+var envio = "não enviado";
+
+// telefone canônico: só dígitos, com o 55 na frente. É esse valor que a Pulsar
+// devolve na URL da Etapa 2, e que a Etapa 2 repassa sem reformatar.
+function telefoneCanonico(v){
+  var d = (v||"").replace(/\D/g,"");
+  if(d.length === 10 || d.length === 11) d = "55" + d;
+  return d;
+}
+
+function payload(){
+  return {
+    etapa: 1,
+    enviado_em: new Date().toISOString(),
+    nome: R.nome || "",
+    email: R.email || "",
+    telefone: telefoneCanonico(R.zap),
+    telefone_digitado: R.zap || "",
+    cenario: CENARIOS[R.cen].nome,
+    cenario_indice: R.cen,
+    diagnostico_pdf: CENARIOS[R.cen].pdf,
+    caminho: R.via,
+    cargo: R._p0 || "",
+    setor: R._p1 || "",
+    faturamento: R._a6 || "",
+    margem: R._a7 || "",
+    autonomia: R._b6 || "",
+    remuneracao: R._b7 || "",
+    pontuacao: pontos(),
+    qualificado: qualificado(),
+    motivo: motivo(),
+    respostas: {
+      P0: R._p0 || "", P1: R._p1 || "", P2: R._p2 || "", P3: R._p3 || "",
+      P4: R._p4 || "", P5: R._p5 || "",
+      P6: (R.via === "A" ? R._a6 : R._b6) || "",
+      P7: (R.via === "A" ? R._a7 : R._b7) || ""
+    }
+  };
+}
+
+// o lead nunca espera pelo envio: falhou, o funil segue e o erro fica no painel
+function enviar(){
+  var corpo = JSON.stringify(payload());
+  envio = "enviando";
+  try{
+    fetch(WEBHOOK, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: corpo,
+      keepalive: true
+    }).then(function(r){
+      envio = r.ok ? "enviado (" + r.status + ")" : "erro HTTP " + r.status;
+      atualizaPainel();
+    }).catch(function(){
+      // CORS bloqueado ou rede fora: o beacon vai como text/plain, sem preflight
+      var ok = navigator.sendBeacon && navigator.sendBeacon(WEBHOOK, new Blob([corpo], {type:"text/plain"}));
+      envio = ok ? "enviado pelo beacon" : "falhou";
+      atualizaPainel();
+    });
+  }catch(e){ envio = "falhou: " + e.message; }
+}
 
 var R = {};      // respostas
 var seq = [];    // sequência de telas percorrida
@@ -609,7 +672,7 @@ function telaContato(tela){
     concluir();
   };
   tela.appendChild(f);
-  tela.appendChild(el("p","nota","Demonstração. Nada é enviado nem armazenado."));
+  tela.appendChild(el("p","nota","Ao concluir, as respostas vão para o CRM da Pulsar."));
   window.scrollTo(0,0);
 }
 
@@ -663,6 +726,7 @@ function daqui(ms,fn){ relogios.push(setTimeout(fn,ms)); }
 function concluir(){
   document.getElementById("prog").style.width = "100%";
   document.getElementById("quiz").classList.add("oculto");
+  enviar();
   atualizaPainel();
 
   document.getElementById("carregando").classList.add("on");
@@ -721,13 +785,15 @@ function atualizaPainel(){
   g.appendChild(linha("Caminho", R.via === "A" ? "A · dono ou sócio" : "B · executivo CLT ou PJ"));
   g.appendChild(linha("Cargo", R._p0 || "—"));
   g.appendChild(linha("Cenário", CENARIOS[R.cen].nome));
-  g.appendChild(linha("Diagnóstico enviado", "Diagnostico-0" + (R.cen+1) + ".pdf"));
+  g.appendChild(linha("Diagnóstico enviado", CENARIOS[R.cen].pdf));
   g.appendChild(linha("Setor", R._p1 || "—"));
   g.appendChild(linha(R.via === "A" ? "Faturamento" : "Autonomia", (R.via === "A" ? R._a6 : R._b6) || "—"));
   g.appendChild(linha(R.via === "A" ? "Margem" : "Remuneração", (R.via === "A" ? R._a7 : R._b7) || "—"));
   g.appendChild(linha("Pontuação", pontos() + " de 20"));
   g.appendChild(linha("Régua", q ? "qualificado" : "não qualificado", q ? "ok" : "no"));
   if(!q) g.appendChild(linha("Motivo", motivo(), "no"));
+  g.appendChild(linha("Telefone enviado", telefoneCanonico(R.zap) || "—"));
+  g.appendChild(linha("Webhook Etapa 1", envio, envio.indexOf("enviado") === 0 ? "ok" : "no"));
 }
 
 function togglePainel(){

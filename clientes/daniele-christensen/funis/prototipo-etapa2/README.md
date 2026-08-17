@@ -34,8 +34,12 @@ A barra do topo é de demonstração e **não faz parte da página real**:
 Dá para simular o link real com os parâmetros que a Pulsar vai mandar:
 
 ```
-index.html?lead=abc123&nome=Marcelo&cenario=O%20Gargalo
+index.html?lead=abc123&nome=Marcelo&email=marcelo@empresa.com.br&telefone=5511987654321&cenario=O%20Gargalo
 ```
+
+`telefone` é o número que veio da Etapa 1. O formulário **não pergunta e não
+reformata**: devolve no webhook exatamente o que recebeu, porque é por ele que
+as duas etapas se cruzam. O painel mostra qual parâmetro foi lido.
 
 ## Planilha de respostas
 
@@ -43,11 +47,22 @@ index.html?lead=abc123&nome=Marcelo&cenario=O%20Gargalo
 que as respostas caem, com o cálculo já feito por fórmula. Detalhes e o contrato
 de colunas em `estrategia/etapa2-diagnostico-profundo.md`.
 
-## O que não está aqui
+## Agenda e envio
 
-- **A agenda** é um espaço reservado na última tela. Depende de definir com a
-  Pulsar se embutimos o widget deles ou redirecionamos.
-- **O envio** não acontece: o JSON é montado e exibido, não postado.
+Os dois já estão ligados.
+
+**Agenda:** Calendly da Grokker (`sucessodocliente-grokkeronline/30min`),
+embutido na última tela, carregado só quando o lead chega lá. Nome e e-mail da
+URL vão preenchidos.
+
+**Envio:** `POST` para `https://pulsar.app.n8n.cloud/webhook/grokker-quiz-etapa2`
+assim que a 15ª pergunta é respondida — sai por `fetch` com `keepalive` e cai
+para `sendBeacon` se falhar, então nunca segura o lead. O painel mostra o status
+do envio; o JSON continua visível ali.
+
+Do lado do n8n falta liberar CORS para o domínio da página e aceitar
+`application/json` **e** `text/plain` (o beacon usa o segundo para não pedir
+preflight). Sem isso o envio falha sem o lead perceber.
 
 ## Antes de mexer
 
