@@ -48,33 +48,33 @@ mata alcance e ensina o algoritmo a evitar gente parecida com quem se quer.
 
 ### Versão A — o dinheiro que não sobra
 
-Sua semana fecha com a agenda cheia. Você atende bem, entrega resultado, tem
-cliente que confia em você e volta. Mas quando o mês vira e você olha o que
-sobrou, o número não conversa com o tanto que você trabalhou.
+Você fecha a semana com a agenda cheia, atendendo bem, entregando resultado,
+com cliente que confia em você e volta sempre. Aí o mês vira, você olha o que
+sobrou e o número não tem nada a ver com o tanto que você trabalhou.
 
-Isso não se resolve abrindo mais horário, e você já testou. Mesmo com muita
-certificação, muita técnica e bons resultados, chega uma hora em que atender
-mais para de fazer diferença. Porque o problema saiu do atendimento e foi para
-a gestão. Preço, posicionamento, número na mão, direção. Ninguém nunca te
-ensinou essa parte.
+Abrir mais horário você já tentou e sabe que não resolve, porque com toda a
+certificação que você tem, toda a técnica e os resultados que entrega, chega uma
+hora em que atender mais para de mudar qualquer coisa. O que começa a pesar é
+justamente aquilo que ninguém te ensinou, preço, posicionamento, os números na
+mão, uma direção clara pra seguir.
 
-Montei um diagnóstico de seis perguntas que aponta qual gargalo está travando o
-crescimento da sua clínica ou consultório agora. Leva dois minutos e o resultado
-sai na hora. Toque em Saiba mais.
+Montei um diagnóstico de seis perguntas que aponta o que está segurando o
+crescimento da sua clínica ou consultório agora, leva dois minutos e o resultado
+já sai na hora, é só tocar em Saiba mais.
 
 ### Versão B — as mesmas clientes de sempre
 
-Suas clientes são fiéis. Voltam sempre, indicam, confiam no seu trabalho. E
-mesmo assim, quando você abre a agenda do mês, são quase sempre os mesmos nomes.
+Suas clientes são fiéis, voltam sempre, indicam você pras amigas e confiam no
+seu trabalho, e mesmo assim você abre a agenda do mês e são quase sempre os
+mesmos nomes.
 
-Cliente fiel é conquista, não é o problema. O problema começa quando ela vira a
-sua única fonte de faturamento, e crescer passa a depender de baixar preço ou
-mandar promoção para a base inteira. Aí o negócio não está crescendo, está
-girando mais rápido no mesmo lugar.
+Como o faturamento precisa subir de algum jeito, você acaba baixando preço ou
+mandando promoção pra base inteira, e no mês seguinte a história se repete com
+as mesmas pessoas, cada vez mais trabalho pra chegar no mesmo lugar.
 
-Fiz um diagnóstico rápido, seis perguntas, que mostra o que está segurando o
-crescimento da sua clínica ou consultório e por onde começar a destravar. O
-resultado aparece na hora, sem compromisso. Toque em Saiba mais.
+Fiz um diagnóstico rápido de seis perguntas que mostra o que está travando a
+entrada de cliente nova na sua clínica ou consultório e por onde começar a
+destravar, o resultado aparece na hora e é só tocar em Saiba mais.
 
 ## De onde cada corte vem
 
@@ -130,3 +130,23 @@ O que motiva desligar é lead caro **e** ruim ao mesmo tempo, medido pela aba
 
 > Você está disposto a ver o CPL triplicar por três semanas sem desligar a
 > campanha?
+
+## Ajuste de linguagem, 17/08
+
+O operador apontou duas marcas de texto de IA na primeira redação e as duas
+procedem.
+
+**Pontuação picotada.** Onze pontos finais nas duas legendas, em frases curtas
+empilhadas. Reescrito para respirar em vírgula, que é como a mentorada escreveria
+no WhatsApp. Caiu para seis.
+
+**O padrão "não é isso, é aquilo".** A Versão B tinha duas ocorrências ("cliente
+fiel é conquista, não é o problema" e "não está crescendo, está girando mais
+rápido"), e a Versão A tinha uma forma suavizada ("o problema saiu do atendimento
+e foi para a gestão"). Antítese é o tique mais reconhecível de copy gerada, e o
+custo dela é alto num nicho que já desconfia. As três saíram: no lugar de parar
+para explicar o que a coisa não é, o texto segue contando o que acontece.
+
+**Regra que fica para esta conta:** junto com a proibição de travessão, evitar
+construção de antítese e frase curta empilhada. Os dois tiques aparecem juntos e
+entregam o texto.
