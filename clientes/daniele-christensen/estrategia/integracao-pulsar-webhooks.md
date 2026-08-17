@@ -3,8 +3,8 @@
 **Data:** 17/08/2026
 **Origem:** pedido da Pulsar (dois webhooks, cenário na grafia exata, telefone
 repassado sem reformatar).
-**Status:** implementado e no ar dos dois lados. Falta a Pulsar publicar os
-endpoints e liberar CORS.
+**Status:** no ar e verificado. Os dois endpoints da Pulsar respondem e o CORS
+está liberado. As duas páginas de produção disparam para a Pulsar e para o Make.
 
 Este documento é o contrato entre as duas pontas. Quem for mexer no quiz ou no
 formulário sem ler isto quebra a integração sem perceber.
@@ -17,6 +17,19 @@ formulário sem ler isto quebra a integração sem perceber.
 | 2 — diagnóstico completo | `grokker-etapa2-diagnostico.vercel.app` | `https://pulsar.app.n8n.cloud/webhook/grokker-quiz-etapa2` |
 
 Os dois disparam `POST` com `Content-Type: application/json`.
+
+Cada página manda para **dois destinos**, não só para a Pulsar. O segundo é um
+webhook do Make que alimenta as nossas planilhas, e existe para não dependermos
+da Pulsar para enxergar o próprio lead — foi assim que o acesso à planilha
+antiga se perdeu sem substituta. O Make **não** cria contato no CRM: duplicaria
+o que o n8n já faz e a cadência dispararia duas vezes para o mesmo lead.
+
+| Etapa | Webhook do Make | Planilha |
+|---|---|---|
+| 1 | `hook.us2.make.com/v0ungryn21i7gk3q0ld4rxamf3g2m5tp` | `Quiz [V2] Etapa 1 - Leads` |
+| 2 | `hook.us2.make.com/3xnav3lyusd965i2fptdpi5kk5yl0ywy` | `Etapa 2 - Respostas` |
+
+Um destino que cai não derruba o outro, e o lead não espera por nenhum dos dois.
 
 ## Etapa 1 — o que sai no fim do quiz
 
@@ -116,18 +129,16 @@ que a Etapa 1 entregou em `telefone`.
 Por tolerância a quem nomeia o parâmetro de outro jeito, também são aceitos
 `phone`, `whatsapp`, `zap`, `tel` e `celular`. O primeiro que aparecer vence.
 
-## O que falta do lado do n8n
+## O lado do n8n
 
-Três coisas, e sem elas o envio falha calado:
+Conferido em 17/08: os dois endpoints estão registrados para POST e devolvem
+CORS liberado para qualquer origem. O que não dá para conferir daqui é o que o
+fluxo faz com o dado depois de recebê-lo — isso só um teste com lead real
+mostra, olhando o card no CRM.
 
-1. **Publicar os dois webhooks.** Enquanto o n8n estiver em modo de teste, o
-   endpoint só aceita uma chamada por clique em "Listen".
-2. **Liberar CORS** para os domínios das páginas (ou `*`). O navegador do lead é
-   quem posta; sem o cabeçalho, o browser bloqueia antes de sair.
-3. **Aceitar `text/plain` além de `application/json`.** Se o `fetch` falhar, o
-   envio cai para `navigator.sendBeacon`, que manda o mesmo JSON com
-   `Content-Type: text/plain` para não precisar de preflight. O corpo é
-   idêntico; muda só o cabeçalho.
+Se um dia o `fetch` passar a falhar, o envio cai para `navigator.sendBeacon`,
+que manda o mesmo JSON com `Content-Type: text/plain` para não pedir preflight.
+O corpo é idêntico; muda só o cabeçalho. Vale o endpoint aceitar os dois.
 
 O envio nunca segura o lead: falhando tudo, ele vê a agenda do mesmo jeito. Isso
 é bom para a experiência e ruim para o diagnóstico, porque a falha é silenciosa —
