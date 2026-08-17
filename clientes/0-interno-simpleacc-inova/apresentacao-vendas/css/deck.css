@@ -442,6 +442,95 @@ table.cases td.num{color:var(--ink)}
 /* depoimento com métrica real */
 .t-stat{flex:1; display:flex; align-items:center; justify-content:center; text-align:center; color:var(--blue); font-weight:700; font-size:19px; line-height:1.35; border:1px solid var(--line); border-radius:6px; min-height:110px; padding:12px; background:rgba(46,90,153,.05)}
 
+/* ============================================================
+   Novos componentes (v8)
+   ============================================================ */
+
+/* Mandala de 5 pilares (pentágono ao redor do core) */
+.mandala5{position:relative; flex:1; display:flex; align-items:center; justify-content:center; margin-top:6px}
+.mandala5 .core{
+  width:270px; height:270px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+  text-align:center; background:var(--navy); color:#fff; border:1px solid var(--line-d);
+  font-weight:600; font-size:22px; line-height:1.15; padding:0 26px;
+}
+.mandala5 .core::after{content:""; position:absolute; width:340px; height:340px; border-radius:50%; border:1px dashed var(--line); pointer-events:none}
+.mandala5 .petal5{
+  position:absolute; display:flex; flex-direction:column; align-items:center;
+  padding:14px 18px; background:var(--white); border:1px solid var(--line); border-radius:8px;
+  box-shadow:0 8px 24px rgba(21,38,60,.06); width:230px; text-align:center;
+}
+.mandala5 .p5n{color:var(--blue); font-weight:700; font-size:14px; letter-spacing:.08em}
+.mandala5 .p5k{color:var(--navy); font-weight:600; font-size:15px; line-height:1.25; margin-top:6px}
+/* posicionamento em pentágono */
+.mandala5 .p5-1{top:-8px; left:50%; transform:translateX(-50%)}
+.mandala5 .p5-2{top:35%; right:0}
+.mandala5 .p5-3{bottom:0; right:11%}
+.mandala5 .p5-4{bottom:0; left:11%}
+.mandala5 .p5-5{top:35%; left:0}
+
+/* Entregável solo */
+.ent-badge{
+  display:inline-block; margin-bottom:4px; padding:6px 14px; border-radius:20px;
+  background:rgba(46,90,153,.10); color:var(--blue); font-size:11.5px; letter-spacing:.16em;
+  text-transform:uppercase; font-weight:700; border:1px solid rgba(46,90,153,.22);
+}
+.ent-badge.bonus{background:rgba(202,138,4,.10); color:#a06806; border-color:rgba(202,138,4,.28)}
+
+/* Case padrão Full Sales */
+.slide.case-fss-slide{padding:60px 84px 90px; overflow:hidden}
+.fss-frame{flex:1; display:flex; flex-direction:column; gap:20px; min-height:0}
+.fss-header{display:flex; align-items:baseline; gap:16px; flex-wrap:wrap; border-bottom:1px solid rgba(255,255,255,.10); padding-bottom:14px}
+.fss-idx{color:var(--blue-lt); font-size:12px; letter-spacing:.22em; font-weight:700}
+.fss-name{color:#fff; font-size:26px; font-weight:700; letter-spacing:-.01em}
+.fss-niche{color:#9fb0c6; font-size:15px; margin-left:auto}
+.fss-callout{
+  background:linear-gradient(135deg,#C81E1C 0%,#a01916 100%);
+  color:#fff; padding:24px 30px; border-radius:10px; display:flex; align-items:baseline; gap:20px;
+  box-shadow:0 12px 32px rgba(200,30,28,.30); position:relative;
+}
+.fss-callout::before{content:""; position:absolute; left:0; top:0; bottom:0; width:5px; background:#fff; border-radius:10px 0 0 10px}
+.fc-red{font-size:56px; font-weight:800; letter-spacing:-.02em; line-height:1; white-space:nowrap}
+.fc-metric{font-size:20px; opacity:.95; font-weight:500}
+.fss-body{display:grid; grid-template-columns:1fr 1fr; gap:24px; align-items:start}
+.fss-detail{color:#c6d3e6; font-size:16px; line-height:1.55}
+.fss-proof{color:#dfe8f5; font-size:16px; line-height:1.55; font-style:italic; border-left:3px solid var(--blue-lt); padding-left:16px; margin:0}
+.fss-proof cite{display:block; font-style:normal; color:#8ea0bb; font-size:13px; margin-top:8px; letter-spacing:.04em}
+.fss-print{
+  margin-top:auto; padding:10px; text-align:center; color:#5c6e88; font-size:11.5px;
+  letter-spacing:.16em; text-transform:uppercase; border:1px dashed rgba(255,255,255,.14); border-radius:6px;
+}
+
+/* Preço de tabela (setup + mensal) */
+.pt2{flex:1; display:flex; align-items:center; justify-content:center; gap:26px; margin-top:20px}
+.pt2-card{
+  flex:0 1 340px; background:#fff; border:1px solid var(--line); border-radius:12px;
+  padding:36px 30px; text-align:center; box-shadow:0 14px 40px rgba(21,38,60,.10);
+}
+.pt2-k{color:var(--mute); letter-spacing:.14em; text-transform:uppercase; font-size:12.5px; font-weight:700}
+.pt2-v{color:var(--navy); font-weight:800; font-size:64px; line-height:1; letter-spacing:-.02em; margin:12px 0 6px; white-space:nowrap}
+.pt2-l{color:var(--blue); font-weight:600; font-size:17px}
+.pt2-plus{font-size:50px; color:var(--steel); font-weight:300}
+
+/* Presenteia (justificativa nova) */
+.slide.pres-slide{align-items:center; justify-content:center; text-align:center; padding:0 130px}
+.pres{display:flex; flex-direction:column; align-items:center; gap:24px}
+.pres .rule{width:64px; height:2px; background:var(--blue-lt)}
+.pres .title{font-size:52px; line-height:1.15; max-width:24ch; color:#fff}
+
+/* Preço protagonista (setup + mensal) */
+.pph{display:flex; align-items:center; justify-content:center; gap:22px; margin:12px 0}
+.pph-card{
+  background:linear-gradient(160deg,rgba(94,130,182,.24),rgba(94,130,182,.06));
+  border:1px solid rgba(94,130,182,.55); border-radius:12px; padding:22px 30px; min-width:220px;
+}
+.pph-k{color:#c8d6ea; font-size:14px; letter-spacing:.14em; text-transform:uppercase; font-weight:700}
+.pph-v{color:#fff; font-weight:800; font-size:60px; letter-spacing:-.02em; line-height:1; margin-top:8px; white-space:nowrap}
+.pph-plus{font-size:44px; color:var(--blue-lt); font-weight:300}
+.slide.hero-price .rule{width:56px; height:2px; background:var(--blue-lt); margin-bottom:14px}
+
+/* Ilustrações — melhorias visuais */
+.il .av{display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg,#5E82B6,#2E5A99)}
+
 /* ---------- Impressão / export PDF ---------- */
 @media print{
   @page{size:1280px 720px; margin:0}

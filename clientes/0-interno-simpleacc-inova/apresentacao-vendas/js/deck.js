@@ -155,6 +155,105 @@
       <div class="tile"><div class="lbl">Cadência de follow-up</div><div class="ln" style="width:86%;margin-top:9px"></div><div class="ln" style="width:64%;margin-top:7px"></div></div>
       <div class="chip hl" style="align-self:flex-start">Script validado para high ticket</div>
     </div>`,
+
+    // ilustrações novas (pilares e entregáveis)
+    quiz:()=>`<div class="il" style="justify-content:center;gap:10px">
+      <div class="tile" style="padding:14px 16px"><div class="lbl">Pergunta 1</div><div class="ln b" style="width:70%;margin-top:8px"></div></div>
+      <div class="tile" style="padding:14px 16px"><div class="lbl">Pergunta 3</div><div class="ln b" style="width:82%;margin-top:8px"></div><div class="row" style="margin-top:8px;gap:6px"><span class="chip hl">Implicação da dor</span></div></div>
+      <div class="tile" style="padding:14px 16px"><div class="lbl">Reunião marcada</div><div class="ln" style="width:60%;margin-top:8px"></div></div>
+      <div class="chip hl" style="align-self:flex-start">Lead chega decidido</div>
+    </div>`,
+    entrada:()=>`<div class="il" style="justify-content:center;gap:14px">
+      <div class="row" style="gap:12px">
+        <div class="tile" style="flex:1"><div class="lbl">Sem quiz</div><div class="val" style="color:#8A9AAE">R$ 400</div><div class="lbl" style="margin-top:4px">CPL</div></div>
+        <div class="tile" style="flex:1"><div class="lbl">Com quiz</div><div class="val">R$ 80</div><div class="lbl" style="margin-top:4px">CPL</div></div>
+      </div>
+      <div class="tile"><div class="lbl">MQL no topo</div><div class="bars">${[20,32,45,60,80,100].map(h=>`<i style="height:${h}%"></i>`).join('')}</div></div>
+      <div class="chip hl" style="align-self:flex-start">Custo por lead despenca</div>
+    </div>`,
+    hub:()=>`<div class="il" style="justify-content:center;align-items:center;gap:14px">
+      <svg viewBox="0 0 320 220" style="width:82%">
+        <rect x="126" y="90" width="68" height="42" rx="6" fill="#5E82B6"/>
+        <text x="160" y="116" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">QUIZ</text>
+        <g fill="none" stroke="#5E82B6" stroke-width="1.6">
+          <path d="M126 100 Q80 60 40 40"/><path d="M126 116 Q80 116 40 116"/>
+          <path d="M194 100 Q240 60 282 40"/><path d="M194 116 Q240 116 282 116"/>
+          <path d="M126 128 Q90 170 40 200"/><path d="M194 128 Q230 170 282 200"/>
+        </g>
+        ${[[40,40,'HIGH TICKET'],[40,116,'PERPÉTUO'],[40,200,'BLACK'],[282,40,'DOWNSELL'],[282,116,'LOW TICKET'],[282,200,'NUTRIÇÃO']].map(x=>`
+          <rect x="${x[0]-32}" y="${x[1]-11}" width="64" height="22" rx="4" fill="#12233b" stroke="#3f5878"/>
+          <text x="${x[0]}" y="${x[1]+4}" text-anchor="middle" fill="#c6d3e6" font-size="9">${x[2]}</text>`).join('')}
+      </svg>
+      <div class="chip hl">Um funil, vários destinos</div>
+    </div>`,
+    inteligencia:()=>`<div class="il" style="justify-content:center;gap:12px">
+      <div class="tile" style="padding:14px 16px"><div class="lbl">Lead score</div>
+        ${[['Fabrizio Ortiz',92],['Maria S.',74],['João P.',48],['Carlos R.',22]].map(x=>`
+          <div class="row" style="gap:10px;margin-top:8px;font-size:12px;color:#c6d3e6">
+            <span style="flex:1">${x[0]}</span>
+            <div style="flex:2"><div class="ln b" style="width:${x[1]}%"></div></div>
+            <span style="width:32px;text-align:right;color:${x[1]>70?'#7fd6a4':'#8A9AAE'}">${x[1]}</span>
+          </div>`).join('')}
+      </div>
+      <div class="chip hl" style="align-self:flex-start">SDR aborda com contexto</div>
+    </div>`,
+    funil:()=>`<div class="il" style="justify-content:center;align-items:center;gap:14px">
+      <svg viewBox="0 0 320 200" style="width:78%">
+        <polygon points="30,20 290,20 210,110 110,110" fill="rgba(94,130,182,.16)" stroke="#5E82B6"/>
+        <polygon points="110,120 210,120 180,180 140,180" fill="rgba(94,130,182,.36)" stroke="#5E82B6"/>
+        <text x="160" y="55" text-anchor="middle" fill="#c6d3e6" font-size="12">Tráfego frio</text>
+        <text x="160" y="90" text-anchor="middle" fill="#c6d3e6" font-size="11">Quiz de qualificação</text>
+        <text x="160" y="152" text-anchor="middle" fill="#fff" font-size="11">MQL</text>
+      </svg>
+      <div class="chip hl">Filtra antes de chegar no comercial</div>
+    </div>`,
+    pitstop:()=>`<div class="il" style="justify-content:center;gap:10px">
+      <div class="tile" style="padding:14px 16px">
+        <div class="row" style="justify-content:space-between"><div class="lbl">Pit-stop mensal</div><div class="lbl">30 a 45 min</div></div>
+        <div class="ln b" style="width:78%;margin-top:8px"></div>
+      </div>
+      ${['O que foi decidido','Quem faz','Até quando','Critério de sucesso'].map(t=>`<div class="row"><span class="ck">✓</span>${t}</div>`).join('')}
+    </div>`,
+    trafego:()=>`<div class="il" style="justify-content:center;gap:12px">
+      <div class="row" style="gap:12px">
+        <div class="tile" style="flex:1"><div class="lbl">CPL</div><div class="val">R$ 32</div></div>
+        <div class="tile" style="flex:1"><div class="lbl">CAC</div><div class="val">R$ 890</div></div>
+        <div class="tile" style="flex:1"><div class="lbl">ROI</div><div class="val">8x</div></div>
+      </div>
+      <div class="tile"><div class="lbl">Escala segura</div><div class="bars">${[30,42,58,60,75,88,100].map(h=>`<i style="height:${h}%"></i>`).join('')}</div></div>
+      <div class="chip hl" style="align-self:flex-start">Escala apenas o que performa</div>
+    </div>`,
+    copy:()=>`<div class="il" style="justify-content:center;gap:10px">
+      <div class="tile" style="padding:14px 16px"><div class="lbl">Headline</div><div class="ln b" style="width:88%;margin-top:8px;background:#fff"></div><div class="ln" style="width:60%;margin-top:7px"></div></div>
+      <div class="row" style="gap:8px">${['PAS','AIDA','PASTOR'].map(t=>`<span class="chip">${t}</span>`).join('')}</div>
+      <div class="chip hl" style="align-self:flex-start">CTR acima da média</div>
+    </div>`,
+    design:()=>`<div class="il" style="justify-content:center;align-items:center;gap:14px">
+      <div class="row" style="gap:12px;align-items:stretch">
+        <div class="tile" style="width:120px;padding:10px"><div class="lbl">Desktop</div><div class="ln b" style="width:80%;margin-top:8px"></div><div class="ln" style="width:60%;margin-top:6px"></div><div class="ln" style="width:70%;margin-top:6px"></div></div>
+        <div class="tile" style="width:60px;padding:10px"><div class="lbl" style="font-size:9px">Mobile</div><div class="ln b" style="width:90%;margin-top:8px"></div><div class="ln" style="width:60%;margin-top:5px"></div><div class="ln" style="width:80%;margin-top:5px"></div></div>
+      </div>
+      <div class="chip hl">70% dos leads vêm de mobile</div>
+    </div>`,
+    comunidade:()=>`<div class="il" style="justify-content:center;gap:12px">
+      <div class="row" style="gap:8px">${['DS','RS','LS','SC','ES','JG','MB','CB'].map((t,i)=>`<div class="av" style="display:flex;align-items:center;justify-content:center;font-size:11px;color:#c6d3e6">${t}</div>`).join('')}</div>
+      <div class="tile"><div class="lbl">Comunidade privada</div><div class="ln" style="width:82%;margin-top:8px"></div><div class="ln" style="width:70%;margin-top:6px"></div></div>
+      <div class="chip hl" style="align-self:flex-start">Sala de troca entre pares</div>
+    </div>`,
+    checkin:()=>`<div class="il" style="justify-content:center;gap:10px">
+      <div class="tile" style="padding:14px 16px"><div class="lbl">Grupo WhatsApp</div>
+        ${[['Você','Rodou criativo novo. CPL caiu 22%',1],['Simple','Ótimo, escalando +30% na verba',0],['Você','Fechou 1 hoje 🚀',1]].map(m=>`
+          <div style="margin-top:8px;padding:8px 10px;border-radius:6px;background:${m[2]?'rgba(46,90,153,.28)':'rgba(255,255,255,.03)'};color:#dfe8f5;font-size:12px">${m[1]}</div>`).join('')}
+      </div>
+      <div class="chip hl" style="align-self:flex-start">Sem depender de call pra atualização</div>
+    </div>`,
+    membros:()=>`<div class="il" style="justify-content:center;gap:8px">
+      ${['Trilha: Oferta','Trilha: Quiz','Trilha: Comercial','Trilha: Expansão'].map(t=>`
+        <div class="tile" style="display:flex;align-items:center;gap:10px;padding:12px 14px">
+          <span style="width:28px;height:28px;border-radius:6px;background:#5E82B6;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px">▶</span>
+          <span style="color:#dfe8f5;font-size:13px">${t}</span>
+        </div>`).join('')}
+    </div>`,
   };
   const panelContent = (s)=> s.img
     ? `<img src="${esc(s.img)}" alt="">`
@@ -212,6 +311,12 @@
       <div class="mandala">
         ${s.petals.map((p,i)=>`<div class="petal p${i+1}"><div class="pk">${esc(p.k)}</div><p>${esc(p.p)}</p></div>`).join('')}
         <div class="core">${esc(s.core)}</div>
+      </div>`,
+
+    mandala5:(s)=>`${head(s,true)}
+      <div class="mandala5">
+        <div class="core">${esc(s.core)}</div>
+        ${s.petals.map((p,i)=>`<div class="petal5 p5-${i+1}"><span class="p5n">${esc(p.n)}</span><span class="p5k">${esc(p.k)}</span></div>`).join('')}
       </div>`,
 
     core:(s)=>`
@@ -347,10 +452,84 @@
       <div class="big">${money(s.hero)}</div>
       <div class="inst">à vista · ou ${esc(s.instal)}</div>
       <p class="note">Valor protagonista: válido apenas com a decisão na call.</p>`,
+
+    // ---------- Entregável (1 slide por item, padrão FSS) ----------
+    entregavel:(s)=>`
+      <span class="ent-badge ${s.bonus?'bonus':''}">${s.bonus?'BÔNUS':'ENTREGA '+String(s.idx).padStart(2,'0')+' de '+s.total}</span>
+      <div class="two" style="margin-top:12px">
+        <div>
+          <h2 class="title ${s.title.length>36?'sm':''}" style="margin-bottom:10px">${esc(s.title)}</h2>
+          ${s.sub?`<p class="lead" style="font-size:19px;color:var(--blue);margin-bottom:14px">${esc(s.sub)}</p>`:''}
+          ${s.p?`<p class="lead" style="font-size:17px">${esc(s.p)}</p>`:''}
+          ${s.bullets?`<ul class="bullets" style="margin-top:12px">${s.bullets.map(b=>`<li style="font-size:16px">${b}</li>`).join('')}</ul>`:''}
+        </div>
+        <div class="panel-illo">${panelContent(s)}</div>
+      </div>`,
+
+    // ---------- Case padrão Full Sales (fundo escuro + callout vermelho) ----------
+    'case-fss':(s)=>`
+      <div class="fss-frame">
+        <div class="fss-header">
+          <span class="fss-idx">CASE ${String(s.idx).padStart(2,'0')} · ${esc(s.total)}</span>
+          <span class="fss-name">${esc(s.name)}</span>
+          <span class="fss-niche">${esc(s.niche)}</span>
+        </div>
+        <div class="fss-callout">
+          <span class="fc-red">${esc(s.callout)}</span>
+          <span class="fc-metric">${esc(s.metric)}</span>
+        </div>
+        <div class="fss-body">
+          <p class="fss-detail">${esc(s.detail)}</p>
+          <blockquote class="fss-proof">${esc(s.proof)}<cite>— ${esc(s.who)}</cite></blockquote>
+        </div>
+        <div class="fss-print">[ print original do WhatsApp ]</div>
+      </div>`,
+
+    // ---------- Preço de tabela (novo formato: setup + mensal) ----------
+    'price-tabela':(s)=>`
+      <div class="head center"><h2 class="title sm">Preço de tabela</h2>
+        <p class="lead">${esc(s.title)}</p></div>
+      <div class="pt2">
+        <div class="pt2-card">
+          <div class="pt2-k">Investimento inicial</div>
+          <div class="pt2-v">${money(s.setup.v)}</div>
+          <div class="pt2-l">${esc(s.setup.l)}</div>
+        </div>
+        <div class="pt2-plus">+</div>
+        <div class="pt2-card">
+          <div class="pt2-k">Mensalidade</div>
+          <div class="pt2-v">${money(s.mensal.v)}</div>
+          <div class="pt2-l">${esc(s.mensal.l)}</div>
+        </div>
+      </div>`,
+
+    // ---------- Presenteia (justificativa nova) ----------
+    presenteia:(s)=>`
+      <div class="pres">
+        <div class="rule"></div>
+        <h2 class="title">${esc(s.title)}</h2>
+      </div>`,
+
+    // ---------- Preço protagonista (setup + mensal com desconto) ----------
+    'price-protagonista':(s)=>`
+      <div class="rule"></div>
+      <div class="regular">Preço regular: <s>${money(s.regular.setup)}</s> de setup + <s>${money(s.regular.mensal)}</s> por mês</div>
+      <div class="pph">
+        <div class="pph-card">
+          <div class="pph-k">Setup</div>
+          <div class="pph-v">${money(s.hero.setup)}</div>
+        </div>
+        <div class="pph-plus">+</div>
+        <div class="pph-card">
+          <div class="pph-k">Por mês</div>
+          <div class="pph-v">${money(s.hero.mensal)}</div>
+        </div>
+      </div>
+      <p class="note">${esc(s.note)}</p>`,
   };
 
   /* ---------- montar slides ---------- */
-  const NAVY = new Set(['cover','divider','statement','ask','hero-price','caf']);
+  const NAVY = new Set(['cover','divider','statement','ask','hero-price','caf','presenteia','price-protagonista','case-fss']);
   SLIDES.forEach((s,i)=>{
     const el=document.createElement('section');
     const cls=['slide'];
@@ -358,7 +537,9 @@
     if(s.type==='statement') cls.push('statement');
     if(s.type==='divider') cls.push('divider');
     if(s.type==='ask') cls.push('ask');
-    if(s.type==='hero-price') cls.push('hero-price');
+    if(s.type==='hero-price'||s.type==='price-protagonista') cls.push('hero-price');
+    if(s.type==='presenteia') cls.push('pres-slide');
+    if(s.type==='case-fss') cls.push('case-fss-slide');
     if(s.type==='imgslide') cls.push('imgslide');
     const theme = s.theme || (NAVY.has(s.type)?'navy':'light');
     if(theme==='navy') cls.push('navy');

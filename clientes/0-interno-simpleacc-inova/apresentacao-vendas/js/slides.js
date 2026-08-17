@@ -1,8 +1,8 @@
 /* =====================================================================
-   Conteúdo da apresentação de vendas: Simple
-   Fonte: copy aprovada (CEO/closer), VERBATIM: não resumir.
-   Estrutura: modelo Full Sales (FSS): um slide por entregável/bônus/cargo.
-   O render fica em deck.js; o visual (brandbook) em css/deck.css.
+   Apresentação de Vendas - Simple (v8)
+   Base: modelo Full Sales; nova estratégia com 5 pilares e
+   oferta única de Implementação (R$5k setup + R$3k/mês protagonista).
+   Copy verbatim das novas rodadas do CEO/closer.
    ===================================================================== */
 
 const money = (n)=> 'R$ '+n.toLocaleString('pt-BR');
@@ -13,18 +13,18 @@ const COMMON = [
   // 1: CAPA
   { type:'cover', sec:'Abertura', label:'Capa', wordmark:'SIMPLE', tag:'Funil de Lead Dinâmico' },
 
-  // 2: PROMESSA PRINCIPAL (copy verbatim)
+  // 2: PROMESSA (nova headline, sem lead, com 3 cards)
   { type:'statement', sec:'Abertura', label:'Promessa principal',
-    title:'Como você vai vender mais e mais caro usando um processo de aquisição inovador, simples, previsível e lucrativo',
-    lead:'Você não precisa de mais tráfego. Você precisa do funil certo, que descarta o lead errado, alimenta o comercial com quem vai comprar, e faz o seu negócio crescer com previsibilidade.',
+    title:'Como você terá oportunidades mais qualificadas com investimento menor em tráfego para vender mentorias high ticket, através de um processo de aquisição inovador, simplificado, previsível e lucrativo',
     bullets:[
       'Para ter uma verdadeira máquina de vender high ticket e escalar',
       'Para que a empresa te sirva e não o contrário',
       'Através de equipe com 4 anos de experiência e resultado em vendas através do digital, sem precisar ter anos de experiência e gastar dinheiro em teste de tráfego para saber o que dá resultado',
     ]},
 
-  // 3: SOBRE DANIEL (verbatim, 2 parágrafos + 6 marcos)
-  { type:'bio', sec:'Autoridade', label:'Quem é Daniel Souza?', photo:'assets/daniel-luiz.jpg', photoNatural:true,
+  // 3: SOBRE DANIEL
+  { type:'bio', sec:'Autoridade', label:'Quem é Daniel Souza?',
+    photo:'assets/daniel-luiz.jpg', photoNatural:true,
     title:'Quem é Daniel Souza?',
     paras:[
       'Daniel Souza é casado com Cecília, empresário, gestor de tráfego e estrategista de crescimento digital, responsável por milhões em faturamento através de campanhas com foco em performance, escala e lucratividade.',
@@ -40,7 +40,7 @@ const COMMON = [
       'Faixa azul 4 graus de jiu-jitsu',
     ]},
 
-  // 5: TRAJETÓRIA (foto com telão)
+  // 4: TRAJETÓRIA
   { type:'traj', sec:'Autoridade', label:'A trajetória da Simple',
     title:'A trajetória da Simple', photo:'assets/daniel-telao.jpg',
     marcos:[
@@ -50,7 +50,7 @@ const COMMON = [
       'Marca de R$ 411 mil de faturamento na nossa própria operação',
     ]},
 
-  // 6: CENÁRIO NEGATIVO: INFERNO (tudo vermelho)
+  // 5: INFERNO (vermelho vivo)
   { type:'list', sec:'Diagnóstico', label:'O contexto atual (Inferno)', theme:'red',
     title:'O contexto atual do mercado digital',
     bullets:[
@@ -58,13 +58,13 @@ const COMMON = [
       '<b>Sessão estratégica perdeu força:</b> o mercado foi saturado e o lead cansou',
       '<b>Concorrência explodiu após a onda high ticket:</b> todo mundo virou mentor',
       '<b>Conversão baixa:</b> você gera lead mas não fecha venda',
-      '<b>Falta de previsibilidade:</b> um mês bom, dois ruins… sem controle sobre o próximo',
+      '<b>Falta de previsibilidade:</b> um mês bom, dois ruins... sem controle sobre o próximo',
       '<b>CAC e CPL só aumentam:</b> tráfego mais caro, resultado menor',
       '<b>Marketing e vendas desalinhados:</b> o tráfego traz lead que o comercial não sabe fechar',
     ],
     foot:'O resultado disso é desânimo, exaustão e a sensação de que você está fazendo tudo certo, mas os números não respondem.' },
 
-  // 7: CENÁRIO POSITIVO: CÉU
+  // 6: CÉU
   { type:'list', sec:'Diagnóstico', label:'Solução para queda de ROI', tone:'good',
     title:'Solução para queda de ROI',
     lead:'Acoplar ofertas irresistíveis e Processos de Aquisição Inovador alinhado, com setters e closers em todas as etapas de contato com cliente, para:',
@@ -78,7 +78,7 @@ const COMMON = [
       '<b>INDEPENDÊNCIA:</b> tráfego pago lucrativo sem depender só de indicação ou orgânico',
     ]},
 
-  // 8: RISCOS DE FAZER SOZINHO (tudo vermelho)
+  // 7: RISCOS (vermelho vivo)
   { type:'cards', sec:'Diagnóstico', label:'Riscos de fazer sozinho', theme:'red', cols:3,
     title:'Riscos de fazer sozinho sem o conhecimento',
     cards:[
@@ -90,7 +90,7 @@ const COMMON = [
       {h:'Falta de sinergia entre marketing e vendas', p:'O tráfego precisa alimentar o comercial com lead com fit, não com volume.'},
     ]},
 
-  // 9: BENEFÍCIOS / VENDA DO FUTURO (headline verbatim conferida)
+  // 8: BENEFÍCIOS / VENDA DO FUTURO
   { type:'cards', sec:'Diagnóstico', label:'Quanto valeria ter tudo isso', cols:3,
     title:'Quanto valeria para o seu negócio, hoje, ter tudo isso?',
     cards:[
@@ -102,78 +102,84 @@ const COMMON = [
       {h:'Receita gerada pela base que você já tem', p:'Sem precisar de lead novo para aumentar o faturamento.'},
     ]},
 
-  // 10: TRANSIÇÃO PARA A METODOLOGIA (título grande, texto reduzido)
-  { type:'statement', sec:'Metodologia', label:'A nova onda', titleClass:'xl',
-    title:'O Funil de Lead Dinâmico é a nova onda do mercado digital',
+  // 9: TRANSIÇÃO (nova copy)
+  { type:'statement', sec:'Metodologia', label:'O novo formato', titleClass:'xl',
+    title:'O Funil de Lead Dinâmico é o novo formato de aquisição do mercado digital',
     lead:'É a metodologia que mais vai funcionar nos próximos meses e poucos mentores ainda estão usando.' },
 
-  // 11: OS 4 PILARES (ecossistema: mandala maior)
-  { type:'mandala', sec:'Metodologia', label:'Os 4 pilares',
-    title:'Os 4 pilares que escalam uma empresa', core:'O seu ecossistema',
+  // 10: 5 PILARES (mandala com "seu processo de Vendas" no centro, só nomes)
+  { type:'mandala5', sec:'Metodologia', label:'Os 5 pilares',
+    title:'Os 5 pilares que escalam uma empresa',
+    core:'O seu processo de Vendas',
     petals:[
-      {k:'Pilar 1: Produto e Oferta', p:'A combinação de produto, benefícios, condições e diferenciais tão irresistível que o cliente sente que seria um erro dizer não.'},
-      {k:'Pilar 2: Funil de Lead Dinâmico', p:'O mecanismo que filtra o lead antes do comercial.'},
-      {k:'Pilar 3: Comercial', p:'O processo que transforma leads qualificados em receita previsível e crescimento consistente.'},
-      {k:'Pilar 4: Expansão', p:'A estratégia que aumenta o lucro extraindo mais valor da base de clientes que você já possui, deixando o negócio mais lucrativo.'},
+      {n:'01', k:'Oferta Irresistível'},
+      {n:'02', k:'Aquecimento e Implicação em Forma de Perguntas'},
+      {n:'03', k:'Entrada Facilitada'},
+      {n:'04', k:'Hub de Aquisição'},
+      {n:'05', k:'Inteligência de Aquisição'},
     ]},
 
-  // 12: CORE: O CORAÇÃO DO SISTEMA (verbatim)
-  { type:'core', sec:'Metodologia', label:'O coração do sistema',
-    title:'O coração do sistema',
-    lead:'Tudo o que fazemos gira em torno de um mecanismo central: o Funil de Lead Dinâmico.',
-    para:'É ele que filtra o lead ruim antes de chegar no seu comercial, reduz o custo de aquisição qualificado e cria um fluxo previsível de pessoas prontas para comprar.',
-    subq:'Por que o quiz substitui a sessão estratégica tradicional?',
+  // 11: PILAR 1 (copy nova)
+  { type:'pillar', sec:'Metodologia', label:'Pilar 1: Oferta Irresistível', n:'01',
+    illo:'oferta',
+    title:'Oferta Irresistível',
+    sub:'A venda começa antes da reunião: o lead entra por uma dor específica, não por uma call genérica',
+    lead:'O funil que todo mundo usa chama o lead direto pra uma reunião. Vira commodity: o lead já viu essa oferta mil vezes e ignora. No Funil de Lead Dinâmico é diferente: eu chamo o lead por uma dor específica dele e ofereço ajuda personalizada com aquilo. É uma oferta que ele nunca viu, então ele enxerga muito mais valor.',
     bullets:[
-      'A sessão estratégica saturou: lead cansou de agendar',
-      'O quiz qualifica automaticamente, 24 horas por dia',
-      'Elimina o lead descomprometido antes da call e antes de custar o seu tempo',
-      'Reduz o custo do MQL de forma consistente e mensurável',
+      'O lead entra por algo que importa pra ele, não por "agende uma call"',
+      'Oferta que o mercado não tem: você foge da guerra de commodity',
+      'Como o valor percebido é maior, o tráfego custa menos e você cobra mais caro',
     ]},
 
-  // 13-16: PILARES (verbatim)
-  { type:'pillar', sec:'Metodologia', label:'Pilar 1: Produto e Oferta', n:'01', illo:'oferta',
-    title:'Produto e Oferta',
-    sub:'O funil filtra quem vai comprar, mas a oferta precisa ser irresistível',
-    lead:'Antes de rodar qualquer tráfego, precisamos garantir que sua oferta esteja posicionada para o cliente certo, com a mensagem certa, no momento certo. Oferta fraca com funil forte ainda é funil quebrado.',
-    listTitle:'O que estruturamos neste pilar:',
+  // 12: PILAR 2
+  { type:'pillar', sec:'Metodologia', label:'Pilar 2: Aquecimento e Implicação em Forma de Perguntas', n:'02',
+    illo:'quiz',
+    title:'Aquecimento e Implicação em Forma de Perguntas',
+    sub:'A venda começa antes da reunião',
+    lead:'O lead na internet está anestesiado, passa por tudo no automático. As perguntas do quiz quebram isso: cada pergunta reacende a dor dele e mostra a implicação de não resolver. Quando ele chega na reunião, já está consciente e movido. O trabalho que o comercial levaria a call inteira pra fazer, o quiz já fez.',
     bullets:[
-      'Quem é seu cliente ideal e o que ele realmente quer comprar?',
-      'Ancoragem de valor e posicionamento de preço',
-      'Mapeamento de upsells, downsells e ofertas complementares para maximizar o LTV',
-      'Alinhamento da comunicação da oferta com o mecanismo do funil',
-    ]},
-  { type:'pillar', sec:'Metodologia', label:'Pilar 2: Funil de Lead Dinâmico', n:'02',
-    img:'assets/processo-aquisicao.png',
-    title:'Funil de Lead Dinâmico',
-    sub:'O mecanismo que transforma tráfego frio em lead qualificado',
-    lead:'É ele que filtra o lead ruim antes de chegar no seu comercial, reduz o custo de aquisição qualificado e cria um fluxo previsível de pessoas prontas para comprar.',
-    bullets:[
-      'A sessão estratégica saturou, concorre com outros 10 mil mentores',
-      'O quiz aquece o lead automaticamente, e o prepara para comprar',
-      'Elimina o lead descomprometido antes da call e antes de custar o seu tempo',
-      'Reduz o custo do MQL de forma consistente e mensurável',
-    ]},
-  { type:'pillar', sec:'Metodologia', label:'Pilar 3: Comercial', n:'03', illo:'comercial',
-    title:'Comercial',
-    sub:'Lead qualificado sem comercial estruturado é desperdício',
-    lead:'O funil entrega para o comercial o lead certo. O comercial é o que transforma esse lead em receita. Não adianta ter funil perfeito se o comercial perde a venda boa por falta de processo.',
-    bullets:[
-      'Script de pré-venda e roteiro de call validado para high ticket',
-      'Processo de SDR completo: cadência de follow-up e templates de agendamento',
-      'Matriz de objeções: resposta estruturada para cada resistência do cliente',
-    ]},
-  { type:'pillar', sec:'Metodologia', label:'Pilar 4: Expansão (Funil Ampulheta)', n:'04', illo:'ltv',
-    title:'Expansão: Funil Ampulheta',
-    sub:'O negócio mais lucrativo começa na base que você já tem',
-    lead:'A maioria dos mentores gasta energia e dinheiro tentando atrair cliente novo, quando a maior oportunidade de lucro está em quem já comprou. O Funil de Ampulheta inverte essa lógica.',
-    bullets:[
-      'Monetizar a base antes de precisar de lead novo',
-      'Identificação de oportunidades de upsell e downsell com base no que o ICP já comprou',
-      'Criação de ofertas complementares que aumentam o valor por cliente sem aumentar o CAC',
-      'Estratégia de reativação de leads que passaram pelo funil mas ainda não compraram',
+      'Cada resposta aquece o lead e traz a dor de volta à tona',
+      'O lead chega na reunião decidido, não do zero',
+      'Você não capta e depois aquece: capta e vende no mesmo passo',
     ]},
 
-  // 17: FASES: VISÃO GERAL
+  // 13: PILAR 3
+  { type:'pillar', sec:'Metodologia', label:'Pilar 3: Entrada Facilitada', n:'03',
+    illo:'entrada',
+    title:'Entrada Facilitada',
+    sub:'Mais MQL entrando no CRM, custo menor por lead',
+    lead:'Pedir reunião logo de cara é uma barreira alta. Um quiz é um primeiro passo fácil, e isso muda a matemática do funil: muito mais leads adquiridos. Com mais MQL entrando, o custo por lead despenca e o comercial tem volume de clientes para trabalhar.',
+    bullets:[
+      'Mais MQL no topo que gera custo por lead qualificado muito menor',
+      'Volume pro comercial trabalhar, não uma agenda vazia',
+      'Redução do CAC',
+    ]},
+
+  // 14: PILAR 4
+  { type:'pillar', sec:'Metodologia', label:'Pilar 4: Hub de Aquisição', n:'04',
+    illo:'hub',
+    title:'Hub de Aquisição',
+    sub:'Um funil só, vários destinos',
+    lead:'Você concentra todo o investimento num funil só e manda o lead para caminhos completamente diferentes conforme ele responde. O mesmo tráfego alimenta high ticket, perpétuo e outros funis. Menos verba pulverizada, CAC menor, aquisição mais simples de tocar.',
+    bullets:[
+      'Um funil, um investimento em vez de vários funis competindo por verba',
+      'O lead é roteado pro destino certo conforme responde',
+      'Tráfego concentrado gerando CAC menor e operação mais leve',
+    ]},
+
+  // 15: PILAR 5 (novo)
+  { type:'pillar', sec:'Metodologia', label:'Pilar 5: Inteligência de Aquisição', n:'05',
+    illo:'inteligencia',
+    title:'Inteligência de Aquisição',
+    sub:'Você para de comprar lead no escuro',
+    lead:'Cada lead que passa pelo quiz deixa um rastro. Você faz lead score de verdade, sabe exatamente que tipo de lead está entrando e qual criativo traz o melhor comprador, não o mais barato. E o seu SDR recebe o lead com informação na mão: sabe a dor, o contexto, o momento. A abordagem é certeira em vez de genérica.',
+    bullets:[
+      'Lead score real: você sabe quem está entrando e quem vale mais',
+      'Descobre qual criativo traz comprador, não só clique barato',
+      'O SDR aborda com contexto, tendo uma comunicação comercial mais assertiva',
+    ]},
+
+  // 16: FASES visão geral
   { type:'phases', sec:'Implementação', label:'Fases da implementação',
     title:'Fases da Implementação Simple',
     steps:[
@@ -182,7 +188,7 @@ const COMMON = [
       {n:'3', h:'Escala e Consolidação', p:'Escalar o investimento, consolidar previsibilidade e lucro'},
     ]},
 
-  // 18-20: FASES (layout da apresentação atual)
+  // 17-19: FASES
   { type:'phase', sec:'Implementação', label:'Fase 1: Validação', n:'1', name:'VALIDAÇÃO',
     objetivo:'Encontrar o primeiro quiz que converte, validar a linha criativa e gerar as primeiras vendas',
     metas:['Encontrar o primeiro quiz e página que performam','Coletar 100 leads qualificados no mês','Gerar de 2 a 5 vendas no mês'] },
@@ -191,339 +197,179 @@ const COMMON = [
     metas:['Manter CPL estável dentro da meta (variação máxima de 20%, CPL máximo R$30)','Dobrar o investimento em mídia','Analisar e otimizar o CAC','Reunião comparativa com mês anterior via Growth Model'] },
   { type:'phase', sec:'Implementação', label:'Fase 3: Escala e Consolidação', n:'3', name:'ESCALA E CONSOLIDAÇÃO',
     objetivo:'Escalar o investimento, consolidar previsibilidade e lucro',
-    metas:['Duplicar novamente o investimento em mídia','Chegar a +R$250k/mês de faturamento recorrente','Operação previsível, lucrativa e escalável'] },
+    metas:['Duplicar novamente o investimento em mídia','Chegar a +R$100k/mês de faturamento recorrente','Operação previsível, lucrativa e escalável'] },
 
-  // 21: CASES (slide da apresentação atual; cases da Ju/Dani/Carol entram depois)
-  { type:'imgslide', sec:'Implementação', label:'Cases de resultado',
-    img:'assets/resultados-simple.jpg', bg:'#191A1C' },
-
-  // 21b a 21d: CASES REAIS (prints originais de métricas e contrato)
-  { type:'case', sec:'Implementação', label:'Case: Ju Godinho',
-    name:'Ju Godinho', brand:'Método ELA · saúde e estética',
-    ig:'@eujugodinho · 54,5 mil seguidores · +5 mil mentoradas',
-    kpis:[ {v:'8,46', l:'ROAS'}, {v:'R$ 21.995', l:'Faturamento'}, {v:'3', l:'Vendas high ticket'} ],
-    prints:[ 'assets/perfil-ju.jpg', 'assets/print-metricas-ju.png' ]},
-  { type:'case', sec:'Implementação', label:'Case: Daniele (Grokker)',
-    name:'Daniele', brand:'Grokker · Doutora de Líderes',
-    ig:'@daniele.doutoradelideres · 8,4 mil seguidores · +3 mil alunos',
-    kpis:[ {v:'R$ 3,25', l:'Custo por lead'}, {v:'R$ 5,26', l:'Custo por MQL'}, {v:'179', l:'Leads qualificados'} ],
-    prints:[ 'assets/perfil-daniele.jpg', 'assets/print-metricas-daniele.png', 'assets/contrato-daniele.png' ]},
-  { type:'case', sec:'Implementação', label:'Case: Caroline e José (Únicos Club)',
-    name:'Caroline e José', brand:'Únicos Club · liderança e cultura organizacional',
-    ig:'@carolbatista · 10,6 mil seguidores',
-    kpis:[ {v:'R$ 32,35', l:'Custo por MQL'}, {v:'59,57%', l:'Taxa de qualificados'}, {v:'R$ 19,27', l:'Custo por lead'} ],
-    prints:[ 'assets/perfil-carol.jpg', 'assets/print-metricas-carol.png', 'assets/contrato-carol.png' ]},
-
-  // 22: TRANSIÇÃO PARA O PRODUTO (título grande, texto reduzido)
+  // 20: transição pro produto
   { type:'statement', sec:'Produto', label:'Transição para o produto', titleClass:'xl',
     title:'Agora eu quero te apresentar o programa que estrutura tudo isso',
     lead:'Da oferta ao comercial, do funil ao crescimento, implementado com você, não por você.' },
 
-  // 23: CAPA DO PRODUTO
+  // 21: CAPA DO PRODUTO
   { type:'divider', sec:'Produto', label:'Capa do produto',
     title:'Programa de Implementação Simple' },
 
-  // 24: NO QUE CONSISTE
+  // 22: NO QUE CONSISTE (4 bullets novos)
   { type:'consists', sec:'Produto', label:'No que consiste o programa',
     title:'No que consiste o Programa de Implementação Simple',
     points:[
       'Ofertas irresistíveis que fazem os leads implorarem para comprar',
       'Funil de Lead Dinâmico que filtra lead ruim e reduz o custo de aquisição',
-      'Comercial pujante para converter MQL em receita',
-      'Expansão de valor para crescer com a base que você já tem',
+      'Um funil, vários destinos: o mesmo funil alimenta high ticket, perpétuo e low ticket',
+      'Inteligência de aquisição: cada lead ensina você a comprar o próximo melhor, CAC caindo enquanto escala',
     ]},
 ];
 
-/* ============ CARGOS DO TIME (um slide por cargo: copy verbatim) ============ */
-const CARGOS = [
-  { title:'Estrategista',
-    lead:'Você não terá apenas um "consultor". Você terá um estrategista dedicado que conhece a fundo a nossa operação e toma decisões estratégicas lado a lado com o time.',
-    listTitle:'O que o estrategista faz:',
-    cards:[
-      {h:'Mapeia todo o seu ecossistema', p:'Identifica oportunidades, gargalos e alavancas de crescimento'},
-      {h:'Constrói seu mapa estratégico mensal', p:'Plano de ação personalizado com metas claras e prazos definidos para implementação do Sistema Simple'},
-      {h:'Acompanha suas métricas semanalmente', p:'CPL, CAC, taxa de agendamento, conversão em vendas e ROI'},
-      {h:'Reuniões mensais de ajuste de rota', p:'Revisão de resultados, realinhamento de metas e planejamento do próximo ciclo'},
-    ]},
-  { title:'Copywriter',
-    lead:'Copy não é sobre "escrever bonito". É sobre persuadir, qualificar e converter usando gatilhos psicológicos comprovados.',
-    listTitle:'O que o copywriter entrega:',
-    cards:[
-      {h:'Headlines que param o scroll', p:'Anúncios que geram CTR acima da média do mercado'},
-      {h:'Copy de quiz que qualifica', p:'Perguntas estratégicas que separam curiosos de compradores reais'},
-      {h:'Páginas de captura que convertem', p:'Estrutura de copy baseada em fórmulas validadas (PAS, AIDA, PASTOR)'},
-      {h:'Iterações baseadas em dados', p:'A cada fase, otimizamos a copy com base no que está performando'},
-    ]},
-  { title:'Designer',
-    lead:'Design de conversão não é arte decorativa. É ciência visual aplicada para guiar o lead até a ação que você quer que ele tome.',
-    listTitle:'O que o designer cria:',
-    cards:[
-      {h:'Páginas de captura responsivas', p:'Layout otimizado para mobile (onde 70% dos leads vêm) com hierarquia visual clara'},
-      {h:'Quiz visualmente intuitivo', p:'Interface limpa que reduz fricção e aumenta taxa de conclusão'},
-    ]},
-  { title:'Gestor de Tráfego',
-    lead:'Especialista em transformar verba em leads qualificados com ROI previsível.',
-    cards:[
-      {h:'Estrutura campanhas desde o zero', p:'Segmentação avançada, públicos custom, lookalikes e retargeting inteligente'},
-      {h:'Otimiza a cada 7 dias (CPL alto) ou 2 a 3 dias (CPL baixo)', p:'Seguindo a metodologia Simple'},
-      {h:'Testa múltiplos ângulos criativos', p:'Encontra os 3-5 criativos vencedores e escala apenas o que performa'},
-      {h:'Controla métricas de perto', p:'CPL, CAC, CPC, CTR, frequência, custo por agendamento e ROI final'},
-      {h:'Escala com segurança', p:'Dobra investimento apenas quando CPL e CAC está estável e conversão validada'},
-      {h:'Relatórios semanais de performance', p:'Você sabe exatamente onde cada real está indo e qual o retorno'},
-    ]},
-  { title:'Gestor de Automação',
-    lead:'Quem garante que nenhum lead se perde e toda oportunidade é aproveitada.',
-    cards:[
-      {h:'Dashboards de acompanhamento', p:'Você vê em tempo real: leads captados, leads nutridos, leads agendados, leads convertidos'},
-      {h:'Automações do funil', p:'Garante que todos os dados sejam trackeados e o funil rode com perfeição'},
-    ]},
-  { title:'Gerente de Projetos',
-    lead:'Projetos complexos exigem coordenação ativa. O Gerente de Projetos é quem orquestra todo o time, alinha entregas e garante que nada fique para trás.',
-    listTitle:'O que o Gerente de Projetos faz:',
-    cards:[
-      {h:'Coordena todos os entregáveis do projeto', p:'Funil, copy, design, tráfego, automação e comercial rodando em sincronia'},
-      {h:'Garante cumprimento de prazos', p:'Acompanha cronograma de implementação e sinaliza gargalos antes que virem atraso'},
-      {h:'Centraliza comunicação entre time e cliente', p:'Você tem um ponto focal claro para acompanhar o andamento de tudo'},
-      {h:'Alinha expectativas e prioridades', p:'Define o que é urgente, o que é importante e o que pode esperar'},
-      {h:'Resolve problemas operacionais', p:'Quando algo trava (aprovação pendente, integração com erro, ajuste de última hora), ele destrava'},
-      {h:'Reporta status semanalmente', p:'Você sabe exatamente o que foi feito, o que está em andamento e o que vem depois'},
-    ]},
-  { title:'Suporte no Processo Comercial',
-    lead:'Você recebe o mesmo script e metodologia de pitch que uso para fechar contratos de 5 dígitos em calls de 45 minutos.',
-    para:'Não adianta gerar leads qualificados se o seu comercial não sabe como converter. Por isso, além de trazer leads prontos para comprar, ajudamos a estruturar todo o seu processo de vendas: cadência de follow-up, fluxo de nutrição, roteiro de call e o mesmo script de pitch que uso para fechar high ticket.',
-    cards:[
-      {h:'Cadência de follow-up', p:'Processo estruturado para nenhuma oportunidade esfriar'},
-      {h:'Fluxo de nutrição', p:'O lead chega na call aquecido e consciente'},
-      {h:'Roteiro de call', p:'Estrutura validada para conduzir a conversa até a decisão'},
-      {h:'Script de pitch high ticket', p:'O mesmo script usado para fechar contratos de 5 dígitos'},
-    ]},
-].map((c,i)=>({ type:'cargo', sec:'O time envolvido', label:c.title, idx:i+1, ...c }));
+/* ============ ENTREGÁVEIS (15 slides, 1 por entregável) ============ */
+const ENTREGAVEIS = [
+  { title:'Mapa Estratégico', sub:'Diagnóstico triplo antes de rodar tráfego',
+    p:'Diagnóstico triplo: oferta + ICP + mercado / comercial / mídia paga. Antes de rodar qualquer tráfego, sabemos exatamente onde está o gargalo.',
+    illo:'protocolo'},
+  { title:'Roadmap Personalizado', sub:'Plano de ação de 90 dias com checkpoints',
+    p:'Direcionamento prático e ultra específico para o seu negócio e momento para gerar valor de imediato, com plano de ação de 90 dias com objetivo de alavancar seu faturamento. Você nunca fica sem direção. Cada checkpoint garante que a rota está ajustada à sua realidade, com handoff documentado ao final de cada sessão.',
+    illo:'roadmap'},
+  { title:'Growth Model Personalizado', sub:'Projeção baseada nos seus números reais',
+    p:'Projeção de onde você chega com o sistema rodando, baseado nos seus números reais. Custo de MQL projetado vs. atual, taxa de fechamento esperada vs. hoje, receita adicional mensal estimada.',
+    illo:'growth'},
+  { title:'Funil de Lead Dinâmico Completo e Validado', sub:'Quiz + página + integração + 12 copies',
+    p:'Construção do quiz de qualificação, página de aplicação e integração com o tráfego. O mecanismo que filtra o lead ruim antes de chegar no comercial e reduz o custo de MQL. Inclui 12 copies produzidas pelo time da Simple para anúncios.',
+    illo:'funil'},
+  { title:'Setup de Trackeamento e Dashboard de Métricas', sub:'Tudo visível em tempo real',
+    p:'CPL, custo de MQL, taxa de agendamento, taxa de fechamento, tudo visível em um lugar, em tempo real. Você para de achar e começa a saber.',
+    illo:'tracking'},
+  { title:'Pit-Stop Individual Mensal', sub:'Sessão estratégica a cada 30 dias com handoff documentado',
+    p:'Sessão estratégica a cada 30 dias, de 30 a 45 minutos por videochamada com tela compartilhada mostrando métricas em tempo real. Toda sessão termina com handoff documentado: o que foi decidido, quem faz, até quando e o critério de sucesso.',
+    illo:'pitstop'},
 
-/* ============ BUILDER DE OFERTA (estrutura FSS) ============ */
-function offer(o){
-  const s=[];
-  s.push({ type:'divider', sec:o.sec, label:o.tag, title:o.tag, sub:o.subtitle||'' });
+  { title:'Gestão de Tráfego', sub:'Especialista em transformar verba em leads qualificados com ROI previsível',
+    illo:'trafego', p:'',
+    bullets:[
+      'Estrutura campanhas desde o zero',
+      'Otimização seguindo a metodologia Simple Acc',
+      'Testa múltiplos ângulos criativos: encontra os 3 a 5 criativos vencedores e escala apenas o que performa',
+      'Controla métricas de perto: CPL, CAC, CPC, CTR, frequência, custo por agendamento e ROI final',
+      'Escala com segurança: dobra investimento apenas quando CPL e CAC está estável e conversão validada',
+      'Relatórios semanais de performance: você sabe exatamente onde cada real está indo e qual o retorno',
+    ]},
 
-  // A estrutura do sistema: UM SLIDE POR ENTREGÁVEL
-  o.core.forEach((d,i)=> s.push({ type:'solo', sec:o.sec, label:d.h,
-    cat:'A estrutura do sistema', idx:i+1, total:o.core.length, ...d }));
+  { title:'Copywriter dos Anúncios', sub:'Persuadir, qualificar e converter com gatilhos comprovados',
+    illo:'copy', p:'Copy não é sobre "escrever bonito". É sobre persuadir, qualificar e converter usando gatilhos psicológicos comprovados.',
+    bullets:[
+      'Headlines que param o scroll: anúncios que geram CTR acima da média do mercado',
+      'Copy de quiz que qualifica: perguntas estratégicas que separam curiosos de compradores reais',
+      'Páginas de captura que convertem: estrutura de copy baseada em fórmulas validadas (PAS, AIDA, PASTOR)',
+      'Iterações baseadas em dados: a cada fase, otimizamos a copy com base no que está performando',
+    ]},
 
-  // Aceleradores: UM SLIDE POR ENTREGÁVEL
-  (o.aceleradores||[]).forEach((d,i)=> s.push({ type:'solo', sec:o.sec, label:d.h,
-    cat:'Aceleradores', idx:i+1, total:o.aceleradores.length, ...d }));
+  { title:'Implementação Visual do Funil', sub:'Ciência visual aplicada, não decoração',
+    illo:'design', p:'Design de conversão não é arte decorativa. É ciência visual aplicada para guiar o lead até a ação que você quer que ele tome.',
+    bullets:[
+      'Páginas de captura responsivas: layout otimizado para mobile (onde 70% dos leads vêm) com hierarquia visual clara',
+      'Quiz visualmente intuitivo: interface limpa que reduz fricção e aumenta taxa de conclusão',
+    ]},
 
-  // Suporte: agrupado (como no doc de copy)
-  if(o.suporte) s.push({ type:'deliverable', sec:o.sec, label:'Suporte',
-    title:'O que garante que você não trava', cards:o.suporte });
+  { title:'Comunidade Privada de Mentores', sub:'Networking entre quem está no mesmo nível',
+    illo:'comunidade',
+    p:'Grupo de WhatsApp de networking entre membros que estão construindo a mesma máquina. Não é grupo de dúvidas, é uma sala de troca entre quem está no mesmo nível.'},
 
-  // Bônus: UM SLIDE POR BÔNUS
-  (o.bonus||[]).forEach((d,i)=> s.push({ type:'solo', sec:o.sec, label:d.h,
-    cat:'Bônus', idx:i+1, total:o.bonus.length, bonus:true, ...d }));
+  { title:'Check-in Diário Assíncrono', sub:'WhatsApp direto com sua empresa',
+    illo:'checkin',
+    p:'Grupo de WhatsApp individual com sua empresa. Você tira dúvida rápida e recebe atualização de campanha em tempo real, sem depender de uma call para saber o que está acontecendo.'},
 
-  // Estrutura de preço: modelo Full Sales
-  s.push({ type:'ask', sec:o.sec, label:'Dúvidas', title:'Dúvidas?', lead:o.duvidasLead||'' });
-  if(o.leva) s.push({ type:'statement', sec:o.sec, label:'O que você leva', title:'O que você leva', lead:o.leva });
-  s.push({ type:'vxp', sec:o.sec, label:'Valor x Preço' });
-  s.push({ type:'anchor', sec:o.sec, label:'Ancoragem de valor',
-    title:'Tudo que você vai receber e o que cada entregável representa no mercado',
-    items:o.anchor, total:o.total, question:o.anchorQuestion||'' });
-  s.push({ type:'testimonials', sec:o.sec, label:'Depoimentos', items:o.testimonials||DEFAULT_TESTI });
-  s.push({ type:'price-table', sec:o.sec, label:'Preço de tabela', title:o.productName,
-    items:o.anchor, price:o.tablePrice });
-  if(o.regular!=null){
-    s.push({ type:'caf', sec:o.sec, label:'Justificativa' });
-    s.push({ type:'hero-price', sec:o.sec, label:'Preço protagonista',
-      regular:o.regular, hero:o.hero, instal:o.instal });
-  }
-  return s;
-}
+  // BÔNUS
+  { title:'Bônus: Auditoria de Social Selling', sub:'Perfil orgânico convertendo antes do quiz',
+    illo:'b1', bonus:true,
+    p:"Antes de rodar o quiz, garantimos que o seu perfil orgânico está convertendo também. Resolve a objeção: 'mas e o conteúdo, preciso investir nisso?'"},
+  { title:'Bônus: Auditoria de Comercial e Negociação', sub:'Ponta a ponta: calls, scripts, apresentações',
+    illo:'b5', bonus:true,
+    p:'Análises de ponta a ponta do seu setor comercial em tudo que tange: calls de vendas, scripts, apresentações comerciais.'},
+  { title:'Bônus: Playbook Comercial Completo e Ilimitado', sub:'O que faz o MQL virar receita',
+    illo:'playbook', bonus:true,
+    p:'Script de pré-venda, roteiro de call 1x1, templates de agendamento, processo de SDR e matriz de objeções. O que faz o MQL virar receita.'},
+  { title:'Bônus: Área de Membros com Trilhas por Pilar', sub:'Conteúdo organizado, você acha o que precisa quando precisa',
+    illo:'membros', bonus:true,
+    p:'Conteúdo organizado por Oferta, Quiz, Comercial e Expansão. Você encontra o que precisa na hora que precisa, sem procurar em gravação de aula.'},
+].map((e,i,arr)=>({ type:'entregavel', sec:'Programa: entregáveis', label:e.title, idx:i+1, total:arr.length, ...e }));
 
-const DEFAULT_TESTI = [
-  {who:'Ju Godinho', role:'Método ELA · saúde e estética', img:'assets/print-metricas-ju.png'},
-  {who:'Daniele', role:'Grokker · Doutora de Líderes', img:'assets/print-metricas-daniele.png'},
-  {who:'Caroline e José', role:'Únicos Club', img:'assets/print-metricas-carol.png'},
+/* ============ CASES (padrão Full Sales: fundo escuro + callout vermelho) ============ */
+const CASES_HEADER = { type:'divider', sec:'Cases', label:'Cases de resultado',
+  title:'Cases de resultado', sub:'Empresários reais que já viveram o Sistema Simple' };
+
+const CASES = [
+  { name:'Lucas Sobreiro', niche:'Mentor de médicos',
+    callout:'R$ 36.000', metric:'em 1 semana',
+    detail:'Contrato de 36k fechado com a estratégia de caixa rápido do Sistema Simple, logo após o início da implementação.',
+    proof:'"A estratégia de caixa rápido está funcionando, fechei um contrato de 36k."',
+    who:'Lucas Sobreiro, WhatsApp interno' },
+  { name:'Pâmella e Sheila (Psicóloga)', niche:'Clínica de saúde mental',
+    callout:'16 tratamentos', metric:'de R$ 3.000 fechados no mês',
+    detail:'35 avaliações realizadas, 16 tratamentos fechados. O mês seguinte começou com 4 avaliações já agendadas.',
+    proof:'"Atualização referente ao mês de julho: 35 avaliações realizadas; 16 tratamentos fechados. Estamos iniciando o mês com 4 avaliações agendadas."',
+    who:'Psicóloga Sheila Oliveira' },
+  { name:'Rosana Rocco', niche:'Mentoria high ticket',
+    callout:'R$ 14.000', metric:'na primeira semana',
+    detail:'2 vendas de R$ 6k e 1 de R$ 2k na primeira semana rodando a estratégia de entrada inicial de R$ 1.000.',
+    proof:'"Já foram 2 de 6k e 1 de 2k."',
+    who:'Rosana Rocco' },
+  { name:'Sabrina Cantarino', niche:'Mentoria',
+    callout:'R$ 14.000', metric:'em 1 semana',
+    detail:'Mais uma mentoria de R$ 7.000 fechada em call suada — negociou muito e deu certo.',
+    proof:'"Vamos de novidade, fechei mais uma mentoria 7.000,00, essa foi suada para negociar, mas deu certo."',
+    who:'Sabrina Cantarino' },
+  { name:'Eliana Franz', niche:'Clínica',
+    callout:'+ R$ 1 milhão', metric:'de faturamento no ano',
+    detail:'Em janeiro voltou a trabalhar dia 10 e a clínica faturou R$ 80.000 só com o tráfego pago. Ano anterior fechou +1 milhão em faturamento.',
+    proof:'"Em janeiro voltamos a trabalhar dia 10 e a clínica faturou 80 mil reais só com o tráfego pago. Ano passado faturamos em média 1 milhão no ano."',
+    who:'Eliana Franz' },
+  { name:'Dr. Dennis e Dra. Roberta Teran', niche:'Consultórios médicos',
+    callout:'R$ 92.000', metric:'de faturamento no mês',
+    detail:'Dr. Dennis 14 pacientes novos, Dra. Roberta 10 pacientes novos. Fechamento de protocolos e consultas.',
+    proof:'"Faturamento do mês outubro: Dr Dennis 14 pacientes novos, Dra Roberta 10 pacientes novos, faturamento total 92 mil."',
+    who:'Dr. Dennis' },
+  { name:'Eliana Franz (Black Friday)', niche:'Clínica',
+    callout:'R$ 40.000+', metric:'com menos de R$ 1k em tráfego',
+    detail:'Black Friday da Eliana: mais de R$ 40 mil fechados investindo menos de R$ 1.000 em tráfego. Total do período: R$ 46.200.',
+    proof:'"Fechei uma black por 4500. Total 46.200."',
+    who:'Eliana Franz' },
+  { name:'Guilherme Eduardo', niche:'Mentor de médicos',
+    callout:'Empresário renomado', metric:'"Nenhuma me fez sentir especial igual a Simple"',
+    detail:'Empresário renomado, contratou várias mentorias antes e reconhece que nenhuma entregou o mesmo nível de cuidado, comprometimento e qualidade que a Simple.',
+    proof:'"Eu vejo o profissionalismo de vocês. Os materiais que vocês me entregam é de alta qualidade. Eu já contratei algumas mentorias, mas nenhuma me fez sentir especial e importante, igual vocês fazem."',
+    who:'Guilherme Eduardo' },
+  { name:'Rafael Granella', niche:'MLS · sócio de Caio Carneiro, Joel Jota e Flávio Augusto',
+    callout:'R$ 10.000', metric:'fechado com lead do tráfego',
+    detail:'Membro da MLS (Mentoria dos Líderes Sábios), sócio de Caio Carneiro, Joel Jota e Flávio Augusto. Fechou downsell de R$ 10k com lead que veio direto do tráfego. Feedback do lead Fabrizio Ortiz sobre o quiz: "Muito bom, me identifiquei muito."',
+    proof:'"Fechamos um downsell com lead do tráfego, fechamos 10k por duas sessões de mentoria. Feedback do lead: muito bom o quiz, me identifiquei muito."',
+    who:'Rafael Granella (MLS)' },
+  { name:'Vitória Daniela', niche:'Mentoria',
+    callout:'R$ 25.000', metric:'após aula com convidado especial',
+    detail:'Venda de R$ 25.000 fechada logo após a aula do convidado especial (sócio do Daniel). Reunião marcada às 13h30, botou em prática o que aprendeu na aula que acabou às 13h20 e fechou.',
+    proof:'"Sai da aula 13h20 e 13h30 tinha uma reunião marcada, botei o que entendi em prática. Venda de 25 mil e resultado imediato só colocando as epifanias em prática."',
+    who:'Vitória Daniela' },
+].map((c,i,arr)=>({ type:'case-fss', sec:'Cases', label:'Case: '+c.name, idx:i+1, total:arr.length, ...c }));
+
+/* ============ FECHAMENTO ============ */
+const CLOSE = [
+  { type:'ask', sec:'Fechamento', label:'Dúvidas', title:'Dúvidas?',
+    lead:'Seguimos só quando você estiver seguro de tudo que vai receber.' },
+
+  { type:'vxp', sec:'Fechamento', label:'Valor x Preço' },
+
+  // Preço de tabela: R$ 10 mil setup + R$ 4 mil / mês
+  { type:'price-tabela', sec:'Fechamento', label:'Preço de tabela',
+    title:'Programa de Implementação Simple',
+    setup:{v:10000, l:'de Setup'}, mensal:{v:4000, l:'por mês'} },
+
+  // Justificativa (nova)
+  { type:'presenteia', sec:'Fechamento', label:'Presentear os decididos',
+    title:'Nós presenteamos empresários decididos e que agem rápido em direção aos seus objetivos.' },
+
+  // Preço protagonista: R$ 5 mil setup + R$ 3 mil / mês
+  { type:'price-protagonista', sec:'Fechamento', label:'Preço em call',
+    regular:{setup:10000, mensal:4000},
+    hero:{setup:5000, mensal:3000},
+    note:'Valor protagonista: válido apenas com a decisão na call.' },
 ];
-
-/* entregáveis (copy verbatim) */
-const D = {
-  roadmap:(det)=>({h:'Roadmap Personalizado', d:det, illo:'roadmap',
-    p:'Direcionamento prático e ultra específico para o seu negócio e momento para gerar valor de imediato. Você nunca fica sem direção. Cada checkpoint garante que a rota está ajustada à sua realidade, com handoff documentado ao final de cada sessão.'}),
-  protocolo:{h:'Protocolo Destrava Lucro', d:'Diagnóstico triplo', illo:'protocolo',
-    p:'Diagnóstico triplo: oferta + ICP + mercado / comercial / mídia paga. Antes de rodar qualquer tráfego, sabemos exatamente onde está o gargalo.'},
-  growth:{h:'Growth Model Personalizado', d:'Projeção com números reais', illo:'growth',
-    p:'Projeção de onde você chega com o sistema rodando, baseado nos seus números reais. Custo de MQL projetado vs. atual, taxa de fechamento esperada vs. hoje, receita adicional mensal estimada.'},
-  funil:(copies)=>({h:'Funil de Quiz Completo e Calibrado', d:`+ ${copies} copies`,
-    p:`Construção do quiz de qualificação, página de aplicação e integração com o tráfego. O mecanismo que filtra o lead ruim antes de chegar no comercial e reduz o custo de MQL. Inclui ${copies} copies produzidas pelo time da Simple para anúncios.`,
-    img:'assets/processo-aquisicao.png'}),
-  biblioteca:{h:'Biblioteca de Copy para Anúncios', d:'Formatos validados', illo:'biblioteca',
-    p:'Formatos validados separados por nível de consciência do lead: topo, meio e fundo. Seu gestor usa sem depender de você para criar do zero.'},
-  prompts:{h:'Prompts e Agentes de IA para Copy e Quiz', d:'Copy em 20 minutos', illo:'prompts',
-    p:'Seu gestor cria copy em 20 minutos. Reduz dependência de copywriter e mantém o sistema funcionando sem você parar para criar.'},
-  tracking:{h:'Setup de Trackeamento e Dashboard de Métricas', d:'Tudo visível em tempo real', illo:'tracking',
-    p:'CPL, custo de MQL, taxa de agendamento, taxa de fechamento, tudo visível em um lugar, em tempo real. Você para de achar e começa a saber.'},
-  ltv:{h:'Mapa de Expansão de Oferta e LTV', d:'Monetizar a base', illo:'ltv',
-    p:'Como monetizar a base que você já tem antes de precisar de lead novo. Novas ofertas, upsells e downsells mapeados com base no que o seu ICP já comprou.'},
-  playbook:(nome)=>({h:`Playbook Comercial ${nome}`, d:'O que faz o MQL virar receita', illo:'playbook',
-    p:'Script de pré-venda, roteiro de call 1x1, templates de agendamento, processo de SDR e matriz de objeções. O que faz o MQL virar receita.'}),
-};
-
-const SUP = {
-  pitQuinzenal:{h:'Pit-Stop Individual Quinzenal', p:'Sessão estratégica a cada 15 dias, de 30 a 45 minutos por videochamada com tela compartilhada mostrando métricas em tempo real. Toda sessão termina com handoff documentado: o que foi decidido, quem faz, até quando e o critério de sucesso.'},
-  pitMensal:{h:'Pit-Stop Individual Mensal', p:'Sessão estratégica a cada 30 dias, de 30 a 45 minutos por videochamada com tela compartilhada mostrando métricas em tempo real. Toda sessão termina com handoff documentado: o que foi decidido, quem faz, até quando e o critério de sucesso.'},
-  pit4:{h:'4 Pit-Stops', p:'Sessão estratégica a cada 30 dias, de 30 a 45 minutos por videochamada com tela compartilhada mostrando métricas em tempo real. Toda sessão termina com handoff documentado: o que foi decidido, quem faz, até quando e o critério de sucesso.'},
-  checkin:{h:'Check-in Diário Assíncrono', p:'Grupo de WhatsApp individual com sua empresa. Você tira dúvida rápida e recebe atualização de campanha em tempo real, sem depender de uma call para saber o que está acontecendo.'},
-  encontros:{h:'Encontros em Grupo Quinzenais', p:'Alternando entre conteúdo técnico e hot seat. No hot seat você apresenta seu problema e o grupo mais o consultor resolvem juntos em um processo de aprendizado coletivo.'},
-  comunidade:{h:'Comunidade Privada de Mentores', p:'Grupo de WhatsApp de networking entre membros que estão construindo a mesma máquina. Não é grupo de dúvidas, é uma sala de troca entre quem está no mesmo nível.'},
-  area:{h:'Área de Membros com Trilhas por Pilar', p:'Conteúdo organizado por Oferta, Quiz, Comercial e Expansão. Você encontra o que precisa na hora que precisa, sem procurar em gravação de aula.'},
-  gestorCS:{h:'Gestor de Performance Dedicado', p:'Um CS dedicado exclusivamente ao sucesso do seu projeto com acompanhamento próximo durante toda a implementação.'},
-};
-
-const BONUS = (n1,n2,n5)=>[
-  {h:`Bônus 1: Auditoria de Social Selling${n1?` (${n1})`:''}`, d:'Bônus 1', illo:'b1',
-   p:"Antes de rodar o quiz, garantimos que o seu perfil orgânico está convertendo também. Resolve a objeção: 'mas e o conteúdo, preciso investir nisso?'"},
-  {h:`Bônus 2: Auditoria de Produção de Conteúdo${n2?` (${n2})`:''}`, d:'Bônus 2', illo:'b2',
-   p:'Ajuste da comunicação para falar com quem está pronto para escalar, não com quem está começando. O orgânico passa a trabalhar na mesma direção que o tráfego pago.'},
-  {h:'Bônus 3: Snapshot de Pipeline', d:'Bônus 3', illo:'b3',
-   p:'Visão completa do pipeline de vendas: onde estão os leads, quanto está em negociação e onde estão as perdas.'},
-  {h:'Bônus 4: Snapshot de Automações', d:'Bônus 4', illo:'b4',
-   p:'Diagnóstico das automações do funil: o que está rodando, o que está travando e o que pode ser otimizado.'},
-  {h:`Bônus 5: Auditoria de Comercial${n5?` (${n5})`:''}`, d:'Bônus 5', illo:'b5',
-   p:'Análises de ponta a ponta do seu setor comercial em tudo que tange: calls de vendas, scripts, apresentações comerciais.'},
-];
-
-/* ---- OFERTA PRINCIPAL (Consultoria) ---- */
-const OFFER_PRINCIPAL = offer({
-  sec:'Oferta Principal', tag:'Oferta Principal',
-  subtitle:'Programa de Aceleração Simple',
-  productName:'Programa de Aceleração Simple',
-  core:[ D.roadmap('1 reunião + 4 checkpoints'), D.protocolo, D.growth, D.funil(12) ],
-  aceleradores:[ D.biblioteca, D.prompts, D.tracking, D.ltv, D.playbook('Completo e Ilimitado') ],
-  suporte:[ SUP.pitQuinzenal, SUP.checkin, SUP.encontros, SUP.comunidade, SUP.area, SUP.gestorCS ],
-  bonus:BONUS('4 auditorias','', '4 auditorias'),
-  anchor:[
-    {nm:'Roadmap Personalizado (1 reunião + 4 checkpoints)', vl:8000},
-    {nm:'Protocolo Destrava Lucro (diagnóstico triplo)', vl:15000},
-    {nm:'Growth Model Personalizado', vl:12000},
-    {nm:'Funil de Quiz Completo + 12 copies', vl:60000},
-    {nm:'Biblioteca de Copy para Anúncios', vl:8000},
-    {nm:'Prompts e Agentes de IA para Copy e Quiz', vl:6000},
-    {nm:'Setup de Trackeamento e Dashboard de Métricas', vl:10000},
-    {nm:'Mapa de Expansão de Oferta e LTV', vl:15000},
-    {nm:'Playbook Comercial Completo e Ilimitado', vl:25000},
-    {nm:'Pit-Stops Individuais Quinzenais (programa completo)', vl:18000},
-    {nm:'Encontros em Grupo Quinzenais', vl:6000},
-    {nm:'Área de Membros com Trilhas por Pilar', vl:8000},
-    {nm:'Comunidade Privada de Mentores', vl:4000},
-    {nm:'Check-in Diário Assíncrono', vl:6000},
-    {nm:'Gestor de Performance Dedicado', vl:36000},
-    {nm:'Bônus 1: 4 Auditorias de Social Selling', vl:12000},
-    {nm:'Bônus 2: Auditoria de Produção de Conteúdo', vl:6000},
-    {nm:'Bônus 3: Snapshot de Pipeline', vl:4000},
-    {nm:'Bônus 4: Snapshot de Automações', vl:4000},
-    {nm:'Bônus 5: 4 Auditorias de Comercial', vl:16000},
-  ],
-  total:279000,
-  anchorQuestion:'Se você pudesse ter 70% de desconto sobre tudo isso… você seria um cliente hoje?',
-  tablePrice:{full:25000, instal:'12x R$ 2.500'},
-  regular:25000, hero:20000, instal:'12x R$ 2.000',
-});
-
-/* ---- OFERTA 2: DOWNSELL ---- */
-const OFFER_2 = offer({
-  sec:'Oferta 2: Downsell', tag:'Oferta 2',
-  subtitle:'Programa de Aceleração Simple',
-  productName:'Programa de Aceleração Simple',
-  core:[ D.roadmap('1 reunião + 2 checkpoints'), D.protocolo, D.growth, D.funil(6) ],
-  aceleradores:[ D.biblioteca, D.prompts, D.tracking, D.ltv, D.playbook('Completo e Ilimitado') ],
-  suporte:[ SUP.pitMensal, SUP.checkin, SUP.encontros, SUP.comunidade, SUP.area, SUP.gestorCS ],
-  bonus:BONUS('2 auditorias','2 auditorias','2 auditorias'),
-  anchor:[
-    {nm:'Roadmap Personalizado (1 reunião + 2 checkpoints)', vl:5000},
-    {nm:'Protocolo Destrava Lucro (diagnóstico triplo)', vl:15000},
-    {nm:'Growth Model Personalizado', vl:12000},
-    {nm:'Funil de Quiz Completo + 6 copies', vl:42000},
-    {nm:'Biblioteca de Copy para Anúncios', vl:8000},
-    {nm:'Prompts e Agentes de IA', vl:6000},
-    {nm:'Setup de Trackeamento e Dashboard', vl:10000},
-    {nm:'Mapa de Expansão de Oferta e LTV', vl:15000},
-    {nm:'Playbook Comercial Limitado', vl:18000},
-    {nm:'8 Pit-Stops Individuais', vl:12000},
-    {nm:'Encontros em Grupo Quinzenais', vl:6000},
-    {nm:'Área de Membros + Comunidade Privada', vl:12000},
-    {nm:'Check-in Diário Assíncrono', vl:6000},
-    {nm:'Gestor de Performance Dedicado', vl:36000},
-    {nm:'Bônus 1: 2 Auditorias de Social Selling', vl:6000},
-    {nm:'Bônus 2: Auditoria de Produção de Conteúdo', vl:6000},
-    {nm:'Bônus 3 e 4: Snapshots de Pipeline e Automações', vl:8000},
-    {nm:'Bônus 5: 2 Auditorias de Comercial', vl:8000},
-  ],
-  total:231000,
-  anchorQuestion:'Se você pudesse ter um desconto expressivo sobre tudo isso… você seria um cliente hoje?',
-  tablePrice:{full:18000, instal:'12x R$ 1.800'},
-  regular:18000, hero:15000, instal:'12x R$ 1.500',
-});
-
-/* ---- OFERTA 3 ---- */
-const OFFER_3 = offer({
-  sec:'Oferta 3', tag:'Oferta 3',
-  subtitle:'Programa de Aceleração Simple',
-  productName:'Programa de Aceleração Simple',
-  core:[ D.roadmap('1 reunião'), D.protocolo, D.growth, D.funil(6) ],
-  aceleradores:[ D.biblioteca, D.prompts, D.tracking, D.ltv, D.playbook('Completo e Ilimitado') ],
-  suporte:[ SUP.pit4, SUP.checkin, SUP.encontros, SUP.comunidade, SUP.area, SUP.gestorCS ],
-  bonus:BONUS('','',''),
-  anchor:[
-    {nm:'Roadmap Personalizado (1 reunião + checkpoints)', vl:5000},
-    {nm:'Protocolo Destrava Lucro (diagnóstico triplo)', vl:15000},
-    {nm:'Growth Model Personalizado', vl:12000},
-    {nm:'Funil de Quiz Completo + 6 copies', vl:42000},
-    {nm:'Biblioteca de Copy + Prompts de IA', vl:14000},
-    {nm:'Setup de Trackeamento e Dashboard', vl:10000},
-    {nm:'Mapa de Expansão de Oferta e LTV', vl:12000},
-    {nm:'Playbook Comercial Limitado', vl:15000},
-    {nm:'Pit-Stops + Encontros em Grupo', vl:9000},
-    {nm:'Área de Membros + Comunidade', vl:8000},
-    {nm:'Check-in Diário + Gestor de Performance', vl:13000},
-    {nm:'Bônus 1: 2 Auditorias de Social Selling', vl:6000},
-    {nm:'Bônus 2: Auditoria de Produção de Conteúdo', vl:6000},
-    {nm:'Bônus 3 e 4: Snapshots', vl:6000},
-    {nm:'Bônus 5: 2 Auditorias de Comercial', vl:8000},
-  ],
-  total:181000,
-  tablePrice:{full:10000, instal:'12x R$ 1.000'},
-  regular:10000, hero:8000, instal:'12x R$ 800',
-});
-
-/* ---- OFERTA 4: FINAL ---- */
-const OFFER_4 = offer({
-  sec:'Oferta 4: Entrada', tag:'Oferta 4',
-  subtitle:'Entrada no Sistema Simple',
-  productName:'Entrada no Sistema Simple',
-  core:[ D.roadmap('1 reunião + 1 checkpoint após 45 dias'), D.funil(6) ],
-  aceleradores:[ D.biblioteca, D.prompts, D.tracking, D.ltv, D.playbook('Limitado') ],
-  suporte:[ SUP.encontros, SUP.comunidade, SUP.area ],
-  bonus:BONUS('','',''),
-  duvidasLead:'Esse é o ponto de entrada mais acessível do sistema. O que ainda não ficou claro?',
-  leva:'O mesmo sistema: quiz, diagnóstico, playbook, aceleradores. Com suporte mais pontual, para quem quer o processo rodando com o menor investimento possível.',
-  anchor:[
-    {nm:'Roadmap Personalizado', vl:18000},
-    {nm:'Funil de Quiz Completo + 6 copies', vl:52000},
-    {nm:'Biblioteca de Copy + Prompts de IA', vl:14000},
-    {nm:'Setup de Trackeamento e Dashboard', vl:10000},
-    {nm:'Mapa de Expansão de Oferta e LTV', vl:12000},
-    {nm:'Playbook Comercial Limitado', vl:15000},
-    {nm:'Suporte (Encontros em Grupo)', vl:8000},
-    {nm:'Área de Membros + Comunidade Privada', vl:8000},
-    {nm:'Bônus 1: 2 Auditorias de Social Selling', vl:7000},
-    {nm:'Bônus 2: Auditoria de Produção de Conteúdo', vl:7000},
-    {nm:'Bônus 3 e 4: Snapshots', vl:6000},
-    {nm:'Bônus 5: 2 Auditorias de Comercial', vl:10000},
-  ],
-  total:172500,
-  tablePrice:{full:6000, instal:'12x R$ 600'},
-  // oferta final: sem C.A.F. / preço protagonista (preço de tabela é o final)
-});
 
 /* ============ DECK ============ */
-window.SLIDES = [].concat(COMMON, CARGOS, OFFER_PRINCIPAL, OFFER_2, OFFER_3, OFFER_4);
+window.SLIDES = [].concat(COMMON, ENTREGAVEIS, [CASES_HEADER], CASES, CLOSE);
 window.MONEY = money;
