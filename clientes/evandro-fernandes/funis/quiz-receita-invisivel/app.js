@@ -8,29 +8,18 @@
 const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
 
 /* ---- Destino do lead -----------------------------------------------------
-   CRM_ENDPOINT: webhook do cliente (n8n do HDM). É o destino ÚNICO: o lead cai
-                 direto no CRM dele.
-   CRM_API_KEY:  vem do config.local.js, que NÃO é versionado (regra do manual:
-                 chave não entra no Git). O modelo versionado é o
-                 config.example.js. Se o arquivo não existir, o lead vai sem o
-                 header de autenticação, que é o que o endpoint aceita hoje.
+   CRM_ENDPOINT: /api/lead, a função serverless em `api/lead.js`. Mesma origem,
+                 então o navegador não faz preflight e o CORS sai da equação. É
+                 ela que anexa o header X-Api-Key e encaminha para o webhook do
+                 HDM. A chave fica na variável de ambiente HDM_CRM_API_KEY, no
+                 painel da Vercel: não entra no Git e não chega ao navegador do
+                 lead, onde qualquer visitante leria no devtools.
    LEADS_ENDPOINT: desligado por decisão de 13/08/2026. O backup em Make/Sheets
                  foi descartado para não gerar custo de operações, já que o
                  destino final é o CRM do cliente. Para reativar, basta colar a
                  URL do webhook aqui e reativar o cenário no Make. */
-const CRM_ENDPOINT   = "https://n8n.digienge.ai/webhook/quizzreceitainvisivel";
-const CRM_API_KEY    = (window.HDM_CONFIG && window.HDM_CONFIG.crmApiKey) || "";
+const CRM_ENDPOINT   = "/api/lead";
 const LEADS_ENDPOINT = "";
-
-/* Aviso alto no console: se o HDM ligar a trava X-Api-Key e a chave não estiver
-   aqui, todo lead passa a levar 403 em silêncio (o fetch é fire and forget). */
-if (!CRM_API_KEY) {
-  console.warn(
-    "[HDM] Sem CRM_API_KEY: o lead vai sem o header X-Api-Key. " +
-    "Isso funciona enquanto o webhook do HDM estiver sem trava. " +
-    "Se ligarem a trava, copie config.example.js para config.local.js e cole a chave."
-  );
-}
 
 /* UTMs capturadas da URL no carregamento (a página do quiz não muda de URL até
    o envio, então isso preserva os parâmetros do anúncio). */
@@ -84,11 +73,7 @@ function enviarLead() {
       fetch(url, { method: "POST", headers, body: JSON.stringify(lead), keepalive: true });
     } catch (e) { /* não bloqueia o lead */ }
   };
-  if (CRM_ENDPOINT) {
-    const h = { "Content-Type": "application/json" };
-    if (CRM_API_KEY) h["X-Api-Key"] = CRM_API_KEY;
-    post(CRM_ENDPOINT, h);
-  }
+  if (CRM_ENDPOINT) post(CRM_ENDPOINT, { "Content-Type": "application/json" });
   if (LEADS_ENDPOINT) post(LEADS_ENDPOINT, { "Content-Type": "application/json" });
 }
 

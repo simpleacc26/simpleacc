@@ -13,8 +13,7 @@ Stack: HTML/CSS/JS puro, sem dependências, sem build. Mobile-first.
 - `styles.css` · identidade (tokens no `:root`)
 - `diagnostico.html` + `diagnostico.js` · relatório auto-preenchido + Baixar PDF + WhatsApp
 - `favicon.png` · ícone oficial do HDM, 64px
-- `config.example.js` · modelo da config (versionado, sem chave)
-- `config.local.js` · a chave real do webhook. **No `.gitignore`, nunca commitar.**
+- `api/lead.js` · proxy serverless: anexa a `X-Api-Key` e encaminha ao CRM
 - `integracao-planilha.gs` · Apps Script da planilha de leads
 
 ## Como rodar local
@@ -43,24 +42,33 @@ caminho da imagem. O logo não foi redesenhado, é o arquivo dele (roxo `#806ACE
 - Integridade conferida com `curl` + `cmp`: os 6 arquivos no ar são idênticos ao repo.
 - Anúncio deve apontar pra raiz com query (`/?utm_source=...`), nunca `/index.html`.
 
-## A chave do webhook (`X-Api-Key`)
-A chave **não entra no Git** (regra do manual). Ela vive no `config.local.js`,
-que está no `.gitignore`. O par versionado é o `config.example.js`.
+## A chave do webhook (`X-Api-Key`) e o proxy `/api/lead`
+O navegador **não** fala mais direto com o n8n do HDM. Ele posta em `/api/lead`,
+uma função serverless (`api/lead.js`) na própria Vercel, e ela anexa o header
+`X-Api-Key` e encaminha. Três ganhos:
 
+1. A chave **nunca chega ao navegador do lead.** Se ela viajasse no JS da página,
+   qualquer visitante leria no devtools, e a proteção que o Evandro criou para o
+   webhook dele seria pública.
+2. A chave **não entra no Git**: fica na variável de ambiente `HDM_CRM_API_KEY`,
+   cadastrada no painel da Vercel.
+3. **Some o CORS.** Mesma origem, sem preflight. Some junto toda uma classe de
+   falha silenciosa que já custou horas nesse funil.
+
+**Como cadastrar a chave** (uma vez, no painel da Vercel):
+Project `quiz-evandro-fernandes` → Settings → Environment Variables →
+nome `HDM_CRM_API_KEY`, valor = a chave que o Evandro passou, ambiente Production.
+Depois é preciso **republicar** para a função pegar o valor novo.
+
+**Conferir sem expor a chave:**
+```bash
+curl https://quiz-evandro-fernandes.vercel.app/api/lead
+# {"ok":true,"destino":"...","chaveConfigurada":true}
 ```
-cp config.example.js config.local.js   # e cole a chave real dentro
-```
-
-O `index.html` carrega o `config.local.js` **antes** do `app.js` (ambos com
-`defer`, que preserva a ordem). O `app.js` lê `window.HDM_CONFIG.crmApiKey`; se o
-arquivo não existir, manda o lead **sem** o header e avisa no console. Testado em
-navegador de verdade nos dois caminhos: com o arquivo a chave de 64 caracteres
-chega ao motor; sem ele o quiz continua renderizando normalmente.
-
-⚠️ **Ao publicar:** o `deploy_to_vercel` substitui o snapshot inteiro, então o
-`config.local.js` precisa ir junto em toda publicação, senão a chave some do ar
-em silêncio. Para recuperá-la depois:
-`curl https://quiz-evandro-fernandes.vercel.app/config.local.js`
+`chaveConfigurada` diz só se a variável existe, nunca o valor. Enquanto for
+`false`, a função encaminha **sem** autenticação, que é o que o endpoint do HDM
+aceita com a trava desligada. Por isso cadastrar a chave e o HDM religar a trava
+podem acontecer em momentos diferentes, sem perder lead.
 
 ## Estado da integração (13/08/2026, 19h40)
 **Conectado.** O HDM desligou a trava do nó e o lead passou a cair no CRM dele.
@@ -90,13 +98,12 @@ gerar custo de operações.
       `qualificado` (o que serve para rotear) e descarta 4 das 7 respostas. Subir
       tráfego assim inverte a qualificação. Detalhe e o que pedir ao time deles em
       `especificacao-webhook-leads.md`.
-- [ ] **Religar a trava `X-Api-Key` junto com a nossa chave.** O HDM vai reativar
-      a autenticação (tem que ser **Header Auth**, não Basic). No mesmo momento
-      precisamos preencher a `CRM_API_KEY` e republicar: se só um lado virar, o
-      funil volta a levar 403 e o lead para de chegar.
-- [ ] **Onde guardar a `CRM_API_KEY`.** Decidir entre commitar no `app.js` (fica
-      visível no navegador, que é o desenho de CORS que o HDM montou) ou um proxy
-      serverless com env var.
+- [ ] **Cadastrar a `HDM_CRM_API_KEY` no painel da Vercel** e republicar. Sem
+      isso o proxy encaminha sem autenticação: funciona hoje, mas para de
+      funcionar no minuto em que o HDM religar a trava. Conferir com
+      `curl .../api/lead` → `chaveConfigurada: true`.
+- [ ] **Avisar o HDM que a trava tem que ser Header Auth**, não Basic (foi Basic
+      que travou tudo na primeira tentativa).
 
 **Melhora a entrega, não bloqueia:**
 - [ ] **Logo oficial** em SVG/PNG para o topo da página (hoje wordmark "HDM" em
