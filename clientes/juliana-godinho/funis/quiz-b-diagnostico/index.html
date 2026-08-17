@@ -263,6 +263,23 @@ function dl(evento, extra){
 /* webhook do Make — cenário "V4 - Ju Godinho (Quiz B)" */
 const WEBHOOK = 'https://hook.us2.make.com/xm49y796rjznhxylkfx1grmgg9wgkbc2';
 
+/* webhook separado, cenário "V4 - Ju Godinho (Desqualificados)". Quem é cortada
+   na P1 nunca chega a informar nome, telefone ou e-mail — então aqui vai só a
+   contagem: o que cortou e de qual criativo veio. Nada identifica a pessoa. */
+const WEBHOOK_FORA = 'https://hook.us2.make.com/7o322cozb1s2n1fw2xwx3tknppvrgn04';
+
+/* Envia sem segurar a tela: keepalive para sobreviver à navegação e erro
+   engolido, porque nenhum registro nosso pode travar o lead. */
+function enviar(url, dados){
+  try{
+    fetch(url, {
+      method:'POST', keepalive:true,
+      headers:{ 'Content-Type':'application/json' },
+      body: JSON.stringify(dados)
+    }).catch(()=>{});
+  }catch(e){}
+}
+
 /* UTMs da URL, para viajar junto do lead */
 const UTM = (() => {
   const p = new URLSearchParams(location.search), o = {};
@@ -323,6 +340,13 @@ function pergunta(i){
       R[P.id]=k;
       if(P.opts[k].fora){
         dl('quiz_fora_escopo', { quiz_pergunta_id:P.id, quiz_resposta:P.opts[k].t });
+        enviar(WEBHOOK_FORA, {
+          motivo: 'Carro-chefe fora do escopo (P1)',
+          resposta: P.opts[k].t,
+          utm_source: UTM.utm_source || '', utm_medium: UTM.utm_medium || '',
+          utm_campaign: UTM.utm_campaign || '', utm_content: UTM.utm_content || '',
+          utm_term: UTM.utm_term || ''
+        });
         fora=true; render(); return;
       }
       screen.querySelectorAll('.opt').forEach(x=>x.classList.remove('on'));
@@ -443,32 +467,23 @@ function resultado(){
   };
   try{ sessionStorage.setItem('jugodinho_quizb', JSON.stringify(payload)); }catch(e){}
 
-  /* lead para o Make → planilha "V4 - Quiz" + GoHighLevel.
-     keepalive faz a requisição sobreviver ao redirect para o diagnóstico;
-     falha de rede não pode segurar o lead na tela, então o erro é engolido. */
-  try{
-    fetch(WEBHOOK, {
-      method: 'POST',
-      keepalive: true,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        nome: R._nome, numero: R._fone, email: R._mail,
-        q1: PERGUNTAS[0].opts[R.carro].t,
-        q2: PERGUNTAS[1].opts[R.cena].t,
-        q3: PERGUNTAS[2].opts[R.equipe].t,
-        q4: PERGUNTAS[3].opts[R.margem].t,
-        q5: (R.tentou||[]).map(k=>PERGUNTAS[4].opts[k].t).join(' + ') || 'nada',
-        q6: PERGUNTAS[5].opts[R.faturamento].t,
-        gargalo: Q.nome,
-        rota: rota==='mentoria' ? 'Mentoria (R$ 9.999)' : 'EDP (R$ 1.997)',
-        pilar: PILARES[P.i].n,
-        utm_source: UTM.utm_source || '', utm_medium: UTM.utm_medium || '',
-        utm_campaign: UTM.utm_campaign || '', utm_term: UTM.utm_term || '',
-        utm_content: UTM.utm_content || '',
-        data: payload.em
-      })
-    }).catch(()=>{});
-  }catch(e){}
+  /* lead para o Make → planilha "V4 - Quiz" + GoHighLevel */
+  enviar(WEBHOOK, {
+    nome: R._nome, numero: R._fone, email: R._mail,
+    q1: PERGUNTAS[0].opts[R.carro].t,
+    q2: PERGUNTAS[1].opts[R.cena].t,
+    q3: PERGUNTAS[2].opts[R.equipe].t,
+    q4: PERGUNTAS[3].opts[R.margem].t,
+    q5: (R.tentou||[]).map(k=>PERGUNTAS[4].opts[k].t).join(' + ') || 'nada',
+    q6: PERGUNTAS[5].opts[R.faturamento].t,
+    gargalo: Q.nome,
+    rota: rota==='mentoria' ? 'Mentoria (R$ 9.999)' : 'EDP (R$ 1.997)',
+    pilar: PILARES[P.i].n,
+    utm_source: UTM.utm_source || '', utm_medium: UTM.utm_medium || '',
+    utm_campaign: UTM.utm_campaign || '', utm_term: UTM.utm_term || '',
+    utm_content: UTM.utm_content || '',
+    data: payload.em
+  });
 
   screen.innerHTML = `
     <p class="kicker">Pronto</p>

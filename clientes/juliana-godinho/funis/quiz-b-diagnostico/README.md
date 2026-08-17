@@ -59,6 +59,50 @@ Falha de rede é engolida: o lead nunca fica preso numa tela de erro.
 | CRM | GoHighLevel da Ju (`QMyNQVqmEyUtRM62u4Zr`), pipeline "Fúnil de Marketing" |
 | Tags aplicadas | `quiz-diagnostico` + `quiz-b-diagnostico` |
 
+### Desqualificadas
+
+Quem responde "Nenhuma dessas" na P1 é cortada antes da captura, então nunca
+informa nome, telefone ou e-mail. Antes ela sumia sem deixar rastro, e não
+havia como saber quanto do orçamento ia para o público errado.
+
+Vai para um **webhook e cenário separados**, no mesmo desenho do
+`Quiz Únicos - Desqualificados` do Carol e José:
+
+| Peça | Onde |
+| --- | --- |
+| Cenário Make | `V4 - Ju Godinho (Desqualificados - contagem anônima)`, id `5968361` |
+| Webhook | `https://hook.us2.make.com/7o322cozb1s2n1fw2xwx3tknppvrgn04` |
+| Planilha | mesma, aba **`Desqualificados`** |
+
+Colunas: `Data`, `Motivo`, `Resposta que cortou` e as cinco UTMs. **É contagem,
+não lead** — nada ali identifica a pessoa. O que interessa é o volume e a
+coluna `utm_content`, que diz de qual criativo veio o desperdício.
+
+### GTM
+
+Container **`GTM-MVZDHB3M`** nas duas páginas: snippet do head logo após o
+viewport, `noscript` logo após abrir o body.
+
+Só o container mediria quase nada — o quiz é uma página só que troca de tela
+sem navegar, então o GTM veria um pageview para o funil inteiro. Por isso as
+páginas empurram eventos no `dataLayer`:
+
+| Evento | Quando | Dados |
+| --- | --- | --- |
+| `quiz_start` | primeira resposta | — |
+| `quiz_pergunta` | cada avanço | número, id da pergunta, resposta em texto |
+| `quiz_fora_escopo` | corte na P1 | a resposta que cortou |
+| `quiz_lead` | envio do formulário | — |
+| `quiz_completo` | laudo entregue | quadro, gargalo, rota, pilar |
+| `whatsapp_click` | qualquer um dos 6 CTAs | rótulo do botão, rota |
+
+> Empurrar evento é inofensivo: sem tag configurada no container, o push fica
+> só no `dataLayer` e nada dispara. **As tags e gatilhos ainda precisam ser
+> criados na interface do GTM** — o código só entrega os eventos.
+
+O GTM é a **única dependência externa** das páginas, e abre exceção à regra de
+zero dependência do playbook. A fonte continua embutida como data URI.
+
 **A ordem dos módulos é planilha → CRM, de propósito.** No cenário do quiz
 antigo (V3) o CRM vem primeiro, então uma falha da GHL derruba a execução e o
 lead se perde. Aqui a linha da planilha é gravada antes de qualquer chamada à
@@ -189,7 +233,12 @@ chrome, FAQ e CTAs), então o mesmo laudo serve de anexo para a cadência da SDR
   aparece em quase todo título. **Decisão da conta:** trocar a fonte de display
   por uma com acentuação correta (EB Garamond fica no mesmo gênero) ou aceitar.
 - Página pós-quiz completa, PDF do laudo e disparo de WhatsApp.
-- Pixel e rastreamento (as UTMs já são capturadas).
+- **Tags e gatilhos dentro do GTM.** O container e os eventos estão
+  instalados, mas nenhuma tag foi criada — nada é enviado para Meta ou GA4
+  ainda. Ver "GTM" acima.
+- **Domínio próprio.** Está em `quiz-ju-godinho.vercel.app`. Precisa de acesso
+  ao DNS de `julianagodinho.com.br` para virar algo como
+  `diagnostico.julianagodinho.com.br`.
 
 ## Assets
 
