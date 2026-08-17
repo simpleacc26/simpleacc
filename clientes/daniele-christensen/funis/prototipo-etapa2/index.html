@@ -439,29 +439,44 @@ function concluir(){
   daqui(2600, function(){ mostra("fim"); montaAgenda(); });
 }
 
-var WEBHOOK = "https://pulsar.app.n8n.cloud/webhook/grokker-quiz-etapa2";
+// Dois destinos de propósito. O primeiro é da Pulsar, que é dona do CRM; o
+// segundo é o nosso, e só alimenta a planilha de respostas.
+var DESTINOS = [
+  "https://pulsar.app.n8n.cloud/webhook/grokker-quiz-etapa2",
+  "https://hook.us2.make.com/3xnav3lyusd965i2fptdpi5kk5yl0ywy"
+];
 var envio = "não enviado";
 
 // o lead nunca espera pelo envio: falhou, a agenda aparece do mesmo jeito
+var ok = 0, ruim = 0;
+
 function enviar(){
   var corpo = JSON.stringify(payload());
+  ok = 0; ruim = 0;
   envio = "enviando";
+  DESTINOS.forEach(function(url){ manda(url, corpo); });
+}
+
+// um destino que cai não pode derrubar o outro: cada um vai por conta própria
+function manda(url, corpo){
+  function fim(deu){
+    if(deu) ok++; else ruim++;
+    envio = ok + " de " + DESTINOS.length + " enviados" + (ruim ? " · " + ruim + " falhou" : "");
+    atualizaPainel();
+  }
   try{
-    fetch(WEBHOOK, {
+    fetch(url, {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: corpo,
       keepalive: true
     }).then(function(r){
-      envio = r.ok ? "enviado (" + r.status + ")" : "erro HTTP " + r.status;
-      atualizaPainel();
+      fim(r.ok);
     }).catch(function(){
       // CORS bloqueado ou rede fora: o beacon vai como text/plain, sem preflight
-      var ok = navigator.sendBeacon && navigator.sendBeacon(WEBHOOK, new Blob([corpo], {type:"text/plain"}));
-      envio = ok ? "enviado pelo beacon" : "falhou";
-      atualizaPainel();
+      fim(navigator.sendBeacon && navigator.sendBeacon(url, new Blob([corpo], {type:"text/plain"})));
     });
-  }catch(e){ envio = "falhou: " + e.message; }
+  }catch(e){ fim(false); }
 }
 
 // o Calendly só carrega depois que o lead termina, para não pesar o formulário

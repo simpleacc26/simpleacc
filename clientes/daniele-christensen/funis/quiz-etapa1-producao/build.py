@@ -106,10 +106,9 @@ def main():
                  % (TITULO, DESCRICAO), "o title")
 
     # ------------------------------------------------------------ rastreio
-    html = troca(html,
-                 'var WEBHOOK = "https://pulsar.app.n8n.cloud/webhook/grokker-quiz-etapa1";',
-                 'var WEBHOOK = "https://pulsar.app.n8n.cloud/webhook/grokker-quiz-etapa1";\n'
-                 + RASTREIO, "a declaração do webhook")
+    fim_destinos = '"https://hook.us2.make.com/v0ungryn21i7gk3q0ld4rxamf3g2m5tp"\n];'
+    html = troca(html, fim_destinos, fim_destinos + "\n" + RASTREIO,
+                 "o fim da lista de destinos")
     html = troca(html, "    etapa: 1,\n",
                  "    etapa: 1,\n    rastreio: RASTREIO,\n", "o campo etapa do payload")
 
@@ -127,7 +126,7 @@ def main():
         if p in html:
             sys.exit("build: sobrou %r no arquivo de produção" % p)
 
-    obrigatorios = ["grokker-quiz-etapa1", "telefoneCanonico", "RASTREIO",
+    obrigatorios = ["DESTINOS", "telefoneCanonico", "RASTREIO",
                     'name="viewport"', "Diagnostico-01-o-adiador.pdf",
                     "dani.jpg", "noindex"]
     for o in obrigatorios:

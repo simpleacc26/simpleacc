@@ -88,7 +88,7 @@ def main():
         if p in html:
             sys.exit("build: sobrou %r no arquivo de produção" % p)
 
-    obrigatorios = ["grokker-quiz-etapa2", "calendly.com/sucessodocliente",
+    obrigatorios = ["DESTINOS", "calendly.com/sucessodocliente",
                     'name="viewport"', "noindex", "PERGUNTAS", "montaAgenda",
                     "campoTelefone"]
     for o in obrigatorios:
