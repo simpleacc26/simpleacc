@@ -7,11 +7,13 @@ WhatsApp e escolher o horário da sessão estratégica.
 
 Página única, HTML puro, sem build e sem dependência.
 
-**No ar:** https://grokker-etapa2-diagnostico-simpleacc.vercel.app
-(projeto `grokker-etapa2-diagnostico` na Vercel, conta simpleacc, sem proteção de
-login, com `noindex` no HTML e no header `X-Robots-Tag`.)
+**Este protótipo não está publicado.** A URL
+`grokker-etapa2-diagnostico.vercel.app` serve a **versão de produção**, gerada a
+partir deste arquivo por `../etapa2-producao/build.py` — é a página que a Pulsar
+manda para o lead, sem a barra de demonstração.
 
-Também abre direto do disco:
+Este arquivo é para revisar copy e inspecionar o payload, e abre direto do
+disco:
 
 ```
 clientes/daniele-christensen/funis/prototipo-etapa2/index.html

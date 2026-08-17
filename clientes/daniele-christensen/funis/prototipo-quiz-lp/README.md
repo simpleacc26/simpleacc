@@ -1,6 +1,6 @@
 # Protótipo navegável: quiz novo + página pós-quiz
 
-**No ar:** https://grokker-quiz-diagnostico-simpleacc.vercel.app
+**No ar:** https://grokker-quiz-diagnostico.vercel.app
 (projeto `grokker-quiz-diagnostico` na Vercel, conta simpleacc, sem proteção de
 login, com `X-Robots-Tag: noindex`.)
 

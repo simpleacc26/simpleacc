@@ -19,6 +19,7 @@ O que entra:
     busca orgânica, e página de campanha indexada só gera ruído)
   - captura de UTM, fbclid/gclid e referrer, que seguem no webhook. Sem isso
     não dá para saber qual anúncio trouxe qual lead.
+  - o Google Tag Manager (ver ../gtm.py)
 
 Toda remoção é verificada no fim. Se um trecho do protótipo mudar de forma e um
 recorte deixar de casar, a build falha em vez de publicar um arquivo quebrado.
@@ -28,6 +29,8 @@ import os, re, shutil, sys
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 FONTE = os.path.join(AQUI, "..", "prototipo-quiz-lp")
+sys.path.insert(0, os.path.join(AQUI, ".."))
+import gtm
 
 TITULO = "Diagnóstico de Gestão e Liderança · Dra. Daniele Christensen"
 DESCRICAO = ("Descubra em 2 minutos o que está travando a sua gestão e receba "
@@ -87,6 +90,7 @@ def main():
         html = corta(html, "function %s(" % nome, "\n}\n",
                      "a função %s()" % nome)
     html = re.sub(r"[ \t]*atualizaPainel\(\);\n", "", html)
+    html = re.sub(r"\n{3,}", "\n\n", html)   # fecha os buracos deixados pelos cortes
 
     # ------------------------------------------------------ ajustes de copy
     html = troca(html,
@@ -108,6 +112,12 @@ def main():
                  + RASTREIO, "a declaração do webhook")
     html = troca(html, "    etapa: 1,\n",
                  "    etapa: 1,\n    rastreio: RASTREIO,\n", "o campo etapa do payload")
+
+    # ----------------------------------------------------------------- GTM
+    html = gtm.injeta(html, troca)
+    erro = gtm.confere(html)
+    if erro:
+        sys.exit("build: GTM — " + erro)
 
     # ------------------------------------------------------------ conferência
     proibidos = ["demobar", "painelGrid", "Demonstração", "togglePainel",

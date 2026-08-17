@@ -2,6 +2,13 @@
 <meta name="description" content="Descubra em 2 minutos o que está travando a sua gestão e receba um diagnóstico com o seu cenário.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PHG5489R');</script>
+<!-- End Google Tag Manager -->
 <style>
   :root{
     --bg:#0a0a0a; --surface:#161514; --surface2:#12110f; --line:#262523;
@@ -10,7 +17,6 @@
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.62;-webkit-font-smoothing:antialiased}
-
 
   .wrap{max-width:700px;margin:0 auto;padding:0 22px}
   .brand{padding:30px 0 0;display:flex;justify-content:center}
@@ -173,6 +179,11 @@
   @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PHG5489R"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <div class="wrap">
 
@@ -482,7 +493,7 @@ function payload(){
   };
 }
 
-// o lead nunca espera pelo envio: falhou, o funil segue e o erro fica no painel
+// o lead nunca espera pelo envio: falhou, o funil segue do mesmo jeito
 function enviar(){
   var corpo = JSON.stringify(payload());
   envio = "enviando";
@@ -742,11 +753,6 @@ function motivo(){
   return "quiz incompleto";
 }
 function qualificado(){ return motivo() === ""; }
-
-
-
-
-
 
 render();
 </script>

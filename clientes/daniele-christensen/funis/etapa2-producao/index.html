@@ -1,6 +1,13 @@
-<title>Etapa 2 — Diagnóstico Completo Grokker</title>
+<title>Diagnóstico Completo · Dra. Daniele Christensen</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PHG5489R');</script>
+<!-- End Google Tag Manager -->
 <style>
   :root{
     --bg:#0a0a0a; --surface:#161514; --surface2:#12110f; --line:#262523;
@@ -9,39 +16,6 @@
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.62;-webkit-font-smoothing:antialiased}
-
-  /* ---------- barra de demonstração (não faz parte da página real) ---------- */
-  .demobar{
-    position:sticky;top:0;z-index:50;background:#141310;border-bottom:1px solid var(--line);
-    padding:9px 14px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:center;
-  }
-  .demobar .lbl{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#7d7a74;margin-right:4px}
-  .demobar button{
-    background:#1e1c19;border:1px solid #302e2a;color:#c9c5bf;border-radius:20px;
-    font:inherit;font-size:12px;padding:5px 12px;cursor:pointer;transition:.15s;
-  }
-  .demobar button:hover{border-color:var(--accent);color:#fff}
-  .demobar button.on{background:var(--accent);border-color:var(--accent);color:#140d02;font-weight:700}
-
-  .painel{
-    display:none;background:#0f0e0d;border-bottom:1px solid var(--line);padding:14px 18px;
-    font-size:12.5px;color:#a8a49e;
-  }
-  .painel.aberto{display:block}
-  .painel .interno{max-width:700px;margin:0 auto}
-  .painel .grid{display:grid;grid-template-columns:1fr;gap:6px}
-  @media(min-width:620px){.painel .grid{grid-template-columns:1fr 1fr}}
-  .painel .row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #1c1a18;padding:4px 0}
-  .painel .row b{color:#e6e3de;font-weight:700;text-align:right}
-  .painel .ok{color:#7bbf6a}
-  .painel .no{color:#c9705f}
-  .painel .quente{color:var(--accent)}
-  .painel .tit{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 8px}
-  .painel .tit.dois{margin-top:16px}
-  .painel pre{
-    background:#0a0908;border:1px solid #201e1c;border-radius:6px;padding:12px;overflow:auto;
-    font-size:11.5px;line-height:1.5;color:#9a978f;margin:0;
-  }
 
   .wrap{max-width:700px;margin:0 auto;padding:0 22px}
   .brand{padding:30px 0 0;display:flex;justify-content:center}
@@ -141,23 +115,11 @@
   footer p{margin:0;font-size:12.5px;color:#6f6c67}
 </style>
 
-<div class="demobar">
-  <span class="lbl">Demonstração</span>
-  <button onclick="reiniciar()">Reiniciar</button>
-  <button onclick="preencher('alto')">Preencher: dor alta</button>
-  <button onclick="preencher('baixo')">Preencher: dor baixa</button>
-  <button onclick="preencher('misto')">Preencher: misto</button>
-  <button id="bpainel" onclick="togglePainel()">O que vai para o CRM</button>
-</div>
-
-<div class="painel" id="painel">
-  <div class="interno">
-    <p class="tit">Leitura do Closer</p>
-    <div class="grid" id="painelGrid"></div>
-    <p class="tit dois">Payload enviado ao CRM</p>
-    <pre id="painelJson">—</pre>
-  </div>
-</div>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PHG5489R"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <div class="wrap">
 
@@ -435,7 +397,6 @@ function concluir(){
   mostra("carregando");
   corre(2400);
   enviar();
-  atualizaPainel();
   daqui(2600, function(){ mostra("fim"); montaAgenda(); });
 }
 
@@ -454,12 +415,10 @@ function enviar(){
       keepalive: true
     }).then(function(r){
       envio = r.ok ? "enviado (" + r.status + ")" : "erro HTTP " + r.status;
-      atualizaPainel();
     }).catch(function(){
       // CORS bloqueado ou rede fora: o beacon vai como text/plain, sem preflight
       var ok = navigator.sendBeacon && navigator.sendBeacon(WEBHOOK, new Blob([corpo], {type:"text/plain"}));
       envio = ok ? "enviado pelo beacon" : "falhou";
-      atualizaPainel();
     });
   }catch(e){ envio = "falhou: " + e.message; }
 }
@@ -505,87 +464,11 @@ function payload(){
   return p;
 }
 
-function linha(k,v,cls){
-  var d = el("div","row");
-  d.appendChild(el("span",null,k));
-  d.appendChild(el("b",cls||null,v));
-  return d;
-}
-
-function atualizaPainel(){
-  var g = document.getElementById("painelGrid");
-  var j = document.getElementById("painelJson");
-  g.innerHTML = "";
-
-  var respondidas = Object.keys(R).length;
-  if(respondidas < PERGUNTAS.length){
-    g.appendChild(linha("Status", respondidas + " de " + PERGUNTAS.length + " respondidas"));
-    g.appendChild(linha("Lead", LEAD.id));
-    j.textContent = "O envio só acontece quando as 15 perguntas forem respondidas.";
-    return;
-  }
-
-  var n = notas(), dom = dominante(n), hot = quente(n);
-  g.appendChild(linha("Lead", LEAD.id));
-  g.appendChild(linha("Telefone da URL",
-    LEAD.telefone ? LEAD.telefone + "  (parâmetro ?" + LEAD.campoTelefone + "=)" : "AUSENTE",
-    LEAD.telefone ? null : "no"));
-  g.appendChild(linha("Cenário da Etapa 1", LEAD.cenario));
-  Object.keys(BLOCOS).forEach(function(b){
-    g.appendChild(linha("Bloco " + b + " · " + BLOCOS[b].nome, um(n[b]), n[b] === 10 ? "no" : null));
-  });
-  g.appendChild(linha("Total Diagnóstico (TD)", um(n.TD), n.TD > 8 ? "no" : "ok"));
-  g.appendChild(linha("Bloco dominante", dom + " · " + BLOCOS[dom].nome, "quente"));
-  g.appendChild(linha("Lead Hot", hot ? "sim" : "não", hot ? "quente" : null));
-  g.appendChild(linha("Abrir a call por", PONTE[LEAD.cenario] || "—"));
-  g.appendChild(linha("Webhook Etapa 2", envio, envio.indexOf("enviado") === 0 ? "ok" : "no"));
-
-  j.textContent = JSON.stringify(payload(), null, 2);
-}
-
-function togglePainel(){
-  var p = document.getElementById("painel");
-  p.classList.toggle("aberto");
-  document.getElementById("bpainel").classList.toggle("on", p.classList.contains("aberto"));
-  atualizaPainel();
-}
-
-/* ------------------------------------------------------------ demonstração */
-
-function reiniciar(){
-  limpaRelogios();
-  R = {}; i = 0;
-  document.getElementById("prog").style.width = "0%";
-  atualizaPainel();
-  mostra("inicio");
-}
-
-// atalhos com respostas fixas, para ver o cálculo e o payload sem responder tudo
-var PRESETS = {
-  alto:  [10,10, 10,8, 8,10, 10,8,10,10, 8,8,10,10,8],
-  baixo: [0,4,   0,0,  4,0,  0,0,4,4,    0,4,0,0,0],
-  misto: [10,8,  4,4,  8,8,  4,0,4,10,   8,4,10,10,4]
-};
-function preencher(qual){
-  limpaRelogios();
-  var v = PRESETS[qual];
-  R = {};
-  PERGUNTAS.forEach(function(q,k){ R[q.id] = v[k]; });
-  i = PERGUNTAS.length;
-  document.getElementById("prog").style.width = "100%";
-  atualizaPainel();
-  var p = document.getElementById("painel");
-  if(!p.classList.contains("aberto")) togglePainel();
-  mostra("fim");
-  montaAgenda();
-}
-
 /* ------------------------------------------------------------------ arranque */
 
 if(LEAD.nome){
   document.getElementById("ola").textContent =
     LEAD.nome + ", agora eu preciso enxergar a sua Gestão/Liderança por dentro.";
 }
-atualizaPainel();
 mostra("inicio");
 </script>

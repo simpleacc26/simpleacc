@@ -3,7 +3,7 @@
 É esta a página que vai nos anúncios. **URL oficial:**
 
 ```
-https://grokker-diagnostico-simpleacc.vercel.app
+https://grokker-diagnostico.vercel.app
 ```
 
 Projeto `grokker-diagnostico` na Vercel (conta simpleacc), sem proteção de
@@ -32,6 +32,16 @@ Toda remoção é conferida no fim. Se alguém reescrever um trecho do protótip
 um recorte deixar de casar, a build falha em vez de publicar um arquivo
 quebrado.
 
+## Google Tag Manager
+
+Contêiner `GTM-PHG5489R`, injetado pela build: o script no fim da head e o
+noscript no início do body. A Etapa 2 usa o **mesmo** contêiner, porque o funil
+é um só — separar obrigaria a casar duas propriedades na mão para ver a jornada
+inteira.
+
+O GTM não entra no protótipo. Protótipo é a URL de revisão; se disparasse tag, a
+medição da campanha viria suja de visita interna.
+
 ## Rastreio de campanha
 
 A página lê da URL `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`,
@@ -42,7 +52,7 @@ para dizer qual anúncio pagou por ele.
 Nos anúncios, use o padrão:
 
 ```
-https://grokker-diagnostico-simpleacc.vercel.app/?utm_source=meta&utm_medium=paid&utm_campaign=<campanha>&utm_content=<criativo>
+https://grokker-diagnostico.vercel.app/?utm_source=meta&utm_medium=paid&utm_campaign=<campanha>&utm_content=<criativo>
 ```
 
 O `fbclid` a Meta acrescenta sozinha.

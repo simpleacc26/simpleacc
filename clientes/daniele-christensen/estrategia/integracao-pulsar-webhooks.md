@@ -13,8 +13,8 @@ formulário sem ler isto quebra a integração sem perceber.
 
 | Etapa | Página no ar | Webhook |
 |---|---|---|
-| 1 — quiz | `grokker-quiz-diagnostico-simpleacc.vercel.app` | `https://pulsar.app.n8n.cloud/webhook/grokker-quiz-etapa1` |
-| 2 — diagnóstico completo | `grokker-etapa2-diagnostico-simpleacc.vercel.app` | `https://pulsar.app.n8n.cloud/webhook/grokker-quiz-etapa2` |
+| 1 — quiz | `grokker-diagnostico.vercel.app` | `https://pulsar.app.n8n.cloud/webhook/grokker-quiz-etapa1` |
+| 2 — diagnóstico completo | `grokker-etapa2-diagnostico.vercel.app` | `https://pulsar.app.n8n.cloud/webhook/grokker-quiz-etapa2` |
 
 Os dois disparam `POST` com `Content-Type: application/json`.
 
@@ -97,7 +97,7 @@ bate 10.
 É a Pulsar que monta, no disparo do WhatsApp:
 
 ```
-https://grokker-etapa2-diagnostico-simpleacc.vercel.app/?lead=<id>&nome=<primeiro nome>&email=<e-mail>&telefone=<o mesmo telefone da Etapa 1>&cenario=<cenário da Etapa 1>
+https://grokker-etapa2-diagnostico.vercel.app/?lead=<id>&nome=<primeiro nome>&email=<e-mail>&telefone=<o mesmo telefone da Etapa 1>&cenario=<cenário da Etapa 1>
 ```
 
 Tudo com `encodeURIComponent` — os cenários têm acento e espaço.
@@ -114,9 +114,7 @@ exatamente o que a Pulsar pediu para evitar. Mandem no `telefone` o mesmo valor
 que a Etapa 1 entregou em `telefone`.
 
 Por tolerância a quem nomeia o parâmetro de outro jeito, também são aceitos
-`phone`, `whatsapp`, `zap`, `tel` e `celular`. O primeiro que aparecer vence. O
-painel de demonstração da página mostra qual deles foi lido, então dá para
-conferir a integração sem adivinhação.
+`phone`, `whatsapp`, `zap`, `tel` e `celular`. O primeiro que aparecer vence.
 
 ## O que falta do lado do n8n
 
@@ -132,28 +130,27 @@ Três coisas, e sem elas o envio falha calado:
    idêntico; muda só o cabeçalho.
 
 O envio nunca segura o lead: falhando tudo, ele vê a agenda do mesmo jeito. Isso
-é bom para a experiência e ruim para o diagnóstico, porque a falha é silenciosa.
-Por isso o painel de demonstração mostra o status do envio — é lá que se
-confere, e vale rodar um teste ponta a ponta antes de subir tráfego.
+é bom para a experiência e ruim para o diagnóstico, porque a falha é silenciosa —
+por isso vale rodar um teste ponta a ponta antes de subir tráfego, olhando o que
+chega no n8n.
 
 ## Como testar sem tráfego real
 
 Na Etapa 1, responder o quiz até o fim com dados de teste.
-Na Etapa 2, abrir com parâmetros e usar os atalhos da barra de demonstração:
+Na Etapa 2, abrir com os parâmetros e responder as 15 perguntas:
 
 ```
-https://grokker-etapa2-diagnostico-simpleacc.vercel.app/?lead=teste-001&nome=Marcelo&email=teste@empresa.com.br&telefone=5511987654321&cenario=O%20Gargalo
+https://grokker-etapa2-diagnostico.vercel.app/?lead=teste-001&nome=Marcelo&email=teste@empresa.com.br&telefone=5511987654321&cenario=O%20Gargalo
 ```
 
-O botão "O que vai para o CRM" abre o JSON exato e o status do envio. Os atalhos
-"Preencher" montam o payload sem responder as 15, mas **não disparam o webhook**
-de propósito, para não sujar o CRM em demonstração. Para testar o disparo de
-verdade, responder as 15 perguntas.
+Os atalhos de preenchimento existiam só no protótipo e saíram da produção: o
+lead nunca deve ver a nota dele nem o payload do CRM. Para inspecionar o JSON
+exato sem publicar nada, abra `funis/prototipo-etapa2/index.html` do disco.
 
 ## Pendências fora deste contrato
 
 - **A automação antiga ainda está no ar.** O lead que clica hoje recebe a
   mensagem antiga, que fala em sessão estratégica antes da Etapa 2. A sequência
   aprovada está em `copy/whatsapp-entrega-diagnostico.md`.
-- **A produção não foi publicada.** `quiz.grokkeronline.com/quiz` e `/lp` ainda
-  servem o funil antigo. Tudo o que está descrito aqui vive nas URLs da Vercel.
+- **O domínio próprio.** `quiz.grokkeronline.com/quiz` e `/lp` ainda servem o
+  funil antigo. Tudo o que está descrito aqui vive nas URLs da Vercel.
