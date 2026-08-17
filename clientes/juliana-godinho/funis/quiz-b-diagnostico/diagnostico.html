@@ -357,8 +357,17 @@ if(!A || !A.quadro){
   document.addEventListener('click', ev => {
     const a = ev.target.closest('a.cta[href*="wa.me"]');
     if(!a) return;
+    /* event_id próprio, derivado do lead_id. Sem isso a variável event_id do
+       GTM continuaria devolvendo o valor deixado pelo quiz_completo — variável
+       de camada de dados não se limpa entre pushes — e o clique herdaria o id
+       da conversão anterior.
+
+       O id é o mesmo para os 6 CTAs de propósito: quem clica em dois botões é
+       uma pessoa só querendo falar, e a Meta deduplica pelo par
+       nome do evento + event_id, contando um Contact. */
     dl('whatsapp_click', {
       lead_id: A.id || '',
+      event_id: (A.id || '') + '-wa',
       quiz_cta: a.textContent.replace(/\s+/g,' ').trim(),
       quiz_rota: A.rota === 'mentoria' ? 'mentoria' : 'edp'
     });
