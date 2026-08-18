@@ -620,7 +620,8 @@
       <input id="nome" type="text" autocomplete="name" placeholder="Como você quer no crachá" />
 
       <label for="whats">WhatsApp com DDD</label>
-      <input id="whats" type="tel" inputmode="tel" autocomplete="tel" placeholder="(51) 90000-0000" />
+      <input id="whats" type="tel" inputmode="numeric" autocomplete="tel" maxlength="15"
+             placeholder="(51) 90000-0000" />
 
       <label for="email">E-mail</label>
       <input id="email" type="email" autocomplete="email" placeholder="seu@email.com.br" />
@@ -753,6 +754,21 @@
     return false;
   }
 
+  // Mascara do WhatsApp: aceita no maximo 11 digitos, DDD incluso, e formata na digitacao.
+  var campoWhats = document.getElementById("whats");
+  campoWhats.addEventListener("input", function () {
+    var d = campoWhats.value.replace(/\D/g, "").slice(0, 11);
+    var saida = d;
+    if (d.length > 2 && d.length <= 6) {
+      saida = "(" + d.slice(0, 2) + ") " + d.slice(2);
+    } else if (d.length > 6 && d.length <= 10) {
+      saida = "(" + d.slice(0, 2) + ") " + d.slice(2, 6) + "-" + d.slice(6);
+    } else if (d.length > 10) {
+      saida = "(" + d.slice(0, 2) + ") " + d.slice(2, 7) + "-" + d.slice(7);
+    }
+    campoWhats.value = saida;
+  });
+
   var contato = {};
 
   document.getElementById("ir2").addEventListener("click", function () {
@@ -761,7 +777,9 @@
     var email = document.getElementById("email").value.trim();
 
     if (nome.length < 3) { return falhar(erro1, "Escreve o seu nome completo, por favor."); }
-    if (whats.length < 10) { return falhar(erro1, "Confere o WhatsApp com o DDD."); }
+    if (whats.length < 10 || whats.length > 11) {
+      return falhar(erro1, "O WhatsApp precisa ter 10 ou 11 dígitos, contando o DDD.");
+    }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { return falhar(erro1, "Confere o e-mail."); }
 
     contato = { nome: nome, whatsapp: whats, email: email };
