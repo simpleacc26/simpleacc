@@ -16,12 +16,9 @@
 <!-- CONFIGURACAO: preencher antes de publicar. Detalhes no README.md -->
 <script>
   window.CONFIG = {
-    // Link unico de pagamento (InfinitePay, Asaas, Mercado Pago...). Enquanto vazio, os
-    // botoes avisam que a inscricao abre em breve em vez de quebrar.
-    linkPagamento: "",
-    // Numero do WhatsApp do evento, so digitos, com DDI e DDD.
+    // Numero do WhatsApp que atende o evento, so digitos, com DDI e DDD.
     whatsapp: "5551000000000",
-    // Endpoint que recebe os leads capturados (Apps Script, Make, n8n).
+    // Endpoint que grava na planilha "Leads - Alivance Day" (Apps Script ou Make).
     webhookLeads: "",
     // Numero de vagas ainda disponiveis. Deixe null para nao exibir contador.
     vagasRestantes: null
@@ -207,6 +204,27 @@
   }
   input:focus{outline:0;border-color:var(--gold);background:rgba(200,178,139,.07)}
   input::placeholder{color:var(--w40)}
+  .aviso{
+    background:rgba(200,178,139,.10);border:1px solid var(--line);border-radius:12px;
+    padding:14px 16px;font-size:13.5px;color:var(--w80);margin-top:16px;line-height:1.55;
+  }
+  .aviso b{color:var(--gold);font-weight:600}
+  .passo{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px}
+  .ops{display:flex;flex-wrap:wrap;gap:8px}
+  .op{
+    background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:10px;
+    padding:11px 14px;color:var(--w80);font-size:14px;cursor:pointer;font-family:var(--body);
+  }
+  .op:hover{border-color:var(--line)}
+  .op.on{background:var(--gold);border-color:var(--gold);color:var(--navy);font-weight:600}
+  textarea{
+    width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);
+    border-radius:11px;padding:14px 16px;color:var(--w);font-family:var(--body);font-size:16px;
+    min-height:88px;resize:vertical;
+  }
+  textarea:focus{outline:0;border-color:var(--gold);background:rgba(200,178,139,.07)}
+  textarea::placeholder{color:var(--w40)}
+  .voltar{background:none;border:0;color:var(--w60);font-size:13.5px;cursor:pointer;font-family:var(--body);text-decoration:underline;margin-top:14px}
   .erro{color:#ff9a9a;font-size:13.5px;margin-top:10px;display:none}
   .erro.on{display:block}
   .fechar{
@@ -261,7 +279,7 @@
     <span class="vagas" id="vagas"></span>
     <div>
       <a href="#inscricao" class="btn js-cta">Quero garantir minha vaga</a>
-      <p class="under-btn">São 50 lugares na sala, e a inscrição fecha quando eles acabarem.</p>
+      <p class="under-btn">São 50 lugares na sala. A inscrição é feita aqui e continua no WhatsApp.</p>
     </div>
     </div>
     <figure>
@@ -476,9 +494,14 @@
         Membros do Club entram sem pagar ingresso, então se você é membro, fala comigo antes de
         comprar.
       </p>
-      <div style="margin-top:28px">
+      <div class="aviso" style="text-align:left">
+        <b>Você não paga nada por aqui.</b> A inscrição é uma aplicação: você preenche, a nossa
+        equipe te chama no WhatsApp, confirma que ainda tem vaga e combina a forma de pagamento
+        com você. Não existe página de pagamento nesse caminho.
+      </div>
+      <div style="margin-top:24px">
         <a href="#" class="btn btn-wide js-cta">Quero garantir minha vaga</a>
-        <p class="under-btn">Pagamento em cartão ou Pix.</p>
+        <p class="under-btn">Leva menos de um minuto e termina no WhatsApp.</p>
       </div>
     </div>
   </div>
@@ -497,6 +520,16 @@
     <details>
       <summary>Sou de fora de Porto Alegre. Compensa ir?</summary>
       <p>Se você está num raio de algumas horas de estrada, compensa. O que acontece na sala não fica gravado e o hotseat é presencial.</p>
+    </details>
+
+    <details>
+      <summary>Como funciona o pagamento?</summary>
+      <p>Você preenche a aplicação aqui na página e a nossa equipe te chama no WhatsApp. É nessa conversa que a gente confirma a sua vaga e combina a forma de pagamento, do jeito que ficar melhor para você. Não tem página de pagamento e você não digita cartão em lugar nenhum agora.</p>
+    </details>
+
+    <details>
+      <summary>Preencher o formulário já garante a minha vaga?</summary>
+      <p>Ainda não. São cinquenta lugares e a vaga só fica reservada quando a conversa acontece e o pagamento é combinado. Por isso, quanto antes você preencher, melhor.</p>
     </details>
 
     <details>
@@ -574,31 +607,76 @@
 <!-- ============ MODAL DE CAPTURA ============ -->
 <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
   <div class="modal-box">
-    <h2 id="modal-titulo">Falta um passo para a sua vaga</h2>
-    <p>
-      Preenche aqui e eu te levo direto para o pagamento. Se você fechar a página antes de
-      concluir, a gente consegue te avisar quando as últimas vagas estiverem acabando.
-    </p>
-    <form id="form" novalidate>
+
+    <div id="passo1">
+      <div class="passo">Passo 1 de 2</div>
+      <h2 id="modal-titulo">Vamos garantir a sua vaga</h2>
+      <p>
+        São duas telas rápidas. Quando você terminar, a conversa abre direto no WhatsApp com a
+        nossa equipe.
+      </p>
+
       <label for="nome">Nome completo</label>
-      <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Como você quer no crachá" required />
+      <input id="nome" type="text" autocomplete="name" placeholder="Como você quer no crachá" />
 
       <label for="whats">WhatsApp com DDD</label>
-      <input id="whats" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="(51) 90000-0000" required />
+      <input id="whats" type="tel" inputmode="tel" autocomplete="tel" placeholder="(51) 90000-0000" />
 
       <label for="email">E-mail</label>
-      <input id="email" name="email" type="email" autocomplete="email" placeholder="seu@email.com.br" required />
+      <input id="email" type="email" autocomplete="email" placeholder="seu@email.com.br" />
 
-      <p class="erro" id="erro"></p>
+      <div class="aviso">
+        <b>Você não vai para nenhuma página de pagamento.</b> Aqui é só a sua aplicação. A vaga
+        é confirmada na conversa, e é lá que a gente combina a forma de pagamento.
+      </div>
 
-      <div style="margin-top:26px">
-        <button type="submit" class="btn btn-wide" id="enviar">Continuar para o pagamento</button>
+      <p class="erro" id="erro1"></p>
+
+      <div style="margin-top:22px">
+        <button type="button" class="btn btn-wide" id="ir2">Continuar</button>
+      </div>
+      <button type="button" class="fechar" id="fechar">Voltar para a página</button>
+    </div>
+
+    <div id="passo2" style="display:none">
+      <div class="passo">Passo 2 de 2</div>
+      <h2>Só mais três perguntas</h2>
+      <p>
+        É o que faz a nossa equipe chegar na conversa já sabendo quem é você, em vez de começar
+        do zero perguntando o básico.
+      </p>
+
+      <label>O que você faz hoje?</label>
+      <div class="ops" data-campo="atuacao">
+        <button type="button" class="op">Mentoria</button>
+        <button type="button" class="op">Consultoria</button>
+        <button type="button" class="op">Treinamento</button>
+        <button type="button" class="op">Coaching</button>
+        <button type="button" class="op">Outro</button>
+      </div>
+
+      <label>Quanto o seu negócio fatura por mês hoje?</label>
+      <div class="ops" data-campo="faturamento">
+        <button type="button" class="op">Até R$20 mil</button>
+        <button type="button" class="op">R$20 a R$50 mil</button>
+        <button type="button" class="op">R$50 a R$100 mil</button>
+        <button type="button" class="op">Acima de R$100 mil</button>
+      </div>
+
+      <label for="travamento">Qual é o maior travamento do seu negócio hoje?</label>
+      <textarea id="travamento" placeholder="Escreve do seu jeito, em uma linha."></textarea>
+
+      <p class="erro" id="erro2"></p>
+
+      <div style="margin-top:22px">
+        <button type="button" class="btn btn-wide" id="enviar">Enviar e abrir o WhatsApp</button>
       </div>
       <p class="under-btn" style="text-align:center">
         Seus dados servem só para a organização do evento. Nada de lista de spam.
       </p>
-      <button type="button" class="fechar" id="fechar">Voltar para a página</button>
-    </form>
+      <button type="button" class="voltar" id="voltar1">Voltar para o passo anterior</button>
+    </div>
+
   </div>
 </div>
 
@@ -606,21 +684,23 @@
 (function () {
   var C = window.CONFIG || {};
   var params = new URLSearchParams(location.search);
-  // ?direto=1 pula a captura e vai reto para o pagamento. Use nos convites do Rafa.
+  // ?direto=1 pula o formulario e abre o WhatsApp. Use nos convites diretos do Rafa.
   var direto = params.get("direto") === "1";
+  var respostas = {};
 
   function track(evento, extra) {
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push(Object.assign({ event: evento }, extra || {}));
   }
 
-  // WhatsApp com mensagem pronta
+  function linkZap(texto) {
+    return "https://wa.me/" + C.whatsapp + "?text=" + encodeURIComponent(texto);
+  }
+
   var zap = document.getElementById("zap");
-  zap.href = "https://wa.me/" + C.whatsapp + "?text=" +
-    encodeURIComponent("Oi! Vim da página da Imersão Mentores Alivance do dia 11 de setembro e tenho uma dúvida.");
+  zap.href = linkZap("Oi! Vim da página da Imersão Mentores Alivance do dia 11 de setembro e tenho uma dúvida.");
   zap.addEventListener("click", function () { track("whatsapp_duvida"); });
 
-  // Contador de vagas, se informado
   if (typeof C.vagasRestantes === "number" && C.vagasRestantes > 0) {
     var v = document.getElementById("vagas");
     v.textContent = C.vagasRestantes === 1
@@ -630,32 +710,22 @@
   }
 
   var modal = document.getElementById("modal");
-  var erro = document.getElementById("erro");
-
-  function irParaPagamento() {
-    if (!C.linkPagamento) {
-      erro.textContent = "As inscrições abrem em instantes. Chama a gente no WhatsApp que garantimos a sua vaga.";
-      erro.classList.add("on");
-      return false;
-    }
-    track("checkout_click");
-    location.href = C.linkPagamento;
-    return true;
-  }
+  var passo1 = document.getElementById("passo1");
+  var passo2 = document.getElementById("passo2");
+  var erro1 = document.getElementById("erro1");
+  var erro2 = document.getElementById("erro2");
 
   function abrir(e) {
     if (e) e.preventDefault();
     if (direto) {
-      // Publico quente vindo do convite direto: sem etapa no meio.
-      if (!C.linkPagamento) { window.open(zap.href, "_blank"); return; }
-      track("checkout_click", { origem: "convite_direto" });
-      location.href = C.linkPagamento;
+      track("whatsapp_convite_direto");
+      location.href = linkZap("Oi! Recebi o convite do Rafa para a Imersão Mentores Alivance do dia 11 de setembro e quero garantir a minha vaga.");
       return;
     }
-    erro.classList.remove("on");
+    erro1.classList.remove("on");
     modal.classList.add("on");
     document.body.style.overflow = "hidden";
-    track("captura_abriu");
+    track("aplicacao_abriu");
     setTimeout(function () { document.getElementById("nome").focus(); }, 60);
   }
 
@@ -671,33 +741,82 @@
   modal.addEventListener("click", function (e) { if (e.target === modal) fechar(); });
   document.addEventListener("keydown", function (e) { if (e.key === "Escape") fechar(); });
 
-  document.getElementById("form").addEventListener("submit", function (e) {
-    e.preventDefault();
+  Array.prototype.forEach.call(document.querySelectorAll(".ops"), function (grupo) {
+    grupo.addEventListener("click", function (e) {
+      if (!e.target.classList.contains("op")) return;
+      Array.prototype.forEach.call(grupo.children, function (b) { b.classList.remove("on"); });
+      e.target.classList.add("on");
+      respostas[grupo.dataset.campo] = e.target.textContent.trim();
+      erro2.classList.remove("on");
+    });
+  });
+
+  function falhar(el, msg) {
+    el.textContent = msg;
+    el.classList.add("on");
+    return false;
+  }
+
+  var contato = {};
+
+  document.getElementById("ir2").addEventListener("click", function () {
     var nome = document.getElementById("nome").value.trim();
     var whats = document.getElementById("whats").value.replace(/\D/g, "");
     var email = document.getElementById("email").value.trim();
 
-    if (nome.length < 3) { return falhar("Escreve o seu nome completo, por favor."); }
-    if (whats.length < 10) { return falhar("Confere o WhatsApp com o DDD."); }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { return falhar("Confere o e-mail."); }
+    if (nome.length < 3) { return falhar(erro1, "Escreve o seu nome completo, por favor."); }
+    if (whats.length < 10) { return falhar(erro1, "Confere o WhatsApp com o DDD."); }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { return falhar(erro1, "Confere o e-mail."); }
 
-    erro.classList.remove("on");
+    contato = { nome: nome, whatsapp: whats, email: email };
+    erro1.classList.remove("on");
+    passo1.style.display = "none";
+    passo2.style.display = "block";
+    modal.scrollTop = 0;
+    track("aplicacao_passo2");
+  });
+
+  document.getElementById("voltar1").addEventListener("click", function () {
+    passo2.style.display = "none";
+    passo1.style.display = "block";
+  });
+
+  document.getElementById("enviar").addEventListener("click", function () {
+    if (!respostas.atuacao) { return falhar(erro2, "Escolhe o que você faz hoje."); }
+    if (!respostas.faturamento) { return falhar(erro2, "Escolhe a faixa de faturamento."); }
+
+    respostas.travamento = document.getElementById("travamento").value.trim();
+
     var botao = document.getElementById("enviar");
-    botao.textContent = "Levando você para o pagamento...";
+    botao.textContent = "Abrindo o WhatsApp...";
     botao.disabled = true;
 
     var lead = {
-      nome: nome, whatsapp: whats, email: email,
-      origem: params.get("utm_source") || "direto",
-      campanha: params.get("utm_campaign") || "",
-      conteudo: params.get("utm_content") || "",
+      etapa: "aplicacao",
+      nome: contato.nome,
+      whatsapp: contato.whatsapp,
+      email: contato.email,
+      atuacao: respostas.atuacao,
+      faturamento: respostas.faturamento,
+      travamento: respostas.travamento,
+      utm_source: params.get("utm_source") || "",
+      utm_medium: params.get("utm_medium") || "",
+      utm_campaign: params.get("utm_campaign") || "",
+      utm_content: params.get("utm_content") || "",
+      utm_term: params.get("utm_term") || "",
       pagina: location.href
     };
     try { localStorage.setItem("alivance_lead", JSON.stringify(lead)); } catch (x) {}
-    track("lead", { origem: lead.origem });
+    track("aplicacao_enviada", { faturamento: lead.faturamento });
 
-    // O envio nunca pode segurar a venda: se falhar, segue para o pagamento do mesmo jeito.
-    var segue = function () { if (!irParaPagamento()) { botao.textContent = "Continuar para o pagamento"; botao.disabled = false; } };
+    var primeiroNome = contato.nome.split(" ")[0];
+    var mensagem = "Oi! Meu nome é " + contato.nome + ". Acabei de preencher a inscrição na " +
+      "página da Imersão Mentores Alivance do dia 11 de setembro e quero garantir a minha vaga.";
+    var destino = "obrigado.html?n=" + encodeURIComponent(primeiroNome) +
+      "&z=" + encodeURIComponent(linkZap(mensagem));
+
+    // O registro nunca pode segurar a pessoa: se falhar ou demorar, ela segue mesmo assim.
+    var segue = function () { location.href = destino; };
 
     if (C.webhookLeads) {
       fetch(C.webhookLeads, {
@@ -711,12 +830,6 @@
       segue();
     }
   });
-
-  function falhar(msg) {
-    erro.textContent = msg;
-    erro.classList.add("on");
-    return false;
-  }
 })();
 </script>
 

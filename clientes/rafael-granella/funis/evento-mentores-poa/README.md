@@ -10,10 +10,16 @@ HTML puro, sem framework e sem build. Publica como site estático.
 
 ## Arquivos
 
+**Fluxo (atualizado em 18/08):** não existe checkout e não vai existir até o evento, então a
+venda acontece pelo WhatsApp. A página é uma **aplicação em dois passos**: contato, três
+perguntas de qualificação, gravação na planilha e abertura da conversa no WhatsApp já com o
+nome da pessoa. A página diz em três lugares que ninguém é levado a página de pagamento.
+
 | Arquivo | O que é |
 | --- | --- |
-| `index.html` | A página de vendas, com modal de captura e botão de WhatsApp |
-| `obrigado.html` | Página pós-compra com as 3 perguntas que alimentam o hotseat |
+| `index.html` | A página, com a aplicação em dois passos e o botão de dúvida no WhatsApp |
+| `obrigado.html` | Confirmação, abre a conversa no WhatsApp e explica os próximos passos |
+| `integracao/apps-script-planilha.gs` | Script que grava as aplicações na planilha "Leads - Alivance Day" |
 
 ## Antes de publicar
 
@@ -21,12 +27,9 @@ Preencher o bloco `window.CONFIG` no topo do `index.html`:
 
 | Campo | O que colocar |
 | --- | --- |
-| `linkPagamento` | O link único de pagamento (cartão parcelado + Pix). Enquanto estiver vazio, o botão avisa que as inscrições abrem em instantes e oferece o WhatsApp, em vez de quebrar. |
-| `whatsapp` | Número do evento, só dígitos, com DDI e DDD. Exemplo: `5551999999999` |
-| `webhookLeads` | Endpoint que recebe os contatos capturados: Apps Script da planilha, Make ou n8n. Vazio significa que o lead só é guardado no navegador e a pessoa segue para o pagamento normalmente. |
+| `whatsapp` | Número que atende o evento, só dígitos, com DDI e DDD. Exemplo: `5551999999999`. É para onde a aplicação leva e também o botão de dúvida. |
+| `webhookLeads` | URL do Apps Script publicado na planilha "Leads - Alivance Day" (instruções em `integracao/apps-script-planilha.gs`). Vazio significa que a pessoa segue para o WhatsApp normalmente, mas nada é gravado. |
 | `vagasRestantes` | Número de vagas ainda disponíveis, para exibir o contador. `null` esconde o contador. |
-
-No `obrigado.html`, repetir `whatsapp` e preencher `webhookRespostas`.
 
 Ainda pendente de decisão do cliente, marcado no HTML:
 
@@ -38,16 +41,16 @@ Ainda pendente de decisão do cliente, marcado no HTML:
 
 ## Os dois caminhos de entrada
 
-- **Anúncio:** `https://dominio/` leva ao modal de captura (nome, WhatsApp, e-mail) e só
-  depois ao pagamento. É o caminho que alimenta o remarketing e o evento de conversão da Meta.
-- **Convite direto do Rafa:** `https://dominio/?direto=1` manda para o pagamento sem etapa
-  no meio, porque essa audiência já está quente e o atrito só atrapalha.
+- **Anúncio:** `https://dominio/` abre a aplicação em dois passos e termina no WhatsApp. É o
+  caminho que alimenta a planilha, o remarketing e o evento de conversão da Meta.
+- **Convite direto do Rafa:** `https://dominio/?direto=1` abre o WhatsApp na hora, sem
+  formulário, porque essa audiência já está quente e o atrito só atrapalha.
 
 ## Eventos enviados para o dataLayer
 
-`captura_abriu`, `lead`, `checkout_click`, `whatsapp_duvida` e, na página de obrigado,
-`questionario_respondido`. Ligar o GTM ou o Pixel na tag de conversão que a campanha for
-otimizar, que é o `lead`.
+`aplicacao_abriu`, `aplicacao_passo2`, `aplicacao_enviada`, `whatsapp_duvida`,
+`whatsapp_convite_direto` e, na página de obrigado, `aplicacao_concluida`. Ligar o GTM ou o
+Pixel na tag de conversão que a campanha for otimizar, que é o `aplicacao_enviada`.
 
 ## Rodar local
 
@@ -66,6 +69,6 @@ conta pessoal.
 npx vercel --prod
 ```
 
-Depois de publicar, testar nesta ordem: abrir a página no celular, preencher a captura com
-dados reais, confirmar que o contato chegou na planilha, concluir uma compra de teste e
-conferir se ela aparece na lista de inscritos.
+Depois de publicar, testar nesta ordem: abrir a página no celular, preencher a aplicação com
+dados reais, conferir se a linha apareceu na planilha "Leads - Alivance Day" e se a conversa
+abriu no WhatsApp já com o nome preenchido na mensagem.

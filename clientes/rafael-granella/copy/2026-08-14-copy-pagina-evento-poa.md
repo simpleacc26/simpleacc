@@ -1,8 +1,12 @@
 # Copy da página | Imersão Mentores Alivance (POA, 11/09/2026)
 
-Página de venda do ingresso de R$1.500. Estrutura aprovada na proposta de 14/08: captura
-de contato antes do pagamento para quem vem do anúncio, link de pagamento direto para quem
-vem do convite, WhatsApp como saída secundária.
+Página do ingresso de R$1.500.
+
+**Atualização de 18/08:** não existe checkout e não vai existir até o evento. A venda acontece
+pelo WhatsApp. A página deixou de levar para pagamento e passou a ser uma **aplicação em dois
+passos**: contato, três perguntas de qualificação, e a conversa abre no WhatsApp já com o nome
+da pessoa. Fica explícito em três lugares da página que ninguém é levado a página de pagamento.
+Tudo cai na planilha "Leads - Alivance Day".
 
 **Regras de escrita aplicadas:** primeira pessoa do Rafa, sem travessão, sem clichê de
 anúncio, filtro de perfil explícito no meio da página, CTA sempre como parágrafo
@@ -30,7 +34,7 @@ Sexta-feira, 11 de setembro. Iguatemi Trust Business, Porto Alegre. Das 8h59 às
 Quero garantir minha vaga
 
 **Abaixo do botão**
-São 50 lugares na sala, e a inscrição fecha quando eles acabarem.
+São 50 lugares na sala. A inscrição é feita aqui e continua no WhatsApp.
 
 > O preço não aparece na primeira dobra de propósito: o lead precisa passar pelo filtro de
 > perfil, pelo problema e pela autoridade antes de ver o valor.
@@ -203,11 +207,16 @@ pelo meu convite direto.
 Membros do Club entram sem pagar ingresso, então se você é membro, fala comigo antes de
 comprar.
 
+**Aviso destacado (caixa dourada)**
+Você não paga nada por aqui. A inscrição é uma aplicação: você preenche, a nossa equipe te
+chama no WhatsApp, confirma que ainda tem vaga e combina a forma de pagamento com você. Não
+existe página de pagamento nesse caminho.
+
 **Botão**
 Quero garantir minha vaga
 
 **Abaixo do botão**
-Pagamento em cartão ou Pix. [CONFIRMAR: quantas parcelas no cartão]
+Leva menos de um minuto e termina no WhatsApp.
 
 ---
 
