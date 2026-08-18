@@ -82,13 +82,19 @@ if (!a._completedAt && !a.problema) {
   const leitura = LEITURA_PILAR[pilar];
 
   const faixaClasse = irv.faixa === "Alta" ? "alta" : (irv.faixa === "Média" ? "media" : "baixa");
+  const resultado = (F.resultados && F.resultados[pilar]) || "Excelente e invisível";
+
+  /* Mesma regra do app.js. Quatro faixas para o atendimento, três CTAs na
+     página: fila-quente e qualificado veem o mesmo botão. */
   const stepFat = F.steps.find((s) => s.id === "faturamento");
   const optFat = stepFat && stepFat.options.find((o) => o.value === a.faturamento);
+  const caixaBom = ["10a25", "25a50", "acima50"].indexOf(a.faturamento) > -1;
   const nivel = (optFat && optFat.fora) ? "fora"
-    : ((a.prontidao === "depois" || a.prontidao === "pesquisando") ? "nutrir" : "qualificado");
+    : ((a.prontidao === "depois" || a.prontidao === "pesquisando") ? "nutrir"
+      : ((a.prontidao === "sim" && caixaBom && irv.pct >= 66) ? "fila-quente" : "qualificado"));
 
   let ctaLabel, ctaExtra, fecho;
-  if (nivel === "qualificado") {
+  if (nivel === "qualificado" || nivel === "fila-quente") {
     ctaLabel = "Quero agendar minha sessão de posicionamento";
     ctaExtra = '<p class="hint">São poucos horários por semana, porque cada sessão é preparada antes com base no seu diagnóstico.</p>';
     fecho = '<p class="clube">Na sessão, a Luana lê o seu caso com nome e sobrenome e desenha o caminho. Você sai com clareza, decida ou não seguir.</p>';
@@ -107,6 +113,7 @@ if (!a._completedAt && !a.problema) {
     <div class="report-head">
       <span class="selo">Diagnóstico de Autoridade</span>
       <h1>O seu Índice de Ruptura de Valor</h1>
+      <div class="resultado">${resultado}</div>
       <div class="irv ${faixaClasse}">
         <div class="irv-num">${irv.pct}%</div>
         <div class="irv-txt">Ruptura ${irv.faixa}<span>distância entre o que você sabe e o que o mercado enxerga</span></div>
@@ -185,23 +192,18 @@ if (!a._completedAt && !a.problema) {
         <div>
           <span class="autor-nome">LUANA ISSE</span>
           <span class="autor-cargo">Jornalista · Copywriter · Estrategista · Master Coach</span>
+          <a class="autor-ig" href="https://www.instagram.com/luana.isse/" target="_blank" rel="noopener">@luana.isse</a>
         </div>
       </div>
-      <p>Passei a maior parte da carreira escrevendo para os outros brilharem. Fui jornalista, secretária de comunicação
-      de uma prefeitura, tive agência, e passei dez anos construindo movimento, causa e narrativa para líderes que
-      precisavam ser lembrados pelo que representam. Em algum momento ficou claro que a mesma engenharia resolvia a dor
-      de outra pessoa: o especialista brilhante que ninguém vê. Foi daí que nasceu o MMPV.</p>
+      <p>Passei dez anos construindo narrativa e movimento para líderes que precisavam ser lembrados pelo que
+      representam. Hoje faço a mesma engenharia para o especialista brilhante que ninguém vê.</p>
+      <p class="autor-fala">"Depois de acompanhar dezenas de especialistas, percebi que o verdadeiro problema não é o
+      marketing. É a distância entre o valor que eles possuem e o valor que conseguem comunicar ao mercado."</p>
       <div class="cred-grid">
-        <div class="cred"><div class="n">10 anos</div><div class="d">construindo narrativa e movimento para líderes</div></div>
+        <div class="cred"><div class="n">10 anos</div><div class="d">de comunicação e narrativa para líderes</div></div>
         <div class="cred"><div class="n">30</div><div class="d">especialistas já mentorados</div></div>
         <div class="cred"><div class="n">87</div><div class="d">pessoas em evento presencial, no orgânico</div></div>
         <div class="cred"><div class="n">17</div><div class="d">alunos na turma atual da mentoria</div></div>
-      </div>
-      <p class="hint" style="margin-top:14px">Formação e atuação</p>
-      <div class="eco">
-        <span class="eco-chip"><b>Jornalismo</b> · comunicação e narrativa</span>
-        <span class="eco-chip"><b>Copywriting</b> · escrita de resposta direta</span>
-        <span class="eco-chip"><b>Master Coach</b> · reprogramação mental</span>
       </div>
     </div>
 
@@ -216,14 +218,38 @@ if (!a._completedAt && !a.problema) {
     </div>`;
 }
 
-/* ---------- WhatsApp: um handler para todos os CTAs distribuídos ---------- */
-function abrirWhatsApp() {
-  const numero = (F.marca && F.marca.whatsapp) || "";
-  if (!numero) { console.warn("[funil] WhatsApp não configurado em flow.js > marca.whatsapp"); return; }
-  const nome = (a.nomeResp || "").split(" ")[0] || "";
-  const msg = (F.marca.whatsappMsg || "").replace("{nome}", nome);
-  window.open(`https://wa.me/${numero}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
+/* ---------- WhatsApp: um handler para todos os CTAs distribuídos ----------
+   Trava: se o número estiver vazio ou ainda com X de placeholder, os CTAs não
+   abrem nada e a página mostra um aviso no topo. Evita publicar com botão
+   mudo e só descobrir depois que o tráfego já rodou. */
+function numeroValido() {
+  const n = String((F.marca && F.marca.whatsapp) || "");
+  return /^[0-9]{12,13}$/.test(n);
 }
+
+function abrirWhatsApp() {
+  if (!numeroValido()) {
+    console.warn("[funil] WhatsApp não configurado em flow.js > marca.whatsapp");
+    return;
+  }
+  const irv = calcularIRV(a);
+  const pilar = pilarDominante(a);
+  const msg = (F.marca.whatsappMsg || "")
+    .replace("{nome}", (a.nomeResp || "").split(" ")[0] || "")
+    .replace("{resultado}", (F.resultados && F.resultados[pilar]) || "")
+    .replace("{irv}", irv.pct + "%")
+    .replace("{faixa}", irv.faixa.toLowerCase())
+    .replace("{pilar}", pilar);
+  window.open(`https://wa.me/${F.marca.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
+}
+
 document.addEventListener("click", (e) => {
   if (e.target.closest && e.target.closest(".cta-wpp")) abrirWhatsApp();
 });
+
+if (!numeroValido()) {
+  const aviso = document.createElement("p");
+  aviso.className = "aviso";
+  aviso.textContent = "Configuração pendente: o WhatsApp comercial não está preenchido em flow.js, então os botões não abrem conversa. Preencha marca.whatsapp antes de mandar tráfego.";
+  report.prepend(aviso);
+}

@@ -32,6 +32,15 @@
     .irv.media .irv-num { color: var(--primary-700); }
     .irv.baixa .irv-num { color: #4C7A4A; }
 
+    /* resultado nomeado */
+    .resultado { display: inline-block; border: 1px solid color-mix(in srgb, var(--primary) 40%, var(--border));
+      background: var(--accent-soft); border-radius: 99px; padding: 8px 18px; margin: 2px 0 10px;
+      font-family: var(--font-serif); font-size: 17px; font-weight: 700; color: var(--primary-700); }
+
+    /* aviso de configuração: aparece se o WhatsApp não estiver preenchido */
+    .aviso { background: #FBEBE6; border: 1px solid #ECC4B8; color: #8E3520; border-radius: var(--radius-sm);
+      padding: 12px 14px; margin: 0 0 16px; font-size: 14.5px; text-align: left; }
+
     .metodo { margin: 0; padding-left: 18px; }
     .metodo li { margin: 0 0 8px; }
     .metodo strong { color: var(--primary-700); }
@@ -53,14 +62,15 @@
       font-family: var(--font-serif); font-size: 30px; font-weight: 700; letter-spacing: .04em; color: var(--primary-700); }
     .autor-nome { display: block; font-family: var(--font-serif); font-size: 19px; font-weight: 700; letter-spacing: .05em; color: var(--primary-700); line-height: 1.15; }
     .autor-cargo { display: block; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
+    .autor-ig { display: inline-block; font-size: 13.5px; color: var(--primary-700); font-weight: 600; margin-top: 7px; text-decoration: none; }
+    .autor-ig:hover { text-decoration: underline; }
+    .autor-fala { border-left: 3px solid var(--primary); padding: 2px 0 2px 14px; margin: 14px 0 6px;
+      font-family: var(--font-serif); font-size: 16.5px; line-height: 1.45; color: var(--text); }
     .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0 6px; }
     .cred { border: 1px solid var(--border); border-radius: var(--radius-sm); background: color-mix(in srgb, var(--primary) 5%, var(--surface)); padding: 13px 14px; }
     .cred .n { font-family: var(--font-serif); font-size: 21px; font-weight: 700; color: var(--primary-700); line-height: 1.05; }
     .cred .d { font-size: 12.5px; color: var(--muted); margin-top: 3px; }
     .cred.full { grid-column: 1 / -1; }
-    .eco { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-    .eco-chip { border: 1px solid var(--border); border-radius: 999px; padding: 7px 13px; font-size: 12.5px; color: var(--muted); background: var(--surface); }
-    .eco-chip b { color: var(--primary); font-weight: 700; letter-spacing: .02em; }
 
     .cta-box { background: color-mix(in srgb, var(--primary) 7%, var(--surface)); border: 1px solid color-mix(in srgb, var(--primary) 26%, var(--border)); border-radius: var(--radius); padding: 22px; text-align: center; margin-top: 8px; }
     .clube { font-size: 15px; color: var(--muted); margin-top: 14px; }
@@ -75,7 +85,7 @@
       .no-print { display: none !important; }
       body { background: #fff; }
       .card { box-shadow: none; border-color: #ddd; margin: 0; }
-      .topbar, .foot { color: #000; }
+      .topbar { color: #000; }
       .etapa, .compare .col, .cta-box { break-inside: avoid; }
     }
   </style>
@@ -93,8 +103,6 @@
   <main class="container">
     <div class="card screen" id="report"></div>
   </main>
-
-  <p class="foot">Diagnóstico gerado a partir das suas respostas · Luana Isse · Método MMPV</p>
 
   <script src="flow.js" defer></script>
   <script src="diagnostico.js" defer></script>

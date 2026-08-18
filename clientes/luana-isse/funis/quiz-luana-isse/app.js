@@ -2,22 +2,22 @@
    APP. Motor do funil (render, validação, persistência, tracking).
    Sem dependências externas. Padrão: nunca usar travessões.
 
-   Diferenças em relação à base da skill, todas intencionais:
-   1. A barra de progresso NÃO mostra "Pergunta X de N" (pedido do cliente:
-      contador numérico faz o quiz parecer longo). Fica a barra, a % e um
-      rótulo neutro.
-   2. Cálculo do IRV (Índice de Ruptura de Valor) a partir dos pesos.
-   3. Envio do lead para Google Apps Script: usa text/plain de propósito.
-      O /exec do Apps Script não responde ao preflight OPTIONS, então
-      application/json quebraria por CORS. text/plain é requisição simples,
-      passa direto, e o .gs faz JSON.parse do corpo do mesmo jeito.
-      (A regra de application/json do blueprint vale para webhook do Make.)
+   Pontos que fogem da base da skill, todos intencionais:
+   1. A barra de progresso não mostra número nenhum: nem "Pergunta X de N",
+      nem porcentagem (pedido do cliente, confirmado no Thaina/Thiago).
+   2. Cálculo do IRV (Índice de Ruptura de Valor) a partir dos pesos, com os
+      pesos calibrados sobre as 1024 combinações (ver nota no flow.js).
+   3. Classificação em 4 faixas, não 3: fila-quente, qualificado, nutrir e
+      fora. A página mostra 3 CTAs (fila-quente e qualificado compartilham),
+      mas a planilha recebe as 4, para priorizar a fila do atendimento.
    ============================================================ */
 
 const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
 
-/* URL /exec do Apps Script da planilha de leads. Vazio = não envia. */
-const LEADS_ENDPOINT = "";
+/* Webhook do Make que grava o lead na planilha. Vazio = não envia.
+   Cenário: "[Luana Isse] Diagnóstico de Autoridade → Sheets" (instantâneo,
+   só roda quando chega lead: 2 operações por lead, sem varredura). */
+const LEADS_ENDPOINT = "https://hook.us2.make.com/1rm87vnhc54p2qp9afdxc9jvczh341t5";
 
 function getUTMs() {
   const p = new URLSearchParams(location.search);
@@ -82,12 +82,25 @@ function pilarDominante(answers) {
   return (o && o.pilar) || "Posicionamento";
 }
 
-/* Três faixas, como manda o blueprint: ninguém leva porta na cara. */
+/* Resultado nomeado: o que vai no WhatsApp, na planilha e no topo do relatório. */
+function resultadoNomeado(answers) {
+  const R = F.resultados || {};
+  return R[pilarDominante(answers)] || "Excelente e invisível";
+}
+
+/* Quatro faixas na planilha, três CTAs na página. A regra de corte cruzada
+   mora aqui, no código, e não só no documento de estratégia.
+   fila-quente  pronta agora, dentro do ICP de caixa e com ruptura alta
+   qualificado  entra na sessão do mesmo jeito, só não fura fila
+   nutrir       é momento, não é "algo mais barato"
+   fora         ainda não fatura de forma constante ou está abaixo do corte */
 function classificarLead(a) {
   const stepFat = F.steps.find((s) => s.id === "faturamento");
   const optFat = stepFat && stepFat.options.find((o) => o.value === a.faturamento);
   if (optFat && optFat.fora) return "fora";
   if (a.prontidao === "depois" || a.prontidao === "pesquisando") return "nutrir";
+  const caixaBom = ["10a25", "25a50", "acima50"].indexOf(a.faturamento) > -1;
+  if (a.prontidao === "sim" && caixaBom && calcularIRV(a).pct >= 66) return "fila-quente";
   return "qualificado";
 }
 
@@ -109,6 +122,7 @@ function enviarLead() {
     irv: irv.pct + "%",
     irv_faixa: irv.faixa,
     pilar: pilarDominante(a),
+    resultado: resultadoNomeado(a),
     qualificacao: classificarLead(a),
     situacao: label("situacao"),
     problema: label("problema"),
@@ -125,12 +139,13 @@ function enviarLead() {
     ...URL_UTMS,
   };
   try {
-    /* text/plain: requisição simples, sem preflight. O Apps Script devolve
-       redirect no /exec e não trata OPTIONS, então application/json falharia.
-       keepalive garante que o POST sobreviva ao redirect para o diagnóstico. */
+    /* application/json + keepalive: o webhook do Make responde ao preflight,
+       e o keepalive garante que o POST sobreviva ao redirect para o
+       diagnóstico. Validar SEMPRE lendo a planilha, nunca pelo status HTTP:
+       com no-cors o navegador devolve 0 mesmo quando gravou. */
     fetch(LEADS_ENDPOINT, {
       method: "POST", keepalive: true, mode: "no-cors",
-      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(lead),
     }).catch(() => {});
   } catch (e) { /* nunca bloqueia o lead */ }
@@ -145,16 +160,11 @@ function clearSaved() { try { sessionStorage.removeItem(STORE_KEY); } catch (e) 
 function el(html) { const t = document.createElement("template"); t.innerHTML = html.trim(); return t.content.firstElementChild; }
 function scrollTop() { window.scrollTo({ top: 0, behavior: "smooth" }); }
 
-/* Sem contador "Pergunta X de N": o cliente pediu para não passar sensação
-   de questionário longo. Fica a barra, a porcentagem e um rótulo neutro. */
+/* Barra sem número nenhum: nem "Pergunta X de N", nem porcentagem. Número
+   aqui faz o quiz parecer longo e medido, e derruba conclusão. Só a barra. */
 function updateProgress(stepIdx) {
-  const total = F.steps.length;
-  const pct = Math.round((stepIdx / total) * 100);
-  const label = stepIdx === 0 ? "Começando"
-    : (stepIdx === total - 1 ? "Última pergunta" : "Seu diagnóstico");
+  const pct = Math.round((stepIdx / F.steps.length) * 100);
   progressEl.hidden = false;
-  document.getElementById("progress-label").textContent = label;
-  document.getElementById("progress-pct").textContent = `${pct}%`;
   document.getElementById("progress-bar").style.width = `${pct}%`;
 }
 

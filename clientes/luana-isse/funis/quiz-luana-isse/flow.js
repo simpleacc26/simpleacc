@@ -18,9 +18,23 @@ window.FLOW = {
     nome: "Luana Isse",
     expert: "Luana Isse",
     tagline: "Método MMPV",
-    // WhatsApp comercial, só dígitos, formato internacional (ex.: 5548999999999)
-    whatsapp: "",
-    whatsappMsg: "Oi! Sou {nome}, acabei de fazer o Diagnóstico de Autoridade e quero falar sobre a sessão de posicionamento.",
+    instagram: "@luana.isse",
+    // WhatsApp comercial, só dígitos, formato internacional.
+    whatsapp: "5547992730303",
+    /* A mensagem leva o RESULTADO NOMEADO, não só o nome: quem atende abre a
+       conversa já sabendo o diagnóstico. Placeholders: {nome} {resultado}
+       {irv} {faixa} {pilar}. */
+    whatsappMsg: "Oi, Luana! Sou {nome}. Fiz o Diagnóstico de Autoridade e o meu resultado foi {resultado}, com IRV de {irv} (ruptura {faixa}) concentrada em {pilar}. Quero falar sobre a sessão de posicionamento.",
+  },
+
+  /* Resultado nomeado por pilar. É o que vai no WhatsApp, na planilha e no
+     topo do relatório. Escrito na linguagem dela: chega de ser excelente e
+     continuar invisível. */
+  resultados: {
+    Mentalidade:    "Excelente e escondida",
+    Movimento:      "Excelente sem causa",
+    Posicionamento: "Excelente e intercambiável",
+    Vendas:         "Excelente sem caminho de venda",
   },
 
   hero: {
@@ -31,7 +45,14 @@ window.FLOW = {
 
   /* Ordem SPIN. peso 0 a 3 entra no IRV (só nas perguntas de diagnóstico:
      situação, problema, impacto, o que já tentou e perfil). Tempo, objetivo e
-     as duas porteiras não pontuam. */
+     as duas porteiras não pontuam.
+     PESOS CALIBRADOS: rodamos as 1024 combinações antes de publicar. Com os
+     pesos iniciais, 89% caíam em "Alta" e "Baixa" era impossível, ou seja, o
+     número era teatro. Baixando as alternativas mais leves para 0 e 1, a
+     amplitude foi para 20% a 100% e a distribuição para ~50% Alta, ~49% Média,
+     ~1% Baixa. A faixa Baixa é rara de propósito: o quiz não tem alternativa
+     de "está tudo bem", porque quem responde já se reconhece no problema.
+     Se mexer em qualquer peso, RODE A DISTRIBUIÇÃO DE NOVO. */
   steps: [
     {
       id: "situacao",
@@ -59,7 +80,7 @@ window.FLOW = {
           report: "falar do seu serviço sem ter clareza do que você defende" },
         { value: "generico", label: "O que eu falo poderia ser dito por qualquer colega da minha área", peso: 2, pilar: "Posicionamento",
           report: "dizer o que qualquer colega da sua área também poderia dizer" },
-        { value: "sem_oferta", label: "Sei comunicar, mas não tenho oferta nem processo para vender", peso: 2, pilar: "Vendas",
+        { value: "sem_oferta", label: "Sei comunicar, mas não tenho oferta nem processo para vender", peso: 1, pilar: "Vendas",
           report: "comunicar bem, mas sem uma oferta e um processo que sustentem a venda" },
       ],
     },
@@ -81,11 +102,11 @@ window.FLOW = {
       options: [
         { value: "igual", label: "Igual: continuo excelente e ignorado", peso: 3,
           report: "seguir excelente no que faz e continuar sendo ignorada pelo mercado" },
-        { value: "preco", label: "Continuo sendo comparado por preço", peso: 3,
+        { value: "preco", label: "Continuo sendo comparado por preço", peso: 2,
           report: "continuar sendo comparada por preço, como se fosse mais uma" },
-        { value: "esteira", label: "Continuo trocando hora por dinheiro, sem escalar", peso: 2,
+        { value: "esteira", label: "Continuo trocando hora por dinheiro, sem escalar", peso: 1,
           report: "continuar trocando hora por dinheiro, sem conseguir escalar" },
-        { value: "desistir", label: "Não sei se continuo tentando o digital", peso: 3,
+        { value: "desistir", label: "Não sei se continuo tentando o digital", peso: 2,
           report: "a dúvida real sobre continuar ou não tentando o digital" },
       ],
     },
@@ -96,11 +117,11 @@ window.FLOW = {
       options: [
         { value: "cursos", label: "Cursos de marketing digital que não saíram do papel", peso: 3,
           report: "fazer cursos de marketing digital que nunca saíram do papel" },
-        { value: "social_media", label: "Contratei social media ou agência, e não veio cliente", peso: 3,
+        { value: "social_media", label: "Contratei social media ou agência, e não veio cliente", peso: 2,
           report: "contratar social media ou agência sem que viesse cliente" },
-        { value: "constancia", label: "Postei com constância, sozinha, e nada mudou", peso: 2,
+        { value: "constancia", label: "Postei com constância, sozinha, e nada mudou", peso: 1,
           report: "postar com constância, sozinha, sem que nada mudasse" },
-        { value: "nada", label: "Ainda não tentei nada estruturado", peso: 1,
+        { value: "nada", label: "Ainda não tentei nada estruturado", peso: 0,
           report: "ainda não ter tentado nada estruturado" },
       ],
     },
@@ -126,7 +147,7 @@ window.FLOW = {
           report: "ter conteúdo demais na cabeça e nenhuma linha clara" },
         { value: "audiencia_fria", label: "Já tenho audiência, mas ela não me vê como autoridade", peso: 2,
           report: "ter audiência que ainda não te enxerga como autoridade" },
-        { value: "virar_mentor", label: "Quero virar mentora e não sei por onde começar", peso: 2,
+        { value: "virar_mentor", label: "Quero virar mentora e não sei por onde começar", peso: 1,
           report: "querer virar mentora sem saber por onde começar" },
       ],
     },
