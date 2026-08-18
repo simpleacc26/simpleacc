@@ -71,8 +71,9 @@ O Quiz B já entrega quatro delas antes da primeira mensagem:
 | Impacto prático | P1 e P3, carro-chefe e quem atende |
 | Tentativas anteriores | P5, o que ela já fez para vender mais |
 
-Sobram quatro para a SDR caçar na conversa: **motivo, impacto emocional, meta e
-urgência**. É isso que a Frente 1 faz, e é por isso que ela é curta.
+Sobram quatro para a conversa caçar: **motivo** (M2), **impacto emocional** (M6),
+**meta** (M7) e **urgência** (M5 e M8). É isso que a Frente 1 faz, e é por isso
+que ela é curta.
 
 O campo `rota` do quiz também já separa quem tem porte para a mentoria de quem
 não tem, antes de qualquer humano gastar tempo.
@@ -81,143 +82,135 @@ não tem, antes de qualquer humano gastar tempo.
 
 ## FRENTE 1 — Qualificação
 
-**Objetivo:** confirmar o que o quiz disse, caçar as quatro descobertas que
-faltam, checar decisora, filtrar por investimento e marcar com compromisso.
+**Quem faz o quê.** A conversa no WhatsApp é da **Ana**, do primeiro contato até o
+agendamento confirmado. A conversa por telefone e a sessão estratégica são da
+**Iêda**. As duas trabalham as mesmas perguntas, o que muda é o canal.
 
-**Regra de ouro:** a SDR não diagnostica. Ela pergunta e anota. Toda vez que a
-vontade de explicar aparecer, é sinal de que ela saiu do lugar de quem conduz.
+**Regra de ouro:** quem qualifica não diagnostica, pergunta e anota. Toda vez que
+a vontade de explicar aparecer, é sinal de que saiu do lugar de quem conduz.
 
-### WhatsApp
+### WhatsApp, com a Ana
 
 **M1, até quinze minutos depois do quiz**
 
-> {Nome}, aqui é a {SDR}, do time da Ju Godinho, tudo bem?
+> {Nome}, aqui é a Ana, do time da Ju Godinho, tudo bem?
 >
 > Acabei de ver que você terminou o diagnóstico agora há pouco.
-
-Espera. Manda a próxima só quando ela responder, mesmo que seja um oi.
 
 **M2, o motivo**
 
 > Antes de eu te falar qualquer coisa sobre o resultado, me conta uma coisa, o
 > que te fez parar hoje pra responder aquelas perguntas?
 
-Essa é a pergunta mais importante do script inteiro. É o motivo, nas palavras
-dela, e é o material que vai alimentar todo o follow-up depois.
+**M3, a transição**
 
-**M3, o desarme preventivo**
-
-Manda depois que ela responder o motivo.
-
-> Faz sentido. E já te falo de uma vez pra gente não perder tempo, em algum
-> momento eu vou te oferecer uma conversa com uma especialista do time da Ju,
-> se o seu caso for pra isso.
+> Faz sentido. Olhei suas respostas aqui e tem alguns pontos que me chamaram
+> atenção de verdade.
 >
-> Tem semana que eu converso com alguém e a conclusão é que não é hora, e aí tá
-> tudo certo também, eu falo na hora. Antes disso eu queria entender duas ou
-> três coisas do seu cenário, pode ser?
+> Antes de eu te falar o que vi, queria entender melhor duas ou três coisas do
+> seu cenário, pra gente avaliar juntas se o Método ELA faz sentido pro momento
+> que você está vivendo. Pode ser?
 
-É o *accusation audit* do Chris Voss que Menegão ensina, nomear a resistência
-antes que a lead a formule. Ela já está esperando o pitch disfarçado, e você
-tirou isso da mesa.
+Mantém o enquadramento de avaliação, que é o que filtra, sem anunciar que existe
+uma oferta esperando no fim da conversa.
 
-**M4, o impacto prático em número**
+**M4, o número**
 
-> No diagnóstico você marcou que {resposta da P4, sobre quanto sobra}. Em
-> número mesmo, quanto que costuma sobrar num mês normal, depois de pagar tudo?
+> No diagnóstico você marcou que {resposta da P4}. Em número mesmo, quanto
+> costuma sobrar num mês normal, depois de pagar tudo?
 
-O número tem que vir da boca dela. Menegão usa exatamente isso depois, o custo
-da não ação calculado com os próprios números do lead.
+**M5, a distância**
 
-**M5, o impacto emocional**
+> E esse resultado está próximo do que você esperava estar vivendo hoje na sua
+> carreira?
 
-> E quando o mês fecha assim, o que passa na sua cabeça?
+Aqui aparece o vão entre onde ela está e onde achava que estaria. Toda a urgência
+nasce desse vão, e é ela quem mede o tamanho dele.
 
-Curta de propósito. Não completa, não sugere, não oferece opção de múltipla
-escolha. Deixa o silêncio trabalhar.
+**M6, o incômodo concreto**
 
-**M6, a meta**
+> E o que mais te incomoda nisso hoje?
 
-> Se daqui a seis meses isso estivesse resolvido, o que estaria diferente na sua
-> rotina?
+Se vier resposta rasa, insista uma vez: *me conta um exemplo de quando isso pesou
+de verdade*. Não avance com resposta vaga.
 
-**M7, a urgência**
+**M7, o futuro**
+
+> Se daqui a seis meses você olhasse pro seu negócio e pensasse "agora sim, ele
+> está no nível que eu queria", o que teria mudado?
+
+**M8, a urgência**
 
 > E se ficar exatamente como está até o fim do ano, o que acontece?
 
-**M8, a decisora**
+**M9, a decisora**
 
 > Uma coisa que eu sempre pergunto: as decisões do negócio você toma sozinha ou
 > tem sócia junto?
 
-Se tiver sócia, a sócia entra na sessão. Menegão é categórico que reunião sem
-decisora presente é reunião perdida, e a página da Ju já prevê que a lead leve
-a sócia.
+**M10, o valor da sessão**
 
-**M9, o filtro de investimento**
-
-Esse é o ponto que resolve a queixa da Ju sobre lead desqualificada.
-
-> Última coisa antes de eu ver a agenda. O acompanhamento da Ju é um programa de
-> quase dez mil reais, e eu prefiro te falar isso agora do que te deixar
-> descobrir na frente da especialista.
+> Pelo que você me contou, faz sentido a gente avançar pra uma conversa com a
+> Iêda, que é a especialista do time da Ju.
 >
-> Pelo que você me contou, isso é algo que você consegue olhar agora ou é
-> conversa pra mais pra frente?
+> Funciona assim: ela recebe as suas respostas do diagnóstico e tudo que você me
+> contou aqui, estuda o seu cenário antes de falar com você e chega na conversa
+> já com o principal gargalo mapeado. São de trinta a quarenta minutos, e você
+> sai de lá sabendo o que precisa mudar primeiro.
 
-Deixa ela falar. Se travar aqui, travou de graça, e você economizou o tempo da
-closer. Se passar, ela chega na sessão sabendo o porte da coisa e o preço deixa
-de ser surpresa no final.
+A sessão deixa de ser trinta minutos sem compromisso e passa a ser uma análise
+preparada com o nome dela. É o que sustenta o valor antes de qualquer número.
 
-**M10, o agendamento com compromisso**
+**M11, o investimento**
 
-Nunca "me manda seus horários". Quem oferece horário aberto entrega o ritmo.
+> Só uma coisa antes de eu ver a agenda dela. O acompanhamento da Ju é um
+> programa de quase dez mil reais, e eu prefiro te falar agora, por respeito ao
+> seu tempo.
+>
+> Pelo que você me contou sobre o que está em jogo aí, é algo que faz sentido
+> você olhar agora?
+
+Vem depois do valor, nunca antes.
+
+**M12, o agendamento**
 
 > Tenho {dia} às {hora} e {dia} às {hora}.
 >
 > Em qual dos dois você consegue estar num lugar tranquilo, com trinta minutos
 > livres e sem atender ninguém?
-
-A condição vem dentro da pergunta, então ela já se compromete ao escolher.
-
-> Fechado. Vou reservar {dia} às {hora} com a {especialista}. Posso contar com
-> você nesse horário?
-
-Espera o sim explícito. Esse sim é a primeira trava do anti no-show.
-
-### Ligação
-
-Mesma sequência de descobertas, abertura diferente. Menegão organiza os
-primeiros minutos em três pilares, prova, promessa e plano.
-
-**Abertura, pedindo o tempo**
-
-> {Nome}? Aqui é a {SDR}, do time da Ju Godinho, tudo bem?
 >
-> Você respondeu nosso diagnóstico {hoje, ontem}. Tenho dois minutos pra te
-> fazer uma pergunta ou peguei você no meio de um atendimento?
+> Fechado. Vou reservar {dia} às {hora} com a Iêda. Posso contar com você nesse
+> horário?
 
-Se for hora ruim, marca a ligação. Não empurra.
+Espera o sim escrito. É a primeira trava do anti no-show.
 
-**Prova, promessa e plano, em três frases**
+### Telefone, com a Iêda
+
+O WhatsApp é a porta de entrada. Quando a lead prefere falar, ou quando a conversa
+trava no texto e o caso merece insistência, a ligação é da Iêda, com as mesmas
+perguntas de M4 a M12.
+
+**L1, abertura pedindo o tempo**
+
+> {Nome}? Aqui é a Iêda, do time da Ju Godinho, tudo bem?
+>
+> Você respondeu nosso diagnóstico {hoje, ontem} e trocou umas mensagens com a
+> Ana. Tenho dois minutos pra te fazer uma pergunta ou peguei você no meio de um
+> atendimento?
+
+**L2, prova, promessa e plano**
 
 > Eu falo toda semana com profissional que tá exatamente no ponto que você
 > descreveu ali no diagnóstico.
 >
 > Se a gente conversar uns cinco minutos, no fim eu consigo te dizer com clareza
-> o que tá segurando o crescimento aí e se o acompanhamento da Ju resolve ou
-> não o seu caso.
+> o que tá segurando o crescimento aí e se o Método ELA resolve ou não o seu caso.
 >
 > Se não resolver eu te falo, sem enrolação. Posso te fazer as perguntas?
 
-Daí segue M2 a M10 na mesma ordem.
-
 **A regra dos cinco segundos.** Terminou a pergunta, cala a boca e conta até
-cinco. Menegão diz que a lead quase sempre retoma e entrega a parte mais útil da
-resposta justamente nesse segundo fôlego. Quem preenche o silêncio perde a
-informação.
-
----
+cinco. A lead quase sempre retoma sozinha e entrega a parte mais útil nesse
+segundo fôlego.
 
 ## FRENTE 2 — Follow-up
 
@@ -311,7 +304,7 @@ o que vai acontecer na conversa. As duas coisas se resolvem antes, não depois.
 
 **R0, no ato do agendamento, a mais importante de todas**
 
-> Fechado, {Nome}. {dia} às {hora}, com a {especialista}, pelo Google Meet, dura
+> Fechado, {Nome}. {dia} às {hora}, com a Iêda, pelo Google Meet, dura
 > de trinta a quarenta minutos.
 >
 > Duas coisas pra você aproveitar de verdade: esteja num lugar onde dê pra falar
@@ -325,7 +318,7 @@ compromisso que ela só ouve.
 
 **R1, vinte e quatro horas antes**
 
-> {Nome}, amanhã às {hora} é a sua conversa com a {especialista}. Me confirma
+> {Nome}, amanhã às {hora} é a sua conversa com a Iêda. Me confirma
 > com um ok que tá de pé?
 
 Exige resposta ativa. Lembrete que não pede nada não confirma nada.
@@ -339,7 +332,7 @@ Exige resposta ativa. Lembrete que não pede nada não confirma nada.
 
 > {Nome}, daqui a uma hora a gente se fala, segue o link: {link}
 >
-> A {especialista} já leu suas respostas do diagnóstico, então vocês vão direto
+> A Iêda já leu suas respostas do diagnóstico, então vocês vão direto
 > ao ponto, sem você ter que contar tudo de novo.
 
 Essa segunda linha é o que mais derruba no-show. Ela informa que existe trabalho
@@ -347,15 +340,15 @@ já feito e personalizado esperando por ela, e faltar passa a ter custo.
 
 **R3, dez minutos antes**
 
-> {Nome}, entrando na sala agora, te espero aqui: {link}
+> {Nome}, a Iêda já está na sala, é só entrar por aqui: {link}
 
 **R4, cinco minutos depois do horário**
 
-> {Nome}, tô na sala te esperando, consegue entrar?
+> {Nome}, a Iêda está na sala te esperando, consegue entrar?
 
 **R5, trinta minutos depois**
 
-> {Nome}, imagino que apareceu atendimento aí. A {especialista} tinha separado
+> {Nome}, imagino que apareceu atendimento aí. A Iêda tinha separado
 > esse horário pro seu caso, me fala se dá pra remarcar ainda essa semana.
 
 Custo real, não escassez inventada. O horário existiu e foi reservado.
