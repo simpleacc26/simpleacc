@@ -106,6 +106,14 @@ hora** mais rápido".
 entrega a maior parte do caminho até os R$ 100 mil — **com um produto que ele já
 vendeu**.
 
+> **Nota de 13/08, depois do roadmap:** a conta acima usa a clínica **sem
+> reajuste** (R$ 22 mil), porque na data da mesa o reajuste ainda não estava
+> desenhado. **A conta final do roadmap é: 6 vendas × R$ 12 mil = R$ 72 mil, mais
+> a clínica reajustada em cerca de R$ 30 mil, fechando os R$ 100 mil.** O reajuste
+> da base entrou como Passo 02 justamente porque foi a alavanca que o Hormozi
+> apontou aqui. As duas contas não se contradizem: esta mostra o caminho sem o
+> reajuste, a do roadmap mostra com ele.
+
 **A conta do P2:** ticket sugerido de R$ 15 mil, **zero audiência**, CAC
 desconhecido. Para vender 3/mês ele precisa comprar demanda do zero. Com caixa
 apertado, **é o pior momento possível para pagar por audiência**.
