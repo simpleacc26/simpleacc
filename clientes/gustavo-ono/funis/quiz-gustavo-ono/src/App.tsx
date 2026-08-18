@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect, useState } from "react";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { questions } from "./data/questions";
-import { fbqTrack } from "./analytics";
+import { fbqTrack, gtmTrack } from "./analytics";
 import { getRota } from "./lib/rota";
 import { LandingScreen } from "./components/LandingScreen";
 import { QuestionScreen } from "./components/QuestionScreen";
@@ -75,14 +75,16 @@ function QuizFlow() {
 
   const handleSelectAnswer = (value: string) => {
     setAnswers((prev) => ({ ...prev, [currentIndex]: value }));
-    fbqTrack("ViewContent", {
-      content_name: `Pergunta ${currentIndex + 1}`,
-      content_category: "Quiz",
-    });
+    // Avanço de pergunta é só GTM. Antes isso disparava ViewContent no Pixel,
+    // colidindo com o ViewContent do relatório: a Meta recebia cerca de nove
+    // por lead e o evento virava ruído para otimização.
+    gtmTrack("quiz_pergunta", { pergunta: currentIndex + 1 });
     if (currentIndex < questions.length - 1) {
       setCurrentIndex(currentIndex + 1);
     } else {
-      fbqTrack("InitiateCheckout");
+      // Chegar no formulário não é início de checkout. O InitiateCheckout do
+      // Pixel fica reservado ao clique no treinamento, no relatório.
+      gtmTrack("quiz_formulario");
       setStep("lead-capture");
     }
   };

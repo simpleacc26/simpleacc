@@ -23,7 +23,7 @@ same-origin.
 | ID | `5619844` |
 | Time (Make) | `1317940` — Time Simple Acc |
 | Webhook | hook `2557867`, label `quiz-gustavo-ono-novo` |
-| Planilha | `1oOgRcaOIWHCMHXgIxywLQ-81qEhosvEGrtKqQfPQnpM`, aba `quiz novo` |
+| Planilha | `1oOgRcaOIWHCMHXgIxywLQ-81qEhosvEGrtKqQfPQnpM`, aba **`diagnostico gustavo`** |
 | CRM | GHL, location "CRM Gustavo Ono", pipeline "Funil do Marketing", etapa "New Lead" |
 
 Fluxo dos módulos: **Webhook → criar contato no GHL → criar oportunidade → gravar
@@ -81,3 +81,28 @@ apagados** da planilha e do GHL.
   de contato tem `onerror: Ignore`: se o formato da tag estiver errado, o contato
   falha em silêncio e a oportunidade seguinte quebra junto. Merece um teste
   dedicado antes de entrar.
+
+
+## Aba própria da campanha (18/08/2026)
+
+Até 18/08 o cenário gravava na aba `quiz novo`, que é compartilhada com outra
+campanha. Como esta é uma campanha nova, ela ganhou aba própria:
+**`diagnostico gustavo`**, com 19 colunas, criada já no formato final:
+
+`Data · Nome · WhatsApp · Email · Rota · Combinação · Carro-chefe · Tempo ·
+Motivação · Frustração · Canal de Vendas · Impedimento · Curso Anterior ·
+Faturamento · UTM Source · UTM Medium · UTM Campaign · UTM Content · UTM Term`
+
+Diferenças em relação à aba antiga:
+
+- `Data` e `Rota` vêm na frente, para dar para escanear a coluna que importa.
+- A coluna `Dominasse` não existe mais, já que a pergunta foi aposentada.
+- O faturamento aparece como **`Faturamento`**, e não como `Segurança`, que era
+  um nome herdado e enganoso.
+- Entrou `UTM Medium`, que o webhook já mandava e a aba antiga descartava.
+
+Testado em 18/08 com lead disparado no webhook: as 19 colunas preencheram.
+
+> **Pendência na aba antiga:** as colunas `Rota` (R) e `Curso Anterior` (S) foram
+> criadas lá por engano em 12/08 e devem ser removidas, junto das duas linhas de
+> teste ("TESTE SimpleAcc IGNORAR" e a que ficou na aba nova).
