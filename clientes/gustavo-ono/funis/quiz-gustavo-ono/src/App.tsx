@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect, useState } from "react";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { questions } from "./data/questions";
-import { fbqTrack, gtmTrack } from "./analytics";
+import { gtmTrack } from "./analytics";
 import { getRota } from "./lib/rota";
 import { LandingScreen } from "./components/LandingScreen";
 import { QuestionScreen } from "./components/QuestionScreen";
@@ -60,12 +60,12 @@ function QuizFlow() {
     } catch (e) {
       /* modo privado sem storage: segue sem origem, não quebra o funil */
     }
-    fbqTrack("PageView");
+    // O PageView do Meta é disparado pela tag do Pixel no GTM, em All Pages.
   }, []);
 
   const handleLandingSelect = (value: string) => {
     setAnswers((prev) => ({ ...prev, 0: value }));
-    fbqTrack("CompleteRegistration", {
+    gtmTrack("quiz_iniciado", {
       content_name: "Início Quiz",
       status: "started",
     });
@@ -75,9 +75,9 @@ function QuizFlow() {
 
   const handleSelectAnswer = (value: string) => {
     setAnswers((prev) => ({ ...prev, [currentIndex]: value }));
-    // Avanço de pergunta é só GTM. Antes isso disparava ViewContent no Pixel,
-    // colidindo com o ViewContent do relatório: a Meta recebia cerca de nove
-    // por lead e o evento virava ruído para otimização.
+    // Avanço de pergunta não vai para o Pixel. Antes disparava ViewContent a
+    // cada resposta, colidindo com o ViewContent do relatório: a Meta recebia
+    // cerca de nove por lead e o evento virava ruído para otimização.
     gtmTrack("quiz_pergunta", { pergunta: currentIndex + 1 });
     if (currentIndex < questions.length - 1) {
       setCurrentIndex(currentIndex + 1);
@@ -107,7 +107,7 @@ function QuizFlow() {
     const rota = getRota(answers);
     // A rota viaja junto com o evento para o GA4 conseguir separar lead
     // qualificada (A) de lead de entrada (B) sem depender da planilha.
-    fbqTrack("Lead", {
+    gtmTrack("quiz_lead", {
       content_name: "Quiz Diagnóstico",
       content_category: "Chocolate",
       rota,

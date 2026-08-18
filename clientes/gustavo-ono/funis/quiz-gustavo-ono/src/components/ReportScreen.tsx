@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { ArrowRight, Check, AlertCircle, MessageCircle, ExternalLink } from "lucide-react";
 import { answerLabels } from "../data/questions";
-import { fbqTrack } from "../analytics";
+import { gtmTrack } from "../analytics";
 import { getRota } from "../lib/rota";
 import type { LeadData } from "./LeadCaptureForm";
 
@@ -198,9 +198,14 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
   // diferentes: a Rota A vê a sessão como oferta principal e o treinamento
   // como segunda opção, a Rota B só vê o treinamento. Sem esse parâmetro,
   // taxa de clique no low ticket vira uma média de duas coisas distintas.
+  // O relatório é uma rota de SPA, então não gera carregamento novo de página e
+  // o PageView do GTM não dispara aqui. Quem marca a chegada é este evento.
   useEffect(() => {
-    fbqTrack("PageView");
-    fbqTrack("ViewContent", { content_name: "Relatório Quiz", content_category: "Chocolate", rota });
+    gtmTrack("relatorio_visto", {
+      content_name: "Relatório Quiz",
+      content_category: "Chocolate",
+      rota,
+    });
   }, [rota]);
 
   const firstName = leadData.name.split(" ")[0];
@@ -210,7 +215,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
   const lowTicketUrl = buildLowTicketUrl(rota);
 
   const handleWhatsAppClick = () => {
-    fbqTrack("Contact", {
+    gtmTrack("clique_whatsapp", {
       content_name: "Sessão Diagnóstica Gratuita",
       content_category: "Mentoria",
       rota,
@@ -218,7 +223,7 @@ export function ReportScreen({ leadData, answers }: ReportScreenProps) {
   };
 
   const handleLowTicketClick = () => {
-    fbqTrack("InitiateCheckout", {
+    gtmTrack("clique_treinamento", {
       value: 97,
       currency: "BRL",
       content_name: "Treinamento Bombom Artístico",

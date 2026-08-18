@@ -1,50 +1,37 @@
 /**
  * Rastreamento do funil.
  *
- * Cada evento vai para dois lugares:
- *   - Meta Pixel, via fbq, com o nome de evento padrao da Meta
- *   - dataLayer do GTM, com um nome em snake_case previsivel
+ * Tudo o que o funil mede sai daqui para o dataLayer do GTM, e o container
+ * decide quem recebe: GA4, Meta Pixel, o que entrar depois. Até 18/08 o código
+ * chamava o `fbq` direto, com o Pixel carregado por um script solto no
+ * `index.html`. Isso amarrava a medição ao deploy: cada ferramenta nova ou
+ * cada ajuste de evento pedia build e subida.
  *
- * Ate 18/08 so o Pixel recebia. O container do GTM carregava na pagina e nao
- * enxergava nada do funil, entao qualquer tag configurada la dependia so de
- * pageview. Os pushes abaixo abrem o caminho para GA4, conversao por evento e
- * qualquer outra tag, sem precisar mexer no codigo de novo.
+ * Nomes dos eventos, que são exatamente os acionadores do GTM:
  *
- * Nomes no dataLayer (usar estes ao criar os acionadores no GTM):
- *   quiz_iniciado, quiz_lead, relatorio_visto, clique_whatsapp, clique_treinamento
+ *   quiz_iniciado       primeira resposta, ainda na landing
+ *   quiz_pergunta       cada resposta seguinte, com o número da pergunta
+ *   quiz_formulario     lead chegou no formulário
+ *   quiz_lead           formulário enviado
+ *   relatorio_visto     relatório abriu
+ *   clique_whatsapp     clique no CTA da sessão diagnóstica (só Rota A)
+ *   clique_treinamento  clique no botão do treinamento de R$ 97
+ *
+ * Os parâmetros seguem o vocabulário da Meta (`content_name`, `value`,
+ * `currency`) porque as tags do Pixel no GTM leem direto deles. Não renomeie
+ * sem ajustar as tags lá.
  */
 
-const NOMES_GTM: Record<string, string> = {
-  CompleteRegistration: "quiz_iniciado",
-  Lead: "quiz_lead",
-  ViewContent: "relatorio_visto",
-  Contact: "clique_whatsapp",
-  InitiateCheckout: "clique_treinamento",
-};
-
-export function fbqTrack(event: string, params?: Record<string, unknown>): void {
-  if (typeof window === "undefined") return;
-
-  if (typeof window.fbq === "function") {
-    window.fbq("track", event, params);
-  }
-
-  // PageView ja e capturado pelo proprio GTM, entao nao duplicamos aqui.
-  const nomeGtm = NOMES_GTM[event];
-  if (nomeGtm && Array.isArray(window.dataLayer)) {
-    window.dataLayer.push({ event: nomeGtm, ...(params ?? {}) });
-  }
-}
-
-/** Empurra um evento so para o GTM, sem passar pelo Pixel. */
 export function gtmTrack(event: string, params?: Record<string, unknown>): void {
-  if (typeof window === "undefined" || !Array.isArray(window.dataLayer)) return;
-  window.dataLayer.push({ event, ...(params ?? {}) });
+  if (typeof window === "undefined") return;
+  // O snippet do GTM no index.html já cria o dataLayer, mas se algum bloqueador
+  // impedir o script de rodar o array não existe e o push quebraria a página.
+  const dataLayer = (window.dataLayer = window.dataLayer ?? []);
+  dataLayer.push({ event, ...(params ?? {}) });
 }
 
 declare global {
   interface Window {
-    fbq?: (...args: unknown[]) => void;
     dataLayer?: unknown[];
   }
 }
