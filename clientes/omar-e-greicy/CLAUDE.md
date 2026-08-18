@@ -84,18 +84,38 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
 
 ## Estado do projeto
 
-- ✅ Call de vendas — 29/07/26 (`contexto/2026-07-29-notas-call-vendas.md`)
-- ✅ Canvas de Produto + Cliente Ideal — 30/07/26
+_Atualizado ao fim da sessão de 05/08/2026. PR #89._
+
+**Entregue**
+- ✅ Call de vendas — 29/07 (`contexto/2026-07-29-notas-call-vendas.md`)
+- ✅ Canvas preenchido pelo cliente — 30/07
   (`contexto/2026-07-30-canvas-produto-cliente-ideal.md`)
-- ✅ **Onboarding — 05/08/26** (`contexto/2026-08-05-notas-onboarding.md`)
-  → corrigiu ticket do Botox, verba de mídia e mapeou a capacidade real
-- ✅ Direcionamentos de tráfego para o Renan
-  (`estrategia/2026-08-05-direcionamentos-trafego-renan.md`)
-- ✅ Ações do cliente (`estrategia/2026-08-05-acoes-cliente.md`)
+- ✅ **Onboarding — 05/08** (`contexto/2026-08-05-notas-onboarding.md`)
+  → corrigiu o ticket do Botox, a verba de mídia e mapeou a capacidade real
+- ✅ Briefing rápido de apoio (`contexto/2026-08-05-briefing-rapido.md`)
+- ✅ **Direcionamentos de tráfego para o Renan** — md + HTML + **PDF de 6 páginas**
+  (`estrategia/2026-08-05-direcionamentos-trafego-renan.*`)
+- ✅ Ações do cliente, 28 itens (`estrategia/2026-08-05-acoes-cliente.md`)
+- ✅ **Guia de Captação de Depoimentos** — HTML + PDF de 4 páginas
+  (`estrategia/*guia-captacao-depoimentos*`)
+- ✅ **Canvas de Produto + Cliente Ideal v2, pré-preenchido pela Simple**
+  (`estrategia/2026-08-05-canvas-produto-e-cliente-ideal.md`) →
+  [Doc no Drive](https://docs.google.com/document/d/1ys-7Wd1CeM4ciCYpzAFAa8GXp9oqyJdsQn7HPkLLVBY/edit)
+
+**Próximo**
 - 🔜 Coleta de acessos pelo Renan (06/08) → **ativação da campanha em até 7 dias**
+- 🔜 Validação do canvas v2 pelo cliente (inclui o nome "Método Sem Exageros")
 - ⬜ Roteiros de vídeo + criativos estáticos e carrossel
 - ⬜ Playbooks comerciais + planilha unificada (comercial + tráfego)
-- ⬜ Processo de captação de depoimentos e de indicação
+- ⬜ Processo de captação de indicação (Carlos)
+
+**Aguardando resposta do cliente** (trava o cálculo fino de CAC e a oferta)
+1. Tabela de preços completa
+2. Parcelamento do full face
+3. Custo do produto por ml
+4. Três concorrentes de Chapecó, com nome
+5. O que COREN e CFBM permitem publicar de antes e depois
+6. Confirmar: prazo do retorno e se o retoque está incluso no full face
 
 > **Este projeto não tem roadmap de 90 dias.** O escopo é tráfego pago +
 > suporte comercial, com pit stop quinzenal.
