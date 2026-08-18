@@ -109,12 +109,17 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
 - **Canvas original (vazio, não editar):** [Google Doc](https://docs.google.com/document/d/19lqengtPOwiI3ehD9RtrE8jcpeenYUz5R0W_JwQrEBI/edit)
 - **Canvas preenchido v2 (pode ir ao cliente):** [Google Doc](https://docs.google.com/document/d/1UTuXQeTV9kDgu26H8dBKGFzqwdhDHYledTYc4l2vJ70/edit)
   · fonte: `contexto/2026-08-06-canvas-preenchido.html`
-- **Análise de priorização v2 (INTERNO — não compartilhar):** [Google Doc](https://docs.google.com/document/d/1d7fM6G8dRmiWQ_OvE-bAXJT82xiaviezYDmNSuv4MDI/edit)
+- **Análise de priorização v2 (INTERNO, não compartilhar):** [Google Doc](https://docs.google.com/document/d/1d7fM6G8dRmiWQ_OvE-bAXJT82xiaviezYDmNSuv4MDI/edit)
   · fonte: `estrategia/2026-08-06-analise-priorizacao-interno.html`
+- **Roadmap Estratégico 90 dias (13/08):** `estrategia/2026-08-13-roadmap-estrategico-rafael-cobra.html`
+  · PDF: `Roadmap Estratégico Digital - Rafael Cobra - 13.08.26.pdf`
+- **Estratégia Completa (13/08):** [Google Doc](https://docs.google.com/document/d/1YyLf0SU7MJS7ptPXvNsJoaX3JhY2ysjLuiHYKVJpuD4/edit)
+  · fonte: `estrategia/2026-08-13-estrategia.md`
 
 > **Dois documentos, de propósito.** O canvas é a versão que pode ir ao Rafael;
 > a análise tem avaliações francas e fica na Simple. Ao atualizar qualquer um,
-> mexa no HTML do repo e **suba um Doc novo** — o MCP do Drive não edita no lugar.
+> mexa na fonte que está no repo e só depois no Drive: o MCP agora tem
+> `update_file`, então dá para atualizar o Doc no lugar, sem criar duplicata.
 
 ## Contatos
 - **Cliente:** Rafael Cobra — _(WhatsApp/e-mail a preencher)_
