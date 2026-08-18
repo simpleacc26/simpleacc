@@ -16,8 +16,15 @@ Base de conhecimento da cliente. Tudo que a SimpleAcc faz para ela acumula aqui.
 3. Salve na pasta certa e registre o aprendizado.
 4. Branch `cliente/camila-rodrigues/<assunto>` + PR.
 
-## Contexto rápido (preencher)
-- **Oferta principal:** _(a preencher)_
-- **Público / ICP:** _(a preencher)_
-- **Links:** _(a preencher)_
-- **Contato principal:** _(a preencher)_
+## Contexto rápido
+- **Oferta principal:** Protocolo da Sala, mentoria online de etiqueta e presença,
+  8 módulos, ticket R$ 2.997 (em até 12x no cartão).
+- **Público / ICP:** profissionais, empreendedores e empresários que convivem com
+  gente de alto escalão e travam na hora de ocupar aquele espaço.
+- **Meta contratada:** R$ 20.979/mês (7 vendas) em 90 dias.
+- **Links:** Instagram @consultoradeetiqueta · WhatsApp 5511998550590
+- **Contato principal:** Camila Rodrigues
+- **Fora do escopo dos 90 dias:** curadoria, mesa posta, gestão de eventos,
+  etiqueta kids e e-book de receitas (voltam como expansão de valor a partir do dia 60).
+
+Resumo completo em `contexto/resumo.md`. Roadmap em `estrategia/`.
