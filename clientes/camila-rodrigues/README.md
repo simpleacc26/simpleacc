@@ -15,7 +15,7 @@ mentoria de 3 meses da Simple para lançar a própria mentoria de etiqueta
 
 - Instagram: https://instagram.com/consultoradeetiqueta
 - Site:
-- Pasta no Drive:
+- Pasta no Drive: https://drive.google.com/drive/folders/17yxwVFbwX6lp6g-wKLQ6_nk6p2oKGF3X
 
 ## Entregáveis contratados
 
@@ -32,6 +32,7 @@ mentoria de 3 meses da Simple para lançar a própria mentoria de etiqueta
 | ------- | ----- | ------ | ---- |
 | Resumo de contexto | `contexto/resumo.md` | pronto | 2026-08-18 |
 | Roadmap Estratégico de 90 dias | `estrategia/` | pronto (v1.0) | 2026-08-18 |
+| Estratégia completa (8 seções) | `estrategia/` + [Google Doc](https://docs.google.com/document/d/1VKW4wWRd3DjiooTxeXf7teuQ7XcZHEF-usTE00wSWjg/edit) | pronto (v1.0) | 2026-08-18 |
 
 ## Observações
 
