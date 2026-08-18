@@ -36,13 +36,15 @@ metodologia** (funil e comercial) + acompanhamento por 1 ano.
 | Canvas do Produto | ✅ preenchido pelo cliente |
 | Canvas do Cliente Ideal | ✅ resolvido na call (3 nichos + formato) |
 | Call de onboarding | ✅ 05/08/26 |
-| **Roadmap Estratégico 90 dias** | ✅ **v1.0 pronto** (prazo era 10/08) |
-| **Guia de captação de depoimentos** | ✅ **v1.0 pronto** |
+| **Roadmap Estratégico 90 dias** | ✅ **v1.0 pronto para envio** (prazo era 10/08) |
+| **Guia de captação de depoimentos** | ✅ **v1.0 pronto para envio** |
+| Enviar roadmap + guia ao Filipe | ⬜ a fazer |
 | Link do Drive para ele subir materiais | ⬜ a enviar |
 | Área de membros (novo bloco: formação interna + workshops) | ⬜ a subir |
 | Materiais extras (Notion do funil + mapas mentais) | ⬜ a enviar |
 | Cadernos de cadência + quebras de objeção | ⬜ a enviar |
 | Curadoria das aulas da área de membros | ⬜ a montar |
+| Confirmar faturamento atual (~R$ 3 mil) na gravação, em 00:05:54 | ⬜ a conferir |
 
 ## Observações
 
@@ -55,3 +57,8 @@ metodologia** (funil e comercial) + acompanhamento por 1 ano.
   roadmap é destravar ou encerrar com data.
 - **Instagram desalinhado:** @filipe.estrategista ainda vende social media.
   Reposicionar antes de qualquer mídia paga.
+- **Verba de tráfego definida:** R$ 1.500/mês (R$ 50/dia), a partir do dia 60,
+  financiada pelo caixa rápido.
+- **Versionamento:** o roadmap sofreu uma revisão interna antes do envio (verba,
+  mentor na capa e nota sobre o CLT). O rodapé do PDF diz Versão 1.0 porque é a
+  primeira versão que o cliente recebe. Ver histórico no Git.
