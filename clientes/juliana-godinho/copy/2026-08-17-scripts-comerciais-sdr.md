@@ -82,18 +82,22 @@ não tem, antes de qualquer humano gastar tempo.
 
 ## FRENTE 1 — Qualificação
 
-**Quem faz o quê.** A conversa no WhatsApp é da **Ana**, do primeiro contato até o
-agendamento confirmado. A conversa por telefone e a sessão estratégica são da
+**Uma voz só para a lead.** Todo contato sai assinado como **Iêda**, do primeiro
+WhatsApp até a sessão. Para quem está do outro lado existe uma pessoa
+acompanhando o caso do começo ao fim, e é isso que sustenta o "eu já estudei as
+suas respostas" mais adiante.
+
+Na operação, o WhatsApp é tocado pela **Ana**, o telefone e a sessão pela
 **Iêda**. As duas trabalham as mesmas perguntas, o que muda é o canal.
 
 **Regra de ouro:** quem qualifica não diagnostica, pergunta e anota. Toda vez que
 a vontade de explicar aparecer, é sinal de que saiu do lugar de quem conduz.
 
-### WhatsApp, com a Ana
+### WhatsApp
 
 **M1, até quinze minutos depois do quiz**
 
-> {Nome}, aqui é a Ana, do time da Ju Godinho, tudo bem?
+> {Nome}, aqui é a Iêda, do time da Ju Godinho, tudo bem?
 >
 > Acabei de ver que você terminou o diagnóstico agora há pouco.
 
@@ -150,27 +154,27 @@ de verdade*. Não avance com resposta vaga.
 
 **M10, o valor da sessão**
 
-> Pelo que você me contou, faz sentido a gente avançar pra uma conversa com a
-> Iêda, que é a especialista do time da Ju.
+> Pelo que você me contou, faz sentido a gente marcar a sessão estratégica.
 >
-> Funciona assim: ela recebe as suas respostas do diagnóstico e tudo que você me
-> contou aqui, estuda o seu cenário antes de falar com você e chega na conversa
-> já com o principal gargalo mapeado. São de trinta a quarenta minutos, e você
-> sai de lá sabendo o que precisa mudar primeiro.
+> Funciona assim: antes da nossa conversa eu pego as suas respostas do
+> diagnóstico e tudo que você me contou aqui, estudo o seu cenário com calma e
+> chego já com o principal gargalo mapeado. São de trinta a quarenta minutos, e
+> você sai de lá sabendo o que precisa mudar primeiro.
 
 A sessão deixa de ser trinta minutos sem compromisso e passa a ser uma análise
 preparada com o nome dela. É o que sustenta o valor antes de qualquer número.
 
-**M11, o investimento**
+**M11, a disposição de investir**
 
-> Só uma coisa antes de eu ver a agenda dela. O acompanhamento da Ju é um
-> programa de quase dez mil reais, e eu prefiro te falar agora, por respeito ao
-> seu tempo.
+> Última coisa antes de eu ver a agenda.
 >
-> Pelo que você me contou sobre o que está em jogo aí, é algo que faz sentido
-> você olhar agora?
+> Se na nossa conversa a gente achar um caminho que resolve isso de verdade,
+> você está num momento de conseguir investir pra fazer acontecer, ou seria
+> coisa pra mais pra frente?
 
-Vem depois do valor, nunca antes.
+Filtra disposição sem cravar número, de propósito. A Ju tem mais de um caminho
+de entrada, e ancorar num valor alto aqui fecharia a porta de quem entraria por
+outro. O número aparece na sessão, com o cenário já na mesa.
 
 **M12, o agendamento**
 
@@ -179,23 +183,23 @@ Vem depois do valor, nunca antes.
 > Em qual dos dois você consegue estar num lugar tranquilo, com trinta minutos
 > livres e sem atender ninguém?
 >
-> Fechado. Vou reservar {dia} às {hora} com a Iêda. Posso contar com você nesse
+> Fechado. Vou reservar {dia} às {hora} pra gente. Posso contar com você nesse
 > horário?
 
 Espera o sim escrito. É a primeira trava do anti no-show.
 
-### Telefone, com a Iêda
+### Telefone
 
 O WhatsApp é a porta de entrada. Quando a lead prefere falar, ou quando a conversa
-trava no texto e o caso merece insistência, a ligação é da Iêda, com as mesmas
-perguntas de M4 a M12.
+trava no texto e o caso merece insistência, a conversa passa para o telefone,
+com as mesmas perguntas de M4 a M12.
 
 **L1, abertura pedindo o tempo**
 
 > {Nome}? Aqui é a Iêda, do time da Ju Godinho, tudo bem?
 >
-> Você respondeu nosso diagnóstico {hoje, ontem} e trocou umas mensagens com a
-> Ana. Tenho dois minutos pra te fazer uma pergunta ou peguei você no meio de um
+> Você respondeu nosso diagnóstico {hoje, ontem} e a gente trocou umas mensagens
+> por lá. Tenho dois minutos pra te fazer uma pergunta ou peguei você no meio de um
 > atendimento?
 
 **L2, prova, promessa e plano**
@@ -304,7 +308,7 @@ o que vai acontecer na conversa. As duas coisas se resolvem antes, não depois.
 
 **R0, no ato do agendamento, a mais importante de todas**
 
-> Fechado, {Nome}. {dia} às {hora}, com a Iêda, pelo Google Meet, dura
+> Fechado, {Nome}. {dia} às {hora}, comigo, pelo Google Meet, dura
 > de trinta a quarenta minutos.
 >
 > Duas coisas pra você aproveitar de verdade: esteja num lugar onde dê pra falar
@@ -318,7 +322,7 @@ compromisso que ela só ouve.
 
 **R1, vinte e quatro horas antes**
 
-> {Nome}, amanhã às {hora} é a sua conversa com a Iêda. Me confirma
+> {Nome}, amanhã às {hora} é a nossa conversa. Me confirma
 > com um ok que tá de pé?
 
 Exige resposta ativa. Lembrete que não pede nada não confirma nada.
@@ -332,7 +336,7 @@ Exige resposta ativa. Lembrete que não pede nada não confirma nada.
 
 > {Nome}, daqui a uma hora a gente se fala, segue o link: {link}
 >
-> A Iêda já leu suas respostas do diagnóstico, então vocês vão direto
+> Já estudei as suas respostas do diagnóstico, então vocês vão direto
 > ao ponto, sem você ter que contar tudo de novo.
 
 Essa segunda linha é o que mais derruba no-show. Ela informa que existe trabalho
@@ -340,15 +344,15 @@ já feito e personalizado esperando por ela, e faltar passa a ter custo.
 
 **R3, dez minutos antes**
 
-> {Nome}, a Iêda já está na sala, é só entrar por aqui: {link}
+> {Nome}, já estou na sala, é só entrar por aqui: {link}
 
 **R4, cinco minutos depois do horário**
 
-> {Nome}, a Iêda está na sala te esperando, consegue entrar?
+> {Nome}, tô na sala te esperando, consegue entrar?
 
 **R5, trinta minutos depois**
 
-> {Nome}, imagino que apareceu atendimento aí. A Iêda tinha separado
+> {Nome}, imagino que apareceu atendimento aí. Eu tinha separado
 > esse horário pro seu caso, me fala se dá pra remarcar ainda essa semana.
 
 Custo real, não escassez inventada. O horário existiu e foi reservado.
