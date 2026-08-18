@@ -217,13 +217,6 @@
   }
   .op:hover{border-color:var(--line)}
   .op.on{background:var(--gold);border-color:var(--gold);color:var(--navy);font-weight:600}
-  textarea{
-    width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);
-    border-radius:11px;padding:14px 16px;color:var(--w);font-family:var(--body);font-size:16px;
-    min-height:88px;resize:vertical;
-  }
-  textarea:focus{outline:0;border-color:var(--gold);background:rgba(200,178,139,.07)}
-  textarea::placeholder{color:var(--w40)}
   .voltar{background:none;border:0;color:var(--w60);font-size:13.5px;cursor:pointer;font-family:var(--body);text-decoration:underline;margin-top:14px}
   .erro{color:#ff9a9a;font-size:13.5px;margin-top:10px;display:none}
   .erro.on{display:block}
@@ -660,8 +653,17 @@
         <button type="button" class="op">Acima de R$100 mil</button>
       </div>
 
-      <label for="travamento">Qual é o maior travamento do seu negócio hoje?</label>
-      <textarea id="travamento" placeholder="Escreve do seu jeito, em uma linha."></textarea>
+      <label>Qual é o maior travamento do seu negócio hoje?</label>
+      <div class="ops" data-campo="travamento" id="grupo-travamento">
+        <button type="button" class="op">Atrair cliente qualificado</button>
+        <button type="button" class="op">Fechar venda de ticket alto</button>
+        <button type="button" class="op">Estruturar a oferta de mentoria</button>
+        <button type="button" class="op">Escalar sem depender só de mim</button>
+        <button type="button" class="op">Time e gestão comercial</button>
+        <button type="button" class="op">Outro</button>
+      </div>
+      <input id="travamento-outro" type="text" maxlength="80" style="display:none;margin-top:10px"
+             placeholder="Conta em poucas palavras qual é" />
 
       <p class="erro" id="erro2"></p>
 
@@ -748,6 +750,15 @@
     });
   });
 
+  // O campo livre so aparece para quem escolhe "Outro", para nao pesar a tela de quem nao precisa.
+  var campoOutro = document.getElementById("travamento-outro");
+  document.getElementById("grupo-travamento").addEventListener("click", function (e) {
+    if (!e.target.classList.contains("op")) return;
+    var ehOutro = e.target.textContent.trim() === "Outro";
+    campoOutro.style.display = ehOutro ? "block" : "none";
+    if (ehOutro) { campoOutro.focus(); } else { campoOutro.value = ""; }
+  });
+
   function falhar(el, msg) {
     el.textContent = msg;
     el.classList.add("on");
@@ -798,8 +809,14 @@
   document.getElementById("enviar").addEventListener("click", function () {
     if (!respostas.atuacao) { return falhar(erro2, "Escolhe o que você faz hoje."); }
     if (!respostas.faturamento) { return falhar(erro2, "Escolhe a faixa de faturamento."); }
+    if (!respostas.travamento) { return falhar(erro2, "Escolhe o seu maior travamento hoje."); }
 
-    respostas.travamento = document.getElementById("travamento").value.trim();
+    var travamento = respostas.travamento;
+    if (travamento === "Outro") {
+      var outro = campoOutro.value.trim();
+      if (outro.length < 3) { return falhar(erro2, "Escreve em poucas palavras qual é o travamento."); }
+      travamento = "Outro: " + outro;
+    }
 
     var botao = document.getElementById("enviar");
     botao.textContent = "Abrindo o WhatsApp...";
@@ -812,7 +829,7 @@
       email: contato.email,
       atuacao: respostas.atuacao,
       faturamento: respostas.faturamento,
-      travamento: respostas.travamento,
+      travamento: travamento,
       utm_source: params.get("utm_source") || "",
       utm_medium: params.get("utm_medium") || "",
       utm_campaign: params.get("utm_campaign") || "",

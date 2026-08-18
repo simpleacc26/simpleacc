@@ -272,24 +272,56 @@ Quero garantir minha vaga
 
 ---
 
-## BLOCO 12 | Formulário de captura
+## BLOCO 12 | Aplicação em dois passos
 
-Aparece antes do link de pagamento para quem chega pelo anúncio.
+Abre num modal quando a pessoa clica em qualquer botão da página. Todas as perguntas são de
+escolha, sem digitação, porque cada campo aberto derruba conversão.
+
+### Passo 1 de 2
 
 **Título**
-Falta um passo para a sua vaga
+Vamos garantir a sua vaga
 
 **Texto**
-Preenche aqui e eu te levo direto para o pagamento. Se você fechar a página antes de
-concluir, a gente consegue te avisar quando as últimas vagas estiverem acabando.
+São duas telas rápidas. Quando você terminar, a conversa abre direto no WhatsApp com a
+nossa equipe.
 
 **Campos**
 Nome completo
-WhatsApp com DDD
+WhatsApp com DDD (10 ou 11 dígitos, com máscara na digitação)
 E-mail
 
 **Botão**
-Continuar para o pagamento
+Continuar
+
+### Passo 2 de 2
+
+**Título**
+Só mais três perguntas
+
+**Texto**
+É o que faz a nossa equipe chegar na conversa já sabendo quem é você, em vez de começar do
+zero perguntando o básico.
+
+**Pergunta 1**
+O que você faz hoje?
+(Mentoria / Consultoria / Treinamento / Coaching / Outro)
+
+**Pergunta 2**
+Quanto o seu negócio fatura por mês hoje?
+(Até R$20 mil / R$20 a R$50 mil / R$50 a R$100 mil / Acima de R$100 mil)
+
+**Pergunta 3**
+Qual é o maior travamento do seu negócio hoje?
+(Atrair cliente qualificado / Fechar venda de ticket alto / Estruturar a oferta de mentoria /
+Escalar sem depender só de mim / Time e gestão comercial / Outro)
+
+As alternativas saem da própria programação do evento, então a resposta já indica qual parte
+do dia interessa mais para aquela pessoa. Quem marca "Outro" recebe um campo de uma linha
+para escrever, e só ele.
+
+**Botão**
+Enviar e abrir o WhatsApp
 
 **Abaixo do botão**
 Seus dados servem só para a organização do evento. Nada de lista de spam.
@@ -299,27 +331,23 @@ Seus dados servem só para a organização do evento. Nada de lista de spam.
 ## BLOCO 13 | Página de obrigado
 
 **Título**
-Vaga garantida. Agora me conta com quem eu vou falar no dia 11.
+Inscrição enviada, [primeiro nome].
 
 **Texto**
-Você vai receber a confirmação e os detalhes no e-mail e no WhatsApp. Antes disso, responde
-essas três perguntas. Elas levam um minuto e são o que me permite chegar no dia 11 sabendo
-quem está na sala, o que ajuda muito na hora do hotseat.
-
-**Pergunta 1**
-O que você faz hoje?
-(mentoria, consultoria, treinamento, coaching, outro)
-
-**Pergunta 2**
-Quanto o seu negócio fatura por mês hoje?
-(até R$10 mil / R$10 mil a R$30 mil / R$30 mil a R$100 mil / acima de R$100 mil)
-
-**Pergunta 3**
-Qual é o maior travamento do seu negócio hoje?
-(resposta aberta)
+A conversa com a nossa equipe está abrindo no WhatsApp agora. Se ela não abrir sozinha, é só
+tocar no botão abaixo.
 
 **Botão**
-Enviar
+Abrir a conversa no WhatsApp
+
+**Cartão: o que acontece agora**
+1. A nossa equipe confirma se ainda tem vaga entre as cinquenta.
+2. A gente combina com você a forma de pagamento do ingresso, na conversa.
+3. Com o pagamento feito, a sua vaga fica reservada e você recebe os detalhes do dia.
+
+**Abaixo do cartão**
+Enquanto a conversa não acontece, a vaga ainda não está reservada. Por isso vale responder
+assim que a gente chamar.
 
 ---
 
