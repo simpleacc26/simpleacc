@@ -192,24 +192,38 @@ const statusConfig: Record<PillarStatus, { label: string; color: string; bg: str
 // ─── Componente Principal ─────────────────────────────────────────────────────
 
 export function ReportScreen({ leadData, answers }: ReportScreenProps) {
+  const rota = getRota(answers);
+
+  // Toda medição do relatório carrega a rota, porque as duas páginas são
+  // diferentes: a Rota A vê a sessão como oferta principal e o treinamento
+  // como segunda opção, a Rota B só vê o treinamento. Sem esse parâmetro,
+  // taxa de clique no low ticket vira uma média de duas coisas distintas.
   useEffect(() => {
     fbqTrack("PageView");
-    fbqTrack("ViewContent", { content_name: "Relatório Quiz", content_category: "Chocolate" });
-  }, []);
+    fbqTrack("ViewContent", { content_name: "Relatório Quiz", content_category: "Chocolate", rota });
+  }, [rota]);
 
   const firstName = leadData.name.split(" ")[0];
   const pilares = buildPilares(answers);
   const criticos = pilares.filter((p) => p.status === "critico").length;
   const whatsappUrl = buildWhatsAppUrl(firstName);
-  const rota = getRota(answers);
   const lowTicketUrl = buildLowTicketUrl(rota);
 
   const handleWhatsAppClick = () => {
-    fbqTrack("Contact", { content_name: "Sessão Diagnóstica Gratuita", content_category: "Mentoria" });
+    fbqTrack("Contact", {
+      content_name: "Sessão Diagnóstica Gratuita",
+      content_category: "Mentoria",
+      rota,
+    });
   };
 
   const handleLowTicketClick = () => {
-    fbqTrack("InitiateCheckout", { value: 97, currency: "BRL", content_name: "Treinamento Bombom Artístico" });
+    fbqTrack("InitiateCheckout", {
+      value: 97,
+      currency: "BRL",
+      content_name: "Treinamento Bombom Artístico",
+      rota,
+    });
   };
 
   return (

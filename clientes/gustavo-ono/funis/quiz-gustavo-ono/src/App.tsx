@@ -104,9 +104,13 @@ function QuizFlow() {
 
   const handleLeadSubmit = async (data: LeadData) => {
     setLeadData(data);
+    const rota = getRota(answers);
+    // A rota viaja junto com o evento para o GA4 conseguir separar lead
+    // qualificada (A) de lead de entrada (B) sem depender da planilha.
     fbqTrack("Lead", {
       content_name: "Quiz Diagnóstico",
       content_category: "Chocolate",
+      rota,
     });
 
     const answerText = (index: number) => {
@@ -133,7 +137,7 @@ function QuizFlow() {
       nome: data.name,
       email: data.email,
       whatsapp: data.phone,
-      rota: getRota(answers),
+      rota,
       utm_source: utm.utm_source,
       utm_medium: utm.utm_medium,
       utm_campaign: utm.utm_campaign,
