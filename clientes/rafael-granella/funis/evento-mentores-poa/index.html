@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MFVTJDV6');</script>
+<!-- End Google Tag Manager -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Imersão Mentores Alivance | Porto Alegre, 11 de setembro</title>
@@ -253,6 +260,11 @@
 </style>
 </head>
 <body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MFVTJDV6"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <!-- ============ HERO ============ -->
 <section class="hero">
@@ -694,6 +706,20 @@
     window.dataLayer.push(Object.assign({ event: evento }, extra || {}));
   }
 
+  // Quando o evento vem colado numa troca de pagina, o GTM pode nao ter disparado ainda e a
+  // conversao se perde. Aqui a gente espera o eventCallback, com teto de 1s pra nao segurar
+  // ninguem se o GTM estiver bloqueado por extensao.
+  function trackEntao(evento, extra, seguir) {
+    var jaSeguiu = false;
+    var vai = function () {
+      if (jaSeguiu) return;
+      jaSeguiu = true;
+      seguir();
+    };
+    track(evento, Object.assign({}, extra || {}, { eventCallback: vai, eventTimeout: 1000 }));
+    setTimeout(vai, 1000);
+  }
+
   function linkZap(texto) {
     return "https://wa.me/" + C.whatsapp + "?text=" + encodeURIComponent(texto);
   }
@@ -719,8 +745,8 @@
   function abrir(e) {
     if (e) e.preventDefault();
     if (direto) {
-      track("whatsapp_convite_direto");
-      location.href = linkZap("Oi! Recebi o convite do Rafa para a Imersão Mentores Alivance do dia 11 de setembro e quero garantir a minha vaga.");
+      var destinoZap = linkZap("Oi! Recebi o convite do Rafa para a Imersão Mentores Alivance do dia 11 de setembro e quero garantir a minha vaga.");
+      trackEntao("whatsapp_convite_direto", null, function () { location.href = destinoZap; });
       return;
     }
     erro1.classList.remove("on");
@@ -840,7 +866,6 @@
       pagina: location.href
     };
     try { localStorage.setItem("alivance_lead", JSON.stringify(lead)); } catch (x) {}
-    track("aplicacao_enviada", { faturamento: lead.faturamento });
 
     var primeiroNome = contato.nome.split(" ")[0];
     var mensagem = "Oi! Meu nome é " + contato.nome + ". Acabei de preencher a inscrição na " +
@@ -848,26 +873,25 @@
     var destino = "obrigado.html?n=" + encodeURIComponent(primeiroNome) +
       "&z=" + encodeURIComponent(linkZap(mensagem));
 
-    // O registro nunca pode segurar a pessoa: se falhar ou demorar, ela segue mesmo assim.
-    var segue = function () { location.href = destino; };
-
     // Form encoded de proposito: e o formato que o webhook do Make le sem preflight de CORS.
     var corpo = new URLSearchParams(lead);
 
-    if (!C.webhookLeads) {
-      segue();
-    } else if (navigator.sendBeacon && navigator.sendBeacon(C.webhookLeads, corpo)) {
-      // sendBeacon segue enviando depois que a pagina troca, entao ninguem fica esperando.
-      segue();
-    } else {
-      fetch(C.webhookLeads, {
-        method: "POST",
-        mode: "no-cors",
-        keepalive: true,
-        body: corpo
-      }).then(segue).catch(segue);
-      setTimeout(segue, 2500);
+    if (C.webhookLeads) {
+      // sendBeacon e keepalive seguem enviando depois que a pagina troca, entao o registro
+      // nunca segura a pessoa e nenhuma aplicacao se perde no caminho pro WhatsApp.
+      var mandou = !!(navigator.sendBeacon && navigator.sendBeacon(C.webhookLeads, corpo));
+      if (!mandou) {
+        try {
+          fetch(C.webhookLeads, { method: "POST", mode: "no-cors", keepalive: true, body: corpo });
+        } catch (x) {}
+      }
     }
+
+    trackEntao("aplicacao_enviada", {
+      faturamento: lead.faturamento,
+      atuacao: lead.atuacao,
+      travamento: lead.travamento
+    }, function () { location.href = destino; });
   });
 })();
 </script>

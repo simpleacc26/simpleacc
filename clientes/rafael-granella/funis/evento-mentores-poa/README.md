@@ -92,11 +92,47 @@ Ainda pendente de decisão do cliente, marcado no HTML:
 - **Convite direto do Rafa:** `https://dominio/?direto=1` abre o WhatsApp na hora, sem
   formulário, porque essa audiência já está quente e o atrito só atrapalha.
 
-## Eventos enviados para o dataLayer
+## Traqueamento
 
-`aplicacao_abriu`, `aplicacao_passo2`, `aplicacao_enviada`, `whatsapp_duvida`,
-`whatsapp_convite_direto` e, na página de obrigado, `aplicacao_concluida`. Ligar o GTM ou o
-Pixel na tag de conversão que a campanha for otimizar, que é o `aplicacao_enviada`.
+O Google Tag Manager `GTM-MFVTJDV6` está instalado nas duas páginas, com o snippet do `<head>`
+antes de qualquer outro script e o `<noscript>` logo depois do `<body>`.
+
+A página empurra os eventos abaixo para o `dataLayer`. Todos são eventos personalizados, então
+no GTM cada um vira um acionador do tipo **Evento personalizado** com o nome exato:
+
+| Evento | Quando dispara | Página |
+| --- | --- | --- |
+| `aplicacao_abriu` | Pessoa clica em qualquer botão de inscrição e o modal abre | index |
+| `aplicacao_passo2` | **Clicou em Continuar com nome, WhatsApp e e-mail válidos.** É a métrica de quem enviou os dados de contato | index |
+| `aplicacao_enviada` | **Respondeu as três perguntas e enviou.** É a conversão principal | index |
+| `whatsapp_duvida` | Clique no botão flutuante "Tenho uma dúvida" | index |
+| `whatsapp_convite_direto` | Entrou por `?direto=1` e foi mandado direto pro WhatsApp | index |
+| `aplicacao_concluida` | Carregou a página de obrigado | obrigado |
+| `whatsapp_conversa_aberta` | Clicou no botão que abre a conversa no WhatsApp | obrigado |
+
+O `aplicacao_enviada` carrega três parâmetros sem dado pessoal: `faturamento`, `atuacao` e
+`travamento`. Dá para ler no GA4 (ou no relatório do GTM) qual faixa de faturamento e qual
+travamento mais converte, e usar isso para ajustar público e copy. Nome, WhatsApp e e-mail
+nunca vão para o dataLayer, ficam só na planilha.
+
+**Detalhe que evita perder conversão:** `aplicacao_enviada` e `whatsapp_convite_direto` vêm
+colados numa troca de página, e nesse cenário a tag costuma não disparar a tempo. A página usa
+`eventCallback` e só navega quando o GTM confirma, com teto de 1 segundo para não segurar
+ninguém caso o GTM esteja bloqueado por extensão.
+
+### O que montar no GTM
+
+1. Três acionadores de evento personalizado: `aplicacao_passo2`, `aplicacao_enviada` e
+   `whatsapp_conversa_aberta`.
+2. Tag do GA4 (ou do Pixel da Meta) em cada um deles. No Pixel, o `aplicacao_enviada` deve ser
+   um evento **Lead**, que é o que a campanha vai otimizar.
+3. O Pixel da Meta pode entrar pelo próprio GTM, com a tag base em Todas as páginas. Não
+   colocar pixel direto no HTML também, senão os eventos contam em dobro.
+4. Publicar o container e conferir no Preview do GTM, seguindo o fluxo real da página.
+
+Referência de leitura da campanha: visitas → `aplicacao_passo2` → `aplicacao_enviada` →
+`whatsapp_conversa_aberta`. A queda entre os dois primeiros mostra problema de oferta ou de
+público; a queda entre os dois últimos mostra problema no atendimento do WhatsApp.
 
 ## Rodar local
 
