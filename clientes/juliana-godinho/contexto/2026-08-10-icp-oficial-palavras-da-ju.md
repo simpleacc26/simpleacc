@@ -177,6 +177,10 @@ nomes.
 
 ## Fatos da marca e da oferta (doc COPY 2026, abas PÁGINAS e VSL)
 
+- **Método ELA.** É o nome que a Ju usa no comercial para o acompanhamento que a
+  lead é avaliada para entrar. Confirmado por ela em 17/08/2026, depois de a
+  primeira versão dos scripts de SDR ter levantado a dúvida. **É esse nome que
+  vai na boca de quem qualifica**, não EDP.
 - **EDP = Estética do Poder.** É o nome do método da Ju, não uma sigla interna
   qualquer. "Idealizadora do Método Estética do Poder, que já impactou mais de
   5.000 alunas em todo o Brasil."

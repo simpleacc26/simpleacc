@@ -87,13 +87,12 @@ WhatsApp até a sessão. Para quem está do outro lado existe uma pessoa
 acompanhando o caso do começo ao fim, e é isso que sustenta o "eu já estudei as
 suas respostas" mais adiante.
 
-Na operação, o WhatsApp é tocado pela **Ana**, o telefone e a sessão pela
-**Iêda**. As duas trabalham as mesmas perguntas, o que muda é o canal.
+Na operação, o WhatsApp é da **Ana** e a sessão estratégica é da **Iêda**.
 
 **Regra de ouro:** quem qualifica não diagnostica, pergunta e anota. Toda vez que
 a vontade de explicar aparecer, é sinal de que saiu do lugar de quem conduz.
 
-### WhatsApp
+### As onze mensagens
 
 **M1, até quinze minutos depois do quiz**
 
@@ -183,33 +182,11 @@ outro. O número aparece na sessão, com o cenário já na mesa.
 
 Espera o sim escrito. É a primeira trava do anti no-show.
 
-### Telefone
+**Uma pergunta por vez.** Mandou, espera. Não emenda a próxima antes de ela
+responder e não preenche o silêncio com explicação, porque é no segundo fôlego
+que vem a parte mais útil da resposta.
 
-O WhatsApp é a porta de entrada. Quando a lead prefere falar, ou quando a conversa
-trava no texto e o caso merece insistência, a conversa passa para o telefone,
-com as mesmas perguntas de M3 a M11.
-
-**L1, abertura pedindo o tempo**
-
-> {Nome}? Aqui é a Iêda, do time da Ju Godinho, tudo bem?
->
-> Você respondeu nosso diagnóstico {hoje, ontem} e a gente trocou umas mensagens
-> por lá. Tenho dois minutos pra te fazer uma pergunta ou peguei você no meio de um
-> atendimento?
-
-**L2, prova, promessa e plano**
-
-> Eu falo toda semana com profissional que tá exatamente no ponto que você
-> descreveu ali no diagnóstico.
->
-> Se a gente conversar uns cinco minutos, no fim eu consigo te dizer com clareza
-> o que tá segurando o crescimento aí e se o Método ELA resolve ou não o seu caso.
->
-> Se não resolver eu te falo, sem enrolação. Posso te fazer as perguntas?
-
-**A regra dos cinco segundos.** Terminou a pergunta, cala a boca e conta até
-cinco. A lead quase sempre retoma sozinha e entrega a parte mais útil nesse
-segundo fôlego.
+---
 
 ## FRENTE 2 — Follow-up
 

@@ -23,6 +23,8 @@ onde o outro parou (o Git é a memória compartilhada).
 ## Contexto rápido
 
 - **Oferta principal:** mentoria para profissionais da saúde estética, R$ 9.999.
+  No comercial ela é apresentada como **Método ELA** (confirmado pela Ju em
+  17/08/26) — é esse nome que a lead ouve na qualificação.
   **EDP** — produto de R$ 1.997 (fora da entrada do funil a partir de ago/26).
   **Nunca chamar o EDP de "consultoria".** A Ju não vende consultoria.
 - **Público / ICP:** profissional da saúde estética que atua com **estética
