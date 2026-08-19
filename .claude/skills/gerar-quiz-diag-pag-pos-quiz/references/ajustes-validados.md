@@ -100,6 +100,62 @@ botão mudo, que é um erro silencioso e caro.
 const WPP_OK = /^\d{12,13}$/.test(String(F.marca.whatsapp || ""));
 ```
 
+## 5.1 Máscara de telefone (bug de produção, corrigido no motor)
+
+**O autofill do iPhone destruía o número da lead.** Reportado pelo cliente com
+leads reais depois do funil no ar. Quando a lead vem do navegador do Instagram
+(que é o caso da maioria), o iOS sugere o telefone em formato internacional e
+preenche `+55 11 99991-2039` de uma vez só. Chegava na planilha:
+
+```
++55 11 99991-2039  ->  (55) 11999-9120     ERRADO, final perdido
++55 48 99964-4711  ->  (55) 48999-6447     ERRADO
+```
+
+Duas causas somadas, as duas no motor:
+1. **`input.maxLength = 16`** cortava a string crua ANTES da máscara rodar;
+2. o `fmt()` fazia `.slice(0, 11)` direto nos dígitos, então o **55 do país
+   entrava como se fosse DDD** e empurrava o número inteiro uma casa.
+3. de brinde, o listener era só de `"input"` e **autofill nem sempre dispara
+   `input`** (às vezes só `change`).
+
+Correção (já aplicada em `assets/funil-referencia/app.js`):
+
+```js
+function soDigitosTel(v) {
+  let d = String(v || "").replace(/\D/g, "");
+  if (d.length > 11 && d.startsWith("55")) d = d.slice(2);   // tira o país
+  return d.slice(0, 11);                                      // corta DEPOIS
+}
+function celularValido(v) {
+  const d = soDigitosTel(v);
+  return d.length === 11 && d[2] === "9" && Number(d.slice(0, 2)) >= 11;
+}
+input.removeAttribute("maxlength");                 // quem limita é o soDigitosTel
+["input", "change", "blur"].forEach((ev) =>
+  input.addEventListener(ev, () => { input.value = fmtTel(input.value); }));
+```
+
+Regras que saem daqui:
+- **Nunca corte por `maxLength` num campo mascarado.** O limite é da função, não
+  do atributo. Colar e autofill entregam a string inteira de uma vez.
+- **Tire o código do país antes de cortar**, nunca depois.
+- **Cuidado com o DDD 55** (Santa Maria/RS): é real. Por isso a regra é
+  `length > 11 && startsWith("55")`, e não `startsWith("55")` sozinho.
+  `55999122039` tem 11 dígitos e passa intacto.
+- **Normalize também o valor enviado** para a planilha (`fmt(a.whatsapp)`), não
+  só o que aparece na tela.
+- **Valide de verdade** (11 dígitos, nono dígito 9, DDD >= 11) em vez de só
+  contar caracteres. A mensagem de erro deve dizer "sem o +55".
+
+> **Leads já corrompidos não têm conserto automático:** os dígitos do final se
+> perderam no envio, não estão guardados em lugar nenhum. Avise o cliente para
+> recuperar essas linhas pelo e-mail (que veio certo) e não pelo telefone.
+
+> Teste obrigatório antes de entregar qualquer funil: cole
+> `+55 11 99991-2039` no campo e confirme que o campo mostra `(11) 99991-2039`
+> **e** que é isso que sai no payload.
+
 ## 6. Planilha de leads
 
 **Some a coluna do resultado nomeado**, além da classificação. É o que

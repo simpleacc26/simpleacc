@@ -275,6 +275,38 @@ que vale.
   numa URL sem os parâmetros e aceitasse o "continuar de onde parou", o lead caía
   na planilha **sem origem nenhuma**. Corrigido e testado em 12/08.
 
+## Correção do campo de WhatsApp (13/08, em produção)
+
+Leads reais chegavam com o número errado na planilha: `(55) 19991-2039`,
+`(55) 48996-4711`. Causa: o autofill do iPhone, quando a lead vem do navegador
+do Instagram, preenche em formato internacional (`+55 11 99991-2039`). O motor
+cortava a string com `maxLength = 16` antes da máscara rodar e depois pegava os
+11 primeiros dígitos, então o **55 do país virava DDD** e o final do número se
+perdia.
+
+O que mudou no `app.js`:
+- `soDigitos()` **tira o `55` do país antes** de limitar a 11 dígitos;
+- o campo **não tem mais `maxLength`** (quem limita é a função);
+- a máscara ouve `input`, `change` e `blur` (autofill nem sempre dispara `input`);
+- `celularValido()` valida de verdade: 11 dígitos, nono dígito `9`, DDD >= 11;
+- o valor **enviado para a planilha** também passa pela máscara.
+
+Cuidado guardado no código: **o DDD 55 (Santa Maria/RS) é real**. Por isso a
+regra é `length > 11 && startsWith("55")`, nunca `startsWith("55")` sozinho.
+`55999122039` continua chegando como `(55) 99912-2039`.
+
+Antes e depois, com os números que o cliente reportou:
+
+```
+                        ANTES (no ar)        DEPOIS
++55 11 99991-2039  ->   (55) 11999-9120      (11) 99991-2039
++55 48 99964-4711  ->   (55) 48999-6447      (48) 99964-4711
++55 61 99374-8030  ->   (55) 61993-7480      (61) 99374-8030
+```
+
+> **As linhas já corrompidas não se recuperam:** os dígitos do final nunca
+> foram enviados. Para reaproveitar esses leads, use o e-mail, que veio certo.
+
 ## Pendências
 
 1. **Republicar a partir desta pasta**: os deploys até aqui foram feitos pelo MCP
@@ -289,6 +321,13 @@ que vale.
    `estrategia/2026-07-21-guia-captacao-depoimentos.pdf`), converter para WebP
    ~520px e somar uma `.depo-gallery` antes do bloco de autoridade (CSS pronto).
 7. **Pixel da Meta e GA4**: preencher `app.js → TRACKING_CONFIG`.
+8. **Mesma correção de telefone nos outros funis da casa.** O bug era do
+   motor, não deste funil: a máscara antiga está igual em
+   `clientes/pamella-mello/funil-hipnose/app.js` e em
+   `clientes/lucas-sobreiro/funis/funil-quiz-clinica/app.js`. Os dois
+   templates da skill já foram corrigidos. Os funis desses clientes não
+   foram tocados aqui porque a regra da casa é uma pasta por sessão:
+   abrir uma sessão para cada um.
 
 ## Deploy
 

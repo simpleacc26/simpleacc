@@ -85,7 +85,7 @@ function enviarLead() {
   };
   const lead = {
     data: new Date().toISOString(),
-    nome: a.nomeResp || "", whatsapp: a.whatsapp || "", email: a.email || "",
+    nome: a.nomeResp || "", whatsapp: fmt(a.whatsapp || ""), email: a.email || "",
     situacao: label("situacao"), gatilho: label("gatilho"), reacao: label("reacao"),
     tempo: label("tempo"), implicacao: label("implicacao"), tentativas: label("tentativas"),
     objetivo: label("objetivo"), perfil: label("perfil"), prontidao: label("prontidao"),
@@ -118,6 +118,29 @@ function loadSaved() { try { return JSON.parse(sessionStorage.getItem(STORE_KEY)
 function clearSaved() { try { sessionStorage.removeItem(STORE_KEY); } catch (e) {} }
 
 /* ---------- helpers ---------- */
+/* ---------- telefone ----------
+   BUG REAL DE PRODUÇÃO (13/08): o autofill do iPhone, principalmente quando a
+   lead vem do navegador do Instagram, preenche o telefone em formato
+   internacional (+55 ...). O código do país entrava como se fosse DDD e o final
+   do número se perdia: chegavam na planilha coisas como "(55) 19991-2039".
+   Aqui o 55 sai antes de qualquer corte. */
+function soDigitos(v) {
+  let d = String(v || "").replace(/\D/g, "");
+  if (d.length > 11 && d.startsWith("55")) d = d.slice(2);   // tira o país
+  return d.slice(0, 11);
+}
+function fmt(v) {
+  const d = soDigitos(v);
+  if (d.length <= 2) return d ? "(" + d : "";
+  if (d.length <= 7) return "(" + d.slice(0, 2) + ") " + d.slice(2);
+  return "(" + d.slice(0, 2) + ") " + d.slice(2, 7) + "-" + d.slice(7);
+}
+/* Celular brasileiro: 11 dígitos, DDD de 11 a 99 e o nono dígito sempre 9. */
+function celularValido(v) {
+  const d = soDigitos(v);
+  return d.length === 11 && d[2] === "9" && Number(d.slice(0, 2)) >= 11;
+}
+
 function el(html) { const t = document.createElement("template"); t.innerHTML = html.trim(); return t.content.firstElementChild; }
 function scrollTop() { window.scrollTo({ top: 0, behavior: "smooth" }); }
 
@@ -232,15 +255,14 @@ function renderCaptura() {
     const input = screen.querySelector(`#${f.id}`);
     if (!input) return;
     input.inputMode = "numeric";
-    input.maxLength = 16;
-    const fmt = (v) => {
-      const d = v.replace(/\D/g, "").slice(0, 11);
-      if (d.length <= 2) return d ? "(" + d : "";
-      if (d.length <= 7) return "(" + d.slice(0, 2) + ") " + d.slice(2);
-      return "(" + d.slice(0, 2) + ") " + d.slice(2, 7) + "-" + d.slice(7);
-    };
+    /* Sem maxLength de propósito. O autofill escreve o valor cru ANTES da
+       máscara rodar: um maxLength curto cortava "+55 11 99991-2039" no meio e
+       o final do número se perdia. Quem limita é o soDigitos(). */
+    input.removeAttribute("maxlength");
     if (input.value) input.value = fmt(input.value);
-    input.addEventListener("input", () => { input.value = fmt(input.value); });
+    /* change e blur cobrem o autofill, que nem sempre dispara 'input'. */
+    ["input", "change", "blur"].forEach((ev) =>
+      input.addEventListener(ev, () => { input.value = fmt(input.value); }));
   });
 
   screen.querySelector("#back").addEventListener("click", () => goToStep(F.steps.length - 1));
@@ -256,7 +278,7 @@ function renderCaptura() {
       const val = input.value.trim();
       let problem = "";
       if (f.required && !val) problem = "Esse campo é obrigatório.";
-      else if (f.type === "tel" && val && val.replace(/\D/g, "").length < 11) problem = "Informe o WhatsApp completo com DDD.";
+      else if (f.type === "tel" && val && !celularValido(val)) problem = "Confira o WhatsApp: DDD e 9 dígitos, sem o +55.";
       else if (f.type === "email" && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) problem = "Informe um e-mail válido.";
       if (problem) {
         problems.push(f.label);

@@ -38,7 +38,10 @@ funil-<cliente>/
 - **Captura no fim**: peça o mínimo. Padrão atual: Nome, **WhatsApp (com máscara
   `(XX) XXXXX-XXXX`)**, **E-mail (obrigatório)**. Enquadre como "pra onde
   enviamos seu diagnóstico" (sobe o connect rate).
-- **Máscara de WhatsApp** e validação (telefone completo, e-mail válido) só ao enviar.
+- **Máscara de WhatsApp** e validação (celular completo, e-mail válido) só ao
+  enviar. A máscara **tira o `+55` antes de cortar** e **não usa `maxLength`**:
+  o autofill do iPhone entrega o número em formato internacional e a versão
+  antiga perdia o final dele em produção. Ver `ajustes-validados.md` (5.1).
 - **Captura de UTMs** da URL (`utm_source/medium/campaign/content/term`) e envio
   junto do lead. O anúncio aponta pra **raiz com query** (`/?utm_...`), nunca
   `/index.html` (servidor limpa a URL e derruba a query).
