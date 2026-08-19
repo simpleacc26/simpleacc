@@ -56,6 +56,28 @@ function dataHoraBR() {
   } catch (e) { return new Date().toISOString(); }
 }
 
+/* ---------- telefone ----------
+   Autofill do iPhone entrega "+55 11 99991-2039" de uma vez. Tira o código do
+   país ANTES de cortar, senão o 55 entra como DDD e empurra o número todo. */
+function soDigitosTel(v) {
+  let d = String(v || "").replace(/\D/g, "");
+  if (d.length > 11 && d.startsWith("55")) d = d.slice(2);   // tira o país
+  return d.slice(0, 11);                                     // corta DEPOIS
+}
+function fmtTel(v) {
+  const d = soDigitosTel(v);
+  if (d.length <= 2) return d ? "(" + d : "";
+  if (d.length <= 7) return "(" + d.slice(0, 2) + ") " + d.slice(2);
+  return "(" + d.slice(0, 2) + ") " + d.slice(2, 7) + "-" + d.slice(7);
+}
+/* Celular brasileiro: 11 dígitos, DDD de 11 a 99 e o nono dígito sempre 9.
+   O DDD 55 (Santa Maria/RS) é real e continua passando: "55999122039" tem 11
+   dígitos, então soDigitosTel() não mexe nele. */
+function celularValido(v) {
+  const d = soDigitosTel(v);
+  return d.length === 11 && d[2] === "9" && Number(d.slice(0, 2)) >= 11;
+}
+
 /* Classifica o lead por faturamento e prontidão (mesma régua do diagnóstico).
    Qualifica por intenção, não por pergunta crua de renda. */
 function classificarLead(a) {
@@ -234,15 +256,13 @@ function renderCaptura() {
     const input = screen.querySelector(`#${f.id}`);
     if (!input) return;
     input.inputMode = "numeric";
-    input.maxLength = 16;
-    const fmt = (v) => {
-      const d = v.replace(/\D/g, "").slice(0, 11);
-      if (d.length <= 2) return d ? "(" + d : "";
-      if (d.length <= 7) return "(" + d.slice(0, 2) + ") " + d.slice(2);
-      return "(" + d.slice(0, 2) + ") " + d.slice(2, 7) + "-" + d.slice(7);
-    };
-    if (input.value) input.value = fmt(input.value);
-    input.addEventListener("input", () => { input.value = fmt(input.value); });
+    // Nunca cortar por maxlength: colar e autofill entregam a string inteira de
+    // uma vez, e o corte aconteceria antes da máscara rodar. Quem limita é o
+    // soDigitosTel(). O autofill nem sempre dispara "input", daí change e blur.
+    input.removeAttribute("maxlength");
+    if (input.value) input.value = fmtTel(input.value);
+    ["input", "change", "blur"].forEach((ev) =>
+      input.addEventListener(ev, () => { input.value = fmtTel(input.value); }));
   });
 
   screen.querySelector("#back").addEventListener("click", () => goToStep(F.steps.length - 1));
@@ -258,7 +278,7 @@ function renderCaptura() {
       const val = input.value.trim();
       let problem = "";
       if (f.required && !val) problem = "Esse campo é obrigatório.";
-      else if (f.type === "tel" && val && val.replace(/\D/g, "").length < 11) problem = "Informe o WhatsApp completo com DDD.";
+      else if (f.type === "tel" && val && !celularValido(val)) problem = "Confira o WhatsApp: DDD e 9 dígitos, sem o +55.";
       else if (f.type === "email" && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) problem = "Informe um e-mail válido.";
       if (problem) {
         problems.push(f.label);
@@ -266,7 +286,7 @@ function renderCaptura() {
         msg.textContent = "Erro: " + problem; msg.classList.add("show");
       } else {
         input.removeAttribute("aria-invalid"); msg.classList.remove("show");
-        state.answers[f.id] = val;
+        state.answers[f.id] = (f.mask === "phone" || f.type === "tel") ? fmtTel(val) : val;
       }
     });
     if (problems.length) {
