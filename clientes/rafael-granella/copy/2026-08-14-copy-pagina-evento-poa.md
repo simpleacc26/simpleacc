@@ -334,8 +334,8 @@ Seus dados servem só para a organização do evento. Nada de lista de spam.
 Inscrição enviada, [primeiro nome].
 
 **Texto**
-A conversa com a nossa equipe está abrindo no WhatsApp agora. Se ela não abrir sozinha, é só
-tocar no botão abaixo.
+Falta um passo: toque no botão abaixo para abrir a conversa com a nossa equipe no WhatsApp. É
+nessa conversa que a sua vaga é confirmada.
 
 **Botão**
 Abrir a conversa no WhatsApp

@@ -54,8 +54,8 @@
   <div class="kicker">Imersão Mentores Alivance &middot; 11 de setembro</div>
   <h1 id="titulo">Inscrição enviada.</h1>
   <p id="intro">
-    A conversa com a nossa equipe está abrindo no WhatsApp agora. Se ela não abrir sozinha,
-    é só tocar no botão abaixo.
+    Falta um passo: toque no botão abaixo para abrir a conversa com a nossa equipe no
+    WhatsApp. É nessa conversa que a sua vaga é confirmada.
   </p>
 
   <a class="btn" id="zap" href="#" target="_blank" rel="noopener">Abrir a conversa no WhatsApp</a>
@@ -94,9 +94,8 @@
 
   var zap = document.getElementById("zap");
   if (zapUrl) {
+    // Sem abrir sozinho: navegador bloqueia janela que nao veio de um toque da pessoa.
     zap.href = zapUrl;
-    // Abre a conversa sozinha, mas o botao continua ali para quem o navegador bloquear.
-    setTimeout(function () { window.open(zapUrl, "_blank"); }, 700);
   } else {
     zap.style.display = "none";
     document.getElementById("intro").textContent =

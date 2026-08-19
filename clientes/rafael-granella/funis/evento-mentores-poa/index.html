@@ -18,8 +18,9 @@
   window.CONFIG = {
     // Numero do WhatsApp que atende o evento, so digitos, com DDI e DDD.
     whatsapp: "5551000000000",
-    // Endpoint que grava na planilha "Leads - Alivance Day" (Apps Script ou Make).
-    webhookLeads: "",
+    // Webhook do Make que grava na planilha "Leads - Alivance Day".
+    // Cenario: [Rafael Granella] Alivance Day -> Planilha de leads.
+    webhookLeads: "https://hook.us2.make.com/rlowstgf7uhkwv3tjyri826fyk6ofe89",
     // Numero de vagas ainda disponiveis. Deixe null para nao exibir contador.
     vagasRestantes: null
   };
@@ -849,16 +850,22 @@
     // O registro nunca pode segurar a pessoa: se falhar ou demorar, ela segue mesmo assim.
     var segue = function () { location.href = destino; };
 
-    if (C.webhookLeads) {
+    // Form encoded de proposito: e o formato que o webhook do Make le sem preflight de CORS.
+    var corpo = new URLSearchParams(lead);
+
+    if (!C.webhookLeads) {
+      segue();
+    } else if (navigator.sendBeacon && navigator.sendBeacon(C.webhookLeads, corpo)) {
+      // sendBeacon segue enviando depois que a pagina troca, entao ninguem fica esperando.
+      segue();
+    } else {
       fetch(C.webhookLeads, {
         method: "POST",
         mode: "no-cors",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify(lead)
+        keepalive: true,
+        body: corpo
       }).then(segue).catch(segue);
       setTimeout(segue, 2500);
-    } else {
-      segue();
     }
   });
 })();
