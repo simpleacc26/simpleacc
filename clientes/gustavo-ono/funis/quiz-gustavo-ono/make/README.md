@@ -26,15 +26,39 @@ same-origin.
 | Planilha | `1oOgRcaOIWHCMHXgIxywLQ-81qEhosvEGrtKqQfPQnpM`, aba **`diagnostico gustavo`** |
 | CRM | GHL, location "CRM Gustavo Ono", pipeline "Funil do Marketing", etapa "New Lead" |
 
-Fluxo dos módulos: **Webhook → criar contato no GHL → criar oportunidade → gravar
-linha na planilha.**
+Fluxo dos módulos: **Webhook → gravar linha na planilha → criar contato no GHL →
+criar oportunidade.**
 
-## Backup
+### Por que a planilha vem antes do GHL
 
-`blueprint-5619844-2026-08-12-antes-rota.json` é o blueprint exatamente como
-estava antes de acrescentarmos os campos `rota` e `curso_anterior`. Para
-restaurar, use `scenarios_update` com esse JSON inteiro (o update **substitui** o
-blueprint, não faz merge).
+Até 19/08 a ordem era webhook → GHL → planilha, e isso tinha um buraco: o módulo
+de criar contato roda com `onerror: Ignore`, que **encerra o pacote** quando o
+GHL recusa. Resultado, uma lead que o GHL rejeitasse (telefone que ele considera
+inválido, contato duplicado, conexão expirada, instabilidade) sumia inteira: sem
+contato, sem oportunidade e **sem linha na planilha**. Nada aparecia como erro,
+a execução ficava marcada como sucesso com 2 operações em vez de 4.
+
+Com a planilha primeiro, a lead está salva antes de qualquer coisa poder falhar.
+Uma falha no GHL passa a custar só o registro no CRM, que dá para recuperar
+depois olhando a planilha.
+
+Teste que comprova, feito em 19/08 disparando o webhook em produção:
+
+| Telefone | Antes | Depois |
+|---|---|---|
+| `11900000000` (o GHL recusa) | 2 operações, lead perdida | 3 operações, linha gravada |
+| `(11) 98765-4321` | 4 operações | 4 operações |
+
+## Backups
+
+`blueprint-5619844-2026-08-12-antes-rota.json` é o blueprint antes de
+acrescentarmos os campos `rota` e `curso_anterior`.
+
+`blueprint-5619844-2026-08-19-antes-planilha-primeiro.json` é o blueprint com a
+ordem antiga (GHL antes da planilha).
+
+Para restaurar qualquer um, use `scenarios_update` com o JSON inteiro (o update
+**substitui** o blueprint, não faz merge).
 
 ## Campos enviados pelo funil
 
