@@ -550,6 +550,222 @@ sua vaga, sem página de pagamento no caminho.
 
 ---
 
+## Peças derivadas do criativo do Fabrício
+
+O criativo do caso do Fabrício está performando no funil de quiz. Aqui ele vira campanha de
+evento: mesma história e mesmos números, com o destino trocado (o diagnóstico do quiz vira a
+inscrição do dia 11) e com uma parte diferente do caso puxando cada peça, para as seis não
+brigarem entre si.
+
+| # | Formato | O que puxa a peça | Dor | Perfil na abertura |
+| --- | --- | --- | --- | --- |
+| 13 | Estático | O caso inteiro, do estado inicial aos números | Acha que funciona para os outros e não para ele | Consultor empresarial |
+| 14 | Estático | O que mudou foi a estrutura, com a rotina já cheia | Já tentou resolver trabalhando mais | Mentor, treinador |
+| 15 | Estático | O estado de antes, descrito com as palavras dele | Reconhece o próprio cansaço e não sabe nomear a causa | Coach, conselheiro, psicólogo |
+| 16 | Carrossel | A linha do tempo, 3 meses e 6 meses | Descrê do prazo | Consultor empresarial |
+| 17 | Carrossel | O que foi olhado primeiro, antes de tráfego | Acha que o problema é marketing | Mentor, coach |
+| 18 | Carrossel | De atender sozinho a liderar dezenas | Não se enxerga nesse lugar | Treinador, conselheiro |
+
+---
+
+### 13. Estático | O caso do Fabrício
+
+**ABERTURA**
+
+Consultor empresarial: o Fabrício chegou cansado e sem previsibilidade.
+
+**DESENVOLVIMENTO**
+
+Ele já tinha cliente e entregava bem, e mesmo assim o mês dependia de quanto ele aguentava
+trabalhar.
+
+A gente olhou o modelo de negócio dele e montou uma estrutura que crescia sem depender da
+agenda dele. Em três meses ele fez R$260 mil, em seis meses chegou a R$600 mil, e hoje lidera
+dezenas de empresários.
+
+**O DIA**
+
+O que a gente fez com ele é o que eu abro no dia 11 de setembro em Porto Alegre: modelo,
+formato de entrega, canal de aquisição e a venda na prática, com hotseat à tarde.
+
+Sexta, 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares, R$1.500.
+
+**O PRÓXIMO PASSO**
+
+Toca no anúncio, preenche em um minuto e a gente confirma sua vaga no WhatsApp.
+
+**LEGENDA (complemento):**
+
+O caso do Fabrício tem uma parte que quase ninguém repara: nada do que mudou nele foi sobre
+entregar melhor. A entrega dele já era boa antes.
+
+No dia 11 a gente trabalha exatamente essa camada, a de negócio, e no fim da tarde tem hotseat,
+quando o caso de quem está na sala vai pra mesa.
+
+Inscrição pelo link, sem página de pagamento nessa etapa.
+
+---
+
+### 14. Estático | Não foi trabalhando mais
+
+**ABERTURA**
+
+Mentor, treinador: o Fabrício não passou a trabalhar mais do que já trabalhava.
+
+**DESENVOLVIMENTO**
+
+Quando ele me procurou, a rotina já estava cheia, e mais uma hora por dia não ia mudar o
+resultado dele.
+
+O que mudou foi a estrutura: o que ele vendia, em que formato entregava e por qual caminho o
+cliente novo chegava. Três meses depois, R$260 mil. Em seis, R$600 mil.
+
+**O DIA**
+
+Essas três decisões são o miolo do dia 11 de setembro, em Porto Alegre, com hotseat para olhar
+caso a caso.
+
+Sexta, 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares, R$1.500.
+
+**O PRÓXIMO PASSO**
+
+Toca no anúncio, preenche em um minuto e a gente te chama no WhatsApp.
+
+**LEGENDA (complemento):**
+
+Se a sua agenda já está cheia, o caminho de crescer não passa por encaixar mais uma call. Passa
+por mudar o que você vende e como entrega, que é o que muda o teto.
+
+É esse o trabalho do dia 11: modelo de negócio de manhã, aquisição e venda depois do almoço,
+hotseat no fim da tarde.
+
+Inscrição pelo link.
+
+---
+
+### 15. Estático | Cansado, sobrecarregado, sem previsibilidade
+
+**ABERTURA**
+
+Coach, conselheiro, psicólogo: cansado, sobrecarregado, sem previsibilidade.
+
+**DESENVOLVIMENTO**
+
+Foi assim que o Fabrício descreveu o próprio negócio quando me procurou. Ele é consultor
+empresarial, tinha cliente, tinha reputação, e mesmo assim cada mês começava do zero.
+
+Isso quase nunca aparece no faturamento de um mês. Aparece no ano, quando você olha pra trás e
+vê muito atendimento e pouca sobra.
+
+A gente mexeu no modelo dele, e em seis meses ele fez R$600 mil.
+
+**O DIA**
+
+No dia 11 de setembro, em Porto Alegre, eu abro esse trabalho inteiro, com hotseat à tarde.
+
+Sexta, 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares, R$1.500.
+
+**O PRÓXIMO PASSO**
+
+Toca no anúncio, preenche em um minuto e a gente confirma sua vaga no WhatsApp.
+
+**LEGENDA (complemento):**
+
+Sem previsibilidade é a parte mais cara dessa lista, porque ela decide se você contrata alguém,
+se aumenta o preço e se consegue tirar uma semana fora.
+
+O dia 11 é sobre montar o modelo que devolve esse controle. São cinquenta lugares e é para quem
+já vive de mentoria, consultoria ou treinamento.
+
+Inscrição pelo link, sem página de pagamento nessa etapa.
+
+---
+
+### 16. Carrossel | A linha do tempo
+
+**Card 1:**
+O Fabrício chegou cansado, sobrecarregado e sem previsibilidade
+
+**Card 2:**
+Em 3 meses, R$260 mil. Em 6 meses, R$600 mil.
+
+**Card 3:**
+O que mudou foi o modelo. Dia 11, eu abro ele em POA.
+
+**LEGENDA:**
+
+O Fabrício é consultor empresarial e me procurou no ponto em que a maioria procura: cliente na
+agenda, entrega boa, e nenhuma ideia de como o próximo mês ia ser.
+
+A gente olhou o modelo de negócio dele e montou uma estrutura que crescia sem depender da
+agenda dele. Em três meses foram R$260 mil, em seis meses R$600 mil, e hoje ele lidera dezenas
+de empresários.
+
+No dia 11 de setembro, em Porto Alegre, eu passo o dia inteiro nesse mesmo trabalho: modelo,
+formato de entrega, canal de aquisição e a venda na prática. Tem hotseat no fim da tarde, então
+o caso de quem está na sala vai pra mesa.
+
+Sexta, das 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares, ingresso de R$1.500.
+Toca no link, preenche a inscrição de um minuto e a nossa equipe te chama no WhatsApp.
+
+---
+
+### 17. Carrossel | O que a gente olhou primeiro
+
+**Card 1:**
+Antes de falar de tráfego, a gente olhou o modelo dele
+
+**Card 2:**
+O que vende, em que formato entrega, por onde o cliente chega
+
+**Card 3:**
+Dia 11, em Porto Alegre, eu abro os três. Cinquenta lugares.
+
+**LEGENDA:**
+
+Quando o Fabrício me procurou, a primeira coisa que ele quis discutir foi anúncio. A gente
+começou pelo modelo, porque tráfego em cima de uma oferta que não sustenta preço só faz você
+gastar mais rápido.
+
+Mexemos em três pontos: o que ele vendia, em que formato entregava e por qual caminho o cliente
+novo chegava até ele. Em três meses foram R$260 mil, em seis meses R$600 mil.
+
+Esses três pontos são o dia 11 inteiro, em Porto Alegre, e no fim da tarde tem hotseat para
+olhar caso a caso.
+
+Sexta, das 8h59 às 18h59, cinquenta lugares, R$1.500. Toca no link, preenche a inscrição de um
+minuto e a nossa equipe te chama no WhatsApp para confirmar sua vaga.
+
+---
+
+### 18. Carrossel | De atender sozinho a liderar dezenas
+
+**Card 1:**
+Ele atendia sozinho e o mês dependia da agenda dele
+
+**Card 2:**
+Hoje lidera dezenas de empresários com o próprio método
+
+**Card 3:**
+11 de setembro, Porto Alegre, cinquenta lugares na sala
+
+**LEGENDA:**
+
+Tem um ponto na vida de todo consultor e mentor em que o negócio para de caber na agenda. Ou
+você atende menos e fatura menos, ou muda o formato do que vende.
+
+O Fabrício mudou o formato. Em três meses fez R$260 mil, em seis meses R$600 mil, e hoje conduz
+dezenas de empresários em vez de atender um por vez.
+
+No dia 11 de setembro eu abro em Porto Alegre como esse desenho é feito: formatos e modelos de
+mentoria, como escalar sem piorar a entrega, canal de aquisição e a venda na prática. Com
+hotseat no fim da tarde.
+
+Sexta, das 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares, R$1.500. Toca no link,
+preenche a inscrição de um minuto e a gente confirma a sua vaga no WhatsApp.
+
+---
+
 ## O que validar com o cliente
 
 1. **Citar os sócios da MLS em anúncio.** A peça 4 fala do ecossistema com cerca de dez mil
@@ -570,3 +786,12 @@ sua vaga, sem página de pagamento no caminho.
 7. **Números não usados aqui**, disponíveis no playbook caso o Rafa queira: mais de 5 mil
    clientes, mais de 500 mentorados, mais de R$1Bi gerados, métodos RICOM e 15x1. Só entram se
    ele estiver confortável em sustentar na frente da sala no dia 11.
+8. **O caso do Fabrício (peças 13 a 18).** Os números (R$260 mil em 3 meses, R$600 mil em 6
+   meses, hoje liderando dezenas de empresários) vieram do criativo que já roda no funil de
+   quiz, então são afirmação do próprio cliente. Duas coisas a confirmar antes de subir: se o
+   Fabrício autoriza o nome em campanha de evento, que é público diferente do quiz, e se ele
+   segue confortável com os números publicados hoje. Se o nome não puder ser usado, trocar por
+   "um consultor empresarial que eu acompanhei" mantém as peças de pé, com menos força.
+9. **Quiz e evento na mesma conta.** As peças 13 a 18 usam o mesmo caso que roda no quiz, com
+   destino diferente. Vale separar campanha e públicos para a leitura de um funil não sujar a
+   do outro, como a mesa de guerra já tinha recomendado.
