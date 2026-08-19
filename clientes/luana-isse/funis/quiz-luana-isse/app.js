@@ -82,6 +82,31 @@ function pilarDominante(answers) {
   return (o && o.pilar) || "Posicionamento";
 }
 
+/* ============================================================
+   TELEFONE. Bug de producao pego no funil da Thaina: o autofill do iPhone
+   entrega "+55 11 99991-2039" de uma vez so, e o codigo do pais entrava como
+   se fosse DDD. Chegava na planilha "(55) 11999-9120", com o final do numero
+   perdido e sem conserto. O 55 sai ANTES de qualquer corte.
+   ============================================================ */
+function soDigitosTel(v) {
+  let d = String(v || "").replace(/\D/g, "");
+  if (d.length > 11 && d.startsWith("55")) d = d.slice(2);   // tira o país
+  return d.slice(0, 11);
+}
+function fmtTel(v) {
+  const d = soDigitosTel(v);
+  if (d.length <= 2) return d ? "(" + d : "";
+  if (d.length <= 7) return "(" + d.slice(0, 2) + ") " + d.slice(2);
+  return "(" + d.slice(0, 2) + ") " + d.slice(2, 7) + "-" + d.slice(7);
+}
+/* Celular brasileiro: 11 dígitos, DDD de 11 a 99 e o nono dígito sempre 9.
+   O DDD 55 (Santa Maria/RS) é real e continua passando: "55999122039" tem 11
+   dígitos, então soDigitosTel() não mexe nele. */
+function celularValido(v) {
+  const d = soDigitosTel(v);
+  return d.length === 11 && d[2] === "9" && Number(d.slice(0, 2)) >= 11;
+}
+
 /* Resultado nomeado: o que vai no WhatsApp, na planilha e no topo do relatório. */
 function resultadoNomeado(answers) {
   const R = F.resultados || {};
@@ -117,7 +142,7 @@ function enviarLead() {
   const lead = {
     timestamp: dataHoraBR(),
     nome: a.nomeResp || "",
-    whatsapp: a.whatsapp || "",
+    whatsapp: fmtTel(a.whatsapp || ""),
     email: a.email || "",
     irv: irv.pct + "%",
     irv_faixa: irv.faixa,
@@ -270,15 +295,15 @@ function renderCaptura() {
     const input = screen.querySelector(`#${f.id}`);
     if (!input) return;
     input.inputMode = "numeric";
-    input.maxLength = 16;
-    const fmt = (v) => {
-      const d = v.replace(/\D/g, "").slice(0, 11);
-      if (d.length <= 2) return d ? "(" + d : "";
-      if (d.length <= 7) return "(" + d.slice(0, 2) + ") " + d.slice(2);
-      return "(" + d.slice(0, 2) + ") " + d.slice(2, 7) + "-" + d.slice(7);
-    };
-    if (input.value) input.value = fmt(input.value);
-    input.addEventListener("input", () => { input.value = fmt(input.value); });
+    /* Sem maxLength: o autofill do iPhone entrega "+55 11 99991-2039" de uma vez
+       e um limite curto cortava a string ANTES da máscara rodar. Quem limita o
+       tamanho é o soDigitosTel(), depois de tirar o código do país. */
+    input.removeAttribute("maxlength");
+    if (input.value) input.value = fmtTel(input.value);
+    /* "change" e "blur" além de "input": preenchimento automático nem sempre
+       dispara o evento "input". */
+    ["input", "change", "blur"].forEach((ev) =>
+      input.addEventListener(ev, () => { input.value = fmtTel(input.value); }));
   });
 
   screen.querySelector("#back").addEventListener("click", () => goToStep(F.steps.length - 1));
@@ -294,7 +319,7 @@ function renderCaptura() {
       const val = input.value.trim();
       let problem = "";
       if (f.required && !val) problem = "Esse campo é obrigatório.";
-      else if (f.type === "tel" && val && val.replace(/\D/g, "").length < 11) problem = "Informe o WhatsApp completo com DDD.";
+      else if (f.type === "tel" && val && !celularValido(val)) problem = "Confira o WhatsApp: DDD e 9 dígitos, sem o +55.";
       else if (f.type === "email" && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) problem = "Informe um e-mail válido.";
       if (problem) {
         problems.push(f.label);

@@ -58,7 +58,14 @@ visual da Luana.
    atende abre a conversa já sabendo o diagnóstico.
 6. **Trava no código:** se `marca.whatsapp` estiver vazio ou inválido, os CTAs
    não abrem nada e a página mostra um aviso no topo. Evita publicar mudo.
-7. **Bloco de autoridade é breve:** foto (aqui, monograma), nome, o que ela faz,
+7. **Máscara de telefone: tire o +55 antes de cortar, e nunca use `maxLength`
+   num campo mascarado.** O autofill do iPhone entrega `+55 11 99991-2039` de
+   uma vez, o código do país entrava como DDD e o final do número se perdia,
+   sem conserto. Ouça `input`, `change` e `blur`, porque autofill nem sempre
+   dispara `input`, e normalize também o valor enviado, não só o da tela.
+   Cuidado com o DDD 55 (Santa Maria/RS): é real, por isso a regra é
+   `length > 11 && startsWith("55")`.
+8. **Bloco de autoridade é breve:** foto (aqui, monograma), nome, o que ela faz,
    @ do Instagram e uma fala dela. Método e etapas não entram, porque já estão
    no bloco do método logo acima. A grade de credenciais só existe porque os
    quatro números são reais e estão escritos no material dela.
@@ -88,6 +95,11 @@ Detalhes que quebram se alguém mexer:
 - O POST vai em `application/json` com `keepalive`. **Validar sempre lendo a
   planilha**, nunca pelo status HTTP: com `no-cors` o navegador devolve 0
   mesmo quando gravou.
+
+## Teste obrigatório antes de qualquer publicação
+
+Cole `+55 11 99991-2039` no campo de WhatsApp e confirme que o campo mostra
+`(11) 99991-2039` **e** que é isso que sai no payload. Os dois, não só o campo.
 
 ## Pendências
 
