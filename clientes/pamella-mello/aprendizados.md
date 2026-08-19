@@ -37,6 +37,18 @@ alguém. Leia antes de mexer. Atualize depois de cada rodada.
 
 ## Aprendizados técnicos (pra não tropeçar de novo)
 
+- **Máscara de telefone (bug de produção do motor, corrigido).** O autofill do
+  iPhone (comum no navegador do Instagram) preenche `+55 11 99991-2039` de uma
+  vez. A máscara antiga fazia `maxLength=16` (cortava a string crua antes) e
+  `slice(0,11)` sem tirar o país, então o `55` entrava como DDD e os últimos
+  dígitos se perdiam (chegava `(55) 11999-9120`). Correção: `soDigitosTel()`
+  tira o `55` só quando `length>11 && startsWith("55")` (DDD 55 de Santa Maria
+  é real e passa intacto), remove o `maxlength`, escuta `input`/`change`/`blur`
+  (autofill nem sempre dispara `input`), valida de verdade (`celularValido`) e
+  normaliza também o valor enviado à planilha. Teste obrigatório: colar
+  `+55 11 99991-2039` e conferir `(11) 99991-2039` na tela E no payload. Leads
+  já corrompidos não têm conserto (o final se perdeu no envio): recuperar pelo
+  e-mail, que veio certo.
 - **Make só estrutura lead em `application/json`.** `text/plain`/sendBeacon
   falha silencioso. O `app.js` envia `fetch` CORS + `application/json` +
   `keepalive`.
