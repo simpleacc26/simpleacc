@@ -71,9 +71,9 @@ O Quiz B já entrega quatro delas antes da primeira mensagem:
 | Impacto prático | P1 e P3, carro-chefe e quem atende |
 | Tentativas anteriores | P5, o que ela já fez para vender mais |
 
-Sobram quatro para a conversa caçar: **motivo** (M2), **impacto emocional** (M6),
-**meta** (M7) e **urgência** (M5 e M8). É isso que a Frente 1 faz, e é por isso
-que ela é curta.
+Sobram para a conversa caçar **impacto emocional** (M5), **meta** (M6) e
+**urgência** (M4 e M7). O **motivo** sai junto nas respostas dessas perguntas, e
+a A1 do follow-up pergunta direto se a lead não responder de primeira.
 
 O campo `rota` do quiz também já separa quem tem porte para a mentoria de quem
 não tem, antes de qualquer humano gastar tempo.
@@ -101,29 +101,25 @@ a vontade de explicar aparecer, é sinal de que saiu do lugar de quem conduz.
 >
 > Acabei de ver que você terminou o diagnóstico agora há pouco.
 
-**M2, o motivo**
+**M2, a transição**
 
-> Antes de eu te falar qualquer coisa sobre o resultado, me conta uma coisa, o
-> que te fez parar hoje pra responder aquelas perguntas?
-
-**M3, a transição**
-
-> Faz sentido. Olhei suas respostas aqui e tem alguns pontos que me chamaram
-> atenção de verdade.
+> Olhei suas respostas aqui e tem alguns pontos que me chamaram atenção de
+> verdade.
 >
 > Antes de eu te falar o que vi, queria entender melhor duas ou três coisas do
 > seu cenário, pra gente avaliar juntas se o Método ELA faz sentido pro momento
 > que você está vivendo. Pode ser?
 
-Mantém o enquadramento de avaliação, que é o que filtra, sem anunciar que existe
-uma oferta esperando no fim da conversa.
+Abre curiosidade sobre o que foi visto no diagnóstico e mantém o enquadramento de
+avaliação, que é o que filtra, sem anunciar que existe uma oferta esperando no
+fim da conversa. Entra logo depois do oi dela, sem rodeio.
 
-**M4, o número**
+**M3, o número**
 
 > No diagnóstico você marcou que {resposta da P4}. Em número mesmo, quanto
 > costuma sobrar num mês normal, depois de pagar tudo?
 
-**M5, a distância**
+**M4, a distância**
 
 > E esse resultado está próximo do que você esperava estar vivendo hoje na sua
 > carreira?
@@ -131,40 +127,39 @@ uma oferta esperando no fim da conversa.
 Aqui aparece o vão entre onde ela está e onde achava que estaria. Toda a urgência
 nasce desse vão, e é ela quem mede o tamanho dele.
 
-**M6, o incômodo concreto**
+**M5, o incômodo concreto**
 
 > E o que mais te incomoda nisso hoje?
 
 Se vier resposta rasa, insista uma vez: *me conta um exemplo de quando isso pesou
 de verdade*. Não avance com resposta vaga.
 
-**M7, o futuro**
+**M6, o futuro**
 
 > Se daqui a seis meses você olhasse pro seu negócio e pensasse "agora sim, ele
 > está no nível que eu queria", o que teria mudado?
 
-**M8, a urgência**
+**M7, a urgência**
 
 > E se ficar exatamente como está até o fim do ano, o que acontece?
 
-**M9, a decisora**
+**M8, a decisora**
 
 > Uma coisa que eu sempre pergunto: as decisões do negócio você toma sozinha ou
 > tem sócia junto?
 
-**M10, o valor da sessão**
+**M9, o valor da sessão**
 
 > Pelo que você me contou, faz sentido a gente marcar a sessão estratégica.
 >
-> Funciona assim: antes da nossa conversa eu pego as suas respostas do
-> diagnóstico e tudo que você me contou aqui, estudo o seu cenário com calma e
-> chego já com o principal gargalo mapeado. São de trinta a quarenta minutos, e
-> você sai de lá sabendo o que precisa mudar primeiro.
+> Com o que a gente falou aqui e o seu diagnóstico em mãos, eu já chego na
+> conversa com o principal gargalo mapeado. São de trinta a quarenta minutos, e
+> você sai de lá sabendo o que precisa mudar primeiro, é o seu direcionamento.
 
 A sessão deixa de ser trinta minutos sem compromisso e passa a ser uma análise
 preparada com o nome dela. É o que sustenta o valor antes de qualquer número.
 
-**M11, a disposição de investir**
+**M10, a disposição de investir**
 
 > Última coisa antes de eu ver a agenda.
 >
@@ -176,7 +171,7 @@ Filtra disposição sem cravar número, de propósito. A Ju tem mais de um camin
 de entrada, e ancorar num valor alto aqui fecharia a porta de quem entraria por
 outro. O número aparece na sessão, com o cenário já na mesa.
 
-**M12, o agendamento**
+**M11, o agendamento**
 
 > Tenho {dia} às {hora} e {dia} às {hora}.
 >
@@ -192,7 +187,7 @@ Espera o sim escrito. É a primeira trava do anti no-show.
 
 O WhatsApp é a porta de entrada. Quando a lead prefere falar, ou quando a conversa
 trava no texto e o caso merece insistência, a conversa passa para o telefone,
-com as mesmas perguntas de M4 a M12.
+com as mesmas perguntas de M3 a M11.
 
 **L1, abertura pedindo o tempo**
 
@@ -232,9 +227,8 @@ Ela fez o quiz e nunca deu sinal. Quatro toques em oito dias, e acabou.
 
 **T1, quatro horas depois**
 
-> {Nome}, te mandei uma pergunta mais cedo e imagino que você tenha entrado em
-> atendimento. Deixo ela aqui de novo, o que te fez parar pra responder o
-> diagnóstico hoje?
+> {Nome}, imagino que você tenha entrado em atendimento por aí. Me conta uma
+> coisa quando puder, o que te fez parar pra responder o diagnóstico hoje?
 
 **T2, dia seguinte, manhã**
 
@@ -376,7 +370,7 @@ contrário.
 O quiz devolve o campo `rota` em toda linha da planilha e em todo contato da
 GHL.
 
-| Rota no quiz | O que a SDR faz |
+| Rota no quiz | O que fazer |
 | --- | --- |
 | Mentoria (acima de R$ 10 mil) | Qualificação completa e agenda a sessão |
 | EDP (até R$ 10 mil) | Não agenda. Segue a Trilha A e entra em nutrição |
@@ -394,8 +388,8 @@ do orçamento de quem pode.
 
 | Número | Onde ler | Por que importa |
 | --- | --- | --- |
-| Taxa de resposta na M2 | contagem manual da SDR | mede se a abertura funciona |
-| Quantas travam na M9 | contagem manual da SDR | é a qualificação fazendo o trabalho, não é perda |
+| Taxa de resposta até a M2 | contagem manual | mede se a abertura funciona |
+| Quantas travam na M10 | contagem manual | é a qualificação fazendo o trabalho, não é perda |
 | Taxa de agendamento | painel | piso do próprio painel é 15%, a conta nunca passou de 5,8% |
 | Taxa de no-show | painel | hoje não é medida, e sem isso a Frente 3 não tem como provar valor |
 | Motivo do não, da T3 | anotação em planilha | matéria-prima de copy e de ajuste de oferta |
