@@ -56,20 +56,22 @@ conhece o mecanismo.
 
 Nos cinco estáticos a copy principal fica **na arte**, e a legenda é complemento.
 
-Cada arte é **uma frase só**, escrita como alguém falaria, quebrada em linhas pelo ritmo da
-leitura. A quebra faz parte da copy: cada linha entrega um pedaço da cena e puxa a próxima, e
-a última fecha. Nada de três frases soltas empilhadas.
+Cada arte carrega a peça inteira, com começo, meio e fim, no mesmo formato de anúncio de
+texto que o Hormozi usa: a pessoa lê a imagem e já entende a situação dela, o que está por
+trás, o que existe no dia 11 e o que fazer agora. A legenda entra depois, curta, só com o que
+não coube.
 
-Embaixo vai a assinatura, igual em todas as peças:
+A arte tem quatro partes, e elas são uma coisa só, não blocos separados:
 
-```
-IMERSÃO MENTORES ALIVANCE
-11 de setembro · Porto Alegre · 50 lugares
-```
+1. **Abertura** (tipo grande, Fahkwang): a cena que faz a pessoa se reconhecer em um segundo.
+2. **Desenvolvimento** (tipo médio, Inter, 4 a 6 linhas): o que acontece, o que custa, e a
+   virada, que é a leitura nova do problema.
+3. **O dia** (tipo menor): o que é, quando, onde, quantas vagas e quanto custa.
+4. **O próximo passo** (uma linha, em dourado): a instrução exata.
 
-Direção de arte: fundo navy `#1c1c42`, frase em branco, a palavra marcada em dourado
-`#c8b28b`, Fahkwang na frase e Inter na assinatura. A frase ocupa o miolo da imagem e a
-assinatura fica no rodapé, bem menor. Sem foto atrás do texto, ou a leitura some.
+Direção de arte: fundo navy `#1c1c42`, texto branco, dourado `#c8b28b` só na abertura e no
+próximo passo. Formato 4:5 para o feed, e a versão 1:1 corta o desenvolvimento em uma linha,
+nunca a virada. Sem foto atrás do texto, ou a leitura some.
 
 ---
 
@@ -79,38 +81,42 @@ assinatura fica no rodapé, bem menor. Sem foto atrás do texto, ou a leitura so
 
 **ARTE**
 
-```
-Você fatura hoje
-o mesmo que faturava
-em setembro do ano passado,
-só que atendendo mais gente.
+**ABERTURA**
 
-IMERSÃO MENTORES ALIVANCE
-11 de setembro · Porto Alegre · 50 lugares
-```
+Setembro de novo, e o número é o mesmo.
 
-Palavra em dourado: **o mesmo**.
+**DESENVOLVIMENTO**
 
-**LEGENDA:**
+No ano passado, nessa mesma semana, você fechou o mês perto do que fecha agora. No meio disso
+entrou mais cliente, mais call na agenda, mais grupo pra responder, e saiu tempo seu.
 
-Faz o teste: abre o seu setembro do ano passado e compara com o deste mês.
+O seu teto é definido por três coisas: o preço que você cobra, o formato em que você entrega e
+o caminho que traz cliente novo sem depender de indicação. Nenhuma delas muda com você
+trabalhando mais.
 
-Na maior parte dos casos o número é parecido, só que agora você atende mais gente para chegar
-nele, porque a conta só fecha em cima de mais horas suas.
+**O DIA**
 
-Sua entrega continua boa, tanto que o cliente indica, e indicação nenhuma resolve preço,
-formato de programa e canal de aquisição, que é onde o ano trava de verdade.
+No dia 11 de setembro eu passo o dia inteiro em Porto Alegre abrindo essas três, do jeito que
+funcionam hoje no meu negócio, e a parte da tarde tem hotseat, quando o caso de quem está na
+sala vai pra mesa.
 
-No dia 11 de setembro, uma sexta, eu passo o dia inteiro em Porto Alegre abrindo o modelo que
-eu uso hoje: formatos de mentoria, canal de aquisição, marketing conectado com a venda, e a
-venda na prática, da prospecção ao fechamento. Tem hotseat também, então dá para sair de lá
-com o seu caso olhado, e não só com anotação.
+Sexta, das 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares, R$1.500.
 
-São cinquenta lugares e o ingresso é R$1.500 para todo mundo.
+**O PRÓXIMO PASSO**
 
-Clica no botão aqui embaixo, preenche nome, WhatsApp e e-mail e mais três perguntas rápidas
-(leva um minuto), que a conversa abre no WhatsApp com a nossa equipe para confirmar se ainda
-tem vaga. Você não passa por página de pagamento nenhuma nesse caminho.
+Toca no anúncio e preenche a inscrição de um minuto. A nossa equipe te chama no WhatsApp pra
+confirmar se ainda tem vaga.
+
+**LEGENDA (complemento):**
+
+O dia foi montado na ordem em que as coisas travam: modelo de negócio de manhã, aquisição e
+venda depois do almoço, hotseat no fim da tarde. Quem for sai com o próprio caso analisado, e
+não com uma lista de coisas pra pensar depois.
+
+É pra quem já vive de mentoria, consultoria ou treinamento e tem cliente pagando hoje. Se você
+ainda está atrás do primeiro cliente, esse dia não vai te servir.
+
+Inscrição pelo link, e ninguém passa por página de pagamento nessa etapa.
 
 **TÍTULO DO LINK:** Imersão Mentores Alivance, 11 de setembro
 **DESCRIÇÃO:** Porto Alegre, um dia, cinquenta lugares
@@ -126,40 +132,43 @@ tem vaga. Você não passa por página de pagamento nenhuma nesse caminho.
 
 **ARTE**
 
-```
-Faz dois anos
-que você posta toda semana
-e o cliente que fechou esse mês
-veio de indicação, igual antes.
+**ABERTURA**
 
-IMERSÃO MENTORES ALIVANCE
-11 de setembro · Porto Alegre · 50 lugares
-```
+Dois anos postando, e o cliente ainda vem de indicação.
 
-Palavra em dourado: **igual antes**.
+**DESENVOLVIMENTO**
 
-**LEGENDA:**
+Você grava, edita, responde comentário, e quando olha de onde veio quem fechou esse mês, veio
+de alguém que já te conhecia.
 
-Te disseram que o caminho era aparecer mais, e faz uns dois anos que você posta.
+Post constrói audiência, e audiência não marca reunião sozinha. Entre o conteúdo e a venda tem
+um caminho que quase ninguém monta: saber exatamente quem você quer atrair, ter uma oferta que
+justifica o seu preço e conduzir a conversa quando a pessoa levanta a mão.
 
-O que entrou de cliente esse mês veio de indicação, igual antes, só que agora você também
-gasta parte da semana gravando, editando e respondendo comentário de gente que nunca vai
-comprar.
+Eu empreendo há dezoito anos e passei boa parte deles arrumando esse caminho no meu próprio
+negócio.
 
-Postar constrói audiência, e audiência sozinha não vira agenda cheia de gente com orçamento,
-porque falta o caminho entre uma coisa e outra: canal de aquisição definido, oferta que
-justifica o preço e um processo de venda que não depende de você estar inspirado no dia.
+**O DIA**
 
-Eu empreendo há dezoito anos e passei boa parte deles arrumando exatamente esse caminho. No
-dia 11 de setembro eu abro ele inteiro em Porto Alegre, das 8h59 às 18h59, com hotseat no meio
-do dia.
+Dia 11 de setembro, em Porto Alegre, eu abro ele inteiro: canal de aquisição, marketing
+conectado com a venda e a venda na prática, da prospecção ao fechamento.
 
-Cinquenta lugares, ingresso de R$1.500, mesmo valor para quem vem pelo anúncio e para quem vem
-pelo meu convite.
+Sexta, das 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares, R$1.500 para todo mundo.
 
-Clica no botão aqui embaixo, preenche a inscrição de um minuto e a conversa abre no WhatsApp
-com a nossa equipe, que te diz na hora se ainda tem vaga. Sem página de pagamento e sem cartão
-nessa etapa.
+**O PRÓXIMO PASSO**
+
+Toca no anúncio, preenche a inscrição de um minuto e a nossa equipe te chama no WhatsApp.
+
+**LEGENDA (complemento):**
+
+Uma coisa que costuma incomodar quem me ouve falar isso: eu não vou te pedir pra parar de
+postar. Conteúdo tem função, só que ele trabalha melhor quando existe um caminho de aquisição
+por trás, e é esse caminho que a gente monta no dia 11.
+
+O ingresso é o mesmo para quem vem pelo anúncio e para quem vem pelo meu convite. Membro do
+Alivance Club entra sem pagar, e mesmo assim ocupa um dos cinquenta lugares.
+
+Inscrição pelo link, sem página de pagamento nessa etapa.
 
 **TÍTULO DO LINK:** Imersão Mentores Alivance, 11 de setembro
 **DESCRIÇÃO:** Aquisição, oferta e venda, num dia só
@@ -175,38 +184,40 @@ nessa etapa.
 
 **ARTE**
 
-```
-Você já pagou ingresso,
-encheu um caderno inteiro
-e na segunda de manhã
-a operação continuou igual.
+**ABERTURA**
 
-IMERSÃO MENTORES ALIVANCE
-11 de setembro · Porto Alegre · 50 lugares
-```
+Você já foi num evento assim e voltou igual.
 
-Palavra em dourado: **continuou igual**.
+**DESENVOLVIMENTO**
 
-**LEGENDA:**
+Pagou o ingresso, sentou numa plateia de duzentas pessoas, anotou o dia inteiro, e na segunda
+de manhã abriu o mesmo negócio que tinha fechado na sexta.
 
-Se você já pagou ingresso, sentou numa plateia de duzentas pessoas e voltou com o caderno
-cheio e a operação exatamente igual, a sua desconfiança faz sentido.
+Não foi culpa sua nem falta de conteúdo bom. Palestra para duzentos precisa servir para
+duzentos, então ela fica no genérico, e o seu problema tem nome, preço e tamanho: quanto você
+cobra, em que formato entrega e quantas horas suas cada cliente novo consome.
 
-O que costuma acontecer nesses dias é que o conteúdo é bom e genérico ao mesmo tempo, então
-serve para todo mundo e não serve para o seu preço, o seu formato de programa e o tamanho da
-sua operação.
+**O DIA**
 
-O dia 11 de setembro tem cinquenta lugares porque o formato exige isso: parte do tempo é
-hotseat, com caso analisado na frente da sala, e para isso funcionar eu preciso saber quem
-está sentado ali.
+O dia 11 tem cinquenta lugares por causa do formato: parte do tempo é hotseat, com caso aberto
+na frente da sala, e para isso funcionar eu preciso saber quem está sentado ali. Também não
+tem venda de esteira no fim do dia.
 
-Também não tem venda de esteira no fim do dia. O que tem é modelo de negócio, formatos de
-mentoria, canal de aquisição e a venda na prática, prospecção, condução e fechamento, das 8h59
-às 18h59, no Iguatemi Trust Business, em Porto Alegre.
+Sexta, das 8h59 às 18h59, Iguatemi Trust Business, Porto Alegre. R$1.500.
 
-Clica no botão aqui embaixo e preenche a inscrição, que leva um minuto e termina com a nossa
-equipe te chamando no WhatsApp para confirmar a vaga. Se depois da conversa você achar que não
-é o seu momento, ninguém vai insistir.
+**O PRÓXIMO PASSO**
+
+Toca no anúncio e preenche a inscrição de um minuto, que a gente te chama no WhatsApp.
+
+**LEGENDA (complemento):**
+
+O que a gente trabalha no dia: modelo de negócio, formatos de mentoria, canal de aquisição,
+marketing conectado com a venda e a venda na prática, da prospecção ao fechamento.
+
+Se depois da conversa no WhatsApp você achar que não é o seu momento, ninguém vai insistir. A
+sala de cinquenta funciona melhor com gente que quer estar ali.
+
+Inscrição pelo link, sem página de pagamento nessa etapa.
 
 **TÍTULO DO LINK:** Imersão Mentores Alivance, 11 de setembro
 **DESCRIÇÃO:** Um dia, cinquenta pessoas, hotseat
@@ -222,37 +233,43 @@ equipe te chamando no WhatsApp para confirmar a vaga. Se depois da conversa voc�
 
 **ARTE**
 
-```
-Você monta o seu preço sozinho
-e passa a semana seguinte
-se perguntando
-se cobrou pouco de novo.
+**ABERTURA**
 
-IMERSÃO MENTORES ALIVANCE
-11 de setembro · Porto Alegre · 50 lugares
-```
+Ninguém confere o seu preço antes de você mandar a proposta.
 
-Palavra em dourado: **sozinho**.
+**DESENVOLVIMENTO**
 
-**LEGENDA:**
+Você define valor, formato e prazo sozinho, manda, e passa a semana seguinte se perguntando se
+cobrou pouco de novo.
 
-Você define preço, formato de programa e contrato sozinho, e depois passa a semana se
-perguntando se cobrou pouco de novo.
+Tem gente em volta, só que ninguém ali vive do que você vive. O contador olha imposto, o
+cliente olha o resultado dele, e o colega que também é mentor está preso no mesmo lugar,
+então a conversa vira desabafo e você segue decidindo no escuro.
 
-Tem gente em volta, só que ninguém ali vive do que você vive: o contador olha imposto, o
-cliente olha o resultado dele, e o colega que também é mentor está preso no mesmo lugar que
-você, então a conversa acaba virando desabafo.
+O que muda esse jogo é padrão de comparação: sentar com quem cobra o dobro por um programa
+mais leve e entender como essa pessoa chegou nesse número.
 
-Uma sala de cinquenta pessoas que vendem mentoria, consultoria e treinamento muda o padrão de
-comparação. É a diferença entre achar que o seu preço está alto e descobrir que tem gente ali
-cobrando o dobro com um formato mais leve.
+**O DIA**
 
-O Alivance é um club dentro da Mentoring League Society, que reúne cerca de dez mil empresários
-no ecossistema, e no dia 11 de setembro eu trago para Porto Alegre o modelo que me colocou lá
-dentro, com hotseat e networking no meio do dia.
+No dia 11 de setembro, em Porto Alegre, são cinquenta pessoas que vivem de mentoria,
+consultoria e treinamento na mesma sala, com hotseat e networking no meio do dia. O Alivance é
+um club dentro da Mentoring League Society, que reúne cerca de dez mil empresários.
 
-Clica no botão aqui embaixo, preenche a inscrição de um minuto e a nossa equipe te chama no
-WhatsApp para confirmar se ainda tem vaga entre as cinquenta. Não tem pagamento nessa etapa.
+Sexta, das 8h59 às 18h59, Iguatemi Trust Business. R$1.500.
+
+**O PRÓXIMO PASSO**
+
+Toca no anúncio, preenche a inscrição de um minuto e a gente confirma a sua vaga no WhatsApp.
+
+**LEGENDA (complemento):**
+
+O hotseat é a parte em que isso fica prático: alguém senta, coloca na mesa o preço que cobra e
+o formato que entrega, e a sala trabalha em cima daquilo comigo.
+
+Em sala de duzentos isso não existe, e é por isso que esse dia tem cinquenta lugares e não
+duzentos.
+
+Inscrição pelo link, sem página de pagamento nessa etapa.
 
 **TÍTULO DO LINK:** Imersão Mentores Alivance, 11 de setembro
 **DESCRIÇÃO:** Cinquenta mentores na mesma sala
@@ -268,40 +285,44 @@ WhatsApp para confirmar se ainda tem vaga entre as cinquenta. Não tem pagamento
 
 **ARTE**
 
-```
-Ele falou que ia pensar
-e te dar um retorno,
-e faz três semanas
-que a sua proposta tá lá, sem resposta.
+**ABERTURA**
 
-IMERSÃO MENTORES ALIVANCE
-11 de setembro · Porto Alegre · 50 lugares
-```
+"Vou pensar e te falo." Isso foi há três semanas.
 
-Palavra em dourado: **sem resposta**.
+**DESENVOLVIMENTO**
 
-**LEGENDA:**
+A call foi boa, ele elogiou o seu trabalho, pediu a proposta por e-mail. Você mandou, mandou
+dois follow ups depois, e até agora nada.
 
-A conversa foi boa, ele elogiou o seu trabalho, pediu para você mandar a proposta por e-mail, e
-desde então você mandou dois follow ups e não teve resposta.
+Uma dessas por mês come o seu ano: a hora da call, o tempo montando a proposta e a semana em
+que você segurou a agenda achando que ia fechar.
 
-Some uma por mês e vira o seu ano inteiro: cada uma dessas conversas custou uma hora sua de
-call, mais o tempo montando proposta, mais a semana em que você segurou a agenda achando que ia
-fechar.
+O que decide esse resultado acontece antes do "vou pensar": a pessoa entrou na conversa sem
+saber o seu preço, a pergunta que ordena a decisão dela não foi feita nos dez primeiros
+minutos, e a proposta saiu para alguém que ainda estava decidindo se aquele problema valia
+dinheiro.
 
-O que costuma estar por trás disso aparece bem antes do "vou pensar": quem entrou na conversa
-sem saber o preço, a pergunta que não foi feita nos primeiros dez minutos, e a proposta enviada
-para alguém que ainda estava decidindo se o problema dele valia dinheiro.
+**O DIA**
 
-Essa parte eu falo de dentro, não de fora. Coordeno o núcleo comercial e de vendas do Club M e
-ganhei o prêmio de melhores perguntas de vendas do Agendor em 2016, e no dia 11 de setembro um
-bloco inteiro do dia é venda de mentoria na prática: prospecção, condução da conversa e
-fechamento, junto com investimento e momento do cliente.
+Eu coordeno o núcleo comercial e de vendas do Club M e ganhei o prêmio de melhores perguntas
+de vendas do Agendor em 2016. No dia 11 de setembro, um bloco inteiro do dia é venda de
+mentoria na prática: prospecção, condução da conversa e fechamento.
 
-É uma sexta, das 8h59 às 18h59, em Porto Alegre, com cinquenta lugares e ingresso de R$1.500.
+Sexta, das 8h59 às 18h59, Porto Alegre. Cinquenta lugares, R$1.500.
 
-Clica no botão aqui embaixo, preenche a inscrição de um minuto e a nossa equipe te chama no
-WhatsApp para confirmar a sua vaga. Você não vai cair em página de pagamento nenhuma agora.
+**O PRÓXIMO PASSO**
+
+Toca no anúncio, preenche a inscrição de um minuto e a gente te chama no WhatsApp.
+
+**LEGENDA (complemento):**
+
+Tem uma parte do dia que é sobre investimento e momento do cliente, que é onde a maioria das
+propostas morre: a pessoa até quer, só que ainda não colocou aquilo na frente das outras
+contas dela.
+
+Depois disso vem o hotseat, e quem quiser pode colocar a própria conversa travada na mesa.
+
+Inscrição pelo link, sem página de pagamento nessa etapa.
 
 **TÍTULO DO LINK:** Imersão Mentores Alivance, 11 de setembro
 **DESCRIÇÃO:** Prospecção, condução e fechamento, na prática
