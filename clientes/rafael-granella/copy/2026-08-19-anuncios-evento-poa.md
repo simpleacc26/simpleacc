@@ -83,29 +83,26 @@ nunca a virada. Sem foto atrás do texto, ou a leitura some.
 
 **ABERTURA**
 
-Setembro de novo, e o número é o mesmo.
+Mentor, consultor, treinador: setembro de novo e o número é o mesmo.
 
 **DESENVOLVIMENTO**
 
-No ano passado, nessa mesma semana, você fechou o mês perto do que fecha agora. No meio disso
-entrou mais cliente, mais call na agenda, mais grupo pra responder, e saiu tempo seu.
+No ano passado, nessa semana, você fechou o mês perto do que fecha agora, com mais cliente na
+agenda e menos tempo seu.
 
-O seu teto é definido por três coisas: o preço que você cobra, o formato em que você entrega e
-o caminho que traz cliente novo sem depender de indicação. Nenhuma delas muda com você
-trabalhando mais.
+Seu teto é o preço que você cobra, o formato em que você entrega e o caminho que traz cliente
+novo. Nenhum dos três muda com você trabalhando mais.
 
 **O DIA**
 
-No dia 11 de setembro eu passo o dia inteiro em Porto Alegre abrindo essas três, do jeito que
-funcionam hoje no meu negócio, e a parte da tarde tem hotseat, quando o caso de quem está na
-sala vai pra mesa.
+No dia 11 de setembro eu abro os três em Porto Alegre, e a tarde tem hotseat, com caso aberto
+na frente da sala.
 
-Sexta, das 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares, R$1.500.
+Sexta, 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares, R$1.500.
 
 **O PRÓXIMO PASSO**
 
-Toca no anúncio e preenche a inscrição de um minuto. A nossa equipe te chama no WhatsApp pra
-confirmar se ainda tem vaga.
+Toca no anúncio, preenche em um minuto e a gente confirma sua vaga no WhatsApp.
 
 **LEGENDA (complemento):**
 
@@ -134,30 +131,26 @@ Inscrição pelo link, e ninguém passa por página de pagamento nessa etapa.
 
 **ABERTURA**
 
-Dois anos postando, e o cliente ainda vem de indicação.
+Coach, mentor: dois anos postando e o cliente ainda vem de indicação.
 
 **DESENVOLVIMENTO**
 
-Você grava, edita, responde comentário, e quando olha de onde veio quem fechou esse mês, veio
-de alguém que já te conhecia.
+Você grava, edita, responde comentário, e quem fechou esse mês já te conhecia de antes.
 
-Post constrói audiência, e audiência não marca reunião sozinha. Entre o conteúdo e a venda tem
-um caminho que quase ninguém monta: saber exatamente quem você quer atrair, ter uma oferta que
-justifica o seu preço e conduzir a conversa quando a pessoa levanta a mão.
-
-Eu empreendo há dezoito anos e passei boa parte deles arrumando esse caminho no meu próprio
-negócio.
+Post constrói audiência, e audiência não marca reunião. Falta o caminho entre o conteúdo e a
+venda: quem você quer atrair, a oferta que sustenta o seu preço e a condução da conversa quando
+a pessoa levanta a mão.
 
 **O DIA**
 
-Dia 11 de setembro, em Porto Alegre, eu abro ele inteiro: canal de aquisição, marketing
-conectado com a venda e a venda na prática, da prospecção ao fechamento.
+Empreendo há dezoito anos e no dia 11 de setembro eu abro esse caminho inteiro em Porto Alegre:
+canal de aquisição, marketing conectado com a venda e a venda na prática.
 
-Sexta, das 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares, R$1.500 para todo mundo.
+Sexta, 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares, R$1.500.
 
 **O PRÓXIMO PASSO**
 
-Toca no anúncio, preenche a inscrição de um minuto e a nossa equipe te chama no WhatsApp.
+Toca no anúncio, preenche em um minuto e a gente te chama no WhatsApp.
 
 **LEGENDA (complemento):**
 
@@ -186,28 +179,27 @@ Inscrição pelo link, sem página de pagamento nessa etapa.
 
 **ABERTURA**
 
-Você já foi num evento assim e voltou igual.
+Consultor, conselheiro: você já foi num evento assim e voltou igual.
 
 **DESENVOLVIMENTO**
 
-Pagou o ingresso, sentou numa plateia de duzentas pessoas, anotou o dia inteiro, e na segunda
-de manhã abriu o mesmo negócio que tinha fechado na sexta.
+Pagou o ingresso, anotou o dia inteiro, e na segunda de manhã abriu o mesmo negócio que tinha
+fechado na sexta.
 
-Não foi culpa sua nem falta de conteúdo bom. Palestra para duzentos precisa servir para
-duzentos, então ela fica no genérico, e o seu problema tem nome, preço e tamanho: quanto você
-cobra, em que formato entrega e quantas horas suas cada cliente novo consome.
+Palestra para duzentos precisa servir para duzentos, então fica no genérico. O seu caso tem
+nome, preço e tamanho: quanto você cobra, em que formato entrega e quantas horas suas cada
+cliente novo consome.
 
 **O DIA**
 
 O dia 11 tem cinquenta lugares por causa do formato: parte do tempo é hotseat, com caso aberto
-na frente da sala, e para isso funcionar eu preciso saber quem está sentado ali. Também não
-tem venda de esteira no fim do dia.
+na frente da sala. Sem venda de esteira no fim do dia.
 
-Sexta, das 8h59 às 18h59, Iguatemi Trust Business, Porto Alegre. R$1.500.
+Sexta, 8h59 às 18h59, Iguatemi Trust Business, Porto Alegre. R$1.500.
 
 **O PRÓXIMO PASSO**
 
-Toca no anúncio e preenche a inscrição de um minuto, que a gente te chama no WhatsApp.
+Toca no anúncio, preenche em um minuto e a gente te chama no WhatsApp.
 
 **LEGENDA (complemento):**
 
@@ -235,31 +227,29 @@ Inscrição pelo link, sem página de pagamento nessa etapa.
 
 **ABERTURA**
 
-Ninguém confere o seu preço antes de você mandar a proposta.
+Psicólogo, coach, mentor: ninguém confere o seu preço antes de você mandar a proposta.
 
 **DESENVOLVIMENTO**
 
 Você define valor, formato e prazo sozinho, manda, e passa a semana seguinte se perguntando se
 cobrou pouco de novo.
 
-Tem gente em volta, só que ninguém ali vive do que você vive. O contador olha imposto, o
-cliente olha o resultado dele, e o colega que também é mentor está preso no mesmo lugar,
-então a conversa vira desabafo e você segue decidindo no escuro.
+O contador olha imposto, o cliente olha o resultado dele, e o colega que também atende está no
+mesmo lugar, então a conversa vira desabafo.
 
-O que muda esse jogo é padrão de comparação: sentar com quem cobra o dobro por um programa
-mais leve e entender como essa pessoa chegou nesse número.
+O que muda isso é padrão de comparação: sentar com quem cobra o dobro por um programa mais leve
+e entender como chegou nesse número.
 
 **O DIA**
 
-No dia 11 de setembro, em Porto Alegre, são cinquenta pessoas que vivem de mentoria,
-consultoria e treinamento na mesma sala, com hotseat e networking no meio do dia. O Alivance é
-um club dentro da Mentoring League Society, que reúne cerca de dez mil empresários.
+No dia 11, em Porto Alegre, são cinquenta pessoas que vivem disso na mesma sala, com hotseat e
+networking. O Alivance é um club da Mentoring League Society.
 
-Sexta, das 8h59 às 18h59, Iguatemi Trust Business. R$1.500.
+Sexta, 8h59 às 18h59, Iguatemi Trust Business. R$1.500.
 
 **O PRÓXIMO PASSO**
 
-Toca no anúncio, preenche a inscrição de um minuto e a gente confirma a sua vaga no WhatsApp.
+Toca no anúncio, preenche em um minuto e a gente confirma sua vaga no WhatsApp.
 
 **LEGENDA (complemento):**
 
@@ -287,32 +277,30 @@ Inscrição pelo link, sem página de pagamento nessa etapa.
 
 **ABERTURA**
 
-"Vou pensar e te falo." Isso foi há três semanas.
+Mentor, consultor empresarial: "vou pensar e te falo" faz três semanas.
 
 **DESENVOLVIMENTO**
 
 A call foi boa, ele elogiou o seu trabalho, pediu a proposta por e-mail. Você mandou, mandou
-dois follow ups depois, e até agora nada.
+dois follow ups, e até agora nada.
 
-Uma dessas por mês come o seu ano: a hora da call, o tempo montando a proposta e a semana em
-que você segurou a agenda achando que ia fechar.
+Uma dessas por mês come o seu ano: a hora da call, o tempo da proposta e a semana em que você
+segurou a agenda.
 
-O que decide esse resultado acontece antes do "vou pensar": a pessoa entrou na conversa sem
-saber o seu preço, a pergunta que ordena a decisão dela não foi feita nos dez primeiros
-minutos, e a proposta saiu para alguém que ainda estava decidindo se aquele problema valia
-dinheiro.
+O que decide isso acontece antes: a pessoa entrou na conversa sem saber o seu preço, e a
+proposta saiu para quem ainda estava decidindo se o problema valia dinheiro.
 
 **O DIA**
 
-Eu coordeno o núcleo comercial e de vendas do Club M e ganhei o prêmio de melhores perguntas
-de vendas do Agendor em 2016. No dia 11 de setembro, um bloco inteiro do dia é venda de
-mentoria na prática: prospecção, condução da conversa e fechamento.
+Coordeno o núcleo comercial do Club M e ganhei o prêmio de melhores perguntas de vendas do
+Agendor em 2016. No dia 11, um bloco inteiro é venda na prática: prospecção, condução e
+fechamento.
 
-Sexta, das 8h59 às 18h59, Porto Alegre. Cinquenta lugares, R$1.500.
+Sexta, 8h59 às 18h59, Porto Alegre. Cinquenta lugares, R$1.500.
 
 **O PRÓXIMO PASSO**
 
-Toca no anúncio, preenche a inscrição de um minuto e a gente te chama no WhatsApp.
+Toca no anúncio, preenche em um minuto e a gente te chama no WhatsApp.
 
 **LEGENDA (complemento):**
 
