@@ -20,6 +20,19 @@ nome da pessoa. A página diz em três lugares que ninguém é levado a página 
 | `index.html` | A página, com a aplicação em dois passos e o botão de dúvida no WhatsApp |
 | `obrigado.html` | Confirmação, abre a conversa no WhatsApp e explica os próximos passos |
 | `integracao/apps-script-planilha.gs` | Script que grava as aplicações na planilha "Leads - Alivance Day" |
+| `vercel.json` | Redireciona `/img/*` para as fotos já publicadas (ver "As fotos" abaixo) |
+
+As três perguntas do passo 2 são de escolha, sem digitação. A do travamento tem cinco
+alternativas tiradas da programação do evento mais "Outro", que abre um campo de uma linha
+só para quem escolher. Quem marca "Outro" chega na planilha como `Outro: <texto>`.
+
+## As fotos
+
+O deploy é feito enviando os arquivos pela ferramenta da Vercel, e imagem binária não passa
+por esse caminho. Por isso o `vercel.json` aponta `/img/rafa-mls.jpg` e `/img/rafa-palco.jpg`
+para o deploy `alivance-23uv62k39-simpleacc.vercel.app`, que já serve as duas. Os arquivos
+originais continuam aqui em `img/`, e quem publicar pela CLI (`npx vercel --prod`) pode
+apagar o `vercel.json`, porque aí as fotos sobem junto e são servidas direto.
 
 ## Antes de publicar
 

@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/img/rafa-mls.jpg",
+      "destination": "https://alivance-23uv62k39-simpleacc.vercel.app/img/rafa-mls.jpg"
+    },
+    {
+      "source": "/img/rafa-palco.jpg",
+      "destination": "https://alivance-23uv62k39-simpleacc.vercel.app/img/rafa-palco.jpg"
+    }
+  ]
+}
