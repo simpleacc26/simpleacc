@@ -52,19 +52,36 @@ conhece o mecanismo.
 
 ---
 
+## Como ler os estáticos
+
+Nos cinco estáticos a copy principal fica **na arte**, e a legenda é complemento. Cada peça
+vem com quatro linhas para o designer, nesta hierarquia:
+
+- **Chapéu:** miúdo, dourado, caixa alta, diz para quem é a peça.
+- **Chamada:** o texto grande, em Fahkwang, duas linhas no máximo. É o que a pessoa lê rolando
+  o feed, e precisa funcionar sozinho, sem legenda nenhuma.
+- **Apoio:** uma linha em Inter, menor, que entrega o motivo de parar.
+- **Rodapé:** data, cidade e vagas, sempre igual, para a peça se identificar em meio segundo.
+
+Fundo navy `#1c1c42`, texto em branco e dourado `#c8b28b`, a mesma identidade da página. Nada
+de terceira frase na arte, o resto vai na legenda.
+
+---
+
 ## Peças
 
 ### 1. Anúncio estático | O ano que se repete
 
-**HEADLINE (no criativo):**
-Setembro passado, mesmo faturamento
+**ARTE**
 
-**SUBHEADLINE (no criativo):**
-11 de setembro, Porto Alegre, cinquenta lugares
+> **Chapéu:** MENTOR, CONSULTOR OU TREINADOR EM POA
+> **Chamada:** Mesmo faturamento do ano passado, atendendo mais gente
+> **Apoio:** Um dia inteiro em preço, formato e canal de aquisição
+> **Rodapé:** 11 de setembro · Porto Alegre · 50 lugares
 
-**TEXTO PRIMÁRIO:**
+**LEGENDA:**
 
-Pega o seu faturamento de setembro do ano passado e compara com o deste mês.
+Faz o teste: abre o seu setembro do ano passado e compara com o deste mês.
 
 Na maior parte dos casos o número é parecido, só que agora você atende mais gente para chegar
 nele, porque a conta só fecha em cima de mais horas suas.
@@ -95,13 +112,14 @@ tem vaga. Você não passa por página de pagamento nenhuma nesse caminho.
 
 ### 2. Anúncio estático | O conselho de aparecer mais
 
-**HEADLINE (no criativo):**
-Você virou produtor de conteúdo
+**ARTE**
 
-**SUBHEADLINE (no criativo):**
-E o que entra continua vindo de indicação
+> **Chapéu:** PRA QUEM POSTA HÁ DOIS ANOS
+> **Chamada:** A audiência cresceu, o cliente continua vindo de indicação
+> **Apoio:** Falta o caminho entre aparecer e vender
+> **Rodapé:** 11 de setembro · Porto Alegre · 50 lugares
 
-**TEXTO PRIMÁRIO:**
+**LEGENDA:**
 
 Te disseram que o caminho era aparecer mais, e faz uns dois anos que você posta.
 
@@ -136,13 +154,14 @@ nessa etapa.
 
 ### 3. Anúncio estático | Já fui em evento e voltei igual
 
-**HEADLINE (no criativo):**
-Você já foi em evento assim
+**ARTE**
 
-**SUBHEADLINE (no criativo):**
-Cinquenta lugares, hotseat, o seu caso na mesa
+> **Chapéu:** JÁ FOI EM EVENTO E VOLTOU IGUAL?
+> **Chamada:** Caderno cheio, operação igual na segunda de manhã
+> **Apoio:** Aqui são 50 pessoas e o seu caso vai para a mesa
+> **Rodapé:** 11 de setembro · Porto Alegre · 50 lugares
 
-**TEXTO PRIMÁRIO:**
+**LEGENDA:**
 
 Se você já pagou ingresso, sentou numa plateia de duzentas pessoas e voltou com o caderno
 cheio e a operação exatamente igual, a sua desconfiança faz sentido.
@@ -175,13 +194,14 @@ equipe te chamando no WhatsApp para confirmar a vaga. Se depois da conversa voc�
 
 ### 4. Anúncio estático | Você decide sozinho
 
-**HEADLINE (no criativo):**
-Com quem você discute preço hoje?
+**ARTE**
 
-**SUBHEADLINE (no criativo):**
-No dia 11, com outros quarenta e nove
+> **Chapéu:** A CONVERSA QUE VOCÊ NÃO TEM COM NINGUÉM
+> **Chamada:** Quem confere o seu preço antes de você mandar a proposta?
+> **Apoio:** No dia 11, mais 49 pessoas que vivem de mentoria
+> **Rodapé:** 11 de setembro · Porto Alegre · 50 lugares
 
-**TEXTO PRIMÁRIO:**
+**LEGENDA:**
 
 Você define preço, formato de programa e contrato sozinho, e depois passa a semana se
 perguntando se cobrou pouco de novo.
@@ -213,13 +233,14 @@ WhatsApp para confirmar se ainda tem vaga entre as cinquenta. Não tem pagamento
 
 ### 5. Anúncio estático | O "vou pensar" que virou silêncio
 
-**HEADLINE (no criativo):**
-Ele disse que ia pensar
+**ARTE**
 
-**SUBHEADLINE (no criativo):**
-Isso foi três semanas atrás
+> **Chapéu:** TRÊS SEMANAS ATRÁS
+> **Chamada:** "Vou pensar e te falo." Ele não falou.
+> **Apoio:** Prospecção, condução e fechamento ocupam um bloco inteiro do dia
+> **Rodapé:** 11 de setembro · Porto Alegre · 50 lugares
 
-**TEXTO PRIMÁRIO:**
+**LEGENDA:**
 
 A conversa foi boa, ele elogiou o seu trabalho, pediu para você mandar a proposta por e-mail, e
 desde então você mandou dois follow ups e não teve resposta.
