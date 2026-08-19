@@ -54,17 +54,22 @@ conhece o mecanismo.
 
 ## Como ler os estáticos
 
-Nos cinco estáticos a copy principal fica **na arte**, e a legenda é complemento. Cada peça
-vem com quatro linhas para o designer, nesta hierarquia:
+Nos cinco estáticos a copy principal fica **na arte**, e a legenda é complemento.
 
-- **Chapéu:** miúdo, dourado, caixa alta, diz para quem é a peça.
-- **Chamada:** o texto grande, em Fahkwang, duas linhas no máximo. É o que a pessoa lê rolando
-  o feed, e precisa funcionar sozinho, sem legenda nenhuma.
-- **Apoio:** uma linha em Inter, menor, que entrega o motivo de parar.
-- **Rodapé:** data, cidade e vagas, sempre igual, para a peça se identificar em meio segundo.
+Cada arte é **uma frase só**, escrita como alguém falaria, quebrada em linhas pelo ritmo da
+leitura. A quebra faz parte da copy: cada linha entrega um pedaço da cena e puxa a próxima, e
+a última fecha. Nada de três frases soltas empilhadas.
 
-Fundo navy `#1c1c42`, texto em branco e dourado `#c8b28b`, a mesma identidade da página. Nada
-de terceira frase na arte, o resto vai na legenda.
+Embaixo vai a assinatura, igual em todas as peças:
+
+```
+IMERSÃO MENTORES ALIVANCE
+11 de setembro · Porto Alegre · 50 lugares
+```
+
+Direção de arte: fundo navy `#1c1c42`, frase em branco, a palavra marcada em dourado
+`#c8b28b`, Fahkwang na frase e Inter na assinatura. A frase ocupa o miolo da imagem e a
+assinatura fica no rodapé, bem menor. Sem foto atrás do texto, ou a leitura some.
 
 ---
 
@@ -74,10 +79,17 @@ de terceira frase na arte, o resto vai na legenda.
 
 **ARTE**
 
-> **Chapéu:** MENTOR, CONSULTOR OU TREINADOR EM POA
-> **Chamada:** Mesmo faturamento do ano passado, atendendo mais gente
-> **Apoio:** Um dia inteiro em preço, formato e canal de aquisição
-> **Rodapé:** 11 de setembro · Porto Alegre · 50 lugares
+```
+Você fatura hoje
+o mesmo que faturava
+em setembro do ano passado,
+só que atendendo mais gente.
+
+IMERSÃO MENTORES ALIVANCE
+11 de setembro · Porto Alegre · 50 lugares
+```
+
+Palavra em dourado: **o mesmo**.
 
 **LEGENDA:**
 
@@ -114,10 +126,17 @@ tem vaga. Você não passa por página de pagamento nenhuma nesse caminho.
 
 **ARTE**
 
-> **Chapéu:** PRA QUEM POSTA HÁ DOIS ANOS
-> **Chamada:** A audiência cresceu, o cliente continua vindo de indicação
-> **Apoio:** Falta o caminho entre aparecer e vender
-> **Rodapé:** 11 de setembro · Porto Alegre · 50 lugares
+```
+Faz dois anos
+que você posta toda semana
+e o cliente que fechou esse mês
+veio de indicação, igual antes.
+
+IMERSÃO MENTORES ALIVANCE
+11 de setembro · Porto Alegre · 50 lugares
+```
+
+Palavra em dourado: **igual antes**.
 
 **LEGENDA:**
 
@@ -156,10 +175,17 @@ nessa etapa.
 
 **ARTE**
 
-> **Chapéu:** JÁ FOI EM EVENTO E VOLTOU IGUAL?
-> **Chamada:** Caderno cheio, operação igual na segunda de manhã
-> **Apoio:** Aqui são 50 pessoas e o seu caso vai para a mesa
-> **Rodapé:** 11 de setembro · Porto Alegre · 50 lugares
+```
+Você já pagou ingresso,
+encheu um caderno inteiro
+e na segunda de manhã
+a operação continuou igual.
+
+IMERSÃO MENTORES ALIVANCE
+11 de setembro · Porto Alegre · 50 lugares
+```
+
+Palavra em dourado: **continuou igual**.
 
 **LEGENDA:**
 
@@ -196,10 +222,17 @@ equipe te chamando no WhatsApp para confirmar a vaga. Se depois da conversa voc�
 
 **ARTE**
 
-> **Chapéu:** A CONVERSA QUE VOCÊ NÃO TEM COM NINGUÉM
-> **Chamada:** Quem confere o seu preço antes de você mandar a proposta?
-> **Apoio:** No dia 11, mais 49 pessoas que vivem de mentoria
-> **Rodapé:** 11 de setembro · Porto Alegre · 50 lugares
+```
+Você monta o seu preço sozinho
+e passa a semana seguinte
+se perguntando
+se cobrou pouco de novo.
+
+IMERSÃO MENTORES ALIVANCE
+11 de setembro · Porto Alegre · 50 lugares
+```
+
+Palavra em dourado: **sozinho**.
 
 **LEGENDA:**
 
@@ -235,10 +268,17 @@ WhatsApp para confirmar se ainda tem vaga entre as cinquenta. Não tem pagamento
 
 **ARTE**
 
-> **Chapéu:** TRÊS SEMANAS ATRÁS
-> **Chamada:** "Vou pensar e te falo." Ele não falou.
-> **Apoio:** Prospecção, condução e fechamento ocupam um bloco inteiro do dia
-> **Rodapé:** 11 de setembro · Porto Alegre · 50 lugares
+```
+Ele falou que ia pensar
+e te dar um retorno,
+e faz três semanas
+que a sua proposta tá lá, sem resposta.
+
+IMERSÃO MENTORES ALIVANCE
+11 de setembro · Porto Alegre · 50 lugares
+```
+
+Palavra em dourado: **sem resposta**.
 
 **LEGENDA:**
 
