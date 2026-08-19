@@ -54,6 +54,29 @@ function dataHoraBR() {
   } catch (e) { return new Date().toISOString(); }
 }
 
+/* Telefone: normaliza e formata como (XX) XXXXX-XXXX.
+   Bug de produção (autofill do iPhone entrega "+55 11 99991-2039" de uma vez):
+   1) nunca cortar por maxLength (corta a string crua antes da máscara rodar);
+   2) tirar o código do país (55) ANTES de cortar, senão o 55 vira DDD e empurra
+      o número, perdendo os dígitos do final;
+   3) o DDD 55 (Santa Maria/RS) é real, então só remove o país quando
+      length > 11 && startsWith("55"). "55999122039" tem 11 e passa intacto. */
+function soDigitosTel(v) {
+  let d = String(v || "").replace(/\D/g, "");
+  if (d.length > 11 && d.startsWith("55")) d = d.slice(2);
+  return d.slice(0, 11);
+}
+function fmtTel(v) {
+  const d = soDigitosTel(v);
+  if (d.length <= 2) return d ? "(" + d : "";
+  if (d.length <= 7) return "(" + d.slice(0, 2) + ") " + d.slice(2);
+  return "(" + d.slice(0, 2) + ") " + d.slice(2, 7) + "-" + d.slice(7);
+}
+function celularValido(v) {
+  const d = soDigitosTel(v);
+  return d.length === 11 && d[2] === "9" && Number(d.slice(0, 2)) >= 11;
+}
+
 /* Classifica o lead pela prontidão e geografia (mesma régua do diagnóstico).
    Qualifica por intenção, não por pergunta crua de renda. */
 function classificarLead(a) {
@@ -76,7 +99,7 @@ function enviarLead() {
   const lead = {
     name: a.nomeResp || "",
     email: a.email || "",
-    whatsapp: a.whatsapp || "",
+    whatsapp: fmtTel(a.whatsapp || ""),
     qualificacao: classificarLead(a),
     frente: (F.config && F.config.frente) || "Hipnose",
     answers: {
@@ -232,15 +255,11 @@ function renderCaptura() {
     const input = screen.querySelector(`#${f.id}`);
     if (!input) return;
     input.inputMode = "numeric";
-    input.maxLength = 16;
-    const fmt = (v) => {
-      const d = v.replace(/\D/g, "").slice(0, 11);
-      if (d.length <= 2) return d ? "(" + d : "";
-      if (d.length <= 7) return "(" + d.slice(0, 2) + ") " + d.slice(2);
-      return "(" + d.slice(0, 2) + ") " + d.slice(2, 7) + "-" + d.slice(7);
-    };
-    if (input.value) input.value = fmt(input.value);
-    input.addEventListener("input", () => { input.value = fmt(input.value); });
+    input.removeAttribute("maxlength"); // quem limita é o soDigitosTel, não o atributo (colar/autofill entregam tudo de uma vez)
+    if (input.value) input.value = fmtTel(input.value);
+    // autofill nem sempre dispara "input"; às vezes só "change"/"blur".
+    ["input", "change", "blur"].forEach((ev) =>
+      input.addEventListener(ev, () => { input.value = fmtTel(input.value); }));
   });
 
   screen.querySelector("#back").addEventListener("click", () => goToStep(F.steps.length - 1));
@@ -256,7 +275,7 @@ function renderCaptura() {
       const val = input.value.trim();
       let problem = "";
       if (f.required && !val) problem = "Esse campo é obrigatório.";
-      else if (f.type === "tel" && val && val.replace(/\D/g, "").length < 11) problem = "Informe o WhatsApp completo com DDD.";
+      else if (f.type === "tel" && val && !celularValido(val)) problem = "Informe o WhatsApp com DDD (só o número, sem o +55).";
       else if (f.type === "email" && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) problem = "Informe um e-mail válido.";
       if (problem) {
         problems.push(f.label);
