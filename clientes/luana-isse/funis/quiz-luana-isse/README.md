@@ -65,7 +65,13 @@ visual da Luana.
    dispara `input`, e normalize também o valor enviado, não só o da tela.
    Cuidado com o DDD 55 (Santa Maria/RS): é real, por isso a regra é
    `length > 11 && startsWith("55")`.
-8. **Bloco de autoridade é breve:** foto (aqui, monograma), nome, o que ela faz,
+8. **Linguagem neutra em gênero.** O ICP da Luana tem homens e mulheres
+   (psicólogos, advogados, médicos, nutricionistas, coaches). Nenhum adjetivo
+   pode concordar com quem lê. Teste ao escrever opção nova: leia em voz alta
+   como homem e como mulher; se soar errado numa das duas, reescreva.
+9. **Placeholder de telefone com DDD nacional (11), não o DDD do cliente.**
+   O público é nacional; DDD regional no campo sinaliza atendimento local.
+10. **Bloco de autoridade é breve:** foto (aqui, monograma), nome, o que ela faz,
    @ do Instagram e uma fala dela. Método e etapas não entram, porque já estão
    no bloco do método logo acima. A grade de credenciais só existe porque os
    quatro números são reais e estão escritos no material dela.

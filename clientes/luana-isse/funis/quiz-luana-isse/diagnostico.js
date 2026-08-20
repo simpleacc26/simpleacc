@@ -5,7 +5,7 @@
    3 por que não resolveu · 4 dois caminhos · CTA · 5 o método ·
    6 o que precisa acontecer · CTA · 7 quem é a Luana (autoridade) ·
    8 CTA final adaptado à qualificação.
-   Padrão: nunca usar travessões. Sem emoji.
+   Padrão: nunca usar travessões. Sem emoji. Linguagem neutra em gênero.
    ============================================================ */
 const STORE_KEY = "luana_isse_quiz";
 const F = window.FLOW;
@@ -41,7 +41,7 @@ function pilarDominante(answers) {
   return (o && o.pilar) || "Posicionamento";
 }
 
-/* Leitura por pilar: o que precisa acontecer no caso dela */
+/* Leitura por pilar: o que precisa acontecer no caso de quem respondeu */
 const LEITURA_PILAR = {
   Mentalidade: {
     resumo: "a sua ruptura está concentrada em <strong>Mentalidade</strong>: você sabe o que faz, mas trava na hora de ocupar o espaço que é seu.",
@@ -74,7 +74,7 @@ if (!a._completedAt && !a.problema) {
   const tempo = frase("tempo") || "um tempo";
   const impacto = frase("impacto") || "seguir no mesmo ponto";
   const tentativa = frase("necessidade") || "buscar uma solução";
-  const objetivo = frase("objetivo") || "ser reconhecida pelo que você entrega";
+  const objetivo = frase("objetivo") || "ter reconhecimento pelo que você entrega";
   const perfil = frase("perfil") || "";
 
   const irv = calcularIRV(a);

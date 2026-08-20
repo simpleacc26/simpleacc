@@ -5,6 +5,10 @@
    Estrutura: blueprint "estrutura invisível" da Simple (9 passos SPIN,
    as 2 porteiras no fim, índice só nas perguntas de diagnóstico).
    Padrão de escrita: nunca usar travessões. Sem emoji.
+   LINGUAGEM NEUTRA EM GÊNERO: o ICP dela tem homens e mulheres (psicólogos,
+   advogados, médicos, nutricionistas, coaches). Nenhum adjetivo pode concordar
+   com o leitor. Ao escrever opção nova, leia em voz alta como homem e como
+   mulher: se soar errado numa das duas, reescreva.
    ============================================================ */
 window.FLOW = {
   config: {
@@ -31,7 +35,7 @@ window.FLOW = {
      topo do relatório. Escrito na linguagem dela: chega de ser excelente e
      continuar invisível. */
   resultados: {
-    Mentalidade:    "Excelente e escondida",
+    Mentalidade:    "Excelente na sombra",
     Movimento:      "Excelente sem causa",
     Posicionamento: "Excelente e intercambiável",
     Vendas:         "Excelente sem caminho de venda",
@@ -60,7 +64,7 @@ window.FLOW = {
       pergunta: "Como as pessoas chegam até você hoje?",
       options: [
         { value: "so_indicacao", label: "Quase tudo por indicação de quem já me conhece", peso: 3,
-          report: "ser procurada quase só por indicação de quem já te conhece" },
+          report: "receber gente quase só por indicação de quem já te conhece" },
         { value: "indicacao_insta", label: "Indicação e, de vez em quando, alguém do Instagram", peso: 2,
           report: "viver de indicação e, de vez em quando, alguém que chega pelo Instagram" },
         { value: "chega_gente", label: "Já recebo mensagens de gente que não me conhecia", peso: 1,
@@ -100,10 +104,10 @@ window.FLOW = {
       etapa: "Impacto",
       pergunta: "Se nada mudar, como você imagina os próximos 12 meses?",
       options: [
-        { value: "igual", label: "Igual: continuo excelente e ignorado", peso: 3,
-          report: "seguir excelente no que faz e continuar sendo ignorada pelo mercado" },
-        { value: "preco", label: "Continuo sendo comparado por preço", peso: 2,
-          report: "continuar sendo comparada por preço, como se fosse mais uma" },
+        { value: "igual", label: "Igual: continuo excelente e o mercado não me enxerga", peso: 3,
+          report: "seguir excelente no que faz enquanto o mercado segue sem te enxergar" },
+        { value: "preco", label: "Continuo competindo por preço", peso: 2,
+          report: "continuar competindo por preço, como se fosse mais um nome na lista" },
         { value: "esteira", label: "Continuo trocando hora por dinheiro, sem escalar", peso: 1,
           report: "continuar trocando hora por dinheiro, sem conseguir escalar" },
         { value: "desistir", label: "Não sei se continuo tentando o digital", peso: 2,
@@ -119,8 +123,8 @@ window.FLOW = {
           report: "fazer cursos de marketing digital que nunca saíram do papel" },
         { value: "social_media", label: "Contratei social media ou agência, e não veio cliente", peso: 2,
           report: "contratar social media ou agência sem que viesse cliente" },
-        { value: "constancia", label: "Postei com constância, sozinha, e nada mudou", peso: 1,
-          report: "postar com constância, sozinha, sem que nada mudasse" },
+        { value: "constancia", label: "Postei com constância, por conta própria, e nada mudou", peso: 1,
+          report: "postar com constância, por conta própria, sem que nada mudasse" },
         { value: "nada", label: "Ainda não tentei nada estruturado", peso: 0,
           report: "ainda não ter tentado nada estruturado" },
       ],
@@ -131,7 +135,7 @@ window.FLOW = {
       pergunta: "O que você mais quer nos próximos 6 meses?",
       options: [
         { value: "clareza", label: "Ter clareza do que eu falo e para quem", report: "ter clareza do que você fala e para quem" },
-        { value: "referencia", label: "Ser lembrada como referência no que faço", report: "ser lembrada como referência no que faz" },
+        { value: "referencia", label: "Virar referência no que eu faço", report: "virar referência no que faz" },
         { value: "cobrar", label: "Cobrar o que o meu trabalho realmente vale", report: "cobrar o que o seu trabalho realmente vale" },
         { value: "mentoria", label: "Lançar a minha mentoria", report: "lançar a sua mentoria" },
       ],
@@ -141,14 +145,14 @@ window.FLOW = {
       etapa: "Seu perfil",
       pergunta: "Qual frase mais representa você hoje?",
       options: [
-        { value: "bom_invisivel", label: "Sou muito boa no que faço e quase ninguém sabe disso", peso: 3,
-          report: "ser muito boa no que faz enquanto quase ninguém sabe disso" },
+        { value: "bom_invisivel", label: "Faço um trabalho muito bom e quase ninguém sabe disso", peso: 3,
+          report: "fazer um trabalho muito bom que quase ninguém conhece" },
         { value: "sem_linha", label: "Tenho conteúdo demais na cabeça e nenhuma linha clara", peso: 3,
           report: "ter conteúdo demais na cabeça e nenhuma linha clara" },
         { value: "audiencia_fria", label: "Já tenho audiência, mas ela não me vê como autoridade", peso: 2,
           report: "ter audiência que ainda não te enxerga como autoridade" },
-        { value: "virar_mentor", label: "Quero virar mentora e não sei por onde começar", peso: 1,
-          report: "querer virar mentora sem saber por onde começar" },
+        { value: "virar_mentor", label: "Quero migrar para mentoria e não sei por onde começar", peso: 1,
+          report: "querer migrar para mentoria sem saber por onde começar" },
       ],
     },
 
@@ -184,10 +188,10 @@ window.FLOW = {
 
   captura: {
     titulo: "Seu diagnóstico está pronto.",
-    subtitulo: "Para onde enviamos? Deixe seu contato que você vê o resultado agora e recebe uma cópia no WhatsApp.",
+    subtitulo: "Deixe o seu contato para acessar o diagnóstico agora e receber uma cópia no WhatsApp.",
     campos: [
       { id: "nomeResp", label: "Seu nome", type: "text", required: true, autocomplete: "name", placeholder: "Como podemos te chamar?" },
-      { id: "whatsapp", label: "Seu WhatsApp (com DDD)", type: "tel", required: true, autocomplete: "tel", placeholder: "(48) 99999-9999", mask: "phone" },
+      { id: "whatsapp", label: "Seu WhatsApp (com DDD)", type: "tel", required: true, autocomplete: "tel", placeholder: "(11) 99999-9999", mask: "phone" },
       { id: "email", label: "Seu e-mail", type: "email", required: true, autocomplete: "email", placeholder: "voce@email.com" },
     ],
     cta: "Ver meu diagnóstico",
