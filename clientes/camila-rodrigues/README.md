@@ -2,7 +2,7 @@
 
 Consultora de etiqueta, curadoria e mesa posta, e gestora de eventos. Contratou a
 mentoria de 3 meses da Simple para lançar a própria mentoria de etiqueta
-(Protocolo da Sala) e chegar a R$ 20.979/mês.
+(Protocolo da Etiqueta) e chegar a R$ 20.979/mês.
 
 ## Contatos
 
@@ -36,7 +36,5 @@ mentoria de 3 meses da Simple para lançar a própria mentoria de etiqueta
 
 ## Observações
 
-- Confirmar com a Camila o nome definitivo do produto: o canvas alterna entre
-  "Protocolo da Etiqueta / Método A SALA" e "Protocolo da Sala".
 - Falta coletar: identidade visual (cores, logo, tipografia), depoimentos em vídeo
   e a definição de turma fechada versus entrada contínua.

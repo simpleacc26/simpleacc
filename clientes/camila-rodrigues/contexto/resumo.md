@@ -18,7 +18,8 @@ Referência rápida para o time. Fontes: canvas produto+ICP (31/07/26), call de 
 
 ## Oferta principal para o lançamento
 
-**Protocolo da Sala™** — mentoria online de etiqueta, 8 módulos, encontros ao vivo:
+**Protocolo da Etiqueta™** · Método A SALA (leitura social, presença e poder
+invisível). Mentoria online de etiqueta, 8 módulos, encontros ao vivo:
 1. A Sala | Julgamento invisível (primeira impressão, presença, leitura social)
 2. Posicionamento & Presença (postura, tom, elegância emocional)
 3. Etiqueta Contemporânea (cumprimento, WhatsApp, eventos, anfitrião)
@@ -35,7 +36,7 @@ Referência rápida para o time. Fontes: canvas produto+ICP (31/07/26), call de 
 - **Gestão de Eventos** (R$2.497 — mentoria em desenvolvimento, para players/experts/empresas).
 - **Curadoria e Mesa Posta** — serviço online (R$2.000) ou presencial (R$1.987/dia + custos de deslocamento).
 
-## Público / ICP (Protocolo da Sala)
+## Público / ICP (Protocolo da Etiqueta)
 
 - **Demográfico:** homens e mulheres adultos — profissionais, empreendedores, empresários — em qualquer lugar (produto é online).
 - **Emocional:** pessoas que se sentem inseguras em ambientes de maior hierarquia/formalidade e querem construir presença, elegância e pertencimento.

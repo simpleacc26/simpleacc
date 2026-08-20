@@ -17,7 +17,8 @@ Base de conhecimento da cliente. Tudo que a SimpleAcc faz para ela acumula aqui.
 4. Branch `cliente/camila-rodrigues/<assunto>` + PR.
 
 ## Contexto rápido
-- **Oferta principal:** Protocolo da Sala, mentoria online de etiqueta e presença,
+- **Oferta principal:** Protocolo da Etiqueta, mentoria online de etiqueta e
+  presença pelo método A SALA (leitura social, presença e poder invisível),
   8 módulos, ticket R$ 2.997 (em até 12x no cartão).
 - **Público / ICP:** profissionais, empreendedores e empresários que convivem com
   gente de alto escalão e travam na hora de ocupar aquele espaço.

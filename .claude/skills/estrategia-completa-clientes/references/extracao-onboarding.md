@@ -77,7 +77,7 @@ a escrever.
   pós-quiz. Se o cliente já tem um método com muitos módulos, agrupe em pilares.
 - **Esteira** · carro-chefe (o que este funil vende), portas laterais (só na
   sessão) e produto de entrada (existe ou não, e por quê).
-- **Premissas numéricas** · conversão de sessão, comparecimento, corte de
+- **Premissas numéricas** · conversão de sessão, comparecimento (padrão da casa: 60%), corte de
   qualificação da P8, verba diária de validação e a régua de **custo por sessão
   qualificada comparecida** (referência: até 5% do ticket).
 
