@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Estratégia Completa · {{NOME_CLIENTE}}</title>
+<!--
+  MODELO SIMPLEACC DE ESTRATEGIA COMPLETA. CSS validado (altura A4 fixa, nada
+  corta). Nao altere o CSS, salvo para resolver estouro de pagina.
+  Regras: zero travessoes; separador "·"; intervalos com "a" (de 60 a 100);
+  apagar este comentario e todos os comentarios ADAPTAR no arquivo final.
+  Secao que crescer: duplique a div.page como "SECAO N · PARTE M" em vez de
+  espremer. Referencia de conteudo: references/estrutura-documento.md e
+  assets/exemplos/estrategia-luana-isse-11.08.26.md
+-->
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a; --navy-dark: #14213d; --gold: #b8863b;
+    --beige: #f4f1ea; --text: #333a45; --muted: #8a8f98;
+  }
+  body { font-family: Arial, Helvetica, sans-serif; color: var(--text); font-size: 10pt; line-height: 1.45; }
+  .page { width: 210mm; height: 297mm; overflow: hidden; padding: 16mm 18mm 24mm 18mm;
+          position: relative; page-break-after: always; background: #fff; }
+  .page:last-child { page-break-after: auto; }
+  .runhead { display: flex; justify-content: space-between; font-size: 7.5pt; color: var(--muted);
+             letter-spacing: .06em; text-transform: uppercase; border-bottom: .4pt solid #d9d5cc;
+             padding-bottom: 4pt; margin-bottom: 12pt; }
+  .runfoot { position: absolute; bottom: 9mm; left: 18mm; right: 18mm; text-align: center;
+             font-size: 7.5pt; color: var(--muted); }
+  .kicker { color: var(--gold); font-size: 9pt; font-weight: bold; letter-spacing: .12em;
+            text-transform: uppercase; margin-bottom: 8pt; }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  h2 { color: var(--navy); font-size: 19pt; line-height: 1.15; margin-bottom: 8pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
+  p { margin-bottom: 6pt; }
+  .navy { color: var(--navy); }
+  .box-dark { background: var(--navy-dark); color: #f5f3ee; padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt; }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; } .box-dark p:last-child { margin-bottom: 0; }
+  .box-light { background: var(--beige); border-left: 3pt solid var(--gold); padding: 10pt 14pt; margin: 11pt 0; }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; } .box-light .bt + p { margin-top: 0; } .box-light p:last-child { margin-bottom: 0; }
+  /* cabecalho de secao, equivalente ao fase-header do roadmap */
+  .sec-header { background: var(--navy-dark); color: #fff; padding: 10pt 16pt; margin-bottom: 10pt; border-left: 4pt solid var(--gold); }
+  .sec-header .sk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .sec-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .sec-header .sd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  /* rotulo de peca: PERGUNTA 3, BLOCO 5, VIDEO 7, DIA 9 */
+  .peca-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 11pt 0 3pt; }
+  /* copy literal, o que vai para a peca: fundo branco, filete dourado */
+  .copy { border-left: 2pt solid var(--gold); padding: 2pt 0 2pt 10pt; margin: 4pt 0 8pt; }
+  .copy .cl { font-size: 8pt; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 2pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  /* alternativas de quiz e slides de carrossel, em duas colunas quando couber */
+  .cols2 { column-count: 2; column-gap: 10mm; }
+  .alt { margin-bottom: 3pt; break-inside: avoid; }
+  .alt b { color: var(--navy); }
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 38pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- PÁGINA 1 · CAPA -->
+<div class="page cover">
+  <div class="kicker">{{TIPO_DE_FUNIL}}</div>
+  <h1>Estratégia<br>Completa</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    {{O_QUE_TEM_DENTRO}}<br>
+    A copy inteira do funil, pronta para implementar.<br>
+    {{MECANISMO_OU_METODO}}
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">{{NOME_CLIENTE}}</div>
+    <div class="lbl">Estrategista</div>
+    <div class="val">Daniel Souza · Carlos Durães</div>
+  </div>
+</div>
+
+<!-- PÁGINA 2 · ANTES DE LER A COPY -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · {{NOME_CLIENTE}}</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Ler a Copy</div>
+  <h2>O Funil em Uma Página</h2>
+  <p class="lead">Leia esta página antes de aprovar as copies. Tudo o que vem depois parte destas decisões.</p>
+  <div class="box-dark">
+    <div class="bt">O caminho do lead</div>
+    <!-- ADAPTAR: a linha do funil e o porque de cada decisao de arquitetura -->
+    <p>{{CAMINHO_DO_LEAD}}</p>
+  </div>
+  <div class="box-light">
+    <div class="bt">A esteira hoje</div>
+    <!-- ADAPTAR: carro-chefe, portas laterais, produto de entrada (ou a decisao de nao ter) -->
+    <p>{{ESTEIRA}}</p>
+  </div>
+  <div class="box-light">
+    <div class="bt">O que a copy precisa compensar</div>
+    <p>{{LACUNAS_E_COMPENSACAO}}</p>
+  </div>
+  <div class="box-light">
+    <div class="bt">Premissas assumidas</div>
+    <p>{{PREMISSAS}}</p>
+  </div>
+  <div class="runfoot">{{RODAPE_CORRIDO}}</div>
+</div>
+
+<!-- PÁGINA 3 · SEÇÃO 1 · BIG IDEA -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · {{NOME_CLIENTE}}</span><span>Página 3</span></div>
+  <div class="sec-header">
+    <div class="sk">Seção 1</div>
+    <h2>Big Idea</h2>
+    <div class="sd">A ideia que sustenta o quiz, a página, os anúncios e o atendimento.</div>
+  </div>
+  <div class="peca-label">A Big Idea</div>
+  <h3>{{BIG_IDEA}}</h3>
+  <p>{{DESENVOLVIMENTO_BIG_IDEA}}</p>
+  <div class="box-dark">
+    <div class="bt">A frase que resume a transformação</div>
+    <p>{{DE_X_PARA_Y}}</p>
+  </div>
+  <div class="peca-label">O mecanismo</div>
+  <p>{{MECANISMO_PILAR_A_PILAR}}</p>
+  <div class="box-light">
+    <div class="bt">A régua de linguagem, válida para toda peça</div>
+    <p><strong>Fala:</strong> {{O_QUE_FALA}}</p>
+    <p><strong>Não fala:</strong> {{O_QUE_NAO_FALA}}</p>
+  </div>
+  <div class="runfoot">{{RODAPE_CORRIDO}}</div>
+</div>
+
+<!-- PÁGINAS SEGUINTES · seções 2 a 6, quebradas em partes.
+     Padrão de página de continuação: mesmo runhead, sec-header com
+     "Seção N · Parte M" no .sk, e o título descrevendo o recorte
+     (ex.: "Copy do Quiz: perguntas 5 a 8"). Componentes:
+     .peca-label + .copy para copy literal, .cols2 para alternativas,
+     ul.check para listas, .box-light para regras e observações de produção. -->
+
+</body>
+</html>
