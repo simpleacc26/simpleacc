@@ -4,6 +4,10 @@
 > **Objetivo:** sair com margem, praça, verba, oferta e capacidade definidas —
 > e com o cliente sentindo que a Simple já domina o caso dele.
 > Ler antes: `contexto/2026-08-20-briefing-pre-onboarding.md`.
+>
+> **Versão preenchível (Google Doc)**, na pasta `Simple <> Ana Carla / 1. Documentos`
+> do Drive — é nela que as respostas da call são digitadas:
+> https://docs.google.com/document/d/1RuaXSZnqz06hiMBhhP__Kx5JhVa_LxOiEKEhf3Nycss/edit
 
 ---
 

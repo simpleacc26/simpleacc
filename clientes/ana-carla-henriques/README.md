@@ -16,7 +16,8 @@ página, criativos e gestão. Contrato de 6 meses fechado em 13/08/26.
 
 - Instagram: _(coletar na call de onboarding)_
 - Gerenciador de Negócios / conta de anúncios: _(a criar/coletar)_
-- Pasta no Drive: _(a definir)_
+- Pasta no Drive: [Simple <> Ana Carla](https://drive.google.com/drive/folders/1P51X6bE8rwdS4aU-qkqwR0XvHsByCDql)
+- Roteiro da call de onboarding (Doc preenchível): https://docs.google.com/document/d/1RuaXSZnqz06hiMBhhP__Kx5JhVa_LxOiEKEhf3Nycss/edit
 
 ## Projetos
 
@@ -31,7 +32,9 @@ página, criativos e gestão. Contrato de 6 meses fechado em 13/08/26.
   números, contrato, riscos e leitura estratégica.
 - `contexto/2026-08-20-entregaveis-vendidos.md` — o que foi vendido na call,
   o que está fora e o que precisa ser confirmado.
-- `estrategia/2026-08-20-roteiro-call-onboarding.md` — roteiro da call.
+- `estrategia/2026-08-20-roteiro-call-onboarding.md` — roteiro da call. A versão
+  preenchível está no Drive, em `1. Documentos` (link acima); este arquivo é a
+  fonte versionada.
 
 ## Observações
 
