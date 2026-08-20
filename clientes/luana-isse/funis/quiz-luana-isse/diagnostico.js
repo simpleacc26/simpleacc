@@ -4,7 +4,7 @@
    0 cabeçalho e selo do índice · 1 antes de tudo · 2 seu cenário ·
    3 por que não resolveu · 4 dois caminhos · CTA · 5 o método ·
    6 o que precisa acontecer · CTA · 7 quem é a Luana (autoridade) ·
-   8 CTA final adaptado à qualificação.
+   8 depoimentos · 9 CTA final adaptado à qualificação.
    Padrão: nunca usar travessões. Sem emoji. Linguagem neutra em gênero.
    ============================================================ */
 const STORE_KEY = "luana_isse_quiz";
@@ -60,6 +60,22 @@ const LEITURA_PILAR = {
     caminho: "O trabalho é oferta, processo e condução. Você já constrói percepção; o que não existe ainda é a ponte entre quem admira o seu conteúdo e quem contrata você.",
   },
 };
+
+/* ============================================================
+   DEPOIMENTOS
+   Regra desta conta: depoimento aqui NÃO cita número de faturamento.
+   É decisão da própria Luana (ela não promete resultado financeiro) e
+   protege o anúncio, porque a Meta lê a página de destino. Dos prints que
+   ela mandou em 20/08, só este passa nessa régua; os outros dois são
+   captura de valor em reais e ficaram de fora de propósito.
+   Antes de somar depoimento novo: confirmar autorização de quem aparece.
+   ============================================================ */
+const DEPOIMENTOS = [
+  {
+    texto: "Hoje eu vendi a minha primeira mentoria no Método Tekton, que criei a partir do MMPV. Um mês desde que fiz a escolha de estar aqui e os resultados já começaram.",
+    quem: "Nathy, mentorada da turma atual",
+  },
+];
 
 if (!a._completedAt && !a.problema) {
   report.innerHTML = `
@@ -188,7 +204,7 @@ if (!a._completedAt && !a.problema) {
     <div class="etapa">
       <h3>Quem é a Luana Isse</h3>
       <div class="autor">
-        <div class="autor-marca" aria-hidden="true">LI</div>
+        <img class="autor-foto" src="luana.jpg" alt="Luana Isse" width="160" height="160" loading="lazy" />
         <div>
           <span class="autor-nome">LUANA ISSE</span>
           <span class="autor-cargo">Jornalista · Copywriter · Estrategista · Master Coach</span>
@@ -205,6 +221,15 @@ if (!a._completedAt && !a.problema) {
         <div class="cred"><div class="n">87</div><div class="d">pessoas em evento presencial, no orgânico</div></div>
         <div class="cred"><div class="n">17</div><div class="d">alunos na turma atual da mentoria</div></div>
       </div>
+    </div>
+
+    <div class="etapa">
+      <h3>Quem já fez esse caminho</h3>
+      ${DEPOIMENTOS.map(d => `
+        <div class="dep">
+          <p>${d.texto}</p>
+          <span class="quem">${d.quem}</span>
+        </div>`).join("")}
     </div>
 
     <div class="cta-box">

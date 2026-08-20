@@ -17,6 +17,12 @@ Segue o blueprint `references/estrutura-invisivel.md` da skill
 Thaina/Thiago aplicados por cima, e com a copy, o índice e a identidade
 visual da Luana.
 
+**Identidade visual vem do manual de marca oficial dela**, não de inferência:
+cores em `contexto/marca/`, com o dourado `#B49055` e o escuro `#030118`.
+Montserrat no corpo (do manual) e Playfair Display nos títulos, substituta da
+Humble Nostalgia, que é paga. As fontes carregam sem bloquear a renderização,
+então Google Fonts fora do ar não trava a página.
+
 - **Índice:** IRV, Índice de Ruptura de Valor. Só as perguntas de diagnóstico
   pontuam. Faixas: ≥ 66% Alta · 33 a 65% Média · < 33% Baixa.
 - **Resultado nomeado**, por pilar: Excelente e escondida · Excelente sem causa ·
@@ -38,7 +44,9 @@ visual da Luana.
 | `app.js` | Motor: render, validação, persistência, tracking, envio do lead |
 | `diagnostico.html` | Casca do relatório |
 | `diagnostico.js` | Monta o diagnóstico personalizado |
-| `styles.css` | Identidade visual (marfim, dourado, serifada) |
+| `styles.css` | Identidade visual, cores do manual de marca |
+| `logo.png` | Assinatura da marca, extraída do manual |
+| `luana.jpg` | Foto dela, no bloco de autoridade |
 
 ## Decisões que valem para o próximo funil
 
@@ -109,9 +117,16 @@ Cole `+55 11 99991-2039` no campo de WhatsApp e confirme que o campo mostra
 
 ## Pendências
 
-- [ ] **Foto da Luana** para o bloco de autoridade. Hoje está o monograma LI.
-      Se for pelo deploy do MCP da Vercel, encolha antes (~224px, poucos KB) e
-      confira o SHA256 do arquivo publicado contra o local.
+- [ ] **Mais depoimentos sem número de faturamento.** Hoje tem um. Dos três
+      prints que ela mandou em 20/08, dois citam valor em reais e ficaram de
+      fora: a própria Luana não promete resultado financeiro, e a Meta lê a
+      página de destino do anúncio.
+- [ ] **Depoimentos em vídeo.** Ela mandou três (90s, 44s e 81s). São bons, um
+      deles é de um homem, o que ajuda no equilíbrio do público. Não subiram
+      porque somam ~38 MB e o deploy pelo MCP não comporta. Precisam de host
+      próprio ou de upload pela CLI da Vercel.
+- [ ] **Pacote de logos** em SVG ou PNG transparente. O que está no ar foi
+      extraído do PDF do manual.
 - [ ] Pixel da Meta e GA4 em `app.js > TRACKING_CONFIG`, se for rodar tráfego pago.
 
 ## Como rodar e publicar
@@ -123,3 +138,8 @@ Deploy na Vercel, **time Simpleacc**, projeto `quiz-luana-isse`, target
 production. Nunca publicar em conta pessoal. Publicação substitui a árvore
 inteira: **confira todos os assets com curl depois de cada deploy**, porque
 arquivo faltando vira 404 mudo.
+
+**Imagem no deploy pelo MCP vai como base64 e pode sair corrompida.** Aconteceu
+aqui: um byte da foto saiu trocado e só o SHA256 pegou (a imagem abria normal).
+Encolha a imagem antes, e **compare o SHA256 do publicado contra o local em
+todos os arquivos**, não só nos que você mexeu.

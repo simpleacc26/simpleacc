@@ -1,35 +1,52 @@
 /* ============================================================
    FUNIL QUIZ · Luana Isse
-   Paleta tirada das artes dela: marfim quente, dourado e um escuro
-   quase preto, com serifada nos títulos. Sem dependência externa.
+   Identidade tirada do MANUAL DE MARCA oficial (enviado por ela em 20/08),
+   não mais inferida das artes. Cores institucionais, na numeração do manual:
+     Color 1  #030118  escuro institucional
+     Color 2  #441529  vinho
+     Color 3  #491F13  marrom
+     Color 4  #B49055  dourado (principal)
+     Color 5  #FFFFFF  branco
+     Color 6  #07292E  verde petróleo
+   Fundo branco, que é o que o manual autoriza junto das cores institucionais.
+   Tipografia: Montserrat no corpo (manual) e Playfair Display nos títulos,
+   substituta da Humble Nostalgia, que é fonte paga e não temos o arquivo.
+   Sem dependência externa além do Google Fonts.
    ============================================================ */
 :root {
-  --bg:          #F2ECE1;  /* marfim quente */
-  --bg-2:        #E9DFCC;  /* um tom abaixo */
-  --surface:     #FFFCF6;  /* cartões */
-  --text:        #211A15;  /* quase preto quente */
-  --muted:       #877866;  /* secundário */
+  /* institucionais, nomeadas como no manual */
+  --ink:         #030118;
+  --wine:        #441529;
+  --brown:       #491F13;
+  --gold:        #B49055;
+  --petrol:      #07292E;
 
-  --primary:     #B8863B;  /* dourado da marca */
-  --primary-700: #8A6526;  /* dourado escuro */
-  --accent-soft: #F3E8D2;  /* champagne (seleção) */
+  --bg:          #FFFFFF;
+  --bg-2:        #FBFAF8;
+  --surface:     #FFFFFF;
+  --text:        #030118;
+  --muted:       #5C5866;
 
-  --action:      #211A15;  /* botão principal */
-  --action-700:  #0F0B08;
-  --on-action:   #FBF6EC;
+  --primary:     #B49055;
+  --primary-700: #8A6E3F;
+  --accent-soft: #F7F1E6;
 
-  --border:      #E4D6BB;
-  --ring:        #B8863B;
-  --err:         #B4452B;
+  --action:      #030118;
+  --action-700:  #14103A;
+  --on-action:   #FFFFFF;
+
+  --border:      #E4DFD4;
+  --ring:        #B49055;
+  --err:         #A33A2B;
 
   --radius:      18px;
   --radius-sm:   12px;
-  --shadow:      0 1px 3px rgba(33,26,21,.06), 0 10px 28px rgba(138,101,38,.10);
-  --shadow-lg:   0 2px 6px rgba(33,26,21,.08), 0 22px 54px rgba(138,101,38,.16);
+  --shadow:      0 1px 3px rgba(3,1,24,.05), 0 10px 28px rgba(3,1,24,.07);
+  --shadow-lg:   0 2px 6px rgba(3,1,24,.07), 0 22px 54px rgba(3,1,24,.10);
   --maxw:        600px;
 
-  --font:        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --font-serif:  "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, "Hoefler Text", Georgia, "Times New Roman", serif;
+  --font:        "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif:  "Playfair Display", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
 }
 
 /* ---------- base ---------- */
@@ -40,30 +57,23 @@ body {
   font-family: var(--font);
   font-size: 17px; line-height: 1.55;
   color: var(--text);
-  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
-  background-attachment: fixed;
+  background: var(--bg);
   -webkit-font-smoothing: antialiased;
 }
 img { max-width: 100%; display: block; }
 .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
 
 /* ---------- topo / marca ---------- */
-.topbar { padding: 24px 0 6px; text-align: center; }
-.brand { display: inline-flex; flex-direction: column; align-items: center; gap: 2px; }
-.brand .brand-name {
-  font-family: var(--font-serif); font-size: 23px; font-weight: 700; letter-spacing: .04em;
-  color: var(--primary-700);
-  background: linear-gradient(92deg, var(--primary-700), #D8B566 55%, var(--primary-700));
-  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
-}
-.brand .brand-tag { font-size: 10.5px; letter-spacing: .42em; text-transform: uppercase; color: var(--primary); padding-left: .42em; }
-.brand .logo-img { height: 64px; width: auto; }
+.topbar { padding: 22px 0 10px; text-align: center; }
+.brand { display: inline-flex; flex-direction: column; align-items: center; gap: 7px; }
+.brand .logo-img { height: 34px; width: auto; }
+.brand .brand-tag { font-size: 10px; letter-spacing: .40em; text-transform: uppercase; color: var(--primary-700); padding-left: .40em; font-weight: 600; }
 
 /* ---------- progresso ---------- */
 .progress-wrap { position: sticky; top: 0; z-index: 20; background: linear-gradient(180deg, var(--bg) 70%, transparent); padding: 10px 0 8px; }
-.progress-track { height: 7px; background: #E2D3B6; border-radius: 99px; overflow: hidden; }
+.progress-track { height: 7px; background: #EFE7D8; border-radius: 99px; overflow: hidden; }
 .progress-bar { height: 100%; width: 0; border-radius: 99px; transition: width .45s cubic-bezier(.16,1,.3,1);
-  background: linear-gradient(90deg, var(--primary), #D8B566); }
+  background: linear-gradient(90deg, var(--primary-700), var(--primary)); }
 
 /* ---------- cartão / telas ---------- */
 .card {
@@ -124,28 +134,28 @@ h2 { font-size: 25px; line-height: 1.25; margin: 0 0 16px; }
 .field .err-msg { color: var(--err); font-size: 14px; margin-top: 6px; display: none; }
 .field .err-msg.show { display: block; }
 
-.errors { display: none; background: #FBEBE6; border: 1px solid #ECC4B8; color: var(--err); border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 16px; font-size: 15px; }
+.errors { display: none; background: #FAEDEA; border: 1px solid #E8C6BE; color: var(--err); border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 16px; font-size: 15px; }
 .errors.show { display: block; }
 
 /* ---------- botões ---------- */
 .actions { display: flex; gap: 12px; align-items: center; margin-top: 24px; }
 .btn { font: inherit; font-weight: 700; cursor: pointer; border: none; border-radius: 99px; padding: 16px 26px; transition: background .2s, transform .12s, box-shadow .2s, opacity .2s; }
-.btn-primary { background: var(--action); color: var(--on-action); box-shadow: 0 8px 20px rgba(33,26,21,.26); }
+.btn-primary { background: var(--action); color: var(--on-action); box-shadow: 0 8px 20px rgba(3,1,24,.24); }
 .btn-primary:hover { background: var(--action-700); transform: translateY(-1px); }
 .btn-primary:disabled { opacity: .55; cursor: not-allowed; transform: none; box-shadow: none; }
 .btn-ghost { background: transparent; color: var(--muted); padding: 16px 14px; }
 .btn-ghost:hover { color: var(--text); }
 .btn-block { width: 100%; justify-content: center; display: flex; }
 .btn:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
-.spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(251,246,236,.5); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; vertical-align: -3px; margin-right: 8px; }
+.spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(255,255,255,.5); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; vertical-align: -3px; margin-right: 8px; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
 /* ---------- tela de carregamento ---------- */
 .loading-card { text-align: center; padding: 40px 26px; }
 .loading-card .eyebrow { display: block; }
-.load-track { height: 10px; background: #E2D3B6; border-radius: 99px; overflow: hidden; margin: 24px 0 4px; }
+.load-track { height: 10px; background: #EFE7D8; border-radius: 99px; overflow: hidden; margin: 24px 0 4px; }
 .load-bar { height: 100%; width: 0; border-radius: 99px;
-  background: linear-gradient(90deg, var(--primary), #D8B566); }
+  background: linear-gradient(90deg, var(--primary-700), var(--primary)); }
 #load-msg { min-height: 1.5em; transition: opacity .2s; }
 @media (max-width: 520px){ .loading-card { padding: 32px 18px; } }
 
