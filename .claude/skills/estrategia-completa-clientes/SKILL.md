@@ -28,9 +28,24 @@ capa, cabeçalho e rodapé corridos, seções quebradas em partes, exportado em 
 É o mesmo sistema visual do roadmap de 90 dias, de propósito: o cliente recebe as
 duas peças e elas conversam.
 
-**Antes de escrever qualquer linha, leia
-`assets/exemplos/estrategia-luana-isse-11.08.26.md`.** É o padrão-ouro e traz o
-mapa de páginas, os componentes a copiar e o nível de profundidade esperado.
+**Antes de escrever qualquer linha, leia os dois exemplos em
+`assets/exemplos/`:** a Luana Isse (11/08, padrão-ouro, B2B com SDR) e o Rafael
+Cobra (13/08, o mais completo, B2C e cliente que executa sozinho). Eles trazem
+o mapa de páginas, os componentes a copiar, o nível de profundidade esperado e
+uma tabela comparando o que muda de um cliente para o outro.
+
+## Arquivos desta skill
+
+- **`references/extracao-onboarding.md`**: o que extrair do material do cliente,
+  o que perguntar e como inferir o que faltar.
+- **`references/estrutura-documento.md`**: o documento seção a seção, com o
+  formato, a página de contexto e as adaptações por tipo de funil e público.
+- **`references/validacao-e-pdf.md`**: as validações obrigatórias (travessões,
+  placeholders, paginação, coerência de números) e a geração do PDF.
+- **`references/entrega-pdf.md`**: nome do arquivo, pasta do cliente e os
+  limites reais de upload.
+- **`assets/modelo-estrategia.html`**: o esqueleto com o CSS validado.
+- **`assets/exemplos/`**: as duas estratégias reais já entregues.
 
 > **Como esse erro aconteceu** (13/08/26, Rafael Cobra): a skill ainda mandava
 > entregar Google Doc, os exemplos no repo eram todos do formato antigo, e o PDF
@@ -114,15 +129,14 @@ Atenção: nesta skill `{{nome}}`, `{{elo_dominante}}` e afins **são conteúdo*
 (variáveis do funil, aparecem no documento de propósito). O que não pode sobrar é
 placeholder do modelo. Confira caso a caso.
 
-Estouro de página: use o script de validação de
-`.claude/skills/roadmap-estrategico-90-dias/references/validacao-e-pdf.md`
-(seção 3). O resultado esperado é `TODAS-AS-PAGINAS-OK`. Se apertar, **divida a
-seção em parte 1 e parte 2** em vez de espremer: é o que a Luana faz em 5 das 6
-seções.
+Estouro de página, coerência de números e renumeração: tudo em
+**`references/validacao-e-pdf.md`**. O resultado esperado da validação de
+paginação é `TODAS-AS-PAGINAS-OK`. Se apertar, **divida a seção em parte 1 e
+parte 2** em vez de espremer: é o que a Luana faz em 5 das 6 seções.
 
 ### Passo 4 · PDF e entrega no Drive
 
-Gere o PDF com o navegador headless (mesmo comando do roadmap) e suba **o PDF**
+Gere o PDF com o navegador headless (comandos em `references/validacao-e-pdf.md`) e entregue **o PDF**
 na pasta do cliente. O detalhe está em **`references/entrega-pdf.md`**, inclusive
 o padrão de nome do arquivo e o fallback sem navegador.
 

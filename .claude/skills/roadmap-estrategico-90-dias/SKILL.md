@@ -55,8 +55,11 @@ antes do PDF).
 - **`assets/exemplos/`**: roadmaps reais entregues, embutidos como base de
   calibragem (fonte HTML editável, funcionam em qualquer sessão):
   `roadmap-lucas-sobreiro.html`, `roadmap-joao-mendes.html`,
-  `roadmap-ayla-rica.html`. **Leia pelo menos um por inteiro antes de
-  redigir** (tom, granularidade, formato dos boxes e do fechamento).
+  `roadmap-ayla-rica.html`, `roadmap-felipe-damasceno.html`,
+  `roadmap-lucas-alife.html` e `roadmap-rafael-cobra.html`. **Leia pelo menos
+  um por inteiro antes de redigir** (tom, granularidade, formato dos boxes e
+  do fechamento). Se o cliente executa sozinho ou pediu formato guiado, leia
+  o do Rafael, que é o mais recente.
 
 Exemplos completos entregues (base de calibragem, todos Perfil B): os três
 arquivos em **`assets/exemplos/`** acompanham a skill e servem em qualquer

@@ -53,6 +53,22 @@ Se alguma página apertar, nesta ordem de preferência:
 Nunca: fonte abaixo de 10pt, mexer nas margens da `.page`, deixar conteúdo
 encostar no rodapé.
 
+## 3b. Coerência de números (a validação que nenhum script pega)
+
+Antes do PDF, releia as premissas contra os números das fases e das metas. O
+erro clássico, pego no roadmap do Rafael: a premissa dizia conversão de 30% e a
+projeção do primeiro mês só fechava com 13%. Quando os dois números existem, o
+documento **tem que explicar a rampa** (por exemplo: 13% no primeiro mês, 20%
+no segundo, 30% no terceiro), e não escolher um e esquecer o outro.
+
+Mesmo teste para: ticket x meta mensal, número de sessões x capacidade real do
+cliente, volume de abordagem por dia x quem executa (existe SDR?), e calendário
+(viagem ou sazonalidade dentro dos 90 dias muda o cronograma).
+
+**E nunca invente dado de pessoa.** Nome de filho, de sócio ou de cliente que
+não está em nenhuma fonte não entra no documento, nem como detalhe humano.
+Aconteceu uma vez e foi corrigido depois de gerado.
+
 ## 4. Encontrar o navegador
 
 ```bash

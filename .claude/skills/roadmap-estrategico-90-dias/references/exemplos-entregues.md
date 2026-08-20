@@ -12,6 +12,7 @@ calibragem de tom, granularidade e formato dos boxes.
 | `roadmap-ayla-rica.html` | Ayla Pedra Rica | 2 produtos em paralelo (especialista + mentoria dela) | R$ 3 a 4 mil | R$ 50 mil | **ticket e conversão como premissa "a validar na call"** |
 | `roadmap-felipe-damasceno.html` | Felipe Damasceno | consultoria/plataforma (ticket alto) | R$ 20 mil+ | R$ 240 mil | **estrutura mais recente (20/07): 5 fases + bônus, "Meta da fase" em toda fase** |
 | `roadmap-lucas-alife.html` | Lucas Álife | consultoria p/ especialistas | R$ 25.000 | R$ 50 mil | **estrutura mais recente (20/07)**; "Prioridade máxima" no posicionamento; bônus com regra "vendas primeiro" |
+| `roadmap-rafael-cobra.html` | Rafael Cobra | mentoria de relacionamento p/ mulheres | R$ 12.000 | R$ 100 mil | **o mais recente (13/08)**: cliente sem equipe e com TDAH. Traz a **página "A Ordem de Execução"** (18 passos numerados, etiqueta de tipo e o porquê em itálico) e a **rampa de conversão** explicada. 18 páginas |
 
 ## Estrutura mais recente (Felipe e Lucas Álife, 20/07) = o padrão a seguir
 
@@ -85,3 +86,21 @@ página vazia.
 Usa a história real do cliente no formato **"não foi falta de X, foi falta de
 Y"** e fecha com **"Você tem A. Você tem B. O próximo passo é começar."** A
 credencial e a linguagem vêm das calls dele, não de paráfrase de marketing.
+
+
+## Duas adaptações do roadmap do Rafael (13/08) que valem para outros clientes
+
+**1. Cliente que executa sozinho não recebe volume de time.** O Perfil B
+pressupõe que a Simple implementa o funil, mas isso não implica que exista SDR.
+Se o cliente atende, produz conteúdo e vende sozinho, calibre a abordagem
+manual pela rotina real dele (no Rafael, 10 por dia, e não de 60 a 100) e diga
+no documento que quem manda as mensagens é ele. **Meta que não cabe no dia do
+cliente vira meta ignorada.**
+
+**2. Formato como requisito, não como preferência.** Quando o cliente pede
+ordem, blocos curtos ou justificativa (aqui foi TDAH declarado em call), crie
+uma **página exclusiva de ordem de execução**: passos numerados de 1 a N,
+**etiqueta de tipo** (Assistir, Enviar, Executar) com cor, e **o porquê em
+itálico embaixo de cada passo**. A numeração é contínua no documento inteiro.
+Replique esse formato em todos os entregáveis daquele cliente, não só no
+roadmap.

@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Roadmap Estratégico Digital · Rafael Cobra</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    padding: 16mm 18mm 24mm 18mm;
+    position: relative;
+    page-break-after: always;
+    background: #fff;
+  }
+  .page:last-child { page-break-after: auto; }
+  .runhead {
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; color: var(--muted);
+    letter-spacing: .06em; text-transform: uppercase;
+    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt;
+  }
+  .runfoot {
+    position: absolute; bottom: 9mm; left: 18mm; right: 18mm;
+    text-align: center; font-size: 7.5pt; color: var(--muted);
+  }
+  .kicker {
+    color: var(--gold); font-size: 9pt; font-weight: bold;
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt;
+  }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
+  .box-dark {
+    background: var(--navy-dark); color: #f5f3ee;
+    padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt;
+  }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light {
+    background: var(--beige); border-left: 3pt solid var(--gold);
+    padding: 10pt 14pt; margin: 11pt 0;
+  }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .fase-header {
+    background: var(--navy-dark); color: #fff;
+    padding: 10pt 16pt; margin-bottom: 10pt;
+    border-left: 4pt solid var(--gold);
+  }
+  .fase-header .fk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .fase-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .fase-header .fd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 12pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+  .porque { color: #6b7280; font-style: italic; }
+  .tag { display: inline-block; font-size: 7.5pt; font-weight: bold; letter-spacing: .08em; text-transform: uppercase; padding: 1.5pt 5pt; border-radius: 2pt; margin-right: 5pt; vertical-align: 1.5pt; }
+  .t-assistir { background: #1b2a4a; color: #fff; }
+  .t-enviar { background: #b8863b; color: #fff; }
+  .t-executar { background: #e6e1d6; color: #5a4a2a; }
+
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 38pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+  .footer-note { margin-top: 24pt; padding-top: 8pt; border-top: 1pt solid var(--gold); font-size: 8.5pt; color: var(--muted); width: 60%; }
+</style>
+</head>
+<body>
+
+<!-- PÁGINA 1 · CAPA -->
+<div class="page cover">
+  <div class="kicker">Plano de Ação Personalizado</div>
+  <h1>Roadmap<br>Estratégico<br>Digital</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    De 333 mil seguidores parados à agenda cheia com alto valor.<br>
+    Os primeiros 90 dias. Passo a passo, fase a fase.<br>
+    Sem atalho, sem improviso, sem ideia solta.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">Rafael Cobra</div>
+    <div class="lbl">Mentor Estratégico</div>
+    <div class="val">Daniel Souza - Carlos Durães</div>
+  </div>
+</div>
+
+<!-- PÁGINA 2 · CONTEXTO E DECISÕES -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Rafael Cobra</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Começar</div>
+  <h1 style="font-size:19pt;">Contexto e Decisões Fundamentais</h1>
+  <p class="lead">Leia esta página inteira antes de executar qualquer passo. Todas as decisões a seguir partem do que está aqui.</p>
+
+  <div class="box-dark">
+    <div class="bt">A decisão mais importante deste plano</div>
+    <p><strong>Você fala com um único público nos próximos 90 dias: a mulher de 35 a 60 anos, bem-sucedida na carreira, que já fez terapia, já leu os livros e continua repetindo o mesmo padrão afetivo.</strong></p>
+    <p>A mentoria para psicólogos e psicanalistas <strong>não foi descartada, foi sequenciada</strong>. O motivo é simples: ela promete agenda cheia e autoridade, e o seu case hoje são 18 pacientes. Depois destes 90 dias, o case passa a ser a operação que você acabou de construir. <strong>Fazer o relacionamento primeiro é o que deixa a mentoria de terapeutas mais forte e mais cara.</strong></p>
+    <p>A big idea que sustenta tudo: <strong>"O problema nunca foi o homem errado. É o padrão que faz você aceitar menos do que merece."</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">O produto: Mentoria Método Cobra</div>
+    <p><strong>Mentoria em grupo, 12 semanas, R$ 12.000.</strong> Você já vendeu mentoria por esse valor, então não é aposta: é reabertura, agora com estrutura por trás.</p>
+    <p><strong>Em grupo, não individual.</strong> Não é preferência comercial, é exigência de agenda: um encontro semanal atende a turma inteira com o mesmo custo de hora. Individual não cabe nas suas 4 horas por dia.</p>
+    <p>O nome já é seu. <strong>Método Cobra já existe, com logotipo, no destaque do seu perfil.</strong> Não vamos criar marca nova, vamos usar melhor a que você tem. Não crie um segundo produto antes de fechar as 3 primeiras vendas.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A matemática dos R$ 100.000/mês</div>
+    <p><strong>6 vendas × R$ 12.000 = R$ 72.000.</strong> Somado à clínica reajustada (cerca de R$ 30.000), fecha os <strong>R$ 100.000</strong>.</p>
+    <p>Usando conversão de call de 30% (premissa a validar com as suas primeiras gravações), 6 vendas pedem <strong>cerca de 20 sessões de diagnóstico por mês: 1 por dia útil</strong>.</p>
+    <p>Para gerar 20 sessões: <strong>10 abordagens personalizadas por dia útil</strong>, começando pela base que já é sua, somadas aos leads do funil de quiz a partir do dia 15.</p>
+    <p>Esse número é <strong>operacional, não aspiracional.</strong> É só fazer.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 3 · COMO USAR + RITMO + RESPONSABILIDADES -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Rafael Cobra</span><span>Página 3</span></div>
+
+  <div class="box-dark">
+    <div class="bt">Como usar este documento</div>
+    <p><strong>Faça na ordem. Um passo por vez.</strong> Os passos são numerados de 1 a 18 e a numeração é contínua do começo ao fim. Não pule, não faça dois ao mesmo tempo.</p>
+    <p><strong>Cada passo tem um porquê</strong>, escrito em itálico embaixo do título. Se você não entender o porquê de algum, pergunte no grupo antes de executar.</p>
+    <p>Cada passo é marcado por tipo, para você bater o olho e saber o que é:</p>
+    <p><span class="tag t-assistir">Assistir</span> aula ou material · <span class="tag t-enviar">Enviar</span> algo para a Simple · <span class="tag t-executar">Executar</span> ação sua</p>
+    <p><strong>Nenhum passo passa de 1 hora.</strong> Foi desenhado assim de propósito, para caber nos seus blocos fracionados. A página 4 traz a ordem completa em uma lista só.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Ritmo de acompanhamento</div>
+    <p><strong>1 encontro individual a cada 15 dias</strong> e <strong>1 encontro em grupo a cada 15 dias</strong>. O papel é destravar o que travou: dúvidas, ajuste de rota, revisão de script, leitura de métrica.</p>
+    <p>A execução acontece <strong>entre as calls.</strong> As calls servem para afinar, não para decidir o que fazer. O que fazer já está aqui dentro.</p>
+    <p>Dúvidas no meio do caminho: <strong>mande no grupo</strong>, mencionando o Carlos. Áudio, vídeo, print, o que for mais rápido para você. Não espere a próxima call.</p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Divisão de responsabilidades</div>
+    <p><strong>A Simple constrói e opera:</strong> quiz, páginas, copies, criativos, roteiros, automações, planilha de leads, playbooks, scripts de abordagem e gestão de tráfego quando ele entrar.</p>
+    <p><strong>Rafael executa:</strong> reajuste da base, abordagens diárias, sessões de diagnóstico, gravação dos vídeos e coleta de depoimentos.</p>
+    <p>O funil coloca lead na porta. <strong>Quem coloca dinheiro no caixa é a rotina comercial.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Foco deste roadmap</div>
+    <p>Este documento cobre <strong>exclusivamente os primeiros 90 dias</strong>: caixa rápido, oferta, aquisição manual e funil no ar. Quando você atingir o ritmo de R$ 100.000/mês, entregamos o <strong>Roadmap 2: escala dos R$ 100.000 aos R$ 250.000/mês</strong>, com equipe, mentoria para terapeutas e novos canais. Não tente queimar etapas.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 4 · A ORDEM -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Rafael Cobra</span><span>Página 4</span></div>
+  <div class="kicker">A Ordem de Execução</div>
+  <h1 style="font-size:19pt;">O Que Assistir e o Que Enviar, na Ordem</h1>
+  <p class="lead">Esta é a lista que você pediu. Comece no 1 e vá descendo. Cada item aparece detalhado na fase correspondente, mais adiante no documento.</p>
+
+  <div class="box-light">
+    <div class="bt">Primeiros 3 dias, nesta ordem exata</div>
+    <p><strong>1.</strong> <span class="tag t-enviar">Enviar</span> Seu e-mail no grupo do WhatsApp. É o que libera o acesso à área de membros. <span class="porque">Sem isso, nada mais destrava. 2 minutos.</span></p>
+    <p><strong>2.</strong> <span class="tag t-assistir">Assistir</span> Aula <strong>Como Montar o High Ticket</strong>. <span class="porque">O passo seguinte é desenhar a sua oferta, e essa aula dá o formato.</span></p>
+    <p><strong>3.</strong> <span class="tag t-executar">Executar</span> Exportar a base do WhatsApp buscando pelo emoji da cobrinha e jogar numa planilha. <span class="porque">É a lista mais quente que existe no projeto, e ela já é sua. 1 hora.</span></p>
+    <p><strong>4.</strong> <span class="tag t-enviar">Enviar</span> Fotos, depoimentos e materiais nas 3 pastas do Drive. <span class="porque">Sem isso a Simple não consegue montar criativo nem página com a sua cara.</span></p>
+    <p><strong>5.</strong> <span class="tag t-enviar">Enviar</span> Os Insights do vídeo de 2 milhões de views. <span class="porque">Vamos decompor o que funcionou para replicar de propósito, não por sorte.</span></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Primeira e segunda semana</div>
+    <p><strong>6.</strong> <span class="tag t-assistir">Assistir</span> <strong>Social Selling parte 1 e parte 2</strong>. <span class="porque">É a abordagem que você fará todo dia. Assistir antes evita queimar lead bom.</span></p>
+    <p><strong>7.</strong> <span class="tag t-assistir">Assistir</span> <strong>Call de Vendas 1x1</strong>. <span class="porque">Você é excelente na conversa. Falta a estrutura da conversa que vende. São coisas diferentes.</span></p>
+    <p><strong>8.</strong> <span class="tag t-enviar">Enviar</span> A oferta desenhada (nome, promessa, entregáveis, preço) para validação na call quinzenal.</p>
+    <p><strong>9.</strong> <span class="tag t-enviar">Enviar</span> Bio e destaques reescritos, antes de publicar, para o Carlos revisar.</p>
+  </div>
+
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Rafael Cobra</span><span>Página 5</span></div>
+
+  <div class="box-light">
+    <div class="bt">A partir da terceira semana</div>
+    <p><strong>10.</strong> <span class="tag t-assistir">Assistir</span> <strong>Outbound</strong> e <strong>Pré-Vendas</strong>. <span class="porque">Quando a base esgotar, é isso que sustenta o volume de abordagem.</span></p>
+    <p><strong>11.</strong> <span class="tag t-enviar">Enviar</span> As 3 primeiras calls de vendas gravadas. <span class="porque">É onde a Simple enxerga o que está travando o fechamento. Sem gravação, viramos adivinhos.</span></p>
+    <p><strong>12.</strong> <span class="tag t-enviar">Enviar</span> Aprovação das copies, do quiz e das páginas que a Simple entregar.</p>
+    <p><strong>13.</strong> <span class="tag t-assistir">Assistir</span> <strong>Método Simple Growth</strong>. <span class="porque">Para você entender o funil que vai rodar em nome do seu negócio, mesmo sem operá-lo.</span></p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Onde achar as aulas</div>
+    <p><strong>As aulas ficam na área de membros.</strong> Se não achar alguma em 2 minutos de procura, <strong>pergunte no grupo</strong> em vez de continuar caçando. Seu tempo vale mais executando.</p>
+    <p>Os <strong>mapas mentais que o Carlos já mandou</strong> são outra coisa: são material de apoio sobre os temas, inclusive os que você vai estudar. <strong>Use como consulta enquanto executa</strong>, não como índice de aulas.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 5 · FASE 1 CAIXA RÁPIDO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Rafael Cobra</span><span>Página 6</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 1 · Dias 1 a 10</div>
+    <h2>Estratégia de Caixa Rápido</h2>
+    <div class="fd">Dinheiro que já está na sua base, esperando abordagem. Não depende de funil, de mídia nem de produto novo.</div>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Por que começar por aqui</div>
+    <p>Você tem <strong>18 a 20 pacientes ativos, uma base inteira de leads marcada com a cobrinha no WhatsApp, ex-pacientes e o formulário antigo</strong>. Esse público é quente, já te conhece e converte muito mais rápido que lead frio. E gera caixa antes de qualquer real ir para tráfego.</p>
+  </div>
+
+  <div class="passo-label">Passo 01</div>
+  <h3>Mapear as Oportunidades da Base</h3>
+  <p class="porque">Por que: sem a lista na frente dos olhos, a abordagem vira improviso e você para no terceiro dia.</p>
+  <ul class="check">
+    <li>Buscar o <strong>emoji da cobrinha</strong> no WhatsApp e exportar todos os contatos para uma planilha</li>
+    <li>Somar os contatos do <strong>formulário antigo</strong> e os ex-pacientes</li>
+    <li>Classificar cada nome em 3 grupos:
+      <ul class="sub">
+        <li><strong>Paciente ativo:</strong> candidato ao reajuste e à mentoria</li>
+        <li><strong>Ex-paciente:</strong> candidato a retorno e a indicação</li>
+        <li><strong>Lead que nunca fechou:</strong> candidato à sessão de diagnóstico</li>
+      </ul>
+    </li>
+    <li>Meta: <strong>lista completa até o Dia 3</strong>, sem nome de fora</li>
+  </ul>
+
+  <div class="passo-label">Passo 02</div>
+  <h3>Aplicar o Reajuste da Base</h3>
+  <p class="porque">Por que: é o dinheiro mais rápido e mais barato do plano inteiro. Zero aquisição, zero mídia, efeito em 30 dias.</p>
+  <ul class="check">
+    <li>Você já tem paciente pagando <strong>R$ 550 e R$ 650 sem questionar</strong>, e disse que se aumentasse os dois agora eles pagariam rindo. <strong>Isso é a prova de que o preço está baixo.</strong></li>
+    <li><strong>Preço novo de R$ 500</strong> para todo paciente que entrar a partir de hoje. Imediato, sem exceção</li>
+    <li>Reajuste dos atuais <strong>em ondas, não de uma vez</strong>: comece pelos que já demonstraram baixa sensibilidade a preço
+      <ul class="sub">
+        <li>Fora da primeira onda: quem estiver em momento clínico delicado. Ética antes de caixa</li>
+      </ul>
+    </li>
+    <li>Comunicar com aviso de 30 dias, sem pedir desculpas pelo próprio valor</li>
+  </ul>
+
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Rafael Cobra</span><span>Página 7</span></div>
+
+  <div class="passo-label">Passo 03</div>
+  <h3>Executar as Abordagens de Caixa Rápido</h3>
+  <p class="porque">Por que: quem já te conhece não precisa ser convencido de que você é bom. Só precisa saber que existe uma porta nova.</p>
+  <ul class="check">
+    <li><strong>Pacientes ativos e ex-pacientes:</strong> apresentar a mentoria em grupo e <strong>pedir de 3 a 5 indicações qualificadas</strong> por pessoa, com perfil claro</li>
+    <li><strong>Leads que nunca fecharam:</strong> reativação personalizada convidando para uma sessão de diagnóstico</li>
+    <li>Usar os <strong>scripts da Simple</strong>, sempre personalizados, e registrar tudo na planilha. <strong>Sem registro, não existe</strong></li>
+  </ul>
+
+  <div class="box-dark">
+    <div class="bt">Meta desta fase</div>
+    <p><strong>Dia 10:</strong> base 100% mapeada e abordada, <strong>8 ou mais sessões de diagnóstico agendadas</strong>, preço novo valendo para entrantes e <strong>primeira onda de reajuste comunicada</strong>.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 6 · FASE 2 OFERTA E POSICIONAMENTO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Rafael Cobra</span><span>Página 8</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 2 · Dias 1 a 14</div>
+    <h2>Oferta e Posicionamento</h2>
+    <div class="fd">Empacotar o que você já faz e arrumar o perfil, antes de qualquer lead novo chegar.</div>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Prioridade máxima</div>
+    <p>Quando a mulher assistir ao reel e clicar no seu perfil, ela precisa encontrar <strong>um caminho</strong>. Hoje ela encontra 333 mil seguidores e um link na bio na sorte. <strong>Alcance sem caminho é vaidade</strong>, e você já provou que sabe gerar alcance: seu vídeo fixado fez 2 milhões de views e trouxe 100 mil seguidores sem um centavo.</p>
+  </div>
+
+  <div class="passo-label">Passo 04</div>
+  <h3>Desenhar a Mentoria Método Cobra</h3>
+  <p class="porque">Por que: aqui vale a regra da casa, vende primeiro e prepara a entrega depois. Você não precisa gravar nada agora, precisa definir o que está vendendo.</p>
+  <ul class="check">
+    <li>Definir: <strong>nome, promessa, duração (12 semanas), formato em grupo, entregáveis, preço (R$ 12.000) e formas de pagamento</strong></li>
+    <li>Aproveitar os <strong>4 módulos que você já escreveu no canvas</strong>: Diagnóstico Emocional, Reconstrução da Autoestima, Inteligência Relacional e Transformação Prática</li>
+    <li><strong>Nunca dar desconto no high ticket.</strong> Objeção de valor se resolve em forma de pagamento, não em preço</li>
+    <li>Criar o <strong>PDF de apresentação</strong> (10 a 15 slides, modelo nos materiais de apoio)</li>
+  </ul>
+
+  <div class="passo-label">Passo 05</div>
+  <h3>Mapear as Etapas do Método Cobra</h3>
+  <p class="porque">Por que: mercado que já fez terapia e já leu os livros não compra promessa, compra mecanismo. O seu diferencial é ter um.</p>
+  <ul class="check">
+    <li>Escrever, em uma folha, <strong>as fases pelas quais uma paciente passa</strong> do primeiro atendimento até a transformação</li>
+    <li>Dar <strong>nome a cada fase</strong>. É isso que separa a sua mentoria de "mais uma mentoria para mulheres"</li>
+    <li>Confirmar se <strong>Método Cobra tem registro no INPI</strong>. Se não tiver, vale encaminhar antes de escalar a comunicação em cima do nome</li>
+  </ul>
+
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Rafael Cobra</span><span>Página 9</span></div>
+
+  <div class="passo-label">Passo 06</div>
+  <h3>Reescrever o Instagram</h3>
+  <p class="porque">Por que: é a página de vendas que mais recebe visita no seu negócio, e hoje ela não pede nada.</p>
+  <ul class="check">
+    <li><strong>Reescrever a bio</strong> na fórmula [Quem ajudo] + [Resultado] + [Credencial] + [CTA]
+      <ul class="sub">
+        <li>Ex.: "Psicanalista. Ajudo mulheres bem-sucedidas a romper o padrão da mulher boazinha e viver relações de reciprocidade | 333 mil no orgânico | Faça seu diagnóstico ↓"</li>
+      </ul>
+    </li>
+    <li>Organizar os destaques em <strong>4 fixos</strong>: "Comece aqui" · "Quem sou" · "Método Cobra" · "Resultados"</li>
+    <li>Fixar no topo <strong>o vídeo de 2 milhões</strong> e um post de apresentação da mentoria</li>
+  </ul>
+
+  <div class="box-dark">
+    <div class="bt">Atenção ao calendário: outubro</div>
+    <p>Sua viagem aos Estados Unidos cai dentro destes 90 dias. <strong>É exatamente por isso que a entrega é em grupo e com encontro gravável.</strong> Se a entrega fosse individual ao vivo, outubro quebraria o mês e você voltaria a sentir o taxímetro. Definir as datas na primeira call quinzenal.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 7 · FASE 3 AQUISIÇÃO MANUAL PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Rafael Cobra</span><span>Página 10</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 3 · Dias 1 a 90</div>
+    <h2>Aquisição Manual</h2>
+    <div class="fd">O motor principal do plano. Roda do dia 1 ao dia 90, em paralelo com tudo.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que o manual anda junto com o funil</div>
+    <p>As objeções reais aparecem na conversa, não na planilha. <strong>É conversando que você descobre a frase exata que faz a mulher dizer sim</strong>, e é essa frase que vai virar anúncio, pergunta de quiz e página de diagnóstico.</p>
+    <p>Hoje o que mais te traz cliente é indicação, ou seja, <strong>sorte organizada</strong>. Isto aqui transforma sorte em processo.</p>
+  </div>
+
+  <div class="passo-label">Passo 07</div>
+  <h3>Assistir às Aulas de Aquisição</h3>
+  <p class="porque">Por que: sem isso você está improvisando, e improviso na frente da venda queima lead bom.</p>
+  <ul class="check">
+    <li><strong>Social Selling parte 1 e parte 2</strong>, antes da primeira abordagem</li>
+    <li><strong>Call de Vendas 1x1</strong>, antes da primeira sessão de diagnóstico</li>
+    <li><strong>Outbound</strong> e <strong>Pré-Vendas</strong>, a partir da terceira semana, quando a base começar a esgotar</li>
+  </ul>
+
+  <div class="passo-label">Passo 08</div>
+  <h3>Executar 10 Abordagens por Dia Útil</h3>
+  <p class="porque">Por que: 10 é o número que cabe nas suas 4 horas fracionadas e ainda entrega as 20 sessões do mês. Mais que isso você não sustenta, menos que isso não fecha a conta.</p>
+  <ul class="check">
+    <li><strong>10 por dia, sempre personalizadas.</strong> Não é disparo, é conversa</li>
+    <li>Distribuição sugerida enquanto a base durar:
+      <ul class="sub">
+        <li>6 da base quente (cobrinha, ex-pacientes, formulário)</li>
+        <li>3 de social selling (quem comenta e responde seus stories)</li>
+        <li>1 de indicação pedida</li>
+      </ul>
+    </li>
+    <li>Quando a base esgotar, <strong>inverter</strong>: social selling e outbound assumem o volume</li>
+    <li><strong>Follow-up obrigatório em 2 dias.</strong> A maior parte da venda mora no segundo contato</li>
+    <li>Registrar tudo na planilha, todo dia, sem exceção</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Como encaixar nos seus blocos</div>
+    <p>10 abordagens levam <strong>de 30 a 40 minutos</strong>, e não precisam ser seguidas. Sugestão: <strong>5 depois de deixar seu filho na escola, 5 no fim da tarde</strong>. O que não funciona é deixar acumular para o fim de semana.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 8 · FASE 3 PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Rafael Cobra</span><span>Página 11</span></div>
+
+  <div class="passo-label">Passo 09</div>
+  <h3>Conduzir a Sessão de Diagnóstico</h3>
+  <p class="porque">Por que: você já é excelente na conversa. O que falta é a conversa ter uma estrutura que termina em decisão.</p>
+  <ul class="check">
+    <li>Assistir à aula completa <strong>antes</strong> da primeira sessão</li>
+    <li><strong>Gravar todas</strong>, com consentimento. As 3 primeiras vão para revisão com o Carlos</li>
+    <li>O eixo da conversa é <strong>o custo de continuar igual</strong>, não a promessa de futuro. Quanto mais uma década repetindo o mesmo padrão custa a ela</li>
+    <li>Respeitar o teto de agenda: <strong>no máximo 2 sessões por dia</strong>, para não competir com o atendimento clínico</li>
+    <li>Toda sessão sem fechamento sai com <strong>próximo passo datado</strong>. Nunca com "me chama quando quiser"</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">A objeção que você já nomeou</div>
+    <p>Você mesmo disse: a dificuldade é a pessoa entender que aquilo vai mudar a vida dela. <strong>Isso não é objeção de preço, é objeção de consciência.</strong> Não se resolve baixando o valor, se resolve elevando a clareza do custo de não agir. É o mesmo trabalho que você faz em sessão, só que aplicado à decisão de compra.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Metas numéricas desta fase</div>
+    <p>A conversão <strong>sobe conforme você calibra</strong>: cerca de 13% no primeiro mês, 20% no segundo e 30% no terceiro. Por isso as vendas crescem mesmo com o mesmo número de sessões. Os 30% da página 2 são o ritmo do terceiro mês, não o do primeiro.</p>
+    <p><strong>Dia 30:</strong> 200 abordagens feitas, 15 sessões realizadas, <strong>2 vendas fechadas</strong></p>
+    <p><strong>Dia 60:</strong> 20 sessões no mês, <strong>4 vendas no mês</strong>, primeira turma da mentoria rodando</p>
+    <p><strong>Dia 90:</strong> 20 sessões no mês, <strong>6 vendas no mês</strong>, ritmo de R$ 100.000 atingido</p>
+    <p><strong>Alerta vermelho:</strong> menos de 2 vendas até o dia 30 é problema de <strong>fechamento ou qualificação, não de produto</strong>. Pausar, revisar as gravações com o Carlos e ajustar antes de continuar abordando.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 9 · FASE 4 CONTEÚDO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Rafael Cobra</span><span>Página 12</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 4 · Dias 1 a 90</div>
+    <h2>Conteúdo Orgânico</h2>
+    <div class="fd">Roda em paralelo. Não é pré-requisito para vender, é o que faz a venda ficar mais fácil.</div>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Você já está no caminho certo</div>
+    <p>Você voltou a gravar depois de um ano e meio parado e os reels saíram de 1 a 3 mil para <strong>95 mil e 100 mil views</strong>, com 1.500 seguidores novos em 10 dias. <strong>O conteúdo não é o problema.</strong> O que faltava era ele apontar para algum lugar.</p>
+    <p>E você acertou na leitura do perfil de referência: <strong>só os reacts dele viralizam, o conteúdo próprio não</strong>. Por isso o react entra como tempero, não como prato principal. Aquele perfil precisa de seguidor. <strong>Você precisa de venda.</strong></p>
+  </div>
+
+  <div class="passo-label">Passo 10</div>
+  <h3>Produzir nos 3 Níveis de Consciência</h3>
+  <p class="porque">Por que: seu público já fez terapia e já leu os livros. Conteúdo só de identificação não move mais ninguém.</p>
+  <ul class="check">
+    <li><strong>Nível 1, ela não sabe que tem o padrão:</strong> "Você acha que é azar. Chama dedo podre. Não é"</li>
+    <li><strong>Nível 2, ela sabe e não sabe o que fazer:</strong> "Entender o padrão não basta. É por isso que você entende tudo e continua repetindo"</li>
+    <li><strong>Nível 4, ela quer resolver:</strong> "As 4 fases que uma mulher atravessa no Método Cobra"</li>
+    <li><strong>CTA fixo em tudo:</strong> chamada para a sessão de diagnóstico ou, a partir do dia 15, para o quiz</li>
+  </ul>
+
+  <div class="passo-label">Passo 11</div>
+  <h3>Manter a Rotina Semanal</h3>
+  <p class="porque">Por que: produção em lote protege suas 4 horas. Gravar todo dia consome mais tempo do que gravar tudo de uma vez.</p>
+  <ul class="check">
+    <li><strong>12 publicações por semana</strong>, produzidas em 1 ou 2 blocos de gravação</li>
+    <li><strong>Retomar os stories.</strong> Você já teve 4 a 5 mil views por dia e chegou a 80 na semana passada. É o canal mais direto que existe entre você e uma venda</li>
+    <li>Reaproveitar o que já funcionou: os ganchos dos reels de 95 e 100 mil</li>
+  </ul>
+
+  <div class="passo-label">Passo 12</div>
+  <h3>Gravar os Materiais do Funil</h3>
+  <p class="porque">Por que: sem os seus vídeos, a Simple não sobe campanha. Este passo é o que destrava a Fase 5.</p>
+  <ul class="check">
+    <li>Gravar os vídeos dos criativos com <strong>os roteiros que a Simple entrega</strong>. Volume suficiente para montar <strong>3 conjuntos de 10 anúncios cada</strong></li>
+    <li>Os 3 ângulos: <strong>a dor de aceitar migalhas</strong> · <strong>o mecanismo do Método Cobra</strong> · <strong>a prova dos depoimentos</strong></li>
+    <li>Coletar <strong>depoimentos em vídeo</strong> seguindo o guia que a Simple envia. Respeitando sigilo: só o que a paciente autorizar, na forma que ela autorizar</li>
+    <li>Subir tudo nas pastas do Drive</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 10 · FASE 5 FUNIL PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Rafael Cobra</span><span>Página 13</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 5 · Dias 15 a 60</div>
+    <h2>Funil de Quiz e Tráfego</h2>
+    <div class="fd">A Simple constrói e opera. Sua parte é aprovar, gravar e atender quem chega.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Como o funil funciona</div>
+    <p>Anúncio leva ao <strong>quiz</strong>, que funciona de forma quase gamificada e vai qualificando a pessoa enquanto ela responde. No final, ela recebe um <strong>diagnóstico personalizado</strong> conforme as respostas, que reforça o custo de continuar igual e a leva à sessão com você.</p>
+    <p>Todos os leads caem numa <strong>planilha</strong>, com a marcação de qualificado ou não. Nada de CRM agora: complexidade demais no começo atrasa resultado.</p>
+    <p>E as respostas do quiz chegam na sua mão <strong>antes da sessão</strong>. Você entra na conversa já sabendo a dor dela.</p>
+  </div>
+
+  <div class="passo-label">Passo 13</div>
+  <h3>Aprovar as Copies, o Quiz e as Páginas</h3>
+  <p class="porque">Por que: a linguagem precisa ser sua. Você é a maior autoridade de relacionamento que conhecemos, e o texto tem que soar como você fala.</p>
+  <ul class="check">
+    <li>A Simple entrega o pacote completo: <strong>perguntas do quiz, página de diagnóstico, páginas do funil e 20 peças de anúncio (10 vídeos, 5 estáticos e 5 carrosséis)</strong></li>
+    <li>Sua parte é <strong>ler e ajustar o tom</strong>, principalmente nas primeiras entregas. Depois disso a Simple já escreve na sua voz</li>
+    <li>Prazo de aprovação curto: cada dia parado na sua caixa é um dia sem funil no ar</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Sobre a quantidade de anúncios</div>
+    <p>Na proposta comercial estavam previstas <strong>12 copies</strong>. Vamos entregar <strong>20 peças</strong>, distribuídas em 3 conjuntos, porque volume na largada é o que faz a Meta encontrar o criativo vencedor mais rápido.</p>
+  </div>
+
+  <div class="passo-label">Passo 14</div>
+  <h3>Liberar a Infraestrutura</h3>
+  <p class="porque">Por que: é a parte mais chata e a mais rápida. Uma tarde resolve, e sem ela o funil não sobe.</p>
+  <ul class="check">
+    <li>Liberar os <strong>acessos que a Simple pedir</strong> (gerenciador de anúncios, Instagram, domínio)</li>
+    <li><strong>Número de WhatsApp dedicado</strong> ao funil, separado do seu pessoal</li>
+    <li>Ferramentas: o Carlos sinaliza <strong>quando</strong> contratar cada uma. Não contrate nada antes de ser avisado</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 11 · FASE 5 PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Rafael Cobra</span><span>Página 14</span></div>
+
+  <div class="passo-label">Passo 15</div>
+  <h3>Subir as Campanhas</h3>
+  <p class="porque">Por que: o tráfego entra depois do caixa rápido, e não antes. Mídia paga com dinheiro que ainda não existe é como você já viveu antes, e não vamos repetir.</p>
+  <ul class="check">
+    <li><strong>Estrutura de largada:</strong> 3 conjuntos de anúncios, 10 anúncios cada, um conjunto por ângulo</li>
+    <li><strong>Orçamento de validação definido na call quinzenal</strong>, financiado pelo caixa rápido da Fase 1. Enquanto a base estiver produzindo, ela é a prioridade</li>
+    <li>Segmentação: mulheres de 35 a 60 anos, grandes centros, com interesses compatíveis com renda</li>
+    <li>Revisão de métricas <strong>a cada 7 dias</strong>, com gatilhos claros:
+      <ul class="sub">
+        <li>Custo por lead fora da meta, o problema é criativo</li>
+        <li>Conclusão do quiz abaixo de 40%, o problema são as perguntas</li>
+        <li>Comparecimento abaixo de 60%, o problema é o follow-up</li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="box-dark">
+    <div class="bt">Regra de ouro do tráfego high ticket</div>
+    <p><strong>Uma venda de R$ 12.000 paga meses de mídia.</strong> O jogo aqui não é lead barato, é lead certo. Não vamos otimizar por custo por lead, vamos otimizar por sessão agendada e por venda.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Meta desta fase</div>
+    <p><strong>Dia 30:</strong> quiz e páginas aprovados, criativos gravados, infraestrutura liberada</p>
+    <p><strong>Dia 45:</strong> campanhas no ar com os 3 conjuntos rodando</p>
+    <p><strong>Dia 60:</strong> custo por lead e taxa de comparecimento medidos, primeira venda vinda do funil</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 12 · BÔNUS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Rafael Cobra</span><span>Página 15</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 6 · A partir do dia 60</div>
+    <h2>Seus Ativos Exclusivos</h2>
+    <div class="fd">Três coisas que só você tem. Plantadas agora, colhidas no mês 4 e 5, sem roubar o foco dos 90 dias.</div>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Por que entra agora e não antes</div>
+    <p>São movimentos de ciclo mais longo. Se entrarem no dia 1, dispersam energia que você não tem sobrando. Se não entrarem nunca, você chega no mês 4 sem nada plantado.</p>
+  </div>
+
+  <div class="passo-label">Passo 16</div>
+  <h3>Transformar Podcast em Canal de Aquisição</h3>
+  <p class="porque">Por que: seu maior número não veio do seu formato de casa. Veio de fora dele.</p>
+  <ul class="check">
+    <li>Sua participação em podcast bateu <strong>103 mil views</strong>, contra uma mediana perto de 3,5 mil nos reels gravados em casa. <strong>Isso não é acaso, é canal</strong></li>
+    <li>Listar <strong>10 podcasts</strong> do nicho de relacionamento, comportamento e desenvolvimento pessoal e se oferecer, com um tema pronto</li>
+    <li>Meta: <strong>2 gravações agendadas</strong> até o dia 90</li>
+  </ul>
+
+  <div class="passo-label">Passo 17</div>
+  <h3>Ativar a Rede do Mastermind</h3>
+  <p class="porque">Por que: você tem acesso a gente grande do digital que a maioria dos clientes não tem. Isso é distribuição de graça.</p>
+  <ul class="check">
+    <li>Mapear <strong>5 amigos do digital</strong> com audiência compatível e propor conteúdo colaborativo ou indicação mútua</li>
+    <li>Meta: <strong>3 conversas em andamento</strong> até o dia 90. Conversa, não fechamento</li>
+  </ul>
+
+  <div class="passo-label">Passo 18</div>
+  <h3>Testar a Mentoria para Terapeutas sem Construí-la</h3>
+  <p class="porque">Por que: transforma sua intuição em dado, custa zero e não tira uma hora do foco principal.</p>
+  <ul class="check">
+    <li>Abrir uma <strong>lista de espera</strong> para "Método Cobra para Terapeutas". Só um formulário, sem produto, sem página</li>
+    <li>Divulgar em <strong>3 lugares</strong>: seu WhatsApp, os amigos do mastermind e as psicólogas que já são suas pacientes</li>
+    <li><strong>Se juntar 30 nomes em uma semana</strong>, a mentoria para terapeutas sobe de prioridade no Roadmap 2, com dado e não com aposta</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 13 · CHECKPOINTS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Rafael Cobra</span><span>Página 16</span></div>
+  <div class="kicker">Checkpoints de Progresso</div>
+  <h1 style="font-size:19pt;">Como Saber Que Você Está no Caminho Certo</h1>
+  <p class="lead">Cada checkpoint marca o final de uma janela. Se algum item não estiver fechado, leve para a próxima call quinzenal. Ajuste de rota imediato, sem esconder.</p>
+
+  <h3 class="navy" style="margin-top:10pt;">CHECKPOINT 1 · DIA 10 (Caixa Rápido)</h3>
+  <ul class="check">
+    <li>Base do WhatsApp exportada, classificada e 100% abordada</li>
+    <li>8 ou mais sessões de diagnóstico agendadas</li>
+    <li>Preço de R$ 500 valendo para novos pacientes</li>
+    <li>Primeira onda de reajuste comunicada</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:10pt;">CHECKPOINT 2 · DIA 14 (Oferta e Perfil)</h3>
+  <ul class="check">
+    <li>Mentoria Método Cobra definida e validada na call</li>
+    <li>Etapas do método nomeadas numa folha</li>
+    <li>Bio, destaques e posts fixados publicados</li>
+    <li>PDF de apresentação pronto</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:10pt;">CHECKPOINT 3 · DIA 30 (Primeiras Vendas)</h3>
+  <ul class="check">
+    <li>200 abordagens feitas e registradas</li>
+    <li>15 sessões realizadas, com as 3 primeiras gravadas e revisadas</li>
+    <li><strong>2 vendas fechadas</strong></li>
+    <li>Criativos gravados e quiz aprovado</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:10pt;">CHECKPOINT 4 · DIA 60 (Funil no Ar)</h3>
+  <ul class="check">
+    <li>Campanhas rodando com os 3 conjuntos</li>
+    <li>4 vendas no mês e primeira turma da mentoria em andamento</li>
+    <li>Custo por lead e comparecimento medidos</li>
+    <li>Datas de outubro resolvidas no calendário da turma</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:10pt;">CHECKPOINT 5 · DIA 90 (Ritmo Atingido)</h3>
+  <ul class="check">
+    <li>6 vendas no mês e ritmo de R$ 100.000 atingido</li>
+    <li>Clínica reajustada e agenda estabilizada</li>
+    <li>2 podcasts agendados e lista de espera de terapeutas medida</li>
+    <li><strong>Pronto para receber o Roadmap 2</strong></li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 14 · MATERIAIS DE APOIO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Rafael Cobra</span><span>Página 17</span></div>
+  <div class="kicker">Materiais de Apoio</div>
+  <h1 style="font-size:19pt;">Recursos para Executar o Plano</h1>
+  <p class="lead">Tudo abaixo está na área de membros. Se não achar algum item em 2 minutos, pergunte no grupo. Os mapas mentais que o Carlos enviou são material de apoio sobre os temas, para consultar enquanto você executa.</p>
+
+  <ul class="check">
+    <li><strong>Como Montar o High Ticket</strong>
+      <ul class="sub"><li>Assistir antes do Passo 04, para desenhar a Mentoria Método Cobra</li></ul>
+    </li>
+    <li><strong>Social Selling, parte 1 e parte 2</strong>
+      <ul class="sub"><li>Assistir antes do Passo 08. É a aula da abordagem que você repete todo dia</li></ul>
+    </li>
+    <li><strong>Call de Vendas 1x1</strong>
+      <ul class="sub"><li>Assistir antes do Passo 09, antes da sua primeira sessão de diagnóstico</li></ul>
+    </li>
+    <li><strong>Outbound e Pré-Vendas</strong>
+      <ul class="sub"><li>Assistir na terceira semana, quando a base quente começar a esgotar</li></ul>
+    </li>
+    <li><strong>Método Simple Growth</strong>
+      <ul class="sub"><li>Assistir na Fase 5, para entender o funil que roda no seu negócio</li></ul>
+    </li>
+    <li><strong>Playbooks e scripts de abordagem</strong>
+      <ul class="sub"><li>Base dos Passos 03 e 08. Sempre personalizar, nunca copiar e colar</li></ul>
+    </li>
+    <li><strong>Planilha de controle de leads</strong>
+      <ul class="sub"><li>Onde mora a base da cobrinha e todo lead do funil. Sem registro, não existe</li></ul>
+    </li>
+    <li><strong>Modelo de PDF de apresentação</strong>
+      <ul class="sub"><li>Base do Passo 04, para a apresentação da mentoria</li></ul>
+    </li>
+    <li><strong>Guia de captação de depoimentos</strong>
+      <ul class="sub"><li>Enviado após a validação deste roadmap. Base do Passo 12</li></ul>
+    </li>
+    <li><strong>Treinamento do método Primal, com Thiago Menegão</strong>
+      <ul class="sub"><li>Gravado na área de membros. É o processo de venda pelo custo de não agir, usado no Passo 09</li></ul>
+    </li>
+    <li><strong>Auditorias de social selling e auditorias comerciais</strong>
+      <ul class="sub"><li>4 de cada, agendadas ao longo dos 90 dias nas calls quinzenais</li></ul>
+    </li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 15 · FECHAMENTO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Rafael Cobra</span><span>Página 18</span></div>
+  <div style="padding-top:34mm;">
+    <div class="kicker">Lembre-se Sempre Disto</div>
+    <h1 style="font-size:19pt;">Antes de Fechar Este Documento</h1>
+
+    <p style="margin-top:10pt;">Você foi remador da seleção brasileira e melhor atleta do país por oito anos seguidos. Construiu 333 mil seguidores sozinho, no orgânico, e um único vídeo seu trouxe 100 mil pessoas sem um centavo investido. Você já vendeu mentoria por R$ 12.000. E, nas suas palavras, não conhece ninguém que entenda mais de relacionamento e gere mais transformação do que você.</p>
+
+    <p>Não foi falta de talento. Não foi falta de audiência. Não foi falta de disposição para trabalhar, você mesmo disse que se mandarem gravar, você grava.</p>
+
+    <p><strong class="navy">Foi falta de direcionamento, de um caminho para onde mandar as pessoas depois que elas te encontram.</strong></p>
+
+    <p>Este roadmap é o método. A execução é sua. A cada 15 dias o mentor estratégico vai te encontrar na conversa quinzenal, mas o que coloca dinheiro no caixa é o que você faz <strong>entre as calls</strong>.</p>
+
+    <p>Dúvidas no meio do caminho: mande no grupo. Não espere a próxima call para perguntar.</p>
+
+    <p style="margin-top:12pt;">Você tem a audiência. Você tem a autoridade. Você tem o método, com nome e logotipo. Você tem uma base inteira esperando uma mensagem sua. E agora você tem a ordem.</p>
+
+    <p><strong class="navy">O próximo passo é começar. Comece pelo Passo 01.</strong></p>
+
+    <div class="footer-note">Roadmap Estratégico Digital · Rafael Cobra · 90 dias · Versão 1.0</div>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+</body>
+</html>
