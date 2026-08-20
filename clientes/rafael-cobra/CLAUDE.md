@@ -113,6 +113,8 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
   · fonte: `estrategia/2026-08-06-analise-priorizacao-interno.html`
 - **Roadmap Estratégico 90 dias (13/08):** `estrategia/2026-08-13-roadmap-estrategico-rafael-cobra.html`
   · PDF: `Roadmap Estratégico Digital - Rafael Cobra - 13.08.26.pdf`
+- **Guia de Captação de Depoimentos (13/08):** `estrategia/2026-08-13-guia-captacao-depoimentos-rafael-cobra.html`
+  · PDF: `Guia de Captação de Depoimentos · Rafael Cobra.pdf`
 - **Estratégia Completa (13/08):** `estrategia/2026-08-13-estrategia.html` (26 páginas)
   · PDF: `Estratégia Completa + Copies Funil Diagnóstico Rafael Cobra - 13.08.26.pdf`
   · **ainda não está no Drive:** o PDF precisa ser arrastado para "1. Documentos" à mão
