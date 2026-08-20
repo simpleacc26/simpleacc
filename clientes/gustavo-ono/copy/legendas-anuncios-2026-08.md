@@ -3,6 +3,7 @@
 **Criado em:** 2026-08-20
 **Para:** os criativos de vídeo em veiculação (lote 27.07 do doc "[Gustavo Ono] Copies 2026": #08, #10 e #11)
 **Destino do CTA:** `diagnostico-gustavo-ono.vercel.app`
+**Formato:** três parágrafos curtos, o último é o CTA. Escritas para celular.
 
 ## O raciocínio por trás
 
@@ -28,39 +29,25 @@ As duas legendas abaixo cobrem justamente o que o vídeo não cobre:
 
 ## Modelo A — Trajetória e autoridade
 
-Eu comecei vendendo chocolate ainda no ensino médio, para ajudar em casa,
-trabalhando como jovem aprendiz durante o dia. Quando entrei na competição do
-Que Seja Doce, no GNT, eu nunca tinha pisado numa cozinha profissional na vida.
-Ganhei mesmo assim, e por um bom tempo achei que aquilo tinha sido sorte.
+Comecei vendendo chocolate no ensino médio, para ajudar em casa. Venci o Que Seja Doce sem nunca ter trabalhado numa cozinha.
 
-Depois vieram as cozinhas da Paola Carosella e da Morena Leite, a capa da
-Padaria 2000, o livro, os dez anos formando chocolateiras dentro e fora do
-Brasil. Mas o método que eu ensino hoje não nasceu em nenhum desses lugares,
-nasceu quando eu voltei a dar aula dentro da cozinha das minhas próprias alunas,
-com o forno que elas tinham e o orçamento que sobrava naquele mês. Foi ali,
-vendo o negócio delas por dentro, que ficou claro para mim onde as coisas
-realmente emperram.
+Depois vieram a capa da Padaria 2000, o livro, dez anos formando chocolateiras. Mas o método nasceu dando aula na cozinha das minhas alunas, com o que elas tinham.
 
-Eu montei um diagnóstico gratuito que olha para o seu negócio com esse mesmo
-olhar. Clique em Saiba mais e descubra o que ajustar primeiro.
+Foi ali que entendi onde o negócio trava. O diagnóstico é gratuito e mostra onde trava no seu. Clique em Saiba mais.
+
+> 125 / 161 / 116 caracteres
 
 ---
 
 ## Modelo B — O que o diagnóstico devolve
 
-Tem um padrão que se repete em quase toda chocolateira que eu acompanho: dois
-meses de correria na Páscoa e no Natal, e o resto do ano esperando o telefone
-tocar. Você produz igual, capricha igual, e mesmo assim maio nunca se parece
-com abril.
+Dois meses de correria na Páscoa e no Natal, e o resto do ano esperando o telefone tocar. Maio nunca se parece com abril.
 
-O diagnóstico que eu montei olha para três coisas ao mesmo tempo: o que você
-vende e como isso chega até o cliente, o preço que você pratica e a rotina que
-faz a venda acontecer. Na maioria dos casos um desses três está segurando os
-outros dois, e enquanto ele não aparece com nome, é normal sentir que você está
-sempre correndo sem sair do lugar.
+O diagnóstico olha três coisas: o que você vende, o preço que pratica e a rotina que faz a venda acontecer. Quase sempre uma delas está segurando as outras duas.
 
-Responder leva menos de três minutos e o relatório chega na hora, apontando o
-seu gargalo e o que fazer com ele. Clique em Saiba mais e faça o seu.
+Leva menos de três minutos e o relatório sai na hora, com o seu gargalo e o que fazer com ele. Clique em Saiba mais.
+
+> 119 / 159 / 115 caracteres
 
 ---
 
@@ -74,9 +61,24 @@ seu gargalo e o que fazer com ele. Clique em Saiba mais e faça o seu.
 | #11 (o que os cursos não ensinam) | Modelo A | Fala direto com quem já pagou curso e se frustrou, e a trajetória responde a objeção |
 | #08 (o scroll do Instagram) | Modelo B | O vídeo já levanta a pergunta e promete o diagnóstico, a legenda entrega o detalhe |
 
-**Os primeiros 125 caracteres** são o que aparece antes do "ver mais" no feed.
-Nos dois modelos a primeira frase foi escrita para funcionar sozinha, então não
-mexa na ordem de abertura sem conferir como fica cortada no celular.
+### Regras de tamanho, que são o que faz funcionar no celular
+
+No feed do celular cabem por volta de **35 caracteres por linha**. Um parágrafo
+de 400 caracteres vira um bloco de doze linhas, e bloco de doze linhas ninguém
+lê no meio do scroll.
+
+Os limites usados aqui:
+
+| Parágrafo | Alvo | Por quê |
+|---|---|---|
+| 1 | até 125 caracteres | é o que aparece antes do "ver mais". Se passar, o corte cai no meio da frase |
+| 2 | até 200 caracteres | cerca de seis linhas, o máximo que se lê sem expandir de novo |
+| 3 (CTA) | até 120 caracteres | precisa caber inteiro na tela junto com o botão |
+
+**Linha em branco entre os parágrafos**, sempre. Sem ela o Instagram junta tudo
+num bloco só e o ganho de ter três partes se perde.
+
+### Outros cuidados
 
 **Não troque o CTA por "link na bio".** O anúncio usa o botão Saiba mais, e a
 legenda precisa apontar para o mesmo lugar, senão o clique se divide entre dois
