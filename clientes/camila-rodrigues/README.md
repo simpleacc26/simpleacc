@@ -33,6 +33,7 @@ mentoria de 3 meses da Simple para lançar a própria mentoria de etiqueta
 | Resumo de contexto | `contexto/resumo.md` | pronto | 2026-08-18 |
 | Roadmap Estratégico de 90 dias | `estrategia/` | pronto (v1.0) | 2026-08-18 |
 | Estratégia Completa (PDF, 21 páginas) | `estrategia/` | pronto (v1.0) | 2026-08-18 |
+| Guia de Captação de Depoimentos (PDF, 4 páginas) | `estrategia/` | pronto | 2026-08-18 |
 
 ## Observações
 
