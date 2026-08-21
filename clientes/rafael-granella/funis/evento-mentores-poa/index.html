@@ -617,34 +617,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div id="passo1">
       <div class="passo">Passo 1 de 2</div>
-      <h2 id="modal-titulo">Vamos garantir a sua vaga</h2>
-      <p>
-        São duas telas rápidas. Quando você terminar, a conversa abre direto no WhatsApp com a
-        nossa equipe.
-      </p>
-
-      <label for="nome">Nome completo</label>
-      <input id="nome" type="text" autocomplete="name" placeholder="Como você quer no crachá" />
-
-      <label for="whats">WhatsApp com DDD</label>
-      <input id="whats" type="tel" inputmode="numeric" autocomplete="tel" maxlength="15"
-             placeholder="(51) 90000-0000" />
-
-      <label for="email">E-mail</label>
-      <input id="email" type="email" autocomplete="email" placeholder="seu@email.com.br" />
-
-
-      <p class="erro" id="erro1"></p>
-
-      <div style="margin-top:22px">
-        <button type="button" class="btn btn-wide" id="ir2">Continuar</button>
-      </div>
-      <button type="button" class="fechar" id="fechar">Voltar para a página</button>
-    </div>
-
-    <div id="passo2" style="display:none">
-      <div class="passo">Passo 2 de 2</div>
-      <h2>Só mais três perguntas</h2>
+      <h2 id="modal-titulo">Só três perguntas rápidas</h2>
       <p>
         É o que faz a nossa equipe chegar na conversa já sabendo quem é você, em vez de começar
         do zero perguntando o básico.
@@ -659,14 +632,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <button type="button" class="op">Outro</button>
       </div>
 
-      <label>Quanto o seu negócio fatura por mês hoje?</label>
-      <div class="ops" data-campo="faturamento">
-        <button type="button" class="op">Até R$20 mil</button>
-        <button type="button" class="op">R$20 a R$50 mil</button>
-        <button type="button" class="op">R$50 a R$100 mil</button>
-        <button type="button" class="op">Acima de R$100 mil</button>
-      </div>
-
       <label>Qual é o maior travamento do seu negócio hoje?</label>
       <div class="ops" data-campo="travamento" id="grupo-travamento">
         <button type="button" class="op">Atrair cliente qualificado</button>
@@ -678,6 +643,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <input id="travamento-outro" type="text" maxlength="80" style="display:none;margin-top:10px"
              placeholder="Conta em poucas palavras qual é" />
+
+      <label>Quanto o seu negócio fatura por mês hoje?</label>
+      <div class="ops" data-campo="faturamento">
+        <button type="button" class="op">Até R$20 mil</button>
+        <button type="button" class="op">R$20 a R$50 mil</button>
+        <button type="button" class="op">R$50 a R$100 mil</button>
+        <button type="button" class="op">Acima de R$100 mil</button>
+      </div>
+
+      <p class="erro" id="erro1"></p>
+
+      <div style="margin-top:22px">
+        <button type="button" class="btn btn-wide" id="ir2">Continuar</button>
+      </div>
+      <button type="button" class="fechar" id="fechar">Voltar para a página</button>
+    </div>
+
+    <div id="passo2" style="display:none">
+      <div class="passo">Passo 2 de 2</div>
+      <h2>Vamos garantir a sua vaga</h2>
+      <p>
+        Últimos dados e a conversa abre direto no WhatsApp com a nossa equipe.
+      </p>
+
+      <label for="nome">Nome completo</label>
+      <input id="nome" type="text" autocomplete="name" placeholder="Como você quer no crachá" />
+
+      <label for="whats">WhatsApp com DDD</label>
+      <input id="whats" type="tel" inputmode="numeric" autocomplete="tel" maxlength="15"
+             placeholder="(51) 90000-0000" />
+
+      <label for="email">E-mail</label>
+      <input id="email" type="email" autocomplete="email" placeholder="seu@email.com.br" />
 
       <p class="erro" id="erro2"></p>
 
@@ -782,7 +780,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     modal.classList.add("on");
     document.body.style.overflow = "hidden";
     track("aplicacao_abriu");
-    setTimeout(function () { document.getElementById("nome").focus(); }, 60);
   }
 
   function fechar() {
@@ -840,17 +837,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   var contato = {};
 
   document.getElementById("ir2").addEventListener("click", function () {
-    var nome = document.getElementById("nome").value.trim();
-    var whats = document.getElementById("whats").value.replace(/\D/g, "");
-    var email = document.getElementById("email").value.trim();
+    if (!respostas.atuacao) { return falhar(erro1, "Escolhe o que você faz hoje."); }
+    if (!respostas.travamento) { return falhar(erro1, "Escolhe o seu maior travamento hoje."); }
+    if (!respostas.faturamento) { return falhar(erro1, "Escolhe a faixa de faturamento."); }
 
-    if (nome.length < 3) { return falhar(erro1, "Escreve o seu nome completo, por favor."); }
-    if (whats.length < 10 || whats.length > 11) {
-      return falhar(erro1, "O WhatsApp precisa ter 10 ou 11 dígitos, contando o DDD.");
+    if (respostas.travamento === "Outro") {
+      var outro = campoOutro.value.trim();
+      if (outro.length < 3) { return falhar(erro1, "Escreve em poucas palavras qual é o travamento."); }
+      respostas.travamento = "Outro: " + outro;
     }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { return falhar(erro1, "Confere o e-mail."); }
 
-    contato = { nome: nome, whatsapp: whats, email: email };
     erro1.classList.remove("on");
     passo1.style.display = "none";
     passo2.style.display = "block";
@@ -864,16 +860,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
 
   document.getElementById("enviar").addEventListener("click", function () {
-    if (!respostas.atuacao) { return falhar(erro2, "Escolhe o que você faz hoje."); }
-    if (!respostas.faturamento) { return falhar(erro2, "Escolhe a faixa de faturamento."); }
-    if (!respostas.travamento) { return falhar(erro2, "Escolhe o seu maior travamento hoje."); }
+    var nome = document.getElementById("nome").value.trim();
+    var whats = document.getElementById("whats").value.replace(/\D/g, "");
+    var email = document.getElementById("email").value.trim();
 
-    var travamento = respostas.travamento;
-    if (travamento === "Outro") {
-      var outro = campoOutro.value.trim();
-      if (outro.length < 3) { return falhar(erro2, "Escreve em poucas palavras qual é o travamento."); }
-      travamento = "Outro: " + outro;
+    if (nome.length < 3) { return falhar(erro2, "Escreve o seu nome completo, por favor."); }
+    if (whats.length < 10 || whats.length > 11) {
+      return falhar(erro2, "O WhatsApp precisa ter 10 ou 11 dígitos, contando o DDD.");
     }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { return falhar(erro2, "Confere o e-mail."); }
+
+    contato = { nome: nome, whatsapp: whats, email: email };
 
     var botao = document.getElementById("enviar");
     botao.textContent = "Abrindo o WhatsApp...";
@@ -886,7 +883,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       email: contato.email,
       atuacao: respostas.atuacao,
       faturamento: respostas.faturamento,
-      travamento: travamento,
+      travamento: respostas.travamento,
       utm_source: params.get("utm_source") || "",
       utm_medium: params.get("utm_medium") || "",
       utm_campaign: params.get("utm_campaign") || "",
