@@ -10,6 +10,7 @@ verdade** (um arquivo `.md` nesta pasta) e um **comando** correspondente em
 | Comando   | Fonte                      | Para quê |
 | --------- | -------------------------- | -------- |
 | `/prompt-mestre`  | `prompts/funil-html.md`    | Criar funil/página completa em HTML puro ou anúncios (copy + criativo). Conduz diagnóstico → aprofundamento → geração. |
+| `/prompt-mestre-copy` | `prompts/copy-hormozi.md` | Escrever copy (roteiros de vídeo, anúncios estático/carrossel, copy de página) com a lógica de venda de Hormozi por dentro e regras de voz humana anti-IA por fora. Conduz diagnóstico/ficha de ICP → matriz de ângulos (anti-repetição) → peças. |
 
 ## Skills disponíveis
 
