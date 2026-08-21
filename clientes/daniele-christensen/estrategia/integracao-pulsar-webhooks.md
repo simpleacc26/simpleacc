@@ -36,11 +36,22 @@ resolve mais do que a conveniência: com as duas etapas separadas em arquivos
 diferentes, ninguém conseguia responder "quantos dos leads que entraram
 chegaram até o fim" sem cruzar na mão.
 
-A aba `Página1` ganhou quatro colunas de jornada (AJ a AM) que puxam da aba
-`Etapa 2` **pelo telefone**: respondeu ou não, TD, onde está o gargalo e Lead
-Hot. É por isso que o telefone da Etapa 2 precisa voltar idêntico ao da Etapa 1
-— se ele for reformatado no meio do caminho, o cruzamento silenciosamente para
-de casar e todo mundo aparece como "não respondeu".
+A aba `Página1` ganhou 26 colunas de jornada (AJ a BI) que puxam da aba
+`Etapa 2` **pelo telefone**: se respondeu, as 15 notas cruas, as cinco médias de
+bloco, o TD, o bloco dominante, onde está o gargalo, a etiqueta de Lead Hot e
+por onde abrir a call. Uma linha por lead, com a jornada inteira nela.
+
+O prefixo `E2 ·` no cabeçalho não é enfeite: sem ele, colunas como "Bloco A" ou
+"A1" se confundiriam com as respostas da Etapa 1 na hora de filtrar.
+
+É por isso que o telefone da Etapa 2 precisa voltar idêntico ao da Etapa 1 — se
+ele for reformatado no meio do caminho, o cruzamento silenciosamente para de
+casar e todo mundo aparece como "não respondeu", com as 25 colunas vazias.
+
+As colunas de jornada são **fórmula na linha 1** e valem para a planilha toda.
+Não digite por cima nem apague a linha 1. E a aba `Etapa 2` é a fonte: se alguém
+inserir ou reordenar coluna lá, os VLOOKUP daqui passam a trazer o campo errado
+sem dar erro.
 
 Um destino que cai não derruba o outro, e o lead não espera por nenhum dos dois.
 
