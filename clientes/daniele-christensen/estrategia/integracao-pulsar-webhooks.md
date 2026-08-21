@@ -24,10 +24,23 @@ da Pulsar para enxergar o próprio lead — foi assim que o acesso à planilha
 antiga se perdeu sem substituta. O Make **não** cria contato no CRM: duplicaria
 o que o n8n já faz e a cadência dispararia duas vezes para o mesmo lead.
 
-| Etapa | Webhook do Make | Planilha |
+| Etapa | Webhook do Make | Destino |
 |---|---|---|
-| 1 | `hook.us2.make.com/v0ungryn21i7gk3q0ld4rxamf3g2m5tp` | `Quiz [V2] Etapa 1 - Leads` |
-| 2 | `hook.us2.make.com/3xnav3lyusd965i2fptdpi5kk5yl0ywy` | `Etapa 2 - Respostas` |
+| 1 | `hook.us2.make.com/v0ungryn21i7gk3q0ld4rxamf3g2m5tp` | aba `Página1` |
+| 2 | `hook.us2.make.com/3xnav3lyusd965i2fptdpi5kk5yl0ywy` | aba `Etapa 2` |
+| clique no WhatsApp | `hook.us2.make.com/l8nl0chvehsk2aonkg1hi5y34ok2ndap` | marca a linha do lead na `Página1` |
+
+Os três escrevem no **mesmo arquivo**: `Grokker — Jornada completa (Etapa 1 +
+Etapa 2)`. Foi pedido da Dani ver a jornada inteira num lugar só, e o desenho
+resolve mais do que a conveniência: com as duas etapas separadas em arquivos
+diferentes, ninguém conseguia responder "quantos dos leads que entraram
+chegaram até o fim" sem cruzar na mão.
+
+A aba `Página1` ganhou quatro colunas de jornada (AJ a AM) que puxam da aba
+`Etapa 2` **pelo telefone**: respondeu ou não, TD, onde está o gargalo e Lead
+Hot. É por isso que o telefone da Etapa 2 precisa voltar idêntico ao da Etapa 1
+— se ele for reformatado no meio do caminho, o cruzamento silenciosamente para
+de casar e todo mundo aparece como "não respondeu".
 
 Um destino que cai não derruba o outro, e o lead não espera por nenhum dos dois.
 
