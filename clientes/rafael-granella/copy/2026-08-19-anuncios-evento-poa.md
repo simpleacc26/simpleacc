@@ -766,6 +766,85 @@ preenche a inscrição de um minuto e a gente confirma a sua vaga no WhatsApp.
 
 ---
 
+## Modelos de legenda
+
+As artes aprovadas já carregam identificação, história, prova, data, local, vagas e CTA. A
+legenda que repete isso queima espaço, então ela existe para entregar o que **não** cabe na
+imagem e o que a pessoa só encontraria na página de vendas: a divisão do dia, o preço, o filtro
+de quem não deve ir e como funciona a inscrição.
+
+Dois modelos, com jobs diferentes. Ambos servem para qualquer um dos criativos, e a escolha
+depende do que a arte já fez.
+
+**Regras dos dois:**
+
+- A primeira linha precisa funcionar sozinha, porque o Meta corta perto de 125 caracteres.
+- Nenhuma frase da arte pode aparecer na legenda, nem reescrita.
+- Uma CTA só, no fim, sem link colado no texto (o botão do anúncio já leva).
+- Preço aparece sempre na legenda, nunca na arte, para o ingresso não competir com o gancho.
+
+### Modelo A | O dia por dentro
+
+**Quando usar:** criativos que já contaram uma história ou um caso (o do Fabrício, o do ano que
+se repete). A arte vendeu o problema, a legenda mostra o que existe do outro lado.
+
+> O que não coube no anúncio é como o dia 11 é dividido.
+>
+> De manhã a gente trabalha modelo de negócio: o que você vende, por quanto e para quem. Depois
+> do almoço entra aquisição e venda, que é como o cliente certo chega até você e o que acontece
+> da primeira conversa até o fechamento. No fim da tarde tem hotseat, quando alguém senta, abre
+> o número real e a sala trabalha em cima daquilo comigo.
+>
+> Você sai com o seu modelo escrito e com uma direção do que mexer primeiro.
+>
+> O ingresso é R$1.500, o mesmo para quem vem pelo anúncio, por indicação ou pelo meu convite.
+> Membro do Alivance Club entra sem pagar e ainda assim ocupa um dos cinquenta lugares.
+>
+> A inscrição leva um minuto: contato e três perguntas rápidas. Ninguém digita cartão em lugar
+> nenhum, porque a vaga é confirmada na conversa com a nossa equipe no WhatsApp.
+>
+> O botão do anúncio abre o formulário. Se depois da conversa você achar que não é o seu
+> momento, ninguém vai insistir.
+
+**O que trocar por criativo:** se a arte já falou de hotseat, corta a última frase do primeiro
+bloco e começa a legenda pela manhã do evento.
+
+### Modelo B | Quem senta na sala
+
+**Quando usar:** criativos que abriram chamando o perfil e prometendo a sala (o de coach e
+mentor, o de mentor, consultor e treinador). A arte disse para quem é, a legenda explica por
+que a vaga é disputada e quem fica de fora.
+
+> São cinquenta lugares, e esse número não é escolha de marketing.
+>
+> Parte do dia é hotseat, com caso aberto na frente da sala, e isso só funciona quando eu sei
+> quem está sentado ali. Por isso a inscrição passa por três perguntas antes de qualquer
+> conversa.
+>
+> É para quem já vive de mentoria, consultoria, treinamento ou coaching e tem cliente pagando
+> hoje. Se você ainda está atrás do primeiro cliente, esse dia não vai te servir, e eu prefiro
+> te falar isso agora.
+>
+> Ingresso de R$1.500, igual para todo mundo. Membro do Alivance Club entra isento e continua
+> ocupando lugar, então se você é membro, fala com a nossa equipe antes de qualquer coisa.
+>
+> A inscrição leva um minuto e termina no WhatsApp, onde a gente confirma se ainda tem vaga.
+> Nada de pagamento nessa etapa.
+>
+> O botão do anúncio abre o formulário.
+
+**O que trocar por criativo:** se a arte já usou o filtro de quem não deve ir, troca esse bloco
+pelo do hotseat, contando como um caso é analisado.
+
+### Como a legenda amarra com a página
+
+A página repete, na ordem, o que as duas legendas prometem: as duas listas de "é para você se"
+e "não é para você se", as seis frentes do dia, o preço com o aviso de que ninguém paga por ali
+e o FAQ com a pergunta do pagamento. Quem clica encontra o mesmo argumento, com mais detalhe, e
+não uma página que fala de outra coisa.
+
+---
+
 ## O que validar com o cliente
 
 1. **Citar os sócios da MLS em anúncio.** A peça 4 fala do ecossistema com cerca de dez mil
