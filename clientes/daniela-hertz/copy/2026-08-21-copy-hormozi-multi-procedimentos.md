@@ -149,7 +149,7 @@ pra ensinar como o procedimento funciona.*
 | 2 | Estático | Objeção: medo do julgamento alheio | "Vão perceber que eu fiz" | Receio social | WhatsApp |
 | 3 | Estático | Desejo: se reconhecer no espelho/na tela | Expressão não bate com o que sente por dentro | Desalinho, saudade de si | WhatsApp |
 | 4 | Roteiro | Anseio: comparação silenciosa | Vergonha de admitir que se importa | Vergonha, vontade contida | WhatsApp |
-| 5 | Roteiro | Objeção: medo de agulha, dor, arrependimento | Primeira vez, medo do desconhecido | Ansiedade | WhatsApp |
+| 5 | Roteiro | Objeção: medo de doer e se arrepender | Primeira vez, medo do desconhecido | Ansiedade | WhatsApp |
 | 6 | Roteiro | Dor + desejo: o rosto fala antes dela | Interpretada errado o dia inteiro | Cansaço de se explicar | WhatsApp |
 
 ### Estático 1
@@ -195,13 +195,16 @@ você mesma. Chama a gente no WhatsApp e agenda sua avaliação gratuita.
 ### Roteiro 5
 Se é a primeira vez que você pensa em fazer esse tipo de cuidado, o medo
 costuma pesar mais que a vontade: medo de doer, medo de ficar roxa, medo
-de se arrepender depois de feito. Só que esses medos, na prática, costumam
-ser maiores na cabeça do que na cadeira. A aplicação é rápida, com agulhas
-bem finas, e qualquer marca que apareça costuma sumir em poucos dias.
-Aqui na Applausi, antes de qualquer coisa a gente escuta esses medos e
-explica exatamente o que esperar, sem prometer que você não vai sentir
-nada. Se o medo é o que está te segurando, ele tem solução numa conversa
-só. Chama a gente no WhatsApp e agenda sua avaliação gratuita.
+de se arrepender depois de feito. Esses medos são completamente normais, e
+quase sempre maiores na imaginação do que na realidade, porque imaginar
+sozinha o pior cenário é bem mais assustador do que entender o que de fato
+vai acontecer. Aqui na Applausi, antes de qualquer coisa a gente escuta
+esses medos com calma, sem pressa e sem julgamento, e explica exatamente o
+que esperar, sem prometer que você não vai sentir nada e sem empurrar você
+pra nenhuma decisão. Quem chega cheia de medo geralmente sai da avaliação
+bem mais tranquila do que entrou, só de ter conversado sobre isso. Se o
+medo é o que está te segurando, ele tem solução numa conversa só. Chama a
+gente no WhatsApp e agenda sua avaliação gratuita.
 
 ### Roteiro 6
 Tem um tipo de cansaço que a boca nunca chega a dizer, porque a testa e os
