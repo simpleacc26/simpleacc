@@ -94,7 +94,7 @@ Ainda pendente de decisão do cliente, marcado no HTML:
 
 ## Traqueamento
 
-O Google Tag Manager `GTM-MFVTJDV6` está instalado nas duas páginas, com o snippet do `<head>`
+O Google Tag Manager `GTM-KJ4MG9FD` está instalado nas duas páginas, com o snippet do `<head>`
 antes de qualquer outro script e o `<noscript>` logo depois do `<body>`.
 
 A página empurra os eventos abaixo para o `dataLayer`. Todos são eventos personalizados, então
