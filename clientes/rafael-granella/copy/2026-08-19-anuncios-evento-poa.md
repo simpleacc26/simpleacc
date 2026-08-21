@@ -9,8 +9,9 @@ playbook do evento.
 da MLS como prova; entrega boa e negócio ruim; convite regional curto; por que POA e não São
 Paulo; você cobra pouco e não é humildade; a liga e como se entra nela.
 
-**Regras que valem para todas as peças:** ingresso de R$1.500 igual para todo mundo, sem
-desconto falado em anúncio; sem promessa de resultado; data, horário e local sempre corretos
+**Regras que valem para todas as peças:** **nenhuma peça cita o valor do ingresso**, nem na
+arte nem na legenda, porque o preço só faz sentido depois que a pessoa entende o que é o dia, e
+por isso ele vive na página; sem promessa de resultado; data, horário e local sempre corretos
 (sexta, 11 de setembro, Iguatemi Trust Business, das 8h59 às 18h59); toda CTA leva para
 alivance-day.vercel.app, onde a inscrição termina em conversa no WhatsApp e não em página de
 pagamento.
@@ -66,7 +67,7 @@ A arte tem quatro partes, e elas são uma coisa só, não blocos separados:
 1. **Abertura** (tipo grande, Fahkwang): a cena que faz a pessoa se reconhecer em um segundo.
 2. **Desenvolvimento** (tipo médio, Inter, 4 a 6 linhas): o que acontece, o que custa, e a
    virada, que é a leitura nova do problema.
-3. **O dia** (tipo menor): o que é, quando, onde, quantas vagas e quanto custa.
+3. **O dia** (tipo menor): o que é, quando, onde e quantas vagas. Preço não entra aqui.
 4. **O próximo passo** (uma linha, em dourado): a instrução exata.
 
 Direção de arte: fundo navy `#1c1c42`, texto branco, dourado `#c8b28b` só na abertura e no
@@ -98,7 +99,7 @@ novo. Nenhum dos três muda com você trabalhando mais.
 No dia 11 de setembro eu abro os três em Porto Alegre, e a tarde tem hotseat, com caso aberto
 na frente da sala.
 
-Sexta, 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares, R$1.500.
+Sexta, 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares.
 
 **O PRÓXIMO PASSO**
 
@@ -146,7 +147,7 @@ a pessoa levanta a mão.
 Empreendo há dezoito anos e no dia 11 de setembro eu abro esse caminho inteiro em Porto Alegre:
 canal de aquisição, marketing conectado com a venda e a venda na prática.
 
-Sexta, 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares, R$1.500.
+Sexta, 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares.
 
 **O PRÓXIMO PASSO**
 
@@ -195,7 +196,7 @@ cliente novo consome.
 O dia 11 tem cinquenta lugares por causa do formato: parte do tempo é hotseat, com caso aberto
 na frente da sala. Sem venda de esteira no fim do dia.
 
-Sexta, 8h59 às 18h59, Iguatemi Trust Business, Porto Alegre. R$1.500.
+Sexta, 8h59 às 18h59, Iguatemi Trust Business, Porto Alegre. Cinquenta lugares.
 
 **O PRÓXIMO PASSO**
 
@@ -245,7 +246,7 @@ e entender como chegou nesse número.
 No dia 11, em Porto Alegre, são cinquenta pessoas que vivem disso na mesma sala, com hotseat e
 networking. O Alivance é um club da Mentoring League Society.
 
-Sexta, 8h59 às 18h59, Iguatemi Trust Business. R$1.500.
+Sexta, 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares.
 
 **O PRÓXIMO PASSO**
 
@@ -296,7 +297,7 @@ Coordeno o núcleo comercial do Club M e ganhei o prêmio de melhores perguntas 
 Agendor em 2016. No dia 11, um bloco inteiro é venda na prática: prospecção, condução e
 fechamento.
 
-Sexta, 8h59 às 18h59, Porto Alegre. Cinquenta lugares, R$1.500.
+Sexta, 8h59 às 18h59, Porto Alegre. Cinquenta lugares.
 
 **O PRÓXIMO PASSO**
 
@@ -346,7 +347,7 @@ O resto do dia é modelo de negócio, formatos de mentoria, canal de aquisição
 conectado com a venda e a venda na prática, da prospecção ao fechamento. É uma sexta inteira,
 das 8h59 às 18h59, no Iguatemi Trust Business, em Porto Alegre.
 
-São cinquenta lugares e o ingresso é R$1.500 para todo mundo. Clica no link, preenche a
+São cinquenta lugares. Clica no link, preenche a
 inscrição de um minuto e a nossa equipe te chama no WhatsApp para confirmar se ainda tem vaga,
 sem passar por página de pagamento.
 
@@ -381,8 +382,7 @@ No dia 11 de setembro, em Porto Alegre, um dos blocos do dia é exatamente isso,
 modelos de mentoria e como escalar mentoria sem virar refém da própria agenda. Depois tem hotseat,
 então dá para colocar o seu formato atual na mesa e sair com uma direção.
 
-Uma sexta, das 8h59 às 18h59, cinquenta lugares, ingresso de R$1.500 para todo mundo. Clica no
-link, preenche a inscrição de um minuto e a nossa equipe te chama no WhatsApp para confirmar a
+Uma sexta, das 8h59 às 18h59, cinquenta lugares. Clica no link, preenche a inscrição de um minuto e a nossa equipe te chama no WhatsApp para confirmar a
 sua vaga, sem página de pagamento no caminho.
 
 > Por que esse ângulo: nomeia o gargalo em termos de formato de produto, que é uma leitura nova
@@ -588,7 +588,7 @@ dezenas de empresários.
 O que a gente fez com ele é o que eu abro no dia 11 de setembro em Porto Alegre: modelo,
 formato de entrega, canal de aquisição e a venda na prática, com hotseat à tarde.
 
-Sexta, 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares, R$1.500.
+Sexta, 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares.
 
 **O PRÓXIMO PASSO**
 
@@ -625,7 +625,7 @@ cliente novo chegava. Três meses depois, R$260 mil. Em seis, R$600 mil.
 Essas três decisões são o miolo do dia 11 de setembro, em Porto Alegre, com hotseat para olhar
 caso a caso.
 
-Sexta, 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares, R$1.500.
+Sexta, 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares.
 
 **O PRÓXIMO PASSO**
 
@@ -663,7 +663,7 @@ A gente mexeu no modelo dele, e em seis meses ele fez R$600 mil.
 
 No dia 11 de setembro, em Porto Alegre, eu abro esse trabalho inteiro, com hotseat à tarde.
 
-Sexta, 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares, R$1.500.
+Sexta, 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares.
 
 **O PRÓXIMO PASSO**
 
@@ -705,8 +705,7 @@ No dia 11 de setembro, em Porto Alegre, eu passo o dia inteiro nesse mesmo traba
 formato de entrega, canal de aquisição e a venda na prática. Tem hotseat no fim da tarde, então
 o caso de quem está na sala vai pra mesa.
 
-Sexta, das 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares, ingresso de R$1.500.
-Toca no link, preenche a inscrição de um minuto e a nossa equipe te chama no WhatsApp.
+Sexta, das 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares. Toca no link, preenche a inscrição de um minuto e a nossa equipe te chama no WhatsApp.
 
 ---
 
@@ -733,7 +732,7 @@ novo chegava até ele. Em três meses foram R$260 mil, em seis meses R$600 mil.
 Esses três pontos são o dia 11 inteiro, em Porto Alegre, e no fim da tarde tem hotseat para
 olhar caso a caso.
 
-Sexta, das 8h59 às 18h59, cinquenta lugares, R$1.500. Toca no link, preenche a inscrição de um
+Sexta, das 8h59 às 18h59, cinquenta lugares. Toca no link, preenche a inscrição de um
 minuto e a nossa equipe te chama no WhatsApp para confirmar sua vaga.
 
 ---
@@ -761,7 +760,7 @@ No dia 11 de setembro eu abro em Porto Alegre como esse desenho é feito: format
 mentoria, como escalar sem piorar a entrega, canal de aquisição e a venda na prática. Com
 hotseat no fim da tarde.
 
-Sexta, das 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares, R$1.500. Toca no link,
+Sexta, das 8h59 às 18h59, Iguatemi Trust Business. Cinquenta lugares. Toca no link,
 preenche a inscrição de um minuto e a gente confirma a sua vaga no WhatsApp.
 
 ---
@@ -778,63 +777,71 @@ depende do que a arte já fez.
 
 **Regras dos dois:**
 
+- A legenda abre continuando o assunto do criativo, com um contexto que a arte não tinha espaço
+  para dar. Nada de recomeçar do zero anunciando o evento outra vez.
+- Texto corrido, onde cada parágrafo explica o anterior. Bloco de informação solto é o que faz
+  a legenda parecer rodapé.
 - A primeira linha precisa funcionar sozinha, porque o Meta corta perto de 125 caracteres.
 - Nenhuma frase da arte pode aparecer na legenda, nem reescrita.
-- Uma CTA só, no fim, sem link colado no texto (o botão do anúncio já leva).
-- Preço aparece sempre na legenda, nunca na arte, para o ingresso não competir com o gancho.
+- **Nunca citar o valor do ingresso**, nem na arte nem na legenda. O preço aparece só na página,
+  depois de a pessoa entender o que é o dia.
+- Uma CTA só, no fim, sem link colado no texto, porque o botão do anúncio já leva.
 
-### Modelo A | O dia por dentro
+### Modelo A | Por que o dia é montado assim
 
-**Quando usar:** criativos que já contaram uma história ou um caso (o do Fabrício, o do ano que
-se repete). A arte vendeu o problema, a legenda mostra o que existe do outro lado.
+**Quando usar:** criativos que já contaram uma história ou um caso (os dois do Fabrício, o do
+ano que se repete). A arte vendeu o problema, a legenda abre o dia por dentro.
 
-> O que não coube no anúncio é como o dia 11 é dividido.
+> Todo evento que eu fui como aluno tinha o mesmo problema: o conteúdo era bom e a segunda-feira
+> continuava igual. Quando eu montei o dia 11, a primeira coisa que eu fiz foi inverter a ordem
+> e começar pelo que decide o resto.
 >
-> De manhã a gente trabalha modelo de negócio: o que você vende, por quanto e para quem. Depois
-> do almoço entra aquisição e venda, que é como o cliente certo chega até você e o que acontece
-> da primeira conversa até o fechamento. No fim da tarde tem hotseat, quando alguém senta, abre
+> De manhã a gente trabalha modelo de negócio, que é o que você vende, por quanto e para quem,
+> porque preço e formato mudam toda a conta depois. Passado o almoço entra o caminho que traz
+> cliente novo e a venda na prática, da primeira conversa até o fechamento. No fim da tarde,
+> quando cada um já está com a própria situação clara na cabeça, tem hotseat: alguém senta, abre
 > o número real e a sala trabalha em cima daquilo comigo.
 >
-> Você sai com o seu modelo escrito e com uma direção do que mexer primeiro.
+> É por isso que são cinquenta lugares. Com duzentos, o hotseat vira palestra e você volta pra
+> casa com anotação, do jeito que já aconteceu comigo.
 >
-> O ingresso é R$1.500, o mesmo para quem vem pelo anúncio, por indicação ou pelo meu convite.
-> Membro do Alivance Club entra sem pagar e ainda assim ocupa um dos cinquenta lugares.
->
-> A inscrição leva um minuto: contato e três perguntas rápidas. Ninguém digita cartão em lugar
-> nenhum, porque a vaga é confirmada na conversa com a nossa equipe no WhatsApp.
->
-> O botão do anúncio abre o formulário. Se depois da conversa você achar que não é o seu
-> momento, ninguém vai insistir.
-
-**O que trocar por criativo:** se a arte já falou de hotseat, corta a última frase do primeiro
-bloco e começa a legenda pela manhã do evento.
-
-### Modelo B | Quem senta na sala
-
-**Quando usar:** criativos que abriram chamando o perfil e prometendo a sala (o de coach e
-mentor, o de mentor, consultor e treinador). A arte disse para quem é, a legenda explica por
-que a vaga é disputada e quem fica de fora.
-
-> São cinquenta lugares, e esse número não é escolha de marketing.
->
-> Parte do dia é hotseat, com caso aberto na frente da sala, e isso só funciona quando eu sei
-> quem está sentado ali. Por isso a inscrição passa por três perguntas antes de qualquer
-> conversa.
->
-> É para quem já vive de mentoria, consultoria, treinamento ou coaching e tem cliente pagando
-> hoje. Se você ainda está atrás do primeiro cliente, esse dia não vai te servir, e eu prefiro
-> te falar isso agora.
->
-> Ingresso de R$1.500, igual para todo mundo. Membro do Alivance Club entra isento e continua
-> ocupando lugar, então se você é membro, fala com a nossa equipe antes de qualquer coisa.
->
-> A inscrição leva um minuto e termina no WhatsApp, onde a gente confirma se ainda tem vaga.
-> Nada de pagamento nessa etapa.
+> Se você já vive de mentoria, consultoria ou treinamento e tem cliente pagando hoje, a
+> inscrição leva um minuto: seus dados e três perguntas que fazem a nossa equipe chegar na
+> conversa já sabendo quem é você. Ninguém digita cartão em lugar nenhum, a vaga é confirmada no
+> WhatsApp.
 >
 > O botão do anúncio abre o formulário.
 
-**O que trocar por criativo:** se a arte já usou o filtro de quem não deve ir, troca esse bloco
-pelo do hotseat, contando como um caso é analisado.
+**O que trocar por criativo:** se a arte já falou do hotseat, começa a legenda pelo segundo
+parágrafo e usa a abertura para contar por que o dia é em Porto Alegre.
+
+### Modelo B | Por que a sala é pequena
+
+**Quando usar:** criativos que abriram chamando o perfil (o de coach e mentor, o de mentor,
+consultor e treinador). A arte disse para quem é, a legenda explica o critério de quem entra.
+
+> Quando eu decidi fazer esse dia em Porto Alegre, a primeira definição não foi a data, foi o
+> tamanho da sala.
+>
+> Cinquenta lugares, porque parte do dia é hotseat, com caso aberto na frente de todo mundo, e
+> isso só funciona quando eu sei quem está sentado ali. Numa sala de duzentos eu falo para o
+> meio da curva, e cada um aplica o que consegue.
+>
+> Por isso a inscrição tem três perguntas antes de qualquer conversa: o que você faz hoje,
+> quanto o seu negócio fatura e o que está travando. É o que me deixa preparar o dia para quem
+> vai estar lá, e é o que faz a nossa equipe te chamar já sabendo do que falar.
+>
+> Isso também define quem não deve vir. Se você ainda está atrás do primeiro cliente de
+> mentoria, esse dia não vai te servir, e eu prefiro te falar agora. Se você já vive disso e o
+> negócio parou de crescer, é exatamente para você.
+>
+> Membro do Alivance Club tem isenção e continua ocupando um dos cinquenta lugares, então se
+> esse é o seu caso, fala com a nossa equipe antes.
+>
+> A inscrição leva um minuto e termina no WhatsApp. O botão do anúncio abre o formulário.
+
+**O que trocar por criativo:** se a arte já usou o filtro de quem não deve ir, troca o quarto
+parágrafo por como um caso é analisado no hotseat.
 
 ### Como a legenda amarra com a página
 
