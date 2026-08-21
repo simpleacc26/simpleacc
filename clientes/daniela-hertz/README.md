@@ -25,6 +25,7 @@ entrada. Sem landing page nem quiz para esta cliente.
 - Deck de onboarding (13/07/26): [Google Slides](https://docs.google.com/presentation/d/1nXyE2FQSs9UMihQRV0yE9SI9LYAmJ8i1D_5XbTDDVd8/edit)
 - Planilha de copies do time (Meta Ads): [Google Doc](https://docs.google.com/document/d/1P1t9Bc7Gh2aBFyk1j6FfXR-0H1RBRu1GRVvujgwK2zU/edit)
 - Instagram: [@applausiestetica](https://www.instagram.com/applausiestetica/)
+- Growth Model (tráfego real, jul/ago): [Google Sheets](https://docs.google.com/spreadsheets/d/1gGwLb2dmAKV5hk5YY64iAowEscacch2yCUi4ZaqqJtM/edit)
 
 ## Projetos
 
@@ -32,6 +33,7 @@ entrada. Sem landing page nem quiz para esta cliente.
 | ------------------------------------- | ----------- | ----------------------------------------- | ------ |
 | Copy de anúncios (estático/carrossel) | `copy/`     | v1 entregue (27/07/26)                    | —      |
 | Roteiros de vídeo                     | `roteiros/` | v2 entregue (27/07/26), v1 no histórico   | —      |
+| Copy multi-procedimento (`/prompt-mestre-copy`) | `copy/` | 18 peças entregues (21/08/26): Endolaser, Toxina Botulínica, Preenchimento | — |
 
 ## Observações
 
