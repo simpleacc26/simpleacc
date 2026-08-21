@@ -724,9 +724,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     return "https://wa.me/" + C.whatsapp + "?text=" + encodeURIComponent(texto);
   }
 
+  // Registra na planilha quem foi direto pro WhatsApp sem preencher a aplicacao (duvida ou
+  // convite direto). Sem nome/telefone/email, porque nesse caminho ninguem preencheu nada;
+  // serve pra contar volume e origem (utm) desse tipo de clique ao lado da aplicacao completa.
+  function registrarCliqueDireto(etapa) {
+    if (!C.webhookLeads) return;
+    var corpo = new URLSearchParams({
+      etapa: etapa,
+      nome: "",
+      whatsapp: "",
+      email: "",
+      atuacao: "",
+      faturamento: "",
+      travamento: "",
+      utm_source: params.get("utm_source") || "",
+      utm_medium: params.get("utm_medium") || "",
+      utm_campaign: params.get("utm_campaign") || "",
+      utm_content: params.get("utm_content") || "",
+      utm_term: params.get("utm_term") || "",
+      pagina: location.href
+    });
+    if (!(navigator.sendBeacon && navigator.sendBeacon(C.webhookLeads, corpo))) {
+      try { fetch(C.webhookLeads, { method: "POST", mode: "no-cors", keepalive: true, body: corpo }); } catch (x) {}
+    }
+  }
+
   var zap = document.getElementById("zap");
   zap.href = linkZap("Oi! Vim da página da Imersão Mentores Alivance do dia 11 de setembro e tenho uma dúvida.");
-  zap.addEventListener("click", function () { track("whatsapp_duvida"); });
+  zap.addEventListener("click", function () {
+    track("whatsapp_duvida");
+    registrarCliqueDireto("duvida_whatsapp");
+  });
 
   if (typeof C.vagasRestantes === "number" && C.vagasRestantes > 0) {
     var v = document.getElementById("vagas");
@@ -746,6 +774,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     if (e) e.preventDefault();
     if (direto) {
       var destinoZap = linkZap("Oi! Recebi o convite do Rafa para a Imersão Mentores Alivance do dia 11 de setembro e quero garantir a minha vaga.");
+      registrarCliqueDireto("convite_direto");
       trackEntao("whatsapp_convite_direto", null, function () { location.href = destinoZap; });
       return;
     }
