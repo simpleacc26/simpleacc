@@ -123,14 +123,30 @@ BASE DE CONTATOS
 Você nunca mexeu no ManyChat. Isto é o caminho mínimo, na ordem. Tempo estimado:
 60 a 90 minutos.
 
-### Passo 1 — Conectar o número (Victor faz, ou acompanha)
+### Passo 1 — Conectar o número
 
-`Settings → Channels → WhatsApp → Connect`. Exige que o número já esteja num
-WhatsApp Business Account dentro do Meta Business Manager do Daniel. Um número
-que está em uso no app WhatsApp Business comum **precisa ser migrado** para a
-Cloud API — e ao migrar, **ele para de funcionar no app**. Confirme com o Daniel
-que ele sabe disso antes de migrar; se o número for o de atendimento dele, use
-outro.
+`Settings → Channels → WhatsApp → Connect`. Existem dois caminhos, e a escolha
+importa muito.
+
+**Coexistence (recomendado).** O número continua funcionando normalmente no app
+do WhatsApp Business **e** conecta ao ManyChat ao mesmo tempo. Melhor ainda:
+durante a conexão dá pra **sincronizar os contatos e o histórico** do app — 1, 90
+ou 180 dias. Se a base ativa do Daniel mora nas conversas dele, isso resolve o
+povoamento da base sem CSV.
+
+Três coisas a saber antes:
+- A sincronização tem uma **janela de 24h após o onboarding**. Se passar, precisa
+  desconectar e refazer o processo do zero. Marque "compartilhar histórico"
+  **durante** a conexão, não depois.
+- As **listas de transmissão do app viram somente leitura** — a partir daí o
+  broadcast é pelo ManyChat. Como o plano já é esse, não muda nada. Mas some o
+  plano B de disparar pela lista nativa, então decida com isso em mente.
+- Throughput cai de 80 para 20 mensagens por segundo. Irrelevante no nosso volume.
+- Não sincroniza grupos, mensagens temporárias nem de visualização única.
+
+**Migração completa.** O número sai do app e passa a viver só na API. Só faz
+sentido se o número for exclusivo de disparo. Para o número de atendimento do
+Daniel, **não use este caminho.**
 
 ### Passo 2 — Criar as tags
 
