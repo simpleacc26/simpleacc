@@ -77,6 +77,18 @@ const DEPOIMENTOS = [
   },
 ];
 
+/* Depoimentos em vídeo. Mesma régua dos escritos: nenhum valor em reais
+   escrito na tela. Dos três que ela mandou em 20/08, dois entraram.
+   O terceiro (mulher de rosa) tem "47k em Mentoria" queimado no vídeo nos
+   primeiros 5 segundos: fica arquivado em depoimentos/dep-1.mp4 e só sobe se
+   ela reexportar sem esse letreiro. Ver depoimentos/README.md.
+   preload="none": o vídeo só é baixado se a pessoa apertar play, senão o
+   relatório abriria puxando megabytes que quase ninguém assiste. */
+const VIDEOS = [
+  { src: "depoimentos/dep-3.mp4", poster: "depoimentos/dep-3.jpg", quem: "Mentorado da Luana" },
+  { src: "depoimentos/dep-2.mp4", poster: "depoimentos/dep-2.jpg", quem: "Mentorada da Luana" },
+];
+
 if (!a._completedAt && !a.problema) {
   report.innerHTML = `
     <p class="eyebrow">Seu diagnóstico</p>
@@ -225,6 +237,13 @@ if (!a._completedAt && !a.problema) {
 
     <div class="etapa">
       <h3>Quem já fez esse caminho</h3>
+      <div class="dep-videos">
+        ${VIDEOS.map(v => `
+          <figure class="dep-video">
+            <video src="${v.src}" poster="${v.poster}" controls playsinline preload="none"></video>
+            <figcaption>${v.quem}</figcaption>
+          </figure>`).join("")}
+      </div>
       ${DEPOIMENTOS.map(d => `
         <div class="dep">
           <p>${d.texto}</p>

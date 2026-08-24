@@ -47,6 +47,7 @@ então Google Fonts fora do ar não trava a página.
 | `styles.css` | Identidade visual, cores do manual de marca |
 | `logo.png` | Assinatura da marca, extraída do manual |
 | `luana.jpg` | Foto dela, no bloco de autoridade |
+| `depoimentos/` | Depoimentos em vídeo. Ver o README de lá antes de mexer |
 
 ## Decisões que valem para o próximo funil
 
@@ -121,10 +122,15 @@ Cole `+55 11 99991-2039` no campo de WhatsApp e confirme que o campo mostra
       prints que ela mandou em 20/08, dois citam valor em reais e ficaram de
       fora: a própria Luana não promete resultado financeiro, e a Meta lê a
       página de destino do anúncio.
-- [ ] **Depoimentos em vídeo.** Ela mandou três (90s, 44s e 81s). São bons, um
-      deles é de um homem, o que ajuda no equilíbrio do público. Não subiram
-      porque somam ~38 MB e o deploy pelo MCP não comporta. Precisam de host
-      próprio ou de upload pela CLI da Vercel.
+- [ ] **Nome e autorização de quem aparece nos vídeos.** Dois já estão no ar,
+      com legenda genérica ("Mentorado da Luana", "Mentorada da Luana"), porque
+      não sei os nomes. Trocar em `diagnostico.js > VIDEOS`.
+- [ ] **Assistir os três vídeos com áudio.** Li quadros ao longo de toda a
+      duração dos três e não achei valor em reais escrito no `dep-2` nem no
+      `dep-3`, mas falado não tenho como checar daqui.
+- [ ] **Reexportar o `dep-1` sem o letreiro "47k em Mentoria".** É o depoimento
+      mais forte e é o único que ficou de fora. Detalhes em
+      `depoimentos/README.md`.
 - [ ] **Pacote de logos** em SVG ou PNG transparente. O que está no ar foi
       extraído do PDF do manual.
 - [ ] Pixel da Meta e GA4 em `app.js > TRACKING_CONFIG`, se for rodar tráfego pago.
@@ -143,3 +149,16 @@ arquivo faltando vira 404 mudo.
 aqui: um byte da foto saiu trocado e só o SHA256 pegou (a imagem abria normal).
 Encolha a imagem antes, e **compare o SHA256 do publicado contra o local em
 todos os arquivos**, não só nos que você mexeu.
+
+**Para binário grande (vídeo), não use o MCP: use a API REST da Vercel**, que
+manda o arquivo cru do disco e não passa por base64 nenhum.
+
+1. Para cada arquivo, `POST /v2/files` com `--data-binary @arquivo` e o header
+   `x-vercel-digest: <sha1 do arquivo>`.
+2. Depois, `POST /v13/deployments` com a lista de todos os arquivos
+   (`file`, `sha`, `size`), `target: production` e o `teamId` do time.
+
+Duas coisas que mordem: **upload de arquivo de megabytes falha por timeout de
+vez em quando** (deu 3 de 13 na primeira rodada), então repita com backoff e
+confira o código 200 de cada um; e a lista do passo 2 tem que trazer **a árvore
+inteira**, porque a publicação substitui tudo, não faz merge.
