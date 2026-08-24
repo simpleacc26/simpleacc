@@ -138,11 +138,10 @@ Cole `+55 11 99991-2039` no campo de WhatsApp e confirme que o campo mostra
 
 ## Pendências
 
-- [ ] **Autorização do Diego, do Mairon Ribas e da Nathy** para o print da
-      conversa aparecer em página pública. Os três vídeos já estão liberados;
-      os prints ainda não foram confirmados.
-- [x] ~~Autorização das três pessoas dos vídeos~~ e ~~assistir os três com
-      áudio~~. Confirmados pelo Daniel em 24/08. Vídeo liberado para tráfego.
+- [x] ~~Autorização de todo mundo que aparece na prova social~~ e ~~assistir os
+      três vídeos com áudio~~. Confirmados pelo Daniel em 24/08: Ali Klemt,
+      Allan e Caroline Seyler nos vídeos, Diego, Mairon Ribas e Nathy nos
+      prints. Prova social liberada para tráfego.
 - [ ] **Pacote de logos** em SVG ou PNG transparente. O que está no ar foi
       extraído do PDF do manual.
 - [ ] Pixel da Meta e GA4 em `app.js > TRACKING_CONFIG`, se for rodar tráfego pago.

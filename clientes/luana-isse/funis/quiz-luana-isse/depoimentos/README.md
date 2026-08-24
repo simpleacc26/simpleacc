@@ -21,8 +21,8 @@ verificável, a pessoa reconhece a interface. Duas regras ao trocar ou somar um:
 2. **Transcrever o conteúdo no `alt`**, para leitor de tela e para quando a
    imagem não carrega.
 
-**Falta a autorização do Diego, do Mairon e da Nathy** para o print aparecer em
-página pública. A dos três vídeos já veio.
+**Diego, Mairon e Nathy autorizaram** o print em página pública. Confirmado pelo
+Daniel em 24/08.
 
 ## Vídeos
 
@@ -62,13 +62,14 @@ limpo é a Ali ou a Luana reexportarem o vídeo sem o letreiro.
 
 ## Conferido
 
-- **Os três foram assistidos inteiros, com áudio, pelo Daniel em 24/08**, e
-  estão aprovados. Eu não consigo ouvir áudio aqui, só li quadros ao longo de
+- **Os três vídeos foram assistidos inteiros, com áudio, pelo Daniel em 24/08**,
+  e estão aprovados. Eu não consigo ouvir áudio aqui, só li quadros ao longo de
   toda a duração dos três, então essa checagem não era minha para fazer.
-- **As três pessoas autorizaram** o vídeo em página pública: Ali Klemt, Allan e
-  Caroline Seyler. Confirmado pelo Daniel em 24/08.
+- **Todo mundo que aparece autorizou** o uso em página pública: Ali Klemt, Allan
+  e Caroline Seyler nos vídeos, Diego, Mairon Ribas e Nathy nos prints.
+  Confirmado pelo Daniel em 24/08.
 
-Ou seja, os vídeos estão liberados para tráfego pago. Se entrar vídeo novo,
+A prova social está liberada para tráfego pago. Se entrar vídeo ou print novo,
 essas duas checagens voltam a valer para ele.
 
 ## Detalhes de edição
