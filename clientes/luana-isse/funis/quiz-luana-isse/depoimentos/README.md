@@ -1,4 +1,30 @@
-# Depoimentos em vídeo
+# Depoimentos
+
+Vídeos e prints do relatório pós-quiz. Os prints vivem em
+`diagnostico.js > PRINTS`, os vídeos em `diagnostico.js > VIDEOS`.
+
+## Prints
+
+| Arquivo | Quem |
+| --- | --- |
+| `print-diego.jpg` | Diego, mentorado. Conversa no WhatsApp, 8 vendas, R$ 62.400 |
+| `print-mairon.jpg` | Mairon Ribas, mentorado. Story da carta da Kiwify, 10k |
+| `print-nathy.jpg` | Nathy, mentorada. Mensagem no grupo, primeira mentoria vendida |
+
+São os **originais**, não transcrição: print de conversa converte mais porque é
+verificável, a pessoa reconhece a interface. Duas regras ao trocar ou somar um:
+
+1. **Cortar terceiros que aparecem no enquadramento.** O print da Nathy foi
+   cortado em y=715 do original para tirar o "Acassio Aires" e o "Você adicionou
+   Luana Viertel": são gente do grupo que não tem relação com o depoimento e não
+   autorizou nada.
+2. **Transcrever o conteúdo no `alt`**, para leitor de tela e para quando a
+   imagem não carrega.
+
+**Falta a autorização do Diego, do Mairon e da Nathy** para o print aparecer em
+página pública. A dos três vídeos já veio.
+
+## Vídeos
 
 Os três vídeos que a Luana mandou em 20/08, comprimidos para web (540p, CRF 31,
 áudio AAC 56k mono, `faststart` para começar a tocar antes de baixar tudo).

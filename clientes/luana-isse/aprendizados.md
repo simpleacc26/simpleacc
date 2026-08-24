@@ -81,3 +81,30 @@ Dois detalhes que valem para qualquer vídeo de depoimento:
   Conferir o fim de todo vídeo que o cliente manda, e cortar.
 - **Pôster nunca no primeiro quadro.** Vídeo de celular quase sempre começa com
   a pessoa de olho fechado ou virando o rosto. Escolher um quadro do meio.
+
+## 24/08/2026 · Bug que fazia o lead evaporar sem deixar rastro
+
+O funil estava no ar e **nenhum lead chegava na planilha**. Nenhum erro em
+lugar nenhum: nem no navegador, nem no Make, nem na planilha.
+
+Causa: o `fetch` usava `mode: "no-cors"`. Nesse modo o navegador **descarta em
+silêncio** o header `Content-Type: application/json`, porque em no-cors só
+passam os três tipos de formulário. O POST chegava no Make como `text/plain`, o
+Make respondia **200 "Accepted"** e jogava fora. Comprovado lado a lado: mesmo
+corpo, mesma URL, só mudando o content-type, um grava e o outro some.
+
+Correção: tirar o `mode: "no-cors"`. O webhook do Make responde ao preflight
+(`access-control-allow-origin: *`, `allow-headers: content-type`), então CORS
+normal funciona e o content-type chega de verdade.
+
+**A lição que vale para todo funil:** eu tinha "validado" a integração com curl
+e lendo a planilha, e passou. **Curl não testa o caminho do navegador**, porque
+curl manda o content-type certo e passa mesmo com o bug em pé. Validação de
+integração de funil é **responder o quiz inteiro no navegador** e depois ler a
+planilha. Qualquer coisa menos que isso não é validação.
+
+E não confie em status HTTP com webhook do Make: ele devolve 200 tanto para o
+que grava quanto para o que descarta.
+
+**Checar se os outros funis têm o mesmo `mode: "no-cors"`.** Não mexi neles
+porque a sessão era da Luana, mas o padrão veio do mesmo molde.

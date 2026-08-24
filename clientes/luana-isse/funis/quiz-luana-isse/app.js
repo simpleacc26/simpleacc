@@ -164,12 +164,20 @@ function enviarLead() {
     ...URL_UTMS,
   };
   try {
-    /* application/json + keepalive: o webhook do Make responde ao preflight,
-       e o keepalive garante que o POST sobreviva ao redirect para o
-       diagnóstico. Validar SEMPRE lendo a planilha, nunca pelo status HTTP:
-       com no-cors o navegador devolve 0 mesmo quando gravou. */
+    /* NUNCA volte a pôr mode:"no-cors" aqui. Nesse modo o navegador descarta
+       silenciosamente o header Content-Type: application/json (em no-cors só
+       passam os três tipos de formulário), o POST chega ao Make como
+       text/plain, o Make responde 200 "Accepted" e JOGA FORA. Nada aparece na
+       planilha e nada aparece como erro: o lead evapora em silêncio.
+       O webhook do Make responde ao preflight (access-control-allow-origin: *
+       e allow-headers: content-type), então CORS normal funciona e o
+       content-type chega de verdade.
+       keepalive garante que o POST sobreviva ao redirect para o diagnóstico.
+       TESTE SEMPRE PELO NAVEGADOR, respondendo o quiz de ponta a ponta, e
+       confira lendo a planilha. Testar com curl NÃO testa este caminho:
+       curl manda o content-type certo e passa mesmo com o bug em pé. */
     fetch(LEADS_ENDPOINT, {
-      method: "POST", keepalive: true, mode: "no-cors",
+      method: "POST", keepalive: true,
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(lead),
     }).catch(() => {});

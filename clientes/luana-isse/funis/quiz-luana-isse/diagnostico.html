@@ -92,6 +92,28 @@
     .dep-video figcaption b { display: block; font-size: 13px; letter-spacing: .02em;
       text-transform: none; color: var(--primary-700); font-weight: 700; }
 
+    /* --- depoimentos em print ---
+       Print de conversa só serve se der para ler. Por isso os dois verticais
+       dividem a linha no desktop e ocupam a largura toda no celular, e o print
+       largo (do grupo) atravessa as duas colunas. Cada um abre em tamanho real
+       ao clicar, porque no celular nem o print inteiro fica legível. */
+    .dep-prints { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 0 0 8px; }
+    .dep-print { margin: 0; }
+    .dep-print.largo { grid-column: 1 / -1; }
+    .dep-print a { display: block; }
+    .dep-print img { width: 100%; height: auto; display: block; border: 1px solid var(--border);
+      border-radius: var(--radius-sm); background: var(--accent-soft); }
+    /* Os dois verticais têm proporções diferentes (0,90 e 0,72), então sem isto
+       uma legenda fica mais alta que a outra. object-fit:contain iguala a caixa
+       SEM cortar: print cortado é print ilegível. A sobra encosta no creme da
+       marca e passa por moldura. */
+    .dep-print:not(.largo) img { aspect-ratio: 3 / 4; object-fit: contain; }
+    .dep-print figcaption { margin-top: 7px; text-align: center; font-size: 11.5px;
+      letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+    .dep-print figcaption b { display: block; font-size: 13px; letter-spacing: .02em;
+      text-transform: none; color: var(--primary-700); font-weight: 700; }
+    .dep-dica { margin: 2px 0 14px; text-align: center; font-size: 12.5px; color: var(--muted); }
+
     /* --- depoimentos --- */
     .dep { border: 1px solid var(--border); border-left: 3px solid var(--primary);
       border-radius: var(--radius-sm); background: var(--bg-2); padding: 16px 18px; margin: 0 0 12px; }
@@ -105,6 +127,7 @@
     @media (max-width: 520px){
       .compare { grid-template-columns: 1fr; }
       .dep-video { flex-basis: 64%; }
+      .dep-prints { grid-template-columns: 1fr; }
       .cred-grid { grid-template-columns: 1fr; }
       .irv { flex-direction: column; text-align: center; gap: 8px; }
       .irv-txt span { max-width: none; }

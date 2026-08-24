@@ -62,18 +62,36 @@ const LEITURA_PILAR = {
 };
 
 /* ============================================================
-   DEPOIMENTOS
-   Regra desta conta: depoimento aqui NÃO cita número de faturamento.
-   É decisão da própria Luana (ela não promete resultado financeiro) e
-   protege o anúncio, porque a Meta lê a página de destino. Dos prints que
-   ela mandou em 20/08, só este passa nessa régua; os outros dois são
-   captura de valor em reais e ficaram de fora de propósito.
-   Antes de somar depoimento novo: confirmar autorização de quem aparece.
+   DEPOIMENTOS EM PRINT
+   São os prints ORIGINAIS que ela mandou em 20/08, não transcrição: print de
+   conversa converte mais porque é verificável, a pessoa reconhece a interface.
+   Nem todo mundo aperta play nos vídeos, então a prova precisa existir também
+   em formato que se lê de relance.
+   Sobre valor em reais: dois destes citam faturamento (R$ 62.400 e 10k). Isso
+   rompia a régua original desta conta. A decisão do cliente, em 24/08, foi
+   publicar. Mesma decisão do vídeo da Ali. Ver o comentário em VIDEOS.
+   O print da Nathy foi CORTADO em y=715 do original para tirar o Acassio Aires
+   e o "Você adicionou Luana Viertel": são terceiros que aparecem no grupo, não
+   têm relação com o depoimento e não autorizaram nada. Se trocar esse print,
+   cortar de novo.
+   O alt de cada um transcreve o conteúdo, para quem usa leitor de tela e para
+   quando a imagem não carrega.
    ============================================================ */
-const DEPOIMENTOS = [
+const PRINTS = [
   {
-    texto: "Hoje eu vendi a minha primeira mentoria no Método Tekton, que criei a partir do MMPV. Um mês desde que fiz a escolha de estar aqui e os resultados já começaram.",
-    quem: "Nathy, mentorada da turma atual",
+    src: "depoimentos/print-diego.jpg", largo: false,
+    quem: "Diego", papel: "mentorado",
+    alt: "Conversa no WhatsApp: o mentorado manda o print do painel de vendas com 8 vendas encontradas, a Luana pergunta o valor, ele responde R$ 62.400,00. A Luana responde: Parabéns, Diego! É só o começo. Ele responde: Amém Lu, obrigado.",
+  },
+  {
+    src: "depoimentos/print-mairon.jpg", largo: false,
+    quem: "Mairon Ribas", papel: "mentorado",
+    alt: "Story da Luana mostrando a carta de compromisso da Kiwify de 10 mil em vendas, com a pulseira e o brinde da plataforma. Legenda: Meu mentorado chegou aos 10k de venda! Parabéns, @mairon.ribas.",
+  },
+  {
+    src: "depoimentos/print-nathy.jpg", largo: true,
+    quem: "Nathy", papel: "mentorada da turma atual",
+    alt: "Mensagem no grupo da mentoria: Luanaaa, grupo! Hoje eu vendi a minha primeira mentoria no Método Tekton que criei a partir do MMPV. Eu tô super feliz. 1 mês que fiz minha escolha de estar aqui e já iniciou os resultados. Sei que tem muito mais para vir. A Luana responde: Uau, parabéns Nathy, é só começo!",
   },
 ];
 
@@ -86,8 +104,7 @@ const DEPOIMENTOS = [
    cliente, em 24/08, foi publicar assim mesmo. Fica registrado para ninguém
    "consertar" isso depois achando que passou batido. Se um dia sair, é
    decisão do cliente também.
-   Os depoimentos ESCRITOS seguem na régua antiga, sem valor em reais: os dois
-   prints que citavam faturamento continuam de fora. Ver o bloco DEPOIMENTOS.
+   Os prints seguem a mesma decisão: ver o bloco PRINTS acima.
    preload="none": o vídeo só é baixado se a pessoa apertar play, senão o
    relatório abriria puxando megabytes que quase ninguém assiste. */
 const VIDEOS = [
@@ -251,11 +268,16 @@ if (!a._completedAt && !a.problema) {
             <figcaption><b>${v.nome}</b>${v.papel}</figcaption>
           </figure>`).join("")}
       </div>
-      ${DEPOIMENTOS.map(d => `
-        <div class="dep">
-          <p>${d.texto}</p>
-          <span class="quem">${d.quem}</span>
-        </div>`).join("")}
+      <div class="dep-prints">
+        ${PRINTS.map(d => `
+          <figure class="dep-print${d.largo ? " largo" : ""}">
+            <a href="${d.src}" target="_blank" rel="noopener">
+              <img src="${d.src}" alt="${d.alt}" loading="lazy" />
+            </a>
+            <figcaption><b>${d.quem}</b>${d.papel}</figcaption>
+          </figure>`).join("")}
+      </div>
+      <p class="dep-dica">Toque em qualquer print para ver em tamanho real.</p>
     </div>
 
     <div class="cta-box">

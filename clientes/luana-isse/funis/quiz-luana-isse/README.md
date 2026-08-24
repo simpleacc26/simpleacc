@@ -38,6 +38,9 @@ então Google Fonts fora do ar não trava a página.
   equilíbrio do público. No desktop os três cabem lado a lado; no celular vira
   carrossel. `preload="none"`, então o relatório não puxa os 5 MB de quem não
   aperta play.
+- **3 depoimentos em print**, os originais que ela mandou, logo abaixo dos
+  vídeos. Nem todo mundo aperta play: a prova precisa existir também num
+  formato que se lê de relance. Cada print abre em tamanho real ao tocar.
 
 ## Arquivos
 
@@ -84,14 +87,20 @@ então Google Fonts fora do ar não trava a página.
    como homem e como mulher; se soar errado numa das duas, reescreva.
 9. **Placeholder de telefone com DDD nacional (11), não o DDD do cliente.**
    O público é nacional; DDD regional no campo sinaliza atendimento local.
-10. **Valor em reais: régua diferente para escrito e para vídeo.** Os
-   depoimentos escritos não citam faturamento, e dois ficaram de fora por isso.
-   Já o vídeo da Ali Klemt tem "47k em Mentoria" queimado na imagem e **está no
-   ar por decisão do cliente, tomada em 24/08 depois de eu levantar o ponto**
-   (a Luana não promete resultado financeiro, e a Meta lê a página de destino).
-   Está registrado aqui, no `depoimentos/README.md` e no comentário do
-   `diagnostico.js` para ninguém achar que passou batido.
-11. **Bloco de autoridade é breve:** foto (aqui, monograma), nome, o que ela faz,
+10. **Valor em reais na prova social: decisão do cliente, não descuido.** A
+   régua original desta conta era não citar faturamento em depoimento (a Luana
+   não promete resultado financeiro, e a Meta lê a página de destino). Levantei
+   o ponto e **em 24/08 o cliente decidiu publicar assim mesmo**: o vídeo da Ali
+   Klemt com "47k em Mentoria" queimado, o print do Diego com R$ 62.400 e o do
+   Mairon com 10k. Registrado aqui, no `depoimentos/README.md` e nos
+   comentários do `diagnostico.js` para ninguém achar que passou batido.
+11. **Print de depoimento entra original, não transcrito.** Print de conversa
+   converte mais porque é verificável: a pessoa reconhece a interface. Duas
+   regras ao adicionar um: **cortar terceiros que aparecem no enquadramento** (o
+   print da Nathy foi cortado para tirar dois nomes do grupo que não têm relação
+   com o depoimento) e **transcrever o conteúdo no `alt`**, para leitor de tela e
+   para quando a imagem não carrega.
+12. **Bloco de autoridade é breve:** foto (aqui, monograma), nome, o que ela faz,
    @ do Instagram e uma fala dela. Método e etapas não entram, porque já estão
    no bloco do método logo acima. A grade de credenciais só existe porque os
    quatro números são reais e estão escritos no material dela.
@@ -129,10 +138,9 @@ Cole `+55 11 99991-2039` no campo de WhatsApp e confirme que o campo mostra
 
 ## Pendências
 
-- [ ] **Mais depoimentos sem número de faturamento.** Hoje tem um. Dos três
-      prints que ela mandou em 20/08, dois citam valor em reais e ficaram de
-      fora: a própria Luana não promete resultado financeiro, e a Meta lê a
-      página de destino do anúncio.
+- [ ] **Autorização do Diego, do Mairon Ribas e da Nathy** para o print da
+      conversa aparecer em página pública. Os três vídeos já estão liberados;
+      os prints ainda não foram confirmados.
 - [x] ~~Autorização das três pessoas dos vídeos~~ e ~~assistir os três com
       áudio~~. Confirmados pelo Daniel em 24/08. Vídeo liberado para tráfego.
 - [ ] **Pacote de logos** em SVG ou PNG transparente. O que está no ar foi
