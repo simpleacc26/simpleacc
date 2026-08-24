@@ -62,6 +62,12 @@ lê a página de destino do anúncio) e **o cliente decidiu publicar assim mesmo
 Fica registrado nos três lugares que alguém abriria depois: aqui, no
 `depoimentos/README.md` e no comentário do `diagnostico.js`.
 
+Os três vídeos foram **assistidos inteiros e aprovados pelo Daniel em 24/08**, e
+as **três pessoas autorizaram** o uso em página pública. Vale como modelo: essas
+duas checagens não são minhas para fazer (não ouço áudio, não falo com as
+pessoas), então em vídeo de depoimento elas entram como pendência nomeada até
+alguém confirmar, e não como suposição.
+
 Aprendizado prático, independente da decisão: **letreiro queimado em vídeo não
 tem conserto por filtro.** Tentei `delogo` e o resultado ficou pior que o
 problema, porque o texto caía sobre o cabelo dela e a quina da parede, e o

@@ -133,11 +133,8 @@ Cole `+55 11 99991-2039` no campo de WhatsApp e confirme que o campo mostra
       prints que ela mandou em 20/08, dois citam valor em reais e ficaram de
       fora: a própria Luana não promete resultado financeiro, e a Meta lê a
       página de destino do anúncio.
-- [ ] **Autorização das três pessoas dos vídeos** para aparecer em página
-      pública: Ali Klemt, Allan e Caroline Seyler.
-- [ ] **Assistir os três vídeos com áudio.** Li quadros ao longo de toda a
-      duração dos três; fora o letreiro da Ali, não achei valor em reais
-      escrito. Falado não tenho como checar daqui.
+- [x] ~~Autorização das três pessoas dos vídeos~~ e ~~assistir os três com
+      áudio~~. Confirmados pelo Daniel em 24/08. Vídeo liberado para tráfego.
 - [ ] **Pacote de logos** em SVG ou PNG transparente. O que está no ar foi
       extraído do PDF do manual.
 - [ ] Pixel da Meta e GA4 em `app.js > TRACKING_CONFIG`, se for rodar tráfego pago.

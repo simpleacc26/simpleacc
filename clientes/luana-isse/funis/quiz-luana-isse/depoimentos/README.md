@@ -34,14 +34,16 @@ a partir das bordas da caixa. Sobra um borrão bem visível. Cortar os 5 primeir
 segundos também não serve, porque tira a abertura da fala. O único caminho
 limpo é a Ali ou a Luana reexportarem o vídeo sem o letreiro.
 
-## O que ainda falta
+## Conferido
 
-1. **Ver os três inteiros com áudio.** Não assisti: não consigo ouvir áudio
-   aqui, só extraí e li quadros ao longo de toda a duração dos três. Fora o
-   letreiro da Ali, não achei valor em reais escrito em nenhum ponto, mas
-   **falado eu não tenho como checar**. Vale alguém assistir antes de rodar
-   tráfego pago.
-2. **Autorização das três pessoas** para o vídeo aparecer em página pública.
+- **Os três foram assistidos inteiros, com áudio, pelo Daniel em 24/08**, e
+  estão aprovados. Eu não consigo ouvir áudio aqui, só li quadros ao longo de
+  toda a duração dos três, então essa checagem não era minha para fazer.
+- **As três pessoas autorizaram** o vídeo em página pública: Ali Klemt, Allan e
+  Caroline Seyler. Confirmado pelo Daniel em 24/08.
+
+Ou seja, os vídeos estão liberados para tráfego pago. Se entrar vídeo novo,
+essas duas checagens voltam a valer para ele.
 
 ## Detalhes de edição
 
