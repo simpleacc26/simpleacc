@@ -2,46 +2,52 @@
 
 Os três vídeos que a Luana mandou em 20/08, comprimidos para web (540p, CRF 31,
 áudio AAC 56k mono, `faststart` para começar a tocar antes de baixar tudo).
+**Os três estão no ar** no relatório pós-quiz, nesta ordem.
 
-| Arquivo | Quem | Duração | Peso | No ar |
-| --- | --- | --- | --- | --- |
-| `dep-3.mp4` | homem, vídeo vertical | 1min21 | 1,8 MB | **sim** |
-| `dep-2.mp4` | mulher, celular filmando uma call no notebook | 42s | 0,9 MB | **sim** |
-| `dep-1.mp4` | mulher de rosa, vídeo vertical | 1min30 | 2,6 MB | **não** |
+| Arquivo | Quem | Duração | Peso |
+| --- | --- | --- | --- |
+| `dep-1.mp4` | **Ali Klemt**, mentorada | 1min30 | 2,6 MB |
+| `dep-3.mp4` | **Allan**, mentorado | 1min21 | 1,8 MB |
+| `dep-2.mp4` | **Caroline Seyler**, mentorada | 42s | 0,9 MB |
 
-Cada um tem um `.jpg` de mesmo nome, que é o pôster.
+Cada um tem um `.jpg` de mesmo nome, que é o pôster. Os nomes vivem em
+`diagnostico.js > VIDEOS`.
 
-## Por que o dep-1 não está no ar
+## O letreiro "47k em Mentoria" no vídeo da Ali
 
-Ele tem **"47k em Mentoria" queimado no vídeo**, em letra grande, do segundo 0,7
-ao 5. Valor em reais não sobe nesta página: é regra da própria conta (a Luana
-não promete resultado financeiro) e protege o anúncio, porque a Meta lê a página
-de destino. Os dois depoimentos escritos que citavam valor ficaram de fora pela
-mesma régua.
+O vídeo dela tem **"47k em Mentoria" queimado na imagem**, em letra grande, do
+segundo 0,7 ao 5.
 
-Tentei apagar o letreiro com o filtro `delogo`. **Não funciona aqui:** o texto
-cai em cima do cabelo dela e da quina da parede, e o filtro só interpola a
-partir das bordas da caixa, então sobra um borrão bem visível no lugar. Cortar
-os 5 primeiros segundos também não resolve, porque tira a abertura da fala.
+Isso rompe a régua que vale para os depoimentos escritos daqui, que é não citar
+valor em reais: é regra da própria Luana (ela não promete resultado financeiro)
+e protege o anúncio, porque a Meta lê a página de destino. Dois depoimentos
+escritos ficaram de fora por isso e **continuam de fora**.
 
-**O que destrava:** a Luana reexportar esse vídeo sem o letreiro. Aí é só rodar
-a mesma compressão e subir. O arquivo aqui é a versão limpa da compressão, sem
-borrão nenhum, para ninguém precisar pedir o original de novo.
+**Levantei o ponto e a decisão do cliente, em 24/08, foi publicar assim mesmo.**
+Está aqui e no comentário do `diagnostico.js` para ninguém "consertar" isso
+depois achando que passou batido. Se um dia sair, é decisão do cliente também.
+
+Para o registro, caso alguém queira tirar o letreiro no futuro: **não dá para
+apagar com filtro.** Tentei `delogo` e o resultado é pior que o problema, porque
+o texto cai em cima do cabelo dela e da quina da parede, e o filtro só interpola
+a partir das bordas da caixa. Sobra um borrão bem visível. Cortar os 5 primeiros
+segundos também não serve, porque tira a abertura da fala. O único caminho
+limpo é a Ali ou a Luana reexportarem o vídeo sem o letreiro.
 
 ## O que ainda falta
 
 1. **Ver os três inteiros com áudio.** Não assisti: não consigo ouvir áudio
-   aqui, só extraí e li quadros ao longo de toda a duração dos três. Não achei
-   valor em reais escrito em nenhum ponto do dep-2 nem do dep-3, mas **falado eu
-   não tenho como checar**. Alguém precisa assistir antes de rodar tráfego.
-2. **Nome e autorização de quem aparece.** Hoje a legenda na página é genérica
-   ("Mentorado da Luana", "Mentorada da Luana") porque não sei os nomes. Com o
-   nome confirmado, trocar em `diagnostico.js > VIDEOS`.
+   aqui, só extraí e li quadros ao longo de toda a duração dos três. Fora o
+   letreiro da Ali, não achei valor em reais escrito em nenhum ponto, mas
+   **falado eu não tenho como checar**. Vale alguém assistir antes de rodar
+   tráfego pago.
+2. **Autorização das três pessoas** para o vídeo aparecer em página pública.
 
 ## Detalhes de edição
 
-- O `dep-2` original terminava com **8 segundos de marca d'água do CapCut**
+- O vídeo da Caroline terminava com **8 segundos de marca d'água do CapCut**
   ("ID do CapCut: 0975138739"). Cortado em 42,2s, que é onde a fala acaba.
 - Os pôsteres não são o primeiro quadro: são um quadro escolhido no meio, com a
   pessoa de rosto aberto. Primeiro quadro de vídeo de celular quase sempre pega
-  a pessoa de olho fechado ou meio virada.
+  a pessoa de olho fechado ou meio virada. O pôster da Ali é do segundo 8, já
+  depois do letreiro.

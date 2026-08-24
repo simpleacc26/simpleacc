@@ -78,12 +78,19 @@
     .cred.full { grid-column: 1 / -1; }
 
     /* --- depoimentos em vídeo --- */
-    .dep-videos { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 0 0 14px; }
-    .dep-video { margin: 0; }
+    /* Três vídeos verticais. No desktop os três cabem lado a lado e a faixa não
+       rola. No celular vira carrossel: cada item ocupa 64%, então o terceiro
+       aparece cortado na borda e a pessoa entende que dá para arrastar. */
+    .dep-videos { display: flex; gap: 12px; margin: 0 0 14px; overflow-x: auto;
+      scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin; padding-bottom: 4px; }
+    .dep-video { flex: 0 0 calc((100% - 24px) / 3); scroll-snap-align: start; margin: 0; }
     .dep-video video { display: block; width: 100%; aspect-ratio: 9 / 16; object-fit: cover;
       background: var(--ink); border: 1px solid var(--border); border-radius: var(--radius-sm); }
-    .dep-video figcaption { margin-top: 7px; font-size: 12px; letter-spacing: .1em;
-      text-transform: uppercase; color: var(--primary-700); font-weight: 600; text-align: center; }
+    .dep-video figcaption { margin-top: 7px; text-align: center; font-size: 11.5px;
+      letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+    .dep-video figcaption b { display: block; font-size: 13px; letter-spacing: .02em;
+      text-transform: none; color: var(--primary-700); font-weight: 700; }
 
     /* --- depoimentos --- */
     .dep { border: 1px solid var(--border); border-left: 3px solid var(--primary);
@@ -97,7 +104,7 @@
 
     @media (max-width: 520px){
       .compare { grid-template-columns: 1fr; }
-      .dep-videos { grid-template-columns: 1fr; }
+      .dep-video { flex-basis: 64%; }
       .cred-grid { grid-template-columns: 1fr; }
       .irv { flex-direction: column; text-align: center; gap: 8px; }
       .irv-txt span { max-width: none; }

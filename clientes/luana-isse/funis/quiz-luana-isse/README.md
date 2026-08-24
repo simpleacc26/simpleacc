@@ -34,6 +34,10 @@ então Google Fonts fora do ar não trava a página.
   fora) e **3 CTAs** na página: fila-quente e qualificado veem o mesmo botão.
   A quarta faixa serve para priorizar a fila do atendimento.
 - **3 CTAs de WhatsApp distribuídos** no diagnóstico, não um só no fim.
+- **3 depoimentos em vídeo** no relatório, um deles de homem, o que ajuda no
+  equilíbrio do público. No desktop os três cabem lado a lado; no celular vira
+  carrossel. `preload="none"`, então o relatório não puxa os 5 MB de quem não
+  aperta play.
 
 ## Arquivos
 
@@ -80,7 +84,14 @@ então Google Fonts fora do ar não trava a página.
    como homem e como mulher; se soar errado numa das duas, reescreva.
 9. **Placeholder de telefone com DDD nacional (11), não o DDD do cliente.**
    O público é nacional; DDD regional no campo sinaliza atendimento local.
-10. **Bloco de autoridade é breve:** foto (aqui, monograma), nome, o que ela faz,
+10. **Valor em reais: régua diferente para escrito e para vídeo.** Os
+   depoimentos escritos não citam faturamento, e dois ficaram de fora por isso.
+   Já o vídeo da Ali Klemt tem "47k em Mentoria" queimado na imagem e **está no
+   ar por decisão do cliente, tomada em 24/08 depois de eu levantar o ponto**
+   (a Luana não promete resultado financeiro, e a Meta lê a página de destino).
+   Está registrado aqui, no `depoimentos/README.md` e no comentário do
+   `diagnostico.js` para ninguém achar que passou batido.
+11. **Bloco de autoridade é breve:** foto (aqui, monograma), nome, o que ela faz,
    @ do Instagram e uma fala dela. Método e etapas não entram, porque já estão
    no bloco do método logo acima. A grade de credenciais só existe porque os
    quatro números são reais e estão escritos no material dela.
@@ -122,15 +133,11 @@ Cole `+55 11 99991-2039` no campo de WhatsApp e confirme que o campo mostra
       prints que ela mandou em 20/08, dois citam valor em reais e ficaram de
       fora: a própria Luana não promete resultado financeiro, e a Meta lê a
       página de destino do anúncio.
-- [ ] **Nome e autorização de quem aparece nos vídeos.** Dois já estão no ar,
-      com legenda genérica ("Mentorado da Luana", "Mentorada da Luana"), porque
-      não sei os nomes. Trocar em `diagnostico.js > VIDEOS`.
+- [ ] **Autorização das três pessoas dos vídeos** para aparecer em página
+      pública: Ali Klemt, Allan e Caroline Seyler.
 - [ ] **Assistir os três vídeos com áudio.** Li quadros ao longo de toda a
-      duração dos três e não achei valor em reais escrito no `dep-2` nem no
-      `dep-3`, mas falado não tenho como checar daqui.
-- [ ] **Reexportar o `dep-1` sem o letreiro "47k em Mentoria".** É o depoimento
-      mais forte e é o único que ficou de fora. Detalhes em
-      `depoimentos/README.md`.
+      duração dos três; fora o letreiro da Ali, não achei valor em reais
+      escrito. Falado não tenho como checar daqui.
 - [ ] **Pacote de logos** em SVG ou PNG transparente. O que está no ar foi
       extraído do PDF do manual.
 - [ ] Pixel da Meta e GA4 em `app.js > TRACKING_CONFIG`, se for rodar tráfego pago.

@@ -77,16 +77,23 @@ const DEPOIMENTOS = [
   },
 ];
 
-/* Depoimentos em vídeo. Mesma régua dos escritos: nenhum valor em reais
-   escrito na tela. Dos três que ela mandou em 20/08, dois entraram.
-   O terceiro (mulher de rosa) tem "47k em Mentoria" queimado no vídeo nos
-   primeiros 5 segundos: fica arquivado em depoimentos/dep-1.mp4 e só sobe se
-   ela reexportar sem esse letreiro. Ver depoimentos/README.md.
+/* Depoimentos em vídeo. Os três que ela mandou em 20/08 estão no ar.
+   ATENÇÃO, não é descuido: o vídeo da Ali Klemt (dep-1) tem "47k em Mentoria"
+   queimado na imagem nos primeiros 5 segundos. Isso rompe a régua que vale
+   para os depoimentos escritos daqui, que é não citar valor em reais.
+   Levantei o ponto (regra da própria Luana de não prometer resultado
+   financeiro, e a Meta lê a página de destino do anúncio) e a decisão do
+   cliente, em 24/08, foi publicar assim mesmo. Fica registrado para ninguém
+   "consertar" isso depois achando que passou batido. Se um dia sair, é
+   decisão do cliente também.
+   Os depoimentos ESCRITOS seguem na régua antiga, sem valor em reais: os dois
+   prints que citavam faturamento continuam de fora. Ver o bloco DEPOIMENTOS.
    preload="none": o vídeo só é baixado se a pessoa apertar play, senão o
    relatório abriria puxando megabytes que quase ninguém assiste. */
 const VIDEOS = [
-  { src: "depoimentos/dep-3.mp4", poster: "depoimentos/dep-3.jpg", quem: "Mentorado da Luana" },
-  { src: "depoimentos/dep-2.mp4", poster: "depoimentos/dep-2.jpg", quem: "Mentorada da Luana" },
+  { src: "depoimentos/dep-1.mp4", poster: "depoimentos/dep-1.jpg", nome: "Ali Klemt",       papel: "mentorada" },
+  { src: "depoimentos/dep-3.mp4", poster: "depoimentos/dep-3.jpg", nome: "Allan",           papel: "mentorado" },
+  { src: "depoimentos/dep-2.mp4", poster: "depoimentos/dep-2.jpg", nome: "Caroline Seyler", papel: "mentorada" },
 ];
 
 if (!a._completedAt && !a.problema) {
@@ -241,7 +248,7 @@ if (!a._completedAt && !a.problema) {
         ${VIDEOS.map(v => `
           <figure class="dep-video">
             <video src="${v.src}" poster="${v.poster}" controls playsinline preload="none"></video>
-            <figcaption>${v.quem}</figcaption>
+            <figcaption><b>${v.nome}</b>${v.papel}</figcaption>
           </figure>`).join("")}
       </div>
       ${DEPOIMENTOS.map(d => `

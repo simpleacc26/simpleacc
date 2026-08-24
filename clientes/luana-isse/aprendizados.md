@@ -49,3 +49,29 @@ adicionar uma linha. É a memória que se acumula ao longo do tempo.
 | 2026-07-30 | **Guia de captação de depoimentos** entregue. Particularidade: os depoimentos dela não podem falar de faturamento, só de valor percebido e virada de posicionamento. | Entrega Simple |
 | 2026-07-30 | **Roadmap de 90 dias** montado no Perfil B (a Simple implementa). Decisões estruturais: carro-chefe é a **consultoria de R$ 15 mil** (não a mentoria, porque é a que já vende por indicação e consome menos tempo dela), mentoria de R$ 7 mil como downsell de call, individual de R$ 30 mil até o dia 30. Meta: R$ 50 mil/mês = 4 vendas = ~13 sessões/mês = 3 por semana, cabendo na janela da tarde. Incluída uma **"regra da fila"** para conter as ideias novas. | Entrega Simple |
 | 2026-07-29 | Caixa apertado no início do contrato (entrada de R$ 1 mil, sem reserva). Sequência obrigatória: **caixa rápido na base existente → funil no ar → processo comercial**. Estrutura antes de receita quebra o projeto. | Call de vendas + onboarding |
+
+## 24/08/2026 · Depoimento em vídeo com valor em reais na tela
+
+Os três depoimentos em vídeo (Ali Klemt, Allan, Caroline Seyler) entraram no
+relatório pós-quiz. O da Ali tem **"47k em Mentoria" queimado na imagem** nos
+primeiros 5 segundos.
+
+Levantei que isso rompe a régua que a gente aplicou nos depoimentos escritos
+(nenhum valor em reais, porque a Luana não promete resultado financeiro e a Meta
+lê a página de destino do anúncio) e **o cliente decidiu publicar assim mesmo**.
+Fica registrado nos três lugares que alguém abriria depois: aqui, no
+`depoimentos/README.md` e no comentário do `diagnostico.js`.
+
+Aprendizado prático, independente da decisão: **letreiro queimado em vídeo não
+tem conserto por filtro.** Tentei `delogo` e o resultado ficou pior que o
+problema, porque o texto caía sobre o cabelo dela e a quina da parede, e o
+filtro só interpola a partir das bordas da caixa. Sobrou um borrão óbvio.
+Quando o letreiro estiver sobre fundo liso dá para tentar; sobre pessoa ou
+textura, não. **Pedir reexport é mais rápido que tentar limpar.**
+
+Dois detalhes que valem para qualquer vídeo de depoimento:
+
+- **Vídeo editado no CapCut costuma vir com 8 segundos de marca d'água no fim.**
+  Conferir o fim de todo vídeo que o cliente manda, e cortar.
+- **Pôster nunca no primeiro quadro.** Vídeo de celular quase sempre começa com
+  a pessoa de olho fechado ou virando o rosto. Escolher um quadro do meio.
