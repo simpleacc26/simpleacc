@@ -1,5 +1,10 @@
-
 window.FLOW = {
+  config: {
+    storeKey: "siqueira_funil_inclusao",
+    frente: "Inclusão",
+    diagnosticoUrl: "/diagnostico.html", // absoluto: funciona com ou sem barra no fim da URL
+  },
+
   marca: {
     nome: "Instituto Sabrina Siqueira",
     expert: "Dra. Sabrina Siqueira",
@@ -128,10 +133,6 @@ window.FLOW = {
     privacidade: "🔒 Usamos seus dados só para te enviar o diagnóstico e o contato do consultório. Nada de spam.",
   },
 };
-
-
-
-
 const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
 
 
@@ -360,8 +361,14 @@ function renderCaptura() {
     state.answers._completedAt = new Date().toISOString();
     save();
     trackEvent("funnel_complete", { answers: { ...state.answers } });
+    
+    trackEvent("lead_captured", {
+      funil: (F.config && F.config.frente) || "",
+      ...URL_UTMS,
+    });
     enviarLead();
-    setTimeout(() => { window.location.href = (F.config && F.config.diagnosticoUrl) || "diagnostico.html"; }, 600);
+    
+    setTimeout(() => { window.location.href = (F.config && F.config.diagnosticoUrl) || "diagnostico.html"; }, 1200);
   });
 }
 

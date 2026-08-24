@@ -239,8 +239,17 @@ function renderCaptura() {
     state.answers._completedAt = new Date().toISOString();
     save();
     trackEvent("funnel_complete", { answers: { ...state.answers } });
+    /* Evento de conversão. É ESTE que o GTM escuta para disparar Lead e
+       SubmitApplication no Meta. Fica aqui, e não na página de diagnóstico,
+       porque este é o momento real da captura: os cookies do clique (_fbc/_fbp)
+       estão frescos e não dependemos do redirect completar. */
+    trackEvent("lead_captured", {
+      funil: (F.config && F.config.frente) || "",
+      ...URL_UTMS,
+    });
     enviarLead();
-    setTimeout(() => { window.location.href = (F.config && F.config.diagnosticoUrl) || "diagnostico.html"; }, 600);
+    /* 1200ms: tempo para a request do pixel sair antes de trocar de página. */
+    setTimeout(() => { window.location.href = (F.config && F.config.diagnosticoUrl) || "diagnostico.html"; }, 1200);
   });
 }
 

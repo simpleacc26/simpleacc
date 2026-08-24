@@ -4,6 +4,12 @@
    Para editar perguntas/textos, mexa só neste arquivo.
    ============================================================ */
 window.FLOW = {
+  config: {
+    storeKey: "siqueira_funil_inclusao",
+    frente: "Inclusão",
+    diagnosticoUrl: "/diagnostico.html", // absoluto: funciona com ou sem barra no fim da URL
+  },
+
   marca: {
     nome: "Instituto Sabrina Siqueira",
     expert: "Dra. Sabrina Siqueira",
