@@ -44,6 +44,10 @@ pode ser assumido: se não estiver nos materiais, pergunte.
 - Meta de faturamento mensal e prazo (ex.: R$ 100k/mês em 3 a 4 meses).
 - Conversão real de call do cliente (se ele declarou; senão use 25 a 30% e
   sinalize a premissa).
+- **Comparecimento em sessão agendada: use 60%**, que é o padrão da casa,
+  salvo dado real do cliente. Não invente número mais otimista: a conta de
+  agendamentos e de abordagens por dia deriva daqui, e ela precisa bater com a
+  Estratégia Completa do mesmo cliente.
 - Teto de agenda do cliente (quantas calls por dia ele aceita fazer).
 - A conta: meta ÷ ticket = vendas/mês → vendas ÷ conversão = sessões/mês →
   sessões por dia útil → abordagens/dia da SDR + leads/mês do funil.

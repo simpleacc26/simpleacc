@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Roadmap Estratégico Digital · Camila Rodrigues</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    padding: 16mm 18mm 24mm 18mm;
+    position: relative;
+    page-break-after: always;
+    background: #fff;
+  }
+  .page:last-child { page-break-after: auto; }
+  .runhead {
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; color: var(--muted);
+    letter-spacing: .06em; text-transform: uppercase;
+    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt;
+  }
+  .runfoot {
+    position: absolute; bottom: 9mm; left: 18mm; right: 18mm;
+    text-align: center; font-size: 7.5pt; color: var(--muted);
+  }
+  .kicker {
+    color: var(--gold); font-size: 9pt; font-weight: bold;
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt;
+  }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
+  .box-dark {
+    background: var(--navy-dark); color: #f5f3ee;
+    padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt;
+  }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light {
+    background: var(--beige); border-left: 3pt solid var(--gold);
+    padding: 10pt 14pt; margin: 11pt 0;
+  }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .fase-header {
+    background: var(--navy-dark); color: #fff;
+    padding: 10pt 16pt; margin-bottom: 10pt;
+    border-left: 4pt solid var(--gold);
+  }
+  .fase-header .fk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .fase-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .fase-header .fd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 12pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 38pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+  .footer-note { margin-top: 24pt; padding-top: 8pt; border-top: 1pt solid var(--gold); font-size: 8.5pt; color: var(--muted); width: 60%; }
+</style>
+</head>
+<body>
+
+<!-- PÁGINA 1 · CAPA -->
+<div class="page cover">
+  <div class="kicker">Plano de Ação Personalizado</div>
+  <h1>Roadmap<br>Estratégico<br>Digital</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    De 100 ligações por dia vendendo o produto dos outros<br>
+    à sua própria mentoria de etiqueta.<br>
+    Os primeiros 90 dias. Passo a passo, fase a fase.<br>
+    Sem atalho, sem improviso, sem ideia solta.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">Camila Rodrigues</div>
+    <div class="lbl">Mentor Estratégico</div>
+    <div class="val">Daniel Souza</div>
+  </div>
+</div>
+
+<!-- PÁGINA 2 · CONTEXTO E DECISÕES FUNDAMENTAIS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Camila Rodrigues</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Começar</div>
+  <h1 style="font-size:19pt;">Contexto e Decisões Fundamentais</h1>
+  <p class="lead">Leia esta página inteira antes de executar qualquer passo. Todas as decisões a seguir partem do que está aqui.</p>
+
+  <div class="box-dark">
+    <div class="bt">A decisão mais importante deste plano</div>
+    <p>Nos próximos 90 dias existe um produto só: a mentoria de etiqueta. Curadoria, mesa posta, gestão de eventos e o e-book de receitas continuam existindo como serviço, mas saem da comunicação e saem da sua cabeça como projeto. Eles voltam no fim da janela, como expansão de valor para quem já comprou.</p>
+    <p>Você não está sem resultado por falta de ideia. Está sem resultado porque tem cinco ideias e nenhuma na rua. Um público, uma promessa, uma oferta.</p>
+    <p>A virada de chave da sua comunicação: <strong>quem não sobe de nível não é quem sabe menos, é quem não sabe se portar na sala onde a decisão é tomada.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A oferta única dos 90 dias</div>
+    <p><strong>Protocolo da Etiqueta.</strong> Mentoria online de etiqueta e presença pelo método A SALA, 8 módulos, encontros ao vivo com aplicação prática durante as próprias aulas. Ticket de R$ 2.997, em até 12 vezes no cartão.</p>
+    <p><strong>Público:</strong> profissionais, empreendedores e empresários que convivem com gente de alto escalão e travam na hora de ocupar aquele espaço.</p>
+    <p><strong>Regra do trimestre:</strong> não crie um segundo produto, não mude o nome e não redesenhe os módulos antes das 3 primeiras vendas. Depois da terceira o produto está validado e aí ele evolui com o que os alunos pedirem.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A matemática dos R$ 20.979 por mês</div>
+    <p>7 vendas × R$ 2.997 = <strong>R$ 20.979</strong>. Com 30% de conversão em call, isso significa 23 sessões realizadas no mês. Com 60% de comparecimento, 39 sessões agendadas. Com 2% das abordagens virando agendamento, cerca de 1.950 abordagens no mês, ou seja, <strong>de 85 a 90 abordagens por dia útil</strong>.</p>
+    <p>Você já faz 100 ligações por dia vendendo produto dos outros. A conta acima cabe dentro de uma rotina que você comprovadamente aguenta, com a diferença de que aqui o dinheiro inteiro fica com você.</p>
+    <p>Esse número é <strong>operacional, não aspiracional.</strong> É só fazer.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 3 · RITMO, RESPONSABILIDADES E FOCO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Camila Rodrigues</span><span>Página 3</span></div>
+  <div class="kicker">Como Vamos Trabalhar</div>
+  <h1 style="font-size:19pt;">Ritmo, Responsabilidades e Foco</h1>
+
+  <div class="box-light">
+    <div class="bt">Ritmo de acompanhamento</div>
+    <p><strong>Encontro semanal em grupo</strong> com o Daniel, onde cada etapa do plano é destrinchada passo a passo. <strong>Hot seat quinzenal</strong>, para você levar o caso real da semana e sair com a decisão tomada.</p>
+    <p><strong>Área de membros</strong> liberada desde o dia 1, com as aulas de funil, pré-vendas e comercial. <strong>Grupo de WhatsApp</strong> coletivo e grupo individual com a equipe, para dúvida de script, objeção e ajuste em tempo real.</p>
+    <p>A execução acontece <strong>entre as calls.</strong> As calls servem para afinar, não para decidir o que fazer. O que fazer já está aqui dentro.</p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">O que é da Simple e o que é seu</div>
+    <p><strong>A Simple entrega:</strong> o método, as aulas da área de membros, os scripts e playbooks comerciais, os processos e as IAs de aceleração, o hot seat quinzenal e o ajuste de rota a cada encontro.</p>
+    <p><strong>Camila executa:</strong> as abordagens diárias, as calls de vendas, as gravações de conteúdo, a construção do quiz e a subida das campanhas com orientação.</p>
+    <p>Ninguém vende no seu lugar. <strong>O que coloca dinheiro no caixa é o que você faz entre as calls.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Foco deste roadmap</div>
+    <p>Este documento cobre exclusivamente os primeiros 90 dias e um único objetivo: R$ 20.979 por mês, de forma recorrente, com a mentoria de etiqueta.</p>
+    <p>Quando esse número virar rotina, vem o <strong>Roadmap 2</strong>, com a escala dos 20 aos 50 mil por mês: pré-vendedor contratado, esteira aberta para curadoria e gestão de eventos, e tráfego em volume. Não tente queimar etapas.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 4 · FASE 1 · CAIXA RÁPIDO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Camila Rodrigues</span><span>Página 4</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 1 · Dias 1 a 10</div>
+    <h2>Caixa Rápido</h2>
+    <div class="fd">O dinheiro que já está na sua mão e ainda não foi buscado.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que esta fase vem primeiro</div>
+    <p>Você tem 9.458 seguidores, uma agenda de WhatsApp cheia de gente de Alphaville, alunas das aulas de etiqueta, clientes de curadoria e de treinamento residencial, e um estoque parado da sua loja. Nada disso foi trabalhado. Quando a pergunta foi qual ação de venda você estava fazendo, a resposta foi: nenhuma.</p>
+    <p>Esta fase transforma o que já é seu em caixa nos primeiros 10 dias. Esse caixa banca a mídia da Fase 5 e prova para a sua cabeça que o produto vende.</p>
+  </div>
+
+  <div class="passo-label">Passo 1</div>
+  <h3>Mapear as oportunidades que já existem</h3>
+  <ul class="check">
+    <li>Montar uma planilha única com todo mundo que já teve contato com você
+      <ul class="sub">
+        <li>Seguidores que comentam e mandam direct sobre mesa, etiqueta e receita</li>
+        <li>Alunas e mães do curso Pais e Filhos e das aulas de etiqueta na igreja</li>
+        <li>Clientes de curadoria, mesa posta e treinamento de equipe em Alphaville</li>
+        <li>Contatos do ecossistema de eventos: players, patrocinadores, fornecedores e convidados</li>
+      </ul>
+    </li>
+    <li>Classificar cada nome em três colunas: compra a mentoria, indica alguém, contrata curadoria</li>
+    <li>Lista fechada até o dia 3. Sem lista não existe rotina, existe improviso</li>
+  </ul>
+
+  <div class="passo-label">Passo 2</div>
+  <h3>Executar as abordagens da base</h3>
+  <ul class="check">
+    <li>Clientes de curadoria e de treinamento: apresentar a mentoria e pedir de 3 a 5 indicações com perfil claro</li>
+    <li>Quem já assistiu suas aulas: convite pessoal para uma sessão de diagnóstico de presença, não para uma aula</li>
+    <li>Usar os scripts da área de membros. Não improvise justamente na primeira abordagem</li>
+    <li>Registrar toda conversa na planilha. Sem registro, não existe</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 5 · FASE 1 · PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Camila Rodrigues</span><span>Página 5</span></div>
+
+  <div class="passo-label">Passo 3</div>
+  <h3>Transformar em caixa imediato</h3>
+  <ul class="check">
+    <li>Vender o estoque parado da loja: montar um lote com preço de saída e anunciar nos stories em até 3 dias
+      <ul class="sub">
+        <li>Esse é dinheiro que já está comprado, só não foi convertido de volta</li>
+      </ul>
+    </li>
+    <li>Repetir o formato de jantar-aula que você já sabe montar: cardápio fechado com o restaurante, grupo de convidadas, aula prática à mesa e oferta da mentoria no final
+      <ul class="sub">
+        <li>Cobrar o valor do cardápio mais o seu trabalho. O jantar se paga e ainda gera sessão agendada</li>
+      </ul>
+    </li>
+    <li>Venda parcelada no cartão: avaliar antecipação de recebíveis para ter o dinheiro disponível agora</li>
+    <li>Destino desse caixa: mídia e ferramentas dos 90 dias. Não é retirada</li>
+    <li>Levar o resultado da fase para o primeiro hot seat, com números, não com sensação</li>
+  </ul>
+
+  <div class="box-dark">
+    <div class="bt">Meta da Fase 1 · dia 10</div>
+    <p>Base 100% mapeada na planilha. De 8 a 10 sessões agendadas. Estoque da loja anunciado. Pelo menos 1 venda fechada ou o caixa do estoque garantido.</p>
+    <p>Se o dia 10 chegar sem nenhuma sessão agendada, o problema é <strong>volume de abordagem</strong>, não o produto. Leve para o hot seat antes de mudar qualquer coisa na oferta.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Um aviso sobre esta fase</div>
+    <p>Esta é a fase em que o medo aparece mais forte, porque é aqui que você fala com gente que já te conhece. É exatamente por isso que ela vem primeiro. Depois da quinta conversa, a barreira acaba.</p>
+    <p>Ninguém da sua base vai achar estranho você vender etiqueta. Toda vez que você se apresenta como consultora de etiqueta, a reação é <strong>"deixa eu me arrumar aqui"</strong>. O mercado já reage. Falta a oferta chegar até ele.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 6 · FASE 2 · OFERTA E POSICIONAMENTO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Camila Rodrigues</span><span>Página 6</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 2 · Dias 1 a 14</div>
+    <h2>Oferta e Posicionamento</h2>
+    <div class="fd">Fechar o produto de uma vez e transformar o perfil na vitrine dele.</div>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Prioridade máxima</div>
+    <p>Quando o lead recebe sua abordagem, a primeira coisa que ele faz é clicar no seu perfil. Hoje ele encontra uma bio com cinco serviços empilhados: etiqueta social, corporativa, kids, à mesa, mentorias, curadoria, mesa posta e gestão de eventos. Isso não comunica especialista, comunica prestadora de serviços variados.</p>
+    <p>Nos próximos 14 dias o perfil precisa dizer uma coisa só, e essa coisa precisa ser a mentoria.</p>
+  </div>
+
+  <div class="passo-label">Passo 4</div>
+  <h3>Fechar a oferta e parar de redesenhar</h3>
+  <ul class="check">
+    <li>Nome definitivo, promessa em uma frase e os 8 módulos congelados exatamente como estão no canvas</li>
+    <li>Definir e escrever: duração, quantidade de encontros ao vivo, formato das aulas, o que fica gravado, por quanto tempo o aluno tem acesso</li>
+    <li>Preço e condições: R$ 2.997, cartão em até 12 vezes. Nunca dar desconto no valor
+      <ul class="sub">
+        <li>Objeção de preço se resolve com forma de pagamento, não com abatimento</li>
+      </ul>
+    </li>
+    <li>Validar a versão final no encontro semanal antes de sair vendendo</li>
+  </ul>
+
+  <div class="passo-label">Passo 5</div>
+  <h3>Montar o PDF de apresentação</h3>
+  <ul class="check">
+    <li>De 10 a 15 slides, seguindo o modelo dos materiais de apoio: dor, promessa, mecanismo, módulos, provas, preço, condições</li>
+    <li>Usar as suas provas reais: participações em TV, aulas para os players do ecossistema, treinamentos em casas de Alphaville, curadoria em lojas</li>
+    <li>Este PDF é o material que você envia depois da call, nunca antes</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 7 · FASE 2 · PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Camila Rodrigues</span><span>Página 7</span></div>
+
+  <div class="passo-label">Passo 6</div>
+  <h3>Reescrever o Instagram</h3>
+  <ul class="check">
+    <li>Bio na fórmula quem eu ajudo, resultado, credencial, chamada
+      <ul class="sub">
+        <li>Sugestão para adaptar na sua voz: "Ajudo profissionais e empresários a ocupar qualquer sala com segurança. Consultora de etiqueta e presença. Mentoria Protocolo da Etiqueta. Agende seu diagnóstico."</li>
+        <li>Manter "Elegância começa no coração" como assinatura, não como descrição do que você vende</li>
+      </ul>
+    </li>
+    <li>Quatro destaques organizados: Comece aqui, Quem sou, O Método, Resultados
+      <ul class="sub">
+        <li>Os destaques atuais de curadoria, receitas e feiras descem para o fim da fila</li>
+      </ul>
+    </li>
+    <li>De 2 a 3 posts fixados: um apresentando a mentoria, um com prova, um com a dor do público</li>
+    <li>Foto de perfil profissional e link único levando para o WhatsApp com mensagem pronta</li>
+  </ul>
+
+  <div class="box-dark">
+    <div class="bt">Meta da Fase 2 · dia 14</div>
+    <p>Oferta congelada e escrita. PDF de apresentação pronto e aprovado. Instagram reescrito por completo: bio, destaques, fixados e foto.</p>
+    <p>A partir do dia 14 nada disso volta para a mesa de discussão. O que vem depois é volume.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">O que fica de fora e por quê</div>
+    <p>Curadoria, mesa posta, gestão de eventos, etiqueta infantil e o e-book de receitas <strong>não entram na comunicação destes 90 dias</strong>. Não é porque não vendem. É porque cada um deles é um público diferente, com uma dor diferente, exigindo uma comunicação diferente.</p>
+    <p>Eles voltam na fase de Bônus como expansão de valor: quem comprou a mentoria é exatamente quem tem dinheiro e motivo para contratar uma curadoria ou um evento depois.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 8 · FASE 3 · AQUISIÇÃO MANUAL PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Camila Rodrigues</span><span>Página 8</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 3 · Dias 1 a 90</div>
+    <h2>Aquisição Manual</h2>
+    <div class="fd">O motor principal. É esta fase que paga a conta dos 90 dias.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que começar pelo manual</div>
+    <p>Em toda a sua trajetória você fez <strong>uma</strong> call de vendas do seu próprio produto. Uma. E nela você já identificou a dor real da cliente, a origem dela na infância e chegou até a proposta. O problema nunca foi capacidade de vender. Foi volume.</p>
+    <p>O manual vem primeiro porque é conversando que você descobre a linguagem exata do seu comprador. Sem essas conversas, o quiz e os anúncios da Fase 5 seriam construídos em cima de suposição, e suposição queima dinheiro de mídia.</p>
+  </div>
+
+  <div class="passo-label">Passo 7</div>
+  <h3>Assistir às aulas de aquisição antes de abordar</h3>
+  <ul class="check">
+    <li>Social Selling parte 1 e parte 2, Outbound, Pré-Vendas e Call de Vendas 1 a 1, todas na área de membros</li>
+    <li>Assistir na primeira semana, com caderno aberto, montando os seus scripts a partir delas</li>
+    <li>Sem isso você está improvisando, e improviso na frente da venda queima lead bom</li>
+  </ul>
+
+  <div class="passo-label">Passo 8</div>
+  <h3>Estruturar o seu pré-vendas</h3>
+  <ul class="check">
+    <li>Planilha de controle com nome, origem, data da abordagem, resposta, data do follow-up e status</li>
+    <li>Mapear onde o seu público está e alimentar a lista todo dia
+      <ul class="sub">
+        <li>Seguidores de Fê Cordeiro, Patricia Junqueira, Rosaly Gomes e das páginas de mesa posta</li>
+        <li>Perfis de profissionais e empresários que interagem com conteúdo de imagem, carreira e networking</li>
+        <li>Participantes dos eventos que você opera: são pessoas de alto valor que já te viram trabalhando</li>
+      </ul>
+    </li>
+    <li>Meta de 300 perfis mapeados até o dia 10, alimentando a lista continuamente</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 9 · FASE 3 · AQUISIÇÃO MANUAL PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Camila Rodrigues</span><span>Página 9</span></div>
+
+  <div class="passo-label">Passo 9</div>
+  <h3>Executar as abordagens diárias</h3>
+  <ul class="check">
+    <li><strong>De 85 a 90 abordagens por dia útil.</strong> Este é o número que move o caixa. Todo o resto do roadmap serve a ele</li>
+    <li>Distribuição no primeiro mês: 40% base quente, 40% social selling no direct, 20% outbound frio
+      <ul class="sub">
+        <li>Quando a base quente esgotar, inverta: 70% social selling, 30% outbound</li>
+      </ul>
+    </li>
+    <li>Sempre personalizada. Mensagem em massa não abre conversa com público de alto valor</li>
+    <li>Follow-up obrigatório em até 2 dias. A maior parte das agendas nasce no segundo contato</li>
+    <li>Bloco fixo na agenda, de manhã, antes de qualquer demanda de evento aparecer</li>
+  </ul>
+
+  <div class="passo-label">Passo 10</div>
+  <h3>Conduzir a call de vendas</h3>
+  <ul class="check">
+    <li>Assistir à aula completa de Call de Vendas antes da primeira sessão</li>
+    <li>Gravar todas as calls, com consentimento. Revisar as 3 primeiras no hot seat</li>
+    <li>Mirar no público de alto valor. É ele que compra a mentoria e é ele que depois compra curadoria e evento</li>
+    <li>Nunca recuar no preço. Objeção de valor se resolve com forma de pagamento</li>
+    <li>Toda call sem fechamento sai com próximo passo datado, nunca com "depois a gente se fala"</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Metas numéricas desta fase</div>
+    <p><strong>Dia 30:</strong> 3 vendas acumuladas (R$ 8.991) e rotina de abordagem rodando todo dia útil.</p>
+    <p><strong>Dia 60:</strong> 5 vendas no mês (R$ 14.985) e 17 sessões realizadas no mês.</p>
+    <p><strong>Dia 90:</strong> 7 vendas no mês (R$ 20.979). Meta batida e rotina previsível.</p>
+    <p><strong>Alerta vermelho:</strong> menos de 2 vendas até o dia 30 com as abordagens em dia significa problema de fechamento ou de qualificação, não de produto. Pausar, revisar as gravações no hot seat e ajustar antes de continuar.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 10 · FASE 4 · CONTEÚDO ORGÂNICO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Camila Rodrigues</span><span>Página 10</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 4 · Dias 1 a 90</div>
+    <h2>Conteúdo Orgânico</h2>
+    <div class="fd">Roda em paralelo. Não é pré-requisito para venda.</div>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A regra desta fase</div>
+    <p>Conteúdo aquece quem você aborda e encurta a call. Ele não substitui a abordagem. Se algum dia você tiver que escolher entre gravar e abordar, <strong>aborde</strong>.</p>
+    <p>Você já produz 1.120 publicações de acervo e seus reels passam de 1.000 e 3.900 visualizações sem nenhum direcionamento comercial. Falta apenas apontar isso para a mentoria.</p>
+  </div>
+
+  <div class="passo-label">Passo 11</div>
+  <h3>Produzir pelos três níveis de consciência</h3>
+  <ul class="check">
+    <li><strong>Inconsciente do problema:</strong> o erro invisível que ele comete sem perceber
+      <ul class="sub">
+        <li>"O que a sua postura na cadeira diz antes de você falar", "o gesto que denuncia insegurança num almoço de negócios"</li>
+      </ul>
+    </li>
+    <li><strong>Consciente do problema:</strong> ele já sente, mas acha que é jeito e não técnica
+      <ul class="sub">
+        <li>"Por que você trava quando o diretor senta na sua mesa", "o que fazer quando você não conhece o talher"</li>
+      </ul>
+    </li>
+    <li><strong>Consciente do produto:</strong> método, bastidor e prova
+      <ul class="sub">
+        <li>Bastidor dos eventos e das mesas que você monta, aluno antes e depois, os 8 módulos por dentro</li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="passo-label">Passo 12</div>
+  <h3>Rotina semanal de publicação</h3>
+  <ul class="check">
+    <li>12 publicações por semana, gravadas em lote em 1 ou 2 blocos, nunca no improviso diário</li>
+    <li>Reaproveitar o mesmo conteúdo em formatos diferentes: reels, carrossel, story e corte</li>
+    <li>CTA fixo em todos: diagnóstico de presença no WhatsApp</li>
+  </ul>
+
+  <div class="passo-label">Passo 13</div>
+  <h3>Coletar prova social em vídeo</h3>
+  <ul class="check">
+    <li>Gravar depoimento de alunos, clientes de curadoria e players com quem você trabalhou, seguindo os tópicos que a Simple envia</li>
+    <li>Prioridade para quem tem o mesmo perfil do comprador da mentoria. Identificação vende mais que elogio</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 11 · FASE 5 · FUNIL E TRÁFEGO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Camila Rodrigues</span><span>Página 11</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 5 · Dias 60 a 90</div>
+    <h2>Funil e Tráfego Pago</h2>
+    <div class="fd">Escala o que já funciona. Nunca conserta o que não funciona.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que o funil vem depois</div>
+    <p>Um quiz construído com as objeções reais que você ouviu em 40 calls converte muito mais do que um quiz construído com suposição. E tráfego pago não cria desejo, ele amplifica desejo já validado.</p>
+    <p><strong>Regra de entrada nesta fase:</strong> só depois de 5 vendas manuais fechadas. Antes disso, todo real investido em mídia é aposta.</p>
+  </div>
+
+  <div class="passo-label">Passo 14</div>
+  <h3>Estudar o Método Simple Growth</h3>
+  <ul class="check">
+    <li>Assistir ao módulo completo de funil de quiz na área de membros antes de construir qualquer coisa</li>
+    <li>Levar o desenho do seu funil para o encontro semanal antes de publicar</li>
+  </ul>
+
+  <div class="passo-label">Passo 15</div>
+  <h3>Construir o quiz de diagnóstico</h3>
+  <ul class="check">
+    <li>De 8 a 12 perguntas cobrindo qualificação, dor e intenção
+      <ul class="sub">
+        <li>Perguntas nascidas das calls: em que situação você mais trava, com que frequência isso acontece, o que já tentou</li>
+      </ul>
+    </li>
+    <li>Resultado entregue como leitura de presença, terminando em convite para o diagnóstico com você</li>
+    <li>Controle dos leads em planilha desde o primeiro dia. CRM sofisticado fica para o Roadmap 2</li>
+  </ul>
+
+  <div class="passo-label">Passo 16</div>
+  <h3>Subir as campanhas</h3>
+  <ul class="check">
+    <li>Orçamento inicial de validação bancado pelo caixa da Fase 1
+      <ul class="sub">
+        <li>Estimativa de custo por venda entre R$ 200 e R$ 600. Para 7 vendas, de R$ 1.400 a R$ 4.200 no mês</li>
+      </ul>
+    </li>
+    <li>Segmentação por interesse em carreira, imagem, etiqueta, vinhos, gastronomia e alto padrão</li>
+    <li>Revisão de métricas a cada 7 dias, com gatilhos claros
+      <ul class="sub">
+        <li>Custo por lead fora da meta significa trocar criativo, não trocar público</li>
+        <li>Conclusão do quiz abaixo de 40% significa mexer nas perguntas</li>
+        <li>Comparecimento abaixo de 60% significa mexer no follow-up, não na mídia</li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Regra de ouro do tráfego para alto valor</div>
+    <p>Uma venda de R$ 2.997 paga meses de mídia. O jogo aqui é <strong>lead certo, não lead barato</strong>. Custo por lead alto com agenda cheia de gente qualificada é vitória, não problema.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 12 · BÔNUS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Camila Rodrigues</span><span>Página 12</span></div>
+  <div class="fase-header">
+    <div class="fk">Bônus · A partir do dia 60</div>
+    <h2>Os Ativos Que Só Você Tem</h2>
+    <div class="fd">Plantados agora, colhidos no mês 4 e 5. Sem tirar o foco dos 90 dias.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que entra agora e não antes</div>
+    <p>Você circula onde quase nenhum concorrente de etiqueta circula: dentro da operação de eventos de players de grande porte, nas casas de Alphaville, em programas de TV e em púlpitos de igreja. Isso é distribuição pronta que outros consultores levariam anos para construir.</p>
+    <p>Só que ativo de ciclo longo não paga o mês. Por isso ele entra depois que a rotina comercial já está de pé.</p>
+  </div>
+
+  <div class="passo-label">Passo 17</div>
+  <h3>Transformar cada evento em captação</h3>
+  <ul class="check">
+    <li>Nos eventos que você opera, negociar com o player 15 minutos de palco ou uma mesa demonstrativa sobre presença e etiqueta</li>
+    <li>QR code do quiz na sala, com o resultado chegando no WhatsApp ainda durante o evento</li>
+    <li>Follow-up pessoal em até 48 horas com todo mundo que preencheu. Depois disso o interesse esfria</li>
+    <li>Repetir o formato de jantar-aula uma vez por mês, com grupo pequeno e oferta no final</li>
+  </ul>
+
+  <div class="passo-label">Passo 18</div>
+  <h3>Abrir a expansão de valor</h3>
+  <ul class="check">
+    <li>Todo aluno da mentoria é comprador natural de curadoria, mesa posta e gestão de evento
+      <ul class="sub">
+        <li>A ordem é sempre esta: primeiro a mentoria, depois o serviço. Nunca ao contrário</li>
+      </ul>
+    </li>
+    <li>Oferecer curadoria residencial ou de loja apenas para quem já é cliente, no fim do programa</li>
+    <li>Levar a conversa de sociedade em gestão de eventos com números na mão: quanto entrou, quanto custou, o que você melhorou na operação</li>
+    <li>Mapear 3 empresas ou igrejas para treinamento de equipe em etiqueta corporativa. Ciclo de venda longo, por isso começa agora</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta do bônus · dia 90</div>
+    <p>De 3 a 5 conversas em andamento entre palco em evento, treinamento corporativo e sociedade. Aqui a meta é <strong>conversa aberta</strong>, não contrato fechado. O contrato vem no Roadmap 2.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 13 · CHECKPOINTS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Camila Rodrigues</span><span>Página 13</span></div>
+  <div class="kicker">Checkpoints de Progresso</div>
+  <h1 style="font-size:19pt;">Como Saber Que Você Está no Caminho Certo</h1>
+  <p class="lead">Cada checkpoint marca o final de uma janela. Se algum item não estiver fechado, leve para o próximo hot seat. Ajuste de rota imediato, sem esconder.</p>
+
+  <h3 class="navy" style="margin-top:10pt;">Checkpoint 1 · Dia 10 (caixa rápido)</h3>
+  <ul class="check">
+    <li>Planilha da base completa e classificada</li>
+    <li>Base 100% abordada, com registro de cada conversa</li>
+    <li>De 8 a 10 sessões agendadas</li>
+    <li>Estoque da loja anunciado e 1 venda ou caixa garantido</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:10pt;">Checkpoint 2 · Dia 14 (oferta no ar)</h3>
+  <ul class="check">
+    <li>Protocolo da Etiqueta congelado: nome, módulos, formato, preço e condições</li>
+    <li>PDF de apresentação pronto e validado no encontro semanal</li>
+    <li>Instagram reescrito: bio, 4 destaques, posts fixados e foto</li>
+    <li>Aulas de Social Selling, Outbound e Call de Vendas assistidas</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:10pt;">Checkpoint 3 · Dia 30 (rotina de pé)</h3>
+  <ul class="check">
+    <li>De 85 a 90 abordagens por dia útil acontecendo sem falha</li>
+    <li>300 perfis mapeados na planilha de pré-vendas</li>
+    <li>3 vendas acumuladas (R$ 8.991) e as 3 primeiras calls revisadas no hot seat</li>
+    <li>Publicação orgânica rodando nos três níveis de consciência</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:10pt;">Checkpoint 4 · Dia 60 (previsibilidade)</h3>
+  <ul class="check">
+    <li>5 vendas no mês (R$ 14.985) e 17 sessões realizadas no mês</li>
+    <li>Depoimentos em vídeo coletados e no Drive</li>
+    <li>Quiz desenhado e campanhas prontas para subir</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:10pt;">Checkpoint 5 · Dia 90 (meta batida)</h3>
+  <ul class="check">
+    <li>7 vendas no mês: R$ 20.979 de receita com a mentoria</li>
+    <li>Funil de quiz no ar com métricas dos primeiros 30 dias</li>
+    <li>De 3 a 5 conversas de bônus em andamento</li>
+    <li>Pronta para receber o Roadmap 2</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 14 · MATERIAIS DE APOIO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Camila Rodrigues</span><span>Página 14</span></div>
+  <div class="kicker">Materiais de Apoio</div>
+  <h1 style="font-size:19pt;">Recursos para Executar o Plano</h1>
+  <p class="lead">Todas as aulas e templates abaixo estão na área de membros e no grupo. Se algum link não foi compartilhado, peça no grupo.</p>
+
+  <ul class="check">
+    <li><strong>Social Selling parte 1 e parte 2</strong>
+      <ul class="sub"><li>Como abordar no direct sem parecer vendedora de massa. Base do Passo 9.</li></ul>
+    </li>
+    <li><strong>Outbound</strong>
+      <ul class="sub"><li>Prospecção fria fora da sua base. Entra quando a base quente esgota, no Passo 9.</li></ul>
+    </li>
+    <li><strong>Pré-Vendas e planilha de controle</strong>
+      <ul class="sub"><li>Estrutura de mapeamento, registro e follow-up. Base do Passo 8.</li></ul>
+    </li>
+    <li><strong>Call de Vendas 1 a 1</strong>
+      <ul class="sub"><li>Condução, quebra de objeção e fechamento. Assistir antes da primeira sessão, Passo 10.</li></ul>
+    </li>
+    <li><strong>Como montar o high ticket</strong>
+      <ul class="sub"><li>Ancoragem de valor, entregáveis e precificação. Usar no Passo 4.</li></ul>
+    </li>
+    <li><strong>Modelo de PDF de apresentação</strong>
+      <ul class="sub"><li>Estrutura dos 10 a 15 slides do Passo 5.</li></ul>
+    </li>
+    <li><strong>Playbooks e scripts comerciais</strong>
+      <ul class="sub"><li>Mensagens de abordagem, reativação e follow-up. Usar nas Fases 1 e 3.</li></ul>
+    </li>
+    <li><strong>Processos comerciais e IAs do Daniel</strong>
+      <ul class="sub"><li>Aceleram roteiro de abordagem, resposta a objeção e preparação de call.</li></ul>
+    </li>
+    <li><strong>Método Simple Growth</strong>
+      <ul class="sub"><li>Funil de quiz completo, do anúncio ao agendamento. Base dos Passos 14 e 15.</li></ul>
+    </li>
+    <li><strong>Growth Model</strong>
+      <ul class="sub"><li>Métricas e alavancas do negócio. Referência para as revisões de 7 dias do Passo 16.</li></ul>
+    </li>
+    <li><strong>Guia de captação de depoimentos</strong>
+      <ul class="sub"><li>Tópicos para dirigir a gravação dos seus alunos e clientes. Passo 13.</li></ul>
+    </li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 15 · FECHAMENTO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Camila Rodrigues</span><span>Página 15</span></div>
+  <div style="padding-top:40mm;">
+    <div class="kicker">Lembre-se Sempre Disto</div>
+    <h1 style="font-size:19pt;">Antes de Fechar Este Documento</h1>
+    <p style="margin-top:10pt;">Camila, você entra em salas onde a maioria dos consultores de etiqueta nunca vai entrar. Você já foi para a televisão falar sobre mesa, já treinou equipes em casas de Alphaville, já monta a operação de eventos de players grandes e já vendeu produto de alto valor com o telefone na mão, 100 ligações por dia, para outra pessoa.</p>
+    <p>Não foi falta de conhecimento. Não foi falta de autoridade. Não foi falta de público, você tem quase dez mil pessoas te acompanhando. Não foi nem falta de capacidade de vender, porque isso você faz todo dia.</p>
+    <p><strong class="navy">Foi falta de vender o que é seu com a mesma agressividade com que você vende o dos outros.</strong></p>
+    <p>Este roadmap é o método. A execução é sua. Toda semana o mentor estratégico vai te encontrar no encontro em grupo e a cada 15 dias no hot seat, mas o que coloca dinheiro no caixa é o que você faz <strong>entre as calls</strong>.</p>
+    <p>Dúvidas no meio do caminho: mande no grupo. Não espere a próxima call para perguntar.</p>
+    <p style="margin-top:12pt;">Você tem o conhecimento. Você tem a autoridade. Você tem o público. Você já provou, quando correu os seus primeiros 5 quilômetros, que quando decide ir, você chega. E agora você tem o método.</p>
+    <p><strong class="navy">O próximo passo é começar.</strong></p>
+    <div class="footer-note">Roadmap Estratégico Digital · Camila Rodrigues · 90 dias · Versão 1.0</div>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+</body>
+</html>
