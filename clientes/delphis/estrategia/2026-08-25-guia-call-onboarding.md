@@ -2,6 +2,9 @@
 
 Data: 25/08/2026 · Base: calls de vendas 15/07 e 17/08 + canvas "Detonando a Timidez".
 
+**Versão para usar durante a call (página com checklist):**
+https://claude.ai/code/artifact/215c4dcc-5cc3-42a8-a888-3bab42654f19
+
 > **Princípio:** não perguntar nada que ele já respondeu. Toda pergunta aqui começa
 > **devolvendo o que já sabemos** e pede a **camada seguinte** — o número exato, o porquê,
 > o caso concreto. Isso passa a impressão contrária à de quem não leu: passa a de quem
