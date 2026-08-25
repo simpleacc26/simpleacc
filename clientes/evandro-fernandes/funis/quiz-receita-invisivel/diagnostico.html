@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seu diagnóstico · HDM</title>
+  <!-- Favicon: ícone oficial do HDM (img/HDM_ICONE_ROXO@2x.png do hdmfy.com.br),
+       recortado no bounding box e reduzido para 64px. Servido daqui, e não linkado
+       do site do cliente, para a aba não quebrar se ele trocar o caminho da imagem. -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta name="theme-color" content="#030507" />
+  <style>
+    :root{--bg:#030507;--text:#eef2ff}
+    html,body{background:#030507}
+    body{margin:0;color:var(--text);
+      font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* --- específico do relatório --- */
+    .report-head { text-align: center; padding: 18px 0 4px; }
+    .report-head .selo { margin-bottom: 14px; }
+    .report-head h1 { font-size: 27px; }
+    .etapa { margin: 0 0 20px; }
+    .etapa h3 {
+      font-size: 11.5px; text-transform: uppercase; letter-spacing: .16em; margin: 0 0 8px;
+      background: var(--grad);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
+    }
+    .etapa p { margin: 0 0 10px; color: var(--muted); }
+    .etapa strong { color: var(--text); }
+
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0; }
+    .compare .col { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 15px; background: rgba(255,255,255,.03); }
+    .compare .col h4 { margin: 0 0 9px; font-size: 13.5px; color: var(--muted-2); }
+    .compare .col.good { background: rgba(0,227,187,.07); border-color: var(--border-t); }
+    .compare .col.good h4 { color: var(--teal); }
+    .compare ul { margin: 0; padding-left: 17px; font-size: 14.5px; color: var(--muted-2); }
+    .compare .good ul { color: var(--text); }
+
+    /* prova social: ordem narrativa fixa */
+    .prova { border: 1px solid var(--border); border-left: 2px solid var(--teal);
+      border-radius: var(--radius-sm); padding: 14px 16px; margin: 10px 0; background: rgba(255,255,255,.03); }
+    .prova .rot { font-size: 10.5px; text-transform: uppercase; letter-spacing: .14em; color: var(--teal); margin-bottom: 5px; }
+    .prova p { margin: 0; font-size: 14.5px; color: var(--muted); }
+    .prova strong { color: var(--text); }
+    .citacao { font-size: 16px; line-height: 1.5; color: var(--text); font-style: italic;
+      border-left: 2px solid var(--teal); padding: 4px 0 4px 16px; margin: 14px 0 6px; }
+    .citacao .fonte { display: block; font-style: normal; font-size: 13px; color: var(--muted-2); margin-top: 8px; }
+
+    /* CTAs distribuídos ao longo do relatório */
+    .cta-inline { margin: 20px 0; text-align: center; }
+    .cta-inline .sub { font-size: 13.5px; color: var(--muted-2); margin-top: 9px; }
+    .cta-box { background: rgba(0,227,187,.07); border: 1px solid var(--border-t);
+      border-radius: var(--radius); padding: 24px 20px; text-align: center; margin-top: 12px; }
+    .cta-box h2 { margin-top: 0; font-size: 21px; }
+    .cta-box p { color: var(--muted); }
+    .clube { font-size: 13.5px; color: var(--muted-2); margin-top: 14px; }
+    .salvar { text-align: center; margin: 18px 0 0; }
+
+    @media (max-width: 520px){ .compare { grid-template-columns: 1fr; } }
+    @media print {
+      .etapa p, .compare ul, .prova p, .cta-box p { color: #10151c !important; }
+      .etapa h3, .prova .rot { -webkit-text-fill-color: #0a7f6b !important; color: #0a7f6b !important; background: none !important; }
+      .compare .col, .prova, .cta-box { background: #fff !important; border-color: #d8dee8 !important; }
+      .citacao { color: #10151c !important; }
+      .etapa, .compare .col, .cta-box, .prova { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <!-- PENDENTE: logo oficial em SVG/PNG -->
+        <span class="brand-name">HDM</span>
+        <span class="brand-tag">Human Data Management</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Sem barra de "Baixar PDF" no topo: ela compete com o conteúdo logo na
+         entrada do relatório. A opção de salvar fica no fim, e o @media print
+         continua valendo para quem imprimir. -->
+    <div class="card screen" id="report"><!-- preenchido por diagnostico.js --></div>
+  </main>
+
+  <p class="foot">Diagnóstico elaborado pela equipe do HDM · uso exclusivo</p>
+
+  <script src="flow.js" defer></script>
+  <script src="diagnostico.js" defer></script>
+</body>
+</html>
