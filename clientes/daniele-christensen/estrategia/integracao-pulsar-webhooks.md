@@ -33,13 +33,20 @@ o que o n8n já faz e a cadência dispararia duas vezes para o mesmo lead.
 | 2 | `hook.us2.make.com/3xnav3lyusd965i2fptdpi5kk5yl0ywy` | aba `Etapa 2` |
 | clique no WhatsApp | `hook.us2.make.com/l8nl0chvehsk2aonkg1hi5y34ok2ndap` | marca a linha do lead na `Página1` |
 
+O cenário do clique procura a linha pelo telefone e escreve em duas células com
+endereço fixo. Ele ficou fora do ar entre 19 e 25/08 por causa disso: quando o
+telefone não casa com nenhuma linha — clique vindo do protótipo, por exemplo — o
+número da linha vinha vazio, o endereço saía como `AH` em vez de `AH12`, e o
+Make derrubava o cenário depois dos erros. Agora há um filtro antes: sem linha
+encontrada, o clique é ignorado em silêncio em vez de virar erro.
+
 Os três escrevem no **mesmo arquivo**: `Grokker — Jornada completa (Etapa 1 +
 Etapa 2)`. Foi pedido da Dani ver a jornada inteira num lugar só, e o desenho
 resolve mais do que a conveniência: com as duas etapas separadas em arquivos
 diferentes, ninguém conseguia responder "quantos dos leads que entraram
 chegaram até o fim" sem cruzar na mão.
 
-A aba `Página1` ganhou 26 colunas de jornada (AJ a BI) que puxam da aba
+A aba `Página1` ganhou 26 colunas de jornada (AK a BJ) que puxam da aba
 `Etapa 2` **pelo telefone**: se respondeu, as 15 notas cruas, as cinco médias de
 bloco, o TD, o bloco dominante, onde está o gargalo, a etiqueta de Lead Hot e
 por onde abrir a call. Uma linha por lead, com a jornada inteira nela.
@@ -73,14 +80,25 @@ Um destino que cai não derruba o outro, e o lead não espera por nenhum dos doi
   "diagnostico_pdf": "Diagnostico-02-o-gargalo.pdf",
   "caminho": "A",
   "cargo": "...", "setor": "...",
+  "colaboradores": "Entre 100 e 200",
   "faturamento": "...", "margem": "...",
   "autonomia": "...", "remuneracao": "...",
   "pontuacao": 7,
   "qualificado": true,
   "motivo": "...",
-  "respostas": { "P0": "...", "P1": "...", "P7": "..." }
+  "respostas": { "P0": "...", "P1": "...", "P8": "..." }
 }
 ```
+
+**`colaboradores`** entrou em 25/08, a pedido da equipe da Dani, e é a `P8` das
+respostas. **Só o caminho A responde** — para quem é executivo (caminho B) o
+campo vem string vazia, do mesmo jeito que `faturamento` e `margem` já vinham.
+Quem consome não precisa de `if`: o campo existe sempre.
+
+Ela **ainda não mexe em `qualificado` nem em `pontuacao`**. A especificação dá
+pontos para cada faixa, mas não diz a partir de quantos colaboradores o lead
+qualifica, e mudar a régua sem essa definição reprovaria lead que hoje passa. As
+faixas e os pontos já estão na página; falta só a régua para ligar.
 
 **`cenario`** vem com uma das quatro grafias abaixo, caractere por caractere,
 com acento e maiúscula. Foi o pedido da Pulsar e é o que permite casar com o

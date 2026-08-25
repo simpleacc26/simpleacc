@@ -365,16 +365,16 @@ var CENARIOS = [
 ];
 
 var P = {
-  p0:{ id:"P0", passo:"Pergunta 1 de 8", titulo:"Hoje você é:",
+  p0:{ id:"P0", titulo:"Hoje você é:",
     ops:[
       {t:"Proprietário, Dono ou Sócio", via:"A"},
       {t:"Diretor (CLT ou PJ)", via:"B"},
       {t:"Gestor ou Coordenador (CLT ou PJ)", via:"B"},
       {t:"Fui promovido recentemente à Liderança", via:"B"}
     ]},
-  p1:{ id:"P1", passo:"Pergunta 2 de 8", titulo:"Em qual setor a sua empresa atua?",
+  p1:{ id:"P1", titulo:"Em qual setor a sua empresa atua?",
     ops:[{t:"Serviços"},{t:"Comércio ou varejo"},{t:"Indústria"},{t:"Saúde"},{t:"Tecnologia"},{t:"Outro"}]},
-  p2:{ id:"P2", passo:"Pergunta 3 de 8",
+  p2:{ id:"P2",
     titulo:"Pensando nos últimos 90 dias, qual dessas situações mais se repetiu na sua empresa?",
     ops:[
       {t:"Tem hora que eu deveria manter a exigência e acabo cedendo, para não desgastar a relação", cen:0},
@@ -382,7 +382,7 @@ var P = {
       {t:"As pessoas justificam o resultado com o mercado, o cliente ou o preço, em vez de assumir a responsabilidade", cen:2},
       {t:"A gente sai da reunião com tudo combinado e registrado, e os prazos não são cumpridos", cen:3}
     ]},
-  p3:{ id:"P3", passo:"Pergunta 4 de 8", titulo:"O que você já tentou para resolver isso?",
+  p3:{ id:"P3", titulo:"O que você já tentou para resolver isso?",
     ops:[
       {t:"Conversei, dei feedback, cheguei mais perto"},
       {t:"Troquei quem não estava entregando, contratei gente nova"},
@@ -390,7 +390,7 @@ var P = {
       {t:"Assumi de volta e fui fazer eu mesmo"},
       {t:"Fiz curso ou mentoria de liderança"}
     ]},
-  p4:{ id:"P4", passo:"Pergunta 5 de 8",
+  p4:{ id:"P4",
     titulo:"Hoje, quantas decisões sobre pessoas acontecem na sua empresa sem passar por você?",
     ops:[
       {t:"Praticamente nenhuma, tudo passa por mim", pt:10},
@@ -398,7 +398,7 @@ var P = {
       {t:"Boa parte, mas as difíceis sempre voltam para mim", pt:4},
       {t:"A maioria, meu time decide e depois me informa", pt:0}
     ]},
-  p5:{ id:"P5", passo:"Pergunta 6 de 8",
+  p5:{ id:"P5",
     titulo:"Se nada mudar nos próximos 12 meses, o que mais te incomoda imaginar?",
     ops:[
       {t:"Continuar sendo o único que resolve o que é difícil"},
@@ -406,7 +406,21 @@ var P = {
       {t:"Daqui a doze meses estar exatamente no mesmo lugar de hoje"},
       {t:"Seguir sem tempo para pensar no negócio"}
     ]},
-  a6:{ id:"P6", passo:"Pergunta 7 de 8", titulo:"Qual é o faturamento médio mensal da sua empresa?",
+  // Só no caminho A. Vem antes do faturamento porque porte de estrutura é
+  // pergunta mais fácil de responder que dinheiro: abre a sequência de
+  // qualificação sem o lead travar logo na primeira.
+  // A pontuação está aqui como a especificação define, mas ainda NÃO entra no
+  // corte nem na Pontuação — falta a régua de quantos colaboradores qualificam.
+  aColab:{ id:"P8", titulo:"Quantos colaboradores a sua empresa emprega?",
+    ops:[
+      {t:"Acima de 500", pt:10},
+      {t:"Entre 200 e 500", pt:8},
+      {t:"Entre 100 e 200", pt:6},
+      {t:"Entre 50 e 100", pt:4},
+      {t:"Entre 20 e 50", pt:2},
+      {t:"Menos de 20", pt:1}
+    ]},
+  a6:{ id:"P6", titulo:"Qual é o faturamento médio mensal da sua empresa?",
     ops:[
       {t:"Até R$ 100.000", pt:0},
       {t:"De R$ 100.000 até R$ 200.000", pt:1},
@@ -414,11 +428,11 @@ var P = {
       {t:"De R$ 300.000 até R$ 500.000", pt:8},
       {t:"Acima de R$ 500.000", pt:10}
     ]},
-  a7:{ id:"P7", passo:"Pergunta 8 de 8",
+  a7:{ id:"P7",
     titulo:"Da sua receita mensal, quanto sobra de lucro para você?",
     ajuda:"Margem líquida aproximada.",
     ops:[{t:"Menos de 10%"},{t:"Entre 10% e 20%"},{t:"Entre 20% e 30%"},{t:"Acima de 30%"},{t:"Não sei dizer com precisão"}]},
-  b6:{ id:"P6", passo:"Pergunta 7 de 8",
+  b6:{ id:"P6",
     titulo:"Qual é o seu nível de autonomia para decidir sobre investimento em desenvolvimento, seu ou da sua equipe de gestores?",
     ops:[
       {t:"Total, a decisão é minha", pt:10},
@@ -426,7 +440,7 @@ var P = {
       {t:"Quase nenhuma, preciso de aprovação", pt:0},
       {t:"Nenhuma", pt:0}
     ]},
-  b7:{ id:"P7", passo:"Pergunta 8 de 8", titulo:"Qual é a sua remuneração média mensal?",
+  b7:{ id:"P7", titulo:"Qual é a sua remuneração média mensal?",
     ops:[
       {t:"Até R$ 5.000", pt:1},
       {t:"De R$ 5.000 até R$ 10.000", pt:2},
@@ -531,6 +545,7 @@ function payload(){
     caminho: R.via,
     cargo: R._p0 || "",
     setor: R._p1 || "",
+    colaboradores: R._aColab || "",   // só o caminho A responde; B vem vazio
     faturamento: R._a6 || "",
     margem: R._a7 || "",
     autonomia: R._b6 || "",
@@ -542,7 +557,8 @@ function payload(){
       P0: R._p0 || "", P1: R._p1 || "", P2: R._p2 || "", P3: R._p3 || "",
       P4: R._p4 || "", P5: R._p5 || "",
       P6: (R.via === "A" ? R._a6 : R._b6) || "",
-      P7: (R.via === "A" ? R._a7 : R._b7) || ""
+      P7: (R.via === "A" ? R._a7 : R._b7) || "",
+      P8: R._aColab || ""
     }
   };
 }
@@ -585,7 +601,18 @@ var i = 0;       // índice atual
 function ordem(){
   var base = ["p0","p1","p2","p3","p4","p5"];
   if(R.P0 === undefined) return base.concat(["contato"]);
-  return base.concat(R.via === "A" ? ["a6","a7"] : ["b6","b7"], ["contato"]);
+  return base.concat(R.via === "A" ? ["aColab","a6","a7"] : ["b6","b7"], ["contato"]);
+}
+
+// Quantas perguntas o caminho tem, sem contar a tela de contato. Os dois
+// caminhos têm tamanhos diferentes (A tem a de colaboradores), então o total
+// só existe depois da primeira resposta — que é justamente a que decide o
+// caminho. Por isso a primeira tela não mostra "de N": mostrar 8 ali e 9 na
+// tela seguinte é pior do que não prometer número nenhum.
+function totalPerguntas(){ return ordem().length - 1; }
+
+function rotuloPasso(){
+  return i === 0 ? "Pergunta 1" : "Pergunta " + (i+1) + " de " + totalPerguntas();
 }
 
 function el(t,c,x){ var e=document.createElement(t); if(c)e.className=c; if(x!==undefined)e.textContent=x; return e; }
@@ -594,12 +621,12 @@ function render(){
   var chave = ordem()[i];
   var tela = document.getElementById("tela");
   tela.innerHTML = "";
-  document.getElementById("prog").style.width = Math.round((i/9)*100) + "%";
+  document.getElementById("prog").style.width = Math.round((i/ordem().length)*100) + "%";
 
   if(chave === "contato"){ return telaContato(tela); }
 
   var q = P[chave];
-  tela.appendChild(el("p","passo",q.passo));
+  tela.appendChild(el("p","passo",rotuloPasso()));
   tela.appendChild(el("h2","perg",q.titulo));
   if(q.ajuda) tela.appendChild(el("p","ajuda",q.ajuda));
 

@@ -128,7 +128,11 @@ def main():
 
     obrigatorios = ["DESTINOS", "telefoneCanonico", "RASTREIO",
                     'name="viewport"', "Diagnostico-01-o-adiador.pdf",
-                    "dani.jpg", "noindex"]
+                    "dani.jpg", "noindex",
+                    # a pergunta de colaboradores é só do caminho A e não
+                    # aparece para quem revisa pelo caminho B: sem isto, sumir
+                    # dela passaria despercebido
+                    "aColab", "colaboradores:"]
     for o in obrigatorios:
         if o not in html:
             sys.exit("build: faltou %r no arquivo de produção" % o)

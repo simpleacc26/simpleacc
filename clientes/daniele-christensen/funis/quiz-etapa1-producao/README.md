@@ -42,6 +42,21 @@ inteira.
 O GTM não entra no protótipo. Protótipo é a URL de revisão; se disparasse tag, a
 medição da campanha viria suja de visita interna.
 
+## Os dois caminhos têm tamanhos diferentes
+
+A pergunta 1 decide o caminho. Quem responde **Proprietário, Dono ou Sócio** vai
+pelo A e responde **9 perguntas** (colaboradores, faturamento e margem no fim);
+quem responde qualquer outra coisa vai pelo B e responde **8** (autonomia e
+remuneração).
+
+Por isso o rótulo "Pergunta N de M" é **calculado**, nunca escrito à mão. E a
+primeira tela mostra só "Pergunta 1", sem total: o caminho ainda não foi
+escolhido, e prometer 8 ali para mostrar 9 na tela seguinte é pior do que não
+prometer.
+
+Ao acrescentar ou tirar pergunta, mexa em `ordem()` e no dicionário `P` do
+protótipo. Não existe número de pergunta guardado em lugar nenhum.
+
 ## Rastreio de campanha
 
 A página lê da URL `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`,

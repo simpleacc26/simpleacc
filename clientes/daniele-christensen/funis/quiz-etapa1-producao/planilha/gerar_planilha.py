@@ -12,7 +12,7 @@ Separador de argumento é ";" porque a conta do Drive está em pt-BR, e as
 porcentagens são montadas com ROUND(...)&"%" — a máscara do TEXT lê a vírgula
 como separador de milhar e transformaria 12,5% em "125%".
 
-A ordem das colunas A a AC é contrato com o cenário do Make. Mexer aqui sem
+A ordem das colunas A a AD é contrato com o cenário do Make. Mexer aqui sem
 mexer lá desalinha tudo silenciosamente: o Make escreve por posição.
 """
 
@@ -21,10 +21,13 @@ import csv, sys
 CENARIOS = ["O Adiador", "O Gargalo", "Time que não Assume",
             "Plano que não Vira Execução"]
 
-# A..AC — o que o Make escreve, na ordem exata do payload da Etapa 1
+# A..AD — o que o Make escreve, na ordem exata do payload da Etapa 1
 CAMPOS = [
     "Carimbo", "Nome", "E-mail", "WhatsApp digitado", "Telefone (55)",
     "Cenário", "PDF enviado", "Caminho", "Cargo", "Setor",
+    # só o caminho A responde colaboradores; para o caminho B a coluna fica
+    # vazia, como já acontece com Faturamento e Margem
+    "Colaboradores",
     "Faturamento", "Margem", "Autonomia", "Remuneração",
     "Pontuação", "Qualificado", "Motivo da reprovação",
     "O que mais se repetiu (P2)", "O que já tentou (P3)",
@@ -33,8 +36,12 @@ CAMPOS = [
     "fbclid", "gclid", "Veio de",
 ]
 
-CARIMBO, NOME, CEN, QUALIF = "A:A", "B:B", "F:F", "P:P"
-SOURCE, CAMPANHA = "V:V", "X:X"
+# Letras de coluna, e não posições calculadas: quem inserir coluna nova tem de
+# vir corrigir aqui de propósito. Depois da entrada de Colaboradores em K, tudo
+# à direita andou uma casa (Qualificado era P, utm_source era V).
+CARIMBO, NOME, CEN, QUALIF = "A:A", "B:B", "F:F", "Q:Q"
+MOTIVO = "R:R"
+SOURCE, CAMPANHA = "W:W", "Y:Y"
 
 # Contar lead tem duas armadilhas aqui, as duas descobertas na marra:
 # COUNTA conta como preenchida a célula de texto vazio que o import de CSV
@@ -51,7 +58,7 @@ def af(titulo, corpo, guarda=CARIMBO):
         t=titulo, g=guarda, c=corpo)
 
 
-# AD, AE — calculadas
+# AE, AF — calculadas
 CALCULADAS = [
     # o carimbo chega em ISO (2026-08-17T13:05:00.000Z); o dia serve para agrupar
     af("Dia", 'LEFT({c};10)'.format(c=CARIMBO)),
@@ -60,7 +67,12 @@ CALCULADAS = [
 
 CABECALHO = CAMPOS + CALCULADAS
 
-# painel de leitura, fora do caminho dos dados (colunas AG a AJ)
+# painel de leitura, fora do caminho dos dados (colunas AH a AK)
+#
+# ATENÇÃO: este script é o molde de uma planilha NOVA, não um espelho da que
+# está no ar. A planilha em uso ganhou depois as colunas de clique no WhatsApp
+# e as 26 colunas de jornada da Etapa 2, e o painel saiu de lá. Rodar isto por
+# cima da planilha viva escreveria painel em cima do clique.
 PAINEL = [
     ["PAINEL — atualiza sozinho", "", "", ""],
     ["", "", "", ""],
@@ -87,7 +99,7 @@ for motivo in ["faturamento abaixo de R$ 200 mil",
                "cargo fora do ICP (só diretor qualifica)",
                "sem autonomia para decidir investimento",
                "remuneração abaixo de R$ 20 mil"]:
-    PAINEL.append([motivo, '=COUNTIF(Q:Q;"%s")' % motivo, "", ""])
+    PAINEL.append([motivo, '=COUNTIF(%s;"%s")' % (MOTIVO, motivo), "", ""])
 
 COMO_LER = [
     "",
@@ -102,9 +114,9 @@ COMO_LER = [
     "parâmetro.",
     "",
     "PARA QUEM FOR MEXER NA INTEGRAÇÃO",
-    "O Make escreve as colunas A a AC POR POSIÇÃO. Se você inserir, remover ou reordenar coluna "
+    "O Make escreve as colunas A a AD POR POSIÇÃO. Se você inserir, remover ou reordenar coluna "
     "aqui, o cenário passa a gravar dado na coluna errada e não avisa.",
-    "AD e AE são fórmula na linha 1 e valem para a planilha toda. Não digite por cima e não "
+    "AE e AF são fórmula na linha 1 e valem para a planilha toda. Não digite por cima e não "
     "apague a linha 1.",
     "",
     "Esta planilha tem dado pessoal de lead. Não deixe o compartilhamento como "
@@ -113,9 +125,9 @@ COMO_LER = [
 for texto in COMO_LER:
     PAINEL.append([texto, "", "", ""])
 
-VAZIO_ATE_AG = [""] * (len(CABECALHO) + 1)   # A até AF
+VAZIO_ATE_PAINEL = [""] * (len(CABECALHO) + 1)   # A até AG
 
 w = csv.writer(sys.stdout, lineterminator="\n")
 w.writerow(CABECALHO + [""] + PAINEL[0])
 for linha in PAINEL[1:]:
-    w.writerow(VAZIO_ATE_AG + linha)
+    w.writerow(VAZIO_ATE_PAINEL + linha)
