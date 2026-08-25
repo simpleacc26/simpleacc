@@ -155,9 +155,9 @@ especificação a trata como indicador de maturidade financeira, não como nota.
 | P6 autonomia | pts | P8 caminho B | pts | P7 remuneração | pts |
 |---|---|---|---|---|---|
 | Total, a decisão é minha | 10 | Mais de 30 | 10 | Acima de R$ 50.000 | 10 |
-| Parcial, decido até um valor | 6 | Entre 16 e 30 | 8 | De R$ 20.000 a R$ 50.000 | 8 |
-| Quase nenhuma | 0 | Entre 11 e 15 | 6 | De R$ 10.000 a R$ 19.000 | 5 |
-| Nenhuma | 0 | Entre 05 e 10 | 4 | De R$ 5.000 a R$ 9.000 | 2 |
+| Parcial, decido até um valor | 6 | Entre 16 e 30 | 8 | De R$ 20.000 até R$ 50.000 | 8 |
+| Quase nenhuma | 0 | Entre 11 e 15 | 6 | De R$ 10.000 até R$ 20.000 | 5 |
+| Nenhuma | 0 | Entre 05 e 10 | 4 | De R$ 5.000 até R$ 10.000 | 2 |
 | | | Entre 1 e 4 | 2 | Menos de R$ 5.000 | 1 |
 | | | Nenhum | 0 | | |
 
@@ -174,14 +174,17 @@ Isso nunca afetou `qualificado` — o corte olha o faturamento direto, não a so
 página tinha seis faixas, indo até "Acima de R$ 100.000"; passou a ter as cinco
 do documento, com teto em "Acima de R$ 50.000". O corte de qualificação **não
 mudou de lugar**: continua sendo R$ 20 mil, porque na escala nova a faixa
-"De R$ 20.000 a R$ 50.000" vale 8 e a de baixo vale 5.
+"De R$ 20.000 até R$ 50.000" vale 8 e a de baixo vale 5.
 
-Um detalhe herdado do documento: as faixas têm **buracos** entre R$ 9.000 e
-R$ 10.000 e entre R$ 19.000 e R$ 20.000. Quem ganha R$ 19.500 não encontra a
-própria faixa e vai marcar uma das duas vizinhas. Não muda quem qualifica —
-os dois lados do buraco de R$ 19 mil caem abaixo do corte —, mas desloca a
-Pontuação em 3 pontos para quem arredondar para cima. Fechar isso é trocar
-"R$ 19.000" por "R$ 20.000" e "R$ 9.000" por "R$ 10.000" nos rótulos.
+**Toda faixa desta página fecha na seguinte.** A especificação ia de R$ 10.000 a
+R$ 19.000 e pulava para R$ 20.000; quem ganhasse R$ 19.500 não encontrava a
+própria faixa. Os rótulos da página fecham em R$ 10.000 e R$ 20.000 redondos.
+
+A regra vale para as quatro perguntas de faixa numérica, e as outras três já
+estavam certas: faturamento e colaboradores da empresa fecham por sobreposição
+(quem tem exatamente 50 pessoas escolhe uma das duas vizinhas), e colaboradores
+sob responsabilidade fecha por ser contagem inteira — entre "Entre 1 e 4" e
+"Entre 05 e 10" não existe número de gente para cair fora.
 
 ## Etapa 2 — o aviso de abertura
 

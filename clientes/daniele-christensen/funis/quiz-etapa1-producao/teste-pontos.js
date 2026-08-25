@@ -23,8 +23,8 @@ const ESPEC = {
        "Quase nenhuma, preciso de aprovação":0,"Nenhuma":0},
   bColab: {"Mais de 30":10,"Entre 16 e 30":8,"Entre 11 e 15":6,
            "Entre 05 e 10":4,"Entre 1 e 4":2,"Nenhum":0},
-  b7: {"Acima de R$ 50.000":10,"De R$ 20.000 a R$ 50.000":8,
-       "De R$ 10.000 a R$ 19.000":5,"De R$ 5.000 a R$ 9.000":2,
+  b7: {"Acima de R$ 50.000":10,"De R$ 20.000 até R$ 50.000":8,
+       "De R$ 10.000 até R$ 20.000":5,"De R$ 5.000 até R$ 10.000":2,
        "Menos de R$ 5.000":1}
 };
 
