@@ -9,3 +9,4 @@ Log do que funciona e do que não funciona com este cliente.
 | 2026-08-13 | Baixa maturidade digital ("não entendo como funciona esse tráfego pago"). A analogia de **outdoor segmentado** funcionou e destravou o entendimento. Reutilizar. | Call de vendas |
 | 2026-08-13 | Ana Carla executa, Cleomar decide o dinheiro. Ele viaja 15–20 dias/mês — reuniões precisam considerar isso. | Call de vendas |
 | 2026-08-20 | Divergência de praça entre as transcrições (Chapecó × Alphaville) e divergência de valor no resumo automático (R$ 8.000 × R$ 5.000). Lição de processo: **conferir cidade e valores no CRM/contrato antes da call**, não confiar em resumo automático de reunião. | Preparo do onboarding |
+| 2026-08-20 | Ao publicar Doc no Drive via HTML: emoji de 4 bytes (🔴🟡) corrompe na conversão — usar símbolos BMP (● ◆ ○ ☐ ✓), que passam limpos. Tabela de 2 colunas (pergunta \| resposta) é o melhor formato para preencher ao vivo numa call. | Entrega do roteiro de onboarding |
