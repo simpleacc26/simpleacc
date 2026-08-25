@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Roadmap Estratégico Digital · Ayla Pedra Rica</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    padding: 16mm 18mm 24mm 18mm;
+    position: relative;
+    page-break-after: always;
+    background: #fff;
+  }
+  .page:last-child { page-break-after: auto; }
+  .runhead {
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; color: var(--muted);
+    letter-spacing: .06em; text-transform: uppercase;
+    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt;
+  }
+  .runfoot {
+    position: absolute; bottom: 9mm; left: 18mm; right: 18mm;
+    text-align: center; font-size: 7.5pt; color: var(--muted);
+  }
+  .kicker {
+    color: var(--gold); font-size: 9pt; font-weight: bold;
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt;
+  }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
+  .box-dark {
+    background: var(--navy-dark); color: #f5f3ee;
+    padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt;
+  }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light {
+    background: var(--beige); border-left: 3pt solid var(--gold);
+    padding: 10pt 14pt; margin: 11pt 0;
+  }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .fase-header {
+    background: var(--navy-dark); color: #fff;
+    padding: 10pt 16pt; margin-bottom: 10pt;
+    border-left: 4pt solid var(--gold);
+  }
+  .fase-header .fk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .fase-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .fase-header .fd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 12pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 38pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+  .footer-note { margin-top: 24pt; padding-top: 8pt; border-top: 1pt solid var(--gold); font-size: 8.5pt; color: var(--muted); width: 60%; }
+</style>
+</head>
+<body>
+
+<!-- PÁGINA 1 · CAPA -->
+<div class="page cover">
+  <div class="kicker">Plano de Ação Personalizado</div>
+  <h1>Roadmap<br>Estratégico<br>Digital</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    De R$ 8 milhões vendidos no palco a um sistema que vende high ticket todo mês.<br>
+    Os primeiros 90 dias. Passo a passo, fase a fase.<br>
+    Sem atalho, sem improviso, sem ideia solta.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">Ayla Pedra Rica</div>
+    <div class="lbl">Mentor Estratégico</div>
+    <div class="val">Daniel Souza</div>
+  </div>
+</div>
+
+<!-- PÁGINA 2 · CONTEXTO E DECISÕES FUNDAMENTAIS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Ayla Pedra Rica</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Começar</div>
+  <h1 style="font-size:19pt;">Contexto e Decisões Fundamentais</h1>
+  <p class="lead">Leia esta página inteira antes de executar qualquer passo. Todas as decisões a seguir partem do que está aqui.</p>
+
+  <div class="box-dark">
+    <div class="bt">A decisão mais importante deste plano</div>
+    <p>Você já tem a máquina comercial. O que falta é um sistema de aquisição que encha a sua agenda de sessão todo dia, sem depender de um lançamento gratuito pontual. Nos próximos 90 dias rodamos <strong>dois produtos em paralelo dentro de um único sistema</strong>: o high ticket da especialista (Carol) gera caixa e prova agora, e a sua mentoria para experts é vendida junto, aproveitando essa prova.</p>
+    <p><strong>Seguidor não é cliente. O que vende high ticket é diagnóstico e conversa, não mais um lançamento gratuito.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A esteira dos 90 dias</div>
+    <p><strong>1. High ticket da Carol (especialista, Feng Shui):</strong> de R$ 3 a 4 mil. Carro-chefe de caixa rápido, apoiado na base de cerca de 100 alunas.</p>
+    <p><strong>2. Curso da Carol (entrada e downsell):</strong> R$ 1.497. Aproveita o não-ICP do funil e paga a mídia.</p>
+    <p><strong>3. Mentoria da Ayla para experts (high ticket):</strong> ticket a definir na oferta (premissa a validar). Vendida em paralelo, usando o resultado da Carol como case. Não crie um quarto produto nos 90 dias.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A matemática dos R$ 50 mil/mês</div>
+    <p>Premissa a validar na call: ticket médio de R$ 3.500 e conversão de call de 30%. R$ 50.000 ÷ R$ 3.500 = <strong>cerca de 14 vendas de high ticket por mês</strong>. A 30% de conversão, são cerca de 47 sessões/mês, ou de 2 a 3 por dia útil. Isso se sustenta com <strong>de 40 a 60 abordagens por dia</strong> mais os leads do funil de quiz. Como a mentoria da Ayla tem ticket maior, cada venda dela derruba esse número: 14 é o teto conservador.</p>
+    <p>Esse número é <strong>operacional, não aspiracional.</strong> É só fazer.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 3 · RITMO + RESPONSABILIDADES -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Ayla Pedra Rica</span><span>Página 3</span></div>
+  <div class="box-light">
+    <div class="bt">Foco deste roadmap</div>
+    <p>Este plano cobre só os primeiros 90 dias, até o ritmo de R$ 50 mil/mês virar rotina. Ao bater essa régua, vem o Roadmap 2: a escala dos R$ 50 mil aos R$ 300 mil/mês, com a mentoria da Ayla e a implementação comercial B2B no centro. Não tente queimar etapas.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Ritmo de acompanhamento</div>
+    <p>Calls quinzenais com o mentor estratégico, mais frequentes no primeiro mês para destravar a largada. Dúvidas no grupo do WhatsApp: Carlos para entrega e estratégia, o gestor de tráfego do projeto para campanha e métricas.</p>
+    <p>A execução acontece <strong>entre as calls.</strong> As calls servem para afinar, não para decidir o que fazer. O que fazer já está aqui dentro.</p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Divisão de responsabilidades</div>
+    <p><strong>A Simple constrói e opera:</strong> o funil de quiz da Carol (quiz, páginas, copies, criativos e roteiros, automações e tráfego), a estrutura da oferta da sua mentoria a partir do canvas, os playbooks comerciais e a área de membros.</p>
+    <p><strong>Ayla executa:</strong> o posicionamento (seu e da Carol), as abordagens diárias priorizando a venda da especialista, as calls de venda, o recrutamento de novos experts, a gravação dos vídeos e a coleta de depoimentos.</p>
+    <p>O funil coloca lead na porta. <strong>Quem coloca dinheiro no caixa é a rotina comercial.</strong></p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 4 · FASE 1 CAIXA RÁPIDO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Ayla Pedra Rica</span><span>Página 4</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 1 · Dias 1 a 10</div>
+    <h2>Caixa Rápido</h2>
+    <div class="fd">O dinheiro que financia a mídia já está na sua base. Vá buscar antes de esperar o tráfego.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que começar pela base</div>
+    <p>A Carol tem cerca de 100 alunas e uma lista do lançamento de maio (que faturou R$ 25 mil) que <strong>nunca ouviram uma oferta de high ticket</strong>. Esse é o caixa que paga a mídia sem esperar a campanha ficar no ar. É a largada mais rápida que existe.</p>
+  </div>
+
+  <div class="passo-label">Passo 1</div>
+  <h3>Mapear as oportunidades da base</h3>
+  <ul class="check">
+    <li>Listar em planilha, até o dia 3: alunas ativas, ex-alunas, lista do lançamento de maio, leads antigos e indicações não trabalhadas.
+      <ul class="sub"><li>Classificar cada uma por potencial: candidata ao high ticket, fonte de indicação ou sessão diagnóstica.</li></ul>
+    </li>
+    <li>Sair da fase com a lista completa e priorizada, não com uma ideia na cabeça.</li>
+  </ul>
+
+  <div class="passo-label">Passo 2</div>
+  <h3>Executar as abordagens de caixa rápido</h3>
+  <ul class="check">
+    <li>Alunas e ex-alunas: ofertar o high ticket da Carol <strong>e</strong> pedir de 3 a 5 indicações qualificadas, com perfil claro de quem indicar.</li>
+    <li>Lista de evento e leads antigos: reativação personalizada convidando para uma sessão diagnóstica.</li>
+    <li>Usar os scripts da Simple e registrar tudo na planilha. Sem registro, não existe.</li>
+  </ul>
+
+  <div class="passo-label">Passo 3</div>
+  <h3>Converter vendas em caixa imediato</h3>
+  <ul class="check">
+    <li>Venda parcelada no cartão: avaliar a <strong>antecipação de recebíveis</strong> para ter o caixa na mão.</li>
+    <li>Destino do caixa: mídia e ferramentas, não retirada. Levar o resultado para a call quinzenal.</li>
+  </ul>
+
+  <div class="box-dark">
+    <div class="bt">Meta da Fase 1</div>
+    <p>Base 100% abordada, de 4 a 6 sessões agendadas e pelo menos 1 venda de high ticket ou 1 antecipação. Caixa de mídia garantido antes do dia 10.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 5 · FASE 2 POSICIONAMENTO E OFERTA -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Ayla Pedra Rica</span><span>Página 5</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 2 · Dias 1 a 7</div>
+    <h2>Posicionamento e Oferta</h2>
+    <div class="fd">Em 7 dias, quem clicar no perfil precisa encontrar uma especialista posicionada, não um perfil genérico.</div>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Prioridade máxima</div>
+    <p>O funil e as abordagens vão jogar gente para os perfis (o seu, @aylapedrarica.mkt, e o da Carol). Se o lead cair num perfil sem posicionamento, o dinheiro da mídia vira seguidor, não cliente. Posicionamento arranca no dia 1 e fica pronto no dia 7.</p>
+  </div>
+
+  <div class="passo-label">Passo 4</div>
+  <h3>Fechar a oferta de high ticket da Carol</h3>
+  <ul class="check">
+    <li>Nome, entregáveis detalhados, preço (de R$ 3 a 4 mil) e formas de pagamento: cartão em até 12x, nunca Pix parcelado.</li>
+    <li>Montar o PDF de apresentação (de 10 a 15 slides) que a Ayla usa na call de venda.</li>
+  </ul>
+
+  <div class="passo-label">Passo 5</div>
+  <h3>Estruturar a sua mentoria para experts</h3>
+  <ul class="check">
+    <li>Partir do canvas pré-preenchido já entregue: definir estrutura de entrega, preço oficial e o nome do método.
+      <ul class="sub"><li>Validar a oferta na primeira call quinzenal antes de levar para o mercado.</li></ul>
+    </li>
+    <li>Posicionar você como quem já vendeu R$ 8 milhões e agora estrutura o comercial de experts, não como mais uma agência.</li>
+  </ul>
+
+  <div class="passo-label">Passo 6</div>
+  <h3>Reescrever os dois Instagram (Ayla e Carol)</h3>
+  <ul class="check">
+    <li>Bio na fórmula: quem você ajuda, o resultado que gera, a credencial e a chamada para o quiz ou sessão.</li>
+    <li>4 destaques (Comece aqui, Quem sou, O Método, Resultados), de 2 a 3 posts fixados e foto profissional.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 6 · FASE 3 AQUISIÇÃO MANUAL (PARTE 1) -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Ayla Pedra Rica</span><span>Página 6</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 3 · Dias 1 a 90 · parte 1</div>
+    <h2>Aquisição Manual</h2>
+    <div class="fd">O motor principal dos 90 dias. Anda junto com o funil, não atrás dele.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que o manual anda junto com o funil</div>
+    <p>As objeções reais que aparecem nas calls alimentam o quiz e os criativos. A linguagem do comprador só aparece conversando. Hoje a venda da Carol depende de um lançamento gratuito pontual e a base de 100 alunas nunca ouviu uma oferta de high ticket. O manual resolve isso já na primeira semana.</p>
+  </div>
+
+  <div class="passo-label">Passo 7</div>
+  <h3>Assistir às aulas de aquisição</h3>
+  <ul class="check">
+    <li>Social Selling parte 1 e 2, Outbound, Call de Vendas 1x1 e Pré-Vendas.
+      <ul class="sub"><li>Não é para ensinar o básico a quem já vendeu R$ 8 milhões, é para alinhar a operação ao método da Simple e ao funil.</li></ul>
+    </li>
+  </ul>
+
+  <div class="passo-label">Passo 8</div>
+  <h3>Estruturar o pré-vendas</h3>
+  <ul class="check">
+    <li>No começo, a própria Ayla faz as calls (premissa a validar). Planilha de controle, playbooks e scripts da Simple desde o dia 1.</li>
+    <li>Quando o volume de sessão passar do teto de agenda, entra um SDR dedicado (fixo mantido, variável por reunião realizada) para a Ayla ficar só no fechamento.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 7 · FASE 3 AQUISIÇÃO MANUAL (PARTE 2) -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Ayla Pedra Rica</span><span>Página 7</span></div>
+
+  <div class="passo-label">Passo 9</div>
+  <h3>Executar as abordagens diárias</h3>
+  <ul class="check">
+    <li>De 40 a 60 abordagens por dia, com a <strong>venda da especialista (Carol) como prioridade</strong>.
+      <ul class="sub">
+        <li>50% base quente (alunas e lista da Carol), 30% social selling, 20% outbound frio. Inverter a proporção quando a base esquentar menos.</li>
+      </ul>
+    </li>
+    <li>Sempre personalizada, com follow-up obrigatório em 2 dias. A média é conseguir o agendamento a partir do quinto contato, então volume e follow-up mandam.</li>
+    <li>Meta de perfis mapeados e abordados até o dia 10, alimentando a planilha da Fase 1.</li>
+  </ul>
+
+  <div class="passo-label">Passo 10</div>
+  <h3>Conduzir a call de vendas</h3>
+  <ul class="check">
+    <li>Aula completa antes da primeira call. Gravar tudo (com consentimento) e revisar as 3 primeiras com o mentor.</li>
+    <li>Respeitar o teto de agenda. Nunca recuar no preço do high ticket: a objeção de valor vira forma de pagamento ou downsell para o curso de R$ 1.497.</li>
+    <li>Toda call sem fechamento sai com um próximo passo datado.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Metas numéricas desta fase</div>
+    <p><strong>Dia 30:</strong> de 4 a 6 vendas de high ticket (caixa rápido mais primeiras sessões) e base 100% abordada.</p>
+    <p><strong>Dia 60:</strong> de 8 a 10 vendas no mês, com o funil de quiz já alimentando as sessões.</p>
+    <p><strong>Dia 90:</strong> ritmo de 12 a 15 vendas no mês (R$ 50 mil) e agenda de sessão cheia.</p>
+    <p><strong>Alerta vermelho:</strong> menos de 3 vendas até o dia 30 é problema de fechamento ou qualificação, não de produto. Pausar, revisar as gravações com o mentor e ajustar antes de continuar.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 8 · FASE 4 FUNIL DE QUIZ E TRÁFEGO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Ayla Pedra Rica</span><span>Página 8</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 4 · Dias 1 a 30</div>
+    <h2>Funil de Quiz e Tráfego</h2>
+    <div class="fd">A Simple implementa o funil da Carol em até 7 dias. Depois é otimização.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Como o funil funciona</div>
+    <p>Anúncio, quiz diagnóstico com relatório gratuito, coleta dos dados, CRM, abordagem no WhatsApp e sessão. O ICP agenda a sessão do high ticket; o não-ICP compra o curso de R$ 1.497 e paga a mídia. O quiz é o médico fazendo a prescrição: capta o lead e o resto vira conversa comercial.</p>
+  </div>
+
+  <div class="passo-label">Passo 11</div>
+  <h3>Aprovar copies, quiz e páginas</h3>
+  <ul class="check">
+    <li>A Simple entrega, a Ayla valida o tom nas primeiras versões (é ela quem conhece o vocabulário do público). Prioridade para o funil da Carol.</li>
+    <li>Cuidado com promessa financeira direta (Feng Shui e prosperidade): a política da Meta veta garantia de ganho. Para experts da saúde, respeitar os conselhos de classe.</li>
+  </ul>
+
+  <div class="passo-label">Passo 12</div>
+  <h3>Montar a infraestrutura</h3>
+  <ul class="check">
+    <li>GHL (cerca de R$ 97/mês, quando o Carlos sinalizar) e API do WhatsApp (cerca de R$ 100/mês mais centavos por template).</li>
+    <li>Número dedicado para o projeto, nunca WhatsApp Web. Liberar todos os acessos para a Simple no dia 1.</li>
+  </ul>
+
+  <div class="passo-label">Passo 13</div>
+  <h3>Subir e otimizar as campanhas</h3>
+  <ul class="check">
+    <li>Gestor de tráfego do projeto no comando. Orçamento inicial de validação financiado pelo caixa rápido da Fase 1.</li>
+    <li>Revisão de métricas a cada 7 dias: CPL fora da meta ataca o criativo, conclusão do quiz abaixo de 40% ataca as perguntas, comparecimento abaixo de 60% ataca o follow-up.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Regra de ouro do tráfego high ticket</div>
+    <p>Uma venda de R$ 3 a 4 mil paga semanas de mídia. O jogo é <strong>lead certo, não lead barato.</strong></p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 9 · FASE 5 CONTEÚDO ORGÂNICO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Ayla Pedra Rica</span><span>Página 9</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 5 · Dias 1 a 90 · paralelo</div>
+    <h2>Conteúdo Orgânico</h2>
+    <div class="fd">Roda em paralelo. Não é pré-requisito para vender.</div>
+  </div>
+
+  <div class="passo-label">Passo 14</div>
+  <h3>Trabalhar os níveis de consciência</h3>
+  <ul class="check">
+    <li>Nível 1 (inconsciente do problema), nível 2 (consciente do problema) e nível 4 (consciente do produto), com pautas no nicho.
+      <ul class="sub">
+        <li>Para a Carol: prosperidade, casa e rotina financeira. Para a sua mentoria: o expert que acha que seguidor é cliente e não consegue vender o próprio produto.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="passo-label">Passo 15</div>
+  <h3>Manter a rotina semanal</h3>
+  <ul class="check">
+    <li>12 publicações por semana, produção em lote, reaproveitando formatos.</li>
+    <li>CTA fixo levando para o quiz ou para a sessão diagnóstica.</li>
+  </ul>
+
+  <div class="passo-label">Passo 16</div>
+  <h3>Produzir os materiais do funil</h3>
+  <ul class="check">
+    <li>Gravar os vídeos dos criativos com os roteiros da Simple e subir tudo no Drive.</li>
+    <li>Coletar depoimentos em vídeo (o Guia de Captação de Depoimentos já foi entregue): prioridade para cases do nicho, porque expert assiste expert e aluna assiste aluna.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 10 · BÔNUS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Ayla Pedra Rica</span><span>Página 10</span></div>
+  <div class="fase-header">
+    <div class="fk">Bônus · a partir do dia 60</div>
+    <h2>Os Seus Ativos Únicos</h2>
+    <div class="fd">O que só você tem, plantado no fim da janela sem roubar o foco dos 90 dias.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que entra agora</div>
+    <p>Com a Carol vendendo e o funil no ar, sobra estrutura para plantar o que escala o seu negócio no Roadmap 2. Aqui a meta é conversa em andamento, não fechamento.</p>
+  </div>
+
+  <div class="passo-label">Passo 17</div>
+  <h3>Escalar a sua mentoria para experts</h3>
+  <ul class="check">
+    <li>Usar o resultado da Carol e a sua credencial de R$ 8 milhões para recrutar de 2 a 3 novos experts (o ciclo é mais longo, por isso planta no dia 60).</li>
+  </ul>
+
+  <div class="passo-label">Passo 18</div>
+  <h3>Abrir a frente de implementação comercial B2B</h3>
+  <ul class="check">
+    <li>Mapear de 3 a 5 empresas para a implementação comercial (R$ 20 mil/mês), com a mentoria de closer e SDR como upsell B2B.</li>
+  </ul>
+
+  <div class="passo-label">Passo 19</div>
+  <h3>Ativar a comunidade da Carol</h3>
+  <ul class="check">
+    <li>Transformar as 100 alunas em fonte de indicação, conteúdo colaborativo e prova social contínua para os dois produtos.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 11 · CHECKPOINTS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Ayla Pedra Rica</span><span>Página 11</span></div>
+  <div class="kicker">Checkpoints de Progresso</div>
+  <h1 style="font-size:19pt;">Como Saber Que Você Está no Caminho Certo</h1>
+  <p class="lead">Cada checkpoint marca o final de uma janela. Se algum item não estiver fechado, leve para a próxima call quinzenal. Ajuste de rota imediato, sem esconder.</p>
+
+  <h3 class="navy" style="margin-top:8pt;">CHECKPOINT 1 · DIA 10 (CAIXA RÁPIDO)</h3>
+  <ul class="check">
+    <li>Base mapeada em planilha e 100% abordada.</li>
+    <li>De 4 a 6 sessões agendadas e ao menos 1 venda ou antecipação: caixa de mídia garantido.</li>
+  </ul>
+
+  <h3 class="navy">CHECKPOINT 2 · DIA 14 (POSICIONAMENTO E FUNIL NO AR)</h3>
+  <ul class="check">
+    <li>Ofertas fechadas (high ticket da Carol e mentoria da Ayla) e os dois Instagram reescritos.</li>
+    <li>Funil de quiz da Carol no ar e campanhas de validação rodando.</li>
+  </ul>
+
+  <h3 class="navy">CHECKPOINT 3 · DIA 30</h3>
+  <ul class="check">
+    <li>De 4 a 6 vendas de high ticket e a rotina de 40 a 60 abordagens/dia rodando.</li>
+    <li>Aulas de aquisição assistidas e 3 primeiras calls revisadas com o mentor.</li>
+  </ul>
+
+  <h3 class="navy">CHECKPOINT 4 · DIA 60</h3>
+  <ul class="check">
+    <li>De 8 a 10 vendas no mês e o funil de quiz alimentando as sessões.</li>
+    <li>Recrutamento de experts e frente B2B iniciados (conversas em andamento).</li>
+  </ul>
+
+  <h3 class="navy">CHECKPOINT 5 · DIA 90</h3>
+  <ul class="check">
+    <li>Ritmo de 12 a 15 vendas no mês (R$ 50 mil) e agenda de sessão cheia.</li>
+    <li>Pronta para receber o Roadmap 2: a escala aos R$ 300 mil/mês.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 12 · MATERIAIS DE APOIO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Ayla Pedra Rica</span><span>Página 12</span></div>
+  <div class="kicker">Materiais de Apoio</div>
+  <h1 style="font-size:19pt;">Recursos para Executar o Plano</h1>
+  <p class="lead">Tudo abaixo está na área de membros e no grupo. Se algum link não foi compartilhado, peça no grupo.</p>
+
+  <ul class="check">
+    <li><strong>Social Selling parte 1 e 2, Outbound, Call de Vendas 1x1, Pré-Vendas</strong>
+      <ul class="sub"><li>Base das aulas do Passo 7, para alinhar a rotina comercial ao método.</li></ul>
+    </li>
+    <li><strong>Planilha de CRM e playbooks de pré-venda e closer</strong>
+      <ul class="sub"><li>Controle das abordagens e das calls (Passos 8, 9 e 10).</li></ul>
+    </li>
+    <li><strong>Como Montar o High Ticket e modelo de PDF de apresentação</strong>
+      <ul class="sub"><li>Estruturar a oferta da Carol e a mentoria da Ayla (Passos 4 e 5).</li></ul>
+    </li>
+    <li><strong>Guia de Captação de Depoimentos</strong>
+      <ul class="sub"><li>Coletar prova social em vídeo com direcionamento (Passo 16). Já entregue.</li></ul>
+    </li>
+    <li><strong>Método Simple Growth e Growth Model</strong>
+      <ul class="sub"><li>Lógica do funil de quiz e leitura de métricas e alavancas (Fase 4).</li></ul>
+    </li>
+    <li><strong>Auditorias de social selling</strong>
+      <ul class="sub"><li>Revisar as abordagens e corrigir o que não converte (Passo 9).</li></ul>
+    </li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 13 · FECHAMENTO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Ayla Pedra Rica</span><span>Página 13</span></div>
+  <div style="padding-top:36mm;">
+    <div class="kicker">Lembre-se Sempre Disto</div>
+    <h1 style="font-size:19pt;">Antes de Fechar Este Documento</h1>
+    <p style="margin-top:10pt;">Você é 100% comercial. Vendeu R$ 8 milhões no palco, supervisionou uma das maiores operações de vendas do país e já validou o produto de uma especialista em dois meses. O talento comercial nunca foi o problema.</p>
+    <p>Não foi falta de talento, não foi falta de audiência, não foi falta de produto validado.</p>
+    <p><strong class="navy">Foi falta de um sistema de aquisição que enche a agenda de sessão todo dia.</strong></p>
+    <p>Este roadmap é o método. A execução é sua. A cada 15 dias o mentor estratégico vai te encontrar na conversa quinzenal, mas o que coloca dinheiro no caixa é o que você faz <strong>entre as calls</strong>.</p>
+    <p>Dúvidas no meio do caminho: mande no grupo. Não espere a próxima call para perguntar.</p>
+    <p style="margin-top:12pt;">Você tem o comercial. Você tem a especialista validada. Você tem a base. Agora você tem o método.</p>
+    <p><strong class="navy">O próximo passo é começar.</strong></p>
+    <div class="footer-note">Roadmap Estratégico Digital · Ayla Pedra Rica · 90 dias · Versão 1.0</div>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+</body>
+</html>

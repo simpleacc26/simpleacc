@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Guia de Captação de Depoimentos · Thaina Elvira &amp; Thiago</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    padding: 16mm 18mm 24mm 18mm;
+    position: relative;
+    page-break-after: always;
+    background: #fff;
+  }
+  .page:last-child { page-break-after: auto; }
+  .runhead {
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; color: var(--muted);
+    letter-spacing: .06em; text-transform: uppercase;
+    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt;
+  }
+  .runfoot {
+    position: absolute; bottom: 9mm; left: 18mm; right: 18mm;
+    text-align: center; font-size: 7.5pt; color: var(--muted);
+  }
+  .kicker {
+    color: var(--gold); font-size: 9pt; font-weight: bold;
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt;
+  }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
+  .box-dark {
+    background: var(--navy-dark); color: #f5f3ee;
+    padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt;
+  }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light {
+    background: var(--beige); border-left: 3pt solid var(--gold);
+    padding: 10pt 14pt; margin: 11pt 0;
+  }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 12pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 36pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- PÁGINA 1: CAPA -->
+<div class="page cover">
+  <div class="kicker">Material de Apoio</div>
+  <h1>Guia de<br>Captação de<br>Depoimentos</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    Como pedir, como direcionar e como garantir<br>
+    que todo depoimento chegue usável.<br>
+    Simples, objetivo, sem engessar quem grava.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">Thaina Elvira &amp; Thiago</div>
+    <div class="lbl">Equipe Simple</div>
+    <div class="val">Daniel Souza · Carlos Durães</div>
+  </div>
+</div>
+
+<!-- PÁGINA 2: REGRA DE OURO + COMO PEDIR -->
+<div class="page">
+  <div class="runhead"><span>Guia de Depoimentos · Thaina &amp; Thiago</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Pedir</div>
+  <h1 style="font-size:19pt;">A Regra de Ouro do Depoimento</h1>
+  <p class="lead">O objetivo não é um vídeo perfeito. É um vídeo verdadeiro que a gente consiga usar em anúncio, funil e página.</p>
+
+  <div class="box-dark">
+    <div class="bt">Espontâneo com direção, nunca decorado</div>
+    <p>Não mande roteiro pronto nem peça para a pessoa decorar frase. Depoimento lido ou decorado soa falso e não converte.</p>
+    <p>O que você manda são <strong>4 tópicos simples</strong> (página 3). Ela fala com as palavras dela, na ordem dela. Se cobrir os 4 pontos, o depoimento é usável. É isso que importa.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Quem pedir primeiro</div>
+    <p><strong>Prioridade 1: as mulheres que já passaram pelo conteúdo de relacionamento de vocês</strong> (as que compraram o low ticket e as que o Thiago já ajudou), principalmente as que estavam frustradas e evoluíram. Identificação é o que prende esse público: mulher se identifica com mulher que viveu a mesma dor e virou o jogo.</p>
+    <p><strong>Prioridade 2:</strong> qualquer mulher com uma virada clara para contar (mais autoestima, menos ansiedade, clareza do que quer, escolhas melhores).</p>
+  </div>
+
+  <div class="passo-label">Como Pedir</div>
+  <h3>O Pedido Que Funciona</h3>
+  <ul class="check">
+    <li>Peça por <strong>ligação ou áudio no WhatsApp</strong>, não por texto seco. É pessoal, e a taxa de sim é muito maior</li>
+    <li>Modelo de pedido (adapte com suas palavras):
+      <ul class="sub">
+        <li>"Oi [nome], tô montando um material novo e a sua evolução é uma das que mais me marcaram. Consegue gravar um vídeo rapidinho, de 1 a 2 minutos, contando como você estava antes e como está hoje? Te mando 4 pontos pra te guiar, é rapidinho e pode ser no celular mesmo."</li>
+      </ul>
+    </li>
+    <li>Envie os <strong>4 tópicos + as dicas de gravação</strong> logo depois do sim (copie da página 3)</li>
+    <li>Combine um <strong>prazo curto</strong> (2 a 3 dias). Sem prazo, o vídeo não vem</li>
+    <li>Se a pessoa travar em vídeo: proponha gravar <strong>numa chamada com você</strong> (Meet ou FaceTime, você grava a tela) puxando os tópicos como conversa</li>
+    <li>Não conseguiu vídeo de jeito nenhum? <strong>Áudio no WhatsApp + print da conversa</strong> também servem. Manda tudo pro Drive do mesmo jeito</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Retribuição elegante</div>
+    <p>Depoimento é favor. Agradeça de forma concreta: um acesso antecipado ao novo acompanhamento, uma sessão bônus com você, ou um destaque no Instagram marcando ela. Isso também aquece a relação para indicações.</p>
+  </div>
+  <div class="runfoot">Material de apoio · captação de depoimentos</div>
+</div>
+
+<!-- PÁGINA 3: OS 4 TÓPICOS + QUALIDADE -->
+<div class="page">
+  <div class="runhead"><span>Guia de Depoimentos · Thaina &amp; Thiago</span><span>Página 3</span></div>
+  <div class="kicker">O Direcionamento</div>
+  <h1 style="font-size:19pt;">Os 4 Tópicos e as Dicas de Gravação</h1>
+  <p class="lead">É exatamente isto que você encaminha para a pessoa. Pode copiar e colar o bloco abaixo no WhatsApp.</p>
+
+  <div class="box-dark">
+    <div class="bt">Mensagem pronta para encaminhar</div>
+    <p>"Pra te ajudar, cobre esses 4 pontos, do teu jeito, sem decorar nada:</p>
+    <p><strong>1. Quem é você:</strong> seu primeiro nome e um pouquinho da sua vida hoje (sem precisar expor o que não quiser).</p>
+    <p><strong>2. Como estava antes:</strong> qual era a tua situação ou dificuldade antes do trabalho de vocês (a ansiedade, a carência, os relacionamentos que não evoluíam, aceitar migalhas).</p>
+    <p><strong>3. O que mudou:</strong> o que destravou no processo e, se puder, uma virada concreta (como você lida com a ansiedade hoje, as escolhas que passou a fazer, a autoestima que mudou).</p>
+    <p><strong>4. Pra quem você indica:</strong> que tipo de mulher que está cansada de relacionamento que não evolui e quer se sentir suficiente deveria fazer e por quê.</p>
+    <p>Dicas rápidas de gravação: celular <strong>na vertical</strong>, apoiado (não segura na mão), <strong>luz de frente</strong> (de frente pra uma janela resolve), lugar <strong>silencioso</strong>, fala olhando <strong>pra câmera</strong>, entre <strong>1 e 2 minutos</strong>. Se errar, não recomeça do zero: respira e continua."</p>
+  </div>
+
+  <div class="passo-label">Qualidade Mínima</div>
+  <h3>O Que Torna o Vídeo Usável</h3>
+  <ul class="check">
+    <li><strong>Vertical (9:16):</strong> é o formato de anúncio e Reels. Horizontal a gente aproveita, mas vertical é o ideal</li>
+    <li><strong>Áudio limpo é mais importante que imagem bonita:</strong> nada de rua, ventilador, música ou eco forte. Carro parado e quarto funcionam bem</li>
+    <li><strong>Luz de frente, nunca de costas:</strong> janela atrás da pessoa vira silhueta escura, e aí não dá pra usar</li>
+    <li><strong>Celular parado:</strong> apoiado em algo ou com alguém segurando firme. Selfie com braço esticado balança</li>
+    <li><strong>1 a 2 minutos:</strong> menos de 30 segundos fica raso, mais de 3 minutos ninguém assiste. A gente corta e edita, então sobrar um pouco é melhor que faltar</li>
+    <li><strong>Enviar sem compressão:</strong> pelo WhatsApp, mandar como <strong>documento</strong> (não como vídeo normal), ou subir direto pro Drive</li>
+  </ul>
+  <div class="runfoot">Material de apoio · captação de depoimentos</div>
+</div>
+
+<!-- PÁGINA 4: EVITAR + CHECKLIST + DESTINO -->
+<div class="page">
+  <div class="runhead"><span>Guia de Depoimentos · Thaina &amp; Thiago</span><span>Página 4</span></div>
+  <div class="kicker">Controle de Qualidade</div>
+  <h1 style="font-size:19pt;">O Que Evitar e Para Onde Vai</h1>
+
+  <div class="passo-label">Evitar</div>
+  <h3>Os 5 Erros Que Inutilizam um Depoimento</h3>
+  <ul class="check">
+    <li><strong>Texto decorado ou lido:</strong> olhos correndo na tela entregam. Prefira o improviso guiado pelos 4 tópicos</li>
+    <li><strong>Elogio vazio, sem história:</strong> "amei, recomendo demais" não vende nada. Sem o antes e o depois, não há prova</li>
+    <li><strong>Promessa exagerada ou garantia de resultado:</strong> nada de "em uma semana você casa". Além de soar falso, cria problema com a política de anúncios da Meta e com a privacidade de terceiros: peça pra não citar nome nem mostrar rosto de ex, filhos ou família</li>
+    <li><strong>Vídeo no ambiente errado:</strong> barulho, carro andando, contraluz. Se chegou assim, agradeça e peça uma regravação com jeitinho</li>
+    <li><strong>Citar terceiros sem autorização</strong> (nome do ex, de familiares ou de outras pessoas envolvidas na história). Se acontecer, a gente corta na edição</li>
+  </ul>
+
+  <div class="passo-label">Prints de WhatsApp</div>
+  <h3>Depoimentos Escritos Também Valem</h3>
+  <ul class="check">
+    <li>Print de conversa espontânea é prova social forte. Suba tudo pro Drive</li>
+    <li>Pode tampar nome e foto do contato, ou a gente tampa na edição</li>
+    <li>O ideal é o combo: print no criativo + vídeo no funil e na página</li>
+  </ul>
+
+  <div class="passo-label">Checklist Antes de Enviar</div>
+  <h3>Conferência de 30 Segundos</h3>
+  <ul class="check">
+    <li>Dá pra ouvir tudo sem esforço?</li>
+    <li>O rosto está iluminado e visível?</li>
+    <li>A pessoa contou o antes, o depois e uma virada concreta?</li>
+    <li>Tem entre 1 e 3 minutos?</li>
+    <li>Arquivo enviado como documento ou direto no Drive (sem compressão)?</li>
+  </ul>
+  <p>Passou nos 5? <strong>Sobe no link do Drive que a gente combinou (ou manda aqui no grupo mesmo)</strong>, com o nome da pessoa no arquivo (ex.: <em>depoimento-mariana.mp4</em>).</p>
+
+  <div class="box-dark">
+    <div class="bt">Meta de captação</div>
+    <p><strong>De 3 a 5 depoimentos em vídeo nos próximos 15 dias, priorizando as mulheres que já passaram pelo conteúdo de vocês (e as primeiras que toparem o acompanhamento gratuito de validação)</strong>. Com isso a gente monta criativos de resultado, prova social do funil e a seção de cases do Instagram de uma vez só.</p>
+    <p>Dúvida no meio do caminho: manda no nosso grupo. Não espera a próxima call.</p>
+  </div>
+  <div class="runfoot">Material de apoio · captação de depoimentos</div>
+</div>
+
+</body>
+</html>
