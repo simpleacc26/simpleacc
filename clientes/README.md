@@ -22,6 +22,7 @@ clientes/
 | Eliana Franz               | `eliana-franz/`                | ativo  |
 | Gustavo Ono                | `gustavo-ono/`                 | ativo  |
 | Juliana Godinho            | `juliana-godinho/`             | ativo  |
+| Kainã Barreto              | `kaina-barreto/`               | ativo  |
 | Omar e Greicy              | `omar-e-greicy/`               | ativo  |
 | Rafael Granella            | `rafael-granella/`             | ativo  |
 | Rômulo Heleno              | `romulo-heleno/`               | ativo  |
