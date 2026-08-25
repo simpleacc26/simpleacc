@@ -321,13 +321,11 @@ Antes e depois, com os números que o cliente reportou:
    `estrategia/2026-07-21-guia-captacao-depoimentos.pdf`), converter para WebP
    ~520px e somar uma `.depo-gallery` antes do bloco de autoridade (CSS pronto).
 7. **Pixel da Meta e GA4**: preencher `app.js → TRACKING_CONFIG`.
-8. **Mesma correção de telefone nos outros funis da casa.** O bug era do
-   motor, não deste funil: a máscara antiga está igual em
-   `clientes/pamella-mello/funil-hipnose/app.js` e em
-   `clientes/lucas-sobreiro/funis/funil-quiz-clinica/app.js`. Os dois
-   templates da skill já foram corrigidos. Os funis desses clientes não
-   foram tocados aqui porque a regra da casa é uma pasta por sessão:
-   abrir uma sessão para cada um.
+8. ~~Mesma correção de telefone nos outros funis da casa.~~ **Feito** (19/08).
+   O bug era do motor, não deste funil, e a máscara antiga estava igual nos
+   funis da Pâmella e do Lucas. Os dois já foram corrigidos em sessões próprias
+   (PRs #111 e #102), com a mesma guarda do DDD 55 real. Os dois templates da
+   skill também. Nenhum funil da casa segue com a máscara antiga.
 
 ## Deploy
 
