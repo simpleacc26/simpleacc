@@ -4,6 +4,49 @@ Base de conhecimento do cliente **Kainã Barreto** — personal trainer / consul
 online de treino e nutrição (marca **Shape10X**). Cliente da **mentoria de 3 meses**
 da SimpleAcc (fechada em 30/07/2026).
 
+## Estado em 10/08/2026 · comece por aqui
+
+**O que já está pronto e entregue** (tudo em `estrategia/`, PDF + fonte HTML editável):
+
+| Entregável | Estado |
+| --- | --- |
+| Roadmap de 90 dias (14 pág.) | **v1.2** · entregável contratado |
+| Estratégia Completa do funil (23 pág.) | **v1.0** · quiz, página pós-quiz, 20 criativos, cadência |
+| Guia de captação de depoimentos (4 pág.) | **v1.0** |
+| Revisão do quiz que ele mesmo montou | entregue |
+
+**As decisões que não se reabrem sem motivo novo:**
+
+- Ticket: **R$ 1.800 em 12x de R$ 150**. Meta de R$ 20 mil/mês é **valor contratado**
+  (11 vendas), não caixa recebido.
+- **Antecipação de recebíveis é regra**, não opção: em 12x, uma venda entra R$ 150 no mês.
+- Quiz fecha em **6 perguntas**, sem pergunta aberta (decisão de priorizar volume de lead).
+- Tratamento em **"você"**, nunca "tu", em qualquer documento.
+- **Não posicionar a Simple como auditora** do trabalho dele. Ele executa; se tiver dúvida,
+  procura a gente. Isso não precisa estar escrito no documento.
+- Mecanismo nomeado da marca: **as 4 travas do ciclo** (estímulo, constância, recuperação,
+  nutrição). É o que faz o quiz devolver diagnóstico com nome.
+
+**O que está aberto, em ordem de prioridade:**
+
+1. **Implementar o quiz e a página pós-quiz.** Toda a copy está pronta na Estratégia Completa.
+   É o Passo 12 do roadmap e o gargalo real do negócio.
+2. **Ler o relatório de execução dele** (artifact do Claude compartilhado em 08/08). Diz
+   "14 calls, 6 sales" no subtítulo, o que seria 43% de conversão contra os ~30% registrados.
+   Não consegui ler: artifact público do claude.ai é SPA e o WebFetch só devolve o esqueleto.
+   **Pedir export em PDF ou o conteúdo colado.**
+3. ⚠️ **Confirmar a política da Meta sobre antes e depois em anúncio.** Toda a copy de prova
+   usa `[ANTES E DEPOIS]` e o criativo que já funciona para ele é antes/depois. Checar com o
+   gestor de tráfego antes de escalar verba.
+4. **Coletar de 3 a 5 depoimentos** (o guia já está pronto). Destrava o ângulo 3, um estático,
+   um vídeo e o bloco de prova da página.
+5. **Reposicionamento de ticket** para R$ 4 a 5 mil: só com 30 calls ou mais vindas do funil.
+
+**Duas premissas ainda não confirmadas:** taxa de agendamento (25%) e comparecimento (60%) são
+estimativas de modelo, não medição. E não se sabe quanto do anual sai à vista contra 12x.
+
+---
+
 ## Como se orientar nesta pasta
 
 - `contexto/`   — quem é, oferta, ICP, concorrentes, Instagram, linguagem do público, números.
