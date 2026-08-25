@@ -73,7 +73,7 @@ O resumo do que ele trava (não improvise nenhum destes):
 1. INTAKE   → levantar copy + identidade + assets + contas (perguntar o que faltar)
 2. BUILD    → duplicar a base e customizar (copy no flow.js, identidade no styles.css, logo)
 3. DEPLOY   → publicar na Vercel (URL limpa), só a subpasta do funil
-4. LEADS    → criar planilha no Drive + Apps Script + TESTAR de ponta a ponta
+4. LEADS    → criar planilha no Drive + webhook no Make + TESTAR de ponta a ponta
 5. ENTREGA  → mandar o link do funil + link da planilha + confirmação de teste
 ```
 
@@ -98,6 +98,15 @@ Use `references/deploy-vercel.md`. Publique **apenas a subpasta do funil**
 (nunca a raiz do workspace) na conta/time Vercel do cliente, com **nome de
 projeto limpo** para a URL ficar branded e pública.
 
+Prefira **projeto ligado ao Git** (`create_git_project` com `rootDirectory`):
+todo push publica sozinho e some a classe inteira de problema de snapshot e de
+imagem. Se cair no deploy por MCP, leia as três armadilhas na referência: cada
+deploy **substitui o snapshot inteiro**, binário em base64 corrompe calado, e
+status 200 não prova integridade (confira com `cmp`).
+
+**Se o funil trocar de endereço, o antigo REDIRECIONA**, nunca continua servindo
+uma cópia. Cópia parada envelhece e passa a engolir lead sem erro na tela.
+
 > 🔒 **TRAVA OBRIGATÓRIA, conta da Simple.** Antes de QUALQUER deploy, confirme
 > que está publicando na **conta/time da Simple na Vercel**, nunca numa conta
 > pessoal. Rode `vercel whoami` e `vercel teams ls` e cheque se o time da Simple
@@ -107,10 +116,14 @@ projeto limpo** para a URL ficar branded e pública.
 > escopo. (Passo detalhado em `references/deploy-vercel.md`.)
 
 ### Passo 4: Leads + integração (feita E testada)
-Use `references/leads-planilha.md`. Crie a planilha no Drive do cliente, configure
-o Apps Script, ligue o `LEADS_ENDPOINT` no `app.js`, republique e **teste de
-verdade**: envie um lead de teste e confirme que a linha caiu na planilha (com
-UTMs). Só considere "pronto" depois do teste passar.
+Use `references/leads-planilha.md`. Crie a planilha no Drive do cliente, monte o
+**webhook + cenário no Make** (padrão: não depende de o cliente autorizar nada),
+ligue o `LEADS_ENDPOINT` no `app.js`, republique e **teste de verdade**: envie um
+lead de teste e confirme que a linha caiu na planilha, com as UTMs. Só considere
+"pronto" depois do teste passar, e **apague a linha de teste** na entrega.
+
+Confira o cabeçalho da planilha contra o seu mapeamento **antes** de ativar: o
+`addRow` grava por posição, então cabeçalho defasado desalinha tudo em silêncio.
 
 ### Passo 5: Entrega
 Informe: **link do funil** (raiz, com instrução de usar `?utm_...` no anúncio),
@@ -174,11 +187,15 @@ Base técnica (já no motor): loading ~5s, envio do lead em `application/json` +
 - [ ] Copy 100% do cliente (zero texto do modelo), sem travessões, sem emoji não autorizado
 - [ ] Identidade do cliente aplicada (cores + logo + fontes)
 - [ ] 1ª pergunta na 1ª tela · **sem título repetido nas demais** · auto-avanço · máscara WhatsApp · e-mail obrigatório · UTMs
+- [ ] **Sem contador de perguntas** e sem "responda N perguntas" (nem na meta description)
 - [ ] **Tela de carregamento** no ar entre a captura e o relatório
 - [ ] **Depoimentos E bloco de autoridade**, com claims só do que está escrito no material
 - [ ] **Todos os assets em 200** depois do deploy (curl em cada arquivo)
 - [ ] **Conta confirmada: deploy na conta/time da Simple (NUNCA pessoal)**, `vercel whoami`/`teams ls` checados
 - [ ] Publicado na Vercel do cliente, URL limpa e pública (testada com curl/navegador)
-- [ ] Planilha criada no Drive do cliente, com colunas certas (+ UTM)
-- [ ] Integração funil→planilha **testada** (lead de teste caiu na planilha)
+- [ ] Planilha criada no Drive do cliente, com colunas certas (+ UTM) e **cabeçalho batendo com o mapeamento**
+- [ ] Integração funil→planilha **testada** (lead de teste caiu na planilha) e linha de teste apagada
+- [ ] Testado **emulando celular**: nenhuma tela abre com opção pré-selecionada, nenhum CTA transbordando
+- [ ] Arquivos no ar conferidos contra o repo (`curl` + `cmp`), não só status 200
+- [ ] Endereço antigo (se houve troca de URL) redirecionando, não servindo cópia
 - [ ] Links entregues + pendências sinalizadas
