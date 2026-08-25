@@ -1,0 +1,8 @@
+# OS / Editor
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# Vercel
+.vercel
