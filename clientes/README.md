@@ -18,6 +18,7 @@ clientes/
 | Carol e José               | `carol-e-jose/`                | ativo  |
 | Clínica Vital              | `clinica-vital/`               | ativo  |
 | Daniele Christensen        | `daniele-christensen/`         | ativo  |
+| Delphis                    | `delphis/`                     | onboarding |
 | Dra. Jac MacDowell         | `dra-jac-macdowell/`           | ativo  |
 | Eliana Franz               | `eliana-franz/`                | ativo  |
 | Gustavo Ono                | `gustavo-ono/`                 | ativo  |
