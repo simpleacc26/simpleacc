@@ -49,12 +49,14 @@ minutinhos"*.
 O protótipo confirma a conta. O número aparece na abertura do formulário, no
 áudio e nos PDFs.
 
-Fechado em 3 minutos em ago/26 e **reaberto em 13/08**: na revisão da Etapa 2 a
-Dani pediu "em menos de 5 minutos" na abertura do formulário, que é o que está
-publicado. As outras peças (página pós-quiz, áudio, PDFs) continuam dizendo
-menos de 3 minutos. **Falta unificar de novo**, e a recomendação é ficar em 5:
-é o número que a cliente escolheu duas vezes, e prometer folga e entregar rápido
-é melhor que o contrário.
+Fechado em 3 minutos em ago/26, reaberto em 13/08 e **unificado em 5 minutos em
+25/08**, a pedido da equipe da Dani. Vale para todas as peças: PDFs, página
+pós-quiz, áudio e mensagens do WhatsApp, e a abertura da própria Etapa 2.
+
+Era o número que a cliente escolheu desde o começo, e é o lado certo do erro:
+prometer folga e entregar rápido é melhor que o contrário. Os PDFs também
+pararam de citar quantidade ("responda algumas perguntas mais profundas"), que
+era de onde vinha o "5 perguntas" contra as 15 reais.
 
 ### 3. Quem recebe
 

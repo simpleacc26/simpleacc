@@ -38,9 +38,9 @@ O agendamento não desapareceu, mudou de lugar, e acontece no fim da Etapa 2.
 - **"Liderança", "Gestão" e "Diagnóstico" sempre com inicial maiúscula**, em
   qualquer posição da frase. Pedido da cliente, vale para toda peça desta conta.
 - A página **não cita quantidade de perguntas** da Etapa 2, só o tempo: "menos
-  de 3 minutos", igual aos PDFs e ao áudio. A cliente tinha pedido 5 minutos
-  aqui; fechado em 3 em ago/26, depois que o protótipo da Etapa 2 permitiu
-  cronometrar.
+  de 5 minutos", igual aos PDFs e ao áudio. Foi 3 minutos entre ago/26 e 25/08;
+  a equipe da Dani fechou em 5, que era o número que a cliente tinha pedido
+  desde o começo.
 
 ## Correções pedidas pela cliente (12/08/2026)
 

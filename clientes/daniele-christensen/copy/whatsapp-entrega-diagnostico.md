@@ -56,7 +56,7 @@ O link vai sempre **depois** do áudio. Se vier antes, o lead clica e o áudio n
 >
 > Não é relatório automático, não viu? É o que as suas respostas mostram: onde a sua liderança tá travando, por que o que você já tentou não segurou, e qual é o caminho.
 >
-> Mas eu preciso te falar uma coisa: esse documento é o retrato da superfície. Para eu enxergar a sua gestão de verdade tem um segundo passo, leva menos de três minutos, e é o resultado dele que a gente lê junto na sessão.
+> Mas eu preciso te falar uma coisa: esse documento é o retrato da superfície. Para eu enxergar a sua gestão de verdade tem um segundo passo, leva menos de cinco minutos, e é o resultado dele que a gente lê junto na sessão.
 >
 > O link está indo logo aqui abaixo do relatório. E não é formulário de cadastro, não. São perguntas mais fundas, da mesma análise que eu uso dentro das empresas que eu acompanho. É o que me deixa chegar na nossa conversa já sabendo exatamente onde está o seu gargalo, em vez de gastar a sessão inteira te fazendo pergunta.
 >
@@ -66,13 +66,13 @@ O link vai sempre **depois** do áudio. Se vier antes, o lead clica e o áudio n
 
 **O que o fecho faz:** mata a objeção de "é mais um cadastro"; transfere a credibilidade da metodologia para o questionário; dá o motivo real do clique, que é não desperdiçar a própria hora na sessão; e cria urgência pela realidade do lead ("a semana engole"), não por escassez inventada.
 
-**Direção de gravação:** uma tomada só, sem ler, pelo celular, ambiente silencioso, sem fone. Áudio lido soa a locução e mata a proximidade, que é o motivo de o áudio existir. Pausa curta depois da abertura. Não citar quantidade de perguntas, só "menos de três minutos".
+**Direção de gravação:** uma tomada só, sem ler, pelo celular, ambiente silencioso, sem fone. Áudio lido soa a locução e mata a proximidade, que é o motivo de o áudio existir. Pausa curta depois da abertura. Não citar quantidade de perguntas, só "menos de cinco minutos" — o mesmo número dos PDFs, da página pós-quiz e da Etapa 2. Se o áudio disser três e o PDF que chega na mesma mensagem disser cinco, o lead vê a contradição na hora.
 
 ## Mensagem com o link
 
 > Aqui tá o link do diagnóstico completo: [link]
 >
-> São menos de 3 minutos. Quando você terminar, aparece a agenda pra você escolher o horário.
+> São menos de 5 minutos. Quando você terminar, aparece a agenda pra você escolher o horário.
 
 E logo abaixo, o resumo em texto para quem não ouve áudio:
 
@@ -86,7 +86,7 @@ Objetivo único: recuperar quem recebeu o PDF e não clicou no link da Etapa 2. 
 
 > Conseguiu ler o documento que te mandei?
 >
-> Se bateu com o que você vive aí, o próximo passo está nesse link: [link]. São menos de três minutos, e é o resultado dele que a gente lê junto na sessão.
+> Se bateu com o que você vive aí, o próximo passo está nesse link: [link]. São menos de cinco minutos, e é o resultado dele que a gente lê junto na sessão.
 
 Curto de propósito. O lead ainda lembra do áudio, então não precisa reexplicar nada, só reapresentar o link com um motivo.
 

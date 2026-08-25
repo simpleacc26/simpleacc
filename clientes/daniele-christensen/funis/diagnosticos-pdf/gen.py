@@ -15,9 +15,12 @@ QUEM = ("Dra. Adm. Daniele Christensen é Doutora em Administração e criadora 
         "a permissividade disfarçada de empatia, a insegurança para dar feedback, cobrar e "
         "demitir, e a ausência de método para conduzir pessoas com critério.")
 
+# "algumas perguntas" e não um número: a Etapa 2 tem 15, e o "5" antigo vinha
+# dos 5 blocos. Pedido da equipe da Dani em 25/08, que também levou o tempo de
+# 3 para 5 minutos — o mesmo que a página pós-quiz e a Etapa 2 já prometiam.
 PROXIMO = ("Seu cenário foi identificado, e este documento é o retrato da superfície. Para um "
-           "Diagnóstico Gratuito Completo da sua Gestão, dedique agora menos de 3 minutos e "
-           "responda 5 perguntas mais profundas. É esse resultado que vamos ler juntos, e ao "
+           "Diagnóstico Gratuito Completo da sua Gestão, dedique agora menos de 5 minutos e "
+           "responda algumas perguntas mais profundas. É esse resultado que vamos ler juntos, e ao "
            "terminar você já escolhe o horário da sua Sessão Estratégica Gratuita. Complete pelo link "
            "que enviei junto com este documento.")
 

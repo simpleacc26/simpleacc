@@ -36,9 +36,14 @@ bloco crescer demais, o conteúdo é cortado silenciosamente. Depois de qualquer
 alteração de copy, confira visualmente as duas páginas dos quatro PDFs antes de
 entregar.
 
-## Ponto aberto
+## O tempo e a quantidade de perguntas (resolvido em 25/08)
 
-O bloco `PROXIMO` promete "5 perguntas mais profundas", enquanto a Etapa 2 tem
-15 perguntas em 5 blocos. Ficou decidido **manter os PDFs como estão** e
-sustentar a promessa pelo tempo ("menos de 3 minutos"), sem citar quantidade em
-nenhuma outra peça. Se a Etapa 2 mudar, esta é a linha a corrigir.
+O bloco `PROXIMO` prometia "5 perguntas mais profundas" e "menos de 3 minutos",
+enquanto a Etapa 2 tem 15 perguntas e as outras peças já falavam em 5 minutos. A
+equipe da Dani pediu **"menos de 5 minutos e responda algumas perguntas"**, e é
+o que está nos PDFs agora.
+
+O "5" antigo vinha dos 5 blocos, não do número de perguntas. Por isso a peça não
+volta a citar quantidade: a promessa se sustenta pelo tempo, e o tempo agora é o
+mesmo em todo o funil — PDFs, página pós-quiz, áudio do WhatsApp e a própria
+Etapa 2. Se um dia mudar, mudam os quatro juntos.

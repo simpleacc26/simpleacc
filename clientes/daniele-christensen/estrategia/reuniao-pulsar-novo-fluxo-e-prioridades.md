@@ -68,7 +68,7 @@ Ordenado por dois critérios: o que trava o trabalho de outra pessoa e o que é 
 
 **1. Cravar quantas perguntas e quanto tempo tem a Etapa 2.**
 É insumo das copies, do áudio e dos PDFs. A especificação tem 15 perguntas (2 no bloco A, 2 no B, 2 no C, 4 no D, 5 no E), mas o texto de transição promete 5 e a Dani calculou 3 minutos. O "5" provavelmente veio de "5 blocos".
-**Decidido:** manter os 3 minutos e **não alterar os PDFs**. Mitigação: nem a página nem o áudio citam quantidade de perguntas, só o tempo.
+**Decidido em ago/26:** manter os 3 minutos e não alterar os PDFs. **Revisto em 25/08:** a equipe da Dani pediu 5 minutos e "algumas perguntas" no lugar de "5 perguntas", e os PDFs foram regerados. Todas as peças estão em 5 minutos, e nenhuma cita quantidade.
 
 **2. Definir quem constrói e hospeda a Etapa 2.**
 Ficou aberto na reunião inteira. Tem consequência em cadeia: onde mora o cálculo do TD, para onde vai o webhook, onde fica o calendário da última tela.
