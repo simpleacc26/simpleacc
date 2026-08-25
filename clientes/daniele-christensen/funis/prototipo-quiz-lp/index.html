@@ -879,10 +879,24 @@ function mostrarLP(){
   window.scrollTo(0,0);
 }
 
+// Quais perguntas somam Pontuação, por caminho. Só os qualificadores entram:
+// as perguntas de cenário (P2 a P5) leem o problema do lead, não o tamanho
+// dele, e a margem (a7) é indicador de maturidade financeira, não nota.
+//
+// A P4 estava aqui no lugar da P8 e inflava o caminho A: quem marcava "tudo
+// passa por mim" ganhava 10 pontos de graça, e uma empresa de menos de 20
+// pessoas faturando até R$ 100 mil aparecia com 10 em vez de 1.
+var PONTUAM = {
+  A: ["aColab", "a6"],          // porte da empresa + faturamento
+  B: ["b6", "bColab", "b7"]     // autonomia + time sob responsabilidade + remuneração
+};
+
 function pontos(){
-  if(R.via === "A") return (R.pt_p4||0) + (R.pt_a6||0);
-  if(R.via === "B") return (R.pt_b6||0) + (R.pt_b7||0);
-  return 0;
+  var chaves = PONTUAM[R.via];
+  if(!chaves) return 0;
+  var s = 0;
+  for(var k = 0; k < chaves.length; k++){ s += R["pt_" + chaves[k]] || 0; }
+  return s;
 }
 // devolve "" quando qualifica, ou o motivo da reprovação
 function motivo(){
@@ -923,7 +937,15 @@ function atualizaPainel(){
                       (R.via === "A" ? R._aColab : R._bColab) || "—"));
   g.appendChild(linha(R.via === "A" ? "Faturamento" : "Autonomia", (R.via === "A" ? R._a6 : R._b6) || "—"));
   g.appendChild(linha(R.via === "A" ? "Margem" : "Remuneração", (R.via === "A" ? R._a7 : R._b7) || "—"));
-  g.appendChild(linha("Pontuação", pontos() + " de 20"));
+  // o teto muda com o caminho (A soma duas perguntas, B soma três), então é
+  // calculado das próprias faixas em vez de escrito à mão
+  var teto = 0;
+  (PONTUAM[R.via] || []).forEach(function(chave){
+    var maior = 0;
+    P[chave].ops.forEach(function(o){ if((o.pt || 0) > maior) maior = o.pt; });
+    teto += maior;
+  });
+  g.appendChild(linha("Pontuação", pontos() + " de " + teto));
   g.appendChild(linha("Régua", q ? "qualificado" : "não qualificado", q ? "ok" : "no"));
   if(!q) g.appendChild(linha("Motivo", motivo(), "no"));
   g.appendChild(linha("Telefone enviado", telefoneCanonico(R.zap) || "—"));
@@ -948,7 +970,7 @@ function reiniciar(){
 }
 
 function pular(cen){
-  R = {cen:cen, via:"A", pt_p4:10, pt_a6:8, _p1:"Serviços",
+  R = {cen:cen, via:"A", pt_aColab:4, pt_a6:8, _p1:"Serviços",
        _aColab:"Entre 50 e 100", _a6:"De R$ 300.000 até R$ 500.000",
        _a7:"Entre 20% e 30%",
        nome:"(atalho de demonstração)", zap:"—"};

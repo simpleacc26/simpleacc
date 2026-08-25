@@ -132,6 +132,50 @@ não casar.
 `qualificado` e `motivo` são a régua de corte (dono ≥ R$ 200 mil/mês; executivo
 ≥ R$ 10 mil com autonomia), já aplicada — não precisa recalcular.
 
+### Como a `pontuacao` é somada
+
+**Só as perguntas qualificadoras somam.** As de cenário (P2 a P5) leem qual é o
+problema do lead, não o tamanho dele, e ficam de fora. A margem também: a
+especificação a trata como indicador de maturidade financeira, não como nota.
+
+| Caminho | Somam | Teto |
+|---|---|---|
+| A — dono ou sócio | P8 colaboradores + P6 faturamento | 20 |
+| B — executivo | P6 autonomia + P8 colaboradores + P7 remuneração | 30 |
+
+| P8 caminho A | pts | P6 faturamento | pts |
+|---|---|---|---|
+| Acima de 500 | 10 | Acima de R$ 500.000 | 10 |
+| Entre 200 e 500 | 8 | De R$ 300.000 até R$ 500.000 | 8 |
+| Entre 100 e 200 | 6 | De R$ 200.000 até R$ 300.000 | 4 |
+| Entre 50 e 100 | 4 | De R$ 100.000 até R$ 200.000 | 1 |
+| Entre 20 e 50 | 2 | Até R$ 100.000 | 0 |
+| Menos de 20 | 1 | | |
+
+| P6 autonomia | pts | P8 caminho B | pts | P7 remuneração | pts |
+|---|---|---|---|---|---|
+| Total, a decisão é minha | 10 | Mais de 30 | 10 | Acima de R$ 100.000 | 10 |
+| Parcial, decido até um valor | 6 | Entre 16 e 30 | 8 | De R$ 50.000 até R$ 100.000 | 8 |
+| Quase nenhuma | 0 | Entre 11 e 15 | 6 | De R$ 20.000 até R$ 50.000 | 6 |
+| Nenhuma | 0 | Entre 05 e 10 | 4 | De R$ 10.000 até R$ 20.000 | 4 |
+| | | Entre 1 e 4 | 2 | De R$ 5.000 até R$ 10.000 | 2 |
+| | | Nenhum | 0 | Até R$ 5.000 | 1 |
+
+**O caminho A somava errado até 25/08.** No lugar da P8 entrava a P4 ("quantas
+decisões acontecem sem passar por você"), que é pergunta de cenário. Quem
+marcava "tudo passa por mim" ganhava 10 pontos de graça: uma empresa de menos de
+20 pessoas faturando até R$ 100 mil aparecia com **10** quando devia aparecer
+com **1**. As linhas de teste anteriores a essa data têm a Pontuação inflada; o
+resto dos campos está correto.
+
+Isso nunca afetou `qualificado` — o corte olha o faturamento direto, não a soma.
+
+**Divergência ainda aberta:** as faixas de remuneração da página (seis, de "Até
+R$ 5.000" a "Acima de R$ 100.000") não são as da especificação (cinco, de "Menos
+de R$ 5.000" a "Acima de R$ 50.000"), e os pontos também diferem. Mudar isso
+altera o que o lead vê e mexe no corte de qualificação, então ficou parado
+esperando decisão.
+
 ## Etapa 2 — o aviso de abertura
 
 Pedido da Pulsar em 25/08. Dispara **na carga da página**, antes de o lead tocar

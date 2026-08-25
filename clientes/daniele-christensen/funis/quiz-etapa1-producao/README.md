@@ -60,6 +60,25 @@ voltarem a divergir, o total encolhe no meio do quiz em vez de crescer.
 Ao acrescentar ou tirar pergunta, mexa em `CAMINHOS` (ou `BASE`) e no dicionário
 `P` do protótipo. Não existe número de pergunta guardado em lugar nenhum.
 
+## A Pontuação
+
+Somam só as perguntas **qualificadoras**: no caminho A, colaboradores +
+faturamento (teto 20); no B, autonomia + colaboradores + remuneração (teto 30).
+As perguntas de cenário não pontuam, e a margem também não — ela é indicador de
+maturidade financeira. A tabela de pontos por faixa está em
+`estrategia/integracao-pulsar-webhooks.md`.
+
+Depois de mexer em qualquer `pt:` do dicionário `P`, rode:
+
+```
+node teste-pontos.js
+```
+
+Ele percorre as 174 combinações dos dois caminhos e compara com a
+especificação. Existe porque a régua já esteve errada por semanas sem ninguém
+notar: o caminho A somava a P4 no lugar da P8, e o número continuava parecendo
+plausível.
+
 ## Rastreio de campanha
 
 A página lê da URL `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`,

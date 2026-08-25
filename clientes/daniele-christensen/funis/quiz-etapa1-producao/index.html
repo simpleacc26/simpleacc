@@ -865,10 +865,24 @@ function mostrarLP(){
   window.scrollTo(0,0);
 }
 
+// Quais perguntas somam Pontuação, por caminho. Só os qualificadores entram:
+// as perguntas de cenário (P2 a P5) leem o problema do lead, não o tamanho
+// dele, e a margem (a7) é indicador de maturidade financeira, não nota.
+//
+// A P4 estava aqui no lugar da P8 e inflava o caminho A: quem marcava "tudo
+// passa por mim" ganhava 10 pontos de graça, e uma empresa de menos de 20
+// pessoas faturando até R$ 100 mil aparecia com 10 em vez de 1.
+var PONTUAM = {
+  A: ["aColab", "a6"],          // porte da empresa + faturamento
+  B: ["b6", "bColab", "b7"]     // autonomia + time sob responsabilidade + remuneração
+};
+
 function pontos(){
-  if(R.via === "A") return (R.pt_p4||0) + (R.pt_a6||0);
-  if(R.via === "B") return (R.pt_b6||0) + (R.pt_b7||0);
-  return 0;
+  var chaves = PONTUAM[R.via];
+  if(!chaves) return 0;
+  var s = 0;
+  for(var k = 0; k < chaves.length; k++){ s += R["pt_" + chaves[k]] || 0; }
+  return s;
 }
 // devolve "" quando qualifica, ou o motivo da reprovação
 function motivo(){
