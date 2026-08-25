@@ -27,11 +27,20 @@ parou (o Git é a memória compartilhada).
 
 ## Contexto rápido
 
-- **Status:** cliente novo — onboarding em andamento (pasta do Drive criada em 21/08/2026).
-- **Oferta principal:** _(a preencher — depende do onboarding)_
-- **Público / ICP:** _(a preencher)_
-- **Contato principal:** _(a confirmar — ver `README.md`)_
+- **Quem é:** Delphis da Fonseca — mentor de comunicação (Método AUTOFOCO), 40+ anos de
+  rádio, TV, dublagem e palco; 22 anos no Senac SP; +4.000 alunos formados.
+- **Oferta principal:** Mentoria AUTOFOCO — R$30k / R$17k / R$9k individual e R$4k em grupo.
+  Produto de entrada em lançamento: "Detonando a Timidez", R$899 na Hotmart.
+- **Público / ICP:** ver `contexto/dossie-cliente.md` (entrada: público amplo com timidez;
+  HT: perfil profissional/executivo — a fechar no mapa estratégico).
+- **Contrato:** R$2.000/mês × 6 meses, fechado em 17/08/2026. Funil no ar em 7 dias.
 - **Pasta no Drive:** [Simple <> Delphis](https://drive.google.com/drive/folders/1cBaPJER_HHalOzs6YZDERaVR3WbCuGgG)
 
-> ⚠️ **Nada foi validado com o cliente ainda.** O que existe hoje em `contexto/`
-> são indícios (ver `contexto/origem-e-primeiros-dados.md`), não fatos confirmados.
+## Leia antes de qualquer coisa
+
+1. `contexto/dossie-cliente.md` — perfil, oferta, números, ICP, concorrentes, pendências.
+2. `contexto/entregaveis-vendidos.md` — o que foi vendido (não prometer nada além disso).
+3. `estrategia/2026-08-25-guia-call-onboarding.md` — roteiro da call de mapa estratégico.
+
+> ⚠️ **Sensível:** a agência de tráfego atual dele **não sabe** da Simple. O trabalho roda
+> em paralelo, em conta de anúncio separada. Nada público, nada de contato com eles.

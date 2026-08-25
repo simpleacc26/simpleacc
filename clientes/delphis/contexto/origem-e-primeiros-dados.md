@@ -1,8 +1,10 @@
 # Delphis — origem e primeiros dados
 
-> **Status: NÃO VALIDADO.** Tudo aqui foi levantado do Drive e das planilhas
-> internas, sem confirmação com o cliente. Serve para não começar do zero na
-> call de onboarding — não use como fato em copy ou estratégia.
+> **Atualizado em 25/08/2026:** as calls de vendas confirmaram que o cliente é
+> **Delphis da Fonseca**, mentor de comunicação — e a hipótese de origem abaixo
+> (lead do quiz do Rafael Granella) bate com o histórico. O retrato completo e
+> validado está em `dossie-cliente.md`; este arquivo fica como registro de como
+> ele chegou até a Simple.
 
 ## O que existe hoje
 
