@@ -453,14 +453,16 @@ var P = {
       {t:"Entre 1 e 4", pt:2},
       {t:"Nenhum", pt:0}
     ]},
+  // Faixas e pontos exatamente como a especificação define, do teto para baixo.
+  // O teto é "Acima de R$ 50.000": acima disso a régua não separa mais nada, e
+  // faixa que quase ninguém marca só alonga a lista.
   b7:{ id:"P7", titulo:"Qual é a sua remuneração média mensal?",
     ops:[
-      {t:"Até R$ 5.000", pt:1},
-      {t:"De R$ 5.000 até R$ 10.000", pt:2},
-      {t:"De R$ 10.000 até R$ 20.000", pt:4},
-      {t:"De R$ 20.000 até R$ 50.000", pt:6},
-      {t:"De R$ 50.000 até R$ 100.000", pt:8},
-      {t:"Acima de R$ 100.000", pt:10}
+      {t:"Acima de R$ 50.000", pt:10},
+      {t:"De R$ 20.000 a R$ 50.000", pt:8},
+      {t:"De R$ 10.000 a R$ 19.000", pt:5},
+      {t:"De R$ 5.000 a R$ 9.000", pt:2},
+      {t:"Menos de R$ 5.000", pt:1}
     ]}
 };
 
@@ -884,6 +886,12 @@ function pontos(){
   for(var k = 0; k < chaves.length; k++){ s += R["pt_" + chaves[k]] || 0; }
   return s;
 }
+// A régua do executivo é R$ 20 mil. Na escala da especificação a faixa
+// "De R$ 20.000 a R$ 50.000" vale 8 e a de baixo vale 5, então o corte fica
+// em 8 — não em 6, que era o valor daquela faixa na lista antiga e deixaria
+// de casar com faixa nenhuma.
+var MIN_REMUNERACAO = 8;
+
 // devolve "" quando qualifica, ou o motivo da reprovação
 function motivo(){
   if(R.via === "A"){
@@ -893,7 +901,7 @@ function motivo(){
   if(R.via === "B"){
     if(R.P0 !== 1) return "cargo fora do ICP (só diretor qualifica)";
     if((R.pt_b6||0) < 6) return "sem autonomia para decidir investimento";
-    if((R.pt_b7||0) < 6) return "remuneração abaixo de R$ 20 mil";
+    if((R.pt_b7||0) < MIN_REMUNERACAO) return "remuneração abaixo de R$ 20 mil";
     return "";
   }
   return "quiz incompleto";

@@ -154,12 +154,12 @@ especificação a trata como indicador de maturidade financeira, não como nota.
 
 | P6 autonomia | pts | P8 caminho B | pts | P7 remuneração | pts |
 |---|---|---|---|---|---|
-| Total, a decisão é minha | 10 | Mais de 30 | 10 | Acima de R$ 100.000 | 10 |
-| Parcial, decido até um valor | 6 | Entre 16 e 30 | 8 | De R$ 50.000 até R$ 100.000 | 8 |
-| Quase nenhuma | 0 | Entre 11 e 15 | 6 | De R$ 20.000 até R$ 50.000 | 6 |
-| Nenhuma | 0 | Entre 05 e 10 | 4 | De R$ 10.000 até R$ 20.000 | 4 |
-| | | Entre 1 e 4 | 2 | De R$ 5.000 até R$ 10.000 | 2 |
-| | | Nenhum | 0 | Até R$ 5.000 | 1 |
+| Total, a decisão é minha | 10 | Mais de 30 | 10 | Acima de R$ 50.000 | 10 |
+| Parcial, decido até um valor | 6 | Entre 16 e 30 | 8 | De R$ 20.000 a R$ 50.000 | 8 |
+| Quase nenhuma | 0 | Entre 11 e 15 | 6 | De R$ 10.000 a R$ 19.000 | 5 |
+| Nenhuma | 0 | Entre 05 e 10 | 4 | De R$ 5.000 a R$ 9.000 | 2 |
+| | | Entre 1 e 4 | 2 | Menos de R$ 5.000 | 1 |
+| | | Nenhum | 0 | | |
 
 **O caminho A somava errado até 25/08.** No lugar da P8 entrava a P4 ("quantas
 decisões acontecem sem passar por você"), que é pergunta de cenário. Quem
@@ -170,11 +170,18 @@ resto dos campos está correto.
 
 Isso nunca afetou `qualificado` — o corte olha o faturamento direto, não a soma.
 
-**Divergência ainda aberta:** as faixas de remuneração da página (seis, de "Até
-R$ 5.000" a "Acima de R$ 100.000") não são as da especificação (cinco, de "Menos
-de R$ 5.000" a "Acima de R$ 50.000"), e os pontos também diferem. Mudar isso
-altera o que o lead vê e mexe no corte de qualificação, então ficou parado
-esperando decisão.
+**As faixas de remuneração foram alinhadas com a especificação em 25/08.** A
+página tinha seis faixas, indo até "Acima de R$ 100.000"; passou a ter as cinco
+do documento, com teto em "Acima de R$ 50.000". O corte de qualificação **não
+mudou de lugar**: continua sendo R$ 20 mil, porque na escala nova a faixa
+"De R$ 20.000 a R$ 50.000" vale 8 e a de baixo vale 5.
+
+Um detalhe herdado do documento: as faixas têm **buracos** entre R$ 9.000 e
+R$ 10.000 e entre R$ 19.000 e R$ 20.000. Quem ganha R$ 19.500 não encontra a
+própria faixa e vai marcar uma das duas vizinhas. Não muda quem qualifica —
+os dois lados do buraco de R$ 19 mil caem abaixo do corte —, mas desloca a
+Pontuação em 3 pontos para quem arredondar para cima. Fechar isso é trocar
+"R$ 19.000" por "R$ 20.000" e "R$ 9.000" por "R$ 10.000" nos rótulos.
 
 ## Etapa 2 — o aviso de abertura
 
