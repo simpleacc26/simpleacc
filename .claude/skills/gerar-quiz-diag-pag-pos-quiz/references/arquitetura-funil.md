@@ -8,7 +8,7 @@ mobile-first. Abre direto no navegador.
 ```
 funil-<cliente>/
 ├── index.html        ← quiz (1ª pergunta já na 1ª tela)
-├── styles.css        ← TEMA: bloco ":root  PALETA — TROQUE AQUI" + layout
+├── styles.css        ← TEMA: bloco ":root  PALETA, TROQUE AQUI" + layout
 ├── flow.js           ← TODA a copy do quiz + dados da marca (whatsapp, hero, perguntas, captura). EDITAR AQUI.
 ├── app.js            ← motor: render, auto-avanço, validação, sessionStorage, tracking, UTMs, máscara, enviarLead()
 ├── diagnostico.html  ← página pós-quiz (relatório) + Baixar PDF + WhatsApp
@@ -43,7 +43,7 @@ funil-<cliente>/
 - **sessionStorage**: salva progresso; oferece "continuar de onde parou".
 - **Acessibilidade**: navegação por teclado, foco visível, `aria-live` em erros,
   `prefers-reduced-motion`.
-- **Zero dependência externa** (sem Google Fonts/CDN) — regra de performance.
+- **Zero dependência externa** (sem Google Fonts/CDN), regra de performance.
 
 ## Página pós-quiz (relatório) + PDF
 - `diagnostico.html` + `diagnostico.js` leem as respostas do `sessionStorage` e
