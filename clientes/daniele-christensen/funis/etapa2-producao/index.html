@@ -265,7 +265,11 @@ function lerLink(){
     email:   p.get("email")   || "",
     cenario: p.get("cenario") || "O Gargalo",
     telefone: fone,
-    campoTelefone: campo
+    campoTelefone: campo,
+    // sem ?lead= e sem telefone não há lead de verdade do outro lado: é o
+    // protótipo ou alguém abrindo a página solta. Nesse caso não avisamos o CRM
+    // nem carimbamos a agenda, para não inventar um id que lá não existe.
+    doLink: !!(p.get("lead") || fone)
   };
 }
 
@@ -439,6 +443,33 @@ function manda(url, corpo){
   }catch(e){ fim(false); }
 }
 
+// Aviso de abertura, pedido pela Pulsar. Dispara na carga da página, não no
+// botão: o CRM precisa separar quem nunca clicou no link de quem abriu e
+// desistiu — hoje os dois caem no mesmo lugar e recebem a mensagem errada.
+// Amarrar no botão manteria o desistente contado como quem nunca abriu.
+//
+// Vai e segue: não espera resposta, não trava a tela, e recarregar a página não
+// conta duas vezes (a deduplicação é do lado deles). O id vai na query string e
+// no corpo porque o beacon manda text/plain, e assim o dado chega inteiro por
+// qualquer um dos dois caminhos.
+var ABERTURA = "https://pulsar.app.n8n.cloud/webhook/grokker-etapa2-iniciada";
+
+function avisaAbertura(){
+  if(!LEAD.doLink) return;
+  var corpo = JSON.stringify({lead_id: LEAD.id, telefone: LEAD.telefone});
+  var url = ABERTURA + "?lead_id=" + encodeURIComponent(LEAD.id);
+  try{
+    fetch(url, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: corpo,
+      keepalive: true
+    }).catch(function(){
+      if(navigator.sendBeacon) navigator.sendBeacon(url, new Blob([corpo], {type:"text/plain"}));
+    });
+  }catch(e){}
+}
+
 // o Calendly só carrega depois que o lead termina, para não pesar o formulário
 var agendaPronta = false;
 function montaAgenda(){
@@ -448,6 +479,10 @@ function montaAgenda(){
   var q = ["hide_gdpr_banner=1", "background_color=12110f", "text_color=f0ede8", "primary_color=f18700"];
   if(LEAD.nome)  q.push("name="  + encodeURIComponent(LEAD.nome));
   if(LEAD.email) q.push("email=" + encodeURIComponent(LEAD.email));
+  // o Calendly devolve o utm no aviso de agendamento. É o que liga a reunião ao
+  // lead que fez o quiz: sem isto sobra adivinhar pelo nome, que quebra assim
+  // que o lead digita o nome de um jeito diferente do que veio da Etapa 1.
+  if(LEAD.doLink) q.push("utm_content=" + encodeURIComponent(LEAD.id));
   var alvo = document.getElementById("agenda");
   alvo.className = "calendly-inline-widget";
   alvo.setAttribute("data-url", url + "?" + q.join("&"));
@@ -487,4 +522,5 @@ if(LEAD.nome){
     LEAD.nome + ", agora eu preciso enxergar a sua Gestão/Liderança por dentro.";
 }
 mostra("inicio");
+avisaAbertura();
 </script>

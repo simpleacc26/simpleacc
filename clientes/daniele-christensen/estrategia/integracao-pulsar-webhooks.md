@@ -1,7 +1,8 @@
 # Integração com a Pulsar — os dois webhooks
 
-**Data:** 17/08/2026
-**Origem:** pedido da Pulsar (dois webhooks, cenário na grafia exata, telefone
+**Data:** 17/08/2026 · atualizado em 25/08 com o aviso de abertura da Etapa 2 e
+o carimbo do lead no Calendly.
+**Origem:** pedido da Pulsar (webhooks, cenário na grafia exata, telefone
 repassado sem reformatar).
 **Status:** no ar e verificado. Os dois endpoints da Pulsar respondem e o CORS
 está liberado. As duas páginas de produção disparam para a Pulsar e para o Make.
@@ -11,14 +12,16 @@ formulário sem ler isto quebra a integração sem perceber.
 
 ## Os endereços
 
-| Etapa | Página no ar | Webhook |
+| Quando | Página no ar | Webhook |
 |---|---|---|
-| 1 — quiz | `grokker-diagnostico.vercel.app` | `https://pulsar.app.n8n.cloud/webhook/grokker-quiz-etapa1` |
-| 2 — diagnóstico completo | `grokker-etapa2-diagnostico.vercel.app` | `https://pulsar.app.n8n.cloud/webhook/grokker-quiz-etapa2` |
+| 1 — quiz concluído | `grokker-diagnostico.vercel.app` | `https://pulsar.app.n8n.cloud/webhook/grokker-quiz-etapa1` |
+| 2 — página aberta | `grokker-etapa2-diagnostico.vercel.app` | `https://pulsar.app.n8n.cloud/webhook/grokker-etapa2-iniciada` |
+| 2 — diagnóstico concluído | `grokker-etapa2-diagnostico.vercel.app` | `https://pulsar.app.n8n.cloud/webhook/grokker-quiz-etapa2` |
 
-Os dois disparam `POST` com `Content-Type: application/json`.
+Os três disparam `POST` com `Content-Type: application/json`.
 
-Cada página manda para **dois destinos**, não só para a Pulsar. O segundo é um
+No fim de cada etapa a página manda para **dois destinos**, não só para a
+Pulsar (o aviso de abertura é a exceção: só interessa ao CRM). O segundo é um
 webhook do Make que alimenta as nossas planilhas, e existe para não dependermos
 da Pulsar para enxergar o próprio lead — foi assim que o acesso à planilha
 antiga se perdeu sem substituta. O Make **não** cria contato no CRM: duplicaria
@@ -101,6 +104,34 @@ não casar.
 `qualificado` e `motivo` são a régua de corte (dono ≥ R$ 200 mil/mês; executivo
 ≥ R$ 10 mil com autonomia), já aplicada — não precisa recalcular.
 
+## Etapa 2 — o aviso de abertura
+
+Pedido da Pulsar em 25/08. Dispara **na carga da página**, antes de o lead tocar
+em qualquer botão:
+
+```
+POST https://pulsar.app.n8n.cloud/webhook/grokker-etapa2-iniciada?lead_id=<id>
+{ "lead_id": "<id>", "telefone": "<o mesmo telefone da Etapa 1>" }
+```
+
+O `lead_id` vai **duas vezes de propósito**: na query string e no corpo. Se o
+`fetch` cair e o envio for pelo `sendBeacon`, o corpo chega como `text/plain`; a
+query string chega igual dos dois jeitos, então o dado nunca depende de o outro
+lado saber ler o corpo.
+
+**Por que na carga e não no botão.** O CRM precisa separar quem nunca clicou no
+link de quem clicou e não terminou. Hoje os dois caem no mesmo lugar e recebem a
+mesma mensagem, que está errada para um dos dois. Amarrado ao botão "Começar o
+diagnóstico", quem abre e desiste continuaria contado como quem nunca abriu — que
+é exatamente o caso que a mensagem precisa tratar diferente.
+
+Recarregar a página dispara de novo, e isso é esperado: a deduplicação é do lado
+da Pulsar, não da página. Página nenhuma consegue garantir "uma vez por lead" —
+o lead troca de aparelho, limpa o navegador, abre em anônimo.
+
+Abrir a página **sem `?lead=` e sem telefone não dispara nada**. Sem isso, cada
+abertura do protótipo entraria no CRM como o lead fictício `demo-0001`.
+
 ## Etapa 2 — o que sai quando as 15 perguntas terminam
 
 ```json
@@ -142,6 +173,16 @@ Tudo com `encodeURIComponent` — os cenários têm acento e espaço.
 Só `lead` é obrigatório. `nome` e `email` pré-preenchem o Calendly, para o lead
 não redigitar o que já informou. `cenario` é o que mostra ao Closer por onde
 abrir a call.
+
+## O carimbo no Calendly
+
+O link do widget leva `utm_content=<lead>`, ao lado do `name` e do `email` que já
+iam. Não precisa configurar nada no Calendly: ele aceita `utm` em qualquer link e
+devolve o valor no aviso de agendamento.
+
+É o que liga a reunião agendada ao lead que fez o quiz. Sem isso sobra casar pelo
+nome, que quebra na primeira vez que o lead escreve o nome de um jeito diferente
+do que veio da Etapa 1 — e é justamente no lead que agenda que errar dói mais.
 
 **Sobre o telefone, que foi o ponto levantado:** o formulário da Etapa 2 **não
 pergunta o telefone e não reformata o que recebe**. O valor que vier no link é o

@@ -42,6 +42,21 @@ O Google Tag Manager (`GTM-PHG5489R`), o mesmo contêiner do quiz — o funil é
 só, e contêineres separados obrigariam a casar duas propriedades na mão para ver
 a jornada inteira.
 
+## Os dois disparos invisíveis
+
+Nada disto aparece na tela, e é justamente por isso que some sem ninguém notar.
+A build confere os dois no fim; se um recorte engolir o trecho, ela falha.
+
+- **Na carga da página**, um `POST` para
+  `pulsar.app.n8n.cloud/webhook/grokker-etapa2-iniciada` com o `lead_id`. É o que
+  separa, no CRM, quem nunca abriu o link de quem abriu e desistiu no meio.
+- **No link do Calendly**, `utm_content=<lead_id>`. É o que liga a reunião
+  agendada ao lead que fez o quiz, sem depender de casar pelo nome.
+
+Os dois só disparam quando a URL traz `?lead=` (ou um telefone). Abrir a página
+sem parâmetro nenhum não avisa o CRM nem carimba a agenda — senão o protótipo e
+qualquer visita solta entrariam como lead `demo-0001`.
+
 ## Antes de mexer
 
 As 15 perguntas, a ordem dos blocos e a escala de pontuação são propriedade

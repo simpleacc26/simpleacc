@@ -90,7 +90,11 @@ def main():
 
     obrigatorios = ["DESTINOS", "calendly.com/sucessodocliente",
                     'name="viewport"', "noindex", "PERGUNTAS", "montaAgenda",
-                    "campoTelefone"]
+                    "campoTelefone",
+                    # os dois pedidos da Pulsar: o aviso de abertura e o carimbo
+                    # do lead na agenda. Os dois são invisíveis na tela, então
+                    # sumiriam sem ninguém notar se um recorte comesse o trecho.
+                    "grokker-etapa2-iniciada", "avisaAbertura();", "utm_content="]
     for o in obrigatorios:
         if o not in html:
             sys.exit("build: faltou %r no arquivo de produção" % o)
