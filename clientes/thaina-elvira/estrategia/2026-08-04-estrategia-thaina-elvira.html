@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Estratégia Completa · Thaina Elvira e Thiago</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    padding: 16mm 18mm 24mm 18mm;
+    position: relative;
+    page-break-after: always;
+    background: #fff;
+  }
+  .page:last-child { page-break-after: auto; }
+  .runhead {
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; color: var(--muted);
+    letter-spacing: .06em; text-transform: uppercase;
+    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt;
+  }
+  .runfoot {
+    position: absolute; bottom: 9mm; left: 18mm; right: 18mm;
+    text-align: center; font-size: 7.5pt; color: var(--muted);
+  }
+  .kicker {
+    color: var(--gold); font-size: 9pt; font-weight: bold;
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt;
+  }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 12pt; font-size: 10pt; }
+  .box-dark {
+    background: var(--navy-dark); color: #f5f3ee;
+    padding: 10pt 13pt; margin: 9pt 0; border-radius: 2pt;
+  }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light {
+    background: var(--beige); border-left: 3pt solid var(--gold);
+    padding: 9pt 13pt; margin: 9pt 0;
+  }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .sec-header {
+    background: var(--navy-dark); color: #fff;
+    padding: 10pt 16pt; margin-bottom: 10pt;
+    border-left: 4pt solid var(--gold);
+  }
+  .sec-header .fk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .sec-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .sec-header .fd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 10pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  h4 { color: var(--navy); font-size: 10.5pt; margin-bottom: 4pt; }
+  ul.check { list-style: none; margin-bottom: 6pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  ul.alt { list-style: none; margin: 2pt 0 6pt 6pt; }
+  ul.alt li { padding-left: 14pt; position: relative; margin-bottom: 2pt; }
+  ul.alt li::before { content: "·"; color: var(--gold); position: absolute; left: 3pt; font-weight: bold; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+  .copy-bloco { border-left: 2pt solid #d9d5cc; padding-left: 10pt; margin: 5pt 0 8pt; }
+  .tag { display: inline-block; background: var(--gold); color: #fff; font-size: 7.5pt; font-weight: bold; letter-spacing: .08em; text-transform: uppercase; padding: 1.5pt 6pt; border-radius: 2pt; margin-bottom: 4pt; }
+
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 38pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+  .footer-note { margin-top: 20pt; padding-top: 8pt; border-top: 1pt solid var(--gold); font-size: 8.5pt; color: var(--muted); width: 60%; }
+</style>
+</head>
+<body>
+
+<!-- PÁGINA 1 · CAPA -->
+<div class="page cover">
+  <div class="kicker">Estratégia Completa</div>
+  <h1>Funil de<br>Lead Dinâmico</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    Quiz, página pós-quiz e anúncios.<br>
+    A copy inteira do funil, pronta para implementar.<br>
+    Ciclo da Migalha · Sessão Mapa do Ciclo.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">Thaina Elvira e Thiago</div>
+    <div class="lbl">Estrategista</div>
+    <div class="val">Daniel Souza · Carlos Durães</div>
+  </div>
+</div>
+
+<!-- PÁGINA 2 · CONTEXTO -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thaina e Thiago</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Ler a Copy</div>
+  <h1 style="font-size:19pt;">O Funil em Uma Página</h1>
+  <p class="lead">Leia esta página antes de aprovar as copies. Tudo o que vem depois parte destas decisões.</p>
+
+  <div class="box-dark">
+    <div class="bt">O caminho do lead</div>
+    <p><strong>Anúncio → Quiz (gratuito) → Página pós-quiz → WhatsApp → Venda da sessão</strong></p>
+    <p>A página pós-quiz <strong>não vende e não mostra preço</strong>. O trabalho dela é aumentar o nível de consciência, aprofundar a dor, apresentar o método e o Thiago, e levar a mulher para o WhatsApp querendo saber mais. A oferta da <strong>Sessão Mapa do Ciclo (R$ 1.000)</strong> acontece no atendimento, depois do acolhimento e do rapport.</p>
+    <p>Por que assim: R$ 1.000 é um valor que essa mulher <strong>considera</strong>, não compra por impulso. Checkout direto do quiz derrubaria a conversão, e ainda perderíamos as objeções reais que só aparecem na conversa.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A esteira hoje</div>
+    <p><strong>Entrada:</strong> low ticket, <strong>pausado</strong> no momento (ROI abaixo do esperado, página e criativos em ajuste). Existe, mas não é o foco.</p>
+    <p><strong>Carro-chefe:</strong> <strong>Sessão Mapa do Ciclo</strong>, 60 minutos individuais, R$ 1.000. É o que este funil vende e o que gera caixa agora.</p>
+    <p><strong>Continuidade:</strong> <strong>mentoria em grupo</strong> (decidido na call: cobra mais e dá menos manutenção que comunidade). A ser desenhada quando houver volume de clientes.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">O que a copy precisa compensar</div>
+    <p>Ainda <strong>não há depoimentos coletados</strong>. Enquanto eles não chegam, a página compensa reforçando a <strong>autoridade do Thiago</strong> e a força do mecanismo. Onde houver <strong>[DEPOIMENTO]</strong> no texto, é espaço reservado para entrar assim que vocês tiverem o material.</p>
+    <p>A favor de vocês: o perfil dele cresce cerca de <strong>1.500 seguidores por dia</strong>, com 15 publicações diárias e custo por seguidor de R$ 0,20. Essa audiência nova é a primeira fonte de leads do funil.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Premissas assumidas</div>
+    <p>Ticket de R$ 1.000 (à vista ou 12x) · meta de R$ 30 mil/mês · tráfego de R$ 80 a 90 por dia · tratamento por "você" · nomes <strong>Ciclo da Migalha</strong> e <strong>Mulher que Escolhe</strong> pendentes de checagem no INPI.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- PÁGINA 3 · BIG IDEA -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thaina e Thiago</span><span>Página 3</span></div>
+  <div class="sec-header">
+    <div class="fk">Seção 1</div>
+    <h2>Big Idea</h2>
+    <div class="fd">A ideia que sustenta o quiz, a página, os anúncios e o atendimento.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">A big idea</div>
+    <p style="font-size:12pt;"><strong>O problema não é ele. E não é você. É o Ciclo da Migalha.</strong></p>
+  </div>
+
+  <p>Ela já tentou de tudo: conversou, esperou, deu espaço, cobrou, sumiu, voltou. Já leu sobre energia feminina, já tentou ser a mulher de alto valor, já aprendeu a fazer o cara correr atrás. E o padrão volta, com ele ou com o próximo.</p>
+
+  <p>A virada do Thiago é sair da guerra de técnicas e nomear o que realmente acontece: existe <strong>um ciclo de cinco elos que se alimenta sozinho</strong>, e enquanto ninguém desenha esse ciclo no papel, ela continua tratando o sintoma errado. Não se muda um padrão que não se consegue ver. O trabalho não começa nele: começa em localizar o elo que sustenta o ciclo dela.</p>
+
+  <div class="box-light">
+    <div class="bt">A frase que resume a transformação</div>
+    <p style="font-size:11.5pt;"><strong>De ser escolhida para a que escolhe.</strong></p>
+  </div>
+
+  <div class="passo-label">Os 5 elos do Ciclo da Migalha</div>
+  <ul class="check">
+    <li><strong>1. Gatilho:</strong> a incerteza que dispara tudo (a demora na resposta, o esfriamento, a frase ambígua).</li>
+    <li><strong>2. Reação:</strong> como ela busca alívio (checar o celular, mandar o textão, cobrar, ou fingir indiferença).</li>
+    <li><strong>3. Migalha:</strong> o mínimo de atenção que ele devolve e que acalma por algumas horas.</li>
+    <li><strong>4. Alívio que ensina:</strong> o cérebro aprende que aquele comportamento funcionou, e o hábito se fixa.</li>
+    <li><strong>5. Elo de alimentação:</strong> o ponto onde o ciclo dela se sustenta com mais força, e onde a intervenção precisa acontecer primeiro.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Por que essa big idea é forte no mercado</div>
+    <p>O termo "migalhas emocionais" já circula no vocabulário do público, mas <strong>ninguém construiu marca nem método em cima dele</strong>. Ao mesmo tempo, o território de sedução e feminilidade está tão saturado que o próprio público debocha dos mecanismos. Vocês não disputam esse terreno: mudam de território e chegam com um mecanismo nomeado onde ninguém está.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- PÁGINA 4 · QUIZ P1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thaina e Thiago</span><span>Página 4</span></div>
+  <div class="sec-header">
+    <div class="fk">Seção 2 · Parte 1</div>
+    <h2>Copy do Quiz</h2>
+    <div class="fd">Capta, qualifica e já funciona como preparação para a sessão.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Como ler esta seção</div>
+    <p>Cada pergunta abaixo alimenta <strong>um elo do Mapa do Ciclo</strong>. Isso faz o quiz servir a duas funções ao mesmo tempo: qualifica o lead e entrega à Thaina, antes da conversa, o diagnóstico do caso dela. É o que permite abrir o WhatsApp já falando do padrão dela, e não com um "oi, tudo bem?".</p>
+  </div>
+
+  <div class="passo-label">Hero da página do quiz</div>
+  <div class="copy-bloco">
+    <p><strong>Título:</strong> Descubra qual ciclo está travando a sua vida amorosa</p>
+    <p><strong>Subtítulo:</strong> Responda em 2 minutos e receba um diagnóstico personalizado, com o padrão que se repete nas suas relações.</p>
+    <p><strong>Tempo estimado:</strong> 2 minutos · <strong>CTA:</strong> Começar meu diagnóstico</p>
+  </div>
+
+  <div class="passo-label">As 8 perguntas · padrão SPIN, qualificação por último</div>
+
+  <h4>P1 · Situação. Como está a sua vida amorosa hoje?</h4>
+  <ul class="alt">
+    <li>a) Estou vivendo algo com alguém, mas nada se define</li>
+    <li>b) Estou sozinha e querendo um relacionamento de verdade</li>
+    <li>c) Estou saindo de um relacionamento que me machucou</li>
+    <li>d) Tenho um relacionamento, mas não me sinto valorizada nele</li>
+  </ul>
+
+  <h4>P2 · Situação. O que mais se repete nas suas histórias? <span style="color:#8a8f98;font-weight:normal;">(elo 1: gatilho)</span></h4>
+  <ul class="alt">
+    <li>a) Começa intenso demais e depois ele esfria do nada</li>
+    <li>b) Ele desaparece e volta como se nada tivesse acontecido</li>
+    <li>c) Nunca fica claro o que a gente é, e eu não pergunto</li>
+    <li>d) Ele diz que quer, mas nunca dá o próximo passo</li>
+  </ul>
+
+  <h4>P3 · Problema. Quando a insegurança bate, o que você costuma fazer? <span style="color:#8a8f98;font-weight:normal;">(elo 2: reação)</span></h4>
+  <ul class="alt">
+    <li>a) Fico olhando o celular esperando resposta</li>
+    <li>b) Mando uma mensagem longa explicando como me sinto</li>
+    <li>c) Cobro, discuto e depois me arrependo</li>
+    <li>d) Finjo indiferença e espero que ele venha atrás</li>
+  </ul>
+
+  <h4>P4 · Implicação. Se nada mudar, como você imagina a sua vida amorosa daqui a 2 anos?</h4>
+  <ul class="alt">
+    <li>a) Do mesmo jeito, e isso me assusta</li>
+    <li>b) Sozinha, e é o que mais me dói pensar</li>
+    <li>c) Com outra pessoa, repetindo a mesma história</li>
+    <li>d) Não consigo nem imaginar, prefiro não pensar</li>
+  </ul>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- PÁGINA 5 · QUIZ P2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thaina e Thiago</span><span>Página 5</span></div>
+  <div class="kicker">Seção 2 · Parte 2</div>
+  <h1 style="font-size:17pt;">Copy do Quiz: perguntas 5 a 8</h1>
+
+  <h4>P5 · Tentativas. O que você já tentou para mudar isso? <span style="color:#8a8f98;font-weight:normal;">(o que já falhou)</span></h4>
+  <ul class="alt">
+    <li>a) Terapia, e ajudou em mim, mas não nas minhas escolhas</li>
+    <li>b) Cursos e conteúdos sobre relacionamento e feminilidade</li>
+    <li>c) Segui conselhos de amigas e testei jogar o jogo dele</li>
+    <li>d) Nada estruturado, fui levando e esperando melhorar</li>
+  </ul>
+
+  <h4>P6 · Objetivo. O que você mais quer nos próximos meses?</h4>
+  <ul class="alt">
+    <li>a) Entender por que isso se repete comigo</li>
+    <li>b) Parar de aceitar menos do que eu quero</li>
+    <li>c) Estar com alguém que queira ficar de verdade</li>
+    <li>d) Me sentir em paz, com ou sem relacionamento</li>
+  </ul>
+
+  <h4>P7 · Perfil. Em qual momento da vida você está?</h4>
+  <ul class="alt">
+    <li>a) Separada ou divorciada, recomeçando</li>
+    <li>b) Nunca casei, mas já tive relações longas</li>
+    <li>c) Casada ou em um relacionamento fixo</li>
+    <li>d) Saindo de um relacionamento agora</li>
+  </ul>
+
+  <h4>P8 · Qualificação. Se você encontrar um caminho que faça sentido, está pronta para investir em você agora?</h4>
+  <ul class="alt">
+    <li>a) Sim, é prioridade para mim neste momento</li>
+    <li>b) Sim, se eu entender que funciona para o meu caso</li>
+    <li>c) Só dependendo do valor</li>
+    <li>d) Não neste momento, quero só entender melhor</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Regra de segmentação no atendimento</div>
+    <p><strong>a e b na P8:</strong> prioridade máxima de atendimento, é a fila quente.</p>
+    <p><strong>c:</strong> atender normalmente, com o parcelamento em 12x já na conversa.</p>
+    <p><strong>d:</strong> nutrir com conteúdo, sem insistir. Quando o low ticket voltar, é o público dele.</p>
+    <p>Cruzar com a P7: <strong>a, b e d</strong> são o perfil; <strong>c (casada)</strong> só segue se a P1 indicar relação sem valorização.</p>
+  </div>
+
+  <div class="passo-label">Captura de dados</div>
+  <div class="copy-bloco">
+    <p><strong>Título:</strong> Seu diagnóstico está pronto</p>
+    <p><strong>Subtítulo:</strong> Preencha abaixo para ver o seu resultado completo (leva 30 segundos).</p>
+    <p><strong>Campos:</strong> Nome · WhatsApp · E-mail · <strong>CTA:</strong> Ver meu diagnóstico</p>
+    <p><strong>Privacidade:</strong> Seus dados ficam seguros e a conversa é entre nós. Nada de spam.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- PÁGINA 6 · PÓS-QUIZ INTRO -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thaina e Thiago</span><span>Página 6</span></div>
+  <div class="sec-header">
+    <div class="fk">Seção 3 · Parte 1</div>
+    <h2>Página Pós-Quiz</h2>
+    <div class="fd">A peça central deste funil. Ela não vende: ela prepara a mulher para querer conversar.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">O trabalho desta página</div>
+    <p>Como não existe sessão gratuita, <strong>é esta página que precisa entregar valor</strong>. Ela é mais longa que o padrão de propósito. A régua de sucesso: a mulher chega no fim pensando <strong>"eu preciso falar com essa pessoa"</strong>, e não "quanto custa?".</p>
+    <p><strong>Sem preço. Sem checkout. Sem pré-agendamento pago.</strong> Um único destino: o WhatsApp.</p>
+  </div>
+
+  <div class="passo-label">A ordem dos blocos</div>
+  <ul class="check">
+    <li><strong>1. O resultado dela</strong> (reconhecimento imediato)</li>
+    <li><strong>2. A dor e o custo</strong> (o que já custou e o que vai custar)</li>
+    <li><strong>3. O ciclo completo</strong> (ela viu 1 elo, existem 5): aumenta consciência e abre a lacuna</li>
+    <li><strong>4. Por que o que ela tentou não funcionou</strong> (transferência de culpa)</li>
+    <li><strong>5. Quem é o Thiago</strong> (autoridade, no lugar da prova social que ainda não existe)</li>
+    <li><strong>6. O método e o que acontece na sessão</strong> (valor, sem preço)</li>
+    <li><strong>7. Para quem é e para quem não é</strong> (qualificação)</li>
+    <li><strong>8. FAQ</strong> (derruba objeção antes do WhatsApp)</li>
+    <li><strong>9. CTA final</strong> para a conversa</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Regra de compliance da Meta neste nicho</div>
+    <p>Nunca afirmar atributo pessoal da leitora ("você é carente", "você está sozinha") e nunca prometer resultado amoroso. A saída é sempre <strong>descrever a cena</strong>, não acusar a pessoa. Vale para a página, para os anúncios e para as legendas.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- PÁGINA 7 · PÓS-QUIZ COPY 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thaina e Thiago</span><span>Página 7</span></div>
+  <div class="kicker">Seção 3 · Parte 2</div>
+  <h1 style="font-size:17pt;">A Copy, Bloco a Bloco</h1>
+
+  <div class="tag">Bloco 1 · O resultado dela</div>
+  <div class="copy-bloco">
+    <p><strong>Headline:</strong> O seu padrão tem nome: <strong>{{padrão}}</strong></p>
+    <p><strong>Subheadline:</strong> Pelas suas respostas, o que dispara o seu ciclo é <strong>{{gatilho}}</strong>. Isso não é coincidência, e não é falta de sorte. Continue lendo: em dois minutos você vai entender exatamente por que a mesma história se repete.</p>
+  </div>
+
+  <div class="tag">Bloco 2 · A dor e o custo</div>
+  <div class="copy-bloco">
+    <p>Você provavelmente já viveu isso mais de uma vez. Começa intenso, ele fala do futuro nas primeiras semanas, e de repente as respostas ficam mornas. Você pergunta o que está acontecendo, ele diz que está corrido. Você dá espaço. Ele volta com um "oi sumida", e aquele mínimo de atenção acalma por dois dias.</p>
+    <p>E tem a parte que ninguém conta para as amigas: a conversa relida três vezes procurando onde deu errado. O celular na mão de madrugada. A mensagem longa escrita e apagada antes de enviar.</p>
+    <p>Você resolveu a sua vida inteira. Construiu carreira, se sustenta, é a referência que as amigas procuram quando precisam de conselho. Só essa parte não obedece.</p>
+    <p><strong>E o tempo é o preço.</strong> Cada ciclo desses leva meses. Alguns levam anos. E o pensamento que ninguém fala em voz alta é sempre o mesmo: e se daqui a dois anos eu ainda estiver aqui?</p>
+  </div>
+
+  <div class="tag">Bloco 3 · O ciclo completo (a lacuna)</div>
+  <div class="copy-bloco">
+    <p><strong>Você acabou de ver um elo. O seu ciclo tem cinco.</strong></p>
+    <p>O que prende uma mulher inteligente numa história que ela mesma sabe que não leva a lugar nenhum não é burrice e não é carência. É um mecanismo, e ele funciona assim:</p>
+    <p><strong>1. O gatilho.</strong> Uma incerteza dispara: a demora, o esfriamento, a frase ambígua.<br>
+    <strong>2. A reação.</strong> Você busca alívio do jeito que aprendeu: checando, explicando, cobrando ou se afastando.<br>
+    <strong>3. A migalha.</strong> Ele devolve o mínimo. Uma resposta, um elogio, um convite de última hora.<br>
+    <strong>4. O alívio.</strong> Acalma. E o seu cérebro registra: funcionou.<br>
+    <strong>5. O elo que sustenta.</strong> É aqui que o seu ciclo se prende com mais força. E é aqui que a mudança precisa começar.</p>
+    <p>O detalhe que muda tudo: <strong>cada mulher tem um elo dominante diferente</strong>. É por isso que conselho genérico não funciona no seu caso. Enquanto a intervenção mira no elo errado, o ciclo continua girando, com ele ou com o próximo.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- PÁGINA 8 · PÓS-QUIZ COPY 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thaina e Thiago</span><span>Página 8</span></div>
+  <div class="kicker">Seção 3 · Parte 3</div>
+  <h1 style="font-size:17pt;">A Copy, Bloco a Bloco</h1>
+
+  <div class="tag">Bloco 4 · Por que o que você tentou não funcionou</div>
+  <div class="copy-bloco">
+    <p>Se você já tentou despertar sua energia feminina, virar a mulher de alto valor ou aprender a se fazer de difícil para ele correr atrás, existe um motivo para nada disso ter durado.</p>
+    <p><strong>Todas essas estratégias miram na reação dele.</strong> E o que sustenta o ciclo não está nele.</p>
+    <p>Pior: algumas dessas técnicas <strong>alimentam o ciclo</strong>. Fingir indiferença para ele vir atrás é, na prática, mais uma forma de esperar a migalha. Muda a roupa, mantém o mecanismo.</p>
+    <p>Terapia ajuda, e muito, mas trabalha em outro tempo e em outro lugar. O que quase ninguém te ofereceu foi o mapa: o desenho do seu ciclo específico, com o ponto exato onde intervir.</p>
+  </div>
+
+  <div class="tag">Bloco 5 · Quem é o Thiago</div>
+  <div class="copy-bloco">
+    <p>Quase todo conselho que você recebe vem de outra mulher vivendo o mesmo, ou de quem vende técnica de conquista.</p>
+    <p>O Thiago ocupa um lugar diferente: <strong>é um homem explicando, sem julgamento e sem passar a mão na sua cabeça, o que costuma acontecer do outro lado.</strong> A diferença entre estar interessado e estar disponível. O que significa o esfriamento depois de duas semanas intensas. Por que o "oi sumida" funciona tão bem.</p>
+    <p>Ele não está tentando te conquistar, e não está defendendo os homens. Está do seu lado, dizendo o que os seus amigos não dizem para não te magoar.</p>
+    <p>Foi acompanhando dezenas de mulheres nesse processo, sem cobrar nada, que ele mapeou o Ciclo da Migalha e transformou isso em método. [DEPOIMENTO: case real em uma linha, quando disponível]</p>
+  </div>
+
+  <div class="tag">Bloco 6 · O método e a sessão</div>
+  <div class="copy-bloco">
+    <p><strong>O Método Mulher que Escolhe</strong> tem quatro etapas: <strong>Regulação</strong> (atravessar a ansiedade sem buscar alívio nele), <strong>Reconstrução</strong> (autoestima e suficiência), <strong>Clareza</strong> (o que você realmente quer) e <strong>Escolha</strong> (critérios, limites e seleção consciente).</p>
+    <p>O primeiro passo é uma <strong>Sessão Mapa do Ciclo</strong>: 60 minutos individuais e ao vivo com o Thiago. Antes dela você responde um formulário curto, e ele chega tendo estudado o seu caso, então a hora inteira é sua.</p>
+    <p><strong>Nessa hora, você sai com:</strong></p>
+    <p>· o seu <strong>Mapa do Ciclo</strong> preenchido, com os cinco elos e o que sustenta o seu<br>
+    · a <strong>direção dos próximos 30 dias</strong>: o que fazer e o que parar de fazer no próximo gatilho<br>
+    · o mapa por escrito em uma página e a <strong>gravação da conversa</strong>, para rever quando a ansiedade bater</p>
+    <p>Em uma frase: você entra confusa e com culpa, e sai com mapa, direção e um caminho possível.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- PÁGINA 9 · PÓS-QUIZ COPY 3 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thaina e Thiago</span><span>Página 9</span></div>
+  <div class="kicker">Seção 3 · Parte 4</div>
+  <h1 style="font-size:17pt;">Qualificação, FAQ e CTA</h1>
+
+  <div class="tag">Bloco 7 · Para quem é e para quem não é</div>
+  <div class="copy-bloco">
+    <p><strong>É para você se:</strong></p>
+    <p>· já tentou de tudo e percebe que o padrão se repete<br>
+    · quer entender a raiz, não decorar mais uma técnica de conquista<br>
+    · está disposta a olhar a sua própria parte na história, sem culpa</p>
+    <p><strong>Não é para você se:</strong></p>
+    <p>· quer aprender a manipular ou a fazer ele voltar<br>
+    · procura acompanhamento terapêutico de longo prazo<br>
+    · espera que alguém resolva no seu lugar</p>
+  </div>
+
+  <div class="tag">Bloco 8 · FAQ</div>
+  <div class="copy-bloco">
+    <p><strong>Uma hora resolve mesmo?</strong> A sessão não trata, ela localiza. Direção não exige tratamento, exige saber onde você está. As situações que parecem únicas se repetem num padrão mapeável, e é ele que a gente desenha na hora.</p>
+    <p><strong>Isso é terapia?</strong> Não. Terapia trata e acompanha ao longo do tempo, e é valiosa. Aqui é diagnóstico e direção prática sobre a sua vida amorosa, com um olhar masculino que a terapia não te dá.</p>
+    <p><strong>É mais um curso de feminilidade?</strong> Não. Não vamos falar em despertar energia para atrair. Vamos olhar o ciclo que faz você aceitar menos, e as técnicas de conquista costumam ser parte do que mantém ele girando.</p>
+    <p><strong>Preciso falar da minha vida com um estranho?</strong> Você fala o que quiser. A sessão é gravada só para você, e o Thiago já chega tendo lido o seu contexto.</p>
+    <p><strong>E se eu não estiver pronta agora?</strong> Chama no WhatsApp mesmo assim. A conversa não tem compromisso, e você sai dela sabendo mais sobre o seu caso do que entrou.</p>
+  </div>
+
+  <div class="tag">Bloco 9 · CTA final</div>
+  <div class="copy-bloco">
+    <p><strong>Botão:</strong> Quero entender o meu ciclo completo</p>
+    <p><strong>Apoio acima do botão:</strong> Fale com a nossa equipe no WhatsApp. A gente te explica como funciona a sessão, tira suas dúvidas e vê se faz sentido para o seu momento. Sem compromisso.</p>
+    <p><strong>Mensagem pré-preenchida do WhatsApp:</strong> "Oi! Acabei de fazer o diagnóstico e meu resultado foi {{padrão}}. Quero entender melhor como funciona a sessão."</p>
+    <p><strong>Microcopy:</strong> a conversa é discreta e fica só entre nós.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Detalhe de implementação</div>
+    <p>O CTA se repete <strong>três vezes</strong> ao longo da página (depois do bloco 3, depois do bloco 6 e no fim), sempre com o mesmo destino. A mulher que já se convenceu no meio não deveria precisar rolar até o fim.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- PÁGINA 10 · ANÚNCIOS 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thaina e Thiago</span><span>Página 10</span></div>
+  <div class="sec-header">
+    <div class="fk">Seção 4 · Parte 1</div>
+    <h2>Copy dos Anúncios</h2>
+    <div class="fd">Três ângulos e 20 criativos escritos: 5 estáticos, 5 carrosséis e 10 vídeos.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Regras que valem para todos os anúncios</div>
+    <p>O destino é sempre o <strong>quiz gratuito</strong>, nunca a sessão. <strong>Nenhum anúncio cita preço.</strong> E a régua de compliance: descrever a cena, nunca afirmar o que a leitora é, nunca prometer relacionamento.</p>
+  </div>
+
+  <div class="tag">Ângulo 1 · Cena e identificação</div>
+  <p><strong>Estratégia:</strong> espelhar uma cena que ela reconhece na hora, sem julgar quem ela é.</p>
+  <p><strong>Hook:</strong> "Começa intenso, esfria do nada, e volta com um oi sumida."</p>
+
+  <div class="copy-bloco">
+    <p><strong>Copy curta:</strong> Começa intenso, esfria do nada e volta com um "oi sumida". Se essa cena se repete com nomes diferentes, não é azar e não é falta de sorte: é um ciclo com cinco elos. Responda o diagnóstico gratuito de 2 minutos e descubra qual elo mantém o seu girando.</p>
+    <p><strong>Copy média:</strong> Tem uma cena que se repete: as primeiras semanas são intensas, ele fala do futuro, e de repente as respostas ficam mornas. Aí vem a parte que ninguém conta para as amigas: a conversa relida três vezes procurando onde deu errado, o celular na mão de madrugada, a mensagem longa que é apagada antes de enviar. Isso não é falta de amor próprio, é um ciclo que se alimenta sozinho: um gatilho de incerteza, uma reação em busca de alívio, e uma migalha que acalma por algumas horas. Enquanto o ciclo não é desenhado, ele se repete com o próximo. O diagnóstico gratuito do Thiago mostra em 2 minutos qual elo sustenta o seu.</p>
+    <p><strong>Copy longa:</strong> Existe um tipo de mulher que resolveu quase tudo na vida. Construiu carreira, se sustenta, é a referência que as amigas procuram quando precisam de conselho. E existe uma única parte que não obedece: a amorosa. As histórias mudam de nome, mas o roteiro é o mesmo. Começa intenso, ele fala do futuro nas primeiras semanas, e depois vem o esfriamento sem explicação. Ela pergunta o que está acontecendo, ele responde que está corrido. Ela dá espaço. Ele volta com um "oi sumida" e um convite de última hora, e aquele mínimo de atenção acalma por dois dias. Depois recomeça. O que quase ninguém explica é que isso não é falta de sorte nem excesso de exigência. É um ciclo de cinco elos que se alimenta: a incerteza dispara, a reação busca alívio, a migalha entrega o mínimo, o cérebro aprende que funcionou, e o elo aperta. Tratar o sintoma errado é o que faz cinco anos passarem sem nada mudar. O Thiago trabalha exatamente nisso, com uma diferença: é um homem falando o que os homens fazem, sem julgamento e sem ensinar truque de conquista. O primeiro passo é gratuito: um diagnóstico de 2 minutos que identifica o seu padrão. Clique em Saiba mais e responda o seu.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- PÁGINA 11 · ANÚNCIOS 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thaina e Thiago</span><span>Página 11</span></div>
+  <div class="kicker">Seção 4 · Parte 2</div>
+  <h1 style="font-size:17pt;">Ângulo 2 · Mecanismo Único</h1>
+
+  <div class="tag">Ângulo 2 · Mecanismo único</div>
+  <p><strong>Estratégia:</strong> apresentar o mecanismo nomeado e contrastar com o que já falhou.</p>
+  <p><strong>Hook:</strong> "Aprender a fazer ele correr atrás é parte do problema."</p>
+
+  <div class="copy-bloco">
+    <p><strong>Copy curta:</strong> Aprender a fazer ele correr atrás é parte do problema. Enquanto a estratégia mira nele, o ciclo continua girando em você. Existe um mapa de cinco elos que mostra onde intervir primeiro. Faça o diagnóstico gratuito de 2 minutos e veja o seu.</p>
+    <p><strong>Copy média:</strong> Energia feminina, mulher de alto valor, técnica para ele valorizar. Já tentou, e por um tempo até parece que funciona. Depois o padrão volta. O motivo é simples: essas estratégias miram na resposta dele, e o que sustenta o ciclo está em outro lugar. O Ciclo da Migalha tem cinco elos: o gatilho que dispara a insegurança, a reação que busca alívio, a migalha que acalma, o aprendizado que fixa o hábito e o elo que sustenta tudo. Cada mulher tem um elo dominante, e é nele que a intervenção funciona. Descobrir qual é o seu leva 2 minutos.</p>
+    <p><strong>Copy longa:</strong> Você já deve ter ouvido que precisa se valorizar mais, despertar sua feminilidade, se fazer de difícil para ele correr atrás. Talvez tenha testado, e por algumas semanas pareceu funcionar. Depois o mesmo padrão voltou, com ele ou com outro. O que essas abordagens têm em comum é o alvo: todas miram na reação dele. E o que mantém a história presa não está nele. O Thiago chama isso de Ciclo da Migalha, e ele tem cinco elos. Primeiro o gatilho: a demora na resposta, o esfriamento, a frase ambígua. Depois a reação: checar o celular, mandar o textão, cobrar, ou fingir indiferença. Aí vem a migalha: o mínimo de atenção que acalma por algumas horas. O alívio ensina o cérebro que aquilo resolveu, e o elo se aperta. Quando você olha o ciclo desenhado, uma coisa fica óbvia: não existe conselho genérico que funcione, porque cada mulher tem um elo que sustenta o dela. Descobrir qual é o seu é o primeiro passo, e é gratuito: um diagnóstico de 2 minutos. Clique no link e responda.</p>
+  </div>
+
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- PÁGINA 12 · ANÚNCIOS 3 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thaina e Thiago</span><span>Página 12</span></div>
+  <div class="kicker">Seção 4 · Parte 3</div>
+  <h1 style="font-size:17pt;">Ângulo 3 · Prova e Voz Masculina</h1>
+
+  <div class="tag">Ângulo 3 · Prova e voz masculina</div>
+  <p><strong>Estratégia:</strong> autoridade pela perspectiva rara, um homem falando com ela sem julgamento.</p>
+  <p><strong>Hook:</strong> "Sou homem, e vou te contar o que a gente faz quando não quer nada sério."</p>
+
+  <div class="copy-bloco">
+    <p><strong>Copy curta:</strong> Sou homem e vou te contar sem enfeite o que acontece quando ele diz que está confuso. Não é sobre você não ser suficiente. É sobre um ciclo que se repete e tem saída. Diagnóstico gratuito de 2 minutos, no link.</p>
+    <p><strong>Copy média:</strong> A maioria dos conselhos que ela recebe vem de outras mulheres no mesmo lugar, ou de quem vende técnica de conquista. O Thiago faz diferente: é um homem explicando, sem julgamento e sem passar a mão na cabeça, o que costuma estar por trás do esfriamento, do desaparecimento e do "não quero nada sério agora". Não para ela aprender a prender ninguém, mas para parar de gastar anos decifrando o que já tem explicação. [DEPOIMENTO: mulher do perfil, em uma linha]. O diagnóstico gratuito lê o seu padrão em 2 minutos.</p>
+    <p><strong>Copy longa:</strong> Existe uma pergunta que quase toda mulher já fez em silêncio: por que ele começou assim e mudou? A resposta que ela recebe vem de amigas vivendo o mesmo, de conteúdos que ensinam a se fazer de difícil, ou de fóruns que dizem que todos são iguais. O que ela quase nunca tem é a versão franca de um homem que não está tentando conquistá-la nem defender os outros. É esse o lugar do Thiago. Ele explica, sem julgamento e sem romantizar, o que costuma estar acontecendo do outro lado: a diferença entre estar interessado e estar disponível, o que significa o esfriamento depois de duas semanas intensas, e por que o "oi sumida" funciona tão bem. E aí faz a virada que importa: mostra que o problema não é ela ser insuficiente, é um ciclo de cinco elos que se alimenta sozinho e pode ser mapeado. [DEPOIMENTO: case real com o antes e o depois]. O primeiro passo é um diagnóstico gratuito de 2 minutos. O link está aqui embaixo.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- ESTÁTICOS 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thaina e Thiago</span><span>Página 13</span></div>
+  <div class="kicker">Seção 4 · Parte 4</div>
+  <h1 style="font-size:17pt;">Os 5 Estáticos</h1>
+  <p class="lead">Formato texto sobre fundo limpo, estilo print de rede social. Funciona muito bem neste nicho porque parece desabafo, não anúncio.</p>
+
+  <div class="tag">Estático 1 · Cena</div>
+  <div class="copy-bloco">
+    <p><strong>Arte:</strong> "Ele sumiu por três semanas. Voltou com um oi sumida. E a resposta saiu em dois minutos."</p>
+    <p><strong>Legenda:</strong> Não é falta de amor próprio. É um ciclo que se alimenta sozinho, e ele tem cinco elos. Descubra em 2 minutos qual deles mantém o seu girando. Link na bio.</p>
+  </div>
+
+  <div class="tag">Estático 2 · Cena</div>
+  <div class="copy-bloco">
+    <p><strong>Arte:</strong> "A conversa relida três vezes procurando onde deu errado."</p>
+    <p><strong>Legenda:</strong> Você não errou. O roteiro é sempre o mesmo, e ele não começou em você. Existe um padrão por trás disso, e ele pode ser mapeado. Faça o diagnóstico gratuito de 2 minutos.</p>
+  </div>
+
+  <div class="tag">Estático 3 · Mecanismo</div>
+  <div class="copy-bloco">
+    <p><strong>Arte:</strong> "O ciclo tem cinco elos. Você só precisa quebrar um. Quase ninguém acerta qual."</p>
+    <p><strong>Legenda:</strong> Gatilho, reação, migalha, alívio e o elo que sustenta tudo. Cada mulher tem um elo dominante diferente, e é por isso que conselho genérico não funciona. Descubra o seu em 2 minutos.</p>
+  </div>
+
+  <div class="tag">Estático 4 · Mecanismo</div>
+  <div class="copy-bloco">
+    <p><strong>Arte:</strong> "Aprender a fazer ele correr atrás é parte do problema."</p>
+    <p><strong>Legenda:</strong> Toda técnica de conquista mira na reação dele. E o que prende a história não está nele. Enquanto a estratégia aponta para o lado errado, o padrão volta com o próximo. Faça o diagnóstico gratuito.</p>
+  </div>
+
+  <div class="tag">Estático 5 · Autoridade</div>
+  <div class="copy-bloco">
+    <p><strong>Arte:</strong> "Sou homem. Vou te contar o que a gente faz quando não quer nada sério."</p>
+    <p><strong>Legenda:</strong> Sem julgamento e sem passar a mão na cabeça de ninguém. A diferença entre estar interessado e estar disponível explica mais do que anos tentando adivinhar. Comece pelo diagnóstico gratuito de 2 minutos.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- CARROSSÉIS 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thaina e Thiago</span><span>Página 14</span></div>
+  <div class="kicker">Seção 4 · Parte 5</div>
+  <h1 style="font-size:17pt;">Os 5 Carrosséis</h1>
+  <p class="lead">Um slide por ideia, frases curtas. O último slide sempre leva ao quiz.</p>
+
+  <div class="tag">Carrossel 1 · Cena · "O roteiro que se repete"</div>
+  <div class="copy-bloco">
+    <p><strong>1.</strong> Você já viveu esse roteiro. Talvez mais de uma vez.<br>
+    <strong>2.</strong> Semana 1: ele fala do futuro. Responde rápido. Some do mundo por você.<br>
+    <strong>3.</strong> Semana 3: as respostas ficam mornas. "Tô corrido."<br>
+    <strong>4.</strong> Semana 5: você dá espaço. Ele nem percebe.<br>
+    <strong>5.</strong> Semana 7: "oi sumida". E dois dias de alívio.<br>
+    <strong>6.</strong> Semana 9: recomeça tudo. Com ele, ou com o próximo.<br>
+    <strong>7.</strong> Isso não é azar. É um ciclo de cinco elos. Descubra o seu em 2 minutos.</p>
+  </div>
+
+  <div class="tag">Carrossel 2 · Mecanismo · "Os 5 elos do Ciclo da Migalha"</div>
+  <div class="copy-bloco">
+    <p><strong>1.</strong> Existe um mecanismo por trás de toda história que não anda.<br>
+    <strong>2.</strong> Elo 1, o gatilho: a demora, o esfriamento, a frase ambígua.<br>
+    <strong>3.</strong> Elo 2, a reação: checar o celular, mandar o textão, cobrar, ou se afastar.<br>
+    <strong>4.</strong> Elo 3, a migalha: o mínimo que ele devolve e que acalma por algumas horas.<br>
+    <strong>5.</strong> Elo 4, o alívio: o cérebro aprende que aquilo funcionou.<br>
+    <strong>6.</strong> Elo 5: o ponto onde o seu ciclo se prende com mais força.<br>
+    <strong>7.</strong> Quebrar o elo errado não muda nada. Descubra qual é o seu.</p>
+  </div>
+
+  <div class="tag">Carrossel 3 · Mecanismo · "Por que nada disso funcionou"</div>
+  <div class="copy-bloco">
+    <p><strong>1.</strong> Coisas que você já tentou, e por que não duraram.<br>
+    <strong>2.</strong> Despertar a energia feminina: mira na reação dele.<br>
+    <strong>3.</strong> Virar a mulher de alto valor: mira na reação dele.<br>
+    <strong>4.</strong> Se fazer de difícil: continua esperando a migalha, só que em silêncio.<br>
+    <strong>5.</strong> Terapia ajuda, mas trabalha em outro tempo e em outro lugar.<br>
+    <strong>6.</strong> O que faltou foi o mapa: o desenho do seu ciclo específico.<br>
+    <strong>7.</strong> São 2 minutos para ver o seu.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- CARROSSÉIS 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thaina e Thiago</span><span>Página 15</span></div>
+  <div class="kicker">Seção 4 · Parte 5</div>
+  <h1 style="font-size:17pt;">Carrosséis 4 e 5</h1>
+
+  <div class="tag">Carrossel 4 · Cena · "As frases que você já disse pra si mesma"</div>
+  <div class="copy-bloco">
+    <p><strong>1.</strong> Cinco frases que quase toda mulher já disse pra si mesma.<br>
+    <strong>2.</strong> "Talvez eu esteja cobrando demais."<br>
+    <strong>3.</strong> "Vou dar mais um tempo, ele tá numa fase."<br>
+    <strong>4.</strong> "Ruim com ele, pior sem ele."<br>
+    <strong>5.</strong> "Depois dos 40 é mais difícil mesmo."<br>
+    <strong>6.</strong> "Pelo menos ele voltou."<br>
+    <strong>7.</strong> Nenhuma delas é sobre você ser demais ou de menos. São sintomas de um ciclo. Veja o seu em 2 minutos.</p>
+  </div>
+
+  <div class="tag">Carrossel 5 · Autoridade · "Tradução"</div>
+  <div class="copy-bloco">
+    <p><strong>1.</strong> Sou homem. Deixa eu traduzir algumas frases pra você.<br>
+    <strong>2.</strong> "Tô sem cabeça pra relacionamento agora": ele está disponível, não interessado.<br>
+    <strong>3.</strong> "Você merece alguém melhor": ele já decidiu, só não quer ser o vilão.<br>
+    <strong>4.</strong> "A gente se fala": não vai.<br>
+    <strong>5.</strong> "Oi sumida": o mínimo de esforço para manter a porta aberta.<br>
+    <strong>6.</strong> Nada disso é sobre o seu valor. É sobre o quanto ele está disposto a fazer.<br>
+    <strong>7.</strong> E o que te prende nessa espera tem nome. Descubra em 2 minutos.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Observação de produção</div>
+    <p>Os carrosséis podem ser feitos em <strong>texto sobre fundo liso</strong>, sem depender de gravação. É o formato mais rápido de produzir e o que vocês podem colocar no ar primeiro, enquanto os vídeos são gravados.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- VÍDEOS 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thaina e Thiago</span><span>Página 16</span></div>
+  <div class="kicker">Seção 4 · Parte 6</div>
+  <h1 style="font-size:17pt;">Os 10 Vídeos · roteiros 1 a 4</h1>
+  <p class="lead">Talking head do Thiago, vertical, de 30 a 60 segundos. O hook precisa segurar nos primeiros 3 segundos.</p>
+
+  <div class="tag">Vídeo 1 · Cena</div>
+  <div class="copy-bloco">
+    <p><strong>Hook:</strong> "Ele sumiu, voltou com um oi sumida, e você respondeu na hora. Deixa eu te explicar o que aconteceu aí."</p>
+    <p><strong>Desenvolvimento:</strong> não foi fraqueza. Foi alívio. Você passou semanas em alerta, e aquele mínimo de atenção desligou o alarme. O seu cérebro registrou que esperar funcionou. É assim que o ciclo se fecha mais forte a cada volta.</p>
+    <p><strong>CTA:</strong> "Tem um diagnóstico gratuito de 2 minutos que mostra qual elo mantém o seu ciclo girando. Link aqui embaixo."</p>
+  </div>
+
+  <div class="tag">Vídeo 2 · Cena</div>
+  <div class="copy-bloco">
+    <p><strong>Hook:</strong> "Se o começo foi intenso demais, preste atenção no que costuma vir depois."</p>
+    <p><strong>Desenvolvimento:</strong> quando alguém chega falando de futuro na primeira semana, nem sempre é sobre você. Às vezes é sobre a empolgação dele, que passa. E aí você fica tentando recuperar uma versão dele que durou 15 dias.</p>
+    <p><strong>CTA:</strong> convite para o diagnóstico.</p>
+  </div>
+
+  <div class="tag">Vídeo 3 · Cena</div>
+  <div class="copy-bloco">
+    <p><strong>Hook:</strong> "Duas da manhã, celular na mão, escrevendo um textão que você vai apagar."</p>
+    <p><strong>Desenvolvimento:</strong> esse textão não é sobre ele entender você. É sobre você aliviar uma ansiedade que está insuportável. E é por isso que, quando ele responde qualquer coisa, passa. O problema é que o alívio ensina o ciclo a continuar.</p>
+    <p><strong>CTA:</strong> convite para o diagnóstico.</p>
+  </div>
+
+  <div class="tag">Vídeo 4 · Cena</div>
+  <div class="copy-bloco">
+    <p><strong>Hook:</strong> "Você resolveu a sua vida inteira. Só essa parte não obedece."</p>
+    <p><strong>Desenvolvimento:</strong> carreira, casa, filhos, as amigas te pedem conselho. E na vida amorosa se repete a mesma história com nomes diferentes. Isso não é contradição: é que ninguém nunca te mostrou esse mecanismo por dentro.</p>
+    <p><strong>CTA:</strong> convite para o diagnóstico.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- VÍDEOS 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thaina e Thiago</span><span>Página 17</span></div>
+  <div class="kicker">Seção 4 · Parte 6</div>
+  <h1 style="font-size:17pt;">Roteiros 5 a 7 · mecanismo</h1>
+
+  <div class="tag">Vídeo 5 · Mecanismo</div>
+  <div class="copy-bloco">
+    <p><strong>Hook:</strong> "Existem cinco elos nesse ciclo. Você só precisa quebrar um, e quase ninguém acerta qual."</p>
+    <p><strong>Desenvolvimento:</strong> gatilho, reação, migalha, alívio, e o elo que sustenta tudo. A maioria tenta atacar a reação: "não vou mais responder rápido". Só que se o elo dominante for outro, você só troca o sintoma de lugar.</p>
+    <p><strong>CTA:</strong> "O diagnóstico gratuito identifica qual é o seu elo dominante. São 2 minutos."</p>
+  </div>
+
+  <div class="tag">Vídeo 6 · Mecanismo</div>
+  <div class="copy-bloco">
+    <p><strong>Hook:</strong> "Aprender a fazer ele correr atrás é o que mantém o ciclo girando. Deixa eu te mostrar por quê."</p>
+    <p><strong>Desenvolvimento:</strong> se fazer de difícil é esperar a migalha em silêncio. Você continua na mesma posição, só que fingindo que não está. E quando ele volta, o alívio é o mesmo, e o ciclo aperta igual.</p>
+    <p><strong>CTA:</strong> convite para o diagnóstico.</p>
+  </div>
+
+  <div class="tag">Vídeo 7 · Mecanismo</div>
+  <div class="copy-bloco">
+    <p><strong>Hook:</strong> "Migalha não é o que ele te dá. É o que você aceita como prova de que está tudo bem."</p>
+    <p><strong>Desenvolvimento:</strong> para uma mulher é uma resposta depois de horas. Para outra, um story visto. Para outra, um "bom dia" depois de uma semana. O tamanho da migalha diz muito sobre onde o seu ciclo está preso.</p>
+    <p><strong>CTA:</strong> convite para o diagnóstico.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Régua de compliance ao gravar</div>
+    <p>Sempre <strong>descrever a cena</strong> ("tem uma conversa que sempre acaba do mesmo jeito"), nunca afirmar o que ela é ("você é carente"). E nunca prometer relacionamento como resultado. Vale para a fala e para a legenda.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- VÍDEOS 3 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thaina e Thiago</span><span>Página 18</span></div>
+  <div class="kicker">Seção 4 · Parte 6</div>
+  <h1 style="font-size:17pt;">Roteiros 8 a 10 · voz masculina</h1>
+
+  <div class="tag">Vídeo 8 · Autoridade</div>
+  <div class="copy-bloco">
+    <p><strong>Hook:</strong> "Sou homem, e vou te contar o que geralmente está por trás do esfriamento depois de duas semanas intensas."</p>
+    <p><strong>Desenvolvimento:</strong> na maioria das vezes não é outra pessoa e não é algo que você fez. É que a empolgação inicial passou e ele descobriu que não queria o que estava prometendo. O silêncio é mais confortável para ele do que a conversa difícil.</p>
+    <p><strong>CTA:</strong> "Se isso se repete nas suas histórias, o diagnóstico gratuito mostra o padrão. 2 minutos."</p>
+  </div>
+
+  <div class="tag">Vídeo 9 · Autoridade</div>
+  <div class="copy-bloco">
+    <p><strong>Hook:</strong> "Existe uma diferença entre um homem interessado e um homem disponível. E ela muda tudo."</p>
+    <p><strong>Desenvolvimento:</strong> disponível é quem aparece quando é conveniente. Interessado é quem organiza a vida para caber você. Quando a gente confunde os dois, passa meses esperando que o disponível vire interessado. E isso não acontece por insistência.</p>
+    <p><strong>CTA:</strong> convite para o diagnóstico.</p>
+  </div>
+
+  <div class="tag">Vídeo 10 · Autoridade</div>
+  <div class="copy-bloco">
+    <p><strong>Hook:</strong> "Você não é carente. Você está presa num padrão que se alimenta sozinho. Tem diferença."</p>
+    <p><strong>Desenvolvimento:</strong> carência é um julgamento, e não explica nada. Padrão é um mecanismo, e mecanismo se desmonta. É por isso que eu não trabalho com conselho: eu desenho o ciclo, mostro onde ele se sustenta e o que fazer no próximo gatilho.</p>
+    <p><strong>CTA:</strong> "Comece pelo diagnóstico gratuito. Link aqui embaixo."</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Ordem de produção sugerida</div>
+    <p>Comece pelos <strong>vídeos 1, 5 e 8</strong> (um de cada ângulo). São os que mais se aproximam do que já viralizou no perfil. Com o resultado deles, você sabe qual ângulo merece mais volume nos próximos.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- PÁGINA · HEADLINES E HOOKS -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thaina e Thiago</span><span>Página 19</span></div>
+  <div class="kicker">Seção 4 · Parte 7</div>
+  <h1 style="font-size:17pt;">Headlines e Hooks para Teste</h1>
+
+  <div class="passo-label">10 headlines para teste A/B</div>
+  <ul class="check">
+    <li>Começa intenso, esfria do nada, e volta com um oi sumida</li>
+    <li>O problema não é ele. E não é você. É o ciclo</li>
+    <li>Existe um padrão que se repete nas suas relações, e ele tem nome</li>
+    <li>Aprender a fazer ele correr atrás é parte do problema</li>
+    <li>Não é falta de amor próprio. É o elo errado</li>
+    <li>A conversa relida três vezes procurando onde deu errado</li>
+    <li>De ser escolhida para a que escolhe</li>
+    <li>Resolveu a vida inteira, menos essa parte</li>
+    <li>O que um homem tem a dizer sobre o oi sumida</li>
+    <li>Descubra em 2 minutos qual ciclo trava a sua vida amorosa</li>
+  </ul>
+
+  <div class="passo-label">5 hooks para vídeo (na voz do Thiago)</div>
+  <ul class="check">
+    <li>"Sou homem, e vou te contar o que geralmente está por trás do esfriamento depois de duas semanas intensas."</li>
+    <li>"Se ele volta sempre que você começa a se afastar, isso tem explicação, e não é sobre amor."</li>
+    <li>"Aprender a fazer ele correr atrás é o que mantém o ciclo girando. Deixa eu te mostrar por quê."</li>
+    <li>"Existem cinco elos nesse ciclo. Você só precisa quebrar um, e quase ninguém acerta qual."</li>
+    <li>"Você não é carente. Você está presa num padrão que se alimenta sozinho. Tem diferença."</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Estrutura de largada da campanha</div>
+    <p><strong>20 criativos na largada: 5 estáticos, 5 carrosséis e 10 vídeos.</strong> Todos escritos nas páginas anteriores, distribuídos entre os três ângulos (cena, mecanismo e voz masculina).</p>
+    <p>O peso maior em vídeo é proposital: é o formato que já viralizou no perfil do Thiago e o que mais performa neste nicho. Estáticos e carrosséis entram primeiro, porque não dependem de gravação e podem subir enquanto os vídeos são produzidos.</p>
+    <p>Investimento inicial de <strong>R$ 80 a 90 por dia</strong>, financiado pelas primeiras sessões vendidas. Volume alto na largada para a Meta encontrar o criativo vencedor rápido.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- PÁGINA 13 · CADÊNCIA 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thaina e Thiago</span><span>Página 20</span></div>
+  <div class="sec-header">
+    <div class="fk">Seção 5 · Parte 1</div>
+    <h2>Cadência de Atendimento · 12 dias</h2>
+    <div class="fd">Na voz da Thaina. O objetivo é acolher, qualificar e vender a sessão.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Regra de tom neste nicho</div>
+    <p>O assunto é íntimo e ela pode estar com vergonha de estar naquela situação. Nada de cobrança com culpa, nada de urgência artificial. <strong>Discrição sempre:</strong> nunca escrever nada que fique ruim se alguém ler a tela dela por cima do ombro.</p>
+    <p>O preço entra <strong>depois do acolhimento</strong>, nunca na primeira mensagem. Primeiro se constrói a relação, depois se fala de valor.</p>
+  </div>
+
+  <ul class="check">
+    <li><strong>Dia 1 (chegada):</strong> {{nome}}, aqui é a Thaina, do time do Thiago. Vi que você fez o diagnóstico e seu resultado foi {{padrão}}. Me conta um pouco: como está sendo isso aí para você agora?</li>
+    <li><strong>Dia 1 (depois da resposta dela):</strong> escutar de verdade antes de ofertar. Devolver o padrão com as palavras dela e só então explicar a sessão.</li>
+    <li><strong>Dia 2 (a oferta):</strong> funciona assim: são 60 minutos individuais com o Thiago, ele estuda o seu caso antes, monta o seu Mapa do Ciclo com você e te manda o mapa escrito mais a gravação. O investimento é R$ 1.000, à vista ou em 12x. Quer que eu te mande o link?</li>
+    <li><strong>Dia 3:</strong> te deixei o link guardado aqui. Qualquer dúvida antes de decidir, é só me perguntar.</li>
+    <li><strong>Dia 4 (valor):</strong> uma coisa sobre o seu caso: com o gatilho {{gatilho}}, o ponto de virada normalmente não é o que a maioria tenta primeiro. É por isso que a sessão começa pelo mapa, e não por conselho genérico.</li>
+    <li><strong>Dia 5 (ligação):</strong> tentativa de ligação e depois mensagem. Ligar funciona muito bem aqui: a voz humaniza um assunto delicado.</li>
+    <li><strong>Dia 6 (prova):</strong> [DEPOIMENTO curto de mulher do perfil]. Enquanto não houver depoimento, usar um recorte de conteúdo do Thiago que fale do elo dela.</li>
+  </ul>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- PÁGINA 14 · CADÊNCIA 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thaina e Thiago</span><span>Página 21</span></div>
+  <div class="kicker">Seção 5 · Parte 2</div>
+  <h1 style="font-size:17pt;">Cadência: dias 7 a 12 e os níveis</h1>
+
+  <ul class="check">
+    <li><strong>Dia 7 (objeção de preço):</strong> se o valor é a questão, dá para dividir em 12x. E vale a conta: quanto tempo você já passou tentando entender isso sozinha?</li>
+    <li><strong>Dia 8 (implicação):</strong> uma pergunta honesta, {{nome}}: se nada mudar, você imagina essa mesma história daqui a dois anos? Se a resposta incomodou, é exatamente por isso que a sessão existe.</li>
+    <li><strong>Dia 9 (áudio do Thiago):</strong> áudio curto do próprio Thiago: "{{nome}}, Thiago aqui. Li o que você respondeu e te falo com sinceridade: o seu caso tem um padrão bem identificável, e é bom que dá para agir nele. Se quiser, a gente senta uma hora e eu te mostro o mapa inteiro."</li>
+    <li><strong>Dia 10:</strong> abriram horários para a semana que vem. Quer que eu segure um para você?</li>
+    <li><strong>Dia 11 (ligação):</strong> segunda tentativa de ligação, depois mensagem curta.</li>
+    <li><strong>Dia 12 (encerramento):</strong> {{nome}}, vou parar de te escrever para não ser inconveniente. Seu diagnóstico fica salvo e essa conversa fica aberta: se um dia quiser fazer a sessão, é só me chamar. Te desejo o melhor, de verdade.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Os cinco níveis</div>
+    <p><strong>N1 não respondeu:</strong> cadência completa acima.</p>
+    <p><strong>N2 engajou e parou:</strong> retomar pelo conteúdo do elo dela, nunca pela cobrança.</p>
+    <p><strong>N3 adia por preço:</strong> oferecer o 12x de forma explícita. Se ainda travar, nutrir para o low ticket quando ele voltar. <strong>Nunca dar desconto na sessão.</strong></p>
+    <p><strong>N4 comprou e não agendou:</strong> cobrar o formulário de preparação com gentileza e insistência. Sem formulário, o horário não é confirmado.</p>
+    <p><strong>N5 fez a sessão:</strong> enviar mapa e gravação em até 48h, pedir depoimento em 3 a 5 dias e apresentar a continuidade. É o grupo mais quente que existe.</p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Alerta operacional</div>
+    <p>A Meta bloqueou o número de vocês numa abordagem recente. <strong>Antes de escalar o volume de mensagens, rodar o processo de aquecimento de chip</strong> que o Carlos enviou. Com o funil no ar o volume sobe rápido, e um número bloqueado no meio da operação para a venda.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- PÁGINA 15 · RECOMENDAÇÕES 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thaina e Thiago</span><span>Página 22</span></div>
+  <div class="sec-header">
+    <div class="fk">Seção 6 · Parte 1</div>
+    <h2>Recomendações Estratégicas</h2>
+    <div class="fd">O que a Simple recomenda além da copy.</div>
+  </div>
+
+  <div class="passo-label">Sobre a arquitetura do funil</div>
+  <p>Levar o quiz para uma página de conteúdo e não para um checkout é a decisão certa neste momento, por três motivos: o ticket de R$ 1.000 exige consideração, não existe prova social ainda, e o tema é íntimo o bastante para a mulher precisar de contato humano antes de decidir. O ganho extra é operacional: <strong>as objeções reais aparecem no WhatsApp</strong>, e cada uma delas volta como melhoria no quiz e na página.</p>
+
+  <div class="passo-label">Sobre a agenda do Thiago</div>
+  <p>Cobrar pela sessão resolve o maior risco do projeto. Se ela fosse gratuita, 30 vendas por mês exigiriam cerca de 100 horas de agenda só em conversas de venda. Cobrando, <strong>só entra na agenda quem já investiu</strong>, o comparecimento sobe e a sessão financia a própria mídia. Trinta sessões por mês são de 7 a 8 por semana, o que cabe.</p>
+
+  <div class="passo-label">Sobre o preço</div>
+  <p>R$ 1.000 por 60 minutos individuais com preparação prévia e material escrito é coerente. A ancoragem certa não é contra cursos de R$ 97 a R$ 997, é contra <strong>anos de tentativa e erro mais o custo de cada recomeço errado</strong>. O 12x resolve a maior parte da objeção. Vale avaliar uma <strong>garantia de satisfação</strong>: em venda por conversa, a garantia derruba o risco percebido, e o acionamento costuma ser baixo quando a entrega é boa.</p>
+
+  <div class="passo-label">Sobre a continuidade</div>
+  <p>A decisão por <strong>mentoria em grupo</strong> no lugar de comunidade está certa para o momento: permite ticket maior e exige menos manutenção diária. Comunidade só se paga com volume grande de assinantes (as referências do nicho cobram de R$ 97 a R$ 197 por mês), e o perfil ainda não tem essa escala. O desenho da mentoria deve esperar as primeiras dezenas de sessões: <strong>é a vivência com as clientes que vai dizer qual é o próximo passo natural delas.</strong></p>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- PÁGINA 16 · RECOMENDAÇÕES 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thaina e Thiago</span><span>Página 23</span></div>
+  <div class="kicker">Seção 6 · Parte 2</div>
+  <h1 style="font-size:17pt;">Recomendações Estratégicas</h1>
+
+  <div class="passo-label">Sobre o conteúdo orgânico</div>
+  <p>O crescimento de 1.500 seguidores por dia é o maior ativo do projeto agora, e ele resolve a falta de prova social por outro caminho: autoridade. O ajuste necessário é o que a Thaina já identificou: <strong>somar conteúdo de meio de funil</strong> ao topo que já viraliza. Conteúdo que nomeia o Ciclo da Migalha, explica os elos e convida para o quiz. Sem isso, a audiência cresce e não converte.</p>
+
+  <div class="passo-label">Sobre compliance e mídia</div>
+  <p>Este é o nicho onde a Meta mais reprova criativo, por afirmação de atributo pessoal e promessa de resultado afetivo. A régua para gravar e escrever: <strong>descrever a cena, nunca acusar a pessoa</strong>. Como o clique vai para o quiz gratuito, o anúncio não cita preço, o que também ajuda na aprovação.</p>
+  <p>A métrica que importa aqui não é CPL: é <strong>custo por sessão vendida</strong>. Com ticket de R$ 1.000, a régua saudável é abaixo de R$ 250. Lead barato que não responde no WhatsApp é o pior negócio possível.</p>
+
+  <div class="passo-label">Sobre o comercial</div>
+  <p>Hoje a Thaina concentra o atendimento sozinha, e esse é o gargalo previsível. A recomendação é acompanhar o volume de conversas por semana na planilha de indicadores e <strong>tomar a decisão de contratar apoio comercial no dia 30</strong>, não no dia 60. Registrar apenas os pagamentos efetivamente recebidos, como combinado.</p>
+
+  <div class="box-dark">
+    <div class="bt">Os três ativos que ninguém copia</div>
+    <p><strong>A voz masculina franca do Thiago</strong>, que nenhuma concorrente mulher consegue reproduzir. <strong>O vilão nomeado</strong>, que o mercado reconhece e ninguém registrou. E a <strong>experiência de bastidor da Thaina</strong>, que dá ao projeto uma estrategista de verdade dentro de casa.</p>
+    <p>A prova social é o que mais falta. Cada depoimento de mulher do perfil vale mais que qualquer criativo novo.</p>
+  </div>
+
+  <div class="footer-note">Estratégia Completa · Thaina Elvira e Thiago · Funil de Lead Dinâmico · Versão 1.0</div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+</body>
+</html>

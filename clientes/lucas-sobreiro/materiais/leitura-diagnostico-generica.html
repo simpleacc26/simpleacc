@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>O diagnóstico da sua clínica · Método BIO</title>
+<!--
+  Leitura/diagnóstico GENÉRICO do Lucas Sobreiro (pro SDR enviar no WhatsApp).
+  Sem nome do lead, mesma peça pra todos. Identidade Método BIO (creme + espresso
+  + vinho terracota, serifa editorial). Regras: sem travessão, sem sombra, sem
+  nome do lead. Botões usam data-wa (o gerador vira link wa.me). Depoimentos reais do
+  funil, embutidos pelo gerador.
+-->
+<style>
+  :root{
+    /* ==== Paleta Método BIO (Lucas Sobreiro), puxada do styles.css do funil ==== */
+    --bg:#F1ECE4;            /* creme quente (fundo) */
+    --surface:#FBF8F3;       /* cartões (off-white quente) */
+    --text:#2A2420;          /* espresso quase preto (texto) */
+    --muted:#7C7266;         /* texto secundário (taupe) */
+    --primary:#8C3B34;       /* vinho terracota da marca */
+    --primary-700:#6B2A25;   /* vinho escuro (realce) */
+    --accent-soft:#EEE3DA;   /* champagne quente (pílulas/box bom) */
+    --border:#E4DACE;        /* bordas */
+    --err:#B4452B;           /* coluna "modelo atual" */
+    --action:#2A2420;        /* botão (espresso) */
+    --on-action:#FBF6EC;     /* texto do botão (creme) */
+    /* ========================================================================== */
+    --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,"Hoefler Text",Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{ background:var(--bg); color:var(--text); font-family:var(--sans); font-size:16.5px; line-height:1.62; -webkit-font-smoothing:antialiased; }
+  .wrap{ padding:34px 30px 38px; }
+  p{ margin:0 0 15px; }
+  strong{ color:var(--primary-700); }
+  h1,h2,h3,h4{ font-family:var(--serif); color:var(--text); margin:0; }
+
+  .brand{ text-align:center; padding-bottom:18px; border-bottom:1px solid var(--border); margin-bottom:8px; }
+  .brand .name{ font-family:var(--serif); font-size:22px; font-weight:700; color:var(--primary-700); letter-spacing:.16em; text-transform:uppercase; }
+  .brand .tag{ font-family:var(--sans); font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin-top:6px; }
+  .selo{ display:inline-block; margin:22px auto 10px; font-family:var(--sans); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--primary-700); background:var(--accent-soft); border-radius:999px; padding:5px 13px; }
+  h1.title{ font-size:28px; line-height:1.16; margin:2px 0 8px; }
+  .sub{ color:var(--muted); font-size:14px; margin:0 0 4px; }
+
+  .sec{ margin-top:24px; }
+  .sec h3{ font-size:19.5px; line-height:1.25; color:var(--primary-700); margin-bottom:10px; }
+  .intro{ font-size:17px; }
+
+  .compare{ display:flex; flex-direction:column; gap:12px; margin-top:6px; }
+  .col{ border-radius:16px; padding:16px 17px; }
+  .col h4{ font-size:16px; margin-bottom:9px; }
+  .col ul{ margin:0; padding-left:18px; }
+  .col li{ margin:5px 0; font-size:15px; }
+  .col.bad{ background:#F1E7DD; border:1px solid var(--border); }
+  .col.bad h4{ color:var(--err); }
+  .col.good{ background:var(--accent-soft); border:1px solid #D8C0BA; }
+  .col.good h4{ color:var(--primary-700); }
+
+  ol.metodo{ margin:6px 0 10px; padding-left:20px; }
+  ol.metodo li{ margin:9px 0; }
+  .hint{ color:var(--muted); font-size:14px; }
+
+  /* Botão CTA (link real wa.me, montado pelo gerador). Sem sombra de propósito. */
+  .cta{ margin:22px 0 6px; }
+  a.btn{ display:block; text-decoration:none; text-align:center; background:var(--action); color:var(--on-action); font-family:var(--sans); font-weight:700; font-size:16px; padding:16px 18px; border-radius:14px; letter-spacing:.01em; }
+  .cta .under{ text-align:center; color:var(--muted); font-size:12.5px; margin:9px 4px 0; }
+
+  .depo{ display:flex; flex-direction:column; gap:13px; margin-top:8px; }
+  .depo img{ width:100%; height:auto; border-radius:14px; border:1px solid var(--border); display:block; }
+
+  .cta-box{ margin-top:28px; background:var(--surface); border:1px solid var(--border); border-radius:18px; padding:22px 20px; }
+  .cta-box h2{ font-size:22px; margin-bottom:10px; }
+
+  .foot{ margin-top:28px; padding-top:16px; border-top:1px solid var(--border); text-align:center; color:var(--muted); font-size:12.5px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brand">
+    <div class="name">Método BIO</div>
+    <div class="tag">por Lucas Sobreiro</div>
+  </div>
+
+  <div style="text-align:center"><span class="selo">Diagnóstico da clínica</span></div>
+  <h1 class="title">O diagnóstico da sua clínica</h1>
+  <p class="sub">Uma leitura do momento da sua clínica, e do próximo passo mais lucrativo.</p>
+
+  <div class="sec">
+    <p class="intro">Olá! Que bom que você chegou até aqui.</p>
+    <p>Se você fez o diagnóstico, é porque sente que a sua clínica pode ir além do
+    ponto em que está hoje. Olhei com atenção o cenário que costuma aparecer, e
+    preparei essa leitura pra te mostrar, com honestidade, o que trava o
+    crescimento da clínica que atende bem. E, principalmente, que existe caminho.</p>
+  </div>
+
+  <div class="sec">
+    <h3>Antes de tudo</h3>
+    <p>Quero começar por uma coisa que talvez ninguém tenha te dito:
+    <strong>o que trava a sua clínica não é falta de esforço, nem falta de
+    competência técnica.</strong> Tem uma explicação, e tem caminho.</p>
+  </div>
+
+  <div class="sec">
+    <h3>O cenário da sua clínica hoje</h3>
+    <p>Se a sua clínica atende bem mas o lucro não corresponde, se o faturamento
+    cresceu e travou num patamar, ou se quase tudo ainda depende de você, saiba
+    que esse padrão se repete em quase todas as clínicas que chegam até a gente.</p>
+    <p>Pode durar meses ou anos, e já vem custando caro no seu dia a dia.
+    <strong>E isso tem uma explicação.</strong></p>
+  </div>
+
+  <div class="sec">
+    <h3>Por que não destravou até agora</h3>
+    <p>Você provavelmente já tentou de tudo: mais tráfego, mais curso, contratar
+    mais gente. E, mesmo assim, o crescimento não veio.</p>
+    <p>Faz sentido. A maioria das saídas mira em atrair mais paciente ou aperfeiçoar
+    a técnica. Só que o gargalo da clínica que atende bem e lucra pouco quase nunca
+    é técnica, <strong>é processo comercial.</strong> O paciente elogia, "vai
+    pensar" e some; o orçamento vai embora sem follow-up; a agenda tem buraco. Não
+    é falta de esforço seu; é a alavanca que ninguém te ensinou a puxar.</p>
+  </div>
+
+  <div class="sec">
+    <h3>Dois caminhos lado a lado</h3>
+    <div class="compare">
+      <div class="col bad">
+        <h4>Continuar no modelo atual</h4>
+        <ul>
+          <li>Trabalhar mais horas</li>
+          <li>Mais cadeira, mais plantão</li>
+          <li>Crescimento que depende de você</li>
+          <li>O teto sempre volta</li>
+        </ul>
+      </div>
+      <div class="col good">
+        <h4>Trocar o modelo (como fazemos aqui)</h4>
+        <ul>
+          <li>Instala processo comercial</li>
+          <li>A clínica passa a vender, não só atender</li>
+          <li>Dono no estratégico, não no operacional</li>
+          <li>Crescimento com previsibilidade</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <a class="btn" data-wa="Olá! Fiz o diagnóstico da minha clínica e quero falar sobre a Sessão Estratégica.">Quero dar o próximo passo</a>
+    <p class="under">Se já fez sentido pra você, é só tocar aqui.</p>
+  </div>
+
+  <div class="sec">
+    <h3>Como o método trabalha</h3>
+    <p>Uma mentoria de evolução empresarial que transforma o dono operacional em
+    líder estratégico, em três frentes:</p>
+    <ol class="metodo">
+      <li><strong>Vendas:</strong> a clínica aprende a vender, no dono ou em quem atende, com processo e não no improviso.</li>
+      <li><strong>Produtividade:</strong> gestão do tempo, delegação e priorização para você sair do operacional.</li>
+      <li><strong>Autoliderança:</strong> a mentalidade que sustenta cobrar o seu preço e crescer com consistência.</li>
+    </ol>
+    <p class="hint">É um processo com método e acompanhamento. A clínica que fatura 30 mil está a um processo comercial de dobrar.</p>
+  </div>
+
+  <div class="sec">
+    <h3>O que precisa acontecer agora</h3>
+    <p>O caminho começa por uma <strong>Sessão Estratégica</strong>: uma leitura
+    completa do momento da sua clínica e o desenho do próximo passo mais lucrativo.
+    Você sai dela com clareza do que está travando e do que fazer.</p>
+    <p>O que você quer para a sua clínica é totalmente possível. A gente faz isso todos os dias.</p>
+  </div>
+
+  <div class="cta">
+    <a class="btn" data-wa="Olá! Quero agendar minha Sessão Estratégica.">Quero agendar minha Sessão Estratégica</a>
+    <p class="under">Atendimento online para todo o Brasil, individual e confidencial.</p>
+  </div>
+
+  <div class="sec">
+    <h3>Quem já viveu isso</h3>
+    <p>Donos de clínica e empresários que pararam de só trabalhar mais e foram na causa:</p>
+    <div class="depo">
+      <img src="../funis/funil-quiz-clinica/depoimentos/01-paula-xavier-dentista.webp" alt="Depoimento de cliente do Lucas Sobreiro">
+      <img src="../funis/funil-quiz-clinica/depoimentos/05-endrigo-g.webp" alt="Depoimento de cliente do Lucas Sobreiro">
+      <img src="../funis/funil-quiz-clinica/depoimentos/03-carlos-eduardo.webp" alt="Depoimento de cliente do Lucas Sobreiro">
+      <img src="../funis/funil-quiz-clinica/depoimentos/02-ana-paula.webp" alt="Depoimento de cliente do Lucas Sobreiro">
+      <img src="../funis/funil-quiz-clinica/depoimentos/08-marcia-c-2.webp" alt="Depoimento de cliente do Lucas Sobreiro">
+      <img src="../funis/funil-quiz-clinica/depoimentos/09-alejandro-junho.webp" alt="Depoimento de cliente do Lucas Sobreiro">
+    </div>
+    <p class="hint">O que essas histórias têm em comum: pararam de só trabalhar mais e instalaram método no negócio.</p>
+  </div>
+
+  <div class="cta-box">
+    <h2>O próximo passo</h2>
+    <p>Dar o primeiro passo é simples, e no seu tempo. Se essa leitura fez sentido
+    pra você, é só tocar no botão que a gente já organiza tudo.</p>
+    <div class="cta" style="margin-bottom:0">
+      <a class="btn" data-wa="Olá! Fiz o diagnóstico da minha clínica e quero agendar minha Sessão Estratégica.">Falar com a equipe e agendar</a>
+    </div>
+  </div>
+
+  <div class="foot">
+    Método BIO · por Lucas Sobreiro<br>
+    Atendimento online para todo o Brasil
+  </div>
+
+</div>
+</body>
+</html>
