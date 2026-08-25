@@ -466,6 +466,19 @@ var P = {
       {t:"Quase nenhuma, preciso de aprovação", pt:0},
       {t:"Nenhuma", pt:0}
     ]},
+  // A P8 do caminho B. Mesma função de qualificador que a do caminho A, mas
+  // outra pergunta: no A é o tamanho da empresa, aqui é quanta gente responde
+  // para esta pessoa. Vem antes da remuneração, como a especificação pede.
+  // A pontuação também está aqui sem entrar no corte, à espera da régua.
+  bColab:{ id:"P8", titulo:"Quantos colaboradores estão sob sua responsabilidade?",
+    ops:[
+      {t:"Mais de 30", pt:10},
+      {t:"Entre 16 e 30", pt:8},
+      {t:"Entre 11 e 15", pt:6},
+      {t:"Entre 05 e 10", pt:4},
+      {t:"Entre 1 e 4", pt:2},
+      {t:"Nenhum", pt:0}
+    ]},
   b7:{ id:"P7", titulo:"Qual é a sua remuneração média mensal?",
     ops:[
       {t:"Até R$ 5.000", pt:1},
@@ -556,7 +569,12 @@ function payload(){
     caminho: R.via,
     cargo: R._p0 || "",
     setor: R._p1 || "",
-    colaboradores: R._aColab || "",   // só o caminho A responde; B vem vazio
+    // A P8 dos dois caminhos, em campos separados porque a pergunta é outra:
+    // no A é o tamanho da empresa, no B é o time que responde para a pessoa.
+    // Cada lead preenche um e deixa o outro vazio, como já acontece com
+    // faturamento/margem contra autonomia/remuneração.
+    colaboradores: R._aColab || "",
+    colaboradores_sob_responsabilidade: R._bColab || "",
     faturamento: R._a6 || "",
     margem: R._a7 || "",
     autonomia: R._b6 || "",
@@ -569,7 +587,7 @@ function payload(){
       P4: R._p4 || "", P5: R._p5 || "",
       P6: (R.via === "A" ? R._a6 : R._b6) || "",
       P7: (R.via === "A" ? R._a7 : R._b7) || "",
-      P8: R._aColab || ""
+      P8: (R.via === "A" ? R._aColab : R._bColab) || ""
     }
   };
 }
@@ -610,21 +628,37 @@ var R = {};      // respostas
 var seq = [];    // sequência de telas percorrida
 var i = 0;       // índice atual
 
+// As seis primeiras são iguais para todo mundo; da sétima em diante o caminho
+// escolhido na pergunta 1 decide o resto. Acrescentar ou tirar pergunta é mexer
+// só aqui e no dicionário P — nenhum número de pergunta está escrito à mão.
+var BASE = ["p0","p1","p2","p3","p4","p5"];
+var CAMINHOS = {
+  A: ["aColab","a6","a7"],   // dono ou sócio: porte, faturamento, margem
+  B: ["b6","bColab","b7"]    // executivo: autonomia, equipe, remuneração
+};
+
 function ordem(){
-  var base = ["p0","p1","p2","p3","p4","p5"];
-  if(R.P0 === undefined) return base.concat(["contato"]);
-  return base.concat(R.via === "A" ? ["aColab","a6","a7"] : ["b6","b7"], ["contato"]);
+  if(R.P0 === undefined) return BASE.concat(["contato"]);
+  return BASE.concat(CAMINHOS[R.via], ["contato"]);
 }
 
-// Quantas perguntas o caminho tem, sem contar a tela de contato. Os dois
-// caminhos têm tamanhos diferentes (A tem a de colaboradores), então o total
-// só existe depois da primeira resposta — que é justamente a que decide o
-// caminho. Por isso a primeira tela não mostra "de N": mostrar 8 ali e 9 na
-// tela seguinte é pior do que não prometer número nenhum.
-function totalPerguntas(){ return ordem().length - 1; }
+// Quantas perguntas o caminho tem, sem contar a tela de contato.
+//
+// Na primeira tela o caminho ainda não foi escolhido, e aí vale o maior dos
+// dois. Hoje os dois têm o mesmo tamanho e o número nunca muda; se um dia
+// voltarem a divergir, o total ENCOLHE no meio do quiz em vez de crescer — e
+// descobrir que falta menos é bem melhor do que descobrir que falta mais.
+function totalPerguntas(){
+  if(R.P0 !== undefined) return ordem().length - 1;
+  var maior = 0;
+  for(var k in CAMINHOS){
+    if(CAMINHOS[k].length > maior) maior = CAMINHOS[k].length;
+  }
+  return BASE.length + maior;
+}
 
 function rotuloPasso(){
-  return i === 0 ? "Pergunta 1" : "Pergunta " + (i+1) + " de " + totalPerguntas();
+  return "Pergunta " + (i+1) + " de " + totalPerguntas();
 }
 
 function el(t,c,x){ var e=document.createElement(t); if(c)e.className=c; if(x!==undefined)e.textContent=x; return e; }
@@ -885,7 +919,8 @@ function atualizaPainel(){
   g.appendChild(linha("Cenário", CENARIOS[R.cen].nome));
   g.appendChild(linha("Diagnóstico enviado", CENARIOS[R.cen].pdf));
   g.appendChild(linha("Setor", R._p1 || "—"));
-  if(R.via === "A") g.appendChild(linha("Colaboradores", R._aColab || "—"));
+  g.appendChild(linha(R.via === "A" ? "Colaboradores (empresa)" : "Sob responsabilidade",
+                      (R.via === "A" ? R._aColab : R._bColab) || "—"));
   g.appendChild(linha(R.via === "A" ? "Faturamento" : "Autonomia", (R.via === "A" ? R._a6 : R._b6) || "—"));
   g.appendChild(linha(R.via === "A" ? "Margem" : "Remuneração", (R.via === "A" ? R._a7 : R._b7) || "—"));
   g.appendChild(linha("Pontuação", pontos() + " de 20"));

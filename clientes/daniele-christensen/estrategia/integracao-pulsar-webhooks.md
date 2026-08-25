@@ -36,7 +36,7 @@ o que o n8n já faz e a cadência dispararia duas vezes para o mesmo lead.
 O cenário do clique procura a linha pelo telefone e escreve em duas células com
 endereço fixo. Ele ficou fora do ar entre 19 e 25/08 por causa disso: quando o
 telefone não casa com nenhuma linha — clique vindo do protótipo, por exemplo — o
-número da linha vinha vazio, o endereço saía como `AH` em vez de `AH12`, e o
+número da linha vinha vazio, o endereço saía como `AI` em vez de `AI12`, e o
 Make derrubava o cenário depois dos erros. Agora há um filtro antes: sem linha
 encontrada, o clique é ignorado em silêncio em vez de virar erro.
 
@@ -46,7 +46,7 @@ resolve mais do que a conveniência: com as duas etapas separadas em arquivos
 diferentes, ninguém conseguia responder "quantos dos leads que entraram
 chegaram até o fim" sem cruzar na mão.
 
-A aba `Página1` ganhou 26 colunas de jornada (AK a BJ) que puxam da aba
+A aba `Página1` ganhou 26 colunas de jornada (AL a BK) que puxam da aba
 `Etapa 2` **pelo telefone**: se respondeu, as 15 notas cruas, as cinco médias de
 bloco, o TD, o bloco dominante, onde está o gargalo, a etiqueta de Lead Hot e
 por onde abrir a call. Uma linha por lead, com a jornada inteira nela.
@@ -81,6 +81,7 @@ Um destino que cai não derruba o outro, e o lead não espera por nenhum dos doi
   "caminho": "A",
   "cargo": "...", "setor": "...",
   "colaboradores": "Entre 100 e 200",
+  "colaboradores_sob_responsabilidade": "",
   "faturamento": "...", "margem": "...",
   "autonomia": "...", "remuneracao": "...",
   "pontuacao": 7,
@@ -90,15 +91,24 @@ Um destino que cai não derruba o outro, e o lead não espera por nenhum dos doi
 }
 ```
 
-**`colaboradores`** entrou em 25/08, a pedido da equipe da Dani, e é a `P8` das
-respostas. **Só o caminho A responde** — para quem é executivo (caminho B) o
-campo vem string vazia, do mesmo jeito que `faturamento` e `margem` já vinham.
-Quem consome não precisa de `if`: o campo existe sempre.
+A **`P8`** entrou em 25/08, a pedido da equipe da Dani, e são **duas perguntas
+diferentes com a mesma função de qualificador** — uma por caminho. Por isso são
+dois campos, e cada lead preenche um e deixa o outro em branco, exatamente como
+`faturamento`/`margem` contra `autonomia`/`remuneracao` já faziam:
 
-Ela **ainda não mexe em `qualificado` nem em `pontuacao`**. A especificação dá
-pontos para cada faixa, mas não diz a partir de quantos colaboradores o lead
-qualifica, e mudar a régua sem essa definição reprovaria lead que hoje passa. As
-faixas e os pontos já estão na página; falta só a régua para ligar.
+| Caminho | Campo | Pergunta | Faixas |
+|---|---|---|---|
+| A — dono ou sócio | `colaboradores` | Quantos colaboradores a sua empresa emprega? | Acima de 500 · Entre 200 e 500 · Entre 100 e 200 · Entre 50 e 100 · Entre 20 e 50 · Menos de 20 |
+| B — executivo | `colaboradores_sob_responsabilidade` | Quantos colaboradores estão sob sua responsabilidade? | Mais de 30 · Entre 16 e 30 · Entre 11 e 15 · Entre 05 e 10 · Entre 1 e 4 · Nenhum |
+
+Os dois campos existem sempre no payload, então ninguém precisa de `if` para
+ler. Dentro de `respostas`, a `P8` já vem resolvida: traz a que o lead
+respondeu.
+
+Nenhuma das duas **mexe em `qualificado` nem em `pontuacao`** ainda. A
+especificação dá pontos para cada faixa, mas não diz a partir de quantos
+colaboradores o lead qualifica, e ligar a régua sem essa definição reprovaria
+lead que hoje passa. As faixas e os pontos já estão na página; falta a régua.
 
 **`cenario`** vem com uma das quatro grafias abaixo, caractere por caractere,
 com acento e maiúscula. Foi o pedido da Pulsar e é o que permite casar com o

@@ -12,7 +12,7 @@ Separador de argumento é ";" porque a conta do Drive está em pt-BR, e as
 porcentagens são montadas com ROUND(...)&"%" — a máscara do TEXT lê a vírgula
 como separador de milhar e transformaria 12,5% em "125%".
 
-A ordem das colunas A a AD é contrato com o cenário do Make. Mexer aqui sem
+A ordem das colunas A a AE é contrato com o cenário do Make. Mexer aqui sem
 mexer lá desalinha tudo silenciosamente: o Make escreve por posição.
 """
 
@@ -21,14 +21,17 @@ import csv, sys
 CENARIOS = ["O Adiador", "O Gargalo", "Time que não Assume",
             "Plano que não Vira Execução"]
 
-# A..AD — o que o Make escreve, na ordem exata do payload da Etapa 1
+# A..AE — o que o Make escreve, na ordem exata do payload da Etapa 1
 CAMPOS = [
     "Carimbo", "Nome", "E-mail", "WhatsApp digitado", "Telefone (55)",
     "Cenário", "PDF enviado", "Caminho", "Cargo", "Setor",
-    # só o caminho A responde colaboradores; para o caminho B a coluna fica
-    # vazia, como já acontece com Faturamento e Margem
-    "Colaboradores",
-    "Faturamento", "Margem", "Autonomia", "Remuneração",
+    # a P8, em duas colunas porque a pergunta é outra em cada caminho: no A
+    # é o tamanho da empresa, no B é o time que responde para a pessoa. Cada
+    # lead preenche uma e deixa a outra vazia, como Faturamento/Margem contra
+    # Autonomia/Remuneração já faziam.
+    "Colaboradores (empresa)",
+    "Faturamento", "Margem", "Autonomia",
+    "Colaboradores sob responsabilidade", "Remuneração",
     "Pontuação", "Qualificado", "Motivo da reprovação",
     "O que mais se repetiu (P2)", "O que já tentou (P3)",
     "Decisões sem você (P4)", "O que incomoda imaginar (P5)",
@@ -37,11 +40,11 @@ CAMPOS = [
 ]
 
 # Letras de coluna, e não posições calculadas: quem inserir coluna nova tem de
-# vir corrigir aqui de propósito. Depois da entrada de Colaboradores em K, tudo
-# à direita andou uma casa (Qualificado era P, utm_source era V).
-CARIMBO, NOME, CEN, QUALIF = "A:A", "B:B", "F:F", "Q:Q"
-MOTIVO = "R:R"
-SOURCE, CAMPANHA = "W:W", "Y:Y"
+# vir corrigir aqui de propósito. As duas colunas de colaboradores entraram em
+# K e O, e empurraram tudo à direita duas casas (Qualificado era P, virou R).
+CARIMBO, NOME, CEN, QUALIF = "A:A", "B:B", "F:F", "R:R"
+MOTIVO = "S:S"
+SOURCE, CAMPANHA = "X:X", "Z:Z"
 
 # Contar lead tem duas armadilhas aqui, as duas descobertas na marra:
 # COUNTA conta como preenchida a célula de texto vazio que o import de CSV
@@ -58,7 +61,7 @@ def af(titulo, corpo, guarda=CARIMBO):
         t=titulo, g=guarda, c=corpo)
 
 
-# AE, AF — calculadas
+# AF, AG — calculadas
 CALCULADAS = [
     # o carimbo chega em ISO (2026-08-17T13:05:00.000Z); o dia serve para agrupar
     af("Dia", 'LEFT({c};10)'.format(c=CARIMBO)),
@@ -67,7 +70,7 @@ CALCULADAS = [
 
 CABECALHO = CAMPOS + CALCULADAS
 
-# painel de leitura, fora do caminho dos dados (colunas AH a AK)
+# painel de leitura, fora do caminho dos dados (colunas AI a AL)
 #
 # ATENÇÃO: este script é o molde de uma planilha NOVA, não um espelho da que
 # está no ar. A planilha em uso ganhou depois as colunas de clique no WhatsApp
@@ -114,9 +117,9 @@ COMO_LER = [
     "parâmetro.",
     "",
     "PARA QUEM FOR MEXER NA INTEGRAÇÃO",
-    "O Make escreve as colunas A a AD POR POSIÇÃO. Se você inserir, remover ou reordenar coluna "
+    "O Make escreve as colunas A a AE POR POSIÇÃO. Se você inserir, remover ou reordenar coluna "
     "aqui, o cenário passa a gravar dado na coluna errada e não avisa.",
-    "AE e AF são fórmula na linha 1 e valem para a planilha toda. Não digite por cima e não "
+    "AF e AG são fórmula na linha 1 e valem para a planilha toda. Não digite por cima e não "
     "apague a linha 1.",
     "",
     "Esta planilha tem dado pessoal de lead. Não deixe o compartilhamento como "
@@ -125,7 +128,7 @@ COMO_LER = [
 for texto in COMO_LER:
     PAINEL.append([texto, "", "", ""])
 
-VAZIO_ATE_PAINEL = [""] * (len(CABECALHO) + 1)   # A até AG
+VAZIO_ATE_PAINEL = [""] * (len(CABECALHO) + 1)   # A até AH
 
 w = csv.writer(sys.stdout, lineterminator="\n")
 w.writerow(CABECALHO + [""] + PAINEL[0])

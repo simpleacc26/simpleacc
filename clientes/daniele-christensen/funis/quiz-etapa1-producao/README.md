@@ -42,20 +42,23 @@ inteira.
 O GTM não entra no protótipo. Protótipo é a URL de revisão; se disparasse tag, a
 medição da campanha viria suja de visita interna.
 
-## Os dois caminhos têm tamanhos diferentes
+## Os dois caminhos
 
-A pergunta 1 decide o caminho. Quem responde **Proprietário, Dono ou Sócio** vai
-pelo A e responde **9 perguntas** (colaboradores, faturamento e margem no fim);
-quem responde qualquer outra coisa vai pelo B e responde **8** (autonomia e
-remuneração).
+A pergunta 1 decide o caminho, e as seis primeiras são iguais para todo mundo.
 
-Por isso o rótulo "Pergunta N de M" é **calculado**, nunca escrito à mão. E a
-primeira tela mostra só "Pergunta 1", sem total: o caminho ainda não foi
-escolhido, e prometer 8 ali para mostrar 9 na tela seguinte é pior do que não
-prometer.
+| | Caminho A — dono ou sócio | Caminho B — executivo |
+|---|---|---|
+| 7 | Colaboradores na empresa | Autonomia de investimento |
+| 8 | Faturamento | Colaboradores sob responsabilidade |
+| 9 | Margem | Remuneração |
 
-Ao acrescentar ou tirar pergunta, mexa em `ordem()` e no dicionário `P` do
-protótipo. Não existe número de pergunta guardado em lugar nenhum.
+Hoje os dois têm 9 perguntas, mas **o rótulo "Pergunta N de M" é calculado**,
+nunca escrito à mão — foi assim que ele já ficou errado uma vez. Na primeira
+tela, quando o caminho ainda não foi escolhido, vale o maior dos dois: se um dia
+voltarem a divergir, o total encolhe no meio do quiz em vez de crescer.
+
+Ao acrescentar ou tirar pergunta, mexa em `CAMINHOS` (ou `BASE`) e no dicionário
+`P` do protótipo. Não existe número de pergunta guardado em lugar nenhum.
 
 ## Rastreio de campanha
 
