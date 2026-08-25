@@ -4,8 +4,12 @@ Cliente SimpleAcc. Criador do **Protocolo Primal**: método de condução de reu
 de venda de alto valor, vendido como produto digital (aulas gravadas) para experts,
 mentores e consultores que fecham em call individual por vídeo.
 
-Status: **onboarding** — call de onboarding em 06/08/26. Canvas de produto preenchido,
-canvas de cliente ideal pendente.
+Status: **estratégia entregue** — onboarding em 06/08/26, roadmap de 90 dias e estratégia
+completa prontos. Próximo passo: implementação do quiz, após aprovação dele.
+
+**Objetivo do funil:** vender o **PRIMAL PITCH gravado a R$ 2 mil**. Não é funil de high
+ticket. Ele já vende alto valor por fora e cobra R$ 9 mil a hora de consultoria: este é um
+canal adicional que **não pode consumir a agenda dele**.
 
 **Modelo comercial: permuta.** A Simple monta o funil do Primal Pitch e leva o Thiago
 para um workshop com a base de clientes da Simple (ele com pitch no final, Daniel como
@@ -38,29 +42,32 @@ da call registrada.
 | ------- | ----- | ------ | ------ |
 |         |       |        |        |
 
-## Pendências de onboarding
+## Pendências
 
-Lacunas que **só o cliente pode preencher** (estão em branco no canvas do Drive):
+**O gargalo do projeto:**
 
-- [ ] **Provas** da promessa (resultados, números, depoimentos).
-- [ ] **Concorrentes** diretos e indiretos.
-- [ ] **Canvas do Cliente Ideal inteiro**: demografia, frustrações diárias, medos,
-      desejo do topo da consciência, grande sonho, como quer/não quer ser visto,
-      situação atual × desejada.
-- [ ] Confirmar o **ticket médio do avatar** (o canvas traz "R$ 5 mil a R$ 50 mil?"
-      com interrogação).
-- [ ] Identidade visual (logo, cores, fontes), manual de marca e arquivos abertos.
-- [ ] Acessos: DNS do menegao.com.br, BM/pixel, plataforma da área de membros.
-- [ ] Base de contatos (e-mail/WhatsApp) e quem já recebeu as gravações.
-- [ ] WhatsApp / link de agendamento para CTAs.
+- [ ] **Provas.** Único campo do canvas ainda vazio. De 3 a 5 depoimentos em vídeo e de
+      10 a 15 prints. É a Fase 1 do roadmap.
+- [ ] **Número de conversão** (10% para mais de 60%): definir base e período.
+
+**Operacional:**
+
+- [ ] Checkout: plataforma, parcelamento, prazo de garantia e período de acesso.
+- [ ] Turma de Fundadores: tem data de fechamento com preço que sobe?
 - [ ] Contatos e responsável pela conta.
-- [ ] **PDF com os entregáveis do projeto** — citado pelo time, ainda não chegou aos arquivos.
 - [ ] Termos finais da permuta (confirmar com o Daniel).
+
+**A confirmar:**
+
+- [ ] O canvas cita "Aula 1" e "Aula 2" como se existisse sequência de aulas planejada.
+- [ ] O preço aparece como R$ 2.000 no campo, mas a tabela de objeções trata "R$ 500".
+
+**Resolvido:** canvas de cliente ideal e concorrentes (recebidos completos em 06/08) ·
+grade de módulos · área de membros (própria, já publicada) · identidade visual do produto.
 
 ## Observações
 
-- A estrutura de módulos no canvas aparece em **duas versões** (uma de 3 módulos e
-  uma de 7, do Módulo 0 ao 6). Confirmar com o cliente qual é a estrutura vigente
-  antes de usar em copy ou página.
+- **O produto já está publicado** em `alunos.thiagomenegao.com.br`, com um módulo por
+  etapa e identidade visual autoral. Não há nada a gravar para começar a vender.
 - Não confundir com **Thaina Elvira e Thiago (Vitorio)** nem com **Raquel e Thiago**,
   que são outros clientes na base do Drive.

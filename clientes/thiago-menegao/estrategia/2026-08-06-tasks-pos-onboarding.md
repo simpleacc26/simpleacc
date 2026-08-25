@@ -1,67 +1,87 @@
-# Tasks pós-onboarding — Thiago Menegão (06/08/2026)
+# Tasks pós-onboarding — Thiago Menegão
 
-> Extraído da call de onboarding Carlos × Thiago (06/08/26, 55 min) e cruzado com
-> a call Daniel × Thiago (24/07). Prazo-âncora combinado na call: **roadmap e
-> estratégia completa entregues até terça-feira (11/08)**.
+> Onboarding em 06/08/2026 (Carlos × Thiago). Atualizado ao fim da sessão de 06/08.
+> **Prazo combinado na call: roadmap e estratégia entregues até terça, 11/08.**
+
+---
+
+## Estado das entregas
+
+| Entregável | Situação |
+| --- | --- |
+| Roadmap Estratégico de 90 dias | **Pronto** (v3.0, 10 páginas) |
+| Estratégia Completa com copies do funil | **Pronto** (15 páginas) |
+| Guia de Captação de Depoimentos | **Pronto** (4 páginas) |
+| Implementação do quiz | Começa na aprovação dele |
+
+Ordem de envio combinada: **roadmap primeiro, estratégia em seguida.**
 
 ---
 
 ## Simple (Carlos)
 
-### Entregar até terça 11/08 (compromisso assumido na call)
-- [ ] **Roadmap Estratégico de 90 dias** · pronto, revisar antes de enviar
-- [ ] **Documento de Estratégia Completa** com oferta, big idea e copies
-- [ ] **Puxar o Daniel** para a revisão dos dois documentos antes do envio
-- [ ] Agendar a call de apresentação do roadmap com Daniel presente
-
-### Enviar (ficou de mandar "hoje", 06/08)
-- [ ] **Link de contratação do Go High Level** (R$ 97/mês pela conta de agência da Simple)
-- [ ] **3 links de pastas do Drive**: fotos profissionais, depoimentos, materiais variados
-- [ ] **Guia de Captação de Depoimentos** · pronto
-- [ ] **Notion de processos + mapas mentais** da Simple
-- [ ] Confirmar o acesso à área de membros (Formação Estrategista High Ticket) que já foi liberado
-
-### Fazer
-- [ ] **Assistir à palestra da Brandée** (2 dias: dia 1 mentalidade, dia 2 fundamentos do Primal Pitch). Ele pediu especificamente para reparar na ancoragem por empilhamento do início do dia 1.
-- [ ] **Assistir ao Primal Closing** na Hotmart (o Daniel já tem o acesso)
-- [ ] **Pedir acesso ao painel de conteúdos dele por e-mail direto** (ele autorizou: não precisa passar pelo Daniel)
-- [ ] **Analisar todo o material** enviado, para planejar quiz e funil de lead dinâmico
-- [ ] **Ajustar o formulário do canvas**: a aba de Cliente Ideal fica escondida na lateral e 80% dos clientes passam batido. Ele sugeriu virar formulário. Vale para todos os clientes, não só para ele.
-- [ ] Reorganizar os entregáveis da implementação junto com o Daniel
-
----
+- [ ] Enviar o roadmap e, na sequência, a estratégia completa
+- [ ] Puxar o Daniel na revisão antes do envio
+- [ ] Enviar o **Guia de Captação de Depoimentos** junto, porque é a Fase 1 do roadmap
+- [ ] Enviar o link de contratação do **Go High Level** (R$ 97/mês pela conta de agência)
+- [ ] Enviar as **3 pastas do Drive**: fotos, depoimentos, materiais variados
+- [ ] Enviar Notion de processos e mapas mentais
+- [ ] **Assistir à palestra da Brandée** (2 dias). Ele pediu para reparar na ancoragem por
+      empilhamento do início do dia 1 e vai cobrar isso
+- [ ] Pedir acesso ao painel de conteúdos **por e-mail direto para ele** (autorizado a
+      pular o Daniel)
+- [ ] **Ajustar o formulário do canvas**: a aba de Cliente Ideal fica escondida na lateral
+      do Doc e 80% dos clientes passam batido. Falha de processo da casa, vale para todos.
+- [ ] Confirmar quem vai operar as campanhas antes da Fase 3
 
 ## Thiago
 
-- [ ] **Preencher o canvas de Cliente Ideal** (vai usar o Claude dele, que já está treinado com o material)
-- [ ] **Contratar o Go High Level** pelo link da Simple (quer agilizar já para a semana que vem)
-- [ ] **Subir no Drive**: fotos profissionais (já tem um drive pronto), prints de WhatsApp com resultados, materiais variados e documentos do produto
-- [ ] **Coletar depoimentos em vídeo**: não tem nenhum ainda, produto novo. Já pediu ao Daniel (que topou gravar) e vai pedir a outras pessoas.
-- [ ] **Corrigir o bug do quiz da Brandée** (leitura errada das visualizações). Já encaminhou ao dev dele.
+- [ ] **Captar de 3 a 5 depoimentos em vídeo** com etapa nomeada, número e segmento visível
+- [ ] **Garimpar de 10 a 15 prints** de WhatsApp, direct e grupos de mentoria
+- [ ] **Validar o número de conversão** (10% para mais de 60%): base e período
+- [ ] Contratar o Go High Level pelo link da Simple
+- [ ] Subir fotos profissionais e materiais no Drive
+- [ ] Aprovar as peças em até 48 horas por rodada
 - [ ] Gravar os vídeos dos criativos quando os roteiros chegarem
+- [ ] Corrigir o bug do quiz da Brandée (já encaminhado ao dev dele)
 
 ---
 
-## Decisões e definições que ficaram em aberto
+## Decisões tomadas nesta sessão
 
-| Item | Situação |
+| Item | Decisão |
 | --- | --- |
-| **Ticket do carro-chefe** | Só existe o R$ 2.000 da turma de fundadores. A sessão estratégica precisa de um produto que a sustente. Premissa de R$ 15 mil usada no roadmap, a validar. |
-| **Grade de módulos** | Canvas traz duas versões (3 módulos × Módulo 0 ao 6). Vale uma só. |
-| **Meta e verba** | Ele não tem meta: trata como verba de guerra. Roadmap propõe R$ 90 mil/mês e R$ 3 mil de mídia inicial. |
-| **Número de conversão** | Ele cita 10% para 60 a 80%. Sem base nem período. Validar antes de usar em anúncio. |
-| **Área de membros do produto** | Hoje na Hotmart. Decidir se migra. |
-| **Design de oferta** | Ele pediu explicitamente para ver a visão da Simple. Vai no doc de estratégia. |
+| **Objetivo do funil** | Vender o **PRIMAL PITCH gravado a R$ 2 mil**. Não é funil de high ticket: ele já vende alto valor por fora e cobra R$ 9 mil a hora de consultoria |
+| **Régua do projeto** | 1 hora dele = R$ 9 mil = 4,5 vendas. Se a solução exige a presença dele, está errada |
+| **Grade de módulos** | Resolvida: o produto no ar é organizado pelas **7 etapas**, com os 6 movimentos e o material de apoio pelo canvas |
+| **Área de membros** | Resolvida: já existe, própria, em `alunos.thiagomenegao.com.br` |
+| **Verba de mídia** | R$ 2,5 mil no primeiro mês, cerca de R$ 80 por dia |
+| **Matemática** | Apresentada como premissa de trabalho, não promessa. CPA alvo abaixo de R$ 500 |
+| **Nome do produto** | **PRIMAL PITCH**, conforme o canvas |
+| **Acessos de mídia** | Não são pedidos no roadmap |
+
+## Em aberto
+
+| Item | O que falta |
+| --- | --- |
+| **Provas** | Único campo do canvas ainda vazio. É o gargalo do projeto e a Fase 1 do roadmap |
+| **Número de conversão** | Sem base nem período declarados |
+| **Checkout** | Plataforma, parcelamento, prazo de garantia e período de acesso |
+| **Turma de Fundadores** | Tem data de fechamento com preço que sobe, ou o preço é permanente? |
+| **"Aula 1" e "Aula 2"** | O canvas cita as duas como se existisse sequência de aulas planejada. Confirmar se muda a arquitetura do funil |
+| **Preço no canvas** | O campo diz R$ 2.000, mas a tabela de objeções trata "R$ 500 é barato demais" |
+| **PDF de entregáveis** | Citado pelo time, nunca chegou aos arquivos. O deck do onboarding cobriu o escopo |
+| **Termos da permuta** | Confirmar com o Daniel |
 
 ---
 
 ## O que ele já tem pronto (não pedir de novo)
 
-- **WhatsApp API oficial** contratado na Vivo, integrado à Meta e testado
-- **Go High Level**: já usa em outros projetos (um deles com 100 mil leads) e conhece a ferramenta a fundo
+- **Produto publicado**: área de membros própria, módulo por etapa, identidade visual autoral
+- **WhatsApp API** oficial da Vivo, integrado à Meta e testado
+- **Go High Level**: já opera em outros projetos, um deles com 100 mil leads
 - **Fotos profissionais** recentes, em drive próprio
-- **Aulas do Primal Closing gravadas**, hospedadas na Hotmart
-- **Apresentação de ~130 slides** do treinamento completo
-- **Quiz próprio da Brandée**: analisa perfil do Instagram, compara com até 3 concorrentes e gera dossiê. Quer usar a mesma tecnologia no funil dele.
-- **Dossiê como mecanismo de show rate**: liberado só para quem confirma a sessão estratégica
-- Formação técnica em programação: entende de código, banco de dados e integração
+- **Acervo de criativo**: palestra de 2 dias, ~130 slides, material de sala
+- **Canvas completo** de produto e cliente ideal, com concorrência mapeada
+- **Quiz próprio da Brandée** com análise de perfil e dossiê
+- Formação técnica: entende de código, banco de dados e integração

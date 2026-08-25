@@ -1,5 +1,10 @@
 # Contexto — Thiago Menegão · Protocolo Primal
 
+> ⚠️ **SUPERADO EM PARTE.** Esta extração veio da versão do Drive, em que o Cliente Ideal
+> e os Concorrentes estavam em branco. A versão completa está em
+> [`2026-08-06-canvas-cliente-ideal-completo.md`](2026-08-06-canvas-cliente-ideal-completo.md)
+> e é ela que vale. Este arquivo segue útil para oferta, mecanismo e benefícios.
+
 > **Fonte:** Google Doc [*Simple Acc & Thiago Menegão | Canvas do Produto + Cliente Ideal — 03/08/26*](https://docs.google.com/document/d/1q8eWLPt3JsRTZXBCzAduFQ2DkIfyzjafA9QtsZjluXc/edit)
 > (pasta `Simple <> Thiago Menegão / 1. Documentos`).
 > **Extraído em:** 06/08/2026. Tudo abaixo veio do canvas — nada foi inventado.
