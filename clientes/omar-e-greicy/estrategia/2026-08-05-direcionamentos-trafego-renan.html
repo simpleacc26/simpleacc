@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Direcionamentos de Tráfego · Greicy Speroto</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    padding: 16mm 18mm 24mm 18mm;
+    position: relative;
+    page-break-after: always;
+    background: #fff;
+  }
+  .page:last-child { page-break-after: auto; }
+  .runhead {
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; color: var(--muted);
+    letter-spacing: .06em; text-transform: uppercase;
+    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt;
+  }
+  .runfoot {
+    position: absolute; bottom: 9mm; left: 18mm; right: 18mm;
+    text-align: center; font-size: 7.5pt; color: var(--muted);
+  }
+  .kicker {
+    color: var(--gold); font-size: 9pt; font-weight: bold;
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt;
+  }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
+  .box-dark {
+    background: var(--navy-dark); color: #f5f3ee;
+    padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt;
+  }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light {
+    background: var(--beige); border-left: 3pt solid var(--gold);
+    padding: 10pt 14pt; margin: 11pt 0;
+  }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 12pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+
+  table { width: 100%; border-collapse: collapse; margin: 8pt 0 10pt; font-size: 9.5pt; }
+  th {
+    background: var(--navy); color: #fff; text-align: left;
+    padding: 5pt 8pt; font-size: 8pt; letter-spacing: .06em; text-transform: uppercase;
+  }
+  td { padding: 5pt 8pt; border-bottom: .4pt solid #ddd9d0; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  tbody tr:nth-child(even) { background: #faf8f4; }
+  td.num { text-align: right; white-space: nowrap; }
+  .quote {
+    border-left: 2pt solid var(--gold); padding-left: 10pt;
+    font-style: italic; color: #5a6070; margin: 8pt 0 10pt;
+  }
+  .flag { color: var(--gold); font-weight: bold; }
+
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 36pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- PÁGINA 1: CAPA -->
+<div class="page cover">
+  <div class="kicker">Briefing de Tráfego</div>
+  <h1>Direcionamentos<br>de Tráfego</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    Greicy Speroto Harmonização Facial<br>
+    Chapecó, SC<br>
+    Tese, metas, verba, criativo e riscos.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">Renan Martin, gestor de tráfego</div>
+    <div class="lbl">Equipe Simple</div>
+    <div class="val">Daniel Souza · Carlos Durães</div>
+    <div class="lbl">Base</div>
+    <div class="val">Call de vendas 29/07 e onboarding 05/08/2026</div>
+  </div>
+</div>
+
+<!-- PÁGINA 2: A TESE E A CONTA -->
+<div class="page">
+  <div class="runhead"><span>Direcionamentos de Tráfego · Greicy Speroto</span><span>Página 2</span></div>
+  <div class="kicker">O Ponto de Partida</div>
+  <h1 style="font-size:19pt;">A Tese do Projeto</h1>
+  <p class="lead">Antes de qualquer configuração: é isto que a campanha precisa provar.</p>
+
+  <div class="box-dark">
+    <div class="bt">O Botox abre a porta, o full face paga a conta</div>
+    <p>O Botox é o carro-chefe, tem ticket de <strong>R$ 1.000</strong> e é o <strong>menos lucrativo</strong> da clínica. O full face vale <strong>R$ 5.400 a R$ 9.000</strong> e vende <strong>1 por mês</strong>.</p>
+    <p><strong>O anúncio não precisa vender full face. Precisa encher a cadeira de avaliação.</strong> O upsell já existe e funciona sozinho.</p>
+  </div>
+
+  <div class="quote">
+    "Eu faço uma avaliação total, vou fazendo o procedimento e vou colocando o que ele tem de pontos que pode ser melhorado. A maioria que faz Botox, eu acabo vendendo outras coisas."<br>
+    <span style="font-style:normal;font-size:8.5pt;color:#8a8f98;">Greicy, call de vendas</span>
+  </div>
+
+  <div class="passo-label">A Conta</div>
+  <h3>O Caminho até R$ 50 mil por Mês</h3>
+  <table>
+    <thead>
+      <tr><th>Frente</th><th style="text-align:right;">Hoje</th><th style="text-align:right;">Meta</th><th style="text-align:right;">Ticket</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Full face</strong></td><td class="num">1/mês</td><td class="num"><strong>5/mês</strong></td><td class="num">R$ 5.400 a 9.000</td></tr>
+      <tr><td>Botox</td><td class="num">3/mês</td><td class="num">10/mês</td><td class="num">R$ 1.000</td></tr>
+      <tr><td>Isolados (rino, labial, bio)</td><td class="num">1 a 2/mês</td><td class="num">6/mês</td><td class="num">R$ 900</td></tr>
+      <tr><td><strong>Total de pacientes</strong></td><td class="num"><strong>5 a 6</strong></td><td class="num"><strong>~21</strong></td><td class="num"></td></tr>
+      <tr><td><strong>Faturamento</strong></td><td class="num"><strong>R$ 8 a 12k</strong></td><td class="num"><strong>~R$ 50k</strong></td><td class="num"></td></tr>
+    </tbody>
+  </table>
+
+  <p><span class="flag">O salto real é o full face: de 1 para 5 por mês.</span> Multiplicar Botox sozinho não chega em R$ 50 mil. Seriam 50 procedimentos no mês, o que estoura a agenda e ainda por cima na pior margem da clínica.</p>
+
+  <div class="box-light">
+    <div class="bt">Cabe na agenda? Cabe, com folga</div>
+    <p>Atendimento em <strong>3 dias por semana, meio período</strong> (segunda, quarta e sexta), mais <strong>sábado de manhã</strong>. São <strong>3 pacientes por dia</strong>, ou 2 quando é full face.</p>
+    <p>Capacidade instalada: <strong>36 a 48 atendimentos por mês</strong>. Hoje fazem 4 a 6, ou seja, <strong>usam cerca de 12%</strong>. O gargalo é lead, não cadeira.</p>
+  </div>
+  <div class="runfoot">Briefing de tráfego · uso interno Simple</div>
+</div>
+
+<!-- PÁGINA 3: VERBA E CAC -->
+<div class="page">
+  <div class="runhead"><span>Direcionamentos de Tráfego · Greicy Speroto</span><span>Página 3</span></div>
+  <div class="kicker">Expectativa</div>
+  <h1 style="font-size:19pt;">A Realidade da Verba</h1>
+  <p class="lead">Isto precisa estar alinhado internamente antes de virar expectativa do cliente.</p>
+
+  <div class="box-dark">
+    <div class="bt">R$ 1.000 a 1.500 não entrega R$ 50 mil no mês 1</div>
+    <p>E não precisa entregar. O mês 1 tem uma função: <strong>provar o CAC</strong> para justificar a escala.</p>
+  </div>
+
+  <div class="passo-label">Projeção Conservadora</div>
+  <h3>Mês 1 com R$ 1.500</h3>
+  <ul class="check">
+    <li>CPL de R$ 8 a 15 por conversa iniciada, numa cidade de 300 mil habitantes, dá <strong>100 a 180 leads</strong></li>
+    <li>Lead para agendamento: 20% a 30%</li>
+    <li>Agendamento para comparecimento: 60% a 70%</li>
+    <li>Comparecimento para venda: <strong>alta</strong>, porque "quem vem, a gente fecha"</li>
+    <li><strong>Resultado esperado: 6 a 12 pacientes novos, R$ 12 mil a R$ 25 mil incrementais</strong></li>
+  </ul>
+
+  <p>Isso <strong>já dobra a clínica</strong> e financia a escada. O caminho é: mês 1 prova o CAC, reinveste, mês 2 e 3 escalam a verba. Bate com o que foi vendido: lucrativo desde o dia 1, previsibilidade a partir do 3º mês.</p>
+
+  <div class="passo-label">Limites</div>
+  <h3>Teto de CAC por Frente</h3>
+  <table>
+    <thead>
+      <tr><th>Procedimento</th><th style="text-align:right;">Ticket</th><th style="text-align:right;">CAC máximo</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Botox</td><td class="num">R$ 1.000</td><td class="num">R$ 120 a 150</td></tr>
+      <tr><td>Rinomodelação e labial</td><td class="num">~R$ 900</td><td class="num">R$ 150</td></tr>
+      <tr><td><strong>Full face</strong></td><td class="num">R$ 5.400 a 9.000</td><td class="num"><strong>R$ 600 a 800</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="box-light">
+    <div class="bt">Como ler o CAC do Botox</div>
+    <p>O Botox tem a pior margem da clínica e só se paga se a recompra e o upsell acontecerem. <strong>Nunca leia o CAC do Botox isolado:</strong> leia junto com a taxa de upsell para full face e com a recompra de 4 em 4 meses.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Pendências que travam o cálculo fino</div>
+    <p>Faltam a <strong>tabela de preços completa</strong>, o <strong>custo do produto por ml</strong> e as <strong>condições de parcelamento</strong>. Sem os dois primeiros, o teto de CAC acima é estimativa. O terceiro é o que destrava o full face de R$ 5,4 mil a 9 mil em Chapecó.</p>
+  </div>
+  <div class="runfoot">Briefing de tráfego · uso interno Simple</div>
+</div>
+
+<!-- PÁGINA 4: SETUP E CAMPANHA -->
+<div class="page">
+  <div class="runhead"><span>Direcionamentos de Tráfego · Greicy Speroto</span><span>Página 4</span></div>
+  <div class="kicker">Operação</div>
+  <h1 style="font-size:19pt;">Setup de Conta e Campanha</h1>
+
+  <div class="passo-label">Conta</div>
+  <h3>O Ponto de Partida Técnico</h3>
+  <ul class="check">
+    <li><strong>Conta zerada.</strong> Existe Gerenciador de Negócios, mas nas palavras do Omar "não foi feito praticamente nada, só foi criado". Sem histórico, sem pixel, sem público aquecido. Contar com fase de aprendizado</li>
+    <li>Acesso via <strong>código de parceiro</strong>, com Renan, Carlos e Daniel no mesmo acesso</li>
+    <li><strong>Pagamento no cartão de crédito</strong>, decisão do onboarding, por prazo e por segurança contra bloqueio de conta</li>
+    <li>Já rodaram <strong>impulsionamento de publicação</strong> por conta própria (o "Clube do Botox", cerca de R$ 200 que gerou 1 ou 2 vendas). Não repetir esse formato</li>
+  </ul>
+
+  <div class="passo-label">Campanha</div>
+  <h3>Configuração Recomendada</h3>
+  <ul class="check">
+    <li><strong>Objetivo: mensagem, Click to WhatsApp.</strong> Não existe site nem landing page, e o link da bio já é um <em>wa.me</em>. O caminho mais curto é conversa iniciada</li>
+    <li><strong>Geo:</strong> Chapecó e raio. <span class="flag">Confirmar com o cliente se atendem a região</span>, porque uma cidade de 300 mil habitantes dá público pequeno e frequência alta rápido</li>
+    <li><strong>Público:</strong> mulheres de 30 anos para cima. Público restrito pede segmentação ampla, deixando a Meta otimizar. <strong>Quem segmenta aqui é o criativo, não o targeting</strong></li>
+    <li><strong>Distribuição da verba:</strong> maior fatia no <strong>Botox</strong>, por visão de caixa, decidido no onboarding. Depois <strong>full face</strong> e <strong>rinomodelação</strong></li>
+    <li><strong>Sem pulverizar.</strong> No máximo 3 frentes, conforme fechado com o cliente. Espalhar demais atrasa a leitura de resultado em meses</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Contatos e ativos</div>
+    <p><strong>Instagram:</strong> @greicysperoto, 463 posts, 1.325 seguidores.<br>
+    <strong>WhatsApp:</strong> (49) 99900-0610, já no link da bio.<br>
+    <strong>Ativação prevista:</strong> até 7 dias a contar do onboarding de 05/08.</p>
+  </div>
+  <div class="runfoot">Briefing de tráfego · uso interno Simple</div>
+</div>
+
+<!-- PÁGINA 5: CRIATIVO -->
+<div class="page">
+  <div class="runhead"><span>Direcionamentos de Tráfego · Greicy Speroto</span><span>Página 5</span></div>
+  <div class="kicker">Comunicação</div>
+  <h1 style="font-size:19pt;">Criativo e Ângulo</h1>
+
+  <div class="box-dark">
+    <div class="bt">O ângulo central: o medo é duplo</div>
+    <p>A paciente tem medo de envelhecer <strong>e</strong> medo de ficar artificial. O mercado inteiro anuncia rejuvenescimento e <strong>quase ninguém trata o segundo medo</strong>.</p>
+    <p>A bio dela já diz "para mulheres que querem se cuidar sem exageros". <strong>Naturalidade aqui não é adjetivo, é o mecanismo.</strong> Ângulos: "sem parecer que fez", "o elogio que você quer é você está diferente, não o que você fez".</p>
+  </div>
+
+  <div class="passo-label">Aproveitar</div>
+  <h3>O Que Já Existe e Vale Ouro</h3>
+  <ul class="check">
+    <li><strong>Post orgânico recente:</strong> "o novo desejo dos pacientes não é parecer mais jovem, é parecer descansado". É exatamente o posicionamento certo e já performou. <span class="flag">Melhor ângulo de entrada que existe no perfil</span></li>
+    <li><strong>Caso de full face da Grazele</strong>, que o Omar vai mandar no grupo</li>
+    <li><strong>Reel de apresentação dela</strong> (fixado) com <strong>16,7 mil views</strong>, o maior alcance do perfil. Vale testar como criativo de topo</li>
+    <li><strong>Rinomodelação é o melhor procedimento para criativo:</strong> "tu faz 1 ml, tu muda o nariz da pessoa". Resultado visível e imediato</li>
+    <li>Reels de rotina ficam em 400 a 600 views com 1.325 seguidores, para calibrar a expectativa de orgânico</li>
+  </ul>
+
+  <div class="passo-label">Objeções</div>
+  <h3>O Que Quebrar no Criativo</h3>
+  <p>Nomeadas pelo próprio cliente no canvas: <strong>"não dá pra rejuvenescer"</strong>, <strong>"não posso pagar"</strong> e <strong>"é supérfluo"</strong>.</p>
+
+  <div class="box-light">
+    <div class="bt">Cuidados de política</div>
+    <p>Antes e depois é a prova número 1 deles, mas tem <strong>risco de bloqueio</strong>. Pegada suave, sem close do "antes" e sem linguagem que sugira defeito ou vergonha corporal.</p>
+    <p><span class="flag">Confirmar o que COREN e CFBM permitem publicar</span> antes de rodar antes e depois, e se existe autorização de uso de imagem assinada.</p>
+    <p>Explicar ao cliente o porquê de cada criativo. A validação de copy em conjunto no início já foi combinada no onboarding.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Alinhamento perfil e anúncio</div>
+    <p>O perfil já está coerente: dourado e nude, monograma CS, tom sóbrio, bio bem posicionada, destaques por procedimento (Botox, Lábios, Nariz). <strong>Não precisa reposicionar, precisa amplificar.</strong></p>
+  </div>
+  <div class="runfoot">Briefing de tráfego · uso interno Simple</div>
+</div>
+
+<!-- PÁGINA 6: MÉTRICAS E RISCOS -->
+<div class="page">
+  <div class="runhead"><span>Direcionamentos de Tráfego · Greicy Speroto</span><span>Página 6</span></div>
+  <div class="kicker">Acompanhamento</div>
+  <h1 style="font-size:19pt;">Métricas e Riscos</h1>
+
+  <div class="passo-label">Pit Stop Quinzenal</div>
+  <h3>Ler o Funil Inteiro, Não Só o Custo do Lead</h3>
+  <div class="box-dark">
+    <p style="text-align:center;font-size:11pt;margin:2pt 0;">investimento &rarr; leads &rarr; agendamentos &rarr; comparecimentos &rarr; vendas &rarr; receita</p>
+  </div>
+  <ul class="check">
+    <li>CPL e custo por agendamento</li>
+    <li>CAC por procedimento, comparado ao teto da página 3</li>
+    <li>Taxa de no-show</li>
+    <li>Ticket médio real</li>
+    <li><strong>Percentual de upsell de Botox para full face.</strong> <span class="flag">Este é o indicador que diz se a tese do projeto está funcionando</span></li>
+  </ul>
+
+  <div class="passo-label">Atenção</div>
+  <h3>Riscos a Monitorar</h3>
+
+  <div class="box-light">
+    <div class="bt">1. O atendimento no WhatsApp é o gargalo</div>
+    <p>A Greicy faz procedimento, secretaria, marketing e limpeza sozinha. <strong>Nunca lidou com 10 a 20 leads por dia</strong> e não soube estimar a própria capacidade quando perguntada no onboarding.</p>
+    <p><strong>Não escalar verba antes de o atendimento estar resolvido.</strong> O Omar já sinalizou que contrata secretária se houver demanda. Melhor contratar antes de afogar.</p>
+  </div>
+
+  <ul class="check">
+    <li><strong>Público pequeno</strong> leva a fadiga de criativo rápida. Precisa de esteira de criativos, não de dois ou três</li>
+    <li><strong>Bloqueio de conta</strong> por política de saúde e estética. O cartão como forma de pagamento já mitiga parte do prejuízo</li>
+    <li><strong>Agenda restrita</strong> (3 dias, meio período) com transição profissional em curso. Se o volume vier, a agenda precisa abrir junto</li>
+  </ul>
+
+  <div class="box-dark">
+    <div class="bt">Contexto que não pode ser esquecido</div>
+    <p>A empresa <strong>não tem caixa</strong>: a mensalidade sai do bolso dos sócios. E a meta é existencial, nas palavras do Omar: "é um número que tem que ser viável e fazer sentido pra nós, senão a gente busca outra coisa".</p>
+    <p><strong>Resultado no primeiro mês é questão de permanência, não de satisfação.</strong></p>
+  </div>
+  <div class="runfoot">Briefing de tráfego · uso interno Simple</div>
+</div>
+
+</body>
+</html>

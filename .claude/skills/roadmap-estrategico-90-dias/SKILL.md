@@ -50,13 +50,22 @@ antes do PDF).
   comentados.
 - **`references/validacao-e-pdf.md`**: validações obrigatórias e geração do
   PDF com fallbacks.
+- **`references/exemplos-entregues.md`**: o padrão destilado dos roadmaps já
+  entregues (o que se repete em todos), com ponteiro para cada exemplo.
+- **`assets/exemplos/`**: roadmaps reais entregues, embutidos como base de
+  calibragem (fonte HTML editável, funcionam em qualquer sessão):
+  `roadmap-lucas-sobreiro.html`, `roadmap-joao-mendes.html`,
+  `roadmap-ayla-rica.html`. **Leia pelo menos um por inteiro antes de
+  redigir** (tom, granularidade, formato dos boxes e do fechamento).
 
-Referências vivas no repositório (exemplos completos entregues):
-`clientes/lucas-sobreiro/estrategia/2026-07-09-roadmap-estrategico-lucas-sobreiro.html`
-(fonte editável) e
-`clientes/lucas-sobreiro/estrategia/modelo-roadmap-romulo-heleno.pdf`. Se a
-pessoa enviar os PDFs dos dois na conversa, use como calibragem de tom; se
-não enviar, a estrutura embutida aqui basta.
+Exemplos completos entregues (base de calibragem, todos Perfil B): os três
+arquivos em **`assets/exemplos/`** acompanham a skill e servem em qualquer
+sessão, sem depender do repositório. O de referência do Perfil A (cliente que
+executa sozinho) é o roadmap do Rômulo Heleno; quando a pessoa enviar o PDF
+dele na conversa, use como calibragem, senão a estrutura de
+`references/estrutura-e-conteudo.md` basta. Se estiver no repositório da
+Simple, as fontes vivas de cada cliente também existem em
+`clientes/<cliente>/estrategia/`.
 
 ## O fluxo (siga nesta ordem)
 
