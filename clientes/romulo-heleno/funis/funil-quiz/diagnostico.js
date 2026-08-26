@@ -1,10 +1,14 @@
 /* ============================================================
-   DIAGNÓSTICO. Monta o relatório personalizado a partir das
-   respostas do quiz (sessionStorage) e habilita os CTAs de WhatsApp.
-   Qualificação por intenção adapta o CTA; CTAs distribuídos (.cta-wpp).
-   Padrão de escrita: nunca usar travessões (traço longo).
+   DIAGNÓSTICO. Carta de vendas personalizada a partir das respostas.
+   Ordem dos blocos conforme o blueprint da Simple (versão Luana Isse):
+   0 cabeçalho e selo do índice · 1 antes de tudo · 2 seu cenário ·
+   3 por que não resolveu · 4 dois profissionais · CTA · 5 o método ·
+   6 o que precisa acontecer · CTA · 7 quem é o Rômulo (autoridade) ·
+   8 depoimentos (VAZIO por enquanto, ver DEPOIMENTOS abaixo) ·
+   9 CTA final adaptado à qualificação.
+   Padrão: nunca usar travessões. Sem emoji. Linguagem neutra em gênero.
    ============================================================ */
-const STORE_KEY = "romulo_funil_mecha";
+const STORE_KEY = "romulo_heleno_quiz";
 const F = window.FLOW;
 const report = document.getElementById("report");
 
@@ -15,131 +19,215 @@ function frase(stepId) {
   const opt = step && step.options.find(o => o.value === val);
   return (opt && opt.report) || "";
 }
-function valor(stepId) { return (getState().answers || {})[stepId]; }
 function esc(s) { return String(s == null ? "" : s).replace(/[<>&]/g, c => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c])); }
 
 const a = getState().answers || {};
 
-/* foco por gargalo (P3) para a etapa "o que precisa acontecer" */
-const FOCO_POR_GARGALO = {
-  tonalidade: "calibrar a leitura do fio e a construção de base antes da aplicação, para a tonalidade sair exatamente como a cliente pediu",
-  aplicacao: "revisar a técnica de divisão, folha e timing por tipo de cabelo, até a aplicação ficar consistente atendimento após atendimento",
-  tipos: "montar um diagnóstico capilar rápido antes de cada procedimento, para adaptar a técnica a cada tipo de cabelo com segurança",
-  ticket: "documentar a sua consistência técnica em fichas, para você se posicionar como especialista e sustentar um ticket maior",
+function calcularIndice(answers) {
+  let soma = 0, max = 0;
+  F.steps.forEach((s) => {
+    const pontua = s.options.some((o) => typeof o.peso === "number");
+    if (!pontua) return;
+    max += Math.max(...s.options.map((o) => o.peso || 0));
+    const escolhida = s.options.find((o) => o.value === answers[s.id]);
+    if (escolhida && typeof escolhida.peso === "number") soma += escolhida.peso;
+  });
+  const pct = max ? Math.round((soma / max) * 100) : 0;
+  return { pct, faixa: pct >= 66 ? "Alto" : (pct >= 33 ? "Médio" : "Baixo") };
+}
+function pilarDominante(answers) {
+  const s = F.steps.find((x) => x.id === "problema");
+  const o = s && s.options.find((op) => op.value === answers.problema);
+  return (o && o.pilar) || "Execução";
+}
+
+/* Leitura por pilar: o que precisa acontecer no caso de quem respondeu.
+   O "caminho" de cada um sai da recomendação por gargalo do documento de
+   estratégia (bloco 7 do relatório), não é invenção nova. */
+const LEITURA_PILAR = {
+  Leitura: {
+    resumo: "o seu improviso está concentrado na <strong>Leitura</strong>: a mão já faz, e a cor ainda é decidida no escuro.",
+    caminho: "O primeiro trabalho é leitura de fio e construção de base: entender o que aquele cabelo já tem antes de decidir o que fazer nele. Enquanto a tonalidade for aposta, cada cliente vira um resultado diferente. Não é a sua mão que está errada, é a informação que falta antes de você começar.",
+  },
+  Execução: {
+    resumo: "o seu improviso está concentrado na <strong>Execução</strong>: você sabe aonde quer chegar, e o caminho até lá muda a cada atendimento.",
+    caminho: "O primeiro trabalho é padronizar divisão, folha e timing por tipo de fio, com o tempo calibrado pelo cabelo e não pelo relógio. É isso que transforma um resultado bom em um resultado que se repete, e é o que separa acertar de saber por que acertou.",
+  },
+  Adaptação: {
+    resumo: "o seu improviso está concentrado na <strong>Adaptação</strong>: você tem uma receita, e o cabelo que senta na cadeira nem sempre é o cabelo da receita.",
+    caminho: "O primeiro trabalho é o banco de fichas técnicas: parâmetros por textura, histórico e objetivo. Você para de improvisar justamente quando o cabelo foge do padrão, porque passa a ter de onde partir em vez de decidir na hora.",
+  },
+  Posicionamento: {
+    resumo: "o seu improviso está concentrado no <strong>Posicionamento</strong>: a técnica já está de pé, e o preço ainda é o de quem está começando.",
+    caminho: "O primeiro trabalho é consistência documentada: registrar o que você faz, provar o resultado e sustentar o ticket. Ninguém cobra como especialista antes de conseguir repetir o resultado e mostrar isso. Preço acompanha previsibilidade, não tempo de profissão.",
+  },
 };
 
-if (!a._completedAt && !a.travamento) {
+/* ============================================================
+   DEPOIMENTOS
+   Vazio de propósito. O cliente ainda NÃO tem case com autorização: o
+   documento de estratégia marca isso como o risco número um do projeto
+   ("Risco = sem prova social. Prioridade: coletar depoimentos dos primeiros
+   alunos"), e o próprio Carlos levantou na call de 29/06.
+   Não invente depoimento e não coloque placeholder no ar. Quando chegarem os
+   primeiros, preencha aqui (com autorização de quem aparece) e o bloco passa a
+   renderizar sozinho. Formato de vídeo, print ou texto: copie a implementação
+   do funil da Luana Isse, que já tem os três.
+   ============================================================ */
+const DEPOIMENTOS = [];
+
+if (!a._completedAt && !a.problema) {
   report.innerHTML = `
-    <p class="eyebrow">Diagnóstico</p>
-    <h2>Ainda não temos suas respostas</h2>
-    <p class="lead">Parece que você chegou aqui sem fazer o quiz. Leva ~3 minutos.</p>
-    <div class="actions"><a class="btn btn-primary btn-block" href="index.html">Fazer o quiz agora</a></div>`;
+    <p class="eyebrow">Seu diagnóstico</p>
+    <h2>Ainda não temos as suas respostas</h2>
+    <p class="lead">Parece que você chegou aqui sem responder o diagnóstico. Leva cerca de 2 minutos.</p>
+    <div class="actions"><a class="btn btn-primary btn-block" href="index.html">Fazer agora</a></div>`;
 } else {
   const nome = esc((a.nomeResp || "").split(" ")[0]) || "tudo bem";
-  const travamento = frase("travamento") || "o que trava a sua técnica de mecha";
-  const impacto = frase("impacto") || "o resultado ficar abaixo do que você gostaria";
-  const custo = frase("custo") || "continuar no mesmo lugar";
-  const tentativa = frase("tentativas") || "buscar uma forma de evoluir";
-  const objetivo = frase("objetivo") || "dominar a técnica com segurança";
-  const foco = FOCO_POR_GARGALO[valor("travamento")] || "trabalhar o seu maior gargalo técnico com método e correção";
+  const situacao = frase("situacao") || "o seu momento atual";
+  const problema = frase("problema") || "o que mais te trava numa mecha";
+  const tempo = frase("tempo") || "um tempo";
+  const impacto = frase("impacto") || "seguir no mesmo ponto";
+  const tentativa = frase("necessidade") || "buscar uma saída";
+  const objetivo = frase("objetivo") || "fazer mecha sem medo de errar";
+  const perfil = frase("perfil") || "";
 
-  const intencaoVal = valor("intencao");
-  const nutrir = intencaoVal === "esperar" || intencaoVal === "nao";
+  const indice = calcularIndice(a);
+  const pilar = pilarDominante(a);
+  const leitura = LEITURA_PILAR[pilar];
 
-  // CTA adaptado ao nível de qualificação
+  const faixaClasse = indice.faixa === "Alto" ? "alto" : (indice.faixa === "Médio" ? "medio" : "baixo");
+  const resultado = (F.resultados && F.resultados[pilar]) || "Mão boa, método nenhum";
+
+  /* Mesma regra do app.js. Quatro faixas para o atendimento, três CTAs na
+     página: fila-quente e qualificado veem o mesmo botão. O corte de caixa é
+     o ticket praticado na mecha, nunca faturamento. */
+  const stepTicket = F.steps.find((s) => s.id === "ticket");
+  const optTicket = stepTicket && stepTicket.options.find((o) => o.value === a.ticket);
+  const ticketBom = ["200a400", "400a700", "acima700"].indexOf(a.ticket) > -1;
+  const nivel = (optTicket && optTicket.fora) ? "fora"
+    : ((a.prontidao === "depois" || a.prontidao === "pesquisando") ? "nutrir"
+      : ((a.prontidao === "sim" && ticketBom && indice.pct >= 66) ? "fila-quente" : "qualificado"));
+
   let ctaLabel, ctaExtra, fecho;
-  if (nutrir) {
+  if (nivel === "qualificado" || nivel === "fila-quente") {
+    ctaLabel = "Quero agendar minha sessão estratégica";
+    ctaExtra = '<p class="hint">São poucos horários por semana, porque cada sessão é preparada antes, em cima do seu diagnóstico.</p>';
+    fecho = '<p class="fecho">Na sessão, o Rômulo olha o seu caso, aponta o gargalo com nome e desenha o próximo passo. Você sai com clareza, decida ou não seguir.</p>';
+  } else if (nivel === "nutrir") {
     ctaLabel = "Quero entender melhor como funciona";
-    ctaExtra = '<p class="hint">Sem compromisso. O Rômulo te explica o método e tira suas dúvidas no seu tempo.</p>';
-    fecho = '<p class="clube">Quando fizer sentido pra você, o primeiro passo é a <strong>sessão estratégica gratuita</strong>: a gente olha o seu caso juntos, sem compromisso de seguir.</p>';
+    ctaExtra = '<p class="hint">Sem compromisso e no seu tempo. O Rômulo te explica o caminho e o que faz sentido para o seu momento.</p>';
+    fecho = '<p class="fecho">Não existe hora errada para entender o que está travando a sua técnica. A decisão vem depois, quando fizer sentido para você.</p>';
   } else {
-    ctaLabel = "Quero agendar minha sessão gratuita";
-    ctaExtra = '<p class="hint">Uma conversa de 30 minutos, individual e sem compromisso de compra. Você já sai com clareza do seu gargalo, decida ou não seguir.</p>';
-    fecho = '<p class="clube">A partir da sessão, conduzimos a <strong>Mentoria Cabelo de Segunda</strong>: correção de vídeo, fichas técnicas e acompanhamento pensado pro seu caso.</p>';
+    ctaLabel = "Falar com o Rômulo no WhatsApp";
+    ctaExtra = '<p class="hint">Ele te indica por onde começar no seu momento, mesmo que a mentoria ainda não seja o passo agora.</p>';
+    fecho = '<p class="fecho">Comece pela base. O caminho existe, e ele tem ordem.</p>';
   }
   const ctaInline = `<div class="cta-inline"><button class="btn btn-primary cta-wpp">${ctaLabel}</button></div>`;
 
+  const blocoDepoimentos = DEPOIMENTOS.length ? `
+    <div class="etapa">
+      <h3>Quem já fez esse caminho</h3>
+      ${DEPOIMENTOS.map(d => `
+        <div class="dep"><p>${d.texto}</p><span class="quem">${d.quem}</span></div>`).join("")}
+    </div>` : "";
+
   report.innerHTML = `
     <div class="report-head">
-      <span class="selo">Diagnóstico personalizado</span>
-      <h1>O caminho para você dominar a sua mecha</h1>
-      <p class="hint">Elaborado com base nas suas respostas · ${new Date().toLocaleDateString("pt-BR")}</p>
+      <span class="selo">Diagnóstico da Mecha</span>
+      <h1>O seu Índice de Improviso na Mecha</h1>
+      <div class="resultado">${resultado}</div>
+      <div class="indice ${faixaClasse}">
+        <div class="indice-num">${indice.pct}%</div>
+        <div class="indice-txt">Improviso ${indice.faixa}<span>quanto do seu resultado ainda depende de sorte em vez de método</span></div>
+      </div>
+      <p class="hint">Calculado a partir das suas respostas em ${new Date().toLocaleDateString("pt-BR")}</p>
     </div>
 
     <div class="etapa">
       <h3>Antes de tudo</h3>
-      <p>Oi, ${nome}! Aqui é o Rômulo. 💛 Li com atenção tudo o que você respondeu.
-      E quero começar com uma coisa que talvez ninguém tenha te dito:
-      <strong>o que te trava na mecha não é falta de talento, é falta de método corrigido.</strong></p>
+      <p>Oi, ${nome}. Li com atenção tudo o que você respondeu, e quero começar por uma coisa que talvez ninguém tenha te dito:
+      <strong>o que trava a sua mecha não é falta de talento, nem falta de esforço.</strong>
+      Tem explicação, tem nome, e tem caminho.</p>
     </div>
 
     <div class="etapa">
       <h3>O seu cenário hoje</h3>
-      <p>Pelo que você me contou, o seu maior travamento é <strong>${travamento}</strong>.
-      E isso vem custando caro: ${impacto}. Você já chegou a ${tentativa}, e mesmo assim
-      a insegurança continua. Esse padrão se repete em quase todo profissional que chega
-      até mim. E ele tem uma explicação.</p>
+      <p>Pelo que você me contou, o seu momento é de <strong>${situacao}</strong>, e o que mais pesa é
+      <strong>${problema}</strong>. Isso já dura <strong>${tempo}</strong>, e a tendência, se nada mudar,
+      é <strong>${impacto}</strong>.${perfil ? ` Você também se descreveu como alguém que vive <strong>${perfil}</strong>.` : ""}</p>
+      <p>Esse padrão se repete em quase todo profissional que chega até aqui. E ele tem um nome.</p>
     </div>
 
     <div class="etapa">
-      <h3>Por que não resolveu até agora</h3>
-      <p>Curso gravado te mostra o que fazer. Não corrige o que você está fazendo de errado.
-      Você pode assistir 40 horas de conteúdo e continuar errando na folha, no timing ou na
-      dosagem, porque o erro é seu, é específico, e ninguém está olhando pra ele. Domínio
-      técnico vem de prática corrigida: alguém que vê o que você faz, identifica o erro e te
-      diz exatamente o que mudar.</p>
+      <h3>Por que não mudou até agora</h3>
+      <p>Você já chegou a <strong>${tentativa}</strong>, e mesmo assim a segurança não veio.
+      Faz sentido: todas essas saídas entregam informação, e o que trava um profissional na mecha não é falta de informação.</p>
+      <p>O nome disso é <strong>improviso</strong>: a distância entre o que você faz e o que você consegue repetir de propósito.
+      Curso gravado te mostra como fazer. Não corrige o que você está fazendo de errado, porque foi gravado para mil pessoas
+      e não enxerga a sua folha, o seu timing, a sua divisão. Você pode assistir quarenta horas de conteúdo e continuar
+      repetindo o mesmo erro, porque o erro é seu, é específico, e ninguém está olhando para ele.</p>
+      <p>No seu caso, ${leitura.resumo}</p>
     </div>
 
     <div class="etapa">
-      <h3>Dois caminhos lado a lado</h3>
+      <h3>Dois profissionais, e a diferença entre eles</h3>
       <div class="compare">
         <div class="col bad">
-          <h4>Sem método</h4>
-          <ul><li>Improviso a cada atendimento</li><li>Erro que se repete sem correção</li><li>Resultado que depende da sorte</li><li>Insegurança para cobrar mais</li></ul>
+          <h4>Quem fez curso</h4>
+          <ul><li>Assistiu horas de conteúdo</li><li>Repete o que viu, sem saber por quê</li><li>Erra e não sabe onde errou</li><li>Segue cobrando o preço da tabela</li></ul>
         </div>
         <div class="col good">
-          <h4>Com o Método Cabelo de Segunda</h4>
-          <ul><li>Correção de vídeo do seu atendimento real</li><li>Fichas técnicas por tipo de mecha</li><li>Resultado que você replica</li><li>Segurança para subir o ticket</li></ul>
+          <h4>Quem foi corrigido</h4>
+          <ul><li>Talvez saiba exatamente o mesmo</li><li>Teve alguém olhando o próprio trabalho</li><li>Sabe o que mudar, e por quê</li><li>Repete o resultado e sustenta o ticket</li></ul>
         </div>
       </div>
+      <p class="hint">A diferença entre os dois não é talento. É prática corrigida, e isso se constrói.</p>
     </div>
 
     ${ctaInline}
 
     <div class="etapa">
-      <h3>Como a mentoria trabalha</h3>
-      <p>A Mentoria Cabelo de Segunda é um acompanhamento individual de 3 meses, em quatro frentes:</p>
+      <h3>Como o método funciona</h3>
+      <p>O <strong>Método Cabelo de Segunda</strong> existe para tirar o improviso do seu atendimento. São quatro frentes, ao mesmo tempo:</p>
       <ol class="metodo">
-        <li><strong>Sessão semanal individual:</strong> revisão do que você fez, dúvidas respondidas em tempo real, ajuste de rota imediato.</li>
-        <li><strong>Correção de vídeo:</strong> você grava o atendimento no salão e recebe feedback específico do que errou e como ajustar.</li>
-        <li><strong>Banco de fichas técnicas:</strong> os parâmetros certos por tipo de mecha, para você parar de improvisar.</li>
-        <li><strong>Suporte por WhatsApp:</strong> a dúvida que surge antes de um atendimento difícil, resolvida na hora.</li>
+        <li><strong>Sessão semanal individual:</strong> uma hora por semana, no Meet, para revisar o que você fez. Não é aula, é correção.</li>
+        <li><strong>Correção dos seus vídeos:</strong> você grava o atendimento no salão, manda, e recebe o que errou e o que mudar. Isso não existe em curso nenhum.</li>
+        <li><strong>Banco de fichas técnicas:</strong> os parâmetros certos por tipo de cabelo, textura e objetivo. Você para de improvisar e começa a replicar.</li>
+        <li><strong>Suporte no WhatsApp:</strong> a dúvida que aparece na véspera do atendimento difícil não espera a próxima sessão.</li>
       </ol>
-      <p class="hint">É um processo com começo, meio e fim. A maioria nota diferença nas primeiras semanas.</p>
-    </div>
-
-    <div class="etapa">
-      <h3>O custo de continuar como está</h3>
-      <p>Você disse que, sem dominar a mecha nos próximos meses, o risco é <strong>${custo}</strong>.
-      O mercado de beleza está se especializando: quem não tem método vai perdendo espaço.
-      E atender sem método é acumular erro sem corrigir. Você não melhora fazendo mais do mesmo.</p>
+      <p class="hint">Domínio técnico não vem de mais conteúdo. Vem de prática corrigida, toda semana, no seu próprio trabalho.</p>
     </div>
 
     <div class="etapa">
       <h3>O que precisa acontecer agora</h3>
-      <p>Baseado no que você respondeu, o primeiro foco da sua evolução seria
-      <strong>${foco}</strong>. A partir daí, cada atendimento fica melhor que o anterior.
-      O que você quer, <strong>${objetivo}</strong>, é totalmente possível. Eu acompanho isso
-      de perto, no seu trabalho, com o seu cabelo.</p>
+      <p>${leitura.caminho}</p>
+      <p>O que você quer, <strong>${objetivo}</strong>, é totalmente possível. O primeiro passo é uma
+      <strong>sessão estratégica</strong>: trinta minutos, individual, em que o Rômulo lê o seu caso e desenha o
+      próximo passo. Não é apresentação de produto.</p>
     </div>
 
     ${ctaInline}
 
     <div class="etapa">
-      <h3>Quem já viveu isso</h3>
-      <div class="depo">[DEPOIMENTOS]: inserir prints/vídeos de alunos em ./depoimentos/ (antes e depois, aumento de ticket, saída da insegurança). Imagens inteiras.</div>
-      <p class="hint">O que essas histórias têm em comum: não mudou o talento. Mudou o método.</p>
+      <h3>Quem é o Rômulo Heleno</h3>
+      <div class="autor">
+        <img class="autor-foto" src="favicon.svg" alt="" width="96" height="96" loading="lazy" />
+        <div>
+          <span class="autor-nome">RÔMULO HELENO</span>
+          <span class="autor-cargo">Especialista em técnica de mecha · ex-técnico de marca</span>
+        </div>
+      </div>
+      <p>Antes de mentorar, o Rômulo era o profissional que as marcas contratam para treinar equipe de salão. Passou
+      2024 dentro de dezenas de salões, olhando o trabalho de outros profissionais e apontando o que corrigir, ao vivo,
+      na cadeira. É de lá que vem o método: ele conhece os erros mais comuns da mecha porque passou anos corrigindo
+      cada um deles em gente que já estava atendendo.</p>
+      <p class="autor-fala"><span class="rot">A tese que sustenta o método</span>
+      Quem não domina a mecha não tem um problema de técnica. Tem um problema de método. E método não se aprende em
+      vídeo: se corrige na cadeira.</p>
     </div>
+
+    ${blocoDepoimentos}
 
     <div class="cta-box">
       <h2 style="margin-top:0">O próximo passo, ${nome}</h2>
@@ -149,16 +237,43 @@ if (!a._completedAt && !a.travamento) {
         <button class="btn btn-primary cta-wpp">${ctaLabel}</button>
       </div>
       ${fecho}
-    </div>`;
+    </div>
+
+    <p class="rodape-nota">Este resultado é uma leitura inicial a partir das suas respostas, não um diagnóstico técnico completo. A sessão estratégica é o passo que aprofunda o seu caso.</p>`;
 }
 
-/* ---------- WhatsApp ---------- */
-function abrirWhatsApp() {
-  const nome = (a.nomeResp || "").split(" ")[0] || "";
-  const msg = (F.marca.whatsappMsg || "").replace("{nome}", nome);
-  const url = `https://wa.me/${F.marca.whatsapp}?text=${encodeURIComponent(msg)}`;
-  window.open(url, "_blank", "noopener");
+/* ---------- WhatsApp: um handler para todos os CTAs distribuídos ----------
+   Trava: se o número estiver vazio ou inválido, os CTAs não abrem nada e a
+   página mostra um aviso no topo. Evita publicar com botão mudo e só descobrir
+   depois que o tráfego já rodou. */
+function numeroValido() {
+  const n = String((F.marca && F.marca.whatsapp) || "");
+  return /^[0-9]{12,13}$/.test(n);
 }
+
+function abrirWhatsApp() {
+  if (!numeroValido()) {
+    console.warn("[funil] WhatsApp não configurado em flow.js > marca.whatsapp");
+    return;
+  }
+  const indice = calcularIndice(a);
+  const pilar = pilarDominante(a);
+  const msg = (F.marca.whatsappMsg || "")
+    .replace("{nome}", (a.nomeResp || "").split(" ")[0] || "")
+    .replace("{resultado}", (F.resultados && F.resultados[pilar]) || "")
+    .replace("{indice}", indice.pct + "%")
+    .replace("{faixa}", indice.faixa.toLowerCase())
+    .replace("{pilar}", pilar);
+  window.open(`https://wa.me/${F.marca.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
+}
+
 document.addEventListener("click", (e) => {
   if (e.target.closest && e.target.closest(".cta-wpp")) abrirWhatsApp();
 });
+
+if (!numeroValido()) {
+  const aviso = document.createElement("p");
+  aviso.className = "aviso";
+  aviso.textContent = "Configuração pendente: o WhatsApp comercial não está preenchido em flow.js, então os botões não abrem conversa. Preencha marca.whatsapp antes de mandar tráfego.";
+  report.prepend(aviso);
+}

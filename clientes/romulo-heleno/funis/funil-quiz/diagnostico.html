@@ -4,16 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex" />
-  <title>Seu diagnóstico · Mentoria Cabelo de Segunda</title>
+  <title>Seu diagnóstico · Rômulo Heleno</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <style>
-    :root{--bg:#F3EEE6;--text:#2A2420}
+    :root{--bg:#F5F1EA;--text:#232C39}
     body{margin:0;background:var(--bg);color:var(--text);
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+      font-family:"Lora","Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif}
   </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" /></noscript>
   <link rel="stylesheet" href="styles.css" />
   <style>
     /* --- específico do relatório --- */
@@ -23,32 +25,74 @@
     .etapa { margin: 0 0 16px; }
     .etapa h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--primary); margin: 0 0 8px; }
     .etapa p { margin: 0 0 10px; }
+
+    /* selo do índice (IIM) */
+    .indice { display: flex; align-items: center; gap: 16px; justify-content: center; text-align: left;
+      border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin: 6px 0 12px;
+      background: color-mix(in srgb, var(--primary) 7%, var(--surface)); }
+    .indice-num { font-family: var(--font-serif); font-size: 42px; font-weight: 700; line-height: 1; color: var(--primary-700); }
+    .indice-txt { font-weight: 700; font-size: 16px; color: var(--text); }
+    .indice-txt span { display: block; font-weight: 400; font-size: 13px; color: var(--muted); margin-top: 3px; max-width: 270px; }
+    .indice.alto .indice-num { color: var(--terracota); }
+    .indice.medio .indice-num { color: var(--primary-700); }
+    .indice.baixo .indice-num { color: var(--verde); }
+
+    /* resultado nomeado */
+    .resultado { display: inline-block; border: 1px solid color-mix(in srgb, var(--primary) 40%, var(--border));
+      background: var(--accent-soft); border-radius: 99px; padding: 8px 18px; margin: 2px 0 10px;
+      font-family: var(--font-serif); font-size: 17px; font-weight: 700; color: var(--primary-700); }
+
+    /* aviso de configuração: aparece se o WhatsApp não estiver preenchido */
+    .aviso { background: #FAEDEA; border: 1px solid #E8C6BE; color: var(--err); border-radius: var(--radius-sm);
+      padding: 12px 14px; margin: 0 0 16px; font-size: 14.5px; text-align: left; }
+
     .metodo { margin: 0; padding-left: 18px; }
     .metodo li { margin: 0 0 8px; }
     .metodo strong { color: var(--primary-700); }
     .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 8px 0; }
     .compare .col { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px; background: var(--surface); }
-    .compare .col h4 { margin: 0 0 8px; font-size: 14px; }
+    .compare .col h4 { margin: 0 0 8px; font-size: 14px; font-family: var(--font-serif); }
     .compare .col.bad h4 { color: var(--muted); }
     .compare .col.good { background: color-mix(in srgb, var(--primary) 6%, var(--surface)); border-color: color-mix(in srgb, var(--primary) 30%, var(--border)); }
     .compare ul { margin: 0; padding-left: 18px; font-size: 15px; color: var(--muted); }
     .compare .good ul { color: var(--text); }
-    .depo { background: var(--accent-soft); border: 1px dashed #C9B3E6; border-radius: var(--radius-sm); padding: 14px; margin: 8px 0; font-size: 15px; color: var(--primary-700); }
-    .depo-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0 6px; }
-    .depo-shot { width: 100%; height: auto; display: block; border-radius: var(--radius-sm); border: 1px solid var(--border); box-shadow: var(--shadow); background: #fff; }
-    @media (max-width: 520px){ .depo-gallery { grid-template-columns: 1fr; } }
     .cta-inline { text-align: center; margin: 22px 0; }
     .cta-inline .btn { width: 100%; max-width: 420px; }
+
+    /* --- bloco de autoridade --- */
+    .autor { display: flex; align-items: center; gap: 15px; margin: 2px 0 14px; }
+    .autor-foto { width: 96px; height: 96px; flex: 0 0 96px; border-radius: 50%; object-fit: cover;
+      border: 2px solid var(--primary); background: var(--accent-soft); }
+    .autor-nome { display: block; font-family: var(--font-serif); font-size: 19px; font-weight: 700; letter-spacing: .04em; color: var(--primary-700); line-height: 1.15; }
+    .autor-cargo { display: block; font-size: 11px; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
+    .autor-fala { border-left: 3px solid var(--primary); padding: 2px 0 2px 14px; margin: 14px 0 6px;
+      font-family: var(--font-serif); font-size: 16.5px; line-height: 1.45; color: var(--text); }
+    .autor-fala .rot { display: block; font-family: var(--font); font-size: 10.5px; letter-spacing: .13em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 6px; font-weight: 600; }
+
+    /* --- depoimentos (o bloco só renderiza quando DEPOIMENTOS tiver item) --- */
+    .dep { border: 1px solid var(--border); border-left: 3px solid var(--primary);
+      border-radius: var(--radius-sm); background: var(--bg-2); padding: 16px 18px; margin: 0 0 12px; }
+    .dep p { margin: 0; font-size: 15.5px; line-height: 1.5; }
+    .dep .quem { display: block; margin-top: 10px; font-size: 12.5px; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--primary-700); font-weight: 600; }
+
     .cta-box { background: color-mix(in srgb, var(--primary) 7%, var(--surface)); border: 1px solid color-mix(in srgb, var(--primary) 26%, var(--border)); border-radius: var(--radius); padding: 22px; text-align: center; margin-top: 8px; }
-    .clube { font-size: 15px; color: var(--muted); margin-top: 14px; }
-    .toolbar { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 4px 0 22px; }
-    @media (max-width: 520px){ .compare { grid-template-columns: 1fr; } }
+    .fecho { font-size: 15px; color: var(--muted); margin-top: 14px; }
+    .rodape-nota { font-size: 13px; color: var(--muted); text-align: center; margin: 18px 0 0; }
+
+    @media (max-width: 520px){
+      .compare { grid-template-columns: 1fr; }
+      .indice { flex-direction: column; text-align: center; gap: 8px; }
+      .indice-txt span { max-width: none; }
+      .autor { flex-direction: column; text-align: center; }
+    }
     @media print {
       .no-print { display: none !important; }
       body { background: #fff; }
       .card { box-shadow: none; border-color: #ddd; margin: 0; }
-      .topbar, .foot { color: #000; }
-      .etapa, .compare .col, .cta-box, .depo { break-inside: avoid; }
+      .topbar { color: #000; }
+      .etapa, .compare .col, .cta-box { break-inside: avoid; }
     }
   </style>
 </head>
@@ -56,18 +100,16 @@
   <header class="topbar">
     <div class="container">
       <div class="brand">
-        <!-- Quando tiver o logo, troque por: <img class="logo-img" src="logo.png" alt="Rômulo Heleno · Mentoria Cabelo de Segunda"> -->
+        <img class="logo-img" src="favicon.svg" alt="" width="40" height="40" />
         <span class="brand-name">Rômulo Heleno</span>
-        <span class="brand-tag">Mentoria Cabelo de Segunda</span>
+        <span class="brand-tag">Método Cabelo de Segunda</span>
       </div>
     </div>
   </header>
 
   <main class="container">
-    <div class="card screen" id="report"><!-- preenchido por diagnostico.js --></div>
+    <div class="card screen" id="report"></div>
   </main>
-
-  <p class="foot">Diagnóstico elaborado pelo Rômulo Heleno · Mentoria Cabelo de Segunda · uso exclusivo</p>
 
   <script src="flow.js" defer></script>
   <script src="diagnostico.js" defer></script>

@@ -1,21 +1,28 @@
 /* ============================================================
    APP. Motor do funil (render, validação, persistência, tracking).
-   Sem dependências externas. Funciona abrindo o index.html.
-   Padrão de escrita: nunca usar travessões (traço longo).
+   Sem dependências externas. Padrão: nunca usar travessões.
+
+   Base: motor fechado no funil da Luana Isse, com os nomes do índice
+   generalizados (calcularIndice, payload "indice"/"indice_faixa"), para o
+   próximo funil não precisar renomear nada.
+
+   Pontos que fogem da base da skill, todos intencionais:
+   1. A barra de progresso não mostra número nenhum: nem "Pergunta X de N",
+      nem porcentagem. Número ali faz o quiz parecer longo e derruba conclusão.
+   2. Cálculo do IIM (Índice de Improviso na Mecha) a partir dos pesos, com os
+      pesos calibrados sobre as 1024 combinações (ver nota no flow.js).
+   3. Classificação em 4 faixas, não 3: fila-quente, qualificado, nutrir e
+      fora. A página mostra 3 CTAs (fila-quente e qualificado compartilham),
+      mas a planilha recebe as 4, para priorizar a fila do atendimento.
    ============================================================ */
 
-/* ---- Tracking plugável: preencha os IDs e os eventos vão junto.
-   Vazio = só loga no console. ---- */
 const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
 
-/* Planilha de leads via Make (webhook instant → Google Sheets).
-   Cole a URL do webhook do Make aqui. Dispara só quando chega lead; não fica
-   varrendo (não consome crédito à toa). IMPORTANTE: o Make só estrutura o lead
-   quando recebe application/json (já tratado em enviarLead). Vazio = não envia. */
+/* Webhook do Make que grava o lead na planilha. Vazio = não envia.
+   Cenário: "[Rômulo Heleno] Diagnóstico da Mecha → Sheets" (id 5560422, instantâneo,
+   só roda quando chega lead: 2 operações por lead, sem varredura). */
 const LEADS_ENDPOINT = "https://hook.us2.make.com/z43xti6urytnu8xomciv1ohozoxd1qfq";
 
-/* UTMs capturadas da URL no carregamento (a página do quiz não muda de URL até
-   o envio, então isso preserva os parâmetros do anúncio). */
 function getUTMs() {
   const p = new URLSearchParams(location.search);
   return {
@@ -25,6 +32,7 @@ function getUTMs() {
   };
 }
 const URL_UTMS = getUTMs();
+
 function trackEvent(name, data = {}) {
   const payload = { ...data, ts: Date.now() };
   console.log(`[TRACK] ${name}`, payload);
@@ -36,64 +44,12 @@ function trackEvent(name, data = {}) {
   } catch (e) { /* tracking nunca quebra o funil */ }
 }
 
-/* Data/hora no fuso de Brasília, formato legível: "29/06/2026 09:32:35".
-   Força America/Sao_Paulo (não depende do fuso do visitante). */
 function dataHoraBR() {
   try {
     const tz = { timeZone: "America/Sao_Paulo" };
     const d = new Date();
     return d.toLocaleDateString("pt-BR", tz) + " " + d.toLocaleTimeString("pt-BR", tz);
   } catch (e) { return new Date().toISOString(); }
-}
-
-/* Classifica o lead pela prontidão e geografia (mesma régua do diagnóstico).
-   Qualifica por intenção, não por pergunta crua de renda. */
-function classificarLead(a) {
-  if (a.intencao === "esperar" || a.intencao === "nao") return "nutrir";
-  return "qualificado";
-}
-
-/* Envia o lead pro webhook do Make (formato padrão da casa: name/email/
-   whatsapp + meta + utms + answers q1..q9). Fire-and-forget: nunca trava o
-   fluxo do lead. O Make grava a linha na planilha. */
-function enviarLead() {
-  if (!LEADS_ENDPOINT) return;
-  const a = state.answers;
-  const label = (stepId) => {
-    const s = F.steps.find((x) => x.id === stepId);
-    const o = s && s.options.find((op) => op.value === a[stepId]);
-    return o ? o.label : "";
-  };
-  const lead = {
-    name: a.nomeResp || "",
-    email: a.email || "",
-    whatsapp: a.whatsapp || "",
-    qualificacao: classificarLead(a),
-    frente: (F.config && F.config.frente) || "Funil",
-    instagram: a.instagram || "",
-    answers: {
-      q1: label("tempo"), q2: label("relacao"), q3: label("travamento"),
-      q4: label("impacto"), q5: label("custo"), q6: label("tentativas"),
-      q7: label("objetivo"), q8: label("perfil"), q9: label("frequencia"),
-      q10: label("intencao"),
-    },
-    utms: URL_UTMS,
-    meta: {
-      timestamp: dataHoraBR(),
-      page_url: location.href,
-      referrer: document.referrer || "",
-      user_agent: navigator.userAgent || "",
-    },
-  };
-  const body = JSON.stringify(lead);
-  try {
-    // O webhook do Make só estrutura o lead quando recebe application/json
-    // (text/plain não é parseado). O webhook responde CORS, então o navegador
-    // pode mandar application/json em modo cors. keepalive garante que o POST
-    // sobreviva ao redirect pro diagnóstico (não é cancelado ao trocar de página).
-    fetch(LEADS_ENDPOINT, { method: "POST", keepalive: true,
-      headers: { "Content-Type": "application/json" }, body });
-  } catch (e) { /* não bloqueia o lead */ }
 }
 
 const F = window.FLOW;
@@ -104,6 +60,138 @@ const progressEl = document.getElementById("progress");
 let state = { view: 0, answers: {}, started: false };
 let stepEnterTime = 0;
 
+/* ============================================================
+   IIM: Índice de Improviso na Mecha
+   Só as perguntas de diagnóstico pontuam (as que têm peso nas opções).
+   Tempo, objetivo e as duas porteiras ficam de fora.
+   ============================================================ */
+function calcularIndice(answers) {
+  let soma = 0, max = 0;
+  F.steps.forEach((s) => {
+    const pontua = s.options.some((o) => typeof o.peso === "number");
+    if (!pontua) return;
+    max += Math.max(...s.options.map((o) => o.peso || 0));
+    const escolhida = s.options.find((o) => o.value === answers[s.id]);
+    if (escolhida && typeof escolhida.peso === "number") soma += escolhida.peso;
+  });
+  const pct = max ? Math.round((soma / max) * 100) : 0;
+  const faixa = pct >= 66 ? "Alto" : (pct >= 33 ? "Médio" : "Baixo");
+  return { pct, faixa };
+}
+
+/* Pilar onde o improviso está concentrado (vem da pergunta de problema):
+   Leitura, Execução, Adaptação ou Posicionamento. */
+function pilarDominante(answers) {
+  const s = F.steps.find((x) => x.id === "problema");
+  const o = s && s.options.find((op) => op.value === answers.problema);
+  return (o && o.pilar) || "Execução";
+}
+
+/* ============================================================
+   TELEFONE. Bug de produção pego no funil da Thaina e herdado como regra: o
+   autofill do iPhone entrega "+55 11 99991-2039" de uma vez só, e o código do
+   país entrava como se fosse DDD. Chegava na planilha "(55) 11999-9120", com o
+   final do número perdido e sem conserto. O 55 sai ANTES de qualquer corte.
+   ============================================================ */
+function soDigitosTel(v) {
+  let d = String(v || "").replace(/\D/g, "");
+  if (d.length > 11 && d.startsWith("55")) d = d.slice(2);   // tira o país
+  return d.slice(0, 11);
+}
+function fmtTel(v) {
+  const d = soDigitosTel(v);
+  if (d.length <= 2) return d ? "(" + d : "";
+  if (d.length <= 7) return "(" + d.slice(0, 2) + ") " + d.slice(2);
+  return "(" + d.slice(0, 2) + ") " + d.slice(2, 7) + "-" + d.slice(7);
+}
+/* Celular brasileiro: 11 dígitos, DDD de 11 a 99 e o nono dígito sempre 9.
+   O DDD 55 (Santa Maria/RS) é real e continua passando: "55999122039" tem 11
+   dígitos, então soDigitosTel() não mexe nele. */
+function celularValido(v) {
+  const d = soDigitosTel(v);
+  return d.length === 11 && d[2] === "9" && Number(d.slice(0, 2)) >= 11;
+}
+
+/* Resultado nomeado: o que vai no WhatsApp, na planilha e no topo do relatório. */
+function resultadoNomeado(answers) {
+  const R = F.resultados || {};
+  return R[pilarDominante(answers)] || "Mão boa, método nenhum";
+}
+
+/* Quatro faixas na planilha, três CTAs na página. A regra de corte cruzada
+   mora aqui, no código, e não só no documento de estratégia.
+   fila-quente  pronta agora, com ticket de mecha na tabela e improviso alto
+   qualificado  entra na sessão do mesmo jeito, só não fura fila
+   nutrir       é momento, não é "algo mais barato"
+   fora         não atende clientes e não tem previsão de atender
+   Diferença para a Luana, de propósito: aqui o corte de caixa é o TICKET
+   PRATICADO na mecha, nunca faturamento (regra do documento de estratégia). */
+function classificarLead(a) {
+  const stepTicket = F.steps.find((s) => s.id === "ticket");
+  const optTicket = stepTicket && stepTicket.options.find((o) => o.value === a.ticket);
+  if (optTicket && optTicket.fora) return "fora";
+  if (a.prontidao === "depois" || a.prontidao === "pesquisando") return "nutrir";
+  const ticketBom = ["200a400", "400a700", "acima700"].indexOf(a.ticket) > -1;
+  if (a.prontidao === "sim" && ticketBom && calcularIndice(a).pct >= 66) return "fila-quente";
+  return "qualificado";
+}
+
+/* ---------- envio do lead ---------- */
+function enviarLead() {
+  if (!LEADS_ENDPOINT) return;
+  const a = state.answers;
+  const label = (stepId) => {
+    const s = F.steps.find((x) => x.id === stepId);
+    const o = s && s.options.find((op) => op.value === a[stepId]);
+    return o ? o.label : "";
+  };
+  const indice = calcularIndice(a);
+  const lead = {
+    timestamp: dataHoraBR(),
+    nome: a.nomeResp || "",
+    whatsapp: fmtTel(a.whatsapp || ""),
+    email: a.email || "",
+    instagram: a.instagram || "",
+    indice: indice.pct + "%",
+    indice_faixa: indice.faixa,
+    pilar: pilarDominante(a),
+    resultado: resultadoNomeado(a),
+    qualificacao: classificarLead(a),
+    situacao: label("situacao"),
+    problema: label("problema"),
+    tempo: label("tempo"),
+    impacto: label("impacto"),
+    necessidade: label("necessidade"),
+    objetivo: label("objetivo"),
+    perfil: label("perfil"),
+    ticket: label("ticket"),
+    prontidao: label("prontidao"),
+    frente: (F.config && F.config.frente) || "Funil",
+    origem: document.referrer || "",
+    page_url: location.href,
+    ...URL_UTMS,
+  };
+  try {
+    /* NUNCA volte a pôr mode:"no-cors" aqui. Nesse modo o navegador descarta
+       silenciosamente o header Content-Type: application/json (em no-cors só
+       passam os três tipos de formulário), o POST chega ao Make como
+       text/plain, o Make responde 200 "Accepted" e JOGA FORA. Nada aparece na
+       planilha e nada aparece como erro: o lead evapora em silêncio.
+       O webhook do Make responde ao preflight (access-control-allow-origin: *
+       e allow-headers: content-type), então CORS normal funciona e o
+       content-type chega de verdade.
+       keepalive garante que o POST sobreviva ao redirect para o diagnóstico.
+       TESTE SEMPRE PELO NAVEGADOR, respondendo o quiz de ponta a ponta, e
+       confira lendo a planilha. Testar com curl NÃO testa este caminho:
+       curl manda o content-type certo e passa mesmo com o bug em pé. */
+    fetch(LEADS_ENDPOINT, {
+      method: "POST", keepalive: true,
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(lead),
+    }).catch(() => {});
+  } catch (e) { /* nunca bloqueia o lead */ }
+}
+
 /* ---------- persistência ---------- */
 function save() { try { sessionStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {} }
 function loadSaved() { try { return JSON.parse(sessionStorage.getItem(STORE_KEY)); } catch (e) { return null; } }
@@ -113,14 +201,11 @@ function clearSaved() { try { sessionStorage.removeItem(STORE_KEY); } catch (e) 
 function el(html) { const t = document.createElement("template"); t.innerHTML = html.trim(); return t.content.firstElementChild; }
 function scrollTop() { window.scrollTo({ top: 0, behavior: "smooth" }); }
 
+/* Barra sem número nenhum: nem "Pergunta X de N", nem porcentagem. Número
+   aqui faz o quiz parecer longo e medido, e derruba conclusão. Só a barra. */
 function updateProgress(stepIdx) {
-  const total = F.steps.length;
-  const human = stepIdx + 1;
-  const pct = Math.round((stepIdx / total) * 100);
-  const label = stepIdx === 0 ? "Começando" : (stepIdx === total - 1 ? "Última pergunta" : `Pergunta ${human} de ${total}`);
+  const pct = Math.round((stepIdx / F.steps.length) * 100);
   progressEl.hidden = false;
-  document.getElementById("progress-label").textContent = label;
-  document.getElementById("progress-pct").textContent = `${pct}%`;
   document.getElementById("progress-bar").style.width = `${pct}%`;
 }
 
@@ -141,10 +226,13 @@ function renderStep(i) {
       <span class="txt">${o.label}</span>
     </button>`).join("");
 
+  /* Só a tela 1 leva hero. Da tela 2 em diante começa direto na pergunta,
+     sem rótulo de etapa em cima (regra do blueprint). */
   const intro = i === 0 ? `
       <h1>${F.hero.titulo}</h1>
       <p class="lead">${F.hero.subtitulo}</p>
       <p class="hint" style="margin:-2px 0 18px">${F.hero.tempo}</p>` : "";
+
   const screen = el(`
     <section class="card screen">
       ${intro}
@@ -152,8 +240,8 @@ function renderStep(i) {
       <div class="options" role="radiogroup" aria-labelledby="q-${step.id}">${opts}</div>
       <div class="actions">
         ${i > 0
-          ? '<button class="btn btn-ghost" id="back">← Voltar</button>'
-          : '<span class="hint">Toque na opção que mais combina. Avança sozinho 💛</span>'}
+          ? '<button class="btn btn-ghost" id="back">Voltar</button>'
+          : '<span class="hint">Toque na opção que mais combina. Avança sozinho.</span>'}
       </div>
     </section>`);
   app.replaceChildren(screen);
@@ -161,7 +249,6 @@ function renderStep(i) {
 
   const optionEls = [...screen.querySelectorAll(".opt")];
   let advancing = false;
-  // auto-avanço: escolher já leva pra próxima (maior taxa de conclusão)
   function choose(node) {
     if (advancing) return;
     optionEls.forEach(o => { o.setAttribute("aria-checked", "false"); o.tabIndex = -1; });
@@ -211,7 +298,7 @@ function renderCaptura() {
       <form id="form" novalidate>
         ${fields}
         <div class="actions">
-          <button class="btn btn-ghost" id="back" type="button">← Voltar</button>
+          <button class="btn btn-ghost" id="back" type="button">Voltar</button>
           <button class="btn btn-primary btn-block" id="submit" type="submit">${c.cta}</button>
         </div>
         <p class="hint" style="margin-top:14px">${c.privacidade}</p>
@@ -220,20 +307,19 @@ function renderCaptura() {
   app.replaceChildren(screen);
   scrollTop();
 
-  // máscara de WhatsApp: (XX) XXXXX-XXXX
   c.campos.filter((f) => f.mask === "phone").forEach((f) => {
     const input = screen.querySelector(`#${f.id}`);
     if (!input) return;
     input.inputMode = "numeric";
-    input.maxLength = 16;
-    const fmt = (v) => {
-      const d = v.replace(/\D/g, "").slice(0, 11);
-      if (d.length <= 2) return d ? "(" + d : "";
-      if (d.length <= 7) return "(" + d.slice(0, 2) + ") " + d.slice(2);
-      return "(" + d.slice(0, 2) + ") " + d.slice(2, 7) + "-" + d.slice(7);
-    };
-    if (input.value) input.value = fmt(input.value);
-    input.addEventListener("input", () => { input.value = fmt(input.value); });
+    /* Sem maxLength: o autofill do iPhone entrega "+55 11 99991-2039" de uma vez
+       e um limite curto cortava a string ANTES da máscara rodar. Quem limita o
+       tamanho é o soDigitosTel(), depois de tirar o código do país. */
+    input.removeAttribute("maxlength");
+    if (input.value) input.value = fmtTel(input.value);
+    /* "change" e "blur" além de "input": preenchimento automático nem sempre
+       dispara o evento "input". */
+    ["input", "change", "blur"].forEach((ev) =>
+      input.addEventListener(ev, () => { input.value = fmtTel(input.value); }));
   });
 
   screen.querySelector("#back").addEventListener("click", () => goToStep(F.steps.length - 1));
@@ -249,7 +335,7 @@ function renderCaptura() {
       const val = input.value.trim();
       let problem = "";
       if (f.required && !val) problem = "Esse campo é obrigatório.";
-      else if (f.type === "tel" && val && val.replace(/\D/g, "").length < 11) problem = "Informe o WhatsApp completo com DDD.";
+      else if (f.type === "tel" && val && !celularValido(val)) problem = "Confira o WhatsApp: DDD e 9 dígitos, sem o +55.";
       else if (f.type === "email" && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) problem = "Informe um e-mail válido.";
       if (problem) {
         problems.push(f.label);
@@ -266,20 +352,19 @@ function renderCaptura() {
       trackEvent("field_error", { step_id: "captura", fields: problems });
       return;
     }
-    // sucesso
     const submitBtn = screen.querySelector("#submit");
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<span class="spinner"></span>Enviando...';
     state.answers._completedAt = new Date().toISOString();
     save();
-    trackEvent("funnel_complete", { answers: { ...state.answers } });
+    trackEvent("funnel_complete", { indice: calcularIndice(state.answers), qualificacao: classificarLead(state.answers) });
     enviarLead();
     renderLoading();
   });
 }
 
-/* Tela de "preparando a leitura": barra que enche + mensagens, depois redireciona.
-   O tempo extra também garante a entrega do lead antes de trocar de página. */
+/* Tela de carregamento: item obrigatório do blueprint. Dá valor percebido,
+   cria expectativa e garante tempo real para o lead chegar na planilha. */
 function renderLoading() {
   progressEl.hidden = true;
   trackEvent("step_view", { step_id: "loading" });
@@ -287,16 +372,16 @@ function renderLoading() {
   const dur = reduce ? 800 : 4700;
   const msgs = [
     "Analisando as suas respostas...",
-    "Identificando o seu gargalo técnico...",
+    "Calculando o seu Índice de Improviso na Mecha...",
     "Montando o seu diagnóstico personalizado...",
   ];
   const screen = el(`
     <section class="card screen loading-card">
       <p class="eyebrow">Quase lá</p>
-      <h2>Preparando o seu Diagnóstico</h2>
+      <h2>Preparando o seu diagnóstico</h2>
       <p class="lead" id="load-msg">${msgs[0]}</p>
       <div class="load-track"><div class="load-bar" id="load-bar"></div></div>
-      <p class="hint" style="margin-top:16px">Estamos personalizando com base no que você respondeu. 💛</p>
+      <p class="hint" style="margin-top:16px">Estamos personalizando com base no que você respondeu.</p>
     </section>`);
   app.replaceChildren(screen);
   scrollTop();
@@ -326,7 +411,6 @@ function render() {
   renderStep(0);
 }
 
-/* ---------- resume (continuar de onde parou) ---------- */
 function offerResume(saved) {
   const banner = el(`
     <div class="resume">
@@ -341,12 +425,10 @@ function offerResume(saved) {
   banner.querySelector("#resume-no").addEventListener("click", () => { clearSaved(); state = { view: 0, answers: {}, started: false }; render(); });
 }
 
-/* ---------- abandono ---------- */
 window.addEventListener("beforeunload", () => {
   if (state.started && state.view !== "captura") trackEvent("funnel_abandon", { last_step: state.view });
 });
 
-/* ---------- start ---------- */
 (function init() {
   trackEvent("page_view", { funil: (F.config && F.config.frente) || "funil" });
   const saved = loadSaved();
