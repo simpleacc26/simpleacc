@@ -141,11 +141,11 @@ window.FLOW = {
       id: "prontidao",
       etapa: "O próximo passo",
       pergunta:
-        "Você busca um processo terapêutico estruturado e definitivo, mesmo que represente um investimento maior do que uma sessão avulsa?",
+        "O acompanhamento tem formatos de 1 e 3 meses, com parcelamento sem juros. Diante disso, você tem disposição de iniciar um processo estruturado agora?",
       options: [
-        { value: "sim", label: "Sim, quero resolver de vez e entendo que isso é um investimento" },
-        { value: "entender", label: "Sim, mas preciso entender melhor como funciona antes" },
-        { value: "pontual", label: "No momento, busco algo mais pontual ou de menor custo", nutrir: true },
+        { value: "sim", label: "Sim, quero começar e esse formato faz sentido pra mim" },
+        { value: "entender", label: "Sim, mas quero entender melhor as opções antes de decidir" },
+        { value: "pontual", label: "No momento, prefiro algo mais pontual ou de menor custo", nutrir: true },
         { value: "pesquisando", label: "Só estou pesquisando por enquanto", nutrir: true },
       ],
     },
