@@ -29,8 +29,7 @@ identidade do Rômulo por cima.
   fora) e **3 CTAs** na página: fila-quente e qualificado veem o mesmo botão.
 - **3 CTAs de WhatsApp distribuídos** no diagnóstico, não um só no fim.
 - **Identidade:** navy `#14233D` + dourado `#B98A3E` sobre marfim `#F5F1EA`,
-  Playfair Display nos títulos e Lora no corpo. É a mesma paleta e a mesma
-  tipografia dos documentos de estratégia e do checkpoint que o cliente já
+  Lora no corpo e nos títulos. É a mesma paleta e a mesma tipografia dos documentos de estratégia e do checkpoint que o cliente já
   recebeu, para o funil parecer a mesma marca. **Não veio de manual de marca:
   o cliente não tem um.**
 
@@ -44,7 +43,8 @@ identidade do Rômulo por cima.
 | `diagnostico.html` | Casca do relatório |
 | `diagnostico.js` | Monta o diagnóstico personalizado |
 | `styles.css` | Identidade visual |
-| `favicon.svg` | Monograma navy + dourado. Serve de favicon E de assinatura no topo |
+| `logo.svg` | Monograma oficial dele, navy sobre transparente. Topo das duas páginas e caixa do bloco de autoridade |
+| `favicon.svg` | O mesmo monograma em marfim sobre o navy, para a aba do navegador |
 
 ## Decisões desta conta
 
@@ -77,7 +77,16 @@ identidade do Rômulo por cima.
 9. **Linguagem neutra em gênero.** O público é majoritariamente feminino mas tem
    homens na cadeira. Nenhum adjetivo concorda com quem lê, e nada de
    "cabeleireira(o)" no meio da frase.
-10. **Só `favicon.svg`, sem PNG.** Os três favicons PNG foram removidos porque
+10. **Títulos em Lora, não em Playfair.** A Playfair tem contraste alto e
+    hairlines finas, que somem no celular e deixam a pergunta cansativa de ler.
+    Lora tem contraste baixo, foi desenhada para tela, e já é a fonte do corpo
+    e dos documentos dele. A hierarquia vem do peso e do tamanho.
+11. **Marca: o monograma dele, embutido como data URI dentro do SVG.** O
+    original é o avatar do Instagram (JPG 320px, fundo preto), guardado em
+    `contexto/marca/`. Saiu o quadrado e o círculo, sobrou o traço, limpo do
+    artefato de JPEG e recortado no traço. Data URI de propósito: o funil segue
+    100% texto e nenhum arquivo passa pelo transporte base64 do MCP.
+12. **Só `favicon.svg`, sem PNG.** Os três favicons PNG foram removidos porque
     **binário sobe corrompido pelo MCP da Vercel**: no deploy de 26/08,
     `favicon-32.png` voltou com 1 byte trocado e o `apple-touch-icon.png` com 9,
     ambos abrindo normalmente e só pegos pelo SHA256. Sem binário na árvore, o
@@ -145,6 +154,13 @@ Cole `+55 11 99991-2039` no campo de WhatsApp e confirme que o campo mostra
 - [ ] **Confirmar o WhatsApp** `(51) 99799-0520` com ele antes de mandar tráfego.
 - [ ] Pixel da Meta e GA4 em `app.js > TRACKING_CONFIG`, quando o tráfego pago
       for liberado (hoje está travado até as primeiras vendas manuais).
+- [ ] **Pacote de logo em vetor.** O que está no ar foi extraído do avatar do
+      Instagram, que é raster. Chegando o SVG de verdade, troque `logo.svg` e
+      `favicon.svg`.
+- [ ] **`favicon.svg` publicado está 1 byte fora do arquivo do repositório**
+      (deslize de transcrição no deploy de 26/08). Renderiza idêntico, conferido
+      lado a lado, mas corrija no próximo deploy do funil, que reenvia a árvore
+      inteira de qualquer jeito.
 
 ## Como rodar e publicar
 
