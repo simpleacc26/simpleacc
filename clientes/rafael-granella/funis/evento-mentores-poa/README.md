@@ -71,7 +71,7 @@ Preencher o bloco `window.CONFIG` no topo do `index.html`:
 
 | Campo | O que colocar |
 | --- | --- |
-| `whatsapp` | Já preenchido com `5554933002628`, o mesmo número que atende o funil de quiz (página de agendamento). É para onde a aplicação leva e também o botão de dúvida. |
+| `whatsapp` | Já preenchido com `5554933003410`. É para onde a aplicação leva e também o botão de dúvida. |
 | `webhookLeads` | Já preenchido com o webhook do Make acima. Vazio significa que a pessoa segue para o WhatsApp normalmente, mas nada é gravado. |
 | `vagasRestantes` | Número de vagas ainda disponíveis, para exibir o contador. `null` esconde o contador. |
 
