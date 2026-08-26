@@ -212,7 +212,7 @@ if (!a._completedAt && !a.problema) {
     <div class="etapa">
       <h3>Quem é o Rômulo Heleno</h3>
       <div class="autor">
-        <img class="autor-foto" src="favicon.svg" alt="" width="96" height="96" loading="lazy" />
+        <img class="autor-foto" src="logo.svg" alt="" width="96" height="96" loading="lazy" />
         <div>
           <span class="autor-nome">RÔMULO HELENO</span>
           <span class="autor-cargo">Especialista em técnica de mecha · ex-técnico de marca</span>

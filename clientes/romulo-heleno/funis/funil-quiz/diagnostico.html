@@ -13,9 +13,9 @@
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap"
         media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" /></noscript>
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" /></noscript>
   <link rel="stylesheet" href="styles.css" />
   <style>
     /* --- específico do relatório --- */
@@ -61,7 +61,11 @@
 
     /* --- bloco de autoridade --- */
     .autor { display: flex; align-items: center; gap: 15px; margin: 2px 0 14px; }
-    .autor-foto { width: 96px; height: 96px; flex: 0 0 96px; border-radius: 50%; object-fit: cover;
+    /* Enquanto não chega a foto dele, a caixa recebe o monograma. O padding
+       existe porque o quadrado do monograma perderia os cantos dentro do
+       círculo: sem ele, a tesoura encosta na borda dourada. */
+    .autor-foto { width: 96px; height: 96px; flex: 0 0 96px; border-radius: 50%; object-fit: contain;
+      box-sizing: border-box; padding: 17px;
       border: 2px solid var(--primary); background: var(--accent-soft); }
     .autor-nome { display: block; font-family: var(--font-serif); font-size: 19px; font-weight: 700; letter-spacing: .04em; color: var(--primary-700); line-height: 1.15; }
     .autor-cargo { display: block; font-size: 11px; letter-spacing: .13em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
@@ -100,7 +104,7 @@
   <header class="topbar">
     <div class="container">
       <div class="brand">
-        <img class="logo-img" src="favicon.svg" alt="" width="40" height="40" />
+        <img class="logo-img" src="logo.svg" alt="" width="40" height="40" />
         <span class="brand-name">Rômulo Heleno</span>
         <span class="brand-tag">Método Cabelo de Segunda</span>
       </div>

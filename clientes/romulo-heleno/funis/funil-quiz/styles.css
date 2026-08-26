@@ -9,11 +9,12 @@
      dourado escuro      #8C6A2C
      champagne           #F3E7CE
      marfim (fundo)      #F5F1EA
-   Tipografia: Playfair Display nos títulos e Lora no corpo, as mesmas fontes
-   dos documentos dele. Carregam sem bloquear a renderização, então Google
-   Fonts fora do ar não trava a página (cai na serifa de sistema).
-   O cliente ainda não tem logo nem manual de marca: quando chegarem, é aqui
-   e no index/diagnostico que troca.
+   Tipografia: Lora em tudo, corpo e títulos, que é a fonte dos documentos
+   dele. Carrega sem bloquear a renderização, então Google Fonts fora do ar
+   não trava a página (cai na serifa de sistema).
+   Marca: o monograma oficial dele vive em logo.svg e favicon.svg. Ele ainda
+   não tem manual de marca nem pacote vetorial: a paleta abaixo veio dos
+   documentos que ele já recebeu.
    ============================================================ */
 :root {
   --navy:        #14233D;  /* navy institucional (botão, favicon) */
@@ -48,7 +49,12 @@
   --maxw:        600px;
 
   --font:        "Lora", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
-  --font-serif:  "Playfair Display", "Iowan Old Style", "Palatino Linotype", Palatino, "Hoefler Text", Georgia, "Times New Roman", serif;
+  /* Títulos em Lora 700, não em Playfair: a Playfair tem contraste alto e
+     hairlines finas, que somem no celular e deixam a pergunta cansativa de ler.
+     Lora é a mesma fonte do corpo e dos documentos do cliente, com contraste
+     baixo e desenhada para tela. A hierarquia vem do peso e do tamanho, não da
+     troca de família, e o funil carrega uma família a menos. */
+  --font-serif:  "Lora", "Iowan Old Style", "Palatino Linotype", Palatino, "Hoefler Text", Georgia, "Times New Roman", serif;
 }
 
 /* ---------- base ---------- */
@@ -66,11 +72,11 @@ img { max-width: 100%; display: block; }
 .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
 
 /* ---------- topo / marca ----------
-   Sem logo oficial: a assinatura é o monograma mais o nome em serifa, na
+   Assinatura: o monograma oficial dele (logo.svg) mais o nome em serifa, na
    mesma construção da capa dos documentos do cliente. */
 .topbar { padding: 22px 0 10px; text-align: center; }
 .brand { display: inline-flex; flex-direction: column; align-items: center; gap: 7px; }
-.brand .logo-img { height: 40px; width: 40px; }
+.brand .logo-img { height: 44px; width: 44px; }
 .brand .brand-name { font-family: var(--font-serif); font-size: 21px; font-weight: 700; letter-spacing: .01em; color: var(--ink); line-height: 1; }
 .brand .brand-tag { font-size: 10px; letter-spacing: .34em; text-transform: uppercase; color: var(--primary-700); padding-left: .34em; font-weight: 600; }
 
@@ -92,7 +98,7 @@ img { max-width: 100%; display: block; }
 @keyframes fade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
 
 .eyebrow { color: var(--primary-700); font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: .14em; margin: 0 0 12px; }
-h1, h2 { font-family: var(--font-serif); font-weight: 700; letter-spacing: -.005em; color: var(--text); }
+h1, h2 { font-family: var(--font-serif); font-weight: 700; letter-spacing: normal; color: var(--text); }
 h1 { font-size: 30px; line-height: 1.2; margin: 0 0 14px; }
 h2 { font-size: 25px; line-height: 1.25; margin: 0 0 16px; }
 .lead { color: var(--muted); font-size: 17px; margin: 0 0 8px; }
