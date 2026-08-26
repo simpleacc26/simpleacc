@@ -44,7 +44,7 @@ identidade do Rômulo por cima.
 | `diagnostico.js` | Monta o diagnóstico personalizado |
 | `styles.css` | Identidade visual |
 | `logo.svg` | Monograma oficial dele, navy sobre transparente. Topo das duas páginas e caixa do bloco de autoridade |
-| `favicon.svg` | O mesmo monograma em marfim sobre o navy, para a aba do navegador |
+| `favicon.svg` | O mesmo monograma em marfim sobre o navy, para a aba do navegador. Reaproveita **o mesmo base64 do `logo.svg`**, repintado por `feColorMatrix` |
 
 ## Decisões desta conta
 
@@ -91,6 +91,12 @@ identidade do Rômulo por cima.
     `favicon-32.png` voltou com 1 byte trocado e o `apple-touch-icon.png` com 9,
     ambos abrindo normalmente e só pegos pelo SHA256. Sem binário na árvore, o
     deploy inteiro é texto e nunca mais corrompe.
+13. **O `favicon.svg` não tem cópia própria do monograma.** Ele carrega o
+    **mesmo base64 do `logo.svg`**, byte a byte, e vira marfim por um filtro
+    `feColorMatrix`. Duas transcrições do mesmo desenho já deram divergência de
+    1 byte entre repositório e produção; com uma só, isso não tem como
+    acontecer. Trocando a logo, extraia o data URI do `logo.svg` novo e cole nos
+    dois arquivos pelo mesmo script, nunca à mão.
 
 ## Pesos e calibração
 
@@ -157,10 +163,6 @@ Cole `+55 11 99991-2039` no campo de WhatsApp e confirme que o campo mostra
 - [ ] **Pacote de logo em vetor.** O que está no ar foi extraído do avatar do
       Instagram, que é raster. Chegando o SVG de verdade, troque `logo.svg` e
       `favicon.svg`.
-- [ ] **`favicon.svg` publicado está 1 byte fora do arquivo do repositório**
-      (deslize de transcrição no deploy de 26/08). Renderiza idêntico, conferido
-      lado a lado, mas corrija no próximo deploy do funil, que reenvia a árvore
-      inteira de qualquer jeito.
 
 ## Como rodar e publicar
 
@@ -169,11 +171,11 @@ Site estático puro, sem build e sem dependência. Para ver local, sirva a pasta
 
 Deploy na Vercel, **time Simpleacc**, projeto `romulo-heleno`, target production.
 Nunca publicar em conta pessoal. Publicação **substitui a árvore inteira**:
-mande os 7 arquivos sempre, e **confira o SHA256 de cada um contra o local
+mande os 8 arquivos sempre, e **confira o SHA256 de cada um contra o local
 depois de cada deploy**, porque arquivo faltando vira 404 mudo.
 
 ```bash
-for f in index.html diagnostico.html styles.css flow.js app.js diagnostico.js favicon.svg; do
+for f in index.html diagnostico.html styles.css flow.js app.js diagnostico.js logo.svg favicon.svg; do
   L=$(sha256sum "$f" | cut -c1-12)
   R=$(curl -s "https://romulo-heleno.vercel.app/$f" | sha256sum | cut -c1-12)
   [ "$L" = "$R" ] && echo "$f OK" || echo "$f DIFERE"
