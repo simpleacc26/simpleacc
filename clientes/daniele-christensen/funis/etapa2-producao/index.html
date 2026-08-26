@@ -475,7 +475,11 @@ var agendaPronta = false;
 function montaAgenda(){
   if(agendaPronta) return;
   agendaPronta = true;
-  var url = "https://calendly.com/sucessodocliente-grokkeronline/30min";
+  // Trocado em 25/08 a pedido da Dani. O evento antigo (/30min) foi despublicado
+  // e passou a devolver 404, então a agenda simplesmente não abria no fim da
+  // Etapa 2. Se um dia o widget aparecer vazio, é o primeiro lugar a conferir:
+  // basta abrir esta URL no navegador.
+  var url = "https://calendly.com/sucessodocliente-grokkeronline/diagnosticogratuito";
   var q = ["hide_gdpr_banner=1", "background_color=12110f", "text_color=f0ede8", "primary_color=f18700"];
   if(LEAD.nome)  q.push("name="  + encodeURIComponent(LEAD.nome));
   if(LEAD.email) q.push("email=" + encodeURIComponent(LEAD.email));

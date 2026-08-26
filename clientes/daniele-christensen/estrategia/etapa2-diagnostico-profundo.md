@@ -288,7 +288,7 @@ Detalhes de manutenção da planilha estão dentro dela, no bloco "Como ler".
 **Resolvido:** é o Calendly da Grokker, embutido na última tela.
 
 ```
-https://calendly.com/sucessodocliente-grokkeronline/30min
+https://calendly.com/sucessodocliente-grokkeronline/diagnosticogratuito
 ```
 
 Widget inline, carregado só quando o lead chega à tela final — antes disso o

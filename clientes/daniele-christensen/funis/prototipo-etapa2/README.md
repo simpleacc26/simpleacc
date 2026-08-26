@@ -53,7 +53,7 @@ de colunas em `estrategia/etapa2-diagnostico-profundo.md`.
 
 Os dois já estão ligados.
 
-**Agenda:** Calendly da Grokker (`sucessodocliente-grokkeronline/30min`),
+**Agenda:** Calendly da Grokker (`sucessodocliente-grokkeronline/diagnosticogratuito`),
 embutido na última tela, carregado só quando o lead chega lá. Nome e e-mail da
 URL vão preenchidos.
 
