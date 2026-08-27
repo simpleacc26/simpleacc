@@ -98,8 +98,8 @@ dois campos, e cada lead preenche um e deixa o outro em branco, exatamente como
 
 | Caminho | Campo | Pergunta | Faixas |
 |---|---|---|---|
-| A — dono ou sócio | `colaboradores` | Quantos colaboradores a sua empresa emprega? | Acima de 500 · Entre 200 e 500 · Entre 100 e 200 · Entre 50 e 100 · Entre 20 e 50 · Menos de 20 |
-| B — executivo | `colaboradores_sob_responsabilidade` | Quantos colaboradores estão sob sua responsabilidade? | Mais de 30 · Entre 16 e 30 · Entre 11 e 15 · Entre 05 e 10 · Entre 1 e 4 · Nenhum |
+| A — dono ou sócio | `colaboradores` | Quantos colaboradores a sua empresa emprega? | Menos de 20 · Entre 20 e 50 · Entre 50 e 100 · Entre 100 e 200 · Entre 200 e 500 · Acima de 500 |
+| B — executivo | `colaboradores_sob_responsabilidade` | Quantos colaboradores estão sob sua responsabilidade? | Nenhum · Entre 1 e 4 · Entre 05 e 10 · Entre 11 e 15 · Entre 16 e 30 · Mais de 30 |
 
 Os dois campos existem sempre no payload, então ninguém precisa de `if` para
 ler. Dentro de `respostas`, a `P8` já vem resolvida: traz a que o lead
@@ -134,6 +134,11 @@ não casar.
 
 ### Como a `pontuacao` é somada
 
+**Nas perguntas de número, as opções aparecem sempre da menor para a maior**,
+de cima para baixo — pedido da equipe da Dani em 25/08. As tabelas abaixo seguem
+a mesma ordem da tela. A posição é só apresentação: o ponto viaja junto de cada
+opção, e é o ponto que qualifica.
+
 **Só as perguntas qualificadoras somam.** As de cenário (P2 a P5) leem qual é o
 problema do lead, não o tamanho dele, e ficam de fora. A margem também: a
 especificação a trata como indicador de maturidade financeira, não como nota.
@@ -145,21 +150,21 @@ especificação a trata como indicador de maturidade financeira, não como nota.
 
 | P8 caminho A | pts | P6 faturamento | pts |
 |---|---|---|---|
-| Acima de 500 | 10 | Acima de R$ 500.000 | 10 |
-| Entre 200 e 500 | 8 | De R$ 300.000 até R$ 500.000 | 8 |
-| Entre 100 e 200 | 6 | De R$ 200.000 até R$ 300.000 | 4 |
-| Entre 50 e 100 | 4 | De R$ 100.000 até R$ 200.000 | 1 |
-| Entre 20 e 50 | 2 | Até R$ 100.000 | 0 |
-| Menos de 20 | 1 | | |
+| Menos de 20 | 1 | Até R$ 100.000 | 0 |
+| Entre 20 e 50 | 2 | De R$ 100.000 até R$ 200.000 | 1 |
+| Entre 50 e 100 | 4 | De R$ 200.000 até R$ 300.000 | 4 |
+| Entre 100 e 200 | 6 | De R$ 300.000 até R$ 500.000 | 8 |
+| Entre 200 e 500 | 8 | Acima de R$ 500.000 | 10 |
+| Acima de 500 | 10 | | |
 
 | P6 autonomia | pts | P8 caminho B | pts | P7 remuneração | pts |
 |---|---|---|---|---|---|
-| Total, a decisão é minha | 10 | Mais de 30 | 10 | Acima de R$ 50.000 | 10 |
-| Parcial, decido até um valor | 6 | Entre 16 e 30 | 8 | De R$ 20.000 até R$ 50.000 | 8 |
-| Quase nenhuma | 0 | Entre 11 e 15 | 6 | De R$ 10.000 até R$ 20.000 | 5 |
-| Nenhuma | 0 | Entre 05 e 10 | 4 | De R$ 5.000 até R$ 10.000 | 2 |
-| | | Entre 1 e 4 | 2 | Menos de R$ 5.000 | 1 |
-| | | Nenhum | 0 | | |
+| Total, a decisão é minha | 10 | Nenhum | 0 | Menos de R$ 5.000 | 1 |
+| Parcial, decido até um valor | 6 | Entre 1 e 4 | 2 | De R$ 5.000 até R$ 10.000 | 2 |
+| Quase nenhuma | 0 | Entre 05 e 10 | 4 | De R$ 10.000 até R$ 20.000 | 5 |
+| Nenhuma | 0 | Entre 11 e 15 | 6 | De R$ 20.000 até R$ 50.000 | 8 |
+| | | Entre 16 e 30 | 8 | Acima de R$ 50.000 | 10 |
+| | | Mais de 30 | 10 | | |
 
 **O caminho A somava errado até 25/08.** No lugar da P8 entrava a P4 ("quantas
 decisões acontecem sem passar por você"), que é pergunta de cenário. Quem

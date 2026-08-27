@@ -364,6 +364,15 @@ var CENARIOS = [
   {nome:"Plano que não Vira Execução", sub:"Desalinhamento entre a meta e a prática.", pdf:"Diagnostico-04-plano-que-nao-vira-execucao.pdf"}
 ];
 
+/* Convenção das perguntas de número (faturamento, colaboradores, remuneração):
+   as opções vão SEMPRE da menor para a maior, de cima para baixo. Pedido da
+   equipe da Dani em 25/08, e vale para qualquer faixa numérica que entrar aqui
+   depois.
+
+   A ordem na tela é só apresentação: o ponto viaja junto de cada opção, e o que
+   qualifica é o ponto, não a posição. A única pergunta que depende da posição é
+   a p0, porque o caminho é escolhido pelo índice — por isso ela não é reordenada.
+*/
 var P = {
   p0:{ id:"P0", titulo:"Hoje você é:",
     ops:[
@@ -413,12 +422,12 @@ var P = {
   // corte nem na Pontuação — falta a régua de quantos colaboradores qualificam.
   aColab:{ id:"P8", titulo:"Quantos colaboradores a sua empresa emprega?",
     ops:[
-      {t:"Acima de 500", pt:10},
-      {t:"Entre 200 e 500", pt:8},
-      {t:"Entre 100 e 200", pt:6},
-      {t:"Entre 50 e 100", pt:4},
+      {t:"Menos de 20", pt:1},
       {t:"Entre 20 e 50", pt:2},
-      {t:"Menos de 20", pt:1}
+      {t:"Entre 50 e 100", pt:4},
+      {t:"Entre 100 e 200", pt:6},
+      {t:"Entre 200 e 500", pt:8},
+      {t:"Acima de 500", pt:10}
     ]},
   a6:{ id:"P6", titulo:"Qual é o faturamento médio mensal da sua empresa?",
     ops:[
@@ -446,12 +455,12 @@ var P = {
   // A pontuação também está aqui sem entrar no corte, à espera da régua.
   bColab:{ id:"P8", titulo:"Quantos colaboradores estão sob sua responsabilidade?",
     ops:[
-      {t:"Mais de 30", pt:10},
-      {t:"Entre 16 e 30", pt:8},
-      {t:"Entre 11 e 15", pt:6},
-      {t:"Entre 05 e 10", pt:4},
+      {t:"Nenhum", pt:0},
       {t:"Entre 1 e 4", pt:2},
-      {t:"Nenhum", pt:0}
+      {t:"Entre 05 e 10", pt:4},
+      {t:"Entre 11 e 15", pt:6},
+      {t:"Entre 16 e 30", pt:8},
+      {t:"Mais de 30", pt:10}
     ]},
   // Teto em "Acima de R$ 50.000" e pontos da especificação. As faixas fecham
   // umas nas outras: a especificação ia de R$ 10.000 a R$ 19.000 e depois pulava
@@ -459,11 +468,11 @@ var P = {
   // faixa desta página termina onde a seguinte começa, sem buraco no meio.
   b7:{ id:"P7", titulo:"Qual é a sua remuneração média mensal?",
     ops:[
-      {t:"Acima de R$ 50.000", pt:10},
-      {t:"De R$ 20.000 até R$ 50.000", pt:8},
-      {t:"De R$ 10.000 até R$ 20.000", pt:5},
+      {t:"Menos de R$ 5.000", pt:1},
       {t:"De R$ 5.000 até R$ 10.000", pt:2},
-      {t:"Menos de R$ 5.000", pt:1}
+      {t:"De R$ 10.000 até R$ 20.000", pt:5},
+      {t:"De R$ 20.000 até R$ 50.000", pt:8},
+      {t:"Acima de R$ 50.000", pt:10}
     ]}
 };
 
