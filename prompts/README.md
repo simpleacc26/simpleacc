@@ -11,6 +11,7 @@ verdade** (um arquivo `.md` nesta pasta) e um **comando** correspondente em
 | --------- | -------------------------- | -------- |
 | `/prompt-mestre`  | `prompts/funil-html.md`    | Criar funil/página completa em HTML puro ou anúncios (copy + criativo). Conduz diagnóstico → aprofundamento → geração. |
 | `/copy-hormozi`   | `prompts/copy-hormozi.md`  | Gerar copies estáticas e roteiros de vídeo em storytelling (modelo Alex Hormozi: hook de identidade, problema reformulado, prova, CTA construído com filtro de ICP embutido). Funciona pra qualquer cliente/nicho. Conduz diagnóstico → geração. |
+| `/lp-aula-ao-vivo` | `prompts/lp-aula-ao-vivo.md` | Montar a LP de um **evento ao vivo de baixo ticket** (aula/masterclass paga de R$ 19 a R$ 97) que abre as vagas do high ticket no fim. Segue a estrutura invisível de 21 peças extraída da LP da Mariana Garrett. Conduz intake → copy → página em HTML puro. |
 
 ## Skills disponíveis
 
@@ -21,6 +22,7 @@ a tarefa combina (ou você pode pedir pelo nome).
 | ------------------------------- | -------- |
 | `estrategia-completa-clientes`  | **Estratégia Completa para Clientes** — a partir do onboarding (transcrição/notas), gera o documento de estratégia de 8 seções e entrega como Google Doc formatado na pasta do cliente no Drive. |
 | `gerar-quiz-diag-pag-pos-quiz`  | **Gerar Quiz + Diagnóstico + Página Pós-Quiz** — pega a copy aprovada (da skill acima), monta o quiz + página pós-quiz + PDF na identidade do cliente, **publica na Vercel** (confere a conta da Simple antes), cria a planilha de leads no Drive e testa a integração. |
+| `lp-aula-ao-vivo`               | **LP de Aula ao Vivo** — a página do evento pago barato que termina abrindo vagas de mentoria. Traz o blueprint das 21 peças (`references/estrutura-invisivel-lp.md`), o catálogo de componentes técnicos e o modelo HTML pronto para reskin. Mesma estrutura do comando `/lp-aula-ao-vivo`. |
 
 ## Como usar
 
