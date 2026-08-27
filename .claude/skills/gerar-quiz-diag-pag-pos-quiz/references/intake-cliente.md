@@ -36,17 +36,3 @@ o material**. Não invente dados do cliente (nome, número, cor, depoimento).
 ## Saída do intake
 Um resumo curto do que recebeu + o que assumiu + o que ficou pendente, e
 confirmação para seguir para o build.
-
-## Campos que faltavam neste intake e mudam o funil inteiro
-
-- **O gênero real do público.** Não o do cliente. É a causa do erro de copy mais
-  caro que já cometemos. Ver `copy-e-linguagem.md`.
-- **O que o cliente se recusa a prometer.** Alguns não prometem resultado
-  financeiro porque eles mesmos ainda não estão no número.
-- **Termos proibidos em anúncio.**
-- **O inimigo nomeado**, se já existe, e o **nome e a sigla do índice**.
-- **As faixas de faturamento do ICP real**, para as porteiras.
-- **Manual de marca oficial**, ou autorização para inferir e marcar provisório.
-- **Depoimentos**: vídeo e print, com aviso de que valor em reais é o default
-  fora. Ver `prova-social.md`.
-- **Onde o cliente já publica** (páginas no ar), para puxar a linguagem dele.

@@ -3,61 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="noindex" />
-  <title>Diagnóstico · {{NOME DO CLIENTE}}</title>
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <meta name="description" content="{{promessa curta do quiz}}" />
-
-  <!-- CSS crítico mínimo: evita flash antes do styles.css. Repita aqui a cor de
-       fundo e a de texto do manual de marca, e a pilha local de fallback. -->
+  <title>Diagnóstico · Instituto Sabrina Siqueira</title>
+  <meta name="description" content="Descubra o caminho certo para o seu filho ter uma relação tranquila e sem trauma com o dentista. Atendimento humanizado em Governador Valadares e região." />
+  <!-- CSS crítico mínimo (evita flash antes do styles.css) -->
   <style>
-    :root{--bg:#FFFFFF;--text:#111111}
+    :root{--bg:#FBF6F0;--text:#38302B}
     body{margin:0;background:var(--bg);color:var(--text);
-      font-family:"{{FONTE DO MANUAL}}",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
   </style>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- Fontes carregadas SEM bloquear a renderização: se o Google Fonts demorar
-       ou cair, a página abre na pilha local e nada trava. Página de formulário
-       não pode ter ponto único de falha por causa de fonte.
-       Ver references/bugs-que-ja-quebraram.md, item 4. -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family={{FONTES}}&display=swap"
-        media="print" onload="this.media='all'" />
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family={{FONTES}}&display=swap" /></noscript>
-
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="topbar">
     <div class="container">
       <div class="brand">
-        <!-- Nome COMPLETO do expert, não a sigla do método.
-             Com o arquivo do logo, troque por:
-             <img class="logo-img" src="logo.png" alt="{{NOME COMPLETO}}" width="320" height="74" /> -->
-        <span class="brand-name">{{NOME COMPLETO DO EXPERT}}</span>
-        <span class="brand-tag">{{MÉTODO}}</span>
+        <!-- Quando tiver o arquivo, troque tudo abaixo por:
+             <img class="logo-img" src="logo.png" alt="Instituto Sabrina Siqueira · Odontologia Humanizada"> -->
+        <span class="brand-name">Instituto Sabrina Siqueira</span>
+        <span class="brand-tag">Odontologia Humanizada</span>
       </div>
     </div>
   </header>
 
-  <!-- BARRA DE PROGRESSO SEM NÚMERO NENHUM.
-       Nem "Pergunta X de N", nem porcentagem. Número aqui faz o quiz parecer
-       longo e medido, e derruba conclusão. Só a barra enchendo.
-       Não volte a pôr uma linha de meta aqui: o app.js não escreve nela, então
-       o texto ficaria congelado na tela.
-       Ver references/ajustes-validados.md, item 1. -->
+  <!-- Barra de progresso (só aparece durante as perguntas) -->
   <div class="progress-wrap" id="progress" hidden>
     <div class="container">
+      <div class="progress-meta">
+        <span id="progress-label">Passo 1 de 7</span>
+        <span id="progress-pct">0%</span>
+      </div>
       <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
     </div>
   </div>
 
   <main class="container">
-    <div id="app" aria-live="polite"></div>
+    <div id="app" aria-live="polite"><!-- as telas são renderizadas aqui --></div>
   </main>
 
-  <!-- SEM RODAPÉ nas páginas do funil. Rodapé é saída. -->
+  <p class="foot">Instituto Sabrina Siqueira · Governador Valadares/MG</p>
 
   <script src="flow.js" defer></script>
   <script src="app.js" defer></script>

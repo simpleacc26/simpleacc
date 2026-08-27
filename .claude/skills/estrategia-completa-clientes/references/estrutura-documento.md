@@ -23,48 +23,18 @@ diferente. Uma Big Idea por frente, se houver mais de uma.
 
 ## 2. COPY DO QUIZ
 Perguntas no padrão **SPIN**, baixa fricção no começo, qualificação por último.
-São **9 passos**, com as **duas porteiras no fim**. Ordem inviolável:
-
+Ordem inviolável:
 1. **Situação** (fácil, pressupõe contexto)
 2. **Problema** (o gargalo/dor principal)
-3. **Há quanto tempo** (dá peso ao problema sem cobrar nada)
-4. **Impacto** (o custo de não resolver, faz sentir)
-5. **Necessidade/Tentativas** (o que já tentou)
-6. **Objetivo** (o que quer)
-7. **Perfil** (quem é)
-8. **PORTEIRA 1: faturamento/orçamento** (geografia, se negócio local)
-9. **PORTEIRA 2: prontidão** para um processo estruturado
-
+3. **Implicação** (o custo de não resolver — faz sentir)
+4. **Necessidade/Tentativas** (o que já tentou)
+5. **Objetivo** (o que quer)
+6. **Perfil** (quem é)
+7. **Qualificação** (filtro duro — faturamento/orçamento se B2B; geografia se
+   negócio local; momento). SEMPRE por último.
 Depois: **Captura de dados** (título + subtítulo + campos mínimos + CTA + aviso
 de privacidade). Cada pergunta com 4 alternativas que já segmentam o lead.
 Promessa do quiz no topo (hero): título + subtítulo + estimativa de tempo.
-
-**As alternativas seguem a regra 1 de `regras-de-copy.md`: nada de adjetivo que
-concorde com quem lê.** É aqui que o erro acontece com mais frequência, porque
-alternativa de quiz é escrita na primeira pessoa.
-
-### O que o documento precisa definir junto com as perguntas
-
-Sem isto, quem for implementar decide sozinho e o funil sai diferente da
-estratégia:
-
-- **O índice**, com sigla e nome (ex.: IRV, Índice de Ruptura de Valor). Só as
-  perguntas de diagnóstico pontuam. Tempo, objetivo e as duas porteiras não.
-- **Os pesos**, e o aviso de que é obrigatório **rodar todas as combinações
-  antes de publicar**. No primeiro corte do IRV da Luana, 89% das 1024
-  combinações caíam em "Alta" e "Baixa" era matematicamente impossível: o
-  número era teatro. Depois de recalibrar, ficou 20% a 100%. Se o quiz não tem
-  alternativa de "está tudo bem", a faixa baixa quase não acontece, e isso
-  precisa estar escrito.
-- **O resultado nomeado por perfil** (ex.: "Excelente na sombra", "Excelente sem
-  causa"). Ele vai no topo do relatório, **na mensagem de WhatsApp e numa coluna
-  da planilha**. É o que transforma a planilha em roteiro de atendimento: quem
-  atende abre a conversa já sabendo o diagnóstico.
-- **As 4 faixas de qualificação** para a planilha (fila-quente, qualificado,
-  nutrir, fora), mesmo que a página mostre só 3 CTAs. A quarta prioriza a fila.
-  A opção de nutrir enquadra **momento**, nunca "algo mais barato".
-- **A regra de corte cruzada**, escrita como regra e não como intenção (ex.:
-  pronto agora + caixa acima de X + índice acima de Y = fila-quente).
 
 ## 3. COPY — PÁGINA DE APLICAÇÃO
 Na ordem:

@@ -50,9 +50,6 @@ antes do PDF).
   comentados.
 - **`references/validacao-e-pdf.md`**: validações obrigatórias e geração do
   PDF com fallbacks.
-- **`references/licoes-de-versao.md`**: por que o roadmap é documento vivo, as
-  seis lições que mudaram a estrutura e as regras de linguagem.
-  **Leia antes de escrever a primeira linha.**
 
 Referências vivas no repositório (exemplos completos entregues):
 `clientes/lucas-sobreiro/estrategia/2026-07-09-roadmap-estrategico-lucas-sobreiro.html`
@@ -60,11 +57,6 @@ Referências vivas no repositório (exemplos completos entregues):
 `clientes/lucas-sobreiro/estrategia/modelo-roadmap-romulo-heleno.pdf`. Se a
 pessoa enviar os PDFs dos dois na conversa, use como calibragem de tom; se
 não enviar, a estrutura embutida aqui basta.
-
-**Para ver o documento evoluindo**, olhe as quatro versões da Luana Isse em
-`clientes/luana-isse/estrategia/` (de `2026-07-30-...` a
-`2026-08-06-...-v1-3`): 14 páginas viraram 17 em oito dias, sem nenhuma
-correção de erro. É a melhor referência do que muda depois da primeira call.
 
 ## O fluxo (siga nesta ordem)
 
@@ -88,16 +80,6 @@ ticket, meta, conversão real, equipe, canais atuais, base existente, ativos
 únicos, restrições do nicho, o que a Simple vendeu (escopo), teto de agenda,
 tom de voz.
 
-Quatro campos que a versão anterior desta skill não pedia e que mudam o
-documento inteiro (detalhe em `references/licoes-de-versao.md`):
-
-- **Teto de agenda real**, não o ideal. A Luana não trabalha de manhã. A conta
-  da meta precisa caber nisso, e o documento precisa mostrar que cabe.
-- **Eventos, turmas ou lançamentos já marcados.** Viram fase do roadmap, não
-  distração.
-- **O que o cliente se recusa a prometer**, e os **termos proibidos em anúncio**.
-- **O gênero real do público**, que não é o do cliente.
-
 Se faltar dado crítico (ticket, meta, escopo do contrato), pergunte tudo de
 uma vez à pessoa. Se estiver rodando de forma autônoma, assuma o padrão mais
 provável, sinalize a premissa e siga. Não trave.
@@ -119,25 +101,6 @@ vendas ÷ conversão real = sessões/mês → sessões viram abordagens/dia e le
 do funil. Os números do roadmap inteiro derivam dessa conta e precisam bater
 entre si (matemática, metas de fase e checkpoints).
 
-**A conta tem que caber no teto de agenda.** Na Luana, 4 vendas/mês viraram ~13
-sessões/mês, ou 3 por semana, todas de tarde. Se a conta der 3 sessões por dia
-para quem trabalha meio período, o que muda é o ticket ou a meta, nunca a
-agenda. Mostre a conta batendo dentro do teto, no próprio documento.
-
-Decida também, antes de redigir:
-
-- **O carro-chefe**, que é o que **já vende** e consome menos tempo do cliente,
-  não o mais caro nem o mais novo. Produto que ainda não vendeu não sustenta um
-  plano de 90 dias.
-- **A sequência**, se o caixa estiver apertado: caixa rápido na base que já
-  existe → funil no ar → processo comercial. Estrutura antes de receita quebra
-  o projeto, e tráfego sem métrica e sem dono do comercial só queima caixa.
-- **Se entra a "regra da fila"**: para cliente que traz muitas ideias em
-  paralelo, vira página do documento. Não é "não faça nada", é "produto novo
-  não entra, mas posicionamento e conteúdo das outras frentes seguem".
-- **Se o inimigo nomeado ganha página própria.** Se o cliente tem palavra
-  própria para o problema dele, ganha.
-
 ### Passo 3: Redação
 
 Copie `assets/modelo-roadmap.html` para
@@ -150,12 +113,6 @@ e escreva seção a seção seguindo `references/estrutura-e-conteudo.md`. Regra
 - **Zero travessões.** Use vírgula, dois-pontos, ponto final ou parênteses.
   Separador de cabeçalhos e kickers: "·". Intervalos numéricos: "de 60 a
   100", "1 a 2 minutos" (nunca traço).
-- **Linguagem neutra em gênero.** Nenhum adjetivo pode concordar com quem lê: o
-  gênero do cliente não é o gênero do público dele. Teste lendo em voz alta
-  como homem e como mulher. Ver `references/licoes-de-versao.md`.
-- **Nada de promessa de resultado financeiro** se o cliente se recusa a
-  prometer. Meta interna de caixa continua no documento; o que não entra é
-  promessa de faturamento na comunicação que o roadmap manda ele produzir.
 - A big idea, os exemplos das dores e a linguagem vêm do **vocabulário do
   cliente e do nicho dele** (o que ele falou nas calls vale mais que
   paráfrase de marketing).
@@ -173,9 +130,6 @@ dar 0), travessões (`grep -c '—'` deve dar 0) e o script de estouro de págin
 (resultado esperado: `TODAS-AS-PAGINAS-OK`). Se apertar, enxugue ou mova
 blocos entre páginas; não reduza a fonte abaixo de 10pt.
 
-Some a essas três uma quarta, que **nenhum script pega**: a **leitura de
-gênero**. Varra o documento procurando adjetivo que concorda com quem lê.
-
 ### Passo 5: PDF
 
 Comando e fallbacks em `references/validacao-e-pdf.md`. Sem navegador no
@@ -185,11 +139,7 @@ Chrome (A4, sem margens, sem cabeçalho/rodapé).
 ### Passo 6: Entrega e memória
 
 1. Envie o PDF na sessão (é o entregável da call de roadmap).
-2. Salve **HTML + PDF** em `clientes/<cliente>/estrategia/`, com data no nome.
-   **Revisão vira versão nova** (`-v1-1`, `-v1-2`), nunca sobrescrita: é a
-   versão anterior que mostra o que mudou quando o cliente perguntar. O roadmap
-   da Luana teve quatro versões em oito dias, todas por decisão amadurecendo,
-   nenhuma por erro.
+2. Salve **HTML + PDF** em `clientes/<cliente>/estrategia/`.
 3. Registre em `clientes/<cliente>/aprendizados.md`: data + "roadmap criado"
    + decisões estruturais (perfil A ou B, esteira definida, meta).
 4. Se o ticket ou a esteira mudarem no roadmap (ex.: Lucas passou de 21k para
@@ -202,13 +152,6 @@ Chrome (A4, sem margens, sem cabeçalho/rodapé).
 - [ ] Todos os materiais de base lidos por inteiro; mapa de extração preenchido
 - [ ] Perfil (A ou B) decidido pelo escopo vendido, não por suposição
 - [ ] Matemática da meta consistente em todo o documento (contexto, fases, checkpoints)
-- [ ] **A conta cabe no teto de agenda real do cliente**, e o documento mostra isso
-- [ ] Carro-chefe é o que já vende, não o mais caro nem o mais novo
-- [ ] Evento ou turma já marcada absorvida como fase, não tratada como distração
-- [ ] Regra da fila presente, se o cliente traz muitas ideias em paralelo
-- [ ] Inimigo nomeado com página própria, se o cliente tem palavra para o problema
-- [ ] **Leitura de gênero feita**: nenhum adjetivo concorda com quem lê
-- [ ] Nenhuma promessa de resultado financeiro, se o cliente recusa
 - [ ] Estratégia de caixa rápido presente (base, novo serviço, indicações, antecipação de recebíveis) quando houver base para isso
 - [ ] Big idea, exemplos e fechamento na linguagem real do cliente e do nicho
 - [ ] Zero travessões; zero placeholders; separadores com "·"; intervalos com "a"
