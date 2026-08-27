@@ -19,6 +19,7 @@ clientes/
 | Clínica Vital              | `clinica-vital/`               | ativo  |
 | Daniele Christensen        | `daniele-christensen/`         | ativo  |
 | Dra. Jac MacDowell         | `dra-jac-macdowell/`           | ativo  |
+| Dra. Mari Ferreira         | `dra-mari-ferreira/`           | ativo  |
 | Eliana Franz               | `eliana-franz/`                | ativo  |
 | Gustavo Ono                | `gustavo-ono/`                 | ativo  |
 | Juliana Godinho            | `juliana-godinho/`             | ativo  |
