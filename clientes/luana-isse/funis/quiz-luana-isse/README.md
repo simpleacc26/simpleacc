@@ -117,16 +117,32 @@ duas páginas (o `PageView` sai do bloco base) e o ID também vive em
 | `ViewContent` | padrão | Primeira resposta do quiz, e abertura do relatório |
 | **`Lead`** | **padrão** | **Envio do contato. É o evento de conversão** |
 | `Contact` | padrão | Clique em qualquer CTA de WhatsApp no relatório |
+| `LeadFilaQuente` / `LeadQualificado` / `LeadNutrir` / `LeadFora` | personalizado | Junto com o `Lead`, um por faixa |
 | `step_view`, `step_complete`, `funnel_abandon`, ... | personalizado | Análise de passo a passo |
 
 **`Lead` é o que a campanha otimiza.** Ele leva parâmetros de qualificação:
 `qualificacao` (fila-quente, qualificado, nutrir, fora), `faixa`, `irv`,
 `resultado` e `content_category` (o pilar).
 
-Isso existe para dar de otimizar por **qualidade**, não por volume: dá para criar
-Conversão Personalizada na Meta filtrando `qualificacao = fila-quente` e deixar
-o algoritmo perseguir lead bom em vez de lead barato. Sem isso, R$ 66/dia
-compram volume e a fila do atendimento enche de gente fora do ICP.
+### Por que existe um evento por faixa, além do parâmetro
+
+**O construtor de Conversão Personalizada da Meta só oferece regra por URL.**
+Testado em 27/08 na conta desta cliente: a lista de regras traz "URL" e mais
+nada. O parâmetro `qualificacao` que vai no `Lead` serve para relatório, mas
+**não dá para filtrar por ele**.
+
+Por isso o funil dispara também um **evento personalizado por faixa**. Evento
+sempre aparece no seletor de Conversão Personalizada; parâmetro nem sempre.
+Com ele dá para medir **qualidade de criativo**, não só volume, que é o que
+importa aqui: tráfego já falhou uma vez com ela por encher de lead ruim.
+
+Nome em CamelCase porque a Meta não aceita hífen em nome de evento.
+
+⚠️ **A R$ 66/dia, NÃO otimize a campanha por `LeadFilaQuente`.** A Meta precisa
+de ~50 conversões por semana por conjunto para sair do aprendizado, e fila-quente
+não chega perto disso nesse orçamento. **Otimize por `Lead`** e use as conversões
+personalizadas **para ler qualidade e decidir onde pôr dinheiro**. Trocar o
+evento de otimização só quando o volume justificar.
 
 **Nada de dado pessoal vai para o Pixel.** Nome, telefone e e-mail não entram em
 parâmetro de evento, e não há Advanced Matching ligado. Se um dia for ligar,

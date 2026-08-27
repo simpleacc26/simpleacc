@@ -134,3 +134,26 @@ referência indefinida**. Chamei uma função que existe no `app.js` mas não no
 `diagnostico.js`, passou no check e teria quebrado o relatório inteiro no
 navegador. Renderizar de verdade pegou. **Checagem de sintaxe não substitui
 abrir a página.**
+
+## 27/08/2026 · Conversão Personalizada da Meta não filtra por parâmetro
+
+Tentamos criar Conversão Personalizada filtrando `qualificacao = fila-quente`,
+que era o plano para otimizar por qualidade de lead. **Não dá:** o construtor de
+regra da Meta oferece **só "URL contém"**, não expõe parâmetro de evento.
+
+**Solução, e vale para todo funil daqui em diante:** dispare um **evento
+personalizado por faixa** (`LeadFilaQuente`, `LeadQualificado`, `LeadNutrir`,
+`LeadFora`) junto com o `Lead` padrão. Evento sempre aparece no seletor de
+Conversão Personalizada; parâmetro nem sempre. Mantenha o parâmetro também, que
+serve para relatório.
+
+Nome do evento em CamelCase: a Meta não aceita hífen.
+
+**A parte estratégica, que é a que mais importa:** com R$ 66/dia **não se otimiza
+por fila-quente**. A Meta precisa de ~50 conversões por semana por conjunto para
+sair do aprendizado, e fila-quente rende talvez 7. Otimizar por evento raro mata
+o algoritmo por falta de sinal e encarece o lead.
+
+O certo nesse orçamento: **otimizar por `Lead`** e usar as conversões
+personalizadas **para medir**, decidindo na mão onde pôr dinheiro. Trocar o
+evento de otimização só quando o volume justificar.

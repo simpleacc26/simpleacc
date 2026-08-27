@@ -377,6 +377,30 @@ function renderCaptura() {
       qualificacao: qualifFim,
       resultado: resultadoNomeado(state.answers),
     });
+    /* EVENTO POR FAIXA DE QUALIFICAÇÃO.
+       O construtor de Conversão Personalizada da Meta só oferece regra por URL,
+       não por parâmetro de evento. Testado em 27/08 na conta da Luana: a lista
+       de regras traz "URL" e mais nada. Então o parâmetro `qualificacao` que vai
+       no Lead acima serve para relatório, mas NÃO dá para filtrar por ele.
+       A saída é um evento personalizado por faixa: evento sempre aparece no
+       seletor, parâmetro nem sempre. Assim dá para criar uma Conversão
+       Personalizada por faixa e medir QUALIDADE de criativo, não só volume.
+       O nome sai em CamelCase porque a Meta não aceita hífen em evento. */
+    const EVENTO_FAIXA = {
+      "fila-quente": "LeadFilaQuente",
+      "qualificado": "LeadQualificado",
+      "nutrir":      "LeadNutrir",
+      "fora":        "LeadFora",
+    };
+    if (EVENTO_FAIXA[qualifFim] && TRACKING_CONFIG.meta_pixel_id && typeof fbq === "function") {
+      try {
+        fbq("trackCustom", EVENTO_FAIXA[qualifFim], {
+          irv: irvFim.pct,
+          faixa: irvFim.faixa,
+          pilar: pilarDominante(state.answers),
+        });
+      } catch (e) { /* tracking nunca quebra o funil */ }
+    }
     enviarLead();
     renderLoading();
   });
