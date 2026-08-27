@@ -108,3 +108,29 @@ que grava quanto para o que descarta.
 
 **Checar se os outros funis têm o mesmo `mode: "no-cors"`.** Não mexi neles
 porque a sessão era da Luana, mas o padrão veio do mesmo molde.
+
+## 26/08/2026 · Pixel da Meta instalado, com evento de qualidade
+
+Pixel `486556150328290` no ar nas duas páginas do funil. O evento de conversão é
+o **`Lead`**, na captura do contato.
+
+O que vale repetir nos outros funis: **o `Lead` leva os parâmetros de
+qualificação** (`qualificacao`, `faixa`, `irv`, `resultado`, pilar). Com isso dá
+para criar Conversão Personalizada filtrando `qualificacao = fila-quente` e
+mandar o algoritmo perseguir **lead bom em vez de lead barato**.
+
+É a diferença entre otimizar por volume e otimizar por qualidade, e não custa
+nada: o dado já existia no funil, só não estava indo para o Pixel. Vale
+especialmente aqui, onde tráfego já falhou uma vez por encher de lead ruim.
+
+Também entrou o **`Contact`** no clique do WhatsApp do relatório: é o sinal de
+intenção mais forte do funil e um bom candidato a evento de otimização quando
+houver volume para isso.
+
+**Nenhum dado pessoal vai para o Pixel.** Só qualificação.
+
+Detalhe técnico que quase passou: `node --check` valida sintaxe, **não valida
+referência indefinida**. Chamei uma função que existe no `app.js` mas não no
+`diagnostico.js`, passou no check e teria quebrado o relatório inteiro no
+navegador. Renderizar de verdade pegou. **Checagem de sintaxe não substitui
+abrir a página.**

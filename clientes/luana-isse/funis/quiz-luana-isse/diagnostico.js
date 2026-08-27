@@ -316,8 +316,42 @@ function abrirWhatsApp() {
   window.open(`https://wa.me/${F.marca.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
 }
 
+/* ============================================================
+   PIXEL DA META no relatório
+   A biblioteca carrega no diagnostico.html (PageView sai de lá). Aqui saem os
+   dois eventos que só existem nesta página.
+   Contact no clique do WhatsApp é o sinal de intenção mais forte do funil:
+   a pessoa leu o diagnóstico e foi falar com a Luana. Vale acompanhar de perto,
+   e é um bom candidato a evento de otimização quando houver volume.
+   NUNCA mande nome, telefone ou e-mail para o Pixel. Só qualificação.
+   ============================================================ */
+function metaPadrao(evento, params) {
+  if (typeof fbq !== "function") return;
+  try { fbq("track", evento, params || {}); } catch (e) { /* nunca quebra a página */ }
+}
+function paramsQualificacao() {
+  try {
+    const a = getState().answers || {};
+    const irv = calcularIRV(a);
+    const pilar = pilarDominante(a);
+    return {
+      content_name: (F.config && F.config.frente) || "Funil",
+      content_category: pilar,
+      irv: irv.pct,
+      faixa: irv.faixa,
+      resultado: (F.resultados && F.resultados[pilar]) || "",
+    };
+  } catch (e) { return {}; }   // tracking nunca derruba o relatório
+}
+if ((getState().answers || {})._completedAt) {
+  metaPadrao("ViewContent", paramsQualificacao());
+}
+
 document.addEventListener("click", (e) => {
-  if (e.target.closest && e.target.closest(".cta-wpp")) abrirWhatsApp();
+  if (e.target.closest && e.target.closest(".cta-wpp")) {
+    metaPadrao("Contact", paramsQualificacao());
+    abrirWhatsApp();
+  }
 });
 
 if (!numeroValido()) {

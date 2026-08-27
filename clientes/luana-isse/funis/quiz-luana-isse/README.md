@@ -105,6 +105,33 @@ então Google Fonts fora do ar não trava a página.
    no bloco do método logo acima. A grade de credenciais só existe porque os
    quatro números são reais e estão escritos no material dela.
 
+## Rastreamento
+
+**Pixel da Meta `486556150328290`**, instalado em 26/08. A biblioteca carrega nas
+duas páginas (o `PageView` sai do bloco base) e o ID também vive em
+`app.js > TRACKING_CONFIG`, que é quem decide os eventos de funil.
+
+| Evento | Tipo | Quando dispara |
+| --- | --- | --- |
+| `PageView` | padrão | Abertura de qualquer uma das duas páginas |
+| `ViewContent` | padrão | Primeira resposta do quiz, e abertura do relatório |
+| **`Lead`** | **padrão** | **Envio do contato. É o evento de conversão** |
+| `Contact` | padrão | Clique em qualquer CTA de WhatsApp no relatório |
+| `step_view`, `step_complete`, `funnel_abandon`, ... | personalizado | Análise de passo a passo |
+
+**`Lead` é o que a campanha otimiza.** Ele leva parâmetros de qualificação:
+`qualificacao` (fila-quente, qualificado, nutrir, fora), `faixa`, `irv`,
+`resultado` e `content_category` (o pilar).
+
+Isso existe para dar de otimizar por **qualidade**, não por volume: dá para criar
+Conversão Personalizada na Meta filtrando `qualificacao = fila-quente` e deixar
+o algoritmo perseguir lead bom em vez de lead barato. Sem isso, R$ 66/dia
+compram volume e a fila do atendimento enche de gente fora do ICP.
+
+**Nada de dado pessoal vai para o Pixel.** Nome, telefone e e-mail não entram em
+parâmetro de evento, e não há Advanced Matching ligado. Se um dia for ligar,
+é decisão do cliente, não nossa.
+
 ## Planilha e integração
 
 **Leads · Diagnóstico de Autoridade · Luana Isse**, no Drive dela, pasta
@@ -144,7 +171,7 @@ Cole `+55 11 99991-2039` no campo de WhatsApp e confirme que o campo mostra
       prints. Prova social liberada para tráfego.
 - [ ] **Pacote de logos** em SVG ou PNG transparente. O que está no ar foi
       extraído do PDF do manual.
-- [ ] Pixel da Meta e GA4 em `app.js > TRACKING_CONFIG`, se for rodar tráfego pago.
+- [ ] **GA4** em `app.js > TRACKING_CONFIG`, se for usar. O Pixel da Meta já está.
 
 ## Como rodar e publicar
 

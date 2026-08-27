@@ -12,7 +12,19 @@
       mas a planilha recebe as 4, para priorizar a fila do atendimento.
    ============================================================ */
 
-const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
+const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "486556150328290", custom_webhook: "" };
+
+/* Eventos PADRÃO da Meta disparados por este funil. Só evento padrão serve para
+   a campanha otimizar; o resto sobe como evento personalizado e serve para
+   análise. O evento de conversão desta conta é o Lead, na captura do contato.
+   NÃO mande nome, telefone nem e-mail para o Pixel. Os parâmetros abaixo são
+   só de qualificação, e são justamente o que permite criar Conversão
+   Personalizada por qualidade de lead (ex.: só qualificacao = fila-quente),
+   em vez de otimizar por volume. */
+function metaPadrao(evento, params) {
+  if (!TRACKING_CONFIG.meta_pixel_id || typeof fbq !== "function") return;
+  try { fbq("track", evento, params || {}); } catch (e) { /* nunca quebra o funil */ }
+}
 
 /* Webhook do Make que grava o lead na planilha. Vazio = não envia.
    Cenário: "[Luana Isse] Diagnóstico de Autoridade → Sheets" (instantâneo,
@@ -247,7 +259,11 @@ function renderStep(i) {
     node.setAttribute("aria-checked", "true"); node.tabIndex = 0;
     state.answers[step.id] = node.dataset.value;
     save();
-    if (!state.started) { state.started = true; trackEvent("funnel_start", {}); }
+    if (!state.started) {
+      state.started = true;
+      trackEvent("funnel_start", {});
+      metaPadrao("ViewContent", { content_name: (F.config && F.config.frente) || "Funil" });
+    }
     trackEvent("step_complete", { step_id: step.id, time_on_step: Date.now() - stepEnterTime });
     advancing = true;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -349,7 +365,18 @@ function renderCaptura() {
     submitBtn.innerHTML = '<span class="spinner"></span>Enviando...';
     state.answers._completedAt = new Date().toISOString();
     save();
-    trackEvent("funnel_complete", { irv: calcularIRV(state.answers), qualificacao: classificarLead(state.answers) });
+    const irvFim = calcularIRV(state.answers);
+    const qualifFim = classificarLead(state.answers);
+    trackEvent("funnel_complete", { irv: irvFim.pct, faixa: irvFim.faixa, qualificacao: qualifFim });
+    /* CONVERSÃO. É este o evento que a campanha otimiza. */
+    metaPadrao("Lead", {
+      content_name: (F.config && F.config.frente) || "Funil",
+      content_category: pilarDominante(state.answers),
+      irv: irvFim.pct,
+      faixa: irvFim.faixa,
+      qualificacao: qualifFim,
+      resultado: resultadoNomeado(state.answers),
+    });
     enviarLead();
     renderLoading();
   });
