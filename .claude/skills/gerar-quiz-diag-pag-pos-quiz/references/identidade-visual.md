@@ -36,3 +36,24 @@ logo: wordmark dourado + tagline espaçada (até ter o arquivo do logo).
 Ofereça propor uma paleta + tom coerentes com o nicho (ex.: saúde/inclusão →
 quente e acolhedor; jurídico → sóbrio; fitness → energético) e siga após o ok.
 Mantenha tudo tokenizado para trocar fácil depois.
+
+## Manual de marca oficial vence inferência
+
+Enquanto o cliente não manda o manual, **infira a paleta das artes que ele já
+publicou e marque como provisório** no README do funil. Quando o manual chegar,
+**refaça**.
+
+Na Luana, a paleta inferida das artes da conferência dela estava perto no
+espírito e **errada nos valores**. Só o manual oficial corrigiu.
+
+Se a fonte do manual for paga, escolha uma substituta próxima e deixe escrito
+qual é a original e por que foi trocada.
+
+## Logo
+
+Peça o pacote em **SVG ou PNG transparente**. Extrair do PDF do manual funciona
+como quebra-galho, mas fica registrado como pendência.
+
+## Fontes não bloqueiam a renderização
+
+Ver `bugs-que-ja-quebraram.md`, item 4.

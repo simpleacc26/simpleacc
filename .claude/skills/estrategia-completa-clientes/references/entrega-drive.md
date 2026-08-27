@@ -1,4 +1,10 @@
-# Entrega — Google Doc formatado no Drive
+# Entrega — Google Doc formatado no Drive (caminho ALTERNATIVO)
+
+> **Este não é mais o formato padrão da Estratégia Completa.** O padrão atual é
+> o PDF diagramado, em `entrega-pdf.md`. Use este caminho quando o cliente
+> precisar de um documento **editável e colaborativo** (comentar, revisar a
+> várias mãos), ou quando o entregável for outro documento que não a Estratégia
+> Completa. O conteúdo abaixo continua válido e testado.
 
 O objetivo é entregar um **Google Doc nativo e formatado** (Título 1/2, negrito,
 listas, divisórias) na pasta do cliente. A formatação importa: foi o que fez o

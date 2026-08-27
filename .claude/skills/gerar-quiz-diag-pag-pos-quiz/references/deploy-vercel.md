@@ -1,77 +1,119 @@
-# Publicar na Vercel (escopado, URL limpa, público)
+# Publicar na Vercel
 
-Objetivo: funil no ar numa **URL limpa e pública**, na conta/time Vercel do
-cliente (geralmente o time da empresa). Entregue o link no final.
+Funil no ar numa URL limpa e pública, no **time da Simple**. Entregue o link
+no final.
 
-## Regras de segurança
-- **NUNCA** deploye a raiz do workspace (tem dados de outros clientes). Publique
-  **só a subpasta do funil**.
-- Você não consegue (nem deve) autenticar a conta Vercel por ninguém. Se o CLI
-  não tiver acesso ao time certo, **peça pro usuário logar/dar acesso**.
+---
 
-## 0. Confirmar acesso — TRAVA OBRIGATÓRIA (conta da Simple)
-**Antes de qualquer deploy, confirme que vai publicar na conta/time da Simple,
-nunca numa conta pessoal.** Esta verificação é obrigatória e não pode ser pulada.
+## Trava obrigatória: conta da Simple
+
+**Antes de qualquer deploy, confirme que está publicando no time da Simple,
+nunca numa conta pessoal.** Se o time não aparecer, **pare e peça acesso**.
+
+Nunca publique a raiz do workspace: ela tem dados de outros clientes. **Só a
+subpasta do funil.**
+
+---
+
+## O nome do projeto é a URL, e não dá para renomear
+
+O nome vira `<projeto>.vercel.app`. Trocar de domínio exige **projeto novo** e
+remover o antigo. Escolha o nome com calma na primeira vez:
+`quiz-<cliente>`.
+
+O **link público é o curto**. O alias com sufixo do time
+(`<projeto>-simpleacc.vercel.app`) também responde, mas é interno e costuma
+ficar atrás de SSO.
+
+---
+
+## Proteção de deploy: o 302 em todos os assets
+
+Times vêm com **Vercel Authentication ligada**. Sintoma: a página e todos os
+assets respondem **302** para uma tela de login.
+
+Funil público não pode exigir login. Desligue a proteção no projeto
+(`ssoProtection: null` ou pelo painel) e **confirme com curl** que a raiz
+responde 200.
+
+---
+
+## Caminho A: MCP (padrão, para texto e imagem pequena)
+
+Serve para HTML, CSS, JS e imagem encolhida. **Manda o arquivo em base64**, e é
+por isso que tem limite prático.
+
+**Imagem em base64 pode sair com byte trocado.** Encolha antes e confira o
+SHA256 depois. Ver `bugs-que-ja-quebraram.md`, item 5.
+
+## Caminho B: API REST (obrigatório para vídeo e binário grande)
+
+Manda o arquivo **cru do disco**, sem base64 nenhum.
+
+```bash
+# 1. cada arquivo, com o sha1 no header
+SHA=$(sha1sum "$f" | cut -d' ' -f1)
+curl -X POST "https://api.vercel.com/v2/files?teamId=$TEAM" \
+  -H "Authorization: Bearer $TOKEN" \
+  -H "x-vercel-digest: $SHA" \
+  -H "Content-Type: application/octet-stream" \
+  --data-binary "@$f"
+
+# 2. o deploy, com a lista de TODOS os arquivos (file, sha, size)
+curl -X POST "https://api.vercel.com/v13/deployments?teamId=$TEAM&forceNew=1" \
+  -H "Authorization: Bearer $TOKEN" -H "Content-Type: application/json" \
+  --data-binary @deploy.json
 ```
-vercel whoami        # quem está logado — NÃO pode ser uma conta pessoal
-vercel teams ls      # precisa listar o time da Simple (o alvo do deploy)
+
+Duas coisas que mordem:
+
+- **Upload de arquivo de megabytes falha por timeout de vez em quando** (deu 3
+  de 13 numa rodada). Repita com backoff e **confira o 200 de cada um**.
+- **A lista do passo 2 tem que trazer a árvore inteira.** A publicação
+  substitui tudo, não faz merge.
+
+O token fica **fora do repositório**, em arquivo com permissão 600. Nunca
+commitado. Depois de usar, peça ao usuário para revogar.
+
+---
+
+## Conferência depois de todo deploy
+
+**Compare o SHA256 do publicado contra o local em TODOS os arquivos**, não só
+nos que você mexeu:
+
+```bash
+for f in <todos os arquivos>; do
+  R=$(curl -s -o /tmp/dl -w '%{http_code}' "$B/$f")
+  L=$(sha256sum "$f" | cut -c1-16); D=$(sha256sum /tmp/dl | cut -c1-16)
+  [ "$L" = "$D" ] && echo "$R $f IGUAL" || echo "$R $f DIFERENTE"
+done
 ```
-Regras da trava:
-- Se o `whoami` mostrar uma **conta pessoal**, ou se o **time da Simple não
-  aparecer** em `teams ls` → **PARE. Não deploye.** Peça ao usuário para logar
-  com a conta da Simple ou dar acesso ao time.
-- Faça o deploy sempre com `--scope` no **TEAM_ID da Simple** (`team_...`), nunca
-  na Personal Account.
-- Na dúvida sobre qual é o time da Simple, **pergunte ao usuário e confirme**
-  antes de subir — não adivinhe.
 
-Se o time não aparecer: peça pro usuário rodar `vercel login` com a conta que tem
-o time (login é interativo, só o usuário conclui no navegador). Dica: se o
-`vercel` não for encontrado no terminal dele, é PATH — passe o caminho completo
-do binário (ex.: `~/.nvm/versions/node/<versão>/bin/vercel`) ou
-`export PATH="$HOME/.nvm/versions/node/<versão>/bin:$PATH" && vercel login`.
+**Status `000` é falha de conexão no download, não divergência.** Repita esse
+arquivo antes de sair investigando.
 
-## 1. Deploy só da subpasta, com nome de projeto limpo
-O nome do projeto vira o domínio de produção (`<projeto>.vercel.app`), que é
-**público**. Para uma URL branded, deploye a partir de uma pasta com o nome
-desejado:
-```
-# copie só os arquivos de runtime (sem .gs/README) p/ uma pasta nomeada bonito
-DST=/tmp/<nome-limpo-do-cliente>
-mkdir -p "$DST"; cp <funil>/{index.html,diagnostico.html,styles.css,app.js,flow.js,diagnostico.js} "$DST/"
-vercel deploy "$DST" --prod --yes --scope <TEAM_ID>
-```
-- Use o **TEAM_ID** (`team_...`) no `--scope`, não o slug — slug pode colidir com
-  o nome da conta pessoal e dar "You cannot set your Personal Account as the scope".
-- Em modo não-interativo o Vercel **exige** `--scope` explícito.
-- Pegue o TEAM_ID com `vercel teams ls` ou no `.vercel/project.json` (orgId).
+---
 
-## 2. Proteção de deploy (times) — atenção ao 401
-Times costumam vir com **Deployment Protection ("Vercel Authentication") ligada**.
-Sintoma: a URL do deploy dá **401**. Só o **domínio de produção** do projeto fica
-público. Por isso, dar um nome de projeto limpo (passo 1) já resolve: o domínio
-`<nome-limpo>.vercel.app` é o de produção e fica público.
-- Confira sempre com curl: `curl -s -o /dev/null -w "%{http_code}\n" https://<nome>.vercel.app/`
-  Tem que dar **200**. Se der 401 na URL que você vai entregar, ou use o domínio
-  de produção do projeto, ou peça pro usuário desligar a proteção
-  (Project → Settings → Deployment Protection) — funil público não pode exigir login.
-- Se o nome limpo estiver preso em OUTRA conta (ex.: deploy anterior na conta
-  pessoal), o time recebe um sufixo (`-xyz`). Para liberar o nome limpo, remova
-  o projeto antigo da outra conta (ou escolha outro nome limpo, ex.: sem hifens).
+## Validação visual sem internet no navegador
 
-## 3. Religar a pasta + redeploys
-Depois, religue a pasta REAL do funil ao projeto para os próximos deploys:
-```
-rm -rf <funil>/.vercel
-vercel link --yes --project <nome-limpo> --scope <TEAM_ID> --cwd "<funil>"
-```
-Redeploy (logo/whatsapp/integração): `vercel deploy "<funil>" --prod --yes --scope <TEAM_ID>`.
-A mesma URL atualiza sozinha.
+O Chromium do ambiente pode não alcançar a internet. Não trave por isso:
 
-## 4. Limpeza
-- Remova projetos intermediários/lixo do time: `printf 'y\n' | vercel project rm <nome> --scope <TEAM_ID>` (o `project rm` não aceita `--yes`; confirme com `y`).
-- Apague /tmp.
+- Sirva a pasta local (`python3 -m http.server`) e renderize com Playwright em
+  **430px e 900px**, injetando respostas no `sessionStorage` para chegar no
+  relatório sem responder o quiz à mão.
+- Confira o que só se vê renderizando: imagem que não carregou
+  (`naturalWidth === 0`), grade que rola quando não devia, legenda desalinhada.
+- **Cuidado com imagem `loading="lazy"`**: role até o bloco e espere antes de
+  checar, senão dá falso negativo.
 
-## 5. Entrega
-Confirme por curl que a URL final é **200** e serve o conteúdo. Entregue:
-`https://<nome-limpo>.vercel.app` e lembre: **anúncio aponta pra raiz com `?utm_...`**.
+O que exige internet de verdade (o POST do lead chegando no Make) **é teste do
+usuário**. Peça, não finja que fez.
+
+---
+
+## Entrega
+
+Confirme por curl que a URL final responde 200 e serve o conteúdo. Entregue o
+link curto e lembre: **o anúncio aponta para a raiz com `?utm_...`**, nunca para
+`/index.html`, porque o servidor limpa a URL e derruba a query.
