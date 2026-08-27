@@ -184,6 +184,8 @@ Site estático puro, sem build e sem dependência. Para ver local, sirva a pasta
 (`python3 -m http.server 8000`) e abra `http://localhost:8000/?utm_source=teste`.
 
 Deploy na Vercel, **time Simpleacc**, projeto `romulo-heleno`, target production.
+**Publique pelo CLI** (`vercel deploy . --prod`), não pelo MCP: com foto na
+pasta, o MCP não serve mais. Passo a passo em `DEPLOY.md`.
 Nunca publicar em conta pessoal. Publicação **substitui a árvore inteira**:
 mande os 14 arquivos sempre, e **confira o SHA256 de cada um contra o local
 depois de cada deploy**, porque arquivo faltando vira 404 mudo.

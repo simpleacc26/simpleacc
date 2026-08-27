@@ -5,8 +5,12 @@ Site estático puro (HTML/CSS/JS), sem build e sem dependência.
 ## Vercel (padrão Simple Acc)
 
 - **Time:** Simpleacc (`team_bD5dst9eSAc4qVaaynXWifXr`). **Nunca conta pessoal.**
-- **Projeto:** `romulo-heleno` → https://romulo-heleno.vercel.app
+- **Projeto:** `romulo-heleno` (`prj_hMD7Iz8FaecxZdIjbq3AO0bPekVJ`) → https://romulo-heleno.vercel.app
 - **Target:** production.
+
+> A URL é o nome do projeto e **não dá para renomear**. O Rômulo confirmou em
+> 27/08 que não tem domínio próprio, então esse endereço é o que circula com
+> ele: não troque o projeto.
 
 A publicação **substitui a árvore inteira**, não faz merge. Mande sempre os 14
 arquivos (`index.html`, `diagnostico.html`, `styles.css`, `flow.js`, `app.js`,
@@ -14,14 +18,27 @@ arquivos (`index.html`, `diagnostico.html`, `styles.css`, `flow.js`, `app.js`,
 que você não tocou. Arquivo faltando vira 404 mudo e o quiz abre sem JS, sem
 CSS, sem nada.
 
-Pelo CLI, dentro desta pasta:
+### Caminho que funciona (validado em 27/08, com as fotos)
+
+Sessão nova não vem com a pasta ligada ao projeto. **Ligue primeiro**, senão o
+CLI cria um projeto novo com o nome da pasta (`funil-quiz`) e uma URL nova:
 
 ```bash
-vercel deploy . --prod --yes --scope simpleacc --token <TOKEN>
+mkdir -p .vercel && cat > .vercel/project.json <<'JSON'
+{"projectId":"prj_hMD7Iz8FaecxZdIjbq3AO0bPekVJ","orgId":"team_bD5dst9eSAc4qVaaynXWifXr","projectName":"romulo-heleno"}
+JSON
+
+export VERCEL_TOKEN='...'          # do ambiente, nunca do repositório
+npx vercel@latest deploy . --prod --yes --token "$VERCEL_TOKEN"
 ```
 
-Cuidado: se o username pessoal e o slug do time forem iguais, `--scope` pode
-resolver para a conta pessoal. **Nunca commitar o token.**
+`.vercel/` está no `.gitignore` da raiz e do projeto, então o arquivo de
+ligação não vai para o Git. O `project.json` acima **não tem segredo**: é só o
+id do projeto e o do time.
+
+Prefira ligar pelo `project.json` a usar `--scope`: se o username pessoal e o
+slug do time forem iguais, `--scope` pode resolver para a conta pessoal.
+**Nunca commitar o token.**
 
 ## Depois de CADA deploy, confira o SHA256
 
@@ -49,7 +66,10 @@ só o `favicon.svg`, que é texto.
 corromper: as fotos somam ~500 KB, que viram ~680 KB de base64 que alguém teria
 de reescrever inteiro **a cada deploy**, porque a publicação substitui a árvore.
 
-**Publique com o CLI ou com a API REST, que leem o arquivo do disco:**
+**Publique com o CLI ou com a API REST, que leem o arquivo do disco.** Foi o
+que rodou em 27/08: as 6 fotos subiram e os 14 arquivos voltaram com SHA256
+idêntico ao local, binário incluído. O problema de corrupção era do transporte
+base64 do MCP, e some quando o arquivo sai direto do disco.
 
 ```bash
 # 1) sobe cada arquivo cru, sem base64 no meio
