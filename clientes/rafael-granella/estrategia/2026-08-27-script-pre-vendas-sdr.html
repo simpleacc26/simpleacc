@@ -75,15 +75,6 @@
     text-transform:uppercase;color:#fff;text-wrap:balance;margin-bottom:18px;
   }
   .head h1 em{font-style:normal;color:var(--gold)}
-  .meta{
-    display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;
-  }
-  .tag{
-    font-size:.76rem;color:var(--ink-soft);
-    border:1px solid var(--gold-line);border-radius:999px;padding:5px 14px;
-  }
-  .tag b{color:var(--gold);font-weight:600}
-
   section{margin-bottom:56px;scroll-margin-top:88px}
   .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:22px}
   .sec-num{
@@ -261,11 +252,6 @@
     <p class="eyebrow">Documento comercial &middot; versão 2</p>
     <h1>Script de <em>pré-vendas</em></h1>
     <p>As mensagens estão prontas para copiar, colar e trocar o que está entre chaves. Não precisa ler tudo antes de começar. Comece pela cola e pela seção 2.</p>
-    <div class="meta">
-      <span class="tag">Para <b>Isadora</b> e apoio comercial</span>
-      <span class="tag">Agosto <b>2026</b></span>
-      <span class="tag">Substitui o script de <b>maio/26</b></span>
-    </div>
   </header>
 
   <!-- ============ COLA ============ -->
@@ -278,7 +264,7 @@
         <thead><tr><th>Quando</th><th>O que fazer</th></tr></thead>
         <tbody>
           <tr><td>Até 30 min depois do quiz</td><td>Mensagem 1, citando a resposta que ele deu</td></tr>
-          <tr><td>Ele respondeu</td><td>Uma pergunta de consequência. Depois cala</td></tr>
+          <tr><td>Ele respondeu</td><td>Uma pergunta de consequência e espera</td></tr>
           <tr><td>Respondeu de novo</td><td>Qualificação: ticket, tempo de acompanhamento, faturamento</td></tr>
           <tr><td>Qualificou</td><td>Vende a reunião: prova, promessa, plano</td></tr>
           <tr><td>Vendeu</td><td>Fecha com dois horários, nunca com "quando você pode"</td></tr>
@@ -295,7 +281,7 @@
     <p>Faturamento mensal, ticket que ele cobra, tempo de acompanhamento que ele entrega, se decide sozinho.</p>
 
     <div class="note">
-      <p class="rule">Você não está pedindo um horário. Você está decidindo se essa pessoa entra na agenda do Rafael.</p>
+      <p class="rule">Você não está pedindo um horário, está decidindo se essa pessoa entra na agenda do Rafael.</p>
     </div>
 
     <div class="note note--stop">
@@ -337,7 +323,7 @@
         <span class="msg__label">Mensagem 1 &middot; até 30 min depois do quiz</span>
         <div class="msg__body">
           <p>Oi <span class="v">{Nome}</span>, aqui é a Isadora, do time do Rafael Granella.</p>
-          <p>Vi seu diagnóstico agora. Você marcou <span class="v">{resposta que ele deu}</span> como o ponto que mais trava hoje.</p>
+          <p>Vi seu diagnóstico agora e você marcou <span class="v">{resposta que ele deu}</span> como o ponto que mais trava hoje.</p>
           <p>Antes de eu te devolver a leitura completa, me conta: isso vem te acompanhando há quanto tempo?</p>
         </div>
       </div>
@@ -349,11 +335,11 @@
       </div>
       <div class="msg">
         <span class="msg__label">Modelo de negócio</span>
-        <div class="msg__body"><p>Você marcou que o modelo é o que mais trava. Hoje você tem quantas frentes rodando ao mesmo tempo?</p></div>
+        <div class="msg__body"><p>Você marcou que o modelo é o que mais trava, então me conta: hoje você tem quantas frentes rodando ao mesmo tempo?</p></div>
       </div>
       <div class="msg">
         <span class="msg__label">Processo de vendas</span>
-        <div class="msg__body"><p>Você marcou vendas. De cada dez conversas que você tem hoje, quantas viram cliente?</p></div>
+        <div class="msg__body"><p>Você marcou vendas, e é aí que eu queria entender uma coisa: de cada dez conversas que você tem hoje, quantas viram cliente?</p></div>
       </div>
       <div class="msg">
         <span class="msg__label">Mentalidade</span>
@@ -382,8 +368,8 @@
       <div class="msg">
         <span class="msg__label">Espelho e qualificação</span>
         <div class="msg__body">
-          <p>Entendi. Então o que trava não é entregar, é que o crescimento inteiro passa por dentro da sua agenda.</p>
-          <p>Só mais duas coisas para eu te direcionar certo: qual o ticket que você trabalha hoje e quanto tempo de acompanhamento você entrega?</p>
+          <p>Entendi, então hoje o crescimento inteiro passa por dentro da sua agenda.</p>
+          <p>Só mais duas coisas pra eu te direcionar certo: qual o ticket que você trabalha hoje e quanto tempo de acompanhamento você entrega?</p>
         </div>
       </div>
       <div class="msg">
@@ -424,9 +410,9 @@
       <div class="msg">
         <span class="msg__label">Venda da reunião</span>
         <div class="msg__body">
-          <p><span class="v">{Nome}</span>, o que você descreveu é exatamente o cenário que o Rafael destrava. Ele construiu isso operando, não estudando: mais de dez anos, mais de quinhentos mentorados, mais de um bilhão gerado pelos clientes dele, e hoje é sócio do Flávio Augusto, do Caio Carneiro e do Joel Jota no maior ecossistema de educação executiva do mundo.</p>
-          <p>Nessa conversa ele vai olhar seus números e te mostrar onde está o teto do seu negócio hoje e o que precisa mudar de estrutura para você romper. São trinta minutos, com ele direto.</p>
-          <p>Funciona assim: ele te ouve primeiro, entende seu momento, depois te mostra o desenho que já usou com mentores que estavam exatamente onde você está. No final ele te diz o que fazer e se topa te acompanhar nisso.</p>
+          <p><span class="v">{Nome}</span>, o Rafael já construiu o negócio que você está tentando construir, e hoje é sócio do Flávio Augusto, do Caio Carneiro e do Joel Jota no maior ecossistema de educação executiva do mundo.</p>
+          <p>Nessa conversa ele olha os seus números e te mostra onde está o teto do seu negócio hoje e o que precisa mudar pra você romper. São trinta minutos, com ele direto.</p>
+          <p>No final ele te diz o que fazer e se topa te acompanhar nisso.</p>
         </div>
       </div>
 
@@ -460,7 +446,7 @@
       <div class="msg">
         <span class="msg__label">Confirmado, feche com compromisso verbal</span>
         <div class="msg__body">
-          <p>Fechado, <span class="v">{Nome}</span>. Quinta às 14h, meia hora, no Meet. Vou bloquear na agenda do Rafael, ele abre poucos horários por semana para isso. Posso contar com você?</p>
+          <p>Fechado, <span class="v">{Nome}</span>, quinta às 14h, meia hora, no Meet. Vou bloquear na agenda do Rafael, que abre poucos horários por semana pra isso. Posso contar com você?</p>
         </div>
       </div>
       <div class="note">
@@ -534,7 +520,7 @@
       <div class="msg">
         <span class="msg__label">Uma hora depois &middot; sem cobrança</span>
         <div class="msg__body">
-          <p><span class="v">{Nome}</span>, imagino que tenha aparecido alguma coisa aí. Acontece.</p>
+          <p><span class="v">{Nome}</span>, imagino que tenha aparecido alguma coisa aí, acontece.</p>
           <p>O Rafael tinha separado um ponto específico do seu caso para te mostrar e ele continua aqui comigo.</p>
           <p>Quer que eu tente reencaixar ainda essa semana?</p>
         </div>
@@ -544,8 +530,8 @@
       <div class="msg">
         <span class="msg__label">Dia seguinte &middot; usando o que ele mesmo disse</span>
         <div class="msg__body">
-          <p><span class="v">{Nome}</span>, vou ser direta.</p>
-          <p>Você respondeu que <span class="v">{resposta dele}</span> é o que mais trava hoje. Você já tentou resolver isso do jeito que dá para tentar sozinho. Se resolvesse assim, já estaria resolvido.</p>
+          <p><span class="v">{Nome}</span>, vou ser direta contigo.</p>
+          <p>Você marcou <span class="v">{resposta dele}</span> como o que mais trava hoje, e já tentou resolver isso do jeito que dá pra tentar sozinho. Se resolvesse assim, já estaria resolvido.</p>
           <p>Consigo abrir um horário na <span class="v">{dia}</span>. Se você não quer resolver isso agora, me fala que eu encerro sua aplicação e libero a vaga.</p>
         </div>
       </div>
@@ -553,8 +539,8 @@
       <div class="msg">
         <span class="msg__label">Dois dias depois &middot; última tentativa</span>
         <div class="msg__body">
-          <p><span class="v">{Nome}</span>, já tentei remarcar uma vez e não deu. Não insisto mais nesse horário.</p>
-          <p>Me responde só com sim ou não: você quer virar esse jogo ainda este ano?</p>
+          <p><span class="v">{Nome}</span>, já tentei remarcar uma vez e não deu, então não vou insistir nesse horário.</p>
+          <p>Me responde só com um sim ou um não: você quer virar esse jogo ainda este ano?</p>
         </div>
       </div>
       <p>Se responder sim, <strong>reagende na hora</strong>, com data e horário específicos, e refaça o ritual da seção 6 do zero. Se não responder, volte para a cadência no nível N4.</p>
@@ -609,7 +595,7 @@
       <p class="day">Dia 2 <span>manhã + ligação</span></p>
       <div class="msg"><span class="msg__label">Mensagem</span><div class="msg__body">
         <p>Correria por aí, <span class="v">{Nome}</span>?</p>
-        <p>Deixei duas perguntas ontem. Me responde a que fizer mais sentido, mesmo que em uma linha.</p>
+        <p>Deixei duas perguntas ontem, me responde a que fizer mais sentido, mesmo que em uma linha.</p>
       </div></div>
 
       <p class="day">Dia 3 <span>tarde + ligação</span></p>
@@ -620,22 +606,22 @@
 
       <p class="day">Dia 4 <span>manhã + ligação</span></p>
       <div class="msg"><span class="msg__label">Mensagem</span><div class="msg__body">
-        <p>Oi <span class="v">{Nome}</span>, faz alguns dias que estou tentando falar contigo. Imagino que seja um destes três:</p>
-        <p>1. Agenda lotada, atendendo cliente atrás de cliente<br />2. Estruturar sua mentoria para crescer sem depender de você não é prioridade agora<br />3. Você está fora, sem olhar o celular, que é exatamente o que a gente ajuda a construir</p>
-        <p>Qual dos três? Me responde aqui.</p>
+        <p>Oi <span class="v">{Nome}</span>, faz alguns dias que eu tento falar contigo e imagino que seja uma destas três:</p>
+        <p>1. A semana virou e você ainda não parou pra olhar isso<br />2. Você olhou e achou que não é pra agora<br />3. Você quer resolver e está esperando um momento melhor</p>
+        <p>Me responde só o número.</p>
       </div></div>
 
       <p class="day">Dia 5 <span>tarde + ligação</span></p>
       <div class="msg"><span class="msg__label">Mensagem</span><div class="msg__body">
-        <p><span class="v">{Nome}</span>, você preencheu o diagnóstico por engano?</p>
-        <p>Me avisa mesmo que a resposta seja sim, assim eu respeito o seu tempo e o meu.</p>
+        <p><span class="v">{Nome}</span>, quando você respondeu o diagnóstico marcou <span class="v">{resposta dele}</span> como o que mais trava.</p>
+        <p>Isso continua sendo verdade hoje ou mudou alguma coisa aí?</p>
       </div></div>
 
       <p class="day">Dia 6 <span>manhã + ligação</span></p>
       <div class="msg"><span class="msg__label">Mensagem</span><div class="msg__body">
-        <p>Oi <span class="v">{Nome}</span>.</p>
-        <p>A maioria dos mentores que chega até o Rafael já fatura bem e mesmo assim fecha o mês com a sensação de que travou sem motivo aparente. Quase sempre o motivo é o mesmo: o modelo ainda depende da presença dele em cada entrega, e isso cria um teto que não sobe por esforço.</p>
-        <p>Tenho dois horários abertos essa semana. Quer que eu segure um para você?</p>
+        <p>Oi <span class="v">{Nome}</span>, deixa eu te falar o que eu mais vejo por aqui.</p>
+        <p>O mentor fatura bem, entrega bem, e mesmo assim o mês fecha sempre no mesmo lugar, porque o modelo inteiro ainda depende dele estar presente em cada entrega.</p>
+        <p>Tenho dois horários abertos essa semana com o Rafael. Quer que eu segure um pra você?</p>
       </div></div>
 
       <p class="day">Dia 7 <span>tarde + ligação</span></p>
@@ -646,7 +632,7 @@
 
       <p class="day">Dia 8 <span>manhã + ligação</span></p>
       <div class="msg"><span class="msg__label">Mensagem</span><div class="msg__body">
-        <p><span class="v">{Nome}</span>, topa trinta minutos com o Rafael para entender o que está segurando o próximo nível antes que esse semestre feche igual ao anterior?</p>
+        <p><span class="v">{Nome}</span>, topa trinta minutos com o Rafael pra entender o que está segurando o próximo nível antes que esse semestre feche igual ao anterior?</p>
         <p>Ele te mostra o desenho que já usou com mentores no seu perfil exato.</p>
       </div></div>
 
@@ -662,9 +648,9 @@
       <p class="day">Dia 10 <span>manhã &middot; pré break-up</span></p>
       <div class="msg"><span class="msg__label">Mensagem</span><div class="msg__body">
         <p><span class="v">{Nome}</span>, essa é minha última tentativa por aqui.</p>
-        <p>Enquanto a estrutura não muda, o mentor segue sendo o teto do próprio negócio, atendendo cliente por cliente e dependendo de indicação para o mês fechar. Isso não muda sozinho e não muda com mais esforço.</p>
-        <p>Me avisa hoje se você quer essa conversa. Se não, eu encerro sua aplicação e libero a vaga para a fila.</p>
-        <p>De qualquer forma, o Rafael publica bastante coisa que vai fazer sentido para você: @rafaelgranella</p>
+        <p>Enquanto a estrutura continuar assim, você segue sendo o teto do próprio negócio, atendendo cliente por cliente e contando com indicação pra fechar o mês.</p>
+        <p>Me avisa hoje se você quer essa conversa, senão eu encerro sua aplicação e libero a vaga.</p>
+        <p>De qualquer forma, o Rafael publica bastante coisa que vai fazer sentido pra você: @rafaelgranella</p>
       </div></div>
 
       <p class="day">Dia 12 <span>break-up</span></p>
@@ -680,32 +666,32 @@
       <div class="obj">
         <p class="obj__q">Me manda mais informações por aqui.</p>
         <div class="msg"><span class="msg__label">Resposta</span><div class="msg__body">
-          <p>Consigo, mas o que eu te mando por aqui é genérico e você já viu conteúdo genérico o suficiente. O que muda o jogo é o Rafael olhar seus números e te dizer onde está o seu teto. São trinta minutos. Quinta às 14h ou sexta às 10h30?</p>
+          <p>Consigo, mas o que eu te mando por aqui é genérico e você já viu conteúdo genérico o suficiente. O que muda o jogo é o Rafael olhar os seus números e te dizer onde está o seu teto, e isso leva trinta minutos. Quinta às 14h ou sexta às 10h30?</p>
         </div></div>
       </div>
 
       <div class="obj">
         <p class="obj__q">Quanto custa?</p>
         <div class="msg"><span class="msg__label">Resposta</span><div class="msg__body">
-          <p>Isso o Rafael apresenta na conversa, porque depende do que faz sentido para o seu momento. O que eu adianto é que não é programa de entrada, é para quem já fatura e quer estruturar para crescer.</p>
+          <p>Isso o Rafael apresenta na conversa, porque depende do que faz sentido pro seu momento. O que eu já adianto é que ele trabalha com quem já fatura e quer estruturar pra crescer.</p>
         </div></div>
       </div>
 
       <div class="obj">
         <p class="obj__q">Agora não é o momento.</p>
         <div class="msg"><span class="msg__label">Resposta</span><div class="msg__body">
-          <p>Entendi. Só para eu te direcionar certo: não é o momento por agenda ou por prioridade? São coisas bem diferentes.</p>
+          <p>Entendi, só pra eu te direcionar certo: não é o momento por agenda ou por prioridade?</p>
         </div></div>
         <p class="obj__note">Se for agenda, ofereça horário fora do comercial. Se for prioridade:</p>
         <div class="msg" style="margin-top:12px"><span class="msg__label">Se for prioridade</span><div class="msg__body">
-          <p>Você respondeu que <span class="v">{resposta dele}</span> trava seu negócio hoje. Daqui a seis meses esse ponto vai estar maior, não menor. O momento nunca fica bom sozinho.</p>
+          <p>Você respondeu que <span class="v">{resposta dele}</span> trava o seu negócio hoje, e daqui a seis meses esse ponto vai estar maior do que está agora.</p>
         </div></div>
       </div>
 
       <div class="obj">
         <p class="obj__q">Preciso falar com meu sócio.</p>
         <div class="msg"><span class="msg__label">Resposta</span><div class="msg__body">
-          <p>Faz total sentido. Ele pode entrar na conversa junto? São trinta minutos e evita você ter que reproduzir tudo depois, o que sempre perde metade.</p>
+          <p>Faz total sentido, ele pode entrar na conversa junto? São trinta minutos e evita você ter que reproduzir tudo depois, o que sempre perde metade.</p>
         </div></div>
       </div>
 
@@ -713,7 +699,7 @@
         <p class="obj__q">Vou tentar mais um tempo do meu jeito e depois eu volto.</p>
         <div class="note note--stop"><p>Não valide isso. <strong>Nunca responda "faz sentido".</strong></p></div>
         <div class="msg"><span class="msg__label">Resposta</span><div class="msg__body">
-          <p><span class="v">{Nome}</span>, você está tentando do seu jeito há <span class="v">{tempo que ele disse}</span>. Se esse caminho fosse resolver, já teria resolvido. Trinta minutos com o Rafael te dão em uma tarde a leitura que você não conseguiu em <span class="v">{tempo que ele disse}</span>.</p>
+          <p><span class="v">{Nome}</span>, você vem tentando do seu jeito há <span class="v">{tempo que ele disse}</span>, e se esse caminho fosse resolver já teria resolvido. Em trinta minutos com o Rafael você tem a leitura que não veio nesse tempo todo.</p>
         </div></div>
       </div>
 
@@ -724,14 +710,14 @@
           <p>O que você tentou e o que aconteceu?</p>
         </div></div>
         <div class="msg"><span class="msg__label">Depois que ele contar</span><div class="msg__body">
-          <p>Entendi. Então o que faltou foi <span class="v">{palavra dele}</span>. É exatamente por isso que eu quero te colocar na frente do Rafael, porque quem te atendeu antes ensinava. O Rafael construiu, opera, e coloca você dentro de um ambiente que nenhum curso te dá.</p>
+          <p>Entendi, então o que faltou foi <span class="v">{palavra dele}</span>. É por isso mesmo que eu quero te colocar na frente do Rafael, porque quem te atendeu antes ensinava e ele construiu e opera, além de te colocar num ambiente que nenhum curso te dá.</p>
         </div></div>
       </div>
 
       <div class="obj">
         <p class="obj__q">Eu acompanho o Rafael, já vejo os conteúdos dele.</p>
         <div class="msg"><span class="msg__label">Resposta</span><div class="msg__body">
-          <p>Que bom, então você já sabe o nível. Só que conteúdo é o que ele fala para todo mundo. Nessa conversa ele olha o seu caso e te diz o que fazer no seu negócio. É outra coisa.</p>
+          <p>Que bom, então você já sabe o nível dele. Só que conteúdo é o que ele fala pra todo mundo, e nessa conversa ele olha o seu caso e te diz o que fazer no seu negócio.</p>
         </div></div>
       </div>
 

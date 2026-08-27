@@ -1,7 +1,5 @@
 # Script de pré-vendas, Alivance Club
 
-**Para:** Isadora (SDR) e apoio comercial
-**Versão 2, agosto/2026.** Substitui o script de maio/26
 **Como usar:** as mensagens estão prontas para copiar, colar e trocar o que está entre chaves. Não precisa ler tudo antes de começar. Comece pela cola abaixo e pela seção 2.
 
 ---
@@ -13,7 +11,7 @@
 | Quando | O que fazer |
 | --- | --- |
 | Até 30 min depois do quiz | Mensagem 1, citando a resposta que ele deu |
-| Ele respondeu | Uma pergunta de consequência. Depois cala |
+| Ele respondeu | Uma pergunta de consequência e espera |
 | Ele respondeu de novo | Qualificação (ticket, tempo de acompanhamento, faturamento) |
 | Qualificou | Vende a reunião (prova, promessa, plano) |
 | Vendeu | Fecha com dois horários, nunca com "quando você pode" |
@@ -60,15 +58,15 @@ O que ele marcou no quiz já te diz por onde entrar:
 
 > Oi {Nome}, aqui é a Isadora, do time do Rafael Granella.
 >
-> Vi seu diagnóstico agora. Você marcou {resposta que ele deu} como o ponto que mais trava hoje.
+> Vi seu diagnóstico agora e você marcou {resposta que ele deu} como o ponto que mais trava hoje.
 >
 > Antes de eu te devolver a leitura completa, me conta: isso vem te acompanhando há quanto tempo?
 
 Se preferir variar pelo pilar:
 
 - **Método:** "Você entrega bem e cada cliente ainda é um processo diferente. Como está sendo montar cada mentoria do zero?"
-- **Modelo de negócio:** "Você marcou que o modelo é o que mais trava. Hoje você tem quantas frentes rodando ao mesmo tempo?"
-- **Processo de vendas:** "Você marcou vendas. De cada dez conversas que você tem hoje, quantas viram cliente?"
+- **Modelo de negócio:** "Você marcou que o modelo é o que mais trava, então me conta: hoje você tem quantas frentes rodando ao mesmo tempo?"
+- **Processo de vendas:** "Você marcou vendas, e é aí que eu queria entender uma coisa: de cada dez conversas que você tem hoje, quantas viram cliente?"
 - **Mentalidade:** "Quem marca mentalidade normalmente já sabe o que precisa fazer e trava na hora de executar. É esse o cenário?"
 
 **Mensagem 2, depois que ele responde. Uma pergunta só, e depois você espera.**
@@ -87,9 +85,9 @@ Não mande outra mensagem em cima. Não escreva "aguardo seu retorno". Deixe a p
 
 **Mensagem 3, depois que ele responde. Devolva a resposta dele em uma frase, e só então qualifique.**
 
-> Entendi. Então o que trava não é entregar, é que o crescimento inteiro passa por dentro da sua agenda.
+> Entendi, então hoje o crescimento inteiro passa por dentro da sua agenda.
 >
-> Só mais duas coisas para eu te direcionar certo: qual o ticket que você trabalha hoje e quanto tempo de acompanhamento você entrega?
+> Só mais duas coisas pra eu te direcionar certo: qual o ticket que você trabalha hoje e quanto tempo de acompanhamento você entrega?
 
 E, se ainda não tiver:
 
@@ -120,11 +118,11 @@ Anote as **frases literais** que ele usou, entre aspas. Você vai usar essas fra
 
 Este é o trecho que segura o show-up. Três frases: **prova, promessa, plano.**
 
-> {Nome}, o que você descreveu é exatamente o cenário que o Rafael destrava. Ele construiu isso operando, não estudando: mais de dez anos, mais de quinhentos mentorados, mais de um bilhão gerado pelos clientes dele, e hoje é sócio do Flávio Augusto, do Caio Carneiro e do Joel Jota no maior ecossistema de educação executiva do mundo.
+> {Nome}, o Rafael já construiu o negócio que você está tentando construir, e hoje é sócio do Flávio Augusto, do Caio Carneiro e do Joel Jota no maior ecossistema de educação executiva do mundo.
 >
-> Nessa conversa ele vai olhar seus números e te mostrar onde está o teto do seu negócio hoje e o que precisa mudar de estrutura para você romper. São trinta minutos, com ele direto.
+> Nessa conversa ele olha os seus números e te mostra onde está o teto do seu negócio hoje e o que precisa mudar pra você romper. São trinta minutos, com ele direto.
 >
-> Funciona assim: ele te ouve primeiro, entende seu momento, depois te mostra o desenho que já usou com mentores que estavam exatamente onde você está. No final ele te diz o que fazer e se topa te acompanhar nisso.
+> No final ele te diz o que fazer e se topa te acompanhar nisso.
 
 Repare no que **não** tem aí:
 
@@ -149,7 +147,7 @@ Só se nenhum servir:
 
 **Confirmado, feche com compromisso verbal:**
 
-> Fechado, {Nome}. Quinta às 14h, meia hora, no Meet. Vou bloquear na agenda do Rafael, ele abre poucos horários por semana para isso. Posso contar com você?
+> Fechado, {Nome}, quinta às 14h, meia hora, no Meet. Vou bloquear na agenda do Rafael, que abre poucos horários por semana pra isso. Posso contar com você?
 
 Espere ele responder que sim. Esse sim é o compromisso, e ele sozinho já derruba no-show.
 
@@ -199,23 +197,23 @@ Tempo é tudo aqui. As primeiras horas valem mais que os três dias seguintes.
 > {Nome}, o Rafael está na sala te esperando. Consegue entrar agora?
 
 **Uma hora depois. Sem cobrança, porque a maioria dos no-shows é logística.**
-> {Nome}, imagino que tenha aparecido alguma coisa aí. Acontece.
+> {Nome}, imagino que tenha aparecido alguma coisa aí, acontece.
 >
 > O Rafael tinha separado um ponto específico do seu caso para te mostrar e ele continua aqui comigo.
 >
 > Quer que eu tente reencaixar ainda essa semana?
 
 **No dia seguinte, se não respondeu. Aqui você usa o que ele mesmo disse.**
-> {Nome}, vou ser direta.
+> {Nome}, vou ser direta contigo.
 >
-> Você respondeu que {resposta dele} é o que mais trava hoje. Você já tentou resolver isso do jeito que dá para tentar sozinho. Se resolvesse assim, já estaria resolvido.
+> Você marcou {resposta dele} como o que mais trava hoje, e já tentou resolver isso do jeito que dá pra tentar sozinho. Se resolvesse assim, já estaria resolvido.
 >
 > Consigo abrir um horário na {dia}. Se você não quer resolver isso agora, me fala que eu encerro sua aplicação e libero a vaga.
 
 **Dois dias depois, última tentativa antes de voltar para a cadência.**
-> {Nome}, já tentei remarcar uma vez e não deu. Não insisto mais nesse horário.
+> {Nome}, já tentei remarcar uma vez e não deu, então não vou insistir nesse horário.
 >
-> Me responde só com sim ou não: você quer virar esse jogo ainda este ano?
+> Me responde só com um sim ou um não: você quer virar esse jogo ainda este ano?
 
 Se responder sim, **reagende na hora**, com data e horário específicos, e refaça o ritual da seção 6 do zero.
 Se não responder, volte para a cadência no nível N4.
@@ -263,7 +261,7 @@ Se não responder, volte para a cadência no nível N4.
 **Dia 2, manhã** (+ ligação)
 > Correria por aí, {Nome}?
 >
-> Deixei duas perguntas ontem. Me responde a que fizer mais sentido, mesmo que em uma linha.
+> Deixei duas perguntas ontem, me responde a que fizer mais sentido, mesmo que em uma linha.
 
 **Dia 3, tarde** (+ ligação)
 > {Nome}, pergunta rápida: quanto você acha que deixou de faturar no último ano por causa desse ponto que você marcou?
@@ -271,25 +269,25 @@ Se não responder, volte para a cadência no nível N4.
 > Não precisa ser exato, só a ordem de grandeza.
 
 **Dia 4, manhã** (+ ligação)
-> Oi {Nome}, faz alguns dias que estou tentando falar contigo. Imagino que seja um destes três:
+> Oi {Nome}, faz alguns dias que eu tento falar contigo e imagino que seja uma destas três:
 >
-> 1. Agenda lotada, atendendo cliente atrás de cliente
-> 2. Estruturar sua mentoria para crescer sem depender de você não é prioridade agora
-> 3. Você está fora, sem olhar o celular, que é exatamente o que a gente ajuda a construir
+> 1. A semana virou e você ainda não parou pra olhar isso
+> 2. Você olhou e achou que não é pra agora
+> 3. Você quer resolver e está esperando um momento melhor
 >
-> Qual dos três? Me responde aqui.
+> Me responde só o número.
 
 **Dia 5, tarde** (+ ligação)
-> {Nome}, você preencheu o diagnóstico por engano?
+> {Nome}, quando você respondeu o diagnóstico marcou {resposta dele} como o que mais trava.
 >
-> Me avisa mesmo que a resposta seja sim, assim eu respeito o seu tempo e o meu.
+> Isso continua sendo verdade hoje ou mudou alguma coisa aí?
 
 **Dia 6, manhã** (+ ligação)
-> Oi {Nome}.
+> Oi {Nome}, deixa eu te falar o que eu mais vejo por aqui.
 >
-> A maioria dos mentores que chega até o Rafael já fatura bem e mesmo assim fecha o mês com a sensação de que travou sem motivo aparente. Quase sempre o motivo é o mesmo: o modelo ainda depende da presença dele em cada entrega, e isso cria um teto que não sobe por esforço.
+> O mentor fatura bem, entrega bem, e mesmo assim o mês fecha sempre no mesmo lugar, porque o modelo inteiro ainda depende dele estar presente em cada entrega.
 >
-> Tenho dois horários abertos essa semana. Quer que eu segure um para você?
+> Tenho dois horários abertos essa semana com o Rafael. Quer que eu segure um pra você?
 
 **Dia 7, tarde** (+ ligação)
 > Estruturar seu negócio para crescer sem depender só de você ainda é prioridade este ano, {Nome}?
@@ -297,7 +295,7 @@ Se não responder, volte para a cadência no nível N4.
 > Se sim, me responde aqui que eu sigo. Se não, me fala que eu encerro sua aplicação.
 
 **Dia 8, manhã** (+ ligação)
-> {Nome}, topa trinta minutos com o Rafael para entender o que está segurando o próximo nível antes que esse semestre feche igual ao anterior?
+> {Nome}, topa trinta minutos com o Rafael pra entender o que está segurando o próximo nível antes que esse semestre feche igual ao anterior?
 >
 > Ele te mostra o desenho que já usou com mentores no seu perfil exato.
 
@@ -310,11 +308,11 @@ Logo depois:
 **Dia 10, manhã: pré break-up**
 > {Nome}, essa é minha última tentativa por aqui.
 >
-> Enquanto a estrutura não muda, o mentor segue sendo o teto do próprio negócio, atendendo cliente por cliente e dependendo de indicação para o mês fechar. Isso não muda sozinho e não muda com mais esforço.
+> Enquanto a estrutura continuar assim, você segue sendo o teto do próprio negócio, atendendo cliente por cliente e contando com indicação pra fechar o mês.
 >
-> Me avisa hoje se você quer essa conversa. Se não, eu encerro sua aplicação e libero a vaga para a fila.
+> Me avisa hoje se você quer essa conversa, senão eu encerro sua aplicação e libero a vaga.
 >
-> De qualquer forma, o Rafael publica bastante coisa que vai fazer sentido para você: @rafaelgranella
+> De qualquer forma, o Rafael publica bastante coisa que vai fazer sentido pra você: @rafaelgranella
 
 **Dia 12: break-up.** Encerre a aplicação, mova para N6 e volte em trinta dias com algo novo, um convite de evento ou um conteúdo. Sem cobrança.
 
@@ -323,33 +321,33 @@ Logo depois:
 ## 9. Objeções, respostas prontas
 
 **"Me manda mais informações por aqui."**
-> Consigo, mas o que eu te mando por aqui é genérico e você já viu conteúdo genérico o suficiente. O que muda o jogo é o Rafael olhar seus números e te dizer onde está o seu teto. São trinta minutos. Quinta às 14h ou sexta às 10h30?
+> Consigo, mas o que eu te mando por aqui é genérico e você já viu conteúdo genérico o suficiente. O que muda o jogo é o Rafael olhar os seus números e te dizer onde está o seu teto, e isso leva trinta minutos. Quinta às 14h ou sexta às 10h30?
 
 **"Quanto custa?"**
-> Isso o Rafael apresenta na conversa, porque depende do que faz sentido para o seu momento. O que eu adianto é que não é programa de entrada, é para quem já fatura e quer estruturar para crescer.
+> Isso o Rafael apresenta na conversa, porque depende do que faz sentido pro seu momento. O que eu já adianto é que ele trabalha com quem já fatura e quer estruturar pra crescer.
 
 **"Agora não é o momento."**
-> Entendi. Só para eu te direcionar certo: não é o momento por agenda ou por prioridade? São coisas bem diferentes.
+> Entendi, só pra eu te direcionar certo: não é o momento por agenda ou por prioridade?
 
 Se for agenda, ofereça horário fora do comercial. Se for prioridade:
-> Você respondeu que {resposta dele} trava seu negócio hoje. Daqui a seis meses esse ponto vai estar maior, não menor. O momento nunca fica bom sozinho.
+> Você respondeu que {resposta dele} trava o seu negócio hoje, e daqui a seis meses esse ponto vai estar maior do que está agora.
 
 **"Preciso falar com meu sócio (ou com minha esposa)."**
-> Faz total sentido. Ele pode entrar na conversa junto? São trinta minutos e evita você ter que reproduzir tudo depois, o que sempre perde metade.
+> Faz total sentido, ele pode entrar na conversa junto? São trinta minutos e evita você ter que reproduzir tudo depois, o que sempre perde metade.
 
 **"Vou tentar mais um tempo do meu jeito e depois eu volto."**
 Não valide isso. Nunca responda "faz sentido".
-> {Nome}, você está tentando do seu jeito há {tempo que ele disse}. Se esse caminho fosse resolver, já teria resolvido. Trinta minutos com o Rafael te dão em uma tarde a leitura que você não conseguiu em {tempo que ele disse}.
+> {Nome}, você vem tentando do seu jeito há {tempo que ele disse}, e se esse caminho fosse resolver já teria resolvido. Em trinta minutos com o Rafael você tem a leitura que não veio nesse tempo todo.
 
 **"Já tentei mentoria antes e não funcionou."**
 Isso não é objeção, é ouro. Puxe primeiro.
 > O que você tentou e o que aconteceu?
 
 Deixe ele contar inteiro. Depois:
-> Entendi. Então o que faltou foi {palavra dele}. É exatamente por isso que eu quero te colocar na frente do Rafael, porque quem te atendeu antes ensinava. O Rafael construiu, opera, e coloca você dentro de um ambiente que nenhum curso te dá.
+> Entendi, então o que faltou foi {palavra dele}. É por isso mesmo que eu quero te colocar na frente do Rafael, porque quem te atendeu antes ensinava e ele construiu e opera, além de te colocar num ambiente que nenhum curso te dá.
 
 **"Eu acompanho o Rafael, já vejo os conteúdos dele."**
-> Que bom, então você já sabe o nível. Só que conteúdo é o que ele fala para todo mundo. Nessa conversa ele olha o seu caso e te diz o que fazer no seu negócio. É outra coisa.
+> Que bom, então você já sabe o nível dele. Só que conteúdo é o que ele fala pra todo mundo, e nessa conversa ele olha o seu caso e te diz o que fazer no seu negócio.
 
 ---
 
