@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Estratégia Completa · Luana Isse</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body { font-family: Arial, Helvetica, sans-serif; color: var(--text); font-size: 10pt; line-height: 1.45; }
+  .page { width: 210mm; height: 297mm; overflow: hidden; padding: 16mm 18mm 24mm 18mm; position: relative; page-break-after: always; background: #fff; }
+  .page:last-child { page-break-after: auto; }
+  .runhead { display: flex; justify-content: space-between; font-size: 7.5pt; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt; }
+  .runfoot { position: absolute; bottom: 9mm; left: 18mm; right: 18mm; text-align: center; font-size: 7.5pt; color: var(--muted); }
+  .kicker { color: var(--gold); font-size: 9pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt; }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 12pt; font-size: 10pt; }
+  .box-dark { background: var(--navy-dark); color: #f5f3ee; padding: 11pt 14pt; margin: 10pt 0; border-radius: 2pt; }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light { background: var(--beige); border-left: 3pt solid var(--gold); padding: 10pt 14pt; margin: 10pt 0; }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .tag { display: inline-block; background: var(--gold); color: #fff; font-size: 7.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; padding: 2pt 7pt; border-radius: 2pt; margin: 9pt 0 4pt; }
+  .item { border-left: 2pt solid #e2d9c8; padding-left: 10pt; margin-bottom: 4pt; }
+  .item p { margin-bottom: 3.5pt; }
+  .item p:last-child { margin-bottom: 0; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 11pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 6pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 38pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- 1 CAPA -->
+<div class="page cover">
+  <div class="kicker">Estratégia Completa</div>
+  <h1>Funil de<br>Lead Dinâmico</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    Quiz, página pós-quiz e anúncios.<br>
+    A copy inteira do funil, pronta para implementar.<br>
+    Ruptura de Valor Percebido · Método MMPV.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">Luana Isse</div>
+    <div class="lbl">Estrategista</div>
+    <div class="val">Daniel Souza · Carlos Durães</div>
+  </div>
+</div>
+
+<!-- 2 O FUNIL EM UMA PÁGINA -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Luana Isse</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Ler a Copy</div>
+  <h1 style="font-size:19pt;">O Funil em Uma Página</h1>
+  <p class="lead">Leia esta página antes de aprovar as copies. Tudo o que vem depois parte destas decisões.</p>
+
+  <div class="box-dark">
+    <div class="bt">O caminho do lead</div>
+    <p><strong>Anúncio → Quiz (gratuito) → Página pós-quiz → WhatsApp → Sessão estratégica → Mentoria</strong></p>
+    <p>A página pós-quiz <strong>não vende e não mostra preço</strong>. O trabalho dela é entregar o diagnóstico, elevar o nível de consciência e fazer a pessoa querer conversar. A oferta da <strong>mentoria MMPV (R$ 7 mil)</strong> acontece na sessão, depois do diagnóstico ao vivo.</p>
+    <p>Por que assim: R$ 7 mil é um valor que esse especialista <strong>considera</strong>, não compra por impulso. E é na sessão que aparecem as objeções reais, que depois voltam para a copy.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A esteira hoje</div>
+    <p><strong>Carro-chefe: mentoria MMPV, R$ 7 mil.</strong> É o que este funil vende e o que gera caixa com volume.</p>
+    <p><strong>Portas laterais: consultoria de Movimento e Posicionamento (R$ 15 mil)</strong> e <strong>individual (R$ 30 mil)</strong>. Aparecem só na sessão, quando o perfil pede. Não entram na mídia.</p>
+    <p><strong>Produto de entrada: não existe nos 90 dias</strong>, por decisão. Quem não qualifica recebe o diagnóstico, entra na nutrição e é convidado para a conferência.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">O que a copy precisa compensar</div>
+    <p>Ainda <strong>não há depoimentos coletados</strong> (de 5 a 7 estão sendo captados). Enquanto eles não chegam, a página compensa com a <strong>trajetória da Luana</strong>, com as quase 30 pessoas mentoradas e com o evento presencial de 87 pessoas feito no orgânico. Onde houver <strong>[DEPOIMENTO]</strong> no texto, é espaço reservado.</p>
+    <p>A favor de vocês: a <strong>conferência do dia 19 de agosto</strong> gera prova nova, gravação, cortes e depoimentos ao vivo, além de uma lista quente que alimenta este funil.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Premissas assumidas</div>
+    <p>Conversão de call de 30% · comparecimento de 60% · corte de qualificação em R$ 5 mil/mês · tráfego de R$ 50 a 100 por dia na validação · tratamento por <strong>"você"</strong> nas peças de alcance e por <strong>"tu"</strong> na conversa um a um, que é como a Luana fala.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 3 SEÇÃO 1 BIG IDEA -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Luana Isse</span><span>Página 3</span></div>
+  <div class="kicker">Seção 1</div>
+  <h1 style="font-size:19pt;">Big Idea</h1>
+  <p class="lead">A ideia que sustenta o quiz, a página, os anúncios e o atendimento.</p>
+
+  <div class="box-dark">
+    <div class="bt">A big idea</div>
+    <p><strong>Quem é visto, vende mais.</strong></p>
+    <p>Ele fez tudo o que mandaram fazer. Estudou, se especializou, atendeu bem, construiu reputação entre quem já o conhece. E mesmo assim vê gente com um décimo da formação lotando turma com frase pronta, enquanto o texto que ele levou duas horas para escrever morre com doze curtidas.</p>
+    <p>A explicação que o mercado dá é sempre a mesma: falta marketing. <strong>Não falta.</strong> O que existe é a <strong>Ruptura de Valor Percebido</strong>: a distância entre o valor que ele possui e o valor que consegue comunicar. Enquanto essa distância existir, nenhuma estratégia gera vendas consistentes, porque tática aplicada em cima de uma percepção quebrada só produz mais ruído.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A frase que resume a transformação</div>
+    <p><strong>De especialista técnico a especialista percebido.</strong></p>
+    <p>O técnico sabe muito, estuda muito, tem certificados, e continua sendo comparado por preço. O percebido talvez saiba exatamente a mesma coisa, mas construiu uma percepção diferente, e por isso é lembrado, indicado, valorizado e vende mentorias de alto valor.</p>
+    <p>Com isso, a pergunta do mercado muda. Deixa de ser "como vender mais?" e passa a ser <strong>"como deixar de ser apenas um especialista técnico para me tornar um especialista percebido?"</strong>.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">O mecanismo: MMPV, o Método de Multiplicação do Valor Percebido</div>
+    <p><strong>Mentalidade</strong> remove os bloqueios que impedem a pessoa de ocupar o seu espaço · <strong>Movimento</strong> transforma conhecimento em causa · <strong>Posicionamento</strong> transforma causa em autoridade percebida · <strong>Vendas</strong> transformam autoridade em faturamento.</p>
+    <p>Nessa ordem, porque fora dela não funciona. É o que elimina a ruptura em vez de maquiar o sintoma.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A régua de linguagem, válida para toda peça</div>
+    <p><strong>Fala:</strong> quem é visto vende mais · chega de ser excelente e continuar invisível · a ruptura entre o que você sabe e o que o mercado enxerga · técnico x percebido · ser lembrado, indicado e valorizado · vender e cobrar mais.</p>
+    <p><strong>Não fala:</strong> resgatar identidade, dito solto (é entrega, não anúncio) · promessa de número de faturamento · valores de mentoria dentro de anúncio pago.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 4 SEÇÃO 2 PARTE 1 QUIZ -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Luana Isse</span><span>Página 4</span></div>
+  <div class="kicker">Seção 2 · Parte 1</div>
+  <h1 style="font-size:19pt;">Copy do Quiz</h1>
+  <p class="lead">Capta, qualifica e já funciona como o primeiro atendimento.</p>
+
+  <div class="box-dark">
+    <div class="bt">Como ler esta seção</div>
+    <p>Cada pergunta mede um pilar do MMPV. O quiz qualifica o lead e, ao mesmo tempo, produz um resultado que não é rótulo genérico: o que a pessoa recebe é <strong>o pilar onde a ruptura dela está maior</strong>. É isso que faz ela chegar na sessão já convencida de que a Luana enxergou o que ninguém enxergou, e é isso que dá à Aline um assunto real para abrir a conversa.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Hero da página do quiz</div>
+    <p><strong>Título:</strong> Existe um motivo pelo qual o mercado ainda ignora você</p>
+    <p><strong>Subtítulo:</strong> Responda em 2 minutos e descubra o tamanho da sua Ruptura de Valor Percebido, a distância entre o que você sabe e o que o mercado enxerga, e onde exatamente ela está travando as suas vendas.</p>
+    <p><strong>Tempo:</strong> 2 minutos · <strong>CTA:</strong> Começar meu diagnóstico</p>
+  </div>
+
+  <div class="tag">P1 · Situação</div>
+  <div class="item">
+    <p><strong>Como as pessoas chegam até você hoje?</strong></p>
+    <p>a) Quase tudo por indicação de quem já me conhece · b) Indicação e, de vez em quando, alguém do Instagram · c) Já recebo mensagens de gente que não me conhecia · d) Tenho fluxo constante de gente me procurando</p>
+  </div>
+
+  <div class="tag">P2 · Situação · pilar Movimento</div>
+  <div class="item">
+    <p><strong>O que costuma acontecer quando você publica alguma coisa?</strong></p>
+    <p>a) Quase não publico, trava antes de postar · b) Publico e parece que falo sozinha · c) Curtem e elogiam, mas ninguém pergunta preço · d) Gera conversa e às vezes vira cliente</p>
+  </div>
+
+  <div class="tag">P3 · Problema · define o elo dominante</div>
+  <div class="item">
+    <p><strong>O que mais te trava hoje?</strong></p>
+    <p>a) Me expor. Sinto que estou fazendo papel de outra pessoa <em>(Mentalidade)</em> · b) Não sei o que eu defendo, falo do meu serviço e não de uma ideia <em>(Movimento)</em> · c) O que eu falo poderia ser dito por qualquer colega da minha área <em>(Posicionamento)</em> · d) Sei comunicar, mas não tenho oferta nem processo para vender <em>(Vendas)</em></p>
+  </div>
+
+  <div class="tag">P4 · Implicação</div>
+  <div class="item">
+    <p><strong>O que essa situação já te custou?</strong></p>
+    <p>a) Ver colega menos preparado ser chamado no meu lugar · b) Continuar trocando hora por dinheiro sem escalar · c) Cobrar menos do que sei que valho para não perder o cliente · d) Anos de estudo que o mercado nunca soube que eu tenho</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 5 SEÇÃO 2 PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Luana Isse</span><span>Página 5</span></div>
+  <div class="kicker">Seção 2 · Parte 2</div>
+  <h1 style="font-size:19pt;">Copy do Quiz: perguntas 5 a 8</h1>
+
+  <div class="tag">P5 · Tentativas</div>
+  <div class="item">
+    <p><strong>O que você já tentou para mudar isso?</strong></p>
+    <p>a) Cursos de marketing digital que não saíram do papel · b) Social media ou agência, e não veio cliente · c) Postar com constância, sozinha, e nada mudou · d) Ainda não tentei nada estruturado</p>
+  </div>
+
+  <div class="tag">P6 · Objetivo</div>
+  <div class="item">
+    <p><strong>O que você mais quer nos próximos meses?</strong></p>
+    <p>a) Ter clareza do que eu falo e para quem · b) Passar a ser lembrada como referência no que faço · c) Cobrar o que o meu trabalho realmente vale · d) Lançar a minha mentoria</p>
+  </div>
+
+  <div class="tag">P7 · Perfil</div>
+  <div class="item">
+    <p><strong>Qual é a sua área?</strong></p>
+    <p>a) Psicologia, terapias ou saúde mental · b) Coaching, mentoria ou desenvolvimento humano · c) Direito, contabilidade ou consultoria · d) Nutrição, medicina ou outra área da saúde</p>
+  </div>
+
+  <div class="tag">P8 · Qualificação · filtro</div>
+  <div class="item">
+    <p><strong>Quanto você fatura por mês hoje com o seu trabalho?</strong></p>
+    <p>a) Ainda não faturo de forma constante · b) Até R$ 5 mil · c) De R$ 5 mil a R$ 25 mil · d) Acima de R$ 25 mil</p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Regra de segmentação</div>
+    <p><strong>c e d na P8 = ICP.</strong> A Aline aborda com prioridade e oferece a sessão estratégica. O <strong>d</strong> entra na sessão já com a consultoria de R$ 15 mil e o individual de R$ 30 mil na mesa.</p>
+    <p><strong>a e b</strong> recebem o diagnóstico completo, entram na nutrição de conteúdo e são convidados para a conferência, sem ocupar a agenda da Luana.</p>
+    <p>Cruzar sempre com a <strong>P3</strong>, que dá o elo dominante e define o gancho da primeira mensagem.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Captura de dados</div>
+    <p><strong>Título:</strong> Seu diagnóstico está pronto · <strong>Subtítulo:</strong> Preencha abaixo para ver o seu resultado e receber uma cópia no WhatsApp (leva 30 segundos).</p>
+    <p><strong>Campos:</strong> Nome · WhatsApp · E-mail · Profissão · <strong>CTA:</strong> Ver meu diagnóstico</p>
+    <p><strong>Privacidade:</strong> Seus dados estão seguros. Nada de spam, só o seu diagnóstico e o próximo passo.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 6 SEÇÃO 3 PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Luana Isse</span><span>Página 6</span></div>
+  <div class="kicker">Seção 3 · Parte 1</div>
+  <h1 style="font-size:19pt;">Página Pós-Quiz</h1>
+  <p class="lead">A peça central deste funil. Ela não vende: ela prepara o especialista para querer conversar.</p>
+
+  <div class="box-dark">
+    <div class="bt">O trabalho desta página</div>
+    <p>É <strong>uma peça só</strong>: o diagnóstico e a aplicação para a sessão vivem na mesma página. A pessoa responde o quiz, deixa os dados e cai direto aqui, no resultado dela.</p>
+    <p>A régua: ela precisa terminar a leitura pensando <strong>"é exatamente isso que acontece comigo"</strong>, e não "já entendi tudo sozinha". O elo é nomeado; o caminho para corrigi-lo é a mentoria.</p>
+    <p>Esta página é mais longa que o normal de propósito. Como o público é cético e já foi queimado por curso e por agência, ele decide por profundidade, não por empolgação.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Os nove blocos, na ordem</div>
+    <p>1. O resultado dela · 2. A leitura do cenário · 3. O espelho · 4. Por que o que você tentou não funcionou · 5. O mecanismo · 6. O que precisa acontecer no seu caso · 7. Quem é a Luana e a prova · 8. Para quem é e para quem não é, com FAQ · 9. O convite e o CTA.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Variáveis usadas nesta página</div>
+    <p><code>{{nome}}</code> · <code>{{elo_dominante}}</code> (da P3) · <code>{{origem_clientes}}</code> (P1) · <code>{{trava_principal}}</code> (P3) · <code>{{custo}}</code> (P4) · <code>{{tentativa_anterior}}</code> (P5) · <code>{{profissao}}</code> (P7).</p>
+    <p><strong>[DEPOIMENTO]</strong> marca os espaços reservados para prova, a serem preenchidos assim que os vídeos chegarem.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 7 SEÇÃO 3 PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Luana Isse</span><span>Página 7</span></div>
+  <div class="kicker">Seção 3 · Parte 2</div>
+  <h1 style="font-size:19pt;">A Copy, Bloco a Bloco</h1>
+
+  <div class="tag">Bloco 1 · O resultado dela</div>
+  <div class="item">
+    <p><strong>Headline:</strong> {{nome}}, a sua Ruptura de Valor Percebido está maior em: {{elo_dominante}}</p>
+    <p><strong>Subheadline:</strong> Isso não é um julgamento da sua competência. É a medida de quanto do seu valor o mercado está conseguindo enxergar hoje.</p>
+  </div>
+
+  <div class="tag">Bloco 2 · A leitura do cenário</div>
+  <div class="item">
+    <p>Você contou que as pessoas chegam até você principalmente por {{origem_clientes}}, que o que mais te trava hoje é {{trava_principal}}, e que isso já te custou {{custo}}.</p>
+    <p>Essa combinação é a assinatura de quem tem a ruptura concentrada em {{elo_dominante}}: não falta competência, falta tradução.</p>
+  </div>
+
+  <div class="tag">Bloco 3 · O espelho</div>
+  <div class="item">
+    <p>Você provavelmente se reconhece aqui:</p>
+    <p>· Estudou anos, tem pós, especialização e resultado real com quem atende.<br>
+    · Escreve um conteúdo denso, que levou duas horas, e recebe doze curtidas.<br>
+    · Vê gente com um décimo da sua formação lotando turma com frase motivacional.<br>
+    · Já gastou milhares em curso e social media, e nada virou cliente.<br>
+    · Trava na frente da câmera porque sente que está fazendo papel de outra pessoa.<br>
+    · Cobra menos do que sabe que vale, e ainda assim sente que está caro.</p>
+    <p><strong>Virada:</strong> isso não é falta de competência. É a distância entre o valor que você tem e o valor que o mercado consegue perceber. Enquanto ela existir, o mercado vai continuar escolhendo quem fala mais alto.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 8 SEÇÃO 3 PARTE 3 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Luana Isse</span><span>Página 8</span></div>
+  <div class="kicker">Seção 3 · Parte 3</div>
+  <h1 style="font-size:19pt;">A Copy, Bloco a Bloco</h1>
+
+  <div class="tag">Bloco 4 · Por que o que você tentou não funcionou</div>
+  <div class="item">
+    <p>Existem dois especialistas no mercado. <strong>O técnico</strong> sabe muito, estuda muito, tem certificados, e continua sendo comparado por preço. <strong>O percebido</strong> talvez saiba exatamente a mesma coisa, mas construiu uma percepção diferente, e por isso é lembrado, indicado, valorizado e vende mentorias de alto valor.</p>
+    <p>A distância entre os dois não é conhecimento. É comunicação de valor. Por isso {{tentativa_anterior}} não mudou o seu jogo: tática aplicada em cima de uma percepção quebrada gera mais ruído, não mais cliente.</p>
+  </div>
+
+  <div class="tag">Bloco 5 · O mecanismo</div>
+  <div class="item">
+    <p><strong>MMPV, o Método de Multiplicação do Valor Percebido.</strong></p>
+    <p>1. <strong>Mentalidade</strong> remove os bloqueios que impedem você de ocupar o seu espaço.<br>
+    2. <strong>Movimento</strong> transforma o seu conhecimento em causa.<br>
+    3. <strong>Posicionamento</strong> transforma a sua causa em autoridade percebida.<br>
+    4. <strong>Vendas</strong> transformam a sua autoridade em faturamento.</p>
+    <p>Nessa ordem, porque fora dela não funciona. É o que elimina a ruptura em vez de maquiar o sintoma.</p>
+  </div>
+
+  <div class="tag">Bloco 6 · O que precisa acontecer no seu caso</div>
+  <div class="item">
+    <p><em>Personalizado por {{elo_dominante}}:</em></p>
+    <p><strong>Mentalidade:</strong> antes de qualquer estratégia, destravar o que faz você se esconder. Enquanto se posicionar parecer arrogância, nenhuma tática pega.<br>
+    <strong>Movimento:</strong> você fala do que faz, não do que defende. Sem causa, não há lembrança.<br>
+    <strong>Posicionamento:</strong> o que você diz poderia ser dito por qualquer colega. O trabalho é ficar inconfundível.<br>
+    <strong>Vendas:</strong> você já comunica bem, e o que falta é oferta, processo e um caminho claro de compra.</p>
+    <p><strong>O custo de continuar onde está:</strong> não é só o cliente que não chegou. É a palestra que foi para outro, o convite que não veio, o preço que você não teve coragem de cobrar e os anos de estudo que o mercado nunca soube que você tem.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 9 SEÇÃO 3 PARTE 4 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Luana Isse</span><span>Página 9</span></div>
+  <div class="kicker">Seção 3 · Parte 4</div>
+  <h1 style="font-size:19pt;">Autoridade, Qualificação, FAQ e CTA</h1>
+
+  <div class="tag">Bloco 7 · Quem é a Luana e a prova</div>
+  <div class="item">
+    <p>Jornalista, copywriter, estrategista digital e master coach. Dez anos de comunicação política, ex-secretária de comunicação de prefeitura, com agência própria no currículo. Passou a carreira construindo movimento, causa e narrativa para líderes que precisavam ser lembrados, mentorou quase 30 especialistas e reuniu 87 pessoas em um evento presencial feito no orgânico.</p>
+    <p>Criou o MMPV ao perceber que a mesma engenharia que usava com líderes resolvia a dor de outra pessoa: o especialista brilhante que ninguém vê.</p>
+    <p><strong>[DEPOIMENTO] [DEPOIMENTO] [DEPOIMENTO]</strong> com a profissão visível: especialista sério só confia em outro especialista sério.</p>
+  </div>
+
+  <div class="tag">Bloco 8 · Para quem é e para quem não é</div>
+  <div class="item">
+    <p><strong>É para você se:</strong> já atende e já fatura, e quer virar referência · quer transformar experiência em mentoria e não sabe empacotar · se recusa a virar caricatura para aparecer.</p>
+    <p><strong>Talvez não seja o momento se:</strong> você ainda não atende ninguém e busca a primeira validação · procura fórmula de viralizar ou hack de algoritmo.</p>
+  </div>
+
+  <div class="tag">Bloco 8 · FAQ</div>
+  <div class="item">
+    <p><strong>Isso é mais um curso de marketing digital?</strong> Não. Curso de marketing começa pela tática, e tática em cima de percepção quebrada vira ruído. O MMPV começa eliminando a ruptura.</p>
+    <p><strong>Eu travo na frente da câmera.</strong> É justamente para quem trava. Quem trava não tem problema de carisma, tem problema de não saber o que representa.</p>
+    <p><strong>Já gastei muito em curso que não saiu do papel.</strong> Aqui não é conteúdo para assistir sozinha: são encontros ao vivo quinzenais, com implementação entre eles.</p>
+    <p><strong>Minha profissão é regulamentada.</strong> Posicionamento não é prometer resultado nem expor cliente. É deixar claro quem você é e para quem serve.</p>
+    <p><strong>Quanto custa?</strong> A sessão é gratuita. Se fizer sentido para os dois lados, a Luana apresenta o formato e o investimento na própria sessão.</p>
+  </div>
+
+  <div class="tag">Bloco 9 · O convite e o CTA</div>
+  <div class="item">
+    <p>{{nome}}, se você quer olhar o seu caso com nome e sobrenome, a Luana abre algumas sessões por semana para conversar com especialistas exatamente nesse ponto. Não é apresentação de produto: é uma leitura do seu posicionamento e um plano de saída.</p>
+    <p><strong>CTA:</strong> Quero minha sessão de posicionamento · <strong>Reforço:</strong> são poucos horários por semana, porque cada sessão é preparada antes com base no seu diagnóstico.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 10 SEÇÃO 4 PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Luana Isse</span><span>Página 10</span></div>
+  <div class="kicker">Seção 4 · Parte 1</div>
+  <h1 style="font-size:19pt;">Copy dos Anúncios</h1>
+  <p class="lead">Três ângulos e 20 criativos escritos: 5 estáticos, 5 carrosséis e 10 vídeos.</p>
+
+  <div class="box-dark">
+    <div class="bt">Regras que valem para todos os anúncios</div>
+    <p>O destino é <strong>sempre o quiz gratuito</strong>, nunca a sessão e nunca a mentoria. Nenhum anúncio cita preço.</p>
+    <p><strong>Não citar valores de mentoria.</strong> A abertura que a Luana escreveu ("alguns conseguem cobrar R$ 10, 20 ou 30 mil") é excelente na conferência, na página e na call, mas em anúncio pago a Meta lê isso como promessa de ganho. Nos anúncios, a mesma abertura entra <strong>sem os números</strong>.</p>
+    <p><strong>Não afirmar atributo pessoal do leitor.</strong> Nada de "você é invisível" ou "você não sabe se vender". A régua é <strong>descrever a cena, não acusar a pessoa</strong>.</p>
+  </div>
+
+  <div class="passo-label">Ângulo 1 · Cena e identificação</div>
+  <p><strong>Estratégia:</strong> espelhar uma cena que ele reconhece na hora, sem julgar quem ele é.<br>
+  <strong>Hook:</strong> "Duas horas escrevendo. Doze curtidas. Quatro são da sua mãe."</p>
+
+  <div class="tag">Copy curta</div>
+  <div class="item"><p>Você estudou anos, tem resultado real com quem atende, e mesmo assim quem é chamado é sempre outro. Isso não é falta de competência. É a distância entre o que você sabe e o que o mercado enxerga. Responda o diagnóstico gratuito de 2 minutos e veja o tamanho da sua.</p></div>
+
+  <div class="tag">Copy média</div>
+  <div class="item"><p>Tem uma cena que se repete. Duas horas escrevendo um conteúdo denso, bem fundamentado, do jeito que você aprendeu a fazer. Publica. Doze curtidas. No mesmo dia, alguém com metade do seu preparo posta uma frase pronta e lota uma turma. A explicação que o mercado dá é sempre "falta marketing". Não falta. O que existe é uma distância entre o valor que você tem e o valor que consegue comunicar, e enquanto ela existir nenhuma tática resolve. O diagnóstico gratuito mostra em 2 minutos onde ela está maior no seu caso.</p></div>
+
+  <div class="tag">Copy longa</div>
+  <div class="item"><p>Você fez o que mandaram fazer. Estudou, se especializou, atendeu cada cliente como se fosse único, construiu uma reputação sólida entre quem já te conhece. E mesmo assim, quando abre o Instagram, vê pessoas com um décimo da sua formação lotando turma com frase pronta, enquanto o seu texto bem escrito morre com doze curtidas. Você já tentou de tudo: curso de marketing que não saiu do papel, social media que postou frase bonita e não trouxe cliente, gravar vídeo e parar porque se sentiu ridícula. Aqui está o que quase ninguém te diz: o problema não é falta de esforço, não é o algoritmo e não é o seu conteúdo. É que existe uma distância entre o valor que você possui e o valor que consegue comunicar ao mercado. É por isso que táticas não funcionam no seu caso: elas são aplicadas em cima de uma percepção quebrada, e o resultado é mais ruído. A boa notícia é que essa distância pode ser medida e corrigida. Faça o diagnóstico gratuito de 2 minutos.</p></div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 11 SEÇÃO 4 PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Luana Isse</span><span>Página 11</span></div>
+  <div class="kicker">Seção 4 · Parte 2</div>
+  <h1 style="font-size:19pt;">Ângulo 2 · Mecanismo Único</h1>
+  <p class="lead">Apresentar o inimigo nomeado, que é território livre, e contrastar com o que já falhou.</p>
+
+  <p><strong>Hook:</strong> "Existe um motivo pelo qual o mercado ainda ignora você. E não é marketing."</p>
+
+  <div class="tag">Copy curta</div>
+  <div class="item"><p>A maioria acha que é falta de marketing. Não é. É a distância entre o valor que você tem e o valor que consegue comunicar. Enquanto ela existir, nenhuma estratégia funciona. Descubra em 2 minutos onde está a sua, no diagnóstico gratuito.</p></div>
+
+  <div class="tag">Copy média</div>
+  <div class="item"><p>Existe uma razão pela qual alguns especialistas são procurados, indicados e valorizados, enquanto outros, igualmente competentes, lutam para vender. A maioria acredita que isso acontece por causa do marketing. Não acontece. Depois de acompanhar dezenas de especialistas, a Luana Isse identificou o verdadeiro problema: a Ruptura de Valor Percebido, a distância entre o valor que a pessoa possui e o valor que ela consegue comunicar ao mercado. É por isso que curso, social media e constância não resolveram: todos atacam a superfície. O diagnóstico gratuito mede o tamanho da sua ruptura e mostra em qual dos quatro pilares ela está concentrada. Leva 2 minutos.</p></div>
+
+  <div class="tag">Copy longa</div>
+  <div class="item"><p>Você já ouviu que precisa postar mais, que precisa aparecer mais, que precisa fazer vídeo. Talvez tenha até tentado, e por algumas semanas pareceu funcionar. Depois tudo voltou ao mesmo lugar. O que essas orientações têm em comum é o alvo: todas miram na tática. E o que trava um especialista competente não está na tática. Existe um nome para o que realmente acontece: a Ruptura de Valor Percebido, a distância entre o valor que você possui e o valor que consegue comunicar ao mercado. Enquanto essa distância existir, nenhuma estratégia será suficiente para gerar vendas consistentes, porque tática aplicada em cima de uma percepção quebrada só produz mais ruído. Foi para eliminar essa ruptura que a Luana Isse desenvolveu o MMPV, o Método de Multiplicação do Valor Percebido. Ele age em quatro pilares, nessa ordem: mentalidade, que remove os bloqueios que fazem você se esconder; movimento, que transforma o seu conhecimento em causa; posicionamento, que transforma a sua causa em autoridade percebida; e vendas, que transformam a sua autoridade em faturamento. O primeiro passo é medir onde a sua ruptura está maior. O diagnóstico é gratuito e leva 2 minutos.</p></div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 12 SEÇÃO 4 PARTE 3 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Luana Isse</span><span>Página 12</span></div>
+  <div class="kicker">Seção 4 · Parte 3</div>
+  <h1 style="font-size:19pt;">Ângulo 3 · Prova e Autoridade</h1>
+  <p class="lead">Autoridade construída em bastidor, que fala a língua de quem desconfia de guru.</p>
+
+  <p><strong>Hook:</strong> "Passei a carreira escrevendo para os outros brilharem. Hoje eu faço especialista ser visto."</p>
+
+  <div class="tag">Copy curta</div>
+  <div class="item"><p>Jornalista, copywriter e estrategista. Dez anos construindo movimento, causa e narrativa para líderes. Quase 30 especialistas mentorados. Faça o diagnóstico gratuito e descubra o que trava o seu reconhecimento. <strong>[DEPOIMENTO]</strong></p></div>
+
+  <div class="tag">Copy média</div>
+  <div class="item"><p>Passei a maior parte da minha carreira escrevendo para os outros brilharem. Fui jornalista, secretária de comunicação, copywriter, e construí movimento e causa para líderes que precisavam ser lembrados pelo que representam. Em algum momento percebi que a mesma engenharia resolvia a dor de outra pessoa: o especialista brilhante que ninguém vê. Não por falta de competência, mas por uma distância entre o que ele sabe e o que consegue comunicar. Transformei isso em método e já acompanhei quase 30 pessoas nessa travessia. Se você é excelente no que faz e o mercado ainda não sabe disso, comece pelo diagnóstico gratuito. <strong>[DEPOIMENTO]</strong></p></div>
+
+  <div class="tag">Copy longa</div>
+  <div class="item"><p>A maior parte de quem ensina posicionamento nunca posicionou ninguém além de si mesmo. A minha história é outra. Sou jornalista e copywriter, fui secretária de comunicação, tive agência, e passei dez anos construindo movimento, causa e narrativa para líderes que precisavam ser lembrados pelo que representam. Aprendi na prática, e sob pressão, o que faz uma pessoa ser escolhida entre muitas parecidas: não é falar mais alto, é ter uma percepção de valor que o mercado enxerga em cinco segundos. Depois de anos fazendo isso para os outros, comecei a aplicar em especialistas: psicólogos, coaches, advogados, terapeutas, gente com formação séria e reconhecimento nenhum. Foi ali que ficou claro o padrão que se repetia em todos: a distância entre o valor que possuem e o valor que conseguem comunicar. Chamei isso de Ruptura de Valor Percebido, e o método que criei para eliminá-la é o MMPV. Já são quase 30 pessoas mentoradas e uma sala com 87 pessoas construída sem um centavo de anúncio. Se você se reconheceu, o primeiro passo é gratuito. <strong>[DEPOIMENTO]</strong></p></div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 13 SEÇÃO 4 PARTE 4 ESTÁTICOS -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Luana Isse</span><span>Página 13</span></div>
+  <div class="kicker">Seção 4 · Parte 4</div>
+  <h1 style="font-size:19pt;">Os 5 Estáticos</h1>
+  <p class="lead">Texto sobre fundo limpo, na identidade dourada que ela já usa. Funciona neste nicho porque parece constatação, não anúncio.</p>
+
+  <div class="tag">Estático 1 · Cena</div>
+  <div class="item">
+    <p><strong>Arte:</strong> "Duas horas escrevendo. Doze curtidas. Quatro são da minha mãe."</p>
+    <p><strong>Legenda:</strong> Não é falta de competência. Existe uma distância entre o valor que você tem e o valor que o mercado enxerga, e ela pode ser medida. Diagnóstico gratuito de 2 minutos no link.</p>
+  </div>
+
+  <div class="tag">Estático 2 · Cena</div>
+  <div class="item">
+    <p><strong>Arte:</strong> "Ela tem metade da minha formação. E a turma dela lotou."</p>
+    <p><strong>Legenda:</strong> Você não está errado, e o mercado não é injusto. Ele só escolhe quem consegue comunicar valor. Descubra em 2 minutos onde a sua comunicação está travando.</p>
+  </div>
+
+  <div class="tag">Estático 3 · Mecanismo</div>
+  <div class="item">
+    <p><strong>Arte:</strong> "Existe um motivo pelo qual o mercado ainda ignora você."</p>
+    <p><strong>Legenda:</strong> E não é marketing. Chama-se Ruptura de Valor Percebido: a distância entre o que você sabe e o que consegue comunicar. Enquanto ela existir, nenhuma estratégia funciona. Faça o diagnóstico gratuito.</p>
+  </div>
+
+  <div class="tag">Estático 4 · Mecanismo</div>
+  <div class="item">
+    <p><strong>Arte:</strong> "Existem dois especialistas: o técnico e o percebido."</p>
+    <p><strong>Legenda:</strong> O técnico sabe muito e continua sendo comparado por preço. O percebido talvez saiba o mesmo, mas é lembrado, indicado e valorizado. A diferença não é conhecimento. Descubra em qual você está.</p>
+  </div>
+
+  <div class="tag">Estático 5 · Autoridade</div>
+  <div class="item">
+    <p><strong>Arte:</strong> "Passei a carreira escrevendo para os outros brilharem."</p>
+    <p><strong>Legenda:</strong> Jornalista, copywriter e estrategista. Dez anos construindo narrativa para líderes, e quase 30 especialistas mentorados. Se você é excelente e o mercado ainda não sabe, comece pelo diagnóstico gratuito de 2 minutos.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 14 SEÇÃO 4 PARTE 5 CARROSSÉIS 1 A 3 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Luana Isse</span><span>Página 14</span></div>
+  <div class="kicker">Seção 4 · Parte 5</div>
+  <h1 style="font-size:19pt;">Os 5 Carrosséis</h1>
+  <p class="lead">Um slide por ideia, frases curtas. O último slide sempre leva ao quiz.</p>
+
+  <div class="tag">Carrossel 1 · Cena · "O dia do especialista invisível"</div>
+  <div class="item">
+    <p>1. Você acorda e vê que a sua colega de turma anunciou mais uma mentoria.<br>
+    2. Você tem duas pós a mais que ela.<br>
+    3. Escreve um conteúdo denso, com fundamento. Duas horas.<br>
+    4. Doze curtidas.<br>
+    5. E aí vem o pensamento: talvez eu não sirva para isso.<br>
+    6. Serve. O que falta não é competência.<br>
+    7. Descubra em 2 minutos o que realmente está travando. Link na bio.</p>
+  </div>
+
+  <div class="tag">Carrossel 2 · Cena · "As frases que você já disse pra si mesmo"</div>
+  <div class="item">
+    <p>1. Cinco frases que quase todo especialista já disse pra si mesmo.<br>
+    2. "Se eu fosse bom mesmo, já teriam me procurado."<br>
+    3. "Não vou fazer dancinha para vender o que eu estudei anos."<br>
+    4. "Meu público não está no Instagram."<br>
+    5. "Depois eu organizo isso direito."<br>
+    6. Nenhuma delas é o problema. Todas são sintoma do mesmo.<br>
+    7. Faça o diagnóstico gratuito e veja qual é.</p>
+  </div>
+
+  <div class="tag">Carrossel 3 · Mecanismo · "A Ruptura de Valor Percebido"</div>
+  <div class="item">
+    <p>1. Existe uma distância entre o valor que você tem e o valor que o mercado enxerga.<br>
+    2. Ela tem nome: Ruptura de Valor Percebido.<br>
+    3. Enquanto ela existir, nenhuma tática resolve.<br>
+    4. Postar mais não resolve. Curso não resolve. Agência não resolve.<br>
+    5. Porque tática em cima de percepção quebrada só produz ruído.<br>
+    6. O que resolve é fechar a distância, na ordem certa.<br>
+    7. Meça a sua em 2 minutos. Link na bio.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 15 SEÇÃO 4 PARTE 5 CARROSSÉIS 4 E 5 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Luana Isse</span><span>Página 15</span></div>
+  <div class="kicker">Seção 4 · Parte 5</div>
+  <h1 style="font-size:19pt;">Carrosséis 4 e 5</h1>
+
+  <div class="tag">Carrossel 4 · Mecanismo · "Técnico ou percebido?"</div>
+  <div class="item">
+    <p>1. Existem dois especialistas no mercado.<br>
+    2. O técnico: sabe muito, estuda muito, tem certificado.<br>
+    3. E continua sendo comparado por preço.<br>
+    4. O percebido: talvez saiba exatamente a mesma coisa.<br>
+    5. Mas é lembrado, é indicado, é valorizado.<br>
+    6. A diferença entre os dois não é conhecimento.<br>
+    7. É comunicação de valor. E isso se constrói.<br>
+    8. Descubra em qual você está hoje. Link na bio.</p>
+  </div>
+
+  <div class="tag">Carrossel 5 · Autoridade · "O que eu vi em quase 30 especialistas"</div>
+  <div class="item">
+    <p>1. Já acompanhei quase 30 especialistas de perto.<br>
+    2. Psicólogos, advogados, terapeutas, coaches. Gente muito boa.<br>
+    3. Todos com o mesmo padrão: excelentes e invisíveis.<br>
+    4. E todos achando que o problema era falta de marketing.<br>
+    5. Não era. Era a distância entre o que sabiam e o que comunicavam.<br>
+    6. Foi para fechar essa distância que eu criei o MMPV.<br>
+    7. Comece descobrindo o tamanho da sua. Diagnóstico gratuito no link.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Observação de produção</div>
+    <p>Os carrosséis podem sair direto na identidade que ela já usa nas artes da conferência: fundo escuro ou bege, tipografia serifada, dourado nos destaques. Isso mantém a coerência entre a conferência do dia 19 e o funil, e reduz o tempo de produção.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 16 SEÇÃO 4 PARTE 6 VÍDEOS 1 A 4 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Luana Isse</span><span>Página 16</span></div>
+  <div class="kicker">Seção 4 · Parte 6</div>
+  <h1 style="font-size:19pt;">Os 10 Vídeos · roteiros 1 a 4</h1>
+  <p class="lead">Talking head da Luana, vertical, de 30 a 60 segundos. O hook precisa segurar nos primeiros 3 segundos.</p>
+
+  <div class="tag">Vídeo 1 · Cena</div>
+  <div class="item">
+    <p><strong>Hook:</strong> "Duas horas escrevendo um conteúdo. Doze curtidas. E uma frase pronta lotando turma no mesmo dia."</p>
+    <p><strong>Desenvolvimento:</strong> não é o algoritmo e não é o seu conteúdo. É que o mercado ainda não consegue enxergar o valor que você tem. <strong>CTA:</strong> mede isso em 2 minutos, link na bio.</p>
+  </div>
+
+  <div class="tag">Vídeo 2 · Cena</div>
+  <div class="item">
+    <p><strong>Hook:</strong> "Se você só é procurado por indicação, você não tem um negócio. Tem sorte recorrente."</p>
+    <p><strong>Desenvolvimento:</strong> indicação é ótima e é o sinal de que a entrega é boa. O problema é o teto: ela depende dos outros lembrarem de você. <strong>CTA:</strong> diagnóstico gratuito.</p>
+  </div>
+
+  <div class="tag">Vídeo 3 · Cena</div>
+  <div class="item">
+    <p><strong>Hook:</strong> "Você já se pegou pensando: se eu fosse bom mesmo, já teriam me procurado?"</p>
+    <p><strong>Desenvolvimento:</strong> essa frase é a mais injusta que um especialista diz para si mesmo, e ela não tem nada a ver com competência. <strong>CTA:</strong> descubra o que realmente está travando.</p>
+  </div>
+
+  <div class="tag">Vídeo 4 · Cena</div>
+  <div class="item">
+    <p><strong>Hook:</strong> "Você não precisa fazer dancinha. Mas também não pode continuar invisível."</p>
+    <p><strong>Desenvolvimento:</strong> existe um caminho entre virar caricatura e ficar escondido, e ele começa por comunicar valor, não por performar. <strong>CTA:</strong> diagnóstico gratuito de 2 minutos.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 17 SEÇÃO 4 PARTE 6 VÍDEOS 5 A 7 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Luana Isse</span><span>Página 17</span></div>
+  <div class="kicker">Seção 4 · Parte 6</div>
+  <h1 style="font-size:19pt;">Roteiros 5 a 7 · mecanismo</h1>
+
+  <div class="tag">Vídeo 5 · Mecanismo</div>
+  <div class="item">
+    <p><strong>Hook:</strong> "Existe um motivo pelo qual o mercado ainda ignora você. E não é marketing."</p>
+    <p><strong>Desenvolvimento:</strong> apresenta a Ruptura de Valor Percebido, a distância entre o valor que a pessoa possui e o que consegue comunicar. Enquanto a distância existir, nenhuma estratégia é suficiente. <strong>CTA:</strong> meça a sua no diagnóstico gratuito.</p>
+  </div>
+
+  <div class="tag">Vídeo 6 · Mecanismo</div>
+  <div class="item">
+    <p><strong>Hook:</strong> "São quatro pilares, e quase todo mundo começa pelo último."</p>
+    <p><strong>Desenvolvimento:</strong> mentalidade, movimento, posicionamento e vendas. A maioria pula direto para vendas e por isso não sustenta. <strong>CTA:</strong> descubra em qual pilar está a sua ruptura.</p>
+  </div>
+
+  <div class="tag">Vídeo 7 · Mecanismo</div>
+  <div class="item">
+    <p><strong>Hook:</strong> "Postar mais não resolve. E eu vou te explicar por quê em 40 segundos."</p>
+    <p><strong>Desenvolvimento:</strong> volume aplicado sobre uma percepção confusa não gera lembrança, gera ruído. Primeiro se define o que você defende, depois se produz. <strong>CTA:</strong> diagnóstico gratuito no link.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Direção de gravação</div>
+    <p>Sem trilha, sem legenda animada exagerada, sem corte a cada segundo. Este público associa produção excessiva a superficialidade. Enquadramento limpo, luz de frente, e a Luana falando como fala na call. A credibilidade aqui vem da calma, não da energia.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 18 SEÇÃO 4 PARTE 6 VÍDEOS 8 A 10 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Luana Isse</span><span>Página 18</span></div>
+  <div class="kicker">Seção 4 · Parte 6</div>
+  <h1 style="font-size:19pt;">Roteiros 8 a 10 · autoridade</h1>
+
+  <div class="tag">Vídeo 8 · Autoridade</div>
+  <div class="item">
+    <p><strong>Hook:</strong> "Passei a carreira escrevendo para os outros brilharem."</p>
+    <p><strong>Desenvolvimento:</strong> jornalista, secretária de comunicação, copywriter, dez anos construindo narrativa para líderes. Em algum momento ficou claro que a mesma engenharia resolvia a dor do especialista invisível. <strong>CTA:</strong> diagnóstico gratuito.</p>
+  </div>
+
+  <div class="tag">Vídeo 9 · Autoridade</div>
+  <div class="item">
+    <p><strong>Hook:</strong> "Já acompanhei quase 30 especialistas de perto. Todos tinham o mesmo problema."</p>
+    <p><strong>Desenvolvimento:</strong> áreas diferentes, formações diferentes, e o mesmo padrão: excelentes e invisíveis, achando que o problema era marketing. <strong>CTA:</strong> descubra o tamanho da sua ruptura.</p>
+  </div>
+
+  <div class="tag">Vídeo 10 · Autoridade</div>
+  <div class="item">
+    <p><strong>Hook:</strong> "Enchi uma sala com 87 pessoas sem gastar um centavo de anúncio. Não foi sorte."</p>
+    <p><strong>Desenvolvimento:</strong> foi posicionamento e causa. É a mesma engenharia que eu aplico com quem entra na mentoria. <strong>CTA:</strong> comece pelo diagnóstico gratuito.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Distribuição por ângulo</div>
+    <p>Dos 20 criativos: <strong>8 de cena</strong> (identificação, o que mais capta frio), <strong>7 de mecanismo</strong> (o que mais qualifica) e <strong>5 de autoridade</strong> (o que mais converte quem já viu antes). Começar com peso em cena e migrar para mecanismo conforme a audiência aquece.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 19 SEÇÃO 4 PARTE 7 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Luana Isse</span><span>Página 19</span></div>
+  <div class="kicker">Seção 4 · Parte 7</div>
+  <h1 style="font-size:19pt;">Headlines e Hooks para Teste</h1>
+
+  <div class="passo-label">10 headlines para teste A/B</div>
+  <ul class="check">
+    <li>Quem é visto, vende mais</li>
+    <li>Existe um motivo pelo qual o mercado ainda ignora você</li>
+    <li>Duas horas escrevendo. Doze curtidas. Quatro são da sua mãe</li>
+    <li>Chega de ser excelente e continuar invisível</li>
+    <li>Não falta marketing. Falta comunicar o valor que você já tem</li>
+    <li>Existem dois especialistas: o técnico e o percebido. Qual é você?</li>
+    <li>O problema não é o algoritmo. É a distância entre o que você sabe e o que aparece</li>
+    <li>Ser bom nunca bastou. E ninguém te avisou na faculdade</li>
+    <li>Está na hora de se tornar impossível de ignorar</li>
+    <li>Descubra em 2 minutos o tamanho da sua Ruptura de Valor Percebido</li>
+  </ul>
+
+  <div class="passo-label">5 hooks para vídeo (na voz da Luana)</div>
+  <ul class="check">
+    <li>"Duas horas escrevendo, doze curtidas. E uma frase pronta lotando turma no mesmo dia."</li>
+    <li>"Existem dois especialistas no mercado, e a diferença entre eles não é conhecimento."</li>
+    <li>"Você não precisa parecer maior. Precisa tornar visível quem realmente é."</li>
+    <li>"Se você só é procurado por indicação, você não tem um negócio. Tem sorte recorrente."</li>
+    <li>"Passei a carreira escrevendo para os outros brilharem. Hoje eu faço especialista ser visto."</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Estrutura de largada da campanha</div>
+    <p><strong>20 criativos na largada: 5 estáticos, 5 carrosséis e 10 vídeos.</strong> Todos escritos nas páginas anteriores, distribuídos entre os três ângulos (cena, mecanismo e autoridade).</p>
+    <p>Estáticos e carrosséis entram primeiro, porque não dependem de gravação e podem subir enquanto os vídeos são produzidos. O peso maior em vídeo é proposital: é o formato que a Luana já domina e o que mais qualifica neste nicho.</p>
+    <p>Investimento inicial de <strong>R$ 50 a 100 por dia</strong>, financiado pelo caixa da base e pela conferência. Volume alto de criativo na largada para a Meta encontrar o vencedor rápido.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 20 SEÇÃO 5 PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Luana Isse</span><span>Página 20</span></div>
+  <div class="kicker">Seção 5 · Parte 1</div>
+  <h1 style="font-size:19pt;">Cadência de Atendimento · 12 dias</h1>
+  <p class="lead">Disparada pela Aline, na voz da Luana. O objetivo é agendar a sessão estratégica.</p>
+
+  <div class="box-dark">
+    <div class="bt">Regra de tom neste nicho</div>
+    <p>Este público é cético de nascença e já foi queimado por curso e por agência. Nada de urgência artificial, nada de escassez inventada, nada de vocabulário de guru ("destrave", "explosão de faturamento", "segredo").</p>
+    <p>Frases curtas, poucas maiúsculas, quase nenhum emoji. Ele responde a <strong>diagnóstico e especificidade</strong>, não a empolgação. O ativo que abre toda conversa é o resultado do quiz, com o elo dele nomeado.</p>
+  </div>
+
+  <div class="tag">Dia 1 · manhã</div>
+  <div class="item"><p>{{nome}}, aqui é a Aline, do time da Luana Isse. Teu diagnóstico chegou aí? Se quiser eu reenvio.</p></div>
+
+  <div class="tag">Dia 1 · tarde</div>
+  <div class="item"><p>O teu resultado apontou <strong>{{elo_dominante}}</strong> como o pilar onde a tua ruptura está maior. É o caso mais comum entre {{profissao}}, e é exatamente o que a Luana destrincha na sessão. Quer que eu te mostre como funciona?</p></div>
+
+  <div class="tag">Dia 2</div>
+  <div class="item"><p>{{nome}}, separei dois horários na agenda da Luana essa semana: {{h1}} e {{h2}}. Qual encaixa melhor?</p></div>
+
+  <div class="tag">Dia 3</div>
+  <div class="item"><p>Check-in curto, sem cobrança.</p></div>
+
+  <div class="tag">Dia 4 · valor</div>
+  <div class="item"><p>Um ponto do teu diagnóstico: quem tem a ruptura concentrada em {{elo_dominante}} costuma tentar resolver postando mais, e é justamente o que não move. {{micro_orientacao_por_elo}}</p></div>
+
+  <div class="tag">Dia 5 · ligação</div>
+  <div class="item"><p>Tentativa de ligação e, depois, mensagem: te liguei rapidinho para agilizar teu agendamento, {{nome}}. Me diz um horário bom que eu te chamo.</p></div>
+
+  <div class="tag">Dia 6 · prova</div>
+  <div class="item"><p>Olha o que aconteceu com um {{profissao}} que estava exatamente onde tu está. <strong>[DEPOIMENTO curto]</strong> A diferença não foi postar mais.</p></div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 21 SEÇÃO 5 PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Luana Isse</span><span>Página 21</span></div>
+  <div class="kicker">Seção 5 · Parte 2</div>
+  <h1 style="font-size:19pt;">Cadência: dias 7 a 12 e os níveis</h1>
+
+  <div class="tag">Dia 7</div>
+  <div class="item"><p>Check-in curto.</p></div>
+
+  <div class="tag">Dia 8 · valor</div>
+  <div class="item"><p>Pergunta honesta, {{nome}}: se nada mudar nos próximos 12 meses, tá tudo bem continuar sendo lembrada só por quem já te conhece? Se a resposta incomodou, a sessão é gratuita e resolve a dúvida do próximo passo.</p></div>
+
+  <div class="tag">Dia 9 · áudio pessoal da Luana</div>
+  <div class="item"><p>"{{nome}}, Luana aqui. Vi teu diagnóstico. Teu caso é dos que eu gosto: tu tem bagagem de sobra e o mercado ainda não sabe. Me dá 40 minutos que eu te mostro onde tá a tua ruptura e o caminho. Combina o horário com a Aline."</p></div>
+
+  <div class="tag">Dia 10</div>
+  <div class="item"><p>{{nome}}, a agenda da Luana para a semana que vem abre hoje. Te guardo um horário?</p></div>
+
+  <div class="tag">Dia 11 · ligação</div>
+  <div class="item"><p>Segunda tentativa de ligação, em outro horário do dia, e mensagem curta.</p></div>
+
+  <div class="tag">Dia 12 · pré break-up</div>
+  <div class="item"><p>{{nome}}, vou encerrar teu acompanhamento por aqui para não virar chateação. O teu diagnóstico fica salvo e essa conversa fica aberta: se quiser retomar, é só me chamar. Sucesso aí.</p></div>
+
+  <div class="box-dark">
+    <div class="bt">Os cinco níveis</div>
+    <p><strong>N1 não respondeu:</strong> cadência completa acima.</p>
+    <p><strong>N2 engajou e parou:</strong> retomar pelo conteúdo do elo dele, nunca pela cobrança.</p>
+    <p><strong>N3 quer e adia:</strong> oferecer horário fora do padrão (fim de tarde) antes de insistir. Se travar de novo, convidar para a próxima conferência em vez de forçar a sessão.</p>
+    <p><strong>N4 no-show:</strong> sem culpa. "Imprevisto acontece, {{nome}}. Te reencaixo ainda essa semana: {{h1}} ou {{h2}}?"</p>
+    <p><strong>N5 fez a sessão e não fechou:</strong> cadência quinzenal de valor por 60 dias, com convite de retomada a cada 15 dias. É o grupo mais quente que existe: já viu o diagnóstico completo e já conversou com a Luana.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 22 SEÇÃO 6 PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Luana Isse</span><span>Página 22</span></div>
+  <div class="kicker">Seção 6 · Parte 1</div>
+  <h1 style="font-size:19pt;">Recomendações Estratégicas</h1>
+  <p class="lead">O que a Simple recomenda além da copy.</p>
+
+  <div class="box-light">
+    <div class="bt">Sobre a arquitetura do funil</div>
+    <p>Levar o quiz para uma página de diagnóstico, e não para um agendamento direto, é a decisão certa neste momento. O ticket de R$ 7 mil é considerado, não comprado por impulso, e este público decide por profundidade. A página faz o trabalho de elevar consciência que a sessão não teria tempo de fazer.</p>
+    <p>A contrapartida é que a página precisa entregar valor real. Se ela virar um folheto de venda, o especialista cético fecha a aba.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre o gargalo real</div>
+    <p>O gargalo do projeto não é tráfego nem produto, é a <strong>pré-venda</strong>. Hoje existe uma pessoa fazendo de 20 a 30 contatos por dia sem meta de agendamento e sem registro sistemático. Todo este funil depende de a Aline operar como SDR de verdade, com número diário visível e follow-up obrigatório em 48 horas.</p>
+    <p>Se isso não estiver de pé nos primeiros 10 dias, o funil entrega lead numa operação que não converte, e a mídia queima como na tentativa anterior.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre a conferência do dia 19</div>
+    <p>É o melhor ativo de curto prazo, e acontece antes do funil subir. Três coisas precisam ser respeitadas: a oferta no fim da aula é a <strong>mentoria</strong>, com condição de 48 horas e sem desconto; <strong>todos os inscritos entram no CRM</strong> e na cadência, inclusive quem não comparecer; e a aula é <strong>gravada e transcrita</strong>, porque vira conteúdo da área de membros, cortes de criativo e material de contexto para escrevermos no tom dela.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre compliance e mídia</div>
+    <p>Dois riscos de reprovação neste nicho: promessa de ganho (citar quanto um especialista cobra ou fatura) e afirmação de atributo pessoal do leitor. A régua para o time e para as gravações: <strong>descrever a cena, nunca acusar a pessoa</strong>, e nunca citar valores de mentoria em anúncio.</p>
+    <p>A métrica que importa não é custo por lead, é <strong>custo por sessão qualificada comparecida</strong>. Com a mentoria a R$ 7 mil, a régua saudável fica abaixo de R$ 350.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 23 SEÇÃO 6 PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Luana Isse</span><span>Página 23</span></div>
+  <div class="kicker">Seção 6 · Parte 2</div>
+  <h1 style="font-size:19pt;">Recomendações Estratégicas</h1>
+
+  <div class="box-light">
+    <div class="bt">Sobre a prova social, o ativo mais subaproveitado</div>
+    <p>São quase 30 pessoas mentoradas, um evento presencial de 87 pessoas feito no orgânico e, a partir do dia 19, uma conferência gravada. Esse acervo é exatamente o tipo de evidência que o público cético dela exige, e hoje quase nada dele está empacotado.</p>
+    <p>Transformar de 2 a 3 casos em histórias completas, no formato antes, durante e depois, vale mais do que qualquer criativo novo. Prioridade para cases com a profissão visível: especialista sério se reconhece em outro especialista sério.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre o conteúdo orgânico</div>
+    <p>A Luana é jornalista e copywriter, escreve rápido e produz as próprias artes. O conteúdo, que para a maioria dos clientes é o gargalo, aqui é o ativo mais barato que existe. O compromisso de 1 vídeo por dia, gravado em lote, é realista e sustenta o funil por outro caminho: autoridade.</p>
+    <p>O ajuste necessário é de território: mentalidade, neurociência e vendas são temas de conteúdo e de autoridade, não produtos novos. Eles alimentam a mesma promessa.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre a esteira, depois dos 90 dias</div>
+    <p>Hoje não existe produto de entrada, por decisão consciente. A consequência é que o não-ICP não monetiza e a mídia é paga inteiramente pelas vendas da mentoria, o que encarece o custo de aquisição.</p>
+    <p>Quando a mentoria estiver vendendo com constância, a recomendação é abrir esse degrau, aproveitando material que já existe: a conferência gravada e a trilha de IA aplicada. É a forma mais barata de criar produto novo, porque não exige gravar nada do zero.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Visão de longo prazo</div>
+    <p>Três ativos que ninguém copia: a <strong>trajetória de bastidor</strong> (dez anos construindo narrativa para líderes, o que a separa de quem só ensina posicionamento), o <strong>inimigo nomeado</strong> (a Ruptura de Valor Percebido é território livre e proprietário) e a <strong>porta da política</strong>, que entrega consultoria de R$ 15 mil por indicação sem nenhum esforço de aquisição.</p>
+    <p>Com caixa e prova acumulados, é esse conjunto que sustenta a comunidade de recorrência e o individual de R$ 30 mil sem precisar aumentar mídia.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+</body>
+</html>
