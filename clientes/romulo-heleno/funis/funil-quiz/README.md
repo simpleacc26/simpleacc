@@ -45,6 +45,7 @@ identidade do Rômulo por cima.
 | `styles.css` | Identidade visual |
 | `logo.svg` | Monograma oficial dele, navy sobre transparente. Topo das duas páginas e caixa do bloco de autoridade |
 | `favicon.svg` | O mesmo monograma em marfim sobre o navy, para a aba do navegador. Reaproveita **o mesmo base64 do `logo.svg`**, repintado por `feColorMatrix` |
+| `fotos/trabalho-1..6.jpg` | Prova visual: mecha feita pelo Rômulo, com autorização das clientes |
 
 ## Decisões desta conta
 
@@ -97,6 +98,18 @@ identidade do Rômulo por cima.
     1 byte entre repositório e produção; com uma só, isso não tem como
     acontecer. Trocando a logo, extraia o data URI do `logo.svg` novo e cole nos
     dois arquivos pelo mesmo script, nunca à mão.
+14. **Prova visual sim, depoimento ainda não.** O bloco "Mecha feita por ele"
+    são trabalhos do próprio Rômulo, com autorização das clientes (ele mandou em
+    27/08). Isso prova a **técnica dele**, não o resultado de aluno da mentoria,
+    e nenhuma frase da página sugere o contrário. `DEPOIMENTOS` segue vazio.
+15. **Entraram 6 das 10 fotos que ele mandou.** Ficaram de fora as quatro sem
+    mecha visível (dois cabelos pretos, uma cacheada escura sem iluminado e uma
+    selfie antiga em 1242px). Numa página que acabou de dizer "o seu problema é
+    a mecha", foto sem mecha derruba o bloco inteiro. As 10 originais estão em
+    `contexto/marca/fotos-trabalhos-originais/`.
+16. **Seis fotos, não cinco nem sete.** 6 divide por 2 e por 3, então a grade
+    fecha sem buraco na última linha tanto no celular (2 colunas) quanto no
+    desktop (3). Mantenha o total múltiplo de 6.
 
 ## Pesos e calibração
 
@@ -151,8 +164,9 @@ Cole `+55 11 99991-2039` no campo de WhatsApp e confirme que o campo mostra
 
 ## Pendências
 
-- [ ] **Depoimentos reais com autorização.** É o gargalo do funil, não um
-      detalhe: sem prova social o relatório fecha só na autoridade.
+- [ ] **Depoimentos de alunos, com autorização.** As fotos de trabalho entraram
+      em 27/08 e resolvem a prova de técnica, mas ninguém ainda diz na página
+      que virou aluno e melhorou. Esse continua sendo o gargalo do funil.
 - [ ] **Credenciais do Rômulo:** anos de cadeira, marcas em que foi técnico e
       nº de profissionais treinados. Com os números reais, entra a grade de
       credenciais do bloco de autoridade.
@@ -171,11 +185,12 @@ Site estático puro, sem build e sem dependência. Para ver local, sirva a pasta
 
 Deploy na Vercel, **time Simpleacc**, projeto `romulo-heleno`, target production.
 Nunca publicar em conta pessoal. Publicação **substitui a árvore inteira**:
-mande os 8 arquivos sempre, e **confira o SHA256 de cada um contra o local
+mande os 14 arquivos sempre, e **confira o SHA256 de cada um contra o local
 depois de cada deploy**, porque arquivo faltando vira 404 mudo.
 
 ```bash
-for f in index.html diagnostico.html styles.css flow.js app.js diagnostico.js logo.svg favicon.svg; do
+for f in index.html diagnostico.html styles.css flow.js app.js diagnostico.js \
+         logo.svg favicon.svg fotos/trabalho-{1,2,3,4,5,6}.jpg; do
   L=$(sha256sum "$f" | cut -c1-12)
   R=$(curl -s "https://romulo-heleno.vercel.app/$f" | sha256sum | cut -c1-12)
   [ "$L" = "$R" ] && echo "$f OK" || echo "$f DIFERE"

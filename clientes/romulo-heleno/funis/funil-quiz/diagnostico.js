@@ -4,7 +4,7 @@
    0 cabeçalho e selo do índice · 1 antes de tudo · 2 seu cenário ·
    3 por que não resolveu · 4 dois profissionais · CTA · 5 o método ·
    6 o que precisa acontecer · CTA · 7 quem é o Rômulo (autoridade) ·
-   8 depoimentos (VAZIO por enquanto, ver DEPOIMENTOS abaixo) ·
+   7b trabalhos reais + CTA · 8 depoimentos (VAZIO, ver DEPOIMENTOS) ·
    9 CTA final adaptado à qualificação.
    Padrão: nunca usar travessões. Sem emoji. Linguagem neutra em gênero.
    ============================================================ */
@@ -75,6 +75,45 @@ const LEITURA_PILAR = {
    do funil da Luana Isse, que já tem os três.
    ============================================================ */
 const DEPOIMENTOS = [];
+
+/* ============================================================
+   TRABALHOS (prova visual)
+   Fotos reais de mecha feita pelo Rômulo, enviadas por ele em 27/08 com
+   autorização de uso das clientes que aparecem.
+   ATENÇÃO: isto NÃO é depoimento. Prova a técnica dele, não o resultado de
+   aluno. Enquanto DEPOIMENTOS estiver vazio, o relatório fecha na autoridade
+   dele mais estas fotos, e nenhuma frase da página pode sugerir que são
+   resultados de alunos da mentoria.
+   Ele mandou 10 fotos; entraram as 6 em que a mecha aparece. As outras 4
+   (cabelo preto, cacheado sem iluminado e uma selfie antiga em baixa
+   resolução) ficam em contexto/marca/fotos-trabalhos-originais/ e não foram
+   publicadas: numa página que acabou de dizer "o seu problema é a mecha",
+   foto sem mecha derruba o bloco inteiro.
+   O alt descreve o cabelo, não a pessoa.
+   ============================================================ */
+const TRABALHOS = [
+  { src: "fotos/trabalho-1.jpg", alt: "Mecha em cabelo castanho escuro, com iluminado dourado desenhado no comprimento" },
+  { src: "fotos/trabalho-2.jpg", alt: "Mecha loira com raiz esfumada e ondas longas" },
+  { src: "fotos/trabalho-3.jpg", alt: "Mecha em tom mel e caramelo, com movimento do meio às pontas" },
+  { src: "fotos/trabalho-4.jpg", alt: "Loiro iluminado com transição suave da raiz, em cabelo longo" },
+  { src: "fotos/trabalho-5.jpg", alt: "Mecha acobreada em cabelo cacheado longo" },
+  { src: "fotos/trabalho-6.jpg", alt: "Mecha em cabelo escuro vista de perfil, mostrando a distribuição da luz" },
+];
+
+/* 6 fotos de propósito: divide certinho por 2 (celular) e por 3 (desktop),
+   então nenhuma das duas grades fica com buraco na última linha. Se acrescentar
+   foto, mantenha o total múltiplo de 6 pelo mesmo motivo.
+   As fotos ficam entre dois botões (o de "o que precisa acontecer agora" vem
+   logo acima, e o da própria galeria logo abaixo): quem se convence olhando
+   não precisa rolar até o fim para agir. */
+const blocoTrabalhos = TRABALHOS.length ? `
+    <div class="etapa">
+      <h3>Mecha feita por ele</h3>
+      <p class="trabalhos-nota">Trabalhos do próprio Rômulo, publicados com autorização das clientes que aparecem.</p>
+      <div class="galeria">${TRABALHOS.map(t => `
+        <img class="galeria-foto" src="${t.src}" alt="${esc(t.alt)}" width="720" height="900" loading="lazy" decoding="async" />`).join("")}
+      </div>
+    </div>` : "";
 
 if (!a._completedAt && !a.problema) {
   report.innerHTML = `
@@ -226,6 +265,10 @@ if (!a._completedAt && !a.problema) {
       Quem não domina a mecha não tem um problema de técnica. Tem um problema de método. E método não se aprende em
       vídeo: se corrige na cadeira.</p>
     </div>
+
+    ${blocoTrabalhos}
+
+    ${ctaInline}
 
     ${blocoDepoimentos}
 
