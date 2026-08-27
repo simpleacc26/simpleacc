@@ -25,6 +25,7 @@ clientes/
 | Juliana Godinho            | `juliana-godinho/`             | ativo  |
 | Kainã Barreto              | `kaina-barreto/`               | ativo  |
 | Omar e Greicy              | `omar-e-greicy/`               | ativo  |
+| Rafael Cobra               | `rafael-cobra/`                | ativo  |
 | Rafael Granella            | `rafael-granella/`             | ativo  |
 | Rômulo Heleno              | `romulo-heleno/`               | ativo  |
 | Sense Clinic               | `sense-clinic/`                | ativo  |

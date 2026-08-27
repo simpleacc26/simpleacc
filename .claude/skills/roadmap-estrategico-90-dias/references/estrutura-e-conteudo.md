@@ -28,7 +28,8 @@ Igual nos dois modelos. Kicker "Plano de Ação Personalizado", título "Roadmap
 Estratégico Digital", régua dourada, subtítulo de 3 linhas com a história do
 cliente ("De X a Y. Os primeiros 90 dias. Passo a passo, fase a fase. Sem
 atalho, sem improviso, sem ideia solta."), "Preparado para" + nome, "Mentor
-Estratégico" + Daniel Souza.
+Estratégico" + **"Daniel Souza - Carlos Durães"** (sempre os dois nomes,
+nessa ordem, em todos os roadmaps).
 
 ## Página 2 · Contexto e Decisões Fundamentais (ambos)
 

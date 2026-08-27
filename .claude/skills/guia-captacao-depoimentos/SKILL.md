@@ -1,33 +1,34 @@
 ---
 name: guia-captacao-depoimentos
 description: >-
-  Gera o Guia de Captação de Depoimentos de um cliente da Simple: PDF de 4
-  páginas na identidade visual dos roadmaps (navy + dourado) com direcionamento
-  simples para o cliente pedir e coletar depoimentos em vídeo dos clientes
-  satisfeitos dele. Use sempre que alguém do time pedir "guia de depoimentos",
-  "material para o cliente X captar depoimentos", "tópicos de direcionamento
-  para depoimento", "como pedir depoimento para os clientes dele", ou quando o
-  roadmap/onboarding de um cliente incluir a tarefa de coletar prova social em
-  vídeo. Mantém a estrutura validada (modelo Lucas Sobreiro) e personaliza
-  nome, segmento, exemplos e particularidades do cliente.
+  Gera o Guia de Captação de Depoimentos de um cliente: PDF de 4 páginas na
+  identidade visual da Simple (navy + dourado) com direcionamento simples para
+  o cliente pedir e coletar depoimentos em vídeo dos clientes satisfeitos dele.
+  Use sempre que alguém pedir "guia de depoimentos", "material para o cliente X
+  captar depoimentos", "tópicos de direcionamento para depoimento", "como pedir
+  depoimento para os clientes dele", ou quando um roadmap/onboarding incluir a
+  tarefa de coletar prova social em vídeo. Mantém a estrutura validada e
+  personaliza nome, segmento, exemplos e particularidades do nicho do cliente.
 ---
 
-# Guia de Captação de Depoimentos — gerador por cliente
+# Guia de Captação de Depoimentos: gerador por cliente
 
 ## O que esta skill faz
 
-Produz o **Guia de Captação de Depoimentos** de um cliente da Simple: um PDF de
-4 páginas (capa + 3 de conteúdo), na identidade visual dos roadmaps, que o
-cliente usa para pedir depoimentos em vídeo aos clientes satisfeitos dele.
+Produz o **Guia de Captação de Depoimentos** de um cliente: um PDF de 4
+páginas (capa + 3 de conteúdo), na identidade visual da Simple (navy +
+dourado), que o cliente usa para pedir depoimentos em vídeo aos clientes
+satisfeitos dele.
 
 A peça central é uma **mensagem pronta para encaminhar no WhatsApp** com 4
 tópicos de direcionamento. A filosofia do material: **espontâneo com direção,
-nunca decorado**. É um direcionamento simples para garantir que todo depoimento
-chegue usável (conteúdo com antes/depois + qualidade técnica mínima), sem
-roteiro engessado que atrapalhe a naturalidade.
+nunca decorado**. É um direcionamento simples para garantir que todo
+depoimento chegue usável (história com antes/depois + qualidade técnica
+mínima), sem roteiro engessado que atrapalhe a naturalidade.
 
-O modelo validado está em **`assets/modelo-guia-depoimentos.html`** (estrutura
-aprovada no cliente Lucas Sobreiro). A regra de uso é:
+O modelo validado está em **`assets/modelo-guia-depoimentos.html`**, e os dois
+clientes já calibrados (Lucas Sobreiro, empresarial, e Rafael Cobra, com
+sigilo) estão na tabela de `references/personalizacao.md`. A regra de uso é:
 
 - **O que é genérico fica igual** (regra de ouro, estrutura dos 4 tópicos,
   dicas técnicas de gravação, os 5 erros, checklist, seção de prints, CSS).
@@ -38,49 +39,71 @@ aprovada no cliente Lucas Sobreiro). A regra de uso é:
 ## O fluxo (siga nesta ordem)
 
 ```
-1. CONTEXTO      → ler a pasta do cliente e levantar os dados de personalização
+1. CONTEXTO      → levantar os dados de personalização do cliente
 2. PERSONALIZAR  → preencher os placeholders do modelo (nada genérico sobrando)
 3. VALIDAR       → zero travessões + nenhuma página estourando a altura A4
-4. GERAR PDF     → chromium headless
-5. ENTREGAR      → enviar o PDF + salvar HTML e PDF em estrategia/ + commit/PR
+4. GERAR PDF     → navegador headless (com fallbacks)
+5. ENTREGAR      → enviar o PDF + guardar a fonte HTML onde o projeto versiona
 ```
 
-### Passo 1 — Contexto do cliente
+### Passo 1: Contexto do cliente
 
-Leia, na pasta `clientes/<cliente>/`: `CLAUDE.md`, `contexto/` (quem é, oferta,
-ICP, linguagem) e `aprendizados.md`. Você precisa sair daqui sabendo:
+Levante os dados de personalização na melhor fonte disponível, nesta ordem:
 
-- Nome do cliente e como ele chama o produto (mentoria, consultoria, programa).
-- **Segmento dos clientes dele** (quem dá o depoimento) e qual público é
-  prioridade de prova social.
-- Que tipo de **resultado concreto** faz sentido no nicho (faturamento,
-  pacientes, agenda, obra entregue, processo ganho...).
-- Particularidades: restrições do nicho (ex.: saúde não cita paciente; advogado
-  tem regras da OAB sobre promessa), tom de voz do cliente, o que ele tem para
-  retribuir (evento, sessão bônus, destaque no Instagram).
-- Para onde vai o material coletado (link do Drive, grupo) e quem da Simple
-  acompanha.
+1. **Pasta/base de conhecimento do cliente** no projeto atual, se existir.
+   No monorepo da Simple é `clientes/<cliente>/`: leia o `CLAUDE.md` do
+   cliente, `contexto/` (quem é, oferta, ICP, linguagem) e `aprendizados.md`.
+   O roadmap de 90 dias, se já existir, costuma trazer a meta de captação e o
+   momento do projeto, que é o que calibra `{{META_CAPTACAO}}`.
+2. **Documentos fornecidos na conversa** (onboarding, canvas, roadmap).
+3. **Perguntando à pessoa.** Se faltar informação, faça as perguntas de uma
+   vez só (não uma por mensagem):
+   - Nome do cliente e como ele chama o produto (mentoria, consultoria,
+     programa, curso)?
+   - Quem são os clientes dele (segmento) e qual público é prioridade de
+     prova social?
+   - Que resultado concreto faz sentido no nicho (faturamento, pacientes,
+     agenda, obra, processo)?
+   - Que restrições o nicho tem (saúde, OAB, promessa de ganho)?
+   - **Quem dá o depoimento é paciente, cliente de profissão regulamentada ou
+     pessoa em situação sensível?** Se sim, o bloco de autorização é
+     obrigatório (ver `references/personalizacao.md`), a retribuição não pode
+     ser exposição, e o pedido já precisa citar o sigilo.
+   - O que ele tem para retribuir o depoimento (evento, sessão bônus,
+     destaque no Instagram)?
+   - Para onde vai o material coletado (Drive, WhatsApp, pasta) e onde ele
+     tira dúvidas com o time?
+   - Tom de voz dele (informal/formal, "tu" ou "você")?
 
-Se algo não estiver na pasta, pergunte à pessoa na sessão. Se estiver rodando
-de forma autônoma, assuma o padrão mais provável e sinalize a premissa na
-entrega. Não trave.
+Se estiver rodando de forma autônoma e faltar algo, assuma o padrão mais
+provável do nicho, sinalize a premissa na entrega e siga. Não trave.
 
-### Passo 2 — Personalização
+### Passo 2: Personalização
 
-Copie `assets/modelo-guia-depoimentos.html` para
-`clientes/<cliente>/estrategia/AAAA-MM-DD-guia-captacao-depoimentos.html` e
-substitua **todos** os placeholders `{{...}}` seguindo
-`references/personalizacao.md`. Regras inegociáveis:
+Copie `assets/modelo-guia-depoimentos.html` para um arquivo de trabalho com o
+nome `AAAA-MM-DD-guia-captacao-depoimentos-<cliente>.html` e substitua
+**todos** os placeholders `{{...}}` seguindo `references/personalizacao.md`
+(o arquivo tem a tabela completa com exemplos reais e calibragem por
+segmento). Regras inegociáveis:
 
-- **Não pode sobrar nenhum `{{`** no arquivo final.
-- **Zero travessões (—)** em qualquer texto novo (padrão da SimpleAcc; use
-  vírgula, dois-pontos, ponto ou parênteses).
+- **Não pode sobrar nenhum `{{`** no arquivo final (apague também o
+  comentário de instrução do topo).
+- **Zero travessões (—)** em qualquer texto novo. Padrão da Simple: usar
+  vírgula, dois-pontos, ponto final ou parênteses no lugar.
 - A mensagem pronta para encaminhar (página 3) fica na **voz do cliente**
-  (informal, tu/você conforme o jeito dele), não na voz da Simple.
-- Os exemplos dentro dos 4 tópicos falam a língua do segmento (um arquiteto não
-  fala em "pacientes"; um dentista não fala em "obra").
+  (informal ou formal, tu ou você, conforme o jeito dele), não na voz de
+  agência.
+- Os exemplos dentro dos 4 tópicos falam a língua do segmento (um arquiteto
+  não fala em "pacientes"; um dentista não fala em "obra").
+- Não mexa na estrutura das 4 páginas nem no CSS, salvo para resolver estouro
+  de página (ver Passo 3).
+- **`{{BLOCO_AUTORIZACAO}}` é o único componente opcional.** Em nicho com
+  sigilo ou conselho de classe ele é obrigatório e entra inteiro; nos demais,
+  substitua por string vazia. Quando ele entra, a página 2 estoura, e a
+  correção validada (mover a retribuição para a página 3 e o bullet de áudio
+  e print para a página 4) está em `references/personalizacao.md`.
 
-### Passo 3 — Validação (obrigatória antes do PDF)
+### Passo 3: Validação (obrigatória antes do PDF)
 
 ```bash
 # 1) Placeholders esquecidos (tem que retornar 0)
@@ -88,10 +111,14 @@ grep -c '{{' <arquivo>.html
 
 # 2) Travessões (tem que retornar 0)
 grep -c '—' <arquivo>.html
+```
 
-# 3) Estouro de página: nenhuma página pode passar da altura A4
-cp <arquivo>.html /caminho/do/scratchpad/check.html
-cat >> /caminho/do/scratchpad/check.html <<'EOF'
+3) **Estouro de página**: nenhuma página pode passar da altura A4. Copie o
+HTML para um arquivo temporário, acrescente o script abaixo antes de
+`</html>` e abra com o navegador headless (`--dump-dom`); o resultado aparece
+no `<title>`:
+
+```html
 <script>
 var out = [];
 document.querySelectorAll('.page').forEach(function(p, i) {
@@ -101,37 +128,59 @@ document.querySelectorAll('.page').forEach(function(p, i) {
 });
 document.title = out.length ? out.join(' ') : 'TODAS-AS-PAGINAS-OK';
 </script>
-EOF
-/opt/pw-browsers/chromium --headless --disable-gpu --no-sandbox \
-  --dump-dom "file:///caminho/do/scratchpad/check.html" 2>/dev/null \
-  | grep -o '<title>[^<]*</title>' | head -1
+```
+
+```bash
+<navegador> --headless --disable-gpu --no-sandbox \
+  --dump-dom "file:///caminho/temp.html" 2>/dev/null | grep -o '<title>[^<]*</title>' | head -1
 ```
 
 Se alguma página apertar: enxugue texto ou mova um box para a página vizinha.
 Não reduza a fonte abaixo de 10pt e não deixe conteúdo encostar no rodapé.
 
-### Passo 4 — Gerar o PDF
+### Passo 4: Gerar o PDF
+
+Encontre um Chromium/Chrome no ambiente, testando nesta ordem (use o primeiro
+que existir):
 
 ```bash
-/opt/pw-browsers/chromium --headless --disable-gpu --no-sandbox --no-pdf-header-footer \
+for BIN in "$PLAYWRIGHT_BROWSERS_PATH/chromium" /opt/pw-browsers/chromium \
+  chromium chromium-browser google-chrome google-chrome-stable \
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"; do
+  command -v "$BIN" >/dev/null 2>&1 || [ -x "$BIN" ] && { echo "$BIN"; break; }
+done
+```
+
+```bash
+<navegador> --headless --disable-gpu --no-sandbox --no-pdf-header-footer \
   --print-to-pdf="<mesmo-nome>.pdf" "file://<caminho-absoluto>/<arquivo>.html"
 ```
 
-### Passo 5 — Entrega e memória (Git)
+**Fallback sem navegador no ambiente:** entregue o HTML final e oriente a
+pessoa a abri-lo no Chrome e imprimir em PDF (destino "Salvar como PDF",
+margens "Nenhuma", tamanho A4, sem cabeçalho/rodapé). O HTML já está
+paginado; o resultado é idêntico.
 
-1. Envie o PDF para a pessoa na sessão.
-2. Deixe HTML (fonte editável) e PDF em `clientes/<cliente>/estrategia/`.
-3. Registre uma linha em `clientes/<cliente>/aprendizados.md` (data + "guia de
-   depoimentos criado" + particularidade relevante, se houver).
-4. Commit em branch `cliente/<cliente>/<assunto>` (ou a branch de trabalho da
-   sessão) e PR, conforme o manual.
+### Passo 5: Entrega e memória
+
+1. Envie o PDF para a pessoa na sessão (é o entregável).
+2. Guarde **HTML (fonte editável) e PDF** onde o projeto versiona material do
+   cliente. No monorepo da Simple: `clientes/<cliente>/estrategia/`, com o HTML
+   no padrão `AAAA-MM-DD-guia-captacao-depoimentos-<cliente>.html` e o PDF ao
+   lado, com o nome de entrega. Se não houver repositório, entregue os dois
+   arquivos juntos, porque o HTML é o que permite editar depois.
+3. Se houver um log de aprendizados do cliente, registre uma linha (data +
+   "guia de depoimentos criado" + particularidade relevante, se houver).
+4. Se o projeto usa Git: commit em branch própria e PR, seguindo a convenção
+   local.
 
 ## Checklist antes de entregar
 
 - [ ] 4 páginas: capa, como pedir, mensagem pronta + qualidade, evitar + checklist + meta
-- [ ] Nenhum `{{placeholder}}` sobrando; nenhum travessão
+- [ ] Nenhum `{{placeholder}}` sobrando; nenhum travessão; comentário de instrução removido
 - [ ] Mensagem de pedido e mensagem dos 4 tópicos na voz do cliente e no vocabulário do segmento
 - [ ] Segmento prioritário de prova social correto (identificação: igual assiste igual)
 - [ ] Particularidades do nicho aplicadas (restrições legais/éticas, se houver)
+- [ ] Bloco de autorização presente em nicho sensível, e retribuição sem exposição
 - [ ] Validação de páginas OK (TODAS-AS-PAGINAS-OK) e PDF gerado do HTML final
-- [ ] PDF enviado + HTML/PDF salvos em `estrategia/` + aprendizado registrado + commit/PR
+- [ ] PDF entregue + fonte HTML guardada (e aprendizado/commit, se o projeto versionar)

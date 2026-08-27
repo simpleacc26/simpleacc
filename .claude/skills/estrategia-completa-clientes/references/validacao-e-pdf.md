@@ -56,6 +56,38 @@ Se alguma página apertar, nesta ordem de preferência:
 Nunca: fonte abaixo de 10pt, mexer nas margens da `.page`, deixar conteúdo
 encostar no rodapé.
 
+## 3b. Renumerar depois de dividir
+
+Se você dividiu ou inseriu páginas, **renumere tudo**: o cabeçalho corrido traz
+"Página N" e passa a mentir em silêncio.
+
+```python
+import re
+c=[1]                                   # a capa não tem cabeçalho
+def ren(m):
+    c[0]+=1
+    return '<span>Página %d</span>'%c[0]
+s=re.sub(r'<span>Página (?:\d+|X)</span>', ren, s)
+```
+
+Para ver a folga de cada página e decidir para onde mover um box, troque a
+condição do script de validação por
+`out.push('PG'+(i+1)+':'+Math.round(contentBottom))` e leia todos os números.
+
+## 3c. Coerência de números (a validação que nenhum script pega)
+
+Antes do PDF, releia as premissas contra os números das outras seções. O erro
+clássico: a premissa diz conversão de 30% e a projeção do primeiro mês só fecha
+com 13%. Quando os dois números existem, **o documento tem que explicar a
+rampa** (13%, 20%, 30% ao longo do trimestre), e não escolher um e esquecer o
+outro.
+
+Mesmo teste para: ticket x meta mensal, número de sessões x capacidade real do
+cliente, volume de abordagem x quem executa, e calendário dentro dos 90 dias.
+
+**E nunca invente dado de pessoa.** Nome de filho, de sócio ou de cliente que
+não está em nenhuma fonte não entra no documento, nem como detalhe humano.
+
 ## 4. Encontrar o navegador
 
 ```bash
@@ -76,6 +108,17 @@ done
 Confira o resultado abrindo um screenshot de ao menos uma página densa
 (`--screenshot` com `--window-size=794,1123`; para ver a página N, esconda as
 anteriores com um CSS temporário `.page:nth-of-type(-n+X){display:none;}`).
+
+## 5b. Reduzir o tamanho do PDF
+
+```python
+import pikepdf   # pip install pikepdf
+pdf = pikepdf.open("bruto.pdf")
+pdf.save("final.pdf", compress_streams=True, recompress_flate=True,
+         object_stream_mode=pikepdf.ObjectStreamMode.generate)
+```
+
+Tirou 38% num PDF de 26 páginas (385 KB para 240 KB), sem perder nada.
 
 ## 6. Fallback sem navegador
 

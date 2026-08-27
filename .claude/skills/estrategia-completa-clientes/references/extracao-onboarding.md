@@ -5,6 +5,22 @@ tudo e preencha o mapa abaixo. Onde o material não responder, **assuma o padrã
 mais provável para o nicho, escreva a premissa, e siga**. Uma premissa
 sinalizada é melhor que um documento travado.
 
+## Antes de tudo: procure a call de vendas
+
+**O documento mais rico de um cliente novo não é a call de onboarding, é a call
+de vendas.** É lá que estão os números reais, o histórico, o que ele já vendeu e
+**o desenho de esteira que a Simple prometeu**. Já aconteceu de uma sessão
+escrever "não há dados de faturamento" com a call de vendas existindo há uma
+semana no repositório, e de reduzir uma esteira de quatro peças a uma só.
+
+- **Antes de declarar lacuna, confirme que leu a call de vendas.**
+- **Antes de escrever "decisão tomada", confirme de quem é a decisão.** Se não
+  está na boca do cliente nem na do estrategista, é premissa sua, e premissa se
+  declara como premissa, com quem decide e quando.
+- **Canvas preenchido com ajuda de IA não é a palavra do cliente.** Preço, nome
+  de método e formato de entrega que só aparecem no canvas são sugestão de
+  agente. **Separe o ticket que ele já vendeu do ticket que é aspiração.**
+
 ## Mapa estratégico (preencha tudo)
 
 ### A) ICP · Perfil do Cliente Ideal
@@ -97,3 +113,23 @@ a escrever.
 - Frases que o cliente repetiu nas calls: viram hook e headline.
 - O que o público **não** tolera. Em nichos de vergonha (etiqueta, finanças,
   saúde), tom professoral ou acusatório mata a conversão.
+
+
+## H) Decisões que o documento não pode deixar em aberto
+
+- **Destino do CTA**, decidido e escrito: WhatsApp com mensagem pronta ou
+  agendamento automático. Não deixe a página de contexto dizer uma coisa e o
+  bloco de CTA dizer outra. Regra prática: **sem SDR e com agenda apertada, o
+  filtro vem antes da agenda**.
+- **Formato de entrega do produto**: fechado ou em aberto? Se a casa vende
+  primeiro e prepara a entrega depois, escrever formato fechado cria promessa
+  que ninguém combinou.
+- **Restrições éticas além da Meta**: profissão regulamentada, conselho de
+  classe, sigilo profissional. Em saúde e psicanálise, nenhum caso vira copy
+  sem autorização escrita, e isso aparece na página de contexto, na seção de
+  anúncios e nas recomendações.
+- **Calendário**: viagem, sazonalidade ou período que trava a agenda dentro
+  dos 90 dias.
+- **Como o cliente consome material**: se ele pediu ordem numerada, blocos
+  curtos ou o porquê de cada passo, isso é requisito de execução, não
+  preferência. Documento excelente em formato errado não é executado.

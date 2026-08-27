@@ -23,9 +23,16 @@ para implementar**, na identidade visual da Simple.
 
 > **O entregável é um PDF paginado, não um Google Doc.** Versões antigas desta
 > skill mandavam entregar como Doc formatado no Drive, com 8 seções. Isso está
-> errado e gerou retrabalho. A referência viva é a
-> **"Estratégia Completa + Copies Funil Quiz Luana Isse"** (Drive, pasta do
-> cliente): PDF, 6 seções, mesma identidade navy + dourado do roadmap.
+> errado e gerou retrabalho, duas vezes, em clientes diferentes.
+>
+> **A referência agora está commitada, em `assets/exemplos/`:** a Luana Isse
+> (11/08, padrão-ouro, B2B com SDR) e o Rafael Cobra (13/08, o mais completo,
+> B2C e cliente que executa sozinho). **Leia os dois antes de escrever.** O do
+> Rafael traz uma tabela do que muda de um cliente para o outro.
+>
+> Antes, esse padrão vivia só num PDF no Drive, e foi exatamente por isso que
+> duas sessões erraram o formato. **Entregável que define padrão tem que ser
+> commitado, não só compartilhado.**
 
 O valor está em três coisas:
 1. **Extrair a estratégia certa** da matéria-prima (interpretar, não transcrever).
@@ -53,6 +60,10 @@ vive no roadmap. Repetir aqui só cria duas fontes de verdade que divergem.
 - **`assets/modelo-estrategia.html`**: template HTML com a identidade visual e o
   CSS validado (altura A4 fixa), com o esqueleto das páginas.
 - **`references/validacao-e-pdf.md`**: validações obrigatórias e geração do PDF.
+- **`references/entrega-pdf.md`**: nome do arquivo, pasta do cliente no Drive e
+  os limites reais de upload (PDF de estratégia não sobe pelo MCP).
+- **`assets/exemplos/`**: as duas estratégias reais já entregues, com mapa de
+  páginas e os componentes a copiar.
 
 ## O fluxo (siga nesta ordem)
 
