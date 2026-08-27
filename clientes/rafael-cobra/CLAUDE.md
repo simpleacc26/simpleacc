@@ -127,3 +127,26 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
 ## Contatos
 - **Cliente:** Rafael Cobra — _(WhatsApp/e-mail a preencher)_
 - **Interno:** Carlos Durães · Daniel
+
+## Pendências abertas (13/08)
+
+Nada disso bloqueia execução, mas fica registrado para a próxima sessão:
+
+1. **Subir os PDFs no Drive, à mão.** A estratégia (240 KB) e o roadmap não
+   sobem pelo MCP: ele só aceita binário como base64 escrito na chamada, o que
+   para esse tamanho é inviável. O guia de depoimentos (119 KB) até caberia.
+   Pasta: "1. Documentos". Ver `references/entrega-pdf.md` da skill.
+2. **Compartilhar o canvas preenchido v2 com o Rafael.** Ele herdou a permissão
+   privada da pasta, então o cliente ainda não vê. Agora existe `share_file` no
+   MCP do Drive.
+3. **Mandar para a lixeira os 2 Docs v1** do canvas e da análise, que ficaram
+   órfãos depois das v2 (`1TCGdkmi...` e `1xF9tPNj...`). Existe `trash_file`.
+4. **Roadmap v1.1.** O roadmap de 13/08 ficou desatualizado em dois pontos
+   depois da revisão da estratégia: só fala do reajuste da clínica (não do
+   pacote de acompanhamento na faixa de R$ 6 mil) e descreve o funil sem dizer
+   que o destino do CTA é o WhatsApp. Se ele ainda não foi para o cliente,
+   regerar; se já foi, tratar na quinzenal.
+5. **Anexar ao repo o deck da proposta** enviado por e-mail. É o documento que
+   vale sobre os entregáveis contratados e ainda não está aqui.
+6. **Confirmar o que é o "Método Cobra" hoje** e se tem registro no INPI. Ele já
+   tem logotipo próprio no destaque do Instagram.
