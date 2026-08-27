@@ -99,7 +99,7 @@ dois campos, e cada lead preenche um e deixa o outro em branco, exatamente como
 | Caminho | Campo | Pergunta | Faixas |
 |---|---|---|---|
 | A — dono ou sócio | `colaboradores` | Quantos colaboradores a sua empresa emprega? | Menos de 20 · Entre 20 e 50 · Entre 50 e 100 · Entre 100 e 200 · Entre 200 e 500 · Acima de 500 |
-| B — executivo | `colaboradores_sob_responsabilidade` | Quantos colaboradores estão sob sua responsabilidade? | Nenhum · Entre 1 e 4 · Entre 05 e 10 · Entre 11 e 15 · Entre 16 e 30 · Mais de 30 |
+| B — executivo | `colaboradores_sob_responsabilidade` | Quantos colaboradores estão sob sua responsabilidade? | Nenhum · Entre 1 e 4 · Entre 5 e 10 · Entre 11 e 15 · Entre 16 e 30 · Mais de 30 |
 
 Os dois campos existem sempre no payload, então ninguém precisa de `if` para
 ler. Dentro de `respostas`, a `P8` já vem resolvida: traz a que o lead
@@ -161,7 +161,7 @@ especificação a trata como indicador de maturidade financeira, não como nota.
 |---|---|---|---|---|---|
 | Total, a decisão é minha | 10 | Nenhum | 0 | Menos de R$ 5.000 | 1 |
 | Parcial, decido até um valor | 6 | Entre 1 e 4 | 2 | De R$ 5.000 até R$ 10.000 | 2 |
-| Quase nenhuma | 0 | Entre 05 e 10 | 4 | De R$ 10.000 até R$ 20.000 | 5 |
+| Quase nenhuma | 0 | Entre 5 e 10 | 4 | De R$ 10.000 até R$ 20.000 | 5 |
 | Nenhuma | 0 | Entre 11 e 15 | 6 | De R$ 20.000 até R$ 50.000 | 8 |
 | | | Entre 16 e 30 | 8 | Acima de R$ 50.000 | 10 |
 | | | Mais de 30 | 10 | | |
@@ -189,7 +189,7 @@ A regra vale para as quatro perguntas de faixa numérica, e as outras três já
 estavam certas: faturamento e colaboradores da empresa fecham por sobreposição
 (quem tem exatamente 50 pessoas escolhe uma das duas vizinhas), e colaboradores
 sob responsabilidade fecha por ser contagem inteira — entre "Entre 1 e 4" e
-"Entre 05 e 10" não existe número de gente para cair fora.
+"Entre 5 e 10" não existe número de gente para cair fora.
 
 ## Etapa 2 — o aviso de abertura
 
