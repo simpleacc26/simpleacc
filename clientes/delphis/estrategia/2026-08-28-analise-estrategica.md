@@ -4,6 +4,9 @@
 documento institucional do Método AUTOFOCO, canvas do "Detonando a Timidez", tabela de
 preços enviada no WhatsApp e perfil público no Instagram.
 
+**Versão navegável (com o diagrama do funil bifurcado):**
+https://claude.ai/code/artifact/b0df52e2-bb98-49b1-bbc3-1af23915d944
+
 ---
 
 ## 1. Onde o projeto está
