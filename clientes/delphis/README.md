@@ -12,10 +12,12 @@ verba de anúncio à parte. Prazo prometido: **funil no ar em 7 dias da assinatu
 
 | Documento | O que tem |
 | --------- | --------- |
-| [`estrategia/2026-08-28-analise-estrategica.md`](estrategia/2026-08-28-analise-estrategica.md) | **Comece aqui.** Achados que mudam decisão, esteira recomendada, riscos e perguntas abertas |
+| **Roadmap 90 dias (PDF)** | `estrategia/Roadmap Estratégico Digital - Delphis Fonseca - 28.08.26.pdf` — o entregável da call de roadmap (fonte HTML ao lado) |
+| [`estrategia/2026-08-28-analise-estrategica.md`](estrategia/2026-08-28-analise-estrategica.md) | Achados que mudam decisão, esteira recomendada, riscos e perguntas abertas |
 | [`contexto/dossie-cliente.md`](contexto/dossie-cliente.md) | Quem é, oferta, números, ICP, concorrentes e pendências |
 | [`contexto/produtos-e-precos.md`](contexto/produtos-e-precos.md) | Esteira real: CONEXÃO 120/60/30, produto de entrada, Ecossistema AutoFoco |
 | [`contexto/2026-08-25-onboarding-resumo.md`](contexto/2026-08-25-onboarding-resumo.md) | Decisões e combinados do onboarding |
+| [`contexto/2026-08-27-alinhamento-trafego.md`](contexto/2026-08-27-alinhamento-trafego.md) | Call de tráfego com o Renan: BM, pixels, verba e pontos críticos |
 | [`contexto/entregaveis-vendidos.md`](contexto/entregaveis-vendidos.md) | O escopo exato vendido na call de vendas |
 | [`estrategia/2026-08-25-guia-call-onboarding.md`](estrategia/2026-08-25-guia-call-onboarding.md) | Roteiro e perguntas usadas na call de mapa estratégico |
 | [`contexto/origem-e-primeiros-dados.md`](contexto/origem-e-primeiros-dados.md) | Como ele chegou até a Simple (lead do quiz do Rafael Granella) |
@@ -54,8 +56,9 @@ verba de anúncio à parte. Prazo prometido: **funil no ar em 7 dias da assinatu
 - [x] Base do cliente no hub + dossiê a partir das calls de vendas e do canvas
 - [x] Call de mapa estratégico (25/08) — decisões em `contexto/2026-08-25-onboarding-resumo.md`
 - [x] Análise estratégica consolidada (28/08)
-- [ ] **Roadmap de 90 dias (~15 páginas), prometido para 27/08** — `/roadmap-estrategico-90-dias`
-- [ ] Auditoria da BM + conta de anúncios nova (Renan)
+- [x] **Roadmap de 90 dias (14 páginas)** — v1.0 em 28/08, aguardando validação interna e apresentação ao cliente
+- [x] Auditoria da BM e vinculação da Simple como parceira (Renan, 27/08)
+- [ ] Decidir: conta de anúncios nova dentro do portfólio Delphis Studios (ver ponto crítico)
 - [ ] Responder a proposta do produto em grupo de ~R$4k
 - [ ] Estratégia do funil para aprovação
 - [ ] Quiz + páginas + copy dos anúncios — `/quiz-pesquisa-estrategia` e `/gerar-quiz-diag-pag-pos-quiz`
