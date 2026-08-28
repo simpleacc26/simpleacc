@@ -12,9 +12,12 @@ verba de anúncio à parte. Prazo prometido: **funil no ar em 7 dias da assinatu
 
 | Documento | O que tem |
 | --------- | --------- |
+| [`estrategia/2026-08-28-analise-estrategica.md`](estrategia/2026-08-28-analise-estrategica.md) | **Comece aqui.** Achados que mudam decisão, esteira recomendada, riscos e perguntas abertas |
 | [`contexto/dossie-cliente.md`](contexto/dossie-cliente.md) | Quem é, oferta, números, ICP, concorrentes e pendências |
+| [`contexto/produtos-e-precos.md`](contexto/produtos-e-precos.md) | Esteira real: CONEXÃO 120/60/30, produto de entrada, Ecossistema AutoFoco |
+| [`contexto/2026-08-25-onboarding-resumo.md`](contexto/2026-08-25-onboarding-resumo.md) | Decisões e combinados do onboarding |
 | [`contexto/entregaveis-vendidos.md`](contexto/entregaveis-vendidos.md) | O escopo exato vendido na call de vendas |
-| [`estrategia/2026-08-25-guia-call-onboarding.md`](estrategia/2026-08-25-guia-call-onboarding.md) | Roteiro e perguntas da call de mapa estratégico |
+| [`estrategia/2026-08-25-guia-call-onboarding.md`](estrategia/2026-08-25-guia-call-onboarding.md) | Roteiro e perguntas usadas na call de mapa estratégico |
 | [`contexto/origem-e-primeiros-dados.md`](contexto/origem-e-primeiros-dados.md) | Como ele chegou até a Simple (lead do quiz do Rafael Granella) |
 
 ## Contatos
@@ -27,7 +30,8 @@ verba de anúncio à parte. Prazo prometido: **funil no ar em 7 dias da assinatu
 ## Links úteis
 
 - Instagram: [@delphisfonseca](https://www.instagram.com/delphisfonseca/) — 6,5 mil seguidores
-- Site do produto de entrada: `detonandoatimidez.com.br` *(copy na promessa antiga — a reescrever)*
+- Sites dele (feitos por ele na Hostinger, não divulgados): `detonandoatimidez.com.br` e
+  `metodoautofoco.com.br` — quase espelhados, com fotos de alunos *(copy na promessa antiga — a reescrever)*
 - Produto de entrada na **Hotmart**: Detonando a Timidez — R$899 (10x R$89,90)
 - Pasta no Drive: [Simple <> Delphis](https://drive.google.com/drive/folders/1cBaPJER_HHalOzs6YZDERaVR3WbCuGgG)
   - [1. Documentos](https://drive.google.com/drive/folders/1cNT9I8bBDRqFT_IUKgKLpgtBFevs81cv) ·
@@ -48,8 +52,11 @@ verba de anúncio à parte. Prazo prometido: **funil no ar em 7 dias da assinatu
 ## Próximos passos
 
 - [x] Base do cliente no hub + dossiê a partir das calls de vendas e do canvas
-- [ ] **Call de mapa estratégico (25/08)** — usar o guia em `estrategia/`
-- [ ] Roadmap de 90 dias (2 dias após a call) — `/roadmap-estrategico-90-dias`
+- [x] Call de mapa estratégico (25/08) — decisões em `contexto/2026-08-25-onboarding-resumo.md`
+- [x] Análise estratégica consolidada (28/08)
+- [ ] **Roadmap de 90 dias (~15 páginas), prometido para 27/08** — `/roadmap-estrategico-90-dias`
+- [ ] Auditoria da BM + conta de anúncios nova (Renan)
+- [ ] Responder a proposta do produto em grupo de ~R$4k
 - [ ] Estratégia do funil para aprovação
 - [ ] Quiz + páginas + copy dos anúncios — `/quiz-pesquisa-estrategia` e `/gerar-quiz-diag-pag-pos-quiz`
 - [ ] Setup de traqueamento, dashboard e subida das campanhas

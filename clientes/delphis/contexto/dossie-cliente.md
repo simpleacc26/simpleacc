@@ -1,7 +1,8 @@
 # Delphis Fonseca — dossiê do cliente
 
 Fontes: calls de vendas 15/07 e 17/08/2026 (Fathom), Canvas "Detonando a Timidez"
-preenchido, perfil público no Instagram. Última atualização: 25/08/2026.
+preenchido, perfil público no Instagram. Última atualização: 28/08/2026 (inclui onboarding de 25/08, documento institucional do
+AUTOFOCO e a tabela de preços do high ticket).
 
 ---
 
@@ -14,13 +15,16 @@ preenchido, perfil público no Instagram. Última atualização: 25/08/2026.
   teatro, cinema, dublagem, locução, canto e direção.
 - **Dublagem:** Grão-Almirante Thrawn (*Ahsoka* / Star Wars), Fera (Marvel), Midora (*Toriko*),
   Wolfram Gelzer (*Black Butler*), Kong (*One Piece*), locutor de *A Revolução dos Bichos*.
+- **Narração:** documentários para Discovery, National Geographic, BBC e ID.
+- **Dublagem para** Disney, Warner, Paramount, HBO e Netflix.
 - **Palco/música:** show "Sinatra & Cia" (Sinatra, Elvis, Dean Martin, Nat King Cole).
+  Canta com orquestra — chama a música de "academia da comunicação".
 - **Dono do PH Studios** (SP) — estúdio próprio com acervo histórico de cinema e TV.
   → *Ativo relevante: ele tem estrutura própria para gravar criativo.*
 - **22 anos ministrando no Senac SP** o curso de apresentador de TV, criado por ele,
   com reconhecimento do MEC — o primeiro do gênero no Brasil. **+4.000 alunos formados.**
-- **Prova social nominal:** Gabriela Prioli, Celso Zucatelli, Rafa Brites, Fernando
-  "Xuxa" Scherer, Fran Justus, Izabella Camargo.
+- **Prova social nominal:** Gabriela Prioli, Celso Zucatelli, Rafa Brites, Tania Khalill,
+  Fernando "Xuxa" Scherer, Jakelyne Oliveira, Izabella Camargo, Elisa Veeck, Fran Justus.
 - **História pessoal:** foi uma criança extremamente tímida; começou no rádio justamente
   por não ser visto. É o núcleo emocional do posicionamento.
 
@@ -32,17 +36,26 @@ não sobre performance.
 
 ## 2. Oferta
 
+Esteira detalhada (com o que escalona entre os níveis) em
+[`produtos-e-precos.md`](produtos-e-precos.md). Resumo:
+
 | Produto | Formato | Preço |
 | ------- | ------- | ----- |
-| **Mentoria AUTOFOCO** (produto HT) | individual, 3 níveis | R$30.000 / R$17.000 / R$9.000 |
-| Mentoria AUTOFOCO — grupo | em grupo | R$4.000 |
-| **Detonando a Timidez** (entrada, em lançamento) | 7 aulas gravadas + 3 ao vivo + workbook, na Hotmart | R$899 (10x R$89,90) |
+| **Mentoria CONEXÃO 120** | 20 encontros individuais + Ecossistema AutoFoco completo | 12× R$2.990 · **R$30.000 no PIX** |
+| **Mentoria CONEXÃO 60** | 9 encontros individuais | 12× R$1.690 |
+| **Mentoria CONEXÃO 30** | 5 encontros individuais | 12× R$899 |
+| **Detonando a Timidez** (entrada) | curso gravado + aulas ao vivo de bônus + workbook, na Hotmart | R$899 (10× R$89,90) |
+| *Produto em grupo (ideia dele, 27/08)* | *~8 encontros ao vivo* | *~R$4.000 — a analisar* |
 
-> ⚠️ **Divergência a conferir:** na call de 15/07 ele falou "30, 15 e 9"; o canvas diz
-> "30, 17 e 9". Confirmar os três níveis e o que muda entre eles.
+> **Ecossistema AutoFoco:** psicólogo, fonoaudióloga e equipe multidisciplinar entram nos
+> níveis mais altos. Não aparecia no canvas nem nas calls de vendas — é argumento forte de
+> venda e ainda não está em nenhuma peça de comunicação.
 
 - **Método AUTOFOCO** atua em Crença, Percepção e Comportamento. Sequência:
-  revelar → desbloquear → consciência → entrega → conexão.
+  revelar → desbloquear → consciência → entrega → conexão. O documento institucional
+  posiciona o método **além da categoria oratória**: comunicar valor com verdade, presença,
+  clareza, autoridade e conexão — e mira "pessoas que já sabem, mas não conseguem fazer
+  esse valor chegar ao outro na proporção da sua capacidade".
   Segredo declarado: *tirar o foco de si na hora certa* (Princípio da Técnica Invisível).
 - Na mentoria completa usa também o framework **Diapasão** (O QUE + PARA QUEM + PARA QUÊ +
   ONDE E QUANDO = COMO).
@@ -99,7 +112,12 @@ não sobre performance.
   **Não quer** ser visto como arrogante ou "que não quer papo" (a reserva do tímido é
   confundida com arrogância).
 
-**Mentoria AUTOFOCO (HT)** — perfil mais executivo/profissional (a fechar no mapa estratégico).
+**Método AUTOFOCO (HT)** — o documento institucional é explícito: comunicadores,
+executivos e líderes, empresários, especialistas, profissionais liberais (médicos,
+advogados, arquitetos, consultores) e profissionais em ascensão. A dor **não é timidez**:
+é a distância entre a competência que a pessoa tem e o valor que ela consegue transmitir.
+→ Ver por que isso muda o desenho do funil em
+[`../estrategia/2026-08-28-analise-estrategica.md`](../estrategia/2026-08-28-analise-estrategica.md).
 
 **Concorrentes mapeados no canvas**
 Karina Orso (Método Interagindo, 50k) · Iza Nascimento (Da Timidez à Confiança) ·
@@ -118,7 +136,7 @@ Carvalho — e a Prioli é ex-aluna do Delphis.
       e área de membros.
 - [ ] O site **detonandoatimidez.com.br** (que será reaproveitado) foi escrito na promessa
       antiga de "eliminar/vencer a timidez" — conflita com a promessa de **controle**.
-- [ ] Preço/estrutura dos 3 níveis do HT a confirmar (30/15/9 vs 30/17/9).
+- [x] ~~Preço dos 3 níveis do HT~~ — resolvido: tabela CONEXÃO 120/60/30 recebida em 27/08.
 - [ ] Autorização de uso de nome e imagem dos alunos famosos em anúncio.
 
 ---
