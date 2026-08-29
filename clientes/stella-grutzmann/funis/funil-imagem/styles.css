@@ -1,0 +1,176 @@
+/* ============================================================
+   FUNIL QUIZ · Stella Grützmann (Consultoria de Imagem)
+   Identidade extraída do site stellagrutzmann.com: mogno + taupe/mocha
+   sobre marfim. Premium, elegante, terrosa. Serifa de sistema.
+   Mantém --primary, --primary-700 e --accent-soft (o relatório usa).
+   ============================================================ */
+:root {
+  --bg:          #F5F0EA;  /* marfim quente (fundo do site) */
+  --bg-2:        #EFE7DB;  /* um tom abaixo */
+  --surface:     #FDFDFC;  /* cartões (off-white) */
+  --text:        #2B2521;  /* espresso quase preto (warm) */
+  --muted:       #877A6A;  /* texto secundário (taupe) */
+
+  /* realce da marca = mocha/taupe (usado também pelo relatório) */
+  --primary:     #8A6E52;  /* mocha médio (dots, bordas, progresso) */
+  --primary-700: #5A4433;  /* mocha escuro (títulos/realce de texto) */
+  --accent-soft: #EFE6D8;  /* creme suave (pílulas/seleção) */
+  --brand-hi:    #C2A98C;  /* taupe claro (brilho dos gradientes) */
+
+  --action:      #401F18;  /* botão principal (mogno profundo, contraste AA) */
+  --action-700:  #2E1712;  /* hover do botão */
+  --on-action:   #FBF6EC;  /* texto sobre o botão (creme) */
+
+  --border:      #E7DCCC;  /* bordas quentes */
+  --ring:        #8A6E52;  /* foco de teclado */
+  --err:         #A9432B;  /* erros (contraste AA sobre claro) */
+
+  --radius:      18px;
+  --radius-sm:   12px;
+  --shadow:      0 1px 3px rgba(42,36,32,.06), 0 10px 28px rgba(138,101,38,.10);
+  --shadow-lg:   0 2px 6px rgba(42,36,32,.08), 0 22px 54px rgba(138,101,38,.16);
+  --maxw:        600px;
+
+  --font:        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* serifada de sistema (sem dependência externa) p/ títulos e logo */
+  --font-serif:  "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, "Hoefler Text", Georgia, "Times New Roman", serif;
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 17px; line-height: 1.55;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+
+/* ---------- topo / logo ---------- */
+.topbar { padding: 24px 0 6px; text-align: center; }
+.brand { display: inline-flex; flex-direction: column; align-items: center; gap: 2px; }
+.brand .brand-name {
+  font-family: var(--font-serif); font-size: 23px; font-weight: 700; letter-spacing: .04em;
+  color: var(--primary-700);
+  background: linear-gradient(92deg, var(--primary-700), var(--brand-hi) 55%, var(--primary-700));
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.brand .brand-tag { font-size: 10.5px; letter-spacing: .42em; text-transform: uppercase; color: var(--primary); padding-left: .42em; }
+.brand .logo-img { height: 64px; width: auto; }
+
+/* ---------- progresso ---------- */
+.progress-wrap { position: sticky; top: 0; z-index: 20; background: linear-gradient(180deg, var(--bg) 70%, transparent); padding: 10px 0 8px; }
+.progress-meta { display: flex; justify-content: space-between; font-size: 13px; color: var(--primary-700); font-weight: 600; margin: 0 2px 7px; }
+.progress-track { height: 7px; background: #E7DCCC; border-radius: 99px; overflow: hidden; }
+.progress-bar { height: 100%; width: 0; border-radius: 99px; transition: width .45s cubic-bezier(.16,1,.3,1);
+  background: linear-gradient(90deg, var(--primary), var(--brand-hi)); }
+
+/* ---------- cartão / telas ---------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 30px 26px; margin: 16px 0 28px;
+}
+.screen { animation: fade .45s cubic-bezier(.16,1,.3,1) both; }
+@keyframes fade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+.eyebrow { color: var(--primary-700); font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: .14em; margin: 0 0 12px; }
+h1, h2 { font-family: var(--font-serif); font-weight: 700; letter-spacing: -.005em; color: var(--text); }
+h1 { font-size: 30px; line-height: 1.2; margin: 0 0 14px; }
+h2 { font-size: 25px; line-height: 1.25; margin: 0 0 16px; }
+.lead { color: var(--muted); font-size: 17px; margin: 0 0 8px; }
+.hint { color: var(--muted); font-size: 14px; }
+
+/* ---------- selo do hero ---------- */
+.selo { display: inline-block; background: var(--accent-soft); color: var(--primary-700); font-size: 13px; font-weight: 600; padding: 7px 14px; border-radius: 99px; margin-bottom: 18px; border: 1px solid var(--border); }
+.tempo { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: 14px; margin-top: 16px; }
+.tempo::before { content: "⏱"; }
+
+/* ---------- opções (auto-avanço) ---------- */
+.options { display: grid; gap: 12px; margin: 22px 0 6px; }
+.opt {
+  display: flex; align-items: center; gap: 14px;
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm);
+  padding: 17px 16px; cursor: pointer; background: var(--surface); text-align: left;
+  color: var(--text);
+  -webkit-text-fill-color: var(--text);
+  transition: border-color .2s, background .2s, transform .15s, box-shadow .2s;
+}
+@media (hover: hover) and (pointer: fine) {
+  .opt:hover { border-color: var(--primary); transform: translateY(-2px); box-shadow: var(--shadow); }
+}
+.opt .dot { flex: 0 0 22px; height: 22px; border: 2px solid var(--border); border-radius: 50%; display: grid; place-items: center; transition: border-color .2s; }
+.opt .dot::after { content: ""; width: 11px; height: 11px; border-radius: 50%; background: var(--primary); transform: scale(0); transition: transform .18s cubic-bezier(.16,1,.3,1); }
+.opt .txt { font-size: 16px; flex: 1; text-align: left; }
+.opt[aria-checked="true"] { border-color: var(--primary); background: var(--accent-soft); }
+.opt[aria-checked="true"] .dot { border-color: var(--primary); }
+.opt[aria-checked="true"] .dot::after { transform: scale(1); }
+.opt:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
+
+/* ---------- formulário ---------- */
+.field { margin: 18px 0; }
+.field label { display: block; font-weight: 600; font-size: 15px; margin-bottom: 7px; }
+.field .req { color: var(--err); }
+.field .opt-tag { color: var(--muted); font-weight: 400; }
+.field input {
+  width: 100%; font: inherit; padding: 15px 14px; color: var(--text);
+  border: 1.5px solid var(--border); border-radius: var(--radius-sm); background: var(--surface);
+  transition: border-color .2s, box-shadow .2s;
+}
+.field input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 26%, transparent); }
+.field input[aria-invalid="true"] { border-color: var(--err); }
+.field .err-msg { color: var(--err); font-size: 14px; margin-top: 6px; display: none; }
+.field .err-msg.show { display: block; }
+
+/* ---------- erros no topo ---------- */
+.errors { display: none; background: #FBEBE6; border: 1px solid #ECC4B8; color: var(--err); border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 16px; font-size: 15px; }
+.errors.show { display: block; }
+
+/* ---------- botões ---------- */
+.actions { display: flex; gap: 12px; align-items: center; margin-top: 24px; }
+.btn { font: inherit; font-weight: 700; cursor: pointer; border: none; border-radius: 99px; padding: 16px 26px; transition: background .2s, transform .12s, box-shadow .2s, opacity .2s; }
+.btn-primary { background: var(--action); color: var(--on-action); box-shadow: 0 8px 20px rgba(42,36,32,.26); }
+.btn-primary:hover { background: var(--action-700); transform: translateY(-1px); }
+.btn-primary:disabled { opacity: .55; cursor: not-allowed; transform: none; box-shadow: none; }
+.btn-ghost { background: transparent; color: var(--muted); padding: 16px 14px; }
+.btn-ghost:hover { color: var(--text); }
+.btn-block { width: 100%; justify-content: center; display: flex; }
+.btn:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
+.spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(251,246,236,.5); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; vertical-align: -3px; margin-right: 8px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---------- tela de loading (preparando a leitura) ---------- */
+.loading-card { text-align: center; padding: 40px 26px; }
+.loading-card .eyebrow { display: block; }
+.load-track { height: 10px; background: #E7DCCC; border-radius: 99px; overflow: hidden; margin: 24px 0 4px; }
+.load-bar { height: 100%; width: 0; border-radius: 99px;
+  background: linear-gradient(90deg, var(--primary), var(--brand-hi)); }
+#load-msg { min-height: 1.5em; transition: opacity .2s; }
+@media (max-width: 520px){ .loading-card { padding: 32px 18px; } }
+
+/* ---------- resume banner ---------- */
+.resume { background: var(--accent-soft); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 16px; margin: 14px 0; font-size: 15px; }
+.resume button { margin-top: 10px; margin-right: 8px; }
+.link { background: none; border: none; color: var(--primary-700); font: inherit; text-decoration: underline; cursor: pointer; padding: 0; }
+
+.foot { text-align: center; color: var(--muted); font-size: 13px; padding: 8px 0 36px; }
+
+/* ---------- responsivo ---------- */
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  h1 { font-size: 25px; } h2 { font-size: 22px; }
+  .card { padding: 24px 18px; }
+  .brand .brand-name { font-size: 20px; }
+}
+
+/* ---------- preferências do usuário ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

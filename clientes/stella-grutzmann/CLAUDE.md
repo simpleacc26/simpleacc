@@ -20,9 +20,19 @@ onde o outro parou (o Git é a memória compartilhada).
 3. Salve os entregáveis na pasta certa (acima) e **registre o aprendizado** em `aprendizados.md`.
 4. Trabalhe numa branch `cliente/stella-grutzmann/<assunto>` e abra PR.
 
-## Contexto rápido (preencher)
+## Contexto rápido
 
-- **Oferta principal:** _(a preencher)_
-- **Público / ICP:** _(a preencher)_
-- **Links (site, páginas, Make, Figma, Drive):** _(a preencher)_
-- **Contato principal:** _(a preencher)_
+- **Nicho:** consultoria de imagem e estilo (premium; ângulo de *conhecimento*, não tendência).
+- **Oferta principal:** Acompanhamento Premium — R$ 6.000 / 90 dias. Entrada: Consultoria
+  Estratégica R$ 2.997 / 45 dias (só sob objeção de preço).
+- **Público / ICP:** mulheres 37+, profissionais consolidadas (médicas, advogadas, empresárias,
+  executivas) cuja imagem não comunica a autoridade que já têm. Ver `contexto/perfil.md`.
+- **Meta:** R$ 4k → R$ 20k/mês em 90 dias · 5–6 vendas/mês. Roadmap em `estrategia/roadmap-90-dias.md`.
+- **Mentor estratégico (Simple Acc):** Daniel Souza.
+- **Links:** site <https://www.stellagrutzmann.com> · Consultoria
+  <https://stellagrutzmann.com/consultoriaestrategica> · Estilo Têxtil
+  <https://stellagrutzmann.com/estilotextil> · IG
+  [@stellagrutzmann](https://instagram.com/stellagrutzmann) · roadmap
+  <https://deploystella.vercel.app/>.
+
+Detalhe completo em `contexto/perfil.md`. Antes de criar, leia também `aprendizados.md`.

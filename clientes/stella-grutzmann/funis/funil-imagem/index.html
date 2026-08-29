@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Leitura de imagem · Stella Grützmann</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta name="description" content="Descubra o que a sua imagem está comunicando e o primeiro passo para alinhar imagem e competência. Consultoria de imagem e estilo, atendimento online." />
+  <!-- CSS crítico mínimo (evita flash antes do styles.css). Use o --bg da paleta. -->
+  <style>
+    :root{--bg:#F5F0EA;--text:#2B2521}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <!-- Quando tiver o logo, troque por:
+             <img class="logo-img" src="logo.png" alt="Stella Grützmann · Consultoria de Imagem"> -->
+        <span class="brand-name">Stella Grützmann</span>
+        <span class="brand-tag">Consultoria de Imagem</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Barra de progresso (só aparece durante as perguntas) -->
+  <div class="progress-wrap" id="progress" hidden>
+    <div class="container">
+      <div class="progress-meta">
+        <span id="progress-label">Começando</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div id="app" aria-live="polite"><!-- as telas são renderizadas aqui --></div>
+  </main>
+
+  <script src="flow.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
