@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Carrossel — modelo Simple Acc</title>
+
+<!-- FONTES — troque o par conforme o tom da marca (ver references/sistema-visual.md) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ==========================================================================
+   1. PALETA — TROQUE AQUI
+   Os 6 tokens saem TODOS de uma única cor primária da marca.
+   Regra de derivação em references/sistema-visual.md.
+   ========================================================================== */
+:root{
+  --brand-primary:#B8863B;   /* cor da marca: barra de progresso, ícones, tags */
+  --brand-light:#D9AE68;     /* primária ~20% mais clara: tags no escuro, pills */
+  --brand-dark:#7C5A22;      /* primária ~30% mais escura: texto do CTA, gradiente */
+  --light-bg:#F6F2E9;        /* off-white tingido (NUNCA #fff puro) */
+  --light-border:#E7DFCE;    /* um tom abaixo do --light-bg: divisórias */
+  --dark-bg:#1A1918;         /* quase-preto com a temperatura da marca */
+
+  --brand-gradient:linear-gradient(165deg,var(--brand-dark) 0%,var(--brand-primary) 50%,var(--brand-light) 100%);
+
+  --font-head:'Playfair Display',Georgia,'Times New Roman',serif;
+  --font-body:'DM Sans','Helvetica Neue',Arial,sans-serif;
+  --muted:#8A8580;           /* apoio em fundo claro */
+}
+
+/* ==========================================================================
+   2. BASE
+   ========================================================================== */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:var(--font-body);
+  background:#EFEDEA;
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:32px 16px;
+  -webkit-font-smoothing:antialiased;
+}
+.serif{font-family:var(--font-head);}
+.sans{font-family:var(--font-body);}
+
+/* ==========================================================================
+   3. MOLDURA DO INSTAGRAM (só preview — o export esconde tudo isso)
+   A .ig-frame tem EXATAMENTE 420px. Não mude: o export depende disso.
+   ========================================================================== */
+.ig-frame{
+  width:420px;background:#fff;border-radius:14px;overflow:hidden;
+  box-shadow:0 18px 50px rgba(0,0,0,.14);
+}
+.ig-header{display:flex;align-items:center;gap:10px;padding:12px 14px;}
+.ig-avatar{
+  width:34px;height:34px;border-radius:50%;background:var(--brand-primary);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:14px;font-weight:700;flex:0 0 34px;
+}
+.ig-who strong{display:block;font-size:13px;font-weight:600;color:#111;}
+.ig-who span{display:block;font-size:11px;color:#8E8E8E;}
+
+.carousel-viewport{
+  width:420px;aspect-ratio:4/5;position:relative;overflow:hidden;
+  cursor:grab;touch-action:pan-y;background:var(--light-bg);
+}
+.carousel-viewport:active{cursor:grabbing;}
+.carousel-track{
+  display:flex;height:100%;
+  transition:transform .34s cubic-bezier(.4,0,.2,1);
+  will-change:transform;
+}
+
+.ig-actions{display:flex;align-items:center;gap:14px;padding:11px 14px 4px;}
+.ig-actions .spacer{margin-left:auto;}
+.ig-dots{display:flex;justify-content:center;gap:5px;padding:11px 0 2px;}
+.ig-dots i{width:6px;height:6px;border-radius:50%;background:#DBDBDB;transition:background .2s;}
+.ig-dots i.on{background:var(--brand-primary);}
+.ig-caption{padding:2px 14px 16px;font-size:13px;line-height:1.45;color:#262626;}
+.ig-caption b{font-weight:600;}
+.ig-caption .time{display:block;margin-top:8px;font-size:10px;letter-spacing:.4px;color:#A8A8A8;text-transform:uppercase;}
+
+/* ==========================================================================
+   4. SLIDE — 4:5, autocontido. Tudo que aparece aqui vira imagem.
+   data-tone="light" | "dark" | "gradient"
+   ========================================================================== */
+.slide{
+  flex:0 0 420px;width:420px;height:100%;position:relative;overflow:hidden;
+  display:flex;flex-direction:column;padding:0 36px 52px;
+  justify-content:flex-end;              /* padrão: conteúdo embaixo */
+}
+.slide[data-align="center"]{justify-content:center;}
+.slide[data-tone="light"]{background:var(--light-bg);color:var(--dark-bg);}
+.slide[data-tone="dark"]{background:var(--dark-bg);color:#fff;}
+.slide[data-tone="gradient"]{background:var(--brand-gradient);color:#fff;}
+
+/* marca d'água opcional (só onde houver logo) */
+.watermark{
+  position:absolute;right:-18px;bottom:30px;font-size:170px;line-height:1;
+  font-family:var(--font-head);font-weight:600;opacity:.05;pointer-events:none;user-select:none;
+}
+
+/* --- tipografia dos slides ------------------------------------------------ */
+.tag{
+  display:inline-block;font-family:var(--font-body);
+  font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:16px;color:var(--brand-primary);
+}
+[data-tone="dark"] .tag{color:var(--brand-light);}
+[data-tone="gradient"] .tag{color:rgba(255,255,255,.6);}
+
+.h{
+  font-family:var(--font-head);font-size:32px;font-weight:600;
+  letter-spacing:-.4px;line-height:1.12;
+}
+.h.sm{font-size:28px;}
+.p{
+  font-family:var(--font-body);font-size:14px;font-weight:400;line-height:1.52;
+  color:var(--muted);margin-top:14px;
+}
+[data-tone="dark"] .p{color:rgba(255,255,255,.62);}
+[data-tone="gradient"] .p{color:rgba(255,255,255,.78);}
+.small{font-size:12px;line-height:1.5;}
+
+/* --- lockup da marca (slides 1 e 7) --------------------------------------- */
+.lockup{display:flex;align-items:center;gap:11px;margin-bottom:26px;}
+.lockup .mark{
+  width:40px;height:40px;border-radius:50%;background:var(--brand-primary);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;font-family:var(--font-head);font-size:18px;font-weight:600;flex:0 0 40px;
+}
+[data-tone="gradient"] .lockup .mark{background:rgba(255,255,255,.16);}
+.lockup .name{font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;}
+
+/* --- componentes reutilizáveis -------------------------------------------- */
+.pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px;}
+.pill{
+  font-size:11px;padding:5px 12px;border-radius:20px;
+  background:rgba(255,255,255,.06);color:var(--brand-light);
+}
+.pill.off{                                   /* "o que fica pra trás" */
+  background:none;border:1px solid rgba(255,255,255,.1);
+  color:#6B6560;text-decoration:line-through;
+}
+
+.quote{
+  margin-top:20px;padding:16px;border-radius:12px;
+  background:rgba(0,0,0,.15);border:1px solid rgba(255,255,255,.08);
+}
+.quote .label{font-family:var(--font-body);font-size:13px;color:rgba(255,255,255,.5);margin-bottom:6px;}
+.quote .text{font-family:var(--font-head);font-size:15px;color:#fff;font-style:italic;line-height:1.4;}
+
+.feature{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:10px 0;border-bottom:1px solid var(--light-border);
+}
+[data-tone="dark"] .feature{border-bottom-color:rgba(255,255,255,.09);}
+.feature .ico{color:var(--brand-primary);font-size:15px;width:18px;text-align:center;flex:0 0 18px;line-height:1.35;}
+[data-tone="dark"] .feature .ico{color:var(--brand-light);}
+.feature b{display:block;font-family:var(--font-body);font-size:14px;font-weight:600;color:var(--dark-bg);}
+[data-tone="dark"] .feature b{color:#fff;}
+.feature span{display:block;font-family:var(--font-body);font-size:12px;line-height:1.45;color:var(--muted);}
+[data-tone="dark"] .feature span{color:rgba(255,255,255,.5);}
+
+.step{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:14px 0;border-bottom:1px solid var(--light-border);
+}
+.step .n{
+  font-family:var(--font-head);font-size:26px;font-weight:300;
+  color:var(--brand-primary);min-width:34px;line-height:1;
+}
+.step b{display:block;font-family:var(--font-body);font-size:14px;font-weight:600;color:var(--dark-bg);}
+.step span{display:block;font-family:var(--font-body);font-size:12px;line-height:1.45;color:var(--muted);}
+
+.swatches{display:flex;gap:8px;margin-top:20px;}
+.swatch{width:32px;height:32px;border-radius:8px;border:1px solid rgba(255,255,255,.08);}
+
+.cta{
+  display:inline-flex;align-items:center;gap:8px;align-self:flex-start;
+  margin-top:24px;padding:12px 28px;border-radius:28px;
+  background:var(--light-bg);color:var(--brand-dark);
+  font-family:var(--font-body);font-weight:600;font-size:14px;
+}
+
+/* barra de progresso + seta (injetadas por JS em todo slide) */
+.pbar{
+  position:absolute;bottom:0;left:0;right:0;padding:16px 28px 20px;z-index:10;
+  display:flex;align-items:center;gap:10px;
+}
+.pbar .track{flex:1;height:3px;border-radius:2px;overflow:hidden;}
+.pbar .fill{height:100%;border-radius:2px;}
+.pbar .count{font-family:var(--font-body);font-size:11px;font-weight:500;}
+.swipe{
+  position:absolute;right:0;top:0;bottom:0;width:48px;z-index:9;
+  display:flex;align-items:center;justify-content:center;
+}
+</style>
+</head>
+<body>
+
+<div class="ig-frame">
+
+  <!-- ======================= CABEÇALHO DO IG (preview) ===================== -->
+  <div class="ig-header">
+    <div class="ig-avatar serif">S</div>
+    <div class="ig-who">
+      <strong>simpleacc</strong>
+      <span>Funis que qualificam antes da call</span>
+    </div>
+  </div>
+
+  <!-- ============================== SLIDES ================================= -->
+  <div class="carousel-viewport">
+    <div class="carousel-track">
+
+      <!-- 1 · HERO — fundo claro, gancho + lockup ------------------------- -->
+      <div class="slide" data-tone="light" data-align="center">
+        <div class="watermark" aria-hidden="true">S</div>
+        <div class="lockup">
+          <div class="mark">S</div>
+          <div class="name">Simple Acc</div>
+        </div>
+        <span class="tag">Funil de qualificação</span>
+        <h2 class="h">Sua agenda enche, o caixa não.</h2>
+        <p class="p">Seis horas por semana em call com lead que nunca ia comprar. O problema não é volume: é a falta de um filtro antes da agenda.</p>
+      </div>
+
+      <!-- 2 · PROBLEMA — fundo escuro ------------------------------------- -->
+      <div class="slide" data-tone="dark">
+        <span class="tag">O gargalo</span>
+        <h2 class="h">O lead chega cru e o vendedor vira atendente.</h2>
+        <p class="p">Formulário de três campos não diz nada sobre dor, urgência ou caixa. A qualificação acaba acontecendo na call, a hora mais cara do processo.</p>
+        <div class="pills">
+          <span class="pill off">Formulário de 3 campos</span>
+          <span class="pill off">Lead do direct</span>
+          <span class="pill off">Planilha manual</span>
+        </div>
+      </div>
+
+      <!-- 3 · SOLUÇÃO — gradiente da marca -------------------------------- -->
+      <div class="slide" data-tone="gradient">
+        <span class="tag">A virada</span>
+        <h2 class="h">Um quiz curto que faz a pergunta que o vendedor não faz.</h2>
+        <p class="p">Sete perguntas, dois minutos. O lead se diagnostica sozinho e chega na call sabendo o tamanho do problema.</p>
+        <div class="quote">
+          <p class="label">Pergunta que separa curioso de comprador</p>
+          <p class="text">"Quanto custa pra você deixar isso do jeito que está por mais seis meses?"</p>
+        </div>
+      </div>
+
+      <!-- 4 · ENTREGÁVEIS — fundo claro, lista de features ----------------- -->
+      <div class="slide" data-tone="light">
+        <span class="tag">O que entra</span>
+        <h2 class="h sm">Tudo num link só.</h2>
+        <div style="margin-top:18px;">
+          <div class="feature">
+            <span class="ico">◆</span>
+            <div><b>Quiz de diagnóstico</b><span>7 perguntas que pontuam dor, urgência e caixa</span></div>
+          </div>
+          <div class="feature">
+            <span class="ico">●</span>
+            <div><b>Página de resultado</b><span>Leitura personalizada por faixa de pontuação</span></div>
+          </div>
+          <div class="feature">
+            <span class="ico">▲</span>
+            <div><b>Planilha de leads</b><span>Respostas e score caindo em tempo real</span></div>
+          </div>
+          <div class="feature" style="border-bottom:none;">
+            <span class="ico">■</span>
+            <div><b>Cadência de WhatsApp</b><span>Mensagens prontas por perfil de resposta</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 · PERSONALIZAÇÃO — fundo escuro, swatches + pills -------------- -->
+      <div class="slide" data-tone="dark">
+        <span class="tag">Identidade</span>
+        <h2 class="h sm">Na cara da sua marca, não na nossa.</h2>
+        <p class="p">Cores, tipografia e tom saem do seu brandbook. Trocar a marca é trocar seis tokens, nada de cor solta no código.</p>
+        <div class="swatches">
+          <div class="swatch" style="background:var(--brand-primary);"></div>
+          <div class="swatch" style="background:var(--brand-light);"></div>
+          <div class="swatch" style="background:var(--brand-dark);"></div>
+          <div class="swatch" style="background:var(--light-bg);"></div>
+          <div class="swatch" style="background:var(--light-border);"></div>
+        </div>
+        <div class="pills">
+          <span class="pill">Logo próprio</span>
+          <span class="pill">Domínio do cliente</span>
+          <span class="pill">Tom de voz</span>
+        </div>
+      </div>
+
+      <!-- 6 · PASSO A PASSO — fundo claro, numerados ----------------------- -->
+      <div class="slide" data-tone="light">
+        <span class="tag">Como funciona</span>
+        <h2 class="h sm">Do brief ao ar em 7 dias.</h2>
+        <div style="margin-top:14px;">
+          <div class="step">
+            <span class="n serif">01</span>
+            <div><b>Diagnóstico</b><span>Uma call de 40 min: oferta, ICP e o que trava a venda</span></div>
+          </div>
+          <div class="step">
+            <span class="n serif">02</span>
+            <div><b>Construção</b><span>Quiz, página e planilha na sua identidade</span></div>
+          </div>
+          <div class="step" style="border-bottom:none;">
+            <span class="n serif">03</span>
+            <div><b>No ar</b><span>Publicação, teste de ponta a ponta e time treinado</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7 · CTA — gradiente, SEM seta, barra em 100% --------------------- -->
+      <div class="slide" data-tone="gradient" data-align="center">
+        <div class="watermark" aria-hidden="true">S</div>
+        <div class="lockup">
+          <div class="mark">S</div>
+          <div class="name">Simple Acc</div>
+        </div>
+        <h2 class="h">Quer o seu no ar na semana que vem?</h2>
+        <p class="p">Manda “FUNIL” no direct que a gente devolve o diagnóstico da sua operação.</p>
+        <div class="cta">Chamar no direct</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================== RODAPÉ DO IG (preview) ========================== -->
+  <div class="ig-dots"></div>
+
+  <div class="ig-actions">
+    <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1.1 1L12 21l7.7-7.6 1.1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+    <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.8-.9L3 20.5l1.5-4.4A8.4 8.4 0 0 1 12 3.1a8.4 8.4 0 0 1 9 8.4z"/></svg>
+    <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4 20-7z"/></svg>
+    <span class="spacer"></span>
+    <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="#262626" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+  </div>
+
+  <div class="ig-caption">
+    <b>simpleacc</b> Lead cru custa caro: quem qualifica na call paga a conta em hora de vendedor. Salva esse carrossel pra montar o seu filtro.
+    <span class="time">há 2 horas</span>
+  </div>
+
+</div>
+
+<script>
+/* ==========================================================================
+   Chrome do slide (barra de progresso + seta) — injetado em TODO slide.
+   É parte da IMAGEM exportada, não overlay de UI.
+   ========================================================================== */
+const track  = document.querySelector('.carousel-track');
+const slides = [...document.querySelectorAll('.slide')];
+const TOTAL  = slides.length;
+const W      = 420;
+
+function progressBar(index, total, isLight){
+  const pct   = ((index + 1) / total) * 100;
+  const trackC = isLight ? 'rgba(0,0,0,0.08)' : 'rgba(255,255,255,0.12)';
+  const fillC  = isLight ? 'var(--brand-primary)' : '#fff';
+  const labelC = isLight ? 'rgba(0,0,0,0.3)' : 'rgba(255,255,255,0.4)';
+  return `<div class="pbar">
+      <div class="track" style="background:${trackC};">
+        <div class="fill" style="width:${pct}%;background:${fillC};"></div>
+      </div>
+      <span class="count" style="color:${labelC};">${index + 1}/${total}</span>
+    </div>`;
+}
+
+function swipeArrow(isLight){
+  const bg     = isLight ? 'rgba(0,0,0,0.06)' : 'rgba(255,255,255,0.08)';
+  const stroke = isLight ? 'rgba(0,0,0,0.25)' : 'rgba(255,255,255,0.35)';
+  return `<div class="swipe" style="background:linear-gradient(to right,transparent,${bg});">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M9 6l6 6-6 6" stroke="${stroke}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>`;
+}
+
+slides.forEach((slide, i) => {
+  const isLight = slide.dataset.tone === 'light';
+  const isLast  = i === TOTAL - 1;
+  slide.insertAdjacentHTML('beforeend', progressBar(i, TOTAL, isLight));
+  if (!isLast) slide.insertAdjacentHTML('beforeend', swipeArrow(isLight));  // último slide não tem seta
+});
+
+/* -------------------- dots + navegação por arrasto (só preview) ----------- */
+const dots = document.querySelector('.ig-dots');
+dots.innerHTML = slides.map(() => '<i></i>').join('');
+const dotEls = [...dots.children];
+
+let current = 0, startX = 0, dragging = false, delta = 0;
+
+function goTo(i){
+  current = Math.max(0, Math.min(TOTAL - 1, i));
+  track.style.transition = 'transform .34s cubic-bezier(.4,0,.2,1)';
+  track.style.transform  = `translateX(${-current * W}px)`;
+  dotEls.forEach((d, k) => d.classList.toggle('on', k === current));
+}
+
+const viewport = document.querySelector('.carousel-viewport');
+viewport.addEventListener('pointerdown', e => {
+  dragging = true; startX = e.clientX; delta = 0;
+  track.style.transition = 'none';
+  viewport.setPointerCapture(e.pointerId);
+});
+viewport.addEventListener('pointermove', e => {
+  if (!dragging) return;
+  delta = e.clientX - startX;
+  track.style.transform = `translateX(${-current * W + delta}px)`;
+});
+function endDrag(){
+  if (!dragging) return;
+  dragging = false;
+  if (Math.abs(delta) > 55) goTo(current + (delta < 0 ? 1 : -1));
+  else goTo(current);
+}
+viewport.addEventListener('pointerup', endDrag);
+viewport.addEventListener('pointercancel', endDrag);
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight') goTo(current + 1);
+  if (e.key === 'ArrowLeft')  goTo(current - 1);
+});
+
+goTo(0);
+</script>
+</body>
+</html>

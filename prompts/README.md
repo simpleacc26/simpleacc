@@ -21,6 +21,7 @@ a tarefa combina (ou você pode pedir pelo nome).
 | ------------------------------- | -------- |
 | `estrategia-completa-clientes`  | **Estratégia Completa para Clientes** — a partir do onboarding (transcrição/notas), gera o documento de estratégia de 8 seções e entrega como Google Doc formatado na pasta do cliente no Drive. |
 | `gerar-quiz-diag-pag-pos-quiz`  | **Gerar Quiz + Diagnóstico + Página Pós-Quiz** — pega a copy aprovada (da skill acima), monta o quiz + página pós-quiz + PDF na identidade do cliente, **publica na Vercel** (confere a conta da Simple antes), cria a planilha de leads no Drive e testa a integração. |
+| `carrossel-instagram`           | **Carrossel de Instagram** — vira um tema (ou uma estratégia/roteiro que já existe) em carrossel na identidade do cliente: HTML com preview na moldura do IG + **PNGs 1080x1350 prontos pra postar** + legenda. |
 
 ## Como usar
 
