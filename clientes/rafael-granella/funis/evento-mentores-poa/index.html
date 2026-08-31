@@ -175,17 +175,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   /* ---------- fechamento ---------- */
   .fechamento{background:var(--navy-2)}
 
-  /* ---------- whatsapp ---------- */
-  .zap{
-    position:fixed;right:18px;bottom:18px;z-index:40;
-    display:inline-flex;align-items:center;gap:9px;
-    background:var(--card);color:var(--w95);border:1px solid var(--line);
-    border-radius:999px;padding:12px 20px;text-decoration:none;font-size:14.5px;font-weight:500;
-    box-shadow:0 10px 30px rgba(0,0,0,.35);
-  }
-  .zap:hover{border-color:var(--gold);color:var(--gold)}
-  .zap svg{width:17px;height:17px;flex:none;fill:var(--gold)}
-
   /* ---------- barra fixa mobile ---------- */
   .barra{
     position:fixed;left:0;right:0;bottom:0;z-index:35;display:none;
@@ -253,7 +242,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .oferta{padding:34px 22px}
     .btn{width:100%;padding:17px 24px}
     .barra{display:block}
-    .zap{bottom:78px;padding:10px 16px;font-size:13.5px}
     footer{padding-bottom:96px}
   }
 </style>
@@ -599,12 +587,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </footer>
 
-<!-- ============ WHATSAPP ============ -->
-<a class="zap" id="zap" href="#" target="_blank" rel="noopener">
-  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.8 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.2-.2-1.2-1.6-1.2-3s.7-2.1 1-2.4c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.2 1.6 2 1.1.9 2 1.2 2.3 1.4.3.1.5.1.6-.1l.9-1c.2-.2.4-.2.6-.1l2 .9c.2.1.4.2.4.3.1.2.1.7-.1 1.3z"/></svg>
-  Tenho uma dúvida
-</a>
-
 <!-- ============ BARRA FIXA MOBILE ============ -->
 <div class="barra">
   <a href="#" class="btn js-cta">Quero garantir minha vaga</a>
@@ -721,9 +703,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     return "https://wa.me/" + C.whatsapp + "?text=" + encodeURIComponent(texto);
   }
 
-  // Registra na planilha quem foi direto pro WhatsApp sem preencher a aplicacao (duvida ou
-  // convite direto). Sem nome/telefone/email, porque nesse caminho ninguem preencheu nada;
-  // serve pra contar volume e origem (utm) desse tipo de clique ao lado da aplicacao completa.
+  // Registra na planilha quem entrou pelo convite direto (?direto=1) sem preencher a aplicacao.
+  // Sem nome/telefone/email, porque nesse caminho ninguem preencheu nada; serve pra contar
+  // volume e origem (utm) desse tipo de clique ao lado da aplicacao completa.
   function registrarCliqueDireto(etapa) {
     if (!C.webhookLeads) return;
     var corpo = new URLSearchParams({
@@ -745,13 +727,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       try { fetch(C.webhookLeads, { method: "POST", mode: "no-cors", keepalive: true, body: corpo }); } catch (x) {}
     }
   }
-
-  var zap = document.getElementById("zap");
-  zap.href = linkZap("Oi! Vim da página da Imersão Mentores Alivance do dia 11 de setembro e tenho uma dúvida.");
-  zap.addEventListener("click", function () {
-    track("whatsapp_duvida");
-    registrarCliqueDireto("duvida_whatsapp");
-  });
 
   if (typeof C.vagasRestantes === "number" && C.vagasRestantes > 0) {
     var v = document.getElementById("vagas");

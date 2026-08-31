@@ -17,7 +17,7 @@ nome da pessoa. A página diz em três lugares que ninguém é levado a página 
 
 | Arquivo | O que é |
 | --- | --- |
-| `index.html` | A página, com a aplicação em dois passos e o botão de dúvida no WhatsApp |
+| `index.html` | A página, com a aplicação em dois passos até o WhatsApp |
 | `obrigado.html` | Confirmação, abre a conversa no WhatsApp e explica os próximos passos |
 | `integracao/apps-script-planilha.gs` | Caminho alternativo, fora de uso: grava na planilha por Apps Script em vez de Make |
 | `vercel.json` | Redireciona `/img/*` para as fotos já publicadas (ver "As fotos" abaixo) |
@@ -71,7 +71,7 @@ Preencher o bloco `window.CONFIG` no topo do `index.html`:
 
 | Campo | O que colocar |
 | --- | --- |
-| `whatsapp` | Já preenchido com `5554933003410`. É para onde a aplicação leva e também o botão de dúvida. |
+| `whatsapp` | Já preenchido com `5554933003410`. É para onde a aplicação e o convite direto levam. |
 | `webhookLeads` | Já preenchido com o webhook do Make acima. Vazio significa que a pessoa segue para o WhatsApp normalmente, mas nada é gravado. |
 | `vagasRestantes` | Número de vagas ainda disponíveis, para exibir o contador. `null` esconde o contador. |
 
@@ -103,9 +103,8 @@ no GTM cada um vira um acionador do tipo **Evento personalizado** com o nome exa
 | Evento | Quando dispara | Página |
 | --- | --- | --- |
 | `aplicacao_abriu` | Pessoa clica em qualquer botão de inscrição e o modal abre | index |
-| `aplicacao_passo2` | **Clicou em Continuar com nome, WhatsApp e e-mail válidos.** É a métrica de quem enviou os dados de contato | index |
-| `aplicacao_enviada` | **Respondeu as três perguntas e enviou.** É a conversão principal | index |
-| `whatsapp_duvida` | Clique no botão flutuante "Tenho uma dúvida" | index |
+| `aplicacao_passo2` | **Respondeu as três perguntas e clicou em Continuar.** É a métrica de quem avançou para os dados de contato | index |
+| `aplicacao_enviada` | **Preencheu nome, WhatsApp e e-mail válidos e enviou.** É a conversão principal | index |
 | `whatsapp_convite_direto` | Entrou por `?direto=1` e foi mandado direto pro WhatsApp | index |
 | `aplicacao_concluida` | Carregou a página de obrigado | obrigado |
 | `whatsapp_conversa_aberta` | Clicou no botão que abre a conversa no WhatsApp | obrigado |
