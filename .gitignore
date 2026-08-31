@@ -17,3 +17,7 @@
 **/.cache/
 **/.DS_Store
 **/Thumbs.db
+
+# Caches de Python
+**/__pycache__/
+**/*.pyc
