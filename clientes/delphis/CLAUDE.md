@@ -42,8 +42,8 @@ parou (o Git é a memória compartilhada).
 
 1. `contexto/dossie-cliente.md` — perfil, oferta, números, ICP, concorrentes, pendências.
 2. `contexto/entregaveis-vendidos.md` — o que foi vendido (não prometer nada além disso).
-3. `estrategia/2026-08-28-estrategia.md` — a estratégia completa (quiz, páginas, anúncios,
-   diagnóstico, cadência, tarefas e recomendações).
+3. `estrategia/2026-08-28-estrategia-completa-delphis.html` — a estratégia completa (funil em
+   uma página, big idea, quiz, página de diagnóstico, 20 criativos, cadência e recomendações).
 4. `estrategia/2026-08-28-roadmap-estrategico-delphis-fonseca.html` — o roadmap de 90 dias.
 
 > ⚠️ **Sensível:** o contrato dele com a agência atual vai até outubro ou novembro e **não
