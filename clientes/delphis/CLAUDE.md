@@ -29,8 +29,10 @@ parou (o Git é a memória compartilhada).
 
 - **Quem é:** Delphis da Fonseca — mentor de comunicação (Método AUTOFOCO), 40+ anos de
   rádio, TV, dublagem e palco; 22 anos no Senac SP; +4.000 alunos formados.
-- **Oferta principal:** Mentoria AUTOFOCO — R$30k / R$17k / R$9k individual e R$4k em grupo.
-  Produto de entrada em lançamento: "Detonando a Timidez", R$899 na Hotmart.
+- **Oferta principal:** Mentoria CONEXÃO 120 / 60 / 30 (R$30k no PIX ou 12x2.990 · 12x1.690 ·
+  12x899), com o Ecossistema AutoFoco (psicólogo e fonoaudióloga) nos níveis altos.
+  Entrada: "Detonando a Timidez", R$899 na Hotmart. Produto em grupo (~R$4k) a decidir.
+  Detalhe em `contexto/produtos-e-precos.md`.
 - **Público / ICP:** ver `contexto/dossie-cliente.md` (entrada: público amplo com timidez;
   HT: perfil profissional/executivo — a fechar no mapa estratégico).
 - **Contrato:** R$2.000/mês × 6 meses, fechado em 17/08/2026. Funil no ar em 7 dias.
@@ -40,7 +42,11 @@ parou (o Git é a memória compartilhada).
 
 1. `contexto/dossie-cliente.md` — perfil, oferta, números, ICP, concorrentes, pendências.
 2. `contexto/entregaveis-vendidos.md` — o que foi vendido (não prometer nada além disso).
-3. `estrategia/2026-08-25-guia-call-onboarding.md` — roteiro da call de mapa estratégico.
+3. `estrategia/2026-08-28-estrategia.md` — a estratégia completa (quiz, páginas, anúncios,
+   diagnóstico, cadência, tarefas e recomendações).
+4. `estrategia/2026-08-28-roadmap-estrategico-delphis-fonseca.html` — o roadmap de 90 dias.
 
-> ⚠️ **Sensível:** a agência de tráfego atual dele **não sabe** da Simple. O trabalho roda
-> em paralelo, em conta de anúncio separada. Nada público, nada de contato com eles.
+> ⚠️ **Sensível:** o contrato dele com a agência atual vai até outubro ou novembro e **não
+> tem cláusula de exclusividade**. A operação roda em paralelo, em conta de anúncio separada
+> dentro do portfólio Delphis Studios. Ele vai comunicar a agência, mas só depois de a
+> estrutura estar isolada e as permissões auditadas. Nada público sobre isso.
