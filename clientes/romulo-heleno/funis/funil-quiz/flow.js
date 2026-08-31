@@ -1,7 +1,7 @@
 /* ============================================================
    FLOW. Toda a copy do quiz vive aqui.
    Cliente: Rômulo Heleno · Mentoria Cabelo de Segunda (técnica de mecha)
-   Índice: IIM, Índice de Improviso na construção das Mechas.
+   Índice: IIM, Índice de Improviso na Construção das Mechas.
    PLURAL: o cliente pediu em 27/08 'sempre que possível substituir mecha por
    mechas'. Fica no singular só onde é termo técnico (divisão de mecha).
    Estrutura: blueprint "estrutura invisível" da Simple, na versão fechada no
@@ -19,7 +19,7 @@ window.FLOW = {
     storeKey: "romulo_heleno_quiz",
     frente: "Diagnóstico das Mechas",
     diagnosticoUrl: "diagnostico.html",
-    indice: { sigla: "IIM", nome: "Índice de Improviso na construção das Mechas" },
+    indice: { sigla: "IIM", nome: "Índice de Improviso na Construção das Mechas" },
   },
 
   marca: {
@@ -47,7 +47,7 @@ window.FLOW = {
 
   hero: {
     titulo: "Existe um motivo para que o seu trabalho de mechas seja personalizado para cada cliente",
-    subtitulo: "Responda e descubra o seu Índice de Improviso na construção das Mechas, o quanto do seu resultado ainda depende de sorte em vez de método, e onde exatamente isso trava a sua técnica e o seu ticket.",
+    subtitulo: "Responda e descubra o seu Índice de Improviso na Construção das Mechas, o quanto do seu resultado ainda depende de sorte em vez de método, e onde exatamente isso trava a sua técnica e o seu ticket.",
     tempo: "Leva cerca de 2 minutos e o resultado é seu na hora",
   },
 

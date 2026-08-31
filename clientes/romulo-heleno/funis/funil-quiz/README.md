@@ -17,7 +17,7 @@ Segue o blueprint `references/estrutura-invisivel.md` da skill
 (mesmo motor, mesma ordem de blocos, mesmas travas), com a copy, o índice e a
 identidade do Rômulo por cima.
 
-- **Índice:** IIM, Índice de Improviso na construção das Mechas. Só as perguntas de diagnóstico
+- **Índice:** IIM, Índice de Improviso na Construção das Mechas. Só as perguntas de diagnóstico
   pontuam. Faixas: ≥ 66% Alto · 33 a 65% Médio · < 33% Baixo.
 - **Resultado nomeado**, por pilar: Refém da tonalidade · Mão boa, método nenhum ·
   Uma receita para todo tipo de cabelo · Trabalho de especialista, preço de
@@ -116,6 +116,18 @@ identidade do Rômulo por cima.
     fecha sem buraco na última linha tanto no celular (2 colunas) quanto no
     desktop (3). Mantenha o total múltiplo de 6.
 
+## Onde o nome do índice mora
+
+**`flow.js > config.indice.nome`, e só ali.** A tela de carregamento e o título
+do relatório leem de lá em tempo de execução. Isso existe porque em 31/08 o
+carregamento foi ao ar com o nome antigo: era a terceira cópia do mesmo texto
+escrita à mão, e um ajuste de copy do cliente atualizou duas. **Não volte a
+escrever o nome do índice à mão nessas duas telas.**
+
+Sobram, de propósito, duas cópias literais que não dá para ler do JS: o
+subtítulo da capa (é uma frase, não um rótulo) e a `meta description` do
+`index.html`. Se o nome mudar, mexa nas duas também.
+
 ## Pesos e calibração
 
 **Rodamos as 1024 combinações antes de publicar.** Amplitude de 20% a 100%, com
@@ -174,7 +186,7 @@ Ele mandou as reescritas no grupo e o Carlos aprovou. Está tudo aplicado:
 | O que | Antes | Agora |
 |---|---|---|
 | Título de abertura | Existe um motivo para a sua mecha sair diferente a cada cliente | Existe um motivo para que o seu trabalho de mechas seja personalizado para cada cliente |
-| Nome do índice | Índice de Improviso na Mecha | Índice de Improviso na construção das Mechas |
+| Nome do índice | Índice de Improviso na Mecha | Índice de Improviso na Construção das Mechas |
 | Nome da frente | Diagnóstico da Mecha | Diagnóstico das Mechas |
 | Pergunta 1 | Como a mecha entra na sua agenda hoje? | Como o serviço de mechas entra na sua agenda hoje? |
 | Pergunta 2 | O que mais te trava numa mecha? | O que mais te trava ao fazer mechas? |

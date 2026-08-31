@@ -92,12 +92,12 @@ const DEPOIMENTOS = [];
    O alt descreve o cabelo, não a pessoa.
    ============================================================ */
 const TRABALHOS = [
-  { src: "fotos/trabalho-1.jpg", alt: "Mecha em cabelo castanho escuro, com iluminado dourado desenhado no comprimento" },
-  { src: "fotos/trabalho-2.jpg", alt: "Mecha loira com raiz esfumada e ondas longas" },
-  { src: "fotos/trabalho-3.jpg", alt: "Mecha em tom mel e caramelo, com movimento do meio às pontas" },
+  { src: "fotos/trabalho-1.jpg", alt: "Mechas em cabelo castanho escuro, com iluminado dourado desenhado no comprimento" },
+  { src: "fotos/trabalho-2.jpg", alt: "Mechas loiras com raiz esfumada, em cabelo de ondas longas" },
+  { src: "fotos/trabalho-3.jpg", alt: "Mechas em tom mel e caramelo, com movimento do meio às pontas" },
   { src: "fotos/trabalho-4.jpg", alt: "Loiro iluminado com transição suave da raiz, em cabelo longo" },
-  { src: "fotos/trabalho-5.jpg", alt: "Mecha acobreada em cabelo cacheado longo" },
-  { src: "fotos/trabalho-6.jpg", alt: "Mecha em cabelo escuro vista de perfil, mostrando a distribuição da luz" },
+  { src: "fotos/trabalho-5.jpg", alt: "Mechas acobreadas em cabelo cacheado longo" },
+  { src: "fotos/trabalho-6.jpg", alt: "Mechas em cabelo escuro vistas de perfil, mostrando a distribuição da luz" },
 ];
 
 /* 6 fotos de propósito: divide certinho por 2 (celular) e por 3 (desktop),
@@ -108,7 +108,7 @@ const TRABALHOS = [
    não precisa rolar até o fim para agir. */
 const blocoTrabalhos = TRABALHOS.length ? `
     <div class="etapa">
-      <h3>Mecha feita por ele</h3>
+      <h3>Mechas feitas por ele</h3>
       <p class="trabalhos-nota">Trabalhos do próprio Rômulo, publicados com autorização das clientes que aparecem.</p>
       <div class="galeria">${TRABALHOS.map(t => `
         <img class="galeria-foto" src="${t.src}" alt="${esc(t.alt)}" width="720" height="900" loading="lazy" decoding="async" />`).join("")}
@@ -174,7 +174,7 @@ if (!a._completedAt && !a.problema) {
   report.innerHTML = `
     <div class="report-head">
       <span class="selo">Diagnóstico das Mechas</span>
-      <h1>O seu Índice de Improviso na construção das Mechas</h1>
+      <h1>O seu ${(F.config && F.config.indice && F.config.indice.nome) || "índice"}</h1>
       <div class="resultado">${resultado}</div>
       <div class="indice ${faixaClasse}">
         <div class="indice-num">${indice.pct}%</div>
