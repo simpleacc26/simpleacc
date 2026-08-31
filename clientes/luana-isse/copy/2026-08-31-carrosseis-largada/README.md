@@ -19,8 +19,8 @@ Se os cinco forem iguais, o feed lê como uma peça só repetida.
 | - | ---- | ---- | -------------- | ----- | ---- |
 | 1 | Cena | O dia do especialista invisível | **Duas batidas** · bege e escuro; a montagem em cima, o soco embaixo, filete dourado no meio | 4 | só no fim |
 | 2 | Cena | As frases que você já disse pra si mesmo | **Fichas** · abre e fecha com o card inteiro em dourado e letra escura; no meio, fichas de citação sobre o escuro | 4 | começo e fim |
-| 3 | Mecanismo | A Ruptura de Valor Percebido | **O vão** · verde petróleo do manual, faixa dourada no rodapé com a frase-chave, e o vão medido virando gráfico | 4 | só no fim |
-| 4 | Mecanismo | Técnico ou percebido | **Coluna dividida** · vinho contra dourado, e a divisão anda de um lado para o outro conforme quem está falando | 4 | só no começo |
+| 3 | Mecanismo | A Ruptura de Valor Percebido | **O vão** · verde petróleo do manual **também na letra**, faixa dourada no rodapé com a frase-chave, e o vão medido virando gráfico | 4 | só no fim |
+| 4 | Mecanismo | Técnico ou percebido | **Coluna dividida** · vinho contra bege, e a divisão anda de um lado para o outro conforme quem está falando. **Sem dourado** | 4 | só no começo |
 | 5 | Autoridade | O que eu vi em quase 30 especialistas | **Retrato** · coluna editorial com filete dourado na margem, o tema correndo na vertical e a foto grande | 4 | começo e fim |
 
 O uso da foto **varia de propósito**, para testar qual abertura segura mais o
@@ -79,16 +79,23 @@ artes:
 
 | Token | Valor | Uso |
 | ----- | ----- | --- |
-| Dourado | `#B49055` | destaque, e **fundo inteiro** no carrossel 2 e nas faixas do 3 e do 4 |
+| Dourado | `#B49055` | destaque, e **fundo inteiro** no carrossel 2 e na faixa do 3 |
 | Dourado claro | `#C9AC7E` | destaque sobre fundo escuro |
 | Dourado escuro | `#8A6E3F` | filete sobre fundo dourado |
-| Escuro institucional | `#030118` | fundo escuro, e letra sobre dourado |
-| Vinho | `#441529` | metade do técnico no carrossel 4 |
-| Verde petróleo | `#07292E` | fundo escuro do carrossel 3 |
+| Escuro institucional | `#030118` | fundo e letra dos carrosséis 1, 2 e 5 |
+| Vinho | `#441529` | metade do técnico no carrossel 4, e a letra sobre o bege ali |
+| Vinho profundo | `#2C0E1B` | vinho escurecido ~35%, base do carrossel 4 |
+| Verde petróleo | `#07292E` | fundo **e letra** do carrossel 3 |
 | Bege | `#F5EFE4` | fundo claro, nunca branco puro |
 
-A cor da letra muda com o fundo: escuro institucional sobre dourado e sobre
-bege, creme sobre escuro, vinho e petróleo.
+**Cada carrossel anda numa família de cor só**, e a letra segue o fundo. O 3 é
+petróleo do começo ao fim, inclusive nos títulos sobre bege e sobre a faixa
+dourada: o escuro institucional puxava para o azul e brigava com o verde. O 4 é
+vinho e bege, **sem dourado nenhum**, porque vinho com dourado é combinação que
+o cliente vetou; o destaque no card final é de opacidade, não de cor, para não
+precisar de uma cor fora do manual.
+
+A única cor do manual que continua de fora é o marrom `#491F13`.
 
 **Tipografia:** Montserrat no corpo (manual) e Playfair Display nos títulos,
 substituta da Humble Nostalgia, que é paga e não temos o arquivo. Se ela mandar
@@ -103,7 +110,10 @@ a Humble Nostalgia, dá para trocar em `gerar.py`.
 3. **Não usar "resgatar identidade".** A virada que entra em copy é a concreta:
    de especialista técnico a especialista percebido.
 4. **Sem travessão e sem emoji.**
-5. Big idea: **"Quem é visto, vende mais."**
+5. **CTA:** o botão diz **"Toque em Saiba Mais"** com a seta **para baixo**, que
+   é onde fica o botão Saiba Mais do anúncio. O domínio do funil vem escrito
+   logo abaixo.
+6. Big idea: **"Quem é visto, vende mais."**
 
 ## Três ajustes na copy aprovada
 

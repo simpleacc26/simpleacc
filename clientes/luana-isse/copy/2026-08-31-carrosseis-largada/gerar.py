@@ -31,6 +31,7 @@ GOLD_LIGHT = "#C9AC7E"   # dourado clareado ~20%, destaque sobre fundo escuro
 GOLD_DEEP  = "#8A6E3F"   # dourado escurecido, filete sobre fundo dourado
 INK        = "#030118"   # escuro institucional
 WINE       = "#441529"   # vinho
+WINE_DEEP  = "#2C0E1B"   # vinho escurecido ~35%, base do carrossel 4
 PETROL     = "#07292E"   # verde petróleo
 BEGE       = "#F5EFE4"   # off-white quente, nunca branco puro
 BEGE_LINE  = "#E3D8C5"
@@ -56,6 +57,36 @@ TONS = {
 }
 
 
+def tom(base, **ajustes):
+    """Clona um tom trocando só o que muda. Serve para o carrossel ficar inteiro
+    numa família de cor: o 3 troca o azul institucional por petróleo, e o 4 por
+    vinho, para não ter três cores fortes brigando no mesmo card."""
+    novo = dict(TONS[base])
+    novo.update(ajustes)
+    return novo
+
+
+TONS["claro-petroleo"] = tom(
+    "claro", fg=PETROL, muted="#5E6A68", logo="logo-petroleo",
+    track="rgba(7,41,46,.13)", num="rgba(7,41,46,.36)",
+    seta_bg="rgba(7,41,46,.06)", seta="rgba(7,41,46,.28)")
+TONS["ouro-petroleo"] = tom(
+    "ouro", fg=PETROL, muted="rgba(7,41,46,.66)", tag="rgba(7,41,46,.58)",
+    logo="logo-petroleo", fill=PETROL,
+    track="rgba(7,41,46,.22)", num="rgba(7,41,46,.48)",
+    seta_bg="rgba(7,41,46,.09)", seta="rgba(7,41,46,.38)")
+# O carrossel 4 anda em vinho e bege, sem dourado nenhum: vinho com dourado é
+# combinação que o cliente vetou.
+TONS["escuro-vinho"] = tom(
+    "escuro", tag="rgba(245,239,228,.74)", fill=CREAM,
+    rule="rgba(245,239,228,.16)")
+TONS["bege-vinho"] = tom(
+    "claro", fg=WINE, muted="rgba(68,21,41,.66)", tag="rgba(68,21,41,.62)",
+    rule="rgba(68,21,41,.20)", logo="logo-vinho", fill=WINE,
+    track="rgba(68,21,41,.18)", num="rgba(68,21,41,.46)",
+    seta_bg="rgba(68,21,41,.08)", seta="rgba(68,21,41,.36)")
+
+
 def b64(nome, mime):
     return "data:%s;base64,%s" % (mime, base64.b64encode((ASSETS / nome).read_bytes()).decode())
 
@@ -65,6 +96,8 @@ IMG = {
     "logo-escuro": b64("logo-escuro.png", "image/png"),
     "logo-claro": b64("logo-claro.png", "image/png"),
     "logo-dourado": b64("logo-dourado.png", "image/png"),
+    "logo-petroleo": b64("logo-petroleo.png", "image/png"),
+    "logo-vinho": b64("logo-vinho.png", "image/png"),
 }
 FONTES = (ASSETS / "fonts" / "fontes-embutidas.css").read_text(encoding="utf-8")
 
@@ -159,12 +192,14 @@ def foto(px=110, borda=GOLD, raio="50%", espessura=2, extra=""):
             f'border:{espessura}px solid {borda};display:block;{extra}">')
 
 
-def botao(txt="Toque no link", fundo=BEGE, cor=INK):
+def botao(txt="Toque em Saiba Mais", fundo=BEGE, cor=INK):
+    """A seta aponta para baixo porque é para lá que o leitor vai: o botão
+    Saiba Mais do anúncio fica embaixo do criativo, não ao lado."""
     return (f'<div class="sans" style="display:inline-flex;align-items:center;gap:9px;'
-            f'padding:13px 26px;background:{fundo};color:{cor};font-weight:600;font-size:14px;'
+            f'padding:13px 24px;background:{fundo};color:{cor};font-weight:600;font-size:14px;'
             'border-radius:28px;letter-spacing:.2px;">'
             f'{txt}<svg width="15" height="15" viewBox="0 0 24 24" fill="none">'
-            f'<path d="M5 12h14M13 6l6 6-6 6" stroke="{cor}" stroke-width="2.2" '
+            f'<path d="M12 5v14M6 13l6 6 6-6" stroke="{cor}" stroke-width="2.2" '
             'stroke-linecap="round" stroke-linejoin="round"/></svg></div>')
 
 
@@ -368,21 +403,19 @@ def grafico_vao(tom):
 
 def carrossel_3():
     return [
-        dict(tom="claro", fundo=BEGE, tom_barra="ouro", inner=(
-            faixa_marca("claro", com_logo=True)
+        dict(tom="claro-petroleo", fundo=BEGE, tom_barra="ouro-petroleo", inner=(
+            faixa_marca("claro-petroleo", com_logo=True)
             + caixa(
-                etiqueta("MECANISMO", "claro", mb=16)
+                etiqueta("MECANISMO", "claro-petroleo", mb=16)
                 + titulo("Existe uma distância entre o valor que você tem e o valor "
                          "que o mercado enxerga.", 27, lh=1.16)
-                + grafico_vao("claro"),
+                + grafico_vao("claro-petroleo"),
                 alinhamento="flex-end", pad="76px 32px 158px",
             )
             + faixa_ouro(
-                f'<span class="sans" style="display:block;font-size:10px;font-weight:600;'
-                f'letter-spacing:2.2px;color:rgba(3,1,24,.55);margin-bottom:10px;">'
-                'O NOME DISSO</span>'
+                etiqueta("O NOME DISSO", "ouro-petroleo", mb=10)
                 + titulo("Ela tem nome: Ruptura de Valor Percebido.", 24, peso=600,
-                         lh=1.18, cor=INK)
+                         lh=1.18, cor=PETROL)
             )
         )),
         dict(tom="escuro", fundo=PETROL, inner=(
@@ -401,18 +434,18 @@ def carrossel_3():
                 alinhamento="space-between", pad="78px 32px 68px",
             )
         )),
-        dict(tom="claro", fundo=BEGE, tom_barra="ouro", inner=(
-            faixa_marca("claro")
+        dict(tom="claro-petroleo", fundo=BEGE, tom_barra="ouro-petroleo", inner=(
+            faixa_marca("claro-petroleo")
             + caixa(
-                etiqueta("O MOTIVO", "claro", mb=14)
+                etiqueta("O MOTIVO", "claro-petroleo", mb=14)
                 + titulo(f'Porque tática em cima de percepção quebrada só produz '
                          f'<span style="color:{GOLD}">ruído</span>.', 30, lh=1.15),
                 alinhamento="flex-end", pad="76px 32px 240px",
             )
             + faixa_ouro(
                 titulo("O que resolve é fechar a distância, na ordem certa.", 21,
-                       peso=600, lh=1.2, cor=INK)
-                + pilares_grade("ouro", cor_num="rgba(3,1,24,.5)")
+                       peso=600, lh=1.2, cor=PETROL)
+                + pilares_grade("ouro-petroleo", cor_num="rgba(7,41,46,.52)")
             )
         )),
         dict(tom="escuro", fundo=PETROL, ultimo=True, inner=(
@@ -440,14 +473,18 @@ def carrossel_3():
 # para a barra de progresso não cair em cima da emenda.
 # =====================================================================
 def divisao(pct_vinho):
+    """Vinho de um lado, bege do outro. Sem dourado: vinho com dourado é
+    combinação que o cliente vetou."""
     return ('<div style="position:absolute;inset:0;z-index:0;display:flex;">'
             f'<div style="width:{pct_vinho}%;background:{WINE};"></div>'
-            f'<div style="flex:1;background:{GOLD};"></div></div>')
+            f'<div style="flex:1;background:{BEGE};"></div></div>')
 
 
-def rodape_escuro(altura=78):
+def rodape_vinho(altura=78):
+    """Base do card, em vinho profundo, para a barra de progresso não cair em
+    cima da emenda entre as duas metades."""
     return ('<div style="position:absolute;left:0;right:0;bottom:0;z-index:4;'
-            f'height:{altura}px;background:{INK};"></div>')
+            f'height:{altura}px;background:{WINE_DEEP};"></div>')
 
 
 def etiqueta_vertical(txt, cor, lado, px=15, topo=76):
@@ -460,78 +497,86 @@ def etiqueta_vertical(txt, cor, lado, px=15, topo=76):
 
 def carrossel_4():
     return [
-        dict(tom="escuro", fundo=INK, tom_seta="ouro", tom_barra="escuro", inner=(
+        dict(tom="escuro-vinho", fundo=WINE_DEEP, tom_seta="bege-vinho",
+             tom_barra="escuro-vinho", inner=(
             divisao(50)
-            + rodape_escuro(142)
+            + rodape_vinho(142)
             + '<div style="position:absolute;top:26px;left:32px;right:32px;z-index:10;'
               'display:flex;align-items:center;justify-content:space-between;gap:12px;">'
               f'<img src="{IMG["logo-claro"]}" alt="{MARCA}" '
               'style="height:19px;width:auto;display:block;opacity:.92;">'
               '<span class="sans" style="font-size:10px;font-weight:500;letter-spacing:.6px;'
-              f'color:rgba(3,1,24,.62);">{HANDLE}</span></div>'
-            + f'<div style="position:absolute;left:32px;top:74px;z-index:5;">'
-              f'<span class="sans" style="font-size:10px;font-weight:600;letter-spacing:2.2px;'
-              f'color:rgba(245,239,228,.72);">O TÉCNICO</span></div>'
-            + f'<div style="position:absolute;right:56px;top:74px;z-index:5;text-align:right;">'
-              f'<span class="sans" style="font-size:10px;font-weight:600;letter-spacing:2.2px;'
-              f'color:rgba(3,1,24,.62);">O PERCEBIDO</span></div>'
+              f'color:rgba(68,21,41,.72);">{HANDLE}</span></div>'
+            + '<div style="position:absolute;left:32px;top:74px;z-index:5;">'
+              '<span class="sans" style="font-size:10px;font-weight:600;letter-spacing:2.2px;'
+              'color:rgba(245,239,228,.74);">O TÉCNICO</span></div>'
+            + '<div style="position:absolute;right:56px;top:74px;z-index:5;text-align:right;">'
+              '<span class="sans" style="font-size:10px;font-weight:600;letter-spacing:2.2px;'
+              'color:rgba(68,21,41,.72);">O PERCEBIDO</span></div>'
             + '<div style="position:absolute;left:50%;top:168px;transform:translateX(-50%);'
-              f'z-index:6;">{foto(112, BEGE, espessura=3)}</div>'
+              f'z-index:6;">{foto(112, WINE_DEEP, espessura=3)}</div>'
             + '<div style="position:absolute;left:32px;right:32px;bottom:56px;z-index:6;">'
             + titulo("Existem dois especialistas no mercado.", 29, lh=1.14, cor=CREAM)
             + '</div>'
         )),
-        dict(tom="escuro", fundo=INK, tom_seta="ouro", tom_barra="escuro", inner=(
+        dict(tom="escuro-vinho", fundo=WINE_DEEP, tom_seta="bege-vinho",
+             tom_barra="escuro-vinho", inner=(
             divisao(76)
-            + rodape_escuro(78)
-            + faixa_marca("escuro", dir_=64)
-            + etiqueta_vertical("PERCEBIDO", "rgba(3,1,24,.55)", "dir")
+            + rodape_vinho(78)
+            # a metade bege começa em 76% de 420, ou seja x=319: a arroba tem que
+            # terminar antes disso, senão sai em creme em cima do bege e some
+            + faixa_marca("escuro-vinho", dir_=114)
+            + etiqueta_vertical("PERCEBIDO", "rgba(68,21,41,.62)", "dir")
             + caixa(
-                etiqueta("O TÉCNICO", "escuro", mb=16, cor=GOLD_LIGHT)
+                etiqueta("O TÉCNICO", "escuro-vinho", mb=16)
                 + titulo("O técnico: sabe muito, estuda muito, tem certificado.", 27, lh=1.16)
-                + filete(GOLD_LIGHT, largura=40, mt=22, mb=18)
+                + filete(CREAM, largura=40, mt=22, mb=18)
                 + titulo("E continua sendo comparado por preço.", 24, peso=400, lh=1.2,
-                         cor="rgba(245,239,228,.82)"),
+                         cor="rgba(245,239,228,.84)"),
                 alinhamento="flex-end", pad="78px 132px 96px 32px",
             )
         )),
-        dict(tom="ouro", fundo=INK, tom_seta="ouro", tom_barra="escuro", inner=(
+        dict(tom="bege-vinho", fundo=WINE_DEEP, tom_seta="bege-vinho",
+             tom_barra="escuro-vinho", inner=(
             divisao(24)
-            + rodape_escuro(78)
+            + rodape_vinho(78)
             + '<div style="position:absolute;top:26px;left:120px;right:32px;z-index:10;'
               'display:flex;align-items:center;justify-content:space-between;gap:12px;">'
               '<span class="sans" style="font-size:10px;font-weight:600;letter-spacing:1.7px;'
-              f'color:rgba(3,1,24,.6);">{MARCA}</span>'
+              f'color:rgba(68,21,41,.7);">{MARCA}</span>'
               '<span class="sans" style="font-size:10px;font-weight:500;letter-spacing:.6px;'
-              f'color:rgba(3,1,24,.6);">{HANDLE}</span></div>'
-            + etiqueta_vertical("TÉCNICO", "rgba(245,239,228,.6)", "esq")
+              f'color:rgba(68,21,41,.7);">{HANDLE}</span></div>'
+            + etiqueta_vertical("TÉCNICO", "rgba(245,239,228,.62)", "esq")
             + caixa(
-                etiqueta("O PERCEBIDO", "ouro", mb=16, cor="rgba(3,1,24,.55)")
+                etiqueta("O PERCEBIDO", "bege-vinho", mb=16)
                 + titulo("O percebido: talvez saiba exatamente a mesma coisa.", 27, lh=1.16,
-                         cor=INK)
-                + filete(INK, largura=40, mt=22, mb=18)
+                         cor=WINE)
+                + filete(WINE, largura=40, mt=22, mb=18)
                 + titulo("Mas é lembrado, é indicado, é valorizado.", 24, peso=500, lh=1.2,
-                         cor=INK),
+                         cor=WINE),
                 alinhamento="flex-end", pad="78px 56px 96px 128px",
             )
         )),
-        dict(tom="escuro", fundo=INK, ultimo=True, inner=(
-            faixa_marca("escuro")
+        dict(tom="escuro-vinho", fundo=WINE_DEEP, ultimo=True, inner=(
+            faixa_marca("escuro-vinho")
             + '<div style="position:absolute;inset:0;z-index:0;display:flex;">'
-              f'<div style="width:50%;background:linear-gradient(to bottom,{WINE}00 58%,'
-              f'{WINE}3a 100%);"></div>'
-              f'<div style="flex:1;background:linear-gradient(to bottom,{GOLD}00 58%,'
-              f'{GOLD}2b 100%);"></div></div>'
+              f'<div style="width:50%;background:linear-gradient(to bottom,{WINE}00 62%,'
+              f'{WINE}5e 100%);"></div>'
+              f'<div style="flex:1;background:linear-gradient(to bottom,{BEGE}00 62%,'
+              f'{BEGE}14 100%);"></div></div>'
             + caixa(
-                etiqueta("A DIFERENÇA", "escuro", mb=14)
-                + titulo("A diferença entre os dois não é conhecimento. "
-                         f'É <span style="color:{GOLD_LIGHT}">comunicação de valor</span>. '
-                         "E isso se constrói.", 27, lh=1.18)
-                + texto("Descubra em qual você está hoje.", "escuro", size=15, mt=16,
+                etiqueta("A DIFERENÇA", "escuro-vinho", mb=14)
+                # o destaque aqui é de opacidade, não de cor: dourado está vetado
+                # junto do vinho, e cor nova fora do manual não entra
+                + titulo('<span style="opacity:.72">A diferença entre os dois não é '
+                         'conhecimento.</span> É comunicação de valor. '
+                         '<span style="opacity:.72">E isso se constrói.</span>',
+                         27, lh=1.18)
+                + texto("Descubra em qual você está hoje.", "escuro-vinho", size=15, mt=16,
                         largura=290)
-                + f'<div style="margin-top:22px;">{botao()}</div>'
-                + link_escrito("escuro")
-                + rodape_cta("escuro"),
+                + f'<div style="margin-top:22px;">{botao(fundo=BEGE, cor=WINE_DEEP)}</div>'
+                + link_escrito("escuro-vinho")
+                + rodape_cta("escuro-vinho"),
                 alinhamento="center", pad="74px 32px 70px",
             )
         )),
@@ -765,7 +810,7 @@ CARROSSEIS = [
                   "Chama-se Ruptura de Valor Percebido. Meça a sua em 2 minutos.")),
     dict(n=4, slug="4-tecnico-ou-percebido",
          titulo="Técnico ou percebido", eixo="Mecanismo",
-         sistema="Coluna dividida · vinho e dourado", foto="só no começo", slides=carrossel_4,
+         sistema="Coluna dividida · vinho e bege", foto="só no começo", slides=carrossel_4,
          legenda=("O técnico sabe muito e continua sendo comparado por preço. O percebido talvez "
                   "saiba o mesmo, mas é lembrado, indicado e valorizado. Descubra em qual "
                   "você está.")),
