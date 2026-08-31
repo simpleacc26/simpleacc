@@ -29,6 +29,7 @@ páginas + copies + criativos + tráfego), playbooks comerciais e acompanhamento
 | Projeto | Pasta | Status | Deploy |
 | ------- | ----- | ------ | ------ |
 | Funil de lead dinâmico (quiz) | `funis/` | a iniciar — prazo de 15 dias a partir de 29/07 | — |
+| Carrosséis de largada (5 peças) | `copy/2026-08-31-carrosseis-largada/` | prontos para revisão | — |
 
 ## Materiais
 
@@ -38,6 +39,9 @@ páginas + copies + criativos + tráfego), playbooks comerciais e acompanhamento
 - `contexto/2026-07-29-canvas-produto-e-cliente-ideal-completo.md` — canvas do produto + framework
   completo de avatar (gerado com Furion na call).
 - `contexto/2026-07-29-anotacoes-call-onboarding.md` · `contexto/2026-07-24-call-de-vendas-resumo-e-transcricao.md` — fontes brutas.
+- `copy/2026-08-31-carrosseis-largada/` — **os 5 carrosséis de largada**, 36 slides em
+  1080x1350 prontos para o Instagram, gerados por script a partir da copy aprovada na
+  Estratégia Completa. PNGs em `slides/`, preview navegável nos `carrossel-*.html`.
 - `estrategia/2026-08-06-estrategia-completa-luana-isse.html` e `.pdf` — **Estratégia Completa
   vigente** (23 páginas, identidade Simple, no padrão do doc da Thaina). O que vai para a cliente.
 - `estrategia/2026-08-06-estrategia-interno-operacao.html` e `.pdf` — tarefas e recomendações
