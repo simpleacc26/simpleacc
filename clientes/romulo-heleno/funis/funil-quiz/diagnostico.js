@@ -124,11 +124,11 @@ if (!a._completedAt && !a.problema) {
 } else {
   const nome = esc((a.nomeResp || "").split(" ")[0]) || "tudo bem";
   const situacao = frase("situacao") || "o seu momento atual";
-  const problema = frase("problema") || "o que mais te trava numa mecha";
+  const problema = frase("problema") || "o que mais te trava ao fazer mechas";
   const tempo = frase("tempo") || "um tempo";
   const impacto = frase("impacto") || "seguir no mesmo ponto";
   const tentativa = frase("necessidade") || "buscar uma saída";
-  const objetivo = frase("objetivo") || "fazer mecha sem medo de errar";
+  const objetivo = frase("objetivo") || "fazer mechas sem medo de errar";
   const perfil = frase("perfil") || "";
 
   const indice = calcularIndice(a);
@@ -173,8 +173,8 @@ if (!a._completedAt && !a.problema) {
 
   report.innerHTML = `
     <div class="report-head">
-      <span class="selo">Diagnóstico da Mecha</span>
-      <h1>O seu Índice de Improviso na Mecha</h1>
+      <span class="selo">Diagnóstico das Mechas</span>
+      <h1>O seu Índice de Improviso na construção das Mechas</h1>
       <div class="resultado">${resultado}</div>
       <div class="indice ${faixaClasse}">
         <div class="indice-num">${indice.pct}%</div>
@@ -186,7 +186,7 @@ if (!a._completedAt && !a.problema) {
     <div class="etapa">
       <h3>Antes de tudo</h3>
       <p>Oi, ${nome}. Li com atenção tudo o que você respondeu, e quero começar por uma coisa que talvez ninguém tenha te dito:
-      <strong>o que trava a sua mecha não é falta de talento, nem falta de esforço.</strong>
+      <strong>o que trava as suas mechas não é falta de talento, nem falta de esforço.</strong>
       Tem explicação, tem nome, e tem caminho.</p>
     </div>
 
@@ -201,7 +201,7 @@ if (!a._completedAt && !a.problema) {
     <div class="etapa">
       <h3>Por que não mudou até agora</h3>
       <p>Você já chegou a <strong>${tentativa}</strong>, e mesmo assim a segurança não veio.
-      Faz sentido: todas essas saídas entregam informação, e o que trava um profissional na mecha não é falta de informação.</p>
+      Faz sentido: todas essas saídas entregam informação, e o que trava um profissional nas mechas não é falta de informação.</p>
       <p>O nome disso é <strong>improviso</strong>: a distância entre o que você faz e o que você consegue repetir de propósito.
       Curso gravado te mostra como fazer. Não corrige o que você está fazendo de errado, porque foi gravado para mil pessoas
       e não enxerga a sua folha, o seu timing, a sua divisão. Você pode assistir quarenta horas de conteúdo e continuar
@@ -228,12 +228,13 @@ if (!a._completedAt && !a.problema) {
 
     <div class="etapa">
       <h3>Como o método funciona</h3>
-      <p>O <strong>Método Cabelo de Segunda</strong> existe para tirar o improviso do seu atendimento. São quatro frentes, ao mesmo tempo:</p>
+      <p>O <strong>Método Cabelo de Segunda</strong> existe para tirar o improviso do seu atendimento. São cinco frentes, ao mesmo tempo:</p>
       <ol class="metodo">
         <li><strong>Sessão semanal individual:</strong> uma hora por semana, no Meet, para revisar o que você fez. Não é aula, é correção.</li>
         <li><strong>Correção dos seus vídeos:</strong> você grava o atendimento no salão, manda, e recebe o que errou e o que mudar. Isso não existe em curso nenhum.</li>
         <li><strong>Banco de fichas técnicas:</strong> os parâmetros certos por tipo de cabelo, textura e objetivo. Você para de improvisar e começa a replicar.</li>
         <li><strong>Suporte no WhatsApp:</strong> a dúvida que aparece na véspera do atendimento difícil não espera a próxima sessão.</li>
+        <li><strong>Aulas com convidados:</strong> parceiros que já palestraram no evento do Rômulo entram com live ou cedem aula das próprias mentorias, para você ver o mesmo problema resolvido por mais de uma cabeça.</li>
       </ol>
       <p class="hint">Domínio técnico não vem de mais conteúdo. Vem de prática corrigida, toda semana, no seu próprio trabalho.</p>
     </div>
@@ -254,15 +255,15 @@ if (!a._completedAt && !a.problema) {
         <img class="autor-foto" src="logo.svg" alt="" width="96" height="96" loading="lazy" />
         <div>
           <span class="autor-nome">RÔMULO HELENO</span>
-          <span class="autor-cargo">Especialista em técnica de mecha · ex-técnico de marca</span>
+          <span class="autor-cargo">Especialista em técnica de mechas · ex-técnico de marca</span>
         </div>
       </div>
       <p>Antes de mentorar, o Rômulo era o profissional que as marcas contratam para treinar equipe de salão. Passou
       2024 dentro de dezenas de salões, olhando o trabalho de outros profissionais e apontando o que corrigir, ao vivo,
-      na cadeira. É de lá que vem o método: ele conhece os erros mais comuns da mecha porque passou anos corrigindo
+      na cadeira. É de lá que vem o método: ele conhece os erros mais comuns das mechas porque passou anos corrigindo
       cada um deles em gente que já estava atendendo.</p>
       <p class="autor-fala"><span class="rot">A tese que sustenta o método</span>
-      Quem não domina a mecha não tem um problema de técnica. Tem um problema de método. E método não se aprende em
+      Quem não domina as mechas não tem um problema de técnica. Tem um problema de método. E método não se aprende em
       vídeo: se corrige na cadeira.</p>
     </div>
 

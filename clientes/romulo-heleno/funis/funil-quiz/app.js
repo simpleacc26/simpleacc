@@ -9,7 +9,7 @@
    Pontos que fogem da base da skill, todos intencionais:
    1. A barra de progresso não mostra número nenhum: nem "Pergunta X de N",
       nem porcentagem. Número ali faz o quiz parecer longo e derruba conclusão.
-   2. Cálculo do IIM (Índice de Improviso na Mecha) a partir dos pesos, com os
+   2. Cálculo do IIM (Índice de Improviso na construção das Mechas) a partir dos pesos, com os
       pesos calibrados sobre as 1024 combinações (ver nota no flow.js).
    3. Classificação em 4 faixas, não 3: fila-quente, qualificado, nutrir e
       fora. A página mostra 3 CTAs (fila-quente e qualificado compartilham),
@@ -61,7 +61,7 @@ let state = { view: 0, answers: {}, started: false };
 let stepEnterTime = 0;
 
 /* ============================================================
-   IIM: Índice de Improviso na Mecha
+   IIM: Índice de Improviso na construção das Mechas
    Só as perguntas de diagnóstico pontuam (as que têm peso nas opções).
    Tempo, objetivo e as duas porteiras ficam de fora.
    ============================================================ */
@@ -372,7 +372,7 @@ function renderLoading() {
   const dur = reduce ? 800 : 4700;
   const msgs = [
     "Analisando as suas respostas...",
-    "Calculando o seu Índice de Improviso na Mecha...",
+    "Calculando o seu Índice de Improviso nas Mechas...",
     "Montando o seu diagnóstico personalizado...",
   ];
   const screen = el(`

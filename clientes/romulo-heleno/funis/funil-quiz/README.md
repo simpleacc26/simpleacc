@@ -17,7 +17,7 @@ Segue o blueprint `references/estrutura-invisivel.md` da skill
 (mesmo motor, mesma ordem de blocos, mesmas travas), com a copy, o índice e a
 identidade do Rômulo por cima.
 
-- **Índice:** IIM, Índice de Improviso na Mecha. Só as perguntas de diagnóstico
+- **Índice:** IIM, Índice de Improviso na construção das Mechas. Só as perguntas de diagnóstico
   pontuam. Faixas: ≥ 66% Alto · 33 a 65% Médio · < 33% Baixo.
 - **Resultado nomeado**, por pilar: Refém da tonalidade · Mão boa, método nenhum ·
   Uma receita para todo tipo de cabelo · Trabalho de especialista, preço de
@@ -107,7 +107,12 @@ identidade do Rômulo por cima.
     selfie antiga em 1242px). Numa página que acabou de dizer "o seu problema é
     a mecha", foto sem mecha derruba o bloco inteiro. As 10 originais estão em
     `contexto/marca/fotos-trabalhos-originais/`.
-16. **Seis fotos, não cinco nem sete.** 6 divide por 2 e por 3, então a grade
+16. **Plural em "mechas", por pedido do cliente (27/08).** Ele reescreveu as
+    perguntas para "ficar uma linguagem mais fácil dos profissionais
+    entenderem" e pediu: "sempre que possível substituir mecha por mechas".
+    Fica no singular só onde é termo técnico (`divisão de mecha`). Isso mudou
+    também o nome do índice e o nome da frente, que vai na planilha.
+17. **Seis fotos, não cinco nem sete.** 6 divide por 2 e por 3, então a grade
     fecha sem buraco na última linha tanto no celular (2 colunas) quanto no
     desktop (3). Mantenha o total múltiplo de 6.
 
@@ -161,6 +166,32 @@ Detalhes que quebram se alguém mexer:
 
 Cole `+55 11 99991-2039` no campo de WhatsApp e confirme que o campo mostra
 `(11) 99991-2039` **e** que é isso que sai no payload. Os dois, não só o campo.
+
+## Ajustes de copy do cliente (27/08)
+
+Ele mandou as reescritas no grupo e o Carlos aprovou. Está tudo aplicado:
+
+| O que | Antes | Agora |
+|---|---|---|
+| Título de abertura | Existe um motivo para a sua mecha sair diferente a cada cliente | Existe um motivo para que o seu trabalho de mechas seja personalizado para cada cliente |
+| Nome do índice | Índice de Improviso na Mecha | Índice de Improviso na construção das Mechas |
+| Nome da frente | Diagnóstico da Mecha | Diagnóstico das Mechas |
+| Pergunta 1 | Como a mecha entra na sua agenda hoje? | Como o serviço de mechas entra na sua agenda hoje? |
+| Pergunta 2 | O que mais te trava numa mecha? | O que mais te trava ao fazer mechas? |
+| Porteira de ticket | Quanto você cobra hoje por uma mecha completa? | Quanto você cobra hoje por um serviço de mechas completo? |
+| Método | 4 frentes | 5 frentes, com "Aulas com convidados" |
+
+Duas observações registradas para quem pegar isto depois:
+
+1. **O título novo perdeu a dor.** O anterior nomeava o problema ("sair
+   diferente a cada cliente"); o novo é uma afirmação sobre personalização.
+   É o título que decide se a pessoa começa o quiz. Vale medir a taxa de
+   início antes de considerar fechado.
+2. **"Aulas com convidados" ainda não é entrega confirmada.** O Rômulo
+   escreveu "poderiam tanto fazer uma live quanto me ceder alguma aula". O
+   texto no ar não promete quantidade nem calendário. **Se os parceiros não
+   fecharem, tire o item:** anunciar entrega que não acontece quebra a venda
+   na primeira sessão.
 
 ## Pendências
 

@@ -1,7 +1,9 @@
 /* ============================================================
    FLOW. Toda a copy do quiz vive aqui.
    Cliente: Rômulo Heleno · Mentoria Cabelo de Segunda (técnica de mecha)
-   Índice: IIM, Índice de Improviso na Mecha.
+   Índice: IIM, Índice de Improviso na construção das Mechas.
+   PLURAL: o cliente pediu em 27/08 'sempre que possível substituir mecha por
+   mechas'. Fica no singular só onde é termo técnico (divisão de mecha).
    Estrutura: blueprint "estrutura invisível" da Simple, na versão fechada no
    funil da Luana Isse (9 passos SPIN, as 2 porteiras no fim, índice só nas
    perguntas de diagnóstico, resultado nomeado por pilar).
@@ -15,9 +17,9 @@
 window.FLOW = {
   config: {
     storeKey: "romulo_heleno_quiz",
-    frente: "Diagnóstico da Mecha",
+    frente: "Diagnóstico das Mechas",
     diagnosticoUrl: "diagnostico.html",
-    indice: { sigla: "IIM", nome: "Índice de Improviso na Mecha" },
+    indice: { sigla: "IIM", nome: "Índice de Improviso na construção das Mechas" },
   },
 
   marca: {
@@ -30,7 +32,7 @@ window.FLOW = {
     /* A mensagem leva o RESULTADO NOMEADO, não só o nome: quem atende abre a
        conversa já sabendo o diagnóstico. Placeholders: {nome} {resultado}
        {indice} {faixa} {pilar}. */
-    whatsappMsg: "Oi, Rômulo! Sou {nome}. Fiz o Diagnóstico da Mecha e o meu resultado foi {resultado}, com IIM de {indice} (improviso {faixa}) concentrado em {pilar}. Quero falar sobre a sessão estratégica.",
+    whatsappMsg: "Oi, Rômulo! Sou {nome}. Fiz o Diagnóstico das Mechas e o meu resultado foi {resultado}, com IIM de {indice} (improviso {faixa}) concentrado em {pilar}. Quero falar sobre a sessão estratégica.",
   },
 
   /* Resultado nomeado por pilar. É o que vai no WhatsApp, na planilha e no
@@ -44,8 +46,8 @@ window.FLOW = {
   },
 
   hero: {
-    titulo: "Existe um motivo para a sua mecha sair diferente a cada cliente",
-    subtitulo: "Responda e descubra o seu Índice de Improviso na Mecha, o quanto do seu resultado ainda depende de sorte em vez de método, e onde exatamente isso trava a sua técnica e o seu ticket.",
+    titulo: "Existe um motivo para que o seu trabalho de mechas seja personalizado para cada cliente",
+    subtitulo: "Responda e descubra o seu Índice de Improviso na construção das Mechas, o quanto do seu resultado ainda depende de sorte em vez de método, e onde exatamente isso trava a sua técnica e o seu ticket.",
     tempo: "Leva cerca de 2 minutos e o resultado é seu na hora",
   },
 
@@ -61,22 +63,22 @@ window.FLOW = {
     {
       id: "situacao",
       etapa: "Situação",
-      pergunta: "Como a mecha entra na sua agenda hoje?",
+      pergunta: "Como o serviço de mechas entra na sua agenda hoje?",
       options: [
-        { value: "nao_faco", label: "Ainda não faço mecha, quero começar do jeito certo", peso: 3,
-          report: "ainda não fazer mecha e querer começar do jeito certo" },
+        { value: "nao_faco", label: "Ainda não faço mechas, quero começar do jeito certo", peso: 3,
+          report: "ainda não fazer mechas e querer começar do jeito certo" },
         { value: "quando_pedem", label: "Faço quando a cliente pede, não é um atendimento que eu procure", peso: 2,
-          report: "só fazer mecha quando a cliente pede, sem procurar esse atendimento" },
+          report: "só fazer mechas quando a cliente pede, sem procurar esse atendimento" },
         { value: "varia", label: "Faço com regularidade, mas o resultado varia de cliente para cliente", peso: 2,
-          report: "fazer mecha com regularidade e ver o resultado variar de cliente para cliente" },
-        { value: "carro_chefe", label: "Mecha já é o atendimento que mais me dá retorno", peso: 0,
-          report: "já ter na mecha o atendimento que mais te dá retorno" },
+          report: "fazer mechas com regularidade e ver o resultado variar de cliente para cliente" },
+        { value: "carro_chefe", label: "O serviço de mechas já é o atendimento que mais me dá retorno", peso: 0,
+          report: "já ter no serviço de mechas o atendimento que mais te dá retorno" },
       ],
     },
     {
       id: "problema",
       etapa: "Problema",
-      pergunta: "O que mais te trava numa mecha?",
+      pergunta: "O que mais te trava ao fazer mechas?",
       options: [
         { value: "tonalidade", label: "Errar a tonalidade e o resultado sair diferente do que a cliente pediu", peso: 3, pilar: "Leitura",
           report: "o medo de errar a tonalidade e o resultado sair diferente do que a cliente pediu" },
@@ -104,10 +106,10 @@ window.FLOW = {
       etapa: "Impacto",
       pergunta: "Se nada mudar, como você imagina os próximos 12 meses?",
       options: [
-        { value: "refaz", label: "Continuo refazendo mecha sem cobrar, com prejuízo de tempo e de produto", peso: 3,
-          report: "continuar refazendo mecha sem cobrar, com prejuízo de tempo e de produto" },
-        { value: "evita", label: "Sigo evitando a mecha e vivendo de procedimento mais simples", peso: 2,
-          report: "seguir evitando a mecha e vivendo de procedimento mais simples" },
+        { value: "refaz", label: "Continuo refazendo mechas sem cobrar, com prejuízo de tempo e de produto", peso: 3,
+          report: "continuar refazendo mechas sem cobrar, com prejuízo de tempo e de produto" },
+        { value: "evita", label: "Sigo evitando fazer mechas e vivendo de procedimento mais simples", peso: 2,
+          report: "seguir evitando fazer mechas e vivendo de procedimento mais simples" },
         { value: "perde_cliente", label: "Perco cliente para quem já ocupa o lugar de especialista", peso: 2,
           report: "perder cliente para quem já ocupa o lugar de especialista" },
         { value: "mesmo_ticket", label: "Continuo com o mesmo ticket, sem conseguir cobrar mais", peso: 1,
@@ -134,9 +136,9 @@ window.FLOW = {
       etapa: "Objetivo",
       pergunta: "O que você mais quer nos próximos 6 meses?",
       options: [
-        { value: "seguranca", label: "Fazer mecha sem medo de errar", report: "fazer mecha sem medo de errar" },
+        { value: "seguranca", label: "Fazer mechas sem medo de errar", report: "fazer mechas sem medo de errar" },
         { value: "ticket", label: "Cobrar mais por atendimento", report: "cobrar mais por atendimento" },
-        { value: "referencia", label: "Ser referência em mecha na minha cidade", report: "virar referência em mecha na sua cidade" },
+        { value: "referencia", label: "Ser referência em mechas na minha cidade", report: "virar referência em mechas na sua cidade" },
         { value: "agenda", label: "Encher a agenda com o atendimento que paga melhor", report: "encher a agenda com o atendimento que paga melhor" },
       ],
     },
@@ -145,14 +147,14 @@ window.FLOW = {
       etapa: "Seu perfil",
       pergunta: "Qual frase mais representa você hoje?",
       options: [
-        { value: "ansiedade", label: "Sei fazer, mas cada mecha ainda tem uma dose de ansiedade", peso: 3,
-          report: "saber fazer e ainda sentir ansiedade a cada mecha" },
+        { value: "ansiedade", label: "Sei fazer, mas em cada serviço de mechas ainda tenho uma dose de ansiedade", peso: 3,
+          report: "saber fazer e ainda sentir ansiedade em cada serviço de mechas" },
         { value: "sem_explicar", label: "Acerto na maioria das vezes e não sei explicar o que fiz diferente", peso: 2,
           report: "acertar na maioria das vezes sem saber explicar o que fez diferente" },
         { value: "sem_clientela", label: "Tenho técnica e falta clientela que pague por ela", peso: 2,
           report: "ter técnica e faltar clientela que pague por ela" },
-        { value: "comecando", label: "Quero entrar na mecha agora, do jeito certo", peso: 1,
-          report: "querer entrar na mecha agora, do jeito certo" },
+        { value: "comecando", label: "Quero entrar nas mechas agora, do jeito certo", peso: 1,
+          report: "querer entrar nas mechas agora, do jeito certo" },
       ],
     },
 
@@ -168,10 +170,10 @@ window.FLOW = {
     {
       id: "ticket",
       etapa: "Momento",
-      pergunta: "Quanto você cobra hoje por uma mecha completa?",
+      pergunta: "Quanto você cobra hoje por um serviço de mechas completo?",
       options: [
         { value: "nao_atendo", label: "Ainda não atendo clientes e não tenho previsão de atender", fora: true },
-        { value: "fora_da_tabela", label: "Atendo outros serviços, mecha ainda não entrou na minha tabela" },
+        { value: "fora_da_tabela", label: "Atendo outros serviços. Mechas ainda não entraram na minha tabela" },
         { value: "ate200", label: "Até R$ 200" },
         { value: "200a400", label: "De R$ 200 a R$ 400" },
         { value: "400a700", label: "De R$ 400 a R$ 700" },
