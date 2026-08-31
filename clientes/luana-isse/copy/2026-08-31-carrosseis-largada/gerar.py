@@ -3,18 +3,23 @@
 """
 Gera os 5 carrosséis de largada da Luana Isse em HTML autocontido.
 
-Identidade tirada do MANUAL DE MARCA oficial (enviado por ela em 20/08):
+Cada carrossel tem **até 4 cards** e um **sistema visual próprio**, para que os
+cinco não pareçam a mesma peça repetida cinco vezes:
+
+  1  Duas batidas     bege e escuro; cada card é a montagem em cima e o soco embaixo
+  2  Fichas           fundo DOURADO com letra escura, alternando com fichas de citação
+  3  O vão            verde petróleo do manual, com o vão medido virando gráfico
+  4  Coluna dividida  vinho contra dourado, e a divisão anda de um lado para o outro
+  5  Retrato          coluna editorial com filete dourado e a foto grande
+
+Todos saem do mesmo manual de marca (enviado por ela em 20/08):
   #030118 escuro institucional · #441529 vinho · #491F13 marrom
   #B49055 dourado (principal) · #FFFFFF branco · #07292E verde petróleo
 Tipografia: Montserrat no corpo (manual) e Playfair Display nos títulos,
 substituta da Humble Nostalgia, que é paga e não temos o arquivo.
 Fontes e imagens vão embutidas em base64: o HTML não depende de rede.
-
-Direção visual pedida: fundo escuro ou bege, tipografia serifada,
-dourado nos destaques, para ficar na mesma família das artes que ela produz.
 """
 import base64
-import re
 from pathlib import Path
 
 AQUI = Path(__file__).resolve().parent
@@ -22,22 +27,32 @@ ASSETS = AQUI / "assets"
 
 # ---------------------------------------------------------------- paleta
 GOLD       = "#B49055"   # dourado, cor principal do manual
-GOLD_LIGHT = "#C9AC7E"   # dourado clareado ~20%, para fundo escuro
-GOLD_DARK  = "#7E653B"   # dourado escurecido ~30%
-BEGE       = "#F5EFE4"   # off-white quente, nunca branco puro
-BEGE_LINE  = "#E3D8C5"   # divisória sobre bege
+GOLD_LIGHT = "#C9AC7E"   # dourado clareado ~20%, destaque sobre fundo escuro
+GOLD_DEEP  = "#8A6E3F"   # dourado escurecido, filete sobre fundo dourado
 INK        = "#030118"   # escuro institucional
-CREAM      = "#F5EFE4"   # texto sobre escuro
+WINE       = "#441529"   # vinho
+PETROL     = "#07292E"   # verde petróleo
+BEGE       = "#F5EFE4"   # off-white quente, nunca branco puro
+BEGE_LINE  = "#E3D8C5"
+CREAM      = "#F5EFE4"
 
 LINK = "quiz-luana-isse.vercel.app"
 HANDLE = "@luana.isse"
 MARCA = "LUANA ISSE"
 
-TEMA = {
-    "light": dict(bg=BEGE, fg=INK, muted="#6E6555", tag=GOLD,
-                  line=BEGE_LINE, claro=True, logo="logo-escuro"),
-    "dark":  dict(bg=INK, fg=CREAM, muted="rgba(245,239,228,.58)", tag=GOLD_LIGHT,
-                  line="rgba(245,239,228,.13)", claro=False, logo="logo-claro"),
+# O cromo (barra, seta, faixa da marca) se adapta ao fundo do card.
+TONS = {
+    "claro": dict(fg=INK, muted="#6E6555", tag=GOLD, rule=BEGE_LINE, logo="logo-escuro",
+                  track="rgba(3,1,24,.10)", fill=GOLD, num="rgba(3,1,24,.32)",
+                  seta_bg="rgba(3,1,24,.06)", seta="rgba(3,1,24,.26)"),
+    "escuro": dict(fg=CREAM, muted="rgba(245,239,228,.58)", tag=GOLD_LIGHT,
+                   rule="rgba(245,239,228,.14)", logo="logo-claro",
+                   track="rgba(245,239,228,.14)", fill=GOLD_LIGHT, num="rgba(245,239,228,.40)",
+                   seta_bg="rgba(245,239,228,.07)", seta="rgba(245,239,228,.34)"),
+    "ouro": dict(fg=INK, muted="rgba(3,1,24,.62)", tag="rgba(3,1,24,.55)", rule=GOLD_DEEP,
+                 logo="logo-escuro",
+                 track="rgba(3,1,24,.20)", fill=INK, num="rgba(3,1,24,.46)",
+                 seta_bg="rgba(3,1,24,.09)", seta="rgba(3,1,24,.38)"),
 }
 
 
@@ -53,391 +68,562 @@ IMG = {
 }
 FONTES = (ASSETS / "fonts" / "fontes-embutidas.css").read_text(encoding="utf-8")
 
+# A foto tem 640x640 e o export multiplica por 2.57, então acima de 248px de
+# largura de tela ela começa a amolecer. Nenhum uso aqui passa disso.
+FOTO_MAX = 248
 
-# ------------------------------------------------------------ componentes
-def barra(i, total, claro):
+
+# ------------------------------------------------------------ cromo comum
+def barra(i, total, tom):
+    t = TONS[tom]
     pct = ((i + 1) / total) * 100
-    trilho = "rgba(3,1,24,.10)" if claro else "rgba(245,239,228,.14)"
-    fill = GOLD if claro else GOLD_LIGHT
-    label = "rgba(3,1,24,.32)" if claro else "rgba(245,239,228,.40)"
     return (
-        '<div style="position:absolute;bottom:0;left:0;right:0;padding:16px 28px 20px;'
-        'z-index:10;display:flex;align-items:center;gap:10px;">'
-        f'<div style="flex:1;height:3px;background:{trilho};border-radius:2px;overflow:hidden;">'
-        f'<div style="height:100%;width:{pct}%;background:{fill};border-radius:2px;"></div></div>'
-        f'<span class="sans" style="font-size:11px;color:{label};font-weight:500;">{i + 1}/{total}</span>'
-        "</div>"
+        '<div class="chrome" style="position:absolute;bottom:0;left:0;right:0;'
+        'padding:16px 30px 22px;z-index:12;display:flex;align-items:center;gap:10px;">'
+        f'<div style="flex:1;height:3px;background:{t["track"]};border-radius:2px;overflow:hidden;">'
+        f'<div style="height:100%;width:{pct}%;background:{t["fill"]};border-radius:2px;"></div></div>'
+        f'<span class="sans" style="font-size:11px;color:{t["num"]};font-weight:500;'
+        f'letter-spacing:.3px;">{i + 1}/{total}</span></div>'
     )
 
 
-def seta(claro):
-    bg = "rgba(3,1,24,.06)" if claro else "rgba(245,239,228,.07)"
-    traco = "rgba(3,1,24,.26)" if claro else "rgba(245,239,228,.34)"
+def seta(tom):
+    t = TONS[tom]
     return (
-        '<div style="position:absolute;right:0;top:0;bottom:0;width:48px;z-index:9;'
+        '<div class="chrome" style="position:absolute;right:0;top:0;bottom:0;width:46px;z-index:11;'
         "display:flex;align-items:center;justify-content:center;"
-        f'background:linear-gradient(to right,transparent,{bg});">'
+        f'background:linear-gradient(to right,transparent,{t["seta_bg"]});">'
         '<svg width="24" height="24" viewBox="0 0 24 24" fill="none">'
-        f'<path d="M9 6l6 6-6 6" stroke="{traco}" stroke-width="2.5" '
+        f'<path d="M9 6l6 6-6 6" stroke="{t["seta"]}" stroke-width="2.5" '
         'stroke-linecap="round" stroke-linejoin="round"/></svg></div>'
     )
 
 
-def etiqueta(txt, t):
-    if not txt:
-        return ""
-    return (
-        f'<span class="sans" style="display:inline-block;font-size:10px;font-weight:600;'
-        f'letter-spacing:2px;color:{t["tag"]};margin-bottom:18px;">{txt}</span>'
-    )
-
-
-def topo(t, com_logo=False):
-    """Faixa do topo: assinatura da marca no primeiro e no último slide,
-    arroba discreta no resto."""
+def faixa_marca(tom, com_logo=False, topo=26, esq=32, dir_=32):
+    """Assinatura no primeiro e no último card, caixa alta no meio."""
+    t = TONS[tom]
     if com_logo:
-        esquerda = (
-            f'<img src="{IMG[t["logo"]]}" alt="{MARCA}" '
-            'style="height:19px;width:auto;display:block;opacity:.92;">'
-        )
+        esquerda = (f'<img src="{IMG[t["logo"]]}" alt="{MARCA}" '
+                    'style="height:19px;width:auto;display:block;opacity:.92;">')
     else:
-        esquerda = (
-            f'<span class="sans" style="font-size:10px;font-weight:600;letter-spacing:1.6px;'
-            f'color:{t["muted"]};">{MARCA}</span>'
-        )
+        esquerda = (f'<span class="sans" style="font-size:10px;font-weight:600;'
+                    f'letter-spacing:1.7px;color:{t["muted"]};">{MARCA}</span>')
     return (
-        '<div style="position:absolute;top:26px;left:36px;right:36px;z-index:6;'
+        f'<div style="position:absolute;top:{topo}px;left:{esq}px;right:{dir_}px;z-index:10;'
         'display:flex;align-items:center;justify-content:space-between;gap:12px;">'
-        f"{esquerda}"
+        f'{esquerda}'
         f'<span class="sans" style="font-size:10px;font-weight:500;letter-spacing:.6px;'
         f'color:{t["muted"]};">{HANDLE}</span></div>'
     )
 
 
-def foto(px=104, borda=None, raio="50%"):
-    borda = borda or GOLD
+def card(inner, tom, i, total, fundo, ultimo=False, tom_barra=None, tom_seta=None):
+    """`tom` vale para o texto. A barra e a seta aceitam tom próprio, porque em
+    alguns cards elas caem sobre uma faixa de cor diferente do resto do card."""
     return (
-        f'<img src="{IMG["foto"]}" alt="Luana Isse" '
-        f'style="width:{px}px;height:{px}px;border-radius:{raio};object-fit:cover;'
-        f'border:2px solid {borda};display:block;">'
-    )
-
-
-def titulo(txt, size=30, cor=None, peso=500, lh=1.16, mb=0):
-    cor = cor or "inherit"
-    return (
-        f'<h2 class="serif" style="font-size:{size}px;font-weight:{peso};line-height:{lh};'
-        f'letter-spacing:-.4px;color:{cor};margin:0 0 {mb}px;">{txt}</h2>'
-    )
-
-
-def ouro(txt, t):
-    return f'<span style="color:{t["tag"]};">{txt}</span>'
-
-
-def risco(txt, t):
-    """Risca a palavra dentro da própria frase, em vez de repeti-la numa pílula."""
-    return (f'<span style="text-decoration:line-through;text-decoration-thickness:2px;'
-            f'text-decoration-color:{t["tag"]};opacity:.72;">{txt}</span>')
-
-
-def citacao(txt, t):
-    """Caixa de citação para as frases que o especialista diz para si mesmo."""
-    if t["claro"]:
-        cx = f"background:rgba(255,255,255,.6);border:1px solid {BEGE_LINE};"
-    else:
-        cx = "background:rgba(245,239,228,.04);border:1px solid rgba(245,239,228,.12);"
-    return (
-        f'<div style="padding:22px 22px 24px;border-radius:14px;{cx}">'
-        f'<span class="serif" style="display:block;font-size:34px;line-height:1;'
-        f'color:{t["tag"]};opacity:.5;margin-bottom:6px;">&ldquo;</span>'
-        f'<p class="serif" style="font-size:24px;font-weight:400;font-style:italic;'
-        f'line-height:1.3;letter-spacing:-.3px;margin:0;color:inherit;">{txt}</p></div>'
-    )
-
-
-def pilares(t, destaque=None):
-    """Os quatro pilares do MMPV, na formulação dela."""
-    nomes = ["Mentalidade", "Movimento", "Posicionamento", "Vendas"]
-    linhas = []
-    for n, nome in enumerate(nomes, 1):
-        forte = destaque == nome
-        cor_num = t["tag"] if not forte else t["tag"]
-        peso = 600 if forte else 500
-        linhas.append(
-            f'<div style="display:flex;align-items:baseline;gap:14px;padding:9px 0;'
-            f'border-bottom:1px solid {t["line"]};">'
-            f'<span class="serif" style="font-size:19px;font-weight:300;color:{cor_num};'
-            f'min-width:26px;line-height:1;">0{n}</span>'
-            f'<span class="sans" style="font-size:14px;font-weight:{peso};color:inherit;">{nome}</span>'
-            "</div>"
-        )
-    return f'<div style="margin-top:24px;">{"".join(linhas)}</div>'
-
-
-def brilho_final():
-    """Lavagem dourada no slide de CTA. Fundo continua escuro institucional,
-    como pede a direção; o dourado entra só como destaque."""
-    return (
-        '<div style="position:absolute;inset:0;z-index:0;pointer-events:none;'
-        f"background:radial-gradient(120% 78% at 50% 112%, {GOLD}38 0%, {GOLD_DARK}1f 42%, "
-        'rgba(3,1,24,0) 74%);"></div>'
-    )
-
-
-def botao(txt):
-    return (
-        f'<div class="sans" style="display:inline-flex;align-items:center;gap:9px;'
-        f'padding:13px 26px;background:{BEGE};color:{INK};font-weight:600;font-size:14px;'
-        'border-radius:28px;letter-spacing:.2px;">'
-        f"{txt}"
-        '<svg width="15" height="15" viewBox="0 0 24 24" fill="none">'
-        f'<path d="M5 12h14M13 6l6 6-6 6" stroke="{INK}" stroke-width="2.2" '
-        'stroke-linecap="round" stroke-linejoin="round"/></svg></div>'
-    )
-
-
-# ------------------------------------------------------------------ slide
-def slide(i, total, tema, conteudo, alinhamento="flex-end", topo_logo=False,
-          extras="", ultimo=False):
-    t = TEMA[tema]
-    pad_top = 44
-    return (
-        f'<div class="slide" style="background:{t["bg"]};color:{t["fg"]};">'
-        f"{extras}"
-        f"{topo(t, topo_logo)}"
-        f'<div style="position:relative;z-index:5;flex:1;display:flex;flex-direction:column;'
-        f'justify-content:{alinhamento};padding:{pad_top}px 36px 62px;">{conteudo}</div>'
-        f"{'' if ultimo else seta(t['claro'])}"
-        f"{barra(i, total, t['claro'])}"
+        f'<div class="slide" style="background:{fundo};color:{TONS[tom]["fg"]};">'
+        f'{inner}'
+        f'{"" if ultimo else seta(tom_seta or tom)}'
+        f'{barra(i, total, tom_barra or tom)}'
         "</div>"
     )
 
 
-def cta(t_nome, texto, com_foto=True, etiq="DIAGNÓSTICO GRATUITO"):
-    """Último slide. Sem seta, barra cheia, CTA e link do funil."""
-    t = TEMA[t_nome]
-    bloco_foto = (
-        f'<div style="margin-bottom:24px;">{foto(88, GOLD)}</div>' if com_foto else ""
-    )
+# --------------------------------------------------------- peças de texto
+def etiqueta(txt, tom, mb=16, cor=None):
+    cor = cor or TONS[tom]["tag"]
+    return (f'<span class="sans" style="display:block;font-size:10px;font-weight:600;'
+            f'letter-spacing:2.2px;color:{cor};margin-bottom:{mb}px;">{txt}</span>')
+
+
+def titulo(txt, size=32, peso=500, lh=1.14, cor="inherit", mb=0, ls=-.4):
+    return (f'<h2 class="serif" style="font-size:{size}px;font-weight:{peso};line-height:{lh};'
+            f'letter-spacing:{ls}px;color:{cor};margin:0 0 {mb}px;">{txt}</h2>')
+
+
+def texto(txt, tom, size=15, mb=0, mt=0, cor=None, largura=320, lh=1.55, peso=400):
+    cor = cor or TONS[tom]["muted"]
+    return (f'<p class="sans" style="font-size:{size}px;line-height:{lh};font-weight:{peso};'
+            f'color:{cor};margin:{mt}px 0 {mb}px;max-width:{largura}px;">{txt}</p>')
+
+
+def filete(cor, largura=44, mt=20, mb=20, espessura=2):
+    return (f'<div style="width:{largura}px;height:{espessura}px;background:{cor};'
+            f'margin:{mt}px 0 {mb}px;border-radius:2px;"></div>')
+
+
+def foto(px=110, borda=GOLD, raio="50%", espessura=2, extra=""):
+    px = min(px, FOTO_MAX)
+    return (f'<img src="{IMG["foto"]}" alt="Luana Isse" '
+            f'style="width:{px}px;height:{px}px;border-radius:{raio};object-fit:cover;'
+            f'border:{espessura}px solid {borda};display:block;{extra}">')
+
+
+def botao(txt="Toque no link", fundo=BEGE, cor=INK):
+    return (f'<div class="sans" style="display:inline-flex;align-items:center;gap:9px;'
+            f'padding:13px 26px;background:{fundo};color:{cor};font-weight:600;font-size:14px;'
+            'border-radius:28px;letter-spacing:.2px;">'
+            f'{txt}<svg width="15" height="15" viewBox="0 0 24 24" fill="none">'
+            f'<path d="M5 12h14M13 6l6 6-6 6" stroke="{cor}" stroke-width="2.2" '
+            'stroke-linecap="round" stroke-linejoin="round"/></svg></div>')
+
+
+def rodape_cta(tom, cor_tagline=None, mt=24, pt=18):
+    t = TONS[tom]
     return (
-        '<div style="display:flex;flex-direction:column;align-items:flex-start;">'
-        f"{bloco_foto}"
-        f"{etiqueta(etiq, t)}"
-        f"{titulo(texto, 27, peso=500, lh=1.2)}"
-        f'<div style="margin-top:26px;">{botao("Toque no link")}</div>'
-        f'<p class="sans" style="font-size:11px;font-weight:500;letter-spacing:.4px;'
-        f'color:{t["muted"]};margin:14px 0 0;">{LINK}</p>'
-        f'<div style="display:flex;align-items:center;gap:10px;margin-top:26px;'
-        f'padding-top:18px;border-top:1px solid {t["line"]};width:100%;">'
-        f'<img src="{IMG["logo-claro"]}" alt="{MARCA}" style="height:18px;width:auto;opacity:.92;">'
+        f'<div style="display:flex;align-items:center;gap:10px;margin-top:{mt}px;'
+        f'padding-top:{pt}px;border-top:1px solid {t["rule"]};width:100%;">'
+        f'<img src="{IMG[t["logo"]]}" alt="{MARCA}" style="height:18px;width:auto;opacity:.92;">'
         f'<span class="sans" style="font-size:10px;font-weight:600;letter-spacing:1.4px;'
-        f'color:{t["tag"]};margin-left:auto;">QUEM É VISTO, VENDE MAIS</span></div>'
-        "</div>"
+        f'color:{cor_tagline or t["tag"]};margin-left:auto;">QUEM É VISTO, VENDE MAIS</span></div>'
     )
 
 
-def distancia(t):
-    """Diagrama da distância entre o valor que a pessoa tem e o que o mercado enxerga."""
-    ponto = ("width:9px;height:9px;border-radius:50%%;background:%s;flex:none;")
-    return (
-        '<div style="margin-top:26px;display:flex;align-items:center;gap:10px;">'
-        f'<span style="{ponto % t["tag"]}"></span>'
-        f'<span style="flex:1;height:1px;background:repeating-linear-gradient(to right,'
-        f'{t["tag"]} 0 5px,transparent 5px 11px);opacity:.55;"></span>'
-        f'<span style="{ponto % t["tag"]};opacity:.35;"></span></div>'
-        '<div style="display:flex;justify-content:space-between;gap:16px;margin-top:9px;">'
-        f'<span class="sans" style="font-size:11px;font-weight:600;color:{t["fg"]};max-width:120px;'
-        'line-height:1.35;">o valor que você tem</span>'
-        f'<span class="sans" style="font-size:11px;font-weight:500;color:{t["muted"]};max-width:130px;'
-        'line-height:1.35;text-align:right;">o valor que o mercado enxerga</span></div>'
+def link_escrito(tom, cor=None):
+    return (f'<p class="sans" style="font-size:11px;font-weight:500;letter-spacing:.4px;'
+            f'color:{cor or TONS[tom]["muted"]};margin:14px 0 0;">{LINK}</p>')
+
+
+def caixa(inner, alinhamento="flex-end", pad="66px 32px 64px", z=5):
+    return (f'<div style="position:relative;z-index:{z};flex:1;display:flex;'
+            f'flex-direction:column;justify-content:{alinhamento};padding:{pad};">{inner}</div>')
+
+
+def pilares_grade(tom, cor_num=None):
+    """Os quatro pilares do MMPV, na formulação dela, em grade 2x2."""
+    t = TONS[tom]
+    cor_num = cor_num or t["tag"]
+    celulas = "".join(
+        f'<div style="display:flex;align-items:baseline;gap:9px;padding:8px 0;'
+        f'border-top:1px solid {t["rule"]};">'
+        f'<span class="serif" style="font-size:15px;font-weight:300;color:{cor_num};'
+        f'line-height:1;">0{n}</span>'
+        f'<span class="sans" style="font-size:12px;font-weight:600;">{nome}</span></div>'
+        for n, nome in enumerate(["Mentalidade", "Movimento", "Posicionamento", "Vendas"], 1)
     )
+    return ('<div style="display:grid;grid-template-columns:1fr 1fr;gap:0 20px;'
+            f'margin-top:20px;max-width:320px;">{celulas}</div>')
 
 
-def cartao_frase(n, txt, t):
-    return (
-        f'<span class="serif" style="display:block;font-size:15px;font-weight:400;'
-        f'color:{t["tag"]};letter-spacing:1px;margin-bottom:14px;">0{n}</span>'
-        f"{citacao(txt, t)}"
-    )
+def riscado(txt, cor):
+    return (f'<span style="text-decoration:line-through;text-decoration-thickness:2px;'
+            f'text-decoration-color:{cor};opacity:.7;">{txt}</span>')
 
 
-# --------------------------------------------------------------- conteúdo
+# =====================================================================
+# 1 · DUAS BATIDAS
+# Cada card é a montagem em cima e o soco embaixo, separados por um filete
+# dourado. O espaço vazio some porque o conteúdo ocupa o topo e a base.
+# =====================================================================
 def carrossel_1():
-    """Cena · O dia do especialista invisível. Foto: só no fim."""
-    L, D = TEMA["light"], TEMA["dark"]
+    def batida(tom, tag, montagem, soco, soco_size=34, logo=False, fundo=None):
+        fundo = fundo or (BEGE if tom == "claro" else INK)
+        t = TONS[tom]
+        inner = (
+            faixa_marca(tom, com_logo=logo)
+            + caixa(
+                '<div>'
+                + etiqueta(tag, tom, mb=14)
+                + texto(montagem, tom, size=18, largura=330, lh=1.5)
+                + '</div>'
+                + f'<div style="display:flex;align-items:center;gap:12px;margin:0;">'
+                  f'<span style="width:7px;height:7px;border-radius:50%;background:{t["tag"]};'
+                  'flex:none;"></span>'
+                  f'<span style="flex:1;height:1px;background:{t["rule"]};"></span></div>'
+                + f'<div>{titulo(soco, soco_size, peso=500, lh=1.1)}</div>',
+                alinhamento="space-between",
+                pad="78px 32px 68px",
+            )
+        )
+        return inner, tom, fundo
+
     return [
-        dict(tema="light", topo_logo=True, conteudo=(
-            etiqueta("O DIA DO ESPECIALISTA INVISÍVEL", L)
-            + titulo("Você acorda e vê que a sua colega de turma anunciou mais uma mentoria.", 28)
+        dict(**dict(zip(("inner", "tom", "fundo"), batida(
+            "claro", "O DIA DO ESPECIALISTA INVISÍVEL",
+            "Você acorda e vê que a sua colega de turma anunciou mais uma mentoria.",
+            f'Você tem <span style="color:{GOLD}">duas pós a mais</span> que ela.',
+            34, logo=True)))),
+        dict(**dict(zip(("inner", "tom", "fundo"), batida(
+            "escuro", "A ROTINA",
+            "Escreve um conteúdo denso, com fundamento. Duas horas.",
+            f'<span style="color:{GOLD_LIGHT}">Doze</span><br>curtidas.',
+            56)))),
+        dict(**dict(zip(("inner", "tom", "fundo"), batida(
+            "claro", "O PENSAMENTO",
+            "E aí vem o pensamento: talvez eu não sirva para isso.",
+            f'<span style="color:{GOLD}">Serve.</span> O que falta não é competência.',
+            33)))),
+        dict(tom="escuro", fundo=INK, ultimo=True, inner=(
+            faixa_marca("escuro")
+            + '<div style="position:absolute;inset:0;z-index:0;'
+              f'background:radial-gradient(118% 76% at 50% 110%, {GOLD}3d 0%, {GOLD_DEEP}1c 44%,'
+              ' rgba(3,1,24,0) 76%);"></div>'
+            + caixa(
+                f'<div style="margin-bottom:26px;">{foto(96, GOLD)}</div>'
+                + etiqueta("DIAGNÓSTICO GRATUITO", "escuro", mb=14)
+                + titulo("Descubra em 2 minutos o que realmente está travando.", 29, lh=1.18)
+                + f'<div style="margin-top:26px;">{botao()}</div>'
+                + link_escrito("escuro")
+                + rodape_cta("escuro"),
+                alinhamento="center", pad="72px 32px 70px",
+            )
         )),
-        dict(tema="dark", conteudo=(
-            etiqueta("E VOCÊ", D)
-            + titulo(f'Você tem {ouro("duas pós a mais", D)} que ela.', 33)
-        )),
-        dict(tema="light", conteudo=(
-            etiqueta("A ROTINA", L)
-            + titulo("Escreve um conteúdo denso, com fundamento. Duas horas.", 30)
-        )),
-        dict(tema="dark", alinhamento="center", conteudo=(
-            etiqueta("O RETORNO", D)
-            + titulo(f'{ouro("Doze", D)}<br>curtidas.', 58, peso=400, lh=1.02)
-        )),
-        dict(tema="light", conteudo=(
-            etiqueta("O PENSAMENTO", L)
-            + titulo('E aí vem o pensamento: <span style="font-style:italic;color:%s;">'
-                     "talvez eu não sirva para isso.</span>" % GOLD_DARK, 28)
-        )),
-        dict(tema="dark", conteudo=(
-            etiqueta("A VERDADE", D)
-            + titulo(f'{ouro("Serve.", D)} O que falta não é competência.', 33)
-        )),
-        dict(tema="dark", ultimo=True, alinhamento="center",
-             extras=brilho_final(),
-             conteudo=cta("dark", "Descubra em 2 minutos o que realmente está travando.",
-                          com_foto=True)),
     ]
 
 
+# =====================================================================
+# 2 · FICHAS EM DOURADO
+# Abre e fecha com o card inteiro em #B49055 e letra escura. No meio, duas
+# fichas de citação por card sobre o escuro institucional.
+# =====================================================================
 def carrossel_2():
-    """Cena · As frases que você já disse pra si mesmo. Foto: começo e fim."""
-    L, D = TEMA["light"], TEMA["dark"]
+    def ficha(n, frase):
+        return (
+            f'<div style="padding:20px 20px 22px;border-radius:14px;'
+            f'background:rgba(245,239,228,.045);border:1px solid rgba(180,144,85,.30);">'
+            f'<span class="serif" style="display:block;font-size:14px;color:{GOLD_LIGHT};'
+            f'letter-spacing:1.4px;margin-bottom:10px;">0{n}</span>'
+            f'<p class="serif" style="font-size:23px;font-weight:400;font-style:italic;'
+            f'line-height:1.28;letter-spacing:-.3px;margin:0;color:{CREAM};">'
+            f'&ldquo;{frase}&rdquo;</p></div>'
+        )
+
+    def par(n1, f1, n2, f2, tag):
+        return dict(tom="escuro", fundo=INK, inner=(
+            faixa_marca("escuro")
+            + caixa(
+                etiqueta(tag, "escuro", mb=18)
+                + f'<div style="display:flex;flex-direction:column;gap:14px;">'
+                  f'{ficha(n1, f1)}{ficha(n2, f2)}</div>',
+                alinhamento="center", pad="76px 32px 70px",
+            )
+        ))
+
     return [
-        dict(tema="light", topo_logo=True, conteudo=(
-            f'<div style="margin-bottom:26px;">{foto(104)}</div>'
-            + etiqueta("O QUE NINGUÉM FALA EM VOZ ALTA", L)
-            + titulo("Cinco frases que quase todo especialista já disse pra si mesmo.", 28)
+        dict(tom="ouro", fundo=GOLD, inner=(
+            faixa_marca("ouro", com_logo=True)
+            + caixa(
+                f'<div style="margin-bottom:26px;">{foto(104, INK, espessura=2)}</div>'
+                + etiqueta("O QUE NINGUÉM FALA EM VOZ ALTA", "ouro", mb=16)
+                + titulo("Quatro frases que quase todo especialista já disse pra si mesmo.",
+                         31, peso=500, lh=1.13, cor=INK),
+                alinhamento="flex-end", pad="76px 32px 70px",
+            )
         )),
-        dict(tema="dark", alinhamento="center",
-             conteudo=cartao_frase(1, "Se eu fosse mesmo excelente, já teriam me procurado.", D)),
-        dict(tema="light", alinhamento="center",
-             conteudo=cartao_frase(2, "Não vou fazer dancinha para vender o que eu estudei anos.", L)),
-        dict(tema="dark", alinhamento="center",
-             conteudo=cartao_frase(3, "Meu público não está no Instagram.", D)),
-        dict(tema="light", alinhamento="center",
-             conteudo=cartao_frase(4, "Depois eu organizo isso direito.", L)),
-        dict(tema="dark", conteudo=(
-            etiqueta("O QUE ELAS TÊM EM COMUM", D)
-            + titulo(f'Nenhuma delas é o problema. Todas são {ouro("sintoma do mesmo", D)}.', 30)
+        par(1, "Se eu fosse mesmo excelente, já teriam me procurado.",
+            2, "Não vou fazer dancinha para vender o que eu estudei anos.",
+            "AS DUAS PRIMEIRAS"),
+        par(3, "Meu público não está no Instagram.",
+            4, "Depois eu organizo isso direito.",
+            "E AS OUTRAS DUAS"),
+        dict(tom="ouro", fundo=GOLD, ultimo=True, inner=(
+            faixa_marca("ouro")
+            + caixa(
+                f'<div style="margin-bottom:18px;">{foto(70, INK, espessura=2)}</div>'
+                + titulo("Nenhuma delas é o problema. Todas são sintoma do mesmo.",
+                         26, peso=500, lh=1.15, cor=INK)
+                + texto("Faça o diagnóstico gratuito e veja qual é.", "ouro",
+                        size=14, mt=12, largura=340)
+                + f'<div style="margin-top:18px;">{botao(fundo=INK, cor=BEGE)}</div>'
+                + link_escrito("ouro")
+                + rodape_cta("ouro", cor_tagline="rgba(3,1,24,.55)", mt=18, pt=15),
+                alinhamento="center", pad="64px 32px 62px",
+            )
         )),
-        dict(tema="dark", ultimo=True, alinhamento="center",
-             extras=brilho_final(),
-             conteudo=cta("dark", "Faça o diagnóstico gratuito e veja qual é.", com_foto=True)),
     ]
+
+
+# =====================================================================
+# 3 · O VÃO
+# Verde petróleo do manual em vez do escuro, e uma faixa dourada no rodapé
+# que carrega a frase-chave de cada card. O vão medido vira gráfico.
+# =====================================================================
+def faixa_ouro(conteudo, pad="22px 32px 58px"):
+    return (f'<div style="position:absolute;left:0;right:0;bottom:0;z-index:6;'
+            f'background:{GOLD};padding:{pad};">{conteudo}</div>')
+
+
+def grafico_vao(tom):
+    t = TONS[tom]
+    ponto = "width:9px;height:9px;border-radius:50%;flex:none;"
+    tracejado = (f'flex:1;height:1px;background:repeating-linear-gradient(to right,'
+                 f'{t["tag"]} 0 5px,transparent 5px 11px);opacity:.6;')
+    return (
+        '<div style="margin-top:26px;">'
+        '<div style="display:flex;align-items:center;gap:9px;">'
+        f'<span style="{ponto}background:{t["tag"]};"></span>'
+        f'<span style="{tracejado}"></span>'
+        f'<span class="sans" style="font-size:9px;font-weight:600;letter-spacing:1.8px;'
+        f'color:{t["tag"]};white-space:nowrap;">O VÃO</span>'
+        f'<span style="{tracejado}"></span>'
+        f'<span style="{ponto}background:{t["tag"]};opacity:.34;"></span></div>'
+        '<div style="display:flex;justify-content:space-between;gap:14px;margin-top:9px;">'
+        f'<span class="sans" style="font-size:11px;font-weight:600;color:{t["fg"]};'
+        'max-width:150px;line-height:1.35;">o valor que você tem</span>'
+        f'<span class="sans" style="font-size:11px;font-weight:500;color:{t["muted"]};'
+        'max-width:150px;line-height:1.35;text-align:right;">o valor que o mercado enxerga</span>'
+        '</div></div>'
+    )
 
 
 def carrossel_3():
-    """Mecanismo · A Ruptura de Valor Percebido. Foto: só no fim."""
-    L, D = TEMA["light"], TEMA["dark"]
     return [
-        dict(tema="light", topo_logo=True, conteudo=(
-            etiqueta("MECANISMO", L)
-            + titulo("Existe uma distância entre o valor que você tem e o valor que o mercado enxerga.", 27)
-            + distancia(L)
+        dict(tom="claro", fundo=BEGE, tom_barra="ouro", inner=(
+            faixa_marca("claro", com_logo=True)
+            + caixa(
+                etiqueta("MECANISMO", "claro", mb=16)
+                + titulo("Existe uma distância entre o valor que você tem e o valor "
+                         "que o mercado enxerga.", 27, lh=1.16)
+                + grafico_vao("claro"),
+                alinhamento="flex-end", pad="76px 32px 158px",
+            )
+            + faixa_ouro(
+                f'<span class="sans" style="display:block;font-size:10px;font-weight:600;'
+                f'letter-spacing:2.2px;color:rgba(3,1,24,.55);margin-bottom:10px;">'
+                'O NOME DISSO</span>'
+                + titulo("Ela tem nome: Ruptura de Valor Percebido.", 24, peso=600,
+                         lh=1.18, cor=INK)
+            )
         )),
-        dict(tema="dark", alinhamento="center", conteudo=(
-            etiqueta("O NOME DISSO", D)
-            + titulo("Ela tem nome:", 24, peso=400, mb=10)
-            + titulo(ouro("Ruptura de Valor Percebido.", D), 36, peso=600, lh=1.1)
+        dict(tom="escuro", fundo=PETROL, inner=(
+            faixa_marca("escuro")
+            + caixa(
+                '<div>'
+                + etiqueta("POR QUE NADA FUNCIONA", "escuro", mb=14)
+                + titulo("Enquanto ela existir, nenhuma tática resolve.", 31, lh=1.14)
+                + '</div>'
+                + '<div>'
+                + titulo(f'{riscado("Postar mais", GOLD_LIGHT)} não resolve. '
+                         f'{riscado("Curso", GOLD_LIGHT)} não resolve. '
+                         f'{riscado("Agência", GOLD_LIGHT)} não resolve.',
+                         25, peso=400, lh=1.28)
+                + '</div>',
+                alinhamento="space-between", pad="78px 32px 68px",
+            )
         )),
-        dict(tema="light", conteudo=(
-            etiqueta("POR QUE NADA FUNCIONA", L)
-            + titulo("Enquanto ela existir, nenhuma tática resolve.", 32)
+        dict(tom="claro", fundo=BEGE, tom_barra="ouro", inner=(
+            faixa_marca("claro")
+            + caixa(
+                etiqueta("O MOTIVO", "claro", mb=14)
+                + titulo(f'Porque tática em cima de percepção quebrada só produz '
+                         f'<span style="color:{GOLD}">ruído</span>.', 30, lh=1.15),
+                alinhamento="flex-end", pad="76px 32px 240px",
+            )
+            + faixa_ouro(
+                titulo("O que resolve é fechar a distância, na ordem certa.", 21,
+                       peso=600, lh=1.2, cor=INK)
+                + pilares_grade("ouro", cor_num="rgba(3,1,24,.5)")
+            )
         )),
-        dict(tema="dark", conteudo=(
-            etiqueta("NEM ISSO", D)
-            + titulo(f'{risco("Postar mais", D)} não resolve. {risco("Curso", D)} não resolve. '
-                     f'{risco("Agência", D)} não resolve.', 28)
+        dict(tom="escuro", fundo=PETROL, ultimo=True, inner=(
+            faixa_marca("escuro")
+            + '<div style="position:absolute;inset:0;z-index:0;'
+              f'background:radial-gradient(116% 74% at 50% 110%, {GOLD}42 0%, {GOLD_DEEP}1e 44%,'
+              ' rgba(7,41,46,0) 76%);"></div>'
+            + caixa(
+                f'<div style="margin-bottom:26px;">{foto(96, GOLD)}</div>'
+                + etiqueta("DIAGNÓSTICO GRATUITO", "escuro", mb=14)
+                + titulo("Meça a sua em 2 minutos.", 32, lh=1.16)
+                + f'<div style="margin-top:26px;">{botao()}</div>'
+                + link_escrito("escuro")
+                + rodape_cta("escuro"),
+                alinhamento="center", pad="72px 32px 70px",
+            )
         )),
-        dict(tema="light", conteudo=(
-            etiqueta("O MOTIVO", L)
-            + titulo(f'Porque tática em cima de percepção quebrada só produz {ouro("ruído", L)}.', 30)
-        )),
-        dict(tema="dark", conteudo=(
-            etiqueta("O QUE RESOLVE", D)
-            + titulo("O que resolve é fechar a distância, na ordem certa.", 27)
-            + pilares(D)
-        )),
-        dict(tema="dark", ultimo=True, alinhamento="center",
-             extras=brilho_final(),
-             conteudo=cta("dark", "Meça a sua em 2 minutos.", com_foto=True)),
     ]
+
+
+# =====================================================================
+# 4 · COLUNA DIVIDIDA
+# A tela é partida em vinho e dourado, e a divisão anda: 50/50 na abertura,
+# depois cede para o técnico, depois para o percebido. Rodapé escuro fixo
+# para a barra de progresso não cair em cima da emenda.
+# =====================================================================
+def divisao(pct_vinho):
+    return ('<div style="position:absolute;inset:0;z-index:0;display:flex;">'
+            f'<div style="width:{pct_vinho}%;background:{WINE};"></div>'
+            f'<div style="flex:1;background:{GOLD};"></div></div>')
+
+
+def rodape_escuro(altura=78):
+    return ('<div style="position:absolute;left:0;right:0;bottom:0;z-index:4;'
+            f'height:{altura}px;background:{INK};"></div>')
+
+
+def etiqueta_vertical(txt, cor, lado, px=15, topo=76):
+    """Fica no alto de propósito: no meio da altura ela encosta no chevron da seta."""
+    pos = "left:%dpx;" % px if lado == "esq" else "right:%dpx;" % px
+    return (f'<div style="position:absolute;{pos}top:{topo}px;z-index:5;">'
+            '<span class="sans" style="writing-mode:vertical-rl;transform:rotate(180deg);'
+            f'font-size:9px;font-weight:600;letter-spacing:2.6px;color:{cor};">{txt}</span></div>')
 
 
 def carrossel_4():
-    """Mecanismo · Técnico ou percebido. Foto: só no começo."""
-    L, D = TEMA["light"], TEMA["dark"]
     return [
-        dict(tema="light", topo_logo=True, conteudo=(
-            f'<div style="margin-bottom:26px;">{foto(100)}</div>'
-            + etiqueta("TÉCNICO OU PERCEBIDO", L)
-            + titulo("Existem dois especialistas no mercado.", 32)
+        dict(tom="escuro", fundo=INK, tom_seta="ouro", tom_barra="escuro", inner=(
+            divisao(50)
+            + rodape_escuro(142)
+            + '<div style="position:absolute;top:26px;left:32px;right:32px;z-index:10;'
+              'display:flex;align-items:center;justify-content:space-between;gap:12px;">'
+              f'<img src="{IMG["logo-claro"]}" alt="{MARCA}" '
+              'style="height:19px;width:auto;display:block;opacity:.92;">'
+              '<span class="sans" style="font-size:10px;font-weight:500;letter-spacing:.6px;'
+              f'color:rgba(3,1,24,.62);">{HANDLE}</span></div>'
+            + f'<div style="position:absolute;left:32px;top:74px;z-index:5;">'
+              f'<span class="sans" style="font-size:10px;font-weight:600;letter-spacing:2.2px;'
+              f'color:rgba(245,239,228,.72);">O TÉCNICO</span></div>'
+            + f'<div style="position:absolute;right:56px;top:74px;z-index:5;text-align:right;">'
+              f'<span class="sans" style="font-size:10px;font-weight:600;letter-spacing:2.2px;'
+              f'color:rgba(3,1,24,.62);">O PERCEBIDO</span></div>'
+            + '<div style="position:absolute;left:50%;top:168px;transform:translateX(-50%);'
+              f'z-index:6;">{foto(112, BEGE, espessura=3)}</div>'
+            + '<div style="position:absolute;left:32px;right:32px;bottom:56px;z-index:6;">'
+            + titulo("Existem dois especialistas no mercado.", 29, lh=1.14, cor=CREAM)
+            + '</div>'
         )),
-        dict(tema="dark", conteudo=(
-            etiqueta("O TÉCNICO", D)
-            + titulo("O técnico: sabe muito, estuda muito, tem certificado.", 29)
+        dict(tom="escuro", fundo=INK, tom_seta="ouro", tom_barra="escuro", inner=(
+            divisao(76)
+            + rodape_escuro(78)
+            + faixa_marca("escuro", dir_=64)
+            + etiqueta_vertical("PERCEBIDO", "rgba(3,1,24,.55)", "dir")
+            + caixa(
+                etiqueta("O TÉCNICO", "escuro", mb=16, cor=GOLD_LIGHT)
+                + titulo("O técnico: sabe muito, estuda muito, tem certificado.", 27, lh=1.16)
+                + filete(GOLD_LIGHT, largura=40, mt=22, mb=18)
+                + titulo("E continua sendo comparado por preço.", 24, peso=400, lh=1.2,
+                         cor="rgba(245,239,228,.82)"),
+                alinhamento="flex-end", pad="78px 132px 96px 32px",
+            )
         )),
-        dict(tema="light", conteudo=(
-            etiqueta("E MESMO ASSIM", L)
-            + titulo(f'E continua sendo {ouro("comparado por preço", L)}.', 32)
+        dict(tom="ouro", fundo=INK, tom_seta="ouro", tom_barra="escuro", inner=(
+            divisao(24)
+            + rodape_escuro(78)
+            + '<div style="position:absolute;top:26px;left:120px;right:32px;z-index:10;'
+              'display:flex;align-items:center;justify-content:space-between;gap:12px;">'
+              '<span class="sans" style="font-size:10px;font-weight:600;letter-spacing:1.7px;'
+              f'color:rgba(3,1,24,.6);">{MARCA}</span>'
+              '<span class="sans" style="font-size:10px;font-weight:500;letter-spacing:.6px;'
+              f'color:rgba(3,1,24,.6);">{HANDLE}</span></div>'
+            + etiqueta_vertical("TÉCNICO", "rgba(245,239,228,.6)", "esq")
+            + caixa(
+                etiqueta("O PERCEBIDO", "ouro", mb=16, cor="rgba(3,1,24,.55)")
+                + titulo("O percebido: talvez saiba exatamente a mesma coisa.", 27, lh=1.16,
+                         cor=INK)
+                + filete(INK, largura=40, mt=22, mb=18)
+                + titulo("Mas é lembrado, é indicado, é valorizado.", 24, peso=500, lh=1.2,
+                         cor=INK),
+                alinhamento="flex-end", pad="78px 56px 96px 128px",
+            )
         )),
-        dict(tema="dark", conteudo=(
-            etiqueta("O PERCEBIDO", D)
-            + titulo("O percebido: talvez saiba exatamente a mesma coisa.", 29)
+        dict(tom="escuro", fundo=INK, ultimo=True, inner=(
+            faixa_marca("escuro")
+            + '<div style="position:absolute;inset:0;z-index:0;display:flex;">'
+              f'<div style="width:50%;background:linear-gradient(to bottom,{WINE}00 58%,'
+              f'{WINE}3a 100%);"></div>'
+              f'<div style="flex:1;background:linear-gradient(to bottom,{GOLD}00 58%,'
+              f'{GOLD}2b 100%);"></div></div>'
+            + caixa(
+                etiqueta("A DIFERENÇA", "escuro", mb=14)
+                + titulo("A diferença entre os dois não é conhecimento. "
+                         f'É <span style="color:{GOLD_LIGHT}">comunicação de valor</span>. '
+                         "E isso se constrói.", 27, lh=1.18)
+                + texto("Descubra em qual você está hoje.", "escuro", size=15, mt=16,
+                        largura=290)
+                + f'<div style="margin-top:22px;">{botao()}</div>'
+                + link_escrito("escuro")
+                + rodape_cta("escuro"),
+                alinhamento="center", pad="74px 32px 70px",
+            )
         )),
-        dict(tema="light", conteudo=(
-            etiqueta("A DIFERENÇA APARECE AQUI", L)
-            + titulo(f'Mas é {ouro("lembrado", L)}, é {ouro("indicado", L)}, '
-                     f'é {ouro("valorizado", L)}.', 31)
-        )),
-        dict(tema="dark", conteudo=(
-            etiqueta("NÃO É O QUE PARECE", D)
-            + titulo(f'A diferença entre os dois {ouro("não é conhecimento", D)}.', 31)
-        )),
-        dict(tema="light", conteudo=(
-            etiqueta("É ISTO", L)
-            + titulo("É comunicação de valor. E isso se constrói.", 32)
-        )),
-        dict(tema="dark", ultimo=True, alinhamento="center",
-             extras=brilho_final(),
-             conteudo=cta("dark", "Descubra em qual você está hoje.", com_foto=False)),
     ]
 
 
+# =====================================================================
+# 5 · RETRATO
+# Coluna editorial: filete dourado na margem, o tema correndo na vertical
+# ao lado dele e a foto grande. É o carrossel de autoridade, então é o
+# único em que o rosto dela domina.
+# =====================================================================
+def coluna(tom, kicker):
+    t = TONS[tom]
+    return (
+        f'<div style="position:absolute;left:32px;top:62px;bottom:64px;width:2px;'
+        f'background:{GOLD};z-index:3;opacity:.85;"></div>'
+        '<div style="position:absolute;left:19px;bottom:70px;z-index:4;">'
+        '<span class="sans" style="writing-mode:vertical-rl;transform:rotate(180deg);'
+        f'font-size:9px;font-weight:600;letter-spacing:2.4px;color:{t["muted"]};">'
+        f'{kicker}</span></div>'
+    )
+
+
 def carrossel_5():
-    """Autoridade · O que eu vi em quase 30 especialistas. Foto: começo e fim."""
-    L, D = TEMA["light"], TEMA["dark"]
+    KICKER = "O QUE EU VI EM QUASE 30 ESPECIALISTAS"
     return [
-        dict(tema="light", topo_logo=True, conteudo=(
-            f'<div style="margin-bottom:26px;">{foto(108)}</div>'
-            + etiqueta("AUTORIDADE", L)
-            + titulo("Já acompanhei quase 30 especialistas de perto.", 31)
+        dict(tom="escuro", fundo=INK, inner=(
+            faixa_marca("escuro", com_logo=True, esq=62)
+            + coluna("escuro", KICKER)
+            + caixa(
+                f'<div style="align-self:flex-end;margin-right:14px;">'
+                f'{foto(222, GOLD, raio="12px")}</div>'
+                + '<div>'
+                + etiqueta("AUTORIDADE", "escuro", mb=14)
+                + titulo("Já acompanhei quase 30 especialistas de perto.", 29, lh=1.14)
+                + texto("Psicólogos, advogados, terapeutas, coaches. Gente muito boa.",
+                        "escuro", size=15, mt=14, largura=300)
+                + '</div>',
+                alinhamento="space-between", pad="72px 32px 66px 62px",
+            )
         )),
-        dict(tema="dark", conteudo=(
-            etiqueta("QUEM SÃO", D)
-            + titulo(f'Psicólogos, advogados, terapeutas, coaches. '
-                     f'{ouro("Gente muito boa", D)}.', 28)
+        dict(tom="claro", fundo=BEGE, inner=(
+            faixa_marca("claro", esq=62)
+            + coluna("claro", KICKER)
+            + caixa(
+                etiqueta("O PADRÃO", "claro", mb=0)
+                + '<div>'
+                + titulo("Todos com o mesmo padrão: "
+                         f'<span style="color:{GOLD}">excelentes e invisíveis</span>.',
+                         30, lh=1.15)
+                + filete(GOLD, largura=40, mt=22, mb=18)
+                + titulo("E todos achando que o problema era falta de marketing.", 23,
+                         peso=400, lh=1.24, cor="#4C4638")
+                + '</div>',
+                alinhamento="space-between", pad="78px 32px 68px 62px",
+            )
         )),
-        dict(tema="light", conteudo=(
-            etiqueta("O PADRÃO", L)
-            + titulo(f'Todos com o mesmo padrão: {ouro("excelentes e invisíveis", L)}.', 30)
+        dict(tom="escuro", fundo=INK, inner=(
+            faixa_marca("escuro", esq=62)
+            + coluna("escuro", KICKER)
+            + caixa(
+                '<div>'
+                + etiqueta("O QUE ERA DE VERDADE", "escuro", mb=14)
+                + titulo("Não era. Era a distância entre o que sabiam e o que comunicavam.",
+                         27, lh=1.16)
+                + '</div>'
+                + '<div>'
+                + titulo("Foi para fechar essa distância que eu criei o "
+                         f'<span style="color:{GOLD_LIGHT}">MMPV</span>.', 24, peso=400,
+                         lh=1.22)
+                + pilares_grade("escuro")
+                + '</div>',
+                alinhamento="space-between", pad="78px 32px 66px 62px",
+            )
         )),
-        dict(tema="dark", conteudo=(
-            etiqueta("O DIAGNÓSTICO ERRADO", D)
-            + titulo("E todos achando que o problema era falta de marketing.", 29)
+        dict(tom="escuro", fundo=INK, ultimo=True, inner=(
+            faixa_marca("escuro", esq=62)
+            + coluna("escuro", KICKER)
+            + '<div style="position:absolute;inset:0;z-index:0;'
+              f'background:radial-gradient(118% 76% at 62% 108%, {GOLD}3d 0%, {GOLD_DEEP}1c 44%,'
+              ' rgba(3,1,24,0) 76%);"></div>'
+            + caixa(
+                f'<div style="margin-bottom:24px;">{foto(100, GOLD)}</div>'
+                + etiqueta("DIAGNÓSTICO GRATUITO", "escuro", mb=14)
+                + titulo("Comece descobrindo o tamanho da sua.", 29, lh=1.16)
+                + f'<div style="margin-top:24px;">{botao()}</div>'
+                + link_escrito("escuro")
+                + rodape_cta("escuro"),
+                alinhamento="center", pad="72px 32px 70px 62px",
+            )
         )),
-        dict(tema="light", conteudo=(
-            etiqueta("O QUE ERA DE VERDADE", L)
-            + titulo("Não era. Era a distância entre o que sabiam e o que comunicavam.", 28)
-        )),
-        dict(tema="dark", conteudo=(
-            etiqueta("POR ISSO O MMPV", D)
-            + titulo("Foi para fechar essa distância que eu criei o MMPV.", 27)
-            + pilares(D)
-        )),
-        dict(tema="dark", ultimo=True, alinhamento="center",
-             extras=brilho_final(),
-             conteudo=cta("dark", "Comece descobrindo o tamanho da sua. Diagnóstico gratuito.", com_foto=True)),
     ]
 
 
@@ -561,59 +747,46 @@ display:flex;flex-direction:column;}
 
 
 CARROSSEIS = [
-    dict(
-        n=1, slug="1-o-dia-do-especialista-invisivel",
-        titulo="O dia do especialista invisível", eixo="Cena",
-        foto="só no fim", slides=carrossel_1,
-        legenda=("Não é falta de competência. Existe uma distância entre o valor que você tem "
-                 "e o valor que o mercado enxerga, e ela pode ser medida. Diagnóstico gratuito "
-                 "de 2 minutos no link."),
-    ),
-    dict(
-        n=2, slug="2-as-frases-que-voce-ja-disse-pra-si-mesmo",
-        titulo="As frases que você já disse pra si mesmo", eixo="Cena",
-        foto="começo e fim", slides=carrossel_2,
-        legenda=("Nenhuma dessas frases é o problema. Todas são sintoma da mesma coisa. "
-                 "Descubra qual é no diagnóstico gratuito de 2 minutos."),
-    ),
-    dict(
-        n=3, slug="3-a-ruptura-de-valor-percebido",
-        titulo="A Ruptura de Valor Percebido", eixo="Mecanismo",
-        foto="só no fim", slides=carrossel_3,
-        legenda=("Existe um motivo pelo qual o mercado ainda ignora você, e não é marketing. "
-                 "Chama-se Ruptura de Valor Percebido. Meça a sua em 2 minutos."),
-    ),
-    dict(
-        n=4, slug="4-tecnico-ou-percebido",
-        titulo="Técnico ou percebido", eixo="Mecanismo",
-        foto="só no começo", slides=carrossel_4,
-        legenda=("O técnico sabe muito e continua sendo comparado por preço. O percebido talvez "
-                 "saiba o mesmo, mas é lembrado, indicado e valorizado. Descubra em qual você está."),
-    ),
-    dict(
-        n=5, slug="5-o-que-eu-vi-em-quase-30-especialistas",
-        titulo="O que eu vi em quase 30 especialistas", eixo="Autoridade",
-        foto="começo e fim", slides=carrossel_5,
-        legenda=("Quase 30 especialistas acompanhados de perto, todos com o mesmo padrão: "
-                 "excelentes e invisíveis. Comece descobrindo o tamanho da sua ruptura."),
-    ),
+    dict(n=1, slug="1-o-dia-do-especialista-invisivel",
+         titulo="O dia do especialista invisível", eixo="Cena",
+         sistema="Duas batidas · bege e escuro", foto="só no fim", slides=carrossel_1,
+         legenda=("Não é falta de competência. Existe uma distância entre o valor que você tem "
+                  "e o valor que o mercado enxerga, e ela pode ser medida. Diagnóstico gratuito "
+                  "de 2 minutos no link.")),
+    dict(n=2, slug="2-as-frases-que-voce-ja-disse-pra-si-mesmo",
+         titulo="As frases que você já disse pra si mesmo", eixo="Cena",
+         sistema="Fichas · fundo dourado", foto="começo e fim", slides=carrossel_2,
+         legenda=("Nenhuma dessas frases é o problema. Todas são sintoma da mesma coisa. "
+                  "Descubra qual é no diagnóstico gratuito de 2 minutos.")),
+    dict(n=3, slug="3-a-ruptura-de-valor-percebido",
+         titulo="A Ruptura de Valor Percebido", eixo="Mecanismo",
+         sistema="O vão · petróleo e faixa dourada", foto="só no fim", slides=carrossel_3,
+         legenda=("Existe um motivo pelo qual o mercado ainda ignora você, e não é marketing. "
+                  "Chama-se Ruptura de Valor Percebido. Meça a sua em 2 minutos.")),
+    dict(n=4, slug="4-tecnico-ou-percebido",
+         titulo="Técnico ou percebido", eixo="Mecanismo",
+         sistema="Coluna dividida · vinho e dourado", foto="só no começo", slides=carrossel_4,
+         legenda=("O técnico sabe muito e continua sendo comparado por preço. O percebido talvez "
+                  "saiba o mesmo, mas é lembrado, indicado e valorizado. Descubra em qual "
+                  "você está.")),
+    dict(n=5, slug="5-o-que-eu-vi-em-quase-30-especialistas",
+         titulo="O que eu vi em quase 30 especialistas", eixo="Autoridade",
+         sistema="Retrato · coluna editorial", foto="começo e fim", slides=carrossel_5,
+         legenda=("Quase 30 especialistas acompanhados de perto, todos com o mesmo padrão: "
+                  "excelentes e invisíveis. Comece descobrindo o tamanho da sua ruptura.")),
 ]
 
 
 def montar(c):
     itens = c["slides"]()
     total = len(itens)
-    html_slides = []
-    for i, s in enumerate(itens):
-        html_slides.append(slide(
-            i, total,
-            s["tema"],
-            s["conteudo"],
-            alinhamento=s.get("alinhamento", "flex-end"),
-            topo_logo=s.get("topo_logo", False),
-            extras=s.get("extras", ""),
-            ultimo=s.get("ultimo", False),
-        ))
+    assert total <= 4, "%s tem %d cards; o limite é 4" % (c["slug"], total)
+    html_slides = [
+        card(s["inner"], s["tom"], i, total, s["fundo"],
+             ultimo=s.get("ultimo", False),
+             tom_barra=s.get("tom_barra"), tom_seta=s.get("tom_seta"))
+        for i, s in enumerate(itens)
+    ]
     dots = "".join('<span class="ig-dot%s"></span>' % (" on" if i == 0 else "")
                    for i in range(total))
     pagina = PAGINA
@@ -621,7 +794,7 @@ def montar(c):
         ("__FONTES__", FONTES),
         ("__TITULO__", c["titulo"]),
         ("__AVATAR__", IMG["foto"]),
-        ("__SUB__", "%s · %s slides" % (c["eixo"], total)),
+        ("__SUB__", "%s · %d cards" % (c["eixo"], total)),
         ("__SLIDES__", "".join(html_slides)),
         ("__DOTS__", dots),
         ("__LEGENDA__", c["legenda"]),
@@ -633,17 +806,15 @@ def montar(c):
 
 def main():
     print("Gerando carrosséis de largada · Luana Isse\n")
-    resumo = []
+    total_cards = 0
     for c in CARROSSEIS:
         pagina, total = montar(c)
         destino = AQUI / ("carrossel-%s.html" % c["slug"])
         destino.write_text(pagina, encoding="utf-8")
-        resumo.append((c["n"], c["titulo"], total, c["foto"], destino.name,
-                       len(pagina.encode("utf-8"))))
-        print("  %d. %-42s %d slides · foto %-16s %s" %
-              (c["n"], c["titulo"], total, c["foto"], destino.name))
-    print("\nTotal de slides: %d" % sum(r[2] for r in resumo))
-    return resumo
+        total_cards += total
+        print("  %d. %-42s %d cards · %-34s foto %s" %
+              (c["n"], c["titulo"], total, c["sistema"], c["foto"]))
+    print("\nTotal de cards: %d" % total_cards)
 
 
 if __name__ == "__main__":
