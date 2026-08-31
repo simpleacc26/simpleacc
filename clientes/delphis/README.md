@@ -13,6 +13,7 @@ verba de anúncio à parte. Prazo prometido: **funil no ar em 7 dias da assinatu
 | Documento | O que tem |
 | --------- | --------- |
 | **Estratégia Completa (PDF)** | `estrategia/Estratégia Completa - Delphis Fonseca - 28.08.26.pdf` — 24 páginas no modelo Rafael Cobra: funil em uma página, big idea, quiz, página de diagnóstico, 20 criativos, cadência e recomendações (fonte HTML ao lado) |
+| **Guia de Depoimentos (PDF)** | `estrategia/Guia de Captação de Depoimentos - Delphis Fonseca - 28.08.26.pdf` — 4 páginas para ele pedir e coletar depoimentos em vídeo (fonte HTML ao lado) |
 | **Roadmap 90 dias (PDF)** | `estrategia/Roadmap Estratégico Digital - Delphis Fonseca - 28.08.26.pdf` — o plano de ação (fonte HTML ao lado) |
 | [`estrategia/2026-08-28-analise-estrategica.md`](estrategia/2026-08-28-analise-estrategica.md) | Achados que mudam decisão, esteira recomendada, riscos e perguntas abertas |
 | [`contexto/dossie-cliente.md`](contexto/dossie-cliente.md) | Quem é, oferta, números, ICP, concorrentes e pendências |
