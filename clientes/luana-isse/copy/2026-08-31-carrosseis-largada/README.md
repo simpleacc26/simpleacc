@@ -8,7 +8,8 @@ ajustes registrados abaixo.
 - **Até 4 cards por carrossel**, 20 no total. As copies que estavam soltas em
   cards separados foram unidas: card com uma frase e o resto vazio não segura
   swipe e ainda entrega o carrossel mais longo do que ele precisa ser.
-- **Destino do tráfego:** https://quiz-luana-isse.vercel.app
+- **Destino do tráfego:** https://quiz-luana-isse.vercel.app — configurado no
+  anúncio, **não escrito nos cards**.
 
 ## Os cinco, e o sistema visual de cada um
 
@@ -111,8 +112,9 @@ a Humble Nostalgia, dá para trocar em `gerar.py`.
    de especialista técnico a especialista percebido.
 4. **Sem travessão e sem emoji.**
 5. **CTA:** o botão diz **"Toque em Saiba Mais"** com a seta **para baixo**, que
-   é onde fica o botão Saiba Mais do anúncio. O domínio do funil vem escrito
-   logo abaixo.
+   é onde fica o botão Saiba Mais do anúncio. **O domínio do funil não aparece
+   escrito no card**: quem entrega o clique é o botão do anúncio, e URL na arte
+   só concorre com ele.
 6. Big idea: **"Quem é visto, vende mais."**
 
 ## Três ajustes na copy aprovada

@@ -37,7 +37,6 @@ BEGE       = "#F5EFE4"   # off-white quente, nunca branco puro
 BEGE_LINE  = "#E3D8C5"
 CREAM      = "#F5EFE4"
 
-LINK = "quiz-luana-isse.vercel.app"
 HANDLE = "@luana.isse"
 MARCA = "LUANA ISSE"
 
@@ -214,11 +213,6 @@ def rodape_cta(tom, cor_tagline=None, mt=24, pt=18):
     )
 
 
-def link_escrito(tom, cor=None):
-    return (f'<p class="sans" style="font-size:11px;font-weight:500;letter-spacing:.4px;'
-            f'color:{cor or TONS[tom]["muted"]};margin:14px 0 0;">{LINK}</p>')
-
-
 def caixa(inner, alinhamento="flex-end", pad="66px 32px 64px", z=5):
     return (f'<div style="position:relative;z-index:{z};flex:1;display:flex;'
             f'flex-direction:column;justify-content:{alinhamento};padding:{pad};">{inner}</div>')
@@ -298,8 +292,7 @@ def carrossel_1():
                 + etiqueta("DIAGNÓSTICO GRATUITO", "escuro", mb=14)
                 + titulo("Descubra em 2 minutos o que realmente está travando.", 29, lh=1.18)
                 + f'<div style="margin-top:26px;">{botao()}</div>'
-                + link_escrito("escuro")
-                + rodape_cta("escuro"),
+                + rodape_cta("escuro", mt=30),
                 alinhamento="center", pad="72px 32px 70px",
             )
         )),
@@ -360,8 +353,7 @@ def carrossel_2():
                 + texto("Faça o diagnóstico gratuito e veja qual é.", "ouro",
                         size=14, mt=12, largura=340)
                 + f'<div style="margin-top:18px;">{botao(fundo=INK, cor=BEGE)}</div>'
-                + link_escrito("ouro")
-                + rodape_cta("ouro", cor_tagline="rgba(3,1,24,.55)", mt=18, pt=15),
+                + rodape_cta("ouro", cor_tagline="rgba(3,1,24,.55)", mt=26, pt=16),
                 alinhamento="center", pad="64px 32px 62px",
             )
         )),
@@ -458,8 +450,7 @@ def carrossel_3():
                 + etiqueta("DIAGNÓSTICO GRATUITO", "escuro", mb=14)
                 + titulo("Meça a sua em 2 minutos.", 32, lh=1.16)
                 + f'<div style="margin-top:26px;">{botao()}</div>'
-                + link_escrito("escuro")
-                + rodape_cta("escuro"),
+                + rodape_cta("escuro", mt=30),
                 alinhamento="center", pad="72px 32px 70px",
             )
         )),
@@ -575,8 +566,7 @@ def carrossel_4():
                 + texto("Descubra em qual você está hoje.", "escuro-vinho", size=15, mt=16,
                         largura=290)
                 + f'<div style="margin-top:22px;">{botao(fundo=BEGE, cor=WINE_DEEP)}</div>'
-                + link_escrito("escuro-vinho")
-                + rodape_cta("escuro-vinho"),
+                + rodape_cta("escuro-vinho", mt=30),
                 alinhamento="center", pad="74px 32px 70px",
             )
         )),
@@ -664,8 +654,7 @@ def carrossel_5():
                 + etiqueta("DIAGNÓSTICO GRATUITO", "escuro", mb=14)
                 + titulo("Comece descobrindo o tamanho da sua.", 29, lh=1.16)
                 + f'<div style="margin-top:24px;">{botao()}</div>'
-                + link_escrito("escuro")
-                + rodape_cta("escuro"),
+                + rodape_cta("escuro", mt=30),
                 alinhamento="center", pad="72px 32px 70px 62px",
             )
         )),
