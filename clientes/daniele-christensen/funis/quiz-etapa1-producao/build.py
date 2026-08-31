@@ -113,8 +113,8 @@ def main():
                  "    etapa: 1,\n    rastreio: RASTREIO,\n", "o campo etapa do payload")
 
     # ----------------------------------------------------------------- GTM
-    html = gtm.injeta(html, troca)
-    erro = gtm.confere(html)
+    html = gtm.injeta(html, troca, pixel=True)
+    erro = gtm.confere(html, pixel=True)
     if erro:
         sys.exit("build: GTM — " + erro)
 
