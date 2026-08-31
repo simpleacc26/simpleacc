@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A sua leitura · Rômulo Heleno</title>
+<!--
+  Leitura genérica do Diagnóstico das Mechas, para o Rômulo enviar no WhatsApp.
+  Mesma leitura do funil, sem os campos personalizados: serve igual para todo
+  lead. Regras da casa: sem travessão, sem sombra (vira retângulo cinza no
+  leitor de PDF do celular), sem nome do lead, sem emoji (padrão deste cliente),
+  linguagem neutra em gênero.
+  No lugar dos depoimentos entram as fotos de trabalho dele: ele ainda não tem
+  case de aluno com autorização, e a regra deste projeto é não inventar prova.
+-->
+<style>
+  :root{
+    /* paleta do funil dele (styles.css): navy + dourado sobre marfim */
+    --bg:#F5F1EA;
+    --surface:#FFFFFF;
+    --text:#232C39;
+    --muted:#6B7480;
+    --primary:#B98A3E;
+    --primary-700:#8C6A2C;
+    --accent-soft:#F3E7CE;
+    --border:#E5DED0;
+    --err:#B4452B;
+    --action:#14233D;
+    --on-action:#FBF6EC;
+    --serif:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,"Hoefler Text",Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{ background:var(--bg); color:var(--text); font-family:var(--sans); font-size:16.5px; line-height:1.62; -webkit-font-smoothing:antialiased; }
+  .wrap{ padding:34px 30px 38px; }
+  p{ margin:0 0 15px; }
+  strong{ color:var(--primary-700); }
+  h1,h2,h3,h4{ font-family:var(--serif); color:var(--text); margin:0; }
+
+  .brand{ text-align:center; padding-bottom:18px; border-bottom:1px solid var(--border); margin-bottom:8px; }
+  .brand .name{ font-family:var(--serif); font-size:23px; font-weight:700; color:var(--primary-700); letter-spacing:.02em; }
+  .brand .tag{ font-family:var(--sans); font-size:10.5px; letter-spacing:.22em; text-transform:uppercase; color:var(--muted); margin-top:5px; }
+  .selo{ display:inline-block; margin:22px auto 10px; font-family:var(--sans); font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--primary-700); background:var(--accent-soft); border-radius:999px; padding:5px 13px; }
+  h1.title{ font-size:28px; line-height:1.16; margin:2px 0 8px; }
+  .sub{ color:var(--muted); font-size:14px; margin:0 0 4px; }
+
+  .sec{ margin-top:24px; }
+  .sec h3{ font-size:19.5px; line-height:1.25; color:var(--primary-700); margin-bottom:10px; }
+  .intro{ font-size:17px; }
+
+  .compare{ display:flex; flex-direction:column; gap:12px; margin-top:6px; }
+  .col{ border-radius:16px; padding:16px 17px; }
+  .col h4{ font-size:16px; margin-bottom:9px; }
+  .col ul{ margin:0; padding-left:18px; }
+  .col li{ margin:5px 0; font-size:15px; }
+  .col.bad{ background:#EFE8DC; border:1px solid var(--border); }
+  .col.bad h4{ color:var(--err); }
+  .col.good{ background:var(--accent-soft); border:1px solid #E4CE9E; }
+  .col.good h4{ color:var(--primary-700); }
+
+  ol.metodo{ margin:6px 0 10px; padding-left:20px; }
+  ol.metodo li{ margin:9px 0; }
+  .hint{ color:var(--muted); font-size:14px; }
+
+  /* Botão CTA. Sem sombra de propósito: alguns leitores de PDF no celular
+     rasterizam box-shadow como um retângulo cinza em volta do botão. */
+  .cta{ margin:22px 0 6px; }
+  a.btn{ display:block; text-decoration:none; text-align:center; background:var(--action); color:var(--on-action); font-family:var(--sans); font-weight:700; font-size:16px; padding:16px 18px; border-radius:14px; letter-spacing:.01em; }
+  .cta .under{ text-align:center; color:var(--muted); font-size:12.5px; margin:9px 4px 0; }
+
+  /* Fotos de trabalho: 2 colunas fecham certinho com 6 fotos, sem buraco. */
+  .trabalhos{ display:grid; grid-template-columns:1fr 1fr; gap:9px; margin-top:8px; }
+  .trabalhos img{ width:100%; height:auto; aspect-ratio:4/5; object-fit:cover; border-radius:12px; border:1px solid var(--border); display:block; }
+
+  .cta-box{ margin-top:28px; background:var(--surface); border:1px solid var(--border); border-radius:18px; padding:22px 20px; }
+  .cta-box h2{ font-size:22px; margin-bottom:10px; }
+
+  .foot{ margin-top:28px; padding-top:16px; border-top:1px solid var(--border); text-align:center; color:var(--muted); font-size:12.5px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brand">
+    <div class="name">Rômulo Heleno</div>
+    <div class="tag">Método Cabelo de Segunda</div>
+  </div>
+
+  <div style="text-align:center"><span class="selo">Diagnóstico das Mechas</span></div>
+  <h1 class="title">O que trava as suas mechas não é falta de talento</h1>
+  <p class="sub">A leitura do seu diagnóstico, do jeito que eu leria se a gente estivesse conversando.</p>
+
+  <div class="sec">
+    <p class="intro">Olá! Que bom que você respondeu o diagnóstico.</p>
+    <p>Se você foi até o fim, é porque alguma coisa ali bateu. Preparei esta
+    leitura para te mostrar, com honestidade, o que costuma estar por trás do que
+    você respondeu. E, principalmente, que existe caminho.</p>
+  </div>
+
+  <div class="sec">
+    <h3>Antes de tudo</h3>
+    <p>Quero começar por uma coisa que talvez ninguém tenha te dito:
+    <strong>o que trava as suas mechas não é falta de talento, nem falta de
+    esforço.</strong> Tem explicação, tem nome, e tem caminho.</p>
+  </div>
+
+  <div class="sec">
+    <h3>O seu cenário hoje</h3>
+    <p>Se você já faz mechas e o resultado muda de cliente para cliente, se
+    acerta na maioria das vezes mas não sabe explicar o que fez diferente, ou se
+    ainda refaz mecha sem cobrar para não perder a cliente, saiba que esse padrão
+    se repete em quase todo profissional que chega até aqui.</p>
+    <p>Pode ter começado há alguns meses ou durar anos. E já vem custando caro:
+    em tempo, em produto e no preço que você consegue cobrar.
+    <strong>Isso tem um nome.</strong></p>
+  </div>
+
+  <div class="sec">
+    <h3>Por que não mudou até agora</h3>
+    <p>Você provavelmente já fez curso, já assistiu vídeo, já seguiu perfil de
+    referência. Aprendeu bastante. E, na hora do atendimento, travou de novo.</p>
+    <p>Faz sentido. Todas essas saídas entregam informação, e o que trava um
+    profissional nas mechas não é falta de informação. O nome disso é
+    <strong>improviso</strong>: a distância entre o que você faz e o que você
+    consegue repetir de propósito.</p>
+    <p>Curso gravado te mostra como fazer. Não corrige o que você está fazendo de
+    errado, porque foi gravado para mil pessoas e não enxerga a sua folha, o seu
+    timing, a sua divisão. Dá para assistir quarenta horas de conteúdo e continuar
+    repetindo o mesmo erro, porque o erro é seu, é específico, e ninguém está
+    olhando para ele.</p>
+  </div>
+
+  <div class="sec">
+    <h3>Dois profissionais, e a diferença entre eles</h3>
+    <div class="compare">
+      <div class="col bad">
+        <h4>Quem fez curso</h4>
+        <ul>
+          <li>Assistiu horas de conteúdo</li>
+          <li>Repete o que viu, sem saber por quê</li>
+          <li>Erra e não sabe onde errou</li>
+          <li>Segue cobrando o preço da tabela</li>
+        </ul>
+      </div>
+      <div class="col good">
+        <h4>Quem foi corrigido</h4>
+        <ul>
+          <li>Talvez saiba exatamente o mesmo</li>
+          <li>Teve alguém olhando o próprio trabalho</li>
+          <li>Sabe o que mudar, e por quê</li>
+          <li>Repete o resultado e sustenta o ticket</li>
+        </ul>
+      </div>
+    </div>
+    <p class="hint">A diferença entre os dois não é talento. É prática corrigida, e isso se constrói.</p>
+  </div>
+
+  <div class="cta">
+    <a class="btn" data-wa="Oi, Rômulo! Li a leitura do Diagnóstico das Mechas e fez sentido. Quero falar sobre a sessão estratégica.">Quero agendar minha sessão estratégica</a>
+    <p class="under">Se já fez sentido para você, é só tocar aqui.</p>
+  </div>
+
+  <div class="sec">
+    <h3>Como o método funciona</h3>
+    <p>O <strong>Método Cabelo de Segunda</strong> existe para tirar o improviso
+    do seu atendimento. São cinco frentes, ao mesmo tempo:</p>
+    <ol class="metodo">
+      <li><strong>Sessão semanal individual:</strong> uma hora por semana, no Meet, para revisar o que você fez. Não é aula, é correção.</li>
+      <li><strong>Correção dos seus vídeos:</strong> você grava o atendimento no salão, manda, e recebe o que errou e o que mudar. Isso não existe em curso nenhum.</li>
+      <li><strong>Banco de fichas técnicas:</strong> os parâmetros certos por tipo de cabelo, textura e objetivo. Você para de improvisar e começa a replicar.</li>
+      <li><strong>Suporte no WhatsApp:</strong> a dúvida que aparece na véspera do atendimento difícil não espera a próxima sessão.</li>
+      <li><strong>Aulas com convidados:</strong> parceiros que já palestraram no evento do Rômulo entram com live ou cedem aula das próprias mentorias.</li>
+    </ol>
+    <p class="hint">Domínio técnico não vem de mais conteúdo. Vem de prática corrigida, toda semana, no seu próprio trabalho.</p>
+  </div>
+
+  <div class="sec">
+    <h3>O que precisa acontecer agora</h3>
+    <p>O caminho começa por uma <strong>sessão estratégica</strong>: trinta
+    minutos, individual, em que o Rômulo lê o seu caso, aponta o gargalo com nome
+    e desenha o próximo passo. Não é apresentação de produto.</p>
+    <p>O que você quer, fazer mechas sem medo de errar, é totalmente possível.
+    Você sai da sessão com clareza, decida ou não seguir.</p>
+  </div>
+
+  <div class="cta">
+    <a class="btn" data-wa="Oi, Rômulo! Quero entender melhor a sessão estratégica do Método Cabelo de Segunda.">Quero entender como funciona</a>
+    <p class="under">São poucos horários por semana, porque cada sessão é preparada antes.</p>
+  </div>
+
+  <div class="sec">
+    <h3>Mechas feitas por ele</h3>
+    <p>Trabalhos do próprio Rômulo, publicados com autorização das clientes que aparecem:</p>
+    <div class="trabalhos">
+      <img src="../funis/funil-quiz/fotos/trabalho-1.jpg" alt="Mechas em cabelo castanho escuro, com iluminado dourado no comprimento">
+      <img src="../funis/funil-quiz/fotos/trabalho-2.jpg" alt="Mechas loiras com raiz esfumada, em cabelo de ondas longas">
+      <img src="../funis/funil-quiz/fotos/trabalho-3.jpg" alt="Mechas em tom mel e caramelo, com movimento do meio às pontas">
+      <img src="../funis/funil-quiz/fotos/trabalho-4.jpg" alt="Loiro iluminado com transição suave da raiz, em cabelo longo">
+      <img src="../funis/funil-quiz/fotos/trabalho-5.jpg" alt="Mechas acobreadas em cabelo cacheado longo">
+      <img src="../funis/funil-quiz/fotos/trabalho-6.jpg" alt="Mechas em cabelo escuro vistas de perfil, mostrando a distribuição da luz">
+    </div>
+    <p class="hint">Antes de mentorar, o Rômulo era quem as marcas contratavam
+    para treinar equipe de salão. Passou 2024 dentro de dezenas de salões
+    corrigindo o trabalho de outros profissionais, ao vivo, na cadeira.</p>
+  </div>
+
+  <div class="cta-box">
+    <h2>O próximo passo</h2>
+    <p>Dar o primeiro passo é simples, e no seu tempo. Se esta leitura fez sentido
+    para você, é só tocar no botão que a gente já organiza tudo.</p>
+    <div class="cta" style="margin-bottom:0">
+      <a class="btn" data-wa="Oi, Rômulo! Terminei o Diagnóstico das Mechas e quero agendar a sessão estratégica.">Falar com o Rômulo agora</a>
+    </div>
+  </div>
+
+  <div class="foot">
+    Rômulo Heleno · Método Cabelo de Segunda<br>
+    Atendimento de segunda a sexta. Você fala direto com ele.
+  </div>
+
+</div>
+</body>
+</html>
