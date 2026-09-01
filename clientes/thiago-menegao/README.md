@@ -4,8 +4,9 @@ Cliente SimpleAcc. Criador do **Protocolo Primal**: método de condução de reu
 de venda de alto valor, vendido como produto digital (aulas gravadas) para experts,
 mentores e consultores que fecham em call individual por vídeo.
 
-Status: **estratégia entregue** — onboarding em 06/08/26, roadmap de 90 dias e estratégia
-completa prontos. Próximo passo: implementação do quiz, após aprovação dele.
+Status: **funil implementado, não publicado** — onboarding em 06/08/26, roadmap de 90 dias
+e estratégia completa entregues, e o quiz construído em 01/09/26. Próximo passo: preencher
+as pendências travadas no código (checkout, Pixel, planilha) e publicar.
 
 **Objetivo do funil:** vender o **PRIMAL PITCH gravado a R$ 2 mil**. Não é funil de high
 ticket. Ele já vende alto valor por fora e cobra R$ 9 mil a hora de consultoria: este é um
@@ -40,7 +41,7 @@ da call registrada.
 
 | Projeto | Pasta | Status | Deploy |
 | ------- | ----- | ------ | ------ |
-|         |       |        |        |
+| Quiz Diagnóstico de Condução | [`funis/quiz-thiago-menegao/`](funis/quiz-thiago-menegao/) | implementado e testado | pendente |
 
 ## Pendências
 
@@ -53,6 +54,11 @@ da call registrada.
 **Operacional:**
 
 - [ ] Checkout: plataforma, parcelamento, prazo de garantia e período de acesso.
+      **Trava o funil:** sem a URL, os botões não navegam e a página avisa no topo.
+- [ ] Pixel da Meta e webhook do Make (planilha de leads no Drive dele).
+- [ ] Foto do Thiago para o bloco de autoridade do diagnóstico.
+- [ ] Autorizar como claim público: as marcas nominais, o "desde 1993", os 20 anos,
+      os 50+ projetos e a hora de R$ 9 mil na página.
 - [ ] Turma de Fundadores: tem data de fechamento com preço que sobe?
 - [ ] Contatos e responsável pela conta.
 - [ ] Termos finais da permuta (confirmar com o Daniel).

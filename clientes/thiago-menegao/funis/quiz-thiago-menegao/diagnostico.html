@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Seu diagnóstico · Thiago Menegão</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="theme-color" content="#08080A" />
+  <style>
+    :root{--ink:#08080A;--text:#F2F0EA}
+    html,body{background:var(--ink)}
+    body{margin:0;color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  </style>
+  <!-- PIXEL DA META. PENDENTE: mesmo ID do index.html e de app.js.
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'SEU_PIXEL_ID');
+  fbq('track', 'PageView');
+  </script>
+  -->
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ============================================================
+       ESPECÍFICO DO RELATÓRIO
+       O quiz é feito de telas curtas de uma pergunta. Esta página é uma
+       rolagem longa única, com diagnóstico e oferta no mesmo assunto. O
+       contraste é proposital: o quiz não cansa, a página se estende porque
+       quem chegou aqui já se comprometeu.
+       ============================================================ */
+    .report-head { text-align: center; padding: 12px 0 4px; }
+    .report-head h1 { font-size: 27px; margin-bottom: 10px; }
+    .report-head h1 .trava-nome { color: var(--gold-300); display: block; margin-top: 6px; }
+    .etapa { margin: 0 0 26px; }
+    .etapa h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .14em; color: var(--gold); margin: 0 0 10px; font-weight: 700; }
+    .etapa p { margin: 0 0 12px; }
+    .divisor { border: 0; border-top: 1px solid var(--border); margin: 30px 0; }
+
+    /* ---- selo do índice ---- */
+    .iic { display: flex; align-items: center; gap: 16px; justify-content: center; text-align: left;
+      border: 1px solid rgba(196,160,82,.30); border-radius: var(--radius); padding: 16px 20px; margin: 4px 0 18px;
+      background: rgba(196,160,82,.07); }
+    .iic-num { font-family: var(--font-serif); font-size: 40px; font-weight: 700; line-height: 1; color: var(--gold-300); }
+    .iic-txt { font-weight: 700; font-size: 15px; }
+    .iic-txt span { display: block; font-weight: 400; font-size: 12.5px; color: var(--muted); margin-top: 4px; max-width: 280px; }
+
+    /* ---- régua das sete etapas ----
+       A assinatura visual do método. A barra cresce até a etapa em que o
+       controle escapa, e o marcador aparece depois que ela chega. Substitui o
+       gauge "Você x Concorrente" da referência, que compara com um número
+       inventado de terceiro. Aqui a régua é o próprio método. */
+    .regua { margin: 6px 0 4px; }
+    .regua-track { position: relative; height: 10px; background: #24242A; border-radius: 99px; overflow: hidden; }
+    .regua-fill { height: 100%; width: 0; border-radius: 99px;
+      background: linear-gradient(90deg, var(--gold-700), var(--gold-300));
+      transition: width 1s cubic-bezier(.22,.61,.36,1); }
+    /* Os nomes das sete etapas NÃO ficam alinhados sob a barra: sete palavras
+       em sete colunas não cabem numa tela de 320px e quebravam no meio
+       ("DIAGNÓST/ICO"). Viram chips que quebram linha naturalmente, com as
+       etapas afetadas em dourado. A barra responde "até onde você chega", os
+       chips respondem "onde trava". */
+    .regua-marca { text-align: center; font-size: 13px; color: var(--muted); margin: 14px 0 0; opacity: 0; transition: opacity .5s ease .9s; }
+    .regua.on .regua-marca { opacity: 1; }
+
+    /* ---- as quatro travas em barras ----
+       Equivalente aos donuts de gargalo da referência, mas nomeando a trava em
+       palavra em vez de só cuspir porcentagem, que lá ficava ambíguo (número
+       alto era coisa ruim e não dava para saber olhando). */
+    .travas-lista { display: grid; gap: 14px; margin: 6px 0 2px; }
+    .trava-item .trava-topo { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+    .trava-item .trava-label { font-weight: 700; font-size: 15px; }
+    .trava-item .trava-pct { font-family: var(--font-serif); font-size: 17px; font-weight: 700; color: var(--muted); }
+    .trava-item.dominante .trava-label,
+    .trava-item.dominante .trava-pct { color: var(--gold-300); }
+    .trava-track { height: 8px; background: #24242A; border-radius: 99px; overflow: hidden; }
+    .trava-fill { height: 100%; width: 0; border-radius: 99px; background: #4A4A54;
+      transition: width .9s cubic-bezier(.22,.61,.36,1); }
+    .trava-item.dominante .trava-fill { background: linear-gradient(90deg, var(--gold-700), var(--gold-300)); }
+    .trava-item .trava-desc { font-size: 13.5px; color: var(--muted); margin: 7px 0 0; }
+
+    /* ---- a conta ---- */
+    .conta-box { border: 1px solid rgba(196,160,82,.30); border-radius: var(--radius);
+      background: rgba(196,160,82,.06); padding: 24px 22px; text-align: center; margin: 4px 0 8px; }
+    .conta-num { font-family: var(--font-serif); font-size: 42px; font-weight: 700; line-height: 1.05; color: var(--gold-300); margin: 6px 0 8px; }
+    .conta-legenda { font-size: 14px; color: var(--muted); margin: 0; }
+    .conta-formula { font-size: 12.5px; color: #6C6862; margin: 14px 0 0; line-height: 1.5; }
+
+    /* ---- espelho ---- */
+    .espelho { margin: 0; padding: 0; list-style: none; }
+    .espelho li { position: relative; padding-left: 20px; margin: 0 0 11px; color: var(--text); font-size: 16px; }
+    .espelho li::before { content: ""; position: absolute; left: 0; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--gold-700); }
+    .virada { border-left: 3px solid var(--gold); padding: 4px 0 4px 15px; margin: 18px 0 0;
+      font-family: var(--font-serif); font-size: 17px; line-height: 1.5; }
+
+    /* ---- listas do mecanismo e da oferta ---- */
+    .camadas { margin: 0; padding: 0; list-style: none; }
+    .camadas li { border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface-2);
+      padding: 14px 16px; margin: 0 0 10px; font-size: 15.5px; }
+    .camadas b { color: var(--gold-300); }
+    .etapas-chips { display: flex; flex-wrap: wrap; gap: 7px; margin: 12px 0 0; }
+    .etapas-chips span { font-size: 11.5px; letter-spacing: .09em; text-transform: uppercase; color: var(--muted);
+      border: 1px solid var(--border); border-radius: 99px; padding: 6px 12px; }
+    .etapas-chips span.ativa { color: var(--on-gold); background: var(--gold); border-color: var(--gold); font-weight: 700; }
+
+    .entrega { margin: 0; padding: 0; list-style: none; }
+    .entrega li { position: relative; padding-left: 24px; margin: 0 0 14px; font-size: 15.5px; }
+    .entrega li::before { content: ""; position: absolute; left: 0; top: .45em; width: 11px; height: 11px;
+      border: 2px solid var(--gold); border-radius: 3px; }
+    .entrega b { color: var(--gold-300); }
+
+    /* ---- oferta ---- */
+    .oferta-box { border: 1px solid rgba(196,160,82,.34); border-radius: var(--radius); background: rgba(196,160,82,.06);
+      padding: 24px 22px; text-align: center; margin: 18px 0 0; }
+    .oferta-nome { font-family: var(--font-serif); font-size: 26px; font-weight: 700; color: var(--gold-300); margin: 0 0 4px; letter-spacing: .04em; }
+    .oferta-desc { font-size: 14.5px; color: var(--muted); margin: 0 0 16px; }
+    .oferta-preco { font-family: var(--font-serif); font-size: 38px; font-weight: 700; line-height: 1; margin: 0; }
+    .oferta-cond { font-size: 14px; color: var(--muted); margin: 8px 0 18px; }
+    .oferta-nota { font-size: 13px; color: var(--muted); margin: 14px 0 0; }
+    .fundadores { border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface-2);
+      padding: 12px 14px; margin: 16px 0 0; font-size: 14px; color: var(--muted); }
+    .fundadores b { color: var(--gold-300); }
+
+    /* ---- CTA distribuído ---- */
+    .cta-inline { text-align: center; margin: 24px 0; }
+    .cta-inline .btn { width: 100%; max-width: 440px; }
+    .cta-inline .hint { display: block; margin-top: 10px; }
+
+    /* ---- autoridade ---- */
+    .autor { display: flex; align-items: center; gap: 16px; margin: 2px 0 16px; }
+    .autor-foto { width: 92px; height: 92px; flex: 0 0 92px; border-radius: 50%; object-fit: cover;
+      border: 2px solid var(--gold); background: var(--surface-2); }
+    .autor-nome { display: block; font-family: var(--font-serif); font-size: 19px; font-weight: 700; letter-spacing: .09em; color: var(--gold-300); line-height: 1.15; }
+    .autor-cargo { display: block; font-size: 10.5px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+    .autor-ig { display: inline-block; font-size: 13.5px; color: var(--gold-300); font-weight: 600; margin-top: 8px; text-decoration: none; }
+    .autor-ig:hover { text-decoration: underline; }
+    .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 16px 0 12px; }
+    .cred { border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--surface-2); padding: 13px 14px; }
+    .cred .n { font-family: var(--font-serif); font-size: 21px; font-weight: 700; color: var(--gold-300); line-height: 1.05; }
+    .cred .d { font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+    .cred.full { grid-column: 1 / -1; }
+    .marcas { display: flex; flex-wrap: wrap; gap: 7px; margin: 4px 0 0; }
+    .marcas span { font-size: 11.5px; letter-spacing: .10em; text-transform: uppercase; color: var(--muted);
+      border: 1px solid var(--border); border-radius: 99px; padding: 6px 12px; }
+
+    /* ---- depoimentos ---- */
+    .dep-videos { display: flex; gap: 12px; margin: 0 0 8px; overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; padding-bottom: 4px; }
+    .dep-video { flex: 0 0 calc((100% - 24px) / 3); scroll-snap-align: start; margin: 0; }
+    .dep-video video { display: block; width: 100%; aspect-ratio: 9 / 16; object-fit: cover;
+      background: #000; border: 1px solid var(--border); border-radius: var(--radius-sm); }
+    .dep-video figcaption { margin-top: 7px; text-align: center; font-size: 11px; letter-spacing: .06em;
+      text-transform: uppercase; color: var(--muted); }
+    .dep-video figcaption b { display: block; font-size: 13px; letter-spacing: .02em; text-transform: none;
+      color: var(--gold-300); font-weight: 700; }
+
+    /* ---- para quem é / não é ---- */
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 8px 0; }
+    .compare .col { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px; background: var(--surface-2); }
+    .compare .col h4 { margin: 0 0 10px; font-size: 14px; }
+    .compare .col.good { background: rgba(196,160,82,.07); border-color: rgba(196,160,82,.28); }
+    .compare .col.good h4 { color: var(--gold-300); }
+    .compare .col.bad h4 { color: var(--muted); }
+    .compare ul { margin: 0; padding-left: 17px; font-size: 14.5px; color: var(--muted); }
+    .compare .good ul { color: var(--text); }
+    .compare li { margin-bottom: 8px; }
+
+    /* ---- FAQ ---- */
+    .faq details { border-bottom: 1px solid var(--border); padding: 4px 0; }
+    .faq summary { cursor: pointer; list-style: none; padding: 14px 26px 14px 0; font-weight: 700; font-size: 15.5px; position: relative; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: ""; position: absolute; right: 4px; top: 50%; width: 8px; height: 8px;
+      border-right: 2px solid var(--gold); border-bottom: 2px solid var(--gold);
+      transform: translateY(-70%) rotate(45deg); transition: transform .2s; }
+    .faq details[open] summary::after { transform: translateY(-30%) rotate(-135deg); }
+    .faq summary:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; border-radius: 4px; }
+    .faq .resposta { margin: 0 0 16px; color: var(--muted); font-size: 15px; }
+
+    /* ---- decisão final ---- */
+    .escolhas { counter-reset: esc; margin: 0; padding: 0; list-style: none; }
+    .escolhas li { counter-increment: esc; position: relative; padding-left: 42px; margin: 0 0 18px; }
+    .escolhas li::before { content: counter(esc); position: absolute; left: 0; top: -1px;
+      width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--gold-700);
+      color: var(--gold-300); font-family: var(--font-serif); font-weight: 700; font-size: 15px;
+      display: grid; place-items: center; }
+    .escolhas li.agora::before { background: var(--gold); color: var(--on-gold); border-color: var(--gold); }
+    .pergunta-final { font-family: var(--font-serif); font-size: 20px; line-height: 1.4; text-align: center;
+      color: var(--gold-300); margin: 26px 0 6px; }
+
+    .cta-box { background: rgba(196,160,82,.07); border: 1px solid rgba(196,160,82,.30); border-radius: var(--radius);
+      padding: 24px 22px; text-align: center; margin-top: 10px; }
+    .duvida { font-size: 14px; color: var(--muted); margin-top: 16px; }
+    .duvida a { color: var(--gold-300); }
+
+    /* ---- aviso de configuração pendente ---- */
+    .aviso { background: var(--err-bg); border: 1px solid #4A2A24; color: var(--err);
+      border-radius: var(--radius-sm); padding: 12px 14px; margin: 0 0 18px; font-size: 14.5px; text-align: left; }
+
+    @media (max-width: 520px) {
+      .compare { grid-template-columns: 1fr; }
+      .cred-grid { grid-template-columns: 1fr; }
+      .iic { flex-direction: column; text-align: center; gap: 8px; }
+      .iic-txt span { max-width: none; }
+      .dep-video { flex-basis: 64%; }
+      .autor { flex-direction: column; text-align: center; }
+      .conta-num { font-size: 34px; }
+    }
+    @media print {
+      .no-print, .dep-videos { display: none !important; }
+      .card { box-shadow: none; }
+      .etapa, .compare .col, .cta-box, .oferta-box, .conta-box { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <span class="brand-name">Primal Pitch</span>
+        <span class="brand-tag">Thiago Menegão</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card screen" id="report"></div>
+  </main>
+
+  <script src="flow.js" defer></script>
+  <script src="motor.js" defer></script>
+  <script src="diagnostico.js" defer></script>
+</body>
+</html>

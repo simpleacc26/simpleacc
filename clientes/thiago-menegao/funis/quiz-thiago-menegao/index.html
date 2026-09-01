@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Diagnóstico de Condução · Thiago Menegão</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="description" content="Descubra em qual das sete etapas da sua reunião o controle escapa e por que o lead diz que vai pensar." />
+  <meta name="theme-color" content="#08080A" />
+  <style>
+    :root{--ink:#08080A;--text:#F2F0EA}
+    html,body{background:var(--ink)}
+    body{margin:0;color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  </style>
+  <!-- PIXEL DA META. PENDENTE: trocar SEU_PIXEL_ID pelo ID da conta do Thiago,
+       aqui, no diagnostico.html e em app.js > TRACKING_CONFIG. Aqui carrega a
+       biblioteca e sai o PageView; os eventos de funil saem do JS.
+       Enquanto o ID não entrar, o bloco fica comentado para a página não
+       carregar script quebrado.
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', 'SEU_PIXEL_ID');
+  fbq('track', 'PageView');
+  </script>
+  -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <span class="brand-name">Primal Pitch</span>
+        <span class="brand-tag">Thiago Menegão</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Só a barra enchendo. Sem "Pergunta X de N" e sem porcentagem. -->
+  <div class="progress-wrap" id="progress" hidden>
+    <div class="container">
+      <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div id="app" aria-live="polite"></div>
+  </main>
+
+  <script src="flow.js" defer></script>
+  <script src="motor.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
