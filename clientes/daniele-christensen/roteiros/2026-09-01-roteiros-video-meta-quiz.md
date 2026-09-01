@@ -91,6 +91,8 @@ fica anotado para a próxima leva.
 | 1 | Vídeo 60s | **Cultura**: o ambiente recalibra quem você contrata | Dinheiro gasto em contratação boa que não mudou nada | Impotência | Reconhecimento de cena: a entrega atrasada sem comentário, a reunião sem prazo assumido | Responder o Diagnóstico |
 | 2 | Vídeo 60s | **Cultura**: valores declarados que não decidem nada | Fez o trabalho de Cultura e o comportamento continuou igual | Constrangimento | Reconhecimento de cena: o quadro da recepção, o slide de integração | Responder o Diagnóstico |
 | 3 | Vídeo 60s | O domingo do dono | O negócio cresceu e não devolveu tempo nenhum | Cansaço | Reconhecimento de cena: domingo à noite, segunda antes das nove | Responder o Diagnóstico |
+| 4 | Vídeo 60s | O crescimento que ele recusou | Teto de crescimento que ele mesmo aplicou e não contou pra ninguém | Frustração | Reconhecimento de cena: a oportunidade que cabia no caixa e não na equipe | Responder o Diagnóstico |
+| 5 | Vídeo 60s | **Cultura**: quem fica e quem sai | Perder o melhor e manter quem entrega menos | Perda e arrependimento | Reconhecimento de cena: o pedido de demissão que fala em proposta melhor | Responder o Diagnóstico |
 
 Teste da troca de headline: o gancho de cada peça só funciona com o corpo dela.
 O corpo do 1 não sustenta a pergunta do 2, e nenhum dos dois sustenta o domingo
@@ -227,6 +229,90 @@ do 3.
 > Onde usar: topo frio e público de lookalike de lead. Conversa com o cenário
 > "O Gargalo". Não subir junto com o carrossel C01 da v4, que também trata de
 > ausência do dono.
+
+---
+
+### 4. Vídeo: "O contrato que você recusou" (60s)
+
+```
+[0:00] FALA: Dono ou sócio acima de R$200 mil por mês: você já disse não pra uma
+       oportunidade que cabia no teu caixa e não cabia na tua equipe.
+       TELA: plano fechado, sem trilha. Sem texto sobreposto.
+
+[0:07] FALA: Talvez tenha sido um contrato maior, uma praça nova, um cliente que
+       ia dobrar a operação. Você olhou pra quem ia tocar aquilo, fez a conta de
+       quanto ia voltar pra tua mesa, e deixou passar.
+       TELA: corte seco, mesmo enquadramento.
+
+[0:19] FALA: E você nem registrou isso como uma decisão. Ficou na tua cabeça
+       como bom senso, como cautela, e o mês seguiu.
+       TELA: sem texto. Deixar respirar.
+
+[0:27] FALA: Só que quem cresce mais rápido que você costuma ter gente parecida
+       com a tua, com mais decisão andando sem precisar passar por ele.
+       TELA: texto pequeno, canto inferior: "o teto"
+
+[0:35] FALA: Você já tentou contratar antes de precisar, já tentou montar um
+       segundo nível de Gestão, já pensou em segurar o crescimento até organizar
+       a casa. E o teto continuou no mesmo lugar, porque quem define ele é
+       quantas decisões andam sem você.
+       TELA: corte de aproximação leve.
+
+[0:48] FALA: Eu montei um Diagnóstico que mostra onde esse teto está na tua
+       empresa. Toca no botão aqui embaixo e responde as perguntas. O teu
+       cenário aparece na hora e a leitura chega no teu WhatsApp, sem reunião
+       marcada.
+       TELA: botão "Saiba mais" indicado com a mão.
+```
+
+> Por que esse ângulo: é a única peça que trata o problema de gente como teto de
+> crescimento, e não como incômodo de rotina. Fala com o orgulho do ICP em vez
+> de falar com o cansaço dele, o que abre um registro que a conta inteira não
+> tem.
+> Onde usar: topo frio, público de dono e sócio. Conversa com "O Gargalo".
+> Encosta no E05 da v4 (empresa cresceu, jeito de decidir não), então rodar em
+> conjuntos separados.
+
+### 5. Vídeo: "Quem pediu para sair" (60s)
+
+```
+[0:00] FALA: Dono ou sócio acima de R$200 mil por mês: quando um bom sai da tua
+       empresa, o pedido de demissão sempre fala em proposta melhor.
+       TELA: plano fechado. Sem texto.
+
+[0:08] FALA: E às vezes é verdade mesmo. Só que boa parte dessas saídas começou
+       meses antes, no dia em que essa pessoa entendeu que entregar acima do
+       combinado ali não mudava nada pra ela.
+       TELA: corte seco.
+
+[0:20] FALA: Ela viu quem entregava menos seguir no mesmo lugar, com o mesmo
+       salário e sem nenhuma conversa. Aí ela parou de puxar, e um tempo depois
+       ela parou de ficar.
+       TELA: sem texto. Pausa depois de "parou de ficar".
+
+[0:30] FALA: Quem fica e quem sai é a leitura mais honesta que existe da Cultura
+       de uma empresa, porque essa resposta chega no pedido de demissão, e não
+       na pesquisa de clima.
+       TELA: texto pequeno: "quem fica e quem sai"
+
+[0:39] FALA: Você já tentou contraproposta, já tentou conversar antes da pessoa
+       decidir, já tentou entender na entrevista de saída. Chega tarde, porque a
+       decisão dela não foi tomada naquela semana.
+       TELA: corte de aproximação leve.
+
+[0:50] FALA: Responde o meu Diagnóstico e você vê o que a tua empresa está
+       ensinando pra quem entrega bem. Toca no botão aqui embaixo, são poucas
+       perguntas, e o teu cenário aparece na tela na hora, sem compromisso
+       nenhum.
+       TELA: botão "Saiba mais".
+```
+
+> Por que esse ângulo: fecha o terceiro mecanismo de Cultura que estava intacto,
+> quem fica e quem sai. A v4 encosta nisso em uma linha do V01, dentro de uma
+> conta de custo, mas nunca como eixo de peça.
+> Onde usar: topo frio e retargeting de quem viu vídeo. Conversa com "O Adiador"
+> e "Time que não Assume". É a saída do mesmo mecanismo que o roteiro 1 trata na
+> entrada, então rodar os dois em conjuntos separados, ou em sequência.
 
 ---
 
