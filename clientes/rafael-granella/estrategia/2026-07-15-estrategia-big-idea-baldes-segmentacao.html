@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Estratégia de Quiz — Big Idea & Baldes de Segmentação — Alivance Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #1c1c42;
+    --navy-2: #292859;
+    --gold: #b6975f;
+    --gold-soft: #f3ecdd;
+    --paper: #f7f6f2;
+    --card: #ffffff;
+    --ink: #23232e;
+    --ink-muted: #5c5c6b;
+    --line: #e4e1d8;
+    --crit: #b23b3b;
+    --ok: #2f7d5b;
+    --ok-soft: #e4f1ea;
+    --display: 'Fahkwang', Georgia, serif;
+    --body: 'Inter', -apple-system, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--body); line-height: 1.62; -webkit-font-smoothing: antialiased; }
+  .doc { max-width: 860px; margin: 0 auto; padding: 0 24px 90px; }
+
+  header.cover { background: var(--navy); color: #fff; margin: 0 -24px 44px; padding: 56px 40px 44px; }
+  .kicker { color: var(--gold); font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; margin-bottom: 16px; }
+  header.cover h1 { font-family: var(--display); font-weight: 600; font-size: clamp(1.7rem, 4vw, 2.5rem); line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 18px; text-wrap: balance; }
+  header.cover h1 span { color: var(--gold); }
+  .lead { color: rgba(255,255,255,0.8); font-size: 1.05rem; max-width: 46em; }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 26px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.14); font-size: 0.82rem; color: rgba(255,255,255,0.65); }
+  .meta b { color: #fff; font-weight: 600; }
+
+  section { margin-bottom: 52px; }
+  .sec-num { color: var(--gold); font-family: var(--display); font-weight: 600; font-size: 0.9rem; letter-spacing: 0.05em; }
+  h2 { font-family: var(--display); font-weight: 600; font-size: 1.6rem; color: var(--navy); margin: 4px 0 6px; letter-spacing: -0.01em; text-wrap: balance; }
+  .sec-sub { color: var(--ink-muted); font-size: 0.96rem; margin-bottom: 24px; max-width: 52em; }
+  h3 { font-size: 1.12rem; color: var(--navy); margin: 26px 0 8px; font-weight: 600; }
+  p { margin-bottom: 12px; }
+  strong { font-weight: 600; color: var(--ink); }
+  em { color: var(--navy); font-style: italic; }
+
+  .callout { background: var(--gold-soft); border-left: 4px solid var(--gold); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 14px 0; font-size: 0.92rem; }
+  .callout b { color: var(--navy); }
+
+  .voice-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin: 18px 0; }
+  .voice-group h4 { font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; font-weight: 700; }
+  .voice-group ul { list-style: none; }
+  .voice-group li { font-size: 0.88rem; color: var(--ink); border-left: 2px solid var(--line); padding: 6px 0 6px 12px; margin-bottom: 6px; font-style: italic; }
+
+  .bucket { border: 1px solid var(--line); border-radius: 16px; padding: 22px 24px; margin-bottom: 18px; background: var(--card); position: relative; }
+  .bucket.star { border-color: var(--gold); box-shadow: 0 4px 18px rgba(182,151,95,0.15); }
+  .bucket .star-tag { position: absolute; top: -11px; right: 20px; background: var(--gold); color: var(--navy); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em; padding: 3px 12px; border-radius: 999px; text-transform: uppercase; }
+  .bucket h3 { margin-top: 0; font-family: var(--display); color: var(--navy); }
+  .bucket .row { font-size: 0.9rem; margin-bottom: 6px; }
+  .bucket .row b { color: var(--navy); }
+  .scores { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--line); }
+  .score { text-align: center; }
+  .score .v { font-family: var(--display); font-size: 1.3rem; font-weight: 600; color: var(--navy); line-height: 1; }
+  .score .l { font-size: 0.68rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.04em; margin-top: 4px; }
+  .verdict-tag { display: inline-block; margin-top: 12px; font-size: 0.78rem; font-weight: 700; padding: 4px 12px; border-radius: 999px; }
+  .verdict-tag.strong { background: var(--ok-soft); color: var(--ok); }
+  .verdict-tag.weak { background: #fbeee0; color: #a06a1f; }
+
+  .northstar { background: var(--navy-2); color: #fff; border-radius: 16px; padding: 22px 26px; margin-bottom: 24px; }
+  .northstar .kicker { margin-bottom: 8px; }
+  .northstar p { color: rgba(255,255,255,0.85); margin-bottom: 0; }
+  .northstar b { color: var(--gold); }
+
+  .type-box { background: var(--navy); color: #fff; border-radius: 16px; padding: 26px 28px; text-align: center; }
+  .type-box .type-name { font-family: var(--display); font-size: 2rem; color: var(--gold); font-weight: 600; margin-bottom: 8px; }
+  .type-box p { color: rgba(255,255,255,0.8); max-width: 40em; margin: 0 auto; font-size: 0.94rem; }
+
+  .idea { border: 1px solid var(--line); border-radius: 16px; margin-bottom: 20px; overflow: hidden; background: var(--card); }
+  .idea.master { border: 2px solid var(--gold); }
+  .idea-head { padding: 16px 22px; background: var(--gold-soft); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  .idea.master .idea-head { background: var(--navy); }
+  .idea.master .idea-head .idea-name { color: var(--gold); }
+  .idea-name { font-family: var(--display); font-weight: 600; font-size: 1.1rem; color: var(--navy); }
+  .idea-tag { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 4px 11px; border-radius: 999px; background: var(--gold); color: var(--navy); }
+  .idea-body { padding: 20px 24px; }
+  .hook { font-family: var(--display); font-size: 1.15rem; line-height: 1.5; color: var(--navy); border-left: 3px solid var(--gold); padding-left: 18px; margin-bottom: 16px; font-style: italic; }
+  .idea-meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 10px 20px; font-size: 0.88rem; }
+  .idea-meta .k { color: var(--gold); font-weight: 700; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.04em; display: block; margin-bottom: 3px; }
+  .checks { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 14px; }
+  .check { font-size: 0.76rem; padding: 4px 10px; border-radius: 999px; background: var(--ok-soft); color: var(--ok); font-weight: 600; }
+
+  .validation-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin: 18px 0; }
+  .vcard { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; }
+  .vcard .q { font-size: 0.8rem; color: var(--ink-muted); margin-bottom: 6px; }
+  .vcard .a { font-weight: 600; color: var(--ok); font-size: 0.95rem; }
+
+  .override { background: #fbf7f0; border: 1px solid var(--gold); border-radius: 14px; padding: 4px 24px; }
+  .override li { margin: 16px 0; font-size: 0.92rem; list-style: none; padding-left: 20px; position: relative; }
+  .override li::before { content: "⚠"; position: absolute; left: 0; color: var(--gold); }
+
+  footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 0.78rem; color: var(--ink-muted); text-align: center; }
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <header class="cover">
+    <div class="kicker">Documento interno SimpleAcc · Skill 1 — Pesquisa &amp; Estratégia de Quiz</div>
+    <h1>Big Idea & Baldes de <span>Segmentação</span></h1>
+    <p class="lead">Estratégia decidida antes de tocar em qualquer pergunta de quiz: os buckets do ICP real, o tipo de diagnóstico certo, e a Big Idea que separa o comprador de verdade do curioso.</p>
+    <div class="meta">
+      <span><b>Cliente:</b> Rafael Granella · Alivance Club</span>
+      <span><b>Ticket:</b> R$115.000/ano</span>
+      <span><b>Status:</b> Para revisão interna — sem próximos passos até validação</span>
+    </div>
+  </header>
+
+  <section>
+    <div class="sec-num">00 · Transformação</div>
+    <h2>A transformação única do cliente</h2>
+    <p><strong>Vende:</strong> mentoria de alto ticket para mentores, coaches, treinadores e consultores. <strong>Preço:</strong> R$115.000/ano.</p>
+    <p><strong>Mecanismo único</strong> (nas palavras do próprio Rafael): <em>"Olhar individualizado para método, modelo de negócio, processo de vendas, e mentalidade"</em> — os 4 pilares, diagnosticados e ajustados ao mesmo tempo, nunca um por vez.</p>
+    <div class="callout"><b>Transformação:</b> de mentor que entrega bem mas ainda opera como "emprego bem remunerado", para empresário da educação cujo negócio cresce sem depender da presença dele em cada entrega.</div>
+  </section>
+
+  <section>
+    <div class="sec-num">01 · Recon</div>
+    <h2>O que o mercado já grita</h2>
+    <p class="sec-sub">O mercado de "mentoria para quem quer ter/vender mentoria" hoje se divide em dois discursos — e nenhum ocupa a lacuna que o Rafael pode dominar.</p>
+    <ul class="clean" style="list-style:none;">
+      <li style="padding:8px 0;"><strong>① Tático de lançamento/vendas:</strong> "Desafio Mentoria 7 dias", "Mentoria Makers", guias de "como vender mentoria high ticket" — falam com quem ainda não tem mentoria rodando.</li>
+      <li style="padding:8px 0;"><strong>② Performance de vendas:</strong> Leonardo Toledo (concorrente citado pelo Rafael) com Caio Carneiro, foco em processo de vendas e escala de faturamento.</li>
+    </ul>
+    <div class="callout"><b>A lacuna:</b> ninguém fala com quem já fatura bem, já tem prova, e está estruturalmente travado — o ICP exato do Rafael. E ninguém trata o problema como diagnóstico simultâneo de 4 pilares; todo mundo vende uma alavanca isolada.</div>
+  </section>
+
+  <section>
+    <div class="sec-num">02 · Voz do mercado</div>
+    <h2>Nas palavras de quem vive isso</h2>
+    <p class="sec-sub">Extraído do Canvas do Rafael, da transcrição real do Pit Stop de 15/07, e das respostas reais de 21 leads do quiz atual (validadas por seleção de verdade).</p>
+    <div class="voice-grid">
+      <div class="voice-group"><h4>Frustração</h4><ul>
+        <li>"Não tenho clareza sobre qual modelo de negócio faz sentido agora"</li>
+        <li>"Dependo de indicação e networking para fechar clientes"</li>
+        <li>"Minha receita está estagnada mesmo com agenda cheia"</li>
+        <li>"Gasto tempo demais em operação e pouco em estratégia"</li>
+      </ul></div>
+      <div class="voice-group"><h4>Medo</h4><ul>
+        <li>"De ficar pra trás, de não ser reconhecido, de não ter clientes"</li>
+        <li>"Medo de renunciar o que já tem"</li>
+      </ul></div>
+      <div class="voice-group"><h4>Desejo</h4><ul>
+        <li>"Faturar mais trabalhando menos"</li>
+        <li>"Romper a barreira de R$100k por mês com consistência"</li>
+        <li>"Não quer ser visto como mais um mentor, e sim líder de um movimento"</li>
+      </ul></div>
+      <div class="voice-group"><h4>Objeção (o que já tentou)</h4><ul>
+        <li>"Ainda não tomei uma ação estruturada para resolver" — resposta mais comum</li>
+        <li>"Investi em tráfego, veio lead, mas a conversão foi baixa"</li>
+        <li>"Aumentei o preço... funcionou parcialmente, o modelo continua o mesmo"</li>
+      </ul></div>
+      <div class="voice-group" style="grid-column:1/-1;"><h4>Voz direta do Rafael sobre o funil hoje (Pit Stop 15/07)</h4><ul>
+        <li>"Entrou um lead essa semana... ela disse que fatura mais de 20 por mês, mas... fui olhar o perfil, não fatura 20"</li>
+        <li>"Eu tenho gente que eu converso, prospecção fria, que nunca me viu na vida, e converto na reunião de vendas"</li>
+        <li>"Minha estratégia de prospecção tá funcionando absurdamente muito melhor que tráfego pago"</li>
+      </ul></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-num">03 · Buckets</div>
+    <h2>Os 4 baldes de segmentação</h2>
+    <p class="sec-sub">Não inventados: são a clusterização real das opções de "maior gargalo" que os 21 leads reais já selecionaram no quiz atual. Cobrem ~80%+ da base.</p>
+
+    <div class="northstar">
+      <div class="kicker">North-star (comprador real de maior LTV)</div>
+      <p><b>Fabrício</b> — faturava bem como mentor, mas cada real dependia da presença dele em cada entrega. Em 6 meses, ajustando o modelo (não o volume de trabalho), chegou a R$600 mil trabalhando 1 dia por semana. <b>Traço que o separa do sósia:</b> já tinha prova, reputação e clientes pagantes — o travamento era estrutural, não falta de demanda. O sósia parece igual na superfície ("agenda cheia", "quero escalar"), mas ainda não tem operação rodando de verdade.</p>
+    </div>
+
+    <div class="bucket">
+      <h3>1 · Aquisição por sorte</h3>
+      <div class="row"><b>Dor central:</b> cada mês começa do zero; depende de quem lembrou de indicar.</div>
+      <div class="row"><b>Linguagem:</b> "Dependo de indicação e networking" · "Previsibilidade de aquisição de clientes"</div>
+      <div class="row"><b>Ângulo:</b> aquisição sistemática substitui a sorte.</div>
+      <div class="row"><b>Objeção:</b> "já tentei tráfego pago, veio lead mas não convertia."</div>
+      <div class="scores">
+        <div class="score"><div class="v">8</div><div class="l">Dor</div></div>
+        <div class="score"><div class="v">8</div><div class="l">Urgência</div></div>
+        <div class="score"><div class="v">7</div><div class="l">Caixa</div></div>
+        <div class="score"><div class="v">8</div><div class="l">Prova</div></div>
+      </div>
+      <span class="verdict-tag strong">Forte</span>
+    </div>
+
+    <div class="bucket">
+      <h3>2 · Ticket abaixo do valor entregue</h3>
+      <div class="row"><b>Dor central:</b> entrega resultado de gente que cobra caro, cobra pouco por isso.</div>
+      <div class="row"><b>Linguagem:</b> "Ticket médio abaixo do que meu trabalho vale" · "Aumentei o preço... o modelo continua o mesmo"</div>
+      <div class="row"><b>Ângulo:</b> o preço não sobe de verdade sem mudar o modelo por trás dele.</div>
+      <div class="row"><b>Prova:</b> case Greice — R$500k em 3 meses via ticket + mentalidade.</div>
+      <div class="scores">
+        <div class="score"><div class="v">7</div><div class="l">Dor</div></div>
+        <div class="score"><div class="v">5</div><div class="l">Urgência</div></div>
+        <div class="score"><div class="v">8</div><div class="l">Caixa</div></div>
+        <div class="score"><div class="v">9</div><div class="l">Prova</div></div>
+      </div>
+      <span class="verdict-tag strong">Forte</span>
+    </div>
+
+    <div class="bucket star">
+      <span class="star-tag">North-star</span>
+      <h3>3 · Refém da própria agenda</h3>
+      <div class="row"><b>Dor central:</b> agenda cheia, faturamento parado; o negócio não anda sem ele.</div>
+      <div class="row"><b>Linguagem:</b> "Escalar sem depender só de mim" · "Receita estagnada mesmo com agenda cheia" · "Gasto tempo demais em operação"</div>
+      <div class="row"><b>Ângulo:</b> presença deixa de ser o motor quando os 4 pilares mudam juntos.</div>
+      <div class="row"><b>Prova:</b> case Fabrício — R$600k trabalhando 1 dia/semana.</div>
+      <div class="scores">
+        <div class="score"><div class="v">9</div><div class="l">Dor</div></div>
+        <div class="score"><div class="v">8</div><div class="l">Urgência</div></div>
+        <div class="score"><div class="v">8</div><div class="l">Caixa</div></div>
+        <div class="score"><div class="v">10</div><div class="l">Prova</div></div>
+      </div>
+      <span class="verdict-tag strong">O mais forte dos 4</span>
+    </div>
+
+    <div class="bucket">
+      <h3>4 · Sem clareza de modelo</h3>
+      <div class="row"><b>Dor central:</b> sabe que precisa mudar, não sabe o quê nem o próximo movimento.</div>
+      <div class="row"><b>Linguagem:</b> "Não tenho clareza sobre qual modelo faz sentido" · "Ainda não tomei uma ação estruturada" — <em>a resposta mais comum entre os 21 leads reais</em></div>
+      <div class="row"><b>Ângulo:</b> o diagnóstico dos 4 pilares nomeia o que os outros já sentem, mas não conseguem nomear sozinhos.</div>
+      <div class="row"><b>Risco:</b> bucket mais heterogêneo — mistura ICP real com curioso sem caixa.</div>
+      <div class="scores">
+        <div class="score"><div class="v">7</div><div class="l">Dor</div></div>
+        <div class="score"><div class="v">6</div><div class="l">Urgência</div></div>
+        <div class="score"><div class="v">6</div><div class="l">Caixa</div></div>
+        <div class="score"><div class="v">7</div><div class="l">Prova</div></div>
+      </div>
+      <span class="verdict-tag weak">Mais fraco, mas maior volume</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-num">04 · Tipo de quiz</div>
+    <h2>O diagnóstico certo pro herói da promessa</h2>
+    <div class="type-box">
+      <div class="type-name">Killer</div>
+      <p>O ICP é majoritariamente <em style="color:#fff;">problem-aware</em>: a resposta mais comum de "o que já tentou" é "ainda não tomei ação estruturada". Não é um número pra melhorar (Score), nem só uma identidade pra descobrir (Type) — é "qual dos 4 pilares está me travando, e eu não enxergo sozinho". Os 4 pilares viram as "suspeitas" do diagnóstico.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-num">05 · Big Idea</div>
+    <h2>3 variações — ancoradas no produto e no comprador real</h2>
+    <p class="sec-sub"><b>Categoria-rei:</b> "empresário da educação" — lane que o Rafael já quer dominar, menos disputada que "sales performance" (Leonardo Toledo) ou "como lançar mentoria" (concorrentes de tático). <b>Variável travada:</b> Probabilidade de sucesso percebida — o Desejo (romper 100k) já está claro e saturado pelo mercado; falta o diagnóstico de qual alavanca puxar.</p>
+
+    <div class="idea master">
+      <div class="idea-head"><span class="idea-name">A · O modelo por trás do modelo</span><span class="idea-tag">Recomendada · mestra</span></div>
+      <div class="idea-body">
+        <div class="hook">"Você já tentou consertar isso mexendo em uma peça de cada vez — o preço, a oferta, a agenda. E cada vez, o resultado foi parcial. Existe um motivo estrutural pra isso. Descubra qual dos 4 pilares do seu negócio está travando o próximo salto."</div>
+        <div class="idea-meta">
+          <div><span class="k">Problema específico</span>Diagnóstico simultâneo dos 4 pilares — nenhum concorrente resolve os 4 ao mesmo tempo.</div>
+          <div><span class="k">Emoção</span>Medo de continuar consertando errado + alívio de haver explicação estrutural.</div>
+          <div><span class="k">Filtro (proxy de caixa)</span>"Já tentou mexer numa peça" pressupõe negócio rodando e já ajustado antes — repele o iniciante sem precisar dizer isso.</div>
+          <div><span class="k">Passe Brunson</span>Troca de veículo, não "esforce-se mais no mesmo carro".</div>
+          <div><span class="k">Passe Hormozi</span>Ataca Probabilidade percebida, não repete Dream Outcome saturado.</div>
+          <div><span class="k">Botão intenção↔volume</span>Mecanismo implícito → intenção alta, volume ainda razoável.</div>
+        </div>
+        <div class="checks"><span class="check">✓ Teste de Intencionalidade</span><span class="check">✓ Teste do Filtro</span><span class="check">✓ Brunson</span><span class="check">✓ Hormozi</span></div>
+      </div>
+    </div>
+
+    <div class="idea">
+      <div class="idea-head"><span class="idea-name">B · A aposta que se renova todo mês</span><span class="idea-tag" style="background:var(--gold-soft);color:var(--navy);">Bucket 1</span></div>
+      <div class="idea-body">
+        <div class="hook">"O mês só começa cheio se alguém lembrar de te indicar. Isso não é um negócio — é uma aposta que você renova todo mês, sem controle sobre o resultado."</div>
+        <div class="idea-meta">
+          <div><span class="k">Problema específico</span>Ausência de motor de aquisição sistemático.</div>
+          <div><span class="k">Emoção</span>Medo — imprevisibilidade do mês zerado.</div>
+          <div><span class="k">Uso recomendado</span>Ângulo de bucket/criativo, não Big Idea-mestra — mais estreito.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="idea">
+      <div class="idea-head"><span class="idea-name">C · O preço que nunca foi recalculado</span><span class="idea-tag" style="background:var(--gold-soft);color:var(--navy);">Bucket 2</span></div>
+      <div class="idea-body">
+        <div class="hook">"Você entrega resultado de quem cobra R$30 mil. E cobra R$5 mil por isso. Isso não é modéstia — é um preço que nunca foi recalculado depois que você ficou bom."</div>
+        <div class="idea-meta">
+          <div><span class="k">Problema específico</span>Ticket que não acompanhou a entrega real.</div>
+          <div><span class="k">Emoção</span>Orgulho ferido + ganância de capturar o que já entrega.</div>
+          <div><span class="k">Uso recomendado</span>Ângulo secundário / remarketing.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-num">06 · Validação</div>
+    <h2>Passa nos filtros?</h2>
+    <div class="validation-grid">
+      <div class="vcard"><div class="q">Atrai?</div><div class="a">Sim ✓</div></div>
+      <div class="vcard"><div class="q">Diagnostica?</div><div class="a">Sim ✓</div></div>
+      <div class="vcard"><div class="q">Prescreve?</div><div class="a">Sim ✓</div></div>
+      <div class="vcard"><div class="q">Passe Brunson</div><div class="a">Sim ✓</div></div>
+      <div class="vcard"><div class="q">Passe Hormozi</div><div class="a">Sim ✓</div></div>
+      <div class="vcard"><div class="q">Checklist</div><div class="a">10 de 12</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-num">07 · Para revisar</div>
+    <h2>O que o dado não alcança</h2>
+    <ul class="override">
+      <li><b>Arquivos de referência da skill não instalados</b> neste ambiente (big-idea.md, lentes-mentores.md, método-mestre) — apliquei a metodologia inline do SKILL.md. Recomendo revisar as variações contra os frameworks completos quando disponíveis.</li>
+      <li><b>North-star não confirmado diretamente com o Rafael</b> — Fabrício foi escolhido pela prova mais completa já registrada (R$600k/6 meses), mas vale confirmar se é de fato o de maior LTV real.</li>
+      <li><b>A "Pesquisa de Mercado" formal do Drive é um template vazio</b>, nunca preenchido. A voz do mercado veio do Canvas, da transcrição do Pit Stop e das respostas reais dos 21 leads — dado real, mas menor volume do que uma pesquisa de aluno dedicada.</li>
+      <li><b>Recon de mercado foi leve</b> (2 buscas rápidas) — não um mapeamento completo de Biblioteca de Anúncios/YouTube/Hotmart. Suficiente para não sair genérico, vale aprofundar antes de escalar muito investimento.</li>
+      <li><b>O gargalo real hoje é mensagem, não seleção</b> — os buckets vêm das próprias opções do quiz atual. A decisão de reestruturar a ordem/filtro das perguntas fica para a próxima etapa.</li>
+      <li><b>Bucket 4 é o de maior volume mas o mais heterogêneo</b> — precisa do filtro de faturamento com mais rigor que os outros 3 quando formos montar o quiz.</li>
+    </ul>
+  </section>
+
+  <footer>
+    SimpleAcc · Skill 1 — Pesquisa &amp; Estratégia de Quiz · Cliente: Rafael Granella — Alivance Club · Para revisão interna — sem próximos passos até validação
+  </footer>
+
+</div>
+</body>
+</html>
