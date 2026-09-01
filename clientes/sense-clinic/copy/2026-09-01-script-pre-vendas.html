@@ -179,12 +179,14 @@ p{max-width:68ch}
 }
 .msg.tat{border-left-color:var(--tat)}
 .msg.cla{border-left-color:var(--cla)}
-.msg .top{display:flex;align-items:center;gap:10px;margin-bottom:9px;padding-right:74px}
+.msg .top{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:9px;padding-right:74px}
 .msg .track{font-family:var(--label);font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
   padding:3px 8px;border-radius:4px;background:var(--ice);color:var(--blue-deep)}
 .msg.tat .track{background:var(--tat-bg);color:var(--tat)}
 .msg.cla .track{background:var(--cla-bg);color:var(--cla)}
 .msg .when{font-family:var(--label);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.msg .aud{font-family:var(--label);font-size:8.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--blue-deep);border:1px solid var(--line-strong);border-radius:999px;padding:2px 9px;white-space:nowrap}
 .msg .txt{font-family:var(--wa);font-size:14.6px;line-height:1.58;color:var(--ink);max-width:62ch}
 .msg .txt p{margin:0 0 9px;max-width:none}
 .msg .txt p:last-child{margin-bottom:0}
@@ -305,8 +307,8 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
     <a href="#principios"><span class="n">02</span><span>Os seis princípios</span></a>
     <a href="#quem"><span class="n">03</span><span>Quem está do outro lado</span></a>
     <a href="#abordagem"><span class="n">04</span><span>A abordagem inicial</span></a>
-    <a href="#descobertas"><span class="n">05</span><span>As sete descobertas</span></a>
-    <a href="#ponte"><span class="n">06</span><span>Espelho e ponte pra avaliação</span></a>
+    <a href="#descobertas"><span class="n">05</span><span>As seis descobertas</span></a>
+    <a href="#ponte"><span class="n">06</span><span>A ponte pra avaliação</span></a>
     <a href="#objecoes"><span class="n">07</span><span>Objeções</span></a>
     <a href="#followup"><span class="n">08</span><span>Follow-up</span></a>
     <a href="#noshow"><span class="n">09</span><span>No-show</span></a>
@@ -326,11 +328,6 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
     <span class="eyebrow">Sense Clinic · Chapecó/SC</span>
     <h2>O que dizer, em que ordem, <em>e por quê</em></h2>
     <p class="deck">Este documento é a estrutura comercial da Sense no WhatsApp: a abordagem inicial, o diagnóstico, a ponte para a avaliação presencial, o follow-up de quem não respondeu e a régua contra falta. Vale para as duas frentes da clínica, com as falas separadas por procedimento.</p>
-    <div class="meta">
-      <span>01 de setembro de 2026</span>
-      <span>Versão 1</span>
-      <span>Uso interno · Ana Luiza e Ana Paula</span>
-    </div>
   </header>
 
   <!-- 00 -->
@@ -338,7 +335,7 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
     <div class="sechead"><span class="num">00</span><h3>Como usar este documento</h3></div>
     <p class="intro">Ele não é para ser lido de ponta a ponta antes de atender. É para ficar aberto do lado enquanto você atende. As mensagens têm botão de copiar e os campos entre chaves precisam ser trocados antes de enviar.</p>
     <ul class="steps">
-      <li><span class="s">A</span><span class="t"><b>Use o filtro</b> logo abaixo para ver só a sua frente. Ana Luiza vê tatuagem, Ana Paula vê clareamento, e as mensagens que servem para as duas continuam aparecendo sempre.</span></li>
+      <li><span class="s">A</span><span class="t"><b>Use o filtro</b> logo abaixo para ver só a sua frente. Marque Tatuagem ou Clareamento conforme o que você atende, e as mensagens que servem para as duas continuam aparecendo sempre.</span></li>
       <li><span class="s">B</span><span class="t"><b>Troque as palavras, mantenha o movimento.</b> Cada bloco tem um objetivo escrito em cima. O objetivo é obrigatório, a frase não. Se você ler exatamente o que está aqui, vai soar decorado, e decorado não vende.</span></li>
       <li><span class="s">C</span><span class="t"><b>Os campos entre chaves</b> como <span class="v">{{Nome}}</span> ou <span class="v">{{dia}}</span> são o que você preenche. Onde aparece um valor em chaves, é porque o número ainda precisa ser confirmado por vocês (a lista está na seção 12).</span></li>
       <li><span class="s">D</span><span class="t"><b>Uma ideia por mensagem, um pedido por mensagem.</b> Cinco assuntos numa mensagem só é a forma mais rápida de não receber resposta nenhuma.</span></li>
@@ -365,7 +362,7 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
 
     <div class="ba">
       <div class="no"><span class="h">O que a ajuda demais produz</span>"Oi! Então, no seu caso de tatuagem preta antiga geralmente são de 6 a 10 sessões, com 45 dias de intervalo, a sessão fica R$ {{X}}, dói como um elástico batendo, e pode ficar uma sombra residual. Qualquer dúvida estou aqui!"</div>
-      <div class="yes"><span class="h">O que a condução produz</span>"Pelo que você me mandou dá pra ver que é tinta antiga, e isso costuma jogar a favor. Mas quantidade de sessão eu não chuto por foto, porque muda com a profundidade e com o seu tipo de pele. É exatamente isso que a Ana mede na avaliação. Tenho {{dia A}} ou {{dia B}}. Qual eu travo pra você?"</div>
+      <div class="yes"><span class="h">O que a condução produz</span>"Pelo que você me mandou dá pra ver que é tinta antiga, e isso costuma jogar a favor. Mas quantidade de sessão eu não chuto por foto, porque muda com a profundidade e com o seu tipo de pele. É exatamente isso que eu meço na avaliação. Tenho {{dia A}} ou {{dia B}}. Qual eu travo pra você?"</div>
     </div>
 
     <p class="intro" style="margin-top:24px">Isso não é frieza nem enrolação. É honestidade técnica: ninguém consegue prever sessão, prazo e valor olhando uma foto de WhatsApp, e prometer isso por mensagem é o começo de uma cliente frustrada na terceira sessão.</p>
@@ -397,7 +394,7 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
         <p class="who">Intenção</p>
         <p class="tell">Toda pergunta tem um alvo.</p>
         <dl>
-          <dt>Faça</dt><dd>Pergunte para descobrir motivo, impacto e urgência. Cada resposta dela vira material da sua próxima frase.</dd>
+          <dt>Faça</dt><dd>Pergunte para descobrir problema, impacto e urgência. Cada resposta dela vira material da sua próxima frase.</dd>
           <dt>Evite</dt><dd>Perguntar por educação e não usar a resposta.</dd>
         </dl>
       </div>
@@ -442,9 +439,8 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
       <table>
         <thead><tr><th>&nbsp;</th><th>Tatuagem · Ana Luiza</th><th>Clareamento · Ana Paula</th></tr></thead>
         <tbody>
-          <tr><td><b>Quem chega</b></td><td>20 anos ou mais, muitas vezes fez a tatuagem há bastante tempo e hoje tem outra vida, outra renda e outro trabalho.</td><td>18 a 35 anos, incluindo mulheres com alteração hormonal ou diabetes. Chegou depois de muito tempo pesquisando sozinha.</td></tr>
+          <tr><td><b>Quem chega</b></td><td>Na maioria das vezes fez a tatuagem há bastante tempo e hoje tem outra vida, outro trabalho e outra relação com o corpo.</td><td>Muitas com alteração hormonal ou diabetes. Chega depois de muito tempo pesquisando sozinha, sem falar do assunto com ninguém.</td></tr>
           <tr><td><b>O que ela diz</b></td><td>"Quanto custa pra tirar?"</td><td>"Você faz clareamento?"</td></tr>
-          <tr><td><b>O que ela quer saber</b></td><td>Se dá pra tirar mesmo, se vai ficar marca e quanto tempo isso vai levar da vida dela.</td><td>Se tem jeito no caso dela, se vai ser constrangedor e se alguém vai ficar sabendo.</td></tr>
           <tr><td><b>Tempo de decisão</b></td><td>Longo. Ela pesquisa, compara e às vezes junta dinheiro. O follow-up é onde a venda acontece.</td><td>Curto. Quando a segurança aparece, ela agenda no mesmo dia ou na mesma semana.</td></tr>
           <tr><td><b>O que trava</b></td><td>Preço somado à incerteza de quantas sessões. Não é o valor sozinho, é o valor sem fim à vista.</td><td>Vergonha e medo de julgamento. Preço quase nunca é a primeira trava.</td></tr>
           <tr><td><b>Como abrir</b></td><td>Peça a foto logo. A foto é o primeiro compromisso dela e o seu primeiro material.</td><td>Prometa sigilo antes de perguntar qualquer coisa sobre o corpo dela.</td></tr>
@@ -515,11 +511,22 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
   <!-- 04 -->
   <section id="abordagem">
     <div class="sechead"><span class="num">04</span><h3>A abordagem inicial</h3></div>
-    <p class="intro">Sete movimentos. Não são sete mensagens fixas e nem sempre acontecem nessa ordem: se ela já chegar contando o motivo, você pula o movimento 2 e vai direto para o 3. O que não pode faltar é a intenção de cada um.</p>
+    <p class="intro">Seis movimentos. Não são seis mensagens fixas e nem sempre acontecem nessa ordem: se ela já chegar mandando a foto e contando o caso, você pula o movimento 2 e vai direto para o 3. O que não pode faltar é a intenção de cada um.</p>
 
     <div class="note">
       <span class="k">Isto é uma espinha, não um texto para ler</span>
-      <p>Três liberdades e uma obrigação. Você pode trocar todas as palavras, pode mudar a ordem quando a cliente puxar para outro lado, e pode juntar dois movimentos numa mensagem só quando a conversa estiver fluindo. A obrigação é uma: <b>não pular o movimento 6</b>. Sem a ponte para a avaliação, a conversa mais simpática do mundo termina em nada.</p>
+      <p>Três liberdades e uma obrigação. Você pode trocar todas as palavras, pode mudar a ordem quando a cliente puxar para outro lado, e pode juntar dois movimentos numa mensagem só quando a conversa estiver fluindo. A obrigação é uma: <b>não pular o movimento 5</b>. Sem a ponte para a avaliação, a conversa mais simpática do mundo termina em nada.</p>
+    </div>
+
+    <div class="note">
+      <span class="k">Quando mandar áudio</span>
+      <p>Áudio é a coisa mais barata que existe para provar que tem gente de verdade do outro lado. Ela ouve sua voz, percebe que você parou para gravar só pra ela, e a conversa deixa de parecer atendimento automático. As mensagens marcadas com <b>Pode ser áudio</b> ao longo do documento são os pontos onde isso rende mais: acolhimento, explicação e recuperação.</p>
+      <ul>
+        <li><b>Curto.</b> Até uns 30 ou 40 segundos. Áudio longo vira tarefa e fica sem ouvir.</li>
+        <li><b>Nunca por áudio:</b> endereço, dia, hora, valor e orientação de preparo. Isso ela precisa reler depois, e o que está dentro de um áudio não se acha mais.</li>
+        <li><b>Depois de todo áudio que tenha combinado alguma coisa</b>, mande uma linha escrita com o combinado. O áudio faz o vínculo, o texto segura o compromisso.</li>
+        <li><b>Se ela só escreve e nunca manda áudio</b>, provavelmente está em lugar onde não dá pra ouvir. Fique no texto com ela.</li>
+      </ul>
     </div>
 
     <div class="mv" data-track="all">
@@ -532,20 +539,20 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
           <button class="copy" type="button">Copiar</button>
           <div class="top"><span class="track">Tatuagem</span><span class="when">Primeiro contato</span></div>
           <div class="txt">
-            <p>Oi <span class="v">{{Nome}}</span>, aqui é a Ana Luiza, da Sense Clinic. Vi que você chegou pela remoção de tatuagem.</p>
-            <p>Antes de eu falar de sessão ou de valor eu preciso entender o teu caso, porque tatuagem nenhuma responde igual à outra. São duas ou três perguntas rápidas e eu já te dou uma direção.</p>
-            <p>Pra começar, me manda uma foto da tatuagem com boa luz.</p>
+            <p>Oi <span class="v">{{Nome}}</span>, tudo bem? Aqui é a Ana Luiza, da Sense Clinic. Que bom que você se interessou pela remoção, vou te ajudar com isso.</p>
+            <p>Antes de falar de sessão ou de valor eu preciso entender o teu caso direitinho, porque cada tatuagem responde de um jeito e eu não gosto de chutar.</p>
+            <p>Me manda uma foto dela pra eu ver? Se der, tira num lugar bem iluminado, de perto, que eu consigo enxergar bem melhor.</p>
           </div>
-          <div class="why"><b>Por que funciona</b>Ela veio perguntar preço e recebeu método. Isso troca o lugar da conversa sem negar nada, e o pedido da foto é um primeiro compromisso pequeno que ela cumpre em dez segundos.</div>
+          <div class="why"><b>Por que funciona</b>Recebe bem antes de conduzir, e o "vou te ajudar com isso" já coloca você no lugar de quem resolve. Ela veio perguntar preço e recebeu cuidado com o caso dela, o que troca o lugar da conversa sem negar nada. O pedido da foto é o primeiro compromisso pequeno, cumprido em dez segundos.</div>
         </div>
 
         <div class="msg cla" data-track="cla">
           <button class="copy" type="button">Copiar</button>
-          <div class="top"><span class="track">Clareamento</span><span class="when">Primeiro contato</span></div>
+          <div class="top"><span class="track">Clareamento</span><span class="when">Primeiro contato</span><span class="aud">Pode ser áudio</span></div>
           <div class="txt">
-            <p>Oi <span class="v">{{Nome}}</span>, aqui é a Ana Paula, da Sense Clinic. Recebi seu contato.</p>
-            <p>Antes de qualquer coisa: essa conversa fica só entre nós duas, e quem atende no consultório sou eu, sempre.</p>
-            <p>Pra eu te dar uma resposta que preste, preciso entender o que tá acontecendo, porque a causa muda o tratamento. Posso te fazer três perguntas rápidas?</p>
+            <p>Oi <span class="v">{{Nome}}</span>, tudo bem? Aqui é a Ana Paula, da Sense Clinic. Que bom que você me chamou.</p>
+            <p>Já adianto uma coisa que costuma tranquilizar: essa conversa fica só entre nós duas, e quem atende no consultório sou eu, sempre.</p>
+            <p>Pra eu te dar uma resposta que preste, preciso entender melhor o que tá acontecendo, porque a causa muda bastante o tratamento. Posso te fazer três perguntas rapidinhas?</p>
           </div>
           <div class="why"><b>Por que funciona</b>O sigilo vem antes da pergunta, não depois. Para esse público, segurança emocional é pré-requisito de qualquer informação: sem ela, a próxima mensagem não é respondida.</div>
         </div>
@@ -555,21 +562,21 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
     <div class="mv" data-track="all">
       <span class="badge">M2</span>
       <div class="body">
-        <p class="ttl">O motivo do agora</p>
-        <p class="goal">Objetivo: descobrir por que ela mandou mensagem hoje e não há dois anos. O gatilho recente é o combustível de todo o resto da conversa e é o que você vai devolver para ela no follow-up, semanas depois, com as palavras dela.</p>
+        <p class="ttl">O histórico do caso</p>
+        <p class="goal">Objetivo: entender o tempo e o que já foi feito. Nada aqui pede explicação sobre a escolha dela: ninguém precisa justificar por que fez uma tatuagem ou por que quer tratar a pele. Você pergunta o que muda o protocolo, não o que muda o julgamento.</p>
 
         <div class="msg tat" data-track="tat">
           <button class="copy" type="button">Copiar</button>
           <div class="top"><span class="track">Tatuagem</span><span class="when">Movimento 2</span></div>
-          <div class="txt"><p>Recebi a foto, obrigada. Faz quanto tempo que você tem ela? E o que aconteceu pra você decidir tirar justamente agora?</p></div>
-          <div class="why"><b>Por que funciona</b>Duas perguntas, uma técnica e uma emocional, na mesma mensagem curta. "Justamente agora" abre a porta para o gatilho real (trabalho novo, relacionamento, foto, filho perguntando) que ela não contaria se você perguntasse "por que quer remover".</div>
+          <div class="txt"><p>Recebi, obrigada. Faz mais ou menos quanto tempo que você fez ela? E você já chegou a fazer alguma sessão de remoção, aqui ou em outro lugar?</p></div>
+          <div class="why"><b>Por que funciona</b>As duas informações que mais mudam o protocolo, numa mensagem curta. Tempo de tinta e histórico de sessão anterior valem mais do que qualquer explicação sobre a decisão dela, e perguntar assim mantém a conversa técnica e sem constrangimento.</div>
         </div>
 
         <div class="msg cla" data-track="cla">
           <button class="copy" type="button">Copiar</button>
           <div class="top"><span class="track">Clareamento</span><span class="when">Movimento 2</span></div>
-          <div class="txt"><p>Há quanto tempo você percebe essa diferença de tom? E teve alguma coisa nas últimas semanas que te fez decidir procurar tratamento agora?</p></div>
-          <div class="why"><b>Por que funciona</b>Trata como assunto técnico e datado, não como defeito. E o gatilho recente (viagem marcada, verão chegando, um comentário que doeu) é o que vai sustentar a urgência mais adiante, sem você precisar inventar escassez.</div>
+          <div class="txt"><p>Há quanto tempo você percebe essa diferença de tom? E você já tentou tratar de alguma forma, com creme, clareador de farmácia ou algum procedimento?</p></div>
+          <div class="why"><b>Por que funciona</b>Trata como assunto técnico e datado, não como defeito. O que ela já tentou é a informação mais útil da conversa inteira: mostra o que não funcionou e faz a avaliação virar o passo seguinte, e não mais uma tentativa igual.</div>
         </div>
       </div>
     </div>
@@ -578,7 +585,7 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
       <span class="badge">M3</span>
       <div class="body">
         <p class="ttl">Diagnóstico</p>
-        <p class="goal">Objetivo: coletar as sete descobertas da seção 05, uma pergunta por mensagem, sem entregar solução. Esta é a etapa mais longa e a que mais gente pula. Enquanto ela responde, você anota.</p>
+        <p class="goal">Objetivo: coletar as seis descobertas da seção 05, uma pergunta por mensagem, sem entregar solução. Esta é a etapa mais longa e a que mais gente pula. Enquanto ela responde, você anota.</p>
         <div class="note" style="margin-top:16px">
           <span class="k">A regra dos cinco segundos</span>
           <p>Depois de perguntar, não preencha o silêncio. No WhatsApp isso significa: mandou a pergunta, não mande mais nada. Se você emendar uma explicação, ela responde a explicação e não a pergunta, e você perde a informação que precisava.</p>
@@ -588,14 +595,6 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
 
     <div class="mv" data-track="all">
       <span class="badge">M4</span>
-      <div class="body">
-        <p class="ttl">Espelho</p>
-        <p class="goal">Objetivo: dizer o problema dela melhor do que ela disse. É o momento em que a conversa vira, porque ela para de avaliar preço e começa a pensar "essa aqui entendeu". Detalhado na seção 06.</p>
-      </div>
-    </div>
-
-    <div class="mv" data-track="all">
-      <span class="badge">M5</span>
       <div class="body">
         <p class="ttl">A âncora de investimento</p>
         <p class="goal">Objetivo: filtrar. Use quando a conversa indicar que o valor vai ser um problema, ou sempre que a agenda estiver cheia e você precisar priorizar. É o único ponto do documento onde uma pergunta de sim ou não é proposital: aqui um "não" rápido é bom, porque libera seu tempo antes da avaliação e não depois dela.</p>
@@ -623,7 +622,7 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
     </div>
 
     <div class="mv" data-track="all">
-      <span class="badge">M6</span>
+      <span class="badge">M5</span>
       <div class="body">
         <p class="ttl">A ponte para a avaliação</p>
         <p class="goal">Objetivo: transformar a avaliação em algo que vale a pena por si só, e não em um obstáculo entre ela e o preço. Movimento obrigatório. Texto completo na seção 06.</p>
@@ -631,7 +630,7 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
     </div>
 
     <div class="mv" data-track="all">
-      <span class="badge">M7</span>
+      <span class="badge">M6</span>
       <div class="body">
         <p class="ttl">Fechamento do horário e limite</p>
         <p class="goal">Objetivo: sair da conversa com dia, hora e nome completo. Nunca pergunte se ela quer agendar. Ofereça dois horários e negocie apenas qual dos dois.</p>
@@ -646,7 +645,7 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
         <div class="msg" data-track="all">
           <button class="copy" type="button">Copiar</button>
           <div class="top"><span class="track">Ambas</span><span class="when">Confirmação com nome</span></div>
-          <div class="txt"><p>Fechado. Me manda seu nome completo que eu bloqueio <span class="v">{{dia}}</span> às <span class="v">{{hora}}</span> na agenda da <span class="v">{{Ana}}</span>.</p></div>
+          <div class="txt"><p>Fechado. Me manda seu nome completo que eu bloqueio <span class="v">{{dia}}</span> às <span class="v">{{hora}}</span> pra você.</p></div>
           <div class="why"><b>Por que funciona</b>Compromisso que a pessoa digita pesa muito mais do que compromisso que ela só lê. Escrever o próprio nome transforma um horário abstrato em algo que agora tem o nome dela em cima.</div>
         </div>
 
@@ -660,69 +659,33 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
 
   <!-- 05 -->
   <section id="descobertas">
-    <div class="sechead"><span class="num">05</span><h3>As sete descobertas</h3></div>
-    <p class="intro">Uma conversa de pré-vendas bem feita termina com estas sete informações anotadas. Elas servem para três coisas: conduzir agora, escolher o argumento certo na avaliação e escrever um follow-up que não pareça cobrança daqui a duas semanas.</p>
+    <div class="sechead"><span class="num">05</span><h3>As seis descobertas</h3></div>
+    <p class="intro">Uma conversa de pré-vendas bem feita termina com estas seis informações anotadas. Elas servem para três coisas: conduzir agora, escolher o argumento certo na avaliação e escrever um follow-up que não pareça cobrança daqui a duas semanas.</p>
 
     <div class="tablewrap">
       <table>
         <thead><tr><th style="width:20%">Descoberta</th><th style="width:40%">Pergunta · tatuagem</th><th style="width:40%">Pergunta · clareamento</th></tr></thead>
         <tbody>
-          <tr><td><b>1. Motivo</b><br>por que agora</td><td>"O que aconteceu pra você decidir tirar justamente agora?"</td><td>"Teve alguma coisa recente que te fez procurar tratamento agora?"</td></tr>
-          <tr><td><b>2. Problema</b><br>o que exatamente incomoda</td><td>"É a tatuagem inteira ou tem uma parte específica que te incomoda mais?"</td><td>"É a diferença de tom, a textura, ou as duas coisas?"</td></tr>
-          <tr><td><b>3. Consequência</b><br>o que já mudou por causa disso</td><td>"Tem situação em que você evita ficar com ela à mostra?"</td><td>"Tem alguma roupa ou situação que você deixou de usar por causa disso?"</td></tr>
-          <tr><td><b>4. Impacto prático</b><br>o custo no dia a dia</td><td>"Isso já te atrapalhou em alguma coisa concreta, tipo trabalho ou foto?"</td><td>"Você já deixou de ir em algum lugar por causa disso?"</td></tr>
-          <tr><td><b>5. Impacto emocional</b><br>o custo invisível</td><td>"E quando você olha pra ela hoje, o que passa na sua cabeça?"</td><td>"Quanto você acaba pensando nisso num dia normal?"</td></tr>
-          <tr><td><b>6. Meta</b><br>onde ela quer chegar</td><td>"Você quer remover pra ficar sem nada ali, ou pra cobrir com outra depois?"</td><td>"O que pra você seria um bom resultado? Uniformizar o tom ou clarear o máximo possível?"</td></tr>
-          <tr><td><b>7. Urgência</b><br>o prazo real</td><td>"Tem alguma data no radar que você queria isso resolvido?"</td><td>"Tem viagem, evento ou verão no meio disso?"</td></tr>
+          <tr><td><b>1. Problema</b><br>o que exatamente incomoda</td><td>"É a tatuagem inteira ou tem uma parte específica que te incomoda mais?"</td><td>"É a diferença de tom, a textura, ou as duas coisas?"</td></tr>
+          <tr><td><b>2. Consequência</b><br>o que já mudou por causa disso</td><td>"Tem situação em que você evita ficar com ela à mostra?"</td><td>"Tem alguma roupa ou situação que você deixou de usar por causa disso?"</td></tr>
+          <tr><td><b>3. Impacto prático</b><br>o custo no dia a dia</td><td>"Isso já te atrapalhou em alguma coisa concreta, tipo trabalho ou foto?"</td><td>"Você já deixou de ir em algum lugar por causa disso?"</td></tr>
+          <tr><td><b>4. Impacto emocional</b><br>o custo invisível</td><td>"E quando você olha pra ela hoje, o que passa na sua cabeça?"</td><td>"Quanto você acaba pensando nisso num dia normal?"</td></tr>
+          <tr><td><b>5. Meta</b><br>onde ela quer chegar</td><td>"Você quer remover pra ficar sem nada ali, ou pra cobrir com outra depois?"</td><td>"O que pra você seria um bom resultado? Uniformizar o tom ou clarear o máximo possível?"</td></tr>
+          <tr><td><b>6. Urgência</b><br>o prazo real</td><td>"Tem alguma data no radar que você queria isso resolvido?"</td><td>"Tem alguma data no radar, tipo viagem ou algum evento?"</td></tr>
         </tbody>
       </table>
     </div>
 
-    <h4>A oitava pergunta: quem decide junto</h4>
-    <p class="intro">Boa parte das clientes não decide sozinha, e isso não é fraqueza: é orçamento de casa. Descobrir isso no WhatsApp evita a avaliação que termina em "vou conversar em casa e te falo", que é onde a maioria dos casos morre.</p>
-
-    <div class="msg" data-track="all">
-      <button class="copy" type="button">Copiar</button>
-      <div class="top"><span class="track">Ambas</span><span class="when">Antes de oferecer horário</span></div>
-      <div class="txt"><p>Uma coisa que sempre pergunto pra não te fazer voltar duas vezes: essa decisão é sua ou vocês decidem junto aí em casa? Se for junto, eu já penso num horário que dê pros dois.</p></div>
-      <div class="why"><b>Por que funciona</b>Você não está testando a autonomia dela, está resolvendo um problema de agenda. E se quem decide junto estiver presente na avaliação, os dois ouvem a mesma explicação, o que elimina o telefone sem fio que costuma matar a venda em casa.</div>
-    </div>
-
     <div class="note">
-      <span class="k">Se não der pra trazer quem decide</span>
-      <p>Não empurre a avaliação assim mesmo sem preparo. Combine antes: <b>"eu te mando um resumo por escrito com o plano e os valores, pra você mostrar exatamente como eu te expliquei"</b>. Sem isso, ela vai reproduzir em casa uma versão pior do que você falou, e vai ter que defender sozinha um preço que não sabe justificar.</p>
+      <span class="k">Uma pergunta por mensagem</span>
+      <p>Estas seis não são um formulário para despejar de uma vez. Vão saindo ao longo da conversa, na ordem que ela permitir, e algumas ela responde sozinha sem você perguntar. Se em duas ou três trocas você já tem quatro delas, siga para a ponte: diagnóstico completo não vale mais do que agendamento feito.</p>
     </div>
   </section>
 
   <!-- 06 -->
   <section id="ponte">
-    <div class="sechead"><span class="num">06</span><h3>Espelho e ponte: como a avaliação vira algo que vale a pena</h3></div>
-    <p class="intro">Antes de oferecer horário, dois passos. Primeiro você devolve o problema dela nomeado com precisão. Depois você mostra o que ela leva embora da avaliação. A ordem importa: valor primeiro, horário depois.</p>
-
-    <h4>Passo 1: o espelho</h4>
-    <p class="intro">Nomeie em três camadas, sem usar esses nomes com ela: o que ela vê acontecendo, a causa que está por trás, e o custo que ela paga sem perceber. Termine confirmando, não afirmando.</p>
-
-    <div class="msg tat" data-track="tat">
-      <button class="copy" type="button">Copiar</button>
-      <div class="top"><span class="track">Tatuagem</span><span class="when">Espelho</span></div>
-      <div class="txt">
-        <p>Deixa eu ver se eu entendi direito.</p>
-        <p>A tatuagem em si não é o maior problema. O que te incomoda é ter que pensar nela toda vez que você escolhe uma roupa ou tira uma foto.</p>
-        <p>E o que te segurou até hoje não foi o valor, foi não saber em quem confiar pra mexer nisso, porque um resultado ruim é pior do que a tatuagem. É isso mesmo?</p>
-      </div>
-      <div class="why"><b>Por que funciona</b>Ela chegou falando de tinta e recebeu de volta o que realmente sente. Além disso, o espelho já desarma a objeção de preço antes de ela existir, porque desloca o assunto de "quanto custa" para "em quem confiar".</div>
-    </div>
-
-    <div class="msg cla" data-track="cla">
-      <button class="copy" type="button">Copiar</button>
-      <div class="top"><span class="track">Clareamento</span><span class="when">Espelho</span></div>
-      <div class="txt">
-        <p>Deixa eu ver se eu entendi.</p>
-        <p>O que mais te incomoda não é a mancha em si, é o tanto que você pensa nela em situações que deviam ser leves.</p>
-        <p>E cada coisa que você tentou e não resolveu foi te convencendo de que no seu caso não tem jeito. Tô certa?</p>
-      </div>
-      <div class="why"><b>Por que funciona</b>Nomear a descrença dela em voz alta tira o peso de ela ter que confessar isso. E como você nomeou primeiro, a próxima frase sua sobre tratamento entra sem soar como promessa de vendedora.</div>
-    </div>
+    <div class="sechead"><span class="num">06</span><h3>A ponte: como a avaliação vira algo que vale a pena</h3></div>
+    <p class="intro">Este é o movimento que decide a conversa. Antes de oferecer horário, você mostra o que ela leva embora da avaliação. A ordem importa: valor primeiro, horário depois. Horário oferecido antes do valor vira só mais um compromisso na semana dela.</p>
 
     <h5>Se ela já tentou antes</h5>
     <div class="msg" data-track="all">
@@ -732,14 +695,14 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
       <div class="why"><b>Por que funciona</b>Ela precisa esgotar as alternativas antigas em voz alta antes de aceitar uma nova. Cada tentativa frustrada que ela conta faz a avaliação parecer o passo lógico seguinte, e não mais uma tentativa igual às outras.</div>
     </div>
 
-    <h4>Passo 2: a ponte</h4>
+    <h4>O que dizer</h4>
     <p class="intro">A avaliação não pode ser vendida como "uma conversinha rápida". Ela é o produto desta etapa, e produto tem entrega. Diga em lista o que ela sai sabendo, e diga também que sem isso ninguém consegue responder o que ela perguntou.</p>
 
     <div class="msg tat" data-track="tat">
       <button class="copy" type="button">Copiar</button>
-      <div class="top"><span class="track">Tatuagem</span><span class="when">Ponte</span></div>
+      <div class="top"><span class="track">Tatuagem</span><span class="when">Ponte</span><span class="aud">Pode ser áudio</span></div>
       <div class="txt">
-        <p>Pelo que você me contou, o próximo passo não é escolher pacote, é a Ana olhar essa tinta e a sua pele de perto.</p>
+        <p>Pelo que você me contou, o próximo passo não é escolher pacote, é eu ver essa tinta e a sua pele de perto.</p>
         <p>Na avaliação você sai com quatro coisas: a leitura do seu caso (cor, tempo, profundidade e o seu tipo de pele), uma estimativa de quantas sessões e de quanto tempo entre uma e outra, o plano com o valor fechado, e a resposta honesta se o seu caso é dos fáceis, dos médios ou dos difíceis.</p>
         <p>Leva mais ou menos <span class="v">{{30}}</span> minutos e não tem custo.</p>
       </div>
@@ -748,7 +711,7 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
 
     <div class="msg cla" data-track="cla">
       <button class="copy" type="button">Copiar</button>
-      <div class="top"><span class="track">Clareamento</span><span class="when">Ponte</span></div>
+      <div class="top"><span class="track">Clareamento</span><span class="when">Ponte</span><span class="aud">Pode ser áudio</span></div>
       <div class="txt">
         <p>Pelo que você me contou, o próximo passo é eu ver de perto pra saber a causa, porque o tratamento muda conforme ela.</p>
         <p>Na avaliação você sai sabendo o que provavelmente causou, o que dá e o que não dá pra prometer no seu caso, quantas sessões e o intervalo, e o valor fechado.</p>
@@ -787,17 +750,6 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
     </div>
     <p class="intro" style="margin-top:14px">Desconto solto não gera alívio, gera desconfiança: se podia ser mais barato, por que não era desde o começo? Desconto trocado por compromisso gera decisão.</p>
 
-    <h4>"Vou ver com meu marido"</h4>
-    <div class="msg" data-track="all">
-      <button class="copy" type="button">Copiar</button>
-      <div class="top"><span class="track">Ambas</span><span class="when">Objeção · decisão em casa</span></div>
-      <div class="txt">
-        <p>Faz todo sentido. Ele consegue vir junto na avaliação? Assim vocês dois ouvem a mesma coisa e decidem na hora, sem ficar telefone sem fio.</p>
-        <p>Se não der, eu te mando o plano por escrito com os valores pra você mostrar pra ele exatamente do jeito que eu te expliquei. O que fica melhor?</p>
-      </div>
-      <div class="why"><b>Por que funciona</b>Não tenta contornar a objeção, resolve a causa. E as duas saídas oferecidas mantêm você no controle do próximo passo, em vez de deixar a conversa esperando uma resposta que não volta.</div>
-    </div>
-
     <h4>"Vou ver minha agenda e te falo"</h4>
     <div class="msg" data-track="all">
       <button class="copy" type="button">Copiar</button>
@@ -809,7 +761,7 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
     <h4>"Dói muito?"</h4>
     <div class="msg" data-track="all">
       <button class="copy" type="button">Copiar</button>
-      <div class="top"><span class="track">Ambas</span><span class="when">Objeção · medo</span></div>
+      <div class="top"><span class="track">Ambas</span><span class="when">Objeção · medo</span><span class="aud">Pode ser áudio</span></div>
       <div class="txt">
         <p>Não vou te dizer que não dói, porque não seria verdade. É rápido e é suportável, e aqui a gente usa <span class="v">{{recurso de conforto usado na clínica}}</span>.</p>
         <p>O que eu mais escuto depois da primeira sessão é que era bem menos do que a pessoa tinha imaginado.</p>
@@ -863,27 +815,27 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
     <div class="msg" data-track="all">
       <button class="copy" type="button">Copiar</button>
       <div class="top"><span class="track">Ambas</span><span class="when">Toque 1 · 2 dias</span></div>
-      <div class="txt"><p><span class="v">{{Nome}}</span>, fiquei pensando no que você me falou sobre <span class="v">{{a frase dela, ex: não conseguir usar regata no trabalho}}</span>. Separei um horário na agenda da <span class="v">{{Ana}}</span> antes de liberar pra semana que vem. Fica melhor <span class="v">{{dia A}}</span> de manhã ou <span class="v">{{dia B}}</span> à tarde?</p></div>
+      <div class="txt"><p><span class="v">{{Nome}}</span>, fiquei pensando no que você me falou sobre <span class="v">{{a frase dela, ex: não conseguir usar regata no trabalho}}</span>. Separei um horário aqui antes de liberar minha agenda pra semana que vem. Fica melhor <span class="v">{{dia A}}</span> de manhã ou <span class="v">{{dia B}}</span> à tarde?</p></div>
       <div class="why"><b>Por que funciona</b>Devolver a frase dela prova que você prestou atenção e reacende o incômodo original sem você precisar argumentar nada. E o pedido continua sendo uma escolha entre dois dias, não um sim ou não.</div>
     </div>
 
     <div class="msg tat" data-track="tat">
       <button class="copy" type="button">Copiar</button>
       <div class="top"><span class="track">Tatuagem</span><span class="when">Toque 2 · 4 dias</span></div>
-      <div class="txt"><p><span class="v">{{Nome}}</span>, um lembrete honesto: remoção acontece em sessões espaçadas, então o relógio corre mesmo parado. Quem começa agora chega no verão com o processo já andado. Me diz dois dias que funcionam pra você essa semana que eu encaixo a avaliação.</p></div>
-      <div class="why"><b>Por que funciona</b>A urgência aqui é real e técnica, não inventada: o intervalo entre sessões existe de verdade e o pós exige menos sol. Urgência verdadeira convence sem queimar a confiança que você construiu.</div>
+      <div class="txt"><p><span class="v">{{Nome}}</span>, um lembrete honesto: remoção acontece em sessões espaçadas, com intervalo obrigatório entre uma e outra. Isso quer dizer que o relógio corre mesmo com você parada, e cada semana sem começar empurra o fim do tratamento pra frente. Me diz dois dias que funcionam pra você essa semana que eu encaixo a avaliação.</p></div>
+      <div class="why"><b>Por que funciona</b>A urgência aqui é real e técnica, não inventada: o intervalo entre sessões existe de verdade, então adiar custa tempo de tratamento. Vale em qualquer época do ano, e urgência verdadeira convence sem queimar a confiança que você construiu.</div>
     </div>
 
     <div class="msg cla" data-track="cla">
       <button class="copy" type="button">Copiar</button>
       <div class="top"><span class="track">Clareamento</span><span class="when">Toque 2 · 4 dias</span></div>
-      <div class="txt"><p><span class="v">{{Nome}}</span>, esse é o melhor período do ano pra tratar isso: menos sol, menos risco de voltar, recuperação mais tranquila. Quem começa agora chega no verão resolvida. Qual período te atende melhor pra avaliação, manhã ou tarde?</p></div>
-      <div class="why"><b>Por que funciona</b>Mesma lógica do outro lado da clínica, com o argumento técnico correto para o procedimento. E a pergunta reduzida a "manhã ou tarde" abaixa o esforço da resposta ao mínimo.</div>
+      <div class="txt"><p><span class="v">{{Nome}}</span>, uma coisa que vale você saber: enquanto ninguém trata a causa, ela continua agindo. Quanto antes a gente entende o que tá provocando, menos tempo você passa tentando coisa que não resolve. Qual período te atende melhor pra avaliação, manhã ou tarde?</p></div>
+      <div class="why"><b>Por que funciona</b>Urgência pelo custo de não agir, que é verdadeiro e vale o ano inteiro, em vez de escassez inventada ou apelo de estação. E a pergunta reduzida a "manhã ou tarde" abaixa o esforço da resposta ao mínimo.</div>
     </div>
 
     <div class="msg" data-track="all">
       <button class="copy" type="button">Copiar</button>
-      <div class="top"><span class="track">Ambas</span><span class="when">Toque 3 · 8 dias</span></div>
+      <div class="top"><span class="track">Ambas</span><span class="when">Toque 3 · 8 dias</span><span class="aud">Pode ser áudio</span></div>
       <div class="txt"><p><span class="v">{{Nome}}</span>, te mando aqui o antes e depois de uma cliente que chegou no mesmo ponto que você. Olhando isso, o que ainda te segura pra marcar a sua avaliação?</p></div>
       <div class="why"><b>Por que funciona</b>Prova primeiro, pergunta aberta depois. A pergunta é a mais valiosa do follow-up inteiro, porque a resposta dela é a objeção real, que você ainda não tinha ouvido. Escolha a prova pelo perfil dela (seção 03), e envie só com autorização da cliente da foto.</div>
     </div>
@@ -896,7 +848,7 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
     </div>
 
     <h4>Trilha B · veio na avaliação e não fechou</h4>
-    <p class="intro">Aqui você tem mais material do que em qualquer outro momento: ela viu a clínica, conheceu a profissional e ouviu o plano. O follow-up precisa usar isso, não recomeçar do zero.</p>
+    <p class="intro">Aqui você tem mais material do que em qualquer outro momento: ela viu a clínica, conheceu você pessoalmente e ouviu o plano. O follow-up precisa usar isso, não recomeçar do zero.</p>
 
     <div class="msg" data-track="all">
       <button class="copy" type="button">Copiar</button>
@@ -915,8 +867,60 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
       <div class="why"><b>Por que funciona</b>Depois da avaliação, o silêncio quase sempre esconde uma dúvida específica que ela não quis expor na hora. Oferecer três opções nomeadas é mais fácil de responder do que confessar a dúvida do zero.</div>
     </div>
 
-    <h4>Trilha C · lead antigo, frio há semanas</h4>
-    <p class="intro">Para a base que já esfriou faz tempo, use o kit de reativação já entregue em 17/07 (<i>Reativação de Leads Frios</i>), que tem os cinco toques firmes e o banco de mensagens avulsas. Este documento cuida do lead novo; aquele cuida do lead parado. Os dois seguem o mesmo princípio: nunca dar um "não" fácil.</p>
+    <h4>Trilha C · lead antigo, parado há semanas ou meses</h4>
+    <p class="intro">Aqui o tom muda: mais firme e mais comercial, porque a conversa original já morreu e mensagem morna não ressuscita ninguém. Três toques, espaçados de 3 a 4 dias, e encerra. Vale para quem conversou faz tempo e sumiu, e para a lista antiga que nunca foi trabalhada.</p>
+
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">C1 · reabertura</span><span class="aud">Pode ser áudio</span></div>
+      <div class="txt"><p><span class="v">{{Nome}}</span>, faz um tempo que a gente não se fala. Como tá aquele <span class="v">{{incômodo que ela citou}}</span>? Se ainda te incomoda, me diz dois dias que funcionam pra você que eu encaixo sua avaliação.</p></div>
+      <div class="why"><b>Por que funciona</b>Reabre pelo problema dela, não pelo seu interesse em vender. E já sai pedindo dois dias, então a resposta natural é uma data e não um "depois eu vejo".</div>
+    </div>
+
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">C2 · 3 dias · assumptiva</span></div>
+      <div class="txt"><p><span class="v">{{Nome}}</span>, tô organizando minha agenda de avaliações e separei um horário pra você antes de abrir pra novas clientes. Fica melhor <span class="v">{{dia A}}</span> de manhã ou <span class="v">{{dia B}}</span> à tarde?</p></div>
+      <div class="why"><b>Por que funciona</b>Pressupõe o sim e negocia só o quando. Só use se for verdade que existe esse horário separado: escassez inventada queima a confiança que ainda restava.</div>
+    </div>
+
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">C3 · 7 dias · encerramento firme</span></div>
+      <div class="txt"><p><span class="v">{{Nome}}</span>, como não tive retorno, vou encerrar seu atendimento aqui pra liberar a agenda pra quem tá esperando. Se ainda quiser cuidar disso, me manda só um "quero" hoje que eu seguro seu lugar. Amanhã eu passo pra frente.</p></div>
+      <div class="why"><b>Por que funciona</b>Retirada da oferta com a menor ação possível do outro lado, uma palavra. É a mensagem que mais traz resposta de gente calada há semanas, e a que devolve seu tempo quando não traz.</div>
+    </div>
+
+    <h5>Banco de mensagens avulsas</h5>
+    <p class="intro">Para encaixar em qualquer ponto das três trilhas, conforme o que aparecer.</p>
+
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">Fechamento assumido</span></div>
+      <div class="txt"><p><span class="v">{{Nome}}</span>, deixei <span class="v">{{dia}}</span> às <span class="v">{{hora}}</span> reservado no seu nome. Me confirma seu nome completo que eu travo o horário.</p></div>
+      <div class="why"><b>Por que funciona</b>Micro-compromisso: pede um dado banal e, ao dar esse dado, ela fecha o horário sem passar por uma decisão de "sim ou não".</div>
+    </div>
+
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">Quando o valor trava</span></div>
+      <div class="txt"><p><span class="v">{{Nome}}</span>, a avaliação é sem custo e o tratamento você parcela. Me diz o que pesa mais hoje: o valor ou a agenda? Que eu já te ajudo a resolver.</p></div>
+      <div class="why"><b>Por que funciona</b>Troca a pergunta que dá o não fácil por uma que só tem duas respostas úteis, e as duas mantêm a conversa viva.</div>
+    </div>
+
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">Quando ela volta com "vi, mas..."</span></div>
+      <div class="txt"><p>Que bom que você voltou. Então bora resolver de vez: te encaixo <span class="v">{{dia A}}</span> ou <span class="v">{{dia B}}</span>? Me diz qual que eu travo.</p></div>
+      <div class="why"><b>Por que funciona</b>Não gasta uma linha cobrando o sumiço. Recebe bem e vai direto para a única coisa que interessa, que é a data.</div>
+    </div>
+
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">Limpeza de fila · o único "não" proposital</span></div>
+      <div class="txt"><p><span class="v">{{Nome}}</span>, pra eu não te incomodar à toa: quer seguir com a avaliação ou prefere que eu pause seu atendimento por enquanto? Qualquer resposta tá ótima.</p></div>
+      <div class="why"><b>Por que funciona</b>Esta é a única mensagem do documento que oferece o não de bandeja, e é de propósito. Use só quando já ficou claro que o lead não avança, para liberar seu tempo. Nunca como tentativa de reativação.</div>
+    </div>
   </section>
 
   <!-- 09 -->
@@ -941,8 +945,8 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
       <button class="copy" type="button">Copiar</button>
       <div class="top"><span class="track">Ambas</span><span class="when">R1 · no ato do agendamento</span></div>
       <div class="txt">
-        <p>Pronto, <span class="v">{{Nome}}</span>: <span class="v">{{dia}}</span> às <span class="v">{{hora}}</span> travado no seu nome, com a <span class="v">{{Ana}}</span>. Endereço: <span class="v">{{endereço}}</span>.</p>
-        <p>Esse horário fica bloqueado só pra você, a agenda dela não recebe mais ninguém nele. Se por qualquer motivo não der, me avisa até o dia anterior que eu passo pra próxima da fila. Combinado?</p>
+        <p>Pronto, <span class="v">{{Nome}}</span>: <span class="v">{{dia}}</span> às <span class="v">{{hora}}</span> travado no seu nome. Endereço: <span class="v">{{endereço}}</span>.</p>
+        <p>Esse horário fica bloqueado só pra você, eu não atendo mais ninguém nele. Se por qualquer motivo não der, me avisa até o dia anterior que eu passo pra próxima da fila. Combinado?</p>
       </div>
       <div class="why"><b>Por que funciona</b>Diz o custo da reserva sem ameaçar, e termina pedindo uma palavra digitada. O "combinado?" transforma o horário em acordo entre duas pessoas, e acordo entre pessoas é bem mais difícil de furar do que um lembrete de sistema.</div>
     </div>
@@ -950,7 +954,7 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
     <div class="msg tat" data-track="tat">
       <button class="copy" type="button">Copiar</button>
       <div class="top"><span class="track">Tatuagem</span><span class="when">R2 · logo em seguida · preparo</span></div>
-      <div class="txt"><p>Duas coisinhas pra sua avaliação render: vem com uma roupa que deixe a tatuagem fácil de mostrar, e se você tiver alguma foto de como ela era quando fez, traz também, ajuda muito a Ana a entender a tinta. Anotado?</p></div>
+      <div class="txt"><p>Duas coisinhas pra sua avaliação render: vem com uma roupa que deixe a tatuagem fácil de mostrar, e se você tiver alguma foto de como ela era quando fez, traz também, me ajuda muito a entender a tinta. Anotado?</p></div>
       <div class="why"><b>Por que funciona</b>Duas tarefas pequenas e fáceis. Quem separa a roupa e procura a foto antiga já começou o tratamento na cabeça, e desistir agora custa desfazer algo que já foi feito.</div>
     </div>
 
@@ -964,7 +968,7 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
     <div class="msg" data-track="all">
       <button class="copy" type="button">Copiar</button>
       <div class="top"><span class="track">Ambas</span><span class="when">R3 · véspera</span></div>
-      <div class="txt"><p>Oi <span class="v">{{Nome}}</span>, amanhã é o seu horário com a <span class="v">{{Ana}}</span>, às <span class="v">{{hora}}</span>. Uma coisa só pra eu já deixar separado antes: <span class="v">{{pergunta simples e específica do caso dela}}</span>?</p></div>
+      <div class="txt"><p>Oi <span class="v">{{Nome}}</span>, amanhã é o seu horário comigo, às <span class="v">{{hora}}</span>. Uma coisa só pra eu já deixar separado antes: <span class="v">{{pergunta simples e específica do caso dela}}</span>?</p></div>
       <div class="why"><b>Por que funciona</b>Lembrete que só informa pode ser ignorado sem custo nenhum. Lembrete que faz uma pergunta obriga uma resposta, e quem responde na véspera confirma a presença sem perceber que confirmou. Se ela não responder aqui, o risco de falta acabou de subir muito: ligue.</div>
     </div>
 
@@ -978,7 +982,7 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
     <div class="msg" data-track="all">
       <button class="copy" type="button">Copiar</button>
       <div class="top"><span class="track">Ambas</span><span class="when">R5 · 15 minutos de atraso</span></div>
-      <div class="txt"><p><span class="v">{{Nome}}</span>, tudo bem? A <span class="v">{{Ana}}</span> tá te esperando. Consigo segurar mais uns 15 minutos, depois disso preciso liberar pra próxima. Você tá vindo?</p></div>
+      <div class="txt"><p><span class="v">{{Nome}}</span>, tudo bem? Tô aqui te esperando. Consigo segurar mais uns 15 minutos, depois disso preciso liberar pra próxima. Você tá vindo?</p></div>
       <div class="why"><b>Por que funciona</b>Recupera boa parte das faltas que são só atraso e desorganização. O limite de tempo é real e dito sem irritação, o que dá a ela um motivo para responder em vez de sumir por vergonha.</div>
     </div>
 
@@ -987,9 +991,9 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
 
     <div class="msg" data-track="all">
       <button class="copy" type="button">Copiar</button>
-      <div class="top"><span class="track">Ambas</span><span class="when">Falta · mesmo dia</span></div>
-      <div class="txt"><p><span class="v">{{Nome}}</span>, imagino que tenha acontecido alguma coisa hoje. Sem problema. Eu consigo te remarcar uma vez: tenho <span class="v">{{dia A}}</span> ou <span class="v">{{dia B}}</span>. Qual eu travo?</p></div>
-      <div class="why"><b>Por que funciona</b>Dá a ela uma saída digna e imediata, sem obrigar explicação. "Uma vez" é a parte que trabalha: comunica que a remarcação tem limite, sem nenhuma aspereza.</div>
+      <div class="top"><span class="track">Ambas</span><span class="when">Falta · mesmo dia</span><span class="aud">Pode ser áudio</span></div>
+      <div class="txt"><p><span class="v">{{Nome}}</span>, imagino que tenha acontecido alguma coisa hoje. Eu consigo te remarcar uma vez: tenho <span class="v">{{dia A}}</span> ou <span class="v">{{dia B}}</span>. Qual eu travo?</p></div>
+      <div class="why"><b>Por que funciona</b>Dá a ela uma saída digna e imediata, sem obrigar explicação e sem dizer que faltar foi tranquilo, porque não foi. "Uma vez" é a parte que trabalha: comunica que a remarcação tem limite, sem nenhuma aspereza.</div>
     </div>
 
     <div class="msg" data-track="all">
@@ -997,7 +1001,7 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
       <div class="top"><span class="track">Ambas</span><span class="when">Segunda falta</span></div>
       <div class="txt">
         <p><span class="v">{{Nome}}</span>, é a segunda vez que o horário fica parado, e eu tenho gente na fila esperando por ele.</p>
-        <p>Consigo te dar <span class="v">{{dia}}</span> às <span class="v">{{hora}}</span>, e dessa vez preciso da sua confirmação ainda hoje. Se não for um bom momento pra você, tudo bem também: eu te aviso quando abrir de novo.</p>
+        <p>Consigo agendar <span class="v">{{dia}}</span> às <span class="v">{{hora}}</span>, e dessa vez preciso da sua confirmação ainda hoje. Se não for um bom momento pra você, tudo bem também: eu te aviso quando abrir de novo.</p>
       </div>
       <div class="why"><b>Por que funciona</b>Firmeza sem ressentimento, e a oferta de sair sem constrangimento. Retirar a insistência costuma trazer de volta quem queria mesmo ir, e libera sua agenda de quem não queria.</div>
     </div>
@@ -1012,7 +1016,7 @@ footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2e
     <div class="note">
       <span class="k">A decisão que mais reduz falta, e que é de vocês</span>
       <p>Existe uma alavanca mais forte do que todas as mensagens deste documento: <b>cobrar um sinal simbólico de reserva</b>, tipo <span class="v">{{R$ 30 a R$ 50}}</span>, integralmente abatido na primeira sessão e devolvido se ela avisar com antecedência.</p>
-      <p>A troca é honesta: vai reduzir o número de agendamentos e aumentar bastante a proporção de gente que aparece, além de filtrar quem nunca teve condição de seguir. Faz mais sentido testar primeiro na tatuagem, onde o ticket é maior e a agenda é mais disputada. É uma decisão de vocês, e vale medir por 30 dias antes de decidir.</p>
+      <p>A troca é honesta: vai reduzir o número de agendamentos e aumentar bastante a proporção de gente que aparece, além de filtrar quem nunca teve condição de seguir. É uma decisão de vocês. Se quiserem testar, testem numa frente só e por 30 dias, comparando o número de faltas antes e depois, para saber se compensou.</p>
     </div>
 
     <div class="note">
