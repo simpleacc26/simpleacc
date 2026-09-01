@@ -3,7 +3,7 @@
 **Data:** agosto/2026
 **Alinhamento:** criativos v4 (ICP dono/sócio acima de R$200 mil/mês) —
 ver `copy/criativos-v4-hormozi-icp-200k.md`
-**Destino:** quiz da Etapa 1 → página pós-quiz → WhatsApp → diagnóstico em PDF
+**Destino:** quiz da Etapa 1 → página pós-quiz → WhatsApp → Diagnóstico em PDF
 
 Duas legendas que servem para **qualquer criativo** desta conta: vídeo, estático
 ou carrossel, e qualquer um dos quatro cenários. Três parágrafos, o último é o
@@ -28,12 +28,12 @@ bloco "você já tentou", e fechar no pedido pequeno.
 > poucas semanas. Não foi falta de esforço: cobrança sem critério é só mais uma
 > conversa, e processo nenhum decide por você.
 >
-> Responde o meu diagnóstico. São poucas perguntas, você vê o teu cenário na hora
+> Responde o meu Diagnóstico. São poucas perguntas, você vê o teu cenário na hora
 > e recebe a leitura completa no teu WhatsApp, sem vendedor no meio.
 
-## Modelo 2 — o dado do próprio diagnóstico
+## Modelo 2 — o dado do próprio Diagnóstico
 
-> Oito em cada dez líderes que responderam o meu diagnóstico decidem sobre
+> Oito em cada dez Líderes que responderam o meu Diagnóstico decidem sobre
 > pessoas por experiência, bom senso ou intuição. Menos de dois em cada dez usam
 > critério claro e método. Se você é dono ou sócio de uma operação acima de
 > R$200 mil por mês, essa é provavelmente a distância entre a tua empresa hoje e
@@ -44,7 +44,7 @@ bloco "você já tentou", e fechar no pedido pequeno.
 > apoiar, então ela acaba dependendo do teu dia. Você já tentou ser mais firme,
 > já tentou chegar mais perto, já tentou os dois alternando.
 >
-> Responde o diagnóstico e descobre onde as tuas decisões sobre gente estão sendo
+> Responde o Diagnóstico e descobre onde as tuas decisões sobre gente estão sendo
 > tomadas sem critério. Poucas perguntas, o cenário aparece na hora e o documento
 > chega no WhatsApp, sem conversa de venda antes.
 
@@ -62,9 +62,9 @@ bom senso, intuição ou reação, contra 19,9% que usam critério claro e méto
 estruturado. É o único dado real e reutilizável que esta conta tem, e é uma
 autoridade que não depende de credencial.
 
-**Cuidado ao editar a 2:** o dado é de *quem respondeu o diagnóstico*, não de
-donos e sócios. Trocar "líderes" por "donos" transforma um dado real em número
-inventado, porque a base tem maioria de gestores — foi justamente esse o
+**Cuidado ao editar a 2:** o dado é de *quem respondeu o Diagnóstico*, não de
+donos e sócios. Trocar "Líderes" por "donos" transforma um dado real em número
+inventado, porque a base tem maioria de Gestores — foi justamente esse o
 vazamento de ICP que os criativos v4 vieram corrigir.
 
 ## O que não pode sair daqui
@@ -72,13 +72,13 @@ vazamento de ICP que os criativos v4 vieram corrigir.
 Cada regra abaixo já custou uma correção nesta conta.
 
 - **O piso de R$200 mil no primeiro parágrafo.** Ele é filtro, não ostentação:
-  repele o líder de mini-setor antes do clique, sem depender de pergunta no quiz.
+  repele o Líder de mini-setor antes do clique, sem depender de pergunta no quiz.
 - **O bloco "você já tentou".** É o que separa este lead do iniciante e o que
   impede a peça de soar genérica.
 - **Nenhuma credencial.** Sem doutorado, sem contagem de anos, sem número de
   ferramentas. A prova vem do reconhecimento da cena.
 - **Promessa de leitura, nunca de resultado.** Este público já tem o desejo
-  saturado; o que ele não tem é diagnóstico preciso.
+  saturado; o que ele não tem é Diagnóstico preciso.
 - **Nenhum número inventado.** Só o dado do quiz, e só com a atribuição certa.
 - **Sem quantidade de perguntas e sem minutagem.** "Poucas perguntas" resolve, e
   não cria mais um número para manter sincronizado entre as peças — o funil já
@@ -86,7 +86,7 @@ Cada regra abaixo já custou uma correção nesta conta.
 
 ## Como usar
 
-O pedido é sempre o **diagnóstico**, nunca a sessão. O agendamento existe, mas
+O pedido é sempre o **Diagnóstico**, nunca a sessão. O agendamento existe, mas
 só no fim da Etapa 2, e antecipá-lo aqui transformaria um passo curto em
 compromisso comercial.
 

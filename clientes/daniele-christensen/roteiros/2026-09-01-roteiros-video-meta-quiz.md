@@ -1,11 +1,11 @@
 # Roteiros de vídeo para Meta Ads (destino: quiz da Etapa 1)
 
 **Data:** 01/09/2026
-**Destino do tráfego:** quiz da Etapa 1 → página pós-quiz → WhatsApp → diagnóstico em PDF
+**Destino do tráfego:** quiz da Etapa 1 → página pós-quiz → WhatsApp → Diagnóstico em PDF
 **Legenda:** usar `copy/legendas-globais-meta.md` (qualquer um dos dois modelos)
 
 Três roteiros novos, com ângulos que não existem em nenhuma leva anterior.
-Dois exploram cultura por caminhos ainda não usados, o terceiro fica fora do
+Dois exploram Cultura por caminhos ainda não usados, o terceiro fica fora do
 tema de propósito.
 
 ---
@@ -17,16 +17,16 @@ pessoas e orçamento. Tecnicamente competente e acostumado a decidir sobre
 dinheiro, contrato e risco sem hesitar, mas trava na decisão sobre gente porque
 é a única que não tem número para apoiar.
 
-**O que ele fala em voz alta:** "já conversei", "já dei feedback", "já troquei a
+**O que ele fala em voz alta:** "já conversei", "já dei Feedback", "já troquei a
 pessoa e voltou igual", "minha equipe só executa quando eu estou por perto".
 
 **O que ele não admite:** que adia a conversa difícil não por falta de coragem,
 e sim porque não sabe onde termina a régua; e que já desconfia que o problema
 mora nele, não no time.
 
-**O que ele já tentou** (é literalmente a P3 do quiz): conversou e deu feedback,
+**O que ele já tentou** (é literalmente a P3 do quiz): conversou e deu Feedback,
 trocou quem não entregava, colocou processo e ferramenta, assumiu de volta e fez
-sozinho, fez curso ou mentoria de liderança.
+sozinho, fez curso ou mentoria de Liderança.
 
 **O que ele teme:** daqui a doze meses estar exatamente no mesmo lugar, perder
 gente boa por causa de decisão adiada, seguir sendo o único que resolve o
@@ -76,7 +76,7 @@ não como o eixo da peça:
    explica resultado com fator externo até virar cultura. Mecanismo:
    **precedente acumulado**.
 
-Ou seja, o território já ocupado é *cultura como resultado do que a liderança
+Ou seja, o território já ocupado é *Cultura como resultado do que a Liderança
 tolerou ao longo do tempo*. Três mecanismos ainda intactos: como o **recém
 contratado** é calibrado, o que os **valores declarados** decidem na prática, e
 **quem sai e quem fica**. Os dois primeiros viram os roteiros 1 e 2. O terceiro
@@ -88,9 +88,9 @@ fica anotado para a próxima leva.
 
 | # | Formato | Ângulo | Dor específica | Emoção dominante | Prova que sustenta | CTA |
 |---|---|---|---|---|---|---|
-| 1 | Vídeo 60s | **Cultura**: o ambiente recalibra quem você contrata | Dinheiro gasto em contratação boa que não mudou nada | Impotência | Reconhecimento de cena: a entrega atrasada sem comentário, a reunião sem prazo assumido | Responder o diagnóstico |
-| 2 | Vídeo 60s | **Cultura**: valores declarados que não decidem nada | Fez o trabalho de cultura e o comportamento continuou igual | Constrangimento | Reconhecimento de cena: o quadro da recepção, o slide de integração | Responder o diagnóstico |
-| 3 | Vídeo 60s | O domingo do dono | O negócio cresceu e não devolveu tempo nenhum | Cansaço | Reconhecimento de cena: domingo à noite, segunda antes das nove | Responder o diagnóstico |
+| 1 | Vídeo 60s | **Cultura**: o ambiente recalibra quem você contrata | Dinheiro gasto em contratação boa que não mudou nada | Impotência | Reconhecimento de cena: a entrega atrasada sem comentário, a reunião sem prazo assumido | Responder o Diagnóstico |
+| 2 | Vídeo 60s | **Cultura**: valores declarados que não decidem nada | Fez o trabalho de Cultura e o comportamento continuou igual | Constrangimento | Reconhecimento de cena: o quadro da recepção, o slide de integração | Responder o Diagnóstico |
+| 3 | Vídeo 60s | O domingo do dono | O negócio cresceu e não devolveu tempo nenhum | Cansaço | Reconhecimento de cena: domingo à noite, segunda antes das nove | Responder o Diagnóstico |
 
 Teste da troca de headline: o gancho de cada peça só funciona com o corpo dela.
 O corpo do 1 não sustenta a pergunta do 2, e nenhum dos dois sustenta o domingo
@@ -128,14 +128,14 @@ do 3.
        ponto, porque o ambiente ensina mais rápido que qualquer treinamento.
        TELA: corte de aproximação leve.
 
-[0:45] FALA: Eu montei um diagnóstico que mostra qual régua a tua empresa está
+[0:45] FALA: Eu montei um Diagnóstico que mostra qual régua a tua empresa está
        ensinando na prática. Toca no botão aqui embaixo e responde as
        perguntas. O teu cenário aparece na hora e a leitura completa chega no
        teu WhatsApp, sem vendedor no meio.
        TELA: botão "Saiba mais" indicado com a mão, sem texto motivacional.
 ```
 
-> Por que esse ângulo: é o único caminho de cultura que fala com quem já gastou
+> Por que esse ângulo: é o único caminho de Cultura que fala com quem já gastou
 > dinheiro em contratação, e reposiciona o gasto como sintoma em vez de erro de
 > escolha.
 > Onde usar: topo de funil frio, público de dono/sócio. Conversa com os cenários
@@ -162,23 +162,23 @@ do 3.
        time lê como regra.
        TELA: texto pequeno: "a última coisa que passou"
 
-[0:28] FALA: Porque valor só vira cultura quando ele decide alguma coisa
+[0:28] FALA: Porque valor só vira Cultura quando ele decide alguma coisa
        concreta: quem é promovido, quem é corrigido, o que passa e o que não
        passa. Enquanto ele não decide nada, ele é decoração cara.
        TELA: sem texto.
 
 [0:40] FALA: Você já reforçou em reunião, já colocou na integração, já cobrou
-       coerência dos gestores. Não pegou porque faltava critério pra aplicar
+       coerência dos Gestores. Não pegou porque faltava critério pra aplicar
        aquilo numa decisão com nome e data.
        TELA: corte de aproximação leve.
 
-[0:50] FALA: Responde o meu diagnóstico e você vê qual regra a tua empresa está
+[0:50] FALA: Responde o meu Diagnóstico e você vê qual regra a tua empresa está
        praticando de verdade. Toca no botão aqui embaixo, são poucas perguntas,
        e o teu cenário aparece na hora, sem conversa de venda antes.
        TELA: botão "Saiba mais".
 ```
 
-> Por que esse ângulo: ataca o investimento em cultura que o ICP já fez e que não
+> Por que esse ângulo: ataca o investimento em Cultura que o ICP já fez e que não
 > mudou comportamento, o que é um incômodo específico de empresa desse porte e
 > não aparece em nenhuma peça anterior.
 > Onde usar: topo frio e retargeting de quem viu vídeo. Conversa com o cenário
@@ -214,7 +214,7 @@ do 3.
        domingo continua igual.
        TELA: sem texto. Pausa.
 
-[0:46] FALA: Eu montei um diagnóstico que mostra quanto da tua empresa ainda
+[0:46] FALA: Eu montei um Diagnóstico que mostra quanto da tua empresa ainda
        depende da tua cabeça pra funcionar. Toca no botão aqui embaixo, responde
        as perguntas, e o teu cenário aparece na tela na hora, sem precisar marcar
        nada com ninguém.
@@ -245,7 +245,7 @@ do 3.
    com o Renan se continua assim.
 3. **Roteiro 2 assume que a empresa tem valores escritos.** É comum nesse porte,
    mas se a base da Dani indicar o contrário, o gancho troca de "tem os valores
-   escritos" para "já fez algum trabalho de cultura".
+   escritos" para "já fez algum trabalho de Cultura".
 4. **"Três meses" no roteiro 1** descreve uma cena reconhecível, não um dado.
    Está escrito assim de propósito, sem virar estatística.
 5. **Formato de gravação:** as três são plano fechado, sem trilha, corte seco, na
