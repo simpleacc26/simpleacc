@@ -1,0 +1,617 @@
+<title>A oferta do fim do quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+  :root{
+    --bg:#F4F2ED;
+    --card:#FFFFFF;
+    --sunk:#FAF8F4;
+    --espresso:#171412;
+    --ink:#141210;
+    --ink-2:#4C4640;
+    --ink-3:#8C8279;
+    --line:#E4DFD6;
+    --line-2:#D6CFC2;
+    --gold:#C9A84C;
+    --gold-deep:#A2802F;
+    --gold-tint:#FBF4E0;
+    --gold-hair:rgba(201,168,76,.32);
+    --erro:#9A3B2E;
+    --serif:"EB Garamond",Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --wrap:min(100% - 2.5rem, 44rem);
+    --r:4px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#131110;
+      --card:#1C1917;
+      --sunk:#171412;
+      --espresso:#0D0B0A;
+      --ink:#F0EBE3;
+      --ink-2:#BCB2A5;
+      --ink-3:#8C8279;
+      --line:#2C2724;
+      --line-2:#3A342F;
+      --gold:#E0C878;
+      --gold-deep:#C9A84C;
+      --gold-tint:#241E12;
+      --gold-hair:rgba(224,200,120,.28);
+      --erro:#D08A79;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#131110;
+    --card:#1C1917;
+    --sunk:#171412;
+    --espresso:#0D0B0A;
+    --ink:#F0EBE3;
+    --ink-2:#BCB2A5;
+    --ink-3:#8C8279;
+    --line:#2C2724;
+    --line-2:#3A342F;
+    --gold:#E0C878;
+    --gold-deep:#C9A84C;
+    --gold-tint:#241E12;
+    --gold-hair:rgba(224,200,120,.28);
+    --erro:#D08A79;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:var(--sans); font-size:16.5px; line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{width:var(--wrap); margin-inline:auto}
+
+  /* ── cabeçalho ─────────────────────────────────────────── */
+  header.topo{
+    background:var(--espresso); color:#F0EBE3;
+    padding:3.4rem 0 3rem; border-bottom:1px solid var(--gold-hair);
+  }
+  .selo{
+    font-size:.68rem; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--gold); margin:0 0 1.1rem;
+  }
+  header.topo h1{
+    font-family:var(--serif); font-weight:500;
+    font-size:clamp(2.1rem,6vw,3rem); line-height:1.1;
+    margin:0 0 1rem; text-wrap:balance; color:#F6F2EA;
+  }
+  header.topo p{
+    margin:0; max-width:34rem; color:#C7BEB1; font-size:1.02rem;
+  }
+  .assinatura{
+    margin-top:2rem; padding-top:1.2rem;
+    border-top:1px solid rgba(201,168,76,.2);
+    font-size:.8rem; color:#8C8279; letter-spacing:.02em;
+  }
+
+  /* ── seções ────────────────────────────────────────────── */
+  section{padding:3.2rem 0 .4rem}
+  section + section{border-top:1px solid var(--line)}
+  h2{
+    font-family:var(--serif); font-weight:500;
+    font-size:1.62rem; line-height:1.2; margin:0 0 .3rem;
+    text-wrap:balance;
+  }
+  .eyebrow{
+    display:block; font-family:var(--sans);
+    font-size:.66rem; letter-spacing:.19em; text-transform:uppercase;
+    color:var(--gold-deep); margin-bottom:.5rem; font-weight:600;
+  }
+  .sub{color:var(--ink-2); margin:.4rem 0 1.7rem; max-width:36rem}
+  p{margin:0 0 1rem}
+  strong{font-weight:600; color:var(--ink)}
+  em{font-style:italic}
+
+  /* ── tabelas ───────────────────────────────────────────── */
+  .rolo{overflow-x:auto; margin:0 0 1.4rem}
+  table{border-collapse:collapse; width:100%; font-size:.93rem}
+  th,td{
+    text-align:left; padding:.62rem .8rem;
+    border-bottom:1px solid var(--line); vertical-align:top;
+  }
+  th{
+    font-size:.66rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--ink-3); font-weight:600; border-bottom:1px solid var(--line-2);
+    white-space:nowrap;
+  }
+  td.num{font-variant-numeric:tabular-nums; white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  .data{
+    font-variant-numeric:tabular-nums; white-space:nowrap;
+    font-weight:600; color:var(--gold-deep);
+  }
+
+  /* ── o checkout ────────────────────────────────────────── */
+  .checkout{
+    background:var(--card); border:1px solid var(--line-2);
+    border-radius:var(--r); overflow:hidden; margin:0 0 1.2rem;
+    box-shadow:0 1px 2px rgba(20,18,16,.04);
+  }
+  .ck-topo{
+    padding:1.1rem 1.3rem; background:var(--sunk);
+    border-bottom:1px solid var(--line);
+  }
+  .ck-topo .rot{
+    font-size:.64rem; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--ink-3); font-weight:600;
+  }
+  .ck-item{
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:1rem; padding:1.15rem 1.3rem;
+  }
+  .ck-item .nome{
+    font-family:var(--serif); font-size:1.22rem; font-weight:600;
+    line-height:1.25;
+  }
+  .ck-item .nome span{
+    display:block; font-family:var(--sans); font-size:.84rem;
+    font-weight:400; color:var(--ink-2); margin-top:.25rem;
+    line-height:1.5;
+  }
+  .ck-item .val{
+    font-variant-numeric:tabular-nums; white-space:nowrap;
+    font-weight:600; font-size:1.02rem;
+  }
+  .bumps{border-top:1px dashed var(--line-2)}
+  .bump{
+    display:block; cursor:pointer; padding:.95rem 1.3rem;
+    border-bottom:1px solid var(--line);
+    background:var(--gold-tint);
+    transition:background .12s ease;
+  }
+  .bump:last-of-type{border-bottom:none}
+  .bump-linha{display:flex; align-items:flex-start; gap:.75rem}
+  .bump input{
+    appearance:none; -webkit-appearance:none;
+    flex:0 0 auto; width:1.05rem; height:1.05rem; margin:.28rem 0 0;
+    border:1.5px solid var(--gold-deep); border-radius:2px;
+    background:var(--card); cursor:pointer; position:relative;
+  }
+  .bump input:checked{background:var(--gold-deep); border-color:var(--gold-deep)}
+  .bump input:checked::after{
+    content:""; position:absolute; left:.28rem; top:.08rem;
+    width:.26rem; height:.55rem; border:solid var(--card);
+    border-width:0 2px 2px 0; transform:rotate(42deg);
+  }
+  .bump input:focus-visible{outline:2px solid var(--gold-deep); outline-offset:2px}
+  .bump-corpo{flex:1 1 auto; min-width:0}
+  .bump-tit{
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:.8rem; font-weight:600; font-size:.95rem;
+  }
+  .bump-tit .val{font-variant-numeric:tabular-nums; white-space:nowrap; color:var(--gold-deep)}
+  .bump-desc{font-size:.85rem; color:var(--ink-2); margin-top:.15rem; line-height:1.5}
+  .ck-total{
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:1rem; padding:1.05rem 1.3rem;
+    background:var(--espresso); color:#F0EBE3;
+  }
+  .ck-total .rot{
+    font-size:.66rem; letter-spacing:.18em; text-transform:uppercase;
+    color:var(--gold);
+  }
+  .ck-total .val{
+    font-family:var(--serif); font-size:1.55rem; font-weight:600;
+    font-variant-numeric:tabular-nums;
+  }
+  .legenda{font-size:.83rem; color:var(--ink-3); margin:0 0 1.6rem}
+
+  /* ── nota ──────────────────────────────────────────────── */
+  .nota{
+    background:var(--sunk); border:1px solid var(--line);
+    border-left:2px solid var(--gold); border-radius:var(--r);
+    padding:1.1rem 1.25rem; margin:0 0 1.5rem;
+  }
+  .nota p:last-child{margin-bottom:0}
+  .nota .rot{
+    display:block; font-size:.64rem; letter-spacing:.18em;
+    text-transform:uppercase; color:var(--gold-deep);
+    font-weight:600; margin-bottom:.45rem;
+  }
+  .nota.decisao{border-left-color:var(--erro)}
+  .nota.decisao .rot{color:var(--erro)}
+
+  /* ── listas de tarefa ──────────────────────────────────── */
+  .tarefas{list-style:none; margin:0 0 1.5rem; padding:0; display:grid; gap:0}
+  .tarefas li{
+    display:grid; grid-template-columns:4.4rem 1fr; gap:1rem;
+    padding:.85rem 0; border-bottom:1px solid var(--line);
+    align-items:baseline;
+  }
+  .tarefas li:last-child{border-bottom:none}
+  .tarefas .txt strong{display:block; margin-bottom:.1rem}
+  .tarefas .txt span{font-size:.87rem; color:var(--ink-2)}
+
+  /* ── rodapé ────────────────────────────────────────────── */
+  footer{
+    margin-top:3.4rem; padding:2.4rem 0 3rem;
+    background:var(--espresso); color:#8C8279; font-size:.86rem;
+  }
+  footer p{margin:0 0 .5rem}
+  footer strong{color:#C7BEB1}
+
+  @media (max-width:520px){
+    .ck-item{flex-direction:column; gap:.35rem}
+    .tarefas li{grid-template-columns:1fr; gap:.15rem}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important; animation:none !important}
+  }
+</style>
+
+<header class="topo">
+  <div class="wrap">
+    <p class="selo">Simple Acc &middot; Ju Godinho &middot; 01 de setembro</p>
+    <h1>A oferta que fecha o quiz</h1>
+    <p>
+      Hoje quem responde o quiz e ainda não está no momento do acompanhamento sai
+      sem nada e a gente perde o investimento daquele clique. A proposta abaixo põe
+      uma oferta de entrada nesse lugar, para que o tráfego comece a se pagar e
+      para que essas profissionais entrem na sua base como compradoras.
+    </p>
+    <p class="assinatura">
+      Precisamos do seu ok em três pontos e do link do checkout até sexta, dia 5.
+    </p>
+  </div>
+</header>
+
+<main>
+
+  <!-- ══════════ o que muda ══════════ -->
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">O que muda no funil</span>
+      <h2>Cada faturamento passa a ter uma porta</h2>
+      <p class="sub">
+        A última pergunta do quiz já separa por faturamento. Hoje todas as
+        respostas caem no mesmo lugar. A partir de agora elas passam a ter destinos
+        diferentes.
+      </p>
+
+      <div class="rolo">
+        <table>
+          <thead>
+            <tr><th>Faturamento que ela marca</th><th>Para onde vai</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="num">Até R$ 5 mil</td>
+              <td>Página de vendas do curso</td>
+            </tr>
+            <tr>
+              <td class="num">De R$ 5 a 10 mil</td>
+              <td>Página de vendas do curso, e a Ana fala com ela depois das de maior faturamento</td>
+            </tr>
+            <tr>
+              <td class="num">Acima de R$ 10 mil</td>
+              <td>Diagnóstico e WhatsApp, exatamente como funciona hoje</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        A conversa da Iêda continua recebendo só quem tem condição de entrar no
+        acompanhamento, que é o que você pediu na nossa reunião. E a Ana passa a
+        trabalhar uma lista de quem já comprou de você, o que rende muito mais do
+        que abordar cem pessoas por semana.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════ o produto ══════════ -->
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">O produto da frente</span>
+      <h2>Venda Mais na Estética, por R$ 197</h2>
+      <p class="sub">
+        É o curso que você gravou e usou só como bônus. Ele entra aqui por três
+        motivos.
+      </p>
+
+      <p>
+        <strong>Fala exatamente da dor de quem vai ver a página.</strong> Campanha
+        de vendas, o que responder quando a cliente pergunta o preço, conteúdo e a
+        avaliação que fecha. Quem fatura até R$ 10 mil diz sempre a mesma coisa,
+        que tem cliente fiel e não entra cliente nova.
+      </p>
+      <p>
+        <strong>Nunca foi vendido.</strong> Não tem preço anterior no mercado nem
+        aluna que pagou outro valor, então você pode definir o preço agora sem
+        contrariar ninguém.
+      </p>
+      <p>
+        <strong>Não briga com o Combo Estética de Sucesso.</strong> O combo está no
+        ar por R$ 397 com Story, Insta, Workshop, Scripts, Ser Empresário e
+        Campanhas dentro. Se a gente vendesse o mesmo conteúdo por R$ 197, quem
+        pagou os 397 teria razão em reclamar. O Venda Mais fica de fora dele.
+      </p>
+
+      <div class="nota">
+        <span class="rot">A ponte com o Estética do Poder</span>
+        <p>
+          A promessa central do Venda Mais é a mesma da Fase 04, a rainha das
+          vendas, onde você ensina a fechar 8 a cada 10 avaliações. Quem compra o
+          curso de R$ 197 prova o método por dentro, e é para essa pessoa que a
+          gente oferece o Estética do Poder de sete a catorze dias depois.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ o checkout ══════════ -->
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">O checkout</span>
+      <h2>Três caixinhas que sobem o valor da compra</h2>
+      <p class="sub">
+        Order bump é a caixinha que aparece na hora do pagamento, com um item extra
+        e barato, que entra na mesma compra com um clique. Marque e desmarque
+        abaixo para ver o efeito no total.
+      </p>
+
+      <div class="checkout">
+        <div class="ck-topo"><span class="rot">Sua compra</span></div>
+
+        <div class="ck-item">
+          <div class="nome">
+            Venda Mais na Estética
+            <span>O sistema para encher a agenda com cliente nova e fechar na avaliação, sem depender de promoção.</span>
+          </div>
+          <div class="val">R$ 197</div>
+        </div>
+
+        <div class="bumps">
+          <label class="bump">
+            <div class="bump-linha">
+              <input type="checkbox" data-preco="27" checked>
+              <div class="bump-corpo">
+                <div class="bump-tit"><span>Scripts de WhatsApp para Estéticas</span><span class="val">+ R$ 27</span></div>
+                <div class="bump-desc">As mensagens prontas para usar na hora em que a cliente responde.</div>
+              </div>
+            </div>
+          </label>
+
+          <label class="bump">
+            <div class="bump-linha">
+              <input type="checkbox" data-preco="47">
+              <div class="bump-corpo">
+                <div class="bump-tit"><span>Acervo de Documentos da Clínica</span><span class="val">+ R$ 47</span></div>
+                <div class="bump-desc">Regulamento interno, fichas de anamnese, termo de agendamento, termo de imagem e contrato de parceria.</div>
+              </div>
+            </div>
+          </label>
+
+          <label class="bump">
+            <div class="bump-linha">
+              <input type="checkbox" data-preco="97">
+              <div class="bump-corpo">
+                <div class="bump-tit"><span>Esteticando no Story</span><span class="val">+ R$ 97</span></div>
+                <div class="bump-desc">Para divulgar a campanha que você acabou de montar.</div>
+              </div>
+            </div>
+          </label>
+        </div>
+
+        <div class="ck-total">
+          <span class="rot">Total</span>
+          <span class="val" id="total">R$ 224</span>
+        </div>
+      </div>
+
+      <p class="legenda">
+        Exemplo com a primeira caixinha marcada. Na prática nem toda cliente marca
+        todas, e é por isso que a gente projeta o carrinho médio em torno de
+        <strong>R$ 227</strong> e não em R$ 368.
+      </p>
+
+      <p>
+        A ordem importa. A caixinha de R$ 27 vem primeiro porque é a que mais gente
+        marca, e cada caixinha a mais depois da terceira começa a atrapalhar a
+        venda do curso principal. Por isso são três e não seis.
+      </p>
+
+      <div class="nota decisao">
+        <span class="rot">Isso aqui precisa do seu ok</span>
+        <p>
+          O <strong>Acervo de Documentos</strong> hoje é bônus de dentro do Estética
+          do Poder. Vender ele avulso por R$ 47 nessa caixinha tira um pedacinho do
+          que compõe o valor do programa de R$ 1.997. A gente acha que compensa,
+          porque quem compra um curso de R$ 197 não é quem estava prestes a comprar
+          o programa. Mas o material é seu e a decisão é sua. Se preferir manter o
+          acervo só lá dentro, a gente troca essa caixinha pela aula de Campanhas de
+          Vendas, por R$ 47.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ fora agora ══════════ -->
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">O que fica para depois</span>
+      <h2>O que a gente deixou de fora de propósito</h2>
+      <p class="sub">
+        Tudo isso faz sentido, e nada disso pode atrasar a página no ar.
+      </p>
+
+      <div class="rolo">
+        <table>
+          <thead>
+            <tr><th>Item</th><th>Por que não entra agora</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>VSL de 5 a 7 minutos</td>
+              <td>Depende da sua agenda. A página sobe com prints de resultado das suas alunas e a VSL entra assim que você gravar.</td>
+            </tr>
+            <tr>
+              <td>Oferta do Esteticando no Insta logo após a compra</td>
+              <td>Sobe uma semana depois, quando a gente já souber quantas pessoas chegam até o checkout.</td>
+            </tr>
+            <tr>
+              <td>Combo Estética de Sucesso</td>
+              <td>Fica onde está, por R$ 397. Ele continua sendo a oferta de quem já conhece você.</td>
+            </tr>
+            <tr>
+              <td>Sequência de e-mails</td>
+              <td>Só existe motivo para ela depois que houver compradora para receber.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Quem responde &ldquo;nenhuma dessas&rdquo; na primeira pergunta do quiz
+        continua encerrando sem oferta. É o público de salão e de beleza, que o seu
+        próprio material já diz que não é seu público, e vender curso de clínica
+        para ele só traria pedido de reembolso.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════ o que precisamos ══════════ -->
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">Da sua parte</span>
+      <h2>Quatro coisas, e só a terceira trava a subida</h2>
+
+      <ul class="tarefas">
+        <li>
+          <span class="data">03/09</span>
+          <span class="txt">
+            <strong>Confirmar o produto e o preço</strong>
+            <span>Venda Mais na Estética por R$ 197, e as três caixinhas do checkout.</span>
+          </span>
+        </li>
+        <li>
+          <span class="data">05/09</span>
+          <span class="txt">
+            <strong>Montar o checkout e mandar o link</strong>
+            <span>Na plataforma que você já usa. Um produto principal e três order bumps, na ordem exata da página acima. Se a plataforma não tiver order bump, me avisa que a gente resolve de outro jeito.</span>
+          </span>
+        </li>
+        <li>
+          <span class="data">05/09</span>
+          <span class="txt">
+            <strong>Mandar de 3 a 5 prints de resultado de aluna</strong>
+            <span>Os mesmos que você já tem no celular, de faturamento e de aumento de preço. É a prova que sustenta a página enquanto a VSL não existe.</span>
+          </span>
+        </li>
+        <li>
+          <span class="data">12/09</span>
+          <span class="txt">
+            <strong>Gravar a VSL de 5 a 7 minutos</strong>
+            <span>Com o roteiro que a gente entrega no dia 3. Grava quando der, isso não segura nada.</span>
+          </span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══════════ o que entregamos ══════════ -->
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">Da nossa parte</span>
+      <h2>O que sobe, e quando</h2>
+
+      <ul class="tarefas">
+        <li>
+          <span class="data">03/09</span>
+          <span class="txt"><strong>Roteiro da VSL na sua mão</strong><span>Pronto para gravar lendo.</span></span>
+        </li>
+        <li>
+          <span class="data">08/09</span>
+          <span class="txt"><strong>Página de vendas no ar</strong><span>Copy, prova social e o botão levando para o seu checkout.</span></span>
+        </li>
+        <li>
+          <span class="data">08/09</span>
+          <span class="txt"><strong>Quiz redirecionando pelo faturamento</strong><span>Cada faixa indo para a porta certa.</span></span>
+        </li>
+        <li>
+          <span class="data">09/09</span>
+          <span class="txt"><strong>Medição ligada</strong><span>Cada venda registrada com o anúncio que a trouxe, numa aba nova da planilha.</span></span>
+        </li>
+        <li>
+          <span class="data">23/09</span>
+          <span class="txt"><strong>Primeira leitura dos números</strong><span>Com catorze dias de campanha rodando com a estrutura nova.</span></span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ══════════ medir ══════════ -->
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">Como vamos saber se está funcionando</span>
+      <h2>O que essa oferta precisa entregar</h2>
+      <p class="sub">
+        O objetivo dela é fazer o tráfego se pagar, para você poder aumentar a
+        captação sem tirar mais do seu bolso. O lucro dessa venda de R$ 197 é
+        detalhe perto disso.
+      </p>
+
+      <div class="rolo">
+        <table>
+          <thead>
+            <tr><th>O que a gente olha</th><th>Piso</th><th>Alvo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>De cada 100 pessoas que abrem a página, quantas compram</td><td class="num">1,5</td><td class="num">3</td></tr>
+            <tr><td>Quantas marcam a caixinha de R$ 27</td><td class="num">25%</td><td class="num">35%</td></tr>
+            <tr><td>Valor médio de cada compra</td><td class="num">R$ 210</td><td class="num">R$ 230</td></tr>
+            <tr><td>Quanto da verba de tráfego se paga em 30 dias</td><td class="num">20%</td><td class="num">30%</td></tr>
+            <tr><td>Quanto da verba de tráfego se paga em 90 dias</td><td class="num">35%</td><td class="num">50%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>
+        Cobrir metade da verba já muda o jogo. Com o mesmo dinheiro que você
+        investe hoje, entra quase o dobro de gente no funil, e é dessa base maior
+        que saem as conversas que interessam para a Iêda.
+      </p>
+
+      <div class="nota">
+        <span class="rot">Sinal de alerta combinado</span>
+        <p>
+          Se o pedido de reembolso passar de 8%, é gente errada chegando na página e
+          a gente corta a rota na hora. Se em 300 visitas a página vender menos de
+          três vezes, o problema é a oferta ou o preço, e a gente mexe neles antes
+          de mexer no tráfego.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Simple Acc</strong> &middot; Ju Godinho &middot; 01 de setembro de 2026</p>
+    <p>Assim que os três primeiros itens estiverem confirmados, a página entra na fila e sobe até o dia 8.</p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var base = 197;
+    var total = document.getElementById('total');
+    var caixas = Array.prototype.slice.call(document.querySelectorAll('.bump input'));
+    function fmt(n){ return 'R$ ' + n.toLocaleString('pt-BR'); }
+    function recalcular(){
+      var soma = base;
+      caixas.forEach(function(c){
+        if(c.checked) soma += parseInt(c.getAttribute('data-preco'), 10);
+      });
+      total.textContent = fmt(soma);
+    }
+    caixas.forEach(function(c){ c.addEventListener('change', recalcular); });
+    recalcular();
+  })();
+</script>
