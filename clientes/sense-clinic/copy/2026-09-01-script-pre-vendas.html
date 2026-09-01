@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pré-Vendas Sense Clinic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap">
+<style>
+:root{
+  --midnight:#0A1626;
+  --navy:#122B4A;
+  --blue:#3E5C8A;
+  --blue-deep:#2F4A72;
+  --steel:#8197B6;
+  --ice:#EEF3FA;
+
+  --bg:#FBFCFE;
+  --surface:#FFFFFF;
+  --surface-2:#F4F7FC;
+  --ink:#16202F;
+  --ink-soft:#3A4656;
+  --muted:#6F7F95;
+  --line:#E1E8F1;
+  --line-strong:#CFDAE9;
+
+  --tat:#5A4A6A;
+  --tat-bg:#F6F3F9;
+  --cla:#8A5A72;
+  --cla-bg:#FAF2F6;
+
+  --no:#A0524A;
+  --no-bg:#FAF1F0;
+  --no-line:#EBD9D6;
+  --yes:#2F7A55;
+  --yes-bg:#EEF5F0;
+  --yes-line:#D3E4D8;
+
+  --display:"Playfair Display","Didot","Bodoni 72",Georgia,serif;
+  --text:Georgia,"Iowan Old Style",Palatino,"Times New Roman",serif;
+  --label:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --wa:-apple-system,BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Arial,sans-serif;
+
+  --rail:288px;
+  --chip-on-bg:#0A1626;
+  --chip-on-ink:#FFFFFF;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#080F1A;
+    --surface:#0E1B2C;
+    --surface-2:#122335;
+    --ink:#E7EEF8;
+    --ink-soft:#B9C7DA;
+    --muted:#8496AE;
+    --line:#1E3049;
+    --line-strong:#2A415F;
+    --ice:#14263B;
+    --blue:#7FA0D0;
+    --blue-deep:#9DB8DF;
+    --steel:#8FA5C2;
+    --tat:#B9A4CC; --tat-bg:#1B1A2B;
+    --cla:#D6A0B8; --cla-bg:#2A1B24;
+    --no:#DC9A90; --no-bg:#2A1614; --no-line:#4A2521;
+    --yes:#8FCBAA; --yes-bg:#0F2419; --yes-line:#1F4230;
+    --chip-on-bg:#8FA5C2;
+    --chip-on-ink:#08121F;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#080F1A;
+  --surface:#0E1B2C;
+  --surface-2:#122335;
+  --ink:#E7EEF8;
+  --ink-soft:#B9C7DA;
+  --muted:#8496AE;
+  --line:#1E3049;
+  --line-strong:#2A415F;
+  --ice:#14263B;
+  --blue:#7FA0D0;
+  --blue-deep:#9DB8DF;
+  --steel:#8FA5C2;
+  --tat:#B9A4CC; --tat-bg:#1B1A2B;
+  --cla:#D6A0B8; --cla-bg:#2A1B24;
+  --no:#DC9A90; --no-bg:#2A1614; --no-line:#4A2521;
+  --yes:#8FCBAA; --yes-bg:#0F2419; --yes-line:#1F4230;
+  --chip-on-bg:#8FA5C2;
+  --chip-on-ink:#08121F;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{
+  margin:0;background:var(--bg);color:var(--ink);
+  font-family:var(--text);font-size:16px;line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--blue-deep)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:3px}
+
+/* ---------- trilho ---------- */
+.rail{
+  position:fixed;inset:0 auto 0 0;width:var(--rail);
+  background:linear-gradient(168deg,#122B4A 0%,#0A1626 62%,#070F1B 100%);
+  color:#C6D3E6;padding:30px 24px 26px;overflow-y:auto;
+  display:flex;flex-direction:column;gap:26px;z-index:5;
+}
+.rail .mark{font-family:var(--display);letter-spacing:.34em;font-size:12px;color:#fff}
+.rail .mark span{display:block;font-family:var(--label);letter-spacing:.28em;font-size:9px;color:#8298B8;margin-top:7px;font-weight:600}
+.rail h1{font-family:var(--display);font-weight:500;font-size:26px;line-height:1.14;color:#fff;margin:0}
+.rail h1 em{font-style:italic;color:#A9BEDD}
+.rail .sub{font-size:13px;color:#93A7C4;line-height:1.5;margin:0}
+.rail nav{display:flex;flex-direction:column;gap:1px;margin-top:-6px}
+.rail nav a{
+  display:flex;gap:11px;align-items:baseline;
+  font-family:var(--label);font-size:12.5px;line-height:1.35;
+  color:#B4C4DC;text-decoration:none;padding:7px 9px;border-radius:6px;
+  border-left:2px solid transparent;
+}
+.rail nav a .n{font-size:10px;letter-spacing:.1em;color:#6C82A4;flex:none;width:16px;font-variant-numeric:tabular-nums}
+.rail nav a:hover{background:rgba(255,255,255,.055);color:#fff}
+.rail nav a.on{background:rgba(255,255,255,.08);color:#fff;border-left-color:var(--steel)}
+.rail .golden{
+  border-top:1px solid rgba(255,255,255,.12);padding-top:18px;margin-top:auto;
+}
+.rail .golden b{display:block;font-family:var(--label);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#7E94B5;margin-bottom:7px;font-weight:700}
+.rail .golden p{margin:0;font-size:13.5px;line-height:1.5;color:#D3DEEE;font-style:italic}
+
+/* ---------- coluna ---------- */
+.wrap{margin-left:var(--rail);padding:0 6vw 120px;max-width:1120px}
+.hero{padding:74px 0 34px;border-bottom:1px solid var(--line)}
+.eyebrow{font-family:var(--label);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--blue);font-weight:700}
+.hero h2{font-family:var(--display);font-weight:500;font-size:clamp(34px,5vw,52px);line-height:1.08;margin:16px 0 0;text-wrap:balance;letter-spacing:-.01em}
+.hero h2 em{font-style:italic;color:var(--blue)}
+.hero .deck{max-width:62ch;font-size:17.5px;color:var(--ink-soft);margin:20px 0 0}
+.hero .meta{display:flex;flex-wrap:wrap;gap:8px 26px;margin-top:26px}
+.hero .meta span{font-family:var(--label);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+section{padding:56px 0;border-bottom:1px solid var(--line);scroll-margin-top:20px}
+section:last-of-type{border-bottom:0}
+.sechead{display:flex;gap:16px;align-items:baseline}
+.sechead .num{font-family:var(--display);font-size:15px;color:var(--steel);flex:none;font-variant-numeric:tabular-nums;padding-top:4px}
+h3{font-family:var(--display);font-weight:500;font-size:clamp(25px,3vw,33px);line-height:1.14;margin:0;text-wrap:balance;letter-spacing:-.005em}
+.intro{max-width:68ch;color:var(--ink-soft);font-size:16.5px;margin:16px 0 0}
+.intro + .intro{margin-top:12px}
+h4{font-family:var(--display);font-weight:600;font-size:20px;margin:38px 0 0;letter-spacing:-.005em}
+h5{font-family:var(--label);font-size:10.5px;letter-spacing:.19em;text-transform:uppercase;color:var(--blue);margin:30px 0 0;font-weight:700}
+p{max-width:68ch}
+
+/* ---------- filtro ---------- */
+.filters{position:sticky;top:0;z-index:4;background:var(--bg);padding:14px 0 12px;margin-bottom:-8px;
+  display:flex;gap:8px;align-items:center;flex-wrap:wrap;border-bottom:1px solid var(--line)}
+.filters .lb{font-family:var(--label);font-size:9.5px;letter-spacing:.19em;text-transform:uppercase;color:var(--muted);margin-right:4px;font-weight:700}
+.chip{
+  font-family:var(--label);font-size:12px;font-weight:600;letter-spacing:.03em;
+  border:1px solid var(--line-strong);background:var(--surface);color:var(--ink-soft);
+  padding:6px 14px;border-radius:999px;cursor:pointer;
+}
+.chip:hover{border-color:var(--steel)}
+.chip[aria-pressed="true"]{background:var(--chip-on-bg);border-color:var(--chip-on-bg);color:var(--chip-on-ink)}
+
+/* ---------- movimentos ---------- */
+.mv{margin-top:34px;display:grid;grid-template-columns:52px 1fr;gap:0 20px;align-items:start}
+.mv .badge{
+  font-family:var(--label);font-size:11px;font-weight:700;letter-spacing:.06em;
+  color:var(--blue);border:1px solid var(--line-strong);border-radius:7px;
+  padding:7px 0;text-align:center;background:var(--surface);
+}
+.mv .body{min-width:0}
+.mv .ttl{font-family:var(--display);font-size:21px;font-weight:600;line-height:1.2;margin:2px 0 0}
+.mv .goal{font-size:15.5px;color:var(--ink-soft);margin:8px 0 0;max-width:66ch}
+
+/* ---------- mensagem ---------- */
+.msg{
+  background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--steel);
+  border-radius:0 10px 10px 0;padding:14px 16px 13px;margin-top:14px;position:relative;
+}
+.msg.tat{border-left-color:var(--tat)}
+.msg.cla{border-left-color:var(--cla)}
+.msg .top{display:flex;align-items:center;gap:10px;margin-bottom:9px;padding-right:74px}
+.msg .track{font-family:var(--label);font-size:9px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  padding:3px 8px;border-radius:4px;background:var(--ice);color:var(--blue-deep)}
+.msg.tat .track{background:var(--tat-bg);color:var(--tat)}
+.msg.cla .track{background:var(--cla-bg);color:var(--cla)}
+.msg .when{font-family:var(--label);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.msg .txt{font-family:var(--wa);font-size:14.6px;line-height:1.58;color:var(--ink);max-width:62ch}
+.msg .txt p{margin:0 0 9px;max-width:none}
+.msg .txt p:last-child{margin-bottom:0}
+.v{color:var(--blue-deep);font-weight:600;font-style:normal;font-family:var(--wa);font-size:.96em}
+.msg .why{
+  margin-top:11px;padding-top:10px;border-top:1px dashed var(--line-strong);
+  font-size:14px;color:var(--ink-soft);max-width:64ch;
+}
+.msg .why b{font-family:var(--label);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+  display:block;margin-bottom:4px;font-weight:700}
+.copy{
+  position:absolute;top:12px;right:12px;font-family:var(--label);font-size:10px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:var(--surface-2);
+  border:1px solid var(--line);border-radius:6px;padding:5px 9px;cursor:pointer;
+}
+.copy:hover{color:var(--blue-deep);border-color:var(--steel)}
+.copy.done{color:var(--yes);border-color:var(--yes-line);background:var(--yes-bg)}
+
+/* ---------- caixas ---------- */
+.note{border-left:3px solid var(--blue);background:var(--ice);padding:16px 20px;border-radius:0 9px 9px 0;margin-top:24px}
+.note .k{font-family:var(--label);font-size:9.5px;letter-spacing:.17em;text-transform:uppercase;color:var(--blue-deep);font-weight:700;display:block;margin-bottom:6px}
+.note p{font-size:15.5px;color:var(--ink-soft);margin:0}
+.note p + p{margin-top:9px}
+.note ul{margin:9px 0 0;padding-left:19px}
+.note li{font-size:15.5px;color:var(--ink-soft);padding:2px 0;max-width:64ch}
+
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.ba>div{border-radius:9px;padding:13px 16px;font-family:var(--wa);font-size:14px;line-height:1.5}
+.ba .h{font-family:var(--label);font-size:9px;letter-spacing:.15em;text-transform:uppercase;display:block;margin-bottom:7px;font-weight:700}
+.ba .no{background:var(--no-bg);border:1px solid var(--no-line);color:var(--no)}
+.ba .no .h{color:var(--no)}
+.ba .yes{background:var(--yes-bg);border:1px solid var(--yes-line);color:var(--yes)}
+.ba .yes .h{color:var(--yes)}
+@media(max-width:760px){.ba{grid-template-columns:1fr}}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px;margin-top:24px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:17px 18px}
+.card .who{font-family:var(--display);font-size:18.5px;font-weight:600;line-height:1.2;margin:0 0 4px}
+.card .tell{font-size:13.5px;color:var(--muted);font-style:italic;margin:0 0 11px;max-width:none}
+.card dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:5px 10px;align-items:baseline}
+.card dt{font-family:var(--label);font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--steel);font-weight:700;padding-top:3px}
+.card dd{margin:0;font-size:14px;color:var(--ink-soft);line-height:1.45}
+
+.steps{margin:24px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:2px}
+.steps li{display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--line)}
+.steps li:last-child{border-bottom:0}
+.steps .s{font-family:var(--label);font-size:9.5px;font-weight:700;letter-spacing:.1em;color:var(--blue);
+  border:1px solid var(--line-strong);border-radius:5px;text-align:center;padding:4px 0;background:var(--surface)}
+.steps .t{font-size:15.5px;color:var(--ink-soft);max-width:66ch}
+.steps .t b{color:var(--ink)}
+
+.tablewrap{overflow-x:auto;margin-top:22px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:520px}
+th,td{text-align:left;padding:11px 15px;border-bottom:1px solid var(--line);font-size:14.5px;color:var(--ink-soft);vertical-align:top}
+th{font-family:var(--label);font-size:9.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--blue-deep);font-weight:700;background:var(--surface-2)}
+tr:last-child td{border-bottom:0}
+td b{color:var(--ink)}
+.num-col{font-variant-numeric:tabular-nums}
+
+.dont{margin:24px 0 0;padding:0;list-style:none;counter-reset:d}
+.dont li{counter-increment:d;display:grid;grid-template-columns:30px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.dont li:last-child{border-bottom:0}
+.dont li::before{content:counter(d,decimal-leading-zero);font-family:var(--label);font-size:10px;font-weight:700;
+  color:var(--no);letter-spacing:.08em;font-variant-numeric:tabular-nums}
+.dont .t{font-size:15.5px;color:var(--ink-soft);max-width:66ch}
+.dont .t b{color:var(--ink);font-weight:600}
+
+.hairline{height:1px;background:linear-gradient(90deg,var(--steel),transparent);opacity:.55;margin:38px 0 0}
+
+footer.close{
+  margin-left:var(--rail);padding:54px 6vw 64px;background:linear-gradient(160deg,#122B4A,#0A1626 68%,#070F1B);
+  color:#B9C8DE;
+}
+footer.close h3{color:#fff;font-size:27px;max-width:26ch}
+footer.close p{color:#9EB0CB;font-size:16px;max-width:64ch;margin-top:14px}
+footer.close .sig{font-family:var(--display);letter-spacing:.3em;font-size:12px;color:#fff;margin-top:38px}
+footer.close .sig span{display:block;font-family:var(--label);letter-spacing:.2em;font-size:9px;color:#7E94B5;margin-top:7px;font-weight:600}
+
+@media(max-width:1000px){
+  :root{--rail:0px}
+  .rail{position:static;width:auto;inset:auto;height:auto}
+  .rail nav{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:2px}
+  .rail .golden{margin-top:6px}
+  .wrap,footer.close{margin-left:0}
+  .wrap{padding:0 22px 90px}
+  footer.close{padding:44px 22px 52px}
+  .hero{padding:40px 0 28px}
+  .mv{grid-template-columns:1fr;gap:10px}
+  .mv .badge{width:52px}
+}
+
+@media print{
+  :root{--rail:0px}
+  .rail{position:static;width:auto;background:none;color:#000;padding:0 0 18px}
+  .rail nav,.rail .golden{display:none}
+  .rail h1,.rail .mark{color:#000}
+  .filters,.copy{display:none}
+  .wrap,footer.close{margin-left:0;padding:0}
+  body{background:#fff;font-size:11.5pt}
+  section{page-break-inside:auto;border-bottom:1px solid #ddd}
+  .mv,.msg,.card,.note{page-break-inside:avoid}
+  footer.close{background:none;color:#000}
+  footer.close h3,footer.close p,footer.close .sig{color:#000}
+}
+</style>
+</head>
+<body>
+
+<aside class="rail">
+  <div class="mark">SIMPLE ACC<span>Pré-vendas · Sense Clinic</span></div>
+  <div>
+    <h1>Script de<br><em>Pré-Vendas</em></h1>
+    <p class="sub">Da primeira mensagem no WhatsApp até a cliente sentada na cadeira da avaliação. Tatuagem e clareamento.</p>
+  </div>
+  <nav id="toc">
+    <a href="#usar"><span class="n">00</span><span>Como usar</span></a>
+    <a href="#regra"><span class="n">01</span><span>A regra que muda tudo</span></a>
+    <a href="#principios"><span class="n">02</span><span>Os seis princípios</span></a>
+    <a href="#quem"><span class="n">03</span><span>Quem está do outro lado</span></a>
+    <a href="#abordagem"><span class="n">04</span><span>A abordagem inicial</span></a>
+    <a href="#descobertas"><span class="n">05</span><span>As sete descobertas</span></a>
+    <a href="#ponte"><span class="n">06</span><span>Espelho e ponte pra avaliação</span></a>
+    <a href="#objecoes"><span class="n">07</span><span>Objeções</span></a>
+    <a href="#followup"><span class="n">08</span><span>Follow-up</span></a>
+    <a href="#noshow"><span class="n">09</span><span>No-show</span></a>
+    <a href="#regua"><span class="n">10</span><span>Régua e o que medir</span></a>
+    <a href="#erros"><span class="n">11</span><span>O que custa agendamento</span></a>
+    <a href="#validar"><span class="n">12</span><span>A confirmar com vocês</span></a>
+  </nav>
+  <div class="golden">
+    <b>Regra de ouro</b>
+    <p>Sua conversa no WhatsApp não vende o tratamento. Ela vende a avaliação. Quem entrega o diagnóstico inteiro por mensagem entrega junto o motivo de a cliente não precisar aparecer.</p>
+  </div>
+</aside>
+
+<main class="wrap">
+
+  <header class="hero">
+    <span class="eyebrow">Sense Clinic · Chapecó/SC</span>
+    <h2>O que dizer, em que ordem, <em>e por quê</em></h2>
+    <p class="deck">Este documento é a estrutura comercial da Sense no WhatsApp: a abordagem inicial, o diagnóstico, a ponte para a avaliação presencial, o follow-up de quem não respondeu e a régua contra falta. Vale para as duas frentes da clínica, com as falas separadas por procedimento.</p>
+    <div class="meta">
+      <span>01 de setembro de 2026</span>
+      <span>Versão 1</span>
+      <span>Uso interno · Ana Luiza e Ana Paula</span>
+    </div>
+  </header>
+
+  <!-- 00 -->
+  <section id="usar">
+    <div class="sechead"><span class="num">00</span><h3>Como usar este documento</h3></div>
+    <p class="intro">Ele não é para ser lido de ponta a ponta antes de atender. É para ficar aberto do lado enquanto você atende. As mensagens têm botão de copiar e os campos entre chaves precisam ser trocados antes de enviar.</p>
+    <ul class="steps">
+      <li><span class="s">A</span><span class="t"><b>Use o filtro</b> logo abaixo para ver só a sua frente. Ana Luiza vê tatuagem, Ana Paula vê clareamento, e as mensagens que servem para as duas continuam aparecendo sempre.</span></li>
+      <li><span class="s">B</span><span class="t"><b>Troque as palavras, mantenha o movimento.</b> Cada bloco tem um objetivo escrito em cima. O objetivo é obrigatório, a frase não. Se você ler exatamente o que está aqui, vai soar decorado, e decorado não vende.</span></li>
+      <li><span class="s">C</span><span class="t"><b>Os campos entre chaves</b> como <span class="v">{{Nome}}</span> ou <span class="v">{{dia}}</span> são o que você preenche. Onde aparece um valor em chaves, é porque o número ainda precisa ser confirmado por vocês (a lista está na seção 12).</span></li>
+      <li><span class="s">D</span><span class="t"><b>Uma ideia por mensagem, um pedido por mensagem.</b> Cinco assuntos numa mensagem só é a forma mais rápida de não receber resposta nenhuma.</span></li>
+    </ul>
+
+    <div class="filters">
+      <span class="lb">Mostrar</span>
+      <button class="chip" data-f="all" aria-pressed="true">Tudo</button>
+      <button class="chip" data-f="tat" aria-pressed="false">Tatuagem · Ana Luiza</button>
+      <button class="chip" data-f="cla" aria-pressed="false">Clareamento · Ana Paula</button>
+    </div>
+  </section>
+
+  <!-- 01 -->
+  <section id="regra">
+    <div class="sechead"><span class="num">01</span><h3>A regra que muda tudo: você não está resolvendo, você está agendando</h3></div>
+    <p class="intro">O erro mais caro do atendimento de clínica não é falta de simpatia. É excesso de ajuda. A lead chega ansiosa, faz seis perguntas, e o instinto de quem cuida de gente é responder as seis. Quando a última é respondida, a conversa acabou: ela já tem o que precisava para pesquisar em outro lugar, ou para adiar sem culpa. Ninguém agenda uma avaliação que já aconteceu de graça pelo celular.</p>
+    <p class="intro">Existe um triângulo que se forma sozinho nessas conversas. Ela entra como quem tem um problema sem solução. Você entra como quem vai salvar. E quando ela some, você vira quem cobra. Os três papéis empatam a venda, porque nenhum deles é o de quem conduz. A saída não é ser mais fria: é trocar o papel. Você não é quem resolve o problema dela pelo WhatsApp. Você é quem sabe exatamente qual é o próximo passo dela e conduz até lá.</p>
+
+    <div class="note">
+      <span class="k">O teste dos 30 segundos</span>
+      <p>Antes de mandar qualquer resposta longa, leia o que você escreveu e pergunte: <b>depois de ler isso, ela ainda precisa vir?</b> Se a resposta for não, você acabou de dar de graça o produto que a avaliação vende. Corte, guarde o diagnóstico e devolva com uma pergunta.</p>
+    </div>
+
+    <div class="ba">
+      <div class="no"><span class="h">O que a ajuda demais produz</span>"Oi! Então, no seu caso de tatuagem preta antiga geralmente são de 6 a 10 sessões, com 45 dias de intervalo, a sessão fica R$ {{X}}, dói como um elástico batendo, e pode ficar uma sombra residual. Qualquer dúvida estou aqui!"</div>
+      <div class="yes"><span class="h">O que a condução produz</span>"Pelo que você me mandou dá pra ver que é tinta antiga, e isso costuma jogar a favor. Mas quantidade de sessão eu não chuto por foto, porque muda com a profundidade e com o seu tipo de pele. É exatamente isso que a Ana mede na avaliação. Tenho {{dia A}} ou {{dia B}}. Qual eu travo pra você?"</div>
+    </div>
+
+    <p class="intro" style="margin-top:24px">Isso não é frieza nem enrolação. É honestidade técnica: ninguém consegue prever sessão, prazo e valor olhando uma foto de WhatsApp, e prometer isso por mensagem é o começo de uma cliente frustrada na terceira sessão.</p>
+  </section>
+
+  <!-- 02 -->
+  <section id="principios">
+    <div class="sechead"><span class="num">02</span><h3>Os seis princípios que sustentam a conversa inteira</h3></div>
+    <p class="intro">Tudo o que vem depois neste documento é aplicação destes seis. Quando uma conversa desandar, volte aqui e descubra qual deles caiu.</p>
+
+    <div class="cards">
+      <div class="card">
+        <p class="who">Posição</p>
+        <p class="tell">Quem conduz não pede permissão.</p>
+        <dl>
+          <dt>Faça</dt><dd>Fale como quem já sabe o caminho: "o próximo passo é", "eu vou te encaixar".</dd>
+          <dt>Evite</dt><dd>"Será que você teria interesse?", "desculpa incomodar", "se você quiser, tem a opção de".</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="who">Ritmo</p>
+        <p class="tell">Quem controla o tempo controla a conversa.</p>
+        <dl>
+          <dt>Faça</dt><dd>Responda rápido no primeiro contato e vá uma pergunta por vez. Deixe silêncio depois de perguntar.</dd>
+          <dt>Evite</dt><dd>Sumir por seis horas e voltar com um textão para compensar.</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="who">Intenção</p>
+        <p class="tell">Toda pergunta tem um alvo.</p>
+        <dl>
+          <dt>Faça</dt><dd>Pergunte para descobrir motivo, impacto e urgência. Cada resposta dela vira material da sua próxima frase.</dd>
+          <dt>Evite</dt><dd>Perguntar por educação e não usar a resposta.</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="who">Mensagem</p>
+        <p class="tell">O mínimo necessário, no tempo certo.</p>
+        <dl>
+          <dt>Faça</dt><dd>Frases curtas. Um assunto por mensagem. Explicação técnica só quando ela pedir.</dd>
+          <dt>Evite</dt><dd>Explicar o aparelho, o protocolo e a história da clínica antes de ela contar o problema.</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="who">Âncora</p>
+        <p class="tell">O valor aparece antes do preço.</p>
+        <dl>
+          <dt>Faça</dt><dd>Antes de falar em número, deixe claro o que ela leva embora da avaliação e o que custa continuar como está.</dd>
+          <dt>Evite</dt><dd>Mandar tabela de preço na segunda mensagem. Ali o número não tem com o que ser comparado.</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="who">Limite</p>
+        <p class="tell">Encerre no auge, não no cansaço.</p>
+        <dl>
+          <dt>Faça</dt><dd>Assim que ela topar o horário, feche o assunto e confirme. Conversa que continua depois do sim volta a abrir dúvida.</dd>
+          <dt>Evite</dt><dd>Continuar vendendo depois do fechado, ou deixar a conversa terminar sem próximo passo com dia e hora.</dd>
+        </dl>
+      </div>
+    </div>
+
+    <div class="note">
+      <span class="k">O que ela está comprando de verdade</span>
+      <p>Não é laser, não é peeling e não é a clínica. É <b>clareza</b> (finalmente entender o próprio caso), <b>velocidade</b> (quanto tempo até resolver), <b>menos risco</b> (não vai piorar, não vai ficar marca) e <b>acesso</b> (alguém que entende disso olhando para ela). Toda vez que você não souber o que responder, responda uma dessas quatro.</p>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section id="quem">
+    <div class="sechead"><span class="num">03</span><h3>Quem está do outro lado</h3></div>
+    <p class="intro">As duas frentes da clínica atraem mulheres em estados emocionais bem diferentes, e tratar as duas do mesmo jeito custa agendamento. Na tatuagem, a jornada é longa e a decisão passa por dinheiro e confiança técnica. No clareamento, a decisão é rápida quando existe segurança e discrição, e trava na hora em que ela imagina precisar expor o corpo para uma desconhecida.</p>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>&nbsp;</th><th>Tatuagem · Ana Luiza</th><th>Clareamento · Ana Paula</th></tr></thead>
+        <tbody>
+          <tr><td><b>Quem chega</b></td><td>20 anos ou mais, muitas vezes fez a tatuagem há bastante tempo e hoje tem outra vida, outra renda e outro trabalho.</td><td>18 a 35 anos, incluindo mulheres com alteração hormonal ou diabetes. Chegou depois de muito tempo pesquisando sozinha.</td></tr>
+          <tr><td><b>O que ela diz</b></td><td>"Quanto custa pra tirar?"</td><td>"Você faz clareamento?"</td></tr>
+          <tr><td><b>O que ela quer saber</b></td><td>Se dá pra tirar mesmo, se vai ficar marca e quanto tempo isso vai levar da vida dela.</td><td>Se tem jeito no caso dela, se vai ser constrangedor e se alguém vai ficar sabendo.</td></tr>
+          <tr><td><b>Tempo de decisão</b></td><td>Longo. Ela pesquisa, compara e às vezes junta dinheiro. O follow-up é onde a venda acontece.</td><td>Curto. Quando a segurança aparece, ela agenda no mesmo dia ou na mesma semana.</td></tr>
+          <tr><td><b>O que trava</b></td><td>Preço somado à incerteza de quantas sessões. Não é o valor sozinho, é o valor sem fim à vista.</td><td>Vergonha e medo de julgamento. Preço quase nunca é a primeira trava.</td></tr>
+          <tr><td><b>Como abrir</b></td><td>Peça a foto logo. A foto é o primeiro compromisso dela e o seu primeiro material.</td><td>Prometa sigilo antes de perguntar qualquer coisa sobre o corpo dela.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>Os cinco perfis que aparecem no WhatsApp</h4>
+    <p class="intro">Não é para rotular ninguém. É para você reconhecer nos primeiros minutos com quem está falando e ajustar o tom, porque a mesma frase que acalma uma irrita a outra.</p>
+
+    <div class="cards">
+      <div class="card">
+        <p class="who">A que pesquisou tudo</p>
+        <p class="tell">"Qual a potência do equipamento? Vocês usam qual tecnologia?"</p>
+        <dl>
+          <dt>Quer</dt><dd>Critério e processo. Precisa sentir competência técnica.</dd>
+          <dt>Faça</dt><dd>Responda curto e preciso, mostre que existe um método, e devolva a bola: "isso muda conforme a leitura da sua pele, que é o que a avaliação faz".</dd>
+          <dt>Não</dt><dd>Excesso de acolhimento e emoji. Ela lê como enrolação.</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="who">A que conta a história toda</p>
+        <p class="tell">Manda cinco áudios antes de você responder o primeiro.</p>
+        <dl>
+          <dt>Quer</dt><dd>Ser ouvida e acolhida. Se sentir importante ali.</dd>
+          <dt>Faça</dt><dd>Acolha de verdade em uma frase, use uma palavra dela na resposta e conduza: "entendi tudo. Deixa eu já resolver isso pra você".</dd>
+          <dt>Não</dt><dd>Deixar a conversa correr solta. Sem limite gentil, ela consome sua manhã e mesmo assim não agenda.</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="who">A que quer resolver ontem</p>
+        <p class="tell">"Tem horário hoje? Consigo antes do fim do mês?"</p>
+        <dl>
+          <dt>Quer</dt><dd>Prazo, etapa e resultado. Detesta processo lento.</dd>
+          <dt>Faça</dt><dd>Ofereça o horário mais próximo, fale em datas e marcos, feche rápido. Ela decide na hora.</dd>
+          <dt>Não</dt><dd>Mandar ela "pensar com calma". Você perde a energia justamente onde ela está.</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="who">A que já se decepcionou</p>
+        <p class="tell">"Já fiz em outro lugar e não adiantou nada."</p>
+        <dl>
+          <dt>Quer</dt><dd>Ter certeza de que não vai gastar de novo à toa.</dd>
+          <dt>Faça</dt><dd>Nomeie o medo antes dela: "imagino que você esteja desconfiada, e com razão". Depois foque no que teria sido feito diferente. Zero promessa.</dd>
+          <dt>Não</dt><dd>Falar mal do profissional anterior nem garantir resultado. As duas coisas confirmam o medo dela.</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="who">A que tem vergonha</p>
+        <p class="tell">Escreve pouco, apaga mensagem, pergunta sem nomear a região.</p>
+        <dl>
+          <dt>Quer</dt><dd>Sigilo. Saber quem vai ver, quem vai saber e o que vai acontecer na sala.</dd>
+          <dt>Faça</dt><dd>Comece pelo sigilo e pelo procedimento da avaliação. Fale do corpo dela só depois que ela falar primeiro.</dd>
+          <dt>Não</dt><dd>Escrever o nome da região em texto sem que ela tenha escrito. Muitas leem o WhatsApp com outra pessoa por perto.</dd>
+        </dl>
+      </div>
+      <div class="card">
+        <p class="who">O termômetro de energia</p>
+        <p class="tell">Vale para os cinco perfis acima.</p>
+        <dl>
+          <dt>Alta</dt><dd>Responde rápido, escreve com emoção, até com irritação. É aqui que a venda acontece. Prioridade máxima do seu dia.</dd>
+          <dt>Baixa</dt><dd>Monossilábica, desanimada, "depois eu vejo". Não gaste a manhã. Coloque na cadência longa de follow-up e siga.</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section id="abordagem">
+    <div class="sechead"><span class="num">04</span><h3>A abordagem inicial</h3></div>
+    <p class="intro">Sete movimentos. Não são sete mensagens fixas e nem sempre acontecem nessa ordem: se ela já chegar contando o motivo, você pula o movimento 2 e vai direto para o 3. O que não pode faltar é a intenção de cada um.</p>
+
+    <div class="note">
+      <span class="k">Isto é uma espinha, não um texto para ler</span>
+      <p>Três liberdades e uma obrigação. Você pode trocar todas as palavras, pode mudar a ordem quando a cliente puxar para outro lado, e pode juntar dois movimentos numa mensagem só quando a conversa estiver fluindo. A obrigação é uma: <b>não pular o movimento 6</b>. Sem a ponte para a avaliação, a conversa mais simpática do mundo termina em nada.</p>
+    </div>
+
+    <div class="mv" data-track="all">
+      <span class="badge">M1</span>
+      <div class="body">
+        <p class="ttl">Abertura com posição</p>
+        <p class="goal">Objetivo: em três linhas, mostrar quem fala, o que vai acontecer nessa conversa e por que ainda não dá pra falar de preço. Responda o mais rápido que conseguir: a primeira resposta rápida vale mais do que a resposta perfeita duas horas depois.</p>
+
+        <div class="msg tat" data-track="tat">
+          <button class="copy" type="button">Copiar</button>
+          <div class="top"><span class="track">Tatuagem</span><span class="when">Primeiro contato</span></div>
+          <div class="txt">
+            <p>Oi <span class="v">{{Nome}}</span>, aqui é a Ana Luiza, da Sense Clinic. Vi que você chegou pela remoção de tatuagem.</p>
+            <p>Antes de eu falar de sessão ou de valor eu preciso entender o teu caso, porque tatuagem nenhuma responde igual à outra. São duas ou três perguntas rápidas e eu já te dou uma direção.</p>
+            <p>Pra começar, me manda uma foto da tatuagem com boa luz.</p>
+          </div>
+          <div class="why"><b>Por que funciona</b>Ela veio perguntar preço e recebeu método. Isso troca o lugar da conversa sem negar nada, e o pedido da foto é um primeiro compromisso pequeno que ela cumpre em dez segundos.</div>
+        </div>
+
+        <div class="msg cla" data-track="cla">
+          <button class="copy" type="button">Copiar</button>
+          <div class="top"><span class="track">Clareamento</span><span class="when">Primeiro contato</span></div>
+          <div class="txt">
+            <p>Oi <span class="v">{{Nome}}</span>, aqui é a Ana Paula, da Sense Clinic. Recebi seu contato.</p>
+            <p>Antes de qualquer coisa: essa conversa fica só entre nós duas, e quem atende no consultório sou eu, sempre.</p>
+            <p>Pra eu te dar uma resposta que preste, preciso entender o que tá acontecendo, porque a causa muda o tratamento. Posso te fazer três perguntas rápidas?</p>
+          </div>
+          <div class="why"><b>Por que funciona</b>O sigilo vem antes da pergunta, não depois. Para esse público, segurança emocional é pré-requisito de qualquer informação: sem ela, a próxima mensagem não é respondida.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mv" data-track="all">
+      <span class="badge">M2</span>
+      <div class="body">
+        <p class="ttl">O motivo do agora</p>
+        <p class="goal">Objetivo: descobrir por que ela mandou mensagem hoje e não há dois anos. O gatilho recente é o combustível de todo o resto da conversa e é o que você vai devolver para ela no follow-up, semanas depois, com as palavras dela.</p>
+
+        <div class="msg tat" data-track="tat">
+          <button class="copy" type="button">Copiar</button>
+          <div class="top"><span class="track">Tatuagem</span><span class="when">Movimento 2</span></div>
+          <div class="txt"><p>Recebi a foto, obrigada. Faz quanto tempo que você tem ela? E o que aconteceu pra você decidir tirar justamente agora?</p></div>
+          <div class="why"><b>Por que funciona</b>Duas perguntas, uma técnica e uma emocional, na mesma mensagem curta. "Justamente agora" abre a porta para o gatilho real (trabalho novo, relacionamento, foto, filho perguntando) que ela não contaria se você perguntasse "por que quer remover".</div>
+        </div>
+
+        <div class="msg cla" data-track="cla">
+          <button class="copy" type="button">Copiar</button>
+          <div class="top"><span class="track">Clareamento</span><span class="when">Movimento 2</span></div>
+          <div class="txt"><p>Há quanto tempo você percebe essa diferença de tom? E teve alguma coisa nas últimas semanas que te fez decidir procurar tratamento agora?</p></div>
+          <div class="why"><b>Por que funciona</b>Trata como assunto técnico e datado, não como defeito. E o gatilho recente (viagem marcada, verão chegando, um comentário que doeu) é o que vai sustentar a urgência mais adiante, sem você precisar inventar escassez.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mv" data-track="all">
+      <span class="badge">M3</span>
+      <div class="body">
+        <p class="ttl">Diagnóstico</p>
+        <p class="goal">Objetivo: coletar as sete descobertas da seção 05, uma pergunta por mensagem, sem entregar solução. Esta é a etapa mais longa e a que mais gente pula. Enquanto ela responde, você anota.</p>
+        <div class="note" style="margin-top:16px">
+          <span class="k">A regra dos cinco segundos</span>
+          <p>Depois de perguntar, não preencha o silêncio. No WhatsApp isso significa: mandou a pergunta, não mande mais nada. Se você emendar uma explicação, ela responde a explicação e não a pergunta, e você perde a informação que precisava.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="mv" data-track="all">
+      <span class="badge">M4</span>
+      <div class="body">
+        <p class="ttl">Espelho</p>
+        <p class="goal">Objetivo: dizer o problema dela melhor do que ela disse. É o momento em que a conversa vira, porque ela para de avaliar preço e começa a pensar "essa aqui entendeu". Detalhado na seção 06.</p>
+      </div>
+    </div>
+
+    <div class="mv" data-track="all">
+      <span class="badge">M5</span>
+      <div class="body">
+        <p class="ttl">A âncora de investimento</p>
+        <p class="goal">Objetivo: filtrar. Use quando a conversa indicar que o valor vai ser um problema, ou sempre que a agenda estiver cheia e você precisar priorizar. É o único ponto do documento onde uma pergunta de sim ou não é proposital: aqui um "não" rápido é bom, porque libera seu tempo antes da avaliação e não depois dela.</p>
+
+        <div class="msg tat" data-track="tat">
+          <button class="copy" type="button">Copiar</button>
+          <div class="top"><span class="track">Tatuagem</span><span class="when">Antes de oferecer horário</span></div>
+          <div class="txt">
+            <p>Antes de eu te encaixar, só pra alinhar expectativa: aqui a sessão fica a partir de <span class="v">{{R$ valor}}</span>, e um caso como o seu normalmente precisa de mais de uma. A gente parcela no cartão e trabalha com Pix.</p>
+            <p>Isso tá dentro do que você imaginava investir?</p>
+          </div>
+          <div class="why"><b>Por que funciona</b>Resolve na conversa a maior queixa da clínica hoje, que é agenda ocupada por lead sem condição de seguir. Falar a faixa cedo, com naturalidade e sem pedir desculpa, filtra melhor do que qualquer segmentação de anúncio. E quem responde que sim chega na avaliação já com o valor aceito.</div>
+        </div>
+
+        <div class="msg cla" data-track="cla">
+          <button class="copy" type="button">Copiar</button>
+          <div class="top"><span class="track">Clareamento</span><span class="when">Antes de oferecer horário</span></div>
+          <div class="txt">
+            <p>Pra você já ir sabendo: o protocolo aqui fica a partir de <span class="v">{{R$ valor}}</span>, e no seu caso a gente define na avaliação se vai ser sessão única ou um pacote curto. Dá pra parcelar.</p>
+            <p>Faz sentido pra você seguir assim?</p>
+          </div>
+          <div class="why"><b>Por que funciona</b>No clareamento a decisão é rápida, então antecipar o valor não esfria, organiza. O que esfria é ela descobrir o preço só no fim da avaliação e sair sem fechar por constrangimento.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mv" data-track="all">
+      <span class="badge">M6</span>
+      <div class="body">
+        <p class="ttl">A ponte para a avaliação</p>
+        <p class="goal">Objetivo: transformar a avaliação em algo que vale a pena por si só, e não em um obstáculo entre ela e o preço. Movimento obrigatório. Texto completo na seção 06.</p>
+      </div>
+    </div>
+
+    <div class="mv" data-track="all">
+      <span class="badge">M7</span>
+      <div class="body">
+        <p class="ttl">Fechamento do horário e limite</p>
+        <p class="goal">Objetivo: sair da conversa com dia, hora e nome completo. Nunca pergunte se ela quer agendar. Ofereça dois horários e negocie apenas qual dos dois.</p>
+
+        <div class="msg" data-track="all">
+          <button class="copy" type="button">Copiar</button>
+          <div class="top"><span class="track">Ambas</span><span class="when">Fechamento</span></div>
+          <div class="txt"><p>Tenho <span class="v">{{dia A, hora}}</span> ou <span class="v">{{dia B, hora}}</span>. Qual dos dois eu travo no seu nome?</p></div>
+          <div class="why"><b>Por que funciona</b>"Quer agendar?" entrega o não de bandeja, e depois que ela diz não, ela passa a se justificar por ele. Duas opções pressupõem o sim e transformam a decisão inteira em uma escolha pequena entre terça e quinta.</div>
+        </div>
+
+        <div class="msg" data-track="all">
+          <button class="copy" type="button">Copiar</button>
+          <div class="top"><span class="track">Ambas</span><span class="when">Confirmação com nome</span></div>
+          <div class="txt"><p>Fechado. Me manda seu nome completo que eu bloqueio <span class="v">{{dia}}</span> às <span class="v">{{hora}}</span> na agenda da <span class="v">{{Ana}}</span>.</p></div>
+          <div class="why"><b>Por que funciona</b>Compromisso que a pessoa digita pesa muito mais do que compromisso que ela só lê. Escrever o próprio nome transforma um horário abstrato em algo que agora tem o nome dela em cima.</div>
+        </div>
+
+        <div class="note" style="margin-top:22px">
+          <span class="k">Encerre no auge</span>
+          <p>Assim que ela confirmar, pare de vender. Mande o endereço, o combinado da reserva (seção 09) e encerre. Continuar oferecendo informação depois do sim é a forma mais comum de reabrir uma dúvida que já estava fechada.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 -->
+  <section id="descobertas">
+    <div class="sechead"><span class="num">05</span><h3>As sete descobertas</h3></div>
+    <p class="intro">Uma conversa de pré-vendas bem feita termina com estas sete informações anotadas. Elas servem para três coisas: conduzir agora, escolher o argumento certo na avaliação e escrever um follow-up que não pareça cobrança daqui a duas semanas.</p>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th style="width:20%">Descoberta</th><th style="width:40%">Pergunta · tatuagem</th><th style="width:40%">Pergunta · clareamento</th></tr></thead>
+        <tbody>
+          <tr><td><b>1. Motivo</b><br>por que agora</td><td>"O que aconteceu pra você decidir tirar justamente agora?"</td><td>"Teve alguma coisa recente que te fez procurar tratamento agora?"</td></tr>
+          <tr><td><b>2. Problema</b><br>o que exatamente incomoda</td><td>"É a tatuagem inteira ou tem uma parte específica que te incomoda mais?"</td><td>"É a diferença de tom, a textura, ou as duas coisas?"</td></tr>
+          <tr><td><b>3. Consequência</b><br>o que já mudou por causa disso</td><td>"Tem situação em que você evita ficar com ela à mostra?"</td><td>"Tem alguma roupa ou situação que você deixou de usar por causa disso?"</td></tr>
+          <tr><td><b>4. Impacto prático</b><br>o custo no dia a dia</td><td>"Isso já te atrapalhou em alguma coisa concreta, tipo trabalho ou foto?"</td><td>"Você já deixou de ir em algum lugar por causa disso?"</td></tr>
+          <tr><td><b>5. Impacto emocional</b><br>o custo invisível</td><td>"E quando você olha pra ela hoje, o que passa na sua cabeça?"</td><td>"Quanto você acaba pensando nisso num dia normal?"</td></tr>
+          <tr><td><b>6. Meta</b><br>onde ela quer chegar</td><td>"Você quer remover pra ficar sem nada ali, ou pra cobrir com outra depois?"</td><td>"O que pra você seria um bom resultado? Uniformizar o tom ou clarear o máximo possível?"</td></tr>
+          <tr><td><b>7. Urgência</b><br>o prazo real</td><td>"Tem alguma data no radar que você queria isso resolvido?"</td><td>"Tem viagem, evento ou verão no meio disso?"</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h4>A oitava pergunta: quem decide junto</h4>
+    <p class="intro">Boa parte das clientes não decide sozinha, e isso não é fraqueza: é orçamento de casa. Descobrir isso no WhatsApp evita a avaliação que termina em "vou conversar em casa e te falo", que é onde a maioria dos casos morre.</p>
+
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">Antes de oferecer horário</span></div>
+      <div class="txt"><p>Uma coisa que sempre pergunto pra não te fazer voltar duas vezes: essa decisão é sua ou vocês decidem junto aí em casa? Se for junto, eu já penso num horário que dê pros dois.</p></div>
+      <div class="why"><b>Por que funciona</b>Você não está testando a autonomia dela, está resolvendo um problema de agenda. E se quem decide junto estiver presente na avaliação, os dois ouvem a mesma explicação, o que elimina o telefone sem fio que costuma matar a venda em casa.</div>
+    </div>
+
+    <div class="note">
+      <span class="k">Se não der pra trazer quem decide</span>
+      <p>Não empurre a avaliação assim mesmo sem preparo. Combine antes: <b>"eu te mando um resumo por escrito com o plano e os valores, pra você mostrar exatamente como eu te expliquei"</b>. Sem isso, ela vai reproduzir em casa uma versão pior do que você falou, e vai ter que defender sozinha um preço que não sabe justificar.</p>
+    </div>
+  </section>
+
+  <!-- 06 -->
+  <section id="ponte">
+    <div class="sechead"><span class="num">06</span><h3>Espelho e ponte: como a avaliação vira algo que vale a pena</h3></div>
+    <p class="intro">Antes de oferecer horário, dois passos. Primeiro você devolve o problema dela nomeado com precisão. Depois você mostra o que ela leva embora da avaliação. A ordem importa: valor primeiro, horário depois.</p>
+
+    <h4>Passo 1: o espelho</h4>
+    <p class="intro">Nomeie em três camadas, sem usar esses nomes com ela: o que ela vê acontecendo, a causa que está por trás, e o custo que ela paga sem perceber. Termine confirmando, não afirmando.</p>
+
+    <div class="msg tat" data-track="tat">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Tatuagem</span><span class="when">Espelho</span></div>
+      <div class="txt">
+        <p>Deixa eu ver se eu entendi direito.</p>
+        <p>A tatuagem em si não é o maior problema. O que te incomoda é ter que pensar nela toda vez que você escolhe uma roupa ou tira uma foto.</p>
+        <p>E o que te segurou até hoje não foi o valor, foi não saber em quem confiar pra mexer nisso, porque um resultado ruim é pior do que a tatuagem. É isso mesmo?</p>
+      </div>
+      <div class="why"><b>Por que funciona</b>Ela chegou falando de tinta e recebeu de volta o que realmente sente. Além disso, o espelho já desarma a objeção de preço antes de ela existir, porque desloca o assunto de "quanto custa" para "em quem confiar".</div>
+    </div>
+
+    <div class="msg cla" data-track="cla">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Clareamento</span><span class="when">Espelho</span></div>
+      <div class="txt">
+        <p>Deixa eu ver se eu entendi.</p>
+        <p>O que mais te incomoda não é a mancha em si, é o tanto que você pensa nela em situações que deviam ser leves.</p>
+        <p>E cada coisa que você tentou e não resolveu foi te convencendo de que no seu caso não tem jeito. Tô certa?</p>
+      </div>
+      <div class="why"><b>Por que funciona</b>Nomear a descrença dela em voz alta tira o peso de ela ter que confessar isso. E como você nomeou primeiro, a próxima frase sua sobre tratamento entra sem soar como promessa de vendedora.</div>
+    </div>
+
+    <h5>Se ela já tentou antes</h5>
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">Contexto</span></div>
+      <div class="txt"><p>E quando você tentou <span class="v">{{o que ela tentou}}</span>, o que aconteceu? Parou no meio, não evoluiu, ou incomodou demais?</p></div>
+      <div class="why"><b>Por que funciona</b>Ela precisa esgotar as alternativas antigas em voz alta antes de aceitar uma nova. Cada tentativa frustrada que ela conta faz a avaliação parecer o passo lógico seguinte, e não mais uma tentativa igual às outras.</div>
+    </div>
+
+    <h4>Passo 2: a ponte</h4>
+    <p class="intro">A avaliação não pode ser vendida como "uma conversinha rápida". Ela é o produto desta etapa, e produto tem entrega. Diga em lista o que ela sai sabendo, e diga também que sem isso ninguém consegue responder o que ela perguntou.</p>
+
+    <div class="msg tat" data-track="tat">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Tatuagem</span><span class="when">Ponte</span></div>
+      <div class="txt">
+        <p>Pelo que você me contou, o próximo passo não é escolher pacote, é a Ana olhar essa tinta e a sua pele de perto.</p>
+        <p>Na avaliação você sai com quatro coisas: a leitura do seu caso (cor, tempo, profundidade e o seu tipo de pele), uma estimativa de quantas sessões e de quanto tempo entre uma e outra, o plano com o valor fechado, e a resposta honesta se o seu caso é dos fáceis, dos médios ou dos difíceis.</p>
+        <p>Leva mais ou menos <span class="v">{{30}}</span> minutos e não tem custo.</p>
+      </div>
+      <div class="why"><b>Por que funciona</b>Ela veio buscar uma informação e agora sabe onde essa informação existe. A quarta entrega é a mais importante: prometer uma resposta honesta, inclusive a ruim, é o que separa vocês de quem promete resultado por foto.</div>
+    </div>
+
+    <div class="msg cla" data-track="cla">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Clareamento</span><span class="when">Ponte</span></div>
+      <div class="txt">
+        <p>Pelo que você me contou, o próximo passo é eu ver de perto pra saber a causa, porque o tratamento muda conforme ela.</p>
+        <p>Na avaliação você sai sabendo o que provavelmente causou, o que dá e o que não dá pra prometer no seu caso, quantas sessões e o intervalo, e o valor fechado.</p>
+        <p>É atendimento individual, <span class="v">{{descrever aqui como é a sala e o que acontece, para tirar o medo do constrangimento}}</span>. Leva cerca de <span class="v">{{30}}</span> minutos e não tem custo.</p>
+      </div>
+      <div class="why"><b>Por que funciona</b>Para esse público, o que trava não é dúvida sobre o tratamento, é a cena imaginada do atendimento. Descrever a cena antes de ela perguntar remove a trava sem obrigar ela a expor a vergonha.</div>
+    </div>
+
+    <div class="note">
+      <span class="k">O que nunca entra na ponte</span>
+      <ul>
+        <li>Número exato de sessões. "Entre <span class="v">{{X}}</span> e <span class="v">{{Y}}</span>, e a avaliação fecha esse número" é honesto e continua sendo útil.</li>
+        <li>Garantia de resultado, em qualquer palavra. Além do risco, é exatamente o que a cliente cética já ouviu antes de se decepcionar.</li>
+        <li>Comparação com outra clínica pelo nome. Fale do seu método, nunca do erro dos outros.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 07 -->
+  <section id="objecoes">
+    <div class="sechead"><span class="num">07</span><h3>Objeções</h3></div>
+    <p class="intro">Objeção quase nunca é rejeição. É pedido de mais informação, feito na única linguagem que ela tem. Duas regras antes de qualquer resposta: não dê desconto para resolver desconforto seu, e não explique demais. Explicação longa demais soa como quem está se defendendo, e quem se defende parece caro.</p>
+
+    <h4>"Nossa, tá caro"</h4>
+    <p class="intro">Quase nunca é sobre o número. É sobre não conseguir enxergar o fim: ela não sabe quantas sessões, então multiplica por um número assustador na cabeça dela.</p>
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">Objeção · preço</span></div>
+      <div class="txt"><p>Entendo. Deixa eu te perguntar uma coisa pra eu te ajudar direito: o que pesa mais hoje, o valor da sessão em si, ou não saber quantas vão ser?</p></div>
+      <div class="why"><b>Por que funciona</b>Separa duas objeções que vêm coladas. Se a resposta for "não saber quantas", não existe objeção de preço nenhuma, existe falta de clareza, e a avaliação resolve isso. Se for o valor mesmo, você já sabe que é caso de parcelamento ou de outra prioridade.</div>
+    </div>
+
+    <div class="ba">
+      <div class="no"><span class="h">Nunca</span>"Consigo fazer um descontinho pra você..." dado antes de ela pedir, e sem pedir nada em troca.</div>
+      <div class="yes"><span class="h">Sempre</span>Toda concessão pede um compromisso na mesma frase: "consigo {{condição}} pra quem fecha a avaliação hoje. Se eu travar isso pra você, você consegue vir {{dia}}?"</div>
+    </div>
+    <p class="intro" style="margin-top:14px">Desconto solto não gera alívio, gera desconfiança: se podia ser mais barato, por que não era desde o começo? Desconto trocado por compromisso gera decisão.</p>
+
+    <h4>"Vou ver com meu marido"</h4>
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">Objeção · decisão em casa</span></div>
+      <div class="txt">
+        <p>Faz todo sentido. Ele consegue vir junto na avaliação? Assim vocês dois ouvem a mesma coisa e decidem na hora, sem ficar telefone sem fio.</p>
+        <p>Se não der, eu te mando o plano por escrito com os valores pra você mostrar pra ele exatamente do jeito que eu te expliquei. O que fica melhor?</p>
+      </div>
+      <div class="why"><b>Por que funciona</b>Não tenta contornar a objeção, resolve a causa. E as duas saídas oferecidas mantêm você no controle do próximo passo, em vez de deixar a conversa esperando uma resposta que não volta.</div>
+    </div>
+
+    <h4>"Vou ver minha agenda e te falo"</h4>
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">Objeção · adiamento</span></div>
+      <div class="txt"><p>Perfeito. Vou deixar dois horários pré-reservados no seu nome até amanhã às <span class="v">{{18h}}</span>: <span class="v">{{dia A}}</span> e <span class="v">{{dia B}}</span>. Me diz até lá qual eu confirmo, que eu solto o outro pra fila.</p></div>
+      <div class="why"><b>Por que funciona</b>Transforma um "depois eu vejo" sem data em um prazo curto e concreto, com uma perda pequena e real do outro lado. E dá a você um motivo legítimo para voltar a falar amanhã, sem parecer cobrança.</div>
+    </div>
+
+    <h4>"Dói muito?"</h4>
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">Objeção · medo</span></div>
+      <div class="txt">
+        <p>Não vou te dizer que não dói, porque não seria verdade. É rápido e é suportável, e aqui a gente usa <span class="v">{{recurso de conforto usado na clínica}}</span>.</p>
+        <p>O que eu mais escuto depois da primeira sessão é que era bem menos do que a pessoa tinha imaginado.</p>
+      </div>
+      <div class="why"><b>Por que funciona</b>Transparência gera segurança. Quem responde "não dói nada" ativa exatamente a desconfiança que queria desligar, e ainda cria uma cliente que se sente enganada na primeira sessão.</div>
+    </div>
+
+    <h4>"Só me passa o valor por aqui"</h4>
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">Objeção · preço direto</span></div>
+      <div class="txt">
+        <p>Te passo sim, sem problema: a sessão fica a partir de <span class="v">{{R$ valor}}</span>.</p>
+        <p>O que eu não consigo te dizer por mensagem é o que você realmente quer saber, que é quantas sessões o seu caso vai pedir. Isso muda muito de pessoa pra pessoa e é o que a avaliação mede.</p>
+        <p>Tenho <span class="v">{{dia A}}</span> ou <span class="v">{{dia B}}</span>. Qual eu travo?</p>
+      </div>
+      <div class="why"><b>Por que funciona</b>Negar o preço irrita e passa desconfiança. Dar o preço e mostrar que ele sozinho não responde a pergunta dela mantém a autoridade e devolve a conversa para o agendamento na mesma mensagem.</div>
+    </div>
+
+    <h4>"Vou pensar"</h4>
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">Objeção · genérica</span></div>
+      <div class="txt"><p>Claro, pensa com calma. Só me ajuda numa coisa: o que você quer pensar é sobre o valor, sobre o tempo de tratamento, ou sobre confiar na clínica? Porque cada uma dessas eu resolvo de um jeito diferente.</p></div>
+      <div class="why"><b>Por que funciona</b>"Vou pensar" não é uma objeção, é a embalagem de uma. As três opções dão a ela um jeito educado de dizer a verdade, e você sai da conversa sabendo o que tratar no follow-up em vez de ficar chutando.</div>
+    </div>
+
+    <div class="note">
+      <span class="k">Quando a resposta certa é deixar ir</span>
+      <p>Se ficou claro que não é o momento dela, encerre com dignidade e com data: <b>"tudo bem, e obrigada pela sinceridade. Vou te procurar de novo em {{mês}}, que é quando {{o motivo dela}} volta a apertar. Fechado?"</b>. Conversa encerrada com próximo passo marcado volta. Conversa que fica em aberto some.</p>
+    </div>
+  </section>
+
+  <!-- 08 -->
+  <section id="followup">
+    <div class="sechead"><span class="num">08</span><h3>Follow-up</h3></div>
+    <p class="intro">Follow-up não é lembrete e não é cobrança. É a continuação da mesma conversa, alguns dias depois, usando as palavras que ela usou. É por isso que a seção 05 pede para anotar: sem as palavras dela, todo follow-up vira "oi, tudo bem? conseguiu ver?", que é a mensagem mais ignorada do Brasil.</p>
+
+    <div class="note">
+      <span class="k">Três regras</span>
+      <ul>
+        <li><b>Uma mensagem por toque.</b> Se não responder, o próximo toque é outro dia, não mais uma mensagem no mesmo dia.</li>
+        <li><b>Pare assim que ela responder</b> e volte para a conversa normal, do movimento onde parou.</li>
+        <li><b>Nunca pergunte "ainda tem interesse?"</b>. Além de entregar o não, obriga ela a se explicar, e gente que precisa se explicar prefere não responder.</li>
+      </ul>
+    </div>
+
+    <h4>Trilha A · conversou e não agendou</h4>
+    <p class="intro">O caso mais comum na tatuagem, onde a jornada é longa. Espaçamento sugerido: 2 dias, 4 dias, 8 dias, 15 dias.</p>
+
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">Toque 1 · 2 dias</span></div>
+      <div class="txt"><p><span class="v">{{Nome}}</span>, fiquei pensando no que você me falou sobre <span class="v">{{a frase dela, ex: não conseguir usar regata no trabalho}}</span>. Separei um horário na agenda da <span class="v">{{Ana}}</span> antes de liberar pra semana que vem. Fica melhor <span class="v">{{dia A}}</span> de manhã ou <span class="v">{{dia B}}</span> à tarde?</p></div>
+      <div class="why"><b>Por que funciona</b>Devolver a frase dela prova que você prestou atenção e reacende o incômodo original sem você precisar argumentar nada. E o pedido continua sendo uma escolha entre dois dias, não um sim ou não.</div>
+    </div>
+
+    <div class="msg tat" data-track="tat">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Tatuagem</span><span class="when">Toque 2 · 4 dias</span></div>
+      <div class="txt"><p><span class="v">{{Nome}}</span>, um lembrete honesto: remoção acontece em sessões espaçadas, então o relógio corre mesmo parado. Quem começa agora chega no verão com o processo já andado. Me diz dois dias que funcionam pra você essa semana que eu encaixo a avaliação.</p></div>
+      <div class="why"><b>Por que funciona</b>A urgência aqui é real e técnica, não inventada: o intervalo entre sessões existe de verdade e o pós exige menos sol. Urgência verdadeira convence sem queimar a confiança que você construiu.</div>
+    </div>
+
+    <div class="msg cla" data-track="cla">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Clareamento</span><span class="when">Toque 2 · 4 dias</span></div>
+      <div class="txt"><p><span class="v">{{Nome}}</span>, esse é o melhor período do ano pra tratar isso: menos sol, menos risco de voltar, recuperação mais tranquila. Quem começa agora chega no verão resolvida. Qual período te atende melhor pra avaliação, manhã ou tarde?</p></div>
+      <div class="why"><b>Por que funciona</b>Mesma lógica do outro lado da clínica, com o argumento técnico correto para o procedimento. E a pergunta reduzida a "manhã ou tarde" abaixa o esforço da resposta ao mínimo.</div>
+    </div>
+
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">Toque 3 · 8 dias</span></div>
+      <div class="txt"><p><span class="v">{{Nome}}</span>, te mando aqui o antes e depois de uma cliente que chegou no mesmo ponto que você. Olhando isso, o que ainda te segura pra marcar a sua avaliação?</p></div>
+      <div class="why"><b>Por que funciona</b>Prova primeiro, pergunta aberta depois. A pergunta é a mais valiosa do follow-up inteiro, porque a resposta dela é a objeção real, que você ainda não tinha ouvido. Escolha a prova pelo perfil dela (seção 03), e envie só com autorização da cliente da foto.</div>
+    </div>
+
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">Toque 4 · 15 dias · encerramento</span></div>
+      <div class="txt"><p><span class="v">{{Nome}}</span>, como não consegui falar com você, vou liberar seu espaço na agenda pra quem tá esperando. Se ainda quiser resolver isso, me manda só um "quero" hoje que eu seguro. Amanhã eu passo pra frente.</p></div>
+      <div class="why"><b>Por que funciona</b>É a retirada da oferta, e funciona porque é verdadeira: a agenda tem limite. Exige a menor ação possível dela, uma palavra, e devolve para você o tempo que ficaria preso num lead parado.</div>
+    </div>
+
+    <h4>Trilha B · veio na avaliação e não fechou</h4>
+    <p class="intro">Aqui você tem mais material do que em qualquer outro momento: ela viu a clínica, conheceu a profissional e ouviu o plano. O follow-up precisa usar isso, não recomeçar do zero.</p>
+
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">Mesmo dia, à noite</span></div>
+      <div class="txt">
+        <p><span class="v">{{Nome}}</span>, foi bom te conhecer hoje. Deixo aqui por escrito o que a gente combinou: <span class="v">{{plano, sessões, intervalo e valor}}</span>.</p>
+        <p>Do jeito que você me contou o seu caso, a parte que mais pesa é <span class="v">{{a frase dela}}</span>, e é exatamente isso que esse plano resolve primeiro.</p>
+      </div>
+      <div class="why"><b>Por que funciona</b>Nas primeiras horas depois de uma decisão pendente, a cabeça começa a inventar motivos para não seguir. Colocar o plano por escrito, com a razão dela junto, dá à decisão um apoio racional para se sustentar.</div>
+    </div>
+
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">2 dias depois</span></div>
+      <div class="txt"><p><span class="v">{{Nome}}</span>, sobre o que a gente conversou: o que ficou pendente é o valor, a data de começar, ou alguma dúvida que não deu tempo de perguntar lá? Me fala qual das três que eu já resolvo.</p></div>
+      <div class="why"><b>Por que funciona</b>Depois da avaliação, o silêncio quase sempre esconde uma dúvida específica que ela não quis expor na hora. Oferecer três opções nomeadas é mais fácil de responder do que confessar a dúvida do zero.</div>
+    </div>
+
+    <h4>Trilha C · lead antigo, frio há semanas</h4>
+    <p class="intro">Para a base que já esfriou faz tempo, use o kit de reativação já entregue em 17/07 (<i>Reativação de Leads Frios</i>), que tem os cinco toques firmes e o banco de mensagens avulsas. Este documento cuida do lead novo; aquele cuida do lead parado. Os dois seguem o mesmo princípio: nunca dar um "não" fácil.</p>
+  </section>
+
+  <!-- 09 -->
+  <section id="noshow">
+    <div class="sechead"><span class="num">09</span><h3>No-show: como fazer a avaliação valer o suficiente para ela aparecer</h3></div>
+    <p class="intro">A falta quase nunca começa no dia da falta. Começa no momento em que o agendamento foi feito, se ele custou zero para ela: zero dinheiro, zero esforço, zero compromisso dito em voz alta. Um horário que não custou nada não dói de perder. Todo o trabalho aqui é aumentar o custo simbólico da reserva e o valor antecipado da avaliação, antes de o dia chegar.</p>
+
+    <div class="note">
+      <span class="k">As quatro alavancas</span>
+      <ul>
+        <li><b>Custo de reserva.</b> Deixe explícito que aquele horário fica bloqueado e que alguém deixa de ser atendida por causa dele.</li>
+        <li><b>Compromisso digitado.</b> Faça ela escrever alguma coisa: o nome completo, um "combinado", uma resposta a uma pergunta. Compromisso lido não segura; compromisso escrito segura.</li>
+        <li><b>Preparo.</b> Toda tarefa que ela cumpre antes aumenta a chance de aparecer. Duas instruções simples bastam.</li>
+        <li><b>Valor antecipado.</b> Ela precisa saber exatamente o que leva embora. Ninguém falta a um lugar onde vai receber uma resposta que procura há meses.</li>
+      </ul>
+    </div>
+
+    <h4>A régua de confirmação</h4>
+    <p class="intro">Cinco toques do agendamento até a hora. Nenhum deles é "só confirmando", todos pedem alguma coisa.</p>
+
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">R1 · no ato do agendamento</span></div>
+      <div class="txt">
+        <p>Pronto, <span class="v">{{Nome}}</span>: <span class="v">{{dia}}</span> às <span class="v">{{hora}}</span> travado no seu nome, com a <span class="v">{{Ana}}</span>. Endereço: <span class="v">{{endereço}}</span>.</p>
+        <p>Esse horário fica bloqueado só pra você, a agenda dela não recebe mais ninguém nele. Se por qualquer motivo não der, me avisa até o dia anterior que eu passo pra próxima da fila. Combinado?</p>
+      </div>
+      <div class="why"><b>Por que funciona</b>Diz o custo da reserva sem ameaçar, e termina pedindo uma palavra digitada. O "combinado?" transforma o horário em acordo entre duas pessoas, e acordo entre pessoas é bem mais difícil de furar do que um lembrete de sistema.</div>
+    </div>
+
+    <div class="msg tat" data-track="tat">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Tatuagem</span><span class="when">R2 · logo em seguida · preparo</span></div>
+      <div class="txt"><p>Duas coisinhas pra sua avaliação render: vem com uma roupa que deixe a tatuagem fácil de mostrar, e se você tiver alguma foto de como ela era quando fez, traz também, ajuda muito a Ana a entender a tinta. Anotado?</p></div>
+      <div class="why"><b>Por que funciona</b>Duas tarefas pequenas e fáceis. Quem separa a roupa e procura a foto antiga já começou o tratamento na cabeça, e desistir agora custa desfazer algo que já foi feito.</div>
+    </div>
+
+    <div class="msg cla" data-track="cla">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Clareamento</span><span class="when">R2 · logo em seguida · preparo</span></div>
+      <div class="txt"><p>Duas orientações pra sua avaliação render: <span class="v">{{orientação real, ex: não depilar nos dias anteriores}}</span> e <span class="v">{{orientação real, ex: não usar creme na região no dia}}</span>. Me confirma que anotou.</p></div>
+      <div class="why"><b>Por que funciona</b>Além do efeito de compromisso, orientação técnica prévia comunica seriedade: ela percebe que existe protocolo, e protocolo é exatamente o que ela não encontrou nas tentativas anteriores.</div>
+    </div>
+
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">R3 · véspera</span></div>
+      <div class="txt"><p>Oi <span class="v">{{Nome}}</span>, amanhã é o seu horário com a <span class="v">{{Ana}}</span>, às <span class="v">{{hora}}</span>. Uma coisa só pra eu já deixar separado antes: <span class="v">{{pergunta simples e específica do caso dela}}</span>?</p></div>
+      <div class="why"><b>Por que funciona</b>Lembrete que só informa pode ser ignorado sem custo nenhum. Lembrete que faz uma pergunta obriga uma resposta, e quem responde na véspera confirma a presença sem perceber que confirmou. Se ela não responder aqui, o risco de falta acabou de subir muito: ligue.</div>
+    </div>
+
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">R4 · manhã do dia</span></div>
+      <div class="txt"><p>Bom dia, <span class="v">{{Nome}}</span>. Confirmado pra hoje às <span class="v">{{hora}}</span>. Endereço: <span class="v">{{endereço}}</span>. Chega uns 10 minutinhos antes que a gente começa no horário certinho.</p></div>
+      <div class="why"><b>Por que funciona</b>"A gente começa no horário certinho" comunica que a clínica é organizada e que o tempo ali tem valor, o que por si só reduz falta. Nada de perguntar de novo se ela vem: já está confirmado, e reabrir a pergunta reabre a opção.</div>
+    </div>
+
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">R5 · 15 minutos de atraso</span></div>
+      <div class="txt"><p><span class="v">{{Nome}}</span>, tudo bem? A <span class="v">{{Ana}}</span> tá te esperando. Consigo segurar mais uns 15 minutos, depois disso preciso liberar pra próxima. Você tá vindo?</p></div>
+      <div class="why"><b>Por que funciona</b>Recupera boa parte das faltas que são só atraso e desorganização. O limite de tempo é real e dito sem irritação, o que dá a ela um motivo para responder em vez de sumir por vergonha.</div>
+    </div>
+
+    <h4>Quando ela faltou</h4>
+    <p class="intro">A regra mais importante: nada de culpa. A cliente que faltou já está constrangida, e cobrança transforma constrangimento em sumiço definitivo. Fale no mesmo dia, ofereça uma remarcação, e só uma.</p>
+
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">Falta · mesmo dia</span></div>
+      <div class="txt"><p><span class="v">{{Nome}}</span>, imagino que tenha acontecido alguma coisa hoje. Sem problema. Eu consigo te remarcar uma vez: tenho <span class="v">{{dia A}}</span> ou <span class="v">{{dia B}}</span>. Qual eu travo?</p></div>
+      <div class="why"><b>Por que funciona</b>Dá a ela uma saída digna e imediata, sem obrigar explicação. "Uma vez" é a parte que trabalha: comunica que a remarcação tem limite, sem nenhuma aspereza.</div>
+    </div>
+
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">Segunda falta</span></div>
+      <div class="txt">
+        <p><span class="v">{{Nome}}</span>, é a segunda vez que o horário fica parado, e eu tenho gente na fila esperando por ele.</p>
+        <p>Consigo te dar <span class="v">{{dia}}</span> às <span class="v">{{hora}}</span>, e dessa vez preciso da sua confirmação ainda hoje. Se não for um bom momento pra você, tudo bem também: eu te aviso quando abrir de novo.</p>
+      </div>
+      <div class="why"><b>Por que funciona</b>Firmeza sem ressentimento, e a oferta de sair sem constrangimento. Retirar a insistência costuma trazer de volta quem queria mesmo ir, e libera sua agenda de quem não queria.</div>
+    </div>
+
+    <div class="msg" data-track="all">
+      <button class="copy" type="button">Copiar</button>
+      <div class="top"><span class="track">Ambas</span><span class="when">Sumiu de vez · 2 dias depois</span></div>
+      <div class="txt"><p><span class="v">{{Nome}}</span>, não consegui falar com você, então vou liberar o horário. Quando quiser retomar, é só me chamar aqui que eu te encaixo. Fica tudo certo.</p></div>
+      <div class="why"><b>Por que funciona</b>Encerra o ciclo com dignidade e deixa a porta aberta sem cobrança. Muita cliente volta meses depois exatamente por causa dessa última mensagem, e não voltaria se a última tivesse sido uma cobrança.</div>
+    </div>
+
+    <div class="note">
+      <span class="k">A decisão que mais reduz falta, e que é de vocês</span>
+      <p>Existe uma alavanca mais forte do que todas as mensagens deste documento: <b>cobrar um sinal simbólico de reserva</b>, tipo <span class="v">{{R$ 30 a R$ 50}}</span>, integralmente abatido na primeira sessão e devolvido se ela avisar com antecedência.</p>
+      <p>A troca é honesta: vai reduzir o número de agendamentos e aumentar bastante a proporção de gente que aparece, além de filtrar quem nunca teve condição de seguir. Faz mais sentido testar primeiro na tatuagem, onde o ticket é maior e a agenda é mais disputada. É uma decisão de vocês, e vale medir por 30 dias antes de decidir.</p>
+    </div>
+
+    <div class="note">
+      <span class="k">Regras que valem sempre</span>
+      <ul>
+        <li>Nunca remarcar duas vezes sem um compromisso maior na segunda.</li>
+        <li>Nunca dizer "tudo bem" quando não está: diga "sem problema, eu remarco uma vez".</li>
+        <li>Toda falta entra na planilha com o motivo. Três meses disso mostram se o problema é horário, dia da semana, tempo entre agendar e atender, ou qualidade do lead.</li>
+        <li>Quanto maior a distância entre o agendamento e a data, maior a falta. Priorize sempre o horário mais próximo que existir.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 10 -->
+  <section id="regua">
+    <div class="sechead"><span class="num">10</span><h3>Régua de operação e o que medir</h3></div>
+    <p class="intro">Sem número, ninguém sabe se o script está funcionando ou se a semana só foi ruim. Cinco indicadores bastam, anotados por semana, por frente.</p>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>Indicador</th><th>Como medir</th><th>O que ele diz quando cai</th></tr></thead>
+        <tbody>
+          <tr><td><b>Tempo até a primeira resposta</b></td><td>Minutos entre a mensagem dela e a sua.</td><td>É o indicador com maior efeito imediato. Passou de uma hora, a chance de resposta despenca.</td></tr>
+          <tr><td><b>Taxa de resposta</b></td><td>Quantas continuam a conversa depois da sua primeira mensagem.</td><td>Se muitas somem logo, o problema está na abertura (M1) ou no anúncio que trouxe a lead.</td></tr>
+          <tr><td><b>Taxa de agendamento</b></td><td>Agendamentos divididos por leads atendidos.</td><td>Se conversa muito e agenda pouco, o problema está na ponte (M6) ou você está resolvendo demais pelo WhatsApp.</td></tr>
+          <tr><td><b>Show-up</b></td><td>Quantas aparecem, divididas pelas agendadas.</td><td>Abaixo de 70%, o problema é a régua da seção 09, não a cliente.</td></tr>
+          <tr><td><b>Fechamento na avaliação</b></td><td>Quantas fecham, divididas pelas que apareceram.</td><td>Se está alto e o faturamento não sobe, o gargalo está antes: é volume ou agendamento, não a avaliação.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <span class="k">O registro mínimo por lead</span>
+      <p>Nome, frente (tatuagem ou clareamento), data do primeiro contato, <b>a frase dela</b> (a que resume o incômodo), em que toque de follow-up está, e o motivo do não quando houver. Cinco colunas resolvem, seja em planilha ou caderno. Sem a frase dela anotada, todo follow-up daqui a duas semanas vira genérico.</p>
+    </div>
+  </section>
+
+  <!-- 11 -->
+  <section id="erros">
+    <div class="sechead"><span class="num">11</span><h3>Os onze erros que custam agendamento</h3></div>
+    <p class="intro">Sem meio termo: cada um destes já explica sozinho uma semana fraca.</p>
+    <ul class="dont">
+      <li><span class="t"><b>Mandar valor antes de entender o caso.</b> Preço sem contexto é sempre caro, porque não tem com o que ser comparado.</span></li>
+      <li><span class="t"><b>Entregar o diagnóstico completo por mensagem.</b> Você acabou de dar de graça o motivo pelo qual ela precisaria ir até a clínica.</span></li>
+      <li><span class="t"><b>Perguntar "quer agendar?".</b> Entrega o não pronto. Ofereça dois horários e negocie só qual dos dois.</span></li>
+      <li><span class="t"><b>Perguntar "qual dia é melhor pra você?" sem oferecer nada.</b> Empurra o trabalho de decidir para quem está indecisa. Ela adia.</span></li>
+      <li><span class="t"><b>Responder cinco assuntos numa mensagem só.</b> Ela responde um, os outros quatro somem, e a conversa perde o fio.</span></li>
+      <li><span class="t"><b>Prometer resultado ou número exato de sessões sem ter visto.</b> Cria expectativa que a terceira sessão vai desmentir.</span></li>
+      <li><span class="t"><b>Entrar no papel de quem resolve tudo de graça.</b> Quanto mais você salva pelo WhatsApp, menos ela precisa da avaliação.</span></li>
+      <li><span class="t"><b>Discutir preço em vez de investigar o que pesa.</b> Antes de defender o valor, descubra se a trava é valor mesmo.</span></li>
+      <li><span class="t"><b>Dar desconto sem pedir nada em troca.</b> Vira suspeita, não alívio. Concessão sempre acompanhada de compromisso.</span></li>
+      <li><span class="t"><b>Terminar a conversa sem próximo passo com data e hora.</b> "Qualquer coisa me chama" é o mesmo que encerrar sem vender.</span></li>
+      <li><span class="t"><b>Demorar horas para responder o primeiro contato.</b> É o erro mais barato de corrigir e o mais caro de manter.</span></li>
+    </ul>
+  </section>
+
+  <!-- 12 -->
+  <section id="validar">
+    <div class="sechead"><span class="num">12</span><h3>O que precisa ser confirmado por vocês</h3></div>
+    <p class="intro">Os campos abaixo aparecem entre chaves ao longo do documento. Com esses dados em mãos, o script fica pronto para uso sem nenhuma adaptação na hora do atendimento.</p>
+    <ul class="steps">
+      <li><span class="s">01</span><span class="t"><b>Valor atual da sessão de tatuagem.</b> O registro da base de conhecimento traz R$ 220 a R$ 300 por sessão, e em conversa recente foi mencionado um valor bem acima disso. É o número que entra na âncora de investimento (M5), então precisa estar certo.</span></li>
+      <li><span class="s">02</span><span class="t"><b>Valor de entrada do clareamento</b> e se a oferta padrão é sessão avulsa ou pacote.</span></li>
+      <li><span class="s">03</span><span class="t"><b>Duração real da avaliação</b> e confirmação de que ela segue sem custo nas duas frentes.</span></li>
+      <li><span class="s">04</span><span class="t"><b>Como é a avaliação do clareamento na prática:</b> sala, privacidade, se há necessidade de exposição da região e o que a cliente pode esperar. Esse trecho está com campo em aberto de propósito, porque descrever errado seria pior do que não descrever.</span></li>
+      <li><span class="s">05</span><span class="t"><b>Recurso de conforto usado nas sessões</b> (o que existe de fato na clínica para dor), para a resposta da objeção de dor.</span></li>
+      <li><span class="s">06</span><span class="t"><b>Orientações de preparo do clareamento:</b> o que a cliente deve ou não fazer nos dias anteriores à avaliação.</span></li>
+      <li><span class="s">07</span><span class="t"><b>Faixa honesta de sessões</b> para os casos mais comuns de tatuagem, para usar como "entre X e Y" sem prometer número fechado.</span></li>
+      <li><span class="s">08</span><span class="t"><b>Decisão sobre o sinal de reserva:</b> se vai testar, com que valor e em qual frente primeiro.</span></li>
+      <li><span class="s">09</span><span class="t"><b>Endereço e ponto de referência</b> no formato exato que vocês querem que seja enviado.</span></li>
+    </ul>
+  </section>
+
+</main>
+
+<footer class="close">
+  <h3>Um lembrete para os dias ruins</h3>
+  <p>Este script não existe para fazer você falar diferente. Existe para você parar de perder venda por excesso de generosidade. Acolher continua sendo o que faz a Sense ser a Sense: a diferença é que agora o acolhimento acontece na cadeira da avaliação, e não na conversa que substitui ela.</p>
+  <p>Quando uma conversa desandar, não recomece do zero. Volte na seção 02, descubra qual dos seis princípios caiu, e retome dali.</p>
+  <div class="sig">SIMPLE ACC<span>Pré-vendas Sense Clinic · 01.09.2026 · v1</span></div>
+</footer>
+
+<script>
+(function(){
+  /* filtro de trilha */
+  var chips = document.querySelectorAll('.chip');
+  function apply(f){
+    document.querySelectorAll('[data-track]').forEach(function(el){
+      var t = el.getAttribute('data-track');
+      el.hidden = !(f === 'all' || t === 'all' || t === f);
+    });
+    chips.forEach(function(c){ c.setAttribute('aria-pressed', String(c.dataset.f === f)); });
+  }
+  chips.forEach(function(c){ c.addEventListener('click', function(){ apply(c.dataset.f); }); });
+
+  /* copiar mensagem */
+  document.querySelectorAll('.copy').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var box = btn.closest('.msg').querySelector('.txt');
+      var text = Array.prototype.map.call(box.querySelectorAll('p'), function(p){
+        return p.textContent.trim();
+      }).join('\n\n');
+      var done = function(){
+        var old = btn.textContent;
+        btn.textContent = 'Copiado';
+        btn.classList.add('done');
+        setTimeout(function(){ btn.textContent = old; btn.classList.remove('done'); }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done, function(){ fallback(text, done); });
+      } else { fallback(text, done); }
+    });
+  });
+  function fallback(text, done){
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); done(); } catch(e){}
+    document.body.removeChild(ta);
+  }
+
+  /* seção ativa no índice */
+  var links = {};
+  document.querySelectorAll('#toc a').forEach(function(a){ links[a.getAttribute('href').slice(1)] = a; });
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        Object.keys(links).forEach(function(k){ links[k].classList.remove('on'); });
+        if (links[e.target.id]) links[e.target.id].classList.add('on');
+      }
+    });
+  }, { rootMargin: '-10% 0px -70% 0px' });
+  document.querySelectorAll('section[id]').forEach(function(s){ obs.observe(s); });
+})();
+</script>
+</body>
+</html>
