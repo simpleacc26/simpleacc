@@ -102,10 +102,21 @@
   </header>
 
   <main class="container">
-    <div class="card screen" id="report"><!-- preenchido por diagnostico.js --></div>
+    <!-- Tela de preparação. Fica aqui no HTML, e não no JS, para pintar já no
+         primeiro frame: se dependesse do script o lead veria um branco antes.
+         O diagnostico.js enche a barra, troca as mensagens e revela o
+         relatório no lugar. -->
+    <section class="card screen loading-card" id="preparando">
+      <p class="eyebrow">Quase lá</p>
+      <h2>Preparando o diagnóstico da sua clínica</h2>
+      <p class="lead" id="load-msg">Lendo as suas respostas...</p>
+      <div class="load-track"><div class="load-bar" id="load-bar"></div></div>
+      <p class="hint" style="margin-top:16px">Cruzando o que você respondeu com o padrão das clínicas que já passaram por aqui.</p>
+    </section>
+    <div class="card screen" id="report" hidden><!-- preenchido por diagnostico.js --></div>
   </main>
 
-  <p class="foot">Diagnóstico elaborado pela equipe do Lucas Sobreiro · uso exclusivo · leitura de negócio, não é um diagnóstico clínico</p>
+  <p class="foot" hidden>Diagnóstico gerado a partir das suas respostas · uso exclusivo · leitura de negócio, não é um diagnóstico clínico</p>
 
   <script src="flow.js" defer></script>
   <script src="diagnostico.js" defer></script>

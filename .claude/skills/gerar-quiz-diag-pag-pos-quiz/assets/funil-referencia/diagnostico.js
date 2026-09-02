@@ -65,15 +65,15 @@ if (!a._completedAt && !a.problema) {
 
     <div class="etapa">
       <h3>Antes de tudo</h3>
-      <p>Oi, ${nome}! Aqui é da equipe do Lucas. Li com atenção tudo o que você respondeu.
-      E quero começar por uma coisa que talvez ninguém tenha te dito:
+      <p>Oi, ${nome}. O que vem abaixo foi montado a partir do que você respondeu, e começa
+      por uma coisa que talvez ninguém tenha te dito ainda:
       <strong>o que trava a sua clínica não é falta de esforço, nem falta de competência técnica.</strong>
       Tem uma explicação, e tem caminho.</p>
     </div>
 
     <div class="etapa">
       <h3>O cenário da sua clínica hoje</h3>
-      <p>Pelo que você me contou, o momento é de <strong>${situacao}</strong>, e o que mais
+      <p>Pelas suas respostas, o momento é de <strong>${situacao}</strong>, e o que mais
       pesa é <strong>${problema}</strong>. Isso já dura <strong>${tempo}</strong>, e a tendência,
       se nada mudar, é <strong>${impacto}</strong>. Esse padrão se repete em quase todas as clínicas
       que chegam até a gente. E ele tem uma explicação.</p>
@@ -157,6 +157,45 @@ if (!a._completedAt && !a.problema) {
     </div>`;
 }
 
+/* ---------- tela de preparação ----------
+   Cinco segundos de barra antes de revelar o relatório. Não é enfeite: o
+   diagnóstico é montado na hora a partir das respostas, e o tempo de preparo
+   é o que dá ao lead a leitura de algo feito para ele. Também cobre o
+   carregamento das imagens dos depoimentos. Quem tem "reduzir movimento"
+   ligado no sistema passa quase direto. */
+function prepararEntao(cb) {
+  const box = document.getElementById("preparando");
+  const foot = document.querySelector(".foot");
+  const mostrar = () => {
+    if (box) box.remove();
+    report.hidden = false;
+    if (foot) foot.hidden = false;
+    cb();
+  };
+  if (!box) return mostrar();
+
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const dur = reduce ? 700 : 5000;
+  const msgs = [
+    "Lendo as suas respostas...",
+    "Cruzando o cenário da sua clínica...",
+    "Montando o seu diagnóstico personalizado...",
+  ];
+  const bar = box.querySelector("#load-bar");
+  const msgEl = box.querySelector("#load-msg");
+  if (bar) {
+    bar.style.transition = `width ${dur}ms cubic-bezier(.4,0,.2,1)`;
+    requestAnimationFrame(() => { bar.style.width = "100%"; });
+  }
+  if (!reduce && msgEl) {
+    let i = 1;
+    const iv = setInterval(() => {
+      if (i < msgs.length) { msgEl.textContent = msgs[i++]; } else { clearInterval(iv); }
+    }, dur / msgs.length);
+  }
+  setTimeout(mostrar, dur + 250);
+}
+
 /* ---------- Pixel ----------
    O evento de conversão (Lead) já disparou no envio do formulário, no app.js.
    Aqui só marcamos que o diagnóstico apareceu de fato para a pessoa, e o
@@ -174,11 +213,22 @@ function pixel(nome, dados, opts) {
 }
 
 if (a._completedAt || a.problema) {
-  pixel("ViewContent", {
-    content_name: "Diagnostico da clinica",
-    content_category: QUALIFICACAO,
-    lead_qualificacao: QUALIFICACAO,
+  /* O ViewContent sai quando o relatório aparece na tela, não quando a página
+     carrega: durante os 5 segundos de preparo ainda não há nada para ver. */
+  prepararEntao(() => {
+    pixel("ViewContent", {
+      content_name: "Diagnostico da clinica",
+      content_category: QUALIFICACAO,
+      lead_qualificacao: QUALIFICACAO,
+    });
   });
+} else {
+  /* Chegou aqui sem responder o quiz: nada a preparar, mostra direto. */
+  const box = document.getElementById("preparando");
+  if (box) box.remove();
+  report.hidden = false;
+  const foot = document.querySelector(".foot");
+  if (foot) foot.hidden = false;
 }
 
 /* ---------- WhatsApp ---------- */

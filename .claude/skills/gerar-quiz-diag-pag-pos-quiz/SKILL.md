@@ -158,8 +158,9 @@ quiz-lucas-sobreiro.vercel.app. Respeite sempre:
    corrompida); publique a partir de uma subpasta com nome limpo para dar domínio
    limpo; use o TEAM_ID no `--scope`; confira `whoami`/`teams` antes.
 
-Base técnica (já no motor): loading ~5s, envio do lead em `application/json` +
-`keepalive`, data em horário de Brasília, qualificação por intenção, sem travessão.
+Base técnica (já no motor): tela de preparo de ~5s **na página de aplicação**,
+envio do lead em `application/json` + `keepalive`, data em horário de Brasília,
+qualificação por intenção, sem travessão.
 
 ## Estrutura padrão (formato top, não improvisar)
 
@@ -175,12 +176,32 @@ Esta é a estrutura do funil do Lucas. Mantenha; só troque a copy/identidade.
   perfil, e as **2 perguntas-porteira de qualificação por ÚLTIMO** (ex.: faturamento,
   prontidão).
 - Captura no fim: nome, WhatsApp (com máscara), e-mail (obrigatório).
-- **Tela de loading (~5s) personalizada ao público** do cliente (nunca genérica
-  nem resíduo do modelo), depois redireciona pro relatório.
+- Depois do envio válido, o quiz **redireciona direto** para a página de
+  aplicação (400ms, só para o POST do lead sair). A barra de "preparando" **não
+  fica aqui**: ver a regra na seção da página de aplicação.
 
 ### Página de aplicação / relatório (`diagnostico.html` + `diagnostico.js`), nesta ordem
+
+**0. Tela de preparo (~5s), na PRÓPRIA página de aplicação.** Barra que enche +
+mensagens que trocam ("Lendo as suas respostas...", "Cruzando o cenário...",
+"Montando o seu diagnóstico personalizado..."), e só então o relatório aparece.
+Três regras:
+- **Uma só, e é aqui.** Não deixe também uma no quiz: o lead esperaria 10s. Aqui
+  ela termina exatamente quando o relatório aparece e ainda cobre o carregamento
+  das imagens dos depoimentos.
+- **O markup fica no HTML, não no JS.** Assim pinta no primeiro frame; se
+  dependesse do script o lead veria um branco antes.
+- **Personalize a copy ao público do cliente.** Nunca genérica, nunca resíduo do
+  modelo.
+O `ViewContent` do Pixel dispara **quando o relatório é revelado**, não no load da
+página: durante o preparo ainda não há nada para ver.
+
 1. Cabeçalho: selo "Diagnóstico personalizado" + H1 + data.
-2. **Antes de tudo** (acolhe, tira a culpa do dono).
+2. **Antes de tudo** (acolhe, tira a culpa do dono). **Nunca escreva que alguém
+   leu as respostas** ("aqui é da equipe do X", "li com atenção o que você
+   respondeu", "pelo que você me contou"). O relatório é gerado na hora e o lead
+   sabe disso: fingir leitura humana queima credibilidade logo na primeira linha.
+   Diga a verdade, que é mais forte: "montado a partir do que você respondeu".
 3. **O cenário hoje** (espelha as respostas: situação, problema, tempo, impacto).
 4. **Por que não destravou até agora** (reframe do gargalo real: não é esforço nem
    técnica, é o mecanismo que o método resolve).
@@ -256,6 +277,8 @@ aplicação sem respostas com **0** eventos. Apague os arquivos de teste depois.
 - [ ] Título/hero só na 1ª tela (não repetido nas perguntas)
 - [ ] Página de aplicação na ordem padrão · CTA adapta por qualificação · CTAs distribuídos (nenhum no topo) · case-estrela primeiro
 - [ ] Copy 100% do cliente (zero texto do modelo), sem travessões
+- [ ] Tela de preparo (~5s) na página de aplicação, com copy do público do cliente, e **nenhuma** no quiz
+- [ ] Nenhuma frase fingindo que uma pessoa leu as respostas
 - [ ] Identidade do cliente aplicada (cores + logo + fontes)
 - [ ] 1ª pergunta na 1ª tela · auto-avanço · máscara WhatsApp · e-mail obrigatório · UTMs
 - [ ] **Conta confirmada: deploy na conta/time da Simple (NUNCA pessoal)**, `vercel whoami`/`teams ls` checados
