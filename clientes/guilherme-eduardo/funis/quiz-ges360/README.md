@@ -69,6 +69,7 @@ objetivo 0.5). Faixas: 78+ crítica · 60 a 77 alta · 40 a 59 moderada · abaix
 | `styles.css` | Identidade GES360 (navy `#001824`, dourado `#B49024`, CTA verde `#249C3C`) |
 | `logo.webp` | Logo GES360 oficial, enviada pelo cliente em 11/08 (520x137, fundo transparente). Substituiu o recorte de baixa qualidade que tinha sido extraído da apresentação comercial. |
 | `favicon.png` | Ícone da aba: o **G** da logo, recortado do arquivo oficial, sobre o navy da marca (180x180) |
+| `guilherme.webp` | Foto do Guilherme no bloco de autoridade do relatório (200x200, recorte em ombros para ler bem no círculo de 92px) |
 
 ## Pendências para ficar 100%
 
@@ -84,10 +85,8 @@ objetivo 0.5). Faixas: 78+ crítica · 60 a 77 alta · 40 a 59 moderada · abaix
    ⚠️ Dos 8 aprovados, **só 4 estão publicados**, e 2 deles em versão recomprimida (400 px),
    porque o deploy pelo MCP da Vercel embute os arquivos na chamada e imagem grande não passa.
    Ligando o projeto ao repositório, entram os 8 em qualidade cheia.
-4. **Foto do Guilherme** no bloco "Quem é o Guilherme". O CSS `.autor-foto` já está pronto: basta
-   colocar `guilherme.webp` na pasta e adicionar
-   `<img class="autor-foto" src="guilherme.webp" alt="Guilherme Eduardo" />` dentro de `.autor`,
-   em `diagnostico.js` (é assim no funil do Felipe).
+4. ✅ **Foto do Guilherme no ar**, no bloco de autoridade do relatório
+   (`guilherme.webp`, enviada pelo cliente em 25/08).
 
 ## Como republicar
 

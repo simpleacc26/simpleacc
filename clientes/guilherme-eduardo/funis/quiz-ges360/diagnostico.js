@@ -149,7 +149,11 @@ if (!a._completedAt && !a.problema) {
      repositório ela é um caminho relativo, e o funil é autocontido: basta
      publicar esta pasta inteira. A publicação temporária em projetos separados
      na Vercel troca esta linha pela URL do projeto de assets (ver README). */
+  /* Prints ficam em depoimentos/; a foto do Guilherme fica na raiz do funil.
+     No repositório os dois são caminhos relativos e a pasta é autocontida. A
+     publicação temporária troca só estas duas linhas (ver README). */
   const ASSETS = "depoimentos/";
+  const ASSETS_MARCA = "";
   const figura = (p) => `
       <figure class="depo-shot">
         <img src="${ASSETS}${p.src}" width="${p.w}" height="${p.h}" loading="lazy" decoding="async"
@@ -264,6 +268,8 @@ if (!a._completedAt && !a.problema) {
     <div class="etapa">
       <h3>Quem é o Guilherme</h3>
       <div class="autor">
+        <img class="autor-foto" src="${ASSETS_MARCA}guilherme.webp" width="92" height="92"
+             loading="lazy" decoding="async" alt="Guilherme Eduardo" />
         <div>
           <span class="autor-nome">GUILHERME EDUARDO</span>
           <span class="autor-cargo">GES Consultoria Médica · Método GES360</span>
