@@ -51,7 +51,7 @@ verba de anúncio à parte. Prazo prometido: **funil no ar em 7 dias da assinatu
 
 | Projeto | Pasta | Status | Deploy |
 | ------- | ----- | ------ | ------ |
-| Funil (quiz + páginas) | a criar em `funis/` | não iniciado | — |
+| Diagnóstico AUTOFOCO (quiz + página pós-quiz) | [`funis/quiz-autofoco/`](funis/quiz-autofoco/) | no ar | [diagnostico-autofoco-simpleacc.vercel.app](https://diagnostico-autofoco-simpleacc.vercel.app) |
 
 ## Próximos passos
 
@@ -63,7 +63,9 @@ verba de anúncio à parte. Prazo prometido: **funil no ar em 7 dias da assinatu
 - [ ] Decidir: conta de anúncios nova dentro do portfólio Delphis Studios (ver ponto crítico)
 - [ ] Responder a proposta do produto em grupo de ~R$4k
 - [ ] Estratégia do funil para aprovação
-- [ ] Quiz + páginas + copy dos anúncios — `/quiz-pesquisa-estrategia` e `/gerar-quiz-diag-pag-pos-quiz`
+- [x] Quiz + página de diagnóstico publicados (02/09)
+- [ ] Ligar a planilha de leads: rodar o Apps Script e mandar a URL /exec (ver `funis/quiz-autofoco/README.md`)
+- [ ] Copy dos anúncios em produção (já escrita na Estratégia Completa)
 - [ ] Setup de traqueamento, dashboard e subida das campanhas
 
 ## Cuidados

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seu Diagnóstico AUTOFOCO · Delphis Fonseca</title>
+  <meta name="theme-color" content="#0A0A0A" />
+  <style>
+    :root{--bg:#0A0A0A;--text:#F5F0E8}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  </style>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%230A0A0A'/%3E%3Ccircle cx='20' cy='20' r='14' fill='none' stroke='%23C9A84C' stroke-width='4'/%3E%3Ccircle cx='20' cy='20' r='4' fill='%23C9A84C'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .report-head { text-align: center; padding: 20px 0 6px; }
+    .report-head .selo { margin-bottom: 12px; }
+    .report-head h1 { font-size: 26px; }
+    .etapa { margin: 0 0 16px; }
+    .etapa h3 { font-size: 12.5px; text-transform: uppercase; letter-spacing: .1em; color: var(--gold); margin: 0 0 8px; }
+    .etapa p { margin: 0 0 10px; }
+    .depo { background: var(--gold-soft); border: 1px dashed var(--gold-deep); border-radius: var(--radius-sm); padding: 14px; margin: 8px 0; font-size: 14.5px; color: var(--muted); }
+    .cta-box { background: var(--gold-soft); border: 1px solid var(--gold-deep); border-radius: var(--radius); padding: 22px; text-align: center; margin-top: 8px; }
+    .toolbar { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 4px 0 22px; }
+    .report-head h1 .gold { color: var(--gold); }
+    .mirror { margin: 8px 0 12px; padding-left: 18px; color: var(--muted); }
+    .mirror li { margin-bottom: 6px; }
+    .custo { border-left: 2px solid var(--gold-deep); padding-left: 12px; color: var(--muted); }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #fff; color: #14161a; }
+      .card { box-shadow: none; border-color: #ddd; margin: 0; background: #fff; }
+      .card, .etapa p, .mirror, .lead { color: #14161a; }
+      .topbar, .foot, .brand .brand-name, .brand .brand-tag { color: #14161a; }
+      .etapa h3 { color: #8A6D1F; }
+      .depo, .cta-box { background: #FAF6EC; border-color: #D8C08A; color: #14161a; }
+      .etapa, .cta-box, .depo { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <span class="brand-name">Aut<span class="alvo" aria-hidden="true"><svg viewBox="0 0 40 40" role="img" aria-label="o"><circle cx="20" cy="20" r="17" fill="none" stroke="currentColor" stroke-width="4"/><circle cx="20" cy="20" r="9" fill="none" stroke="currentColor" stroke-width="3"/><circle cx="20" cy="20" r="3.2" fill="currentColor"/></svg></span>foco</span>
+        <span class="brand-tag">Comunicação de Verdade</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="toolbar no-print">
+      <button class="btn btn-primary" id="whatsapp">Falar com o Delphis no WhatsApp</button>
+      <button class="btn btn-ghost" id="pdf">Baixar PDF</button>
+    </div>
+    <div class="card screen" id="report"></div>
+  </main>
+
+  <p class="foot">Diagnóstico AUTOFOCO · Delphis Fonseca · leitura pessoal, feita a partir das suas respostas</p>
+
+  <script src="flow.js" defer></script>
+  <script src="diagnostico.js" defer></script>
+</body>
+</html>
