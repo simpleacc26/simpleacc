@@ -120,9 +120,13 @@ projetos separados na Vercel. **Isto é gambiarra e precisa ser desfeito.**
 | --- | --- |
 | `quiz-guilhermeeduardo` | `index.html`, `diagnostico.html`, `flow.js`, `app.js` (o link público) |
 | `ges360-cdn` | `styles.css` |
-| `ges360-relatorio` | `diagnostico.js`, `kayo-4767.webp`, `kayo-4763.webp` |
-| `ges360-assets` | `kayo-4756.webp`, `kayo-4750.webp` |
-| **jsDelivr** (não é Vercel) | `logo.webp` e `favicon.png`, direto deste repositório |
+| `ges360-relatorio` | `diagnostico.js` (só texto agora) |
+| **jsDelivr** (não é Vercel) | `logo.webp`, `favicon.png`, `guilherme.webp` e **os 4 prints**, direto deste repositório |
+
+O projeto `ges360-assets` **não é mais usado** e pode ser apagado: os prints
+passaram para o jsDelivr, e agora em **qualidade cheia** (antes dois deles iam
+recomprimidos a 400 px só para caber na chamada de deploy). Com isso todo deploy
+do relatório virou **só texto**, que é a parte segura do MCP.
 
 Por isso os HTMLs publicados apontam para URLs absolutas, enquanto **os arquivos
 deste repositório usam caminhos relativos e são autocontidos** (a versão certa).
