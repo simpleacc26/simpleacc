@@ -9,7 +9,25 @@
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <!-- Meta Pixel: TODO preencher o ID do Pixel do Lucas antes do deploy (adicionar tambem o track ViewContent) -->
+  <!-- ============ Meta Pixel ============
+       TROQUE os 3 "SEU_PIXEL_ID" abaixo pelo ID do Pixel do CLIENTE, e faca o
+       mesmo no <head> da outra pagina do funil. Preencha tambem
+       TRACKING_CONFIG.meta_pixel_id no app.js (senao os eventos nao saem).
+       Campanha no Meta Ads: objetivo Leads.
+       O evento de conversao (Lead) NAO fica aqui: ele dispara no envio valido
+       do formulario, dentro do app.js. Mapa completo de eventos no SKILL.md.
+       Nao duplicar chamadas de fbq nesta pagina. -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'SEU_PIXEL_ID');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" alt=""
+    src="https://www.facebook.com/tr?id=SEU_PIXEL_ID&ev=PageView&noscript=1" /></noscript>
   <style>
     :root{--bg:#F1ECE4;--text:#2A2420}
     body{margin:0;background:var(--bg);color:var(--text);

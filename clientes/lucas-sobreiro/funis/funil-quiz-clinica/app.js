@@ -6,11 +6,54 @@
 
 /* ---- Tracking plugável: preencha os IDs e os eventos vão junto.
    Vazio = só loga no console. ---- */
-const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
+const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "1096905346357097", custom_webhook: "" };
 
-/* Únicos eventos do funil que vão pro Pixel, como evento PADRÃO do Meta (para
-   otimização e conversões). Os demais eventos internos ficam só no console. */
-const META_STANDARD = { funnel_start: "InitiateCheckout", funnel_complete: "Lead" };
+/* ---- Mapa de eventos internos -> Meta Pixel ----
+   A campanha do Lucas roda com objetivo LEADS. Então só existe UM evento de
+   conversão: "Lead", e ele dispara no envio válido do formulário (nome, e-mail
+   e WhatsApp preenchidos e aprovados na validação). Nada antes disso conta.
+
+   type "std"    = evento padrão do Meta. Aparece na lista de otimização e de
+                   conversão do gerenciador. Use com parcimônia.
+   type "custom" = trackCustom. Não serve para otimizar, serve para montar
+                   público de remarketing e enxergar onde o lead cai fora.
+
+   Eventos internos que NÃO estão aqui (page_view, step_view, step_back,
+   field_error, funnel_abandon) ficam só no console/GA4. É de propósito: evento
+   demais no Pixel polui o aprendizado da campanha. */
+const META_MAP = {
+  funnel_start:    { name: "InitiateCheckout", type: "std" },    // começou a responder
+  step_complete:   { name: "QuizStep",         type: "custom" }, // avançou uma etapa
+  captura_view:    { name: "QuizCaptura",      type: "custom" }, // chegou no formulário
+  funnel_complete: { name: "Lead",             type: "std" },    // CONVERSÃO
+};
+
+/* ID único por envio. Serve para deduplicar caso um dia entre a API de
+   Conversões (CAPI) junto do Pixel: os dois mandam o mesmo eventID e o Meta
+   conta um lead só. Fica guardado no state e vai no console. */
+function novoEventId() {
+  return "lead-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 10);
+}
+
+/* Advanced matching manual. Reenvia o init do Pixel com os dados do lead antes
+   do evento Lead: o próprio fbevents.js faz o hash SHA-256 no navegador, nada
+   sai daqui em texto puro. Isso sobe a qualidade da correspondência, que é o
+   que faz a otimização para Leads achar mais gente parecida com quem converteu.
+   Regra da casa: PII entra SÓ aqui, nunca como parâmetro de evento. */
+function pixelAdvancedMatching(a) {
+  if (!TRACKING_CONFIG.meta_pixel_id || typeof fbq !== "function") return;
+  try {
+    const am = { country: "br" };
+    const email = String(a.email || "").trim().toLowerCase();
+    if (email) am.em = email;
+    const d = soDigitosTel(a.whatsapp);
+    if (d.length === 11) am.ph = "55" + d;                 // E.164 sem o "+"
+    const nome = String(a.nomeResp || "").trim().toLowerCase().split(/\s+/).filter(Boolean);
+    if (nome[0]) am.fn = nome[0];
+    if (nome.length > 1) am.ln = nome[nome.length - 1];
+    fbq("init", TRACKING_CONFIG.meta_pixel_id, am);
+  } catch (e) { /* tracking nunca quebra o funil */ }
+}
 
 /* Planilha de leads via Make (webhook instant → Google Sheets).
    Dispara só quando chega lead; não fica varrendo (não consome crédito à toa).
@@ -30,7 +73,7 @@ function getUTMs() {
   };
 }
 const URL_UTMS = getUTMs();
-function trackEvent(name, data = {}) {
+function trackEvent(name, data = {}, opts = {}) {
   const payload = { ...data, ts: Date.now() };
   console.log(`[TRACK] ${name}`, payload);
   try {
@@ -38,8 +81,12 @@ function trackEvent(name, data = {}) {
     // Só os eventos mapeados vão pro Pixel (evita ruído e PageView duplicado).
     // Os demais eventos internos ficam só no console/GA4/webhook.
     if (TRACKING_CONFIG.meta_pixel_id && typeof fbq === "function") {
-      const std = META_STANDARD[name];
-      if (std) fbq("track", std, data);
+      const m = META_MAP[name];
+      if (m) {
+        const verbo = m.type === "custom" ? "trackCustom" : "track";
+        if (opts.eventID) fbq(verbo, m.name, data, { eventID: opts.eventID });
+        else fbq(verbo, m.name, data);
+      }
     }
     if (TRACKING_CONFIG.custom_webhook && navigator.sendBeacon)
       navigator.sendBeacon(TRACKING_CONFIG.custom_webhook, JSON.stringify({ event: name, ...payload }));
@@ -200,7 +247,8 @@ function renderStep(i) {
     state.answers[step.id] = node.dataset.value;
     save();
     if (!state.started) { state.started = true; trackEvent("funnel_start", {}); }
-    trackEvent("step_complete", { step_id: step.id, time_on_step: Date.now() - stepEnterTime });
+    trackEvent("step_complete", { step_id: step.id, step_number: i + 1,
+      total_steps: F.steps.length, time_on_step: Date.now() - stepEnterTime });
     advancing = true;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     setTimeout(() => { (i < F.steps.length - 1) ? goToStep(i + 1) : renderCaptura(); }, reduce ? 0 : 300);
@@ -224,6 +272,10 @@ function renderCaptura() {
   progressEl.hidden = true;
   const c = F.captura;
   trackEvent("step_view", { step_id: "captura" });
+  /* Respondeu o quiz inteiro e chegou no formulário. É o melhor público de
+     remarketing do funil: gente quente que ainda não virou lead. */
+  trackEvent("captura_view", { content_name: "Formulario diagnostico",
+    lead_qualificacao: classificarLead(state.answers) });
   const fields = c.campos.map(f => `
     <div class="field">
       <label for="${f.id}">${f.label} ${f.required ? '<span class="req" title="obrigatório">*</span>' : '<span class="opt-tag">(opcional)</span>'}</label>
@@ -300,8 +352,33 @@ function renderCaptura() {
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<span class="spinner"></span>Enviando...';
     state.answers._completedAt = new Date().toISOString();
-    save();
-    trackEvent("funnel_complete", { answers: { ...state.answers } });
+
+    /* CONVERSÃO. Chegou aqui = passou pela validação dos três campos e clicou
+       em enviar. É exatamente o que a campanha de Leads tem que otimizar.
+       Guarda de disparo único: se por algum motivo o submit rodar duas vezes,
+       o Meta recebe um lead só. */
+    const qualificacao = classificarLead(state.answers);
+    if (!state.answers._leadEventId) {
+      state.answers._leadEventId = novoEventId();
+      save();
+      pixelAdvancedMatching(state.answers);
+      /* Nenhum dado pessoal vai como parâmetro de evento (política do Meta).
+         Nome, e-mail e telefone entram só pelo advanced matching, já hasheados
+         pelo próprio pixel na função acima. */
+      trackEvent("funnel_complete", {
+        content_name: "Diagnostico da clinica",
+        content_category: qualificacao,          // qualificado | nutrir
+        lead_qualificacao: qualificacao,
+        faturamento: state.answers.faturamento || "",
+        prontidao: state.answers.prontidao || "",
+        perfil: state.answers.perfil || "",
+        frente: (F.config && F.config.frente) || "saude",
+        ...URL_UTMS,
+      }, { eventID: state.answers._leadEventId });
+    } else {
+      save();
+    }
+
     enviarLead();
     renderLoading();
   });

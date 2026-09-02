@@ -65,7 +65,8 @@ IA"). Use vírgula, dois-pontos, parênteses ou ponto final. Faixas como "de X a
 2. BUILD    → duplicar a base e customizar (copy no flow.js, identidade no styles.css, logo)
 3. DEPLOY   → publicar na Vercel (URL limpa), só a subpasta do funil
 4. LEADS    → criar planilha no Drive + Apps Script + TESTAR de ponta a ponta
-5. ENTREGA  → mandar o link do funil + link da planilha + confirmação de teste
+5. PIXEL    → ID do Pixel nas 2 páginas + no app.js, eventos testados em headless
+6. ENTREGA  → link do funil + link da planilha + mapa de eventos + confirmação de teste
 ```
 
 ### Passo 1: Intake
@@ -103,7 +104,21 @@ o Apps Script, ligue o `LEADS_ENDPOINT` no `app.js`, republique e **teste de
 verdade**: envie um lead de teste e confirme que a linha caiu na planilha (com
 UTMs). Só considere "pronto" depois do teste passar.
 
-### Passo 5: Entrega
+### Passo 5: Traqueamento (Meta Pixel)
+Peça o **ID do Pixel** do cliente. Com ele em mãos:
+1. Troque `SEU_PIXEL_ID` no `<head>` do `index.html` **e** do `diagnostico.html`
+   (são 3 ocorrências por página: `fbq('init')`, e duas no `noscript`).
+2. Preencha `TRACKING_CONFIG.meta_pixel_id` no `app.js`. Se ficar vazio, os
+   eventos não saem: o `trackEvent()` é gateado por esse campo.
+3. Republique e confirme com `curl` que o ID está no ar nas duas páginas.
+
+O resto já vem pronto no modelo. **Não reescreva a lógica de eventos.** Leia a
+seção "Traqueamento (padrão)" abaixo antes de mexer em qualquer `fbq`.
+
+Se o cliente ainda não tem o Pixel: entregue o funil com o placeholder e deixe
+isso explícito como pendência. Nunca invente um ID.
+
+### Passo 6: Entrega
 Informe: **link do funil** (raiz, com instrução de usar `?utm_...` no anúncio),
 **link da planilha**, e a confirmação de que a integração foi testada. Liste
 pendências do cliente, se houver (ex.: depoimentos reais).
@@ -184,6 +199,59 @@ Regras do CTA:
   Estratégica"); **nutrir** vai para o caminho de menor compromisso ("entender
   melhor o próximo passo"), **sem oferecer nada barato**.
 
+## Traqueamento (padrão)
+
+Campanha de quiz roda com **objetivo Leads**. Todo o desenho parte disso.
+
+**Regra que manda em tudo:** só é lead quem preencheu os campos, passou na
+validação e clicou em enviar. O `Lead` dispara nesse instante, no `app.js`.
+Quem abandona o quiz, quem erra o telefone, quem chega no formulário e não
+envia: não gera `Lead`. É o único evento que a campanha otimiza.
+
+| Momento | Evento no Meta | Tipo | Onde |
+|---|---|---|---|
+| Abriu a página | `PageView` | padrão | snippet, as duas páginas |
+| Escolheu a primeira resposta | `InitiateCheckout` | padrão | `app.js` |
+| Avançou uma etapa | `QuizStep` | custom | `app.js` |
+| Terminou o quiz e viu o formulário | `QuizCaptura` | custom | `app.js` |
+| **Enviou o formulário válido** | **`Lead`** | **padrão** | **`app.js`** |
+| A página de aplicação apareceu | `ViewContent` | padrão | `diagnostico.js` |
+| Clicou em CTA de WhatsApp | `Contact` | padrão | `diagnostico.js` |
+
+Regras que **não** se negociam:
+
+1. **Um evento de conversão só.** `Lead`. Não promova `QuizCaptura` nem
+   `ViewContent` a evento padrão "para ter mais dado": evento padrão demais
+   polui o aprendizado da campanha.
+2. **Eventos internos ficam no console.** `page_view`, `step_view`, `step_back`,
+   `field_error`, `funnel_abandon` não entram no `META_MAP`. É de propósito.
+3. **Zero PII em parâmetro de evento.** É política do Meta. Nome, e-mail e
+   telefone entram **só** pelo advanced matching (`pixelAdvancedMatching()`),
+   que reenvia o `fbq('init')` com os dados antes do `Lead`; o hash SHA-256 é
+   feito pelo próprio `fbevents.js` no navegador. Cuidado: é fácil regredir
+   isso mandando `{ answers: {...state.answers} }` no `funnel_complete`.
+4. **`eventID` no `Lead`.** Já vem gerado por `novoEventId()`. Se um dia entrar
+   CAPI, o servidor manda o mesmo ID e o Meta deduplica.
+5. **Disparo único.** O `Lead` é travado por `state.answers._leadEventId` no
+   `sessionStorage`. Submit duplicado ou refresh não geram lead repetido.
+6. **`lead_qualificacao` em todo evento** (`qualificado` / `nutrir`), e no
+   `Lead` também `faturamento`, `prontidao`, `perfil` e as UTMs. É o que permite
+   conversão customizada só dos bons e lookalike da semente certa.
+7. **`ViewContent` só quando há respostas.** Quem abre a página de aplicação
+   direto, sem ter feito o quiz, não dispara nada.
+
+**Teste antes de entregar.** Copie o `index.html` para um `_teste.html`, troque
+o snippet do Pixel por um gravador (`window.fbq = function(){ __fbq.push(arguments) }`),
+stube o `fetch`, percorra o funil por script e rode em Chromium headless com
+`--virtual-time-budget` (senão o redirect da tela de carregamento apaga o
+resultado). Confirme: sequência completa com **1** `Lead`; submit vazio e
+submit inválido com **0** `Lead`; submit duplicado com **1** `Lead`; página de
+aplicação sem respostas com **0** eventos. Apague os arquivos de teste depois.
+
+**O que entregar pro tráfego:** o mapa de eventos acima, qual evento otimizar
+(`Lead`), e os públicos de remarketing prontos (`QuizStep` sem `Lead`,
+`QuizCaptura` sem `Lead`, `Lead` sem `Contact`, lookalike de `Lead`).
+
 ## Checklist final
 - [ ] Título/hero só na 1ª tela (não repetido nas perguntas)
 - [ ] Página de aplicação na ordem padrão · CTA adapta por qualificação · CTAs distribuídos (nenhum no topo) · case-estrela primeiro
@@ -194,4 +262,8 @@ Regras do CTA:
 - [ ] Publicado na Vercel do cliente, URL limpa e pública (testada com curl/navegador)
 - [ ] Planilha criada no Drive do cliente, com colunas certas (+ UTM)
 - [ ] Integração funil→planilha **testada** (lead de teste caiu na planilha)
+- [ ] Pixel do cliente nas duas páginas (`SEU_PIXEL_ID` trocado, 3x por página) **e** em `TRACKING_CONFIG.meta_pixel_id`
+- [ ] Eventos testados em headless: 1 `Lead` no envio válido, 0 no inválido, 0 no duplicado, 0 na página de aplicação sem respostas
+- [ ] Nenhum dado pessoal em parâmetro de evento (só advanced matching)
+- [ ] Mapa de eventos e evento de otimização (`Lead`) passados pro tráfego
 - [ ] Links entregues + pendências sinalizadas

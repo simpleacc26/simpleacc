@@ -155,6 +155,30 @@ if (!a._completedAt && !a.problema) {
     </div>`;
 }
 
+/* ---------- Pixel ----------
+   O evento de conversão (Lead) já disparou no envio do formulário, no app.js.
+   Aqui só marcamos que o diagnóstico apareceu de fato para a pessoa, e o
+   clique no CTA de WhatsApp. Isso não otimiza a campanha (o objetivo é Leads),
+   serve para medir quantos leads leem o diagnóstico e quantos chamam no
+   WhatsApp, e para montar público de remarketing de quem leu e não chamou. */
+const QUALIFICACAO = a.faturamento === "ate15" || a.faturamento === "15a30" ||
+  a.prontidao === "pontual" || a.prontidao === "pesquisando" ? "nutrir" : "qualificado";
+
+function pixel(nome, dados, opts) {
+  try {
+    if (typeof fbq !== "function") return;
+    if (opts) fbq("track", nome, dados, opts); else fbq("track", nome, dados);
+  } catch (err) { /* tracking nunca quebra a página */ }
+}
+
+if (a._completedAt || a.problema) {
+  pixel("ViewContent", {
+    content_name: "Diagnostico da clinica",
+    content_category: QUALIFICACAO,
+    lead_qualificacao: QUALIFICACAO,
+  });
+}
+
 /* ---------- WhatsApp ---------- */
 function abrirWhatsApp() {
   const nome = (a.nomeResp || "").split(" ")[0] || "";
@@ -165,7 +189,8 @@ function abrirWhatsApp() {
 // qualquer CTA com a classe .cta-wpp (distribuídos pela página) abre o WhatsApp
 document.addEventListener("click", (e) => {
   if (e.target.closest && e.target.closest(".cta-wpp")) {
-    try { if (typeof fbq === "function") fbq("track", "Contact", { content_name: "CTA WhatsApp diagnostico" }); } catch (err) {}
+    pixel("Contact", { content_name: "CTA WhatsApp diagnostico",
+      content_category: QUALIFICACAO, lead_qualificacao: QUALIFICACAO });
     abrirWhatsApp();
   }
 });

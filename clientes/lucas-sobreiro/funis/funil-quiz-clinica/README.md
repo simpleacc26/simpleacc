@@ -46,11 +46,78 @@ python3 -m http.server 8000
       (`LEADS_ENDPOINT`). Detalhes na seção Integração abaixo.
 - [x] **Deploy (Vercel):** no ar em https://quiz-lucas-sobreiro.vercel.app
       (produção, team `simpleacc`). Ver seção Deploy.
-- [ ] **Meta Pixel do Lucas** (fora do escopo desta entrega, a pedido do cliente):
-      descomentar o bloco no `<head>` do `index.html` e do `diagnostico.html` e
-      preencher o ID quando o Lucas enviar.
+- [x] **Meta Pixel do Lucas** (`1096905346357097`) instalado no `<head>` das duas
+      páginas, com o traqueamento completo montado para o objetivo **Leads**.
+      Ver seção Traqueamento abaixo.
 - [ ] (Opcional) Logo do Lucas: trocar `.brand-name`/`.brand-tag` por
       `<img class="logo-img">` quando houver arquivo do brandbook oficial.
+
+## Traqueamento (Meta Pixel · objetivo Leads)
+
+**Pixel:** `1096905346357097`. Instalado no `<head>` do `index.html` e do
+`diagnostico.html`. O `PageView` sai do snippet base; todo o resto sai do
+código do funil (`app.js` e `diagnostico.js`).
+
+### Regra que manda em tudo
+
+**Só é lead quem preencheu nome, e-mail e WhatsApp, passou na validação e
+clicou em enviar.** O evento `Lead` dispara nesse instante, dentro do
+`app.js`. Quem abandona no meio do quiz, quem erra o telefone, quem chega no
+formulário e não envia: não gera `Lead`. É esse evento que a campanha otimiza.
+
+### Mapa de eventos
+
+| Momento | Evento no Meta | Tipo | Onde |
+|---|---|---|---|
+| Abriu a página | `PageView` | padrão | snippet, as duas páginas |
+| Escolheu a primeira resposta | `InitiateCheckout` | padrão | `app.js` |
+| Avançou uma etapa (1 a 9) | `QuizStep` | custom | `app.js` |
+| Terminou o quiz e viu o formulário | `QuizCaptura` | custom | `app.js` |
+| **Enviou o formulário válido** | **`Lead`** | **padrão** | **`app.js`** |
+| O diagnóstico apareceu na tela | `ViewContent` | padrão | `diagnostico.js` |
+| Clicou em qualquer CTA de WhatsApp | `Contact` | padrão | `diagnostico.js` |
+
+Eventos internos que **não** vão pro Pixel de propósito (`page_view`,
+`step_view`, `step_back`, `field_error`, `funnel_abandon`): ficam só no
+console. Evento demais no Pixel polui o aprendizado da campanha.
+
+### Para quem vai configurar a campanha (Renan)
+
+- **Objetivo:** Leads. **Evento de otimização e de conversão:** `Lead`.
+- **Não** otimizar por `QuizCaptura` nem por `ViewContent`. Eles existem para
+  medir queda e montar público, não para a campanha perseguir.
+- **Públicos de remarketing prontos** (todos por evento do Pixel):
+  - `QuizStep` sem `Lead` → começou e largou no meio.
+  - `QuizCaptura` sem `Lead` → chegou no formulário e não enviou (o mais quente).
+  - `Lead` sem `Contact` → virou lead e não chamou no WhatsApp.
+  - `Lead` → base de lookalike (é a semente boa, usar essa).
+- **Segmentação por qualidade do lead:** todo evento leva o parâmetro
+  `lead_qualificacao` (`qualificado` ou `nutrir`, mesma régua do diagnóstico) e
+  o `Lead` leva também `faturamento`, `prontidao` e `perfil`. Dá para montar
+  conversão customizada só de `Lead` + `lead_qualificacao = qualificado` e
+  fazer lookalike só dos bons.
+- As UTMs da URL viajam junto no `Lead` (`utm_source`, `utm_medium`,
+  `utm_campaign`, `utm_content`, `utm_term`) e também na planilha.
+
+### Detalhes técnicos
+
+- **Advanced matching manual:** antes do `Lead`, o `app.js` reenvia o `fbq('init')`
+  com e-mail, telefone (E.164, `55` + DDD + número), primeiro e último nome e
+  país. O hash SHA-256 é feito pelo próprio `fbevents.js` no navegador: nada sai
+  em texto puro. Isso sobe a qualidade da correspondência, que é o que faz a
+  otimização para Leads funcionar melhor.
+- **Nenhum dado pessoal vai como parâmetro de evento** (política do Meta). PII
+  entra só pelo advanced matching acima.
+- **`eventID` por envio:** o `Lead` já sai com um ID único. Se um dia entrar a
+  API de Conversões (CAPI) junto do Pixel, é só mandar o mesmo `eventID` do
+  lado do servidor que o Meta deduplica e conta um lead só.
+- **Disparo único:** o `Lead` é travado por um flag no `sessionStorage`. Submit
+  duplicado, refresh ou voltar não geram lead repetido.
+- **Testado em Chromium headless** (02/09/2026): funil completo → `InitiateCheckout`,
+  9x `QuizStep`, `QuizCaptura`, `init` com advanced matching e 1x `Lead`.
+  Submit vazio e submit com telefone/e-mail inválidos: **nenhum** `Lead`.
+  Submit duplicado: **1** `Lead`. Diagnóstico aberto direto, sem respostas:
+  **nenhum** evento.
 
 ## Integração de leads (Make → Google Sheets)
 
