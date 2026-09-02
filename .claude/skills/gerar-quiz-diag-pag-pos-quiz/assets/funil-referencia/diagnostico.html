@@ -36,30 +36,51 @@
   <link rel="stylesheet" href="styles.css" />
   <style>
     /* --- específico do relatório --- */
-    .report-head { text-align: center; padding: 20px 0 6px; }
+    .report-head { text-align: center; padding: 20px 0 14px; }
     .report-head .selo { margin-bottom: 12px; }
     .report-head h1 { font-size: 26px; }
-    .etapa { margin: 0 0 16px; }
-    .etapa h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--primary); margin: 0 0 8px; }
-    .etapa p { margin: 0 0 10px; }
-    .metodo { margin: 0; padding-left: 18px; }
-    .metodo li { margin: 0 0 8px; }
+
+    /* --- ritmo de leitura ---
+       O relatório é texto longo, lido no celular e de uma sentada só. Sem
+       respiro entre as seções tudo vira um bloco e o olho não descansa.
+       Cada etapa ganha espaço próprio e um fio curto antes do rótulo, que
+       marca o começo da seção com discrição. É de propósito que não há uma
+       linha divisória de ponta a ponta: sete divisórias deixariam o
+       diagnóstico com cara de formulário, não de leitura. */
+    .etapa { margin: 0 0 38px; }
+    .etapa h3 {
+      font-size: 12px; text-transform: uppercase; letter-spacing: .16em;
+      color: var(--primary); margin: 0 0 14px; line-height: 1.5;
+    }
+    .etapa h3::before {
+      content: ""; display: block; width: 30px; height: 2px; border-radius: 2px;
+      margin-bottom: 16px; background: var(--primary); opacity: .35;
+    }
+    .etapa p { margin: 0 0 15px; line-height: 1.72; }
+    .etapa p:last-child { margin-bottom: 0; }
+    .etapa .hint { margin-top: 18px; line-height: 1.6; }
+    .metodo { margin: 4px 0 0; padding-left: 20px; }
+    .metodo li { margin: 0 0 13px; line-height: 1.65; }
+    .metodo li:last-child { margin-bottom: 0; }
     .metodo strong { color: var(--primary-700); }
-    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 8px 0; }
-    .compare .col { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px; background: var(--surface); }
-    .compare .col h4 { margin: 0 0 8px; font-size: 14px; }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0 2px; }
+    .compare .col { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px; background: var(--surface); }
+    .compare .col h4 { margin: 0 0 10px; font-size: 14px; line-height: 1.4; }
     .compare .col.bad h4 { color: var(--muted); }
     .compare .col.good { background: color-mix(in srgb, var(--primary) 6%, var(--surface)); border-color: color-mix(in srgb, var(--primary) 30%, var(--border)); }
-    .compare ul { margin: 0; padding-left: 18px; font-size: 15px; color: var(--muted); }
+    .compare ul { margin: 0; padding-left: 18px; font-size: 15px; color: var(--muted); line-height: 1.55; }
+    .compare ul li { margin-bottom: 7px; }
+    .compare ul li:last-child { margin-bottom: 0; }
     .compare .good ul { color: var(--text); }
-    .depo { background: var(--accent-soft); border: 1px dashed var(--border); border-radius: var(--radius-sm); padding: 14px; margin: 8px 0; font-size: 15px; color: var(--primary-700); }
-    .depo-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0 6px; }
+    .depo { background: var(--accent-soft); border: 1px dashed var(--border); border-radius: var(--radius-sm); padding: 16px; margin: 16px 0; font-size: 15px; color: var(--primary-700); line-height: 1.6; }
+    .depo-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0 12px; }
     .depo-shot { width: 100%; height: auto; display: block; border-radius: var(--radius-sm); border: 1px solid var(--border); box-shadow: var(--shadow); background: #fff; }
     @media (max-width: 520px){ .depo-gallery { grid-template-columns: 1fr; } }
-    .cta-inline { text-align: center; margin: 22px 0; }
+    .cta-inline { text-align: center; margin: 30px 0 38px; }
     .cta-inline .btn { width: 100%; max-width: 420px; }
-    .cta-box { background: color-mix(in srgb, var(--primary) 7%, var(--surface)); border: 1px solid color-mix(in srgb, var(--primary) 26%, var(--border)); border-radius: var(--radius); padding: 22px; text-align: center; margin-top: 8px; }
-    .clube { font-size: 15px; color: var(--muted); margin-top: 14px; }
+    .cta-box { background: color-mix(in srgb, var(--primary) 7%, var(--surface)); border: 1px solid color-mix(in srgb, var(--primary) 26%, var(--border)); border-radius: var(--radius); padding: 26px 22px; text-align: center; margin-top: 6px; }
+    .cta-box p { line-height: 1.65; }
+    .clube { font-size: 15px; color: var(--muted); margin-top: 18px; line-height: 1.6; }
     .toolbar { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 4px 0 22px; }
     @media (max-width: 520px){ .compare { grid-template-columns: 1fr; } }
     @media print {
