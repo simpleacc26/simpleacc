@@ -87,3 +87,27 @@ Se o usuário já respondeu boa parte disso na própria mensagem (ex.: já mando
 ## Registro (opcional, mas recomendado)
 
 Se estiver rodando dentro do hub da SimpleAcc (`clientes/<cliente>/`), salve o resultado em `clientes/<cliente>/copy/<data>-copies-<assunto>.md` e `clientes/<cliente>/roteiros/<data>-roteiros-<assunto>.md`, seguindo a convenção já usada nesses clientes (ver arquivos existentes nessas pastas como modelo de formatação).
+
+## Legenda de anúncio complementa o vídeo, não repete o vídeo
+
+Quando o mesmo criativo tem vídeo e legenda, são duas peças, não uma peça
+duplicada. O vídeo faz a afirmação; a legenda entrega o que não coube na fala.
+
+Cada legenda carrega **um** complemento novo, e só um:
+
+- **Autoteste:** o vídeo afirma, a legenda dá o teste que prova aquilo na
+  realidade de quem lê.
+- **Objeção respondida:** o vídeo aponta o caminho, a legenda derruba o que
+  impede a pessoa de andar nele.
+- **Ordem de prioridade:** o vídeo lista os problemas, a legenda diz por qual
+  começar e por quê.
+- **Desqualificação:** o vídeo entrega o case, a legenda diz para quem não
+  funciona (é o que faz o case parecer real em vez de propaganda).
+
+Duas regras duras: **nunca abrir a legenda com a primeira frase do vídeo**, e se
+a legenda puder ser lida em voz alta como se fosse o roteiro, ela está errada.
+
+Formato que funciona no feed: 3 parágrafos (gancho, argumento, CTA), de 115 a 130
+palavras, com o **primeiro parágrafo abaixo de ~125 caracteres** (é o que aparece
+antes do "ver mais" no celular) e fechando sozinho ali. O link nunca vai na
+primeira linha.
