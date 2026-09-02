@@ -129,9 +129,9 @@ if (!a._completedAt && !a.problema) {
       cap: "Antes de começar, ele tinha medo de que ninguém fosse pagar pelos programas. Este print é do dia 22 de maio, com o mês ainda em curso: fechou em R$ 86.771." },
     preco:    { src: "kayo-4750.webp", w: 560, h: 419,
       cap: "Sobre o medo de que o paciente ache caro, depois de fechar 3 programas em um dia: \"ninguém pediu desconto, ninguém achou caro\"." },
-    perfil:   { src: "kayo-4767.webp", w: 400, h: 378,
+    perfil:   { src: "kayo-4767.webp", w: 560, h: 529,
       cap: "Um programa de R$ 4.400 e dois de R$ 3.000, fechados com três pacientes novos que ele mesmo classificaria como \"sem perfil\"." },
-    plantao:  { src: "kayo-4763.webp", w: 400, h: 516,
+    plantao:  { src: "kayo-4763.webp", w: 560, h: 723,
       cap: "Ele dava plantão de 18 horas na UTI às terças, por R$ 1.500. Nesta terça, fechou um programa de R$ 9 mil dentro da própria clínica." },
   };
 
@@ -145,11 +145,11 @@ if (!a._completedAt && !a.problema) {
   };
   const cit = CITACOES[valor("objetivo")] || CITACOES._padrao;
 
-  /* Única constante a mexer para trocar de onde vêm os prints. Aqui no
-     repositório ela é um caminho relativo, e o funil é autocontido: basta
-     publicar esta pasta inteira. A publicação temporária em projetos separados
-     na Vercel troca esta linha pela URL do projeto de assets (ver README). */
+  /* Prints ficam em depoimentos/; a foto do Guilherme fica na raiz do funil.
+     No repositório os dois são caminhos relativos e a pasta é autocontida. A
+     publicação temporária troca só estas duas linhas (ver README). */
   const ASSETS = "depoimentos/";
+  const ASSETS_MARCA = "";
   const figura = (p) => `
       <figure class="depo-shot">
         <img src="${ASSETS}${p.src}" width="${p.w}" height="${p.h}" loading="lazy" decoding="async"
@@ -264,6 +264,8 @@ if (!a._completedAt && !a.problema) {
     <div class="etapa">
       <h3>Quem é o Guilherme</h3>
       <div class="autor">
+        <img class="autor-foto" src="${ASSETS_MARCA}guilherme.webp" width="92" height="92"
+             loading="lazy" decoding="async" alt="Guilherme Eduardo" />
         <div>
           <span class="autor-nome">GUILHERME EDUARDO</span>
           <span class="autor-cargo">GES Consultoria Médica · Método GES360</span>
