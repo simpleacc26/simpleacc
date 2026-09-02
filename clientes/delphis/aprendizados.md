@@ -27,3 +27,23 @@ Log do que funciona e do que não funciona com este cliente.
 | 2026-09-02 | Funil implementado e publicado: quiz de 10 perguntas + página de diagnóstico com leitura por padrão, em https://diagnostico-autofoco-simpleacc.vercel.app (Vercel, time Simpleacc). Identidade preto e dourado **extraída do próprio site dele** (metodoautofoco.com.br), não inventada. O WhatsApp do CTA saiu do site: 5511944659466. | Implementação 02/09 |
 | 2026-09-02 | O app.js classifica o lead sozinho (QUALIFICADO / A NUTRIR / FORA POR ORA) cruzando P2 com P10 e grava o padrão de travamento. A planilha já chega pronta para o comercial priorizar, sem ninguém ler resposta por resposta. | Implementação 02/09 |
 | 2026-09-02 | Deployment Protection do time Vercel vem ligada por padrão e derruba funil público (a URL pedia login). Desligar no projeto antes de entregar o link. | Implementação 02/09 |
+
+## Funil no ar · 02/09/2026
+
+- **URL sem sufixo de time.** Projeto na Vercel chamado `autofoco` responde tanto em
+  `autofoco.vercel.app` quanto em `autofoco-simpleacc.vercel.app`. O alias curto existe
+  quando o nome do projeto está livre no `.vercel.app`; `diagnostico-autofoco` já estava
+  tomado por outra conta, e por isso só saía a versão com `-simpleacc`. Nome curto e livre
+  primeiro, sempre.
+- **Integração com a planilha via Make, não Apps Script.** É o padrão da casa (todos os
+  outros funis usam `webhook → Google Sheets: Add a Row`) e dá para montar e testar inteiro
+  sem depender do cliente abrir Extensões → Apps Script.
+- **`mode: "no-cors"` limita o Content-Type.** Só permite `text/plain`,
+  `x-www-form-urlencoded` ou `multipart/form-data`. Enviar `URLSearchParams` resolve: o Make
+  já quebra em campos nomeados, sem precisar de data structure declarada.
+- **Meta Pixel: `Lead` é a conversão, o resto é `trackCustom`.** O objetivo da campanha é
+  Leads, então só o envio do formulário dispara `fbq('track','Lead')`. Os eventos de etapa
+  ficam como custom para não competir com a otimização.
+- **`funnel_abandon` precisa de trava.** Sem uma flag de concluído, o `beforeunload` dispara
+  abandono também em quem converteu (o redirect para a página de diagnóstico conta como
+  saída). Marcar `state.completed` no envio resolve.

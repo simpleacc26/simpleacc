@@ -149,6 +149,9 @@ function abrirWhatsApp() {
   const nome = (a.nomeResp || "").split(" ")[0] || "";
   const optPadrao = opcao("padrao");
   const padrao = (optPadrao && optPadrao.padrao) || "";
+  /* Sinal de intencao para a Meta. A conversao da campanha continua sendo o Lead
+     disparado no envio do quiz; aqui e so um evento custom para leitura interna. */
+  try { if (typeof fbq === "function") fbq("trackCustom", "whatsapp_click", { padrao: padrao }); } catch (e) { }
   const msg = (F.marca.whatsappMsg || "")
     .replace("{nome}", nome)
     .replace("{padrao}", padrao);

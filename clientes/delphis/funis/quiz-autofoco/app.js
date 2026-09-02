@@ -1,7 +1,7 @@
-const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
+const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "2308443446594670", custom_webhook: "" };
 
-/* Planilha de leads (Google Apps Script). Cole aqui a URL /exec da implantação e republique. */
-const LEADS_ENDPOINT = "";
+/* Planilha de leads. Webhook do Make: cenário "[Delphis Fonseca] Diagnóstico AUTOFOCO → Sheets". */
+const LEADS_ENDPOINT = "https://hook.us2.make.com/3wzu02g0mdb771irfu6ngavgrp1k6njv";
 
 function getUTMs() {
   const p = new URLSearchParams(location.search);
@@ -53,9 +53,12 @@ function enviarLead() {
     frente: "Diagnóstico AUTOFOCO", origem: document.referrer || location.href,
     ...URL_UTMS,
   };
+  /* Form-urlencoded: o unico Content-Type que o modo no-cors permite e que o Make
+     ja quebra em campos nomeados. Cada chave do lead vira uma coluna na planilha. */
+  const corpo = new URLSearchParams();
+  Object.keys(lead).forEach((k) => corpo.append(k, lead[k] == null ? "" : String(lead[k])));
   try {
-    fetch(LEADS_ENDPOINT, { method: "POST", mode: "no-cors",
-      headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(lead) });
+    fetch(LEADS_ENDPOINT, { method: "POST", mode: "no-cors", keepalive: true, body: corpo });
   } catch (e) { }
 }
 
@@ -227,8 +230,17 @@ function renderCaptura() {
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<span class="spinner"></span>Enviando...';
     state.answers._completedAt = new Date().toISOString();
+    state.completed = true;
     save();
     trackEvent("funnel_complete", { padrao: padraoDoLead(), classificacao: classificacaoDoLead() });
+    /* Evento de conversao da campanha (objetivo: Leads). Dispara uma vez, no envio. */
+    try {
+      if (typeof fbq === "function") fbq("track", "Lead", {
+        content_name: "Diagnostico AUTOFOCO",
+        content_category: padraoDoLead(),
+        status: classificacaoDoLead(),
+      });
+    } catch (e) { }
     enviarLead();
     setTimeout(() => { window.location.href = "diagnostico.html"; }, 600);
   });
@@ -257,7 +269,7 @@ function offerResume(saved) {
 }
 
 window.addEventListener("beforeunload", () => {
-  if (state.started && state.view !== "captura") trackEvent("funnel_abandon", { last_step: state.view });
+  if (state.started && !state.completed && state.view !== "captura") trackEvent("funnel_abandon", { last_step: state.view });
 });
 
 (function init() {
