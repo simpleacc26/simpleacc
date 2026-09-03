@@ -105,11 +105,10 @@ function renderStep(i) {
   const intro = i === 0 ? `
       <span class="selo">${F.hero.selo}</span>
       <h1>${F.hero.titulo}</h1>
-      <p class="hint" style="margin:-4px 0 20px">${F.hero.tempo}</p>` : "";
+      <p class="lead" style="margin:-4px 0 22px">${F.hero.subtitulo}</p>` : "";
   const screen = el(`
     <section class="card screen">
       ${intro}
-      <p class="eyebrow">${step.etapa}</p>
       <h2 id="q-${step.id}">${step.pergunta}</h2>
       <div class="options" role="radiogroup" aria-labelledby="q-${step.id}">${opts}</div>
       <div class="actions">
@@ -242,8 +241,51 @@ function renderCaptura() {
       });
     } catch (e) { }
     enviarLead();
-    setTimeout(() => { window.location.href = "diagnostico.html"; }, 600);
+    renderGerando();
   });
+}
+
+/* Ponte entre o quiz e o diagnostico: 5 segundos de barra ate 100%, com o
+   passo a passo do que esta sendo feito. Da tempo do lead chegar na leitura
+   com a sensacao de que ela foi montada para ele. */
+function renderGerando() {
+  progressEl.hidden = true;
+  trackEvent("step_view", { step_id: "gerando" });
+  const passos = [
+    "Lendo as suas respostas...",
+    "Comparando com os quatro padrões de travamento...",
+    "Identificando o que se repete no seu caso...",
+    "Escrevendo a sua leitura...",
+    "Pronto. Abrindo o seu diagnóstico.",
+  ];
+  const screen = el(`
+    <section class="card screen gerando">
+      <span class="selo">Diagnóstico personalizado</span>
+      <h2>Estamos montando a sua leitura</h2>
+      <p class="status" id="gen-status">${passos[0]}</p>
+      <div class="gen-track"><div class="gen-bar" id="gen-bar"></div></div>
+      <p class="gen-pct" id="gen-pct">0%</p>
+    </section>`);
+  app.replaceChildren(screen);
+  scrollTop();
+
+  const DURACAO = 5000, TICK = 50;
+  const bar = screen.querySelector("#gen-bar");
+  const pct = screen.querySelector("#gen-pct");
+  const status = screen.querySelector("#gen-status");
+  let passado = 0;
+  const timer = setInterval(() => {
+    passado += TICK;
+    const p = Math.min(100, Math.round((passado / DURACAO) * 100));
+    bar.style.width = p + "%";
+    pct.textContent = p + "%";
+    const i = Math.min(passos.length - 1, Math.floor((p / 100) * passos.length));
+    if (status.textContent !== passos[i]) status.textContent = passos[i];
+    if (passado >= DURACAO) {
+      clearInterval(timer);
+      window.location.href = "diagnostico.html";
+    }
+  }, TICK);
 }
 
 function goToStep(i) { state.view = i; save(); renderStep(i); }

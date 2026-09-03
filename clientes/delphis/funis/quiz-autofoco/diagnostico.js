@@ -13,6 +13,12 @@ function esc(s) { return String(s == null ? "" : s).replace(/[<>&]/g, c => ({ "<
 
 const a = getState().answers || {};
 
+/* Foto do Delphis. Servida a partir do arquivo dele na pasta do Drive do cliente
+   (2. Material Visual > Fotos). O mesmo arquivo está versionado aqui como
+   delphis.jpg: quando o funil voltar a ser publicado com o binário junto, trocar
+   esta constante por "delphis.jpg" e servir do próprio domínio. */
+const FOTO_DELPHIS = "https://lh3.googleusercontent.com/d/1Jqg9HJGqP2dIfo8PKkdWhccJOfOCqZ94=s300";
+
 const CAMINHO = {
   "O Invisível": {
     resumo: "Você sabe muito, e isso não chega inteiro do outro lado.",
@@ -39,7 +45,8 @@ if (!a._completedAt && !a.padrao) {
     <p class="lead">Parece que você chegou aqui sem responder o diagnóstico. Leva 2 minutos.</p>
     <div class="actions"><a class="btn btn-primary btn-block" href="index.html">Fazer o diagnóstico agora</a></div>`;
 } else {
-  const nome = esc((a.nomeResp || "").split(" ")[0]) || "";
+  const primeiro = (a.nomeResp || "").trim().split(" ")[0] || "";
+  const nome = esc(primeiro ? primeiro.charAt(0).toUpperCase() + primeiro.slice(1) : "");
   const abre = nome ? nome + ", o seu padrão é" : "O seu padrão é";
   const optPadrao = opcao("padrao");
   const padrao = (optPadrao && optPadrao.padrao) || "O Invisível";
@@ -111,7 +118,16 @@ if (!a._completedAt && !a.padrao) {
 
     <div class="etapa">
       <h3>Quem conduz</h3>
-      <p>Delphis Fonseca. Comunicação desde 1984: rádio na Jovem Pan, Antena 1, Gazeta, Transamérica e Band, jornalismo e apresentação na Rede Bandeirantes, narração de documentários ligados a Discovery, National Geographic, BBC e ID, dublagem para produções de Disney, Warner, Paramount, HBO e Netflix, além de teatro, cinema e carreira musical.</p>
+      <div class="autor">
+        <img class="autor-foto" src="${FOTO_DELPHIS}" width="104" height="104" decoding="async"
+             referrerpolicy="no-referrer" alt="Delphis Fonseca"
+             onerror="this.style.display='none'" />
+        <div class="autor-nome">
+          <strong>Delphis Fonseca</strong>
+          <span>Mentor de comunicação, criador do Método AUTOFOCO</span>
+        </div>
+      </div>
+      <p>Comunicação desde 1984: rádio na Jovem Pan, Antena 1, Gazeta, Transamérica e Band, jornalismo e apresentação na Rede Bandeirantes, narração de documentários ligados a Discovery, National Geographic, BBC e ID, dublagem para produções de Disney, Warner, Paramount, HBO e Netflix, além de teatro, cinema e carreira musical.</p>
       <p>Criador do <strong>primeiro curso de formação de apresentadores de TV do SENAC São Paulo</strong>, reconhecido pelo MEC, ministrado por 22 anos. <strong>Mais de 4.000 pessoas formadas</strong>, e a maior parte delas nunca quis ser apresentador: eram médicos, advogados, executivos, empresários e professores que precisavam ser compreendidos.</p>
       <div class="depo">[DEPOIMENTO 1] espaço reservado para depoimento em vídeo de aluno com profissão visível.</div>
       <div class="depo">[DEPOIMENTO 2] espaço reservado para depoimento de aluno, mediante autorização escrita de nome e imagem.</div>

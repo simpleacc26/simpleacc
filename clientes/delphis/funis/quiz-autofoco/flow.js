@@ -8,18 +8,16 @@ window.FLOW = {
   },
 
   hero: {
-    selo: "Comunicação de Verdade · Método AUTOFOCO",
-    titulo: "Você sabe do que fala. Por que isso não chega?",
+    selo: "Método AUTOFOCO · Delphis Fonseca",
+    titulo: "Você sabe o que dizer. Na hora, não sai como sai na sua cabeça.",
     subtitulo:
-      "Não é falta de conteúdo e não é falta de talento. Existem quatro pontos de travamento entre o que você sabe e o que o outro percebe.",
-    tempo: "10 perguntas · 2 minutos · resultado no seu WhatsApp",
-    cta: "Quero meu diagnóstico",
+      "Não é falta de conteúdo e não é falta de talento. São quatro padrões de travamento, e cada um destrava de um jeito. Responda com sinceridade e descubra qual é o seu.",
+    cta: "Quero descobrir o meu padrão",
   },
 
   steps: [
     {
       id: "situacao",
-      etapa: "Situação",
       pergunta: "Onde a sua comunicação mais pesa hoje?",
       options: [
         { value: "empresa", label: "Reuniões, apresentações e decisões na empresa",
@@ -34,7 +32,6 @@ window.FLOW = {
     },
     {
       id: "profissao",
-      etapa: "Momento profissional",
       pergunta: "E a sua vida profissional?",
       options: [
         { value: "empresario", label: "Sou empresário ou sócio", report: "empresário", qualifica: true },
@@ -45,7 +42,6 @@ window.FLOW = {
     },
     {
       id: "padrao",
-      etapa: "O que se repete",
       pergunta: "Qual dessas frases mais parece ter saído da sua boca?",
       options: [
         { value: "invisivel", label: "“Eu sei do assunto, mas na hora não sai como eu penso”",
@@ -60,7 +56,6 @@ window.FLOW = {
     },
     {
       id: "problema",
-      etapa: "Problema",
       pergunta: "O que mais se repete quando você precisa se comunicar?",
       options: [
         { value: "branco", label: "Dou branco justamente no que eu mais domino",
@@ -75,7 +70,6 @@ window.FLOW = {
     },
     {
       id: "depois",
-      etapa: "Problema",
       pergunta: "E depois que passa, o que acontece?",
       options: [
         { value: "remoendo", label: "Fico remoendo o que eu deveria ter dito",
@@ -90,7 +84,6 @@ window.FLOW = {
     },
     {
       id: "tempo",
-      etapa: "Implicação",
       pergunta: "Há quanto tempo isso se repete?",
       options: [
         { value: "ate2", label: "Menos de 2 anos", report: "há menos de 2 anos" },
@@ -102,7 +95,6 @@ window.FLOW = {
     },
     {
       id: "custo",
-      etapa: "Implicação",
       pergunta: "O que isso já custou a você?",
       options: [
         { value: "oportunidade", label: "Oportunidade, promoção ou cliente que foi para outro",
@@ -116,7 +108,6 @@ window.FLOW = {
     },
     {
       id: "tentativas",
-      etapa: "O que já tentou",
       pergunta: "O que você já tentou para resolver?",
       options: [
         { value: "oratoria", label: "Curso de oratória ou de falar em público",
@@ -131,7 +122,6 @@ window.FLOW = {
     },
     {
       id: "objetivo",
-      etapa: "Objetivo",
       pergunta: "Se em 3 meses isso destravasse de vez, o que mudaria primeiro?",
       options: [
         { value: "aparecer", label: "Eu apareceria e me posicionaria sem sofrer",
@@ -146,7 +136,6 @@ window.FLOW = {
     },
     {
       id: "prontidao",
-      etapa: "Seu momento",
       pergunta: "Se existisse um caminho estruturado para resolver isso, qual frase te descreve hoje?",
       options: [
         { value: "pronto", label: "Estou pronto, é prioridade e tenho condição de investir", report: "pronto para começar", nivel: "alto" },

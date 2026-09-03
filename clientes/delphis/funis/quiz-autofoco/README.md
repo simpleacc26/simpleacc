@@ -29,6 +29,7 @@ O pixel está por código nas duas páginas, no `<head>`, antes do CSS.
 | `PageView` | quiz e página de diagnóstico | padrão do pixel |
 | **`Lead`** | uma vez, no envio do formulário | **é o evento de conversão da campanha** (objetivo Leads). Vai com `content_category` = padrão e `status` = classificação |
 | `whatsapp_click` (custom) | clique em qualquer botão de WhatsApp na página de diagnóstico | sinal de intenção, leitura interna |
+| `step_view` com `step_id: "gerando"` | tela de carregamento entre o quiz e o diagnóstico | mede quem desiste nos 5 segundos |
 | `step_view`, `step_complete`, `funnel_start`, `funnel_complete`, `funnel_abandon`, `field_error` (custom) | ao longo do quiz | onde o lead desiste, pergunta a pergunta |
 
 O `funnel_abandon` só dispara em quem **não** concluiu, então não polui quem converteu.
@@ -38,11 +39,27 @@ O `funnel_abandon` só dispara em quem **não** concluiu, então não polui quem
 | Arquivo | O que é |
 | ------- | ------- |
 | `index.html` | O quiz. A primeira pergunta já aparece na primeira tela. Carrega o pixel. |
+| `delphis.jpg` | Foto do Delphis para o bloco "Quem conduz" (veja a nota abaixo). |
 | `flow.js` | **Toda a copy do quiz.** Perguntas, opções, hero, captura e o WhatsApp da marca. É aqui que se edita texto. |
 | `app.js` | Motor: render, auto-avanço, máscara de WhatsApp, validação, UTMs, sessionStorage, classificação do lead, evento `Lead` e envio para a planilha. |
 | `diagnostico.html` / `diagnostico.js` | Página pós-quiz: leitura personalizada por padrão, botão Baixar PDF e botão WhatsApp. Carrega o pixel. |
 | `styles.css` | Tema da marca. A paleta está no bloco `:root`. |
 | `vercel.json` | `cleanUrls` ligado (a URL fica sem `.html`). |
+
+## A foto do Delphis
+
+O bloco "Quem conduz" mostra a foto dele. O arquivo está versionado aqui como
+`delphis.jpg`, mas **a página busca a foto pela URL do Drive do cliente**
+(`2. Material Visual > Fotos`), na constante `FOTO_DELPHIS` do `diagnostico.js`.
+
+O motivo é operacional: o deploy é feito por MCP, e o binário não sobrevive
+íntegro ao caminho até a Vercel. Quem publicar de uma máquina com o arquivo em
+disco deve **trocar `FOTO_DELPHIS` por `"delphis.jpg"`** e subir o arquivo junto,
+para o funil voltar a ser 100% autocontido. Enquanto isso, se o Drive falhar, a
+foto some sozinha (`onerror`) e o resto do bloco continua de pé.
+
+Quando o Delphis mandar uma foto em alta, troque `delphis.jpg` por ela: a atual
+tem só 150x150 e é exibida a 104px.
 
 ## Como o lead é classificado
 
@@ -83,7 +100,8 @@ módulo Google Sheets do cenário.
 
 O deploy é manual, pelo MCP da Vercel, no time Simpleacc, projeto `autofoco`.
 Ao editar qualquer arquivo, **suba a árvore inteira** (o deploy substitui todos os
-arquivos do projeto, não faz merge) e confira as URLs:
+arquivos do projeto, não faz merge; subir só um arquivo apaga os outros) e confira
+as URLs:
 
 ```
 for f in "" app.js flow.js styles.css diagnostico diagnostico.js; do

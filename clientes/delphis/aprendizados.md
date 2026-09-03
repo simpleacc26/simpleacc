@@ -47,3 +47,21 @@ Log do que funciona e do que não funciona com este cliente.
 - **`funnel_abandon` precisa de trava.** Sem uma flag de concluído, o `beforeunload` dispara
   abandono também em quem converteu (o redirect para a página de diagnóstico conta como
   saída). Marcar `state.completed` no envio resolve.
+
+## Ajustes de copy e fluxo · 03/09/2026
+
+- **Headline vaga não convida a responder.** "Você sabe do que fala. Por que isso não
+  chega?" foi trocada por "Você sabe o que dizer. Na hora, não sai como sai na sua
+  cabeça." — cena concreta, na voz do lead. O subtítulo passou a dar o motivo de
+  responder ("são quatro padrões, e cada um destrava de um jeito").
+- **Labels de etapa (Situação, Momento profissional) atrapalham.** Categorizam a
+  pergunta e deixam o quiz com cara de formulário. Saíram.
+- **Barra de geração entre o quiz e o diagnóstico.** 5 segundos com passo a passo
+  ("Lendo as suas respostas", "Comparando com os quatro padrões"...) antes de abrir
+  a leitura. O lead chega no diagnóstico sentindo que ele foi montado para ele.
+- **Leitura longa precisa de fio e respiro.** Na página de diagnóstico: `line-height`
+  1.75, 38px entre blocos e uma linha separando cada etapa. Sem isso vira parede
+  de texto no celular.
+- **Binário não passa por deploy via MCP.** A transcrição do base64 corrompe o
+  arquivo (e um base64 inválido faz o deploy ser recusado). Imagem no funil: ou
+  vem de URL externa, ou o deploy sai de uma máquina com o arquivo em disco.

@@ -30,19 +30,43 @@
   <!-- End Meta Pixel Code -->
   <link rel="stylesheet" href="styles.css" />
   <style>
-    .report-head { text-align: center; padding: 20px 0 6px; }
-    .report-head .selo { margin-bottom: 12px; }
-    .report-head h1 { font-size: 26px; }
-    .etapa { margin: 0 0 16px; }
-    .etapa h3 { font-size: 12.5px; text-transform: uppercase; letter-spacing: .1em; color: var(--gold); margin: 0 0 8px; }
-    .etapa p { margin: 0 0 10px; }
-    .depo { background: var(--gold-soft); border: 1px dashed var(--gold-deep); border-radius: var(--radius-sm); padding: 14px; margin: 8px 0; font-size: 14.5px; color: var(--muted); }
-    .cta-box { background: var(--gold-soft); border: 1px solid var(--gold-deep); border-radius: var(--radius); padding: 22px; text-align: center; margin-top: 8px; }
-    .toolbar { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 4px 0 22px; }
+    .report-head { text-align: center; padding: 22px 0 14px; }
+    .report-head .selo { margin-bottom: 14px; }
+    .report-head h1 { font-size: 26px; line-height: 1.28; }
     .report-head h1 .gold { color: var(--gold); }
-    .mirror { margin: 8px 0 12px; padding-left: 18px; color: var(--muted); }
-    .mirror li { margin-bottom: 6px; }
-    .custo { border-left: 2px solid var(--gold-deep); padding-left: 12px; color: var(--muted); }
+
+    /* Respiro entre os blocos da leitura: cada etapa é um trecho fechado, com
+       um fio separando do próximo. Vale para telas grandes e para o celular. */
+    .etapa { margin: 0 0 38px; }
+    .etapa + .etapa { border-top: 1px solid var(--border); padding-top: 34px; }
+    .etapa:last-of-type { margin-bottom: 30px; }
+    .etapa h3 { font-size: 12.5px; text-transform: uppercase; letter-spacing: .12em; color: var(--gold); margin: 0 0 18px; }
+    .etapa p { margin: 0 0 20px; line-height: 1.75; }
+    .etapa p:last-child { margin-bottom: 0; }
+
+    /* Cartao do autor, no bloco "Quem conduz". */
+    .autor { display: flex; align-items: center; gap: 18px; margin: 0 0 22px; }
+    .autor-foto { width: 104px; height: 104px; flex: 0 0 104px; border-radius: 50%; object-fit: cover;
+      border: 2px solid var(--gold-deep); box-shadow: 0 6px 18px rgba(0,0,0,.45); }
+    .autor-nome strong { display: block; font-family: var(--font-serif); font-size: 21px; line-height: 1.2; }
+    .autor-nome span { display: block; margin-top: 6px; color: var(--muted); font-size: 14px; line-height: 1.55; }
+
+    .depo { background: var(--gold-soft); border: 1px dashed var(--gold-deep); border-radius: var(--radius-sm); padding: 16px; margin: 18px 0; font-size: 14.5px; color: var(--muted); }
+    .cta-box { background: var(--gold-soft); border: 1px solid var(--gold-deep); border-radius: var(--radius); padding: 28px 24px; text-align: center; margin-top: 10px; }
+    .cta-box p { line-height: 1.7; margin: 0 0 16px; }
+    .toolbar { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 4px 0 22px; }
+    .mirror { margin: 18px 0 22px; padding-left: 20px; color: var(--muted); line-height: 1.7; }
+    .mirror li { margin-bottom: 13px; }
+    .mirror li:last-child { margin-bottom: 0; }
+    .custo { border-left: 2px solid var(--gold-deep); padding: 4px 0 4px 16px; margin-top: 26px; color: var(--muted); line-height: 1.7; }
+
+    @media (max-width: 520px) {
+      #report { padding: 26px 20px; }
+      .etapa { margin-bottom: 32px; }
+      .etapa + .etapa { padding-top: 28px; }
+      .etapa p { margin-bottom: 18px; }
+      .autor { flex-direction: column; text-align: center; gap: 14px; }
+    }
     @media print {
       .no-print { display: none !important; }
       body { background: #fff; color: #14161a; }
@@ -52,6 +76,9 @@
       .etapa h3 { color: #8A6D1F; }
       .depo, .cta-box { background: #FAF6EC; border-color: #D8C08A; color: #14161a; }
       .etapa, .cta-box, .depo { break-inside: avoid; }
+      .etapa { margin-bottom: 24px; }
+      .etapa + .etapa { border-top-color: #E2DDD2; padding-top: 22px; }
+      .autor-foto { border-color: #C7A651; box-shadow: none; }
     }
   </style>
 </head>

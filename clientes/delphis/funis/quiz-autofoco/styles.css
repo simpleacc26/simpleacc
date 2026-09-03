@@ -125,6 +125,14 @@ h2 { font-size: 25px; line-height: 1.25; margin: 0 0 16px; }
 .spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(10,10,10,.35); border-top-color: #0A0A0A; border-radius: 50%; animation: spin .7s linear infinite; vertical-align: -3px; margin-right: 8px; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
+/* Ponte quiz -> diagnostico: barra de geracao da leitura. */
+.gerando { text-align: center; padding: 34px 6px 26px; }
+.gerando h2 { margin: 4px 0 10px; }
+.gerando .status { color: var(--muted); font-size: 15.5px; margin: 0; min-height: 46px; }
+.gen-track { height: 10px; background: #22201C; border-radius: 99px; overflow: hidden; margin: 20px 0 12px; }
+.gen-bar { height: 100%; width: 0; border-radius: 99px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+.gen-pct { color: var(--gold); font-weight: 700; font-size: 15px; margin: 0; }
+
 .resume { background: var(--gold-soft); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px 16px; margin: 14px 0; font-size: 15px; }
 .resume button { margin-top: 10px; margin-right: 8px; }
 .link { background: none; border: none; color: var(--gold-light); font: inherit; text-decoration: underline; cursor: pointer; padding: 0; }
