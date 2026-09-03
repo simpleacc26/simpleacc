@@ -5,6 +5,10 @@ window.FLOW = {
     whatsapp: "5511944659466",
     whatsappMsg:
       "Olá, Delphis! Sou {nome}, acabei de fazer o Diagnóstico AUTOFOCO e meu padrão deu {padrao}. Quero conversar sobre a sessão estratégica.",
+    /* Quem não se qualifica na P2 x P10 cai na oferta de entrada, e a mensagem
+       do WhatsApp precisa combinar com o botão que a pessoa viu. */
+    whatsappMsgEntrada:
+      "Olá, Delphis! Sou {nome}, acabei de fazer o Diagnóstico AUTOFOCO e meu padrão deu {padrao}. Quero saber como começar.",
   },
 
   hero: {

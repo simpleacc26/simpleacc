@@ -63,6 +63,15 @@ if (!a._completedAt && !a.padrao) {
   const optPront = opcao("prontidao");
   const qualificado = !!(optProf && optProf.qualifica) && !!(optPront && optPront.nivel === "alto");
 
+  /* Botão de WhatsApp no meio da leitura. O rótulo muda conforme o lead se
+     qualifica ou não, para não oferecer sessão estratégica a quem caiu na
+     oferta de entrada. */
+  const ctaMeio = (texto, rotuloQualificado, rotuloEntrada) => `
+    <div class="cta-inline no-print">
+      <p>${texto}</p>
+      <button class="btn btn-primary zap" type="button">${qualificado ? rotuloQualificado : rotuloEntrada}</button>
+    </div>`;
+
   report.innerHTML = `
     <div class="report-head">
       <span class="selo">Diagnóstico personalizado</span>
@@ -95,6 +104,11 @@ if (!a._completedAt && !a.padrao) {
       <p><strong>Não há nada de errado com você. Há um padrão em você.</strong> E padrão não se resolve com força de vontade, nem decorando mais uma estrutura, nem tentando de novo na próxima reunião.</p>
     </div>
 
+    ${ctaMeio(
+      "Se você se reconheceu aí em cima, isso já não é dúvida. É padrão, e padrão tem tratamento.",
+      "Falar com o Delphis agora",
+      "Falar com o Delphis agora")}
+
     <div class="etapa">
       <h3>Por que o que você já tentou não resolveu</h3>
       <p>Você marcou que ${tentativas}. Isso não foi desperdício: hoje você entende o próprio funcionamento melhor do que a maioria.</p>
@@ -116,6 +130,11 @@ if (!a._completedAt && !a.padrao) {
       <p class="custo"><strong>O custo de continuar como está:</strong> não é só a oportunidade que não veio. É o ano que passa igual, o convite que você recusa em silêncio, e a distância entre o que você construiu e o que os outros enxergam continuando do tamanho que está.</p>
     </div>
 
+    ${ctaMeio(
+      "Esse custo só para de correr quando alguém olha o seu caso de perto.",
+      "Quero minha sessão estratégica",
+      "Quero saber por onde começar")}
+
     <div class="etapa">
       <h3>Quem conduz</h3>
       <div class="autor">
@@ -133,6 +152,11 @@ if (!a._completedAt && !a.padrao) {
       <div class="depo">[DEPOIMENTO 2] espaço reservado para depoimento de aluno, mediante autorização escrita de nome e imagem.</div>
     </div>
 
+    ${ctaMeio(
+      "São 40 anos de estrada e mais de 4.000 pessoas formadas. Falta a sua.",
+      "Quero conversar com o Delphis",
+      "Quero conversar com o Delphis")}
+
     <div class="etapa">
       <h3>Perguntas que sempre aparecem</h3>
       <p><strong>Isso é curso de oratória?</strong> Não. Oratória é uma parte da comunicação, e a menor delas. O trabalho aqui é sobre o que faz a sua mensagem chegar: presença, clareza, identidade e conexão.</p>
@@ -146,7 +170,7 @@ if (!a._completedAt && !a.padrao) {
       <p>Entre os estúdios, o palco e as mentorias em andamento, eu abro poucas sessões por semana. São 45 minutos, comigo, ao vivo, para olhar a sua comunicação de frente e nomear a origem do que se repete.</p>
       <p>O que sai dali: o nome do seu padrão, a origem provável dele e o caminho concreto para destravar. O que não é: não é aula, não é papo motivacional e não é apresentação de produto disfarçada. Se fizer sentido seguirmos juntos, eu te explico como. Se não fizer, você sai com a leitura mesmo assim.</p>
       <div class="actions" style="justify-content:center">
-        <button class="btn btn-primary" id="whatsapp-2">Quero minha sessão estratégica</button>
+        <button class="btn btn-primary zap" type="button">Quero minha sessão estratégica</button>
       </div>
       <p class="hint" style="margin-top:14px">Você já esperou tempo demais para ser percebido pelo que sabe.</p>
     </div>` : `
@@ -155,25 +179,37 @@ if (!a._completedAt && !a.padrao) {
       <p>Se você quer começar agora, no seu ritmo e por conta própria, o <strong>Detonando a Timidez</strong> é o primeiro degrau prático do Método AUTOFOCO: aulas gravadas, exercícios e encontros ao vivo de bônus.</p>
       <p>Detonar a timidez não é deixar de ser tímido. É tirar a timidez do comando.</p>
       <div class="actions" style="justify-content:center">
-        <button class="btn btn-primary" id="whatsapp-2">Quero saber como começar</button>
+        <button class="btn btn-primary zap" type="button">Quero saber como começar</button>
       </div>
       <p class="hint" style="margin-top:14px">Se preferir conversar antes, me chama no WhatsApp que eu te oriento.</p>
     </div>`}`;
 }
 
-function abrirWhatsApp() {
+function abrirWhatsApp(origem) {
   const nome = (a.nomeResp || "").split(" ")[0] || "";
   const optPadrao = opcao("padrao");
   const padrao = (optPadrao && optPadrao.padrao) || "";
+  const optProf = opcao("profissao");
+  const optPront = opcao("prontidao");
+  const qualificado = !!(optProf && optProf.qualifica) && !!(optPront && optPront.nivel === "alto");
   /* Sinal de intencao para a Meta. A conversao da campanha continua sendo o Lead
-     disparado no envio do quiz; aqui e so um evento custom para leitura interna. */
-  try { if (typeof fbq === "function") fbq("trackCustom", "whatsapp_click", { padrao: padrao }); } catch (e) { }
-  const msg = (F.marca.whatsappMsg || "")
-    .replace("{nome}", nome)
-    .replace("{padrao}", padrao);
+     disparado no envio do quiz; aqui e so um evento custom para leitura interna.
+     O `origem` diz qual dos botoes da pagina foi tocado. */
+  try {
+    if (typeof fbq === "function") fbq("trackCustom", "whatsapp_click", { padrao: padrao, origem: origem || "" });
+  } catch (e) { }
+  const modelo = qualificado ? F.marca.whatsappMsg : (F.marca.whatsappMsgEntrada || F.marca.whatsappMsg);
+  const msg = (modelo || "").replace("{nome}", nome).replace("{padrao}", padrao);
   const url = `https://wa.me/${F.marca.whatsapp}?text=${encodeURIComponent(msg)}`;
   window.open(url, "_blank", "noopener");
 }
-document.getElementById("whatsapp")?.addEventListener("click", abrirWhatsApp);
+
+/* Um só ouvinte para todos os botões de WhatsApp da página: o do topo e os
+   cinco distribuídos ao longo da leitura. */
+document.addEventListener("click", (e) => {
+  const botao = e.target.closest && e.target.closest(".zap");
+  if (!botao) return;
+  const ctas = [...document.querySelectorAll(".zap")];
+  abrirWhatsApp(botao.id === "whatsapp" ? "topo" : "leitura-" + (ctas.indexOf(botao) + 1));
+});
 document.getElementById("pdf")?.addEventListener("click", () => window.print());
-document.addEventListener("click", (e) => { if (e.target && e.target.id === "whatsapp-2") abrirWhatsApp(); });

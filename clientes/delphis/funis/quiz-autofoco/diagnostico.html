@@ -51,6 +51,14 @@
     .autor-nome strong { display: block; font-family: var(--font-serif); font-size: 21px; line-height: 1.2; }
     .autor-nome span { display: block; margin-top: 6px; color: var(--muted); font-size: 14px; line-height: 1.55; }
 
+    /* Chamadas de WhatsApp distribuídas ao longo da leitura. Discretas de
+       propósito: a caixa dourada cheia fica reservada para o fim. */
+    .cta-inline { text-align: center; margin: 34px 0 38px; padding: 22px 16px;
+      border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .cta-inline p { margin: 0 0 16px; color: var(--muted); font-size: 15.5px; line-height: 1.65; }
+    .cta-inline .btn { padding: 14px 24px; }
+    .etapa + .cta-inline { margin-top: 0; border-top: none; padding-top: 0; }
+
     .depo { background: var(--gold-soft); border: 1px dashed var(--gold-deep); border-radius: var(--radius-sm); padding: 16px; margin: 18px 0; font-size: 14.5px; color: var(--muted); }
     .cta-box { background: var(--gold-soft); border: 1px solid var(--gold-deep); border-radius: var(--radius); padding: 28px 24px; text-align: center; margin-top: 10px; }
     .cta-box p { line-height: 1.7; margin: 0 0 16px; }
@@ -94,7 +102,7 @@
 
   <main class="container">
     <div class="toolbar no-print">
-      <button class="btn btn-primary" id="whatsapp">Falar com o Delphis no WhatsApp</button>
+      <button class="btn btn-primary zap" id="whatsapp" type="button">Falar com o Delphis no WhatsApp</button>
       <button class="btn btn-ghost" id="pdf">Baixar PDF</button>
     </div>
     <div class="card screen" id="report"></div>

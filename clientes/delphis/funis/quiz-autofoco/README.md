@@ -28,7 +28,7 @@ O pixel está por código nas duas páginas, no `<head>`, antes do CSS.
 | ------ | ------------ | -------------- |
 | `PageView` | quiz e página de diagnóstico | padrão do pixel |
 | **`Lead`** | uma vez, no envio do formulário | **é o evento de conversão da campanha** (objetivo Leads). Vai com `content_category` = padrão e `status` = classificação |
-| `whatsapp_click` (custom) | clique em qualquer botão de WhatsApp na página de diagnóstico | sinal de intenção, leitura interna |
+| `whatsapp_click` (custom) | clique em qualquer botão de WhatsApp na página de diagnóstico | sinal de intenção, leitura interna. Vai com `origem` (`topo`, `leitura-2`... `leitura-5`), então dá para ver **qual** botão converte |
 | `step_view` com `step_id: "gerando"` | tela de carregamento entre o quiz e o diagnóstico | mede quem desiste nos 5 segundos |
 | `step_view`, `step_complete`, `funnel_start`, `funnel_complete`, `funnel_abandon`, `field_error` (custom) | ao longo do quiz | onde o lead desiste, pergunta a pergunta |
 
@@ -60,6 +60,23 @@ foto some sozinha (`onerror`) e o resto do bloco continua de pé.
 
 Quando o Delphis mandar uma foto em alta, troque `delphis.jpg` por ela: a atual
 tem só 150x150 e é exibida a 104px.
+
+## Os botões de WhatsApp
+
+São **5**, distribuídos ao longo da leitura (1%, 31%, 60%, 78% e 95% da página):
+
+1. Topo, na barra de ferramentas, junto do "Baixar PDF".
+2. Depois de **O espelho**, o momento em que a pessoa se reconhece.
+3. Depois do **custo de continuar como está**, o pico de urgência.
+4. Depois de **Quem conduz**, logo após a prova de autoridade.
+5. Na caixa dourada do fim, com a oferta completa.
+
+Os três do meio saem do helper `ctaMeio()` no `diagnostico.js`: para acrescentar,
+tirar ou reescrever um, é lá. Cada um recebe dois rótulos, e o código escolhe pela
+classificação do lead, para **não oferecer sessão estratégica a quem caiu na oferta
+de entrada**. A mensagem que abre no WhatsApp segue a mesma regra: `whatsappMsg`
+para quem se qualifica, `whatsappMsgEntrada` para os demais (as duas ficam em
+`flow.js`).
 
 ## Como o lead é classificado
 

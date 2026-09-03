@@ -65,3 +65,10 @@ Log do que funciona e do que não funciona com este cliente.
 - **Binário não passa por deploy via MCP.** A transcrição do base64 corrompe o
   arquivo (e um base64 inválido faz o deploy ser recusado). Imagem no funil: ou
   vem de URL externa, ou o deploy sai de uma máquina com o arquivo em disco.
+- **Leitura longa pede CTA recorrente.** A página de diagnóstico tem ~7.000px. Com
+  botão só no topo e no fim, o lead que se convence no meio não tem para onde ir.
+  Passaram a ser 5, nos picos emocionais (reconhecimento, custo, autoridade), com
+  `origem` no evento do pixel para saber qual deles converte.
+- **CTA no meio tem que respeitar a bifurcação.** Quem não se qualifica na P2 x P10
+  não pode receber botão de sessão estratégica no meio do texto: o rótulo e a
+  mensagem do WhatsApp mudam junto com a oferta.
