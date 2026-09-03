@@ -20,6 +20,13 @@
 | Mentoria Vision | sem preço no material | julianagodinho.com.br/vision | 3 encontros |
 | Método ELA | R$ 9.999 | | nome comercial do acompanhamento principal |
 
+### Acrescentados pela Ju em 02/09/2026
+
+| Produto | Preço | Observação |
+|---|---|---|
+| A Verdadeira Black Friday da Estética | R$ 47 | campanha de novembro, sazonal |
+| Workshop Estética de Referência | R$ 27 | posicionamento profissional; também compõe o Combo de R$ 397 |
+
 A Ju pediu para **ignorar as mentorias** na construção da oferta de entrada
 ("Só ignorar as Mentorias", 27/08).
 
@@ -70,3 +77,16 @@ beleza de salão.
 
 > Isso confirma o corte do funil: quem marca "nenhuma dessas" na P1 do quiz está
 > fora até do produto de entrada da Ju, e não deve receber oferta nenhuma.
+
+
+## Restrições de venda, confirmadas pela Ju em 02/09/2026
+
+- **Acervo de Documentos da Clínica não pode ser vendido à parte.** Foi produzido
+  em parceria com advogado e não há autorização para venda avulsa. Ele continua
+  existindo apenas como bônus dentro do EDP. Não propor de novo como order bump,
+  isca ou produto solto.
+- **Os scripts de WhatsApp já estão dentro do Venda Mais na Estética.** Palavras
+  da Ju: "script tem no curso de vendas". Vender o eBook de R$ 27 junto com o
+  curso é sobreposição e foi retirado do checkout.
+- **Esteticando no Insta não é ofertado solto no funil**, porque já compõe o Combo
+  Estética de Sucesso de R$ 397 e as duas ofertas confundiriam o preço.
