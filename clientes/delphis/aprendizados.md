@@ -72,3 +72,13 @@ Log do que funciona e do que não funciona com este cliente.
 - **CTA no meio tem que respeitar a bifurcação.** Quem não se qualifica na P2 x P10
   não pode receber botão de sessão estratégica no meio do texto: o rótulo e a
   mensagem do WhatsApp mudam junto com a oferta.
+- **Depoimento em vídeo vertical: faixa que desliza, não empilhado.** Três clipes
+  9:16 empilhados somam ~3.000px numa página que já tem 7.000. Em faixa horizontal
+  com scroll-snap ocupam ~500px e ainda deixam o terceiro card meio visível, que é
+  o que convida a arrastar.
+- **Player só no toque.** O iframe do Drive só ganha `src` quando a pessoa clica, e
+  volta para `about:blank` ao fechar. Sem isso, três players carregam junto com a
+  página e o áudio continua tocando depois de fechar.
+- **Nome sem credencial não prova nada.** Cada depoimento leva quem a pessoa é
+  (veículo e programa), senão o visitante que não reconhece o rosto não capta o
+  peso da prova social.

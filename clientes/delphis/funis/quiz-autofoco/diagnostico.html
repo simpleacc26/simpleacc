@@ -59,7 +59,43 @@
     .cta-inline .btn { padding: 14px 24px; }
     .etapa + .cta-inline { margin-top: 0; border-top: none; padding-top: 0; }
 
-    .depo { background: var(--gold-soft); border: 1px dashed var(--gold-deep); border-radius: var(--radius-sm); padding: 16px; margin: 18px 0; font-size: 14.5px; color: var(--muted); }
+    /* Depoimentos em vídeo. Os clipes são verticais, então os cards ficam numa
+       faixa que desliza no dedo em vez de empilhar e esticar a página. */
+    .depos-titulo { margin: 26px 0 12px; color: var(--gold); font-size: 12.5px;
+      text-transform: uppercase; letter-spacing: .12em; font-weight: 700; }
+    .depos { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(164px, 1fr);
+      gap: 14px; overflow-x: auto; padding-bottom: 8px;
+      scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; }
+    .depo-card { margin: 0; scroll-snap-align: start; }
+    .depo-play { position: relative; display: block; width: 100%; aspect-ratio: 9 / 16;
+      padding: 0; background: #000; cursor: pointer; overflow: hidden;
+      border: 1px solid var(--border); border-radius: var(--radius-sm);
+      transition: border-color .2s, transform .15s; }
+    .depo-play:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .depo-play:focus-visible { outline: 3px solid var(--ring); outline-offset: 2px; }
+    .depo-play img { width: 100%; height: 100%; object-fit: cover; }
+    .depo-icone { position: absolute; inset: 0; margin: auto; width: 46px; height: 46px;
+      border-radius: 50%; background: rgba(201,168,76,.94); color: #0A0A0A;
+      display: grid; place-items: center; font-size: 16px; padding-left: 3px;
+      box-shadow: 0 4px 14px rgba(0,0,0,.5); }
+    .depo-card figcaption { margin-top: 11px; }
+    .depo-card figcaption strong { display: block; font-size: 14.5px; line-height: 1.3; }
+    .depo-card figcaption span { display: block; margin-top: 4px; color: var(--muted);
+      font-size: 12.5px; line-height: 1.45; }
+
+    /* Player em tela cheia, aberto só no toque. */
+    .modal { position: fixed; inset: 0; z-index: 50; background: rgba(8,8,8,.97);
+      -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+      display: grid; place-items: center; padding: 18px; }
+    .modal[hidden] { display: none; }
+    .modal-caixa { width: min(360px, 100%); }
+    .modal-fechar { display: block; margin: 0 0 8px auto; padding: 2px 8px; background: none;
+      border: none; color: var(--text); font-size: 30px; line-height: 1; cursor: pointer; }
+    .modal-video { position: relative; aspect-ratio: 9 / 16; background: #000;
+      border-radius: var(--radius-sm); overflow: hidden; }
+    .modal-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .modal-legenda { margin: 12px 0 0; color: var(--muted); font-size: 13px;
+      line-height: 1.55; text-align: center; }
     .cta-box { background: var(--gold-soft); border: 1px solid var(--gold-deep); border-radius: var(--radius); padding: 28px 24px; text-align: center; margin-top: 10px; }
     .cta-box p { line-height: 1.7; margin: 0 0 16px; }
     .toolbar { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 4px 0 22px; }
@@ -87,6 +123,10 @@
       .etapa { margin-bottom: 24px; }
       .etapa + .etapa { border-top-color: #E2DDD2; padding-top: 22px; }
       .autor-foto { border-color: #C7A651; box-shadow: none; }
+      .depos { display: block; overflow: visible; }
+      .depo-play { display: none; }
+      .depo-card { margin-bottom: 10px; break-inside: avoid; }
+      .depo-card figcaption strong, .depo-card figcaption span { color: #14161a; }
     }
   </style>
 </head>
@@ -107,6 +147,16 @@
     </div>
     <div class="card screen" id="report"></div>
   </main>
+
+  <div class="modal no-print" id="video" hidden>
+    <div class="modal-caixa" role="dialog" aria-modal="true" aria-label="Depoimento em vídeo">
+      <button class="modal-fechar" id="video-fechar" type="button" aria-label="Fechar o vídeo">&times;</button>
+      <div class="modal-video">
+        <iframe id="video-frame" title="Depoimento em vídeo" allow="autoplay; fullscreen" allowfullscreen></iframe>
+      </div>
+      <p class="modal-legenda" id="video-legenda"></p>
+    </div>
+  </div>
 
   <p class="foot">Diagnóstico AUTOFOCO · Delphis Fonseca · leitura pessoal, feita a partir das suas respostas</p>
 

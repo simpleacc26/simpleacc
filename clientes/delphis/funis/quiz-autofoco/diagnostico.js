@@ -19,6 +19,27 @@ const a = getState().answers || {};
    esta constante por "delphis.jpg" e servir do próprio domínio. */
 const FOTO_DELPHIS = "https://lh3.googleusercontent.com/d/1Jqg9HJGqP2dIfo8PKkdWhccJOfOCqZ94=s300";
 
+/* Depoimentos em vídeo. Os arquivos estão na pasta do Drive do cliente
+   (2. Material Visual > Depoimentos), subidos pelo próprio Delphis. O card mostra
+   a miniatura e só carrega o player quando a pessoa toca, para não pesar a página. */
+const DEPOIMENTOS = [
+  {
+    id: "1K_6TJbw0WqTJJeUuisFzrIfYuRpaZGEa",
+    nome: "Rafa Brites",
+    quem: "Apresentadora e escritora. Foi repórter do Mais Você e do SuperStar, na Globo, e hoje apresenta o Power Couple Brasil, na Record.",
+  },
+  {
+    id: "17C4_Fr4dAlEVewVC-Lio13G6GdHmx6bA",
+    nome: "Warley Santana",
+    quem: "Ator, apresentador e ventríloquo. Repórter do Chega Mais, no SBT, e ex-CQC, na Band.",
+  },
+  {
+    id: "1Ioqc-pWbHlz7GMJ7Lt57Gs3-br5-Mx2O",
+    nome: "Gabriela Prioli",
+    quem: "Advogada criminalista, professora e apresentadora. Ficou conhecida no O Grande Debate, da CNN Brasil, e hoje apresenta no GNT.",
+  },
+];
+
 const CAMINHO = {
   "O Invisível": {
     resumo: "Você sabe muito, e isso não chega inteiro do outro lado.",
@@ -148,8 +169,22 @@ if (!a._completedAt && !a.padrao) {
       </div>
       <p>Comunicação desde 1984: rádio na Jovem Pan, Antena 1, Gazeta, Transamérica e Band, jornalismo e apresentação na Rede Bandeirantes, narração de documentários ligados a Discovery, National Geographic, BBC e ID, dublagem para produções de Disney, Warner, Paramount, HBO e Netflix, além de teatro, cinema e carreira musical.</p>
       <p>Criador do <strong>primeiro curso de formação de apresentadores de TV do SENAC São Paulo</strong>, reconhecido pelo MEC, ministrado por 22 anos. <strong>Mais de 4.000 pessoas formadas</strong>, e a maior parte delas nunca quis ser apresentador: eram médicos, advogados, executivos, empresários e professores que precisavam ser compreendidos.</p>
-      <div class="depo">[DEPOIMENTO 1] espaço reservado para depoimento em vídeo de aluno com profissão visível.</div>
-      <div class="depo">[DEPOIMENTO 2] espaço reservado para depoimento de aluno, mediante autorização escrita de nome e imagem.</div>
+      <p class="depos-titulo">Quem passou por aqui</p>
+      <div class="depos">
+        ${DEPOIMENTOS.map((d) => `
+        <figure class="depo-card">
+          <button class="depo-play" type="button" data-video="${d.id}" data-quem="${d.nome}"
+                  aria-label="Assistir ao depoimento de ${d.nome}">
+            <img src="https://drive.google.com/thumbnail?id=${d.id}&sz=w400" alt=""
+                 referrerpolicy="no-referrer" loading="lazy" />
+            <span class="depo-icone" aria-hidden="true">&#9654;</span>
+          </button>
+          <figcaption>
+            <strong>${d.nome}</strong>
+            <span>${d.quem}</span>
+          </figcaption>
+        </figure>`).join("")}
+      </div>
     </div>
 
     ${ctaMeio(
@@ -204,12 +239,40 @@ function abrirWhatsApp(origem) {
   window.open(url, "_blank", "noopener");
 }
 
-/* Um só ouvinte para todos os botões de WhatsApp da página: o do topo e os
-   cinco distribuídos ao longo da leitura. */
+/* Player dos depoimentos. O iframe do Drive só ganha src no toque e volta a
+   about:blank ao fechar, senão o vídeo continua tocando por baixo. */
+const modal = document.getElementById("video");
+const frame = document.getElementById("video-frame");
+const legendaVideo = document.getElementById("video-legenda");
+
+function abrirVideo(id, nome) {
+  const d = DEPOIMENTOS.find((x) => x.id === id);
+  frame.src = `https://drive.google.com/file/d/${id}/preview`;
+  legendaVideo.textContent = d ? d.nome + ". " + d.quem : nome;
+  modal.hidden = false;
+  document.body.style.overflow = "hidden";
+  document.getElementById("video-fechar").focus();
+  try { if (typeof fbq === "function") fbq("trackCustom", "depoimento_play", { quem: nome }); } catch (e) { }
+}
+function fecharVideo() {
+  frame.src = "about:blank";
+  modal.hidden = true;
+  document.body.style.overflow = "";
+}
+
+/* Um só ouvinte para tudo que é clicável: os cinco botões de WhatsApp, os
+   depoimentos e o fechar do player. */
 document.addEventListener("click", (e) => {
+  const play = e.target.closest && e.target.closest(".depo-play");
+  if (play) { abrirVideo(play.dataset.video, play.dataset.quem); return; }
+  if (e.target.closest && e.target.closest("#video-fechar")) { fecharVideo(); return; }
+  if (modal && !modal.hidden && e.target === modal) { fecharVideo(); return; }
   const botao = e.target.closest && e.target.closest(".zap");
   if (!botao) return;
   const ctas = [...document.querySelectorAll(".zap")];
   abrirWhatsApp(botao.id === "whatsapp" ? "topo" : "leitura-" + (ctas.indexOf(botao) + 1));
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && modal && !modal.hidden) fecharVideo();
 });
 document.getElementById("pdf")?.addEventListener("click", () => window.print());

@@ -78,6 +78,33 @@ de entrada**. A mensagem que abre no WhatsApp segue a mesma regra: `whatsappMsg`
 para quem se qualifica, `whatsappMsgEntrada` para os demais (as duas ficam em
 `flow.js`).
 
+## Os depoimentos em vídeo
+
+Três clipes verticais no bloco "Quem conduz", numa faixa que desliza no dedo. O
+card mostra a miniatura e o player só carrega no toque, num modal em tela cheia
+(fecha no ×, no fundo ou no Esc, e zera o iframe para o vídeo não seguir tocando).
+
+| Quem | Credencial na legenda | Arquivo no Drive |
+| ---- | --------------------- | ---------------- |
+| Rafa Brites | Apresentadora e escritora. Repórter do Mais Você e do SuperStar (Globo), hoje no Power Couple Brasil (Record). | `RAFA BRITES depo edit.mov` |
+| Warley Santana | Ator, apresentador e ventríloquo. Repórter do Chega Mais (SBT), ex-CQC (Band). | `WARLEY SANTANA edit depo.MOV` |
+| Gabriela Prioli | Advogada criminalista, professora e apresentadora. Conhecida no O Grande Debate (CNN Brasil), hoje no GNT. | `GABRIELA PRIOLI edit depo.MOV` |
+
+A lista fica na constante `DEPOIMENTOS` do `diagnostico.js` (id do Drive, nome e
+credencial). Para trocar ou acrescentar, é lá. Na pasta do Drive ainda há dois
+outros depoimentos não usados, de Marília Moreno e Patrícia Fazan.
+
+**Onde os vídeos moram:** direto no Drive do cliente, via `drive.google.com/file/d/<id>/preview`,
+com a miniatura em `drive.google.com/thumbnail`. Vale o mesmo alerta da foto: para
+tráfego pago, o certo é subir os três para um YouTube não listado (ou Vimeo) da
+conta do Delphis e trocar o `id` pelo embed de lá. O Drive não é CDN e pode
+recusar quando o volume de visualizações sobe.
+
+**Autorização de imagem:** os três são pessoas públicas. Os arquivos foram
+subidos pelo próprio Delphis, mas **antes de rodar mídia paga é preciso ter a
+autorização escrita de nome e imagem de cada um**, e no caso da Gabriela Prioli
+o clipe é trecho de um podcast, o que envolve também o direito do programa.
+
 ## Como o lead é classificado
 
 O cruzamento acontece no `app.js` e vai gravado na planilha, na coluna **Classificação**:
