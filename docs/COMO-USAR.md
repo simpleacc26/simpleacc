@@ -88,12 +88,14 @@ quando a tarefa combina (ou você pede pelo nome).
 | Nome | O que é | O que faz | Como acionar |
 |---|---|---|---|
 | **`/prompt-mestre`** | Comando (funil/copy) | Vira um especialista em **copy de resposta direta + estratégia de funil + front-end**. Conduz diagnóstico → aprofundamento → confirmação → geração. Entrega **página/funil em HTML puro** e/ou **copy de anúncios** (ângulos, headlines, hooks). Pergunta o que falta, não inventa. | Digite `/prompt-mestre` em qualquer sessão. Na pasta de um cliente, já usa o contexto dele. |
+| **`/conselho-estrategico`** | Comando (decisão de negócio) | Abre uma **mesa de guerra com 4 conselheiros** (Russell Brunson, Alex Hormozi, Luiz Filho, Matuta). Faz o diagnóstico, cada conselheiro analisa por uma lente (aquisição, números/oferta, vendas, operação) e a mesa fecha com **síntese e prioridade de execução** (esta semana / este mês / este trimestre). Não valida o que você já decidiu. | Digite `/conselho-estrategico` e traga a decisão. Na pasta de um cliente, já usa o contexto e a última ata dele. |
 | **Estratégia Completa para Clientes** (`estrategia-completa-clientes`) | Skill (automática) | Pega o **onboarding** (transcrição, notas, áudio, resumo) e gera o **documento de estratégia de 8 seções** (Big Idea, Quiz, Página de Aplicação, Anúncios, Diagnóstico, Cadência 12 dias, Tarefas, Recomendações). Entrega como **Google Doc formatado** no Drive e salva a fonte em `clientes/<cliente>/estrategia/`. | Peça: *"transforma esse onboarding do cliente X em documento de estratégia"*. |
 | **Gerar Quiz + Diagnóstico + Página Pós-Quiz** (`gerar-quiz-diag-pag-pos-quiz`) | Skill (automática) | Pega a **copy aprovada** e **coloca o funil no ar**: quiz + página pós-quiz (diagnóstico + PDF + WhatsApp) na identidade do cliente, **publica na Vercel**, cria a **planilha de leads** no Drive e testa a integração. **Confirma a conta da Simple** antes de publicar (nunca conta pessoal). | Peça: *"monta/implementa o funil do cliente X"* ou *"sobe a página na Vercel"*. |
 
 **Como se encaixam:** Onboarding → *Estratégia Completa* (gera o doc + copy) →
 *Gerar Quiz…* (publica o funil + leads). O `/prompt-mestre` é o coringa para
-páginas/anúncios avulsos.
+páginas/anúncios avulsos, e o `/conselho-estrategico` é para quando a dúvida não é
+"que peça fazer", e sim **que decisão tomar** no negócio.
 
 > Outros comandos virão (ex.: `/roteiro`, `/copy`) conforme cadastrarmos novos
 > prompts mestres em `prompts/`.

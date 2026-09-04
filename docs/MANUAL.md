@@ -138,6 +138,7 @@ Os **padrões reutilizáveis** (a "inteligência de especialistas") ficam em
 | Comando  | Para quê |
 | -------- | -------- |
 | `/prompt-mestre` | Criar funil/página completa em HTML ou anúncios. Conduz diagnóstico → aprofundamento → geração. |
+| `/conselho-estrategico` | Levar uma decisão de negócio (oferta, escala, time, operação, vendas, crise) a uma mesa de 4 conselheiros. Conduz diagnóstico → análises → síntese com prioridade de execução. |
 
 - Digite o comando (ex.: **`/prompt-mestre`**) e o agente assume o papel do prompt mestre.
   Se você estiver na pasta de um cliente, ele já usa o contexto daquele cliente.
