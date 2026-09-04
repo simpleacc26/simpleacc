@@ -6,5 +6,11 @@
         { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
       ]
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/dani.jpg",
+      "destination": "https://grokker-quiz-diagnostico.vercel.app/dani.jpg"
+    }
   ]
 }
