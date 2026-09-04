@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quiz B — A Consulta · Ju Godinho</title>
+</head>
+<body>
+<style>
+  /* ——————————————————————————————————————————————
+     Ju Godinho · Quiz B
+     Identidade: prontuário clínico. Porcelana + eucalipto.
+     Sans como display (clínico), serif reservado à voz da
+     Ju e da mentorada, mono para campos e números.
+     ———————————————————————————————————————————— */
+
+  :root{
+    --paper:#F5F6F4;
+    --card:#FFFFFF;
+    --sunk:#EDEFEC;
+    --rule:#DBE0DA;
+    --rule-hard:#C3CBC1;
+
+    --ink:#16211E;
+    --ink-2:#4A5852;
+    --ink-3:#78857E;
+
+    --acc:#1F4A45;
+    --acc-2:#2F6E62;
+    --acc-wash:#E7EDEA;
+
+    /* semânticas: rota da oferta e escopo */
+    --ment:#2F6E62;  --ment-bg:#E4EFEA;
+    --edp:#8A6A24;   --edp-bg:#F4EEDF;
+    --fora:#8C3F58;  --fora-bg:#F6E8ED;
+
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+
+    --gut:9.5rem;
+    --wrap:min(100% - 2.5rem, 64rem);
+  }
+
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --paper:#111614; --card:#171E1B; --sunk:#1C2421;
+      --rule:#2A3430; --rule-hard:#3A4641;
+      --ink:#E8EDE9; --ink-2:#A6B2AC; --ink-3:#7C8983;
+      --acc:#7FB3A6; --acc-2:#9CC7BB; --acc-wash:#1A2623;
+      --ment:#7FB3A6; --ment-bg:#16241F;
+      --edp:#C6A057;  --edp-bg:#251E10;
+      --fora:#CE8AA0; --fora-bg:#26161C;
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper:#111614; --card:#171E1B; --sunk:#1C2421;
+    --rule:#2A3430; --rule-hard:#3A4641;
+    --ink:#E8EDE9; --ink-2:#A6B2AC; --ink-3:#7C8983;
+    --acc:#7FB3A6; --acc-2:#9CC7BB; --acc-wash:#1A2623;
+    --ment:#7FB3A6; --ment-bg:#16241F;
+    --edp:#C6A057;  --edp-bg:#251E10;
+    --fora:#CE8AA0; --fora-bg:#26161C;
+  }
+
+  *{box-sizing:border-box}
+  html{background:var(--paper)}
+  body{
+    margin:0; background:var(--paper); color:var(--ink);
+    font-family:var(--sans); font-size:17px; line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{width:var(--wrap); margin-inline:auto}
+  p{max-width:64ch}
+
+  header.chart{padding:4.5rem 0 2.25rem}
+  .chartline{
+    display:flex; flex-wrap:wrap; gap:.5rem 2rem; align-items:baseline;
+    font-family:var(--mono); font-size:.7rem; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--ink-3);
+    padding-bottom:1.75rem; border-bottom:2px solid var(--ink);
+  }
+  .chartline b{color:var(--acc); font-weight:600}
+
+  h1{
+    font-family:var(--sans); font-weight:750;
+    font-size:clamp(2rem,5vw,3.15rem); line-height:1.04;
+    letter-spacing:-.032em; text-wrap:balance;
+    margin:2.5rem 0 1.15rem; max-width:20ch;
+  }
+  h1 span{color:var(--acc)}
+  .lede{font-size:1.1rem; color:var(--ink-2); max-width:58ch; margin:0}
+
+  /* ——— painel de abertura: a voz da Ju ——— */
+  .anchor{
+    margin:3rem 0 0; border:1px solid var(--rule); border-left:3px solid var(--acc);
+    background:var(--card); padding:1.7rem 1.8rem;
+  }
+  .anchor h2{
+    font-family:var(--mono); font-size:.7rem; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--acc); margin:0 0 1.1rem; font-weight:600;
+  }
+  .anchor blockquote{
+    margin:0; font-family:var(--serif); font-size:1.14rem; line-height:1.55;
+    color:var(--ink); max-width:60ch;
+  }
+  .anchor blockquote p{margin:0 0 .85rem; max-width:none; font-family:inherit}
+  .anchor blockquote p:last-child{margin:0}
+  .anchor .src{
+    display:block; margin-top:1.2rem; font-family:var(--mono); font-size:.66rem;
+    letter-spacing:.13em; text-transform:uppercase; color:var(--ink-3);
+  }
+
+  section{
+    display:grid; grid-template-columns:var(--gut) 1fr; gap:0 2.5rem;
+    padding:3.25rem 0; border-bottom:1px solid var(--rule);
+  }
+  section:last-of-type{border-bottom:0}
+  .field{
+    font-family:var(--mono); font-size:.68rem; letter-spacing:.15em;
+    text-transform:uppercase; color:var(--ink-3); padding-top:.55rem;
+    border-top:2px solid var(--ink); align-self:start;
+  }
+  .body>*:first-child{margin-top:0}
+
+  h2.sec{
+    font-family:var(--sans); font-weight:700; font-size:clamp(1.35rem,2.6vw,1.75rem);
+    line-height:1.2; letter-spacing:-.022em; text-wrap:balance; margin:0 0 1.35rem;
+  }
+  h3{font-size:1.02rem; font-weight:680; margin:2.4rem 0 .8rem; letter-spacing:-.008em}
+  h4{
+    font-family:var(--mono); font-size:.68rem; letter-spacing:.15em; text-transform:uppercase;
+    color:var(--acc); margin:2rem 0 .7rem; font-weight:600;
+  }
+
+  .said{
+    font-family:var(--serif); font-size:1.06rem; font-style:italic;
+    color:var(--acc); line-height:1.5;
+  }
+
+  .charts{display:grid; gap:1rem; margin:1.6rem 0}
+  .qd{border:1px solid var(--rule); background:var(--card)}
+  .qd>header{
+    display:flex; gap:.85rem; align-items:baseline; flex-wrap:wrap;
+    padding:.9rem 1.25rem; background:var(--sunk); border-bottom:1px solid var(--rule);
+  }
+  .qd .code{
+    font-family:var(--mono); font-size:.68rem; letter-spacing:.13em;
+    color:var(--acc); font-weight:600; flex:none;
+  }
+  .qd .name{font-size:1.12rem; font-weight:700; letter-spacing:-.018em; margin:0}
+  .qd .rank{
+    margin-left:auto; font-family:var(--mono); font-size:.66rem; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--ink-3);
+  }
+  .qd dl{
+    margin:0; padding:1.15rem 1.25rem;
+    display:grid; grid-template-columns:7.5rem 1fr; gap:.65rem 1.1rem;
+  }
+  .qd dt{
+    font-family:var(--mono); font-size:.64rem; letter-spacing:.13em; text-transform:uppercase;
+    color:var(--ink-3); padding-top:.4em;
+  }
+  .qd dd{margin:0; font-size:.95rem; color:var(--ink-2)}
+  .qd dd strong{color:var(--ink); font-weight:640}
+
+  .ask{border:1px solid var(--rule); background:var(--card); margin:1.35rem 0}
+  .ask>header{padding:.95rem 1.25rem; border-bottom:1px solid var(--rule)}
+  .ask .num{
+    font-family:var(--mono); font-size:.68rem; letter-spacing:.13em;
+    color:var(--acc); font-weight:600; display:block; margin-bottom:.3rem;
+  }
+  .ask .txt{font-weight:660; font-size:1rem; margin:0; letter-spacing:-.01em; max-width:none}
+  .ask .why{
+    font-family:var(--mono); font-size:.65rem; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--ink-3); display:block; margin-top:.4rem;
+  }
+  ul.opts{list-style:none; margin:0; padding:0}
+  ul.opts li{
+    display:flex; gap:.85rem; align-items:flex-start; font-size:.93rem; color:var(--ink-2);
+    padding:.55rem 1.25rem; border-bottom:1px solid var(--rule);
+  }
+  ul.opts li:last-child{border-bottom:0}
+  .sig{
+    font-family:var(--mono); font-size:.6rem; letter-spacing:.1em; text-transform:uppercase;
+    padding:.22rem .5rem; flex:none; margin-top:.15rem; min-width:5.4rem; text-align:center;
+    border:1px solid currentColor; font-weight:600;
+  }
+  .s-ment{color:var(--ment); background:var(--ment-bg)}
+  .s-edp {color:var(--edp);  background:var(--edp-bg)}
+  .s-fora{color:var(--fora); background:var(--fora-bg)}
+  .s-map {color:var(--acc);  background:var(--acc-wash)}
+  .s-obs {color:var(--ink-3); background:transparent; border-color:var(--rule-hard)}
+
+  .copy{
+    border:1px solid var(--rule); border-left:3px solid var(--acc);
+    background:var(--card); padding:1.1rem 1.3rem; margin:1.1rem 0;
+  }
+  .copy.pick{background:var(--acc-wash)}
+  .copy .kind{
+    font-family:var(--mono); font-size:.65rem; letter-spacing:.13em; text-transform:uppercase;
+    color:var(--acc); display:block; margin-bottom:.7rem; font-weight:600;
+  }
+  .copy p{margin:0 0 .65rem; font-size:.97rem; max-width:56ch}
+  .copy p:last-child{margin:0}
+
+  .note{
+    background:var(--sunk); border:1px solid var(--rule); padding:1.05rem 1.25rem;
+    margin:1.8rem 0; font-size:.92rem; color:var(--ink-2);
+  }
+  .note b{color:var(--ink)}
+  .note p{margin:0 0 .65rem; max-width:none}
+  .note p:last-child{margin:0}
+
+  .scroll{overflow-x:auto; margin:1.6rem 0; border:1px solid var(--rule); background:var(--card)}
+  table{border-collapse:collapse; width:100%; font-size:.89rem; min-width:34rem}
+  th,td{padding:.65rem .9rem; text-align:left; border-bottom:1px solid var(--rule); vertical-align:top; color:var(--ink-2)}
+  thead th{
+    font-family:var(--mono); font-size:.65rem; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--acc); font-weight:600; background:var(--sunk); white-space:nowrap;
+  }
+  tbody th{
+    font-family:var(--mono); font-size:.65rem; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--ink-3); font-weight:600; white-space:nowrap;
+  }
+  td strong{color:var(--ink); font-weight:640}
+  tbody tr:last-child td, tbody tr:last-child th{border-bottom:0}
+
+  ul.plain{padding-left:1.1rem; margin:1rem 0}
+  ul.plain li{margin:.4rem 0; color:var(--ink-2)}
+  ul.plain li::marker{color:var(--acc)}
+  ul.plain li strong{color:var(--ink); font-weight:640}
+  strong{font-weight:660}
+
+  footer{
+    padding:3rem 0 4.5rem; border-top:2px solid var(--ink); margin-top:1rem;
+    font-family:var(--mono); font-size:.7rem; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--ink-3);
+  }
+
+  @media (max-width:760px){
+    section{grid-template-columns:1fr; gap:1.1rem}
+    .field{border-top:0; padding-top:0}
+    .qd dl{grid-template-columns:1fr; gap:.15rem}
+    .qd dt{padding-top:.7em}
+    ul.opts li{flex-wrap:wrap; gap:.45rem}
+    :root{--gut:0}
+  }
+
+  @media print{
+    @page{margin:14mm}
+    html,body{background:#fff}
+    *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+    section,.qd,.ask,.copy,.note,.anchor{break-inside:avoid}
+    h2.sec,h3,h4{break-after:avoid}
+    .scroll{overflow:visible}
+  }
+</style>
+
+<div class="wrap">
+
+<header class="chart">
+  <div class="chartline">
+    <span>Simple Acc · Fábrica de Quiz</span>
+    <span>Proposta: <b>nova versão do quiz</b></span>
+    <span>Para: Juliana Godinho</span>
+    <span>10 ago 2026</span>
+  </div>
+
+  <h1>Um quiz construído em cima da <span>sua</span> mentorada</h1>
+  <p class="lede">Ju, esta versão parte da sua própria definição de quem você quer atender. Cada pergunta existe para reconhecer essa mulher, e cada rota existe para levá-la ao lugar certo. O que está abaixo é a tradução do seu texto em perguntas.</p>
+
+  <div class="anchor">
+    <h2>O ponto de partida, nas suas palavras</h2>
+    <blockquote>
+      <p>Minha melhor mentorada é a profissional da saúde estética que já provou que sabe atender e gerar faturamento, mas percebeu que, para crescer sem depender de trabalhar cada vez mais, precisa deixar de administrar apenas a própria agenda e começar a construir uma empresa.</p>
+      <p>Percebeu que o modelo atual de crescimento chegou no limite.</p>
+    </blockquote>
+    <span class="src">Juliana Godinho · agosto de 2026</span>
+  </div>
+</header>
+
+<section>
+  <p class="field">01 · A ideia</p>
+  <div class="body">
+    <h2 class="sec">De coletar respostas a devolver um diagnóstico</h2>
+
+    <p>Um quiz pode fazer duas coisas: registrar o que a pessoa diz sobre si mesma, ou colher sinais que permitem a você dizer a ela algo que ela ainda não enxergou. Esta versão faz a segunda.</p>
+
+    <p>A diferença é prática. Quando se pergunta a uma profissional onde está o gargalo dela, a resposta fica limitada ao que dá para ver de dentro, e é justamente por isso que ela ainda não resolveu. Quem tem repertório para nomear o problema é você, com clínica na área desde 2011 e sete anos mentorando. <strong>O quiz colhe sintomas para que o laudo seja seu.</strong></p>
+
+    <p>Três decisões sustentam isso:</p>
+
+    <ul class="plain">
+      <li><strong>A primeira pergunta já separa o terreno.</strong> Ao perguntar qual tratamento responde pela maior parte do faturamento, ela diz de uma vez o que a mulher faz e de onde vem o dinheiro dela. Quem atua fora da estética avançada não encontra o próprio trabalho na lista e encerra ali.</li>
+      <li><strong>As perguntas miram cenas, não impressões.</strong> Em vez de pedir uma autoavaliação, elas perguntam o que aconteceu na última semana da clínica ou consultório. Comportamento é mais fiel que autoimagem.</li>
+      <li><strong>O faturamento define a oferta, não a entrada.</strong> Vem por último e indica o caminho certo: mentoria para quem já está no momento dela, EDP para quem ainda está construindo a base.</li>
+    </ul>
+
+    <div class="note">
+      <p><b>Por que isso muda a conversa da sua SDR.</b> Quando a mulher termina o quiz sabendo que o problema dela tem nome, e que você já viu esse quadro antes, ela responde a mensagem. A conversa começa do meio, e não do zero, e a sua SDR já sabe qual das duas ofertas colocar na mesa.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="field">02 · Público</p>
+  <div class="body">
+    <h2 class="sec">O traço que separa a sua mentorada</h2>
+
+    <p>Dentro da saúde estética convivem mulheres que escrevem a mesma frase, <span class="said">"trabalho muito e não cresce"</span>, e vivem momentos de negócio distintos. A frase é idêntica; o que muda é o que já foi construído por trás dela.</p>
+
+    <p>O marcador da sua mentorada não é tamanho de estrutura nem tamanho de equipe. Muitas atendem sozinhas hoje, e ter equipe é um passo que vem depois, dentro da jornada. <strong>O marcador é a consciência do limite:</strong> ela já provou que sabe atender e faturar, e já entendeu que não chega ao próximo nível repetindo o que fez até aqui.</p>
+
+    <div class="scroll">
+      <table>
+        <thead><tr><th></th><th>Momento da mentoria</th><th>Momento do EDP</th></tr></thead>
+        <tbody>
+          <tr><th>Onde está</th><td>Clínica ou consultório funcionando, com clientes e faturamento consistente. Agenda cheia ou perto disso.</td><td>Ainda construindo a base de clientes e a rotina do negócio.</td></tr>
+          <tr><th>O que percebeu</th><td>Que trabalhar mais parou de significar crescer mais.</td><td>Que precisa de direção para organizar o que está começando.</td></tr>
+          <tr><th>O que quer</th><td>Aumentar o ticket, vender tratamentos de maior valor e construir uma empresa, não aprender a postar mais.</td><td>Estruturar o essencial e ganhar consistência.</td></tr>
+          <tr><th>Postura</th><td>Disposta a ser direcionada, decidir e executar.</td><td>Precisa de um primeiro caminho, mais curto e mais guiado.</td></tr>
+          <tr><th>Oferta certa</th><td><strong>Mentoria</strong></td><td><strong>EDP</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <p><b>Como as áreas de fora ficam de fora.</b> A P1 pergunta o carro-chefe e lista só tratamentos de estética avançada. Cílios, sobrancelha, micropigmentação, cabelo, unhas, maquiagem, podologia, nutrição e odontologia não aparecem em lugar nenhum: quem atua nessas áreas marca "nenhuma dessas" e encerra. Fizemos assim de propósito. Nomear "área da beleza" numa lista em que também aparece biomedicina afasta a profissional certa antes de ela terminar a primeira pergunta.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="field">03 · Quadros</p>
+  <div class="body">
+    <h2 class="sec">Quatro gargalos, quatro laudos</h2>
+
+    <p>Cada quadro sai de uma cena que aparece na rotina da clínica ou consultório. Cada um tem laudo, explicação e caminho próprios, e todos partem do mesmo ponto: o modelo atual chegou no limite.</p>
+
+    <div class="note">
+      <p><b>Isto aqui é bastidor.</b> Os nomes e a linguagem dos quadros são de uso interno, para orientar a SDR e a closer. A mulher que responde nunca lê nenhuma dessas palavras. O que chega até ela é a cena, no quiz, e o laudo, na sua voz.</p>
+    </div>
+
+    <div class="charts">
+
+      <article class="qd">
+        <header><span class="code">Q1</span><p class="name">A agenda virou o teto</p><span class="rank">ancoragem principal</span></header>
+        <dl>
+          <dt>Gargalo</dt><dd>O crescimento está amarrado às horas dela. Trabalhar mais parou de significar crescer mais.</dd>
+          <dt>Sintoma</dt><dd>Termina a semana só atendendo, sem tempo de postar nem de se organizar.</dd>
+          <dt>Como fala</dt><dd class="said">"Minha agenda tá cheia e mesmo assim não cresce." · "Não sobra tempo pra nada além de atender."</dd>
+          <dt>Caminho</dt><dd>Separar o tempo de atender do tempo de tocar o negócio, e definir o que sai da mão dela primeiro.</dd>
+          <dt>Objeção</dt><dd>"Se eu atender menos, eu faturo menos."</dd>
+        </dl>
+      </article>
+
+      <article class="qd">
+        <header><span class="code">Q2</span><p class="name">Sempre as mesmas clientes</p><span class="rank">falta de fluxo novo</span></header>
+        <dl>
+          <dt>Gargalo</dt><dd>A base é fiel e não entra cliente nova. O faturamento fica preso no tamanho da carteira que ela já tem.</dd>
+          <dt>Sintoma</dt><dd>Olha a agenda da semana e são quase sempre as mesmas pessoas.</dd>
+          <dt>Como fala</dt><dd class="said">"Minhas clientes são fiéis, voltam sempre, mas não vem cliente nova." · "Vendo pra mesma gente todo mês."</dd>
+          <dt>Caminho</dt><dd>Criar fluxo de cliente nova sem depender de indicação, e subir o valor do que já é vendido para a base atual.</dd>
+          <dt>Objeção</dt><dd>"Minha cidade é pequena, já atendi todo mundo."</dd>
+        </dl>
+      </article>
+
+      <article class="qd">
+        <header><span class="code">Q3</span><p class="name">Vende com desconto</p><span class="rank">margem</span></header>
+        <dl>
+          <dt>Gargalo</dt><dd>A promoção virou a ferramenta de vender. O movimento aumenta e a sobra não acompanha.</dd>
+          <dt>Sintoma</dt><dd>Manda promoção para a base inteira quando precisa fechar o mês.</dd>
+          <dt>Como fala</dt><dd class="said">"Faturei mais esse mês e sobrou menos." · "Sem promoção elas não fecham."</dd>
+          <dt>Caminho</dt><dd>Clareza de números primeiro, preço por valor depois, e a promoção deixa de ser o que sustenta a venda.</dd>
+          <dt>Objeção</dt><dd>"Se eu parar com a promoção, ninguém compra."</dd>
+        </dl>
+      </article>
+
+      <article class="qd">
+        <header><span class="code">Q4</span><p class="name">Cobra menos do que vale</p><span class="rank">ticket</span></header>
+        <dl>
+          <dt>Gargalo</dt><dd>Entrega muito mais do que cobra, e não sabe como mudar isso além de reajustar a tabela.</dd>
+          <dt>Sintoma</dt><dd>Deixou de cobrar o que valia porque achou que a cliente não pagaria.</dd>
+          <dt>Como fala</dt><dd class="said">"Tenho medo de aumentar o preço e perder quem já vem." · "Aqui ninguém paga esse valor."</dd>
+          <dt>Caminho</dt><dd>Construir tratamentos de maior valor e o posicionamento que sustenta o preço, em vez de mexer só na tabela.</dd>
+          <dt>Objeção</dt><dd>"Na minha cidade ninguém paga isso."</dd>
+        </dl>
+      </article>
+
+    </div>
+
+    <p>O <strong>Q1</strong> ancora a comunicação principal: é o ponto que a sua própria definição de mentorada coloca no centro, o momento em que trabalhar mais deixou de significar crescer mais. O <strong>Q2</strong> entra logo atrás, porque é a queixa que elas verbalizam sozinhas com mais frequência.</p>
+  </div>
+</section>
+
+<section>
+  <p class="field">04 · A consulta</p>
+  <div class="body">
+    <h2 class="sec">As seis perguntas</h2>
+
+    <p>A lógica é a de um atendimento: identifica-se o terreno, colhem-se os sintomas, examinam-se os números, e só então se fecha o quadro. A mulher que responde precisa sentir que está sendo examinada, não entrevistada.</p>
+
+    <p>Duas ausências propositais: <strong>nenhuma pergunta sobre quando ela quer resolver</strong>, porque essa informação a SDR colhe na conversa; e <strong>nenhuma pergunta de autoavaliação</strong>, só cenas concretas e números que ela conhece.</p>
+
+    <div class="ask">
+      <header><span class="num">P1</span><p class="txt">Qual desses tratamentos responde pela maior parte do seu faturamento hoje?</p><span class="why">Carro-chefe · define o terreno e o potencial de ticket</span></header>
+      <ul class="opts">
+        <li><span class="sig s-obs">sinal</span> Tratamentos corporais</li>
+        <li><span class="sig s-obs">sinal</span> Tratamentos faciais</li>
+        <li><span class="sig s-obs">sinal</span> Injetáveis</li>
+        <li><span class="sig s-obs">sinal</span> Pós-operatório</li>
+        <li><span class="sig s-obs">sinal</span> Depilação a laser</li>
+        <li><span class="sig s-obs">sinal</span> Tricologia</li>
+        <li><span class="sig s-fora">fora</span> Nenhuma dessas</li>
+      </ul>
+    </div>
+
+    <div class="ask">
+      <header><span class="num">P2</span><p class="txt">Pense na última semana na sua clínica ou consultório. Qual dessas cenas aconteceu mais vezes?</p><span class="why">Sintoma principal · define o quadro</span></header>
+      <ul class="opts">
+        <li><span class="sig s-map">Q1</span> Terminei a semana só atendendo, sem tempo de postar nem de me organizar</li>
+        <li><span class="sig s-map">Q2</span> Olhei a agenda e vi que são quase sempre as mesmas clientes</li>
+        <li><span class="sig s-map">Q3</span> Mandei promoção para a base para fechar vendas</li>
+        <li><span class="sig s-map">Q4</span> Deixei de cobrar o que valia porque achei que a cliente não ia pagar</li>
+      </ul>
+    </div>
+
+    <div class="ask">
+      <header><span class="num">P3</span><p class="txt">Quem atende na sua clínica ou consultório hoje?</p><span class="why">Estrutura · alimenta o laudo, não define a rota</span></header>
+      <ul class="opts">
+        <li><span class="sig s-obs">sinal</span> Só eu</li>
+        <li><span class="sig s-obs">sinal</span> Eu e mais uma pessoa</li>
+        <li><span class="sig s-obs">sinal</span> Eu e uma equipe pequena</li>
+        <li><span class="sig s-obs">sinal</span> Tenho equipe atendendo e eu atendo pouco</li>
+        <li><span class="sig s-obs">sinal</span> Só administro, não atendo</li>
+      </ul>
+    </div>
+
+    <div class="ask">
+      <header><span class="num">P4</span><p class="txt">Depois de pagar aluguel, produtos, impostos e quem trabalha com você, quanto costuma sobrar no fim do mês?</p><span class="why">Exame de margem · alimenta o laudo</span></header>
+      <ul class="opts">
+        <li><span class="sig s-obs">sinal</span> Quase nada, e em alguns meses falta</li>
+        <li><span class="sig s-obs">sinal</span> Sobra pouco, e eu não sei dizer exatamente quanto</li>
+        <li><span class="sig s-obs">sinal</span> Nunca fechei essa conta, não sei responder</li>
+        <li><span class="sig s-obs">sinal</span> Sobra o suficiente para eu me pagar e reinvestir um pouco</li>
+        <li><span class="sig s-obs">sinal</span> Sobra bem, e eu acompanho esse número de perto</li>
+      </ul>
+    </div>
+
+    <div class="ask">
+      <header><span class="num">P5</span><p class="txt">O que você fez para vender mais?</p><span class="why">Histórico · múltipla escolha</span></header>
+      <ul class="opts">
+        <li><span class="sig s-obs">sinal</span> Baixei preço ou fiz promoção</li>
+        <li><span class="sig s-obs">sinal</span> Abri mais horários e atendi até mais tarde</li>
+        <li><span class="sig s-obs">sinal</span> Investi em divulgação, tráfego ou equipamento novo</li>
+        <li><span class="sig s-obs">sinal</span> Ainda não fiz nada diferente</li>
+      </ul>
+    </div>
+
+    <div class="ask">
+      <header><span class="num">P6</span><p class="txt">Qual a média de faturamento mensal da sua clínica ou consultório?</p><span class="why">Define a oferta · sempre a última</span></header>
+      <ul class="opts">
+        <li><span class="sig s-edp">EDP</span> Até R$ 5 mil</li>
+        <li><span class="sig s-edp">EDP</span> De R$ 5 mil a R$ 10 mil</li>
+        <li><span class="sig s-ment">mentoria</span> De R$ 10 mil a R$ 20 mil</li>
+        <li><span class="sig s-ment">mentoria</span> De R$ 20 mil a R$ 30 mil</li>
+        <li><span class="sig s-ment">mentoria</span> De R$ 30 mil a R$ 50 mil</li>
+        <li><span class="sig s-ment">mentoria</span> Acima de R$ 50 mil</li>
+      </ul>
+    </div>
+
+    <div class="note">
+      <p><b>Sobre a P4, a pergunta nova.</b> Margem é assunto de dona: quem opera como prestadora de serviço pensa em faturamento, quem opera como empresária pensa no que sobra. Quem se reconhece nessa pergunta é exatamente quem a sua mentoria transforma.</p>
+      <p>As três primeiras respostas dizem mais que as duas últimas. <span class="said">"Nunca fechei essa conta"</span> não é resposta ruim: é o sintoma mais eloquente de um negócio que fatura bem e ainda não tem clareza de números. Isso entra no laudo dela e é, provavelmente, a frase que faz ela responder a sua SDR. Nenhuma resposta de margem muda a oferta. Quem define a rota é a P6.</p>
+      <p><b>Uma linha para você definir.</b> Coloquei a fronteira da mentoria em R$ 10 mil. Se na sua leitura quem fatura entre R$ 10 e R$ 20 mil ainda está no momento do EDP, é só me dizer que a rota muda.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="field">05 · Destino</p>
+  <div class="body">
+    <h2 class="sec">O que acontece depois de responder</h2>
+
+    <p>Três destinos, definidos pela combinação de carro-chefe e faturamento. Ninguém que esteja dentro do escopo sai sem um caminho.</p>
+
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Rota</th><th>Quando acontece</th><th>Destino</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Mentoria</strong></td>
+            <td>Carro-chefe no escopo e faturamento acima de R$ 10 mil</td>
+            <td>Página de agendamento da sessão, WhatsApp da SDR e call com a closer</td>
+          </tr>
+          <tr>
+            <td><strong>EDP</strong></td>
+            <td>Carro-chefe no escopo e faturamento até R$ 10 mil</td>
+            <td>Laudo e convite para o EDP, conduzido pela SDR</td>
+          </tr>
+          <tr>
+            <td><strong>Fora do escopo</strong></td>
+            <td>Carro-chefe fora do escopo</td>
+            <td>Encerramento cordial, com material gratuito de valor real</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <p><b>O que isso resolve.</b> Hoje as duas ofertas disputam a mesma conversa, e cabe à SDR descobrir na hora qual delas cabe. Com a rota definida no quiz, ela abre o WhatsApp já sabendo o que propor, e o EDP deixa de competir com a mentoria pela atenção de quem já está pronta para a mentoria.</p>
+    </div>
+
+    <h3>O laudo</h3>
+    <p>Quatro laudos, um por quadro, enviados por WhatsApp poucos minutos depois. Mesma anatomia nos quatro, com o fechamento variando conforme a rota:</p>
+    <ul class="plain">
+      <li><strong>O seu gargalo.</strong> O nome do problema, dito com clareza.</li>
+      <li><strong>O que isso significa na prática.</strong> A cena do dia a dia dela, com precisão suficiente para ela sentir que foi observada de perto.</li>
+      <li><strong>Por que o que você já tentou não resolveu.</strong> Usa a resposta da P5, o que ela já tentou para vender mais. É o trecho que constrói a sua autoridade, porque explica um resultado que ela viveu e nunca entendeu.</li>
+      <li><strong>O caminho.</strong> A direção, não o passo a passo. O passo a passo é a mentoria ou o EDP.</li>
+      <li><strong>O próximo passo.</strong> O convite, calibrado pela rota.</li>
+    </ul>
+    <p>O PDF abre neutro, sem nome, para servir a qualquer mulher daquele quadro. A mensagem de WhatsApp que vai antes dele é personalizada e dá o spoiler do gargalo, e é ela que faz a conversa começar do meio, e não do zero.</p>
+  </div>
+</section>
+
+<section>
+  <p class="field">06 · Comunicação</p>
+  <div class="body">
+    <h2 class="sec">Os anúncios</h2>
+
+    <p>No seu nicho o desejo já está saturado: todo mundo promete faturar mais e ser referência. O que continua escasso é a sensação de que <strong>desta vez vai funcionar porque alguém identificou o problema certo</strong>. A comunicação nova ancora no diagnóstico, não na promessa de resultado.</p>
+
+    <div class="copy pick">
+      <span class="kind">Ângulo principal · recomendado</span>
+      <p>Sua clínica ou consultório está com a agenda cheia e mesmo assim o dinheiro não sobra.</p>
+      <p>Mesmo com muita certificação, muita técnica e bons resultados, chega um ponto em que atender mais para de resolver. Existem quatro gargalos que travam clínica e consultório exatamente nesse ponto, e o seu é só um deles.</p>
+    </div>
+    <p><strong>Por quê.</strong> Fala com quem já atende bem, já tem técnica e já fatura, que é onde a sua mentorada está. E troca "faturamento" por "dinheiro que sobra", que é a forma como ela sente o problema. Evitei "isso não é falta de esforço": a estrutura de negar o esforço está em todo lugar hoje e já perdeu força.</p>
+
+    <div class="copy">
+      <span class="kind">Alternativo · a queixa mais verbalizada</span>
+      <p>Suas clientes são fiéis, voltam sempre, e mesmo assim você atende sempre as mesmas pessoas.</p>
+      <p>O problema não é fidelizar, isso você já faz bem. É que não está entrando cliente nova, e sem fluxo novo o faturamento fica preso no tamanho da carteira que você já tem.</p>
+    </div>
+
+    <div class="copy">
+      <span class="kind">Alternativo · margem</span>
+      <p>Sua clínica ou consultório vendeu mais esse mês e sobrou menos.</p>
+      <p>Quando a promoção vira a forma de vender, o movimento aumenta e a margem some junto. Isso tem explicação, e não se resolve atendendo mais gente.</p>
+    </div>
+
+    <h4>Ganchos por quadro · estrutura fixa, gancho variável</h4>
+    <ul class="plain">
+      <li><strong>Q1.</strong> Você terminou mais uma semana só atendendo, sem tempo de postar nem de se organizar.</li>
+      <li><strong>Q2.</strong> Suas clientes voltam sempre e mesmo assim você atende sempre as mesmas pessoas.</li>
+      <li><strong>Q3.</strong> Você mandou promoção para a base de novo esse mês para fechar as vendas.</li>
+      <li><strong>Q4.</strong> Você já deixou de cobrar o que valia porque achou que a cliente não ia pagar.</li>
+    </ul>
+
+    <div class="note">
+      <p><b>Formato: dois vídeos para cada imagem.</b> É o que a sua conta mostra. Os criativos em vídeo trazem mulheres em um momento de negócio mais avançado numa proporção bem maior que os em imagem, então a produção passa a priorizar vídeo, com imagem entrando como apoio.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="field">07 · Pendências</p>
+  <div class="body">
+    <h2 class="sec">O que eu preciso de você</h2>
+
+    <p>Três coisas, nenhuma delas demorada. São o que separa uma proposta bem construída de uma proposta calibrada na sua realidade.</p>
+
+    <ul class="plain">
+      <li><strong>Validar os quatro quadros.</strong> Quero saber se são esses os gargalos que você mais encontra nas mentoradas, e se a linguagem que coloquei em cada um bate com a que você ouve. Se faltar um, ou se a frase for outra, me diga a frase real que elas usam.</li>
+      <li><strong>A fronteira do faturamento.</strong> Deixei a mentoria começando em R$ 10 mil. Se para você essa linha é outra, é um ajuste de minutos.</li>
+      <li><strong>Como chegaram as duas mentorias de maio.</strong> Por onde cada uma veio, o que ela disse na call e quanto tempo levou. São os dois casos mais recentes do produto principal, e valem mais que qualquer referência de mercado.</li>
+    </ul>
+
+    <p>Se você tiver gravação de call com uma mentorada de cada quadro, melhor ainda: com isso eu troco a linguagem que escrevi pela que essas mulheres usam de verdade, e os laudos passam a soar como você, não como a minha interpretação de você.</p>
+  </div>
+</section>
+
+<footer>
+  Simple Acc · Fábrica de Quiz · Proposta de nova versão do quiz · Juliana Godinho · 10 de agosto de 2026
+</footer>
+
+</div>
+
+</body>
+</html>
