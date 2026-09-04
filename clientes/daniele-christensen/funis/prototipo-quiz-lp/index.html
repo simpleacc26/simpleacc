@@ -668,12 +668,17 @@ var i = 0;       // índice atual
 // só aqui e no dicionário P — nenhum número de pergunta está escrito à mão.
 var BASE = ["p0","p1","p2","p3","p4","p5"];
 var CAMINHOS = {
+  // REGRA DOS DOIS CAMINHOS: pergunta de dinheiro (faturamento, margem,
+  // remuneração) vem SEMPRE depois da de colaboradores. Porte de estrutura é
+  // mais fácil de responder que dinheiro, então ele abre a sequência de
+  // qualificação sem o lead travar logo na primeira. A autonomia não é
+  // dinheiro e fica por último, como a Dani pediu em 04/09.
+  //
+  // O id de cada pergunta NÃO acompanha a posição, de propósito: P6, P7 e P8
+  // são identificadores do contrato com a Pulsar, e renomeá-los quebraria quem
+  // lê `respostas.P6` do outro lado. Posição é tela, id é contrato.
   A: ["aColab","a6","a7"],   // dono ou sócio: porte, faturamento, margem
-  // Pedido da Dani em 04/09: colaboradores fica na 8 e autonomia passa para a 9,
-  // a última. O id de cada pergunta NÃO acompanha a posição de propósito: P6, P7
-  // e P8 são identificadores do contrato com a Pulsar, e renomeá-los quebraria
-  // quem lê `respostas.P6` do outro lado. Posição é tela, id é contrato.
-  B: ["b7","bColab","b6"]    // executivo: remuneração, equipe, autonomia
+  B: ["bColab","b7","b6"]    // executivo: equipe, remuneração, autonomia
 };
 
 function ordem(){

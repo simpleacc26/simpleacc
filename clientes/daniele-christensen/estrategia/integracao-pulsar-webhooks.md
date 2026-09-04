@@ -317,3 +317,21 @@ exato sem publicar nada, abra `funis/prototipo-etapa2/index.html` do disco.
   aprovada está em `copy/whatsapp-entrega-diagnostico.md`.
 - **O domínio próprio.** `quiz.grokkeronline.com/quiz` e `/lp` ainda servem o
   funil antigo. Tudo o que está descrito aqui vive nas URLs da Vercel.
+
+## Ordem das perguntas na tela (04/09/26)
+
+Os ids P6, P7 e P8 são identificadores do contrato e **não** acompanham a
+posição na tela. A ordem que o lead vê é:
+
+| Posição | Caminho A (dono ou sócio) | Caminho B (executivo) |
+|---|---|---|
+| 7 | P8 colaboradores da empresa | P8 colaboradores sob responsabilidade |
+| 8 | P6 faturamento | P7 remuneração |
+| 9 | P7 margem | P6 autonomia |
+
+Regra: pergunta de dinheiro vem sempre depois da de colaboradores.
+
+**Reordenar a tela não afeta a automação.** O payload é endereçado por nome
+(`colaboradores`, `faturamento`, `autonomia`, `remuneracao`), e o cenário do
+Make só lê de `respostas` as chaves P2 a P5. Renomear os ids é que quebraria,
+inclusive do lado da Pulsar, que recebe o mesmo payload.
