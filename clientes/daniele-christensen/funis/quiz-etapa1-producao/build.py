@@ -141,6 +141,19 @@ def main():
         for pedaco in ["Descubra onde a sua Liderança", "receba o seu cenário na tela"]:
             if pedaco not in html:
                 sys.exit("build: --abertura pedida mas %r não está no protótipo" % pedaco)
+
+        # A marca sai do topo do quiz e passa para a página pós-quiz. Pedido da
+        # Dani em 04/09, e resolve a incongruência que a autópsia apontou: o
+        # anúncio é da Dra. Daniele e a primeira tela dizia GROKKER, uma marca
+        # que o lead nunca viu. Depois do quiz ela faz sentido, porque ali a
+        # página já apresentou quem assina o Diagnóstico.
+        marca = ('  <div class="brand"><div class="wm">GR<span class="o">O</span>'
+                 'KKER</div></div>\n\n')
+        html = troca(html, marca, "", "a marca no topo")
+        html = troca(html, '  <div id="lp">\n',
+                     '  <div id="lp">\n'
+                     '    <div class="brand"><div class="wm">GR<span class="o">O</span>'
+                     'KKER</div></div>\n', "a abertura da página pós-quiz")
     else:
         # Sai tudo: marcação, CSS e o guard no render. O CSS e o guard seriam
         # inertes sem o elemento, mas deixá-los faria a build sem argumento
