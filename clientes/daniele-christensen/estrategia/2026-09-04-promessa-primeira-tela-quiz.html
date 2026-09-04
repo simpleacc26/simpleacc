@@ -1,0 +1,288 @@
+<title>A promessa que falta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F7F6F3; --surface:#FFFFFF; --surface-2:#EFEDE7;
+  --ink:#1A1714; --ink-2:#4A443B; --muted:#7A7268;
+  --rule:#E2DED6; --rule-firm:#CBC5B9;
+  --accent:#C4651B; --accent-soft:#F6E6D4;
+  --crit:#A32B22; --crit-soft:#F6DFDC;
+  --good:#2A6B45; --good-soft:#DFEDE4;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#151311; --surface:#1E1B18; --surface-2:#262320;
+    --ink:#F2EEE7; --ink-2:#CEC7BB; --muted:#968D81;
+    --rule:#2E2A26; --rule-firm:#443E37;
+    --accent:#E8934A; --accent-soft:#3A2914;
+    --crit:#E8877C; --crit-soft:#3A1D1A;
+    --good:#6FBF90; --good-soft:#122B1D;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#151311; --surface:#1E1B18; --surface-2:#262320;
+  --ink:#F2EEE7; --ink-2:#CEC7BB; --muted:#968D81;
+  --rule:#2E2A26; --rule-firm:#443E37;
+  --accent:#E8934A; --accent-soft:#3A2914;
+  --crit:#E8877C; --crit-soft:#3A1D1A;
+  --good:#6FBF90; --good-soft:#122B1D;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink); margin:0;
+  font-family:"Source Sans 3",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:16.5px; line-height:1.62; -webkit-font-smoothing:antialiased;
+}
+.page{max-width:940px;margin:0 auto;padding:0 24px 88px}
+.prose{max-width:66ch}
+h1,h2,h3{font-family:Newsreader,Georgia,"Times New Roman",serif;text-wrap:balance;font-weight:500}
+.mono,.eyebrow,th,.n,.tag,.when{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums}
+
+.eyebrow{font-size:10.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+
+header{padding:54px 0 34px;border-bottom:1px solid var(--rule-firm)}
+h1{font-size:clamp(36px,6.4vw,58px);line-height:1.04;letter-spacing:-.015em;margin:0 0 16px}
+.dek{font-size:19.5px;line-height:1.52;color:var(--ink-2);max-width:56ch;margin:0 0 24px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 24px;font-size:12px;color:var(--muted);font-family:"JetBrains Mono",monospace}
+.meta b{color:var(--ink-2);font-weight:400}
+
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:32px 0 0}
+.tile{background:var(--surface);padding:18px 18px 16px}
+.tile .l{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-family:"JetBrains Mono",monospace;margin:0 0 8px}
+.tile .n{font-size:34px;font-weight:500;line-height:1;letter-spacing:-.02em;margin:0 0 6px;font-family:Newsreader,Georgia,serif}
+.tile .s{font-size:12.5px;color:var(--muted);margin:0;line-height:1.4}
+.tile.bad .n{color:var(--crit)}
+
+section{padding:50px 0 0}
+h2{font-size:clamp(24px,3.2vw,32px);line-height:1.16;letter-spacing:-.01em;margin:0 0 14px}
+h3{font-size:18.5px;margin:30px 0 10px}
+p{margin:0 0 15px}
+.lead{font-size:18px;color:var(--ink-2)}
+strong{font-weight:600}
+.hr{height:1px;background:var(--rule);margin:50px 0 0}
+
+/* escada */
+.ladder{border:1px solid var(--rule);background:var(--surface);margin:26px 0 10px}
+.rung{display:grid;grid-template-columns:minmax(130px,1fr) minmax(120px,2fr) 86px;gap:14px;align-items:center;padding:12px 18px;border-bottom:1px solid var(--rule)}
+.rung:last-child{border-bottom:0}
+.rn{font-size:14.5px;line-height:1.25}
+.rs{font-size:11.5px;color:var(--muted);line-height:1.3;display:block}
+.track{position:relative;height:20px;background:var(--surface-2);border-radius:2px;overflow:hidden}
+.fill{position:absolute;left:0;top:0;bottom:0;background:var(--accent)}
+.fill.crit{background:var(--crit)}
+.pc{position:absolute;right:8px;top:50%;transform:translateY(-50%);font-size:11px;color:var(--muted);font-family:"JetBrains Mono",monospace}
+.rr{text-align:right;font-family:"JetBrains Mono",monospace;font-size:15px}
+.rr small{display:block;font-size:10px;color:var(--muted);letter-spacing:.05em}
+.cap{font-size:12.5px;color:var(--muted);margin:0;max-width:66ch}
+
+/* proposta */
+.pitch{border:1px solid var(--rule-firm);background:var(--surface);margin:28px 0 0}
+.pitch-hd{padding:11px 22px;border-bottom:1px solid var(--rule);font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.pitch-b{padding:30px 30px 32px}
+.pitch.now{background:var(--surface-2);border-color:var(--rule)}
+.hl{font-family:Newsreader,Georgia,serif;font-size:clamp(23px,3.4vw,31px);line-height:1.22;letter-spacing:-.01em;margin:0 0 16px;font-weight:500}
+.sh{font-size:16.5px;color:var(--ink-2);margin:0;max-width:58ch}
+.pitch.now .hl,.pitch.now .sh{color:var(--muted)}
+.strike{color:var(--muted);font-style:italic;font-size:14.5px;margin:14px 0 0}
+
+.scroll{overflow-x:auto;border:1px solid var(--rule);background:var(--surface);margin:24px 0 10px}
+table{border-collapse:collapse;width:100%;min-width:600px;font-size:14px}
+th{text-align:left;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;padding:11px 14px;border-bottom:1px solid var(--rule-firm);white-space:nowrap}
+td{padding:11px 14px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
+tbody tr:last-child td{border-bottom:0}
+td.num,th.num{text-align:right;font-family:"JetBrains Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.hi td{background:var(--good-soft)}
+.neg{color:var(--crit)}
+.pos{color:var(--good)}
+
+.note{border-left:2px solid var(--accent);background:var(--surface-2);padding:18px 22px;margin:26px 0}
+.note h3{margin:0 0 8px;font-size:16.5px}
+.note p{font-size:14.5px;margin:0 0 10px}
+.note p:last-child{margin:0}
+
+footer{margin-top:60px;padding-top:20px;border-top:1px solid var(--rule);font-size:12px;color:var(--muted);font-family:"JetBrains Mono",monospace;line-height:1.6}
+
+@media (max-width:620px){
+  .rung{grid-template-columns:1fr 72px;gap:6px 12px}
+  .track{grid-column:1 / -1;order:3}
+  .pitch-b{padding:24px 20px 26px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="page">
+
+<header>
+  <p class="eyebrow">Simple Acc · Quiz de Diagnóstico · 04/set/2026</p>
+  <h1>A promessa que falta</h1>
+  <p class="dek">O anúncio está trazendo gente. Falta a peça que diz para essa pessoa onde ela chegou, e o dado da primeira semana mostrou exatamente onde ela entra. Esta é a proposta.</p>
+  <div class="meta">
+    <span><b>Cliente</b> Dra. Daniele Christensen / Grokker</span>
+    <span><b>Janela</b> 27/ago a 04/set</span>
+    <span><b>Base</b> Meta Ads · planilha de leads · código em produção</span>
+  </div>
+
+  <div class="tiles">
+    <div class="tile">
+      <p class="l">Cliques no anúncio</p>
+      <p class="n">207</p>
+      <p class="s">taxa de clique de 2,96%, acima da média</p>
+    </div>
+    <div class="tile">
+      <p class="l">Abriram o Quiz</p>
+      <p class="n">157</p>
+      <p class="s">em 8 dias no ar</p>
+    </div>
+    <div class="tile bad">
+      <p class="l">Terminaram o Quiz</p>
+      <p class="n">1,9%</p>
+      <p class="s">3 pessoas das 157 que abriram</p>
+    </div>
+    <div class="tile bad">
+      <p class="l">Leads no perfil</p>
+      <p class="n">1</p>
+      <p class="s">na semana inteira</p>
+    </div>
+  </div>
+</header>
+
+<section>
+  <p class="eyebrow">O veredito</p>
+  <h2>O topo do funil está entregando. O gargalo é a primeira tela.</h2>
+  <div class="prose">
+    <p class="lead">Duzentas e sete pessoas clicaram no anúncio em oito dias, com taxa de clique de 2,96%, que é um número saudável. Cento e cinquenta e sete abriram o Quiz. <strong>Três chegaram ao fim.</strong></p>
+    <p>Um Quiz de diagnóstico maduro converte entre 10% e 25% de quem abre. Estamos em 1,9%, e a margem estatística não muda a leitura: mesmo no cenário mais otimista compatível com esses dados, a conversão está abaixo do piso. É a conclusão mais segura que a semana produziu, e ela aponta para um ponto único do funil.</p>
+    <p>É esse número que comanda todo o resto. Enquanto ele não subir, verba a mais só traz mais gente para a mesma primeira tela.</p>
+  </div>
+
+  <div class="ladder">
+    <div class="rung">
+      <div><span class="rn">Clicaram no anúncio</span><span class="rs">taxa de clique de 2,96%</span></div>
+      <div class="track"><i class="fill" style="width:100%"></i></div>
+      <div class="rr">207<small>cliques</small></div>
+    </div>
+    <div class="rung">
+      <div><span class="rn">Abriram a página</span><span class="rs">50 saíram no carregamento</span></div>
+      <div class="track"><i class="fill" style="width:75.8%"></i><span class="pc">75,8%</span></div>
+      <div class="rr">157<small>visitas</small></div>
+    </div>
+    <div class="rung">
+      <div><span class="rn">Terminaram o Quiz</span><span class="rs">é aqui que está a perda</span></div>
+      <div class="track"><i class="fill crit" style="width:1.9%"></i><span class="pc">1,9%</span></div>
+      <div class="rr">3<small>leads</small></div>
+    </div>
+    <div class="rung">
+      <div><span class="rn">Dentro do perfil</span><span class="rs">2 reprovados por cargo e faturamento</span></div>
+      <div class="track"><i class="fill crit" style="width:33.3%"></i><span class="pc">33,3%</span></div>
+      <div class="rr">1<small>qualificado</small></div>
+    </div>
+  </div>
+  <p class="cap">Cada barra mostra quanto passou da etapa anterior, não fatia do total. O número à direita é o valor absoluto.</p>
+</section>
+
+<div class="hr"></div>
+
+<section>
+  <p class="eyebrow">A causa</p>
+  <h2>A pessoa chega sem saber onde chegou</h2>
+  <div class="prose">
+    <p>A primeira coisa que ela vê depois de clicar é <strong>“Pergunta 1 de 9: Hoje você é:”</strong>, e no topo a palavra GROKKER, uma marca que ela nunca viu, logo depois de assistir um anúncio da Dra. Daniele Christensen. O anúncio prometeu alguma coisa e a tela seguinte não retoma essa promessa, então ela não tem como confirmar que chegou no lugar certo. Em seguida vêm nove perguntas, três delas sobre dinheiro, feitas a alguém que ainda não sabe para quem está contando.</p>
+    <p>Isso tem uma explicação de sequência, e vale registrar. O funil foi redesenhado em agosto e a entrega mudou: o Quiz deixou de prometer um plano e passou a entregar <strong>o cenário na tela e o Diagnóstico completo no WhatsApp</strong>. Promessa só se escreve depois que a entrega está fechada, e essa definição foi concluída no fim de agosto, junto com a Etapa 2. A promessa é, por construção, a última peça do redesenho a entrar.</p>
+    <p>O que a primeira semana no ar acrescentou foi a medida: ela mostrou que essa peça não é um detalhe de acabamento, é o ponto que concentra a maior parte da perda. Por isso ela vira a prioridade agora.</p>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<section>
+  <p class="eyebrow">A proposta</p>
+  <h2>A promessa entra na mesma tela da pergunta 1</h2>
+  <div class="prose">
+    <p>A headline abaixo é a sua, a que já era usada no Quiz anterior, preservada palavra por palavra. Ela continua valendo porque promete <strong>leitura</strong> e não resultado, e é exatamente esse o eixo da comunicação nova. A subheadline é a parte que precisa mudar, porque ela descrevia a entrega antiga.</p>
+  </div>
+
+  <div class="pitch">
+    <div class="pitch-hd">Proposta</div>
+    <div class="pitch-b">
+      <p class="hl">Descubra onde a sua Liderança pode estar comprometendo desempenho, Cultura e resultado financeiro da empresa por ausência de critério.</p>
+      <p class="sh">Responda algumas perguntas e receba o seu cenário na tela, com a leitura completa no seu WhatsApp, para entender por que ele se instalou.</p>
+    </div>
+  </div>
+
+  <div class="pitch now">
+    <div class="pitch-hd">Subheadline anterior, para comparação</div>
+    <div class="pitch-b">
+      <p class="sh">Responda 6 perguntas e receba um plano com os ajustes necessários para elevar seu padrão decisório e a performance da sua equipe.</p>
+      <p class="strike">Escrita para a entrega antiga. As três partes dela mudaram de objeto no funil novo.</p>
+    </div>
+  </div>
+
+  <div class="scroll">
+    <table>
+      <thead>
+        <tr><th>O que dizia</th><th>O que passa a dizer</th><th>Por quê</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Responda 6 perguntas</td>
+          <td>Responda algumas perguntas</td>
+          <td>São 8 hoje, e a barra mostra 9 antes de o caminho ser escolhido. Cravar um número cria mais um dado para manter igual em todas as peças.</td>
+        </tr>
+        <tr>
+          <td>e receba um plano com os ajustes necessários</td>
+          <td>e receba o seu cenário na tela, com a leitura completa no seu WhatsApp</td>
+          <td>Esta é a mudança de entrega decidida em agosto. O funil novo entrega o cenário na hora e o Diagnóstico no WhatsApp, e a frase passa a descrever isso.</td>
+        </tr>
+        <tr>
+          <td>para elevar seu padrão decisório e a performance da sua equipe</td>
+          <td>para entender por que ele se instalou</td>
+          <td>Promessa de resultado passa a promessa de leitura. Esse público já ouviu promessa de resultado de todo mundo; o que ele não tem é diagnóstico preciso.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Onde isso entra</h3>
+  <div class="prose">
+    <p>Headline e subheadline ficam acima da barra de progresso, <strong>na mesma tela da pergunta 1</strong>, e somem a partir da pergunta 2. Sem botão, sem tela extra, sem passo novo no funil. A pessoa cai do anúncio, lê em três segundos onde entrou e já responde ali mesmo.</p>
+    <p>Duas palavras mudaram de grafia: <strong>Liderança</strong> e <strong>Cultura</strong> com inicial maiúscula, seguindo a regra de escrita da conta.</p>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<section>
+  <p class="eyebrow">O que muda</p>
+  <h2>Mesma verba, outro resultado</h2>
+  <div class="scroll">
+    <table>
+      <thead>
+        <tr><th>Cenário</th><th class="num">Visitas</th><th class="num">Conversão</th><th class="num">Leads por semana</th><th class="num">Custo por lead</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Hoje</td><td class="num">157</td><td class="num neg">1,9%</td><td class="num neg">3</td><td class="num neg">referência</td></tr>
+        <tr class="hi"><td>Com a promessa na primeira tela</td><td class="num">157</td><td class="num pos">12%</td><td class="num pos">19</td><td class="num pos">um sexto</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="cap">Mesmo tráfego, mesma verba, mesmas 157 visitas. Muda só quantas delas chegam ao fim. Os 12% são o piso conservador do referencial de mercado, não o topo, e o custo por lead cai na mesma proporção em que a conversão sobe.</p>
+
+  <div class="note">
+    <h3>Como vamos saber em sete dias</h3>
+    <p>O único indicador que manda aqui é a conversão da página. Em sete dias ela precisa sair de 1,9% para <strong>pelo menos 6%</strong>, com <strong>10 ou mais leads reais</strong> na semana.</p>
+    <p>Se não sair do lugar, a hipótese está errada e o problema não é a promessa que falta, e sim a oferta do Diagnóstico em si. Nesse caso a rota muda, e é melhor descobrir isso em uma semana do que em um mês.</p>
+  </div>
+
+  <div class="prose">
+    <p>Esta é a primeira correção porque é a que ataca o maior número. Outras seis já estão mapeadas e entram na sequência, entre elas levar o filtro de perfil para o anúncio, já que hoje ele só acontece no fim do Quiz.</p>
+  </div>
+</section>
+
+<footer>
+  <p>Fontes: exportação de conjuntos de anúncios do Meta de 27/ago a 04/set/2026 · planilha de leads com as linhas de teste excluídas · código de produção do Quiz, lido em 04/set/2026.</p>
+</footer>
+
+</div>
