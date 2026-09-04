@@ -39,6 +39,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   /* ---------- quiz ---------- */
   #quiz{display:block;padding-bottom:70px}
   #quiz.oculto{display:none}
+  /* ---------- abertura: a promessa, só na primeira pergunta ----------
+     Fica acima da barra, na MESMA tela da pergunta 1, e some a partir da 2.
+     Não é passo novo no funil: o lead lê e responde ali mesmo. */
+  #abertura{margin:30px 0 4px}
+  #abertura .promessa{
+    font-size:clamp(23px,4.9vw,33px);line-height:1.18;letter-spacing:-.02em;
+    font-weight:800;color:#fff;margin:0 0 14px;text-wrap:balance;
+  }
+  #abertura .promessa-sub{font-size:16.5px;line-height:1.55;color:#c2beb8;margin:0;max-width:56ch}
+
   .barra{height:3px;background:#1e1c19;border-radius:2px;margin:26px 0 30px;overflow:hidden}
   .barra i{display:block;height:100%;background:linear-gradient(90deg,#d99b1a,#f18700);width:0;transition:width .35s ease}
   .passo{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 12px}
@@ -200,10 +210,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="wrap">
 
-  <div class="brand"><div class="wm">GR<span class="o">O</span>KKER</div></div>
-
   <!-- ============ QUIZ ============ -->
   <div id="quiz">
+    <!-- A promessa que o anúncio faz, retomada aqui. Sem ela o lead cai numa
+         pergunta e não tem como confirmar que chegou no lugar certo.
+         A build de produção REMOVE este bloco enquanto a Dani não aprovar a
+         subida; a de validação mantém. Ver build.py, opção --abertura. -->
+    <div id="abertura">
+      <h1 class="promessa">Descubra onde a sua Liderança pode estar comprometendo desempenho, Cultura e resultado financeiro da sua empresa.</h1>
+      <p class="promessa-sub">Responda algumas perguntas e receba o seu cenário na tela, com a leitura completa no seu WhatsApp, para entender por que ele se instalou.</p>
+    </div>
     <div class="barra"><i id="prog"></i></div>
     <div id="tela"></div>
   </div>
@@ -223,6 +239,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- ============ PÁGINA PÓS-QUIZ ============ -->
   <div id="lp">
+    <div class="brand"><div class="wm">GR<span class="o">O</span>KKER</div></div>
     <h1>Seu cenário já tem nome. Falta saber por que ele se instalou.</h1>
     <p class="lede">O seu Diagnóstico de Liderança/Gestão está pronto. É a leitura das suas respostas: o que o seu cenário significa na prática, por que o que você já tentou não resolveu, e qual é o caminho para destravar.</p>
 
@@ -653,7 +670,11 @@ var i = 0;       // índice atual
 var BASE = ["p0","p1","p2","p3","p4","p5"];
 var CAMINHOS = {
   A: ["aColab","a6","a7"],   // dono ou sócio: porte, faturamento, margem
-  B: ["b6","bColab","b7"]    // executivo: autonomia, equipe, remuneração
+  // Pedido da Dani em 04/09: colaboradores fica na 8 e autonomia passa para a 9,
+  // a última. O id de cada pergunta NÃO acompanha a posição de propósito: P6, P7
+  // e P8 são identificadores do contrato com a Pulsar, e renomeá-los quebraria
+  // quem lê `respostas.P6` do outro lado. Posição é tela, id é contrato.
+  B: ["b7","bColab","b6"]    // executivo: remuneração, equipe, autonomia
 };
 
 function ordem(){
@@ -687,6 +708,11 @@ function render(){
   var tela = document.getElementById("tela");
   tela.innerHTML = "";
   document.getElementById("prog").style.width = Math.round((i/ordem().length)*100) + "%";
+
+  // a promessa vale para quem acabou de chegar. Depois da primeira resposta ela
+  // vira ruído e rouba altura da pergunta, então sai de cena.
+  var ab = document.getElementById("abertura");
+  if(ab) ab.hidden = i > 0;
 
   if(chave === "contato"){ return telaContato(tela); }
 

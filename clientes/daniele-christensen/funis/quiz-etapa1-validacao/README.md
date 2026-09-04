@@ -6,13 +6,13 @@ aprovar antes de a mudança entrar no link que está rodando na campanha.
 Não edite nada aqui. Este diretório é **gerado**:
 
     cd ../quiz-etapa1-producao
-    python3 build.py --abertura --sem-tags --sem-envio --saida=quiz-etapa1-validacao
+    python3 build.py --sem-tags --sem-envio --saida=quiz-etapa1-validacao
 
 ## O que difere do link de produção
 
 | | Produção | Validação |
 |---|---|---|
-| Promessa na primeira tela | não | **sim** |
+| Promessa na primeira tela | sim (aprovada em 04/09) | sim |
 | Google Tag Manager e Meta Pixel | sim | **não** |
 | Webhooks (Pulsar e Make) | sim | **não** |
 | Aviso de clique no WhatsApp | sim | **não** |
@@ -23,11 +23,12 @@ feito em página com tag ativa vira conversão no Pixel, infla o relatório que 
 cliente lê e ensina o algoritmo a procurar o perfil errado. Quem responder este
 link não gera lead na planilha nem no CRM, e não conta como conversão.
 
-## Quando a Dani aprovar
+## Estado
 
-A promessa passa para produção rodando a build normal com a abertura ligada:
+A Dani aprovou em 04/09 e o lote inteiro subiu para o link da campanha: a
+promessa de abertura, a marca movida para o pós-quiz e a ordem nova do caminho B
+(remuneração 7, colaboradores 8, autonomia 9).
 
-    python3 build.py --abertura
-
-e publicando `quiz-etapa1-producao`. Sem o `--abertura`, a build gera byte a byte
-o que já está no ar, e é isso que impede o link da campanha de mudar sozinho.
+Este link continua existindo para validar a **próxima** mudança antes de ela
+tocar a campanha. As duas builds saem do mesmo protótipo; a diferença é só
+medição e envio.

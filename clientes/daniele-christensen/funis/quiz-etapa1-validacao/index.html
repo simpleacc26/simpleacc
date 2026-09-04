@@ -646,7 +646,11 @@ var i = 0;       // índice atual
 var BASE = ["p0","p1","p2","p3","p4","p5"];
 var CAMINHOS = {
   A: ["aColab","a6","a7"],   // dono ou sócio: porte, faturamento, margem
-  B: ["b6","bColab","b7"]    // executivo: autonomia, equipe, remuneração
+  // Pedido da Dani em 04/09: colaboradores fica na 8 e autonomia passa para a 9,
+  // a última. O id de cada pergunta NÃO acompanha a posição de propósito: P6, P7
+  // e P8 são identificadores do contrato com a Pulsar, e renomeá-los quebraria
+  // quem lê `respostas.P6` do outro lado. Posição é tela, id é contrato.
+  B: ["b7","bColab","b6"]    // executivo: remuneração, equipe, autonomia
 };
 
 function ordem(){
