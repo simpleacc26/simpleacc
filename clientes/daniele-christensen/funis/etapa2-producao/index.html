@@ -1,0 +1,532 @@
+<title>Diagnóstico Completo · Dra. Daniele Christensen</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+<link rel="preconnect" href="https://connect.facebook.net" crossorigin>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PHG5489R');</script>
+<!-- End Google Tag Manager -->
+<style>
+  :root{
+    --bg:#0a0a0a; --surface:#161514; --surface2:#12110f; --line:#262523;
+    --ink:#f0ede8; --muted:#96938d; --accent:#f18700; --accent-hi:#ff9c2a; --gold:#e9b949;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.62;-webkit-font-smoothing:antialiased}
+
+  .wrap{max-width:700px;margin:0 auto;padding:0 22px}
+  .brand{padding:30px 0 0;display:flex;justify-content:center}
+  .wm{font-size:19px;font-weight:800;letter-spacing:.30em;color:#fff}
+  .wm .o{color:var(--gold)}
+
+  .tela{display:none;padding-bottom:70px}
+  .tela.on{display:block}
+
+  /* ---------- abertura ---------- */
+  .selo{
+    display:inline-block;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--gold);border:1px solid #3a3226;border-radius:20px;padding:5px 13px;margin:34px 0 18px;
+  }
+  h1{font-size:clamp(26px,5.4vw,38px);line-height:1.16;letter-spacing:-.02em;font-weight:800;color:#fff;margin:0 0 14px;text-wrap:balance}
+  .sub{font-size:16.5px;color:#c2beb8;margin:0 0 26px}
+  .sub b{color:#fff;font-weight:700}
+
+  .comofunciona{
+    background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:20px 22px;margin:0 0 26px;
+  }
+  .comofunciona h3{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 14px;font-weight:700}
+  .escala{display:flex;flex-direction:column;gap:9px;margin:0}
+  .escala div{display:flex;align-items:baseline;gap:11px;font-size:14.5px;color:#bdb9b3}
+  .escala span{
+    flex:0 0 auto;min-width:82px;font-weight:700;color:#fff;font-size:14px;
+  }
+  .aviso{font-size:13.5px;color:var(--muted);margin:16px 0 0;padding-top:14px;border-top:1px solid #201e1c}
+
+  .cta{
+    display:block;width:100%;background:var(--accent);color:#140d02;border:none;border-radius:6px;
+    font:inherit;font-size:17px;font-weight:800;letter-spacing:-.01em;padding:18px 20px;cursor:pointer;
+    transition:.15s;
+  }
+  .cta:hover{background:var(--accent-hi)}
+  .cta:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  .solta{font-size:13px;color:var(--muted);text-align:center;margin:13px 0 0}
+
+  /* ---------- perguntas ---------- */
+  .barra{height:3px;background:#1e1c19;border-radius:2px;margin:26px 0 30px;overflow:hidden}
+  .barra i{display:block;height:100%;background:linear-gradient(90deg,#d99b1a,#f18700);width:0;transition:width .35s ease}
+  .bloco{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:700;margin:0 0 6px}
+  .passo{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 14px}
+  .perg{font-size:clamp(19px,3.9vw,25px);line-height:1.3;letter-spacing:-.015em;font-weight:800;color:#fff;margin:0 0 22px;text-wrap:balance}
+  .ops{display:flex;flex-direction:column;gap:10px}
+  .op{
+    width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);border-left:3px solid #2f2d2a;
+    border-radius:6px;padding:15px 18px;color:#ded9d3;font:inherit;font-size:15.5px;line-height:1.45;
+    cursor:pointer;transition:.14s;display:flex;justify-content:space-between;align-items:center;gap:12px;
+  }
+  .op:hover{border-color:#4a4642;border-left-color:var(--accent);background:#1b1a18;color:#fff}
+  .op:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .op i{font-style:normal;font-size:12.5px;color:#6f6c67;letter-spacing:.02em}
+  .op:hover i{color:#8d8a84}
+  .voltar{
+    margin-top:26px;background:none;border:none;color:var(--muted);font:inherit;font-size:13.5px;
+    cursor:pointer;padding:6px 0;
+  }
+  .voltar:hover{color:var(--ink)}
+
+  /* ---------- processamento ---------- */
+  #carregando .caixa{max-width:430px;margin:16vh auto 0;text-align:center}
+  #carregando .frase{font-size:16px;color:#c2beb8;min-height:26px;transition:opacity .16s}
+  #carregando .frase.some{opacity:0}
+  #carregando .trilho{height:4px;background:#1e1c19;border-radius:3px;overflow:hidden;margin:22px 0 10px}
+  #carregando .trilho i{display:block;height:100%;width:0;background:linear-gradient(90deg,#d99b1a,#f18700)}
+  #carregando .pct{font-size:12.5px;color:var(--muted);letter-spacing:.06em}
+
+  /* ---------- fim ---------- */
+  .certo{
+    width:54px;height:54px;border-radius:50%;border:2px solid var(--gold);
+    display:flex;align-items:center;justify-content:center;margin:40px 0 22px;
+    font-size:25px;color:var(--gold);line-height:1;
+  }
+  .cx{
+    background:var(--surface2);border:1px solid var(--line);border-radius:8px;padding:22px;margin:26px 0 0;
+  }
+  .cx h3{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 14px;font-weight:700}
+  .cx p{font-size:15.5px;color:#c2beb8;margin:0 0 13px}
+  .cx p:last-child{margin-bottom:0}
+  .cx p b{color:#fff;font-weight:700}
+  .cx .fim{color:#ded9d3}
+  .assina{margin-top:20px;padding-top:16px;border-top:1px solid #201e1c}
+  .assina .nome{font-size:15.5px;font-weight:800;color:#fff;margin:0 0 3px}
+  .assina .reg{font-size:12.5px;color:var(--muted);margin:0;letter-spacing:.02em}
+  #agenda{margin:14px 0 0;border-radius:8px;overflow:hidden;background:#fff;min-height:700px}
+  @media(max-width:520px){#agenda{min-height:1000px}}
+  .lista{margin:0;padding:0;list-style:none}
+  .lista li{
+    position:relative;padding:0 0 0 22px;margin:0 0 11px;font-size:15px;color:#bdb9b3;
+  }
+  .lista li:last-child{margin-bottom:0}
+  .lista li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+  .lista li b{color:#fff;font-weight:700}
+
+  footer{border-top:1px solid var(--line);margin-top:56px;padding:26px 0 40px;text-align:center}
+  footer p{margin:0;font-size:12.5px;color:#6f6c67}
+</style>
+
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PHG5489R"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="wrap">
+
+  <div class="brand"><div class="wm">GR<span class="o">O</span>KKER</div></div>
+
+  <!-- ---------- abertura ---------- -->
+  <div class="tela on" id="inicio">
+    <span class="selo">Etapa 2 · Diagnóstico completo</span>
+    <h1 id="ola">Agora eu preciso enxergar a sua Gestão/Liderança por dentro.</h1>
+    <p class="sub">O documento que você recebeu é o retrato da superfície. Para desenvolver um diagnóstico mais completo do seu negócio, precisamos aprofundar um pouco mais. Em menos de 5 minutos você responde <b>15 perguntas curtas, só de marcar</b>, e é o que sai delas que mostra onde a sua Gestão/Liderança está travando de verdade.</p>
+
+    <div class="comofunciona">
+      <h3>Como responder</h3>
+      <div class="escala">
+        <div><span>Sempre</span> acontece o tempo todo</div>
+        <div><span>Geralmente</span> acontece na maioria das vezes</div>
+        <div><span>Às vezes</span> acontece com pouca frequência</div>
+        <div><span>Nunca</span> não acontece</div>
+      </div>
+      <p class="aviso">Responda pensando em como as coisas são hoje, não em como deveriam ser. Ninguém além da Dra. Daniele e do time dela vê estas respostas, e a leitura só faz sentido se for honesta.</p>
+    </div>
+
+    <button class="cta" onclick="comecar()">Começar o Diagnóstico gratuito</button>
+  </div>
+
+  <!-- ---------- perguntas ---------- -->
+  <div class="tela" id="quiz">
+    <div class="barra"><i id="prog"></i></div>
+    <div id="palco"></div>
+  </div>
+
+  <!-- ---------- processamento ---------- -->
+  <div class="tela" id="carregando">
+    <div class="caixa">
+      <p class="frase" id="cargaFrase">Enviando as suas respostas</p>
+      <div class="trilho"><i id="cargaBar"></i></div>
+      <p class="pct" id="cargaPct">0%</p>
+    </div>
+  </div>
+
+  <!-- ---------- fim ---------- -->
+  <div class="tela" id="fim">
+    <div class="certo">✓</div>
+    <h1>Pronto! Já tenho suas respostas.</h1>
+    <p class="sub">O resultado a gente lê junto com um Especialista, na conversa, e não mais em um relatório para você ler sozinho.</p>
+
+    <div class="cx">
+      <h3>O que acontece agora</h3>
+      <p>Seu Diagnóstico está completo. A parte difícil você já fez. A maioria para no meio. Você não.</p>
+      <p>Mas respostas sem interpretação não dizem muita coisa. O valor está em alguém que entende de Gestão lendo ele com você. É isso que acontece na <b>Sessão Estratégica Gratuita</b>. Em 45 minutos, um Especialista da minha equipe ouve você, analisa o seu cenário ao vivo e mostra onde sua Gestão está perdendo resultado e o caminho.</p>
+      <p>Se você não decide sozinho sobre Gestão, venha com quem decide. Sócio, Diretor ou Chefe: quem participa, entende e decide. Quem fica de fora, adia, e o problema continua custando caro todo mês.</p>
+      <p>Lembrando: a reunião é totalmente gratuita. Se notarmos que podemos ajudar, apresentamos uma Solução, sem pressão. Mesmo que você não avance conosco, sai com uma leitura profissional do seu momento. Daremos o nosso melhor nesta reunião.</p>
+      <p class="fim">A Agenda é limitada porque cada Sessão é individual, estudada e preparada com antecedência. Escolha seu horário agora e garanta a sua. ⬇️</p>
+      <div class="assina">
+        <p class="nome">Dra. Adm. Daniele Christensen</p>
+        <p class="reg">Doutora em Administração · CRA-RS 13.798 · Criadora do INTENSITY</p>
+      </div>
+    </div>
+
+    <div class="cx">
+      <h3>Escolha o horário da sua sessão</h3>
+      <div id="agenda"></div>
+    </div>
+
+    <footer><p>Grokker · Dra. Daniele Christensen · Suas respostas são confidenciais.</p></footer>
+  </div>
+
+</div>
+
+<script>
+"use strict";
+
+/* -------------------------------------------------------------------------
+   Blocos, perguntas e escala vêm do documento Etapa2_Diagnostico (blocos A a E).
+   A redação, a ordem e a pontuação são propriedade da Grokker e não podem ser
+   alteradas sem autorização por escrito. Não mexer sem falar com a Dani.
+   ------------------------------------------------------------------------- */
+
+var BLOCOS = {
+  A:{nome:"Exigência e Responsabilização", qtd:2},
+  B:{nome:"Autonomia da Equipe e Execução", qtd:2},
+  C:{nome:"Reuniões e Prazos", qtd:2},
+  D:{nome:"Delegação e Maturidade do Time", qtd:4},
+  E:{nome:"Cultura, Alinhamento e Retenção", qtd:5}
+};
+
+// escala de frequência de 4 pontos, com pontuação INVERTIDA:
+// nota alta = gap maior de gestão.
+var ESCALA = [
+  {t:"Sempre",     d:"acontece o tempo todo",        pt:0},
+  {t:"Geralmente", d:"acontece na maioria das vezes", pt:4},
+  {t:"Às vezes",   d:"acontece com pouca frequência", pt:8},
+  {t:"Nunca",      d:"não acontece",                  pt:10}
+];
+
+var PERGUNTAS = [
+  {id:"A1", b:"A", t:'O quanto você consegue manter o nível de exigência e o critério técnico mesmo sob pressão, sem ceder à permissividade ou ao "coitadismo" da equipe?'},
+  {id:"A2", b:"A", t:"O quanto as pessoas assumem a responsabilidade pelos resultados em vez de culpar o mercado, a economia, o cliente, o preço, o produto ou a tecnologia?"},
+  {id:"B1", b:"B", t:"O quanto a equipe tira os planos do papel, cumprindo prazos, sem depender de você para o operacional?"},
+  {id:"B2", b:"B", t:'O quanto a equipe exerce autonomia para realizar o combinado, em vez de vir até você perguntar "o que fazemos agora"?'},
+  {id:"C1", b:"C", t:"O quanto as reuniões geram soluções, compromissos reais, registros e execução com prazos cumpridos?"},
+  {id:"C2", b:"C", t:"O quanto os prazos em geral são cumpridos por sua equipe?"},
+  {id:"D1", b:"D", t:"O quanto as tarefas delegadas são executadas de forma adequada pelos que as recebem?"},
+  {id:"D2", b:"D", t:"O quanto você confia que sua equipe atingirá as metas definidas para esse ano?"},
+  {id:"D3", b:"D", t:"O quanto sua equipe atua como um time maduro, resolvendo problemas sem depender de você?"},
+  {id:"D4", b:"D", t:"O quanto, no caso de desligamento de gestores, há outros profissionais preparados para assumir as funções dos que saem?"},
+  {id:"E1", b:"E", t:"O quanto a Missão, a Visão e os Valores da empresa chegam até a ponta, contribuindo na manutenção da cultura desejada, sem que seja necessária sua presença constante?"},
+  {id:"E2", b:"E", t:"O quanto as pessoas agem de forma alinhada às Diretrizes da empresa (Missão, Visão, Valores) e às Competências Comportamentais desejadas?"},
+  {id:"E3", b:"E", t:"O quanto o Onboarding auxilia a alinhar o comportamento diário das pessoas e é utilizado como parâmetro em reuniões, avaliações de desempenho, feedback e decisões importantes sobre pessoas?"},
+  {id:"E4", b:"E", t:'O quanto você se sente preparado para dar feedbacks assertivos, sem medo de ser firme, impopular, perder pessoas da equipe, ou ser "macio" demais a ponto de não atingir o objetivo?'},
+  {id:"E5", b:"E", t:"O quanto você se sente satisfeito com a retenção/permanência dos melhores colaboradores da sua equipe/empresa?"}
+];
+
+// ponte entre o cenário da Etapa 1 e os blocos da Etapa 2, para o Closer
+var PONTE = {
+  "O Adiador":                   "Bloco A (Exigência) e E4 (medo de ser impopular)",
+  "O Gargalo":                   'Bloco B (Autonomia e "o que fazemos agora?")',
+  "Time que não Assume":         "Bloco D (Delegação) e A2 (culpabilização externa)",
+  "Plano que não Vira Execução": "Bloco C (Reuniões e Prazos) e D2 (confiança na meta)"
+};
+
+/* ------------------------------------------------------------------ estado */
+
+var LEAD = lerLink();
+var R = {};   // respostas: {A1:0, A2:4, ...}
+var i = 0;    // pergunta atual
+
+// no fluxo real o link chega com o lead identificado pela Pulsar:
+// .../etapa2?lead=<id>&nome=<primeiro nome>&cenario=<cenário da Etapa 1>
+function lerLink(){
+  var p = new URLSearchParams(location.search);
+  // o telefone vem pronto na URL que a Pulsar manda no WhatsApp. Ele é repassado
+  // como veio, sem recapturar nem reformatar: é a chave que acha o lead lá.
+  var chaves = ["telefone","phone","whatsapp","zap","tel","celular"];
+  var fone = "", campo = "";
+  for(var k = 0; k < chaves.length; k++){
+    var v = p.get(chaves[k]);
+    if(v){ fone = v; campo = chaves[k]; break; }
+  }
+  return {
+    id:      p.get("lead")    || "demo-0001",
+    nome:    p.get("nome")    || "",
+    email:   p.get("email")   || "",
+    cenario: p.get("cenario") || "O Gargalo",
+    telefone: fone,
+    campoTelefone: campo,
+    // sem ?lead= e sem telefone não há lead de verdade do outro lado: é o
+    // protótipo ou alguém abrindo a página solta. Nesse caso não avisamos o CRM
+    // nem carimbamos a agenda, para não inventar um id que lá não existe.
+    doLink: !!(p.get("lead") || fone)
+  };
+}
+
+function el(t,c,x){ var e=document.createElement(t); if(c)e.className=c; if(x!==undefined)e.textContent=x; return e; }
+function mostra(id){
+  ["inicio","quiz","carregando","fim"].forEach(function(k){
+    document.getElementById(k).classList.toggle("on", k === id);
+  });
+  window.scrollTo(0,0);
+}
+
+/* ------------------------------------------------------------------ cálculo */
+
+function media(ids){
+  var s = 0;
+  for(var k=0;k<ids.length;k++){ s += R[ids[k]]; }
+  return s / ids.length;
+}
+function idsDo(b){
+  return PERGUNTAS.filter(function(q){ return q.b === b; }).map(function(q){ return q.id; });
+}
+
+// A = (A1+A2)/2 ... TD = (A+B+C+D+E)/5
+function notas(){
+  var n = {};
+  Object.keys(BLOCOS).forEach(function(b){ n[b] = media(idsDo(b)); });
+  n.TD = (n.A + n.B + n.C + n.D + n.E) / 5;
+  return n;
+}
+function um(v){ return (Math.round(v*10)/10).toFixed(1).replace(".",","); }
+
+// bloco de maior pontuação: é por onde o Closer abre a call
+function dominante(n){
+  var b = "A";
+  Object.keys(BLOCOS).forEach(function(k){ if(n[k] > n[b]) b = k; });
+  return b;
+}
+// Lead Hot: TD acima de 8,0 ou nota 10 em A, B ou D
+function quente(n){
+  return n.TD > 8 || n.A === 10 || n.B === 10 || n.D === 10;
+}
+
+/* ---------------------------------------------------------------- perguntas */
+
+function comecar(){ i = 0; mostra("quiz"); render(); }
+
+function render(){
+  var q = PERGUNTAS[i];
+  var palco = document.getElementById("palco");
+  palco.innerHTML = "";
+  document.getElementById("prog").style.width = Math.round((i/PERGUNTAS.length)*100) + "%";
+
+  palco.appendChild(el("p","passo","Pergunta " + (i+1) + " de " + PERGUNTAS.length));
+  palco.appendChild(el("h2","perg",q.t));
+
+  var box = el("div","ops");
+  ESCALA.forEach(function(o){
+    var b = el("button","op");
+    b.type = "button";
+    b.appendChild(el("span",null,o.t));
+    b.appendChild(el("i",null,o.d));
+    b.onclick = function(){ responder(q.id, o.pt); };
+    box.appendChild(b);
+  });
+  palco.appendChild(box);
+
+  if(i > 0){
+    var v = el("button","voltar","← voltar");
+    v.type = "button";
+    v.onclick = function(){ i--; render(); };
+    palco.appendChild(v);
+  }
+  window.scrollTo(0,0);
+}
+
+function responder(id,pt){
+  R[id] = pt;
+  i++;
+  if(i >= PERGUNTAS.length){ concluir(); return; }
+  render();
+}
+
+/* ----------------------------------------------------------- processamento */
+
+var FRASES = [
+  [0,  "Enviando as suas respostas"],
+  [30, "Calculando as notas por bloco"],
+  [62, "Cruzando com o seu cenário da Etapa 1"],
+  [86, "Preparando a leitura do seu caso"]
+];
+var pulso = null, relogios = [], PASSO = 30;
+
+function corre(duracao){
+  var bar = document.getElementById("cargaBar");
+  var pct = document.getElementById("cargaPct");
+  var fra = document.getElementById("cargaFrase");
+
+  if(pulso) clearInterval(pulso);
+  fra.textContent = FRASES[0][1];
+  fra.classList.remove("some");
+  pct.textContent = "0%";
+  bar.style.width = "0%";
+
+  var passado = 0, atual = 0;
+  pulso = setInterval(function(){
+    passado += PASSO;
+    var v = Math.min(100, Math.round((passado / duracao) * 100));
+    bar.style.width = v + "%";
+    pct.textContent = v + "%";
+    var k, novo = 0;
+    for(k = 0; k < FRASES.length; k++){ if(v >= FRASES[k][0]) novo = k; }
+    if(novo !== atual){
+      atual = novo;
+      fra.classList.add("some");
+      setTimeout(function(){ fra.textContent = FRASES[atual][1]; fra.classList.remove("some"); }, 160);
+    }
+    if(v >= 100){ clearInterval(pulso); pulso = null; }
+  }, PASSO);
+}
+
+function limpaRelogios(){
+  relogios.forEach(clearTimeout); relogios = [];
+  if(pulso){ clearInterval(pulso); pulso = null; }
+}
+function daqui(ms,fn){ relogios.push(setTimeout(fn,ms)); }
+
+function concluir(){
+  document.getElementById("prog").style.width = "100%";
+  mostra("carregando");
+  corre(2400);
+  enviar();
+  daqui(2600, function(){ mostra("fim"); montaAgenda(); });
+}
+
+// Dois destinos de propósito. O primeiro é da Pulsar, que é dona do CRM; o
+// segundo é o nosso, e só alimenta a planilha de respostas.
+var DESTINOS = [
+  "https://pulsar.app.n8n.cloud/webhook/grokker-quiz-etapa2",
+  "https://hook.us2.make.com/3xnav3lyusd965i2fptdpi5kk5yl0ywy"
+];
+var envio = "não enviado";
+
+// o lead nunca espera pelo envio: falhou, a agenda aparece do mesmo jeito
+var ok = 0, ruim = 0;
+
+function enviar(){
+  var corpo = JSON.stringify(payload());
+  ok = 0; ruim = 0;
+  envio = "enviando";
+  DESTINOS.forEach(function(url){ manda(url, corpo); });
+}
+
+// um destino que cai não pode derrubar o outro: cada um vai por conta própria
+function manda(url, corpo){
+  function fim(deu){
+    if(deu) ok++; else ruim++;
+    envio = ok + " de " + DESTINOS.length + " enviados" + (ruim ? " · " + ruim + " falhou" : "");
+  }
+  try{
+    fetch(url, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: corpo,
+      keepalive: true
+    }).then(function(r){
+      fim(r.ok);
+    }).catch(function(){
+      // CORS bloqueado ou rede fora: o beacon vai como text/plain, sem preflight
+      fim(navigator.sendBeacon && navigator.sendBeacon(url, new Blob([corpo], {type:"text/plain"})));
+    });
+  }catch(e){ fim(false); }
+}
+
+// Aviso de abertura, pedido pela Pulsar. Dispara na carga da página, não no
+// botão: o CRM precisa separar quem nunca clicou no link de quem abriu e
+// desistiu — hoje os dois caem no mesmo lugar e recebem a mensagem errada.
+// Amarrar no botão manteria o desistente contado como quem nunca abriu.
+//
+// Vai e segue: não espera resposta, não trava a tela, e recarregar a página não
+// conta duas vezes (a deduplicação é do lado deles). O id vai na query string e
+// no corpo porque o beacon manda text/plain, e assim o dado chega inteiro por
+// qualquer um dos dois caminhos.
+var ABERTURA = "https://pulsar.app.n8n.cloud/webhook/grokker-etapa2-iniciada";
+
+function avisaAbertura(){
+  if(!LEAD.doLink) return;
+  var corpo = JSON.stringify({lead_id: LEAD.id, telefone: LEAD.telefone});
+  var url = ABERTURA + "?lead_id=" + encodeURIComponent(LEAD.id);
+  try{
+    fetch(url, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: corpo,
+      keepalive: true
+    }).catch(function(){
+      if(navigator.sendBeacon) navigator.sendBeacon(url, new Blob([corpo], {type:"text/plain"}));
+    });
+  }catch(e){}
+}
+
+// o Calendly só carrega depois que o lead termina, para não pesar o formulário
+var agendaPronta = false;
+function montaAgenda(){
+  if(agendaPronta) return;
+  agendaPronta = true;
+  // Trocado em 25/08 a pedido da Dani. O evento antigo (/30min) foi despublicado
+  // e passou a devolver 404, então a agenda simplesmente não abria no fim da
+  // Etapa 2. Se um dia o widget aparecer vazio, é o primeiro lugar a conferir:
+  // basta abrir esta URL no navegador.
+  var url = "https://calendly.com/sucessodocliente-grokkeronline/diagnosticogratuito";
+  var q = ["hide_gdpr_banner=1", "background_color=12110f", "text_color=f0ede8", "primary_color=f18700"];
+  if(LEAD.nome)  q.push("name="  + encodeURIComponent(LEAD.nome));
+  if(LEAD.email) q.push("email=" + encodeURIComponent(LEAD.email));
+  // o Calendly devolve o utm no aviso de agendamento. É o que liga a reunião ao
+  // lead que fez o quiz: sem isto sobra adivinhar pelo nome, que quebra assim
+  // que o lead digita o nome de um jeito diferente do que veio da Etapa 1.
+  if(LEAD.doLink) q.push("utm_content=" + encodeURIComponent(LEAD.id));
+  var alvo = document.getElementById("agenda");
+  alvo.className = "calendly-inline-widget";
+  alvo.setAttribute("data-url", url + "?" + q.join("&"));
+  var t = document.createElement("script");
+  t.src = "https://assets.calendly.com/assets/external/widget.js";
+  t.async = true;
+  document.body.appendChild(t);
+}
+
+/* ----------------------------------------------------------- envio ao CRM */
+
+// o lead não vê nada disto: é o que a Pulsar recebe e o Closer lê antes da call
+function payload(){
+  if(Object.keys(R).length < PERGUNTAS.length) return null;
+  var n = notas(), dom = dominante(n);
+  var p = {
+    lead_id: LEAD.id,
+    etapa: 2,
+    cenario_etapa1: LEAD.cenario,
+    telefone: LEAD.telefone,
+    nome: LEAD.nome,
+    respostas: {},
+    blocos: {},
+    td: Number(n.TD.toFixed(2)),
+    bloco_dominante: dom,
+    lead_hot: quente(n)
+  };
+  PERGUNTAS.forEach(function(q){ p.respostas[q.id] = R[q.id]; });
+  Object.keys(BLOCOS).forEach(function(b){ p.blocos[b] = Number(n[b].toFixed(2)); });
+  return p;
+}
+
+/* ------------------------------------------------------------------ arranque */
+
+if(LEAD.nome){
+  document.getElementById("ola").textContent =
+    LEAD.nome + ", agora eu preciso enxergar a sua Gestão/Liderança por dentro.";
+}
+mostra("inicio");
+avisaAbertura();
+</script>

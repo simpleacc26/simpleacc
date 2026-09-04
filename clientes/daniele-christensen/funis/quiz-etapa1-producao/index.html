@@ -1,0 +1,971 @@
+<title>Diagnóstico de Gestão e Liderança · Dra. Daniele Christensen</title>
+<meta name="description" content="Descubra em 2 minutos o que está travando a sua gestão e receba um diagnóstico com o seu cenário.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+<link rel="preconnect" href="https://connect.facebook.net" crossorigin>
+<!-- Meta Pixel: só o carregador, o PageView é da tag do GTM -->
+<script>!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window,document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1818495198816821');</script>
+<!-- End Meta Pixel -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PHG5489R');</script>
+<!-- End Google Tag Manager -->
+<style>
+  :root{
+    --bg:#0a0a0a; --surface:#161514; --surface2:#12110f; --line:#262523;
+    --ink:#f0ede8; --muted:#96938d; --accent:#f18700; --accent-hi:#ff9c2a; --gold:#e9b949;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.62;-webkit-font-smoothing:antialiased}
+
+  .wrap{max-width:700px;margin:0 auto;padding:0 22px}
+  .brand{padding:30px 0 0;display:flex;justify-content:center}
+  .wm{font-size:19px;font-weight:800;letter-spacing:.30em;color:#fff}
+  .wm .o{color:var(--gold)}
+
+  /* ---------- quiz ---------- */
+  #quiz{display:block;padding-bottom:70px}
+  #quiz.oculto{display:none}
+  /* ---------- abertura: a promessa, só na primeira pergunta ----------
+     Fica acima da barra, na MESMA tela da pergunta 1, e some a partir da 2.
+     Não é passo novo no funil: o lead lê e responde ali mesmo. */
+  #abertura{margin:30px 0 4px}
+  #abertura .promessa{
+    font-size:clamp(23px,4.9vw,33px);line-height:1.18;letter-spacing:-.02em;
+    font-weight:800;color:#fff;margin:0 0 14px;text-wrap:balance;
+  }
+  #abertura .promessa-sub{font-size:16.5px;line-height:1.55;color:#c2beb8;margin:0;max-width:56ch}
+
+  .barra{height:3px;background:#1e1c19;border-radius:2px;margin:26px 0 30px;overflow:hidden}
+  .barra i{display:block;height:100%;background:linear-gradient(90deg,#d99b1a,#f18700);width:0;transition:width .35s ease}
+  .passo{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 12px}
+  .perg{font-size:clamp(22px,4.6vw,30px);line-height:1.24;letter-spacing:-.015em;font-weight:800;color:#fff;margin:0 0 8px;text-wrap:balance}
+  .ajuda{font-size:14.5px;color:var(--muted);margin:0 0 24px}
+  .ops{display:flex;flex-direction:column;gap:10px}
+  .op{
+    width:100%;text-align:left;background:var(--surface);border:1px solid var(--line);border-left:3px solid #2f2d2a;
+    border-radius:6px;padding:16px 18px;color:#ded9d3;font:inherit;font-size:15.5px;line-height:1.45;
+    cursor:pointer;transition:.14s;
+  }
+  .op:hover{border-color:#4a4642;border-left-color:var(--accent);background:#1b1a18;color:#fff}
+  .op:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .voltar{
+    margin-top:26px;background:none;border:none;color:var(--muted);font:inherit;font-size:13.5px;
+    cursor:pointer;padding:6px 0;
+  }
+  .voltar:hover{color:var(--ink)}
+
+  .campo{display:block;margin-bottom:14px}
+  .campo span{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+  .campo input{
+    width:100%;background:var(--surface);border:1px solid var(--line);border-radius:6px;
+    padding:14px 15px;color:var(--ink);font:inherit;font-size:16px;
+  }
+  .campo input:focus{outline:none;border-color:var(--accent)}
+  .campo input.ruim{border-color:#c9705f}
+  .campo .erro{display:none;font-size:13px;color:#e08b79;margin-top:6px}
+  .campo.falhou .erro{display:block}
+  .env{
+    width:100%;background:var(--accent);color:#140d02;border:none;border-radius:6px;
+    font:inherit;font-size:14px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;
+    padding:18px 22px;cursor:pointer;margin-top:8px;transition:background .15s;
+  }
+  .env:hover{background:var(--accent-hi)}
+  .nota{font-size:12.5px;color:#6f6c67;text-align:center;margin-top:12px}
+
+  /* ---------- tela de processamento ---------- */
+  #carregando{display:none;padding:64px 0 40px}
+  #carregando.on{display:block}
+  #carregando .kick{
+    font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--accent);font-weight:700;margin:0 0 12px;text-align:center;
+  }
+  #carregando .tit{
+    font-size:clamp(21px,4.4vw,27px);font-weight:800;color:#fff;line-height:1.26;
+    margin:0 0 30px;text-align:center;text-wrap:balance;
+  }
+  .carga{max-width:440px;margin:0 auto}
+  .carga .linha{
+    display:flex;align-items:baseline;justify-content:space-between;
+    gap:16px;margin-bottom:12px;
+  }
+  .carga .frase{
+    font-size:15.5px;color:#c7c3bd;transition:opacity .25s ease;
+    min-height:24px;
+  }
+  .carga .frase.some{opacity:0}
+  .carga .pct{
+    font-size:22px;font-weight:800;color:var(--gold);
+    font-variant-numeric:tabular-nums;flex:0 0 auto;
+  }
+  .cargabar{height:4px;background:#1e1c19;border-radius:3px;overflow:hidden}
+  .cargabar i{
+    display:block;height:100%;width:0;border-radius:3px;
+    background:linear-gradient(90deg,#d99b1a,#f18700);
+  }
+
+  /* ---------- página pós-quiz ---------- */
+  #lp{display:none}
+  #lp.on{display:block}
+  #lp h1{font-size:clamp(29px,6vw,42px);line-height:1.14;letter-spacing:-.02em;font-weight:800;margin:44px 0 18px;text-wrap:balance;color:#fff}
+  #lp .lede{font-size:17px;color:#cfcbc5;margin:0 0 30px}
+  #lp .cta{
+    display:block;width:100%;text-align:center;text-decoration:none;background:var(--accent);color:#140d02;
+    font-size:14px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;padding:19px 22px;border-radius:6px;
+    transition:background .15s ease,transform .15s ease;
+  }
+  #lp .cta:hover{background:var(--accent-hi)}
+  #lp .cta:active{transform:translateY(1px)}
+  #lp .undercta{font-size:13px;color:var(--muted);text-align:center;margin:12px 0 0}
+  #lp section{border-top:1px solid var(--line);margin-top:52px;padding-top:44px}
+  #lp h2{font-size:clamp(21px,4.2vw,27px);line-height:1.26;letter-spacing:-.012em;font-weight:800;margin:0 0 16px;text-wrap:balance;color:#fff}
+  #lp h3{font-size:17px;font-weight:800;color:#fff;margin:0 0 7px;line-height:1.32}
+  #lp p{margin:0 0 15px;font-size:16px;color:#d6d2cc}
+  #lp .kicker{font-size:11px;letter-spacing:.20em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 12px}
+  #lp strong{color:#fff;font-weight:700}
+  #lp .cards{display:flex;flex-direction:column;gap:12px;margin:20px 0 8px}
+  #lp .card{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:5px;padding:17px 19px}
+  #lp .card b{display:block;color:#fff;font-size:15.5px;margin-bottom:5px}
+  #lp .card span{font-size:15px;color:#bfbbb5}
+  #lp .sit{display:flex;flex-direction:column;gap:0;margin-top:22px}
+  #lp .sit article{border-top:1px solid var(--line);padding:22px 0;transition:.2s}
+  #lp .sit article:last-child{border-bottom:1px solid var(--line)}
+  #lp .sit article.seu{border-left:3px solid var(--accent);padding-left:16px;background:#131211}
+  #lp .sit .num{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700;margin:0 0 8px}
+  #lp .sit p{font-size:15.5px;color:#bfbbb5;margin:0}
+  #lp .bio{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:26px 24px;margin-top:8px}
+  #lp .bio .nome{font-size:19px;font-weight:800;color:#fff;margin:0 0 3px}
+  #lp .bio .reg{font-size:12.5px;color:var(--muted);margin:0 0 16px;letter-spacing:.02em}
+  #lp .bio p{font-size:15.5px;color:#c7c3bd}
+  #lp .bio p:last-of-type{margin-bottom:0}
+  #lp .bio .topo{display:flex;flex-direction:column;gap:18px;margin-bottom:16px}
+  @media(min-width:520px){
+    #lp .bio .topo{flex-direction:row;align-items:center;gap:20px}
+    #lp .bio .ident{flex:1 1 auto}
+  }
+  #lp .bio .ident .nome, #lp .bio .ident .reg{margin-bottom:0}
+  #lp .bio .ident .reg{margin-top:4px}
+  #lp .retrato{
+    flex:0 0 auto;width:132px;height:165px;border-radius:6px;overflow:hidden;
+    background:#101010;border:1px solid #2a2825;position:relative;
+  }
+  #lp .retrato img{width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block}
+  #lp .retrato::after{content:"";position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 22px rgba(8,8,8,.55),inset 0 -30px 34px -22px rgba(8,8,8,.7)}
+  #lp .retrato.vazio{
+    border:1px dashed #34322f;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;padding:10px;
+  }
+  #lp .retrato.vazio b{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#6f6c67;font-weight:700;line-height:1.5}
+  #lp .retrato.vazio span{font-size:11.5px;color:#54514d;margin-top:5px;line-height:1.4}
+  #lp .creds{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-top:20px}
+  @media(min-width:560px){#lp .creds{grid-template-columns:1fr 1fr}}
+  #lp .creds div{background:var(--surface2);padding:15px 17px}
+  #lp .creds b{display:block;color:var(--gold);font-size:15.5px;font-weight:800;line-height:1.3}
+  #lp .creds span{display:block;font-size:13.5px;color:var(--muted);margin-top:3px}
+  #lp .duas{display:flex;flex-direction:column;gap:12px;margin-top:22px}
+  #lp .col{border:1px solid var(--line);border-radius:6px;padding:19px 20px;background:var(--surface2)}
+  #lp .col.sim{border-left:3px solid var(--accent)}
+  #lp .col.nao{border-left:3px solid #3a3835}
+  #lp .col .tit{font-size:14px;font-weight:800;color:#fff;margin:0 0 12px;letter-spacing:.02em}
+  #lp .col.nao .tit{color:var(--muted)}
+  #lp .col ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px}
+  #lp .col li{position:relative;padding-left:22px;font-size:15px;color:#c7c3bd;line-height:1.5}
+  #lp .col.sim li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;transform:rotate(45deg);background:var(--accent)}
+  #lp .col.nao li{color:#8f8c86}
+  #lp .col.nao li::before{content:"";position:absolute;left:0;top:11px;width:9px;height:1.5px;background:#4a4744}
+  #lp .faq{display:flex;flex-direction:column;gap:0;margin-top:8px}
+  #lp .faq div{border-bottom:1px solid var(--line);padding:17px 0}
+  #lp .faq div:first-child{border-top:1px solid var(--line)}
+  #lp .faq b{display:block;color:#fff;font-size:16px;margin-bottom:6px}
+  #lp .faq span{font-size:15.5px;color:#bfbbb5}
+  #lp .fecho{text-align:center;padding-top:46px}
+  #lp .fecho h2{margin-bottom:12px}
+  #lp .fecho p{color:#cfcbc5}
+  #lp footer{border-top:1px solid var(--line);margin-top:56px;padding:26px 0 50px;text-align:center}
+  #lp footer .f1{font-size:14px;color:#e6e3de;font-weight:700}
+  #lp footer .f2{font-size:12.5px;color:var(--muted);margin-top:5px}
+  #lp footer .f3{font-size:12.5px;color:var(--gold);font-style:italic;margin-top:11px}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PHG5489R"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="wrap">
+
+  <!-- ============ QUIZ ============ -->
+  <div id="quiz">
+    <!-- A promessa que o anúncio faz, retomada aqui. Sem ela o lead cai numa
+         pergunta e não tem como confirmar que chegou no lugar certo.
+         Aprovada pela Dani em 04/09 e no ar no link da campanha. -->
+    <div id="abertura">
+      <h1 class="promessa">Descubra onde a sua Liderança pode estar comprometendo desempenho, Cultura e resultado financeiro da sua empresa.</h1>
+      <p class="promessa-sub">Responda algumas perguntas e receba o seu cenário na tela, com a leitura completa no seu WhatsApp, para entender por que ele se instalou.</p>
+    </div>
+    <div class="barra"><i id="prog"></i></div>
+    <div id="tela"></div>
+  </div>
+
+  <!-- ============ PROCESSANDO ============ -->
+  <div id="carregando">
+    <p class="kick">Um instante</p>
+    <p class="tit">Estamos lendo as suas respostas.</p>
+    <div class="carga">
+      <div class="linha">
+        <span class="frase" id="cargaFrase">Enviando as suas respostas</span>
+        <span class="pct" id="cargaPct">0%</span>
+      </div>
+      <div class="cargabar"><i id="cargaBar"></i></div>
+    </div>
+  </div>
+
+  <!-- ============ PÁGINA PÓS-QUIZ ============ -->
+  <div id="lp">
+    <div class="brand"><div class="wm">GR<span class="o">O</span>KKER</div></div>
+    <h1>Seu cenário já tem nome. Falta saber por que ele se instalou.</h1>
+    <p class="lede">O seu Diagnóstico de Liderança/Gestão está pronto. É a leitura das suas respostas: o que o seu cenário significa na prática, por que o que você já tentou não resolveu, e qual é o caminho para destravar.</p>
+
+    <a data-onde="topo" class="cta" href="https://wa.me/5555996185023?text=Quero%20receber%20meu%20Diagn%C3%B3stico%20de%20Lideran%C3%A7a">Receber meu Diagnóstico no WhatsApp</a>
+    <p class="undercta">Chega no seu WhatsApp em segundos. Sem custo.</p>
+
+    <section>
+      <p class="kicker">O que você acabou de responder</p>
+      <h2>Em uma frase, você disse onde a sua Liderança está travando.</h2>
+      <p>Pode ter sido a decisão sobre alguém que você vem empurrando há meses. Pode ser que quase tudo que importa ainda passe por você antes de acontecer. Pode ser o time que explica o resultado com o mercado, o cliente ou o preço. Ou o plano que sai da reunião combinado e registrado, e não vira execução.</p>
+      <p><strong>Os quatro cenários têm a mesma raiz</strong>, e é sobre ela que o seu Diagnóstico fala. Não sobre a sua equipe.</p>
+    </section>
+
+    <section>
+      <p class="kicker">O que costuma aparecer junto</p>
+      <h2>Quem chega até aqui quase sempre reconhece pelo menos duas destas cenas.</h2>
+      <p>Não são problemas diferentes. São quatro formas que o mesmo gargalo encontra de aparecer na rotina de quem lidera.</p>
+
+      <div class="sit">
+        <article data-cen="0">
+          <p class="num">Situação 01</p>
+          <h3>Decisões sobre pessoas que chegam tarde demais</h3>
+          <p>Você já sabe quem não está no padrão. Já ensaiou a conversa, já deu mais um prazo, já pensou em trocar. E a decisão segue sendo empurrada, porque falta uma régua que diga o que é aceitável, o que já não é e em quanto tempo se corrige. Sem essa régua, cada decisão sobre gente vira aposta emocional, e o custo dela aparece no resultado antes de aparecer na conversa.</p>
+        </article>
+        <article data-cen="1">
+          <p class="num">Situação 02</p>
+          <h3>Correria constante e tempo nenhum para o estratégico</h3>
+          <p>O dia é tomado pelo urgente e o que realmente move a empresa fica para depois. Você trabalha muito, sai exausto, e ainda assim tem a sensação de não ter avançado no que importa. O problema raramente é agenda. É que ninguém no time tem critério para decidir sem você, então tudo volta para a sua mesa.</p>
+        </article>
+        <article data-cen="2">
+          <p class="num">Situação 03</p>
+          <h3>Insegurança na hora de conduzir</h3>
+          <p>Dar um feedback direto, cobrar um resultado, encerrar um ciclo. Você faz, mas com um peso que não deveria existir, sempre entre parecer duro demais e permissivo demais. Isso não é falta de competência técnica. É falta de método, e método é a única coisa que transforma conversa difícil em rotina de Gestão.</p>
+        </article>
+        <article data-cen="3">
+          <p class="num">Situação 04</p>
+          <h3>Equipe sem engajamento real</h3>
+          <p>As pessoas cumprem tarefa, mas ninguém se sente dono do número. O resultado ruim sempre tem uma explicação externa e ela passa sem ser examinada. Quando isso se repete, deixa de ser desculpa e vira cultura, e cultura não se muda com discurso motivacional.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <p class="kicker">O que você vai receber</p>
+      <h2>Um documento com a leitura do seu caso.</h2>
+      <div class="cards">
+        <div class="card"><b>O seu gargalo</b><span>O nome do problema real, e não o sintoma que aparece no dia a dia.</span></div>
+        <div class="card"><b>O que isso significa</b><span>A leitura do que está por trás, sem terceirizar a culpa para a sua equipe.</span></div>
+        <div class="card"><b>Por que o que você já tentou não resolveu</b><span>Conversa, troca de gente, processo, ferramenta, indicador. Por que nada disso segurou.</span></div>
+        <div class="card"><b>O caminho</b><span>A direção para destravar, com critério, e não com mais esforço.</span></div>
+      </div>
+    </section>
+
+    <a data-onde="meio" class="cta" style="margin-top:34px" href="https://wa.me/5555996185023?text=Quero%20receber%20meu%20Diagn%C3%B3stico%20de%20Lideran%C3%A7a">Receber meu Diagnóstico no WhatsApp</a>
+    <p class="undercta">Chega no seu WhatsApp em segundos. Sem custo.</p>
+
+    <section>
+      <p class="kicker">Por que pelo WhatsApp</p>
+      <h2>Diagnóstico é documento, e documento se entrega em mãos.</h2>
+      <p>Ao tocar no botão, o WhatsApp abre com a mensagem já escrita. Você só envia, e o seu Diagnóstico chega em seguida, ali mesmo na conversa. Sem preencher mais nada e sem esperar e-mail.</p>
+    </section>
+
+    <section>
+      <p class="kicker">Quem assina o Diagnóstico</p>
+      <h2>Quem lê e analisa suas respostas.</h2>
+      <div class="bio">
+        <div class="topo">
+          <!-- A foto só aparece depois do quiz, minutos depois da carga, e vem de
+               outro domínio (rewrite no vercel.json). Sem loading="lazy" o
+               navegador buscava ela junto com o resto, gastando DNS, TLS e banda
+               do celular exatamente na janela em que o Pixel precisa disparar.
+               width/height evitam o pulo de layout quando ela enfim carrega. -->
+          <div class="retrato"><img src="dani.jpg" alt="Dra. Adm. Daniele Christensen"
+               width="132" height="165" loading="lazy" decoding="async"></div>
+          <div class="ident">
+            <p class="nome">Dra. Adm. Daniele Christensen</p>
+            <p class="reg">Doutora em Administração · CRA-RS 13.798 · Criadora do INTENSITY</p>
+          </div>
+        </div>
+        <p>Empreendedora desde os 19 anos, especialista em Desenvolvimento de Gestão e Liderança Adulta. São mais de 15 anos formando donos, sócios, diretores, gerentes e coordenadores, dentro das empresas, com o time real e o problema real na mesa.</p>
+        <p>Nesse caminho ela desenvolveu uma metodologia que vai além da teoria motivacional. É um sistema que une autoconhecimento guiado por Diagnóstico, com <strong>Perfil Comportamental e Análise de Gestão em 40 fatores</strong>, ferramentas práticas de planejamento e execução, e um método estruturado de condução de pessoas.</p>
+        <p>É desse mesmo sistema que sai a leitura que você vai receber. O documento não opina sobre sua Gestão/Liderança. Ele lê o seu cenário pela mesma régua que ela usa dentro das empresas que acompanha.</p>
+      </div>
+
+      <div class="creds">
+        <div><b>+15 anos</b><span>formando donos, sócios, diretores, gerentes e coordenadores</span></div>
+        <div><b>40 fatores</b><span>de Análise de Gestão, além do Perfil Comportamental</span></div>
+        <div><b>+30 ferramentas</b><span>de Gestão validadas na prática</span></div>
+        <div><b>Centenas de milhões</b><span>em receita gerada para clientes acompanhados</span></div>
+      </div>
+    </section>
+
+    <a data-onde="bio" class="cta" style="margin-top:34px" href="https://wa.me/5555996185023?text=Quero%20receber%20meu%20Diagn%C3%B3stico%20de%20Lideran%C3%A7a">Receber meu Diagnóstico no WhatsApp</a>
+    <p class="undercta">Chega no seu WhatsApp em segundos. Sem custo.</p>
+
+    <section>
+      <p class="kicker">Para quem esse Diagnóstico foi escrito</p>
+      <h2>Ele não serve para todo mundo, e isso é proposital.</h2>
+      <p>A leitura parte de um contexto específico: quem já tem empresa rodando, time formado e decisão na mão. Se esse não é o seu caso, o documento vai soar distante, e é melhor você saber disso antes de solicitar.</p>
+      <div class="duas">
+        <div class="col sim">
+          <p class="tit">Faz sentido para você se</p>
+          <ul>
+            <li>Você é dono, sócio, diretor, gerente ou gestor, e a decisão final sobre pessoas passa por você.</li>
+            <li>A empresa já tem operação e faturamento consolidados, e o gargalo agora é de Gestão, não de venda.</li>
+            <li>Você lidera um time e sente que o resultado depende demais da sua presença.</li>
+            <li>Você já tentou resolver com conversa, troca de gente, processo ou ferramenta, e o problema voltou.</li>
+          </ul>
+        </div>
+        <div class="col nao">
+          <p class="tit">Não faz sentido se</p>
+          <ul>
+            <li>Você está buscando conteúdo motivacional ou frase de efeito sobre Liderança.</li>
+            <li>Você não tem equipe sob a sua responsabilidade hoje.</li>
+            <li>Você quer uma resposta pronta sem olhar para a própria forma de decidir.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="kicker">Perguntas frequentes</p>
+      <h2>Antes de você clicar.</h2>
+      <div class="faq">
+        <div><b>O Diagnóstico tem algum custo?</b><span>Não. É gratuito, e você recebe independente de qualquer conversa comercial.</span></div>
+        <div><b>Quanto tempo leva para chegar?</b><span>Chega logo depois que você envia a mensagem. Não é agendamento, é entrega.</span></div>
+        <div><b>Quem escreve o Diagnóstico?</b><span>A Dra. Daniele Christensen, a partir da mesma metodologia que ela aplica dentro das empresas que acompanha.</span></div>
+        <div><b>E se eu não for o dono da empresa?</b><span>O documento funciona igual. Ele parte de quem responde por um time e por um resultado, seja você sócio, diretor ou gestor.</span></div>
+        <div><b>Preciso ter uma equipe grande?</b><span>Não. O que pesa é o nível de responsabilidade que você carrega, não o tamanho do organograma.</span></div>
+        <div><b>E depois de ler o Diagnóstico, o que acontece?</b><span>Quem quiser ir mais fundo recebe um link para o Diagnóstico mais completo da Gestão/Liderança, que leva menos de 5 minutos.</span></div>
+      </div>
+    </section>
+
+    <section class="fecho">
+      <h2>A partir daqui existem duas saídas.</h2>
+      <p>Você fecha essa página e segue conduzindo do mesmo jeito, esperando que o próximo mês seja diferente. Ou você lê, em poucos minutos, o que está travando a sua Liderança e por que isso acontece, e decide o que fazer com isso.</p>
+      <p><strong>O Diagnóstico já está pronto. Falta só você solicitar.</strong></p>
+      <a data-onde="fecho" class="cta" style="margin-top:22px" href="https://wa.me/5555996185023?text=Quero%20receber%20meu%20Diagn%C3%B3stico%20de%20Lideran%C3%A7a">Receber meu Diagnóstico no WhatsApp</a>
+      <p class="undercta">Sem custo. Chega direto no seu WhatsApp.</p>
+    </section>
+
+    <footer>
+      <p class="f1">Dra. Adm. Daniele Christensen</p>
+      <p class="f2">Doutora em Administração · CRA-RS 13.798 · Criadora do INTENSITY</p>
+      <p class="f3">Liderança adulta exige critério, coragem e método.</p>
+    </footer>
+  </div>
+
+</div>
+
+<script>
+"use strict";
+
+var CENARIOS = [
+  {nome:"O Adiador", sub:"Ausência de critério para decidir sobre pessoas.", pdf:"Diagnostico-01-o-adiador.pdf"},
+  {nome:"O Gargalo", sub:"Sobrecarga de decisão concentrada na liderança.", pdf:"Diagnostico-02-o-gargalo.pdf"},
+  {nome:"Time que não Assume", sub:"Falta de responsabilização pelo resultado.", pdf:"Diagnostico-03-time-que-nao-assume.pdf"},
+  {nome:"Plano que não Vira Execução", sub:"Desalinhamento entre a meta e a prática.", pdf:"Diagnostico-04-plano-que-nao-vira-execucao.pdf"}
+];
+
+/* Convenção das perguntas de número (faturamento, colaboradores, remuneração):
+   as opções vão SEMPRE da menor para a maior, de cima para baixo. Pedido da
+   equipe da Dani em 25/08, e vale para qualquer faixa numérica que entrar aqui
+   depois.
+
+   A ordem na tela é só apresentação: o ponto viaja junto de cada opção, e o que
+   qualifica é o ponto, não a posição. A única pergunta que depende da posição é
+   a p0, porque o caminho é escolhido pelo índice — por isso ela não é reordenada.
+*/
+var P = {
+  p0:{ id:"P0", titulo:"Hoje você é:",
+    ops:[
+      {t:"Proprietário, Dono ou Sócio", via:"A"},
+      {t:"Diretor (CLT ou PJ)", via:"B"},
+      {t:"Gestor ou Coordenador (CLT ou PJ)", via:"B"},
+      {t:"Fui promovido recentemente à Liderança", via:"B"}
+    ]},
+  p1:{ id:"P1", titulo:"Em qual setor a sua empresa atua?",
+    ops:[{t:"Serviços"},{t:"Comércio ou varejo"},{t:"Indústria"},{t:"Saúde"},{t:"Tecnologia"},{t:"Outro"}]},
+  p2:{ id:"P2",
+    titulo:"Pensando nos últimos 90 dias, qual dessas situações mais se repetiu na sua empresa?",
+    ops:[
+      {t:"Tem hora que eu deveria manter a exigência e acabo cedendo, para não desgastar a relação", cen:0},
+      {t:"Minha equipe vem me perguntar o que fazemos agora, em vez de agir sobre o que já estava combinado", cen:1},
+      {t:"As pessoas justificam o resultado com o mercado, o cliente ou o preço, em vez de assumir a responsabilidade", cen:2},
+      {t:"A gente sai da reunião com tudo combinado e registrado, e os prazos não são cumpridos", cen:3}
+    ]},
+  p3:{ id:"P3", titulo:"O que você já tentou para resolver isso?",
+    ops:[
+      {t:"Conversei, dei feedback, cheguei mais perto"},
+      {t:"Troquei quem não estava entregando, contratei gente nova"},
+      {t:"Coloquei processo, ferramenta ou indicador"},
+      {t:"Assumi de volta e fui fazer eu mesmo"},
+      {t:"Fiz curso ou mentoria de liderança"}
+    ]},
+  p4:{ id:"P4",
+    titulo:"Hoje, quantas decisões sobre pessoas acontecem na sua empresa sem passar por você?",
+    ops:[
+      {t:"Praticamente nenhuma, tudo passa por mim", pt:10},
+      {t:"Poucas, só as pequenas", pt:8},
+      {t:"Boa parte, mas as difíceis sempre voltam para mim", pt:4},
+      {t:"A maioria, meu time decide e depois me informa", pt:0}
+    ]},
+  p5:{ id:"P5",
+    titulo:"Se nada mudar nos próximos 12 meses, o que mais te incomoda imaginar?",
+    ops:[
+      {t:"Continuar sendo o único que resolve o que é difícil"},
+      {t:"Perder gente boa por causa de decisão que eu adiei"},
+      {t:"Daqui a doze meses estar exatamente no mesmo lugar de hoje"},
+      {t:"Seguir sem tempo para pensar no negócio"}
+    ]},
+  // Só no caminho A. Vem antes do faturamento porque porte de estrutura é
+  // pergunta mais fácil de responder que dinheiro: abre a sequência de
+  // qualificação sem o lead travar logo na primeira.
+  // A pontuação está aqui como a especificação define, mas ainda NÃO entra no
+  // corte nem na Pontuação — falta a régua de quantos colaboradores qualificam.
+  aColab:{ id:"P8", titulo:"Quantos colaboradores a sua empresa emprega?",
+    ops:[
+      {t:"Menos de 20", pt:1},
+      {t:"Entre 20 e 50", pt:2},
+      {t:"Entre 50 e 100", pt:4},
+      {t:"Entre 100 e 200", pt:6},
+      {t:"Entre 200 e 500", pt:8},
+      {t:"Acima de 500", pt:10}
+    ]},
+  a6:{ id:"P6", titulo:"Qual é o faturamento médio mensal da sua empresa?",
+    ops:[
+      {t:"Até R$ 100.000", pt:0},
+      {t:"De R$ 100.000 até R$ 200.000", pt:1},
+      {t:"De R$ 200.000 até R$ 300.000", pt:4},
+      {t:"De R$ 300.000 até R$ 500.000", pt:8},
+      {t:"Acima de R$ 500.000", pt:10}
+    ]},
+  a7:{ id:"P7",
+    titulo:"Da sua receita mensal, quanto sobra de lucro para você?",
+    ajuda:"Margem líquida aproximada.",
+    ops:[{t:"Menos de 10%"},{t:"Entre 10% e 20%"},{t:"Entre 20% e 30%"},{t:"Acima de 30%"},{t:"Não sei dizer com precisão"}]},
+  b6:{ id:"P6",
+    titulo:"Qual é o seu nível de autonomia para decidir sobre investimento em desenvolvimento, seu ou da sua equipe de gestores?",
+    ops:[
+      {t:"Total, a decisão é minha", pt:10},
+      {t:"Parcial, decido até um determinado valor", pt:6},
+      {t:"Quase nenhuma, preciso de aprovação", pt:0},
+      {t:"Nenhuma", pt:0}
+    ]},
+  // A P8 do caminho B. Mesma função de qualificador que a do caminho A, mas
+  // outra pergunta: no A é o tamanho da empresa, aqui é quanta gente responde
+  // para esta pessoa. Vem antes da remuneração, como a especificação pede.
+  // A pontuação também está aqui sem entrar no corte, à espera da régua.
+  bColab:{ id:"P8", titulo:"Quantos colaboradores estão sob sua responsabilidade?",
+    ops:[
+      {t:"Nenhum", pt:0},
+      {t:"Entre 1 e 4", pt:2},
+      {t:"Entre 5 e 10", pt:4},
+      {t:"Entre 11 e 15", pt:6},
+      {t:"Entre 16 e 30", pt:8},
+      {t:"Mais de 30", pt:10}
+    ]},
+  // Teto em "Acima de R$ 50.000" e pontos da especificação. As faixas fecham
+  // umas nas outras: a especificação ia de R$ 10.000 a R$ 19.000 e depois pulava
+  // para R$ 20.000, e quem ganhasse R$ 19.500 não achava a própria faixa. Toda
+  // faixa desta página termina onde a seguinte começa, sem buraco no meio.
+  b7:{ id:"P7", titulo:"Qual é a sua remuneração média mensal?",
+    ops:[
+      {t:"Menos de R$ 5.000", pt:1},
+      {t:"De R$ 5.000 até R$ 10.000", pt:2},
+      {t:"De R$ 10.000 até R$ 20.000", pt:5},
+      {t:"De R$ 20.000 até R$ 50.000", pt:8},
+      {t:"Acima de R$ 50.000", pt:10}
+    ]}
+};
+
+// Dois destinos de propósito. O primeiro é da Pulsar, que é dona do CRM; o
+// segundo é o nosso, e só alimenta a planilha de leads. Sem a segunda cópia a
+// gente dependeria da Pulsar para enxergar o próprio lead, e foi exatamente
+// isso que deu errado com a planilha antiga.
+var DESTINOS = [
+  "https://pulsar.app.n8n.cloud/webhook/grokker-quiz-etapa1",
+  "https://hook.us2.make.com/v0ungryn21i7gk3q0ld4rxamf3g2m5tp"
+];
+
+// de onde o lead veio. Sem isto o webhook chega sem origem e não dá para
+// dizer qual anúncio pagou por qual lead.
+var RASTREIO = (function(){
+  var p = new URLSearchParams(location.search), r = {};
+  ["utm_source","utm_medium","utm_campaign","utm_content","utm_term",
+   "fbclid","gclid","ttclid"].forEach(function(k){
+    var v = p.get(k); if(v) r[k] = v;
+  });
+  if(document.referrer) r.referrer = document.referrer;
+  r.pagina = location.origin + location.pathname;
+  return r;
+})();
+
+var envio = "não enviado";
+
+/* ------------------------------------------------------------ medição -----
+   O GTM não inventa evento: ele só escuta o que a página empurra para o
+   dataLayer. Sem estes dois pushes o contêiner enxerga carregamento de página
+   e mais nada — não existe "lead" nem "clique" para virar conversão.
+   O dataLayer é criado pelo snippet do GTM; a guarda existe porque o protótipo
+   roda sem GTM e não pode quebrar por isso.                                  */
+
+function dl(evento, dados){
+  window.dataLayer = window.dataLayer || [];
+  var e = {event: evento};
+  for(var k in dados){ if(Object.prototype.hasOwnProperty.call(dados,k)) e[k] = dados[k]; }
+  window.dataLayer.push(e);
+}
+
+// o clique no WhatsApp abre a janela de 24h: é o passo que a campanha otimiza,
+// e o que diz se o lead virou conversa ou parou na página.
+var CLIQUE_ZAP = "https://hook.us2.make.com/l8nl0chvehsk2aonkg1hi5y34ok2ndap";
+var zapAvisado = false;
+
+document.addEventListener("click", function(ev){
+  var alvo = ev.target;
+  var a = alvo && alvo.closest ? alvo.closest("#lp a.cta") : null;
+  if(!a) return;
+
+  var onde = a.getAttribute("data-onde") || "?";
+  dl("clique_whatsapp", {
+    posicao: onde,
+    cenario: R.cen === undefined ? "" : CENARIOS[R.cen].nome,
+    qualificado: qualificado() ? "sim" : "nao"
+  });
+
+  // a planilha só precisa saber que clicou, não quantas vezes
+  if(zapAvisado) return;
+  zapAvisado = true;
+  var corpo = JSON.stringify({
+    telefone: telefoneCanonico(R.zap),
+    nome: R.nome || "",
+    posicao: onde,
+    clicado_em: new Date().toISOString()
+  });
+  // o clique navega para fora: fetch seria cancelado no meio, o beacon não
+  try{
+    if(navigator.sendBeacon) navigator.sendBeacon(CLIQUE_ZAP, new Blob([corpo], {type:"text/plain"}));
+    else fetch(CLIQUE_ZAP, {method:"POST", body:corpo, keepalive:true});
+  }catch(e){}
+});
+
+// telefone canônico: só dígitos, com o 55 na frente. É esse valor que a Pulsar
+// devolve na URL da Etapa 2, e que a Etapa 2 repassa sem reformatar.
+function telefoneCanonico(v){
+  var d = (v||"").replace(/\D/g,"");
+  if(d.length === 10 || d.length === 11) d = "55" + d;
+  return d;
+}
+
+function payload(){
+  return {
+    etapa: 1,
+    rastreio: RASTREIO,
+    enviado_em: new Date().toISOString(),
+    nome: R.nome || "",
+    email: R.email || "",
+    telefone: telefoneCanonico(R.zap),
+    telefone_digitado: R.zap || "",
+    cenario: CENARIOS[R.cen].nome,
+    cenario_indice: R.cen,
+    diagnostico_pdf: CENARIOS[R.cen].pdf,
+    caminho: R.via,
+    cargo: R._p0 || "",
+    setor: R._p1 || "",
+    // A P8 dos dois caminhos, em campos separados porque a pergunta é outra:
+    // no A é o tamanho da empresa, no B é o time que responde para a pessoa.
+    // Cada lead preenche um e deixa o outro vazio, como já acontece com
+    // faturamento/margem contra autonomia/remuneração.
+    colaboradores: R._aColab || "",
+    colaboradores_sob_responsabilidade: R._bColab || "",
+    faturamento: R._a6 || "",
+    margem: R._a7 || "",
+    autonomia: R._b6 || "",
+    remuneracao: R._b7 || "",
+    pontuacao: pontos(),
+    qualificado: qualificado(),
+    motivo: motivo(),
+    respostas: {
+      P0: R._p0 || "", P1: R._p1 || "", P2: R._p2 || "", P3: R._p3 || "",
+      P4: R._p4 || "", P5: R._p5 || "",
+      P6: (R.via === "A" ? R._a6 : R._b6) || "",
+      P7: (R.via === "A" ? R._a7 : R._b7) || "",
+      P8: (R.via === "A" ? R._aColab : R._bColab) || ""
+    }
+  };
+}
+
+// o lead nunca espera pelo envio: falhou, o funil segue do mesmo jeito
+var ok = 0, ruim = 0;
+
+function enviar(){
+  var corpo = JSON.stringify(payload());
+  ok = 0; ruim = 0;
+  envio = "enviando";
+  DESTINOS.forEach(function(url){ manda(url, corpo); });
+}
+
+// um destino que cai não pode derrubar o outro: cada um vai por conta própria
+function manda(url, corpo){
+  function fim(deu){
+    if(deu) ok++; else ruim++;
+    envio = ok + " de " + DESTINOS.length + " enviados" + (ruim ? " · " + ruim + " falhou" : "");
+  }
+  try{
+    fetch(url, {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: corpo,
+      keepalive: true
+    }).then(function(r){
+      fim(r.ok);
+    }).catch(function(){
+      // CORS bloqueado ou rede fora: o beacon vai como text/plain, sem preflight
+      fim(navigator.sendBeacon && navigator.sendBeacon(url, new Blob([corpo], {type:"text/plain"})));
+    });
+  }catch(e){ fim(false); }
+}
+
+var R = {};      // respostas
+var seq = [];    // sequência de telas percorrida
+var i = 0;       // índice atual
+
+// As seis primeiras são iguais para todo mundo; da sétima em diante o caminho
+// escolhido na pergunta 1 decide o resto. Acrescentar ou tirar pergunta é mexer
+// só aqui e no dicionário P — nenhum número de pergunta está escrito à mão.
+var BASE = ["p0","p1","p2","p3","p4","p5"];
+var CAMINHOS = {
+  // REGRA DOS DOIS CAMINHOS: pergunta de dinheiro (faturamento, margem,
+  // remuneração) vem SEMPRE depois da de colaboradores. Porte de estrutura é
+  // mais fácil de responder que dinheiro, então ele abre a sequência de
+  // qualificação sem o lead travar logo na primeira. A autonomia não é
+  // dinheiro e fica por último, como a Dani pediu em 04/09.
+  //
+  // O id de cada pergunta NÃO acompanha a posição, de propósito: P6, P7 e P8
+  // são identificadores do contrato com a Pulsar, e renomeá-los quebraria quem
+  // lê `respostas.P6` do outro lado. Posição é tela, id é contrato.
+  A: ["aColab","a6","a7"],   // dono ou sócio: porte, faturamento, margem
+  B: ["bColab","b7","b6"]    // executivo: equipe, remuneração, autonomia
+};
+
+function ordem(){
+  if(R.P0 === undefined) return BASE.concat(["contato"]);
+  return BASE.concat(CAMINHOS[R.via], ["contato"]);
+}
+
+// Quantas perguntas o caminho tem, sem contar a tela de contato.
+//
+// Na primeira tela o caminho ainda não foi escolhido, e aí vale o maior dos
+// dois. Hoje os dois têm o mesmo tamanho e o número nunca muda; se um dia
+// voltarem a divergir, o total ENCOLHE no meio do quiz em vez de crescer — e
+// descobrir que falta menos é bem melhor do que descobrir que falta mais.
+function totalPerguntas(){
+  if(R.P0 !== undefined) return ordem().length - 1;
+  var maior = 0;
+  for(var k in CAMINHOS){
+    if(CAMINHOS[k].length > maior) maior = CAMINHOS[k].length;
+  }
+  return BASE.length + maior;
+}
+
+function rotuloPasso(){
+  return "Pergunta " + (i+1) + " de " + totalPerguntas();
+}
+
+function el(t,c,x){ var e=document.createElement(t); if(c)e.className=c; if(x!==undefined)e.textContent=x; return e; }
+
+function render(){
+  var chave = ordem()[i];
+  var tela = document.getElementById("tela");
+  tela.innerHTML = "";
+  document.getElementById("prog").style.width = Math.round((i/ordem().length)*100) + "%";
+
+  // a promessa vale para quem acabou de chegar. Depois da primeira resposta ela
+  // vira ruído e rouba altura da pergunta, então sai de cena.
+  var ab = document.getElementById("abertura");
+  if(ab) ab.hidden = i > 0;
+
+  if(chave === "contato"){ return telaContato(tela); }
+
+  var q = P[chave];
+  tela.appendChild(el("p","passo",rotuloPasso()));
+  tela.appendChild(el("h2","perg",q.titulo));
+  if(q.ajuda) tela.appendChild(el("p","ajuda",q.ajuda));
+
+  var box = el("div","ops");
+  q.ops.forEach(function(o,idx){
+    var b = el("button","op",o.t);
+    b.type = "button";
+    b.onclick = function(){ responder(chave,q,o,idx); };
+    box.appendChild(b);
+  });
+  tela.appendChild(box);
+
+  if(i > 0){
+    var v = el("button","voltar","← voltar");
+    v.type = "button";
+    v.onclick = function(){ i--; render(); window.scrollTo(0,0); };
+    tela.appendChild(v);
+  }
+  window.scrollTo(0,0);
+}
+
+function responder(chave,q,o,idx){
+  R[q.id + (chave.charAt(0)==="a"||chave.charAt(0)==="b" ? "" : "")] = o.t;
+  R["_"+chave] = o.t;
+  if(o.via) R.via = o.via;
+  if(o.cen !== undefined) R.cen = o.cen;
+  if(o.pt !== undefined) R["pt_"+chave] = o.pt;
+  if(chave === "p0") R.P0 = idx;
+  i++;
+  render();
+}
+
+function so(v){ return (v||"").replace(/\D/g,""); }
+
+function mascara(v){
+  var d = so(v).slice(0,11);
+  if(d.length <= 2) return d.length ? "(" + d : "";
+  if(d.length <= 6) return "(" + d.slice(0,2) + ") " + d.slice(2);
+  if(d.length <= 10) return "(" + d.slice(0,2) + ") " + d.slice(2,6) + "-" + d.slice(6);
+  return "(" + d.slice(0,2) + ") " + d.slice(2,7) + "-" + d.slice(7);
+}
+
+// cada validador devolve "" quando está certo, ou a mensagem do erro
+function valeNome(v){
+  v = (v||"").trim().replace(/\s+/g," ");
+  if(!v) return "Preencha o seu nome.";
+  if(/\d/.test(v)) return "Nome não leva número.";
+  if(v.replace(/\s/g,"").length < 3) return "Digite o seu nome, com pelo menos 3 letras.";
+  return "";
+}
+
+function valeEmail(v){
+  v = (v||"").trim();
+  if(!v) return "Preencha o seu e-mail.";
+  if(!/^[^\s@]+@[^\s@.]+(\.[^\s@.]+)+$/.test(v)) return "E-mail inválido. Confira, algo como nome@empresa.com.br.";
+  return "";
+}
+
+function valeZap(v){
+  var d = so(v);
+  if(!d) return "Preencha o seu WhatsApp.";
+  if(d.length < 10) return "Faltam dígitos. Informe o DDD e o número, com 10 ou 11 dígitos.";
+  if(d.length > 11) return "Número longo demais. São 10 ou 11 dígitos com o DDD.";
+  if(Number(d.slice(0,2)) < 11) return "DDD inválido.";
+  if(d.length === 11 && d.charAt(2) !== "9") return "Número de celular inválido. Confira os dígitos.";
+  return "";
+}
+
+function limpaErro(label,input){
+  label.classList.remove("falhou");
+  input.classList.remove("ruim");
+}
+
+function telaContato(tela){
+  tela.appendChild(el("p","passo","Último passo"));
+  tela.appendChild(el("h2","perg","Falta só identificar você."));
+  tela.appendChild(el("p","ajuda","O seu cenário já foi identificado. Preencha para ver o resultado."));
+
+  var f = el("form");
+  f.noValidate = true;
+  var campos = {};
+
+  [["Nome completo","text","nome"],
+   ["E-mail","email","email"],
+   ["WhatsApp com DDD","tel","zap"]
+  ].forEach(function(c){
+    var l = el("label","campo");
+    l.appendChild(el("span",null,c[0]));
+    var inp = document.createElement("input");
+    inp.type = c[1]; inp.name = c[2]; inp.required = true; inp.autocomplete = "off";
+    if(c[2] === "zap"){
+      inp.inputMode = "numeric";
+      inp.placeholder = "(00) 00000-0000";
+      inp.maxLength = 16;
+      inp.oninput = function(){ inp.value = mascara(inp.value); limpaErro(l,inp); };
+    } else {
+      inp.oninput = function(){ limpaErro(l,inp); };
+    }
+    l.appendChild(inp);
+    l.appendChild(el("span","erro",""));
+    campos[c[2]] = {label:l, input:inp};
+    f.appendChild(l);
+  });
+
+  var s = el("button","env","Quero ver meu cenário gratuitamente");
+  s.type = "submit";
+  f.appendChild(s);
+
+  f.onsubmit = function(e){
+    e.preventDefault();
+    var ok = true, primeiro = null;
+    [["nome",valeNome],["email",valeEmail],["zap",valeZap]].forEach(function(par){
+      var c = campos[par[0]], msg = par[1](c.input.value);
+      if(!msg){ limpaErro(c.label,c.input); return; }
+      c.label.querySelector(".erro").textContent = msg;
+      c.label.classList.add("falhou"); c.input.classList.add("ruim");
+      ok = false; if(!primeiro) primeiro = c.input;
+    });
+    if(!ok){ primeiro.focus(); return; }
+    R.nome = campos.nome.input.value.trim();
+    R.email = campos.email.input.value.trim();
+    R.zap = campos.zap.input.value;
+    concluir();
+  };
+  tela.appendChild(f);
+  window.scrollTo(0,0);
+}
+
+var FRASES = [
+  [0,  "Enviando as suas respostas"],
+  [28, "Cruzando com a régua da metodologia"],
+  [58, "Identificando o seu cenário"],
+  [84, "Gerando o seu Diagnóstico de Liderança"]
+];
+var pulso = null;
+var PASSO = 30;   // ms entre cada atualização do número
+
+// barra de 0 a 100% no tempo dado, trocando a frase conforme avança
+function corre(duracao){
+  var bar = document.getElementById("cargaBar");
+  var pct = document.getElementById("cargaPct");
+  var fra = document.getElementById("cargaFrase");
+
+  if(pulso) clearInterval(pulso);
+  fra.textContent = FRASES[0][1];
+  fra.classList.remove("some");
+  pct.textContent = "0%";
+
+  bar.style.width = "0%";
+
+  var passado = 0, atual = 0;
+  pulso = setInterval(function(){
+    passado += PASSO;
+    var v = Math.min(100, Math.round((passado / duracao) * 100));
+    bar.style.width = v + "%";
+    pct.textContent = v + "%";
+    var i = 0;
+    for(var k = 0; k < FRASES.length; k++){ if(v >= FRASES[k][0]) i = k; }
+    if(i !== atual){
+      atual = i;
+      fra.classList.add("some");
+      setTimeout(function(){ fra.textContent = FRASES[i][1]; fra.classList.remove("some"); }, 160);
+    }
+    if(v >= 100){ clearInterval(pulso); pulso = null; }
+  }, PASSO);
+}
+
+var relogios = [];
+function limpaRelogios(){
+  relogios.forEach(clearTimeout); relogios = [];
+  if(pulso){ clearInterval(pulso); pulso = null; }
+}
+function daqui(ms,fn){ relogios.push(setTimeout(fn,ms)); }
+
+// 2,9s de processamento entre o clique no botão e o Diagnóstico na tela
+function concluir(){
+  document.getElementById("prog").style.width = "100%";
+  document.getElementById("quiz").classList.add("oculto");
+  enviar();
+  dl("quiz_concluido", {
+    cenario: CENARIOS[R.cen].nome,
+    qualificado: qualificado() ? "sim" : "nao",
+    pontuacao: pontos(),
+    caminho: R.via
+  });
+
+  document.getElementById("carregando").classList.add("on");
+  window.scrollTo(0,0);
+  corre(2900);
+
+  daqui(2900, function(){
+    document.getElementById("carregando").classList.remove("on");
+    mostrarLP();
+  });
+}
+
+function mostrarLP(){
+  var cen = R.cen === undefined ? 0 : R.cen;
+  var arts = document.querySelectorAll("#lp .sit article");
+  for(var k=0;k<arts.length;k++){ arts[k].classList.toggle("seu", Number(arts[k].dataset.cen) === cen); }
+  document.getElementById("lp").classList.add("on");
+  window.scrollTo(0,0);
+}
+
+// Quais perguntas somam Pontuação, por caminho. Só os qualificadores entram:
+// as perguntas de cenário (P2 a P5) leem o problema do lead, não o tamanho
+// dele, e a margem (a7) é indicador de maturidade financeira, não nota.
+//
+// A P4 estava aqui no lugar da P8 e inflava o caminho A: quem marcava "tudo
+// passa por mim" ganhava 10 pontos de graça, e uma empresa de menos de 20
+// pessoas faturando até R$ 100 mil aparecia com 10 em vez de 1.
+var PONTUAM = {
+  A: ["aColab", "a6"],          // porte da empresa + faturamento
+  B: ["b6", "bColab", "b7"]     // autonomia + time sob responsabilidade + remuneração
+};
+
+function pontos(){
+  var chaves = PONTUAM[R.via];
+  if(!chaves) return 0;
+  var s = 0;
+  for(var k = 0; k < chaves.length; k++){ s += R["pt_" + chaves[k]] || 0; }
+  return s;
+}
+// A régua do executivo é R$ 20 mil. Na escala da especificação a faixa
+// "De R$ 20.000 a R$ 50.000" vale 8 e a de baixo vale 5, então o corte fica
+// em 8 — não em 6, que era o valor daquela faixa na lista antiga e deixaria
+// de casar com faixa nenhuma.
+var MIN_REMUNERACAO = 8;
+
+// devolve "" quando qualifica, ou o motivo da reprovação
+function motivo(){
+  if(R.via === "A"){
+    if((R.pt_a6||0) < 4) return "faturamento abaixo de R$ 200 mil";
+    return "";
+  }
+  if(R.via === "B"){
+    if(R.P0 !== 1) return "cargo fora do ICP (só diretor qualifica)";
+    if((R.pt_b6||0) < 6) return "sem autonomia para decidir investimento";
+    if((R.pt_b7||0) < MIN_REMUNERACAO) return "remuneração abaixo de R$ 20 mil";
+    return "";
+  }
+  return "quiz incompleto";
+}
+function qualificado(){ return motivo() === ""; }
+
+render();
+</script>
