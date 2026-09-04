@@ -347,21 +347,22 @@ if (!a._completedAt && !a.trava) {
         </div>
       </div>
       <p>Engenheiro de computação, estudioso de comportamento humano desde 1993. Passou quase duas décadas
-      nos bastidores de grandes empresas, trabalhando estratégia, comunicação e comportamento antes de
-      precisar vender qualquer coisa para si mesmo.</p>
+      nos bastidores de empresas como Mercedes, Itaú, Honda, John Deere, Electrolux e Philips,
+      trabalhando estratégia, comunicação e comportamento antes de precisar vender qualquer coisa
+      para si mesmo.</p>
       <p>Não nasceu vendedor. Quando precisou fechar os próprios contratos, foi para o campo no improviso
       e apanhou. Estudou o que todo mundo estuda, melhorou pouco, e só virou o jogo quando cruzou
       psicologia comportamental, neurociência e tomada de decisão com a prática real de fechamento.
       Parou de perguntar como convenço este lead e passou a perguntar
       <strong>em que camada este lead decide</strong>.</p>
-      <p>Hoje conduz negociações de alto valor com esse protocolo e cobra R$ 9 mil pela hora de
-      consultoria. O ${O.nome} gravado existe para que o método chegue a quem quer a estrutura sem
-      contratar a agenda dele.</p>
+      <p>Hoje conduz negociações de alto valor com esse protocolo e ensina o método em consultoria,
+      uma empresa por vez. O ${O.nome} gravado existe para que a estrutura inteira chegue a quem
+      quer aplicar sem depender da agenda dele.</p>
       <div class="cred-grid">
         <div class="cred"><div class="n">1993</div><div class="d">estudando comportamento humano</div></div>
         <div class="cred"><div class="n">20 anos</div><div class="d">de mercado, quase duas décadas nos bastidores</div></div>
         <div class="cred"><div class="n">50+</div><div class="d">projetos entregues</div></div>
-        <div class="cred"><div class="n">R$ 9 mil</div><div class="d">o valor da hora de consultoria dele</div></div>
+        <div class="cred"><div class="n">Marca própria</div><div class="d">PRIMAL PITCH®, método registrado</div></div>
       </div>
       <div class="marcas">
         <span>Mercedes</span><span>Itaú</span><span>Honda</span>
@@ -571,6 +572,8 @@ document.addEventListener("click", (e) => {
 if (!checkoutValido()) {
   const aviso = document.createElement("p");
   aviso.className = "aviso";
-  aviso.textContent = "Configuração pendente: a URL do checkout não está preenchida em flow.js, então os botões não levam a lugar nenhum. Preencha marca.checkoutUrl antes de mandar tráfego.";
+  /* Redigido para quem estiver revisando a página, não só para quem mexe no
+     código: este link circula em aprovação antes de existir checkout. */
+  aviso.textContent = "Prévia para aprovação. O botão de compra ainda não está ligado, porque falta a URL do checkout (flow.js > marca.checkoutUrl). Todo o resto do funil está funcionando.";
   report.prepend(aviso);
 }
