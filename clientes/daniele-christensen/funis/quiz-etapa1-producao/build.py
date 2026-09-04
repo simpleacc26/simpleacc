@@ -32,6 +32,29 @@ FONTE = os.path.join(AQUI, "..", "prototipo-quiz-lp")
 sys.path.insert(0, os.path.join(AQUI, ".."))
 import gtm
 
+# ---------------------------------------------------------------- opções
+#
+# Sem argumento nenhum, esta build gera EXATAMENTE o que está no ar hoje. A
+# promessa de abertura só entra com --abertura, e é isso que impede o link de
+# produção de mudar porque alguém rodou a build sem saber do combinado.
+#
+#   produção  : python3 build.py
+#   validação : python3 build.py --abertura --sem-tags --sem-envio \
+#                                --saida=quiz-etapa1-validacao
+#
+# --sem-tags e --sem-envio existem por causa do que a autópsia mostrou: teste
+# feito em página com tag ativa vira conversão no pixel, infla o relatório da
+# cliente e ensina o algoritmo a procurar o perfil errado. O link de validação
+# não mede nada e não grava lead nenhum.
+COM_ABERTURA = "--abertura" in sys.argv
+SEM_TAGS     = "--sem-tags" in sys.argv
+SEM_ENVIO    = "--sem-envio" in sys.argv
+
+SAIDA = AQUI
+for _a in sys.argv[1:]:
+    if _a.startswith("--saida="):
+        SAIDA = os.path.abspath(os.path.join(AQUI, "..", _a.split("=", 1)[1]))
+
 TITULO = "Diagnóstico de Gestão e Liderança · Dra. Daniele Christensen"
 DESCRICAO = ("Descubra em 2 minutos o que está travando a sua gestão e receba "
              "um diagnóstico com o seu cenário.")
@@ -112,11 +135,50 @@ def main():
     html = troca(html, "    etapa: 1,\n",
                  "    etapa: 1,\n    rastreio: RASTREIO,\n", "o campo etapa do payload")
 
+    # ------------------------------------------------------------- abertura
+    if COM_ABERTURA:
+        # a promessa fica; só confere que ela sobreviveu ao resto dos recortes
+        for pedaco in ["Descubra onde a sua Liderança", "receba o seu cenário na tela"]:
+            if pedaco not in html:
+                sys.exit("build: --abertura pedida mas %r não está no protótipo" % pedaco)
+    else:
+        # Sai tudo: marcação, CSS e o guard no render. O CSS e o guard seriam
+        # inertes sem o elemento, mas deixá-los faria a build sem argumento
+        # gerar um arquivo diferente do que está publicado, e é justamente essa
+        # igualdade que garante que produção não muda sozinha.
+        html = corta(html, "    <!-- A promessa que o anúncio faz", "</div>\n",
+                     "o bloco da abertura")
+        html = corta(html, "  /* ---------- abertura: a promessa",
+                     "max-width:56ch}\n\n", "o CSS da abertura")
+        html = corta(html, "\n  // a promessa vale para quem acabou de chegar",
+                     "if(ab) ab.hidden = i > 0;\n", "o guard da abertura no render")
+
+    # ------------------------------------------------------------ envio
+    if SEM_ENVIO:
+        html = troca(html,
+                     '  "https://pulsar.app.n8n.cloud/webhook/grokker-quiz-etapa1",\n'
+                     '  "https://hook.us2.make.com/v0ungryn21i7gk3q0ld4rxamf3g2m5tp"\n',
+                     "  // validação: nenhum destino, nada é gravado\n",
+                     "os destinos do webhook")
+        # o aviso de clique no WhatsApp grava numa coluna da planilha real
+        html = troca(html,
+                     'var CLIQUE_ZAP = "https://hook.us2.make.com/l8nl0chvehsk2aonkg1hi5y34ok2ndap";',
+                     'var CLIQUE_ZAP = "";  // validação: não avisa ninguém',
+                     "o destino do clique no WhatsApp")
+        html = troca(html, "  try{\n    if(navigator.sendBeacon) navigator.sendBeacon(CLIQUE_ZAP",
+                     "  try{\n    if(!CLIQUE_ZAP) return;\n"
+                     "    if(navigator.sendBeacon) navigator.sendBeacon(CLIQUE_ZAP",
+                     "o disparo do clique")
+
     # ----------------------------------------------------------------- GTM
-    html = gtm.injeta(html, troca, pixel=True)
-    erro = gtm.confere(html, pixel=True)
-    if erro:
-        sys.exit("build: GTM — " + erro)
+    if not SEM_TAGS:
+        html = gtm.injeta(html, troca, pixel=True)
+        erro = gtm.confere(html, pixel=True)
+        if erro:
+            sys.exit("build: GTM — " + erro)
+    else:
+        # sem <body> explícito o parser não fecha a head sozinho aqui
+        html = troca(html, "</style>\n", "</style>\n\n<body>\n", "o fim do <style>")
 
     # ------------------------------------------------------------ conferência
     proibidos = ["demobar", "painelGrid", "Demonstração", "togglePainel",
@@ -138,12 +200,21 @@ def main():
         if o not in html:
             sys.exit("build: faltou %r no arquivo de produção" % o)
 
-    open(os.path.join(AQUI, "index.html"), "w", encoding="utf-8").write(html)
-    shutil.copy(os.path.join(FONTE, "dani.jpg"), os.path.join(AQUI, "dani.jpg"))
+    # a abertura não pode vazar para produção por descuido
+    if not COM_ABERTURA and "Descubra onde a sua Liderança" in html:
+        sys.exit("build: a abertura sobrou no arquivo sem --abertura")
+
+    if not os.path.isdir(SAIDA):
+        os.makedirs(SAIDA)
+    open(os.path.join(SAIDA, "index.html"), "w", encoding="utf-8").write(html)
+    shutil.copy(os.path.join(FONTE, "dani.jpg"), os.path.join(SAIDA, "dani.jpg"))
 
     origem = os.path.getsize(os.path.join(FONTE, "index.html"))
-    print("ok — index.html %d bytes (protótipo tinha %d, saíram %d de andaime)"
-          % (len(html.encode()), origem, origem - len(html.encode())))
+    print("ok — %s/index.html %d bytes%s%s%s"
+          % (os.path.basename(SAIDA), len(html.encode()),
+             "  [abertura]" if COM_ABERTURA else "",
+             "  [sem tags]" if SEM_TAGS else "",
+             "  [sem envio]" if SEM_ENVIO else ""))
 
 
 main()

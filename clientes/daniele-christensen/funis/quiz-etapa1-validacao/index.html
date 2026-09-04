@@ -1,4 +1,6 @@
-<title>Protótipo do Funil Grokker</title>
+<title>Diagnóstico de Gestão e Liderança · Dra. Daniele Christensen</title>
+<meta name="description" content="Descubra em 2 minutos o que está travando a sua gestão e receba um diagnóstico com o seu cenário.">
+<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   :root{
@@ -8,32 +10,6 @@
   }
   *{box-sizing:border-box}
   body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.62;-webkit-font-smoothing:antialiased}
-
-  /* ---------- barra de demonstração (não faz parte da página real) ---------- */
-  .demobar{
-    position:sticky;top:0;z-index:50;background:#141310;border-bottom:1px solid var(--line);
-    padding:9px 14px;display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:center;
-  }
-  .demobar .lbl{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#7d7a74;margin-right:4px}
-  .demobar button{
-    background:#1e1c19;border:1px solid #302e2a;color:#c9c5bf;border-radius:20px;
-    font:inherit;font-size:12px;padding:5px 12px;cursor:pointer;transition:.15s;
-  }
-  .demobar button:hover{border-color:var(--accent);color:#fff}
-  .demobar button.on{background:var(--accent);border-color:var(--accent);color:#140d02;font-weight:700}
-
-  .painel{
-    display:none;background:#0f0e0d;border-bottom:1px solid var(--line);padding:14px 18px;
-    font-size:12.5px;color:#a8a49e;
-  }
-  .painel.aberto{display:block}
-  .painel .grid{max-width:700px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:6px}
-  @media(min-width:620px){.painel .grid{grid-template-columns:1fr 1fr}}
-  .painel .row{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #1c1a18;padding:4px 0}
-  .painel .row b{color:#e6e3de;font-weight:700;text-align:right}
-  .painel .ok{color:#7bbf6a}
-  .painel .no{color:#c9705f}
-  .painel .tit{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);max-width:700px;margin:0 auto 8px}
 
   .wrap{max-width:700px;margin:0 auto;padding:0 22px}
   .brand{padding:30px 0 0;display:flex;justify-content:center}
@@ -206,20 +182,7 @@
   @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 
-<div class="demobar">
-  <span class="lbl">Demonstração · Simple Acc</span>
-  <button onclick="reiniciar()">Refazer o quiz</button>
-  <button onclick="pular(0)">Cenário 1</button>
-  <button onclick="pular(1)">Cenário 2</button>
-  <button onclick="pular(2)">Cenário 3</button>
-  <button onclick="pular(3)">Cenário 4</button>
-  <button id="bpainel" onclick="togglePainel()">Dados capturados</button>
-</div>
-
-<div class="painel" id="painel">
-  <p class="tit">O que o CRM recebe ao fim do quiz</p>
-  <div class="grid" id="painelGrid"></div>
-</div>
+<body>
 
 <div class="wrap">
 
@@ -531,9 +494,22 @@ var P = {
 // gente dependeria da Pulsar para enxergar o próprio lead, e foi exatamente
 // isso que deu errado com a planilha antiga.
 var DESTINOS = [
-  "https://pulsar.app.n8n.cloud/webhook/grokker-quiz-etapa1",
-  "https://hook.us2.make.com/v0ungryn21i7gk3q0ld4rxamf3g2m5tp"
+  // validação: nenhum destino, nada é gravado
 ];
+
+// de onde o lead veio. Sem isto o webhook chega sem origem e não dá para
+// dizer qual anúncio pagou por qual lead.
+var RASTREIO = (function(){
+  var p = new URLSearchParams(location.search), r = {};
+  ["utm_source","utm_medium","utm_campaign","utm_content","utm_term",
+   "fbclid","gclid","ttclid"].forEach(function(k){
+    var v = p.get(k); if(v) r[k] = v;
+  });
+  if(document.referrer) r.referrer = document.referrer;
+  r.pagina = location.origin + location.pathname;
+  return r;
+})();
+
 var envio = "não enviado";
 
 /* ------------------------------------------------------------ medição -----
@@ -552,7 +528,7 @@ function dl(evento, dados){
 
 // o clique no WhatsApp abre a janela de 24h: é o passo que a campanha otimiza,
 // e o que diz se o lead virou conversa ou parou na página.
-var CLIQUE_ZAP = "https://hook.us2.make.com/l8nl0chvehsk2aonkg1hi5y34ok2ndap";
+var CLIQUE_ZAP = "";  // validação: não avisa ninguém
 var zapAvisado = false;
 
 document.addEventListener("click", function(ev){
@@ -578,6 +554,7 @@ document.addEventListener("click", function(ev){
   });
   // o clique navega para fora: fetch seria cancelado no meio, o beacon não
   try{
+    if(!CLIQUE_ZAP) return;
     if(navigator.sendBeacon) navigator.sendBeacon(CLIQUE_ZAP, new Blob([corpo], {type:"text/plain"}));
     else fetch(CLIQUE_ZAP, {method:"POST", body:corpo, keepalive:true});
   }catch(e){}
@@ -594,6 +571,7 @@ function telefoneCanonico(v){
 function payload(){
   return {
     etapa: 1,
+    rastreio: RASTREIO,
     enviado_em: new Date().toISOString(),
     nome: R.nome || "",
     email: R.email || "",
@@ -643,7 +621,6 @@ function manda(url, corpo){
   function fim(deu){
     if(deu) ok++; else ruim++;
     envio = ok + " de " + DESTINOS.length + " enviados" + (ruim ? " · " + ruim + " falhou" : "");
-    atualizaPainel();
   }
   try{
     fetch(url, {
@@ -839,7 +816,6 @@ function telaContato(tela){
     concluir();
   };
   tela.appendChild(f);
-  tela.appendChild(el("p","nota","Ao concluir, as respostas vão para o CRM da Pulsar."));
   window.scrollTo(0,0);
 }
 
@@ -900,7 +876,6 @@ function concluir(){
     pontuacao: pontos(),
     caminho: R.via
   });
-  atualizaPainel();
 
   document.getElementById("carregando").classList.add("on");
   window.scrollTo(0,0);
@@ -960,73 +935,6 @@ function motivo(){
   return "quiz incompleto";
 }
 function qualificado(){ return motivo() === ""; }
-
-function linha(k,v,cls){
-  var d = el("div","row");
-  d.appendChild(el("span",null,k));
-  d.appendChild(el("b",cls||null,v));
-  return d;
-}
-
-function atualizaPainel(){
-  var g = document.getElementById("painelGrid");
-  g.innerHTML = "";
-  if(R.cen === undefined){ g.appendChild(linha("Status","quiz não concluído")); return; }
-  var q = qualificado();
-  g.appendChild(linha("Nome", R.nome || "—"));
-  g.appendChild(linha("WhatsApp", R.zap || "—"));
-  g.appendChild(linha("Caminho", R.via === "A" ? "A · dono ou sócio" : "B · executivo CLT ou PJ"));
-  g.appendChild(linha("Cargo", R._p0 || "—"));
-  g.appendChild(linha("Cenário", CENARIOS[R.cen].nome));
-  g.appendChild(linha("Diagnóstico enviado", CENARIOS[R.cen].pdf));
-  g.appendChild(linha("Setor", R._p1 || "—"));
-  g.appendChild(linha(R.via === "A" ? "Colaboradores (empresa)" : "Sob responsabilidade",
-                      (R.via === "A" ? R._aColab : R._bColab) || "—"));
-  g.appendChild(linha(R.via === "A" ? "Faturamento" : "Autonomia", (R.via === "A" ? R._a6 : R._b6) || "—"));
-  g.appendChild(linha(R.via === "A" ? "Margem" : "Remuneração", (R.via === "A" ? R._a7 : R._b7) || "—"));
-  // o teto muda com o caminho (A soma duas perguntas, B soma três), então é
-  // calculado das próprias faixas em vez de escrito à mão
-  var teto = 0;
-  (PONTUAM[R.via] || []).forEach(function(chave){
-    var maior = 0;
-    P[chave].ops.forEach(function(o){ if((o.pt || 0) > maior) maior = o.pt; });
-    teto += maior;
-  });
-  g.appendChild(linha("Pontuação", pontos() + " de " + teto));
-  g.appendChild(linha("Régua", q ? "qualificado" : "não qualificado", q ? "ok" : "no"));
-  if(!q) g.appendChild(linha("Motivo", motivo(), "no"));
-  g.appendChild(linha("Telefone enviado", telefoneCanonico(R.zap) || "—"));
-  g.appendChild(linha("Webhook Etapa 1", envio, envio.indexOf("enviado") === 0 ? "ok" : "no"));
-}
-
-function togglePainel(){
-  var p = document.getElementById("painel");
-  p.classList.toggle("aberto");
-  document.getElementById("bpainel").classList.toggle("on", p.classList.contains("aberto"));
-  atualizaPainel();
-}
-
-function reiniciar(){
-  limpaRelogios();
-  R = {}; i = 0;
-  document.getElementById("carregando").classList.remove("on");
-  document.getElementById("lp").classList.remove("on");
-  document.getElementById("quiz").classList.remove("oculto");
-  atualizaPainel();
-  render();
-}
-
-function pular(cen){
-  R = {cen:cen, via:"A", pt_aColab:4, pt_a6:8, _p1:"Serviços",
-       _aColab:"Entre 50 e 100", _a6:"De R$ 300.000 até R$ 500.000",
-       _a7:"Entre 20% e 30%",
-       nome:"(atalho de demonstração)", zap:"—"};
-  limpaRelogios();
-  document.getElementById("quiz").classList.add("oculto");
-  document.getElementById("carregando").classList.remove("on");
-  atualizaPainel();
-  mostrarLP();
-}
 
 render();
 </script>
