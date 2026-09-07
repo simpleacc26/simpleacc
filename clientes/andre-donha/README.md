@@ -36,7 +36,7 @@ de oferta e funil, e CRM na conta de agência da Simple. Consultoria de aquisiç
 
 | Projeto                                   | Pasta     | Status    | Deploy |
 | ----------------------------------------- | --------- | --------- | ------ |
-| Funil low ticket → workshop → high ticket | `funis/`  | a iniciar | —      |
+| Funil de lead dinâmico (Diagnóstico de Margem) | `funis/` | a implementar | — |
 
 **Call de onboarding:** 01/09/2026, 11h–11h45 — https://meet.google.com/ifk-uxfd-rae
 
@@ -44,6 +44,9 @@ de oferta e funil, e CRM na conta de agência da Simple. Consultoria de aquisiç
 
 - `contexto/2026-09-01-briefing-andre-donha.md` — **leia primeiro**: quem é, oferta, ICP, funil
   decidido, números, restrições e o que está em aberto.
+- `estrategia/2026-09-07-roadmap-estrategico-andre-donha.pdf` — **o plano dos 90 dias** (HTML fonte ao lado).
+- `estrategia/2026-09-07-estrategia-completa-copies-funil-andre-donha.pdf` — quiz, página de diagnóstico, 20 criativos e cadência.
+- `contexto/2026-09-01-call-de-onboarding-resumo-e-transcricao.md` — fonte bruta do onboarding.
 - `estrategia/2026-09-01-roteiro-call-onboarding.md` — perguntas e condução da call de onboarding.
 - `estrategia/2026-09-01-ficha-de-apoio-call.md` — ficha objetiva do negócio, para ter na tela.
 - `estrategia/2026-09-01-entregaveis-vendidos.md` — o que foi vendido na call de vendas (e o que ficou em aberto).

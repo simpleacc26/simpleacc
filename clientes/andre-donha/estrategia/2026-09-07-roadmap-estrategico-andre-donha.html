@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Roadmap Estratégico Digital · André Donha</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --navy: #1b2a4a; --navy-dark: #14213d; --gold: #b8863b; --beige: #f4f1ea; --text: #333a45; --muted: #8a8f98; }
+  body { font-family: Arial, Helvetica, sans-serif; color: var(--text); font-size: 10pt; line-height: 1.45; }
+  .page { width: 210mm; height: 297mm; overflow: hidden; padding: 16mm 18mm 24mm 18mm; position: relative; page-break-after: always; background: #fff; }
+  .page:last-child { page-break-after: auto; }
+  .runhead { display: flex; justify-content: space-between; font-size: 7.5pt; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt; }
+  .runfoot { position: absolute; bottom: 9mm; left: 18mm; right: 18mm; text-align: center; font-size: 7.5pt; color: var(--muted); }
+  .kicker { color: var(--gold); font-size: 9pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt; }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 12pt; font-size: 10pt; }
+  .box-dark { background: var(--navy-dark); color: #f5f3ee; padding: 11pt 14pt; margin: 10pt 0; border-radius: 2pt; }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light { background: var(--beige); border-left: 3pt solid var(--gold); padding: 10pt 14pt; margin: 10pt 0; }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .fase-header { background: var(--navy-dark); color: #fff; padding: 10pt 16pt; margin-bottom: 10pt; border-left: 4pt solid var(--gold); }
+  .fase-header .fk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .fase-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .fase-header .fd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 11pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 6pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 38pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+  .footer-note { margin-top: 24pt; padding-top: 8pt; border-top: 1pt solid var(--gold); font-size: 8.5pt; color: var(--muted); width: 60%; }
+</style>
+</head>
+<body>
+
+<div class="page cover">
+  <div class="kicker">Plano de Ação Personalizado</div>
+  <h1>Roadmap<br>Estratégico<br>Digital</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    A produção não quebra no dia do show.<br>
+    Os primeiros 90 dias. Passo a passo, fase a fase.<br>
+    Sem atalho, sem improviso, sem ideia solta.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">André Donha · Musikalis</div>
+    <div class="lbl">Mentor Estratégico</div>
+    <div class="val">Daniel Souza</div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · André Donha</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Começar</div>
+  <h1 style="font-size:19pt;">Contexto e Decisões Fundamentais</h1>
+  <p class="lead">Leia esta página inteira antes de executar qualquer passo. Todas as decisões a seguir partem do que está aqui.</p>
+
+  <div class="box-dark">
+    <div class="bt">A decisão mais importante deste plano</div>
+    <p>Você pediu para ser trucado, então vamos direto. O seu problema não é falta de estratégia. Você tem missão, visão, canvas, PESTAL, SWOT com cruzamento, BSC com indicadores, análise de riscos e um plano de monetização com oito frentes de receita. Tem plataforma pronta, IA proprietária, metodologia D-90, quatro cursos escritos e checkout já fora do sandbox.</p>
+    <p>E tem 26 usuários, quase nenhum ativo, e receita perto de zero.</p>
+    <p>Aplicando a teoria das restrições que conversamos: a restrição do sistema não é produto, não é ferramenta e não é estratégia. <strong>É a ausência de uma oferta única, com preço, que uma pessoa entenda em 30 segundos e compre esta semana.</strong> Ecossistema ninguém compra. Produto se compra.</p>
+    <p>Você mesmo já provou que sabe fazer isso: <strong>"eu não fiz um produto para o público, eu fiz um produto para o Blue Note".</strong> Nos próximos 90 dias a Musikalis faz exatamente a mesma coisa: uma oferta, um comprador, um número.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A esteira dos 90 dias</div>
+    <p><strong>Carro-chefe · GPM, Gestor de Produção Musikalis · R$ 1.497.</strong> Certificação de 12 horas ao vivo, turma de 10 a 12 pessoas, síncrona, com certificado e 3 meses do plano Pro da plataforma inclusos. É o que toda a aquisição persegue.</p>
+    <p><strong>Porta lateral · Mentoria de Produção · de R$ 5 mil a R$ 20 mil.</strong> O feito com você em uma produção específica. Só aparece na conversa, quando o porte pede. Não entra na mídia.</p>
+    <p><strong>Aproveitamento do não ICP · Musikalis Pro · R$ 49,90/mês ou R$ 397/ano.</strong> Quem não compra a turma vira usuário da plataforma e vira base. É aqui que o efeito Smart Fit que você descreveu funciona de verdade.</p>
+    <p>Regra do quarto produto: <strong>nada de MPM, white label, marketplace, Intelligence ou plataforma Vaartus nos 90 dias.</strong> Nada disso foi descartado. Tudo entra numa fila datada e é decidido na quinzenal.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Por que R$ 1.497 e não R$ 180</div>
+    <p>A R$ 180, uma turma cheia de 12 pessoas rende R$ 2.160. Não paga a mídia que encheu a sala. A Rock in Rio Academy, que você mesmo mandou como referência, cobra 10 vezes R$ 529 por um dia. Você entrega 12 horas ao vivo, em turma de 12, com um cara que colocou 56 apresentações no palco do Blue Note e passou 20 anos em consultoria global. <strong>O preço estava errado, não o produto.</strong></p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · André Donha</span><span>Página 3</span></div>
+  <div class="kicker">Antes de Começar</div>
+  <h1 style="font-size:19pt;">A Matemática e o Combinado</h1>
+  <p class="lead">Os números deste plano não são aspiração. São a conta que sustenta cada meta das próximas páginas.</p>
+
+  <div class="box-light">
+    <div class="bt">A matemática dos R$ 30 mil no trimestre</div>
+    <p>20 matrículas no GPM a R$ 1.497 somam <strong>R$ 29.940</strong>, distribuídas em duas turmas: 8 alunos na primeira, até 12 na segunda. Some as assinaturas Pro que caem por gravidade da base do funil, cerca de 15 anuais a R$ 397, e o trimestre fecha perto de <strong>R$ 36 mil, com o mês 3 rodando a R$ 20 mil.</strong></p>
+    <p>De onde vêm 20 matrículas: a conversão de workshop ao vivo para matrícula neste tipo de formação fica em torno de 12 por cento, e o comparecimento de workshop gratuito em torno de 40 por cento. Para 20 matrículas são cerca de 170 pessoas na sala, cerca de 420 inscritos e cerca de 800 leads no diagnóstico ao longo dos 90 dias.</p>
+    <p>800 leads em 90 dias são <strong>9 por dia</strong>, somando tráfego pago, orgânico, a sua rede e a base que já existe. Com mídia de R$ 70 por dia a partir do dia 30, o custo por matrícula fica em torno de R$ 210, contra um ticket de R$ 1.497.</p>
+    <p>Esse número é <strong>operacional, não aspiracional.</strong> É só fazer.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Ritmo de acompanhamento</div>
+    <p>Uma reunião individual a cada 15 dias. Dúvida do dia a dia vai direto no grupo, sem esperar a call: Carlos para entrega, estratégia e implementação do funil, Renan no acompanhamento, Daniel na mentoria estratégica.</p>
+    <p>A execução acontece <strong>entre as calls.</strong> As calls servem para afinar, não para decidir o que fazer. O que fazer já está aqui dentro.</p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Divisão de responsabilidades</div>
+    <p><strong>A Simple constrói e opera:</strong> a auditoria da plataforma e do fluxo de cadastro, o quiz de Diagnóstico de Margem, as páginas, as copies do funil, os criativos, as automações, a integração com o CRM, a configuração e a gestão das campanhas de tráfego, os roteiros dos seus vídeos, a estrutura do workshop e os playbooks comerciais.</p>
+    <p><strong>André executa:</strong> as decisões de oferta e de preço, a abordagem da base e da rede, o workshop e a turma (o professor e o closer é você), as gravações seguindo os roteiros, a validação das copies em até 48 horas e os ajustes na plataforma, que você mesmo faz em minutos.</p>
+    <p>A verba de mídia é sua e o valor está na fase de tráfego. O funil coloca gente na sala. <strong>Quem coloca dinheiro no caixa é a turma.</strong></p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · André Donha</span><span>Página 4</span></div>
+  <div class="kicker">A Narrativa</div>
+  <h1 style="font-size:19pt;">O Inimigo, a Virada e a Abertura</h1>
+  <p class="lead">Estas três peças passam a sustentar toda a comunicação: anúncio, diagnóstico, página, workshop e a conversa de matrícula.</p>
+
+  <div class="box-dark">
+    <div class="bt">O inimigo tem nome: o D-0</div>
+    <p>O D-0 é a produção que só existe no dia. É a passagem comprada na semana do show, o rider resolvido na passagem de som, o orçamento fechado no chute e o acerto no boca a boca.</p>
+    <p>O produtor D-0 trabalha mais, corre mais e resolve mais. E ganha menos. Não por incompetência: <strong>porque toda decisão tomada em cima da hora custa mais caro do que a mesma decisão tomada com antecedência.</strong> O improviso tem preço, e ele aparece sempre no fim, quando não dá mais para corrigir.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A virada: de produtor D-0 a produtor D-90</div>
+    <p>Mesma banda, mesmo palco, mesma casa, mesmo público. A diferença entre a produção que deixa margem e a que não deixa não está no talento nem no cachê. Está em <strong>quando</strong> cada decisão foi tomada.</p>
+    <p>Com isso a pergunta do mercado muda. Deixa de ser "como eu cobro mais caro?" e passa a ser <strong>"como eu paro de perder o que já era meu?".</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A abertura, na sua palavra</div>
+    <p>"Eu levei seis músicos para um show. Não emiti as passagens. Emiti na semana, que era a semana do Rock in Rio. O que era para custar R$ 400 por cabeça custou R$ 1.200. Acabou a margem. O show foi ótimo, a casa aplaudiu de pé, e eu não ganhei nada. E a culpa não foi de ninguém: foi minha, por ter decidido tarde."</p>
+    <p>Onde usar: abertura do workshop, da página de diagnóstico e da conversa de matrícula. <strong>Cuidado no anúncio pago:</strong> a cena entra, mas sem prometer quanto o leitor vai ganhar. A Meta lê promessa de faturamento como violação de política.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A régua de linguagem do projeto</div>
+    <p><strong>Fala:</strong> margem, orçamento, cronograma, rider, mapa de palco, cachê, decisão tomada a tempo, produção que se paga, D-90.</p>
+    <p><strong>Não fala:</strong> destrave, explosão de faturamento, segredo, mentoria como palavra solta, promessa de quanto o músico vai faturar por mês. Este público desconfia de guru e você também. Descreva a cena, nunca acuse a pessoa.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · André Donha</span><span>Página 5</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 1 · Dias 1 a 10</div>
+    <h2>A Oferta Única e o Preço</h2>
+    <div class="fd">Enquanto isso não estiver fechado, nada mais deste plano pode andar.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que esta fase vem primeiro</div>
+    <p>Hoje quem chega na Musikalis encontra um ecossistema e não encontra uma decisão de compra. São planos escondidos atrás de um menu, um curso de R$ 180, uma assinatura de R$ 35 e nenhum convite de upgrade dentro da plataforma. Essa é a restrição. Ela é resolvida em 10 dias, no papel, sem escrever uma linha de código.</p>
+  </div>
+
+  <div class="passo-label">Passo 1</div>
+  <h3>Fechar o GPM como a oferta principal</h3>
+  <ul class="check">
+    <li>Escrever a oferta completa em uma página: promessa, mecanismo D-90, as 12 horas divididas em 4 encontros de 3 horas, o que a pessoa sai sabendo fazer, o certificado, os 3 meses de Pro, o preço e as formas de pagamento.</li>
+    <li>Turma de 10 a 12 pessoas, ao vivo e síncrona, como você decidiu. É esse formato que justifica o preço e é ele que você entrega bem.</li>
+    <li>Incluir o que já existe e hoje não é contado como valor: a assistente de IA de produção, os geradores de rider, mapa de palco, plano de marketing e contrato, e o dashboard financeiro da produção.</li>
+    <li><strong>Regra de preço: nunca dar desconto.</strong> Objeção de valor se resolve com forma de pagamento, nunca com o número.
+      <ul class="sub"><li>Parcelamento em até 12 vezes no cartão, pelo Asaas que já está rodando.</li></ul>
+    </li>
+  </ul>
+
+  <div class="passo-label">Passo 2</div>
+  <h3>Arrumar a esteira dentro da plataforma</h3>
+  <ul class="check">
+    <li>Os planos saem de trás do menu e ganham uma página visível, com nome e comparação. Silver, gold e platinum, como você pediu, viram <strong>Free, Pro e Produtora</strong>: três camadas, não sete.</li>
+    <li><strong>Criar o convite de upgrade.</strong> Hoje não existe nenhum, em lugar nenhum da plataforma. É a correção mais barata e mais rentável deste roadmap inteiro.</li>
+    <li>Assinatura anual do Pro a R$ 397 destacada como padrão. Quem paga o ano não cancela no mês 5.</li>
+    <li>Aposentar o curso de R$ 180 como oferta pública. Ele vira o conteúdo de dentro do GPM.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da fase</div>
+    <p><strong>Dia 10:</strong> oferta do GPM escrita, precificada e validada na quinzenal · página de planos no ar com as três camadas · convite de upgrade visível dentro da plataforma · datas das duas primeiras turmas marcadas no calendário.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · André Donha</span><span>Página 6</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 2 · Dias 1 a 12</div>
+    <h2>Caixa e Prova Onde Já Existe</h2>
+    <div class="fd">O dinheiro mais rápido não está no tráfego. Está em quem já te conhece e no palco que você já sobe.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Você tem um ativo com data marcada</div>
+    <p>Dia 11 de setembro você sobe no palco do Bourbon Street com o tributo à Tina Turner. É uma casa cheia de músicos, produtores e gente de casa de shows, e é a sua própria produção rodando em D-90 na frente de todo mundo. <strong>Esse show não é só um show: é a maior sessão de captação de prova e conteúdo dos seus 90 dias, e ela acontece nesta semana.</strong></p>
+  </div>
+
+  <div class="passo-label">Passo 3</div>
+  <h3>Transformar o show do dia 11 em material</h3>
+  <ul class="check">
+    <li>Filmar o bastidor: a montagem, a passagem de som, o mapa de palco impresso, o rider na mão do técnico, a planilha de custos fechada antes. É a prova visual do D-90 em uso.</li>
+    <li>Gravar de 3 a 5 depoimentos em vídeo no camarim e na saída: músicos da banda, técnico de som e o pessoal da casa. Peça o específico, não o elogio.</li>
+    <li>Convidar nominalmente para a plateia os produtores e músicos que você quer na primeira turma. Eles saem do show já sabendo que existe o GPM.</li>
+  </ul>
+
+  <div class="passo-label">Passo 4</div>
+  <h3>Trabalhar a base que já existe</h3>
+  <ul class="check">
+    <li>Planilha única com tudo: os 26 cadastrados na plataforma, os 12 presentes no workshop de 25 de agosto, os músicos e técnicos das suas produções, os contatos das casas de show e a rede pessoal.</li>
+    <li>Classificar por potencial: candidato à primeira turma, indicação, convite para o próximo workshop ou convite para o show.</li>
+    <li>Os 26 cadastrados recebem contato individual seu, não e-mail automático. A pergunta é uma só: <strong>o que faltou para você usar?</strong> A resposta deles é o roteiro do novo onboarding.</li>
+    <li>Pedir de 3 a 5 indicações qualificadas a cada conversa boa, com o perfil escrito: quem produz shows ou eventos e sente a margem sumir.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da fase</div>
+    <p><strong>Dia 12:</strong> show do dia 11 filmado, com de 3 a 5 depoimentos captados · base 100 por cento mapeada e abordada, com registro no CRM · pelo menos 15 conversas reais abertas · de 3 a 5 pré-inscritos na primeira turma do GPM.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · André Donha</span><span>Página 7</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 3 · Dias 5 a 20</div>
+    <h2>A Narrativa e o Perfil da Musikalis</h2>
+    <div class="fd">Quando o produtor certo clicar no perfil, ele precisa se reconhecer em 5 segundos.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Sobre separar a Musikalis do André Donha</div>
+    <p>Você levantou isso na call e a analogia do fundador da Uber, que não precisava ser o melhor motorista, é boa. Mas ela vale para a empresa madura, não para a empresa de 27 seguidores.</p>
+    <p><strong>Nos 90 dias, não separe.</strong> Ninguém compra de uma marca nova sem histórico. Compram de quem fez 56 apresentações no Blue Note. A recomendação é dividir os papéis, não as marcas: <strong>@andre.donha continua sendo o palco e a prova</strong>, que é o que ele já faz bem, <strong>e o perfil da Musikalis passa a ser o método</strong>. Cada peça do palco vira uma peça de método. A separação é meta do ano 2, com marca já conhecida.</p>
+  </div>
+
+  <div class="passo-label">Passo 5</div>
+  <h3>Reescrever o perfil da Musikalis</h3>
+  <ul class="check">
+    <li>Bio na fórmula quem eu ajudo, resultado, credencial e chamada.
+      <ul class="sub"><li>Exemplo: "Gestão de produção para quem monta show. Metodologia D-90, plataforma e certificação · Criada por André Donha, 56 apresentações no Blue Note · Faça o diagnóstico da sua produção".</li></ul>
+    </li>
+    <li>4 destaques: Comece aqui · O que é o D-90 · A plataforma por dentro · Resultados.</li>
+    <li>2 a 3 posts fixados de posicionamento, com a cena da passagem que triplicou no primeiro.</li>
+    <li>Parar de publicar print de tela da plataforma como conteúdo. Print de tela não gera desejo, cena de produção gera.</li>
+  </ul>
+
+  <div class="passo-label">Passo 6</div>
+  <h3>Empacotar a prova que já existe e ninguém vê</h3>
+  <ul class="check">
+    <li>As 56 apresentações no Blue Note, os tributos a Aretha Franklin, o Divas e a Tina Turner viram um bloco de autoridade com número, foto e casa nomeada.</li>
+    <li>Ricardo Marins, produtor do The Voice, e a rede que você tem entram como convidados de conteúdo, não como enfeite. Um vídeo de 10 minutos com ele vale mais do que um mês de posts.</li>
+    <li>Os depoimentos captados no show do dia 11 entram nas páginas assim que estiverem editados.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da fase</div>
+    <p><strong>Dia 20:</strong> bio, destaques e fixados no ar · bloco de autoridade escrito e publicado · de 3 a 5 depoimentos editados e disponíveis para as páginas · pelo menos 1 convidado da sua rede com data marcada para gravar.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · André Donha</span><span>Página 8</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 4 · Dias 1 a 90 · Parte 1</div>
+    <h2>A Máquina de Turma: o Workshop</h2>
+    <div class="fd">O workshop é o motor comercial deste plano. Não é aula solta, é a sala onde a turma se enche.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que o workshop e não a call de vendas</div>
+    <p>Você já fez um, dia 25 de agosto, com 12 pessoas e nenhuma conversão. Não foi o formato que falhou: faltou oferta no fim. Aula gratuita sem oferta é conteúdo, e conteúdo não converte sozinho.</p>
+    <p>O workshop é o formato certo aqui por três motivos: um ticket de R$ 1.497 fecha em grupo e não exige call individual; você ensina bem e vende ensinando; e cada workshop devolve a linguagem real do comprador, que volta para as perguntas do diagnóstico e para os criativos.</p>
+  </div>
+
+  <div class="passo-label">Passo 7</div>
+  <h3>Reestruturar o workshop Desafios da Produção</h3>
+  <ul class="check">
+    <li>Estrutura fechada antes com o Carlos: a cena da margem que sumiu, o custo do D-0, o mecanismo D-90, a demonstração ao vivo da plataforma resolvendo uma produção real, a prova, e a <strong>oferta do GPM no fim</strong>.</li>
+    <li>Demonstração obrigatória: gerar um rider e um mapa de palco ao vivo, na frente da sala. É o momento que vende sozinho.</li>
+    <li>Condição com prazo curto para quem estava ao vivo, válida por 48 horas. A régua é forma de pagamento, nunca desconto no valor.</li>
+    <li>Cadência de workshop: <strong>um a cada 3 semanas</strong>. Datas marcadas para os 90 dias inteiros já na primeira quinzena.</li>
+  </ul>
+
+  <div class="passo-label">Passo 8</div>
+  <h3>Encher a sala</h3>
+  <ul class="check">
+    <li>Toda inscrição cai no CRM. Sem exceção e sem planilha paralela.</li>
+    <li>Lembretes obrigatórios: um dia antes, na manhã do dia e uma hora antes. Sem lembrete, o comparecimento cai pela metade.</li>
+    <li>Quem se inscreveu e não compareceu recebe a gravação com o mesmo convite e a mesma condição.</li>
+    <li>Gravar e transcrever todo workshop. A gravação vira conteúdo da Academy, os cortes viram criativo e a transcrição vira material de contexto para a Simple escrever no seu tom.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da fase</div>
+    <p><strong>Workshop 1 (dia 25):</strong> de 60 a 80 inscritos, de 25 a 35 na sala, de 4 a 6 matrículas · <strong>Workshop 2 (dia 50):</strong> de 100 a 130 inscritos, de 40 a 55 na sala, de 5 a 7 matrículas · <strong>Workshop 3 (dia 75):</strong> de 150 a 200 inscritos, de 60 a 80 na sala, de 8 a 10 matrículas.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · André Donha</span><span>Página 9</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 4 · Dias 1 a 90 · Parte 2</div>
+    <h2>A Máquina de Turma: a Venda</h2>
+    <div class="fd">A turma acontece, gera prova, gera indicação e alimenta a turma seguinte.</div>
+  </div>
+
+  <div class="passo-label">Passo 9</div>
+  <h3>Assistir às aulas de aquisição antes de vender</h3>
+  <ul class="check">
+    <li>Call de Vendas 1 a 1, Pré-Vendas e Outbound, na área de membros. Você vende consultoria de alto valor há 20 anos, mas a conversa com produtor não é a conversa com CFO: o vocabulário, a objeção e o tempo de decisão são outros.</li>
+    <li>Playbooks de pré-venda e de closer entram no grupo pela Simple e viram o padrão da operação.</li>
+  </ul>
+
+  <div class="passo-label">Passo 10</div>
+  <h3>Conduzir o follow-up e o fechamento</h3>
+  <ul class="check">
+    <li>Follow-up obrigatório em até 48 horas para todo inscrito de workshop, tenha comparecido ou não. Lead sem follow-up esfria e vira prejuízo de mídia.</li>
+    <li>Sequência da conversa: a produção dele hoje, o resultado do diagnóstico dele, o custo de continuar no D-0, o mecanismo, a oferta e o fechamento.</li>
+    <li>Toda conversa sem fechamento sai com próximo passo datado e registrado no CRM.</li>
+    <li>Mentoria de Produção de R$ 5 mil a R$ 20 mil só entra na mesa quando o porte pede: produtora, casa de shows ou empresa com evento próprio.</li>
+  </ul>
+
+  <div class="passo-label">Passo 11</div>
+  <h3>Fechar o ciclo dentro da turma</h3>
+  <ul class="check">
+    <li>Toda turma termina com três coisas coletadas: depoimento em vídeo, indicação de 3 nomes e o antes e depois da produção do aluno.</li>
+    <li>Quem se forma sabe que existe um degrau seguinte, o MPM. Isso aumenta o valor do GPM sem criar produto novo agora.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Metas numéricas desta fase</div>
+    <p><strong>Dia 30:</strong> workshop 1 realizado e gravado · de 4 a 6 matrículas confirmadas, entre R$ 6 mil e R$ 9 mil · primeira turma com data fechada.</p>
+    <p><strong>Dia 60:</strong> turma 1 entregue · workshop 2 realizado · de 10 a 13 matrículas no acumulado, entre R$ 15 mil e R$ 19 mil · de 3 a 5 depoimentos de aluno captados.</p>
+    <p><strong>Dia 90:</strong> 20 matrículas no acumulado, perto de R$ 30 mil · duas turmas entregues · workshop rodando a cada 3 semanas sem depender de esforço extra.</p>
+    <p><strong>Alerta vermelho:</strong> menos de 5 matrículas até o dia 45 não é problema de produto, é problema de oferta ou de sala. Pausar, revisar a gravação do workshop com o mentor e ajustar antes de aumentar mídia.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · André Donha</span><span>Página 10</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 5 · Dias 10 a 30</div>
+    <h2>O Funil: Diagnóstico de Margem</h2>
+    <div class="fd">A Simple implementa. É o que enche a sala do workshop sem depender da sua agenda.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Como o funil funciona</div>
+    <p>Anúncio leva ao <strong>Diagnóstico de Margem da Produção</strong>, um quiz gratuito de 2 minutos e 9 perguntas. Ele qualifica enquanto entrega valor: mede o índice D-90 da produção da pessoa e mostra em qual dos quatro elos (orçamento, operação, palco, bilheteria) ela está perdendo dinheiro.</p>
+    <p>No fim, uma página única de diagnóstico, com o resultado dela, e um convite: a vaga no próximo workshop. Os dados caem no CRM e o follow-up sai no WhatsApp.</p>
+    <p>O detalhe que faz este funil valer duas vezes: <strong>este quiz é também o novo onboarding da plataforma.</strong> Hoje o seu onboarding tem 7 telas e joga todo mundo no mesmo lugar, e é por isso que gente se cadastra e nunca volta. A partir do dia 45 o diagnóstico substitui aquele fluxo, e quem cria conta já entra vendo o próprio índice e a primeira coisa a fazer.</p>
+  </div>
+
+  <div class="passo-label">Passo 12</div>
+  <h3>Validar copies, quiz e páginas</h3>
+  <ul class="check">
+    <li>A Simple escreve, você valida o tom. Retorno em até 48 horas, senão o cronograma escorrega.</li>
+    <li>O que você olha: se as perguntas fazem sentido para quem produz de verdade, se o índice está calibrado e se a linguagem é de produção, não de marketing.</li>
+    <li>A faixa de vazamento usada no diagnóstico precisa da sua chancela. Ela sai da sua experiência, não de estatística de internet.</li>
+  </ul>
+
+  <div class="passo-label">Passo 13</div>
+  <h3>Liberar acessos e fechar a infraestrutura</h3>
+  <ul class="check">
+    <li>Acessos: gerenciador de negócios e conta de anúncios, Instagram da Musikalis, domínio, admin da plataforma, Asaas e Drive.</li>
+    <li>CRM no GoHighLevel, na conta de agência da Simple, R$ 97 por mês. Todo lead cai automaticamente na fila de atendimento.</li>
+    <li>Número dedicado para o comercial. Nunca operar pelo WhatsApp pessoal.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da fase</div>
+    <p><strong>Dia 30:</strong> quiz, página de diagnóstico e automações no ar · CRM integrado recebendo lead automaticamente · primeiros leads do funil já convidados para o workshop 2.</p>
+    <p><strong>Dia 45:</strong> diagnóstico substituindo o onboarding atual da plataforma.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · André Donha</span><span>Página 11</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 6 · Dias 30 a 90</div>
+    <h2>Tráfego Pago com Método</h2>
+    <div class="fd">O tráfego só entra depois que o workshop provou que converte. Antes disso é queimar dinheiro.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Quem faz o quê, e quanto custa</div>
+    <p>A gestão do tráfego é da Simple: campanhas, criativos, públicos, otimização e leitura semanal. A verba de mídia é sua, paga direto no cartão da sua conta de anúncios.</p>
+    <p>Quanto investir: <strong>de R$ 50 a R$ 100 por dia</strong> a partir do dia 30, que é a faixa de validação. Depois de validado, de R$ 3 mil a R$ 5 mil por mês para sustentar as salas que a meta exige. Esse dinheiro sai do caixa da primeira turma. Ele só sobe quando a conta fechar, nunca antes.</p>
+  </div>
+
+  <div class="passo-label">Passo 14</div>
+  <h3>Subir e ler as campanhas</h3>
+  <ul class="check">
+    <li>Segmentação: interesses de produção musical, som e iluminação, eventos, casas de shows e escolas de música, mais públicos semelhantes a partir de quem concluir o diagnóstico.</li>
+    <li>20 criativos na largada, distribuídos entre os três ângulos: cena, mecanismo e autoridade. Estáticos e carrosséis sobem primeiro, enquanto os vídeos são gravados.</li>
+    <li>Revisão a cada 7 dias, com gatilhos claros:
+      <ul class="sub">
+        <li>Custo por lead fora da meta: o problema é criativo, troca o criativo.</li>
+        <li>Conclusão do diagnóstico abaixo de 40 por cento: o problema são as perguntas.</li>
+        <li>Comparecimento no workshop abaixo de 35 por cento: o problema são os lembretes.</li>
+        <li>Sala cheia e sem matrícula: o problema é a oferta no fim da aula, e aí revisamos a gravação.</li>
+      </ul>
+    </li>
+    <li>Toda leitura vira decisão registrada. Aqui não se acha nada: traz o número.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">A métrica que importa e a meta da fase</div>
+    <p>Não é custo por lead. É <strong>custo por matrícula, e a régua saudável fica abaixo de R$ 350</strong> para um ticket de R$ 1.497.</p>
+    <p><strong>Dia 60:</strong> campanhas com 3 semanas de dados e primeira otimização feita · conclusão do diagnóstico acima de 40 por cento · pelo menos 40 inscritos de workshop vindos do funil.</p>
+    <p><strong>Dia 90:</strong> custo por matrícula conhecido e estável · funil sustentando metade da sala do workshop.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · André Donha</span><span>Página 12</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 7 · Dias 1 a 90 · Em paralelo</div>
+    <h2>Conteúdo: o Bastidor da Produção</h2>
+    <div class="fd">Do jeito que você aguenta fazer. Sem "oi gente, estamos aqui na Musikalis".</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">A sua vantagem aqui é injusta e você não está usando</div>
+    <p>Você não precisa inventar conteúdo. Você produz shows de verdade, em casas de verdade, com problemas de verdade. Toda semana acontece na sua frente uma cena que o seu público inteiro reconhece: o rider que chegou errado, a passagem que subiu de preço, a casa que pediu o mapa de palco na véspera.</p>
+    <p><strong>O conteúdo da Musikalis é o bastidor da sua própria produção, com o número em cima.</strong> Isso você grava com o celular, entre uma coisa e outra, e não exige que você vire outra pessoa na frente da câmera.</p>
+  </div>
+
+  <div class="passo-label">Passo 15</div>
+  <h3>Falar nos três níveis de consciência</h3>
+  <ul class="check">
+    <li><strong>Inconsciente do problema:</strong> "o show lotou e no fim do mês não sobrou nada. O problema não foi o cachê."</li>
+    <li><strong>Consciente do problema:</strong> onde a margem escapa em uma produção, área por área. Aqui entram orçamento, rider, logística e bilheteria.</li>
+    <li><strong>Consciente da solução:</strong> o D-90 em uso, a plataforma gerando o documento ao vivo, e o depoimento de quem já produziu assim.</li>
+  </ul>
+
+  <div class="passo-label">Passo 16</div>
+  <h3>Manter a rotina sem virar refém dela</h3>
+  <ul class="check">
+    <li>Gravação em lote: de 10 a 20 vídeos em um bloco por semana. Os roteiros vêm da Simple.</li>
+    <li>CTA fixo: o diagnóstico gratuito, e a vaga no workshop quando houver data aberta.</li>
+    <li><strong>Regra de sanidade:</strong> conteúdo nunca passa na frente das conversas e das matrículas. Se o dia apertar, corta o conteúdo, não a venda.</li>
+    <li>Sempre que gravar algo bom no palco ou no bastidor, manda no grupo. Adianta o nosso trabalho e mantém a linguagem alinhada.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da fase</div>
+    <p><strong>Dia 30:</strong> primeiro lote de 10 vídeos gravado e publicando · perfil da Musikalis publicando 4 vezes por semana.</p>
+    <p><strong>Dia 90:</strong> rotina de lote consolidada · pelo menos 2 conteúdos com convidados da sua rede no ar.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · André Donha</span><span>Página 13</span></div>
+  <div class="fase-header">
+    <div class="fk">Bônus · A partir do dia 60</div>
+    <h2>Os Ativos Que Ninguém Copia</h2>
+    <div class="fd">Três portas que só você tem. Entram plantadas, para colher no mês 4 e no mês 5.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que entra agora e não antes</div>
+    <p>Nos primeiros 60 dias o foco é um só: a turma do GPM enchendo com constância. Estas três frentes têm ciclo de venda mais longo e podem gerar receita sem esforço de mídia, então elas entram plantadas, não executadas.</p>
+  </div>
+
+  <div class="passo-label">Passo 17</div>
+  <h3>A rede que o mercado inteiro quer acessar</h3>
+  <ul class="check">
+    <li>Ricardo Marins, produtor do The Voice, a presidência da Warner e os produtores que passaram pelo seu palco. Você mesmo disse: colocar essa gente numa sala vazia é constrangedor, então a sala precisa vir antes.</li>
+    <li>A partir do dia 60, com sala cheia, um convidado por mês: entrevista gravada, distribuída no orgânico e usada como isca do workshop seguinte.</li>
+  </ul>
+
+  <div class="passo-label">Passo 18</div>
+  <h3>O MPM e a uberização</h3>
+  <ul class="check">
+    <li>Só depois de duas turmas entregues. Quem se formou GPM e tem estrada faz o complemento e vira Mentor de Produção Musikalis.</li>
+    <li>Modelo já desenhado por você: cupom nominal no onboarding, repasse por turma e comissão por indicação. A partir daí você deixa de ser o gargalo da entrega.</li>
+  </ul>
+
+  <div class="passo-label">Passo 19</div>
+  <h3>A porta B2B: escolas, igrejas e empresas</h3>
+  <ul class="check">
+    <li>Escolas de música e de produção, igrejas grandes com produção interna e áreas de eventos corporativos. Orçamento maior, menos sensibilidade a preço e ciclo mais longo.</li>
+    <li>A partir do dia 75: mapear de 10 a 15 instituições e abrir conversa com 3. Meta do bônus é conversa em andamento, não fechamento.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">E a plataforma Vaartus</div>
+    <p>Ela não foi esquecida. Produtizar a Vaartus como ferramenta para consultores de menor porte é um negócio inteiro, com outro comprador, outro preço e outro funil. Ela é o <strong>Roadmap 2</strong>, com o Thiago Menegão na mesa, e começa quando a Musikalis estiver vendendo sozinha. Misturar as duas agora custaria os 90 dias.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · André Donha</span><span>Página 14</span></div>
+  <div class="kicker">Checkpoints de Progresso</div>
+  <h1 style="font-size:19pt;">Como Saber Que Você Está no Caminho Certo</h1>
+  <p class="lead">Cada checkpoint marca o final de uma janela. Se algum item não estiver fechado, leve para a próxima call quinzenal. Ajuste de rota imediato, sem esconder.</p>
+
+  <h3 class="navy" style="margin-top:8pt;">CHECKPOINT 1 · DIA 12 (oferta e base)</h3>
+  <ul class="check">
+    <li>Oferta do GPM escrita e precificada a R$ 1.497, com as datas das duas turmas no calendário.</li>
+    <li>Página de planos no ar com Free, Pro e Produtora, e convite de upgrade visível dentro da plataforma.</li>
+    <li>Show do dia 11 filmado, com de 3 a 5 depoimentos captados.</li>
+    <li>Base 100 por cento mapeada e abordada, com registro no CRM, e de 3 a 5 pré-inscritos na turma 1.</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:8pt;">CHECKPOINT 2 · DIA 30 (máquina ligada)</h3>
+  <ul class="check">
+    <li>Workshop 1 realizado, gravado e transcrito, com de 4 a 6 matrículas.</li>
+    <li>Quiz de Diagnóstico de Margem, página e automações no ar, com CRM integrado.</li>
+    <li>Perfil da Musikalis reescrito e publicando 4 vezes por semana.</li>
+    <li>Campanhas no ar a partir de R$ 50 por dia, financiadas pelo caixa da turma 1.</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:8pt;">CHECKPOINT 3 · DIA 60 (constância)</h3>
+  <ul class="check">
+    <li>Turma 1 entregue, com depoimento, indicação e antes e depois coletados.</li>
+    <li>Workshop 2 realizado, com de 10 a 13 matrículas no acumulado.</li>
+    <li>Diagnóstico substituindo o onboarding antigo da plataforma.</li>
+    <li>Conclusão do diagnóstico acima de 40 por cento e primeira otimização de campanha feita.</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:8pt;">CHECKPOINT 4 · DIA 90 (meta)</h3>
+  <ul class="check">
+    <li>20 matrículas no acumulado, perto de R$ 30 mil, com duas turmas entregues.</li>
+    <li>Custo por matrícula conhecido e abaixo de R$ 350.</li>
+    <li>Workshop rodando a cada 3 semanas e funil sustentando metade da sala.</li>
+    <li>Pronto para receber o Roadmap 2: a escala das turmas, o MPM e a plataforma Vaartus.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · André Donha</span><span>Página 15</span></div>
+  <div class="kicker">Materiais de Apoio</div>
+  <h1 style="font-size:19pt;">Recursos para Executar o Plano</h1>
+  <p class="lead">Todas as aulas e templates abaixo estão na área de membros e no grupo. Se algum link não foi compartilhado, peça no grupo.</p>
+
+  <ul class="check">
+    <li><strong>Como Montar o High Ticket</strong>
+      <ul class="sub"><li>Fechar a oferta do GPM e estruturar a Mentoria de Produção. Passo 1.</li></ul>
+    </li>
+    <li><strong>Call de Vendas 1 a 1</strong>
+      <ul class="sub"><li>A condução da conversa até o fechamento, sem recuar no preço. Passos 9 e 10.</li></ul>
+    </li>
+    <li><strong>Pré-Vendas e planilha de CRM</strong>
+      <ul class="sub"><li>Controle de leads, follow-up e status. Base do trabalho da base e do funil. Passos 4 e 10.</li></ul>
+    </li>
+    <li><strong>Outbound</strong>
+      <ul class="sub"><li>Reativação dos 26 cadastrados e dos 12 do primeiro workshop sem queimar a base. Passo 4.</li></ul>
+    </li>
+    <li><strong>Social Selling parte 1 e 2</strong>
+      <ul class="sub"><li>A rotina de abordagem no Instagram para chegar em produtor e casa de shows. Passo 4.</li></ul>
+    </li>
+    <li><strong>Playbooks de pré-venda e de closer</strong>
+      <ul class="sub"><li>Scripts, matriz de objeções e cadência. Enviados no grupo pelo Carlos. Passos 4, 9 e 10.</li></ul>
+    </li>
+    <li><strong>Modelo de PDF de apresentação</strong>
+      <ul class="sub"><li>Estrutura dos 10 a 15 slides da oferta do GPM. Passo 1.</li></ul>
+    </li>
+    <li><strong>Guia de Captação de Depoimentos</strong>
+      <ul class="sub"><li>Como pedir e direcionar os depoimentos do show e das turmas. Passos 3 e 11.</li></ul>
+    </li>
+    <li><strong>Método Simple Growth (funil de quiz)</strong>
+      <ul class="sub"><li>A metodologia do funil que a Simple implementa. Entenda para validar bem. Passo 12.</li></ul>
+    </li>
+    <li><strong>Growth Model (métricas e alavancas)</strong>
+      <ul class="sub"><li>A régua de leitura das campanhas e dos gargalos. Passo 14.</li></ul>
+    </li>
+    <li><strong>Estratégia Completa · Copies do Funil</strong>
+      <ul class="sub"><li>O documento irmão deste: quiz, página de diagnóstico, anúncios e cadência. Passo 12.</li></ul>
+    </li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · André Donha</span><span>Página 16</span></div>
+  <div style="padding-top:30mm;">
+    <div class="kicker">Lembre-se Sempre Disto</div>
+    <h1 style="font-size:19pt;">Antes de Fechar Este Documento</h1>
+    <p style="margin-top:10pt;">Você é engenheiro químico e fez regência e composição no Conservatório Brasileiro de Música. Deu aula de violão aos 16 anos com método próprio debaixo do braço. Passou 20 anos em consultoria global, foi líder em 13 países e sócio de uma Big Four. Fundou a Vaartus e a levou sozinho até a mesa de deals de centenas de milhões. E colocou 56 apresentações no palco do Blue Note, que é o palco mais difícil de acessar deste país.</p>
+    <p>Em quatro meses você construiu uma plataforma inteira, com IA própria, metodologia e quatro cursos, sem time e sem desenvolvedor. Nada disso é sorte.</p>
+    <p>Não foi falta de método: você tem método demais. Não foi falta de ferramenta: a ferramenta está pronta e funcionando. Não foi falta de rede: você tem acesso a quem o mercado inteiro quer conhecer.</p>
+    <p><strong class="navy">Foi falta de uma oferta única, com preço, vendida para uma pessoa só.</strong></p>
+    <p>Este roadmap é o método. A execução é sua. A cada 15 dias o mentor estratégico vai te encontrar na conversa quinzenal, mas o que coloca dinheiro no caixa é o que você faz <strong>entre as calls</strong>.</p>
+    <p>Dúvidas no meio do caminho: mande no grupo. Não espere a próxima call para perguntar.</p>
+    <p style="margin-top:12pt;">Você tem 56 noites de Blue Note. Você tem a metodologia D-90 escrita e rodando. Você tem a plataforma pronta. Você tem a rede. Agora você tem o método.</p>
+    <p><strong class="navy">O próximo passo é começar.</strong></p>
+    <div class="footer-note">Roadmap Estratégico Digital · André Donha · Musikalis · 90 dias · Versão 1.0</div>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+</body>
+</html>
