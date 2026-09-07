@@ -14,6 +14,55 @@ Thiago custa R$ 9 mil e o produto custa R$ 2 mil: uma hora dele vale quatro
 vendas e meia, então nenhuma etapa pode exigir a presença dele. Toda vez que
 aparecer a ideia de colocá-lo para atender, a resposta é não.
 
+## No ar
+
+| | |
+| --- | --- |
+| **Funil** | **https://quiz-thiago-menegao-simpleacc.vercel.app** |
+| Diagnóstico | `/diagnostico.html` (o quiz leva sozinho) |
+
+O anúncio aponta para a **raiz com query** (`/?utm_source=...`), nunca para
+`/index.html`. As UTMs seguem sozinhas para o checkout quando ele existir: sem
+isso a venda chega lá sem origem e não dá para saber qual criativo pagou.
+
+### Como publicar uma alteração
+
+```bash
+node build-deploy.js     # gera dist/, que é o que sobe
+node testar.js           # 20 checagens antes de qualquer deploy
+```
+
+Depois suba o conteúdo de `dist/` para os projetos da Vercel listados em
+`deploy-config.json`, **na conta/time da Simple, nunca numa conta pessoal**.
+Confira cada arquivo com `curl` + `cmp` contra o `dist/` depois de subir:
+publicação substitui a árvore inteira e arquivo faltando vira 404 silencioso.
+
+### Por que quatro projetos na Vercel
+
+A publicação é feita por envio direto de arquivos, o envio tem limite de tamanho
+por chamada, e cada deploy **substitui a árvore inteira**. Os 74 KB do funil não
+cabem numa chamada só, então os JS moram em projetos de asset separados, no mesmo
+padrão que o time já usa (`ges360-assets`, `quiz-go-imgs`):
+
+| Projeto | Serve |
+| --- | --- |
+| `quiz-thiago-menegao` | as duas páginas, o CSS e o favicon |
+| `quiz-thiago-menegao-js` | `flow.js`, `motor.js` |
+| `quiz-thiago-menegao-js2` | `app.js` |
+| `quiz-thiago-menegao-js3` | `diagnostico.js` |
+
+**Isso colapsa para um projeto só quando a Vercel receber acesso de escrita ao
+repositório no GitHub.** Hoje a tentativa de ligar o projeto ao Git falha com
+`repo_no_access`. Com o acesso concedido (Vercel > Settings > Git > GitHub App,
+autorizando `simpleacc26/simpleacc`), dá para criar um projeto único com
+`rootDirectory` nesta pasta: todo push publica sozinho, `build-deploy.js` e
+`deploy-config.json` deixam de ser necessários e os `<script src>` voltam a ser
+relativos.
+
+A proteção de deployment (Vercel Authentication) foi **desligada nos quatro
+projetos**. Com ela ligada, que é o padrão do time, até a produção respondia 302
+e o link não abria para quem não está logado na Vercel.
+
 ## Arquivos
 
 | Arquivo | O que é |
@@ -25,6 +74,8 @@ aparecer a ideia de colocá-lo para atender, a resposta é não.
 | `diagnostico.html` | a página de diagnóstico e oferta (estilos próprios no `<style>` do final do `<head>`) |
 | `diagnostico.js` | monta o relatório personalizado e a oferta |
 | `styles.css` | identidade preto e dourado, compartilhada pelas duas páginas |
+| `build-deploy.js` | gera `dist/`, a árvore que vai ao ar (sem comentários, com os `<script src>` apontando para os projetos de asset) |
+| `deploy-config.json` | quais projetos da Vercel servem o quê |
 | `calibrar.js` | `node calibrar.js` mostra a distribuição do IIC em todas as combinações |
 | `testar.js` | `node testar.js` roda o funil de ponta a ponta num Chromium headless |
 | `depoimentos/` | vazia por enquanto. Ver "O que falta" |
@@ -185,15 +236,8 @@ Vieram do canvas v2 e continuam sem resposta: o preço aparece como R$ 2.000 no
 campo mas a tabela de objeções trata "R$ 500 é barato demais", e o texto cita
 "Aula 1" e "Aula 2" como se existisse uma sequência de aulas planejada.
 
-## Deploy
+## Verificação do que está no ar
 
-Ainda não publicado. Ao publicar, seguir `references/deploy-vercel.md` da skill:
-**conta ou time da Simple na Vercel, nunca conta pessoal** (`vercel whoami` e
-`vercel teams ls` antes), projeto `quiz-thiago-menegao` já na primeira
-publicação porque o nome vira a URL e não dá para renomear, e conferir cada
-asset com `curl -o /dev/null -w '%{http_code}'` depois de cada deploy, porque
-publicação substitui a árvore inteira e arquivo faltando vira 404 silencioso.
-
-O anúncio aponta para a **raiz com query** (`/?utm_source=...`), nunca para
-`/index.html`. As UTMs seguem sozinhas para o checkout: sem isso a venda chega
-lá sem origem e não dá para saber qual criativo pagou.
+Em 07/09/2026 os oito arquivos servidos foram conferidos com `curl` + `cmp`
+contra o `dist/` local e são **byte a byte idênticos** ao build que passou nas
+20 checagens do `testar.js`. Refaça essa conferência depois de todo deploy.

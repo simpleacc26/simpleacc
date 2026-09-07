@@ -1,0 +1,15 @@
+{
+  "_nota": "A publicacao esta dividida em 4 projetos na Vercel porque o envio direto de arquivos tem limite por chamada e cada deploy substitui a arvore inteira. Mesmo padrao que o time ja usa (ges360-assets, quiz-go-imgs). Quando a Vercel ganhar acesso de escrita ao repositorio no GitHub, isso colapsa para 1 projeto ligado ao Git com deploy automatico a cada push.",
+  "projetos": {
+    "paginas": "quiz-thiago-menegao",
+    "js1": "quiz-thiago-menegao-js (flow.js, motor.js)",
+    "js2": "quiz-thiago-menegao-js2 (app.js)",
+    "js3": "quiz-thiago-menegao-js3 (diagnostico.js)"
+  },
+  "bases": {
+    "js1": "https://quiz-thiago-menegao-js-simpleacc.vercel.app",
+    "js2": "https://quiz-thiago-menegao-js2-simpleacc.vercel.app",
+    "js3": "https://quiz-thiago-menegao-js3-simpleacc.vercel.app"
+  },
+  "url": "https://quiz-thiago-menegao-simpleacc.vercel.app"
+}
