@@ -366,11 +366,14 @@ window.FLOW = {
      Especificação completa em copy/2026-09-01-telas-de-carregamento-funil-quiz
      `after` = id da pergunta depois da qual a tela entra.
      `campo` = quando presente, o título recebe a resposta daquela pergunta.
-     `duracao` = quanto a tela segura, em ms. Calibrado pelo TAMANHO DO TEXTO,
-     não por gosto: a régua é o pedido do cliente em 08/09, de cerca de 6
-     segundos para a primeira tela, que tem por volta de 205 caracteres. Isso dá
-     ~1,8s de folga mais ~21ms por caractere. Se mexer na copy, mexa aqui junto,
-     ou apague o campo e deixe o app.js calcular sozinho pela mesma fórmula.
+     `duracao` = quanto a tela segura, em ms. NÃO sai de fórmula, sai de olhar a
+     tela no ar e medir se dá tempo de ler com folga. Os valores atuais são a
+     segunda calibragem do cliente (08/09), que somou 4s a cada uma das duas
+     primeiras e 8s à de autoridade, a de texto mais longo, que é a última antes
+     do formulário. A régua é: o lead tem que terminar a leitura antes da barra,
+     não junto com ela. Barra que acaba junto vira corrida.
+     Se apagar o campo, o app.js calcula sozinho por tamanho de texto, mas com
+     teto de 10s, que hoje é menos do que estas telas precisam.
      ============================================================ */
   intersticiais: [
     {
@@ -381,7 +384,7 @@ window.FLOW = {
       titulo: "Você acabou de descrever o fim da conversa.",
       texto: "{resposta}: é ali que a conta chega, e quase nunca é ali que o erro acontece. As próximas perguntas procuram o momento anterior.",
       barra: "Organizando suas respostas",
-      duracao: 6000,
+      duracao: 10000,
     },
     {
       id: "reframe",
@@ -389,7 +392,7 @@ window.FLOW = {
       titulo: "Reunião perdida quase nunca morre no preço.",
       texto: "Ela morre alguns minutos antes, quando a condução troca de lado da mesa e o preço vira a única coisa que sobrou para discutir.",
       barra: "Cruzando com as sete etapas",
-      duracao: 5300,
+      duracao: 9300,
     },
     {
       id: "autoridade",
@@ -397,10 +400,11 @@ window.FLOW = {
       titulo: "Quem monta essa análise não veio de vendas.",
       texto: "Thiago Menegão é engenheiro de computação e passou quase duas décadas em estratégia, comunicação e comportamento dentro de empresas como Mercedes, Itaú, Honda, John Deere, Electrolux e Philips, antes de precisar fechar os próprios contratos. A leitura aqui é de comportamento e de decisão, não de técnica de fechamento.",
       barra: "Preparando sua análise",
-      /* 10s: é a tela com mais texto do funil, e é a que carrega o lastro
-         corporativo logo antes da captura. Vale o tempo (decisão do cliente
-         em 08/09, olhando a tela no ar). */
-      duracao: 10000,
+      /* 18s: é a tela com mais texto do funil (cerca de 380 caracteres) e a
+         última antes do formulário, e é ela que carrega o lastro corporativo.
+         Vale o tempo: quem lê isto inteiro chega na captura sabendo quem
+         assina a análise. Segunda calibragem do cliente em 08/09. */
+      duracao: 18000,
     },
   ],
 
