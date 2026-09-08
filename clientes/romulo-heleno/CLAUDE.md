@@ -27,3 +27,8 @@ onde o outro parou (o Git é a memória compartilhada).
 - **Links:** Drive → https://drive.google.com/drive/u/0/folders/1Y2oWXAOGX695gLnoCGEaXFbmGOUWHxJ7 | Plataforma: Kiwify
 - **Contato principal:** Carlos Durães (COO Simple Acc) — acompanha o cliente junto com Daniel Souza (mentor estratégico)
 - **Próxima call:** 29/06/2026
+- **Funil no ar e aprovado:** https://romulo-heleno.vercel.app (Diagnóstico das Mechas)
+- **Deploy é por CLI, nunca pelo MCP:** a pasta tem fotos, e binário se corrompe
+  no transporte base64 do MCP. Passo a passo em `funis/funil-quiz/DEPLOY.md`.
+- **Antes de mandar tráfego:** confirmar o WhatsApp comercial com ele. Os botões
+  apontam para um número que nunca foi confirmado.
