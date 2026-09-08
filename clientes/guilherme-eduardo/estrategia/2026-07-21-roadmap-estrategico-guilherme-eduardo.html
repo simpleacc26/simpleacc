@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Roadmap Estratégico Digital · Guilherme Eduardo</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body { font-family: Arial, Helvetica, sans-serif; color: var(--text); font-size: 10pt; line-height: 1.45; }
+  .page { width: 210mm; height: 297mm; overflow: hidden; padding: 16mm 18mm 24mm 18mm; position: relative; page-break-after: always; background: #fff; }
+  .page:last-child { page-break-after: auto; }
+  .runhead { display: flex; justify-content: space-between; font-size: 7.5pt; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt; }
+  .runfoot { position: absolute; bottom: 9mm; left: 18mm; right: 18mm; text-align: center; font-size: 7.5pt; color: var(--muted); }
+  .kicker { color: var(--gold); font-size: 9pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt; }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
+  .box-dark { background: var(--navy-dark); color: #f5f3ee; padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt; }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light { background: var(--beige); border-left: 3pt solid var(--gold); padding: 10pt 14pt; margin: 11pt 0; }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .fase-header { background: var(--navy-dark); color: #fff; padding: 10pt 16pt; margin-bottom: 10pt; border-left: 4pt solid var(--gold); }
+  .fase-header .fk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .fase-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .fase-header .fd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 12pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 38pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+  .footer-note { margin-top: 24pt; padding-top: 8pt; border-top: 1pt solid var(--gold); font-size: 8.5pt; color: var(--muted); width: 60%; }
+</style>
+</head>
+<body>
+
+<!-- PÁGINA 1 · CAPA -->
+<div class="page cover">
+  <div class="kicker">Plano de Ação Personalizado</div>
+  <h1>Roadmap<br>Estratégico<br>Digital</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    De um método que já dobra o faturamento de um médico a uma máquina que enche a sua agenda todo mês.<br>
+    Os primeiros 90 dias. Passo a passo, fase a fase.<br>
+    Sem atalho, sem improviso, sem ideia solta.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">Guilherme Eduardo · GES Consultoria Médica</div>
+    <div class="lbl">Mentor Estratégico</div>
+    <div class="val">Daniel Souza</div>
+  </div>
+</div>
+
+<!-- PÁGINA 2 · CONTEXTO E DECISÕES FUNDAMENTAIS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Guilherme Eduardo</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Começar</div>
+  <h1 style="font-size:19pt;">Contexto e Decisões Fundamentais</h1>
+  <p class="lead">Leia esta página inteira antes de executar qualquer passo. Todas as decisões a seguir partem do que está aqui.</p>
+
+  <div class="box-dark">
+    <div class="bt">A decisão mais importante deste plano</div>
+    <p>Você começou em janeiro, ajustou o método e já fez um médico saltar de R$ 20 mil para R$ 86 mil em um mês. O que trava não é a entrega, é a aquisição: cliente novo chega de forma inconsistente e você corre atrás sozinho. A partir de hoje o projeto tem um público, uma promessa e uma esteira: o médico dono de clínica já estabelecida, preso no teto de trocar tempo por dinheiro, e o GES360 como o caminho para ele virar dono de um modelo de receita previsível.</p>
+    <p><strong>A big idea que sustenta toda a comunicação: o problema não é falta de paciente, é falta de um modelo. Enquanto o médico vender só consulta avulsa, crescer é trabalhar mais. Quando o modelo de receita muda, o faturamento e o tempo destravam juntos.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A esteira</div>
+    <p><strong>Carro-chefe:</strong> Programa GES360, 12 meses, R$ 30 mil (ou 12x de R$ 2.500), o médico do operacional ao modelo de receita recorrente (nome comercial e estrutura de entrega fecham com o Daniel na call de roadmap).</p>
+    <p><strong>Porta de entrada:</strong> Implementação GES360, 3 meses, R$ 15 mil (ou 6x de R$ 2.500). É a oferta principal do funil e a que já vende hoje.</p>
+    <p><strong>Ganho rápido e não-ICP:</strong> programa de 45 dias, R$ 7.500 (ou 6x de R$ 1.250): diagnóstico, protocolos e precificação para faturar já no 1º mês. Aproveita quem chega pelo quiz sem caixa para o high ticket e paga a mídia.</p>
+    <p>Regra dos 90 dias: nenhum produto novo além destes. O braço de tráfego para clínicas fica registrado para o Roadmap 2.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A matemática dos R$ 30 mil/mês</div>
+    <p>2 vendas × R$ 15.000 = R$ 30.000 por mês. Com conversão de 50%, 1 fechamento a cada 2 sessões: 4 sessões por mês, 1 por semana. Com comparecimento de 80%, são cerca de 5 agendamentos por mês, sustentados por 30 abordagens por dia entre a reativação da base médica, o social selling e os leads do quiz.</p>
+    <p>Esse número é <strong>operacional, não aspiracional.</strong> É só fazer.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Foco deste roadmap</div>
+    <p>Este documento cobre apenas os primeiros 90 dias, com uma prioridade clara: fazer a Implementação GES360 vender com consistência, chegando a R$ 30 mil/mês recorrente. Ao bater essa meta vem o Roadmap 2: a escala dos 30 aos 50 e aos 100 mil/mês, com o programa de 12 meses e o braço de tráfego no jogo. Não tente queimar etapas.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 3 · RITMO + RESPONSABILIDADES -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Guilherme Eduardo</span><span>Página 3</span></div>
+  <div class="kicker">Como Vamos Trabalhar</div>
+  <h1 style="font-size:19pt;">Ritmo e Divisão de Responsabilidades</h1>
+  <div class="box-light">
+    <div class="bt">Ritmo de acompanhamento</div>
+    <p>Calls individuais quinzenais com o mentor estratégico, mais frequentes neste primeiro mês, e os encontros quinzenais em grupo. Dúvidas do dia a dia vão direto no grupo: Carlos para entrega e estratégia, o gestor de tráfego do projeto para campanhas, Cecília na consultoria de social selling.</p>
+    <p>A execução acontece <strong>entre as calls.</strong> As calls servem para afinar, não para decidir o que fazer. O que fazer já está aqui dentro.</p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Divisão de responsabilidades</div>
+    <p><strong>A Simple constrói e opera:</strong> o funil de quiz completo (perguntas, copies e páginas), implementado e no ar em até 7 dias, os roteiros dos criativos, as automações, a gestão das campanhas, os playbooks de SDR e pré-vendas, as auditorias de social selling com a Cecília e este roadmap.</p>
+    <p><strong>Guilherme executa:</strong> a validação do tom das entregas (em até 24h), as gravações dos vídeos, as 30 abordagens diárias com a Elisa, as sessões de venda, o caixa rápido da base e a liberação dos acessos e materiais no Drive.</p>
+    <p>O funil coloca lead na porta. <strong>Quem coloca dinheiro no caixa é a rotina comercial.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">O que já está pronto a seu favor</div>
+    <p>Você não parte do zero: tem um método com case real (o GES360), uma página que já comunica e converte (gesconsultoriamedica.com, na identidade navy e dourado), o Guia de Captação de Depoimentos já entregue e o canvas de produto e cliente ideal pré-preenchido. Este roadmap conecta tudo isso em uma rotina.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 4 · FASE 1 CAIXA RÁPIDO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Guilherme Eduardo</span><span>Página 4</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 1 · Dias 1 a 10</div>
+    <h2>Caixa Rápido: a Base Que Já Existe</h2>
+    <div class="fd">O dinheiro mais rápido do projeto não está no tráfego. Está em quem já falou com você.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que esta fase vem primeiro</div>
+    <p>Você tem 2 médicos com proposta em aberto, um cliente que já teve resultado forte (o caso dos R$ 86 mil) e pronto para o próximo nível, leads antigos parados e a rede do mercado médico que você construiu como representante de farmácia de manipulação e implante hormonal. Existe demanda batendo na porta sem nenhum anúncio no ar. É daqui que sai a primeira venda e o caixa que financia a mídia.</p>
+  </div>
+
+  <div class="passo-label">Passo 1</div>
+  <h3>Mapear todas as oportunidades da base</h3>
+  <ul class="check">
+    <li>Listar em uma planilha única: os 2 médicos com proposta em aberto, clientes ativos, ex-clientes, leads antigos que não fecharam e contatos do mercado médico (colegas de clínica, indicações, eventos que você já frequentou).</li>
+    <li>Classificar cada nome por potencial: venda direta, upsell do próximo nível, indicação ou convite para o diagnóstico estratégico.</li>
+    <li>Lista completa até o dia 3. Sem registro, não existe.</li>
+  </ul>
+
+  <div class="passo-label">Passo 2</div>
+  <h3>Executar as abordagens de caixa rápido</h3>
+  <ul class="check">
+    <li>Retomar hoje os 2 médicos com proposta em aberto: follow-up pessoal com próximo passo datado.</li>
+    <li>Cliente que já teve resultado: oferecer o próximo nível agora, no calor do resultado, e pedir de 3 a 5 indicações qualificadas com perfil claro (médico dono de clínica que já vende).
+      <ul class="sub"><li>Médico indica médico: a indicação é o lead mais barato e mais quente que você tem.</li></ul>
+    </li>
+    <li>Leads antigos e contatos do mercado médico: reativação personalizada convidando para o diagnóstico estratégico. Scripts alinhados com a Cecília na consultoria de social selling desta semana.</li>
+  </ul>
+
+  <div class="passo-label">Passo 3</div>
+  <h3>Converter vendas em caixa de mídia</h3>
+  <ul class="check">
+    <li>Venda parcelada no cartão: avaliar antecipação de recebíveis para ter caixa agora.</li>
+    <li>Destino do caixa: mídia e ferramentas, não retirada. Uma única venda de R$ 15 mil banca meses de tráfego.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da fase</div>
+    <p>Dia 10: base 100% mapeada e abordada, com registro na planilha · pelo menos 3 sessões estratégicas agendadas · 1 venda ou 1 antecipação realizada (caixa de mídia garantido).</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 5 · FASE 2 POSICIONAMENTO E OFERTA -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Guilherme Eduardo</span><span>Página 5</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 2 · Dias 1 a 7</div>
+    <h2>Posicionamento e Oferta: no Ar em 7 Dias</h2>
+    <div class="fd">Quando o médico certo clicar no seu perfil, ele precisa se reconhecer em 5 segundos.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Prioridade máxima</div>
+    <p>Toda abordagem da Fase 1 e todo lead do quiz vão olhar o seu Instagram antes de responder. Hoje o perfil é pessoal e não deixa claro o que você resolve (você mesmo viu isso com um médico). Em 7 dias ele precisa apresentar o estrategista que tira o médico da consulta avulsa e o leva ao modelo de receita. Perfil desalinhado é abordagem desperdiçada e dinheiro de tráfego jogado fora. A sua página gesconsultoriamedica.com já faz esse papel bem: é o destino do perfil.</p>
+  </div>
+
+  <div class="passo-label">Passo 4</div>
+  <h3>Reescrever o seu Instagram profissional</h3>
+  <ul class="check">
+    <li>Bio na fórmula [Quem ajudo] + [Resultado] + [Credencial] + [CTA]:
+      <ul class="sub"><li>"Ajudo médicos donos de clínica a dobrar o faturamento sem aumentar consultas · método GES360, cases reais · Faça seu diagnóstico estratégico" (ajustar na sua voz).</li></ul>
+    </li>
+    <li>4 destaques: "Comece aqui", "Quem sou", "O Método GES360", "Resultados".</li>
+    <li>2 a 3 posts fixados de posicionamento e foto profissional atual.</li>
+  </ul>
+
+  <div class="passo-label">Passo 5</div>
+  <h3>Empacotar a prova social</h3>
+  <ul class="check">
+    <li>Gravar depoimentos em vídeo dos médicos que já tiveram resultado (o caso dos R$ 86 mil, o dos 3 programas vendidos, o dos R$ 48 mil em 7 dias), priorizando números autorizados por escrito.
+      <ul class="sub"><li>Use o Guia de Captação de Depoimentos que a Simple já entregou. Atenção ao CFM: sem promessa de resultado e sem imagem de paciente.</li></ul>
+    </li>
+    <li>Subir tudo no Drive do projeto: os depoimentos alimentam destaques, criativos e a página do quiz.</li>
+  </ul>
+
+  <div class="passo-label">Passo 6</div>
+  <h3>Fechar o material de venda da oferta</h3>
+  <ul class="check">
+    <li>Fechar com o Daniel o nome comercial e a estrutura de entrega. Os 3 níveis já confirmados no canvas: 45 dias R$ 7.500, 3 meses R$ 15 mil, 12 meses R$ 30 mil.</li>
+    <li>PDF de apresentação (10 a 15 slides, modelo nos materiais de apoio): promessa, mecanismo GES360, estrutura de entrega, provas e investimento.</li>
+    <li>Regra de preço: nunca dar desconto no high ticket. Objeção de valor se resolve com forma de pagamento ou com o downsell da esteira, nunca baixando o valor.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da fase</div>
+    <p>Dia 7: perfil reposicionado no ar · captação de depoimentos em execução · PDF de apresentação validado na call · funil de quiz no ar (Fase 5).</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 6 · FASE 3 AQUISIÇÃO MANUAL PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Guilherme Eduardo</span><span>Página 6</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 3 · Dias 1 a 90 · Parte 1</div>
+    <h2>Aquisição Manual: o Motor Principal</h2>
+    <div class="fd">Prioridade número 1 do projeto: vender a Implementação GES360 para médicos, todos os dias.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que o manual anda na frente do funil</div>
+    <p>A aquisição inconsistente é o seu gargalo hoje: cerca de R$ 15 mil/mês com um cliente ativo. A Elisa começou no social selling e em duas semanas já marcou 2 reuniões, prova de que o volume certo gera agenda. Além disso, cada sessão gravada revela as dores e as palavras exatas do médico, e são essas palavras que otimizam o quiz e os criativos a cada revisão. Vender e pesquisar viram a mesma atividade.</p>
+  </div>
+
+  <div class="passo-label">Passo 7</div>
+  <h3>Assistir às aulas de aquisição antes de abordar</h3>
+  <ul class="check">
+    <li>Social Selling parte 1 e 2, Outbound, Call de Vendas 1 a 1 e Pré-Vendas, no portal da Simple. Inclua a Elisa nas aulas de social selling e pré-vendas.</li>
+    <li>Sem isso é improviso, e improviso na frente da venda queima lead bom. A trava de prospecção que você tem se resolve com método e com a Elisa carregando o volume.</li>
+  </ul>
+
+  <div class="passo-label">Passo 8</div>
+  <h3>Estruturar o pré-vendas do projeto</h3>
+  <ul class="check">
+    <li>Elisa como SDR e social seller do projeto: consultoria com a Cecília (framework de abordagem, copy das mensagens e as auditorias do contrato).</li>
+    <li>Montar a planilha de controle (CRM simples): nome, origem (base, indicação, social selling, quiz), data da abordagem, status, follow-up e resultado da sessão.</li>
+    <li>Implantar os playbooks de SDR e pré-vendas da Simple desde o dia 1. O processo já nasce documentado, para você delegar sem depender de você.</li>
+    <li>Mapear os alvos de social selling: médicos donos de clínica no Instagram, grupos e comunidades médicas, egressos de eventos do nicho e hashtags de especialidades.
+      <ul class="sub"><li>Meta: 200 perfis qualificados mapeados até o dia 10, alimentando a rotina diária.</li></ul>
+    </li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 7 · FASE 3 AQUISIÇÃO MANUAL PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Guilherme Eduardo</span><span>Página 7</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 3 · Dias 1 a 90 · Parte 2</div>
+    <h2>Aquisição Manual: a Rotina Diária</h2>
+    <div class="fd">Volume com método. Todos os dias, sem exceção, com registro.</div>
+  </div>
+
+  <div class="passo-label">Passo 9</div>
+  <h3>Executar 30 abordagens por dia</h3>
+  <ul class="check">
+    <li>Distribuição de partida: 40% base quente e indicações (Fase 1), 40% social selling nos perfis mapeados, 20% reativação de contatos antigos. Quando a base quente esgotar, inverta o peso para o social selling e os leads do quiz.</li>
+    <li>Toda abordagem é personalizada (nada de mensagem em massa) e termina com um convite claro para o diagnóstico estratégico.</li>
+    <li>Follow-up obrigatório em até 2 dias. A maioria das sessões nasce no follow-up, não na primeira mensagem. A Elisa carrega o volume; você entra na sessão.</li>
+  </ul>
+
+  <div class="passo-label">Passo 10</div>
+  <h3>Conduzir a sessão como call de vendas</h3>
+  <ul class="check">
+    <li>Aula de Call de Vendas 1 a 1 completa antes da primeira sessão. Toda sessão gravada, com consentimento: alimenta a inteligência de avatar e permite revisar o fechamento.</li>
+    <li>As 3 primeiras gravações vão para revisão na call com o mentor.</li>
+    <li>Nunca recuar no preço. Objeção financeira: forma de pagamento ou downsell da esteira (R$ 30 mil para R$ 15 mil, e R$ 15 mil para o de 45 dias, R$ 7.500). Toda sessão sem fechamento sai com próximo passo datado.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Metas numéricas desta fase</div>
+    <p><strong>Dia 30:</strong> 4 sessões realizadas no acumulado · 1 venda da Implementação (R$ 15 mil no caixa) · rotina de 30 abordagens/dia consolidada.</p>
+    <p><strong>Dia 60:</strong> 10 sessões acumuladas · 3 vendas acumuladas (R$ 45 mil) · funil de quiz alimentando a agenda.</p>
+    <p><strong>Dia 90:</strong> ritmo estável de 4 sessões/mês · 2 vendas/mês · R$ 30 mil/mês recorrente.</p>
+    <p><strong>Alerta vermelho:</strong> nenhuma venda até o dia 30 significa problema de fechamento ou de qualificação, não de produto. Pausar, revisar as gravações com o mentor e ajustar antes de continuar.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 8 · FASE 4 CONTEÚDO ORGÂNICO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Guilherme Eduardo</span><span>Página 8</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 4 · Dias 1 a 90 · Em Paralelo</div>
+    <h2>Conteúdo Orgânico</h2>
+    <div class="fd">Roda em paralelo. Não é pré-requisito para venda: é o que aquece quem a abordagem e o anúncio alcançam.</div>
+  </div>
+
+  <div class="passo-label">Passo 11</div>
+  <h3>Produzir pelos níveis de consciência</h3>
+  <ul class="check">
+    <li>Nível 1 (não sabe que o problema é o modelo): "Por que a sua agenda cheia não vira faturamento no fim do mês".</li>
+    <li>Nível 2 (sente o sintoma): "Você atende bem, tem demanda, e mesmo assim o dinheiro não sobra. O problema não é paciente, é o modelo".</li>
+    <li>Nível 4 (pronto para a solução): cases dos médicos e a sua história, do balcão da farmácia de manipulação ao método que fez um médico saltar de R$ 20 mil para R$ 86 mil.</li>
+  </ul>
+
+  <div class="passo-label">Passo 12</div>
+  <h3>Rotina semanal de publicação</h3>
+  <ul class="check">
+    <li>12 publicações por semana entre stories, reels e carrossel, produzidas em lote num único dia de gravação. Você já tem cenário e equipamento: o que falta é rotina, não estrutura.</li>
+    <li>Reaproveitar formatos: 1 reel vira story, corte e legenda de carrossel. CTA fixo em tudo: o diagnóstico estratégico (ou o quiz, quando estiver no ar).</li>
+    <li>Nota 7 no ar vale mais que nota 10 na gaveta. Não trave no perfeccionismo.</li>
+  </ul>
+
+  <div class="passo-label">Passo 13</div>
+  <h3>Gravar os materiais do funil</h3>
+  <ul class="check">
+    <li>Vídeos dos criativos com os roteiros que a Simple envia: dor reconhecível no gancho, big idea do modelo, convite para o quiz.</li>
+    <li>Gravar variações suficientes para montar 3 conjuntos de 10 anúncios cada (ganchos, copies e cortes diferentes do mesmo criativo), nos 3 ângulos: dor, mecanismo e autoridade.</li>
+    <li>Prioridade para case e história real: neste nicho, prova e identificação valem mais do que promessa. Subir tudo no Drive junto com identidade visual e logo.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da fase</div>
+    <p>Semanal: 12 publicações no ar · 1 lote de gravação feito. Dia 6: criativos prontos para montar 3 conjuntos de 10 anúncios, para as campanhas que sobem no dia 8.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 9 · FASE 5 FUNIL PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Guilherme Eduardo</span><span>Página 9</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 5 · Dias 1 a 30 · Parte 1</div>
+    <h2>Funil de Quiz: a Simple Implementa</h2>
+    <div class="fd">O diagnóstico estratégico transformado em máquina. No ar em até 7 dias, implementado pela equipe.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Como o funil funciona</div>
+    <p>Anúncio com a dor do médico (o erro que te impede de passar de R$ 100 mil) para o quiz de diagnóstico para o resultado personalizado por perfil para o convite ao diagnóstico estratégico para a abordagem no WhatsApp em até 24h para a sessão para a venda.</p>
+    <p>O quiz qualifica antes da agenda: o médico já estabelecido agenda a sessão; quem ainda não tem estrutura recebe o programa de 45 dias e entra na esteira, ajudando a pagar a mídia. Você só senta na frente de quem já se reconheceu no diagnóstico. E quem constrói é a Simple: em até 7 dias o funil está no ar.</p>
+  </div>
+
+  <div class="passo-label">Passo 14</div>
+  <h3>Aprovar o quiz que a Simple constrói (dias 1 a 7)</h3>
+  <ul class="check">
+    <li>A Simple escreve as 8 a 12 perguntas, as copies e as páginas na linguagem real do médico, em formato de diagnóstico:
+      <ul class="sub"><li>"Quanto do seu faturamento ainda depende de consulta avulsa?"</li></ul>
+      <ul class="sub"><li>"A sua agenda está cheia, mas o dinheiro sobra no fim do mês?"</li></ul>
+    </li>
+    <li>Você valida o tom nas primeiras entregas (resposta em até 24h, para não travar os 7 dias).</li>
+    <li>Página do quiz e página de resultado no padrão validado da Simple, na sua identidade navy e dourado. Todo lead cai na planilha (Passo 8) com origem marcada como quiz.</li>
+  </ul>
+
+  <div class="passo-label">Passo 15</div>
+  <h3>Liberar a infraestrutura (dias 1 a 7)</h3>
+  <ul class="check">
+    <li>CRM (GHL, na régua de cerca de R$ 97/mês, quando o Carlos sinalizar) e API oficial do WhatsApp (cerca de R$ 100/mês) com número dedicado ao projeto, nunca WhatsApp Web.</li>
+    <li>Liberar os acessos: conta de anúncios, identidade visual, logo e materiais no Drive (a pendência combinada no onboarding).</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 10 · FASE 5 TRÁFEGO PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Guilherme Eduardo</span><span>Página 10</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 5 · Dias 8 a 30 · Parte 2</div>
+    <h2>Tráfego Pago com Régua de Métricas</h2>
+    <div class="fd">Tráfego aqui não é aposta: é escala de um diagnóstico validado, pago pelo caixa rápido.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Regra de ouro do tráfego high ticket</div>
+    <p>Uma venda de R$ 15 mil paga meses de mídia. O jogo aqui é lead certo, não lead barato. Nada sobe sem passar pela conta, e nenhum real de mídia sai do seu bolso antes de o caixa rápido da Fase 1 existir.</p>
+  </div>
+
+  <div class="passo-label">Passo 16</div>
+  <h3>Subir as campanhas de validação (a partir do dia 8)</h3>
+  <ul class="check">
+    <li>Orçamento inicial financiado pelo caixa rápido, na régua de R$ 50 a R$ 70 por dia, ajustado na call com o gestor de tráfego.</li>
+    <li>Estrutura de partida: 1 campanha em CBO, 3 conjuntos, cada um com 10 anúncios (30 criativos ao todo), nos 3 ângulos da estratégia: dor, mecanismo e autoridade. É a munição que a Meta precisa para achar o público certo.</li>
+    <li>Segmentação: médicos e donos de clínica (interesses em gestão de clínica, congressos, empreendedorismo médico).</li>
+    <li>Linguagem de diagnóstico, nunca promessa de ganho (política da Meta e CFM). Os 30 anúncios da Fase 4 no ar, rodando contra o quiz.</li>
+  </ul>
+
+  <div class="passo-label">Passo 17</div>
+  <h3>Ler as métricas com método</h3>
+  <ul class="check">
+    <li>Régua semanal (benchmarks da Simple): lead qualificado 30% e de R$ 70 a R$ 100 · agendamento 30% e cerca de R$ 200 · comparecimento 80% · CAC abaixo de 20% do caixa coletado.</li>
+    <li>Revisão a cada 7 dias com o gestor de tráfego, com gatilhos claros:
+      <ul class="sub"><li>CPL fora da meta: troca o criativo, não a estratégia.</li></ul>
+      <ul class="sub"><li>Conclusão do quiz abaixo de 40%: revisa as perguntas.</li></ul>
+      <ul class="sub"><li>Comparecimento abaixo de 60%: reforça o follow-up e a confirmação.</li></ul>
+    </li>
+    <li>Todo sábado, o debrief dos números: proibido achar, traz o dado.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 11 · BÔNUS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Guilherme Eduardo</span><span>Página 11</span></div>
+  <div class="fase-header">
+    <div class="fk">Bônus · A Partir do Dia 60</div>
+    <h2>Os Ativos Que Só Você Tem</h2>
+    <div class="fd">Plantados no fim da janela, sem roubar o foco da prioridade número 1.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">A regra deste bônus</div>
+    <p>Você tem ativos que a maioria não tem: uma rede construída no mercado médico (farmácia de manipulação, implante hormonal, eventos que você já circula) e a demanda de médicos que já pediram tráfego. A regra é uma só: as abordagens de venda da consultoria vêm primeiro, todos os dias. Os bônus são construídos no tempo que sobra, nunca no lugar da rotina comercial. Ciclo de venda longo se planta agora e se colhe no mês 4 e 5.</p>
+  </div>
+
+  <div class="passo-label">Passo 18</div>
+  <h3>Transformar a rede do mercado médico em canal</h3>
+  <ul class="check">
+    <li>Reativar os contatos do mercado (médicos, clínicas e parceiros da época da farmácia e do implante hormonal) com uma pauta clara: parceria de indicação de médicos donos de clínica.</li>
+    <li>Meta: de 3 a 5 conversas qualificadas por mês nascidas da rede, registradas na planilha. Fechamento é meta do mês 4, não dos 90 dias.</li>
+  </ul>
+
+  <div class="passo-label">Passo 19</div>
+  <h3>Desenhar o braço de tráfego para clínicas</h3>
+  <ul class="check">
+    <li>Você já teve 2 médicos pedindo tráfego. Em vez de recusar, desenhar com o Carlos o formato de vender e delegar: mapear um gestor de tráfego parceiro e o escopo da entrega.</li>
+    <li>Documentar para o Roadmap 2. Nos 90 dias, isto fica no papel: o foco é a Implementação GES360.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta do bônus</div>
+    <p>Dia 90: de 3 a 5 conversas qualificadas nascidas da rede em andamento · braço de tráfego para clínicas desenhado e documentado para o Roadmap 2.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 12 · CHECKPOINTS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Guilherme Eduardo</span><span>Página 12</span></div>
+  <div class="kicker">Checkpoints de Progresso</div>
+  <h1 style="font-size:19pt;">Como Saber Que Você Está no Caminho Certo</h1>
+  <p class="lead">Cada checkpoint marca o final de uma janela. Se algum item não estiver fechado, leve para a próxima call quinzenal. Ajuste de rota imediato, sem esconder.</p>
+
+  <h3 class="navy" style="margin-top:8pt;">Checkpoint 1 · Dia 7 (posicionamento e funil no ar)</h3>
+  <ul class="check">
+    <li>Instagram profissional reposicionado: bio, destaques, fixados.</li>
+    <li>Funil de quiz implementado pela Simple e no ar. PDF de apresentação validado com o Daniel.</li>
+    <li>Acessos, identidade visual e materiais liberados no Drive.</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:8pt;">Checkpoint 2 · Dia 10 (caixa rápido)</h3>
+  <ul class="check">
+    <li>Base 100% mapeada e abordada, com registro na planilha.</li>
+    <li>Pelo menos 3 sessões estratégicas agendadas · 1 venda ou 1 antecipação (caixa de mídia garantido).</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:8pt;">Checkpoint 3 · Dia 30 (primeira venda)</h3>
+  <ul class="check">
+    <li>4 sessões realizadas · 1 venda da Implementação (R$ 15 mil) · rotina de 30 abordagens/dia consolidada.</li>
+    <li>Campanhas no ar desde o dia 8, com primeira rodada de otimização feita.</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:8pt;">Checkpoint 4 · Dia 60 (máquina rodando)</h3>
+  <ul class="check">
+    <li>3 vendas acumuladas (R$ 45 mil) e caixa financiando a mídia sem aporte novo.</li>
+    <li>Quiz com conclusão acima de 40% e sessões nascendo do tráfego.</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:8pt;">Checkpoint 5 · Dia 90 (meta batida)</h3>
+  <ul class="check">
+    <li>Ritmo estável: 4 sessões/mês, 2 vendas/mês, R$ 30 mil/mês recorrente.</li>
+    <li>De 3 a 5 conversas da rede em andamento. Pronto para receber o Roadmap 2: a escala dos 30 aos 50 e 100 mil/mês.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 13 · MATERIAIS DE APOIO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Guilherme Eduardo</span><span>Página 13</span></div>
+  <div class="kicker">Materiais de Apoio</div>
+  <h1 style="font-size:19pt;">Recursos para Executar o Plano</h1>
+  <p class="lead">Todas as aulas e templates abaixo estão disponíveis no portal (área de membros) e no grupo. Se algum link não foi compartilhado, peça no grupo.</p>
+
+  <ul class="check">
+    <li><strong>Social Selling parte 1 e 2</strong><ul class="sub"><li>A rotina de abordagem no Instagram. Base dos Passos 7 e 9.</li></ul></li>
+    <li><strong>Outbound</strong><ul class="sub"><li>Reativação de contatos e indicações sem queimar a base. Passos 2 e 9.</li></ul></li>
+    <li><strong>Call de Vendas 1 a 1</strong><ul class="sub"><li>A condução da sessão estratégica até o fechamento. Passo 10.</li></ul></li>
+    <li><strong>Pré-Vendas + planilha de CRM</strong><ul class="sub"><li>Controle de leads, follow-up e status. Passo 8.</li></ul></li>
+    <li><strong>Playbooks comerciais e de pré-vendas da Simple</strong><ul class="sub"><li>O processo de SDR documentado desde o dia 1. Passo 8.</li></ul></li>
+    <li><strong>Consultoria e auditorias de Social Selling com a Cecília</strong><ul class="sub"><li>Framework e copy de abordagem 1 a 1. Passos 2, 7 e 9.</li></ul></li>
+    <li><strong>Como Montar o High Ticket</strong><ul class="sub"><li>A estrutura da esteira e do programa de 12 meses. Passo 6.</li></ul></li>
+    <li><strong>Modelo de PDF de apresentação</strong><ul class="sub"><li>Estrutura dos 10 a 15 slides da oferta. Passo 6.</li></ul></li>
+    <li><strong>Guia de Captação de Depoimentos (já entregue)</strong><ul class="sub"><li>Tópicos de direcionamento para os médicos gravarem. Passo 5.</li></ul></li>
+    <li><strong>Método Simple Growth (funil de quiz)</strong><ul class="sub"><li>A metodologia do quiz que a Simple implementa. Passo 14.</li></ul></li>
+    <li><strong>Growth Model (métricas e alavancas)</strong><ul class="sub"><li>A régua de leitura das campanhas com o gestor de tráfego. Passo 17.</li></ul></li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 14 · FECHAMENTO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Guilherme Eduardo</span><span>Página 14</span></div>
+  <div style="padding-top:34mm;">
+    <div class="kicker">Lembre-se Sempre Disto</div>
+    <h1 style="font-size:19pt;">Antes de Fechar Este Documento</h1>
+    <p style="margin-top:10pt;">Guilherme, você veio de uma família de empreendedores, atravessou uma falência, recomeçou visitando médicos como representante de farmácia de manipulação e, quando entendeu a dor deles, saiu do CLT e botou fogo no barco para aprender a nadar. Ajustou o método e, com ele, fez um médico saltar de R$ 20 mil para R$ 86 mil em um mês.</p>
+    <p>Não foi falta de método: o GES360 entrega e dá resultado. Não foi falta de capacidade de entrega, e os seus cases que o digam. Não foi falta de vontade nem de comprometimento.</p>
+    <p><strong class="navy">Foi falta de um sistema de aquisição previsível e uma rotina de vendas executada todos os dias, para você.</strong></p>
+    <p>Este roadmap é o método. A execução é sua. A cada 15 dias o mentor estratégico vai te encontrar na conversa quinzenal, mas o que coloca dinheiro no caixa é o que você faz <strong>entre as calls</strong>. Dúvidas no meio do caminho: mande no grupo, não espere a próxima call.</p>
+    <p style="margin-top:12pt;">Você tem um método com case real. Você tem uma página que já comunica e converte. Você tem uma base pronta para gerar as primeiras vendas. Você tem, pela primeira vez, uma equipe inteira construindo com você. Você tem o método.</p>
+    <p><strong class="navy">O próximo passo é começar.</strong></p>
+    <div class="footer-note">Roadmap Estratégico Digital · Guilherme Eduardo · 90 dias · Versão 1.0</div>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+</body>
+</html>

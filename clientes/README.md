@@ -24,6 +24,7 @@ clientes/
 | Gustavo Ono                | `gustavo-ono/`                 | ativo  |
 | Juliana Godinho            | `juliana-godinho/`             | ativo  |
 | Kainã Barreto              | `kaina-barreto/`               | ativo  |
+| Luana Isse                 | `luana-isse/`                  | ativo  |
 | Omar e Greicy              | `omar-e-greicy/`               | ativo  |
 | Rafael Cobra               | `rafael-cobra/`                | ativo  |
 | Rafael Granella            | `rafael-granella/`             | ativo  |
@@ -31,6 +32,7 @@ clientes/
 | Sense Clinic               | `sense-clinic/`                | ativo  |
 | Stella Grützmann           | `stella-grutzmann/`            | ativo  |
 | Taís Zawatski              | `tais-zawatski/`               | ativo  |
+| Thiago Menegão             | `thiago-menegao/`              | ativo  |
 | Vitória Daniela            | `vitoria-daniela/`             | ativo  |
 | Walescka Bomfim            | `walescka-bomfim/`             | ativo  |
 

@@ -40,5 +40,9 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
   que a Simple vai implementar.
 - **Links:** pasta no Drive "Simple <> Felipe"
   (https://drive.google.com/drive/folders/1ARUh-uMTCWI-hEQ9FhqmCuHQ3URMW78W).
-- **Entregas até agora:** Roadmap Estratégico 90 dias (v1.0) em `estrategia/`.
+- **Entregas até agora:** Roadmap Estratégico 90 dias + Estratégia Completa em
+  `estrategia/`; **funil do Diagnóstico Executivo no ar** em
+  https://quiz-felipe-damasceno.vercel.app (`funis/diagnostico-executivo/`), com
+  leads caindo na planilha via Make; PDF da leitura pro WhatsApp e carrossel de
+  Instagram em `materiais/`. Pendências abertas no fim do `aprendizados.md`.
 - **Contato principal:** _(a preencher — WhatsApp/e-mail do Felipe)_

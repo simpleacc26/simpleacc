@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Estratégia Completa · Copies Funil Quiz · Thiago Menegão</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body { font-family: Arial, Helvetica, sans-serif; color: var(--text); font-size: 9.5pt; line-height: 1.42; }
+  .page {
+    width: 210mm; height: 297mm; overflow: hidden;
+    padding: 16mm 18mm 22mm 18mm; position: relative;
+    page-break-after: always; background: #fff;
+  }
+  .page:last-child { page-break-after: auto; }
+  .runhead {
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; color: var(--muted);
+    letter-spacing: .06em; text-transform: uppercase;
+    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 11pt;
+  }
+  .runfoot {
+    position: absolute; bottom: 9mm; left: 18mm; right: 18mm;
+    text-align: center; font-size: 7.5pt; color: var(--muted);
+  }
+  .kicker { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 6pt; }
+  h1 { color: var(--navy); font-size: 21pt; line-height: 1.14; margin-bottom: 8pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 12pt; font-size: 9.5pt; }
+  .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .11em; text-transform: uppercase; margin: 11pt 0 4pt; }
+  .box-dark { background: var(--navy-dark); color: #f5f3ee; padding: 10pt 13pt; margin: 9pt 0; border-radius: 2pt; }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9pt; letter-spacing: .04em; margin-bottom: 4pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 4pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light { background: var(--beige); border-left: 3pt solid var(--gold); padding: 9pt 13pt; margin: 9pt 0; }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9pt; letter-spacing: .04em; margin-bottom: 4pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 4pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  h3 { color: var(--navy); font-size: 11.5pt; margin-bottom: 5pt; }
+  h4 { color: var(--navy); font-size: 9.5pt; margin: 8pt 0 3pt; }
+  ul.check { list-style: none; margin-bottom: 6pt; }
+  ul.check > li { padding-left: 13pt; position: relative; margin-bottom: 3pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 7.5pt; top: 1.5pt; }
+  ol.num { margin: 4pt 0 6pt 16pt; }
+  ol.num li { margin-bottom: 2.5pt; }
+  .navy { color: var(--navy); }
+  .alt { color: #5a6070; }
+  p { margin-bottom: 5pt; }
+  .q { margin-bottom: 8pt; }
+  .q .qh { color: var(--navy); font-weight: bold; }
+  .q .qa { color: #4a5160; font-size: 9pt; }
+  .cover { padding-top: 52mm; }
+  .cover .k { color: var(--gold); font-size: 10pt; font-weight: bold; letter-spacing: .16em; text-transform: uppercase; }
+  .cover h1 { font-size: 40pt; line-height: 1.06; margin: 8pt 0 12pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 9mm 0 8mm 2mm; }
+  .cover .sub { font-size: 12.5pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .l { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .v { font-size: 10.5pt; color: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- 1 CAPA -->
+<div class="page cover">
+  <div class="k">Estratégia Completa</div>
+  <h1>Funil de<br>Lead Dinâmico</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    Quiz e página de diagnóstico e oferta.<br>
+    A copy pronta para implementar.<br>
+    Inversão de Camada · Protocolo PRIMAL PITCH.
+  </div>
+  <div class="meta">
+    <div class="l">Preparado para</div>
+    <div class="v">Thiago Menegão</div>
+    <div class="l">Estrategista</div>
+    <div class="v">Daniel Souza · Carlos Durães</div>
+  </div>
+</div>
+
+<!-- 2 O FUNIL EM UMA PÁGINA -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thiago Menegão</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Ler a Copy</div>
+  <h1>O Funil em Uma Página</h1>
+  <p class="lead">Leia esta página antes de aprovar as copies. Tudo o que vem depois parte destas decisões.</p>
+
+  <div class="lbl">O caminho do lead</div>
+  <p>Anúncio → Quiz gratuito (Diagnóstico de Condução) → Página de diagnóstico e oferta → Checkout → Área de membros. Quem não compra na hora entra em cadência de WhatsApp e e-mail.</p>
+  <p>É <strong>venda direta, sem reunião</strong>. Diagnóstico e oferta vivem na mesma página: a pessoa recebe a leitura da própria condução e o próximo passo natural é o produto que resolve aquilo.</p>
+
+  <div class="box-dark">
+    <div class="bt">A regra que organiza todas as decisões deste documento</div>
+    <p>A hora de consultoria do Thiago custa R$ 9 mil. O produto custa R$ 2 mil. Portanto <strong>nenhuma etapa deste funil pode exigir a presença dele</strong>: uma única hora na agenda vale quatro vendas e meia.</p>
+    <p>Isso não é uma limitação, é o desenho. Este canal existe para alcançar o expert que quer o protocolo e nunca vai contratar a hora dele. O que ele já vende caro continua sendo vendido do jeito que já funciona.</p>
+  </div>
+
+  <div class="lbl">O que este funil vende</div>
+  <p><strong>Produto único: PRIMAL PITCH gravado, R$ 2 mil, com parcelamento.</strong> Os seis movimentos, as sete etapas, o material de apoio e o framework de análise de call. Acesso imediato à área de membros após o pagamento.</p>
+  <p>Nenhuma outra oferta aparece no funil. Um produto, um preço, uma página.</p>
+  <p><strong>O efeito colateral que interessa:</strong> uma fatia pequena dos compradores vai ser exatamente o perfil que contrata mentoria e consultoria. O funil não vende isso, mas entrega essas pessoas já tendo consumido o método. É o filtro mais barato que existe para o que o Thiago já cobra caro.</p>
+
+  <div class="lbl">O que a copy precisa compensar</div>
+  <p>O produto está pronto e publicado. O que ainda não existe é depoimento em vídeo. Enquanto eles não chegam, a página compensa com o que ninguém no mercado dele tem: vinte anos de bastidor com Mercedes, Itaú, Honda, John Deere e Electrolux, e um método que ele aplicou na própria cadeira antes de ensinar. Onde houver [DEPOIMENTO] no texto, é espaço reservado.</p>
+  <p>A favor de vocês: existe um grupo de mentoriados que já recebeu o método gravado. É a fonte mais rápida de prova real, e ela precisa entrar antes da escala.</p>
+
+  <div class="lbl">Premissas assumidas</div>
+  <p>Ticket de R$ 2 mil com parcelamento em até 12 vezes · custo por lead de R$ 12 · conversão de lead em venda de 3% · custo por aquisição alvo abaixo de R$ 500 · verba de mídia de <strong>R$ 2,5 mil no primeiro mês</strong>, cerca de R$ 80 por dia · garantia conforme definição do checkout · tratamento por "você" nas peças de alcance e por "teu" na conversa um a um, que é como o Thiago fala.</p><div class="box-light"><div class="bt">O nível de consciência, que define a entrada de toda peça</div><p>Do canvas: consciência do <strong>problema alta</strong> (ele sabe que perde reuniões), da <strong>causa baixa</strong> (atribui ao lead, ao preço ou ao script), da <strong>solução média</strong> (conhece a categoria treinamento de fechamento e desconfia dela) e do <strong>produto baixa</strong>. Sofisticação de mercado em <strong>estágio 4 a 5</strong>.</p><p>Duas consequências que valem para tudo neste documento: <strong>a entrada é pela causa, nunca pela solução</strong>, e <strong>o diferencial é mecanismo, nunca promessa</strong>. Este mercado já viu promessa de conversão, já viu método com nome e já viu neurociência aplicada a vendas.</p></div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 3 BIG IDEA -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thiago Menegão</span><span>Página 3</span></div>
+  <div class="kicker">Seção 1 · Parte 1</div>
+  <h1>Big Idea</h1>
+  <p class="lead">A ideia que sustenta o quiz, a página, os anúncios e a cadência.</p>
+
+  <div class="lbl">A big idea</div>
+  <p><strong class="navy">A venda não se perde no fechamento. Se perde na camada.</strong></p>
+  <p>Ele já fez tudo o que mandaram fazer. Trocou de script, comprou treinamento de vendas, estudou objeção, contratou closer, aumentou o tráfego. A reunião continua boa, o lead continua concordando com tudo, e no fim vem a mesma frase: vou pensar. Ele sai da call sem entender o que aconteceu, e por isso repete o mesmo erro na próxima.</p>
+  <p>A explicação que o mercado dá é sempre a mesma: falta técnica de fechamento. Não falta. O que existe é a <strong>Inversão de Camada</strong>: a decisão de compra acontece em três camadas sequenciais, primal, emocional e racional, e quase todo vendedor entra pela última. Enquanto a ordem estiver invertida, script novo não resolve, porque argumento aplicado na camada errada não convence, gera resistência.</p>
+
+  <div class="lbl">A frase que resume a transformação</div>
+  <p><strong class="navy">De vendedor que descobre o resultado da reunião a vendedor que produz o resultado da reunião.</strong></p>
+  <p>Quem descobre entra na call torcendo e sai lendo sinal. Quem produz conduz a conversa na mesma ordem em que a decisão acontece dentro da cabeça do lead, sabe o momento exato de avançar, sabe onde travou quando trava, e não precisa de sorte para repetir o resultado.</p>
+
+  <div class="lbl">O mecanismo: o Protocolo PRIMAL PITCH</div>
+  <p>Primal decide antes da consciência, e responde a segurança, ameaça, status e pertencimento · Emocional dá a energia da decisão, e responde a desejo, medo e identidade projetada · Racional apenas justifica a decisão que já foi tomada.</p>
+  <p>Sobre essa hierarquia rodam sete etapas com função, critério de saída e sinal de travamento: <strong>Abertura, Diagnóstico, Espelho, Contexto, Condução, Prescrição e Decisão</strong>. É isso que permite o diagnóstico retroativo, é isso que o quiz mede e é isso que o produto ensina.</p>
+
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thiago Menegão</span><span>Página 4</span></div>
+  <div class="kicker">Seção 1 · Parte 2</div>
+  <h1>Território e Régua de Linguagem</h1>
+  <p class="lead">Onde o Primal Pitch se planta, e o que nenhuma peça deste funil pode dizer.</p>
+
+  <div class="box-dark">
+    <div class="bt">O território: arquitetura da decisão</div>
+    <p>O mercado inteiro ensina <strong>o vendedor a falar</strong>: script, pergunta de fechamento, tratamento de objeção, formação de closer. Doze concorrentes mapeados, e todos disputam esse mesmo espaço.</p>
+    <p>O território livre é outro, e é o que o Thiago já sinaliza na própria bio: <strong>o Primal Pitch não ensina apenas o que o vendedor deve falar, ele revela o que precisa acontecer na mente do cliente para que a decisão se torne possível.</strong></p>
+    <p>Categoria a ocupar: <strong>arquitetura da decisão aplicada às vendas de alto valor</strong>. A Inversão de Camada é o inimigo; a arquitetura da decisão é o terreno.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre o nome do inimigo</div>
+    <p>Inversão de Camada é o nome que a Simple propõe para o problema que o Thiago já descreve. Um inimigo nomeado é território proprietário: dá ao mercado uma palavra para o que ele sente e não sabe explicar, e essa palavra passa a ser dele. Vale validar antes da mídia subir, porque atravessa quiz, página e anúncios.</p>
+  </div>
+
+  <div class="lbl">A régua de linguagem, válida para toda peça</div>
+  <p><strong>Fala:</strong> a ordem em que a decisão acontece · entrar pela camada certa · a etapa exata onde o controle escapou · produzir o resultado da reunião em vez de descobrir · quanto te custa continuar adiando · parar de se explicar.</p>
+  <p><strong>Não fala:</strong> ancoragem irreal, do tipo valia 10 mil e leva por 2 mil, que este comprador desdenha na hora · projeção de futuro, do tipo imagine daqui três meses · promessa de percentual de conversão ou de faturamento em anúncio pago · vocabulário de guru.</p><div class="box-light"><div class="bt">A barreira ética, que é barreira ativa de compra</div><p>O canvas é explícito: ele <strong>acredita que conduzir é manipular</strong>, e é essa trava que o mantém passivo na reunião, esperando o mérito do produto fazer o trabalho.</p><p>Consequência direta para a copy: <strong>qualquer promessa que soe a pressão, dominação ou controle do lead afasta</strong>. Nunca dizer que ele vai dominar o lead, contornar resistência ou fazer o outro comprar. A linguagem que abre a porta é <strong>condução, responsabilidade e clareza</strong>: conduzir é assumir a responsabilidade por uma conversa que o outro precisa concluir.</p></div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 4 QUIZ P1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thiago Menegão</span><span>Página 5</span></div>
+  <div class="kicker">Seção 2 · Parte 1</div>
+  <h1>Copy do Quiz</h1>
+  <p class="lead">Capta, qualifica e entrega a primeira dose do produto antes de qualquer oferta.</p>
+
+  <div class="lbl">Como ler esta seção</div>
+  <p>O quiz não entrega rótulo genérico. Ele devolve <strong>a etapa exata em que a conversa dele trava</strong>, que é a promessa central do método aplicada ao topo do funil. A pessoa termina o quiz tendo experimentado o diagnóstico retroativo em dois minutos.</p>
+  <p>Isso importa mais aqui do que num funil de sessão: como não existe reunião para convencer ninguém, <strong>o quiz é o vendedor</strong>. Se ele acertar a leitura, a oferta na página seguinte vira consequência. Se errar, nenhuma copy salva.</p>
+  <p>As sete etapas foram agrupadas em quatro travas, porque é assim que a pessoa sente o problema. A P3 define a trava dominante e comanda a personalização da página inteira.</p>
+
+  <div class="lbl">Hero da página do quiz</div>
+  <p><strong>Título:</strong> Existe uma etapa exata em que você perdeu aquela venda</p>
+  <p><strong>Subtítulo:</strong> Responda em 2 minutos e descubra em qual das sete etapas da sua reunião o controle escapa, por que o lead diz que vai pensar e o que precisa mudar antes da sua próxima call.</p>
+  <p><strong>Tempo:</strong> 2 minutos · <strong>CTA:</strong> Fazer meu diagnóstico</p>
+
+  <div class="q">
+    <div class="qh">P1 · SITUAÇÃO</div>
+    <div>Como as suas reuniões de venda chegam até você hoje?</div>
+    <div class="qa">a) Quase tudo por indicação e rede · b) Indicação e, de vez em quando, alguém do meu conteúdo · c) Tenho tráfego rodando e agenda entrando · d) Tenho time comercial agendando para mim</div>
+  </div>
+
+  <div class="q">
+    <div class="qh">P2 · SITUAÇÃO</div>
+    <div>Como costumam terminar as reuniões que você não fecha?</div>
+    <div class="qa">a) Ele diz que vai pensar e some · b) Pede para mandar a proposta por escrito · c) Concorda com tudo, elogia, e não avança · d) Só avança se eu melhorar a condição</div>
+  </div>
+
+  <div class="q">
+    <div class="qh">P3 · PROBLEMA · DEFINE A TRAVA DOMINANTE</div>
+    <div>Em que momento da conversa você sente que perde o controle?</div>
+    <div class="qa">a) Logo no começo. Ele me trata como mais um vendedor desde o primeiro minuto (Alarme Primal) · b) No meio. Ele responde tudo, mas não reconhece o tamanho do próprio problema (Diagnóstico Raso) · c) Quando ele assume a conversa, faz as perguntas e eu viro apresentador (Perda de Posição) · d) Na hora do preço. Até ali estava bom (Prescrição Sem Âncora)</div>
+  </div>
+
+  <div class="q">
+    <div class="qh">P4 · IMPLICAÇÃO</div>
+    <div>O que essa situação já te custou?</div>
+    <div class="qa">a) Dar desconto em contrato que valia o preço cheio · b) Reunião de retorno que nunca acontece e agenda ocupada com quem não decide · c) Ver concorrente com produto pior fechando no meu lugar · d) Sair de reunião sem entender o que aconteceu e repetir o erro na seguinte</div>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Por que estas quatro alternativas, e não outras</div>
+    <p>São as quatro cenas que o canvas descreve como as que mais se repetem, na ordem em que doem. A alternativa c carrega a ferida dominante do avatar, que é injustiça, e a d carrega a que tira o sono: a ausência de diagnóstico.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 5 QUIZ P2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thiago Menegão</span><span>Página 6</span></div>
+  <div class="kicker">Seção 2 · Parte 2</div>
+  <h1>Copy do Quiz: perguntas 5 a 9</h1>
+
+  <div class="q">
+    <div class="qh">P5 · TENTATIVAS</div>
+    <div>O que você já tentou para mudar isso?</div>
+    <div class="qa">a) Troquei de script mais de uma vez · b) Comprei treinamento de vendas ou mentoria comercial · c) Contratei closer ou SDR para tirar isso de mim · d) Aumentei o investimento em tráfego para compensar no volume</div>
+  </div>
+
+  <div class="q">
+    <div class="qh">P6 · OBJETIVO</div>
+    <div>O que você mais quer nos próximos meses?</div>
+    <div class="qa">a) Converter mais das reuniões que já tenho, sem aumentar tráfego · b) Parar de improvisar e ter uma estrutura para seguir · c) Conseguir olhar uma call perdida e saber exatamente onde errei · d) Passar o método para o meu time</div>
+  </div>
+
+  <div class="q">
+    <div class="qh">P7 · PERFIL · ESTRUTURA COMERCIAL</div>
+    <div>Como está montada a sua operação de vendas hoje?</div>
+    <div class="qa">a) Sou eu que faço tudo, da prospecção ao fechamento · b) Eu fecho, e tenho alguém agendando · c) Tenho closer vendendo junto comigo · d) Tenho time comercial estruturado, com pré-vendas e closers</div>
+  </div>
+
+  <div class="q">
+    <div class="qh">P8 · A CONTA · CALIBRA A COPY E ALIMENTA O DIAGNÓSTICO</div>
+    <div>Quantas reuniões de venda você faz por mês e quantas fecham?</div>
+    <div class="qa">a) Menos de 8 reuniões · b) De 8 a 15, e fecho cerca de 2 em cada 10 · c) De 15 a 30, e fecho cerca de 2 em cada 10 · d) De 15 a 30, e fecho mais de 3 em cada 10</div>
+  </div>
+
+  <div class="q">
+    <div class="qh">P9 · TICKET · CALIBRA O ARGUMENTO</div>
+    <div>Qual é o ticket do que você vende em reunião?</div>
+    <div class="qa">a) Até R$ 3 mil · b) De R$ 3 mil a R$ 5 mil · c) De R$ 5 mil a R$ 25 mil · d) Acima de R$ 25 mil</div>
+  </div>
+
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thiago Menegão</span><span>Página 7</span></div>
+  <div class="kicker">Seção 2 · Parte 3</div>
+  <h1>Segmentação, a Conta e a Captura</h1>
+  <p class="lead">O que o quiz faz com as respostas depois que a pessoa termina.</p>
+
+  <div class="box-dark">
+    <div class="bt">A pergunta que faz o diagnóstico valer sozinho</div>
+    <p>A P8 e a P9 juntas permitem devolver, na página, <strong>a conta que o canvas diz que ele faz de madrugada</strong>: se ele faz 20 reuniões por mês, fecha 2 em cada 10 e o ticket é R$ 15 mil, ele fecha 4 e deixa 4 na mesa. <strong>Doze meses disso são R$ 720 mil que não entraram.</strong></p>
+    <p>Nenhuma promessa precisa ser feita. O número é dele, calculado com os dados dele, e é o argumento mais forte que existe para um produto de R$ 2 mil. É também a resposta pronta para a objeção de que o problema é geração de lead.</p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Regra de segmentação: aqui ninguém é descartado</div>
+    <p>Este funil vende um produto de R$ 2 mil, e não uma agenda. Portanto <strong>todo mundo que conclui o quiz recebe a oferta</strong>, independente do ticket. O canvas define o corte do cliente ideal em ticket acima de R$ 3 mil, mas esse corte serve para leitura de qualidade de base, não para barrar compra: quem vende abaixo disso precisa ainda mais do protocolo, e o preço cabe.</p>
+    <p>A P9 e a P7 servem para <strong>calibrar o argumento</strong>, não para barrar: quem marca ticket alto recebe a versão que fala em contrato perdido; quem marca ticket menor recebe a que fala em volume de reunião desperdiçada.</p>
+    <p><strong>A exceção que vale ouro:</strong> quem marcar <strong>d na P9 e d na P7</strong> (ticket acima de R$ 25 mil com time comercial estruturado) é sinalizado para o Thiago em relatório semanal. Esse perfil compra o gravado e é candidato natural ao que ele já vende caro, inclusive treinar o time inteiro. O funil não aborda: apenas entrega o nome.</p>
+  </div>
+
+  <div class="lbl">Por que o filtro não pergunta faturamento</div>
+  <p>Regra dele, adotada no funil: faturamento declarado não vale nada, porque a pessoa mente e porque faturamento não é lucro. Ticket praticado e estrutura comercial dizem a verdade sobre o jogo que a pessoa joga.</p>
+
+  <div class="lbl">Captura de dados</div>
+  <p><strong>Título:</strong> Seu diagnóstico está pronto · <strong>Subtítulo:</strong> Preencha abaixo para ver o resultado e receber uma cópia no WhatsApp (leva 30 segundos).</p>
+  <p><strong>Campos:</strong> Nome · WhatsApp · E-mail · O que você vende · <strong>CTA:</strong> Ver meu diagnóstico</p>
+  <p><strong>Privacidade:</strong> Seus dados estão seguros. Nada de spam, só o seu diagnóstico e o próximo passo.</p>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 6 PÁGINA · VISÃO -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thiago Menegão</span><span>Página 8</span></div>
+  <div class="kicker">Seção 3 · Parte 1</div>
+  <h1>Página de Diagnóstico e Oferta</h1>
+  <p class="lead">A peça central deste funil. Ela diagnostica, prova e vende, na mesma rolagem.</p>
+
+  <div class="lbl">O trabalho desta página</div>
+  <p>É uma peça só. A pessoa responde o quiz, deixa os dados e cai direto aqui, no resultado dela. A leitura sobe do diagnóstico para a oferta sem mudar de assunto: a trava é nomeada, o mecanismo explica por que ela existe, e o produto é o caminho para corrigi-la.</p>
+  <p>A régua: ela precisa chegar no botão pensando "é exatamente isso que acontece comigo, e eu quero a estrutura", e não "já entendi tudo sozinho".</p>
+
+  <div class="box-dark">
+    <div class="bt">As duas regras que valem só para este cliente</div>
+    <p><strong>Primeira:</strong> esta página é lida por gente que vende. Metade vai reconhecer a estrutura da copy enquanto lê. Por isso a página é construída sobre a <strong>etapa Espelho</strong>, que devolve a situação dele nas palavras dele antes de qualquer proposta. Espelho bem feito não parece técnica, parece leitura.</p>
+    <p><strong>Segunda:</strong> nenhum bloco usa projeção de futuro e nenhum bloco usa ancoragem inflada. O único gatilho de decisão é o <strong>custo de continuar adiando</strong>. Dizer que o produto vale R$ 10 mil e sai por R$ 2 mil destruiria a venda com este comprador, e contradiria o próprio método que está sendo vendido.</p>
+  </div>
+
+  <div class="lbl">Os dez blocos, na ordem</div>
+  <p>1. O resultado dele · 2. A leitura do cenário · 3. O espelho · 4. Por que o que você tentou não funcionou · 5. O mecanismo · 6. O que precisa acontecer no seu caso · 7. A oferta · 8. Quem é o Thiago e a prova · 9. Para quem é, para quem não é, e o FAQ · 10. A decisão e o CTA final.</p>
+
+  <div class="lbl">Variáveis usadas nesta página</div>
+  <p>{{nome}} · {{trava_dominante}} (da P3) · {{origem_reunioes}} (P1) · {{padrao_de_perda}} (P2) · {{custo}} (P4) · {{tentativa_anterior}} (P5) · {{objetivo}} (P6) · {{estrutura_comercial}} (P7) · {{conta_reunioes}} (P8) · {{faixa_ticket}} (P9).</p>
+  <p>[DEPOIMENTO] marca os espaços reservados para prova, a serem preenchidos assim que os vídeos chegarem.</p>
+
+  <div class="box-light">
+    <div class="bt">As quatro travas e o que cada uma significa</div>
+    <p><strong>Alarme Primal:</strong> o lead classifica você como vendedor nos primeiros segundos e passa a conversa inteira defendido. Etapas afetadas: Abertura e Diagnóstico.</p>
+    <p><strong>Diagnóstico Raso:</strong> ele responde tudo, mas nunca reconhece o tamanho do próprio problema. Sem reconhecimento, não há urgência. Etapas: Diagnóstico e Espelho.</p>
+    <p><strong>Perda de Posição:</strong> ele assume a condução, faz as perguntas, e você vira apresentador. Etapas: Contexto e Condução.</p>
+    <p><strong>Prescrição Sem Âncora:</strong> a conversa vai bem até o preço, porque o valor não foi ancorado antes de aparecer. Etapas: Prescrição e Decisão.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 7 BLOCOS 1-3 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thiago Menegão</span><span>Página 9</span></div>
+  <div class="kicker">Seção 3 · Parte 2</div>
+  <h1>A Copy, Bloco a Bloco</h1>
+
+  <div class="lbl">Bloco 1 · O resultado dele</div>
+  <p><strong>Headline:</strong> {{nome}}, a sua reunião trava em: {{trava_dominante}}</p>
+  <p><strong>Subheadline:</strong> Isso não diz nada sobre a qualidade do que você vende. Diz em que ponto da conversa a decisão sai do seu controle.</p>
+
+  <div class="lbl">Bloco 2 · A leitura do cenário</div>
+  <p>Você contou que as suas reuniões chegam principalmente por {{origem_reunioes}}, que as que não fecham costumam terminar com {{padrao_de_perda}}, e que isso já te custou {{custo}}.</p>
+  <p>Essa combinação é a assinatura de quem trava em {{trava_dominante}}. Repare no que ela tem de específico: o problema não aparece no fim da conversa, mesmo que seja lá que você sinta. Ele aparece antes, e só cobra o preço no fim.</p>
+
+  <div class="lbl">Bloco 3 · O espelho</div>
+  <p>Você provavelmente se reconhece aqui:</p>
+  <ul class="check">
+    <li>A reunião corre bem. O lead se abre, elogia, demonstra interesse. Na hora do preço, o clima muda.</li>
+    <li>Você manda a proposta por escrito e o lead desaparece.</li>
+    <li>Faz o follow-up se sentindo inconveniente por fazer. Então faz pouco, ou não faz.</li>
+    <li><strong>Trava meio segundo antes de falar o preço.</strong> E esse meio segundo é sentido do outro lado.</li>
+    <li>Reabre a gravação da call, assiste inteira, e continua sem enxergar o ponto em que a conversa virou.</li>
+    <li>Explica demais, ensina demais dentro da reunião, entrega o valor inteiro de graça, e mesmo assim não fecha.</li>
+    <li>Enche a agenda para compensar a conversão, e termina o mês trabalhando mais para faturar o mesmo.</li>
+    <li>Já explicou a perda para si mesmo culpando o lead: não tinha dinheiro, não era o momento, não era meu público.</li>
+  </ul>
+  <p><strong>Virada:</strong> nada disso é falta de técnica de fechamento. É a ordem. A decisão de compra acontece em três camadas, e a maior parte das reuniões é perdida porque o vendedor entra pela camada errada, na hora errada. O fim da conversa é onde a conta chega, não onde o erro acontece.</p>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 8 BLOCOS 4-6 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thiago Menegão</span><span>Página 10</span></div>
+  <div class="kicker">Seção 3 · Parte 3</div>
+  <h1>A Copy, Bloco a Bloco</h1>
+
+  <div class="lbl">Bloco 4 · Por que o que você tentou não funcionou</div>
+  <p>A maior parte do que se ensina sobre venda trabalha <strong>o que dizer</strong>. Uma parte menor trabalha <strong>como pensar</strong>. Quase ninguém trabalha <strong>a ordem</strong>. Por isso {{tentativa_anterior}} não mudou o seu jogo:</p>
+  <ul class="check">
+    <li><strong>Curso de vendas genérico:</strong> ensina a vender ticket baixo por volume. Não se aplica a uma reunião de R$ 25 mil.</li>
+    <li><strong>Banco de script, ou script gerado por IA:</strong> resolve o que dizer, e a conversa quebra no primeiro desvio.</li>
+    <li><strong>Conteúdo gratuito de fechamento:</strong> peças soltas sem sequência. Vira repertório sem arquitetura.</li>
+    <li><strong>Contratar closer:</strong> transferiu o problema, manteve a dependência e adicionou custo.</li>
+    <li><strong>Aumentar tráfego:</strong> comprar mais leads para compensar conversão baixa é a saída mais cara que existe.</li>
+    <li><strong>Baixar preço ou parcelar mais:</strong> fechou algumas vendas e corroeu o posicionamento.</li>
+    <li><strong>Terapia, mentalidade, autoconfiança:</strong> trabalhou a crença sem mudar o comportamento, e a crença voltou ao ponto anterior.</li>
+  </ul>
+  <p>Todos têm o mesmo alvo: <strong>o que dizer</strong>. Nenhum toca na camada em que a decisão acontece.</p>
+
+  <div class="lbl">Bloco 5 · O mecanismo</div>
+  <p>O Protocolo PRIMAL PITCH parte da ordem real em que a decisão humana acontece.</p>
+  <ol class="num">
+    <li><strong>Primal:</strong> segurança, ameaça, status e pertencimento. Decide antes da consciência. Ignorada, o lead resiste sem saber por quê e diz que vai pensar.</li>
+    <li><strong>Emocional:</strong> desejo, medo e identidade projetada. Dá a energia da decisão. Ignorada, o lead entende tudo, concorda com tudo e não compra.</li>
+    <li><strong>Racional:</strong> justificativa, comparação e orçamento. Sustenta a decisão já tomada. Ignorada, o lead compra e depois se arrepende.</li>
+  </ol>
+  <p>Sobre essa hierarquia rodam sete etapas, cada uma com função, critério de saída e sinal de travamento: Abertura, Diagnóstico, Espelho, Contexto, Condução, Prescrição e Decisão. É o que permite olhar uma reunião perdida e apontar a etapa exata em que o controle escapou.</p>
+
+  <div class="lbl">Bloco 6 · O que precisa acontecer no seu caso</div>
+  <p>Personalizado por {{trava_dominante}}:</p>
+  <p><strong>Alarme Primal:</strong> antes de qualquer pergunta, desativar o alarme. Enquanto ele te classificar como vendedor, cada argumento seu vira mais um motivo para ele se proteger.</p>
+  <p><strong>Diagnóstico Raso:</strong> ele responde, mas não se enxerga. Falta a etapa que devolve a situação dele nas palavras dele, antes de qualquer proposta. Sem reconhecimento não existe urgência, e sem urgência não existe decisão.</p>
+  <p><strong>Perda de Posição:</strong> quem faz as perguntas conduz a sala. O trabalho aqui é posição, ritmo e limite, para você voltar a conduzir sem endurecer a conversa.</p>
+  <p><strong>Prescrição Sem Âncora:</strong> o preço não é caro, ele chegou sozinho. Falta ancoragem instalada antes, e falta transformar oferta em prescrição, que é o passo natural de quem acabou de entender o próprio diagnóstico.</p>
+  <p><strong>O custo de continuar como está:</strong> não é só o contrato que não fechou. É o desconto que você deu sem precisar, a agenda ocupada por quem nunca ia decidir, o concorrente pior que levou o cliente, e a próxima reunião que você vai conduzir do mesmo jeito, porque ninguém te mostrou onde ela quebrou.</p>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 9 BLOCO 7 · A OFERTA -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thiago Menegão</span><span>Página 11</span></div>
+  <div class="kicker">Seção 3 · Parte 4</div>
+  <h1>Bloco 7 · A Oferta</h1>
+  <p class="lead">A transição do diagnóstico para o produto, sem mudar de assunto e sem mudar de tom.</p>
+
+  <div class="lbl">A virada para a oferta</div>
+  <p>Agora você sabe onde a sua conversa quebra. Saber já muda a próxima reunião, e essa parte é sua para sempre, tenha você comprado alguma coisa ou não.</p>
+  <p>O que saber não resolve é a estrutura. Enquanto a correção depender de você lembrar, no meio de uma negociação, o que precisa acontecer naquela etapa, ela não vai acontecer. Condução não se sustenta na memória, se sustenta em protocolo.</p>
+
+  <div class="box-dark">
+    <div class="bt">A oferta, como ela aparece na página</div>
+    <p><strong>PRIMAL PITCH</strong>, o protocolo completo de condução de reuniões de alto valor. Gravado, publicado e liberado na hora.</p>
+    <p><strong>Os seis movimentos do Primal Pitch:</strong> os fundamentos da hierarquia primal, emocional e racional, e os cinco elementos que atravessam a conversa inteira: posição, ritmo, intenção, âncora e limite.</p>
+    <p><strong>As sete etapas do Primal Closing:</strong> Abertura, Diagnóstico, Espelho, Contexto, Condução, Prescrição e Decisão, aplicadas a uma call real, do primeiro minuto ao fechamento ou ao follow-up. Cada etapa com a função dela, o critério de saída e o sinal de que a conversa travou, em um módulo por etapa.</p>
+    <p><strong>Perfis comportamentais e objeção por ferida:</strong> a calibragem de linguagem, ritmo e ancoragem para os quatro perfis, e o tratamento de objeção pela ferida ativada, no lugar de resposta pronta.</p>
+    <p><strong>O protocolo pós-decisão:</strong> a instalação que protege a venda contra o arrependimento e o follow-up estruturado em 2, 24 e 48 horas.</p>
+    <p><strong>Bônus, o Framework de Análise de Call:</strong> o guia que transforma cada reunião perdida em informação aproveitável, com a régua das sete etapas para você auditar as suas próprias gravações.</p>
+  </div>
+
+  <div class="lbl">Preço e condição</div>
+  <p><strong>R$ 2 mil</strong>, à vista ou parcelado. Acesso imediato à área de membros após a confirmação do pagamento. Condições de parcelamento, garantia e período de acesso conforme confirmação do checkout.</p>
+  <p><strong>Turma de Fundadores:</strong> condição válida até {{data_limite}}. Depois disso o preço sobe e não volta.</p>
+  <p><strong>Garantia.</strong> Entra, assiste, aplica na primeira call. Se não fizer sentido dentro do prazo de garantia, devolução integral sem pedir explicação. O prazo exato entra na página conforme a definição do checkout.</p>
+
+  <div class="box-light">
+    <div class="bt">Nota de copy para a implementação</div>
+    <p>O prazo da Turma de Fundadores precisa ser <strong>real</strong>, com data no ar e preço que efetivamente sobe. Este público identifica escassez inventada mais rápido que qualquer outro, e um prazo falso aqui custaria mais caro do que a venda que ele traria.</p>
+    <p>Não usar comparação de valor inflada. O produto não vale R$ 10 mil e sai por R$ 2 mil: ele custa R$ 2 mil, e a justificativa é o contrato que a próxima reunião conduzida direito paga.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 10 BLOCOS 8-10 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thiago Menegão</span><span>Página 12</span></div>
+  <div class="kicker">Seção 3 · Parte 5</div>
+  <h1>Autoridade, Objeções e a Decisão</h1>
+
+  <div class="lbl">Bloco 8 · Quem é o Thiago e a prova</div>
+  <p>Engenheiro de computação, estudioso de comportamento humano desde 1993. Passou quase duas décadas nos bastidores de empresas como Mercedes, Itaú, Honda, John Deere, Electrolux e Philips, entregou mais de 50 projetos e trabalhou estratégia, comunicação e comportamento antes de vender qualquer coisa para si mesmo.</p>
+  <p>Não nasceu vendedor. Quando precisou fechar os próprios contratos, foi para o campo no improviso e apanhou. Estudou o que todo mundo estuda, melhorou pouco, e só virou o jogo quando cruzou psicologia comportamental, neurociência e tomada de decisão com a prática real de fechamento. Parou de perguntar como convenço este lead e passou a perguntar em que camada este lead decide.</p>
+  <p>Hoje conduz negociações de alto valor com esse protocolo e cobra R$ 9 mil pela hora de consultoria. O PRIMAL PITCH gravado existe para que o método chegue a quem quer a estrutura sem contratar a agenda dele.</p>
+  <p>[DEPOIMENTO] [DEPOIMENTO] [DEPOIMENTO] com o segmento visível: quem vende alto valor só confia em quem vende alto valor.</p>
+
+  <div class="lbl">Bloco 9 · Para quem é, para quem não é, e o FAQ</div>
+  <p><strong>É para você se:</strong> vende em reunião individual ou em palco, com ticket que exige conversa · já entrega resultado real e sente que a condução não está à altura do que entrega · se recusa a usar ancoragem falsa e fechamento forçado.</p>
+  <p><strong>Não é para você se:</strong> procura frase pronta para vencer objeção sem mudar a condução · acredita que o problema está inteiramente no lead · ainda não tem produto validado nem reunião acontecendo, porque aí o seu gargalo é aquisição, não condução · procura motivação em vez de estrutura.</p>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thiago Menegão</span><span>Página 13</span></div>
+  <div class="kicker">Seção 3 · Parte 6</div>
+  <h1>As Objeções e a Decisão</h1>
+  <p class="lead">Cada objeção tratada pela ferida que a ativa, como o próprio método prescreve.</p>
+
+  <div class="lbl">O FAQ da página</div>
+  <p><strong>Isso não é manipular o lead?</strong> Não, e é o contrário. Manipular é fazer alguém decidir contra o próprio interesse. Conduzir é assumir a responsabilidade por uma conversa que a outra pessoa precisa concluir. A passividade é que não é neutra: quando você não conduz, quem conduz é a insegurança do lead, e ele decide não decidir. O protocolo se sustenta em Posição e Limite, nunca em pressão.</p>
+  <p><strong>Já fiz curso de vendas e não mudou nada.</strong> Categorias diferentes: técnica solta contra arquitetura sequencial. É por isso que o mecanismo inteiro está exposto acima, antes de você decidir qualquer coisa.</p>
+  <p><strong>Não tenho tempo para assistir.</strong> Não precisa. Você aplica um conceito na call de amanhã, analisa com o framework e avança. Um ciclo por vez.</p>
+  <p><strong>Meu problema é geração de lead, não conversão.</strong> Talvez. Mas comprar mais lead para compensar conversão baixa é a correção mais cara que existe, e a conta acima é sua, feita com os seus números.</p>
+  <p><strong>Prefiro contratar um closer.</strong> Sem um padrão de condução definido por você, o closer improvisa. Você troca a dependência de si mesmo pela dependência dele, e adiciona comissão.</p>
+  <p><strong>Isso é mais um treinamento de vendas?</strong> Não. Treinamento de vendas trabalha o que dizer. Aqui o trabalho é a ordem, que é o que determina se a frase certa chega na camada certa.</p>
+  <p><strong>Preciso assistir tudo antes de aplicar?</strong> Não, e o desenho é proposital. Você aplica um conceito em uma call real, analisa com o framework e avança. Progresso a cada ciclo, não no fim do curso.</p>
+  <p><strong>Funciona no meu segmento?</strong> O protocolo não é sobre o seu produto, é sobre como a decisão humana acontece. Foi aplicado em segmentos que não conversam entre si, de medicina a curso de idioma.</p>
+  <p><strong>Serve para o meu time comercial?</strong> Serve, e vira critério único de avaliação de call. Cada pessoa do time precisa do próprio acesso.</p>
+  <p><strong>E se não for para mim?</strong> Existe prazo de garantia. Devolução integral, sem pedir explicação.</p>
+
+  <div class="box-dark">
+    <div class="bt">Bloco 10 · A decisão, na estrutura de três escolhas</div>
+    <p>{{nome}}, a partir daqui existem três caminhos.</p>
+    <p><strong>O primeiro é fechar esta página</strong> e voltar para a rotina. Continuar explicando demais, continuar ouvindo faz sentido de novo, continuar torcendo para a próxima call ser diferente. Você pode seguir assim, mas o curso disso você já conhece.</p>
+    <p><strong>O segundo é tentar resolver sozinho.</strong> Assistir mais conteúdo, juntar mais informação, testar outro script. Se informação bastasse, isso já estaria resolvido. O que falta não é conteúdo, é estrutura de condução.</p>
+    <p><strong>O terceiro é entrar agora</strong> e aplicar o protocolo na sua próxima reunião. Uma única negociação conduzida na ordem certa já paga este investimento.</p>
+    <p>A pergunta não é se faz sentido entrar. A pergunta é <strong>quanto te custa continuar adiando</strong>.</p>
+    <p><strong>CTA:</strong> Quero o PRIMAL PITCH · <strong>Reforço:</strong> acesso imediato à área de membros, com garantia, e condição de fundadores até {{data_limite}}.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+<!-- 10 ANÚNCIOS · REGRAS + ÂNGULO 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thiago Menegão</span><span>Página 14</span></div>
+  <div class="kicker">Seção 4 · Parte 1</div>
+  <h1>Recomendações Estratégicas</h1>
+  <p class="lead">O que a Simple recomenda além da copy.</p>
+
+  <div class="lbl">Sobre o gargalo real, que é um só: prova</div>
+  <p>O produto está pronto e publicado, a infraestrutura está contratada e a estratégia está escrita. Falta uma coisa: <strong>zero depoimento em vídeo</strong>, para o comprador que menos aceita afirmação sem evidência, porque vive de identificar afirmação sem evidência.</p>
+  <p>Para este público, prova não é elemento de página, é <strong>o que determina quanto vai custar cada venda</strong>. Com depoimento, o custo por aquisição cai. Sem depoimento, a mídia paga a diferença todo mês.</p>
+  <p>A saída já está na mão: o grupo de mentoriados que recebeu o método e quem já está dentro do PRIMAL PITCH. De 3 a 5 vídeos, com a etapa nomeada, um número e o segmento visível, valem mais que qualquer criativo novo. Enquanto não chegam, a página depende só do lastro corporativo, que sustenta competência mas não sustenta resultado de aluno.</p>
+
+  <div class="lbl">Sobre o número de conversão</div>
+  <p>A virada de 10% para mais de 60% é o ativo de copy mais forte deste projeto e hoje não tem base declarada nem período. Definido isso, entra na página com segurança. Sem isso, não entra: é exatamente o tipo de número que este público sabe checar.</p>
+
+  <div class="lbl">Sobre a métrica que decide</div>
+  <p>Não é custo por lead, é <strong>custo por aquisição</strong>. Com ticket de R$ 2 mil, a régua saudável fica <strong>abaixo de R$ 500</strong>, um quarto do ticket. Com custo por lead de R$ 12 e conversão de 3%, o custo por aquisição fica em R$ 400 e a conta fecha com folga.</p>
+  <p>Escalar somente depois de <strong>10 vendas com custo estável</strong>. Antes disso o número é ruído. E acompanhar reembolso desde a primeira venda: acima de 10%, o problema é entrega ou expectativa, e a mídia para até ajustar.</p>
+
+  <div class="lbl">Sobre compliance</div>
+  <p>Dois riscos de reprovação: promessa de ganho, que inclui citar percentual de conversão, e afirmação de atributo pessoal do leitor. A régua para as gravações: descrever a cena, nunca acusar a pessoa. Acusar um vendedor de não saber vender ativa exatamente o alarme primal que o método ensina a desligar.</p>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 24 RECOMENDAÇÕES 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Thiago Menegão</span><span>Página 15</span></div>
+  <div class="kicker">Seção 4 · Parte 2</div>
+  <h1>Recomendações Estratégicas</h1>
+
+  <div class="lbl">Sobre o acervo de palco, o ativo mais subaproveitado</div>
+  <p>Existe uma palestra de dois dias, uma apresentação de cerca de 130 slides e material de sala gravado. No perfil dele, esse formato faz de 23 mil a 32 mil visualizações enquanto o vídeo caseiro faz menos de mil.</p>
+  <p>Ou seja: o criativo de maior performance deste funil <strong>já foi gravado</strong> e está parado. Cortar esse acervo é a ação de maior retorno por hora de trabalho do projeto inteiro, e não depende de gravar nada novo.</p>
+
+  <div class="lbl">Sobre proteger a agenda dele</div>
+  <p>Esta é a recomendação que mais vale dinheiro. A hora de consultoria custa R$ 9 mil, o produto custa R$ 2 mil: <strong>uma hora dele equivale a quatro vendas e meia</strong>.</p>
+  <p>Toda vez que aparecer a ideia de colocá-lo em call de venda, em atendimento de dúvida ou em sessão de bônus para converter o produto de R$ 2 mil, a resposta é não. O canal só faz sentido enquanto for automático. Se em algum momento ele precisar atender para vender, o projeto virou outra coisa e precisa ser reprecificado.</p>
+
+  <div class="lbl">Sobre o canal de parceria, que é a maior alavanca depois da validação</div>
+  <p>Produto gravado escala por dois caminhos: mídia paga e audiência de terceiros. O segundo não tem custo de aquisição e é o mais rápido no caso dele, porque o entorno já existe: a base da Simple, as agências da Galaxy da Hotmart e mentores com audiência de gente que vende.</p>
+  <p>Começar pelo que já está desenhado com o Daniel: workshop para a base da Simple com o pitch do produto no final. Antes de abrir para o primeiro parceiro, definir comissão, material de apoio e link de rastreio. Depois do funil validado, não antes: audiência boa gasta em oferta não validada não volta.</p>
+
+  <div class="lbl">Sobre a esteira, depois dos 90 dias</div>
+  <p>Nada de produto novo dentro da janela. Passados os 90 dias e com base de compradores formada, os dois degraus naturais já existem em rascunho: uma trilha de análise de call apoiada na IA que ele está montando, e o formato in company para treinar time comercial inteiro, que é ticket alto e vem do histórico corporativo dele.</p>
+
+  <div class="lbl">Visão de longo prazo</div>
+  <p>Quatro ativos que ninguém no mercado dele copia:</p>
+  <ul class="check">
+    <li><strong>O lastro corporativo.</strong> Mercedes, Itaú, Honda, John Deere, Electrolux e Philips. Quem ensina venda no digital não tem isso, e é o que o separa de guru na primeira frase.</li>
+    <li><strong>O inimigo nomeado e a marca.</strong> PRIMAL PITCH com registro e a Inversão de Camada como território proprietário.</li>
+    <li><strong>A tecnologia de quiz que ele já desenvolveu</strong> na outra empresa, com análise de perfil e dossiê. Infraestrutura pronta que a maioria dos concorrentes não tem como construir.</li>
+    <li><strong>A base de compradores.</strong> Cada venda de R$ 2 mil entrega alguém que consumiu o método por inteiro. É dessa lista que saem os depoimentos, os casos e as pessoas que um dia contratam a hora de R$ 9 mil.</li>
+  </ul>
+  <p>O produto de R$ 2 mil não compete com o que ele já vende caro. Ele alimenta.</p>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+</body>
+</html>
