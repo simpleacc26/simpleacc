@@ -20,9 +20,14 @@ onde o outro parou (o Git é a memória compartilhada).
 3. Salve os entregáveis na pasta certa (acima) e **registre o aprendizado** em `aprendizados.md`.
 4. Trabalhe numa branch `cliente/gustavo-ono/<assunto>` e abra PR.
 
-## Contexto rápido (preencher)
+## Contexto rápido
 
-- **Oferta principal:** _(a preencher)_
-- **Público / ICP:** _(a preencher)_
-- **Links (site, páginas, Make, Figma, Drive):** _(a preencher)_
-- **Contato principal:** _(a preencher)_
+- **Expert:** Gustavo Ono — chocolatier profissional. Instagram: `@gustavo_ono`
+- **Oferta principal:** Formação Chocolatier Profissional — R$ 5.000 (high ticket, 9 módulos online)
+- **Low ticket:** R$ 97 (produto de entrada)
+- **Funil:** Anúncio Instagram → Quiz → Diagnóstico PDF → SDR WhatsApp → Call de vendas
+- **Público / ICP:** Mulheres 35–55 anos, cozinha de casa, transição de carreira, apaixonadas por chocolate mas inseguras técnica e comercialmente. Dores: dependência de datas sazonais, não saber cobrar, sem método.
+- **Meta de receita:** R$ 100.000/mês
+- **Drive:** https://drive.google.com/drive/folders/1Nn7jaE_vdnrTt-D2ptLO7r3ot8QzPjWS
+- **Contexto completo:** ver `contexto/cliente.md`
+- **Estratégia e métricas:** ver `estrategia/visao-geral.md`
