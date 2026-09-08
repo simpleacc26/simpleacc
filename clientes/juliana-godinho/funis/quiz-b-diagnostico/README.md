@@ -309,3 +309,23 @@ export VERCEL_TOKEN=...   # token da conta da Simple, nunca commitado
 | Cliente | Juliana Godinho |
 | Conta na Simple | Renan Martini |
 | Comercial da cliente | 1 SDR + 1 closer |
+
+## oferta.html
+
+Página de vendas do **Venda Mais na Estética**, R$ 197, criada em 08/09/2026.
+É para onde vai a lead que termina o diagnóstico com faturamento até R$ 10 mil.
+
+- Botões apontam para o checkout da Eduzz: `https://chk.eduzz.com/ovxljxgb`
+- As UTMs e o `lead_id` da lead são repassados para o checkout na querystring.
+  O quiz grava as UTMs aninhadas em `payload.utm` e o identificador em
+  `payload.id` dentro de `sessionStorage['jugodinho_quizb']`, e não como chaves
+  de topo. Ler errado quebra a atribuição da venda em silêncio.
+- Eventos de GTM: `oferta_view` no carregamento e `oferta_click` em cada botão,
+  com `oferta_posicao` dizendo qual dos três disparou.
+- O bloco da VSL ainda não existe. Quando o vídeo estiver gravado, o embed entra
+  no comentário marcado dentro do `header.hero`, acima do botão.
+
+**A rota do diagnóstico ainda não foi trocada.** Os seis CTAs do
+`diagnostico.html` continuam indo todos para o WhatsApp. A troca para a rota
+`edp` deve ser feita junto com o deploy, e não antes, para nenhuma lead cair
+numa página que ainda não está no ar.
