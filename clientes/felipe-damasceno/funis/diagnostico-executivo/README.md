@@ -1,0 +1,84 @@
+# Diagnóstico Executivo (IDE) · Felipe Damasceno
+
+Funil de quiz do cliente Felipe Damasceno (Governo Empresarial). Transforma a
+copy aprovada (ver `clientes/felipe-damasceno/estrategia/`) em páginas no ar:
+quiz de 9 perguntas → captura → tela de carregamento → relatório personalizado
+com o **IDE (Índice de Dependência Empresarial)** → CTAs de WhatsApp distribuídos.
+
+Stack: HTML/CSS/JS puro, sem build, sem dependências. **Estrutura invisível
+espelhada do quiz de alta conversão da Pâmella Mello** (SPIN de 9 passos,
+qualificação no fim, tela de loading, relatório com espelho do cenário, reframe,
+dois caminhos, método, CTAs distribuídos e depoimentos, com CTA final adaptado à
+qualificação). Identidade visual e copy 100% do Felipe; o **% do IDE** é a
+personalização exclusiva dele.
+
+## Arquivos
+- `index.html` — quiz (uma pergunta por tela, sem título repetido em cima, auto-avanço, barra de progresso).
+- `diagnostico.html` + `diagnostico.js` — relatório pós-quiz (calcula o IDE, monta o diagnóstico, CTAs de WhatsApp distribuídos).
+- `flow.js` — **toda a copy** (config, marca, hero, 9 perguntas com pesos do IDE, captura). Editar aqui.
+- `styles.css` — identidade (tema dark navy + dourado, proposto).
+- `app.js` — motor do funil (render, validação, tela de loading, UTMs, sessionStorage, POST dos leads).
+- `integracao-planilha.gs` — Google Apps Script da planilha de leads.
+
+## Estrutura do quiz (9 passos, ordem SPIN)
+situação → problema → há quanto tempo → implicação → o que já tentou → objetivo →
+perfil → **faturamento** (qualificação de ICP) → **prontidão** (qualificação de
+intenção). As duas últimas ficam no fim, como no quiz da Pâmella.
+
+## Como o IDE é calculado
+Pesos por resposta (0 a 3) nas perguntas situação, problema, implicação,
+necessidade e perfil. `IDE% = soma / máximo`. ≥66% = Alto, 33 a 65% = Médio,
+<33% = Baixo. As perguntas de tempo, objetivo, faturamento e prontidão **não**
+entram no cálculo (só na leitura e na qualificação).
+
+## Qualificação e CTA adaptado
+`classificarLead()` roteia o lead em três faixas, e o relatório troca o CTA final:
+- **fora** (faturamento até R$ 50 mil ou R$ 50 a 100 mil): fora do ICP → conteúdo + plataforma.
+- **nutrir** (prontidão "não é prioridade" ou "só pesquisando"): "entender melhor como funciona".
+- **qualificado** (ICP + pronto): "agendar Sessão Estratégica".
+
+## No ar
+Publicado no time da Simple na Vercel (produção do projeto
+`quiz-felipe-damasceno`): **https://quiz-felipe-damasceno.vercel.app**
+Este é o link oficial. O projeto antigo `diagnostico-executivo-felipe` ainda
+responde, mas foi aposentado; pode ser removido no painel da Vercel.
+Ainda com as pendências abaixo (logo e planilha de leads).
+
+## Identidade e autoridade
+Paleta e emblema tirados da **apresentação comercial do Programa Governo
+Empresarial** (dourado âmbar `#E0A63A` sobre navy `#0A0E16`, coroa/escudo).
+A seção "Quem é o Felipe" traz foto + nome + os pontos de autoridade reais da
+apresentação (+R$ 100 mi no 1o ano, +2.800 empresas, +15 anos, 6 empresas, o
+livro e o ecossistema XGROW/EVENTX/D360/ADVAI/E3T/NeuroVerse). A foto
+(`felipe.webp`, 440px) foi recortada do post do Instagram, sem textos.
+
+## Leads (ligado e testado)
+Cada lead cai sozinho na planilha, via Make (mesmo padrão da Pâmella Mello):
+
+`funil → webhook do Make → Google Sheets`
+
+- **Planilha**: "Planilha de Leads - Felipe Damasceno (Diagnóstico Executivo IDE) - Simple Acc",
+  na pasta "Simple <> Felipe" do Drive. ID `1UmI0Q3Ldmtt1ScsQ0sxI9eANfgOiUx7f-wcUjfFo5M8`.
+  Aba `Untitled`, 21 colunas (as mesmas do `integracao-planilha.gs`).
+- **Cenário Make**: "[Felipe Damasceno] Diagnóstico Executivo (IDE) → Sheets"
+  (id 5805455, time Simple Acc), ativo.
+- **Endpoint** em `app.js → LEADS_ENDPOINT`.
+
+⚠️ O POST precisa ir com `Content-Type: application/json`. Com `text/plain`
+(o padrão de quem usa `mode: "no-cors"`) o webhook do Make **não parseia o corpo
+e a linha cai vazia**, sem erro nenhum. O webhook devolve
+`Access-Control-Allow-Origin: *`, então o CORS normal funciona.
+
+O `integracao-planilha.gs` fica no repo como plano B (caso um dia se queira sair
+do Make e usar Apps Script direto na planilha).
+
+## Pendências para publicar (o que falta do cliente)
+1. **Logo oficial**: hoje usa o emblema de coroa em SVG + marca em texto. Quando
+   vier o arquivo, colocar `logo.png` e ativar `<img class="logo-img">`.
+2. **Depoimentos**: opcional. Se vierem prints reais, dá para somar uma galeria
+   `.depo-gallery` com `<img class="depo-shot" src="depoimentos/01.webp">` sem
+   tirar o bloco de autoridade.
+
+## Deploy (resumo)
+Publicar **apenas esta pasta** na Vercel da Simple. Rodar tráfego com
+`?utm_source=...&utm_campaign=...` na URL para as UTMs caírem na planilha.

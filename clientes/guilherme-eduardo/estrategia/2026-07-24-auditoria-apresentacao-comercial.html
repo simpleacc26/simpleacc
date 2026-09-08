@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Auditoria de Apresentação Comercial · Guilherme Eduardo</title>
+<style>
+  @page { size: A4; margin: 16mm 17mm 16mm 17mm; }
+  @page :first { margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #15263C;
+    --navy-2: #1E344F;
+    --blue: #2E5A99;
+    --blue-lt: #5E82B6;
+    --steel: #8A9AAE;
+    --board: #EEF0F4;
+    --ink: #182230;
+    --mute: #66768A;
+    --line: #DEE2EA;
+  }
+  body { font-family: "Inter", -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+         color: var(--ink); font-size: 10pt; line-height: 1.55; }
+
+  /* ===== CAPA ===== */
+  .cover { width: 210mm; height: 297mm; background: var(--navy);
+    background-image: linear-gradient(rgba(94,130,182,.10) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(94,130,182,.10) 1px, transparent 1px);
+    background-size: 24mm 24mm;
+    color: #fff; position: relative; padding: 19mm; page-break-after: always; }
+  .cover .top { display: flex; justify-content: space-between; font-size: 8pt;
+    letter-spacing: .28em; text-transform: uppercase; color: #7f92ab; }
+  .cover .brand { font-weight: 300; letter-spacing: .42em; font-size: 12pt; color: #fff; }
+  .cover .mid { position: absolute; left: 19mm; right: 19mm; top: 108mm; }
+  .cover .kick { color: var(--blue-lt); font-size: 8.5pt; font-weight: 600;
+    letter-spacing: .24em; text-transform: uppercase; margin-bottom: 9pt; }
+  .cover h1 { font-size: 33pt; line-height: 1.08; font-weight: 600; letter-spacing: -.02em; max-width: 150mm; }
+  .cover .rule { width: 24mm; height: 2pt; background: var(--blue); margin: 9mm 0 8mm; }
+  .cover .sub { font-size: 11.5pt; color: #c2ccdb; line-height: 1.65; max-width: 135mm; font-weight: 300; }
+  .cover .idx { position: absolute; left: 19mm; right: 19mm; bottom: 47mm;
+    display: flex; gap: 5mm; flex-wrap: wrap; font-size: 7.5pt; letter-spacing: .16em;
+    text-transform: uppercase; color: #8fa3bd; border-top: 1px solid #2A3B54; padding-top: 7mm; }
+  .cover .foot { position: absolute; left: 19mm; right: 19mm; bottom: 19mm; display: flex; gap: 22mm; }
+  .cover .foot .l { font-size: 7pt; letter-spacing: .2em; text-transform: uppercase; color: #7f92ab; margin-bottom: 3pt; }
+  .cover .foot .v { font-size: 10.5pt; color: #fff; }
+  .cover .foot .yr { margin-left: auto; align-self: flex-end; font-size: 8pt; letter-spacing: .3em; color: #7f92ab; }
+
+  /* ===== CONTEÚDO ===== */
+  .sec { page-break-before: always; }
+  .eyebrow { color: var(--blue); font-size: 8pt; font-weight: 600; letter-spacing: .22em;
+    text-transform: uppercase; margin-bottom: 5pt; }
+  h2 { color: var(--navy); font-size: 17pt; font-weight: 600; letter-spacing: -.02em;
+    line-height: 1.15; margin-bottom: 4pt; page-break-after: avoid; }
+  .dek { font-size: 10.5pt; color: var(--mute); font-weight: 300; margin-bottom: 12pt;
+    padding-bottom: 9pt; border-bottom: 1px solid var(--line); }
+  h3 { color: var(--navy); font-size: 11pt; font-weight: 600; margin: 13pt 0 4pt; page-break-after: avoid; }
+  h3 .num { color: var(--blue); }
+  p { margin-bottom: 6pt; }
+  strong { color: var(--navy); font-weight: 600; }
+  .why { background: var(--board); border-left: 2.5pt solid var(--blue); padding: 8pt 12pt;
+    margin: 6pt 0 10pt; page-break-inside: avoid; }
+  .why b { color: var(--navy); font-size: 8pt; letter-spacing: .12em; text-transform: uppercase;
+    display: block; margin-bottom: 3pt; font-weight: 600; }
+  .why p { margin: 0; font-size: 9.5pt; }
+  .copybox { background: #fff; border: 1px solid var(--line); border-left: 2.5pt solid var(--steel);
+    padding: 8pt 12pt; margin: 6pt 0 10pt; page-break-inside: avoid; }
+  .copybox b { color: var(--steel); font-size: 8pt; letter-spacing: .12em; text-transform: uppercase;
+    display: block; margin-bottom: 3pt; font-weight: 600; }
+  .copybox p { margin: 0 0 4pt; font-size: 9.5pt; color: var(--ink); }
+  .copybox p:last-child { margin-bottom: 0; }
+  ul { list-style: none; margin: 3pt 0 8pt; }
+  ul li { padding-left: 13pt; position: relative; margin-bottom: 3.5pt; }
+  ul li::before { content: ""; position: absolute; left: 0; top: 5.5pt; width: 4pt; height: 4pt;
+    background: var(--blue); }
+  ul.plain li::before { background: var(--steel); }
+  .two { display: flex; gap: 10pt; margin: 8pt 0 10pt; page-break-inside: avoid; }
+  .two > div { flex: 1; padding: 9pt 12pt; }
+  .hell { background: #FBF3F2; border-top: 2.5pt solid #B0554A; }
+  .heaven { background: var(--board); border-top: 2.5pt solid var(--blue); }
+  .two .t { font-size: 8pt; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; margin-bottom: 5pt; }
+  .hell .t { color: #B0554A; } .heaven .t { color: var(--blue); }
+  .two ul { margin: 0; } .two ul li { font-size: 9pt; margin-bottom: 3pt; }
+  .hell ul li::before { background: #B0554A; }
+  table { width: 100%; border-collapse: collapse; margin: 7pt 0 8pt; font-size: 8.5pt; page-break-inside: avoid; }
+  th { background: var(--navy); color: #fff; text-align: left; padding: 5pt 9pt;
+    font-size: 7.5pt; letter-spacing: .1em; text-transform: uppercase; font-weight: 600; }
+  td { border-bottom: 1px solid var(--line); padding: 3.6pt 9pt; vertical-align: top; }
+  td.ok { color: #2F7D4F; font-weight: 600; } td.part { color: #B8863B; font-weight: 600; }
+  td.no { color: #B0554A; font-weight: 600; }
+  .kpis { display: flex; gap: 8pt; margin: 10pt 0 12pt; page-break-inside: avoid; }
+  .kpi { flex: 1; background: var(--board); padding: 9pt 10pt; }
+  .kpi .l { font-size: 7pt; letter-spacing: .1em; text-transform: uppercase; color: var(--mute); margin-bottom: 3pt; }
+  .kpi .v { font-size: 11pt; font-weight: 600; color: var(--navy); line-height: 1.2; }
+  .kpi .v.warn { color: #B0554A; } .kpi .v.mid { color: #B8863B; }
+  .flow { background: var(--navy); color: #fff; padding: 10pt 13pt; margin: 8pt 0 10pt; page-break-inside: avoid; }
+  .flow .l { font-size: 7.5pt; letter-spacing: .14em; text-transform: uppercase; color: var(--blue-lt);
+    margin-bottom: 4pt; font-weight: 600; }
+  .flow .seq { font-size: 9.5pt; color: #dbe3ee; }
+  .flow .seq b { color: #fff; }
+  .prio { border-left: 2.5pt solid var(--blue); padding-left: 12pt; margin-bottom: 11pt; page-break-inside: avoid; }
+  .prio.mid { border-color: var(--steel); } .prio.low { border-color: var(--line); }
+  .prio .h { font-size: 9pt; font-weight: 600; color: var(--navy); letter-spacing: .06em;
+    text-transform: uppercase; margin-bottom: 4pt; }
+  .roteiro { column-count: 2; column-gap: 14pt; font-size: 9pt; margin: 6pt 0 10pt; }
+  .roteiro div { break-inside: avoid; margin-bottom: 2.5pt; padding-left: 15pt; text-indent: -15pt; }
+  .roteiro .new { color: var(--blue); font-weight: 600; }
+  .roteiro .has { color: var(--mute); }
+  .note { font-size: 8.5pt; color: var(--mute); font-style: italic; }
+  .end { background: var(--navy); color: #fff; padding: 13pt 16pt; margin-top: 12pt; }
+  .end .t { color: var(--blue-lt); font-size: 8pt; letter-spacing: .16em; text-transform: uppercase;
+    font-weight: 600; margin-bottom: 5pt; }
+  .end p { color: #dbe3ee; margin-bottom: 5pt; } .end p:last-child { margin-bottom: 0; }
+  .end strong { color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- ============ CAPA ============ -->
+<div class="cover">
+  <div class="top"><span class="brand">SIMPLE</span><span>Auditoria</span></div>
+  <div class="mid">
+    <div class="kick">Análise Comercial · Julho 2026</div>
+    <h1>Auditoria da Apresentação Comercial</h1>
+    <div class="rule"></div>
+    <div class="sub">Análise comparativa com o framework comercial Full Sales. Avaliação do potencial de conversão da apresentação da Implantação GES360, sem julgamento da qualidade técnica do método ou da entrega.</div>
+  </div>
+  <div class="idx">
+    <span>Resumo executivo</span><span>Pontos fortes</span><span>Diagnóstico central</span>
+    <span>Oportunidades</span><span>Valor e preço</span><span>Prova social</span>
+    <span>Comparativo</span><span>Estrutura recomendada</span><span>Prioridades</span>
+  </div>
+  <div class="foot">
+    <div><div class="l">Cliente</div><div class="v">Guilherme Eduardo · GES360</div></div>
+    <div><div class="l">Estrategista</div><div class="v">Daniel Souza</div></div>
+    <div class="yr">SIMPLE · 2026</div>
+  </div>
+</div>
+
+<!-- ============ 01 RESUMO EXECUTIVO ============ -->
+<div class="eyebrow">01 · Resumo Executivo</div>
+<h2>Material forte em prova. Falta a construção que antecede o preço.</h2>
+<p class="dek">O que foi analisado, o que já funciona e onde está a distância para o framework.</p>
+
+<p><strong>Objetivo.</strong> Avaliar a estrutura comercial da apresentação usada na venda da Implantação GES360 (R$ 15.000), comparando com o framework Full Sales, que a Simple usa como referência de apresentação de alto ticket. Não é uma avaliação da qualidade do método nem da sua entrega: é sobre o potencial de conversão do material dentro da call.</p>
+
+<p><strong>Conclusão.</strong> A apresentação tem dois ativos que a maioria dos concorrentes não tem: identidade visual madura e prova social real e abundante, com print de conversa e número. Isso resolve bem a pergunta "isso funciona?".</p>
+
+<p>O problema não está no que existe, e sim na <strong>ordem</strong> e no <strong>que falta antes do preço</strong>. Hoje o material abre explicando o método para um médico que ainda não foi conduzido a reconhecer o tamanho do próprio problema. Depois entrega sete provas seguidas, uma lista de entregáveis e o preço. Em 15 slides não existe: promessa, autoridade do Guilherme, contraste entre cenário atual e desejado, riscos de continuar como está, detalhamento da jornada de 90 dias e nenhuma construção de valor antes do número.</p>
+
+<div class="why">
+  <b>Por que isso importa</b>
+  <p>O médico chega no slide de R$ 15.000 sem régua de comparação. Quando não existe valor ancorado, o preço é comparado com o que ele imagina, e a conta que ele faz sozinho é sempre a pior possível ("seis reuniões por R$ 15 mil"). É assim que nasce a objeção de preço que você já escuta hoje, e ela é uma objeção de construção, não de valor real da entrega.</p>
+</div>
+
+<div class="kpis">
+  <div class="kpi"><div class="l">Qualidade visual</div><div class="v">Alta</div></div>
+  <div class="kpi"><div class="l">Prova social</div><div class="v mid">Alta em volume</div></div>
+  <div class="kpi"><div class="l">Autoridade</div><div class="v warn">Ausente</div></div>
+  <div class="kpi"><div class="l">Construção de valor</div><div class="v warn">Ausente</div></div>
+  <div class="kpi"><div class="l">Aderência ao FSS</div><div class="v mid">Parcial</div></div>
+</div>
+
+<p class="note">Observação importante: quase todo o conteúdo que falta já existe escrito e aprovado no seu canvas e na estratégia do funil. O trabalho aqui é transportar para os slides na ordem certa, não criar do zero.</p>
+
+<!-- ============ 02 PONTOS FORTES ============ -->
+<div class="sec">
+<div class="eyebrow">02 · Pontos Fortes</div>
+<h2>O que já está funcionando e não deve ser mexido</h2>
+<p class="dek">Quatro ativos que sustentam a base do material.</p>
+
+<h3><span class="num">1.</span> Prova social real, em volume e com print</h3>
+<p>Sete slides de resultados com números específicos (R$ 16.000, R$ 36.400, R$ 27.152, R$ 50.800, R$ 86.771) e prints de conversa real. O case do Dr. Kayo ainda traz uma tabela de evolução mensal com seis meses de dados, o que é raro no mercado.</p>
+<div class="why"><b>Por que é forte</b><p>O médico é cético por formação: foi treinado a exigir evidência antes de aceitar conclusão. Print de conversa com número e horário é evidência, não promessa. É também a sua maior vantagem contra os concorrentes de mentoria em massa que você mapeou (Sandro Ferraz, Cassiano Sávio): eles vendem volume e mindset, você mostra resultado individual rastreável.</p></div>
+
+<h3><span class="num">2.</span> Identidade visual madura e coerente com o ticket</h3>
+<p>O navy com dourado comunica seriedade e valor alto, e não parece material de infoproduto. A capa com foto e o slide de preço em bloco cheio funcionam bem.</p>
+<div class="why"><b>Por que é forte</b><p>Material com aparência barata força o desconto antes de você abrir a boca. O seu já sustenta visualmente o preço de R$ 15.000: esse trabalho está feito e não precisa ser refeito.</p></div>
+
+<h3><span class="num">3.</span> Método nomeado e estruturado em pilares</h3>
+<p>O GES360 aparece com os três pilares (Modelo de Receita, Posicionamento e Atração, Comunicação e Vendas), com um slide dedicado a cada um e objetivo declarado.</p>
+<div class="why"><b>Por que é forte</b><p>Sem mecanismo com nome próprio, você vende horas e entra na comparação de preço por hora. Com método nomeado, você vende propriedade intelectual, e propriedade intelectual não tem tabela de comparação no mercado.</p></div>
+
+<h3><span class="num">4.</span> Os prints de percepção (slide 6) já fazem o trabalho certo</h3>
+<p>As duas mensagens ("pode contar com alguém que realmente entende a realidade da clínica" e "a análise que você fez trouxe uma clareza absurda") vendem a experiência de trabalhar com você, não só o número.</p>
+<div class="why"><b>Por que é forte</b><p>Número prova que funciona. Fala de percepção prova como é conviver com você nos 90 dias, que é exatamente o que o médico está comprando num produto de implementação individual.</p></div>
+</div>
+
+<!-- ============ 03 DIAGNÓSTICO CENTRAL ============ -->
+<div class="sec">
+<div class="eyebrow">03 · Diagnóstico Central</div>
+<h2>A ordem da narrativa é o ponto que explica quase tudo</h2>
+<p class="dek">Um único ajuste estrutural responde pela maior parte da distância para o framework.</p>
+
+<div class="flow">
+  <div class="l">Sequência atual</div>
+  <div class="seq"><b>Método</b> (slides 2 a 5) para <b>Provas</b> (6 a 13) para <b>Entregáveis</b> (14) para <b>Preço</b> (15)</div>
+</div>
+<div class="flow" style="background:var(--navy-2)">
+  <div class="l">Sequência do framework Full Sales</div>
+  <div class="seq">Promessa para <b>Autoridade</b> para <b>Problema</b> para <b>Consequência</b> para <b>Desejo</b> para <b>Risco</b> para Benefício para <b>Método</b> para Produto para <b>Valor</b> para Prova para <b>Preço</b></div>
+</div>
+
+<p>Abrir pelo método é responder "como funciona?" antes de o médico ter perguntado "por que eu preciso disso?". Nesse momento da call ele ainda está decidindo se tem um problema grande o bastante para justificar mexer na clínica. Quando você explica pilares para quem ainda não reconheceu o próprio gargalo, o material vira aula. Ele acha interessante, elogia, e não fecha. Interessante não move R$ 15.000.</p>
+
+<div class="why">
+  <b>O paralelo com o que você mesmo ensina</b>
+  <p>O GES360 diz ao médico para não trazer mais paciente antes de arrumar o modelo de receita: preço e protocolo primeiro, tráfego depois. A sua apresentação comercial hoje comete, na venda, exatamente o erro que o seu método corrige na clínica: entrega a solução antes de estruturar o que faz o cliente querer comprar. Corrigir a ordem do material é aplicar o GES360 na sua própria oferta.</p>
+</div>
+
+<p><strong>Por que a ordem não é firula.</strong> O médico decide por identificação, não por informação. Ele precisa se ver descrito num slide antes de conseguir escutar a sua solução. E o material para fazer isso já está pronto: o bloco de dor do ICP, o reframe das três alavancas e a big idea aprovada na estratégia do funil. Nada disso está hoje na apresentação.</p>
+</div>
+
+<!-- ============ 04 OPORTUNIDADES 1 ============ -->
+<div class="sec">
+<div class="eyebrow">04 · Oportunidades de Melhoria</div>
+<h2>Promessa, autoridade e o contraste de cenários</h2>
+<p class="dek">Os três blocos que faltam no início e que sustentam tudo que vem depois.</p>
+
+<h3><span class="num">1.</span> Não existe promessa nos primeiros slides</h3>
+<p>A capa traz a logo e o slide seguinte já entra nos pilares do método. O médico passa a apresentação inteira sem uma frase que diga o que ele vai conquistar.</p>
+<div class="copybox">
+  <b>Sugestão de copy (já aprovada na sua estratégia)</b>
+  <p><strong>Headline:</strong> Dobre o faturamento da sua clínica sem aumentar o número de atendimentos.</p>
+  <p><strong>Subheadline:</strong> Saindo da dependência da consulta avulsa para um modelo de receita recorrente e previsível.</p>
+  <p><strong>Três benefícios:</strong> receita previsível todo mês · um programa que o paciente fecha sem você precisar empurrar · secretária treinada para não perder oportunidade.</p>
+</div>
+<div class="why"><b>Por que importa</b><p>A promessa é o contrato de atenção da reunião. Sem ela, os 14 slides seguintes não têm âncora: o médico assiste sem saber para onde a conversa está indo, e quem não sabe onde a conversa vai não se compromete com o final dela.</p></div>
+
+<h3><span class="num">2.</span> O Guilherme não aparece em nenhum slide</h3>
+<p>Em 15 slides não existe um único bloco sobre quem conduz a implementação. O material vende o método e os resultados, mas não a pessoa que vai sentar com o médico nas seis sessões.</p>
+<div class="why"><b>Por que importa</b><p>O produto é implementação individual assistida: o médico não está comprando um curso, está comprando você. Autoridade aqui não é vaidade, é redução de risco percebido na hora de pagar R$ 15.000 a alguém que ele conheceu por um anúncio. E é o seu diferencial declarado contra as mentorias em massa: lá ele compra uma turma, com você ele compra acompanhamento individual.</p></div>
+<div class="copybox">
+  <b>Sugestão de conteúdo</b>
+  <p>Um slide "Quem conduz a implementação", com foto e quatro marcos reais: a trajetória dentro do mercado médico como representante de farmácia de manipulação e de implante hormonal, os anos visitando clínicas e consultórios todos os dias, o método construído a partir da dor observada dentro da clínica (e não da teoria), e os resultados já entregues. Depois, um slide de comprovação com fotos de eventos e bastidores.</p>
+  <p><strong>Atenção:</strong> a sua própria página (gesconsultoriamedica.com) já tem esse bloco, no "Quem lidera o programa?". Ele existe na landing e falta justamente na peça em que a decisão acontece.</p>
+</div>
+
+</div>
+
+<!-- ============ 04b CONTRASTE ============ -->
+<div class="sec">
+<div class="eyebrow">04 · Oportunidades de Melhoria</div>
+<h2>O contraste entre o cenário atual e o desejado</h2>
+<p class="dek">O slide mais importante do framework e o mais ausente na apresentação de hoje.</p>
+
+<h3><span class="num">3.</span> Não existe contraste entre cenário atual e desejado</h3>
+<p>É a estratégia que o framework chama de "céu e inferno", e é ela que cria a necessidade de agir agora, em vez de agir algum dia. Hoje a apresentação não tem nenhum slide em que o médico se reconheça antes de você apresentar a solução.</p>
+<div class="two">
+  <div class="hell">
+    <div class="t">Cenário atual (o inferno)</div>
+    <ul>
+      <li>Agenda cheia e o dinheiro não sobra no fim do mês</li>
+      <li>Se parar de atender, o faturamento para junto</li>
+      <li>Oferece o programa e ouve "vou pensar"</li>
+      <li>"Eu não sou bom em vendas"</li>
+      <li>Vê médicos mais novos crescendo mais rápido</li>
+      <li><strong>Implicação:</strong> mais um ano trocando tempo por dinheiro, com o teto sendo a própria saúde</li>
+    </ul>
+  </div>
+  <div class="heaven">
+    <div class="t">Cenário desejado (o céu)</div>
+    <ul>
+      <li>Faturar R$ 86 mil atendendo 16 pacientes</li>
+      <li>Saber exatamente o que ofertar em cada consulta</li>
+      <li>Receita previsível todo mês</li>
+      <li>Secretária conduzindo o processo sem você</li>
+      <li>Sair dos plantões e ter tempo com a família</li>
+      <li><strong>Implicação:</strong> a clínica passa a crescer sem depender de você atender mais</li>
+    </ul>
+  </div>
+</div>
+<div class="why"><b>Por que importa</b><p>Nenhuma dessas frases foi inventada: todas saíram do seu canvas e das suas calls, na linguagem do próprio médico. É por isso que funcionam. Quanto mais nítido o contraste, maior a urgência, e urgência é o que faz o preço parecer pequeno diante do custo de continuar igual.</p></div>
+
+<div class="copybox">
+  <b>Como aplicar na prática</b>
+  <p>O framework recomenda dividir esse conteúdo em <strong>dois slides consecutivos</strong>, e não em um só: primeiro o cenário atual sozinho, deixando o médico sentir o peso da situação, e só depois o cenário desejado. Quando os dois aparecem juntos na mesma tela, o olho vai direto para a solução e a dor não chega a ser processada.</p>
+  <p>Na condução da call, esse é o momento de parar de apresentar e perguntar: "doutor, qual desses pontos mais parece a sua clínica hoje?". A resposta dele passa a ser a linha condutora do restante da apresentação, e o método deixa de ser uma explicação genérica para virar resposta ao que ele acabou de admitir em voz alta.</p>
+</div>
+</div>
+
+<!-- ============ 05 OPORTUNIDADES 2 ============ -->
+<div class="sec">
+<div class="eyebrow">04 · Oportunidades de Melhoria</div>
+<h2>Risco, jornada e a metodologia que está invisível</h2>
+<p class="dek">O que falta no miolo da apresentação, entre o método e a oferta.</p>
+
+<h3><span class="num">4.</span> Falta o slide de risco de tentar sozinho</h3>
+<p>O médico sempre tem a alternativa gratuita: tentar por conta, copiar de um colega, pedir para a secretária resolver.</p>
+<div class="copybox">
+  <b>Seis riscos sugeridos</b>
+  <p>Precificar no chute e ancorar o programa abaixo do valor · montar protocolo que o paciente não entende · treinar a secretária sem script e queimar a base · testar no paciente real e perder credibilidade · levar doze meses para chegar onde daria em noventa dias · desistir na primeira objeção de preço e voltar para a consulta avulsa.</p>
+</div>
+<div class="why"><b>Por que importa</b><p>Você não concorre apenas com outras mentorias, concorre principalmente com a inércia. Nomear o custo de tentar sozinho é o que transforma "depois eu vejo isso" em "melhor fazer com quem já fez", e é a única forma de disputar contra a alternativa que não custa nada.</p></div>
+
+<h3><span class="num">5.</span> A jornada de 90 dias está resumida em um bullet</h3>
+<p>Hoje, noventa dias de trabalho aparecem como uma linha: "6 encontros em 90 dias". O seu canvas, porém, já descreve sessão por sessão o que acontece.</p>
+<div class="copybox">
+  <b>O que já existe no seu canvas e deveria estar em slides</b>
+  <p><strong>Sessão 1:</strong> diagnóstico da clínica, definição de ICP, comparação do modelo atual com o de acompanhamento e identificação dos gargalos (preço baixo, público errado, pacote mal estruturado, secretária perdendo leads).</p>
+  <p><strong>Sessão 2:</strong> criação dos protocolos, precificação estratégica e a Metodologia de Conversão em Consulta. Primeiros fechamentos na mesma semana.</p>
+  <p><strong>Sessões 3 e 4:</strong> processo comercial, script da secretária, treinamento de recepção e primeiras ações de captação.</p>
+  <p><strong>Sessões 5 e 6:</strong> otimização com dados reais, ajuste de oferta e planejamento da virada para o programa de doze meses.</p>
+</div>
+<div class="why"><b>Por que importa</b><p>Valor percebido é proporcional ao trabalho que o cliente consegue enxergar. "Seis encontros" parece seis reuniões, e seis reuniões por R$ 15.000 dá uma conta ruim na cabeça dele. A mesma entrega, detalhada em fases com objetivo e entregas, parece um sistema de implantação. É o mesmo trabalho com o dobro de valor percebido, e é a correção mais barata desta auditoria: o conteúdo já está escrito.</p></div>
+
+<h3><span class="num">6.</span> A Metodologia de Conversão em Consulta não aparece</h3>
+<p>As seis etapas (Abertura, Conexão, Mapeamento, Direcionamento, Apresentação e Fechamento) estão no seu canvas e não estão na apresentação.</p>
+<div class="why"><b>Por que importa</b><p>É o único ativo do seu método que ataca de frente a dor número um do seu ICP, que na fala dele é "eu não sou bom em vendas". Ele não quer virar vendedor, e tem medo de parecer charlatão. Mostrar um processo de consulta com nome e etapas tira o peso da palavra venda e transforma o assunto em competência clínica, que é algo que médico aceita comprar.</p></div>
+
+<h3><span class="num">7.</span> Os entregáveis são listados, mas não demonstrados</h3>
+<p>Sete bullets em um slide. O framework prevê um slide por entregável, com print real do material.</p>
+<div class="why"><b>Por que importa</b><p>Bullet é promessa, print é prova. Mostre a planilha de precificação preenchida, o documento do diagnóstico financeiro, o material de treinamento da secretária e o PDF da metodologia. O médico compra o que consegue imaginar recebendo, e cada entregável demonstrado permite atribuir preço individual na ancoragem.</p></div>
+
+<h3><span class="num">8.</span> Não existem bônus</h3>
+<p>Bônus não é brinde: é ferramenta de quebra de objeção específica.</p>
+<div class="copybox"><b>Sugestões alinhadas às objeções reais</b>
+  <p>Modelo de contrato e termo do programa de acompanhamento (resolve "e a parte legal?") · banco de scripts de WhatsApp para reativação de base (resolve "por onde eu começo?") · checklist de implantação da secretária (resolve "minha equipe não vai dar conta").</p>
+</div>
+</div>
+
+<!-- ============ 06 VALOR E PREÇO ============ -->
+<div class="sec">
+<div class="eyebrow">05 · O Ponto Mais Crítico</div>
+<h2>Do entregável direto para o preço, sem nenhuma ponte</h2>
+<p class="dek">O intervalo entre o slide 14 e o slide 15 é onde a venda de alto ticket é ganha ou perdida.</p>
+
+<p>Hoje a apresentação salta da lista de entregáveis (slide 14) para R$ 15.000 (slide 15). Entre os dois não existe nada: nem educação de valor, nem ancoragem, nem justificativa de condição, nem prova posicionada para sustentar o número.</p>
+
+<h3>O que o framework prevê nesse intervalo</h3>
+<ul>
+  <li><strong>Dúvidas.</strong> Um slide dedicado a limpar todas as perguntas antes de falar de dinheiro. Negociar com dúvida em aberto é negociar contra você mesmo.</li>
+  <li><strong>Valor versus preço.</strong> Estabelecer que preço é o que se paga e valor é o que se recebe. Isso prepara a régua de comparação antes do número aparecer.</li>
+  <li><strong>Ancoragem.</strong> Listar cada entregável com valor individual, somar o total e só então revelar o investimento real.</li>
+  <li><strong>Prova posicionada.</strong> Parte dos cases deve estar aqui, sustentando o preço, e não toda concentrada no meio da apresentação.</li>
+  <li><strong>Valor de tabela</strong> com comparativo entre o que ele recebe e o que paga.</li>
+  <li><strong>Justificativa da condição especial</strong> para quem decide na call, com um motivo plausível.</li>
+</ul>
+
+<div class="why">
+  <b>Por que este é o ponto mais crítico de toda a auditoria</b>
+  <p>Sem ancoragem, R$ 15.000 não é comparado com o valor entregue: é comparado com o que o médico imagina. E a conta que ele faz sozinho é sempre a pior possível, do tipo "seis reuniões, dois mil e quinhentos por reunião". Com a jornada detalhada e a ancoragem feita, a conta que ele faz passa a ser outra: um sistema de receita, implantado dentro da clínica dele, por menos do que várias das clínicas dos seus cases ganharam a mais já no primeiro mês.</p>
+</div>
+
+<h3>A melhor ancoragem já está nos seus próprios cases, e está implícita</h3>
+<p>Vários dos resultados que você mostra têm um detalhe que nunca é dito em voz alta: <strong>o ganho adicional do primeiro mês supera o investimento total no programa</strong>. Uma clínica que sobe R$ 48 mil no primeiro mês, ou que fecha R$ 36.400 em dois dias de atendimento, pagou o programa antes de terminar a primeira fase.</p>
+<div class="why"><b>Por que precisa estar escrito</b><p>Hoje isso está subentendido e depende do médico fazer a conta sozinho, no meio de uma reunião, enquanto processa outras informações. Ele não vai fazer. Um slide que apresente essa relação de forma explícita transforma o preço de custo em retorno, que é a única forma de um número deixar de ser objeção.</p></div>
+</div>
+
+<!-- ============ 07 PROVA SOCIAL ============ -->
+<div class="sec">
+<div class="eyebrow">06 · Prova Social</div>
+<h2>Muito volume, pouca variedade e no lugar errado</h2>
+<p class="dek">Sete slides consecutivos que quebram todos a mesma objeção.</p>
+
+<p>Os slides 7 a 13 repetem a mesma estrutura: título idêntico, números de faturamento e print. É bastante material, mas concentrado em um único tipo de argumento.</p>
+
+<h3>Os três problemas</h3>
+<ul>
+  <li><strong>Fadiga de repetição.</strong> O mesmo título sete vezes seguidas faz o cérebro parar de ler a partir do terceiro. A prova de número seis é tão boa quanto a primeira e será ignorada.</li>
+  <li><strong>Todos quebram a mesma objeção.</strong> Todos respondem "isso funciona?". Nenhum responde "funciona no meu caso?", "dá muito trabalho?", "minha secretária consegue?" ou "funciona na minha especialidade?".</li>
+  <li><strong>Cases anônimos.</strong> Com exceção do Dr. Kayo, os resultados aparecem como "a clínica". Case sem nome vale menos, porque o médico não consegue verificar nem se projetar.</li>
+</ul>
+
+<h3>Sugestões</h3>
+<ul>
+  <li>Reduzir para três ou quatro casos no corpo da apresentação e reposicionar dois ou três para depois do preço, sustentando a oferta.</li>
+  <li>Trocar o título repetido por um título que nomeie a objeção que aquele case quebra: "Funciona em 30 dias", "Funciona sem atender mais dias", "Funciona com a secretária que ele já tem", "Funciona na sua especialidade".</li>
+  <li>Nomear os cases com autorização. O Dr. Kayo já tem autorização em contrato, com print e vídeo liberados (registrado no seu canvas): use nome, especialidade e foto.</li>
+  <li>Converter prints em depoimentos de vídeo usando o Guia de Captação de Depoimentos que a Simple já entregou. Médico falando em vídeo vale mais do que qualquer print, porque o espectador é médico também.</li>
+</ul>
+
+<div class="why"><b>Por que reposicionar parte da prova</b><p>Prova social tem duas funções distintas: antes da oferta ela cria credibilidade, depois do preço ela reduz o medo de errar na decisão. Concentrar tudo no meio gasta munição no momento em que o médico ainda nem sabe quanto custa, e deixa o momento da decisão sem nenhum apoio.</p></div>
+</div>
+
+<!-- ============ 08 CORREÇÕES PONTUAIS ============ -->
+<div class="sec">
+<div class="eyebrow">07 · Correções Pontuais</div>
+<h2>Ajustes rápidos, de alto impacto e baixo esforço</h2>
+<p class="dek">Itens que podem ser corrigidos hoje, antes da próxima call.</p>
+
+<h3><span class="num">1.</span> Erro de grafia recorrente: "METÓDO"</h3>
+<p>A palavra aparece grafada como <strong>METÓDO</strong> em pelo menos oito slides (no slide de pilares e em todos os sete slides de prova). A forma correta é <strong>MÉTODO</strong>.</p>
+<div class="why"><b>Por que é sério e não é detalhe</b><p>Você vende rigor de processo e organização a um público de formação acadêmica, treinado a revisar texto. Um erro ortográfico repetido oito vezes no material principal sugere descuido, e o médico projeta esse descuido na entrega que ele ainda não conhece. É o item de melhor relação entre esforço e risco evitado de toda esta auditoria.</p></div>
+
+<h3><span class="num">2.</span> Duplicação no slide de pilares</h3>
+<p>No slide 2 consta <strong>"COMCOMUNICAÇÃO E VENDAS"</strong>. O correto é "COMUNICAÇÃO E VENDAS".</p>
+
+<h3><span class="num">3.</span> Tabela cortada no case do Dr. Kayo</h3>
+<p>No slide 12, o título da tabela aparece cortado pela borda superior do card, exibindo "VOLUÇÃO MENSAL" no lugar de "EVOLUÇÃO MENSAL".</p>
+<div class="why"><b>Por que corrigir</b><p>É justamente o slide do seu case mais forte, o único com série histórica. Um defeito visual nesse slide enfraquece exatamente a peça que deveria ser a mais sólida.</p></div>
+
+<h3><span class="num">4.</span> A leitura dos números do case principal pode ser questionada</h3>
+<p>A narrativa parte de abril (R$ 20.546) para maio (R$ 86.771), citando crescimento acima de 300%. A tabela ao lado, porém, mostra janeiro em R$ 26.297, fevereiro em R$ 19.769 e março em R$ 43.750. Ou seja: abril foi o segundo pior mês da série.</p>
+<div class="copybox">
+  <b>Enquadramento sugerido, mais defensável e igualmente forte</b>
+  <p>Média dos quatro primeiros meses: <strong>R$ 27,6 mil</strong>. Média de maio e junho, após a implantação: <strong>R$ 79,3 mil</strong>. Crescimento de <strong>187% no patamar</strong>, sustentado por dois meses consecutivos.</p>
+</div>
+<div class="why"><b>Por que trocar um número maior por um menor</b><p>Comparar o melhor mês com o pior mês é a primeira coisa que um médico analítico percebe quando olha a tabela que está no próprio slide, e no instante em que ele percebe, você perde credibilidade nos outros seis cases também. Comparar patamar com patamar dá um número menor, mas blindado, e demonstra o rigor que você quer vender. Prova que resiste a exame vale mais do que prova impressionante.</p></div>
+
+<h3><span class="num">5.</span> Padronização</h3>
+<p>Uniformizar a grafia dos valores e sempre indicar o período de apuração ao lado de cada resultado, para que cada número seja auditável.</p>
+</div>
+
+<!-- ============ 09 COMPARATIVO ============ -->
+<div class="sec">
+<div class="eyebrow">08 · Comparativo Estrutural</div>
+<h2>Framework Full Sales versus apresentação atual</h2>
+<p class="dek">Visão lado a lado dos blocos esperados e o status de cada um hoje.</p>
+
+<table>
+  <tr><th style="width:44%">Bloco estratégico</th><th style="width:28%">Framework</th><th style="width:28%">Apresentação atual</th></tr>
+  <tr><td>Capa e identidade</td><td>Presente</td><td class="ok">Forte</td></tr>
+  <tr><td>Promessa principal e benefícios</td><td>Forte</td><td class="no">Ausente</td></tr>
+  <tr><td>Autoridade do expert</td><td>Forte</td><td class="no">Ausente</td></tr>
+  <tr><td>Comprovação e bastidores</td><td>Presente</td><td class="no">Ausente</td></tr>
+  <tr><td>Trajetória da empresa</td><td>Presente</td><td class="no">Ausente</td></tr>
+  <tr><td>Cenário atual versus desejado</td><td>Forte</td><td class="no">Ausente</td></tr>
+  <tr><td>Riscos de fazer sozinho</td><td>Forte</td><td class="no">Ausente</td></tr>
+  <tr><td>Benefícios e construção de desejo</td><td>Forte</td><td class="no">Ausente</td></tr>
+  <tr><td>Método com pilares</td><td>Forte</td><td class="ok">Forte</td></tr>
+  <tr><td>Detalhamento por pilar</td><td>Forte</td><td class="ok">Forte</td></tr>
+  <tr><td>Jornada e fases do processo</td><td>Forte</td><td class="part">Superficial</td></tr>
+  <tr><td>No que consiste o produto</td><td>Forte</td><td class="part">Parcial</td></tr>
+  <tr><td>Entregáveis demonstrados</td><td>Forte</td><td class="part">Apenas listados</td></tr>
+  <tr><td>Bônus</td><td>Presente</td><td class="no">Ausente</td></tr>
+  <tr><td>Momento de dúvidas</td><td>Presente</td><td class="no">Ausente</td></tr>
+  <tr><td>Valor versus preço</td><td>Forte</td><td class="no">Ausente</td></tr>
+  <tr><td>Ancoragem de valor</td><td>Forte</td><td class="no">Ausente</td></tr>
+  <tr><td>Provas sociais</td><td>Forte</td><td class="part">Volume alto, variedade baixa</td></tr>
+  <tr><td>Oferta e valor de tabela</td><td>Estruturada</td><td class="part">Parcial</td></tr>
+  <tr><td>Justificativa de condição especial</td><td>Presente</td><td class="no">Ausente</td></tr>
+  <tr><td>Condução para a decisão na call</td><td>Forte</td><td class="no">Ausente</td></tr>
+</table>
+
+<div class="why">
+  <b>Leitura do comparativo</b>
+  <p>Os blocos de método e de prova já estão no nível esperado pelo framework e não precisam de retrabalho: são a base sólida do material. As lacunas se concentram em dois lugares muito específicos, e ambos são decisivos. O <strong>início</strong> (promessa, autoridade e construção de problema), que é o que faz o médico querer ouvir. E o <strong>fechamento</strong> (valor, ancoragem, condição e condução), que é o que faz o preço fazer sentido. Hoje a apresentação é forte exatamente no meio e vazia justamente nas duas pontas que decidem a venda.</p>
+</div>
+</div>
+
+<!-- ============ 10 ESTRUTURA RECOMENDADA ============ -->
+<div class="sec">
+<div class="eyebrow">09 · Estrutura Recomendada</div>
+<h2>Roteiro sugerido, aproveitando tudo que já existe</h2>
+<p class="dek">Em azul, o que precisa ser criado. Em cinza, o que já está pronto e apenas muda de posição.</p>
+
+<div class="roteiro">
+  <div class="has">01. Capa (existe)</div>
+  <div class="new">02. Promessa e três benefícios</div>
+  <div class="new">03. Quem conduz a implementação</div>
+  <div class="new">04. Comprovação e bastidores</div>
+  <div class="new">05. Cenário atual: o custo de continuar</div>
+  <div class="new">06. Cenário desejado</div>
+  <div class="new">07. Riscos de tentar sozinho</div>
+  <div class="new">08. Quanto valeria isso para a sua clínica</div>
+  <div class="new">09. Transição: existe um método</div>
+  <div class="has">10. Pilares do GES360 (slide 2 atual)</div>
+  <div class="has">11 a 13. Um slide por pilar (slides 3 a 5)</div>
+  <div class="new">14. Metodologia de Conversão em Consulta</div>
+  <div class="new">15. A jornada de 90 dias em três fases</div>
+  <div class="new">16 a 18. Detalhe de cada fase</div>
+  <div class="has">19 a 21. Provas 1 a 3 (renomeadas por objeção)</div>
+  <div class="has">22. No que consiste a Implantação (slide 14)</div>
+  <div class="new">23 a 25. Entregáveis com print real</div>
+  <div class="new">26. Bônus</div>
+  <div class="new">27. Dúvidas</div>
+  <div class="new">28. Valor versus preço</div>
+  <div class="new">29. Ancoragem: soma dos entregáveis</div>
+  <div class="has">30 a 31. Provas 4 a 6 posicionadas</div>
+  <div class="has">32. Oferta e valor de tabela (slide 15)</div>
+  <div class="new">33. Justificativa da condição especial</div>
+  <div class="new">34. Condição para decisão na call</div>
+</div>
+
+<p class="note">Não é necessário chegar a essa estrutura completa de uma vez. A página seguinte organiza o que fazer primeiro, por impacto sobre a taxa de conversão.</p>
+
+<div class="why">
+  <b>Uma observação sobre extensão</b>
+  <p>Passar de 15 para cerca de 30 slides não deixa a call mais longa: deixa o tempo melhor distribuído. Hoje sete dos seus quinze slides fazem a mesma coisa (provar que funciona), enquanto blocos decisivos não existem. A apresentação reestruturada usa o mesmo tempo de reunião conduzindo o médico por uma sequência de decisão, em vez de repetir sete vezes o mesmo argumento.</p>
+</div>
+</div>
+
+<!-- ============ 11 PRIORIDADES ============ -->
+<div class="sec">
+<div class="eyebrow">10 · Prioridades de Implementação</div>
+<h2>O que ajustar primeiro</h2>
+<p class="dek">Ordenado por impacto esperado sobre a conversão, não por facilidade.</p>
+
+<div class="prio">
+  <div class="h">Prioridade alta · antes da próxima call</div>
+  <ul>
+    <li>Corrigir "METÓDO" para "MÉTODO" em todos os slides e a duplicação em "COMCOMUNICAÇÃO"</li>
+    <li>Inserir promessa e três benefícios logo após a capa</li>
+    <li>Inserir o contraste entre cenário atual e cenário desejado</li>
+    <li>Inserir a ancoragem de valor antes do slide de preço</li>
+    <li>Inserir um slide de autoridade sobre quem conduz a implementação</li>
+  </ul>
+  <p class="note">São os cinco itens que atuam diretamente sobre a objeção de preço, que é a que você mais escuta hoje. Os quatro últimos usam conteúdo que já existe no seu canvas e na estratégia.</p>
+</div>
+
+<div class="prio mid">
+  <div class="h">Prioridade média · próximas duas semanas</div>
+  <ul>
+    <li>Detalhar a jornada de 90 dias em três fases, com objetivo e entregas por fase</li>
+    <li>Incluir a Metodologia de Conversão em Consulta com as seis etapas</li>
+    <li>Reduzir os slides de prova e renomear cada um pela objeção que ele quebra</li>
+    <li>Criar o slide de riscos de tentar sozinho</li>
+    <li>Incluir o slide de dúvidas antes de entrar em preço</li>
+    <li>Corrigir a tabela cortada e ajustar a leitura dos números do case principal</li>
+  </ul>
+</div>
+
+<div class="prio low">
+  <div class="h">Prioridade baixa · evolução contínua</div>
+  <ul>
+    <li>Um slide por entregável com print real do material</li>
+    <li>Estruturar bônus por objeção</li>
+    <li>Substituir prints por depoimentos em vídeo, usando o guia já entregue</li>
+    <li>Criar a justificativa de condição especial e a condição de decisão na call</li>
+    <li>Nomear os cases com autorização formal dos médicos</li>
+  </ul>
+</div>
+</div>
+
+<!-- ============ 12 CONCLUSÃO ============ -->
+<div class="sec">
+<div class="eyebrow">11 · Conclusão</div>
+<h2>Preservar o visual e a prova. Reconstruir a sequência.</h2>
+<p class="dek">O que muda, o que fica e o resultado esperado.</p>
+
+<p>A apresentação da Implantação GES360 não tem problema de design nem de credibilidade. Tem problema de <strong>sequência</strong> e de <strong>construção de valor</strong>. O material atual responde muito bem à pergunta "isso funciona?" e não responde às duas perguntas que efetivamente destravam um contrato de R$ 15.000: <strong>"por que eu preciso disso agora?"</strong> e <strong>"por que isso vale esse valor?"</strong>.</p>
+
+<p>Vale registrar o que não deve ser tocado: a identidade visual, a estrutura de pilares do método e o acervo de prova social são ativos maduros e acima da média do mercado em que você compete. O trabalho aqui é de narrativa, não de design.</p>
+
+<div class="why">
+  <b>A boa notícia sobre o esforço envolvido</b>
+  <p>Praticamente todo o conteúdo que falta já existe, escrito e aprovado por você: a promessa e a big idea estão na estratégia do funil, o bloco de dor e o cenário desejado estão no canvas do cliente ideal, a jornada das seis sessões e a Metodologia de Conversão em Consulta estão no canvas do produto, e a autoridade já está redigida na sua própria página de vendas. Não é criação, é transporte para o lugar certo, na ordem certa.</p>
+</div>
+
+<div class="end">
+  <div class="t">Recomendação final</div>
+  <p>Manter a identidade visual, a estrutura de pilares e o acervo de prova. Adicionar promessa, autoridade, contraste de cenários, jornada detalhada e ancoragem de valor. Reposicionar parte da prova social para depois do preço.</p>
+  <p><strong>Com os itens de prioridade alta, a apresentação deixa de ser uma boa aula sobre um método e passa a ser uma conversa que conduz à decisão, sem trocar uma cor sequer.</strong></p>
+</div>
+</div>
+
+</body>
+</html>

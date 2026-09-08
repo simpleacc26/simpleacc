@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Diagnóstico das Mechas · Rômulo Heleno</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="description" content="Descubra o seu Índice de Improviso na Construção das Mechas: o quanto do seu resultado ainda depende de sorte em vez de método, e onde exatamente isso trava a sua técnica." />
+  <style>
+    :root{--bg:#F5F1EA;--text:#232C39}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font-family:"Lora","Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif}
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Mesmas fontes dos documentos do cliente, carregadas sem bloquear a
+       renderização: se o Google Fonts demorar ou cair, a página abre na
+       serifa de sistema e nada trava. -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap"
+        media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <img class="logo-img" src="logo.svg" alt="" width="40" height="40" />
+        <span class="brand-name">Rômulo Heleno</span>
+        <span class="brand-tag">Método Cabelo de Segunda</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Só a barra enchendo. Sem "Pergunta X de N" e sem porcentagem: número
+       aqui faz o quiz parecer longo e medido, e derruba conclusão. -->
+  <div class="progress-wrap" id="progress" hidden>
+    <div class="container">
+      <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div id="app" aria-live="polite"></div>
+  </main>
+
+  <script src="flow.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
