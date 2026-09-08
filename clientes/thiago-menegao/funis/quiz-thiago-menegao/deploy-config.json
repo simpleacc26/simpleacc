@@ -3,7 +3,7 @@
   "projetos": {
     "paginas": "quiz-thiago-menegao",
     "js1": "quiz-thiago-menegao-js (flow.js, motor.js)",
-    "js2": "quiz-thiago-menegao-js2 (app.js)",
+    "js2": "quiz-thiago-menegao-js2 (app.js, thiago.webp)",
     "js3": "quiz-thiago-menegao-js3 (diagnostico.js)"
   },
   "bases": {
@@ -11,5 +11,6 @@
     "js2": "https://quiz-thiago-menegao-js2-simpleacc.vercel.app",
     "js3": "https://quiz-thiago-menegao-js3-simpleacc.vercel.app"
   },
-  "url": "https://quiz-thiago-menegao-simpleacc.vercel.app"
+  "url": "https://quiz-thiago-menegao-simpleacc.vercel.app",
+  "_nota_foto": "A foto mora no projeto js2 e nao junto das paginas porque o envio de arquivos tem limite por chamada e a arvore das paginas ja estava no teto. O src dela e absoluto no diagnostico.js. Ficou no js2 e nao no js1 porque o flow.js cresceu com os cinco baldes e o js1 nao tinha mais folga."
 }

@@ -10,6 +10,11 @@
    NÃO é minificação de identificadores e NÃO muda comportamento. A FONTE DA
    VERDADE é a raiz desta pasta; dist/ é descartável.
 
+   ⚠️ NÃO RODE `testar.js` DENTRO DE dist/. Os <script src> do dist são URLs
+   absolutas dos projetos de asset, e o Chromium deste ambiente não alcança
+   HTTPS, então a página abre sem JS e o teste acusa falha que não existe.
+   Rode `node testar.js` na RAIZ desta pasta, onde os caminhos são relativos.
+
    Divisão em projetos (ver deploy-config.json): a Vercel substitui a árvore
    inteira a cada deploy, então os arquivos que não cabem numa chamada moram
    em projetos separados de asset, no mesmo padrão que o time já usa
@@ -20,6 +25,9 @@ const fs = require("fs"), path = require("path");
 const CFG = JSON.parse(fs.readFileSync(path.join(__dirname, "deploy-config.json"), "utf8"));
 const OUT = path.join(__dirname, "dist");
 const ARQ = ["index.html", "diagnostico.html", "styles.css", "flow.js", "motor.js", "app.js", "diagnostico.js", "favicon.svg"];
+/* Binários entram no dist sem tratamento. A foto sobe no projeto js2,
+   não junto das páginas: ver deploy-config.json. */
+const BIN = ["thiago.webp"];
 
 /* Tokeniza para nunca cortar comentário dentro de string, template ou regex.
    Regex ingênua já cortou "https://" no meio de uma URL em string. */
@@ -86,5 +94,10 @@ for (const f of ARQ) {
   fs.writeFileSync(path.join(OUT, f), s);
   const n = Buffer.byteLength(s); tot += n;
   console.log(`  ${f.padEnd(20)} ${String(n).padStart(6)}`);
+}
+for (const f of BIN) {
+  fs.copyFileSync(path.join(__dirname, f), path.join(OUT, f));
+  const n = fs.statSync(path.join(OUT, f)).size; tot += n;
+  console.log(`  ${f.padEnd(20)} ${String(n).padStart(6)}  (binário, copiado)`);
 }
 console.log(`  ${"TOTAL".padEnd(20)} ${String(tot).padStart(6)} bytes`);

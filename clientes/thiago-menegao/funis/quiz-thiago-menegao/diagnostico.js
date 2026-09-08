@@ -4,11 +4,19 @@
 
    É UMA PÁGINA SÓ. A pessoa responde o quiz, deixa os dados e cai direto no
    resultado dela. A leitura sobe do diagnóstico para a oferta sem mudar de
-   assunto: a trava é nomeada, o mecanismo explica por que ela existe, e o
-   produto é o caminho para corrigi-la. Não existe reunião neste funil.
+   assunto: o balde é nomeado, o mecanismo explica por que ele existe, e o
+   produto é o caminho para corrigi-lo. Não existe reunião neste funil.
+
+   PERSONALIZAÇÃO. São cinco baldes (flow.js > travas) e cada um recebe o mesmo
+   esqueleto de página com QUATRO blocos trocados pelo texto do balde dele:
+   a leitura do cenário (`resumo`), o espelho (`cena`), o custo de continuar
+   (`custo`) e o que precisa acontecer (`caminho`). Some-se a isso a régua, que
+   para em etapa diferente por balde, e a ordem das cinco barras de afinidade.
+   Todo o resto (mecanismo, tentativas mortas, conta, oferta, prova, FAQ) é
+   comum aos cinco de propósito: é a parte que sustenta a venda.
 
    Ordem dos blocos, conforme a estratégia aprovada (Seção 3):
-   0 resultado e régua das sete etapas · 0b as quatro travas · 1 antes de tudo
+   0 resultado e régua das sete etapas · 0b os cinco baldes · 1 antes de tudo
    2 leitura do cenário · 3 o espelho · CTA · 4 por que o que você tentou não
    funcionou · 5 o mecanismo · 6 o que precisa acontecer no seu caso
    7 a conta · CTA · 8 a oferta · 9 quem é o Thiago e a prova
@@ -40,6 +48,23 @@ const a = getState().answers || {};
    valor). Vídeo vertical, WebM ou MP4, com poster.
    ============================================================ */
 const DEPOIMENTOS = [];
+
+/* ============================================================
+   MARCAS DO LASTRO CORPORATIVO
+   Vazio de propósito: NÃO invento arquivo de logo. Logo de marca registrada
+   tem forma exata, e desenhar uma aproximação de memória entrega uma falsificação
+   que este público reconhece de longe, justamente onde a página está pedindo
+   credibilidade. Enquanto a lista estiver vazia, entram os nomes em chip, que
+   já dizem a mesma coisa sem risco.
+   Para ligar: um objeto por marca, com o arquivo em logos/ (SVG de preferência,
+   ou PNG com fundo transparente), e o nome no `alt` para leitor de tela.
+   Os logos entram em escala de cinza e com opacidade, para virarem lastro e não
+   poluição visual, e ganham cor no hover.
+   ⚠️ Confirmar com o Thiago o direito de uso de cada logo antes de publicar:
+   nome escrito é fato verificável, logo aplicado sugere endosso da marca.
+   ============================================================ */
+const LOGOS = [];
+const MARCAS_TEXTO = ["Mercedes", "Itaú", "Honda", "John Deere", "Electrolux", "Philips"];
 
 /* Por que o que você tentou não funcionou. A lista é fixa e cobre as saídas
    que o canvas mapeia; a frase de abertura é que recebe a resposta da pessoa. */
@@ -123,10 +148,10 @@ if (!a._completedAt && !a.trava) {
   };
 
   /* Régua das sete etapas. A barra cresce até o ponto em que o controle
-     escapa, que é o começo da PRIMEIRA etapa afetada pela trava: quem trava em
-     Alarme Primal vê a barra quase vazia (a conversa nem chegou a andar), quem
-     trava em Prescrição Sem Âncora vê a barra quase cheia (foi tudo bem até o
-     preço). Substitui o gauge "Você x Concorrente" da referência, que compara
+     escapa, que é o começo da PRIMEIRA etapa afetada pelo balde: quem trava em
+     Posição de Condutor vê a barra quase vazia (a conversa nem chegou a andar),
+     quem trava em Consultoria Gratuita vê a barra quase cheia (foi tudo bem até
+     a hora de decidir). Substitui o gauge "Você x Concorrente" da referência, que compara
      o lead com um número de terceiro que ninguém tem como sustentar. */
   const totalEtapas = F.etapas.length;
   const afetadas = trava.etapasIdx || [1];
@@ -136,7 +161,7 @@ if (!a._completedAt && !a.trava) {
 
   const cta = (extra) => `
     <div class="cta-inline">
-      <button class="btn btn-primary btn-block cta-checkout" type="button">Quero o ${O.nome}</button>
+      <button class="btn btn-primary btn-block cta-checkout" type="button">${O.cta}</button>
       ${extra ? `<span class="hint">${extra}</span>` : ""}
     </div>`;
 
@@ -177,13 +202,17 @@ if (!a._completedAt && !a.trava) {
       <p class="hint" style="margin-top:14px">${ARGUMENTO[segmento]}</p>
     </div>` : "";
 
+  const blocoMarcas = LOGOS.length
+    ? `<div class="logos">${LOGOS.map((l) => `<img src="logos/${l.arquivo}" alt="${l.nome}" loading="lazy" />`).join("")}</div>`
+    : `<div class="marcas">${MARCAS_TEXTO.map((m) => `<span>${m}</span>`).join("")}</div>`;
+
   const duvida = (F.marca.whatsapp && /^[0-9]{12,13}$/.test(F.marca.whatsapp))
     ? `<p class="duvida">Dúvida antes de decidir? <a href="#" class="cta-duvida">Fale com a equipe no WhatsApp.</a></p>` : "";
 
   report.innerHTML = `
     <div class="report-head">
       <span class="selo">Diagnóstico de Condução</span>
-      <h1>${nome ? nome + ", a" : "A"} sua reunião trava em
+      <h1>${nome ? nome + ", o" : "O"} seu ponto de travamento é
         <span class="trava-nome">${trava.nome}</span></h1>
       <p class="lead">Isso não diz nada sobre a qualidade do que você vende.
       Diz em que ponto da conversa a decisão sai do seu controle.</p>
@@ -203,7 +232,7 @@ if (!a._completedAt && !a.trava) {
     </div>
 
     <div class="etapa">
-      <h3>Como as quatro travas aparecem no seu caso</h3>
+      <h3>Como os cinco pontos de travamento aparecem no seu caso</h3>
       <div class="travas-lista" id="travas-lista">
         ${travas.map((t) => `
           <div class="trava-item ${t.id === travaId ? "dominante" : ""}">
@@ -215,7 +244,7 @@ if (!a._completedAt && !a.trava) {
             ${t.id === travaId ? `<p class="trava-desc">${t.resumo}</p>` : ""}
           </div>`).join("")}
       </div>
-      <p class="hint" style="margin-top:14px">Percentual de afinidade calculado a partir das suas respostas. A trava dominante é a que comanda o resto da leitura.</p>
+      <p class="hint" style="margin-top:14px">Percentual de afinidade calculado a partir das suas respostas. O ponto dominante é o que comanda o resto da leitura.</p>
     </div>
 
     <hr class="divisor" />
@@ -232,14 +261,15 @@ if (!a._completedAt && !a.trava) {
       <p>Você contou que as suas reuniões chegam principalmente por <strong>${origem}</strong>,
       que as que não fecham costumam terminar com <strong>${perda}</strong>,
       e que isso já te custou <strong>${custo}</strong>.${estrutura ? ` Hoje a sua operação é de <strong>${estrutura}</strong>.` : ""}</p>
-      <p>Essa combinação é a assinatura de quem trava em <strong>${trava.nome}</strong>: ${trava.resumo}
-      Repare no que ela tem de específico: o problema não aparece no fim da conversa, mesmo que seja lá
-      que você sinta. Ele aparece antes, e só cobra o preço no fim.</p>
+      <p>Essa combinação é a assinatura de <strong>${trava.nome}</strong>: ${trava.resumo}
+      Repare no que ela tem de específico: o ponto onde você sente a perda quase nunca é o ponto onde
+      ela acontece. A conta chega no fim da conversa, o erro acontece antes.</p>
     </div>
 
     <div class="etapa">
       <h3>O espelho</h3>
-      <p>Você provavelmente se reconhece aqui:</p>
+      <p class="cena">${trava.cena}</p>
+      <p>E provavelmente também aqui:</p>
       <ul class="espelho">${ESPELHO.map((e) => `<li>${e}</li>`).join("")}</ul>
       <p class="virada">Nada disso é falta de técnica de fechamento. É a ordem. A decisão de compra acontece
       em três camadas, e a maior parte das reuniões é perdida porque o vendedor entra pela camada errada,
@@ -281,10 +311,10 @@ if (!a._completedAt && !a.trava) {
       <h3>O que precisa acontecer no seu caso</h3>
       <p>${trava.caminho}</p>
       <p>O que você quer, <strong>${objetivo}</strong>, depende disso e não do contrário.</p>
-      <p><strong>O custo de continuar como está</strong> não é só o contrato que não fechou. É o desconto
-      que você deu sem precisar, a agenda ocupada por quem nunca ia decidir, o concorrente pior que levou
-      o cliente, e a próxima reunião que você vai conduzir do mesmo jeito, porque ninguém te mostrou
-      onde ela quebrou.</p>
+      <p><strong>O custo de continuar como está.</strong> ${trava.custo}</p>
+      <p>E ele não para no contrato que não fechou. É o desconto que você deu sem precisar, a agenda
+      ocupada por quem nunca ia decidir, o concorrente pior que levou o cliente, e a próxima reunião que
+      você vai conduzir do mesmo jeito, porque ninguém te mostrou onde ela quebrou.</p>
     </div>
 
     ${blocoConta}
@@ -326,7 +356,7 @@ if (!a._completedAt && !a.trava) {
         <p class="oferta-desc">${O.descricao}</p>
         <p class="oferta-preco">${O.preco}</p>
         <p class="oferta-cond">${O.parcelamento}</p>
-        <button class="btn btn-primary btn-block cta-checkout" type="button">Quero o ${O.nome}</button>
+        <button class="btn btn-primary btn-block cta-checkout" type="button">${O.cta}</button>
         <p class="oferta-nota">${O.acesso}.</p>
         ${blocoFundadores}
       </div>
@@ -338,7 +368,10 @@ if (!a._completedAt && !a.trava) {
     <div class="etapa">
       <h3>Quem assina esse método</h3>
       <div class="autor">
-        <img class="autor-foto" src="thiago.jpg" alt="Thiago Menegão" width="184" height="184"
+        <!-- A foto vive no projeto de asset js2, não junto das páginas: a
+             árvore das páginas já estava no teto de tamanho por envio. O
+             onerror remove a imagem se ela faltar, e o bloco continua de pé. -->
+        <img class="autor-foto" src="https://quiz-thiago-menegao-js2-simpleacc.vercel.app/thiago.webp" alt="Thiago Menegão" width="256" height="256"
                loading="lazy" onerror="this.remove()" />
         <div>
           <span class="autor-nome">THIAGO MENEGÃO</span>
@@ -359,15 +392,12 @@ if (!a._completedAt && !a.trava) {
       uma empresa por vez. O ${O.nome} gravado existe para que a estrutura inteira chegue a quem
       quer aplicar sem depender da agenda dele.</p>
       <div class="cred-grid">
-        <div class="cred"><div class="n">1993</div><div class="d">estudando comportamento humano</div></div>
+        <div class="cred"><div class="n">Desde 1993</div><div class="d">estudando comportamento humano</div></div>
         <div class="cred"><div class="n">20 anos</div><div class="d">de mercado, quase duas décadas nos bastidores</div></div>
-        <div class="cred"><div class="n">50+</div><div class="d">projetos entregues</div></div>
+        <div class="cred"><div class="n">+ de 50</div><div class="d">projetos entregues</div></div>
         <div class="cred"><div class="n">Marca própria</div><div class="d">PRIMAL PITCH®, método registrado</div></div>
       </div>
-      <div class="marcas">
-        <span>Mercedes</span><span>Itaú</span><span>Honda</span>
-        <span>John Deere</span><span>Electrolux</span><span>Philips</span>
-      </div>
+      ${blocoMarcas}
     </div>
 
     ${blocoDepoimentos}
@@ -422,7 +452,7 @@ if (!a._completedAt && !a.trava) {
       </ol>
       <p class="pergunta-final">A pergunta não é se faz sentido entrar.
       A pergunta é quanto te custa continuar adiando.</p>
-      <button class="btn btn-primary btn-block cta-checkout" type="button">Quero o ${O.nome}</button>
+      <button class="btn btn-primary btn-block cta-checkout" type="button">${O.cta}</button>
       <p class="oferta-nota">${O.preco}, ${O.parcelamento}. ${O.acesso}.</p>
       ${duvida}
     </div>`;

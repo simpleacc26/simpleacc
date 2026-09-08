@@ -28,20 +28,23 @@
     return { pct, faixa: pct >= 66 ? "Alta" : (pct >= 33 ? "Média" : "Baixa") };
   }
 
-  /* Trava dominante: sai da P3, a pergunta que a estratégia definiu para
-     comandar a personalização da página inteira. */
+  /* Balde dominante: sai da P3, a pergunta que tem uma opção por balde.
+     Comanda a personalização da página inteira. O fallback é o primeiro balde
+     declarado no flow.js, nunca uma chave escrita à mão aqui. */
   function travaDominante(answers) {
     const s = F.steps.find((x) => x.id === "trava");
     const o = s && s.options.find((op) => op.value === answers.trava);
-    return (o && o.trava) || "diagnostico";
+    return (o && o.trava) || Object.keys(F.travas)[0];
   }
 
-  /* Afinidade com as quatro travas: soma o campo `travas` de cada opção
-     escolhida e normaliza pelo maior valor. Vira as quatro barras do
-     relatório. Como tudo vem das respostas da pessoa, não existe número
-     inventado na página. */
+  /* Afinidade com os baldes: soma o campo `travas` de cada opção escolhida e
+     normaliza pelo maior valor. Vira as barras do relatório. Como tudo vem das
+     respostas da pessoa, não existe número inventado na página.
+     As chaves saem do flow.js, então acrescentar ou tirar um balde lá não
+     exige mexer aqui. */
   function perfilTravas(answers) {
-    const acc = { alarme: 0, diagnostico: 0, posicao: 0, ancora: 0 };
+    const acc = {};
+    Object.keys(F.travas).forEach((k) => { acc[k] = 0; });
     F.steps.forEach((s) => {
       const o = s.options.find((op) => op.value === answers[s.id]);
       if (!o || !o.travas) return;

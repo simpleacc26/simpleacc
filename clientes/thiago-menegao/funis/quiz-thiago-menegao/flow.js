@@ -60,6 +60,13 @@ window.FLOW = {
     preco: "R$ 2.000",
     parcelamento: "à vista ou parcelado em até 12 vezes",
     acesso: "Acesso imediato à área de membros após a confirmação do pagamento",
+    /* TEXTO DOS BOTÕES. Fica aqui porque é copy, e para mudar num lugar só.
+       Não é "Quero o PRIMAL PITCH": ninguém quer um produto, quer a mudança.
+       O que este avatar quer está na promessa central do projeto, converter
+       mais das reuniões que já existem, sem aumentar tráfego e sem baixar
+       preço. Sem número e sem projeção de futuro: é o desejo dele em primeira
+       pessoa, não uma promessa nossa. */
+    cta: "Quero fechar mais das reuniões que já tenho",
     /* Turma de Fundadores. TRAVA DELIBERADA: o bloco só aparece se houver data
        real preenchida aqui, no formato "12 de outubro". Prazo inventado com
        este público custa mais caro que a venda que traria (nota de copy da
@@ -70,50 +77,93 @@ window.FLOW = {
     prazoGarantia: "",
   },
 
-  /* As quatro travas. A P3 define a dominante e ela comanda a personalização
-     da página inteira. Os textos saem da estratégia aprovada, Seção 3. */
+  /* ============================================================
+     OS CINCO BALDES.  Fonte: os cinco baldes definidos pelo Daniel para este
+     funil, que são os cinco pontos onde a reunião de alto valor trava segundo
+     o método do Thiago.  A P3 define o balde dominante e ele comanda a
+     personalização da página inteira: régua, barras, espelho, custo e caminho.
+
+     Cada balde entrega CINCO textos, e é isso que faz o diagnóstico ser
+     personalizado sem virar cinco páginas diferentes:
+       nome     título do resultado e rótulo da barra
+       etapas   quais das sete etapas do Primal Closing ele afeta
+       resumo   uma linha, usada na barra dominante e na leitura do cenário
+       cena     o que a pessoa reconhece na própria reunião (bloco do espelho)
+       custo    o que ESTE balde especificamente cobra (bloco do custo)
+       caminho  o que precisa mudar, pelo mecanismo (bloco do que fazer)
+     O resto da página (mecanismo, tentativas mortas, oferta, prova, FAQ) é
+     comum aos cinco.
+
+     NOMES: os baldes do Daniel são descritos pela falta ("não posicionamento
+     como condutor", "carência emocional").  Na página eles entram pelo nome do
+     que falta acontecer, nunca pela acusação: este avatar tem ferida dominante
+     de injustiça e humilhação, e "você é carente" ou "você não sabe se
+     posicionar" fecha a leitura na primeira linha.  Mesmo balde, entrada pela
+     cena.
+     ============================================================ */
   travas: {
-    alarme: {
-      nome: "Alarme Primal",
-      etapas: "Abertura e Diagnóstico",
-      etapasIdx: [1, 2],
-      resumo: "o lead te classifica como vendedor nos primeiros segundos e passa a conversa inteira defendido.",
-      caminho: "Antes de qualquer pergunta, o trabalho é desativar o alarme. Enquanto ele te classificar como vendedor, cada argumento seu vira mais um motivo para ele se proteger.",
+    condutor: {
+      nome: "Posição de Condutor",
+      etapas: "Abertura e Condução",
+      etapasIdx: [1, 5],
+      resumo: "o lead te classifica como vendedor nos primeiros segundos, e a partir dali quem faz as perguntas é ele.",
+      cena: "Você entrou na reunião para conduzir e saiu dela tendo respondido. As perguntas foram dele, o ritmo foi dele, e no fim a decisão também.",
+      custo: "Quem responde não conduz. E quem não conduz depende da iniciativa do lead para a conversa avançar, o que transfere para ele um trabalho que ele não sabe fazer, e ele resolve isso da forma mais barata que existe: adiando.",
+      caminho: "Existe um enquadramento que define, antes da primeira pergunta, quem está sentado na cadeira de consultor. Enquanto você ocupar a cadeira de quem apresenta, cada argumento seu vira mais um motivo para ele se proteger. A Abertura tem função, critério de saída e sinal de travamento próprios, e é ela que decide o resto da reunião.",
     },
-    diagnostico: {
-      nome: "Diagnóstico Raso",
+    perfil: {
+      nome: "Leitura de Perfil",
       etapas: "Diagnóstico e Espelho",
       etapasIdx: [2, 3],
-      resumo: "ele responde tudo, mas nunca reconhece o tamanho do próprio problema. Sem reconhecimento, não existe urgência.",
-      caminho: "Ele responde, mas não se enxerga. Falta a etapa que devolve a situação dele nas palavras dele, antes de qualquer proposta. Sem reconhecimento não existe urgência, e sem urgência não existe decisão.",
+      resumo: "você conduz todos do mesmo jeito, e a frase que aproxima um perfil é exatamente a que afasta o outro.",
+      cena: "Com um cliente a reunião flui e fecha. Com o seguinte, mesma preparação, mesmo roteiro, a conversa esfria, e depois você não consegue apontar o que mudou.",
+      custo: "Sem leitura de perfil a sua conversão vira sorte de encaixe. Você fecha com quem já pensa parecido com você e perde os outros três, sem nunca ter tido como saber por quê.",
+      caminho: "São quatro perfis em jogo na mesa, o Competidor, o Analítico, o Caridoso e o Social, e cada um precisa de tipo de prova, ritmo e pergunta diferentes. O Diagnóstico existe para identificar quem está na sua frente antes de escolher o que dizer, e o Espelho só devolve a situação nas palavras dele se essa leitura tiver sido feita antes.",
     },
-    posicao: {
-      nome: "Perda de Posição",
-      etapas: "Contexto e Condução",
-      etapasIdx: [4, 5],
-      resumo: "ele assume a condução, faz as perguntas, e você vira apresentador.",
-      caminho: "Quem faz as perguntas conduz a sala. O trabalho aqui é posição, ritmo e limite, para você voltar a conduzir sem endurecer a conversa.",
+    camada: {
+      nome: "Camada do Lead",
+      etapas: "Espelho e Contexto",
+      etapasIdx: [3, 4],
+      resumo: "você responde na camada racional uma dúvida que nasceu na camada primal, e a resposta certa chega no lugar errado.",
+      cena: "Ele entende tudo, concorda com tudo, elogia o raciocínio, e mesmo assim diz que vai pensar. Não faltou informação. Faltou chegar na camada onde a decisão estava sendo tomada.",
+      custo: "É a perda mais cara porque é invisível: nada dá errado na tela. Você reabre a gravação, assiste inteira, e não encontra o erro, porque ele não está no que foi dito, está na camada em que foi dito.",
+      caminho: "A decisão acontece em três camadas, sempre nesta ordem: primal, emocional e racional. O trabalho aqui é identificar em qual delas o lead está antes de responder, e subir com ele, em vez de responder de cima. É exatamente isso que o índice deste diagnóstico mede.",
     },
-    ancora: {
-      nome: "Prescrição Sem Âncora",
+    empilhamento: {
+      nome: "Empilhamento Desproporcional",
+      etapas: "Condução e Prescrição",
+      etapasIdx: [5, 6],
+      resumo: "você empilha argumento, prova e entrega em cima de um problema que o lead ainda não dimensionou, e a solução fica maior que a dor.",
+      cena: "Quanto mais você mostra, mais pesada a conversa fica. Você acrescenta para convencer, e cada acréscimo faz o preço parecer maior, porque do outro lado ainda não existe um problema do mesmo tamanho.",
+      custo: "É o que transforma preço justo em preço caro sem ninguém mexer no preço. Não foi o valor que subiu, foi o problema que ficou pequeno na cabeça dele enquanto a solução crescia.",
+      caminho: "Empilhar é consequência, não causa: você acrescenta porque sentiu que não convenceu. O ajuste é dimensionar o problema antes de apresentar qualquer coisa, para que a prescrição saia proporcional ao que ele acabou de reconhecer. Prescrição não é lista de entregas, é o passo seguinte óbvio de um diagnóstico que ele aceitou.",
+    },
+    carencia: {
+      nome: "Consultoria Gratuita",
       etapas: "Prescrição e Decisão",
       etapasIdx: [6, 7],
-      resumo: "a conversa vai bem até o preço, porque o valor não foi ancorado antes de aparecer.",
-      caminho: "O preço não é caro, ele chegou sozinho. Falta ancoragem instalada antes, e falta transformar oferta em prescrição, que é o passo natural de quem acabou de entender o próprio diagnóstico.",
+      resumo: "a solução inteira é entregue dentro da reunião, o lead sai satisfeito, e não sobra nada para ele comprar.",
+      cena: "Ele agradece bastante, diz que a conversa foi ótima e que aprendeu muito. Você desliga com a sensação de que foi bem, e a resposta nunca vem.",
+      custo: "Reunião que resolve o problema de graça não gera venda, gera gratidão. Gratidão não tem prazo, então o follow-up começa a soar como cobrança, você faz menos, e a conversa morre de silêncio.",
+      caminho: "Mostrar que você sabe e entregar o que você sabe são coisas diferentes, e a diferença entre as duas é limite. A Prescrição nomeia o caminho sem executá-lo, e a Decisão precisa acontecer dentro da reunião, com passo definido e prazo, para que a conversa termine em resposta e não em elogio.",
     },
   },
 
   /* As sete etapas do Primal Closing, na ordem. Viram a régua visual do
      relatório: a barra cresce até o ponto em que o controle escapa, ou seja,
      até a PRIMEIRA etapa afetada pela trava (`etapasIdx` de cada trava, em
-     base 1). Quem trava em Alarme Primal vê a barra quase vazia, quem trava em
-     Prescrição Sem Âncora vê a barra quase cheia. */
+     base 1). Quem trava em Posição de Condutor vê a barra quase vazia, quem
+     trava em Consultoria Gratuita vê a barra quase cheia. */
   etapas: ["Abertura", "Diagnóstico", "Espelho", "Contexto", "Condução", "Prescrição", "Decisão"],
 
   hero: {
     titulo: "Existe uma etapa exata em que você perdeu aquela venda",
     subtitulo: "Responda e descubra em qual das sete etapas da sua reunião o controle escapa, por que o lead diz que vai pensar e o que precisa mudar antes da sua próxima call.",
-    tempo: "Leva cerca de 2 minutos e o resultado é seu na hora",
+    /* SEM estimativa de tempo aqui (decisão do cliente em 08/09). Prometer "2
+       minutos" na primeira tela cria uma régua que o lead cobra, e as telas de
+       carregamento agora seguram mais tempo de propósito, para dar tempo de
+       ler. Deixar vazio faz o app.js não renderizar a linha. */
+    tempo: "",
   },
 
   /* ============================================================
@@ -122,9 +172,9 @@ window.FLOW = {
      P6 (objetivo), P7 (estrutura), P8 (a conta) e P9 (ticket) não pontuam:
      servem para o espelho, para a conta e para calibrar o argumento.
 
-     `travas`: afinidade da opção com cada uma das quatro travas. É o que
-     alimenta as barras do relatório. A P3 pesa mais porque é a que define a
-     dominante.
+     `travas`: afinidade da opção com cada um dos cinco baldes. É o que
+     alimenta as cinco barras do relatório. A P3 pesa mais porque é a que
+     define o dominante.
 
      PESOS: calibrados rodando todas as combinações (ver calibrar.js). Quiz
      sem opção de "está tudo bem" tende a jogar todo mundo em Alta, que é o
@@ -139,16 +189,16 @@ window.FLOW = {
       options: [
         { value: "indicacao", label: "Quase tudo por indicação e rede", peso: 0,
           report: "receber quase tudo por indicação e rede",
-          travas: { alarme: 0, diagnostico: 1, posicao: 1, ancora: 1 } },
+          travas: { condutor: 0, perfil: 1, camada: 1, empilhamento: 1, carencia: 2 } },
         { value: "indicacao_conteudo", label: "Indicação e, de vez em quando, alguém do meu conteúdo", peso: 1,
           report: "viver de indicação e, de vez em quando, alguém que chega pelo seu conteúdo",
-          travas: { alarme: 1, diagnostico: 1, posicao: 1, ancora: 1 } },
+          travas: { condutor: 1, perfil: 1, camada: 2, empilhamento: 1, carencia: 1 } },
         { value: "trafego", label: "Tenho tráfego rodando e agenda entrando", peso: 2,
           report: "ter tráfego rodando e agenda entrando",
-          travas: { alarme: 2, diagnostico: 1, posicao: 0, ancora: 1 } },
+          travas: { condutor: 2, perfil: 1, camada: 2, empilhamento: 1, carencia: 0 } },
         { value: "time", label: "Tenho time comercial agendando para mim", peso: 2,
           report: "ter um time comercial agendando para você",
-          travas: { alarme: 2, diagnostico: 2, posicao: 0, ancora: 1 } },
+          travas: { condutor: 2, perfil: 2, camada: 1, empilhamento: 1, carencia: 0 } },
       ],
     },
     {
@@ -158,39 +208,49 @@ window.FLOW = {
       options: [
         { value: "vou_pensar", label: "Ele diz que vai pensar e some", peso: 3,
           report: "ouvir que ele vai pensar e não ter mais notícia",
-          travas: { alarme: 1, diagnostico: 2, posicao: 0, ancora: 2 } },
+          travas: { condutor: 1, perfil: 1, camada: 3, empilhamento: 1, carencia: 1 } },
         { value: "proposta", label: "Pede para mandar a proposta por escrito", peso: 1,
           report: "ouvir o pedido de mandar a proposta por escrito",
-          travas: { alarme: 0, diagnostico: 1, posicao: 2, ancora: 2 } },
+          travas: { condutor: 3, perfil: 1, camada: 1, empilhamento: 2, carencia: 0 } },
         { value: "elogia", label: "Concorda com tudo, elogia, e não avança", peso: 3,
           report: "ver a pessoa concordar com tudo, elogiar, e não avançar",
-          travas: { alarme: 1, diagnostico: 3, posicao: 0, ancora: 1 } },
+          travas: { condutor: 0, perfil: 2, camada: 1, empilhamento: 1, carencia: 3 } },
         { value: "condicao", label: "Só avança se eu melhorar a condição", peso: 2,
           report: "só ver a conversa avançar quando você melhora a condição",
-          travas: { alarme: 0, diagnostico: 1, posicao: 1, ancora: 3 } },
+          travas: { condutor: 1, perfil: 1, camada: 1, empilhamento: 3, carencia: 1 } },
       ],
     },
     {
+      /* P3. É A PERGUNTA QUE DEFINE O BALDE DOMINANTE, e por isso ela tem uma
+         opção por balde, na ordem em que os baldes aparecem na reunião.
+         As cinco opções descrevem a CENA, nunca o diagnóstico: quem trava em
+         Leitura de Perfil não sabe que trava em leitura de perfil, sabe que
+         com um cliente flui e com o outro não. Nomear o balde na opção faria
+         a pessoa escolher pelo que soa melhor, não pelo que acontece com ela. */
       id: "trava",
-      etapa: "Problema · define a trava dominante",
+      etapa: "Problema · define o seu balde",
       pergunta: "Em que momento da conversa você sente que perde o controle?",
       options: [
-        { value: "alarme", label: "Logo no começo. Ele me trata como mais um vendedor desde o primeiro minuto", peso: 3,
-          trava: "alarme",
+        { value: "condutor", label: "Logo no começo. Ele me trata como mais um vendedor, e quem passa a fazer as perguntas é ele", peso: 3,
+          trava: "condutor",
           report: "sentir a conversa endurecer logo no começo, quando ele te trata como mais um vendedor",
-          travas: { alarme: 5, diagnostico: 1, posicao: 1, ancora: 0 } },
-        { value: "diagnostico", label: "No meio. Ele responde tudo, mas não reconhece o tamanho do próprio problema", peso: 3,
-          trava: "diagnostico",
-          report: "ver que ele responde tudo sem reconhecer o tamanho do próprio problema",
-          travas: { alarme: 1, diagnostico: 5, posicao: 1, ancora: 1 } },
-        { value: "posicao", label: "Quando ele assume a conversa, faz as perguntas e eu viro apresentador", peso: 2,
-          trava: "posicao",
-          report: "perceber que ele assumiu a conversa e você virou apresentador",
-          travas: { alarme: 1, diagnostico: 1, posicao: 5, ancora: 1 } },
-        { value: "ancora", label: "Na hora do preço. Até ali estava bom", peso: 1,
-          trava: "ancora",
-          report: "ver a conversa mudar de clima só na hora do preço",
-          travas: { alarme: 0, diagnostico: 1, posicao: 1, ancora: 5 } },
+          travas: { condutor: 5, perfil: 1, camada: 1, empilhamento: 0, carencia: 1 } },
+        { value: "perfil", label: "Depende do cliente. Com um tipo de pessoa flui e fecha, com outro a mesma conversa esfria", peso: 2,
+          trava: "perfil",
+          report: "ver a mesma conversa fluir com um tipo de cliente e esfriar com outro",
+          travas: { condutor: 1, perfil: 5, camada: 1, empilhamento: 1, carencia: 0 } },
+        { value: "camada", label: "Ele entende tudo, concorda com tudo, e mesmo assim não decide", peso: 3,
+          trava: "camada",
+          report: "ver que ele entende tudo, concorda com tudo, e mesmo assim não decide",
+          travas: { condutor: 0, perfil: 1, camada: 5, empilhamento: 1, carencia: 1 } },
+        { value: "empilhamento", label: "Quando percebo que já falei demais. Explico, mostro, acrescento, e a conversa fica pesada", peso: 2,
+          trava: "empilhamento",
+          report: "perceber que explicou, mostrou e acrescentou até a conversa ficar pesada",
+          travas: { condutor: 1, perfil: 1, camada: 1, empilhamento: 5, carencia: 1 } },
+        { value: "carencia", label: "No fim. Ele sai com a solução na mão, agradecendo, e não sobra nada para comprar", peso: 1,
+          trava: "carencia",
+          report: "ver ele sair com a solução na mão, agradecendo, sem nada para comprar",
+          travas: { condutor: 1, perfil: 0, camada: 1, empilhamento: 1, carencia: 5 } },
       ],
     },
     {
@@ -200,16 +260,16 @@ window.FLOW = {
       options: [
         { value: "desconto", label: "Dar desconto em contrato que valia o preço cheio", peso: 1,
           report: "dar desconto em contrato que valia o preço cheio",
-          travas: { alarme: 0, diagnostico: 1, posicao: 1, ancora: 3 } },
+          travas: { condutor: 1, perfil: 1, camada: 1, empilhamento: 3, carencia: 1 } },
         { value: "agenda", label: "Reunião de retorno que nunca acontece e agenda ocupada com quem não decide", peso: 2,
           report: "encher a agenda com reunião de retorno que nunca acontece",
-          travas: { alarme: 1, diagnostico: 3, posicao: 1, ancora: 0 } },
+          travas: { condutor: 1, perfil: 1, camada: 2, empilhamento: 1, carencia: 3 } },
         { value: "concorrente", label: "Ver concorrente com produto pior fechando no meu lugar", peso: 3,
           report: "ver concorrente com produto pior fechando no seu lugar",
-          travas: { alarme: 2, diagnostico: 1, posicao: 2, ancora: 1 } },
+          travas: { condutor: 2, perfil: 3, camada: 1, empilhamento: 1, carencia: 1 } },
         { value: "sem_entender", label: "Sair de reunião sem entender o que aconteceu e repetir o erro na seguinte", peso: 3,
           report: "sair de reunião sem entender o que aconteceu e repetir o erro na seguinte",
-          travas: { alarme: 2, diagnostico: 2, posicao: 1, ancora: 1 } },
+          travas: { condutor: 1, perfil: 2, camada: 2, empilhamento: 1, carencia: 1 } },
       ],
     },
     {
@@ -219,16 +279,16 @@ window.FLOW = {
       options: [
         { value: "script", label: "Troquei de script mais de uma vez", peso: 1,
           report: "trocar de script mais de uma vez",
-          travas: { alarme: 1, diagnostico: 1, posicao: 1, ancora: 1 } },
+          travas: { condutor: 1, perfil: 2, camada: 1, empilhamento: 1, carencia: 1 } },
         { value: "treinamento", label: "Comprei treinamento de vendas ou mentoria comercial", peso: 1,
           report: "comprar treinamento de vendas ou mentoria comercial",
-          travas: { alarme: 1, diagnostico: 1, posicao: 1, ancora: 1 } },
+          travas: { condutor: 1, perfil: 1, camada: 1, empilhamento: 1, carencia: 1 } },
         { value: "closer", label: "Contratei closer ou SDR para tirar isso de mim", peso: 2,
           report: "contratar closer ou SDR para tirar isso de você",
-          travas: { alarme: 1, diagnostico: 1, posicao: 3, ancora: 1 } },
+          travas: { condutor: 3, perfil: 1, camada: 1, empilhamento: 1, carencia: 1 } },
         { value: "trafego", label: "Aumentei o investimento em tráfego para compensar no volume", peso: 3,
           report: "aumentar o investimento em tráfego para compensar no volume",
-          travas: { alarme: 2, diagnostico: 2, posicao: 1, ancora: 1 } },
+          travas: { condutor: 1, perfil: 1, camada: 2, empilhamento: 2, carencia: 1 } },
       ],
     },
     {
@@ -306,6 +366,11 @@ window.FLOW = {
      Especificação completa em copy/2026-09-01-telas-de-carregamento-funil-quiz
      `after` = id da pergunta depois da qual a tela entra.
      `campo` = quando presente, o título recebe a resposta daquela pergunta.
+     `duracao` = quanto a tela segura, em ms. Calibrado pelo TAMANHO DO TEXTO,
+     não por gosto: a régua é o pedido do cliente em 08/09, de cerca de 6
+     segundos para a primeira tela, que tem por volta de 205 caracteres. Isso dá
+     ~1,8s de folga mais ~21ms por caractere. Se mexer na copy, mexa aqui junto,
+     ou apague o campo e deixe o app.js calcular sozinho pela mesma fórmula.
      ============================================================ */
   intersticiais: [
     {
@@ -316,7 +381,7 @@ window.FLOW = {
       titulo: "Você acabou de descrever o fim da conversa.",
       texto: "{resposta}: é ali que a conta chega, e quase nunca é ali que o erro acontece. As próximas perguntas procuram o momento anterior.",
       barra: "Organizando suas respostas",
-      duracao: 2200,
+      duracao: 6000,
     },
     {
       id: "reframe",
@@ -324,7 +389,7 @@ window.FLOW = {
       titulo: "Reunião perdida quase nunca morre no preço.",
       texto: "Ela morre alguns minutos antes, quando a condução troca de lado da mesa e o preço vira a única coisa que sobrou para discutir.",
       barra: "Cruzando com as sete etapas",
-      duracao: 2200,
+      duracao: 5300,
     },
     {
       id: "autoridade",
@@ -332,7 +397,10 @@ window.FLOW = {
       titulo: "Quem monta essa análise não veio de vendas.",
       texto: "Thiago Menegão é engenheiro de computação e passou quase duas décadas em estratégia, comunicação e comportamento dentro de empresas como Mercedes, Itaú, Honda, John Deere, Electrolux e Philips, antes de precisar fechar os próprios contratos. A leitura aqui é de comportamento e de decisão, não de técnica de fechamento.",
       barra: "Preparando sua análise",
-      duracao: 2600,
+      /* 10s: é a tela com mais texto do funil, e é a que carrega o lastro
+         corporativo logo antes da captura. Vale o tempo (decisão do cliente
+         em 08/09, olhando a tela no ar). */
+      duracao: 10000,
     },
   ],
 

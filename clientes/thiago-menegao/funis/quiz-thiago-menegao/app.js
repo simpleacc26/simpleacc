@@ -8,7 +8,7 @@
       modelo da referência do Daniel: cada uma carrega um argumento e a barra
       cresce de 0 a 100 antes de avançar sozinha.
    2. Cálculo do IIC (Índice de Inversão de Camada) e da afinidade com as
-      quatro travas, tudo a partir dos pesos do flow.js.
+      cinco travas, tudo a partir dos pesos do flow.js.
    3. A CONTA: quanto ficou na mesa nos últimos 12 meses, calculada com o
       volume de reuniões e o ticket que a própria pessoa informou.
    4. Não existe classificação que barre ninguém. Este funil vende um produto
@@ -169,7 +169,7 @@ function renderStep(i) {
   const intro = i === 0 ? `
       <h1>${F.hero.titulo}</h1>
       <p class="lead">${F.hero.subtitulo}</p>
-      <p class="hint" style="margin:-2px 0 18px">${F.hero.tempo}</p>` : "";
+      ${F.hero.tempo ? `<p class="hint" style="margin:-2px 0 18px">${F.hero.tempo}</p>` : ""}` : "";
 
   const screen = el(`
     <section class="card screen">
@@ -236,7 +236,16 @@ function avancarDe(i) {
 function renderIntersticial(inter, proxima) {
   progressEl.hidden = true;
   trackEvent("step_view", { step_id: "intersticial_" + inter.id });
-  const dur = reduzMovimento() ? 700 : (inter.duracao || 2200);
+  /* Sem `duracao` no flow.js, o tempo sai do tamanho do texto: ~1,8s de folga
+     mais 21ms por caractere, limitado entre 4s e 10s. A régua veio do cliente em
+     08/09: a primeira tela, de ~205 caracteres, precisa de uns 6 segundos para
+     dar tempo de ler. Tela de carregamento que não dá tempo de ler é atrito
+     puro, porque o lead paga a espera e não recebe o argumento. */
+  const porTexto = () => {
+    const n = String(inter.titulo || "").length + String(inter.texto || "").length;
+    return Math.min(10000, Math.max(4000, Math.round(1800 + n * 21)));
+  };
+  const dur = reduzMovimento() ? 700 : (inter.duracao || porTexto());
 
   /* Quando o intersticial declara `campo`, o token {resposta} no título e no
      texto recebe a resposta que a pessoa acabou de dar, na terceira pessoa.
@@ -394,7 +403,11 @@ function renderLoading() {
   progressEl.hidden = true;
   trackEvent("step_view", { step_id: "loading" });
   const reduce = reduzMovimento();
-  const dur = reduce ? 800 : 4700;
+  /* 6s, não 4,7s: são três mensagens em sequência, e a 4,7s cada uma ficava
+     1,5s na tela, curto demais para ler. Agora fica 2s cada. Aumentar aqui é
+     sempre seguro, porque esta tela também existe para dar tempo de o lead
+     chegar na planilha antes da troca de página. */
+  const dur = reduce ? 800 : 6000;
   const msgs = [
     "Lendo as suas respostas.",
     "Localizando em qual das sete etapas a condução escapa.",

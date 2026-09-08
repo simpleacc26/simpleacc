@@ -92,7 +92,7 @@ node testar.js --shot           # idem, mais um print da página de diagnóstico
 
 `testar.js` responde o quiz inteiro num Chromium headless e confere: as 9
 perguntas, os 3 intersticiais, a máscara de telefone contra o autofill do
-iPhone, o redirecionamento, os quatro perfis de trava no relatório, a ausência
+iPhone, o redirecionamento, os cinco baldes no relatório, a ausência
 de variável vazada ou de conta zerada, a largura em 320px, 390px e 430px, e que
 nenhuma opção nasce pré-selecionada. Ele escreve os temporários fora desta
 pasta de propósito: publicação substitui a árvore inteira, e arquivo de teste
@@ -129,8 +129,8 @@ No relatório o gatilho é `IntersectionObserver`, uma vez por elemento, e
 A referência mostra um medidor com dois pinos, "Você" e "Concorrente". O pino do
 concorrente é um número inventado, e este público confere número. Aqui a barra
 cresce **até o ponto em que o controle escapa**, que é a primeira etapa afetada
-pela trava dominante: quem trava em Alarme Primal vê a barra quase vazia, quem
-trava em Prescrição Sem Âncora vê a barra quase cheia. O eixo é o próprio
+pelo balde dominante: quem trava em Posição de Condutor vê a barra quase vazia,
+quem trava em Consultoria Gratuita vê a barra quase cheia. O eixo é o próprio
 método, não um terceiro.
 
 ### 4. A conta
@@ -170,14 +170,63 @@ Estão repetidas no topo do `flow.js` porque quebrá-las custa a venda:
 7. **Descrever a cena, nunca acusar a pessoa.** Acusar um vendedor de não saber
    vender ativa exatamente o alarme primal que o método ensina a desligar.
 
+## Os cinco baldes
+
+A personalização inteira do relatório gira em torno dos **cinco baldes**
+definidos pelo Daniel, que são os cinco pontos onde a reunião de alto valor
+trava no método do Thiago. Eles vivem em `flow.js > travas` e a **P3** tem uma
+opção para cada um, na ordem em que aparecem na reunião.
+
+| Balde (nome do Daniel) | Nome na página | Etapas afetadas | Régua para em |
+|---|---|---|---|
+| Não posicionamento como Condutor/Consultor | Posição de Condutor | Abertura e Condução | 7% |
+| Não identificação do Perfil do lead | Leitura de Perfil | Diagnóstico e Espelho | 21% |
+| Não identificação da Camada do lead | Camada do Lead | Espelho e Contexto | 36% |
+| Empilhamento Desproporcional | Empilhamento Desproporcional | Condução e Prescrição | 64% |
+| Carência Emocional / Consultoria Gratuita | Consultoria Gratuita | Prescrição e Decisão | 79% |
+
+**Por que os nomes na página são diferentes.** Os baldes do Daniel são descritos
+pela falta ("não posicionamento", "carência emocional"). Na página eles entram
+pelo nome do que precisa acontecer, nunca pela acusação: a ferida dominante
+deste avatar é injustiça, seguida de humilhação, e "você é carente" fecha a
+leitura na primeira linha. Mesmo balde, entrada pela cena.
+
+### O que cada balde troca na página
+
+Cada balde entrega cinco campos, e quatro deles trocam blocos inteiros do
+relatório. O resto da página é igual para os cinco de propósito: é a parte que
+sustenta a venda.
+
+| Campo | Onde entra | Comum ou personalizado |
+|---|---|---|
+| `nome` | h1 do resultado e rótulo da barra dominante | personalizado |
+| `etapas` / `etapasIdx` | régua das sete etapas, onde a barra para | personalizado |
+| `resumo` | barra dominante e leitura do cenário | personalizado |
+| `cena` | abre o bloco do espelho, antes da lista comum | personalizado |
+| `custo` | abre "o custo de continuar como está" | personalizado |
+| `caminho` | "o que precisa acontecer no seu caso" | personalizado |
+| barras de afinidade | ordem muda conforme as respostas | personalizado |
+| argumento da conta | calibrado pelo ticket, não pelo balde | personalizado |
+| mecanismo, tentativas mortas, oferta, prova, FAQ, decisão | resto da página | comum |
+
+As cinco barras de afinidade não são só decoração: elas somam o campo `travas`
+de cada opção escolhida em P1, P2, P3, P4 e P5, então **duas pessoas com o mesmo
+balde dominante veem ordens diferentes** nos outros quatro. Nenhum número da
+página é inventado, todos saem das respostas.
+
+**Se mexer nos baldes:** `motor.js` já lê as chaves de `flow.js`, então
+acrescentar ou tirar um balde não exige tocar no motor. O que precisa
+acompanhar é a P3 (uma opção por balde), o campo `travas` de toda opção que
+pontua, os perfis do `testar.js` e a calibragem.
+
 ## O índice (IIC)
 
 **Índice de Inversão de Camada**, de 0 a 100. Sai só das perguntas com `peso`
 (P1 a P5). Objetivo, estrutura, volume e ticket não pontuam: servem para o
 espelho e para calibrar o argumento.
 
-`node calibrar.js` roda as 1024 combinações. Hoje: amplitude de 29% a 100%, com
-56% em Alta, 43% em Média e 0,2% em Baixa. A faixa Baixa é rara de propósito,
+`node calibrar.js` roda as 1280 combinações. Hoje: amplitude de 29% a 100%, com
+55% em Alta, 45% em Média e 0,2% em Baixa. A faixa Baixa é rara de propósito,
 porque o quiz não tem alternativa de "está tudo bem": quem responde já se
 reconhece no problema. **Se mexer em qualquer peso, rode a calibragem de novo.**
 

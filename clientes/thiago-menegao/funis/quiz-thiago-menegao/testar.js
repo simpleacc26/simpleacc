@@ -3,12 +3,16 @@
    Usa o Chromium que já vem no ambiente e file://, então roda offline.
 
    node testar.js            responde o quiz inteiro e checa o diagnóstico
+
+   RODE NA RAIZ DA PASTA, nunca dentro de dist/: no dist os <script src> são
+   URLs absolutas dos projetos de asset e o Chromium daqui não alcança HTTPS,
+   então tudo falha por falta de JS e não por defeito.
    node testar.js --shot     também salva um print da página de diagnóstico
 
    O que ele verifica:
    1. o quiz avança pelas 9 perguntas e pelos 3 intersticiais sem erro de JS
    2. a máscara de telefone sobrevive ao autofill do iPhone ("+55 11 ...")
-   3. a página de diagnóstico monta para os quatro perfis de trava
+   3. a página de diagnóstico monta para os cinco baldes
    4. nenhuma tela estoura a largura em 320px, 390px e 430px
    5. nenhuma opção nasce pré-selecionada
 
@@ -65,7 +69,7 @@ f.addEventListener("load",()=>{
   w.addEventListener("error",(e)=>ERROS.push(e.message));
   let n=0; const vistas=new Set();
   const t=setInterval(()=>{
-    if(n>70){clearInterval(t);log("ERROS:"+(ERROS.join(" | ")||"nenhum"));return}
+    if(n>260){clearInterval(t);log("ERROS:"+(ERROS.join(" | ")||"nenhum"));return}
     n++;
     if(d.querySelector(".inter-card")){log("INTER "+d.querySelector(".inter-titulo").textContent.trim());return}
     const opts=d.querySelectorAll(".opt"), form=d.querySelector("#form");
@@ -90,7 +94,11 @@ f.addEventListener("load",()=>{
   },250);
 });
 </script>`);
-const logQuiz = dentro(chrome(["--virtual-time-budget=30000", "--dump-dom", "file://" + path.join(TMP, "quiz.html")]), "log");
+/* Orçamento generoso de propósito: as telas de carregamento seguram de 5s a
+   10s cada, mais 6s da tela final, então o quiz inteiro passa de 30s. Se você
+   aumentar `duracao` no flow.js, aumente aqui junto, senão o teste falha por
+   estouro de tempo e não por defeito. */
+const logQuiz = dentro(chrome(["--virtual-time-budget=120000", "--dump-dom", "file://" + path.join(TMP, "quiz.html")]), "log");
 const perguntas = new Set(logQuiz.split("\n").filter((l) => l.startsWith("PERGUNTA")));
 const inters = new Set(logQuiz.split("\n").filter((l) => l.startsWith("INTER")));
 console.log("\n1. quiz de ponta a ponta");
@@ -102,14 +110,15 @@ ok(logQuiz.includes("SUBMIT") && logQuiz.includes("INTER Preparando o seu diagn�
 ok(!/PRESELECIONADAS [^0]/.test(logQuiz), "nenhuma opção nasce pré-selecionada");
 ok(logQuiz.includes("ERROS:nenhum"), "nenhum erro de JS: " + (logQuiz.match(/ERROS:(.*)/) || [, "?"])[1]);
 
-/* ---------- 2. diagnóstico nos quatro perfis ---------- */
+/* ---------- 2. diagnóstico nos cinco baldes ---------- */
 const PERFIS = [
-  ["Alarme Primal", { origem: "time", perda: "vou_pensar", trava: "alarme", custo: "sem_entender", tentativa: "trafego", objetivo: "time", estrutura: "time_completo", conta: "15a30_3", ticket: "acima25" }],
-  ["Diagnóstico Raso", { origem: "trafego", perda: "elogia", trava: "diagnostico", custo: "concorrente", tentativa: "closer", objetivo: "converter", estrutura: "closer", conta: "15a30_2", ticket: "5a25" }],
-  ["Perda de Posição", { origem: "indicacao_conteudo", perda: "proposta", trava: "posicao", custo: "agenda", tentativa: "treinamento", objetivo: "auditar", estrutura: "agendador", conta: "8a15", ticket: "3a5" }],
-  ["Prescrição Sem Âncora", { origem: "indicacao", perda: "condicao", trava: "ancora", custo: "desconto", tentativa: "script", objetivo: "estrutura", estrutura: "sozinho", conta: "menos8", ticket: "ate3" }],
+  ["Posição de Condutor", { origem: "time", perda: "proposta", trava: "condutor", custo: "concorrente", tentativa: "closer", objetivo: "time", estrutura: "time_completo", conta: "15a30_3", ticket: "acima25" }],
+  ["Leitura de Perfil", { origem: "trafego", perda: "elogia", trava: "perfil", custo: "sem_entender", tentativa: "script", objetivo: "converter", estrutura: "closer", conta: "15a30_2", ticket: "5a25" }],
+  ["Camada do Lead", { origem: "indicacao_conteudo", perda: "vou_pensar", trava: "camada", custo: "agenda", tentativa: "trafego", objetivo: "auditar", estrutura: "agendador", conta: "8a15", ticket: "3a5" }],
+  ["Empilhamento Desproporcional", { origem: "indicacao", perda: "condicao", trava: "empilhamento", custo: "desconto", tentativa: "treinamento", objetivo: "estrutura", estrutura: "sozinho", conta: "menos8", ticket: "ate3" }],
+  ["Consultoria Gratuita", { origem: "indicacao", perda: "elogia", trava: "carencia", custo: "agenda", tentativa: "script", objetivo: "converter", estrutura: "sozinho", conta: "8a15", ticket: "5a25" }],
 ];
-console.log("\n2. diagnóstico nos quatro perfis de trava");
+console.log("\n2. diagnóstico nos cinco baldes");
 PERFIS.forEach(([esperado, resp]) => {
   const a = encodeURIComponent(JSON.stringify(Object.assign({ nomeResp: "Marcos Vinicius", oquevende: "consultoria", _completedAt: "x" }, resp)));
   const dom = chrome(["--force-prefers-reduced-motion", "--virtual-time-budget=5000", "--dump-dom",
@@ -117,8 +126,8 @@ PERFIS.forEach(([esperado, resp]) => {
   const trava = (dom.match(/trava-nome">([^<]+)/) || [, "??"])[1];
   const conta = (dom.match(/id="conta-num"[^>]*>([^<]+)/) || [, "??"])[1];
   const iic = (dom.match(/id="iic-num"[^>]*>([^<]+)/) || [, "??"])[1];
-  ok(trava === esperado, `${esperado.padEnd(22)} IIC ${iic.padStart(4)} · conta ${conta.replace(/\u00a0|&nbsp;/g, " ")}`);
-  ok(!/\{\{|\{resposta\}|undefined|NaN|R\$ 0\b/.test(dom), `${esperado.padEnd(22)} sem variável vazada, NaN ou conta zerada`);
+  ok(trava === esperado, `${esperado.padEnd(28)} IIC ${iic.padStart(4)} · conta ${conta.replace(/\u00a0|&nbsp;/g, " ")}`);
+  ok(!/\{\{|\{resposta\}|undefined|NaN|R\$ 0\b/.test(dom), `${esperado.padEnd(28)} sem variável vazada, NaN ou conta zerada`);
 });
 
 /* ---------- 3. largura em celular ---------- */

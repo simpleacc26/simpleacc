@@ -67,7 +67,7 @@
     .regua-marca { text-align: center; font-size: 13px; color: var(--muted); margin: 14px 0 0; opacity: 0; transition: opacity .5s ease .9s; }
     .regua.on .regua-marca { opacity: 1; }
 
-    /* ---- as quatro travas em barras ----
+    /* ---- os cinco pontos de travamento em barras ----
        Equivalente aos donuts de gargalo da referência, mas nomeando a trava em
        palavra em vez de só cuspir porcentagem, que lá ficava ambíguo (número
        alto era coisa ruim e não dava para saber olhando). */
@@ -90,7 +90,13 @@
     .conta-legenda { font-size: 14px; color: var(--muted); margin: 0; }
     .conta-formula { font-size: 12.5px; color: #6C6862; margin: 14px 0 0; line-height: 1.5; }
 
-    /* ---- espelho ---- */
+    /* ---- espelho ----
+       .cena é a linha PERSONALIZADA do balde dominante, e abre o bloco antes
+       da lista comum. Fica em serifada e num fundo próprio para o leitor
+       perceber que aquilo ali é sobre ele, não sobre todo mundo. */
+    .cena { font-family: var(--font-serif); font-size: 17.5px; line-height: 1.55;
+      background: rgba(255,255,255,.035); border: 1px solid var(--border);
+      border-radius: 12px; padding: 15px 17px; margin: 0 0 18px; }
     .espelho { margin: 0; padding: 0; list-style: none; }
     .espelho li { position: relative; padding-left: 20px; margin: 0 0 11px; color: var(--text); font-size: 16px; }
     .espelho li::before { content: ""; position: absolute; left: 0; top: .62em; width: 7px; height: 7px; border-radius: 50%; background: var(--gold-700); }
@@ -109,8 +115,11 @@
 
     .entrega { margin: 0; padding: 0; list-style: none; }
     .entrega li { position: relative; padding-left: 24px; margin: 0 0 14px; font-size: 15.5px; }
-    .entrega li::before { content: ""; position: absolute; left: 0; top: .45em; width: 11px; height: 11px;
-      border: 2px solid var(--gold); border-radius: 3px; }
+    /* Losango CHEIO, não quadrado vazado. O quadrado com borda lia como
+       checkbox desmarcado e convidava o lead a clicar numa lista que não é
+       interativa, ainda por cima numa lista de coisas que NÃO funcionaram. */
+    .entrega li::before { content: ""; position: absolute; left: 2px; top: .5em; width: 8px; height: 8px;
+      background: var(--gold); transform: rotate(45deg); border-radius: 1px; }
     .entrega b { color: var(--gold-300); }
 
     /* ---- oferta ---- */
@@ -127,7 +136,7 @@
 
     /* ---- CTA distribuído ---- */
     .cta-inline { text-align: center; margin: 24px 0; }
-    .cta-inline .btn { width: 100%; max-width: 440px; }
+    .cta-inline .btn { width: 100%; max-width: 440px; margin-left: auto; margin-right: auto; }
     .cta-inline .hint { display: block; margin-top: 10px; }
 
     /* ---- autoridade ---- */
@@ -146,6 +155,17 @@
     .marcas { display: flex; flex-wrap: wrap; gap: 7px; margin: 4px 0 0; }
     .marcas span { font-size: 11.5px; letter-spacing: .10em; text-transform: uppercase; color: var(--muted);
       border: 1px solid var(--border); border-radius: 99px; padding: 6px 12px; }
+
+    /* Faixa de logos do lastro corporativo. Cinza e translúcida de propósito:
+       logo colorido de terceiro rouba a atenção do que está sendo vendido e
+       ainda faz a página parecer um portfólio de agência. Ganha cor no hover. */
+    .logos { display: flex; flex-wrap: wrap; align-items: center; gap: 22px 28px; margin: 6px 0 0; }
+    .logos img { height: 26px; width: auto; filter: grayscale(1) brightness(1.9); opacity: .62;
+      transition: opacity .2s, filter .2s; }
+    @media (hover: hover) and (pointer: fine) {
+      .logos img:hover { filter: none; opacity: 1; }
+    }
+    @media (max-width: 520px) { .logos { gap: 18px 20px; } .logos img { height: 21px; } }
 
     /* ---- depoimentos ---- */
     .dep-videos { display: flex; gap: 12px; margin: 0 0 8px; overflow-x: auto; scroll-snap-type: x mandatory;
