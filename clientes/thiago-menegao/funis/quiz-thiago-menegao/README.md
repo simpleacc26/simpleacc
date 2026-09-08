@@ -29,7 +29,7 @@ isso a venda chega lá sem origem e não dá para saber qual criativo pagou.
 
 ```bash
 node build-deploy.js     # gera dist/, que é o que sobe
-node testar.js           # 22 checagens antes de qualquer deploy
+node testar.js           # 24 checagens antes de qualquer deploy
 ```
 
 Depois suba o conteúdo de `dist/` para os projetos da Vercel listados em
@@ -37,7 +37,7 @@ Depois suba o conteúdo de `dist/` para os projetos da Vercel listados em
 Confira cada arquivo com `curl` + `cmp` contra o `dist/` depois de subir:
 publicação substitui a árvore inteira e arquivo faltando vira 404 silencioso.
 
-### Por que quatro projetos na Vercel
+### Por que cinco projetos na Vercel
 
 A publicação é feita por envio direto de arquivos, o envio tem limite de tamanho
 por chamada, e cada deploy **substitui a árvore inteira**. Os 86 KB do funil não
@@ -48,8 +48,9 @@ padrão que o time já usa (`ges360-assets`, `quiz-go-imgs`):
 | --- | --- |
 | `quiz-thiago-menegao` | as duas páginas, o CSS e o favicon |
 | `quiz-thiago-menegao-js` | `flow.js`, `motor.js` |
-| `quiz-thiago-menegao-js2` | `app.js`, `thiago.webp` |
+| `quiz-thiago-menegao-js2` | `app.js` |
 | `quiz-thiago-menegao-js3` | `diagnostico.js` |
+| `quiz-thiago-menegao-img` | `thiago.webp`, e qualquer binário futuro |
 
 **Isso colapsa para um projeto só quando a Vercel receber acesso de escrita ao
 repositório no GitHub.** Hoje a tentativa de ligar o projeto ao Git falha com
@@ -59,7 +60,13 @@ autorizando `simpleacc26/simpleacc`), dá para criar um projeto único com
 `deploy-config.json` deixam de ser necessários e os `<script src>` voltam a ser
 relativos.
 
-A proteção de deployment (Vercel Authentication) foi **desligada nos quatro
+**O projeto de imagem existe separado de propósito.** Cada publicação substitui
+a árvore inteira do projeto, e binário viaja em base64 na chamada. Junto do
+código, a foto teria que ser reenviada a cada ajuste de JS, com risco de
+corromper em silêncio, que é exatamente o que já aconteceu uma vez neste
+projeto. Sozinha, ela sobe uma vez e não se mexe mais.
+
+A proteção de deployment (Vercel Authentication) foi **desligada nos cinco
 projetos**. Com ela ligada, que é o padrão do time, até a produção respondia 302
 e o link não abria para quem não está logado na Vercel.
 
@@ -246,6 +253,33 @@ Não se pergunta faturamento, e é regra dele: a pessoa mente, e faturamento nã
 lucro. Ticket praticado e estrutura comercial dizem a verdade sobre o jogo que a
 pessoa joga.
 
+## Planilha de leads e integração
+
+| | |
+| --- | --- |
+| **Planilha** | [Leads · Quiz Diagnóstico de Condução · Thiago Menegão](https://docs.google.com/spreadsheets/d/1WKQCQZHV-9ts7zub_vKxECzUQy6UUNTT9PTgIdW-Of8/edit) |
+| Pasta no Drive | `Simple <> Thiago Menegão` |
+| Cenário no Make | `[Thiago Menegão] Diagnóstico de Condução → Sheets` (Time Simple Acc, id 6197898) |
+| Webhook | `app.js > LEADS_ENDPOINT` |
+| Aba | **`Untitled`** |
+
+São 27 colunas, na mesma ordem dos campos de `enviarLead()` no `app.js`.
+Além dos dados de contato, cada linha traz o **balde dominante**, o IIC com a
+faixa, o segmento de ticket, a conta de 12 meses e as nove respostas do quiz em
+texto legível, mais as cinco UTMs e a URL de origem. É o suficiente para abrir a
+linha e saber com quem se está falando antes de responder.
+
+**Três armadilhas deste conjunto, todas já pisadas pela casa:**
+
+1. O `addRow` do Make grava **por posição**. Mexeu na ordem dos campos de
+   `enviarLead()` ou no cabeçalho da planilha, o mapeamento sai do lugar em
+   silêncio, sem erro nenhum.
+2. O `addRow` referencia a aba **pelo nome**, e o nome é `Untitled`, não
+   "Página1": planilha criada a partir de CSV nasce assim. Renomear a aba quebra
+   o módulo com `400 Unable to parse range` e o Make desativa o cenário.
+3. Testar com `curl` exercita o Make, **não o funil**. O teste que vale é
+   responder o quiz inteiro no navegador e depois LER a planilha.
+
 ## O que falta antes de subir mídia
 
 Todos os pontos abaixo têm trava no código: enquanto não forem preenchidos, ou o
@@ -255,7 +289,6 @@ bloco não renderiza, ou a página avisa no topo.
 | --- | --- | --- |
 | **URL do checkout** | `flow.js > marca.checkoutUrl` | os botões não navegam e a página mostra um aviso vermelho no topo |
 | **Pixel da Meta** | `index.html`, `diagnostico.html` (bloco comentado) e `app.js > TRACKING_CONFIG` | nenhum evento sobe |
-| **Webhook do Make** | `app.js > LEADS_ENDPOINT` | o lead não vai para a planilha |
 | **Logos das marcas** | `diagnostico.js > LOGOS` | entram os nomes em chip, que dizem a mesma coisa sem risco de falsificar marca registrada |
 | **Depoimentos** | `diagnostico.js > DEPOIMENTOS` | o bloco inteiro não renderiza |
 | **Prazo da garantia** | `flow.js > oferta.prazoGarantia` | a página fala em garantia sem citar prazo |
@@ -289,7 +322,7 @@ campo mas a tabela de objeções trata "R$ 500 é barato demais", e o texto cita
 
 Em 08/09/2026 os **nove** arquivos servidos (as duas páginas, o CSS, o favicon,
 os quatro JS e a `thiago.webp`) foram conferidos com `curl` + `cmp` contra o
-`dist/` local e são **byte a byte idênticos** ao build que passou nas 22
+`dist/` local e são **byte a byte idênticos** ao build que passou nas 24
 checagens do `testar.js`. Refaça essa conferência depois de todo deploy.
 
 Comando, rodando dentro de `dist/`:

@@ -21,10 +21,17 @@
    O mesmo ID precisa ir no <script> do index.html E do diagnostico.html. */
 const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
 
-/* PENDENTE: webhook do Make que grava o lead na planilha do Drive do cliente.
-   Vazio = não envia. Depois de ligar, TESTE PELO NAVEGADOR respondendo o quiz
-   inteiro e confira LENDO A PLANILHA. Testar com curl não testa este caminho. */
-const LEADS_ENDPOINT = "";
+/* Webhook do Make que grava o lead na planilha do Drive do cliente.
+   Cenário: "[Thiago Menegão] Diagnóstico de Condução → Sheets" (Time Simple Acc).
+   Planilha: "Leads · Quiz Diagnóstico de Condução · Thiago Menegão", na pasta
+   "Simple <> Thiago Menegão" do Drive.
+   ⚠️ O `addRow` do Make grava POR POSIÇÃO e referencia a aba pelo NOME, que
+   aqui é "Untitled" (planilha nasceu de um CSV; ela NÃO se chama "Página1").
+   Se mexer na ordem dos campos de `enviarLead()`, no cabeçalho da planilha ou
+   no nome da aba, o mapeamento sai do lugar em silêncio. Mexeu, testa de novo
+   PELO NAVEGADOR, respondendo o quiz inteiro, e confere LENDO A PLANILHA:
+   testar com curl exercita o Make, não este caminho. */
+const LEADS_ENDPOINT = "https://hook.us2.make.com/vmd8l4tj3ichaf0lg21hk3xyaj5l9h3t";
 
 function metaPadrao(evento, params) {
   if (!TRACKING_CONFIG.meta_pixel_id || typeof fbq !== "function") return;
