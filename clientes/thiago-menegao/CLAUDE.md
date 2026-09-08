@@ -82,15 +82,24 @@ etapa) com identidade visual autoral.
 **O único gargalo é prova:** zero depoimento em vídeo. É a Fase 1 do roadmap e a única
 coisa que depende dele.
 
-## Estado do funil (01/09/2026)
+## Estado do funil (08/09/2026)
 
-O quiz está implementado e testado em
-[`funis/quiz-thiago-menegao/`](funis/quiz-thiago-menegao/), modelado sobre a referência
-que o Daniel mandou seguir (Full Sales System, mapeada tela a tela em
-`contexto/2026-09-01-referencia-quiz-full-sales-system.md`) com a copy da estratégia
-aprovada. **Não está publicado.**
+O quiz está implementado, testado e **no ar em
+https://quiz-thiago-menegao-simpleacc.vercel.app** (conta da Simple na Vercel),
+em [`funis/quiz-thiago-menegao/`](funis/quiz-thiago-menegao/). Foi modelado sobre a
+referência que o Daniel mandou seguir (Full Sales System, mapeada tela a tela em
+`contexto/2026-09-01-referencia-quiz-full-sales-system.md`), com a copy da estratégia
+aprovada.
 
-Antes de mexer nele, leia o `README.md` do projeto: ele lista as sete pendências, todas
-com trava no código (checkout, Pixel, webhook, foto, depoimentos, prazo de garantia e
-data da Turma de Fundadores), e os quatro pontos a confirmar com o cliente. Rode
-`node testar.js` depois de qualquer alteração e `node calibrar.js` se mexer em peso.
+**O relatório é organizado nos cinco baldes definidos pelo Daniel**, e cada balde
+recebe diagnóstico personalizado: quatro blocos da página trocam de texto conforme
+o balde dominante, o resto é comum aos cinco. Mapeamento completo na seção
+"Os cinco baldes" do `README.md` do projeto.
+
+O funil está publicado mas **ainda não pode receber tráfego**: falta a URL do
+checkout, e enquanto ela não entrar os botões de compra não navegam e a página
+mostra um aviso no topo. Antes de mexer nele, leia o `README.md` do projeto: ele
+lista as pendências, todas com trava no código (checkout, Pixel, webhook, logos,
+depoimentos, prazo de garantia e data da Turma de Fundadores), e os quatro pontos a
+confirmar com o cliente. Rode `node testar.js` depois de qualquer alteração e
+`node calibrar.js` se mexer em peso.

@@ -29,7 +29,7 @@ isso a venda chega lá sem origem e não dá para saber qual criativo pagou.
 
 ```bash
 node build-deploy.js     # gera dist/, que é o que sobe
-node testar.js           # 20 checagens antes de qualquer deploy
+node testar.js           # 22 checagens antes de qualquer deploy
 ```
 
 Depois suba o conteúdo de `dist/` para os projetos da Vercel listados em
@@ -40,7 +40,7 @@ publicação substitui a árvore inteira e arquivo faltando vira 404 silencioso.
 ### Por que quatro projetos na Vercel
 
 A publicação é feita por envio direto de arquivos, o envio tem limite de tamanho
-por chamada, e cada deploy **substitui a árvore inteira**. Os 74 KB do funil não
+por chamada, e cada deploy **substitui a árvore inteira**. Os 86 KB do funil não
 cabem numa chamada só, então os JS moram em projetos de asset separados, no mesmo
 padrão que o time já usa (`ges360-assets`, `quiz-go-imgs`):
 
@@ -48,7 +48,7 @@ padrão que o time já usa (`ges360-assets`, `quiz-go-imgs`):
 | --- | --- |
 | `quiz-thiago-menegao` | as duas páginas, o CSS e o favicon |
 | `quiz-thiago-menegao-js` | `flow.js`, `motor.js` |
-| `quiz-thiago-menegao-js2` | `app.js` |
+| `quiz-thiago-menegao-js2` | `app.js`, `thiago.webp` |
 | `quiz-thiago-menegao-js3` | `diagnostico.js` |
 
 **Isso colapsa para um projeto só quando a Vercel receber acesso de escrita ao
@@ -256,7 +256,7 @@ bloco não renderiza, ou a página avisa no topo.
 | **URL do checkout** | `flow.js > marca.checkoutUrl` | os botões não navegam e a página mostra um aviso vermelho no topo |
 | **Pixel da Meta** | `index.html`, `diagnostico.html` (bloco comentado) e `app.js > TRACKING_CONFIG` | nenhum evento sobe |
 | **Webhook do Make** | `app.js > LEADS_ENDPOINT` | o lead não vai para a planilha |
-| **Foto do Thiago** | `thiago.jpg` nesta pasta | a foto some sozinha, o bloco de autoridade continua de pé |
+| **Logos das marcas** | `diagnostico.js > LOGOS` | entram os nomes em chip, que dizem a mesma coisa sem risco de falsificar marca registrada |
 | **Depoimentos** | `diagnostico.js > DEPOIMENTOS` | o bloco inteiro não renderiza |
 | **Prazo da garantia** | `flow.js > oferta.prazoGarantia` | a página fala em garantia sem citar prazo |
 | **Data da Turma de Fundadores** | `flow.js > oferta.dataLimiteFundadores` | o bloco de fundadores não aparece |
@@ -287,6 +287,18 @@ campo mas a tabela de objeções trata "R$ 500 é barato demais", e o texto cita
 
 ## Verificação do que está no ar
 
-Em 07/09/2026 os oito arquivos servidos foram conferidos com `curl` + `cmp`
-contra o `dist/` local e são **byte a byte idênticos** ao build que passou nas
-20 checagens do `testar.js`. Refaça essa conferência depois de todo deploy.
+Em 08/09/2026 os **nove** arquivos servidos (as duas páginas, o CSS, o favicon,
+os quatro JS e a `thiago.webp`) foram conferidos com `curl` + `cmp` contra o
+`dist/` local e são **byte a byte idênticos** ao build que passou nas 22
+checagens do `testar.js`. Refaça essa conferência depois de todo deploy.
+
+Comando, rodando dentro de `dist/`:
+
+```bash
+curl -s -o /tmp/x https://quiz-thiago-menegao-simpleacc.vercel.app/diagnostico.html
+cmp /tmp/x diagnostico.html
+```
+
+E assim por diante para cada arquivo, contra a base do projeto dele em
+`deploy-config.json`. **Status 200 não prova integridade**, só que o arquivo
+existe.
