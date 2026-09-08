@@ -174,14 +174,19 @@ function enviarLead() {
     const o = s && s.options.find((op) => op.value === a[stepId]);
     return o ? o.label : "";
   };
+  
+  const emailRaw = (a.email || "").trim().toLowerCase();
+  const emailValido = /^[a-z0-9._%+-]+@[a-z0-9-]+(\.[a-z0-9-]+)+$/.test(emailRaw);
+
   const lead = {
     data: new Date().toISOString(),
-    nome: a.nomeResp || "", whatsapp: a.whatsapp || "", email: a.email || "",
+    nome: a.nomeResp || "", whatsapp: a.whatsapp || "",
     situacao: label("situacao"), problema: label("problema"), implicacao: label("implicacao"),
     necessidade: label("necessidade"), objetivo: label("objetivo"), perfil: label("perfil"),
     qualificacao: label("qualificacao"), frente: (F.config && F.config.frente) || "Inclusão", origem: document.referrer || location.href,
     ...URL_UTMS,
   };
+  if (emailValido) lead.email = emailRaw;
   try {
     fetch(LEADS_ENDPOINT, { method: "POST", mode: "no-cors",
       headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(lead) });
