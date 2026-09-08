@@ -8,7 +8,9 @@
 
 /* ---- Tracking plugável: preencha os IDs e os eventos vão junto.
    Vazio = só loga no console. ---- */
-const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
+/* Pixel da Meta ligado em 08/09. O snippet base fica nos dois HTML e já
+   dispara PageView; aqui entra o id para os eventos do funil abaixo. */
+const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "1698620051487236", custom_webhook: "" };
 
 /* Planilha de leads. Webhook do Make que grava na planilha
    "Planilha de Leads - Thaina e Thiago (Diagnóstico do Ciclo) - Simple Acc"
@@ -53,16 +55,19 @@ function trackEvent(name, data = {}) {
   } catch (e) { /* tracking nunca quebra o funil */ }
 }
 
-/* Classifica o lead pela regra de segmentação da estratégia:
+/* Classifica o lead pela porteira de CONDIÇÃO (revisada em 04/09):
    - fora:        casada ou em relação fixa SEM indicar falta de valorização
-   - nutrir:      "não neste momento, quero só entender melhor"
-   - fila-quente: prontidão a ou b (prioridade máxima de atendimento)
-   - qualificado: o resto ("só dependendo do valor"), atender com o 12x na conversa */
+   - fila-quente: banca os R$ 450, à vista ou parcelado. É o MQL.
+   - passo-menor: quer, mas R$ 450 está fora. Dimensiona a demanda pelo low ticket.
+   - nutrir:      não é sobre o valor, não é o momento.
+   ⚠️ MQL = fila-quente, só. A faixa "qualificado" antiga ("só dependendo do
+   valor") deixou de existir: era ela que inflava a taxa de MQL para 79%,
+   porque media vontade e não condição. */
 function classificarLead(a) {
   if (a.perfil === "casada" && a.situacao !== "sem-valor") return "fora";
-  if (a.prontidao === "depois") return "nutrir";
-  if (a.prontidao === "prioridade" || a.prontidao === "se-funciona") return "fila-quente";
-  return "qualificado";
+  if (a.prontidao === "agora" || a.prontidao === "parcelado") return "fila-quente";
+  if (a.prontidao === "menor") return "passo-menor";
+  return "nutrir";
 }
 
 /* Nome do padrão, tirado da resposta de reação (elo 2). É o que a mulher vê no
@@ -199,7 +204,9 @@ function renderStep(i) {
     state.answers[step.id] = node.dataset.value;
     save();
     if (!state.started) { state.started = true; trackEvent("funnel_start", {}); }
-    trackEvent("step_complete", { step_id: step.id, time_on_step: Date.now() - stepEnterTime });
+    /* Manda também a opção escolhida: é assim que dá para ver na Meta quantas
+       chegaram na porteira de preço e o que responderam, sem depender da planilha. */
+    trackEvent("step_complete", { step_id: step.id, escolha: node.dataset.value, time_on_step: Date.now() - stepEnterTime });
     advancing = true;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     setTimeout(() => { (i < F.steps.length - 1) ? goToStep(i + 1) : renderCaptura(); }, reduce ? 0 : 300);
@@ -301,7 +308,15 @@ function renderCaptura() {
     submitBtn.innerHTML = '<span class="spinner"></span>Enviando...';
     state.answers._completedAt = new Date().toISOString();
     save();
-    trackEvent("funnel_complete", { classificacao: classificarLead(state.answers), padrao: padraoDoLead(state.answers) });
+    const classeFinal = classificarLead(state.answers);
+    trackEvent("funnel_complete", { classificacao: classeFinal, padrao: padraoDoLead(state.answers) });
+    /* Evento PADRÃO da Meta, além do custom acima. É o que o gestor de tráfego
+       usa para otimizar campanha e o que alimenta a coluna de leads da planilha
+       de indicadores. O custom não serve para isso. */
+    try {
+      if (TRACKING_CONFIG.meta_pixel_id && typeof fbq === "function")
+        fbq("track", "Lead", { content_name: "Diagnostico do Ciclo", classificacao: classeFinal });
+    } catch (e) { /* tracking nunca quebra o funil */ }
     enviarLead();
     renderLoading();
   });

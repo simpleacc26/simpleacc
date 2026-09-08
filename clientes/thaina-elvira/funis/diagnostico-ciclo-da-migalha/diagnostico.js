@@ -7,10 +7,12 @@
    (.claude/skills/gerar-quiz-diag-pag-pos-quiz/references/estrutura-invisivel.md):
    cabeçalho com selo do índice, "antes de tudo", espelho do cenário,
    reframe, dois caminhos, método, próximo passo, CTAs distribuídos,
-   bloco de autoridade e CTA final adaptado às 3 faixas.
+   bloco de autoridade e CTA final adaptado às 4 faixas.
 
-   ⚠️ Sem preço, sem checkout e sem pré-agendamento pago. Um único
-   destino: o WhatsApp. Decisão da call de 04/08.
+   ⚠️ Sem checkout e sem pré-agendamento pago. Um único destino: o
+   WhatsApp. Decisão da call de 04/08, reafirmada em 04/09.
+   O preço vive no QUIZ (porteira de condição na última pergunta), não
+   aqui: quem chega nesta página já se posicionou sobre os R$ 450.
    Padrão de escrita: nunca usar travessões (traço longo).
    ============================================================ */
 const STORE_KEY = (window.FLOW.config && window.FLOW.config.storeKey) || "thaina_diagnostico_ciclo";
@@ -60,14 +62,17 @@ function calcICM() {
    uma página separada e não carrega o app.js. */
 function classificar(ans) {
   if (ans.perfil === "casada" && ans.situacao !== "sem-valor") return "fora";
-  if (ans.prontidao === "depois") return "nutrir";
-  if (ans.prontidao === "prioridade" || ans.prontidao === "se-funciona") return "fila-quente";
-  return "qualificado";
+  if (ans.prontidao === "agora" || ans.prontidao === "parcelado") return "fila-quente";
+  if (ans.prontidao === "menor") return "passo-menor";
+  return "nutrir";
 }
 
 const a = getState().answers || {};
 const optReacao = opcao("reacao");
 const padrao = (optReacao && optReacao.padrao) || "Ciclo da Migalha";
+/* Faixa de condição no escopo do módulo de propósito: o relatório usa lá
+   embaixo e o abrirWhatsApp() também, e ele vive fora do bloco do relatório. */
+const classeLead = classificar(a);
 
 /* sem respostas? (abriu a página direto) */
 if (!a._completedAt && !a.reacao) {
@@ -90,9 +95,9 @@ if (!a._completedAt && !a.reacao) {
   const tentativa = frase("tentativas") || "buscar uma saída";
   const objetivo = frase("objetivo") || "parar de aceitar menos do que você quer";
 
-  const classe = classificar(a);
+  const classe = classeLead;
 
-  /* CTA final adaptado às 3 faixas. Ninguém leva porta na cara. */
+  /* CTA final adaptado às 4 faixas. Ninguém leva porta na cara. */
   let ctaLabel, ctaExtra, fecho;
   if (classe === "fora") {
     ctaLabel = "Falar com a equipe no WhatsApp";
@@ -102,6 +107,14 @@ if (!a._completedAt && !a.reacao) {
     ctaLabel = "Quero entender melhor como funciona";
     ctaExtra = '<p class="hint">Sem compromisso e no seu tempo. A equipe te explica como funciona a Sessão Mapa do Ciclo e responde o que você quiser perguntar.</p>';
     fecho = '<p class="fecho">Quando fizer sentido para você, o primeiro passo é a <strong>Sessão Mapa do Ciclo</strong>: uma hora individual com o Thiago para desenhar o seu ciclo e definir a direção dos próximos 30 dias.</p>';
+  } else if (classe === "passo-menor") {
+    /* Ela disse que o valor está fora do momento dela. Não repetir o convite
+       para a sessão de R$ 450 aqui: seria insistir no que ela acabou de dizer
+       que não cabe. E NÃO prometer um produto mais barato pelo nome, porque
+       hoje não existe um no ar para entregar. O convite é para a conversa. */
+    ctaLabel = "Falar com a equipe sobre o meu momento";
+    ctaExtra = '<p class="hint">Conta para a equipe no WhatsApp em que ponto você está. A gente vê junto qual é o melhor primeiro passo para você agora, sem compromisso.</p>';
+    fecho = '<p class="fecho">Entender o seu padrão já é um começo, e ele não vence a data. Quando fizer sentido para o seu momento, o caminho continua aqui.</p>';
   } else {
     ctaLabel = "Quero entender o meu ciclo completo";
     ctaExtra = '<p class="hint">Fale com a nossa equipe no WhatsApp. A gente te explica como funciona a sessão, tira as suas dúvidas e vê se faz sentido para o seu momento. Sem compromisso.</p>';
@@ -314,7 +327,8 @@ function abrirWhatsApp() {
     return;
   }
   const nome = (a.nomeResp || "").split(" ")[0] || "";
-  const msg = (F.marca.whatsappMsg || "")
+  const porFaixa = F.marca.whatsappMsgPorFaixa || {};
+  const msg = (porFaixa[classeLead] || F.marca.whatsappMsg || "")
     .replace("{nome}", nome)
     .replace("{padrao}", padrao);
   const url = `https://wa.me/${F.marca.whatsapp}?text=${encodeURIComponent(msg)}`;
