@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Roadmap de Agosto · João Mendes</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    padding: 16mm 18mm 24mm 18mm;
+    position: relative;
+    page-break-after: always;
+    background: #fff;
+  }
+  .page:last-child { page-break-after: auto; }
+  .runhead {
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; color: var(--muted);
+    letter-spacing: .06em; text-transform: uppercase;
+    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt;
+  }
+  .runfoot {
+    position: absolute; bottom: 9mm; left: 18mm; right: 18mm;
+    text-align: center; font-size: 7.5pt; color: var(--muted);
+  }
+  .kicker {
+    color: var(--gold); font-size: 9pt; font-weight: bold;
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt;
+  }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
+  .box-dark {
+    background: var(--navy-dark); color: #f5f3ee;
+    padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt;
+  }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light {
+    background: var(--beige); border-left: 3pt solid var(--gold);
+    padding: 10pt 14pt; margin: 11pt 0;
+  }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .fase-header {
+    background: var(--navy-dark); color: #fff;
+    padding: 10pt 16pt; margin-bottom: 10pt;
+    border-left: 4pt solid var(--gold);
+  }
+  .fase-header .fk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .fase-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .fase-header .fd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 12pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+  .frente-num { color: var(--gold); font-weight: bold; }
+  .msg {
+    background: #fbfaf7; border: .5pt solid #ded9cf; border-left: 2.5pt solid var(--navy);
+    padding: 8pt 12pt; margin: 6pt 0 8pt; font-size: 9.5pt; color: #40485a;
+  }
+  .msg .lbl { font-size: 7.5pt; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); font-weight: bold; margin-bottom: 3pt; }
+
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 38pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+  .footer-note { margin-top: 24pt; padding-top: 8pt; border-top: 1pt solid var(--gold); font-size: 8.5pt; color: var(--muted); width: 65%; }
+</style>
+</head>
+<body>
+
+<!-- PÁGINA 1 · CAPA -->
+<div class="page cover">
+  <div class="kicker">Plano de Agosto · Sobrevivência e Reconstrução</div>
+  <h1>Roadmap<br>de Agosto</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    Um mês para atravessar, não para construir império.<br>
+    Três frentes, e nada além delas.<br>
+    Execução diária, desapego do resultado.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">João Mendes</div>
+    <div class="lbl">Mentor Estratégico</div>
+    <div class="val">Daniel Souza</div>
+    <div class="lbl">Acompanhamento</div>
+    <div class="val">Carlos Durães</div>
+  </div>
+</div>
+
+<!-- PÁGINA 2 · A REGRA DO MÊS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap de Agosto · João Mendes</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Começar</div>
+  <h1 style="font-size:19pt;">A Regra do Mês</h1>
+  <p class="lead">Este documento é curto de propósito. Mês difícil não se atravessa com plano grande, se atravessa com poucas coisas feitas todo dia.</p>
+
+  <div class="box-dark">
+    <div class="bt">A decisão mais importante deste mês</div>
+    <p>Agosto não é o mês de construir o império do João. É o mês de atravessar. O seguro-desemprego acabou em julho, o projeto da expert está encerrado e não existe renda prevista. Nesse cenário, tentar erguer estrutura de longo prazo é o caminho mais curto para a decisão errada, porque decisão tomada com aperto em casa é sempre ruim.</p>
+    <p><strong>A regra: três frentes, e nada além delas. Tudo que não for caixa imediato, prospecção da parceria ou saúde sai do mês.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">As três frentes</div>
+    <p><span class="frente-num">1 · Caixa imediato.</span> Os bicos, a consultoria dos dias 13 a 18 e qualquer trabalho técnico pontual que aparecer. Não existe demérito nenhum nisso: é o que compra o tempo das outras duas frentes.</p>
+    <p><span class="frente-num">2 · Prospecção da parceria.</span> Todo tempo livre, sem exceção. É a única frente com potencial real de resolver o problema, e não só de aliviá-lo.</p>
+    <p><span class="frente-num">3 · Cabeça e corpo.</span> Sono, o estacionamento e a avaliação com psiquiatra. Sem isso as outras duas não se sustentam por 30 dias.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">O que fica fora de agosto (e volta em setembro)</div>
+    <p><strong>Tráfego pago para negócio local:</strong> exige prospecção nova, aprendizado novo e ciclo de recebimento longo. É uma boa ideia na hora errada.</p>
+    <p><strong>Montar uma oferta própria de serviço digital:</strong> mesma lógica. Você já tem uma oferta pronta e um time na parceria; não construa uma segunda em paralelo.</p>
+    <p><strong>Insistir no projeto da expert:</strong> encerrado, e o motivo está na página 9.</p>
+    <p><strong>Marca pessoal, conteúdo e funil próprio:</strong> nada disso está descartado. Está na fila, e a fila tem ordem por um motivo.</p>
+  </div>
+  <div class="runfoot">Plano de agosto · execução diária, uma coisa de cada vez</div>
+</div>
+
+<!-- PÁGINA 3 · A CONTA DO MÊS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap de Agosto · João Mendes</span><span>Página 3</span></div>
+  <div class="kicker">O Mês em Números</div>
+  <h1 style="font-size:19pt;">A Conta de Agosto</h1>
+  <p class="lead">Quando o número está na mesa, o dia para de ser sobre ansiedade e passa a ser sobre volume.</p>
+
+  <div class="box-light">
+    <div class="bt">O caixa que precisa entrar</div>
+    <p>A necessidade do mês é de <strong>cerca de R$ 4.000</strong> para manter a casa. A consultoria dos dias 13 a 18 entrega perto de <strong>R$ 2.000</strong> (6 dias na sua diária de R$ 300, que na sua especialidade sai um pouco acima). Ou seja: metade do mês já tem endereço. <strong>A outra metade vem dos bicos e de qualquer demanda técnica curta que você conseguir puxar</strong>, e é por isso que a Frente 1 existe.</p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">A conta da prospecção</div>
+    <p>Agosto tem <strong>21 dias úteis</strong> a partir do dia 3. Descontando os 4 dias úteis da consultoria (13, 14, 17 e 18), sobram 17 dias de ritmo pleno, mais os dias de campo com o mínimo de 30 que você combinou com a sua dupla.</p>
+    <p><strong>17 dias × 50 abordagens + 4 dias × 30 = cerca de 970 contatos no mês.</strong> Com 6% de resposta, são cerca de 55 conversas abertas. Com 20% delas virando conversa marcada, são de 10 a 11 calls. Com 15% de fechamento, é <strong>1 a 2 contratos</strong>.</p>
+    <p>A meta do desafio (2 experts da saúde) não depende de sorte nem de inspiração: <strong>é o resultado matemático de manter o volume.</strong> É só fazer.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">O que um contrato significa</div>
+    <p>A oferta do time é <strong>setup mínimo de R$ 15.000 mais fixo de R$ 3.000 a R$ 5.000 por mês</strong>, com capacidade para dois projetos simultâneos. <strong>Um contrato fechado muda o seu mês. Dois mudam o seu semestre.</strong> É a primeira vez em dois anos que você entra num projeto com setup pago na entrada, e não bancando o risco de outra pessoa.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Ritmo de acompanhamento</div>
+    <p>Conversa a cada 15 dias, e o grupo aberto no meio do caminho para o que não pode esperar. Nesse mês, mensagem no grupo não é incômodo: é o mecanismo. <strong>Carlos</strong> para execução e estratégia, <strong>Daniel</strong> para as decisões maiores. A execução acontece entre as calls.</p>
+  </div>
+  <div class="runfoot">Plano de agosto · execução diária, uma coisa de cada vez</div>
+</div>
+
+<!-- PÁGINA 4 · FRENTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap de Agosto · João Mendes</span><span>Página 4</span></div>
+  <div class="fase-header">
+    <div class="fk">Frente 1 · O mês inteiro</div>
+    <h2>Caixa Imediato</h2>
+    <div class="fd">O que põe comida na mesa esta semana, não em noventa dias.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que isso vem primeiro e sem culpa</div>
+    <p>Você foi trabalhar de servente de pedreiro numa segunda de manhã para garantir o mês, e contou isso com todas as letras. <strong>Isso não é retrocesso, é responsabilidade.</strong> Sustentar a casa com o que tem na mão enquanto reconstrói a carreira é a coisa mais difícil que existe: aguentar o presente sem soltar o futuro.</p>
+  </div>
+
+  <div class="passo-label">Passo 1</div>
+  <h3>Garantir o mínimo de agosto</h3>
+  <ul class="check">
+    <li>A consultoria dos dias 13 a 18 é o piso do mês. Ela já está contratada: proteja essa data acima de qualquer outra coisa.</li>
+    <li>Aceitar os bicos que aparecerem, sem hesitar e sem se justificar para ninguém.</li>
+    <li>Um limite só: <strong>nada que te tire de casa por mais de 20 dias.</strong> A vaga de Oriximiná (R$ 7.000, 90 dias no Pará) foi recusada pelo motivo certo, com a esposa de 5 meses e duas filhas pequenas. Esse critério vale o mês inteiro.</li>
+  </ul>
+
+  <div class="passo-label">Passo 2</div>
+  <h3>Reabrir a porta da consultoria técnica curta</h3>
+  <ul class="check">
+    <li>De 2020 a 2023 você viveu só de consultoria e chegou a abrir MEI para isso. É a sua vantagem injusta: concorrência baixíssima e você já é o especialista, sem precisar provar nada a ninguém.</li>
+    <li>O formato certo para este momento é o que você mesmo descreveu: <strong>trabalhos curtos, de 15 a 20 dias</strong>, que aparecem de tempos em tempos. O que não aparece é o que ninguém sabe que você está disponível para pegar.</li>
+    <li>Uma mensagem, esta semana, para ex-colegas, ex-gestores e empresas do setor:
+      <ul class="sub">
+        <li>"Estou pegando demandas pontuais de 15 a 20 dias, de campo curto ou remotas. Se aparecer algo aí, me chama que eu resolvo."</li>
+      </ul>
+    </li>
+    <li>Isso não compete com o digital: ocupa os dias em que a prospecção já foi feita e está esperando resposta.</li>
+  </ul>
+
+  <div class="passo-label">Passo 3</div>
+  <h3>Tirar peso do que dá para tirar</h3>
+  <ul class="check">
+    <li>A parcela da mentoria: o Carlos já leva ao Daniel a conversa sobre pausar ou reestruturar. <strong>Não carregue isso como dívida moral no meio do mês.</strong></li>
+    <li>Nenhuma assinatura, ferramenta ou compromisso financeiro novo em agosto. Nenhum.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da frente</div>
+    <p><strong>Até 31/08:</strong> agosto pago, sem dívida nova, e uma demanda técnica mapeada para setembro.</p>
+  </div>
+  <div class="runfoot">Plano de agosto · execução diária, uma coisa de cada vez</div>
+</div>
+
+<!-- PÁGINA 5 · FRENTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap de Agosto · João Mendes</span><span>Página 5</span></div>
+  <div class="fase-header">
+    <div class="fk">Frente 2 · Todo tempo livre</div>
+    <h2>A Parceria e a Rotina</h2>
+    <div class="fd">A única frente que resolve o problema, e não apenas alivia.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que desta vez é diferente</div>
+    <p>Nas duas tentativas anteriores você entrou sozinho, sem setup pago, bancando ferramenta e tráfego, e dependendo de um expert que não entregava. Agora são <strong>dois estrategistas, uma copywriter e você</strong>, com oferta definida, setup pago na entrada, cobrança mútua em dupla e um desafio com prazo e prêmio. <strong>Você deixou de ser o único responsável pelo resultado e deixou de financiar o negócio dos outros.</strong> Foram exatamente esses dois pontos que quebraram 2025 e 2026.</p>
+  </div>
+
+  <div class="passo-label">Passo 4</div>
+  <h3>A meta do mês</h3>
+  <ul class="check">
+    <li>Fechar com <strong>2 experts da área da saúde</strong> (médico, dentista) para lançar a pós-graduação deles. É a meta do desafio de agosto e é a meta deste roadmap.</li>
+    <li>Um contrato já muda o mês. Dois colocam o time em operação plena, com capacidade para os dois projetos simultâneos.</li>
+    <li>Filtro que não se negocia: expert que <strong>já fatura</strong>, com produto validado e caixa para o setup. Projeto do zero e nicho abstrato foi o erro das duas vezes anteriores, e você mesmo já nomeou isso.</li>
+  </ul>
+
+  <div class="passo-label">Passo 5</div>
+  <h3>A rotina que cabe neste mês</h3>
+  <ul class="check">
+    <li><strong>Bloco fixo de 1h20 pela manhã, antes de qualquer outra coisa.</strong> Você já mediu: 50 a 60 abordagens cabem nesse tempo.</li>
+    <li>Teto de 100 por dia para não tomar bloqueio do Instagram. Bloqueio custa vários dias de operação, e agosto não tem dias sobrando.</li>
+    <li>Nos dias de obra ou de campo, o mínimo é 30, que é o combinado com a sua dupla. <strong>Dia zerado não se recupera no dia seguinte: some.</strong></li>
+    <li>Manda o número do dia para a dupla todo fim de tarde. Cobrança externa é o que sustenta a rotina justamente nos dias em que a cabeça não colabora.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da frente</div>
+    <p><strong>Até 31/08:</strong> cerca de 970 abordagens acumuladas · 10 conversas marcadas · 1 a 2 contratos fechados ou em negociação final, sempre com setup pago na entrada.</p>
+  </div>
+  <div class="runfoot">Plano de agosto · execução diária, uma coisa de cada vez</div>
+</div>
+
+<!-- PÁGINA 6 · O SCRIPT -->
+<div class="page">
+  <div class="runhead"><span>Roadmap de Agosto · João Mendes</span><span>Página 6</span></div>
+  <div class="fase-header">
+    <div class="fk">Frente 2 · A parte que você pediu ajuda</div>
+    <h2>O Script: Abordagem e Desenrolar</h2>
+    <div class="fd">Como não soar igual aos outros trinta que chegaram no direct dele hoje.</div>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">O problema real</div>
+    <p>Um médico com 100 mil seguidores recebe dezenas de mensagens idênticas por dia: "olhei seu perfil, vi que dá pra melhorar, posso te mostrar uma coisa?". <strong>O que diferencia não é ser mais criativo na oferta: é não fazer oferta nenhuma no primeiro contato.</strong></p>
+  </div>
+
+  <div class="passo-label">Passo 6</div>
+  <h3>A primeira mensagem: quatro regras</h3>
+  <ul class="check">
+    <li><strong>Nada sobre você, nada sobre serviço, nenhum link.</strong> A primeira mensagem só existe para provar que tem um humano do outro lado que olhou de verdade.</li>
+    <li><strong>Referência específica e verificável:</strong> um conteúdo que ele publicou, um caso que ele contou, uma dor real do nicho dele. Teste simples: se a frase serviria para qualquer outro médico, ela não serve para esse.</li>
+    <li><strong>Uma pergunta de negócio, não de marketing.</strong> Marketing ele já ouviu demais; negócio quase ninguém pergunta.</li>
+    <li><strong>Duas ou três linhas.</strong> Mensagem longa no direct de autoridade não é lida.</li>
+  </ul>
+  <div class="msg">
+    <div class="lbl">Exemplo de abertura</div>
+    "Doutor, vi seu conteúdo sobre a formação em [tema específico dele]. Fiquei com uma dúvida de bastidor: hoje quem procura a sua pós chega mais pelo Instagram ou por indicação de colega?"
+  </div>
+
+  <div class="box-light">
+    <div class="bt">O follow-up que você já faz</div>
+    <p>De 6 a 7 follow-ups está certo, e é mais do que a maioria faz. O único ajuste é <strong>mudar o ângulo a cada contato</strong>: um traz um dado do nicho, outro comenta um conteúdo novo dele, outro pergunta algo diferente. Repetir "oi, tudo bem?" três vezes ensina que você é automático.</p>
+  </div>
+  <div class="runfoot">Plano de agosto · execução diária, uma coisa de cada vez</div>
+</div>
+
+<!-- PÁGINA 7 · O SCRIPT PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap de Agosto · João Mendes</span><span>Página 7</span></div>
+  <div class="fase-header">
+    <div class="fk">Frente 2 · O script · Parte 2</div>
+    <h2>O Desenrolar da Conversa</h2>
+    <div class="fd">A parte que decide se vira conversa marcada ou mais um orçamento comparado.</div>
+  </div>
+
+  <div class="passo-label">Passo 7</div>
+  <h3>Quando ele pergunta "como funciona?"</h3>
+  <ul class="check">
+    <li><strong>Não despeje o processo.</strong> Quem explica tudo no direct vira orçamento, e orçamento é comparado com os outros trinta.</li>
+    <li>Devolva com diagnóstico, não com apresentação. Duas perguntas bem feitas valem mais que dez linhas de proposta.</li>
+    <li>As duas perguntas revelam o que importa: <strong>se ele tem produto e se ele tem caixa.</strong> Como ele vende hoje, e quantas pessoas entraram na última turma.</li>
+    <li><strong>Setup e fixo só na conversa marcada, nunca no direct.</strong> Preço sem contexto vira objeção antes de existir relação.</li>
+    <li>O objetivo do desenrolar é um só: marcar a conversa. Nada além disso.</li>
+  </ul>
+  <div class="msg">
+    <div class="lbl">Exemplo de desenrolar</div>
+    "Funciona diferente pra cada caso, e eu odiaria te dar uma resposta genérica. Posso te fazer duas perguntas rápidas? Como você vende a pós hoje, e quantos alunos entraram na última turma? Com isso eu já te falo se faz sentido a gente conversar ou não."
+  </div>
+
+  <div class="box-light">
+    <div class="bt">O que não fazer, nem se a conversa esquentar</div>
+    <p>Não prometer resultado nem prazo para ganhar a conversa. Não aceitar projeto sem setup pago na entrada. Não entrar com expert que ainda não fatura. <strong>Essas três regras são o preço de não repetir 2025 e 2026, e você já pagou caro demais por essa lição.</strong></p>
+  </div>
+  <div class="runfoot">Plano de agosto · execução diária, uma coisa de cada vez</div>
+</div>
+
+<!-- PÁGINA 8 · FRENTE 3 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap de Agosto · João Mendes</span><span>Página 8</span></div>
+  <div class="fase-header">
+    <div class="fk">Frente 3 · Começa esta semana</div>
+    <h2>Cabeça e Corpo</h2>
+    <div class="fd">A frente mais operacional do documento, mesmo não parecendo.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que isto está num roadmap de trabalho</div>
+    <p>Você passou meses acordando às 6h e dormindo às 1h30, com 3 a 4 horas de sono. E, aos 38 anos, percebeu que talvez conviva com TDAH desde a infância: cinco ou seis pensamentos ao mesmo tempo, dificuldade de terminar o que começa, mais de 500 livros comprados e nenhum concluído, e a oração da manhã interrompida pela própria cabeça.</p>
+    <p><strong>Isso não é preguiça, não é falta de caráter e não é falta de fé.</strong> E é o item mais prático deste documento, porque nenhuma das outras duas frentes se sustenta 30 dias com a cabeça nesse estado.</p>
+  </div>
+
+  <div class="passo-label">Passo 8</div>
+  <h3>A avaliação, sem esperar o financeiro melhorar</h3>
+  <ul class="check">
+    <li>Procurar psiquiatra <strong>pela rede pública</strong> (posto de saúde ou CAPS) já nesta semana. Avaliação e tratamento não precisam esperar o dinheiro entrar, e essa espera já custou tempo demais.</li>
+    <li>Levar anotado o que você já percebeu: o sono, a dificuldade de concluir, os pensamentos simultâneos, e o fato de existir desde a infância. Consulta com isso escrito rende três vezes mais.</li>
+    <li>Se o diagnóstico se confirmar, o tratamento existe e funciona. Você conversou com quem já faz, e viu a diferença na prática.</li>
+  </ul>
+
+  <div class="passo-label">Passo 9</div>
+  <h3>Os mecanismos enquanto a avaliação não sai</h3>
+  <ul class="check">
+    <li><strong>O estacionamento:</strong> um papel do lado do computador. Pensamento intrusivo chegou, escreve e volta. Não é organização, é fechamento de ciclo: tira da cabeça o que está gritando para você poder terminar o que começou.</li>
+    <li><strong>Uma coisa por bloco.</strong> Prospecção é prospecção: sem outra aba, sem responder mensagem, sem "só ver uma coisa rápida".</li>
+    <li><strong>Sono como ferramenta de trabalho.</strong> Dormir antes da meia-noite nos dias de prospecção. Três horas de sono derrubam a sua taxa de resposta muito mais do que um script ruim.</li>
+    <li><strong>Fim de semana com a sua esposa, as meninas e a igreja.</strong> Você já viveu o contraste e sabe exatamente a diferença que fez na sua clareza.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da frente</div>
+    <p><strong>Semana 1:</strong> consulta agendada. <strong>Mês inteiro:</strong> estacionamento em uso todo dia e nenhuma madrugada virada. Se você cair de novo na rotina de 3 horas de sono, avise no grupo antes que vire mais um episódio como o de julho.</p>
+  </div>
+  <div class="runfoot">Plano de agosto · execução diária, uma coisa de cada vez</div>
+</div>
+
+<!-- PÁGINA 9 · ENCERRADO E ENCAMINHADO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap de Agosto · João Mendes</span><span>Página 9</span></div>
+  <div class="kicker">Para Tirar da Cabeça</div>
+  <h1 style="font-size:19pt;">O Que Está Encerrado e o Que Já Está Encaminhado</h1>
+  <p class="lead">Assunto resolvido é assunto que para de ocupar espaço. Estes quatro já têm destino.</p>
+
+  <div class="box-dark">
+    <div class="bt">Encerrado · o projeto da expert</div>
+    <p>Foram dois meses de fixo em atraso. O time paralisou por decisão coletiva, que estava certa, e a resposta dela foi remover os seus acessos, trocar as senhas e desligar você da call do pitch quando você entrou só para dar suporte. <strong>Não existe o que recuperar ali, e insistir só custaria mais tempo e mais saúde.</strong></p>
+    <p>O que fica com você: uma captação inteira de 30 dias conduzida, funil, quiz e estrutura de lançamento montados. <strong>Ficou provado que você sabe executar. O que faltou nunca foi isso.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Encaminhado · a parcela da mentoria</div>
+    <p>O Carlos leva ao Daniel a conversa sobre pausar ou reestruturar as parcelas enquanto o caixa não volta, e você pode falar diretamente com ele também. Isso não é motivo de constrangimento: é exatamente o tipo de situação em que estar dentro de um ambiente vale mais do que estar fora dele.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Encaminhado · as indicações</div>
+    <p>Você passou o contato do casal da hotelaria para o comercial da Simple e falou com eles antes, que é o jeito certo de fazer. Os outros três contatos seguem a mesma regra: <strong>conversa primeiro, indicação depois.</strong> Isso constrói reputação nos dois lados, não custa nada e é o tipo de movimento que volta para você mais tarde.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Em pausa até setembro · o resto</div>
+    <p>Tráfego para negócio local, oferta própria de serviço digital, marca pessoal e conteúdo. Nada disso foi descartado e tudo volta, na ordem certa, quando o chão estiver firme. <strong>Em agosto, cada uma dessas coisas só disputaria o tempo das três frentes que realmente importam.</strong></p>
+  </div>
+  <div class="runfoot">Plano de agosto · execução diária, uma coisa de cada vez</div>
+</div>
+
+<!-- PÁGINA 10 · CHECKPOINTS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap de Agosto · João Mendes</span><span>Página 10</span></div>
+  <div class="kicker">Checkpoints Semanais</div>
+  <h1 style="font-size:19pt;">Como Saber Que a Semana Foi Boa</h1>
+  <p class="lead">Semana boa não é semana com resultado. É semana com execução feita. O resultado é consequência, e vem depois.</p>
+
+  <h3 class="navy" style="margin-top:10pt;">SEMANA 1 · 3 a 9 de agosto</h3>
+  <ul class="check">
+    <li>Consulta com psiquiatra agendada (posto ou CAPS).</li>
+    <li>250 abordagens acumuladas, 50 por dia útil.</li>
+    <li>Bicos do mês mapeados e aceitos, com a data 13 a 18 protegida.</li>
+    <li>Mensagem enviada à rede técnica avisando disponibilidade para trabalhos de 15 a 20 dias.</li>
+  </ul>
+
+  <h3 class="navy">SEMANA 2 · 10 a 16 de agosto</h3>
+  <ul class="check">
+    <li>Consultoria iniciada no dia 13, com o caixa do mês encaminhado.</li>
+    <li>Mínimo de 30 abordagens nos dias de campo. Nenhum dia zerado.</li>
+    <li>Pelo menos 3 conversas abertas com experts.</li>
+  </ul>
+
+  <h3 class="navy">SEMANA 3 · 17 a 23 de agosto</h3>
+  <ul class="check">
+    <li>Consultoria concluída no dia 18 e volta imediata ao ritmo de 50 a 60 por dia.</li>
+    <li>Pelo menos 4 conversas marcadas realizadas.</li>
+    <li>Script revisado com o Carlos a partir das conversas reais, não da teoria.</li>
+  </ul>
+
+  <h3 class="navy">SEMANA 4 · 24 a 31 de agosto</h3>
+  <ul class="check">
+    <li>Cerca de 970 abordagens acumuladas no mês.</li>
+    <li>10 conversas marcadas no acumulado.</li>
+    <li>1 contrato fechado ou em negociação final, com setup pago na entrada.</li>
+    <li>Agosto pago, sem dívida nova, e a cabeça em condição de planejar setembro.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Alerta amarelo</div>
+    <p>Se chegar no dia 20 sem nenhuma conversa avançada, o problema é o <strong>script</strong>, não o mercado. Leve as conversas reais (print) para a call e ajuste ali. <strong>Não aumente o volume antes de arrumar a mensagem</strong>, porque volume com mensagem errada só queima perfil mais rápido.</p>
+  </div>
+  <div class="runfoot">Plano de agosto · execução diária, uma coisa de cada vez</div>
+</div>
+
+<!-- PÁGINA 11 · FECHAMENTO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap de Agosto · João Mendes</span><span>Página 11</span></div>
+  <div style="padding-top:28mm;">
+    <div class="kicker">Lembre-se Sempre Disto</div>
+    <h1 style="font-size:19pt;">Antes de Fechar Este Documento</h1>
+    <p style="margin-top:10pt;">João, este é o documento mais curto que a gente já te mandou, e isso é de propósito.</p>
+    <p>Você tem 38 anos, 15 anos de carreira técnica, deu aula em faculdade, e está segurando uma casa com uma esposa grávida de cinco meses e duas filhas pequenas enquanto reconstrói uma carreira inteira do zero. Você recusou R$ 7.000 por mês para não passar 90 dias longe delas, e na segunda de manhã foi para uma obra para não deixar faltar comida. <strong class="navy">Isso não é fracasso. Isso é caráter, e é a parte que ninguém consegue ensinar a ninguém.</strong></p>
+    <p>Não foi falta de esforço: você trabalhou das 6h às 3h. Não foi falta de fé. Não foi falta de capacidade: você montou funil, captação e lançamento sozinho, e isso ficou provado.</p>
+    <p><strong class="navy">Foi falta de estar com as pessoas certas, num modelo em que você não banca o risco dos outros. As duas coisas mudaram agora.</strong></p>
+    <p>Agosto tem um objetivo único: chegar em setembro de pé, com o mês pago, a cabeça em ordem e pelo menos um contrato na mesa. É só isso. Não é pouco, e não precisa ser mais do que isso.</p>
+    <p>E o mais importante, que vale para todos os dias deste mês: <strong>foca na execução e desapega do resultado.</strong> O resultado vem como consequência de um dia bem feito, nunca da ansiedade de que ele venha.</p>
+    <p style="margin-top:12pt;">Você tem um time do seu lado pela primeira vez. Você tem uma especialidade técnica que quase ninguém nesse mercado tem. Você tem uma família que é o motivo, não o obstáculo. E você tem gente aqui que já passou por isso e não vai te soltar no meio do caminho.</p>
+    <p><strong class="navy">O próximo passo é começar. Hoje, com as 50 primeiras.</strong></p>
+    <div class="footer-note">Roadmap de Agosto · João Mendes · 30 dias · 03/08/2026</div>
+  </div>
+  <div class="runfoot">Plano de agosto · execução diária, uma coisa de cada vez</div>
+</div>
+
+</body>
+</html>

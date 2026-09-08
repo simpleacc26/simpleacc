@@ -1,0 +1,13 @@
+# OS / Editor
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.vscode/*
+!.vscode/extensions.json
+.idea
+
+# Vercel
+.vercel

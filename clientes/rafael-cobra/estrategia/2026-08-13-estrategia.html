@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Estratégia Completa · Rafael Cobra</title>
+<!--
+  ESTRATEGIA COMPLETA · RAFAEL COBRA · 13/08/2026
+  Autor: Simple Acc (Daniel Souza · Carlos Duraes)
+  Fonte: call de vendas 04/08, onboarding 11/08, canvases 06/08, prints do
+  Instagram, mesa de guerra 12/08 e o Roadmap Estrategico de 13/08.
+  Premissas assumidas: ver pagina 2.
+  Formato: modelo da casa (Luana Isse 11/08/26). Gerar PDF com chromium headless.
+-->
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a; --navy-dark: #14213d; --gold: #b8863b;
+    --beige: #f4f1ea; --text: #333a45; --muted: #8a8f98;
+  }
+  body { font-family: Arial, Helvetica, sans-serif; color: var(--text); font-size: 10pt; line-height: 1.45; }
+  .page { width: 210mm; height: 297mm; overflow: hidden; padding: 16mm 18mm 24mm 18mm;
+          position: relative; page-break-after: always; background: #fff; }
+  .page:last-child { page-break-after: auto; }
+  .runhead { display: flex; justify-content: space-between; font-size: 7.5pt; color: var(--muted);
+             letter-spacing: .06em; text-transform: uppercase; border-bottom: .4pt solid #d9d5cc;
+             padding-bottom: 4pt; margin-bottom: 12pt; }
+  .runfoot { position: absolute; bottom: 9mm; left: 18mm; right: 18mm; text-align: center;
+             font-size: 7.5pt; color: var(--muted); }
+  .kicker { color: var(--gold); font-size: 9pt; font-weight: bold; letter-spacing: .12em;
+            text-transform: uppercase; margin-bottom: 8pt; }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  h2 { color: var(--navy); font-size: 19pt; line-height: 1.15; margin-bottom: 8pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
+  p { margin-bottom: 6pt; }
+  .navy { color: var(--navy); }
+  .box-dark { background: var(--navy-dark); color: #f5f3ee; padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt; }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; } .box-dark p:last-child { margin-bottom: 0; }
+  .box-light { background: var(--beige); border-left: 3pt solid var(--gold); padding: 10pt 14pt; margin: 11pt 0; }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; } .box-light .bt + p { margin-top: 0; } .box-light p:last-child { margin-bottom: 0; }
+  /* cabecalho de secao, equivalente ao fase-header do roadmap */
+  .sec-header { background: var(--navy-dark); color: #fff; padding: 10pt 16pt; margin-bottom: 10pt; border-left: 4pt solid var(--gold); }
+  .sec-header .sk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .sec-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .sec-header .sd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  /* rotulo de peca: PERGUNTA 3, BLOCO 5, VIDEO 7, DIA 9 */
+  .peca-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 11pt 0 3pt; }
+  /* copy literal, o que vai para a peca: fundo branco, filete dourado */
+  .copy { border-left: 2pt solid var(--gold); padding: 2pt 0 2pt 10pt; margin: 4pt 0 8pt; }
+  .copy .cl { font-size: 8pt; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 2pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  /* alternativas de quiz e slides de carrossel, em duas colunas quando couber */
+  .cols2 { column-count: 2; column-gap: 10mm; }
+  .alt { margin-bottom: 3pt; break-inside: avoid; }
+  .alt b { color: var(--navy); }
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 38pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+</style>
+</head>
+<body>
+<!-- CAPA -->
+<div class="page cover">
+  <div class="kicker">Funil de Diagnóstico · Mentoria Método Cobra</div>
+  <h1>Estratégia<br>Completa</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    Quiz, página de diagnóstico, anúncios e cadência.<br>
+    A copy inteira do funil, pronta para implementar.<br>
+    O padrão afetivo, não o homem errado.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">Rafael Cobra</div>
+    <div class="lbl">Estrategista</div>
+    <div class="val">Daniel Souza · Carlos Durães</div>
+  </div>
+</div>
+
+<!-- ANTES DE LER A COPY -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Rafael Cobra</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Ler a Copy</div>
+  <h2>O Funil em Uma Página</h2>
+  <p class="lead">Leia esta página antes de aprovar as copies. Tudo o que vem depois parte destas decisões.</p>
+
+  <div class="box-dark">
+    <div class="bt">O caminho do lead</div>
+    <p>Anúncio ou conteúdo → Quiz gratuito de 2 minutos → Página de diagnóstico → <strong>WhatsApp</strong> → Sessão de diagnóstico com você → Mentoria Método Cobra.</p>
+    <p><strong>A página de diagnóstico não vende e não mostra preço.</strong> O trabalho dela é nomear o padrão da mulher, elevar o nível de consciência e fazer ela querer conversar. A oferta da mentoria, R$ 12 mil, acontece na sessão, depois do diagnóstico ao vivo.</p>
+    <p><strong>O botão leva ao WhatsApp, não a uma agenda aberta.</strong> Decisão fechada em 13/08. Ela clica, cai numa conversa com mensagem pronta, e o horário é combinado ali. Agendamento automático encheria a sua agenda de gente que marcou por curiosidade, e você tem 4 horas por dia e 20 sessões de teto no mês.</p>
+    <p><strong>Por que assim:</strong> R$ 12 mil é um valor que essa mulher considera, não compra por impulso. É na sessão que aparecem as objeções reais, que depois voltam para a copy. E o gargalo deste funil não é volume de lead, é comparecimento: por isso o filtro vem antes da agenda, não depois.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A esteira hoje</div>
+    <p><strong>Carro-chefe:</strong> Mentoria Método Cobra, R$ 12 mil, que é o ticket que você já vendeu. É o que este funil vende e o que leva à meta de R$ 100 mil por mês. <strong>O formato segue em aberto</strong> (grupo ou híbrido, número de encontros, bônus), a fechar na quinzenal. A copy toda foi escrita sem depender disso, de propósito: vende primeiro, prepara a entrega depois.</p>
+    <p><strong>Base da clínica, em dois tempos:</strong> agora, reajuste para R$ 500 na sessão, que é caixa em 30 dias sem mexer em nada. Em seguida, <strong>a clínica embalada em pacote de acompanhamento</strong>, na faixa de R$ 6 mil, que foi o desenho apresentado na call de vendas com a Gisele de referência. O reajuste resolve o mês; o pacote resolve a agenda, porque entrega o mesmo faturamento com menos pacientes e menos horas suas.</p>
+    <p><strong>Produto de entrada:</strong> decisão em aberto. Na call de vendas foi levantado um produto gravado da sua metodologia, na faixa de R$ 2 mil, que monetizaria quem não qualifica para a mentoria. Não entra nos primeiros 30 dias porque exige gravação, mas é a peça que falta para o não qualificado deixar de custar caro.</p>
+    <p><strong>Mentoria para terapeutas:</strong> sequenciada para depois dos 90 dias, conforme a mesa de guerra de 12/08. Não entra neste funil.</p>
+  </div>
+
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- ANTES DE LER A COPY · PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Rafael Cobra</span><span>Página 3</span></div>
+  <div class="kicker">Antes de Ler a Copy · parte 2</div>
+  <h2>O Que Sustenta as Decisões</h2>
+  <p class="lead">O que falta hoje, com o que a copy compensa enquanto não chega, e tudo o que foi assumido por falta de dado.</p>
+
+  <div class="box-light">
+    <div class="bt">O que a copy precisa compensar</div>
+    <p>Ainda não há depoimentos gravados, e há um limite real: você é psicanalista, então caso clínico tem sigilo. Enquanto a prova autorizada não chega, a copy compensa com a sua trajetória, com os 333 mil seguidores construídos sem um centavo de anúncio, com o vídeo de 2 milhões de visualizações e com o TEDx.</p>
+    <p>Onde houver <strong>[DEPOIMENTO]</strong> no texto, é espaço reservado: só entra material com autorização explícita da paciente.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Premissas assumidas</div>
+    <p>Ticket de R$ 12 mil, que você já vendeu · <strong>formato de entrega em aberto</strong>, a fechar na quinzenal · conversão de call subindo ao longo do trimestre, cerca de 13% no primeiro mês, 20% no segundo e 30% no terceiro · comparecimento de 60% · quem manda as mensagens é você, porque não existe SDR · formato final da mentoria e orçamento de mídia seguem a definir.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- SEÇÃO 1 · BIG IDEA -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Rafael Cobra</span><span>Página 4</span></div>
+  <div class="sec-header">
+    <div class="sk">Seção 1</div>
+    <h2>Big Idea</h2>
+    <div class="sd">A ideia que sustenta o quiz, a página, os anúncios e o atendimento.</div>
+  </div>
+
+  <div class="peca-label">A Big Idea</div>
+  <h3>O problema nunca foi o homem errado. É o padrão que faz você aceitar menos do que merece.</h3>
+  <p>A mulher que você atende não precisa de mais um conteúdo explicando por que ela sofre. <strong>Ela já sabe.</strong> Ela já fez terapia, já leu os livros, já mandou print para a amiga. E continua repetindo.</p>
+  <p>Por isso a virada de chave não é "entenda o seu padrão". É: <strong>entender o padrão não basta. Enquanto você não mudar quem você é dentro da relação, você vai trocar de homem e repetir a história.</strong></p>
+  <p>A promessa não é encontrar alguém. É <strong>parar de aceitar qualquer um para não ficar sozinha</strong>. O produto vende transformação de identidade, não técnica de conquista, e essa é a linha que separa você de todo o resto do nicho.</p>
+
+  <div class="box-dark">
+    <div class="bt">A frase que resume a transformação</div>
+    <p>De mulher que entende o próprio padrão, a mulher que não cabe mais nele.</p>
+  </div>
+
+  <div class="peca-label">Por que isso funciona com este público</div>
+  <p>Ela é executiva, médica, advogada, empresária. Ela não quer ser tratada como carente. <strong>Promessa de conquista fere o status dela. Promessa de reconstrução de identidade respeita.</strong> É a diferença entre falar com uma mulher que precisa de ajuda e falar com uma mulher que já resolve tudo sozinha, menos isso.</p>
+
+  <div class="box-light">
+    <div class="bt">A régua de linguagem, válida para toda peça</div>
+    <p><strong>Fala:</strong> padrão · origem · repetir a história · aceitar menos do que merece · parar de aceitar · quem você se torna dentro da relação · o problema não é escolher melhor.</p>
+    <p><strong>Não fala:</strong> conquistar · reconquistar · como fazer ele correr atrás · dedo podre dito a sério, só como a frase que ela usa e que a peça derruba · carente, sozinha ou desesperada como rótulo dela · promessa de encontrar alguém · caso clínico identificável · valor da mentoria dentro de anúncio pago.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+<!-- SEÇÃO 2 · PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Rafael Cobra</span><span>Página 5</span></div>
+  <div class="sec-header">
+    <div class="sk">Seção 2 · Parte 1</div>
+    <h2>Copy do Quiz</h2>
+    <div class="sd">Diagnóstico do Padrão Afetivo. Capta, qualifica e já funciona como o primeiro atendimento.</div>
+  </div>
+  <p class="lead">Cada pergunta mede uma parte do padrão. O resultado não é rótulo genérico: é o nome do padrão dela, e é isso que faz ela chegar na sessão achando que você enxergou o que ninguém enxergou.</p>
+
+  <div class="box-light">
+    <div class="bt">Hero da página do quiz</div>
+    <p><strong>Headline:</strong> Por que você atrai homens que não te escolhem?</p>
+    <p><strong>Sub:</strong> Não é azar, não é dedo podre e não é falta de opção. É um padrão, e todo padrão tem origem.</p>
+    <p><strong>Micro:</strong> 10 perguntas · 2 minutos · resultado personalizado no seu WhatsApp · <strong>Botão:</strong> Quero descobrir meu padrão</p>
+  </div>
+  <div class="peca-label">Pergunta 1 · Situação</div>
+  <p><strong>Como está sua vida amorosa hoje?</strong></p>
+  <div class="cols2">
+    <div class="alt"><b>a)</b> Solteira, e faz tempo que não aparece nada sério</div>
+    <div class="alt"><b>b)</b> Num relacionamento que me deixa mais insegura do que em paz</div>
+    <div class="alt"><b>c)</b> Saindo com alguém que não define nada</div>
+    <div class="alt"><b>d)</b> Acabei de sair de uma relação e ainda estou me recompondo</div>
+  </div>
+  <div class="peca-label">Pergunta 2 · Situação · Perfil</div>
+  <p><strong>E sua vida profissional?</strong></p>
+  <div class="cols2">
+    <div class="alt"><b>a)</b> Sou empresária ou sócia</div>
+    <div class="alt"><b>b)</b> Sou executiva ou ocupo cargo de liderança</div>
+    <div class="alt"><b>c)</b> Sou profissional liberal (médica, advogada, psicóloga, dentista)</div>
+    <div class="alt"><b>d)</b> Sou CLT em transição ou recomeço</div>
+  </div>
+  <div class="peca-label">Pergunta 3 · Problema · Define o padrão dominante</div>
+  <p><strong>Qual dessas frases mais parece ter saído da sua boca?</strong></p>
+  <div class="cols2">
+    <div class="alt"><b>a)</b> "Ele fala que sou incrível, maravilhosa, mas não me namora"</div>
+    <div class="alt"><b>b)</b> "Eu sempre dou mais do que recebo"</div>
+    <div class="alt"><b>c)</b> "Eu sei que ele não me faz bem, mas não consigo sair"</div>
+    <div class="alt"><b>d)</b> "Eu conquistei tudo, menos uma relação que preste"</div>
+  </div>
+  <div class="peca-label">Pergunta 4 · Problema</div>
+  <p><strong>O que mais se repete nas suas relações?</strong></p>
+  <div class="cols2">
+    <div class="alt"><b>a)</b> Escolho homens emocionalmente indisponíveis</div>
+    <div class="alt"><b>b)</b> Me anulo para a relação dar certo</div>
+    <div class="alt"><b>c)</b> Aceito migalha achando que vai virar mais</div>
+    <div class="alt"><b>d)</b> Afasto quem é bom para mim e corro atrás de quem não me quer</div>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- SEÇÃO 2 · PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Rafael Cobra</span><span>Página 6</span></div>
+  <div class="sec-header">
+    <div class="sk">Seção 2 · Parte 2</div>
+    <h2>Copy do Quiz: perguntas 5 a 8</h2>
+    <div class="sd">Problema, implicação e o que ela já tentou. É aqui que o diagnóstico ganha profundidade.</div>
+  </div>
+  <div class="peca-label">Pergunta 5 · Problema</div>
+  <p><strong>Quando a relação começa a te machucar, o que você faz?</strong></p>
+  <div class="cols2">
+    <div class="alt"><b>a)</b> Tento entender e justificar o comportamento dele</div>
+    <div class="alt"><b>b)</b> Cobro, ele promete mudar, e nada muda</div>
+    <div class="alt"><b>c)</b> Engulo para não parecer difícil</div>
+    <div class="alt"><b>d)</b> Termino, mas volto</div>
+  </div>
+  <div class="peca-label">Pergunta 6 · Implicação</div>
+  <p><strong>Há quanto tempo esse padrão se repete?</strong></p>
+  <div class="cols2">
+    <div class="alt"><b>a)</b> Menos de 2 anos</div>
+    <div class="alt"><b>b)</b> De 2 a 5 anos</div>
+    <div class="alt"><b>c)</b> De 5 a 10 anos</div>
+    <div class="alt"><b>d)</b> Mais de 10 anos, com pessoas diferentes</div>
+  </div>
+  <div class="peca-label">Pergunta 7 · Implicação</div>
+  <p><strong>O que isso já custou a você?</strong></p>
+  <div class="cols2">
+    <div class="alt"><b>a)</b> Minha autoestima</div>
+    <div class="alt"><b>b)</b> Anos da minha vida em relações sem futuro</div>
+    <div class="alt"><b>c)</b> Minha vontade de tentar de novo</div>
+    <div class="alt"><b>d)</b> Todas as anteriores</div>
+  </div>
+  <div class="peca-label">Pergunta 8 · Tentativas</div>
+  <p><strong>O que você já tentou?</strong></p>
+  <div class="cols2">
+    <div class="alt"><b>a)</b> Terapia</div>
+    <div class="alt"><b>b)</b> Livros, cursos e conteúdo sobre relacionamento</div>
+    <div class="alt"><b>c)</b> Terapia e conteúdo, e mesmo assim repeti</div>
+    <div class="alt"><b>d)</b> Nunca tratei isso a sério</div>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- SEÇÃO 2 · PARTE 3 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Rafael Cobra</span><span>Página 7</span></div>
+  <div class="sec-header">
+    <div class="sk">Seção 2 · Parte 3</div>
+    <h2>Objetivo, qualificação e captura</h2>
+    <div class="sd">As duas últimas perguntas e as regras que o comercial usa no dia a dia.</div>
+  </div>
+  <div class="peca-label">Pergunta 9 · Objetivo</div>
+  <p><strong>Se em 3 meses você rompesse esse padrão de vez, o que mudaria primeiro?</strong></p>
+  <div class="cols2">
+    <div class="alt"><b>a)</b> Eu pararia de aceitar menos do que mereço</div>
+    <div class="alt"><b>b)</b> Eu confiaria em mim para escolher de novo</div>
+    <div class="alt"><b>c)</b> Eu sairia da relação em que estou</div>
+    <div class="alt"><b>d)</b> Eu me sentiria em paz comigo, com ou sem alguém</div>
+  </div>
+  <div class="peca-label">Pergunta 10 · Qualificação</div>
+  <p><strong>O quanto você está disposta a investir para resolver isso agora?</strong></p>
+  <div class="cols2">
+    <div class="alt"><b>a)</b> Estou pronta, é prioridade e tenho condição de investir</div>
+    <div class="alt"><b>b)</b> Quero muito, mas preciso entender como funciona</div>
+    <div class="alt"><b>c)</b> Tenho interesse, mas não é o meu momento financeiro</div>
+    <div class="alt"><b>d)</b> Só quero o diagnóstico por enquanto</div>
+  </div>
+  <div class="box-dark">
+    <div class="bt">Regra de segmentação</div>
+    <p><strong>Qualificada:</strong> P2 em a, b ou c, mais P6 em c ou d, mais P10 em a ou b. Vai para a fila de sessão de diagnóstico, com prioridade.</p>
+    <p><strong>A nutrir:</strong> interesse alto e momento financeiro ruim (P10 c). Fica na base para conteúdo, sem gasto comercial.</p>
+    <p><strong>Fora por ora:</strong> P10 d. Recebe o diagnóstico completo e segue no orgânico.</p>
+    <p><strong>Cruze sempre com a P3:</strong> ela dá o padrão dominante e define o gancho da sua primeira mensagem no WhatsApp.</p>
+  </div>
+  <div class="box-light">
+    <div class="bt">Captura de dados</div>
+    <p><strong>Headline:</strong> Seu diagnóstico está pronto. · <strong>Sub:</strong> Coloque seu WhatsApp abaixo e receba agora a leitura completa do seu padrão.</p>
+    <p><strong>Campos:</strong> Nome · WhatsApp · E-mail · <strong>Botão:</strong> Receber meu diagnóstico</p>
+    <p><strong>Selo:</strong> Seus dados ficam entre você e o consultório. Sigilo é regra aqui.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- SEÇÃO 3 · PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Rafael Cobra</span><span>Página 8</span></div>
+  <div class="sec-header">
+    <div class="sk">Seção 3 · Parte 1</div>
+    <h2>Página de Diagnóstico</h2>
+    <div class="sd">A peça central deste funil. Ela não vende: ela prepara a mulher para querer conversar.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">O trabalho desta página</div>
+    <p>É uma peça só: o diagnóstico e o convite para a sessão vivem na mesma página. Ela responde o quiz, deixa o WhatsApp e cai direto aqui, no resultado dela. O mesmo texto vai por WhatsApp logo em seguida, para ela reler.</p>
+    <p><strong>A régua:</strong> ela precisa terminar a leitura pensando "é exatamente isso que acontece comigo", e não "já entendi tudo sozinha". O padrão é nomeado; o caminho para quebrá-lo é a mentoria.</p>
+    <p>A página é mais longa que o normal de propósito. Esse público é analítico, já fez terapia e já leu os livros: decide por profundidade, não por empolgação.</p>
+  </div>
+
+  <div class="peca-label">Os nove blocos, na ordem</div>
+  <ul class="check">
+    <li>1. O resultado dela · 2. A leitura do cenário · 3. O espelho</li>
+    <li>4. Por que o que você já tentou não resolveu · 5. O mecanismo</li>
+    <li>6. O que precisa acontecer no seu caso, e o que custa continuar</li>
+    <li>7. Quem é o Rafael e a prova · 8. Para quem é, para quem não é, e FAQ</li>
+    <li>9. O convite e o CTA</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Os 4 padrões possíveis (o resultado do quiz)</div>
+    <p><strong>1. A Provedora Emocional.</strong> Dá mais do que recebe e chama isso de amor. Escolhe quem precisa dela, não quem a escolhe. Confunde ser necessária com ser amada.</p>
+    <p><strong>2. A Que Espera a Definição.</strong> Vive relações sem contrato. Ele não define, ela não cobra para não parecer difícil, e o tempo passa.</p>
+    <p><strong>3. A Que Sabe e Não Sai.</strong> Já entendeu que a relação a machuca, explica tudo com clareza, e continua. Aqui o padrão é mais antigo e mais forte.</p>
+    <p><strong>4. A Blindada.</strong> Afasta quem é bom e persegue quem é indisponível. Autonomia virou defesa, e defesa virou solidão.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Variáveis usadas nesta página</div>
+    <p>{{nome}} · {{padrao_identificado}} (da P3 cruzada com a P4) · {{situacao_atual}} (P1) · {{repeticao}} (P4) · {{tempo_padrao}} (P6) · {{custo_declarado}} (P7) · {{tentativas}} (P8) · {{objetivo}} (P9) · {{qualificada}} (P10, decide qual bloco 9 aparece) · {{link_whatsapp}} (wa.me com mensagem pronta, já preenchida com o padrão dela)</p>
+    <p><strong>[DEPOIMENTO]</strong> marca os espaços de prova, a preencher assim que houver autorização escrita da paciente.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- SEÇÃO 3 · PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Rafael Cobra</span><span>Página 9</span></div>
+  <div class="sec-header">
+    <div class="sk">Seção 3 · Parte 2</div>
+    <h2>A Copy, Bloco a Bloco</h2>
+    <div class="sd">Blocos 1 a 3: o resultado, a leitura do cenário e o espelho.</div>
+  </div>
+
+  <div class="peca-label">Bloco 1 · O resultado dela</div>
+  <div class="copy">
+    <div class="cl">Headline</div>
+    <p>{{nome}}, o seu padrão é o <strong>{{padrao_identificado}}</strong>.</p>
+    <div class="cl">Subheadline</div>
+    <p>Isso não é um julgamento sobre você. É o nome do que se repete, e é o começo do fim dele.</p>
+  </div>
+
+  <div class="peca-label">Bloco 2 · A leitura do cenário</div>
+  <div class="copy">
+    <p>Li suas respostas com atenção. Vou ser direto com você, porque acho que é isso que você precisa agora, não mais uma frase bonita.</p>
+    <p>Você me disse que hoje está {{situacao_atual}}, que o que mais se repete é {{repeticao}}, e que isso já dura {{tempo_padrao}}. Você marcou que já custou {{custo_declarado}}.</p>
+    <p>Essa combinação é a assinatura do {{padrao_identificado}}. E ela diz uma coisa importante: <strong>o padrão não fica parado. Ele cobra juros.</strong></p>
+  </div>
+
+  <div class="peca-label">Bloco 3 · O espelho</div>
+  <div class="copy">
+    <p>Você é competente. Ninguém precisa te dizer isso: seu currículo diz.</p>
+    <p>Você resolve na empresa o que ninguém resolve. Você sustenta a casa, sustenta os outros, sustenta até quem não sustenta você. E aí chega no amor e parece que nada do que você é conta.</p>
+    <p>Provavelmente você se reconhece aqui:</p>
+    <ul class="check">
+      <li>Você atrai o homem que elogia, que admira, que diz que você é incrível, e não te escolhe.</li>
+      <li>Você dá mais do que recebe e chama isso de amor.</li>
+      <li>Você engole o que incomoda para não parecer difícil.</li>
+      <li>Você já terminou e voltou, sabendo que ia terminar de novo.</li>
+      <li>Você já fez terapia, já leu os livros, e repetiu mesmo assim.</li>
+      <li>Depois do terceiro, você parou de culpar eles e começou a culpar você.</li>
+    </ul>
+    <p><strong>Não há nada de errado com você. Há um padrão em você.</strong> E padrão não se resolve com força de vontade, nem com mais um livro, nem tentando de novo com outra pessoa.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- SEÇÃO 3 · PARTE 3 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Rafael Cobra</span><span>Página 10</span></div>
+  <div class="sec-header">
+    <div class="sk">Seção 3 · Parte 3</div>
+    <h2>A Copy, Bloco a Bloco</h2>
+    <div class="sd">Blocos 4 a 6: por que não funcionou, o mecanismo e o que precisa acontecer.</div>
+  </div>
+
+  <div class="peca-label">Bloco 4 · Por que o que você já tentou não resolveu</div>
+  <div class="copy">
+    <p>Você marcou que já {{tentativas}}. Isso não foi desperdício: hoje você entende o seu padrão melhor do que a maioria das pessoas entende o próprio.</p>
+    <p>Só que entender é da cabeça, e o padrão não mora na cabeça. Mora em quem você se torna quando está dentro da relação. É por isso que você consegue explicar tudo com clareza para a sua amiga e, três meses depois, faz igual de novo.</p>
+    <p><strong>Entender o padrão não basta.</strong> Enquanto quem você é dentro da relação não mudar, você troca de homem e repete a história.</p>
+  </div>
+
+  <div class="peca-label">Bloco 5 · O mecanismo</div>
+  <div class="copy">
+    <p>A maioria ensina técnica: como conversar, como se comportar, como fazer ele correr atrás. <strong>Eu vou muito antes disso.</strong></p>
+    <p>Sou psicanalista. Meu trabalho é encontrar a <strong>origem inconsciente</strong> do padrão que faz uma mulher inteligente e realizada escolher quem não a escolhe. Não é autoestima baixa genérica: é uma estrutura, e ela tem começo, meio e lógica.</p>
+    <p>Quando a gente mexe na origem, o comportamento muda sozinho. Você não precisa aprender a aceitar menos com mais elegância. <strong>Você para de aceitar.</strong></p>
+    <p>O foco não é te ensinar a conquistar alguém. É fazer com que você nunca mais aceite menos do que merece.</p>
+  </div>
+
+  <div class="peca-label">Bloco 6 · O que precisa acontecer no seu caso</div>
+  <div class="copy">
+    <div class="cl">Personalizado por {{padrao_identificado}}</div>
+    <p><strong>Provedora Emocional:</strong> antes de qualquer coisa, separar ser necessária de ser amada. Enquanto dar for o seu jeito de garantir presença, você vai continuar escolhendo quem precisa de você.</p>
+    <p><strong>Espera a Definição:</strong> o trabalho é a sua régua. Você não cobra para não parecer difícil, e o silêncio vira contrato. Sem régua, não há relação, há espera.</p>
+    <p><strong>Sabe e Não Sai:</strong> aqui o padrão é antigo, e a saída não é informação, é sustentação. Você já sabe. O que falta é conseguir aguentar sair.</p>
+    <p><strong>Blindada:</strong> a autonomia que te salvou está te isolando. O trabalho é conseguir receber sem sentir que está perdendo o controle.</p>
+    <p><strong>O custo de continuar onde está:</strong> não é só a relação que não veio. É o ano que passa igual, a energia que some, e a parte de você que vai desistindo em silêncio de tentar de novo.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- SEÇÃO 3 · PARTE 4 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Rafael Cobra</span><span>Página 11</span></div>
+  <div class="sec-header">
+    <div class="sk">Seção 3 · Parte 4</div>
+    <h2>Autoridade, Qualificação, FAQ e CTA</h2>
+    <div class="sd">Blocos 7 a 9: onde a página fecha e vira conversa.</div>
+  </div>
+
+  <div class="peca-label">Bloco 7 · Quem é o Rafael e a prova</div>
+  <div class="copy">
+    <p>Psicanalista, com centenas de atendimentos na carreira. Palestrante TEDx. Antes disso, oito anos como atleta da seleção brasileira de remo, melhor do país no período.</p>
+    <p>333 mil pessoas acompanham o meu trabalho, construídas sem um centavo de anúncio. Um único vídeo meu sobre esse assunto passou de 2 milhões de visualizações e trouxe 100 mil pessoas novas. Ele não viralizou porque eu sou bom de câmera: viralizou porque milhares de mulheres viram a própria vida escrita ali.</p>
+    <p>[DEPOIMENTO] [DEPOIMENTO] [DEPOIMENTO], com a profissão visível e o rosto se houver autorização.</p>
+  </div>
+
+  <div class="peca-label">Bloco 8 · Para quem é, para quem não é</div>
+  <div class="copy">
+    <p><strong>É para você se:</strong> o padrão já se repete há anos e com pessoas diferentes · você já tentou entender sozinha e entendeu, mas repetiu · você quer parar de aceitar, não quer aprender a conquistar.</p>
+    <p><strong>Talvez não seja o momento se:</strong> você está procurando técnica para reconquistar alguém específico · você quer alguém que garanta que vai aparecer um homem · você está em crise aguda e precisa de acompanhamento clínico contínuo, e não de um processo com prazo.</p>
+  </div>
+
+  <div class="peca-label">Bloco 8 · FAQ</div>
+  <div class="copy">
+    <p><strong>Isso é terapia?</strong> Não. É uma leitura estratégica da sua vida afetiva. Se você já faz terapia, isso não substitui e não atrapalha: soma.</p>
+    <p><strong>Já fiz terapia por anos e não resolvi. Por que agora?</strong> Porque terapia trata o sintoma no ritmo em que ele aparece. Aqui a gente vai direto ao padrão, com método e prazo. Muita paciente minha chega exatamente assim.</p>
+    <p><strong>E se eu estiver num relacionamento ruim agora?</strong> Melhor ainda. É onde o padrão está vivo e visível.</p>
+    <p><strong>Quanto custa a sessão?</strong> Nada. O que custa é continuar mais um ano igual.</p>
+  </div>
+
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- SEÇÃO 3 · PARTE 5 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Rafael Cobra</span><span>Página 12</span></div>
+  <div class="sec-header">
+    <div class="sk">Seção 3 · Parte 5</div>
+    <h2>O Convite, nas Duas Versões</h2>
+    <div class="sd">Bloco 9: a página termina diferente para quem qualifica e para quem não qualifica.</div>
+  </div>
+
+  <div class="peca-label">Bloco 9 · O convite e o CTA · versão qualificada</div>
+  <div class="copy">
+    <p>{{nome}}, minha agenda clínica está cheia, então abro poucas sessões de diagnóstico por semana. São 45 minutos, comigo, ao vivo, para olhar a sua história de frente e nomear a origem do que se repete.</p>
+    <p>O que sai dali: o nome do seu padrão, a origem provável dele e o caminho concreto para quebrá-lo. O que não é: não é sessão de terapia, não é papo motivacional e não é apresentação de produto disfarçada. Se fizer sentido a gente seguir junto, eu te explico como. Se não fizer, você sai com a leitura mesmo assim.</p>
+    <div class="cl">CTA · abre o WhatsApp</div>
+    <p><strong>Quero minha sessão de diagnóstico</strong> · Reforço: você já perdeu tempo demais tentando entender sozinha.</p>
+    <div class="cl">Mensagem que já vai escrita no WhatsApp</div>
+    <p>"Rafael, fiz o diagnóstico e o meu padrão é o {{padrao_identificado}}. Quero a sessão."</p>
+  </div>
+
+  <div class="peca-label">Bloco 9 · versão não qualificada</div>
+  <div class="copy">
+    <div class="cl">Quem marcou na pergunta 10 que não é o momento, ou que só queria o diagnóstico</div>
+    <p>{{nome}}, o seu diagnóstico completo está aí em cima, e ele é seu para reler quantas vezes quiser. Não vou te empurrar uma conversa que você não pediu.</p>
+    <p>Só te peço uma coisa: não deixe isso virar mais um print salvo. Todo dia eu falo sobre esse padrão no meu perfil, e é de graça. Me segue lá, e quando fizer sentido, você sabe onde me achar.</p>
+    <div class="cl">CTA</div>
+    <p><strong>Quero continuar acompanhando</strong> · leva ao perfil, não ao WhatsApp.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Por que a página ramifica</div>
+    <p>Sua agenda comporta 20 sessões no mês. Oferecer sessão para quem já disse que não é o momento gasta o seu horário e ensina a pessoa a dizer não para você. <strong>Quem qualifica vai para o WhatsApp; quem não qualifica vai para o conteúdo</strong> e volta depois, quando o momento mudar.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+<!-- SEÇÃO 4 · PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Rafael Cobra</span><span>Página 13</span></div>
+  <div class="sec-header">
+    <div class="sk">Seção 4 · Parte 1</div>
+    <h2>Copy dos Anúncios</h2>
+    <div class="sd">Três ângulos e 20 criativos escritos: 5 estáticos, 5 carrosséis e 10 vídeos.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Regras que valem para todos os anúncios</div>
+    <p>O destino é sempre o <strong>quiz gratuito</strong>, nunca a sessão e nunca a mentoria. Nenhum anúncio cita preço.</p>
+    <p><strong>Não prometer relacionamento.</strong> Promessa de encontrar alguém é promessa de resultado sobre terceiro, reprova na Meta e ainda fere o posicionamento.</p>
+    <p><strong>Não afirmar atributo pessoal da leitora.</strong> Nada de "você é carente" ou "você não se valoriza". A régua é <strong>descrever a cena e citar a frase que ela mesma diz</strong>, nunca acusar quem ela é.</p>
+    <p><strong>Sem caso clínico.</strong> Nenhuma peça usa história de paciente, mesmo anonimizada, sem autorização escrita.</p>
+  </div>
+
+  <div class="peca-label">Ângulo 1 · Dor e identificação</div>
+  <p><strong>Estratégia:</strong> repetir de volta, quase palavra por palavra, a frase que ela já disse. É o ângulo que mais capta público frio.</p>
+  <p><strong>Hook:</strong> "Ele fala que você é incrível. E não te namora."</p>
+
+  <div class="copy">
+    <div class="cl">Copy curta</div>
+    <p>Ele fala que você é linda, incrível, maravilhosa. E não te namora. Você já ouviu isso de mais de um homem, e começou a achar que o problema é você. Não é falta de sorte. É um padrão. Faça o diagnóstico gratuito de 2 minutos e descubra qual é o seu.</p>
+  </div>
+
+  <div class="copy">
+    <div class="cl">Copy média</div>
+    <p>Tem uma frase que você já disse, talvez chorando, talvez rindo para não chorar: "ele fala que eu sou incrível, mas não me namora". E quando isso acontece com o segundo, o terceiro, o quarto, você para de culpar eles e começa a culpar você. Aí vem o "eu tenho dedo podre", que é o jeito mais educado de dizer que você desistiu de entender. Você não tem dedo podre. Você tem um padrão, e padrão tem origem, tem lógica e tem tratamento. Sou psicanalista e passei minha carreira estudando exatamente isso em mulheres que conquistaram tudo, menos uma relação que preste. O diagnóstico gratuito lê o seu padrão em 2 minutos e manda o resultado no seu WhatsApp.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- SEÇÃO 4 · PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Rafael Cobra</span><span>Página 14</span></div>
+  <div class="sec-header">
+    <div class="sk">Seção 4 · Parte 2</div>
+    <h2>Ângulo 1 · Copy longa</h2>
+    <div class="sd">A versão de remarketing, para quem já viu as curtas e não clicou.</div>
+  </div>
+
+  <div class="copy">
+    <div class="cl">Copy longa</div>
+    <p>Você conquistou o que muita gente não conquista. Carreira, independência, respeito profissional. As pessoas te admiram, te pedem conselho, te acham forte. E aí você chega em casa e a sua vida amorosa parece a de outra pessoa.</p>
+    <p>O homem que some. O que elogia e não define. O que promete mudar e não muda. O que te larga com a conta na mão. Depois do terceiro, você para de achar que é azar e começa a achar que é você.</p>
+    <p>E como você é inteligente, tenta resolver do jeito que resolve tudo: estudando. Terapia, livro, conteúdo, podcast. Você entende o que acontece. E continua repetindo.</p>
+    <p>É aqui que quase todo mundo trava, porque ninguém te contou uma coisa: entender o padrão não basta. O padrão não vive no que você sabe, vive em quem você se torna dentro da relação. Enquanto isso não mudar, você troca de homem e repete a história.</p>
+    <p>Sou psicanalista, atendo mulheres exatamente nesse ponto e construí 333 mil pessoas me acompanhando falando só sobre isso. O primeiro passo é gratuito: um diagnóstico de 2 minutos que identifica o seu padrão e te devolve, no WhatsApp, a leitura do que está por trás dele. Sem julgamento e sem discurso de autoajuda. Clique e responda.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Observação de veiculação</div>
+    <p>A copy longa é a que melhor converte neste público, mas custa mais caro no frio. Suba as três versões no mesmo conjunto e deixe a Meta escolher. Quando a audiência aquecer, aumente o peso da longa.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- SEÇÃO 4 · PARTE 3 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Rafael Cobra</span><span>Página 15</span></div>
+  <div class="sec-header">
+    <div class="sk">Seção 4 · Parte 3</div>
+    <h2>Ângulo 2 · Mecanismo Único</h2>
+    <div class="sd">Apresentar a virada contraintuitiva e desqualificar o nicho sem citar ninguém.</div>
+  </div>
+  <p><strong>Hook:</strong> "Você não tem dedo podre. Você tem um padrão."</p>
+
+  <div class="copy">
+    <div class="cl">Copy curta</div>
+    <p>Você não tem dedo podre. Todo mundo diz que o problema é escolher melhor. Não é. Você pode escolher o homem mais correto do mundo e o padrão continua, porque ele não está nele. Está em você, e tem origem. Descubra a sua em 2 minutos.</p>
+  </div>
+
+  <div class="copy">
+    <div class="cl">Copy média</div>
+    <p>A internet inteira ensina mulher a conquistar homem. Como conversar, como se portar, como fazer ele correr atrás. E aí você aplica, dá certo por três semanas e tudo volta a ser o que era. Sabe por quê? Porque o problema nunca foi a técnica. Existe uma origem inconsciente que faz uma mulher inteligente, independente e bem-sucedida escolher quem não a escolhe, aceitar migalha e se anular achando que amor é isso. Enquanto essa origem não é tratada, você troca o personagem e repete a história. Meu trabalho como psicanalista é ir lá atrás, na origem, não no comportamento. O diagnóstico gratuito mostra em 2 minutos qual é o seu padrão e de onde ele provavelmente vem.</p>
+  </div>
+
+  <div class="copy">
+    <div class="cl">Copy longa</div>
+    <p>Existe uma pergunta que quase toda paciente minha faz na primeira sessão: "por que sempre eu?". Ela já tentou de tudo. Já foi a mulher compreensiva, já foi a mulher dura, já esperou, já cobrou, já terminou, já voltou. Já leu que precisava se amar mais e tentou se amar mais. E continuou atraindo o mesmo tipo de homem.</p>
+    <p>A resposta é desconfortável e libertadora ao mesmo tempo: o problema nunca esteve na escolha, esteve no que faz você escolher. A maioria dos profissionais ensina técnica para melhorar um relacionamento. Eu vou muito antes disso. Sou psicanalista e meu trabalho identifica a origem inconsciente dos padrões repetitivos que levam mulheres realizadas a escolher parceiros indisponíveis e a permanecer onde não deveriam.</p>
+    <p>Não é sobre aprender a lidar melhor com o que dói. É sobre a dor deixar de fazer sentido para você. Quando a origem é tratada, o comportamento muda sozinho: você não aprende a aceitar menos com mais elegância, você para de aceitar. O primeiro passo é um diagnóstico gratuito de 2 minutos que identifica o seu padrão e te devolve a leitura no WhatsApp.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- SEÇÃO 4 · PARTE 4 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Rafael Cobra</span><span>Página 16</span></div>
+  <div class="sec-header">
+    <div class="sk">Seção 4 · Parte 4</div>
+    <h2>Ângulo 3 · Prova e Autoridade</h2>
+    <div class="sd">Autoridade real, sem citar caso clínico protegido por sigilo.</div>
+  </div>
+  <p><strong>Hook:</strong> "333 mil mulheres me acompanham por causa de uma pergunta que eu fiz."</p>
+
+  <div class="copy">
+    <div class="cl">Copy curta</div>
+    <p>Publiquei um vídeo perguntando por que os homens acham você incrível e não te namoram. Passou de 2 milhões de visualizações, sem um centavo de anúncio. Não porque eu sou bom de internet. Porque a pergunta é a sua. O diagnóstico gratuito responde a ela.</p>
+  </div>
+
+  <div class="copy">
+    <div class="cl">Copy média</div>
+    <p>Um vídeo meu passou de 2 milhões de visualizações e trouxe 100 mil pessoas, sem um real investido. Era só uma pergunta: por que os homens me acham linda e incrível, mas não me namoram? Aquilo não viralizou porque eu sou bom de câmera. Viralizou porque milhares de mulheres viram a própria vida escrita ali. Sou psicanalista, tenho centenas de atendimentos na carreira e 333 mil pessoas acompanhando meu trabalho, tudo construído no orgânico. Se aquela pergunta é sua também, o diagnóstico gratuito de 2 minutos identifica o padrão por trás dela e manda a leitura no seu WhatsApp. [DEPOIMENTO]</p>
+  </div>
+
+  <div class="copy">
+    <div class="cl">Copy longa</div>
+    <p>Eu publiquei um vídeo com uma pergunta simples: por que os homens me acham linda e incrível, mas não me namoram? Não coloquei um centavo de anúncio. O vídeo passou de 2 milhões de visualizações e trouxe 100 mil pessoas novas para o meu perfil. Eu sei exatamente por que aquilo aconteceu, e não tem nada a ver comigo. Tem a ver com quantas mulheres carregam essa pergunta em silêncio, achando que são a única.</p>
+    <p>Sou psicanalista e passei a carreira atendendo mulheres que conquistaram praticamente tudo, menos uma vida amorosa que preste. Executivas, médicas, advogadas, empresárias. Mulheres que resolvem problemas complexos no trabalho e não conseguem entender por que aceitam tão pouco em casa.</p>
+    <p>Antes da psicanálise eu fui atleta da seleção brasileira de remo por oito anos, e foi lá que aprendi uma coisa que uso até hoje no consultório: ninguém quebra um padrão sozinho e no improviso. Precisa de método, de acompanhamento e de alguém que veja de fora o que você não vê de dentro. É isso que eu faço. O primeiro passo é gratuito: um diagnóstico de 2 minutos que identifica o seu padrão e devolve a leitura no seu WhatsApp. [DEPOIMENTO]</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+<!-- SEÇÃO 4 · PARTE 5 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Rafael Cobra</span><span>Página 17</span></div>
+  <div class="sec-header">
+    <div class="sk">Seção 4 · Parte 5</div>
+    <h2>Os 5 Estáticos</h2>
+    <div class="sd">Cartão de texto na identidade que você já usa. Funciona aqui porque parece constatação, não anúncio.</div>
+  </div>
+
+  <div class="peca-label">Estático 1 · Cena</div>
+  <p><strong>Arte:</strong> "Ele fala que você é incrível. E não te namora."</p>
+  <p><strong>Legenda:</strong> Você já ouviu isso de mais de um. Depois do terceiro, parou de culpar eles e começou a culpar você. Não é azar. É um padrão, e padrão tem origem. Diagnóstico gratuito de 2 minutos no link.</p>
+
+  <div class="peca-label">Estático 2 · Cena</div>
+  <p><strong>Arte:</strong> "Você conquistou tudo, menos uma relação que preste."</p>
+  <p><strong>Legenda:</strong> Você resolve na empresa o que ninguém resolve, e aceita em casa o que não aceitaria de um fornecedor. Isso não é contradição, é padrão. Descubra qual é o seu em 2 minutos.</p>
+
+  <div class="peca-label">Estático 3 · Mecanismo</div>
+  <p><strong>Arte:</strong> "Você não tem dedo podre. Você tem um padrão."</p>
+  <p><strong>Legenda:</strong> Se fosse azar, de vez em quando você acertaria. Não é aleatório: existe um filtro que aprova o indisponível e reprova quem está disponível. Esse filtro tem origem, e origem se trata.</p>
+
+  <div class="peca-label">Estático 4 · Mecanismo</div>
+  <p><strong>Arte:</strong> "Entender o padrão não basta."</p>
+  <p><strong>Legenda:</strong> Você já fez terapia, já leu os livros e sabe explicar tudo. E repetiu mesmo assim. Porque entender é da cabeça, e o padrão mora em quem você se torna dentro da relação. Faça o diagnóstico gratuito.</p>
+
+  <div class="peca-label">Estático 5 · Autoridade</div>
+  <p><strong>Arte:</strong> "Uma pergunta minha teve 2 milhões de visualizações. A pergunta era sua."</p>
+  <p><strong>Legenda:</strong> Psicanalista, TEDx, 333 mil pessoas acompanhando, tudo no orgânico. Se aquela pergunta também é sua, o diagnóstico gratuito de 2 minutos identifica o padrão por trás dela.</p>
+
+  <div class="box-light">
+    <div class="bt">Observação de produção</div>
+    <p>Saem direto na identidade que você já usa nos cortes: fundo amarelo com serifa, ou vermelho com sans em caixa alta. Isso mantém a coerência entre o perfil e o funil, e reduz o tempo de produção a quase zero.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- SEÇÃO 4 · PARTE 6 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Rafael Cobra</span><span>Página 18</span></div>
+  <div class="sec-header">
+    <div class="sk">Seção 4 · Parte 6</div>
+    <h2>Os 5 Carrosséis</h2>
+    <div class="sd">Um slide por ideia, frases curtas. O último slide sempre leva ao quiz.</div>
+  </div>
+
+  <div class="peca-label">Carrossel 1 · Cena · "4 sinais de que você está aceitando migalha"</div>
+  <p>1. Ele elogia muito e não define nada. 2. Você comemora o mínimo como se fosse muito. 3. Você conta as brigas para a amiga como se fossem anedota. 4. Você já sabe o que vai acontecer e continua esperando. 5. Nenhum desses sinais é sobre ele. 6. Todos são sobre o que você aprendeu a aceitar. 7. Descubra a origem disso em 2 minutos. Link na bio.</p>
+
+  <div class="peca-label">Carrossel 2 · Cena · "As frases que você já disse para si mesma"</div>
+  <p>1. Cinco frases que quase toda mulher já disse para si mesma. 2. "Eu tenho dedo podre." 3. "Se eu não cobrar, ele fica." 4. "Ele é assim, mas no fundo me ama." 5. "Da próxima vez eu escolho melhor." 6. Nenhuma delas é o problema. Todas são sintoma do mesmo. 7. Faça o diagnóstico gratuito e veja qual é o seu padrão.</p>
+
+  <div class="peca-label">Carrossel 3 · Mecanismo · "Por que a terapia sozinha não quebrou o seu padrão"</div>
+  <p>1. Você fez terapia e continuou repetindo. Isso te assustou. 2. Não foi a terapia que falhou. 3. Terapia trata o sintoma no ritmo em que ele aparece. 4. O padrão não aparece: ele espera a próxima relação. 5. E quando aparece, você já está dentro dele. 6. É por isso que aqui a gente vai à origem, com método e prazo. 7. Comece pelo diagnóstico gratuito. Link na bio.</p>
+
+  <div class="peca-label">Carrossel 4 · Mecanismo · "Os 4 padrões"</div>
+  <p>1. Depois de centenas de atendimentos, quatro padrões se repetem. 2. A Provedora Emocional: dá mais do que recebe e chama isso de amor. 3. A Que Espera a Definição: vive sem contrato para não parecer difícil. 4. A Que Sabe e Não Sai: entende tudo e continua. 5. A Blindada: afasta quem é bom e persegue quem não a quer. 6. Todos têm origem, e origem se trata. 7. Descubra o seu em 2 minutos.</p>
+
+  <div class="peca-label">Carrossel 5 · Autoridade · "O que muda quando você para de tentar ser escolhida"</div>
+  <p>1. Existe um ponto em que a mulher para de tentar ser escolhida. 2. Não é quando ela desiste. 3. É quando ela deixa de caber no que aceitava. 4. Aí o homem errado simplesmente para de caber na vida dela. 5. Ela não aprendeu técnica nenhuma. 6. Ela mudou quem é dentro da relação. 7. Esse é o trabalho. Comece pelo diagnóstico gratuito.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+<!-- SEÇÃO 4 · PARTE 7 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Rafael Cobra</span><span>Página 19</span></div>
+  <div class="sec-header">
+    <div class="sk">Seção 4 · Parte 7</div>
+    <h2>Os 10 Vídeos · roteiros 1 a 4</h2>
+    <div class="sd">Conjunto A: a dor de aceitar migalhas. De 30 a 60 segundos, no seu formato de sempre.</div>
+  </div>
+  <p class="lead">Cada roteiro vale como anúncio e como conteúdo orgânico. Para orgânico, troque o CTA final por "link na bio".</p>
+
+  <div class="peca-label">Vídeo 1 · "Incrível e não namora" · 45s</div>
+  <p><strong>Gancho:</strong> "Ele fala que você é linda, incrível, maravilhosa. E não te namora."</p>
+  <p><strong>Desenvolvimento:</strong> "E aí você começa a fazer conta. Será que eu falei demais? Será que eu me entreguei rápido? Será que eu deveria ter esperado?"</p>
+  <p><strong>Virada:</strong> "Não é nada disso. Homem que quer, quer. O que você precisa entender não é por que ele não te escolheu. É por que você escolheu alguém que precisava ser convencido."</p>
+  <p><strong>CTA:</strong> "Fiz um diagnóstico de 2 minutos que mostra o padrão por trás disso. Link aqui embaixo."</p>
+
+  <div class="peca-label">Vídeo 2 · "A conta na mão" · 40s</div>
+  <p><strong>Gancho:</strong> "Ele te larga com a conta na mão e ainda reclama de como você quer pagar."</p>
+  <p><strong>Desenvolvimento:</strong> "E você paga. E acha graça. E conta para a amiga como se fosse anedota."</p>
+  <p><strong>Virada:</strong> "Só que não é sobre dinheiro. É sobre você já ter aprendido que precisa pagar de alguma forma para ser aceita. E isso não começou nesse relacionamento."</p>
+  <p><strong>CTA:</strong> diagnóstico gratuito no link.</p>
+
+  <div class="peca-label">Vídeo 3 · "Não se esconda atrás da sua competência" · 50s</div>
+  <p><strong>Gancho:</strong> "Você resolve tudo no trabalho. E não consegue resolver isso."</p>
+  <p><strong>Desenvolvimento:</strong> "Todo mundo te acha forte. Você é a que aguenta, a que organiza, a que sustenta. Aí chega em casa e aceita o que não aceitaria de um fornecedor."</p>
+  <p><strong>Virada:</strong> "Competência não é a mesma coisa que valor próprio. Dá para ser excelente lá fora e não achar que merece o mínimo aqui dentro. E é exatamente isso que a gente trata."</p>
+  <p><strong>CTA:</strong> diagnóstico gratuito no link.</p>
+
+  <div class="peca-label">Vídeo 4 · "Você está se abandonando" · 40s</div>
+  <p><strong>Gancho:</strong> "Você pode estar se abandonando sem perceber."</p>
+  <p><strong>Desenvolvimento:</strong> "Não é abandono grande. É pequeno. É deixar de falar o que incomoda para não gerar climão. É diminuir o que você quer para caber no que ele oferece."</p>
+  <p><strong>Virada:</strong> "Quando você faz isso todo dia por um ano, no fim do ano você não sabe mais o que você queria."</p>
+  <p><strong>CTA:</strong> diagnóstico gratuito no link.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- SEÇÃO 4 · PARTE 7 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Rafael Cobra</span><span>Página 20</span></div>
+  <div class="sec-header">
+    <div class="sk">Seção 4 · Parte 7</div>
+    <h2>Roteiros 5 a 7 · mecanismo</h2>
+    <div class="sd">Conjunto B: o que separa você de todo o resto do nicho.</div>
+  </div>
+
+  <div class="peca-label">Vídeo 5 · "Você não tem dedo podre" · 50s</div>
+  <p><strong>Gancho:</strong> "Você não tem dedo podre. Para de falar isso."</p>
+  <p><strong>Desenvolvimento:</strong> "Dedo podre é o jeito educado de dizer que você desistiu de entender. É azar, é destino, acabou a conversa."</p>
+  <p><strong>Virada:</strong> "Só que não é aleatório. Se fosse aleatório, de vez em quando você acertaria. Você não acerta porque tem um filtro em você que reprova o homem disponível e aprova o indisponível. Esse filtro tem origem, e origem se trata."</p>
+  <p><strong>CTA:</strong> diagnóstico gratuito no link.</p>
+
+  <div class="peca-label">Vídeo 6 · "Entender o padrão não basta" · 55s</div>
+  <p><strong>Gancho:</strong> "Você já entendeu tudo. E continua repetindo."</p>
+  <p><strong>Desenvolvimento:</strong> "Você fez terapia. Leu os livros. Sabe explicar o seu padrão melhor do que muito profissional. E aí conhece alguém e faz tudo igual de novo."</p>
+  <p><strong>Virada:</strong> "Porque entender é da cabeça e o padrão não mora na cabeça. Mora em quem você vira quando está dentro da relação. Enquanto isso não muda, você troca de homem e repete a história."</p>
+  <p><strong>CTA:</strong> diagnóstico gratuito no link.</p>
+
+  <div class="peca-label">Vídeo 7 · "O foco não é conquistar ninguém" · 50s</div>
+  <p><strong>Gancho:</strong> "Eu não ensino mulher a conquistar homem."</p>
+  <p><strong>Desenvolvimento:</strong> "Tem muita gente ensinando isso. Como conversar, como se portar, como fazer ele correr atrás. Funciona por três semanas."</p>
+  <p><strong>Virada:</strong> "Meu trabalho é outro. É fazer com que você nunca mais aceite menos do que merece. Quando isso acontece, você não precisa de técnica nenhuma: o homem errado simplesmente para de caber na sua vida."</p>
+  <p><strong>CTA:</strong> diagnóstico gratuito no link.</p>
+
+  <div class="box-dark">
+    <div class="bt">Direção de gravação</div>
+    <p>Sem trilha, sem legenda animada exagerada, sem corte a cada segundo. Este público associa produção excessiva a superficialidade, e você já provou no orgânico que fala melhor sem isso.</p>
+    <p><strong>Grave em lote, 5 por sessão.</strong> Duas sessões fecham os 10, e isso cabe nos seus blocos de tempo. A regra de ouro do gancho: <strong>os 3 primeiros segundos são a frase dela, não a sua opinião.</strong> Você começa dizendo o que ela pensa, e só depois entra.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- SEÇÃO 4 · PARTE 7 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Rafael Cobra</span><span>Página 21</span></div>
+  <div class="sec-header">
+    <div class="sk">Seção 4 · Parte 7</div>
+    <h2>Roteiros 8 a 10 · autoridade</h2>
+    <div class="sd">Conjunto C: o que converte quem já viu você antes.</div>
+  </div>
+
+  <div class="peca-label">Vídeo 8 · "O vídeo de 2 milhões" · 45s</div>
+  <p><strong>Gancho:</strong> "Eu fiz uma pergunta num vídeo e 2 milhões de pessoas assistiram."</p>
+  <p><strong>Desenvolvimento:</strong> "A pergunta era: por que os homens me acham linda e incrível, mas não me namoram? Não botei um centavo de anúncio."</p>
+  <p><strong>Virada:</strong> "E não viralizou porque eu sou bom de câmera. Viralizou porque milhares de mulheres viram a própria vida escrita ali e acharam que eram as únicas. Você não é."</p>
+  <p><strong>CTA:</strong> diagnóstico gratuito no link.</p>
+
+  <div class="peca-label">Vídeo 9 · "Do remo para o consultório" · 55s</div>
+  <p><strong>Gancho:</strong> "Eu fui atleta da seleção brasileira antes de ser psicanalista."</p>
+  <p><strong>Desenvolvimento:</strong> "Oito anos como melhor atleta do país. E o que o esporte me ensinou não foi disciplina, foi outra coisa."</p>
+  <p><strong>Virada:</strong> "Foi que ninguém quebra um padrão sozinho e no improviso. Precisa de método, de acompanhamento e de alguém que veja de fora o que você não vê de dentro. É por isso que ler mais um livro não vai te tirar de onde você está."</p>
+  <p><strong>CTA:</strong> diagnóstico gratuito no link.</p>
+
+  <div class="peca-label">Vídeo 10 · "A pergunta que eu mais ouço" · 50s</div>
+  <p><strong>Gancho:</strong> "A pergunta que eu mais ouço na primeira sessão é: por que sempre eu?"</p>
+  <p><strong>Desenvolvimento:</strong> "Ela já foi compreensiva, já foi dura, já esperou, já cobrou, já terminou, já voltou. E continuou atraindo o mesmo tipo de homem."</p>
+  <p><strong>Virada:</strong> "A resposta é desconfortável e libertadora ao mesmo tempo: o problema nunca esteve na escolha. Esteve no que faz você escolher. E isso, diferente do homem, está sob o seu controle."</p>
+  <p><strong>CTA:</strong> diagnóstico gratuito no link.</p>
+
+  <div class="box-light">
+    <div class="bt">Distribuição por ângulo</div>
+    <p>Dos 20 criativos: <strong>8 de cena</strong> (identificação, o que mais capta frio), <strong>7 de mecanismo</strong> (o que mais qualifica) e <strong>5 de autoridade</strong> (o que mais converte quem já viu antes). Comece com peso em cena e migre para mecanismo conforme a audiência aquece.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- SEÇÃO 4 · PARTE 8 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Rafael Cobra</span><span>Página 22</span></div>
+  <div class="sec-header">
+    <div class="sk">Seção 4 · Parte 8</div>
+    <h2>Headlines, Hooks e a Largada</h2>
+    <div class="sd">O que testar primeiro e o que sobe antes do quê.</div>
+  </div>
+
+  <div class="peca-label">10 headlines para teste A/B</div>
+  <ul class="check">
+    <li>Ele fala que você é incrível. E não te namora.</li>
+    <li>Você não tem dedo podre. Você tem um padrão.</li>
+    <li>Entender o padrão não basta.</li>
+    <li>Você conquistou tudo, menos uma relação que preste.</li>
+    <li>Não é o homem errado. É o que faz você escolher ele.</li>
+    <li>Você não está exigindo demais. Você está aceitando de menos.</li>
+    <li>Sabe por que você é a boazinha da história?</li>
+    <li>A mulher forte que aceita migalha, e por que isso não é contradição</li>
+    <li>Você já fez terapia. Já leu os livros. E repetiu.</li>
+    <li>Descubra em 2 minutos o padrão que sabota seus relacionamentos</li>
+  </ul>
+
+  <div class="peca-label">5 hooks para vídeo, na sua voz</div>
+  <ul class="check">
+    <li>"Ele fala que você é linda, incrível, maravilhosa. E não te namora."</li>
+    <li>"Você não tem dedo podre. Para de falar isso."</li>
+    <li>"Você já entendeu tudo. E continua repetindo."</li>
+    <li>"Eu não ensino mulher a conquistar homem."</li>
+    <li>"A pergunta que eu mais ouço na primeira sessão é: por que sempre eu?"</li>
+  </ul>
+
+  <div class="box-dark">
+    <div class="bt">Estrutura de largada da campanha</div>
+    <p><strong>20 criativos na largada:</strong> 5 estáticos, 5 carrosséis e 10 vídeos, todos escritos nas páginas anteriores. Na call de vendas falamos em 12 peças de anúncio: estão aqui 20, com os 10 roteiros de vídeo escritos inteiros.</p>
+    <p><strong>Ordem:</strong> estáticos e carrosséis entram primeiro, porque não dependem de gravação e podem subir enquanto você grava. Os vídeos entram em duas levas, uma por sessão de gravação.</p>
+    <p><strong>Quando:</strong> a mídia só sobe depois do caixa rápido, entre os dias 15 e 60 do roadmap. Nos primeiros 30 dias o motor é a base do WhatsApp e o reajuste da clínica. O orçamento diário fica a definir, e a régua que importa não é custo por lead: é <strong>custo por sessão de diagnóstico comparecida</strong>.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+<!-- SEÇÃO 5 · PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Rafael Cobra</span><span>Página 23</span></div>
+  <div class="sec-header">
+    <div class="sk">Seção 5 · Parte 1</div>
+    <h2>Cadência de Atendimento · 12 dias</h2>
+    <div class="sd">Na sua voz, mandada por você. O objetivo é agendar a sessão de diagnóstico.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Regra de tom neste nicho</div>
+    <p>Ela é analítica, já foi tratada como carente e detesta isso. Nada de urgência artificial, nada de escassez inventada, nada de vocabulário de coach. Frases curtas, poucas maiúsculas, quase nenhum emoji.</p>
+    <p><strong>Quem manda é você, com o seu nome.</strong> Você não tem SDR, e mensagem assinada por um time que não existe soa falsa. Quando entrar apoio, muda a assinatura, não o tom. O que abre toda conversa é o resultado do quiz, com o padrão dela nomeado.</p>
+  </div>
+
+  <div class="peca-label">Dia 1 · manhã</div>
+  <p>{{nome}}, seu diagnóstico chegou aí? Qualquer coisa eu reenvio.</p>
+
+  <div class="peca-label">Dia 2</div>
+  <p>Fiquei pensando numa coisa que você respondeu: {{resposta_marcante}}. Isso costuma vir de um lugar bem específico. Posso te falar uma coisa sobre isso?</p>
+
+  <div class="peca-label">Dia 3 · para quem não respondeu</div>
+  <p>{{nome}}, não vou insistir. Só não queria que o seu diagnóstico ficasse parado no WhatsApp junto com o resto. Ele é sobre a sua vida, não sobre a minha agenda.</p>
+
+  <div class="peca-label">Dia 4 · valor</div>
+  <p>Uma coisa que eu vejo em quase toda mulher que responde como você respondeu: ela acha que o problema é escolher melhor da próxima vez. Não é. Se fosse, você já teria acertado.</p>
+
+  <div class="peca-label">Dia 5 · leu e parou</div>
+  <p>Você leu e não respondeu. Tudo bem. Só me diz uma coisa, sem compromisso: o que você leu ali fez sentido ou não?</p>
+
+  <div class="peca-label">Dia 6 · valor</div>
+  <p>Tem uma pergunta que eu faço em toda primeira sessão: há quanto tempo você está esperando isso melhorar sozinho? Normalmente a resposta assusta a própria pessoa.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- SEÇÃO 5 · PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Rafael Cobra</span><span>Página 24</span></div>
+  <div class="sec-header">
+    <div class="sk">Seção 5 · Parte 2</div>
+    <h2>Dias 7 a 12 e os cinco níveis</h2>
+    <div class="sd">Onde a cadência vira playbook, e não lista de mensagens.</div>
+  </div>
+
+  <div class="peca-label">Dia 7 · quer agendar e adia</div>
+  <p>{{nome}}, você me disse que queria marcar. Não marcou. Isso não é preguiça, e eu não estou te cobrando. Só quero te mostrar que adiar essa conversa também é um padrão.</p>
+
+  <div class="peca-label">Dia 8 · quebra de objeção</div>
+  <p>Não vendo relacionamento. Não vou te prometer um homem. O que eu faço é te tirar do lugar onde você aceita menos do que merece. O resto é consequência.</p>
+
+  <div class="peca-label">Dia 9 · no-show</div>
+  <p>Você não apareceu na sessão e eu não fiquei bravo. Quero só te dizer que a vaga continua sua se você quiser remarcar. Uma vez.</p>
+
+  <div class="peca-label">Dia 10 · áudio pessoal</div>
+  <p>"{{nome}}, Rafael aqui. Li o seu diagnóstico. Se for para você ficar mais um ano igual, prefiro que fique sabendo o que está escolhendo, porque continuar também é uma decisão. Me dá 45 minutos que eu te mostro de onde vem o que se repete."</p>
+
+  <div class="peca-label">Dia 11 · fez a sessão e não fechou</div>
+  <p>A gente conversou e você decidiu não seguir agora. Respeito. Só quero deixar registrado: o que trava não costuma ser o dinheiro, é o medo de descobrir que dá para ser diferente. Se mudar de ideia, minha porta está aqui.</p>
+
+  <div class="peca-label">Dia 12 · encerramento</div>
+  <p>{{nome}}, vou parar de te escrever. Seu diagnóstico continua valendo e a leitura que eu te mandei também. Quando fizer sentido, você sabe onde me achar. De verdade: cuida de você.</p>
+
+  <div class="box-light">
+    <div class="bt">Os cinco níveis</div>
+    <p><strong>N1 não respondeu:</strong> cadência completa acima.</p>
+    <p><strong>N2 engajou e parou:</strong> retomar pelo conteúdo do padrão dela, nunca pela cobrança.</p>
+    <p><strong>N3 quer e adia:</strong> oferecer horário fora do padrão (início da manhã ou fim da tarde) antes de insistir. Se travar de novo, deixar na base de conteúdo.</p>
+    <p><strong>N4 no-show:</strong> sem culpa. Uma remarcação, e só.</p>
+    <p><strong>N5 fez a sessão e não fechou:</strong> cadência quinzenal de valor por 60 dias. É o grupo mais quente que existe: já viu o diagnóstico e já conversou com você.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- SEÇÃO 6 · PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Rafael Cobra</span><span>Página 25</span></div>
+  <div class="sec-header">
+    <div class="sk">Seção 6 · Parte 1</div>
+    <h2>Recomendações Estratégicas</h2>
+    <div class="sd">O que a Simple recomenda além da copy.</div>
+  </div>
+
+  <div class="peca-label">Sobre o ativo real</div>
+  <p>Você tem 333 mil pessoas e um vídeo de 2 milhões de visualizações. <strong>Nunca foi problema de topo.</strong> O gargalo é que não existe caminho depois do view. Por isso o roadmap começa pela base do WhatsApp e não pelo tráfego: é o caminho mais curto entre o que você já tem e o caixa.</p>
+
+  <div class="peca-label">Sobre a clínica, e por que reajuste não é o fim da história</div>
+  <p>18 a 20 pacientes a R$ 350, com casos de R$ 550 e R$ 650 pagos sem reclamação. Subir a base para R$ 500 é dinheiro em 30 dias, sem mídia, sem funil e sem produto novo. Faça, e não deixe para depois porque parece pequeno: <strong>é o que financia o resto.</strong></p>
+  <p>Mas reajuste sozinho não resolve o seu problema de fundo, que é <strong>tempo</strong>. Com R$ 500 a sessão, R$ 30 mil por mês continua significando agenda cheia. O desenho apresentado na call de vendas era outro: <strong>embalar o acompanhamento num pacote</strong>, na faixa de R$ 6 mil, como foi feito com a Gisele. Dois ou três pacotes valem o que hoje custa quase toda a sua semana. É o mesmo faturamento com <strong>menos pacientes e menos horas suas</strong>, e é isso que libera espaço para as 20 sessões de diagnóstico do mês.</p>
+  <p><strong>Recomendação:</strong> reajuste agora, desenho do pacote na próxima quinzenal, entrada dele nos novos pacientes primeiro. Os atuais migram por onda, sem ruptura.</p>
+
+  <div class="peca-label">Sobre o formato de entrega</div>
+  <p>A mentoria precisa ser em grupo, e isso não é negociável. Você tem 4 horas por dia fracionadas, atende 18 a 20 pacientes e viaja em outubro. <strong>Cinco vendas de mentoria individual quebram a operação em 30 dias.</strong> Grupo com encontro semanal gravável é o único formato que sobrevive ao seu calendário.</p>
+
+  <div class="peca-label">Sobre sigilo e compliance</div>
+  <p>Dois riscos aqui. O primeiro é de conselho, não de marketing: você é psicanalista, e todo depoimento ou caso precisa de <strong>autorização escrita</strong>. O segundo é de mídia: promessa de relacionamento e afirmação sobre quem a leitora é reprovam na Meta. A régua para toda peça e toda gravação é <strong>descrever a cena e citar a frase dela, nunca acusar a pessoa.</strong></p>
+
+  <div class="peca-label">Sobre o modelo de trabalho</div>
+  <p>Você já foi queimado por uma agência que não monetizou um boom de 100 mil seguidores. Você comprou implementação e pediu para pegarmos pela mão. <strong>Entregar documento sem execução conjunta é o caminho mais rápido de perder você</strong>, e é por isso que esta estratégia vem com roteiro escrito e não com orientação genérica.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- SEÇÃO 6 · PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Rafael Cobra</span><span>Página 26</span></div>
+  <div class="sec-header">
+    <div class="sk">Seção 6 · Parte 2</div>
+    <h2>Recomendações Estratégicas</h2>
+    <div class="sd">Formato, conteúdo, esteira e o que monitorar.</div>
+  </div>
+
+  <div class="peca-label">Sobre o formato dos entregáveis</div>
+  <p>Neste projeto, <strong>formato importa tanto quanto conteúdo</strong>. Você pediu ordem numerada e o porquê de cada passo, e disse que sem o porquê não grava nem um vídeo de 10 segundos. Todo entregável nosso segue o padrão do roadmap: numerado, sequencial, justificado e em blocos de até 1 hora. Um documento excelente em formato errado não é executado.</p>
+
+  <div class="peca-label">Sobre o conteúdo orgânico</div>
+  <p>React é tempero, não prato principal. Você mesmo observou que no perfil de referência só os reacts viralizam e o conteúdo próprio não. <strong>Aquele perfil precisa de seguidor, você precisa de venda.</strong> O motor é o conteúdo próprio, que já performa de 95 a 100 mil visualizações, com react pontual quando o assunto for seu.</p>
+
+  <div class="peca-label">Sobre a prova social</div>
+  <p>É o ativo mais subaproveitado que você tem, e o mais lento de construir por causa do sigilo. Comece agora: <strong>2 a 3 casos com autorização escrita</strong>, no formato antes, durante e depois, valem mais do que qualquer criativo novo. Prioridade para mulheres com a profissão visível: executiva séria se reconhece em outra executiva séria.</p>
+
+  <div class="peca-label">Sobre a esteira, depois dos 90 dias</div>
+  <p>A mentoria para terapeutas continua viva e custa zero por enquanto: a lista de espera roda em paralelo. Se juntar 30 nomes numa semana, ela entra no próximo roadmap <strong>com dado e não com aposta</strong>. Executar o Produto 1 é o que constrói o case dela.</p>
+
+  <div class="box-dark">
+    <div class="bt">O que monitorar de perto</div>
+    <p><strong>Conversão real das primeiras calls.</strong> A premissa de 30% é a do terceiro mês, não a do primeiro. Se o primeiro mês vier abaixo de 13%, o problema está na qualificação do quiz ou na sessão, e a gente ajusta a P10 antes de mexer na mídia.</p>
+    <p><strong>Capacidade de entrega</strong> quando a primeira turma encher, e a <strong>oscilação do seu caixa pessoal</strong>, que é real e pode mudar a prioridade de uma semana para outra. Se isso acontecer, avisa: a gente reordena o plano, não abandona.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+</body>
+</html>
