@@ -50,6 +50,47 @@ adicionar uma linha. É a memória que se acumula ao longo do tempo.
 | 2026-07-30 | **Roadmap de 90 dias** montado no Perfil B (a Simple implementa). Decisões estruturais: carro-chefe é a **consultoria de R$ 15 mil** (não a mentoria, porque é a que já vende por indicação e consome menos tempo dela), mentoria de R$ 7 mil como downsell de call, individual de R$ 30 mil até o dia 30. Meta: R$ 50 mil/mês = 4 vendas = ~13 sessões/mês = 3 por semana, cabendo na janela da tarde. Incluída uma **"regra da fila"** para conter as ideias novas. | Entrega Simple |
 | 2026-07-29 | Caixa apertado no início do contrato (entrada de R$ 1 mil, sem reserva). Sequência obrigatória: **caixa rápido na base existente → funil no ar → processo comercial**. Estrutura antes de receita quebra o projeto. | Call de vendas + onboarding |
 
+## 08/09/2026 · Playbook de pré-vendas, e por que ele ficou curto
+
+Entregue o `estrategia/2026-09-08-playbook-pre-vendas-luana-isse.html`, para a
+Aline executar: abordagem no WhatsApp em 12 mensagens, abordagem ativa para
+base e indicação, 8 objeções da pré-venda, 5 trilhas de follow-up e a régua
+anti no-show completa.
+
+**A decisão que organizou o documento inteiro:** o quiz já entrega cinco das
+oito descobertas que uma conversa comercial precisa produzir (problema,
+consequência, impacto prático, tentativas anteriores, caixa e prontidão). O
+script só pergunta as três que faltam: o motivo ("por que hoje, e não há seis
+meses"), o impacto emocional e a meta com a urgência. Script que repete o que o
+funil já perguntou queima a boa vontade da lead logo na abertura, e ainda faz
+o funil parecer inútil. **Vale como padrão para todo cliente que tem quiz.**
+
+**A personalização saiu dos campos que o funil já grava**, e não de persona
+inventada: o resultado nomeado e o pilar dominante viraram quatro rotas de
+conversa, cada uma com o próprio espelho em três camadas (o que se vê, a causa
+estrutural, o custo invisível), a prova certa e a frase que nunca se diz. É a
+diferença entre um script genérico e um que o lead sente que foi escrito para
+ele.
+
+**Anti no-show:** a causa está uma etapa antes do lembrete. Quem não entendeu o
+valor da reunião na hora de marcar não aparece, por mais reminder que receba.
+As três travas que fazem a pessoa aparecer são o compromisso escrito (ela digita
+o sim), o trabalho visível feito no nome dela, e uma assimetria pequena (ela
+investe dois minutos antes). Daí saíram três peças concretas: a prévia do
+diagnóstico com a leitura completa guardada para a sessão, o áudio de 40
+segundos da Luana gravado no nome da pessoa 24h antes, e a tarefa de uma
+pergunta só. As duas primeiras vieram do que o Menegão faz com dossiê parcial.
+
+**Trava operacional que virou regra do documento:** nunca oferecer horário de
+manhã. A Luana não trabalha de manhã, e um horário oferecido fora da janela
+dela vira remarcação na primeira semana e desmonta todo o valor construído no
+agendamento.
+
+**Ficaram 7 pendências nomeadas na última seção do documento**, sendo as duas
+mais importantes o áudio da Luana (é a peça mais forte e depende só dela) e a
+decisão sobre citar "a partir de R$ 7 mil" quando a lead insiste duas vezes no
+preço. O playbook roda sem elas, e rende bem menos.
+
 ## 24/08/2026 · Depoimento em vídeo com valor em reais na tela
 
 Os três depoimentos em vídeo (Ali Klemt, Allan, Caroline Seyler) entraram no
