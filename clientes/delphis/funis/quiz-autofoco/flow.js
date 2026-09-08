@@ -13,9 +13,9 @@ window.FLOW = {
 
   hero: {
     selo: "Método AUTOFOCO · Delphis Fonseca",
-    titulo: "Você sabe o que dizer. Na hora, não sai como sai na sua cabeça.",
+    titulo: "Descubra o que trava a sua comunicação e quanto isso já custou em autoridade, oportunidade e negócio fechado.",
     subtitulo:
-      "Não é falta de conteúdo e não é falta de talento. São quatro padrões de travamento, e cada um destrava de um jeito. Responda com sinceridade e descubra qual é o seu.",
+      "Responda algumas perguntas e receba na tela a leitura do seu caso: qual dos quatro padrões de travamento é o seu, por que o que você já tentou não resolveu e o que precisa acontecer para destravar.",
     cta: "Quero descobrir o meu padrão",
   },
 

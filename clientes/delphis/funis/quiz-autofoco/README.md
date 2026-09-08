@@ -10,6 +10,23 @@ dele (preto e dourado, extraída de `metodoautofoco.com.br`).
 - **Meta Pixel:** `2308443446594670` (o mesmo do portfólio Delphis Studios, já aquecido)
 - **Copy aprovada:** `../../estrategia/2026-08-28-estrategia-completa-delphis.html` (seções 2 e 3)
 
+## A promessa da primeira tela
+
+Segue o padrão validado nos funis do Rafael Granella e do Grokker: **descoberta
+com preço concreto no título, entrega concreta no subtítulo.** Não é espelho da
+dor, é promessa.
+
+> **Descubra o que trava a sua comunicação e quanto isso já custou em autoridade,
+> oportunidade e negócio fechado.**
+>
+> Responda algumas perguntas e receba na tela a leitura do seu caso: qual dos
+> quatro padrões de travamento é o seu, por que o que você já tentou não resolveu
+> e o que precisa acontecer para destravar.
+
+Os três itens do subtítulo são exatamente três blocos da página de diagnóstico,
+então a promessa é cumprida ao pé da letra. Ao mexer no título, mexa em
+`hero.titulo` do `flow.js` **e** na `<meta name="description">` do `index.html`.
+
 ## Como o anúncio deve apontar
 
 Sempre para a **raiz com os parâmetros**, nunca para `/index.html`:

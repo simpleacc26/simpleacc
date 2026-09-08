@@ -82,3 +82,19 @@ Log do que funciona e do que não funciona com este cliente.
 - **Nome sem credencial não prova nada.** Cada depoimento leva quem a pessoa é
   (veículo e programa), senão o visitante que não reconhece o rosto não capta o
   peso da prova social.
+
+## Promessa da primeira tela · 08/09/2026
+
+- **Espelho da dor não é promessa.** "Você sabe o que dizer. Na hora, não sai como
+  sai na sua cabeça." descrevia bem o problema e não dava motivo nenhum para
+  responder. Trocado por descoberta com preço: "Descubra o que trava a sua
+  comunicação e quanto isso já custou em autoridade, oportunidade e negócio fechado."
+- **O padrão da casa (Rafael Granella, Grokker):** título = verbo de descoberta +
+  a lacuna + o que ela custa em termos concretos e caros. Subtítulo = o que a
+  pessoa recebe, onde recebe, e um gancho aberto ("por que ele se instalou").
+- **A promessa tem que existir na entrega.** Os três itens prometidos no subtítulo
+  do Delphis são três blocos reais da página de diagnóstico. Prometer leitura no
+  WhatsApp quando ela sai na tela seria promessa quebrada.
+- **Título longo é aceitável na dobra.** Os dois modelos têm 100+ caracteres. Vale
+  medir: a primeira pergunta precisa continuar visível sem rolar, ainda que só
+  duas opções apareçam.
