@@ -41,7 +41,9 @@
 
 /* ---------- base ---------- */
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; background: var(--ink); }
+/* SEM `scroll-behavior: smooth`. Ele fazia toda rolagem virar animação e, no
+   iOS, brigava com o dedo: a página descia e não voltava. Quem rola é o lead. */
+html { background: var(--ink); }
 body {
   margin: 0;
   font-family: var(--font);
@@ -171,6 +173,10 @@ strong { color: var(--text); }
 .inter-titulo { font-size: 25px; margin: 0 0 14px; }
 .inter-texto { font-size: 16.5px; margin: 0 auto 6px; max-width: 44ch; }
 .load-track { height: 8px; background: #24242A; border-radius: 99px; overflow: hidden; margin: 26px auto 10px; max-width: 420px; }
+/* A barra de carregamento cresce em ritmo CONSTANTE (`linear`, definido no
+   app.js junto com a duração). Com curva de saída ela disparava no começo e
+   arrastava no fim, e o lead lia aquilo como "já vai acabar, não vou ter tempo
+   de ler" antes mesmo de começar a ler. */
 .load-bar { height: 100%; width: 0; border-radius: 99px;
   background: linear-gradient(90deg, var(--gold-700), var(--gold-300)); }
 .inter-legenda { letter-spacing: .04em; }

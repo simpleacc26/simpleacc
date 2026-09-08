@@ -75,7 +75,7 @@ let stepEnterTime = 0;
    de diagnóstico. Fonte única: mexer no cálculo é mexer em um lugar só.
    ============================================================ */
 const { calcularIIC, travaDominante, calcularConta, segmentoLead, fmtBRL,
-        fmtTel, celularValido } = window.PRIMAL;
+        fmtTel, celularValido, arrastou } = window.PRIMAL;
 
 
 /* ---------- envio do lead ---------- */
@@ -135,7 +135,11 @@ function clearSaved() { try { sessionStorage.removeItem(STORE_KEY); } catch (e) 
 
 /* ---------- helpers ---------- */
 function el(html) { const t = document.createElement("template"); t.innerHTML = html.trim(); return t.content.firstElementChild; }
-function scrollTop() { window.scrollTo({ top: 0, behavior: "smooth" }); }
+/* Volta ao topo INSTANTANEAMENTE, e só quando já não está lá. Rolagem suave
+   programada (aqui e no `scroll-behavior` do CSS) brigava com o dedo no iOS:
+   enquanto a animação corria, o toque do lead era ignorado e a página parecia
+   travada. Sem animação, quem manda na rolagem é sempre o dedo. */
+function scrollTop() { if (window.scrollY > 0) window.scrollTo(0, 0); }
 function esc(s) { return String(s == null ? "" : s).replace(/[<>&"]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", '"': "&quot;" }[c])); }
 
 /* Barra sem número nenhum: nem "Pergunta X de N", nem porcentagem. Número aqui
@@ -203,7 +207,9 @@ function renderStep(i) {
     setTimeout(() => { avancarDe(i); }, reduzMovimento() ? 0 : 300);
   }
   optionEls.forEach((node, idx) => {
-    node.addEventListener("click", () => choose(node));
+    /* `arrastou` (motor.js): se o dedo andou, foi rolagem e não escolha.
+       Sem isso, rolar uma tela comprida no celular seleciona sem querer. */
+    node.addEventListener("click", (e) => { if (arrastou(e)) return; choose(node); });
     node.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") { e.preventDefault(); choose(node); }
       if (e.key === "ArrowDown" || e.key === "ArrowRight") { e.preventDefault(); optionEls[(idx + 1) % optionEls.length].focus(); }
@@ -278,7 +284,7 @@ function renderIntersticial(inter, proxima) {
   scrollTop();
 
   const bar = screen.querySelector("#inter-bar");
-  bar.style.transition = `width ${dur}ms cubic-bezier(.22,.61,.36,1)`;
+  bar.style.transition = `width ${dur}ms linear`;
   requestAnimationFrame(() => { bar.style.width = "100%"; });
   setTimeout(proxima, dur + 220);
 }
@@ -426,7 +432,7 @@ function renderLoading() {
 
   const bar = screen.querySelector("#load-bar");
   const msgEl = screen.querySelector("#load-msg");
-  bar.style.transition = `width ${dur}ms cubic-bezier(.22,.61,.36,1)`;
+  bar.style.transition = `width ${dur}ms linear`;
   requestAnimationFrame(() => { bar.style.width = "100%"; });
 
   if (!reduce) {

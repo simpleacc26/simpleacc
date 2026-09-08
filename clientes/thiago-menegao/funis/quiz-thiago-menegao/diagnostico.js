@@ -368,10 +368,13 @@ if (!a._completedAt && !a.trava) {
     <div class="etapa">
       <h3>Quem assina esse método</h3>
       <div class="autor">
-        <!-- A foto vive no projeto de asset js2, não junto das páginas: a
-             árvore das páginas já estava no teto de tamanho por envio. O
-             onerror remove a imagem se ela faltar, e o bloco continua de pé. -->
-        <img class="autor-foto" src="https://quiz-thiago-menegao-js2-simpleacc.vercel.app/thiago.webp" alt="Thiago Menegão" width="256" height="256"
+        <!-- A foto vive num projeto SÓ DE IMAGEM, o sufixo -img, separada de todo
+             código. Cada publicação substitui a árvore inteira do projeto, e
+             binário viaja em base64: junto do código, a foto teria que ser
+             reenviada a cada ajuste de JS, com risco de corromper calada. No
+             projeto dela, sobe uma vez e não se mexe mais.
+             O onerror remove a imagem se ela faltar, e o bloco continua de pé. -->
+        <img class="autor-foto" src="https://quiz-thiago-menegao-img-simpleacc.vercel.app/thiago.webp" alt="Thiago Menegão" width="256" height="256"
                loading="lazy" onerror="this.remove()" />
         <div>
           <span class="autor-nome">THIAGO MENEGÃO</span>
@@ -588,6 +591,11 @@ function paramsQualificacao() {
 if (a._completedAt) metaPadrao("ViewContent", paramsQualificacao());
 
 document.addEventListener("click", (e) => {
+  /* Mesma guarda do quiz (motor.js > arrastou): esta página é uma rolagem
+     longa e os botões são de largura cheia, então no celular quase todo gesto
+     de rolagem termina em cima de um deles. Sem isso, rolar mandaria o lead
+     para o checkout sem ele ter pedido. */
+  if (P.arrastou(e)) return;
   if (e.target.closest && e.target.closest(".cta-checkout")) {
     /* InitiateCheckout é o sinal de intenção mais forte deste funil: a pessoa
        leu o diagnóstico inteiro e foi para o pagamento. */

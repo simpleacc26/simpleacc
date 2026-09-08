@@ -15,6 +15,7 @@
    3. a página de diagnóstico monta para os cinco baldes
    4. nenhuma tela estoura a largura em 320px, 390px e 430px
    5. nenhuma opção nasce pré-selecionada
+   6. rolar com o dedo sobre uma opção não seleciona (guarda de arrasto)
 
    Os arquivos temporários do teste ficam FORA da pasta do funil, para não
    subirem no deploy (publicação substitui a árvore inteira).
@@ -156,6 +157,47 @@ const t=setInterval(()=>{
       ok(Number(sw) <= Number(cw) && bad === "nenhum", `${pagina.padEnd(11)} ${W}px  scrollWidth ${sw} <= clientWidth ${cw}  estouros: ${bad}`);
     });
   });
+
+/* ---------- 4. rolar não pode selecionar ----------
+   Regressão do bug achado no celular do cliente em 08/09: as opções ocupam
+   quase a tela inteira, então todo gesto de rolagem termina em cima de uma
+   delas e o navegador dispara `click` ao soltar. Sem a guarda de arrasto
+   (motor.js > arrastou), rolar selecionava e o quiz avançava sozinho, o que do
+   lado do lead aparece como "a tela desceu e não sobe".
+   O teste encena os dois gestos: dedo que anda (rolagem) e dedo parado
+   (toque). O primeiro não pode marcar nada, o segundo tem que marcar. */
+console.log("\n4. rolar não seleciona, tocar seleciona");
+{
+  const h = path.join(TMP, "gesto.html");
+  fs.writeFileSync(h, `<!DOCTYPE html><meta charset="utf-8"><pre id="out"></pre>
+<iframe id="f" src="${FUNIL}/index.html" width="390" height="700" style="border:0"></iframe>
+<script>let tentativas=0;
+const t=setInterval(()=>{
+ tentativas++;
+ const d=document.getElementById("f").contentDocument;
+ const w=document.getElementById("f").contentWindow;
+ if(!d||!d.querySelector(".opt")){if(tentativas>40)clearInterval(t);return}
+ if(tentativas<6)return;
+ clearInterval(t);
+ const marcadas=()=>d.querySelectorAll('.opt[aria-checked="true"]').length;
+ const opt=d.querySelector(".opt");
+ const r=opt.getBoundingClientRect();
+ const cx=Math.round(r.left+r.width/2), cy=Math.round(r.top+r.height/2);
+ const manda=(el,tipo,x,y)=>el.dispatchEvent(new w.MouseEvent(tipo,{bubbles:true,cancelable:true,clientX:x,clientY:y}));
+ // gesto 1: dedo encosta e ARRASTA 180px antes de soltar em cima da opção
+ manda(opt,"pointerdown",cx,cy+180);
+ manda(opt,"click",cx,cy);
+ const depoisDeRolar=marcadas();
+ // gesto 2: dedo encosta e solta no mesmo lugar
+ manda(opt,"pointerdown",cx,cy);
+ manda(opt,"click",cx,cy);
+ const depoisDeTocar=marcadas();
+ document.getElementById("out").textContent=depoisDeRolar+"|"+depoisDeTocar;
+},200);</script>`);
+  const [rolou, tocou] = dentro(chrome(["--force-prefers-reduced-motion", "--virtual-time-budget=6000", "--dump-dom", "file://" + h]), "out").split("|");
+  ok(rolou === "0", `arrastar o dedo sobre a opção não seleciona (marcadas: ${rolou})`);
+  ok(tocou === "1", `tocar sem arrastar seleciona (marcadas: ${tocou})`);
+}
 
 /* ---------- print opcional ---------- */
 if (process.argv.includes("--shot")) {

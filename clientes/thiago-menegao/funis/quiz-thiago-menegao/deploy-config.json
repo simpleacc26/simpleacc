@@ -3,14 +3,16 @@
   "projetos": {
     "paginas": "quiz-thiago-menegao",
     "js1": "quiz-thiago-menegao-js (flow.js, motor.js)",
-    "js2": "quiz-thiago-menegao-js2 (app.js, thiago.webp)",
-    "js3": "quiz-thiago-menegao-js3 (diagnostico.js)"
+    "js2": "quiz-thiago-menegao-js2 (app.js)",
+    "js3": "quiz-thiago-menegao-js3 (diagnostico.js)",
+    "img": "quiz-thiago-menegao-img (thiago.webp, e qualquer binário futuro)"
   },
   "bases": {
     "js1": "https://quiz-thiago-menegao-js-simpleacc.vercel.app",
     "js2": "https://quiz-thiago-menegao-js2-simpleacc.vercel.app",
-    "js3": "https://quiz-thiago-menegao-js3-simpleacc.vercel.app"
+    "js3": "https://quiz-thiago-menegao-js3-simpleacc.vercel.app",
+    "img": "https://quiz-thiago-menegao-img-simpleacc.vercel.app"
   },
   "url": "https://quiz-thiago-menegao-simpleacc.vercel.app",
-  "_nota_foto": "A foto mora no projeto js2 e nao junto das paginas porque o envio de arquivos tem limite por chamada e a arvore das paginas ja estava no teto. O src dela e absoluto no diagnostico.js. Ficou no js2 e nao no js1 porque o flow.js cresceu com os cinco baldes e o js1 nao tinha mais folga."
+  "_nota_foto": "A foto mora num projeto SO DE IMAGEM, separada do codigo. Cada deploy substitui a arvore inteira do projeto e binario viaja em base64: junto do codigo, ela teria que ser reenviada a cada ajuste de JS, com risco de corromper calada. No projeto dela, sobe uma vez e nao se mexe mais. O src e absoluto no diagnostico.js."
 }

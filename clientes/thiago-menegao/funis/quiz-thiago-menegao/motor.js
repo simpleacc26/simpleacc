@@ -122,6 +122,34 @@
     return d.length === 11 && d[2] === "9" && Number(d.slice(0, 2)) >= 11;
   }
 
+
+  /* ---------- GUARDA DE ROLAGEM ----------
+     Bug de produção, achado no celular do cliente em 08/09: no quiz as opções
+     ocupam quase a tela inteira e na página de diagnóstico os botões são de
+     largura cheia. No celular, então, TODO gesto de rolagem começa e termina
+     em cima de um deles, e o navegador ainda dispara `click` ao soltar o dedo.
+
+     Sem guarda: tentar rolar uma tela comprida seleciona uma opção e o quiz
+     avança sozinho. Do lado do lead isso aparece como "a tela desceu e não
+     sobe", porque ela não voltou, virou outra pergunta. Na página de
+     diagnóstico o mesmo gesto jogaria a pessoa direto no checkout.
+
+     Regra: só conta como toque o clique cujo dedo andou menos de 10px desde
+     onde encostou. Rolou, não é toque. */
+  let inicioGesto = null;
+  ["pointerdown", "touchstart"].forEach((ev) =>
+    document.addEventListener(ev, (e) => {
+      const t = e.touches ? e.touches[0] : e;
+      if (t && typeof t.clientX === "number") inicioGesto = { x: t.clientX, y: t.clientY };
+    }, { passive: true, capture: true }));
+
+  function arrastou(e) {
+    if (!inicioGesto) return false;
+    /* clique sintético de teclado chega em 0,0: nunca é arrasto */
+    if (!e.clientX && !e.clientY) return false;
+    return Math.hypot(e.clientX - inicioGesto.x, e.clientY - inicioGesto.y) > 10;
+  }
+
   /* Texto em terceira pessoa de uma resposta, para costurar o espelho. */
   function frase(answers, stepId) {
     const s = F.steps.find((x) => x.id === stepId);
@@ -136,6 +164,6 @@
 
   window.PRIMAL = {
     calcularIIC, travaDominante, perfilTravas, calcularConta, segmentoLead,
-    fmtBRL, soDigitosTel, fmtTel, celularValido, frase, rotulo,
+    fmtBRL, soDigitosTel, fmtTel, celularValido, frase, rotulo, arrastou,
   };
 })();

@@ -25,7 +25,7 @@ const fs = require("fs"), path = require("path");
 const CFG = JSON.parse(fs.readFileSync(path.join(__dirname, "deploy-config.json"), "utf8"));
 const OUT = path.join(__dirname, "dist");
 const ARQ = ["index.html", "diagnostico.html", "styles.css", "flow.js", "motor.js", "app.js", "diagnostico.js", "favicon.svg"];
-/* Binários entram no dist sem tratamento. A foto sobe no projeto js2,
+/* Binários entram no dist sem tratamento. A foto sobe no projeto img,
    não junto das páginas: ver deploy-config.json. */
 const BIN = ["thiago.webp"];
 
