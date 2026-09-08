@@ -11,6 +11,7 @@ verdade** (um arquivo `.md` nesta pasta) e um **comando** correspondente em
 | --------- | -------------------------- | -------- |
 | `/prompt-mestre`  | `prompts/funil-html.md`    | Criar funil/página completa em HTML puro ou anúncios (copy + criativo). Conduz diagnóstico → aprofundamento → geração. |
 | `/copy-hormozi`   | `prompts/copy-hormozi.md`  | Gerar copies estáticas e roteiros de vídeo em storytelling (modelo Alex Hormozi: hook de identidade, problema reformulado, prova, CTA construído com filtro de ICP embutido). Funciona pra qualquer cliente/nicho. Conduz diagnóstico → geração. |
+| `/conselho-estrategico` | `prompts/conselho-estrategico.md` | Levar uma **decisão de negócio** a uma mesa de 4 conselheiros (Russell Brunson = aquisição/funil, Alex Hormozi = oferta/números, Luiz Filho = vendas/execução, Matuta = operação/escala). Conduz diagnóstico → análise dos 4 → síntese com convergência, divergência e prioridade da semana/mês/trimestre. Serve para cliente e para decisão interna da SimpleAcc. |
 
 ## Skills disponíveis
 

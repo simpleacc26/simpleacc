@@ -1,0 +1,206 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A VSL do Venda Mais</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+<style>
+  :root{
+    --bg:#F4F2ED;
+    --card:#FFFFFF;
+    --sunk:#FAF8F4;
+    --espresso:#171412;
+    --ink:#141210;
+    --ink-2:#4C4640;
+    --ink-3:#8C8279;
+    --line:#E4DFD6;
+    --line-2:#D6CFC2;
+    --gold:#C9A84C;
+    --gold-deep:#A2802F;
+    --gold-tint:#FBF4E0;
+    --serif:"EB Garamond",Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --wrap:min(100% - 2.2rem, 36rem);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#131110; --card:#1C1917; --sunk:#171412; --espresso:#0D0B0A;
+      --ink:#F2EDE5; --ink-2:#BCB2A5; --ink-3:#8C8279;
+      --line:#2C2724; --line-2:#3A342F;
+      --gold:#E0C878; --gold-deep:#C9A84C; --gold-tint:#241E12;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#131110; --card:#1C1917; --sunk:#171412; --espresso:#0D0B0A;
+    --ink:#F2EDE5; --ink-2:#BCB2A5; --ink-3:#8C8279;
+    --line:#2C2724; --line-2:#3A342F;
+    --gold:#E0C878; --gold-deep:#C9A84C; --gold-tint:#241E12;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:var(--sans); line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{width:var(--wrap); margin-inline:auto}
+
+  header.topo{background:var(--espresso); color:#F2EDE5; padding:2.8rem 0 2.4rem}
+  .selo{
+    font-size:.66rem; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--gold); margin:0 0 .9rem;
+  }
+  header.topo h1{
+    font-family:var(--serif); font-weight:500;
+    font-size:clamp(1.9rem,5.5vw,2.5rem); line-height:1.12;
+    margin:0 0 .7rem; color:#F6F2EA; text-wrap:balance;
+  }
+  header.topo .linha{margin:0; color:#C7BEB1; font-size:.98rem}
+  .duracao{
+    margin-top:1.6rem; padding-top:1rem;
+    border-top:1px solid rgba(201,168,76,.22);
+    font-size:.8rem; color:#8C8279;
+    font-variant-numeric:tabular-nums;
+  }
+
+  /* antes de gravar */
+  .preparo{padding:2.4rem 0 .6rem}
+  .preparo h2{
+    font-family:var(--sans); font-size:.68rem; letter-spacing:.19em;
+    text-transform:uppercase; color:var(--gold-deep); font-weight:600;
+    margin:0 0 1rem;
+  }
+  .preparo ul{list-style:none; margin:0; padding:0; display:grid; gap:.85rem}
+  .preparo li{
+    display:flex; gap:.8rem;
+    font-size:.95rem; color:var(--ink-2); align-items:baseline;
+  }
+  .preparo li::before{
+    content:""; flex:0 0 auto;
+    width:.42rem; height:.42rem; background:var(--gold);
+    transform:rotate(45deg); position:relative; top:-.15rem;
+  }
+  .preparo li span{flex:1 1 auto; min-width:0}
+  .preparo li b{color:var(--ink); font-weight:600}
+
+  /* o roteiro */
+  .roteiro{padding:2.6rem 0 3rem}
+  .bloco{padding:2.2rem 0; border-top:1px solid var(--line)}
+  .bloco:first-of-type{border-top:none; padding-top:.6rem}
+  .cab{
+    display:flex; align-items:baseline; justify-content:space-between;
+    gap:1rem; margin:0 0 1.2rem;
+  }
+  .cab .nome{
+    font-size:.68rem; letter-spacing:.17em; text-transform:uppercase;
+    color:var(--gold-deep); font-weight:600;
+  }
+  .cab .tempo{
+    font-size:.78rem; color:var(--ink-3);
+    font-variant-numeric:tabular-nums; white-space:nowrap;
+  }
+  .fala p{
+    font-family:var(--serif); font-size:1.34rem; line-height:1.66;
+    margin:0 0 1.25rem; color:var(--ink);
+  }
+  .fala p:last-child{margin-bottom:0}
+
+  footer{
+    background:var(--espresso); color:#8C8279;
+    padding:2.2rem 0 2.8rem; font-size:.85rem;
+  }
+  footer p{margin:0 0 .5rem}
+  footer strong{color:#C7BEB1}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<header class="topo">
+  <div class="wrap">
+    <p class="selo">Simple Acc &middot; Ju Godinho</p>
+    <h1>O que gravar na VSL</h1>
+    <p class="linha">
+      É o vídeo que abre a página do Venda Mais na Estética, logo depois que ela
+      termina o diagnóstico do quiz.
+    </p>
+    <p class="duracao">6 min 34 s de fala natural &middot; 985 palavras &middot; seis blocos</p>
+  </div>
+</header>
+
+<section class="preparo">
+  <div class="wrap">
+    <h2>Antes de gravar</h2>
+    <ul>
+      <li><span><b>Não precisa decorar.</b> Lê olhando pra câmera, no seu ritmo, e dá uma pausinha entre um bloco e outro, que a gente corta na edição.</span></li>
+      <li><span><b>Se errar, refaz o bloco inteiro.</b> Volta pro começo do bloco em vez de emendar no meio da frase, fica muito mais fácil de montar depois.</span></li>
+      <li><span><b>Grava na clínica</b>, sentada, celular na altura dos olhos e a luz da janela na sua frente. O cenário conta parte da história.</span></li>
+      <li><span><b>Os valores estão por extenso</b> porque é fala. Onde está escrito cento e noventa e sete, é pra falar assim mesmo.</span></li>
+    </ul>
+  </div>
+</section>
+
+<main class="roteiro">
+  <div class="wrap">
+
+    <article class="bloco">
+      <div class="cab"><span class="nome">1 &middot; Abertura</span><span class="tempo">0:00</span></div>
+      <div class="fala">
+        <p>Oi, eu sou a Juliana Godinho, sou fisioterapeuta dermatofuncional, tenho a minha clínica em Belo Horizonte desde 2011 e já passaram mais de cinco mil profissionais pelos meus treinamentos.</p>
+        <p>Você acabou de responder aquelas perguntas e de ler o que apareceu no seu diagnóstico, então eu quero usar os próximos minutos pra te falar de uma coisa que aparece em quase todo diagnóstico que eu leio, e que quase ninguém do nosso meio fala em voz alta.</p>
+      </div>
+    </article>
+
+    <article class="bloco">
+      <div class="cab"><span class="nome">2 &middot; O que ninguém ensinou</span><span class="tempo">0:36</span></div>
+      <div class="fala">
+        <p>A gente estudou pra atender. Fez curso, fez pós, comprou aparelho, aprendeu protocolo, guardou certificado, e em nenhum momento dessa jornada alguém sentou com a gente pra ensinar a vender. Aí acontece o que você já viveu, chega uma cliente nova, você faz uma avaliação caprichada, explica cada etapa do protocolo, mostra tudo que dá pra fazer, e no fim ela fala que vai pensar e some. Ou ela pergunta o preço antes de você abrir a boca, você responde o preço, e a conversa acaba ali mesmo.</p>
+        <p>No mês seguinte, quando a agenda dá aquela esfriada, você faz o que todo mundo faz, monta uma promoção e manda pra base inteira. Enche a agenda por duas semanas, trabalha mais do que aguenta, e quando fecha o mês o dinheiro não sobra, ou sobra tão pouco que você fica sem saber explicar pra onde foi.</p>
+        <p>E o mais cansativo disso é que você não está fazendo nada errado tecnicamente, as suas clientes gostam de você, elas voltam, elas indicam, e mesmo assim você olha a agenda e vê quase sempre as mesmas pessoas, cobrando quase sempre o mesmo valor.</p>
+        <p>Eu vivi exatamente isso, e passei muito tempo achando que o meu problema era precisar de mais cliente. O que eu tinha na verdade eram conversas que morriam dentro da avaliação e uma agenda que eu só conseguia encher baixando o meu preço.</p>
+      </div>
+    </article>
+
+    <article class="bloco">
+      <div class="cab"><span class="nome">3 &middot; As duas coisas que mudam o jogo</span><span class="tempo">2:23</span></div>
+      <div class="fala">
+        <p>Duas coisas mudaram o meu jogo, e são as únicas duas que eu vejo mudarem o faturamento de uma clínica ou consultório de verdade.</p>
+        <p>A primeira é a campanha, que é uma coisa completamente diferente da promoção que a gente dispara torcendo pra alguém responder. Campanha tem um motivo, tem uma data pra começar e pra acabar, tem uma oferta pensada pra um público específico, e ela traz gente nova sem você precisar tirar um real do que cobra.</p>
+        <p>A segunda é a avaliação, que é o momento mais caro da sua semana, porque é ali que a venda acontece ou se perde. E a maior parte de nós conduz esse momento como se fosse uma consulta técnica, explicando o procedimento em vez de fazer a cliente enxergar o que ela ganha com aquilo, quanto tempo leva, e o que acontece se ela deixar pra depois.</p>
+        <p>Quando eu entendi isso e comecei a treinar a minha equipe assim, a gente passou a fechar oito de cada dez avaliações na minha clínica, com as mesmas clientes, na mesma cidade, no mesmo mercado que você chama de concorrido.</p>
+      </div>
+    </article>
+
+    <article class="bloco">
+      <div class="cab"><span class="nome">4 &middot; O que aconteceu com as alunas</span><span class="tempo">3:44</span></div>
+      <div class="fala">
+        <p>Aí eu comecei a ensinar isso pras minhas alunas, e as mensagens começaram a chegar. Uma me contou que fez a campanha de janeiro logo depois da aula e vendeu cinco mil e duzentos em dois dias. Outra me mandou dizendo que fechou uma venda de três mil usando as estratégias da aula da avaliação que vende. Teve uma que passou anos fechando protocolo de quatrocentos e cinquenta reais e me escreveu contando que no último mês não fechou nenhum abaixo de mil e duzentos. E teve uma que agendou quatro avaliações cobradas em uma semana, em pleno inverno, e me falou que parecia sonho.</p>
+        <p>Nenhuma delas trocou de nicho, comprou aparelho novo ou mudou de cidade. Elas mudaram a forma de conversar com quem já estava chegando.</p>
+      </div>
+    </article>
+
+    <article class="bloco">
+      <div class="cab"><span class="nome">5 &middot; Pra quem é, e pra quem não é</span><span class="tempo">4:34</span></div>
+      <div class="fala">
+        <p>Agora eu preciso ser honesta com você sobre duas coisas. Se você já fatura acima de vinte mil por mês e o seu aperto hoje é equipe, processo e gestão, esse não é o seu lugar, você precisa de outra coisa e eu tenho outra coisa pra te oferecer. E se você é do tipo que compra e deixa parado esperando o momento certo, também não compensa, porque isso aqui só funciona pra quem abre e aplica na mesma semana.</p>
+        <p>Se você continua comigo, é porque é a sua vez.</p>
+      </div>
+    </article>
+
+    <article class="bloco">
+      <div class="cab"><span class="nome">6 &middot; A oferta</span><span class="tempo">5:11</span></div>
+      <div class="fala">
+        <p>Eu reuni tudo isso no Venda Mais na Estética. São aulas diretas sobre como montar as campanhas que fazem a clínica vender o ano inteiro sem depender de desconto, como conduzir a avaliação que fecha, o que responder na hora exata em que a cliente pergunta o preço, e como usar o seu conteúdo pra chegar gente nova sem você virar refém de postar todo dia. É o mesmo material que eu uso pra treinar quem trabalha comigo.</p>
+        <p>O investimento é de cento e noventa e sete reais, e eu coloquei nesse valor de propósito, porque se você fechar uma única avaliação a mais aplicando o que está aqui dentro, isso já se pagou várias vezes.</p>
+        <p>Clica no botão aqui embaixo, faz a sua inscrição e o acesso cai no seu e-mail na hora, sem precisar falar com ninguém, sem esperar turma abrir e sem marcar reunião com vendedor. Você começa a assistir hoje ainda, monta a sua próxima campanha essa semana, e se em sete dias você achar que não era pra você, é só me escrever que eu devolvo o seu dinheiro sem fazer pergunta nenhuma.</p>
+      </div>
+    </article>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><strong>Simple Acc</strong> &middot; Ju Godinho &middot; 02 de setembro de 2026</p>
+    <p>Qualquer trecho que não soar como você falando, muda na hora de gravar. O roteiro é pra te dar o caminho, e não pra te prender à palavra.</p>
+  </div>
+</footer>

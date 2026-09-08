@@ -1,0 +1,591 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Venda Mais na Estética · Juliana Godinho</title>
+<meta name="description" content="O treinamento que a Ju usa pra formar quem trabalha com ela: as campanhas que trazem cliente nova sem desconto e a avaliação que fecha.">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MVZDHB3M');</script>
+<!-- End Google Tag Manager -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+
+<style>
+  :root{
+    --bg:#F4F2ED; --card:#FFFFFF; --sunk:#FAF8F4; --espresso:#171412;
+    --ink:#141210; --ink-2:#4C4640; --ink-3:#8C8279;
+    --line:#E4DFD6; --line-2:#D6CFC2;
+    --gold:#C9A84C; --gold-deep:#A2802F; --gold-tint:#FBF4E0;
+    --gold-hair:rgba(201,168,76,.32);
+    --serif:"EB Garamond",Georgia,"Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    --wrap:min(100% - 2.5rem, 40rem);
+    --wide:min(100% - 2.5rem, 56rem);
+    --r:4px;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:var(--sans); font-size:17px; line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{width:var(--wrap); margin-inline:auto}
+  .wide{width:var(--wide); margin-inline:auto}
+  img{max-width:100%; display:block}
+  p{margin:0 0 1.15rem}
+  strong{font-weight:600}
+  section{padding:3.6rem 0}
+  section + section{border-top:1px solid var(--line)}
+
+  h1,h2,h3{font-family:var(--serif); font-weight:500; text-wrap:balance; margin:0}
+  h1{font-size:clamp(2.05rem,6vw,3.1rem); line-height:1.08}
+  h2{font-size:clamp(1.6rem,4.4vw,2.1rem); line-height:1.16; margin-bottom:.5rem}
+  h3{font-size:1.3rem; line-height:1.22; font-weight:600}
+
+  .eyebrow{
+    display:block; font-family:var(--sans); font-size:.68rem;
+    letter-spacing:.19em; text-transform:uppercase;
+    color:var(--gold-deep); font-weight:600; margin-bottom:.7rem;
+  }
+  .sub{color:var(--ink-2); margin:.6rem 0 1.9rem}
+
+  /* ── hero ────────────────────────────────────── */
+  .hero{background:var(--espresso); color:#EFE9E0; padding:3.6rem 0 3.4rem}
+  .hero .eyebrow{color:var(--gold)}
+  .hero h1{color:#F7F3EB}
+  .hero .promessa{
+    font-family:var(--serif); font-size:clamp(1.12rem,2.6vw,1.32rem);
+    line-height:1.5; color:#CDC4B7; margin:1.2rem 0 2rem; max-width:33rem;
+  }
+  .hero .promessa em{color:var(--gold); font-style:normal}
+
+  /* ── botão ───────────────────────────────────── */
+  .cta{
+    display:inline-block; background:var(--gold-deep); color:#FFF9EA;
+    font-family:var(--sans); font-size:1.02rem; font-weight:600;
+    letter-spacing:.01em; text-decoration:none;
+    padding:1.05rem 2rem; border-radius:var(--r);
+    border:1px solid var(--gold); transition:background .14s ease;
+  }
+  .cta:hover{background:#8C6E27}
+  .cta:focus-visible{outline:3px solid var(--gold); outline-offset:3px}
+  .selo-cta{
+    font-size:.86rem; color:var(--ink-3); margin:.95rem 0 0;
+    display:flex; flex-wrap:wrap; gap:.3rem .9rem;
+  }
+  .hero .selo-cta{color:#8C8279}
+  .centro{text-align:center}
+  .centro .selo-cta{justify-content:center}
+
+  /* ── mecanismo ───────────────────────────────── */
+  .duas{display:grid; gap:1.1rem; margin:2rem 0 0}
+  @media(min-width:720px){.duas{grid-template-columns:1fr 1fr}}
+  .duas article{
+    background:var(--card); border:1px solid var(--line);
+    border-top:2px solid var(--gold); border-radius:var(--r);
+    padding:1.5rem 1.5rem 1.3rem;
+  }
+  .duas h3{margin-bottom:.5rem}
+  .duas p{font-size:.97rem; color:var(--ink-2); margin-bottom:0}
+
+  /* ── conteúdo ────────────────────────────────── */
+  .dentro{list-style:none; margin:1.6rem 0 0; padding:0; display:grid; gap:1.05rem}
+  .dentro li{display:flex; gap:.9rem; align-items:flex-start}
+  .dentro li::before{
+    content:""; flex:0 0 auto; width:.45rem; height:.45rem;
+    background:var(--gold); transform:rotate(45deg); margin-top:.62rem;
+  }
+  .dentro li span{flex:1 1 auto; min-width:0}
+  .dentro b{display:block; font-weight:600}
+  .dentro em{font-style:normal; color:var(--ink-2); font-size:.95rem}
+
+  /* ── provas ──────────────────────────────────── */
+  .provas{display:grid; gap:1.1rem; margin-top:1.9rem}
+  @media(min-width:720px){.provas{grid-template-columns:1fr 1fr}}
+  .prova{
+    background:var(--card); border:1px solid var(--line);
+    border-radius:var(--r); padding:1.4rem 1.5rem;
+    display:flex; flex-direction:column; gap:.85rem;
+  }
+  .prova blockquote{
+    margin:0; font-family:var(--serif); font-size:1.16rem;
+    line-height:1.5; color:var(--ink);
+  }
+  .prova figcaption{
+    font-size:.72rem; letter-spacing:.13em; text-transform:uppercase;
+    color:var(--gold-deep); font-weight:600; margin-top:auto;
+  }
+  .nota-prova{font-size:.86rem; color:var(--ink-3); margin:1.5rem 0 0}
+
+  /* ── autora ──────────────────────────────────── */
+  .autora{display:grid; gap:1.8rem; align-items:start}
+  @media(min-width:720px){.autora{grid-template-columns:15rem 1fr; gap:2.4rem}}
+  .autora img{border-radius:var(--r); border:1px solid var(--line-2); width:100%}
+  .creds{list-style:none; margin:1.2rem 0 0; padding:0; display:grid; gap:.55rem}
+  .creds li{
+    display:flex; gap:.8rem; align-items:baseline;
+    font-size:.95rem; color:var(--ink-2);
+    border-top:1px solid var(--line); padding-top:.55rem;
+  }
+  .creds li::before{
+    content:""; flex:0 0 auto; width:.4rem; height:.4rem;
+    background:var(--gold); transform:rotate(45deg); position:relative; top:-.1rem;
+  }
+
+  /* ── para quem ───────────────────────────────── */
+  .quem{display:grid; gap:1.1rem; margin-top:1.8rem}
+  @media(min-width:720px){.quem{grid-template-columns:1fr 1fr}}
+  .quem .col{
+    background:var(--sunk); border:1px solid var(--line);
+    border-radius:var(--r); padding:1.4rem 1.5rem;
+  }
+  .quem .col.sim{border-left:2px solid var(--gold)}
+  .quem .col.nao{border-left:2px solid var(--line-2)}
+  .quem h3{font-size:1.1rem; margin-bottom:.8rem}
+  .quem ul{list-style:none; margin:0; padding:0; display:grid; gap:.7rem}
+  .quem li{font-size:.95rem; color:var(--ink-2); padding-left:1rem; position:relative}
+  .quem li::before{
+    content:""; position:absolute; left:0; top:.62rem;
+    width:.35rem; height:.35rem; background:var(--gold); transform:rotate(45deg);
+  }
+  .quem .nao li::before{background:var(--line-2)}
+
+  /* ── oferta ──────────────────────────────────── */
+  .oferta{background:var(--espresso); color:#EFE9E0}
+  .oferta .eyebrow{color:var(--gold)}
+  .oferta h2{color:#F7F3EB}
+  .oferta .sub{color:#BDB3A6}
+  .caixa{
+    background:#1F1B18; border:1px solid rgba(201,168,76,.28);
+    border-radius:var(--r); padding:2rem 1.8rem; margin:2rem 0 0;
+    text-align:center;
+  }
+  .caixa .rot{
+    font-size:.68rem; letter-spacing:.19em; text-transform:uppercase;
+    color:var(--gold); font-weight:600;
+  }
+  .caixa .preco{
+    font-family:var(--serif); font-size:clamp(2.6rem,9vw,3.6rem);
+    line-height:1; color:#F7F3EB; margin:.7rem 0 .3rem;
+    font-variant-numeric:tabular-nums;
+  }
+  .caixa .parcela{font-size:.95rem; color:#BDB3A6; margin:0 0 1.7rem}
+  .caixa .selo-cta{color:#8C8279; justify-content:center; margin-top:1rem}
+  .garantia{
+    max-width:30rem; margin:2rem auto 0; font-size:.95rem;
+    color:#BDB3A6; text-align:center;
+  }
+  .garantia b{color:#EFE9E0}
+
+  /* ── faq ─────────────────────────────────────── */
+  .faq{margin-top:1.7rem; border-top:1px solid var(--line)}
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq summary{
+    cursor:pointer; padding:1.05rem 2rem 1.05rem 0; position:relative;
+    font-weight:600; font-size:1.01rem; list-style:none;
+  }
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{
+    content:"+"; position:absolute; right:.2rem; top:.95rem;
+    color:var(--gold-deep); font-size:1.3rem; font-weight:400;
+  }
+  .faq details[open] summary::after{content:"–"}
+  .faq summary:focus-visible{outline:2px solid var(--gold-deep); outline-offset:2px}
+  .faq .resp{padding:0 0 1.15rem; color:var(--ink-2); font-size:.97rem}
+  .faq .resp p:last-child{margin-bottom:0}
+
+  /* ── fim ─────────────────────────────────────── */
+  .fim{background:var(--sunk); text-align:center}
+  .fim p{max-width:32rem; margin-inline:auto}
+  footer{
+    background:var(--espresso); color:#7E756C;
+    padding:2.2rem 0 2.6rem; font-size:.83rem; text-align:center;
+  }
+  footer p{margin:0 0 .35rem}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none!important; animation:none!important}
+  }
+</style>
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MVZDHB3M"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Para profissionais da saúde estética</span>
+    <h1>Você estudou pra atender, e ninguém nunca te ensinou a vender</h1>
+    <p class="promessa">
+      O <em>Venda Mais na Estética</em> é o treinamento que eu uso pra formar quem
+      trabalha comigo, com as campanhas que trazem cliente nova sem desconto e a
+      avaliação que fecha.
+    </p>
+
+    <!-- VSL: quando o vídeo estiver gravado, colar o embed aqui, acima do botão.
+         O roteiro está em roteiros/2026-09-02-vsl-venda-mais-na-estetica.html -->
+
+    <a class="cta" href="https://chk.eduzz.com/ovxljxgb" data-cta="hero">Quero começar agora por R$ 197</a>
+    <p class="selo-cta"><span>Acesso imediato no seu e-mail</span><span>7 dias de garantia</span></p>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">O que eu vejo em quase todo diagnóstico</span>
+      <h2>A conversa morre dentro da avaliação</h2>
+      <p class="sub">
+        E quase ninguém do nosso meio fala sobre isso em voz alta.
+      </p>
+
+      <p>
+        A gente estudou pra atender. Fez curso, fez pós, comprou aparelho, aprendeu
+        protocolo, guardou certificado, e em nenhum momento dessa jornada alguém
+        sentou com a gente pra ensinar a vender. Aí acontece o que você já viveu,
+        chega uma cliente nova, você faz uma avaliação caprichada, explica cada
+        etapa do protocolo, mostra tudo que dá pra fazer, e no fim ela fala que vai
+        pensar e some.
+      </p>
+      <p>
+        Ou ela pergunta o preço antes de você abrir a boca, você responde o preço,
+        e a conversa acaba ali mesmo.
+      </p>
+      <p>
+        No mês seguinte, quando a agenda dá aquela esfriada, você faz o que todo
+        mundo faz, monta uma promoção e manda pra base inteira. Enche a agenda por
+        duas semanas, trabalha mais do que aguenta, e quando fecha o mês o dinheiro
+        não sobra, ou sobra tão pouco que você fica sem saber explicar pra onde foi.
+      </p>
+      <p>
+        O mais cansativo é que você não está fazendo nada errado tecnicamente. As
+        suas clientes gostam de você, elas voltam, elas indicam, e mesmo assim você
+        olha a agenda e vê quase sempre as mesmas pessoas, cobrando quase sempre o
+        mesmo valor.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">O que muda o jogo</span>
+      <h2>Duas coisas movem o faturamento de uma clínica ou consultório</h2>
+      <p class="sub">
+        Eu passei muito tempo achando que o meu problema era precisar de mais
+        cliente, e o que eu tinha eram conversas que morriam na avaliação e uma
+        agenda que eu só enchia baixando o preço.
+      </p>
+
+      <div class="duas">
+        <article>
+          <h3>A campanha</h3>
+          <p>
+            Ela é uma coisa completamente diferente da promoção que a gente dispara
+            torcendo pra alguém responder. Campanha tem um motivo, tem data pra
+            começar e pra acabar, tem uma oferta pensada pra um público específico,
+            e traz gente nova sem você tirar um real do que cobra.
+          </p>
+        </article>
+        <article>
+          <h3>A avaliação</h3>
+          <p>
+            É o momento mais caro da sua semana, porque é ali que a venda acontece
+            ou se perde. E a maior parte de nós conduz esse momento como consulta
+            técnica, explicando o procedimento em vez de fazer a cliente enxergar o
+            que ela ganha, em quanto tempo, e o que acontece se deixar pra depois.
+          </p>
+        </article>
+      </div>
+
+      <p style="margin-top:1.8rem">
+        Quando eu entendi isso e comecei a treinar a minha equipe assim, a gente
+        passou a fechar oito de cada dez avaliações na minha clínica, com as mesmas
+        clientes, na mesma cidade, no mesmo mercado que você chama de concorrido.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">O que tem dentro</span>
+      <h2>Direto ao que você aplica essa semana</h2>
+
+      <ul class="dentro">
+        <li><span>
+          <b>Campanhas de vendas pro ano inteiro</b>
+          <em>Como montar campanha que vende em qualquer mês sem depender de desconto nem de data comemorativa.</em>
+        </span></li>
+        <li><span>
+          <b>A avaliação que vende</b>
+          <em>Como conduzir a avaliação do começo ao fim pra ela terminar em fechamento, e não em "vou pensar".</em>
+        </span></li>
+        <li><span>
+          <b>O que responder quando ela pergunta o preço</b>
+          <em>A resposta exata pra hora em que a pergunta chega antes de você ter mostrado qualquer valor.</em>
+        </span></li>
+        <li><span>
+          <b>A parte comercial da clínica ou consultório</b>
+          <em>Como organizar o comercial pra parar de depender do improviso e do seu humor no dia.</em>
+        </span></li>
+        <li><span>
+          <b>Estratégia de conteúdo</b>
+          <em>Como usar o que você já posta pra chegar gente nova, sem virar refém de aparecer todo dia.</em>
+        </span></li>
+      </ul>
+
+      <p style="margin-top:2rem">
+        É o mesmo material que eu uso pra treinar quem trabalha comigo.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wide">
+      <span class="eyebrow">O que elas me mandaram depois</span>
+      <h2>Mensagens de quem aplicou</h2>
+
+      <div class="provas">
+        <figure class="prova">
+          <blockquote>&ldquo;Passando para contar. Fiz a campanha de janeiro após a aula e já vendi 5.200 em 2 dias&rdquo;</blockquote>
+          <figcaption>Campanha aplicada em dois dias</figcaption>
+        </figure>
+        <figure class="prova">
+          <blockquote>&ldquo;Fechei uma consulta estética hoje usando as estratégias da aula da avaliação que vende, e fechei uma venda hoje para um paciente de R$ 3.000&rdquo;</blockquote>
+          <figcaption>Uma venda de três mil na avaliação</figcaption>
+        </figure>
+        <figure class="prova">
+          <blockquote>&ldquo;No último mês não fechei nenhum protocolo de menos de 1.200. Passei muitos meses antes fechando só protocolo miudinho, no máximo 450&rdquo;</blockquote>
+          <figcaption>De 450 para nada abaixo de 1.200</figcaption>
+        </figure>
+        <figure class="prova">
+          <blockquote>&ldquo;Também agendei 4 avaliações cobradas em 1 semana. Nunca achei que seria possível até acontecer comigo. Você imagina, em pleno inverno&rdquo;</blockquote>
+          <figcaption>Quatro avaliações cobradas na baixa temporada</figcaption>
+        </figure>
+      </div>
+
+      <p class="nota-prova">
+        Nenhuma delas trocou de nicho, comprou aparelho novo ou mudou de cidade.
+        Elas mudaram a forma de conversar com quem já estava chegando.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wide">
+      <span class="eyebrow">Quem está falando com você</span>
+      <h2>Juliana Godinho</h2>
+
+      <div class="autora">
+        <img src="ju.png" alt="Juliana Godinho" width="312" height="391">
+        <div>
+          <p>
+            Sou fisioterapeuta dermatofuncional, empresária desde 2008 e empreendo
+            na estética desde 2011. Tenho a minha clínica em Belo Horizonte, que
+            hoje é referência na cidade, e ensino outras profissionais desde 2018.
+          </p>
+          <p>
+            Tudo que eu ensino é o que eu aplico dentro da minha própria clínica,
+            com a minha equipe, no mesmo mercado em que você trabalha.
+          </p>
+          <ul class="creds">
+            <li>Idealizadora do Método Estética do Poder</li>
+            <li>Mais de 5.000 alunas em todo o Brasil</li>
+            <li>MBA em Consultoria Empresarial</li>
+            <li>Clínica própria em Belo Horizonte desde 2011</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wide">
+      <span class="eyebrow">Antes de você decidir</span>
+      <h2>Eu prefiro ser honesta com você</h2>
+
+      <div class="quem">
+        <div class="col sim">
+          <h3>Faz sentido se você</h3>
+          <ul>
+            <li>Atende em clínica ou consultório próprio, sozinha ou com uma equipe pequena</li>
+            <li>Tem técnica e resultado, e mesmo assim o dinheiro não sobra no fim do mês</li>
+            <li>Percebe que atende quase sempre as mesmas clientes</li>
+            <li>Trava na hora de falar de preço, ou baixa o preço pra não perder a venda</li>
+            <li>Vai abrir e aplicar na mesma semana</li>
+          </ul>
+        </div>
+        <div class="col nao">
+          <h3>Não faz sentido se você</h3>
+          <ul>
+            <li>Já fatura acima de vinte mil por mês e o seu aperto hoje é equipe, processo e gestão, porque aí você precisa de outra coisa e eu tenho outra coisa pra te oferecer</li>
+            <li>Compra e deixa parado esperando o momento certo</li>
+            <li>Procura fórmula que funcione sem você mudar a forma de conduzir a conversa</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="oferta">
+    <div class="wrap centro">
+      <span class="eyebrow">A sua inscrição</span>
+      <h2>Venda Mais na Estética</h2>
+      <p class="sub">
+        Acesso a todas as aulas, no seu ritmo, pelo computador ou pelo celular.
+      </p>
+
+      <div class="caixa">
+        <span class="rot">Investimento</span>
+        <p class="preco">R$ 197</p>
+        <p class="parcela">à vista, ou parcelado no cartão</p>
+        <a class="cta" href="https://chk.eduzz.com/ovxljxgb" data-cta="oferta">Fazer a minha inscrição</a>
+        <p class="selo-cta"><span>Acesso na hora</span><span>Sem falar com vendedor</span></p>
+      </div>
+
+      <p class="garantia">
+        <b>Sete dias de garantia.</b> Você entra, assiste, e se achar que não era
+        pra você é só me escrever dentro de sete dias que eu devolvo o seu dinheiro
+        sem fazer pergunta nenhuma.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <span class="eyebrow">Perguntas que sempre chegam</span>
+      <h2>O que você provavelmente quer saber</h2>
+
+      <div class="faq">
+        <details>
+          <summary>Quando eu recebo o acesso?</summary>
+          <div class="resp"><p>Na hora. Assim que o pagamento é confirmado, o acesso cai no e-mail que você usar na inscrição. No cartão a confirmação é imediata, e no Pix costuma levar poucos minutos.</p></div>
+        </details>
+        <details>
+          <summary>Serve pra quem trabalha sozinha?</summary>
+          <div class="resp"><p>Serve, e é onde ele funciona mais rápido. As campanhas e a avaliação dependem de você e da sua conversa, não do tamanho da sua equipe.</p></div>
+        </details>
+        <details>
+          <summary>Eu tenho pouco tempo, dá pra fazer?</summary>
+          <div class="resp"><p>As aulas são diretas e você assiste no seu ritmo. A ideia é você conseguir assistir uma parte e já aplicar na semana, sem precisar terminar tudo antes de começar a usar.</p></div>
+        </details>
+        <details>
+          <summary>Por quanto tempo eu fico com o acesso?</summary>
+          <div class="resp"><p>O acesso fica liberado pra você rever quando quiser, inclusive na hora de montar cada campanha nova ao longo do ano.</p></div>
+        </details>
+        <details>
+          <summary>Isso é a mentoria da Ju?</summary>
+          <div class="resp"><p>Não. A mentoria é um acompanhamento com encontros ao vivo e tem outro formato e outro valor. Este é um treinamento gravado, focado em campanha de vendas e em avaliação, pra você aplicar sozinha.</p></div>
+        </details>
+        <details>
+          <summary>E se não for pra mim?</summary>
+          <div class="resp"><p>Você tem sete dias pra pedir o reembolso, sem precisar justificar nada. É só me escrever.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="fim">
+    <div class="wrap">
+      <h2>Se você chegou até aqui, é a sua vez</h2>
+      <p style="margin-top:1rem">
+        Você já tem a técnica, já tem a clínica funcionando e já tem cliente que
+        gosta do seu trabalho. O que falta é a parte que ninguém te ensinou, e ela
+        cabe numa semana de aplicação.
+      </p>
+      <p style="margin-bottom:2rem">
+        Se você fechar uma única avaliação a mais aplicando o que está aqui dentro,
+        isso já se pagou várias vezes.
+      </p>
+      <a class="cta" href="https://chk.eduzz.com/ovxljxgb" data-cta="fim">Quero começar agora por R$ 197</a>
+      <p class="selo-cta"><span>Acesso imediato</span><span>7 dias de garantia</span></p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Juliana Godinho Soluções e Treinamentos LTDA</p>
+    <p>Pagamento processado pela Eduzz</p>
+  </div>
+</footer>
+
+<script>
+  /* Camada de dados do GTM. Sem tag configurada no container o push fica só no
+     dataLayer e nada dispara, então é inofensivo. */
+  function dl(evento, extra){
+    try{
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(Object.assign({ event: evento }, extra || {}));
+    }catch(e){}
+  }
+
+  /* O lead vem do quiz com as UTMs na URL. Repassa pro checkout da Eduzz para
+     a venda poder ser atribuída ao criativo que a trouxe. Sem isso, em 30 dias
+     ninguém sabe qual anúncio vendeu. */
+  (function(){
+    var entrada, params;
+    try{ params = new URLSearchParams(window.location.search); }catch(e){ return; }
+
+    var chaves = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','lead_id'];
+    var carrega = [];
+    chaves.forEach(function(k){
+      var v = params.get(k);
+      if(v) carrega.push(encodeURIComponent(k) + '=' + encodeURIComponent(v));
+    });
+
+    /* Se o quiz não passou UTM na URL, tenta o que ele deixou no sessionStorage.
+       Atenção ao formato: o quiz grava as UTMs aninhadas em payload.utm e o
+       identificador em payload.id, e não como chaves de topo. */
+    if(!carrega.length){
+      try{
+        var bruto = sessionStorage.getItem('jugodinho_quizb');
+        if(bruto){
+          var a = JSON.parse(bruto) || {};
+          var u = a.utm || {};
+          chaves.forEach(function(k){
+            if(u[k]) carrega.push(encodeURIComponent(k) + '=' + encodeURIComponent(u[k]));
+          });
+          if(a.id) carrega.push('lead_id=' + encodeURIComponent(a.id));
+        }
+      }catch(e){}
+    }
+
+    if(carrega.length){
+      var query = carrega.join('&');
+      Array.prototype.forEach.call(document.querySelectorAll('a.cta'), function(a){
+        a.href += (a.href.indexOf('?') === -1 ? '?' : '&') + query;
+      });
+    }
+  })();
+
+  dl('oferta_view', { oferta_produto: 'venda-mais-na-estetica', oferta_valor: 197 });
+
+  document.addEventListener('click', function(e){
+    var a = e.target.closest && e.target.closest('a.cta');
+    if(!a) return;
+    dl('oferta_click', {
+      oferta_produto: 'venda-mais-na-estetica',
+      oferta_valor: 197,
+      oferta_posicao: a.getAttribute('data-cta') || ''
+    });
+  });
+</script>
+
+</body>
+</html>
