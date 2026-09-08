@@ -152,10 +152,12 @@ tbody tr:nth-child(even) td{background:var(--bg-2)}
   margin:0; padding:.78rem 1.15rem; border-top:1px dashed var(--border-2);
   background:var(--bg-2); font-size:.84rem; color:var(--muted); max-width:none;
 }
-.porque b{
+.porque > b:first-child{
   font-family:var(--mono); font-size:.59rem; letter-spacing:.18em; text-transform:uppercase;
   color:var(--soft); display:block; margin-bottom:.25rem; font-weight:400;
 }
+.porque b{color:var(--ink); font-weight:600}
+.porque > b:first-child{color:var(--soft)}
 
 /* ---------- notas ---------- */
 .nota{
@@ -308,15 +310,11 @@ hr.regua{border:none; height:1px; background:linear-gradient(to right,var(--gold
       </div>
 
       <div class="nota grave">
-        <span class="rotulo">Duas regras de escrita que não se negociam</span>
+        <span class="rotulo">A regra de escrita que não se negocia</span>
         <p>
           <b>Nunca prometa número de faturamento.</b> É decisão da Luana e vale em qualquer
-          canal. A promessa é ser visto, ser lembrado, aumentar o valor percebido e vender mais.
-        </p>
-        <p>
-          <b>Nunca escreva no feminino nem no masculino.</b> O público tem homens e mulheres.
-          Antes de mandar, leia a frase como se fosse para um homem e como se fosse para uma
-          mulher. Se soar errado numa das duas, reescreva.
+          canal, inclusive quando a pessoa perguntar diretamente quanto vai passar a ganhar.
+          A promessa é ser visto, ser lembrado, aumentar o valor percebido e vender mais.
         </p>
       </div>
     </section>
@@ -467,7 +465,7 @@ hr.regua{border:none; height:1px; background:linear-gradient(to right,var(--gold
             <tr>
               <td><strong>Nutrir</strong></td>
               <td>Faturamento dentro da faixa, mas disse que não é prioridade agora ou que só está pesquisando</td>
-              <td>Não agenda sessão. Vai para a Trilha E, com conteúdo e convite da próxima conferência</td>
+              <td><strong>Também tenta agendar.</strong> Abordagem completa, com o bloco de urgência da seção 06 antes da A9. Só vai para a Trilha E se, depois desse trabalho, continuar sem urgência</td>
             </tr>
             <tr>
               <td><strong>Fora</strong></td>
@@ -657,9 +655,10 @@ hr.regua{border:none; height:1px; background:linear-gradient(to right,var(--gold
     <section id="abordagem">
       <h2><span class="eyebrow">Frente 1</span>Abordagem no WhatsApp</h2>
       <p class="sub">
-        Doze mensagens para quem veio do diagnóstico. Confirma o que o quiz disse, mede a
-        distância entre onde a pessoa está e onde ela achava que estaria, devolve um espelho,
-        constrói o valor da sessão e só então abre a agenda.
+        Doze mensagens para quem veio do diagnóstico, mais três que só entram quando a pessoa
+        disse que não é o momento. Confirma o que o quiz disse, mede a distância entre onde a
+        pessoa está e onde ela achava que estaria, devolve um espelho, constrói o valor da
+        sessão e só então abre a agenda.
       </p>
 
       <div class="nota">
@@ -792,6 +791,91 @@ hr.regua{border:none; height:1px; background:linear-gradient(to right,var(--gold
           <b>Marque sempre para até 72 horas.</b> Passou disso, o lead esfria, a vida atropela e
           o no-show dispara. Se a agenda estiver cheia, é melhor encaixar apertado do que jogar
           para a semana seguinte.
+        </p>
+      </div>
+
+      <hr class="regua">
+
+      <h3>O bloco de urgência: quando a pessoa disse que não é prioridade agora</h3>
+      <p class="sub">
+        Três mensagens que entram <b>entre a A8 e a A9</b>, para quem caiu na planilha como
+        "nutrir". Esta pessoa está dentro da faixa de faturamento, tem caixa, e marcou no
+        diagnóstico que não é o momento ou que só está pesquisando.
+      </p>
+
+      <div class="nota">
+        <span class="rotulo">Por que ela merece o mesmo trabalho de quem quer</span>
+        <p>
+          Quem não se importa não responde nove perguntas sobre a própria carreira. "Não é
+          prioridade agora" quase nunca é um veredito: é uma pessoa que ainda não colocou preço
+          no que está acontecendo com ela, ou que se queimou tentando antes e aprendeu a se
+          proteger dizendo "depois". Nos dois casos, o trabalho é de pré-venda, e não de
+          arquivamento.
+        </p>
+        <p>
+          O que não funciona aqui é insistir, argumentar ou tentar convencer. O que funciona é
+          <b>fazer a pessoa calcular</b>, com as informações que ela mesma já te deu.
+        </p>
+      </div>
+
+      <article class="msg">
+        <header><span class="rot">N1</span><span class="quando">a conta do tempo, com a resposta dela</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>Faz sentido, e nem sempre é hora mesmo.</p>
+          <p>Só uma coisa que me chamou atenção no seu diagnóstico: você marcou que isso vem se repetindo há <span class="var">{resposta literal da pergunta de tempo}</span>.</p>
+          <p>É que esse tipo de coisa raramente muda sozinha. Ela só muda quando alguém mexe, e enquanto ninguém mexe o ano seguinte costuma ser igual ao anterior.</p>
+        </div>
+        <p class="porque"><b>Por quê</b>A pessoa diz "depois" e o próprio diagnóstico mostra que o "depois" já aconteceu antes, várias vezes. Devolver isso sem ironia e sem cobrança é a forma mais gentil de mostrar o custo de esperar, porque quem apresenta o dado é ela.</p>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">N2</span><span class="quando">a pergunta que revela o que está por trás</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>Me responde com sinceridade, sem compromisso nenhum: o que precisaria acontecer pra isso virar prioridade pra você?</p>
+        </div>
+        <p class="porque"><b>Por quê</b>A pergunta mais valiosa deste bloco. Ninguém se sente pressionado por ela, e a resposta separa três pessoas completamente diferentes que estavam todas escondidas atrás da mesma frase. Mande sozinha e espere.</p>
+      </article>
+
+      <div class="rolagem">
+        <table>
+          <thead><tr><th>O que ela responde na N2</th><th>O que está acontecendo de verdade</th><th>O que fazer</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>Algo concreto: "se eu perdesse mais um cliente bom", "se eu não fechar nada até dezembro", "se a agenda esvaziar de novo"</td>
+              <td>A urgência existe e está adormecida. Ela só nunca tinha colocado em palavras</td>
+              <td>Siga direto para a <b>N3 e a A9</b>. Este lead agenda, e costuma agendar rápido</td>
+            </tr>
+            <tr>
+              <td>Condição financeira ou de tempo: "quando eu tiver mais folga", "quando sobrar dinheiro"</td>
+              <td>Quase sempre é medo de investir de novo depois de já ter gastado sem resultado, vestido de logística</td>
+              <td>Trate como a objeção <b>O4</b>, depois volte para a N3. Não tente resolver a agenda dela</td>
+            </tr>
+            <tr>
+              <td>Nada, ou "não sei", ou "acho que nunca"</td>
+              <td>Energia baixa. Esta pessoa não decide agora, por melhor que a conversa esteja</td>
+              <td>Encerre bem e mande para a <b>Trilha E</b>. Aqui sim, e só aqui</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <article class="msg">
+        <header><span class="rot">N3</span><span class="quando">rebaixa o pedido e devolve a decisão</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>Então deixa eu te propor uma coisa menor do que você está imaginando.</p>
+          <p>A sessão não é o começo de trabalho nenhum. São quarenta minutos em que a Luana lê o seu caso e te diz o que precisa acontecer primeiro, em que ordem, e se agora é hora ou não. Se ela achar que não é o seu momento, ela fala isso na cara, e você sai com o mapa do mesmo jeito.</p>
+          <p>Vale gastar esses quarenta minutos pra você decidir com informação em vez de decidir no escuro?</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Quem diz "não é prioridade" está recusando um projeto grande que ninguém ofereceu ainda. Esta mensagem reduz o pedido ao tamanho real (quarenta minutos), tira a obrigação de comprar e transforma a própria dúvida dela ("é hora ou não?") na razão de fazer a sessão. Daqui você volta para a A9 e a A12 normalmente.</p>
+      </article>
+
+      <div class="nota grave">
+        <span class="rotulo">O limite deste bloco</span>
+        <p>
+          Três mensagens, uma vez. Se depois da N3 a pessoa disser de novo que não é hora,
+          <b>aceite na primeira vez</b>: agradeça, deixe a porta aberta e mande para a Trilha E.
+          Insistir a partir daqui não converte e queima a relação com alguém que voltaria
+          sozinha daqui a alguns meses.
         </p>
       </div>
     </section>
@@ -1080,7 +1164,13 @@ hr.regua{border:none; height:1px; background:linear-gradient(to right,var(--gold
         </div>
       </article>
 
-      <h3>Trilha E · nutrir e fora</h3>
+      <h3>Trilha E · quem ficou fora, e só quem ficou</h3>
+      <p>
+        Entram aqui duas pessoas: quem está fora da faixa de faturamento, e quem passou pelo
+        bloco de urgência da seção 06 e ainda assim não achou nenhum motivo para mexer nisso
+        agora. Ninguém cai na Trilha E por ter marcado "não é prioridade" no diagnóstico, sem
+        você ter conversado.
+      </p>
       <p>
         Sem oferta, sem cobrança, sem sessão. Uma vez por mês, alternando: num mês um conteúdo
         da Luana que fale do ponto em que essa pessoa está travada, no outro uma reabertura
@@ -1403,6 +1493,7 @@ hr.regua{border:none; height:1px; background:linear-gradient(to right,var(--gold
             <tr><td><strong>Taxa de resposta até a A2</strong></td><td>Quantos responderam sobre quantos receberam a A1</td><td>Mede se a abertura funciona. Se estiver baixa, o problema é o horário do contato, não o texto</td></tr>
             <tr><td><strong>Quantos travam na A10</strong></td><td>Contagem manual</td><td>É a qualificação trabalhando. Travar aqui é ganho, e não perda</td></tr>
             <tr><td><strong>Taxa de agendamento</strong></td><td>Sessões marcadas sobre leads atendidos</td><td>O número principal da pré-venda</td></tr>
+            <tr><td><strong>Nutrir que virou sessão</strong></td><td>Quantos leads "nutrir" agendaram depois do bloco N1 a N3</td><td>Mede se o trabalho de urgência funciona. É a faixa com mais lead parado e mais espaço para crescer</td></tr>
             <tr><td><strong>Taxa de comparecimento</strong></td><td>Sessões realizadas sobre sessões marcadas</td><td>Hoje não é medido, e sem ele a Frente 4 não prova nada. Comece a medir no primeiro dia</td></tr>
             <tr><td><strong>Motivo do não, da B·3</strong></td><td>Planilha própria, texto literal</td><td>Matéria-prima de copy, de oferta e de ajuste do diagnóstico</td></tr>
             <tr><td><strong>Distribuição por rota</strong></td><td>Quantos leads em cada pilar</td><td>Diz qual conteúdo a Luana deve produzir mais, e qual prova falta na página</td></tr>
@@ -1485,19 +1576,6 @@ hr.regua{border:none; height:1px; background:linear-gradient(to right,var(--gold
         </li>
       </ol>
 
-      <div class="nota ok">
-        <span class="rotulo">Como implantar sem atropelar</span>
-        <p>
-          Não tente decorar tudo de uma vez. Semana 1: os cinco princípios e a Frente 1 completa.
-          Semana 2: as quatro rotas e o espelho da A8. Semana 3: as objeções. Semana 4: as
-          trilhas de follow-up e a régua anti no-show inteira.
-        </p>
-        <p>
-          A cada quinze dias, leia as suas dez últimas conversas e procure três coisas: onde
-          você explicou demais, onde deixou sem próximo passo e onde falou mais do que a pessoa.
-          Cada uma dessas três vira uma correção na conversa seguinte.
-        </p>
-      </div>
     </section>
 
     <footer class="rodape">

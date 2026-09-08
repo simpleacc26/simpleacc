@@ -81,6 +81,20 @@ diagnóstico com a leitura completa guardada para a sessão, o áudio de 40
 segundos da Luana gravado no nome da pessoa 24h antes, e a tarefa de uma
 pergunta só. As duas primeiras vieram do que o Menegão faz com dossiê parcial.
 
+**Lead "nutrir" também vai para a agenda, por decisão do Daniel.** A primeira
+versão mandava para nutrição quem tem caixa mas marcou "não é prioridade agora"
+no quiz. Está errado: quem responde nove perguntas sobre a própria carreira se
+importa, e a frase quase sempre significa que a pessoa ainda não colocou preço
+no que está vivendo, ou que se protege dizendo "depois" depois de já ter gastado
+sem resultado. Virou um bloco de três mensagens entre a A8 e a A9, que faz a
+pessoa calcular em vez de tentar convencer: N1 devolve o campo `tempo` do
+próprio quiz (ela diz "depois" e o diagnóstico mostra que o depois já aconteceu
+por anos), N2 pergunta o que precisaria acontecer para virar prioridade, e a
+resposta separa três leads diferentes que estavam atrás da mesma frase (urgência
+adormecida, medo de investir vestido de logística, energia baixa). Só o terceiro
+vai para nutrição. **Vale como padrão:** faixa de qualificação de quiz classifica
+intenção declarada, e intenção declarada é trabalhável.
+
 **Trava operacional que virou regra do documento:** nunca oferecer horário de
 manhã. A Luana não trabalha de manhã, e um horário oferecido fora da janela
 dela vira remarcação na primeira semana e desmonta todo o valor construído no

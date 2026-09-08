@@ -39,9 +39,10 @@ páginas + copies + criativos + tráfego), playbooks comerciais e acompanhamento
   completo de avatar (gerado com Furion na call).
 - `contexto/2026-07-29-anotacoes-call-onboarding.md` · `contexto/2026-07-24-call-de-vendas-resumo-e-transcricao.md` — fontes brutas.
 - `estrategia/2026-09-08-playbook-pre-vendas-luana-isse.html` — **Playbook de Pré-Vendas
-  vigente.** Abordagem no WhatsApp, abordagem ativa, objeções, 5 trilhas de follow-up e a régua
-  anti no-show. Escrito para a Aline executar. Personalizado pelas 4 rotas do quiz (resultado
-  nomeado + pilar dominante). Tem 7 pendências de validação com a Luana na última seção.
+  vigente.** Abordagem no WhatsApp, abordagem ativa, bloco de urgência para quem diz que não é
+  prioridade, objeções, 5 trilhas de follow-up e a régua anti no-show. Escrito para a Aline
+  executar. Personalizado pelas 4 rotas do quiz (resultado nomeado + pilar dominante). Tem 7
+  pendências de validação com a Luana na última seção.
 - `estrategia/2026-08-06-estrategia-completa-luana-isse.html` e `.pdf` — **Estratégia Completa
   vigente** (23 páginas, identidade Simple, no padrão do doc da Thaina). O que vai para a cliente.
 - `estrategia/2026-08-06-estrategia-interno-operacao.html` e `.pdf` — tarefas e recomendações
