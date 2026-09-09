@@ -138,7 +138,7 @@ Os **padrões reutilizáveis** (a "inteligência de especialistas") ficam em
 | Comando  | Para quê |
 | -------- | -------- |
 | `/prompt-mestre` | Criar funil/página completa em HTML ou anúncios. Conduz diagnóstico → aprofundamento → geração. |
-| `/copy-hormozi` | Gerar copies estáticas e roteiros de vídeo em storytelling (modelo Hormozi). Conduz diagnóstico → geração. |
+| `/copy-hormozi` | Copy de venda para high ticket: roteiro de vídeo, anúncio Meta (estático e carrossel) e copy de página. Cérebro Hormozi por dentro, voz humana por fora. Conduz matéria-prima → ficha de ICP → matriz de ângulos → peças. |
 | `/conselho-estrategico` | Mesa de 4 conselheiros para **decidir** (oferta, preço, time, operação, caixa, crise). Conduz diagnóstico → análise individual → síntese com prioridade de execução. Não gera copy: gera decisão. |
 
 - Digite o comando (ex.: **`/prompt-mestre`**) e o agente assume o papel do prompt mestre.

@@ -10,7 +10,7 @@ verdade** (um arquivo `.md` nesta pasta) e um **comando** correspondente em
 | Comando   | Fonte                      | Para quê |
 | --------- | -------------------------- | -------- |
 | `/prompt-mestre`  | `prompts/funil-html.md`    | Criar funil/página completa em HTML puro ou anúncios (copy + criativo). Conduz diagnóstico → aprofundamento → geração. |
-| `/copy-hormozi`   | `prompts/copy-hormozi.md`  | Gerar copies estáticas e roteiros de vídeo em storytelling (modelo Alex Hormozi: hook de identidade, problema reformulado, prova, CTA construído com filtro de ICP embutido). Funciona pra qualquer cliente/nicho. Conduz diagnóstico → geração. |
+| `/copy-hormozi`   | `prompts/copy-hormozi.md`  | Copy de venda para high ticket, com estratégia de Hormozi por dentro e escrita humana por fora. Cobre roteiro de vídeo (curto, Reels, VSL), anúncio Meta (estático e carrossel) e copy de página (captura, entrada de quiz, pós-quiz, vendas). Conduz matéria-prima → ficha de ICP → matriz de ângulos → peças, com regra anti-repetição e leis de linguagem que barram o texto com cara de IA. |
 | `/conselho-estrategico` | `prompts/conselho-estrategico.md` | Mesa de guerra com 4 conselheiros (Russell Brunson, Alex Hormozi, Luiz Filho, Matuta) para **decisão de negócio** — oferta, preço, time, operação, caixa, crescimento, crise. Conduz diagnóstico → análise individual (5 pontos por conselheiro) → síntese com convergência, divergência e prioridade de execução. Serve para o cliente e para a própria Simple. |
 
 ## Skills disponíveis
