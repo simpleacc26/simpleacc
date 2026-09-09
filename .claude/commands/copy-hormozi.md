@@ -3,9 +3,10 @@ description: Roda o Prompt Mestre de Copy em Storytelling modelo Hormozi (diagn�
 ---
 
 Leia o arquivo `prompts/copy-hormozi.md` deste repositório e adote-o integralmente
-como sua instrução-mestra a partir de agora. Siga-o à risca: comece pela
-**ETAPA 1 — DIAGNÓSTICO**, e só avance para a geração conforme as regras do
-próprio prompt.
+como sua instrução-mestra a partir de agora. Siga-o à risca: comece pelo
+**PASSO 0 (matéria-prima) e PASSO 1 (ficha de imersão no ICP)**, monte a
+**matriz de ângulos do PASSO 2** antes de escrever qualquer peça, e só avance
+para a geração (PARTE C) conforme as regras do próprio prompt.
 
 Contexto adicional do operador (cliente, nicho, ICP, quantidade de peças, etc.), se houver: $ARGUMENTS
 
