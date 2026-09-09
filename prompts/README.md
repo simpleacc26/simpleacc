@@ -10,6 +10,7 @@ verdade** (um arquivo `.md` nesta pasta) e um **comando** correspondente em
 | Comando   | Fonte                      | Para quê |
 | --------- | -------------------------- | -------- |
 | `/prompt-mestre`  | `prompts/funil-html.md`    | Criar funil/página completa em HTML puro ou anúncios (copy + criativo). Conduz diagnóstico → aprofundamento → geração. |
+| `/copy-hormozi`   | `prompts/copy-hormozi.md`  | Gerar copies estáticas e roteiros de vídeo em storytelling (modelo Alex Hormozi: hook de identidade, problema reformulado, prova, CTA construído com filtro de ICP embutido). Funciona pra qualquer cliente/nicho. Conduz diagnóstico → geração. |
 
 ## Skills disponíveis
 
@@ -20,6 +21,8 @@ a tarefa combina (ou você pode pedir pelo nome).
 | ------------------------------- | -------- |
 | `estrategia-completa-clientes`  | **Estratégia Completa para Clientes** — a partir do onboarding (transcrição/notas), gera o documento de estratégia de 8 seções e entrega como Google Doc formatado na pasta do cliente no Drive. |
 | `gerar-quiz-diag-pag-pos-quiz`  | **Gerar Quiz + Diagnóstico + Página Pós-Quiz** — pega a copy aprovada (da skill acima), monta o quiz + página pós-quiz + PDF na identidade do cliente, **publica na Vercel** (confere a conta da Simple antes), cria a planilha de leads no Drive e testa a integração. |
+| `guia-captacao-depoimentos`     | **Guia de Captação de Depoimentos** — gera o PDF de 4 páginas (identidade dos roadmaps) com o direcionamento para o cliente pedir e coletar depoimentos em vídeo: mensagem pronta com 4 tópicos, dicas de gravação, erros a evitar e checklist. Personaliza nome, segmento e particularidades do nicho. |
+| `roadmap-estrategico-90-dias`   | **Roadmap Estratégico de 90 dias** — transforma os materiais de base do cliente (onboarding, canvas, calls) no PDF de roadmap na identidade navy + dourado, com a estrutura validada (Rômulo + Lucas): decisões fundamentais, caixa rápido, fases com passos e metas, checkpoints, materiais de apoio e fechamento personalizado. Sem travessões e com paginação validada. |
 
 ## Como usar
 

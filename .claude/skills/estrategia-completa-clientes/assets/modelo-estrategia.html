@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Estratégia Completa · {{NOME_CLIENTE}}</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    padding: 16mm 18mm 24mm 18mm;
+    position: relative;
+    page-break-after: always;
+    background: #fff;
+  }
+  .page:last-child { page-break-after: auto; }
+  .runhead {
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; color: var(--muted);
+    letter-spacing: .06em; text-transform: uppercase;
+    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt;
+  }
+  .runfoot {
+    position: absolute; bottom: 9mm; left: 18mm; right: 18mm;
+    text-align: center; font-size: 7.5pt; color: var(--muted);
+  }
+  .kicker {
+    color: var(--gold); font-size: 9pt; font-weight: bold;
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt;
+  }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
+  .box-dark {
+    background: var(--navy-dark); color: #f5f3ee;
+    padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt;
+  }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light {
+    background: var(--beige); border-left: 3pt solid var(--gold);
+    padding: 10pt 14pt; margin: 11pt 0;
+  }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .sec-header {
+    background: var(--navy-dark); color: #fff;
+    padding: 10pt 16pt; margin-bottom: 10pt;
+    border-left: 4pt solid var(--gold);
+  }
+  .sec-header .fk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .sec-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .sec-header .fd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  .bloco-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 12pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+  .alt { margin: 3pt 0 6pt 0; color: #4a5160; }
+  .qlabel { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 9pt; }
+  .qtext { color: var(--navy); font-weight: bold; font-size: 10.5pt; margin-bottom: 3pt; }
+
+  .cover { padding-top: 55mm; }
+  .cover h1 { font-size: 38pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+</style>
+</head><!--
+  MODELO SIMPLEACC DE ESTRATEGIA COMPLETA. CSS validado (altura A4 fixa).
+  Nao altere o CSS, salvo para resolver estouro de pagina.
+  Esqueleto: cada pagina traz os componentes no lugar. O conteudo real vem de
+  references/estrutura-documento.md e do mapa de extracao do cliente.
+  Regras: zero travessoes; separador "·"; intervalos com "a" (de 30 a 60);
+  apagar este comentario e todos os comentarios ADAPTAR no arquivo final.
+  As variaveis de COPY ({{nome}}, {{estagio_dominante}}) FICAM, sao conteudo.
+  Os campos de TEMPLATE em maiuscula ({{NOME_CLIENTE}}) tem que sumir.
+  Paginas de secao que crescerem: duplique a div.page (parte 1, parte 2).
+-->
+<body>
+
+<!-- 1 · CAPA -->
+<div class="page cover">
+  <div class="kicker">Estratégia Completa</div>
+  <h1>Funil de<br>Lead Dinâmico</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    Quiz, página pós-quiz e anúncios.<br>
+    A copy inteira do funil, pronta para implementar.<br>
+    {{INIMIGO_NOMEADO}} · {{METODO}}.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">{{NOME_CLIENTE}}</div>
+    <div class="lbl">Estrategista</div>
+    <div class="val">Daniel Souza · Carlos Durães</div>
+  </div>
+</div>
+
+<!-- 2 · O FUNIL EM UMA PÁGINA -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · {{NOME_CLIENTE}}</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Ler a Copy</div>
+  <h1 style="font-size:19pt;">O Funil em Uma Página</h1>
+  <p class="lead">Leia esta página antes de aprovar as copies. Tudo o que vem depois parte destas decisões.</p>
+  <div class="box-dark">
+    <div class="bt">O caminho do lead</div>
+    <!-- ADAPTAR: regua completa + por que a pagina pos-quiz nao vende + o "por que assim" -->
+    <p>{{CAMINHO_DO_LEAD}}</p>
+  </div>
+  <div class="box-light">
+    <div class="bt">A esteira hoje</div>
+    <!-- ADAPTAR: carro-chefe com preco, portas laterais, produto de entrada -->
+    <p>{{ESTEIRA}}</p>
+  </div>
+  <div class="box-light">
+    <div class="bt">O que a copy precisa compensar</div>
+    <p>{{O_QUE_FALTA_HOJE}}</p>
+  </div>
+  <div class="box-light">
+    <div class="bt">Premissas assumidas</div>
+    <p>{{PREMISSAS}}</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 3 · SEÇÃO 1 · BIG IDEA -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · {{NOME_CLIENTE}}</span><span>Página 3</span></div>
+  <div class="sec-header">
+    <div class="fk">Seção 1</div>
+    <h2>Big Idea</h2>
+    <div class="fd">A ideia que sustenta o quiz, a página, os anúncios e o atendimento.</div>
+  </div>
+  <div class="box-dark">
+    <div class="bt">A big idea</div>
+    <p><strong>{{BIG_IDEA}}</strong></p>
+    <p>{{CENA_DO_ICP}}</p>
+    <p>{{INIMIGO_APRESENTADO}}</p>
+  </div>
+  <div class="box-light">
+    <div class="bt">A frase que resume a transformação</div>
+    <p><strong>{{DE_X_A_Y}}</strong></p>
+    <p>{{CONTRASTE_E_MUDANCA_DE_PERGUNTA}}</p>
+  </div>
+  <div class="box-light">
+    <div class="bt">O mecanismo: {{METODO}}</div>
+    <p>{{PILARES_EM_ORDEM}}</p>
+    <p>Nessa ordem, porque fora dela não funciona.</p>
+  </div>
+  <div class="box-light">
+    <div class="bt">A régua de linguagem, válida para toda peça</div>
+    <p><strong>Fala:</strong> {{FALA}}</p>
+    <p><strong>Não fala:</strong> {{NAO_FALA}}</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 4 e 5 · SEÇÃO 2 · QUIZ (8 perguntas, qualificacao por ultimo) -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · {{NOME_CLIENTE}}</span><span>Página 4</span></div>
+  <div class="sec-header">
+    <div class="fk">Seção 2 · Parte 1</div>
+    <h2>Copy do Quiz</h2>
+    <div class="fd">Capta, qualifica e já funciona como o primeiro atendimento.</div>
+  </div>
+  <div class="box-light">
+    <div class="bt">Como ler esta seção</div>
+    <p>{{COMO_LER}}</p>
+  </div>
+  <div class="box-dark">
+    <div class="bt">Hero da página do quiz</div>
+    <p><strong>Título:</strong> {{TITULO_QUIZ}}</p>
+    <p><strong>Subtítulo:</strong> {{SUBTITULO_QUIZ}}</p>
+    <p><strong>Tempo:</strong> 2 minutos · <strong>CTA:</strong> {{CTA_QUIZ}}</p>
+  </div>
+  <!-- ADAPTAR: P1 a P4 neste padrao -->
+  <div class="qlabel">P1 · Situação</div>
+  <div class="qtext">{{PERGUNTA}}</div>
+  <div class="alt">a) {{A}} · b) {{B}} · c) {{C}} · d) {{D}}</div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · {{NOME_CLIENTE}}</span><span>Página 5</span></div>
+  <div class="kicker">Seção 2 · Parte 2</div>
+  <h1 style="font-size:19pt;">Copy do Quiz: perguntas 5 a 8</h1>
+  <!-- ADAPTAR: P5 a P8. A P8 é sempre a de qualificacao. -->
+  <div class="box-dark">
+    <div class="bt">Regra de segmentação</div>
+    <p>{{REGRA_SEGMENTACAO}}</p>
+  </div>
+  <div class="box-light">
+    <div class="bt">Captura de dados</div>
+    <p>{{CAPTURA}}</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 6 a 9 · SEÇÃO 3 · PÁGINA PÓS-QUIZ (9 blocos) -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · {{NOME_CLIENTE}}</span><span>Página 6</span></div>
+  <div class="sec-header">
+    <div class="fk">Seção 3 · Parte 1</div>
+    <h2>Página Pós-Quiz</h2>
+    <div class="fd">A peça central deste funil. Ela não vende: prepara a pessoa para querer conversar.</div>
+  </div>
+  <div class="box-dark">
+    <div class="bt">O trabalho desta página</div>
+    <p>{{TRABALHO_DA_PAGINA}}</p>
+  </div>
+  <div class="box-light">
+    <div class="bt">Os nove blocos, na ordem</div>
+    <p>1. O resultado dela · 2. A leitura do cenário · 3. O espelho · 4. Por que o que você tentou não funcionou · 5. O mecanismo · 6. O que precisa acontecer no seu caso · 7. Quem é {{PRIMEIRO_NOME}} e a prova · 8. Para quem é e para quem não é, com FAQ · 9. O convite e o CTA.</p>
+  </div>
+  <div class="box-light">
+    <div class="bt">Variáveis usadas nesta página</div>
+    <p>{{LISTA_DE_VARIAVEIS}}</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · {{NOME_CLIENTE}}</span><span>Página 7</span></div>
+  <div class="kicker">Seção 3 · Parte 2</div>
+  <h1 style="font-size:19pt;">A Copy, Bloco a Bloco</h1>
+  <!-- ADAPTAR: blocos 1 a 3 neste padrao. Repita a pagina para os blocos 4 a 6 e 7 a 9. -->
+  <div class="bloco-label">Bloco 1 · O resultado dela</div>
+  <p><strong>Headline:</strong> {{HEADLINE}}</p>
+  <p><strong>Subheadline:</strong> {{SUBHEADLINE}}</p>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 10 a 17 · SEÇÃO 4 · ANÚNCIOS (3 angulos + 20 criativos escritos) -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · {{NOME_CLIENTE}}</span><span>Página 10</span></div>
+  <div class="sec-header">
+    <div class="fk">Seção 4 · Parte 1</div>
+    <h2>Copy dos Anúncios</h2>
+    <div class="fd">Três ângulos e 20 criativos escritos: 5 estáticos, 5 carrosséis e 10 vídeos.</div>
+  </div>
+  <div class="box-dark">
+    <div class="bt">Regras que valem para todos os anúncios</div>
+    <!-- ADAPTAR: destino sempre o quiz, sem preco, + compliance do nicho -->
+    <p>{{REGRAS_DE_ANUNCIO}}</p>
+  </div>
+  <div class="box-light">
+    <div class="bt">Ângulo 1 · Cena e identificação</div>
+    <p><strong>Estratégia:</strong> {{ESTRATEGIA_ANGULO}}</p>
+    <p><strong>Hook:</strong> {{HOOK}}</p>
+  </div>
+  <div class="bloco-label">Copy curta</div>
+  <p>{{COPY_CURTA}}</p>
+  <div class="bloco-label">Copy média</div>
+  <p>{{COPY_MEDIA}}</p>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 18 e 19 · SEÇÃO 5 · CADÊNCIA 12 DIAS -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · {{NOME_CLIENTE}}</span><span>Página 18</span></div>
+  <div class="sec-header">
+    <div class="fk">Seção 5 · Parte 1</div>
+    <h2>Cadência de Atendimento · 12 dias</h2>
+    <div class="fd">Disparada por {{QUEM_DISPARA}}. O objetivo é agendar a sessão.</div>
+  </div>
+  <div class="box-dark">
+    <div class="bt">Regra de tom neste nicho</div>
+    <p>{{REGRA_DE_TOM}}</p>
+  </div>
+  <div class="bloco-label">Dia 1 · manhã</div>
+  <p>{{MENSAGEM}}</p>
+  <!-- ADAPTAR: dias 1 a 12. Fecha na parte 2 com os cinco niveis. -->
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<!-- 20 e 21 · SEÇÃO 6 · RECOMENDAÇÕES -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · {{NOME_CLIENTE}}</span><span>Página 20</span></div>
+  <div class="sec-header">
+    <div class="fk">Seção 6 · Parte 1</div>
+    <h2>Recomendações Estratégicas</h2>
+    <div class="fd">O que a Simple recomenda além da copy.</div>
+  </div>
+  <div class="box-light">
+    <div class="bt">Sobre a arquitetura do funil</div>
+    <p>{{ARQUITETURA}}</p>
+  </div>
+  <div class="box-dark">
+    <div class="bt">Sobre o gargalo real</div>
+    <!-- ADAPTAR: bloco mais importante. Nomeie quem opera e a regra pratica que segura a midia. -->
+    <p>{{GARGALO}}</p>
+  </div>
+  <div class="box-light">
+    <div class="bt">Sobre compliance e mídia</div>
+    <p>{{COMPLIANCE}}</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+</body>
+</html>

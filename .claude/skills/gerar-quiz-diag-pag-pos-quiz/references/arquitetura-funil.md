@@ -8,7 +8,7 @@ mobile-first. Abre direto no navegador.
 ```
 funil-<cliente>/
 ├── index.html        ← quiz (1ª pergunta já na 1ª tela)
-├── styles.css        ← TEMA: bloco ":root  PALETA — TROQUE AQUI" + layout
+├── styles.css        ← TEMA: bloco ":root  PALETA, TROQUE AQUI" + layout
 ├── flow.js           ← TODA a copy do quiz + dados da marca (whatsapp, hero, perguntas, captura). EDITAR AQUI.
 ├── app.js            ← motor: render, auto-avanço, validação, sessionStorage, tracking, UTMs, máscara, enviarLead()
 ├── diagnostico.html  ← página pós-quiz (relatório) + Baixar PDF + WhatsApp
@@ -32,18 +32,23 @@ funil-<cliente>/
   o estado inicia no passo 0 e o passo 0 renderiza o intro + a 1ª pergunta.)
 - **Auto-avanço**: ao escolher a opção, vai pra próxima sozinho (sem botão
   "Continuar"). Maior conclusão/connect rate. Mantém botão "Voltar".
-- **Uma pergunta por tela** + barra de progresso ("Começando", "Pergunta X de N").
+- **Uma pergunta por tela** + barra de progresso **sem número nenhum**: nem
+  contador "Pergunta X de N", nem percentual. Número ali faz o quiz parecer
+  longo e medido, e derruba a conclusão. (Ver `ajustes-validados.md`.)
 - **Captura no fim**: peça o mínimo. Padrão atual: Nome, **WhatsApp (com máscara
   `(XX) XXXXX-XXXX`)**, **E-mail (obrigatório)**. Enquadre como "pra onde
   enviamos seu diagnóstico" (sobe o connect rate).
-- **Máscara de WhatsApp** e validação (telefone completo, e-mail válido) só ao enviar.
+- **Máscara de WhatsApp** e validação (celular completo, e-mail válido) só ao
+  enviar. A máscara **tira o `+55` antes de cortar** e **não usa `maxLength`**:
+  o autofill do iPhone entrega o número em formato internacional e a versão
+  antiga perdia o final dele em produção. Ver `ajustes-validados.md` (5.1).
 - **Captura de UTMs** da URL (`utm_source/medium/campaign/content/term`) e envio
   junto do lead. O anúncio aponta pra **raiz com query** (`/?utm_...`), nunca
   `/index.html` (servidor limpa a URL e derruba a query).
 - **sessionStorage**: salva progresso; oferece "continuar de onde parou".
 - **Acessibilidade**: navegação por teclado, foco visível, `aria-live` em erros,
   `prefers-reduced-motion`.
-- **Zero dependência externa** (sem Google Fonts/CDN) — regra de performance.
+- **Zero dependência externa** (sem Google Fonts/CDN), regra de performance.
 
 ## Página pós-quiz (relatório) + PDF
 - `diagnostico.html` + `diagnostico.js` leem as respostas do `sessionStorage` e

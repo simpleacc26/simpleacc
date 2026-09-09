@@ -18,3 +18,108 @@ Log do que funciona e do que não funciona com este cliente.
 | 2026-07-20 | **Doc de estratégia enxugado (pedido do Daniel):** o documento entregue fica só com as seções de copy (1. Big Idea, 2. Quiz, 3. Página de Aplicação, 4. Anúncios), sem o cabeçalho de metadados e sem as seções operacionais. As seções 5 a 8 (Relatório, Cadência, Tarefas, Recomendações) foram movidas para `estrategia/2026-07-20-estrategia-interno-operacao.md` (memória interna). Doc final (copy): https://docs.google.com/document/d/1jpXR0SeLYyv0u7AJ-gw_R-m9pk81eWCj_7i8eBOZueQ/edit — descartar os Docs anteriores (v1 e v2). | Daniel (sessão) |
 | 2026-07-20 | **Roadmap v1.1 (ajustes do Daniel/time):** (1) Nícolas é do time do FELIPE, não da Simple; quem implementa/entrega o funil é o **Carlos** (corrigido na pág. 3, Ritmo + Divisão de responsabilidades). (2) A bio nova já foi aprovada e está no ar, não refinar de novo; o único ajuste no Passo 5 é ligar o CTA "Faça seu Diagnóstico Executivo" ao quiz do IDE. | Daniel (sessão) |
 | 2026-07-20 | **Premissas do roadmap a validar com Daniel/Felipe na call:** (1) ticket do carro-chefe assumido em R$ 80k (canvas); a nova oferta Governo Empresarial ainda está sendo fechada, confirmar ticket final. (2) Meta assumida R$ 240k/mês (3 vendas × 80k), alinhada ao benchmark da Simple de "250k+ mensais para mentores". (3) Conversão de planejamento 40% (Felipe declarou >50%). (4) Downsell = Etapa 1 isolada, preço a definir. Números escritos limpos no PDF; premissas ficam aqui. | Roadmap v1.0 |
+
+## 2026-07-24 — Alinhamento à skill nova + PDF da leitura (WhatsApp)
+- O funil já seguia a **estrutura invisível da Pâmella**; a skill nova
+  `gerar-quiz-diag-pag-pos-quiz` (modelo Lucas Sobreiro, mesma base) confirmou o
+  padrão. Ajustes finos aplicados: `favicon.svg` (monograma FD dourado sobre navy)
+  + `<meta robots noindex>` nas duas páginas (funil de anúncio não deve indexar).
+- Gerado o **PDF genérico da leitura** (skill `leitura-pdf-whatsapp`) em
+  `materiais/leitura-generica.html` + `.pdf`: página única contínua ~400px, tema
+  dark navy + dourado igual ao funil, 3 botões wa.me clicáveis, copy adaptada ao
+  IDE/dependência (sem "leitura emocional", sem nome do lead, sem travessão, sem
+  box-shadow). **Sem depoimentos** (Felipe ainda não tem prints reais; a skill
+  proíbe inventar) — seção omitida, a incluir quando os depoimentos chegarem.
+- **Pendência do número:** o PDF foi gerado com o WhatsApp placeholder
+  (5500000000000). Regenerar com o número real assim que o Felipe passar
+  (é só rodar o gerador com `WHATSAPP=<numero>`).
+
+## 2026-07-29 — Identidade da apresentação, autoridade, foto e WhatsApp
+- **Identidade oficial** extraída da apresentação comercial (Programa Governo
+  Empresarial): dourado âmbar `#E0A63A` sobre navy `#0A0E16`, emblema de
+  coroa/escudo. Aplicada no funil e no PDF.
+- **Depoimentos trocados por AUTORIDADE** (decisão do Daniel, já que os
+  depoimentos ainda não vieram): +R$ 100 mi no 1o ano com a XGrow, +2.800
+  players/empresas aceleradas, +15 anos, 6 empresas do zero, autor de "Líderes
+  Não Nascem Prontos" e o ecossistema XGROW/EVENTX/D360/ADVAI/E3T/NeuroVerse.
+- **Método corrigido para os 5 pilares oficiais**: Diagnosticar, Organizar,
+  Delegar, Automatizar, Governar (+ menção ao IDE e à CLO).
+- **Foto do Felipe**: recortada do post do Instagram ("O Travamento Invisível").
+  O header do IG foi apagado replicando o gradiente do fundo, e o corte pega só
+  ele (sem textos), em `felipe.webp` 440px (11 KB).
+- **WhatsApp definido: 5511912856095** (11 91285-6095). Já no funil e nos 3
+  botões do PDF (links wa.me ativos).
+- **Tom das mensagens:** "Oi!" trocado por **"Olá!"** em todos os botões, a pedido
+  do Daniel (público majoritariamente empresário homem, tom mais formal).
+- **Preço fora do funil (recomendação da Simple):** os R$ 80.000 da apresentação
+  NÃO entram no quiz. O CTA de topo é a Sessão Estratégica; preço em página de
+  quiz derruba conversão.
+
+## 2026-07-29 · Integração de leads e hover no mobile (funil IDE)
+
+- **Webhook do Make com `text/plain` engole o lead em silêncio.** O padrão antigo
+  (`fetch(..., { mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" } })`)
+  faz o Make **não** parsear o JSON: a automação roda, responde "Accepted" e grava
+  uma **linha vazia** na planilha. Nenhum erro aparece em lugar nenhum. Os webhooks
+  do Make devolvem `Access-Control-Allow-Origin: *`, então dá pra largar o `no-cors`
+  e mandar `application/json` de verdade. Vale conferir isso nos outros clientes
+  que usam o mesmo esqueleto de `app.js`.
+- **Sempre validar a integração lendo a planilha**, não o status HTTP. O webhook
+  responde "Accepted" mesmo quando o corpo não foi entendido.
+- **`:hover` gruda no iOS.** Em celular o Safari mantém o `:hover` no último item
+  tocado (e dispara ao arrastar o dedo), fazendo as opções do quiz parecerem
+  pré-selecionadas. Solução: embrulhar o hover em
+  `@media (hover: hover) and (pointer: fine)`, somar
+  `-webkit-tap-highlight-color: transparent` e usar `:active` para o feedback de
+  toque. A seleção real fica só no `aria-checked`.
+- **Vercel: o nome do projeto é a URL.** Não dá pra renomear pelo MCP; para trocar
+  o domínio, publica-se num projeto novo com o nome desejado.
+- **Deploy pelo MCP substitui a árvore inteira.** Todo arquivo que faltar no array
+  vira 404 silencioso. Conferir os assets com `curl -o /dev/null -w '%{http_code}'`
+  depois de cada publicação virou passo obrigatório (já pegou 2 omissões reais).
+
+## 2026-08-18 — FECHAMENTO DA SESSÃO (funil no ar, leads ligados, carrossel)
+
+**Entregue e no ar:**
+- Funil do Diagnóstico Executivo publicado em **https://quiz-felipe-damasceno.vercel.app**
+  (produção, time da Simple). O projeto antigo `diagnostico-executivo-felipe`
+  ainda responde mas foi aposentado, pode ser removido no painel da Vercel.
+- **Leads caindo sozinhos na planilha**, via Make (mesmo padrão da Pâmella):
+  funil → webhook → Sheets. Planilha na pasta "Simple <> Felipe" do Drive,
+  cenário "[Felipe Damasceno] Diagnóstico Executivo (IDE) → Sheets" (id 5805455),
+  ativo e testado de ponta a ponta.
+- PDF da leitura genérica pro WhatsApp em `materiais/leitura-generica.{html,pdf}`.
+- **Carrossel de Instagram** (7 slides, 1080x1350) em `materiais/carrossel-ide/`,
+  sobre a copy aprovada da Estratégia Completa. Reprodutível: `build.py` gera o
+  HTML, `export.py` exporta os PNGs.
+- Skill `gerar-quiz-diag-pag-pos-quiz` atualizada com a estrutura invisível
+  canônica (`.claude/skills/.../references/estrutura-invisivel.md`), para as
+  próximas sessões não redescobrirem estas decisões.
+
+**Ajustes de conversão aplicados:** sem título repetido acima de cada pergunta,
+tela de carregamento, qualificação (faturamento + prontidão) no fim, CTAs de
+WhatsApp distribuídos, CTA final adaptado às 3 faixas, bloco de autoridade com
+foto, WhatsApp real (11) 91285-6095, "Olá" no lugar de "Oi" nos botões, emojis
+removidos do funil inteiro.
+
+**PENDÊNCIAS (o que falta e de quem é):**
+1. **Livro "Líderes Não Nascem Prontos" (CLIENTE ESTÁ DECIDINDO).** O item
+   "Autor de ..." continua no ar no funil e no PDF, por decisão do Daniel de
+   manter até o cliente responder. Veio da capa de um livro que aparece **como
+   objeto de cena** na foto do slide 3 da apresentação comercial deles; o cliente
+   avisou que o livro não existe. Saídas mapeadas: manter (se for lançar), trocar
+   por outro material, ou remover (a grade fica 2x2 limpa com os 4 números
+   reais). Mexe em `diagnostico.js` + `materiais/leitura-generica.html`, regera o
+   PDF e republica.
+2. **Apagar as 3 linhas de teste** da planilha de leads.
+3. **Logo oficial** do Felipe. Hoje o funil usa emblema de coroa em SVG + texto.
+4. **Depoimentos reais** (opcional). O bloco de autoridade cobre a prova social
+   enquanto não vierem.
+5. **Skill de conta:** zip entregue ao Daniel para upload manual em claude.ai.
+   Decidir se a fonte da verdade passa a ser o repo ou a conta.
+
+**Aprendizado de ambiente:** o container foi reprovisionado no meio da sessão e o
+clone local voltou a um commit antigo. Nada se perdeu porque o trabalho estava
+**pushado**. O que morreu foi o scratchpad (`/tmp/...`), onde o carrossel estava
+sendo montado. Lição: **artefato de entrega vai pro repo cedo**, scratchpad é só
+rascunho.
