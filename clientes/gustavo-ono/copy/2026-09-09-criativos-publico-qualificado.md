@@ -240,10 +240,26 @@ DESCRIÇÃO: Por que o mês bom não muda o seu resultado
 5. **Cozinhas da Paola Carosella e da Morena Leite (peça 9).** Está no material de
    contexto dele, mas vale confirmar antes de veicular.
 
-## Antes de subir estas peças
+## Por que o criativo é a alavanca principal agora
 
-A análise de 09/09 mostrou que o objetivo da campanha explica a queda de
-qualificação melhor que o criativo: a campanha com objetivo Solicitação trouxe
-62 leads e nenhum acima de dez mil, enquanto as duas com objetivo Compra
-entregaram os quinze qualificados que existem na base. Subir criativo novo dentro
-do objetivo errado desperdiça as dez peças.
+A campanha fica em Solicitação, que é o objetivo certo para o desenho atual: o
+alvo é lead qualificada para a mentoria e a desqualificada segue para o
+treinamento de R$ 97.
+
+O que isso significa para estas dez peças é que **elas carregam a filtragem
+sozinhas**. O algoritmo otimiza pelo evento de Lead, que dispara igual para quem
+fatura R$ 3.000 e para quem fatura R$ 30.000, então quem decide a qualidade do
+que entra é o que a peça diz antes do clique. No ritmo atual, 24 leads por
+semana, nem trocar o evento de otimização resolveria, porque lead qualificada dá
+3,7 por semana e a Meta pede em torno de 50 para sair do aprendizado.
+
+Daí as escolhas de escrita destas peças:
+
+- Todas falam com quem **já tem operação**, e várias dizem isso explicitamente
+  logo na abertura (dez anos de casa, vitrine, encomenda de casamento, mês bom).
+  Isso afasta iniciante antes do clique, que é o filtro mais barato disponível.
+- Nenhuma promete começar do zero, aprender a fazer ou faturar rápido, que é o
+  vocabulário que traz o público de menos de um ano de ateliê, hoje 42% da base e
+  só 17% das qualificadas.
+- As peças 2 e 7 são as que filtram mais forte. Se a prioridade for qualificação
+  e não volume, começar por elas.

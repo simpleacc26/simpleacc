@@ -50,13 +50,49 @@ A diferença mais provável não está no criativo, está no objetivo da campanh
 | `[Compra] [Vercel] Quiz 02` | Compra | 35 | 34% | 17% |
 | `[Solicitação] Quiz V3` | Solicitação | 62 | 15% | 0% |
 
-As duas campanhas otimizadas para Compra trouxeram metade e um terço de leads
-com dinheiro. A que otimiza para Solicitação trouxe volume e quase nenhum
-qualificado. Faz sentido: pedir ao algoritmo que encontre quem preenche
-formulário entrega exatamente isso, gente que preenche formulário.
+A leitura correta não é "volte para Compra". O objetivo Compra existia quando o
+alvo da campanha era vender o low ticket. Agora o alvo é lead qualificada para a
+mentoria, com a desqualificada sendo direcionada para o treinamento de R$ 97, e
+para esse desenho otimizar por lead é o certo.
 
-Antes de trocar criativo, vale voltar o objetivo para Compra. Nenhum criativo
-novo compensa um algoritmo procurando o público errado.
+O problema está um nível abaixo, no **evento de otimização**. Hoje a campanha
+pede ao algoritmo que encontre quem preenche formulário, e ele entrega
+exatamente isso, gente que preenche formulário. Ele não sabe distinguir quem
+respondeu "Até R$ 5.000" de quem respondeu "Acima de R$ 20.000", porque os dois
+disparam o mesmo evento de Lead.
+
+E tem um agravante de volume que muda o que dá para fazer a respeito:
+
+- **24 leads por semana** no ritmo atual (63 leads entre 20/08 e 08/09)
+- **3,7 leads qualificadas por semana** (16% do total)
+- A Meta pede em torno de **50 eventos por semana por conjunto** para sair do
+  aprendizado
+
+Ou seja, a campanha provavelmente nunca saiu da fase de aprendizado, mesmo
+otimizando pelo evento mais fácil que existe. Trocar a otimização para um evento
+de lead qualificada, que é a solução elegante, colocaria o conjunto em 3,7
+eventos por semana e pioraria tudo.
+
+**O que sobra como alavanca real neste volume:**
+
+1. **O criativo é que filtra.** O algoritmo aprende com quem converte. Se a peça
+   afasta iniciante antes do clique, as conversões que ele usa para aprender já
+   vêm melhores. É a alavanca principal enquanto o volume for este.
+2. **Piso declarado no anúncio.** Dizer na copy que aquilo é para quem já tem
+   ateliê rodando custa volume e sobe qualidade. É o filtro mais barato que
+   existe.
+3. **Concentrar verba em menos conjuntos**, para o conjunto que sobrar chegar
+   mais perto dos 50 eventos semanais.
+4. **Guardar a troca de evento para depois.** Quando o volume passar de 50 leads
+   qualificadas por semana, aí sim vale otimizar por um evento que só dispare na
+   Rota A. A instrumentação para isso já existe: `quiz_lead` já leva o parâmetro
+   `rota` no dataLayer, então é criar no GTM um acionador com a condição
+   `rota = A` e uma tag de Pixel própria. Fica anotado como próximo passo, não
+   como agora.
+
+Uma ressalva sobre o próprio dado: a campanha V3 mudou o objetivo, o quiz e a
+página ao mesmo tempo. O objetivo é a explicação mais provável para a queda de
+qualificação, e não a única possível.
 
 ## Perfil de quem fatura acima de R$ 10.000 (n=15)
 
