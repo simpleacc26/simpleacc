@@ -377,8 +377,11 @@ repete entre formatos.
 
 ### Roteiro de vídeo
 
-**Criativo curto (30 a 60s):** estrutura acima, entregue com fala e direção
-em colunas separadas, pra o cliente gravar lendo só a fala.
+**Criativo curto (30 a 60s):** por padrão, entregue como **texto corrido**,
+só a fala, sem timestamp e sem direção de cena misturada no meio (isso
+atrasa quem vai gravar e não é usado). Direção de cena/produção só entra se
+o usuário pedir esse detalhamento explicitamente, e nesse caso separada em
+colunas:
 
 ```
 ### Roteiro [nome do ângulo] (45s)
