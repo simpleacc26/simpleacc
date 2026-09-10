@@ -108,6 +108,10 @@ Log do que funciona e do que não funciona com este cliente.
 - **O que sobrou para a legenda:** os quatro padrões terem nome (os vídeos nunca
   dizem) e a conta silenciosa do custo ao longo dos anos. Duas informações novas que
   puxam o clique sem contradizer nada.
-- **Legenda global exige gancho sem cena específica.** Abrir com "Se você se
-  reconheceu no vídeo" funciona atrás de qualquer um dos 20 criativos; abrir citando
-  a reunião amarraria a legenda a um criativo só.
+- **Legenda não pode depender do criativo.** Na Meta ela fica acima do vídeo e boa
+  parte das pessoas lê antes de assistir, ou lê no lugar de assistir. Abrir com "se
+  você se reconheceu no vídeo" deixa o texto solto para quem chegou pela legenda. O
+  parágrafo 1 tem que situar a cena e nomear o público sozinho.
+- **Legenda global exige gancho de ICP, não de cena.** Citar a reunião amarraria a
+  legenda a um criativo só. Nomear quem é a pessoa (o médico, o advogado, o executivo
+  procurado quando o assunto é difícil) funciona atrás de qualquer um dos 20.
