@@ -1,70 +1,71 @@
 # Legendas globais dos anúncios · Diagnóstico AUTOFOCO
 
-Dois modelos que servem para **qualquer um dos 20 criativos**, estáticos, carrosséis
-ou vídeos.
+Dois modelos que servem para **qualquer um dos 20 criativos**.
 
-## As três regras
+## As regras
 
-1. **A legenda se sustenta sem o criativo.** Na Meta ela fica acima do vídeo e muita
-   gente lê antes de assistir, ou no lugar de assistir. O parágrafo 1 situa a cena e
-   nomeia o público sozinho.
-2. **Não repete a copy gravada.** Os roteiros já ocupam a cena da reunião, o branco no
-   assunto que se domina, o convite recusado, as três vozes, a crítica ao curso de
-   oratória, o SENAC e o rádio em 1984. Nada disso volta aqui.
-3. **Curta.** Cerca de 500 caracteres cada, três parágrafos, o último chamando o
-   diagnóstico.
+1. **Cada legenda abre com uma cena, não com um conceito.** Uma coisa que a pessoa
+   viveu e reconhece na hora, escrita como se alguém estivesse contando, não como
+   texto de anúncio.
+2. **Se sustenta sem o criativo.** Na Meta a legenda fica acima do vídeo e muita gente
+   lê antes de assistir, ou no lugar de assistir.
+3. **Não repete a copy gravada.** Os roteiros já usam a reunião em que o menos
+   preparado foi o mais lembrado, o branco, o convite recusado, as três vozes, a
+   crítica ao curso de oratória, o SENAC e o rádio em 1984.
 
-## O território de cada um
+## De onde saem as cenas
 
-| Modelo | Entra por | Complementa com |
-| ------ | --------- | --------------- |
-| **1 · Os quatro padrões** | O especialista chamado quando o problema é difícil, e a entrega que encolhe na hora de apresentar | O travamento tem **quatro formatos**, e cada um sai por um caminho diferente |
-| **2 · O custo que corre em silêncio** | Quem decide sobre a carreira dele quase nunca o viu trabalhar, viu ele falar | A **conta que ninguém fecha**, no gancho de tempo e custo das P6 e P7 do quiz |
+As duas vêm de respostas do próprio quiz que **nenhum vídeo usou**:
 
----
+| Modelo | Cena de abertura | Vem da |
+| ------ | ---------------- | ------ |
+| **1 · A frase que ficou** | Ensaiar a frase na cabeça e o assunto virar outro antes de você falar | P4, opção "Ensaio a frase na cabeça e não falo" |
+| **2 · A resposta que chega depois** | A resposta boa que só aparece no carro, no chuveiro, no dia seguinte | P5, opção "Fico remoendo o que eu deveria ter dito" |
 
-## Modelo 1 · Os quatro padrões
-
-Você é chamado quando o problema é difícil. Mas na hora de apresentar o que faz, o que
-chega do outro lado é sempre menor que o seu trabalho.
-
-Isso não acontece de um jeito só. São quatro padrões, e cada um sai por um caminho
-diferente. O diagnóstico lê as suas respostas e devolve o seu: o que se repete, por que
-o que você já tentou não resolveu e o que fazer a partir de agora.
-
-São poucas perguntas e a leitura aparece na tela no fim, sem custo nenhum. Clique em
-Saiba mais e responda com sinceridade.
+Depois da cena vem o que os vídeos não contam: que isso tem quatro versões com nome.
 
 ---
 
-## Modelo 2 · O custo que corre em silêncio
+## Modelo 1 · A frase que ficou
 
-Quem decide sobre a sua carreira quase nunca viu você trabalhar. Viu você falar numa
-reunião, numa apresentação, numa conversa de quinze minutos.
+Você monta a frase na cabeça, revisa uma vez, e quando decide falar o assunto na mesa
+já é outro. A reunião acaba e a frase continua inteira com você.
 
-É por isso que o custo nunca chega com etiqueta. Vem como um ano parecido com o
-anterior, uma negociação que não pesou, uma porta que você achou que ia abrir. O
-diagnóstico nomeia o que está por trás disso, há quanto tempo dura e o que precisa mudar.
+Isso tem quatro versões diferentes, e cada uma se resolve de um jeito. O diagnóstico
+mostra qual é a sua, por que o que você já tentou não pegou e por onde começar agora.
 
-Leva poucos minutos, não custa nada e sai das suas próprias respostas.
-Clique em Saiba mais e receba a sua leitura.
+Clique em Saiba mais e responda. São poucas perguntas e a leitura vem na hora, de graça.
+
+---
+
+## Modelo 2 · A resposta que chega depois
+
+A resposta boa sempre chega. Só que ela chega no carro, no chuveiro, às vezes no dia
+seguinte, quando já não serve para nada.
+
+Quando isso se repete há anos, não é um dia ruim, é um padrão. E são quatro padrões
+possíveis. O diagnóstico mostra qual é o seu, o que está por trás dele e o que precisa
+mudar para parar.
+
+Clique em Saiba mais e faça o seu. Leva poucos minutos e não custa nada.
 
 ---
 
 ## Como usar
 
-- **Rodízio:** modelo 1 nos criativos de cena e de mecanismo, que captam frio e
-  qualificam. Modelo 2 nos de autoridade e no remarketing.
+- **Rodízio:** modelo 1 nos criativos de cena e de mecanismo. Modelo 2 nos de
+  autoridade e no remarketing.
 - **Link sempre na raiz do quiz com as UTMs**, nunca `/index.html`:
   `https://autofoco.vercel.app/?utm_source=meta&utm_medium=cpc&utm_campaign=diagnostico-autofoco&utm_content=<criativo>`
 - **Botão da Meta:** Saiba mais.
 
-## O que não fazer nas variações
+## Ao escrever variações
 
+- Comece por uma cena que dê para filmar. Se a frase não descreve algo que aconteceu
+  num lugar, com hora e pessoas, ela não serve.
+- Fuja de imagem abstrata. "A distância entre o que você sabe e o que o outro percebe"
+  é conceito, não cena.
 - Não citar preço, mentoria, sessão estratégica nem nome de produto.
-- Não usar oratória como categoria do que o Delphis vende. Ela só aparece nos roteiros
-  para ser derrubada.
+- Não usar oratória como categoria do que o Delphis vende.
 - Não afirmar atributo pessoal de quem lê. Nada de "você é inseguro" ou "você é tímido".
-- Não abrir pressupondo que o vídeo já foi assistido.
-- Não encher de abstração. Cena concreta ou nada.
 - Nome e imagem de ex-aluno conhecido seguem dependendo de autorização escrita.

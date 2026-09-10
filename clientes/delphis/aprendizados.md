@@ -112,6 +112,12 @@ Log do que funciona e do que não funciona com este cliente.
   parte das pessoas lê antes de assistir, ou lê no lugar de assistir. Abrir com "se
   você se reconheceu no vídeo" deixa o texto solto para quem chegou pela legenda. O
   parágrafo 1 tem que situar a cena e nomear o público sozinho.
-- **Legenda global exige gancho de ICP, não de cena.** Citar a reunião amarraria a
-  legenda a um criativo só. Nomear quem é a pessoa (o médico, o advogado, o executivo
-  procurado quando o assunto é difícil) funciona atrás de qualquer um dos 20.
+- **Cena que dá para filmar, ou nada.** Duas rodadas de legenda foram recusadas por
+  serem conceito disfarçado de copy: "o que chega do outro lado é menor que o seu
+  trabalho", "vem como um ano parecido com o anterior". Frases assim soam bonitas e
+  não descrevem nada que a pessoa viva. O teste é simples: se não dá para dizer onde
+  aconteceu, com quem e a que horas, não serve.
+- **As melhores cenas estavam nas opções do quiz.** "Ensaio a frase na cabeça e não
+  falo" (P4) e "Fico remoendo o que eu deveria ter dito" (P5) viraram as duas
+  aberturas. Já eram a fala do público, escritas na pesquisa, e nenhum roteiro tinha
+  usado.
