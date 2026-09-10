@@ -98,3 +98,16 @@ Log do que funciona e do que não funciona com este cliente.
 - **Título longo é aceitável na dobra.** Os dois modelos têm 100+ caracteres. Vale
   medir: a primeira pergunta precisa continuar visível sem rolar, ainda que só
   duas opções apareçam.
+
+## Legendas de anúncio · 10/09/2026
+
+- **Legenda não repete a copy gravada.** Os 10 roteiros do Delphis já ocupam a cena da
+  reunião, o branco, o convite recusado, as três vozes, o SENAC e o mecanismo da
+  atenção. Legenda que reconta isso queima espaço e soa redundante para quem acabou
+  de assistir.
+- **O que sobrou para a legenda:** os quatro padrões terem nome (os vídeos nunca
+  dizem) e a conta silenciosa do custo ao longo dos anos. Duas informações novas que
+  puxam o clique sem contradizer nada.
+- **Legenda global exige gancho sem cena específica.** Abrir com "Se você se
+  reconheceu no vídeo" funciona atrás de qualquer um dos 20 criativos; abrir citando
+  a reunião amarraria a legenda a um criativo só.
