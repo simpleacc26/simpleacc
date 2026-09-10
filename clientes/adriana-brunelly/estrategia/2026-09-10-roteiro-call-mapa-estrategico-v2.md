@@ -1,5 +1,9 @@
 # Roteiro da call de onboarding (Mapa Estratégico) — Adriana Brunelly — **v2**
 
+> **Versão editável no Drive:** [Google Doc](https://docs.google.com/document/d/1a11lzbMs41h4_8xUGmhf3JZlALDV35gnrV62vEeknvg/edit) — em `3. Estratégia e Tráfego`, pasta
+> **interna** (a cliente não tem acesso). Este arquivo é a fonte; se editar o Doc, traga a
+> alteração de volta para cá.
+>
 > **Substitui a v1** ([`2026-09-07-roteiro-call-mapa-estrategico.md`](2026-09-07-roteiro-call-mapa-estrategico.md)),
 > escrita antes de ela mandar os materiais. **Use esta.**
 >

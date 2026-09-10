@@ -37,7 +37,13 @@ roteiro em
   [checkout](https://payfast.greenn.com.br/3993f3x) · plataforma **Greenn Club**, produto
   ID 184742, turma "Arquitetura ACA | WhatsApp de Valor | Primeira Turma"
 - Gravação da call de vendas (04/09/26): [Fathom](https://fathom.video/share/kArTHta9LK49y6_cvsn1sp7pfESACcBx)
-- Pastas do projeto no Drive (já criadas e enviadas a ela no grupo):
+- **Pasta do projeto no Drive:** [Simple <> Adriana Brunelly](https://drive.google.com/drive/folders/1Sbg-TKou1Z6lMBpEXOnW-rPMrzXKjLjm) — criada em 07/09/26.
+  A pasta raiz e `3. Estratégia e Tráfego` são **privadas**; as três abaixo estão
+  **compartilhadas por link, com permissão de edição**, e foram enviadas a ela no grupo.
+- **Roteiro da call de onboarding (Google Doc editável, interno):**
+  [Roteiro Call de Onboarding - Mapa Estratégico - 10.09.26](https://docs.google.com/document/d/1a11lzbMs41h4_8xUGmhf3JZlALDV35gnrV62vEeknvg/edit) —
+  em [`3. Estratégia e Tráfego`](https://drive.google.com/drive/folders/1kWcLug82ADfZn-UO5xD0ulL5QGsJPiHc), que a cliente **não** acessa.
+- Pastas compartilhadas com ela:
   [fotos](https://drive.google.com/drive/folders/1iY37mf94tT8X4O4KisjyZqVDA9bKt2AG) (vazia) ·
   [depoimentos](https://drive.google.com/drive/folders/1t5CX55xmC7pek3mc7Po8yQOOscothZc) (vazia) ·
   [produtos e materiais](https://drive.google.com/drive/folders/1ppBOYuiGVP8aNRt78S2R2yR3VwI35hKn)

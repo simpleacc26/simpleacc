@@ -60,7 +60,8 @@ onde a outra parou (o Git é a memória compartilhada).
 > - [`contexto/2026-09-07-escopo-vendido-e-condicao-comercial.md`](contexto/2026-09-07-escopo-vendido-e-condicao-comercial.md)
 >   — o que foi vendido e a condição comercial.
 > - [`estrategia/2026-09-10-roteiro-call-mapa-estrategico-v2.md`](estrategia/2026-09-10-roteiro-call-mapa-estrategico-v2.md)
->   — roteiro da call de onboarding (v2).
+>   — roteiro da call de onboarding (v2). Versão editável no Drive:
+>   [Google Doc](https://docs.google.com/document/d/1a11lzbMs41h4_8xUGmhf3JZlALDV35gnrV62vEeknvg/edit), em `3. Estratégia e Tráfego` (pasta interna).
 
 > ⚠️ **Ela é leiga em tecnologia e pede desculpa antes de perguntar.** Escreveu no grupo:
 > *"sou bem leiga... entendo muito pouco sobre tráfego e automação (Please socorro) NADA NA
