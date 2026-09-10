@@ -10,7 +10,7 @@ onde a outra parou (o Git é a memória compartilhada).
 - `estrategia/` — estratégias, planos e diagnósticos.
 - `copy/`       — copy de páginas e de anúncios/criativos.
 - `roteiros/`   — roteiros de vídeo (datados).
-- `funis/`      — funis, landing pages e quizzes que publicam.
+- `funis/`      — funis, landing pages, quizzes.
 - `aprendizados.md` — o que funciona/não funciona (atualize sempre).
 
 ## Ao trabalhar para esta cliente
@@ -23,52 +23,77 @@ onde a outra parou (o Git é a memória compartilhada).
 ## Contexto rápido
 
 - **Quem é:** decoradora de eventos e ex-dona de buffet em **Londrina/PR**, **25 anos de
-  mercado**, em transição para o digital. Passou por doceira → decoradora → dona de buffet.
-- **Oferta principal:** **mentoria de gestão para o mercado de eventos**, ticket **desenhado
-  em R$ 30 mil** — ainda **não formatada e nunca vendida**.
-- **Oferta de entrada:** curso low ticket **"WhatsApp de valor"** (10 aulas, ~2h), **pronto e
-  gravado**, no ar e sem nenhuma venda.
-- **Público / ICP:** **donos de buffet, decoradores e doceiras** — gente empírica, que sabe
-  executar e trava na hora de vender. **Faixa de faturamento ainda em aberto** (ver aviso).
-- **Promessa central (tese dela):** *"Todo mundo sabe fazer. O problema está no vender."*
-  Conceito autoral: a **"dívida de valor"** — a pessoa não se autorreconhece e tem medo de
-  pôr o preço.
-- **Prova mais forte:** saiu de festas de R$ 8 mil para um projeto de **R$ 165 mil** fechado
-  de outro estado, já em transição de carreira.
+  mercado**, em transição para o digital. Passou por doceira de rua → doceira de eventos →
+  decoradora → dona de buffet → decoração de alto padrão.
+- **O método tem nome: ACA®** — **A**utorreconhecimento → **C**onexão e Comunicação →
+  **A**utoridade. Destino: a **"Marca Desejada"**.
+- **A tese proprietária: "Dívida de Valor"** — o desequilíbrio entre o valor que a
+  profissional entrega e o que ela consegue fazer perceber, reconhecer e receber. Tem
+  documento mestre de 9 páginas.
+- **Oferta principal:** mentoria **Arquitetura ACA**, **R$ 30 mil**. O preço está justificado
+  (5% do faturamento anual de quem fatura R$ 50 mil/mês), mas **a grade de entrega ainda não
+  existe** — é o buraco a fechar.
+- **Oferta de entrada:** **WhatsApp de Valor**, **R$ 47**, na Greenn (produto 184742), com
+  [landing](https://wppdevalor.lovable.app) e [checkout](https://payfast.greenn.com.br/3993f3x)
+  no ar. Ainda sem venda.
+- **Público / ICP (definido pela pesquisa dela):** decoradora de **29 a 40 anos** ou dona de
+  buffet de **41 a 55**, faturando **R$ 40 a 100 mil/mês**, 10 a 15 anos de mercado, que já
+  fez curso técnico e está **cansada** — o cansaço é o gatilho que faz investir alto.
+- **Promessa central:** *"Você não perde cliente por preço. Você perde porque o cliente ainda
+  não percebeu seu valor antes de ver o número."*
+- **Prova de mercado:** de festas de R$ 8 mil (2017) a um projeto de **R$ 165 mil** fechado de
+  outro estado já em transição · e **R$ 2 mi com 15% de margem → R$ 1,2 mi com 40%**
+  ("faturei 40% menos e lucrei 60% mais").
 - **Links:** [@adrianabrunelly](https://instagram.com/adrianabrunelly) (6.136 seguidores) ·
-  Forms de "Diagnóstico Gratuito" no link da bio.
-- **Contato principal:** Adriana Brunelly — ver `README.md`.
+  ver `README.md` para o resto.
 - **Projeto:** Funil de Lead Dinâmico (quiz + páginas + tráfego + copy), contrato de 6 meses
-  fechado em **04/09/2026**. Mapa Estratégico em **09/09/2026**.
+  fechado em **04/09/2026**.
 
 > **Leia antes de qualquer entrega:**
+> - [`contexto/2026-09-10-metodo-aca-tese-e-pesquisa.md`](contexto/2026-09-10-metodo-aca-tese-e-pesquisa.md)
+>   — **o mais importante**: método ACA, tese da Dívida de Valor, ICP, dados de mercado, os
+>   10 desejos, as 5 promessas validadas e o mapa de empatia com as objeções.
+> - [`contexto/2026-09-10-restricoes-operacionais.md`](contexto/2026-09-10-restricoes-operacionais.md)
+>   — sem cartão de crédito, contas no nome da irmã, sem fotos, sem depoimentos.
 > - [`contexto/2026-09-07-perfil-adriana-e-negocio.md`](contexto/2026-09-07-perfil-adriana-e-negocio.md)
->   — quem ela é, como pensa, tese, público, ativos e os riscos do projeto.
+>   — quem ela é, como pensa e os riscos do projeto.
 > - [`contexto/2026-09-07-escopo-vendido-e-condicao-comercial.md`](contexto/2026-09-07-escopo-vendido-e-condicao-comercial.md)
->   — o que exatamente foi vendido e a condição comercial.
-> - [`estrategia/2026-09-07-roteiro-call-mapa-estrategico.md`](estrategia/2026-09-07-roteiro-call-mapa-estrategico.md)
->   — roteiro da call de onboarding.
+>   — o que foi vendido e a condição comercial.
+> - [`estrategia/2026-09-10-roteiro-call-mapa-estrategico-v2.md`](estrategia/2026-09-10-roteiro-call-mapa-estrategico-v2.md)
+>   — roteiro da call de onboarding (v2).
 
-> ⚠️ **Ela não é técnica e sofre com isso.** Não sabe automação nem landing page; nas aulas da
-> mentoria do Luiz *"ficava quieta e ia me atrofiando"* porque não sabia nem o que perguntar.
-> **Traduza todo termo** (quiz, hub, lead scoring, CAC) para o mundo dela — orçamento, per
-> capita, margem, fechamento. O pedido literal dela: *"me fala o que você quer que eu faça:
-> clica aqui, põe o dedo aqui."*
+> ⚠️ **Ela é leiga em tecnologia e pede desculpa antes de perguntar.** Escreveu no grupo:
+> *"sou bem leiga... entendo muito pouco sobre tráfego e automação (Please socorro) NADA NA
+> VERDADE!"* Nas aulas da mentoria do Luiz *"ficava quieta e ia me atrofiando"*. Se a
+> comunicação for técnica, **ela para de perguntar** e a gente descobre tarde que travou.
+> Toda tarefa sai como passo a passo numerado, com print ou vídeo de 1 minuto.
 >
-> ⚠️ **Mas ela é comercial de origem.** Foi o comercial da própria empresa por 25 anos e
-> negociou o preço da Simple na hora. Iniciante em tecnologia, **não** em vendas.
+> ⚠️ **Mas é comercial de origem.** 25 anos vendendo, foi o comercial da própria empresa,
+> teve 25 funcionários e negociou o preço da Simple na hora. Iniciante em tecnologia,
+> **não** em vendas.
+>
+> ⚠️ **"Trabalhar menos" não é promessa** — é consequência. A própria pesquisa dela provou
+> que esse desejo está em último lugar no ranking de urgência do nicho. **Dinheiro e cliente
+> são o destino; posicionamento é o caminho.**
+>
+> ⚠️ **Ao usar os números de margem dela em copy:** o lucro subiu **60%** (R$ 300 mil →
+> R$ 480 mil). Os materiais dela resumem como "+167% de lucro", mas 167% é o aumento da
+> **margem** (15% → 40%). Usar número errado de lucro na copy de quem ensina margem seria o
+> pior erro possível.
 
-## Três decisões que travam o funil (abertas em 07/09/2026)
+## O que trava o funil hoje (10/09/2026)
 
-1. **ICP indefinido.** Daniel falou em "buffet faturando mais de R$ 2 milhões/ano"; ela
-   raciocina com **R$ 30 a 50 mil/mês**. São públicos diferentes e mudam o quiz inteiro.
-2. **Verba de mídia indefinida.** Ela falou em investir "os mil reais que sobrarem". O
-   objetivo vendido (100 leads qualificados/mês, 2 a 5 vendas high ticket) não sai com isso.
-3. **Zero prova do produto digital.** Nenhum depoimento de aluno. A prova existente é da
-   decoradora, não da mentora.
+1. **A grade da mentoria de R$ 30 mil não existe.** Tese, preço e público estão resolvidos;
+   a entrega (quantos encontros, formato, duração, material) não.
+2. **Zero prova de aluno.** *"NÃO TENHO DEPOIMENTO ESTOU COMEÇANDO DO ZERO SOZINHA."* A prova
+   disponível é de mercado, não de aluno.
+3. **Verba de mídia indefinida + sem cartão de crédito.** A conta de anúncio precisa ser
+   pré-paga com Pix/boleto, e isso muda a operação (para de veicular quando o saldo acaba).
+4. **Sem fotos.** Nem dela, nem organizadas dos serviços.
 
-## Estado do projeto (07/09/2026)
+## Estado do projeto (10/09/2026)
 
-Contrato fechado em 04/09. Nada implementado ainda. A **call de onboarding (Mapa Estratégico)
-é em 09/09/2026** e o roteiro está em `estrategia/`. O caixa dela é curto e depende do funil
-vender — priorizar giro rápido.
+Contrato fechado em 04/09, nada implementado. Ela **já entregou os materiais de método e
+pesquisa** (ver `contexto/materiais-cliente/`) e está ativa no grupo do WhatsApp. A call de
+onboarding (Mapa Estratégico) ainda não aconteceu — confirmar a data. O caixa dela é curto e
+depende do funil vender.

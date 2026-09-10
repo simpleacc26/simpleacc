@@ -8,8 +8,13 @@ posicionamento** para donos de buffet, decoradores e doceiras.
 contrato de 6 meses. **Objetivo do funil: vender a mentoria de R$ 30 mil**, com o curso low
 ticket "WhatsApp de valor" como caminho para quem não qualifica.
 
-Status: **onboarding.** Mapa Estratégico marcado para **09/09/2026** — roteiro da call em
-[`estrategia/2026-09-07-roteiro-call-mapa-estrategico.md`](estrategia/2026-09-07-roteiro-call-mapa-estrategico.md).
+O método dela tem nome — **ACA®** (Autorreconhecimento → Conexão e Comunicação → Autoridade)
+— e uma tese proprietária escrita, a **"Dívida de Valor"**.
+
+Status: **onboarding.** A call do Mapa Estratégico ainda não aconteceu (confirmar data) —
+roteiro em
+[`estrategia/2026-09-10-roteiro-call-mapa-estrategico-v2.md`](estrategia/2026-09-10-roteiro-call-mapa-estrategico-v2.md)
+(**v2** — a v1 foi escrita antes de ela mandar os materiais).
 
 ## Contatos
 
@@ -28,39 +33,57 @@ Status: **onboarding.** Mapa Estratégico marcado para **09/09/2026** — roteir
   Estrategista em Negócios para Eventos", 6.136 seguidores, 416 posts
 - Forms de "Diagnóstico Gratuito" (link da bio): `docs.google.com/forms/d/1rpd0Gj_69k6fpKSQUcSk7wR0gqhnJl-dsu…`
   — **pegar o link completo com ela**
-- Curso low ticket "WhatsApp de valor": _(pegar o link e a plataforma)_
+- **WhatsApp de Valor** (low ticket, **R$ 47**): [landing](https://wppdevalor.lovable.app) ·
+  [checkout](https://payfast.greenn.com.br/3993f3x) · plataforma **Greenn Club**, produto
+  ID 184742, turma "Arquitetura ACA | WhatsApp de Valor | Primeira Turma"
 - Gravação da call de vendas (04/09/26): [Fathom](https://fathom.video/share/kArTHta9LK49y6_cvsn1sp7pfESACcBx)
-- Pasta no Drive: _(a criar — copiar `[PADRÃO - FAZER CÓPIA] Simple <> Cliente` para
-  `Simple <> Adriana Brunelly` em `Sistema Simple`)_
+- Pastas do projeto no Drive (já criadas e enviadas a ela no grupo):
+  [fotos](https://drive.google.com/drive/folders/1iY37mf94tT8X4O4KisjyZqVDA9bKt2AG) (vazia) ·
+  [depoimentos](https://drive.google.com/drive/folders/1t5CX55xmC7pek3mc7Po8yQOOscothZc) (vazia) ·
+  [produtos e materiais](https://drive.google.com/drive/folders/1ppBOYuiGVP8aNRt78S2R2yR3VwI35hKn)
+  (**5 documentos entregues** — cópia em `contexto/materiais-cliente/`)
+- Grupo do projeto no WhatsApp: `[Simple Acc] Adriana Brunelly`
 
 ## Projetos
 
 | Projeto | Pasta | Status | Deploy |
 | ------- | ----- | ------ | ------ |
 | Funil de quiz (mentoria R$ 30 mil) | a criar em `funis/` | não iniciado — aguarda Mapa Estratégico | — |
+| WhatsApp de Valor (low ticket R$ 47) | produto dela, fora do repo | **no ar**, sem venda | [wppdevalor.lovable.app](https://wppdevalor.lovable.app) |
 
 ## Pendências
 
-**Travam o funil (decidir no Mapa Estratégico de 09/09):**
+**Travam o funil (decidir no Mapa Estratégico):**
 
-- [ ] **ICP e corte de qualificação.** R$ 2 milhões/ano (dito na venda) × R$ 30–50 mil/mês
-      (raciocínio dela). Sem isso o quiz não pode ser escrito.
-- [ ] **Verba de mídia real por mês.** Ela falou em "os mil reais que sobrarem".
-- [ ] **Formatar a oferta de R$ 30 mil:** entregáveis, duração, formato, parcelamento.
+- [ ] **A grade da mentoria de R$ 30 mil.** Quantos encontros, formato, duração, material.
+      Tese, preço e público já estão resolvidos pelos documentos dela; **a entrega não**.
 - [ ] **Prova.** Zero depoimento de aluno. Garimpar resultados dos alunos do curso de 2023 e
-      autorizar o uso do case dos R$ 165 mil.
-- [ ] **Prioridade entre as três frentes:** mentoria, low ticket e venda do acervo.
+      autorizar o uso do case dos R$ 165 mil e dos números de margem.
+- [ ] **Verba de mídia real por mês.**
+- [ ] **Prioridade entre as três frentes:** mentoria, low ticket de R$ 47 e venda do acervo.
+- [x] ~~ICP e corte de qualificação~~ — **resolvido pela pesquisa dela**: decoradora 29–40 ou
+      buffet 41–55, **R$ 40 a 100 mil/mês**, 10–15 anos de mercado. Só confirmar na call.
 
-**Operacional:**
+**Restrições operacionais (ver `contexto/2026-09-10-restricoes-operacionais.md`):**
+
+- [ ] ⚠️ **Ela não tem cartão de crédito — tudo é Pix.** Configurar a conta de anúncio como
+      pré-paga (Pix/boleto), testar com valor pequeno e definir quem acompanha o saldo.
+- [ ] ⚠️ **Contas no nome da irmã** "por motivos jurídicos". Mapear em que nome ficam conta de
+      anúncio, BM, domínio, Greenn, conta bancária e checkout — **e conferir o checkout que já
+      está no ar antes da primeira venda**.
+- [ ] ⚠️ **Sem fotos.** Mandar mini roteiro de fotos antes de ela sair fotografando; garimpar
+      as fotos de festa do feed.
+- [ ] Auditar Instagram, página do Facebook e gerenciador que já existem — **ela perguntou
+      isso no grupo e está esperando resposta**.
+- [ ] Listar toda ferramenta do projeto que exige cartão e decidir quem paga o quê.
+
+**Comercial e contrato:**
 
 - [ ] ⚠️ **Confirmar a conta das mensalidades no contrato.** Ficou ambíguo na call: 4 parcelas
-      de R$ 3.000 (6 meses com 2 de carência) **ou** R$ 12.000 em 6× de R$ 2.000. Ver
+      de R$ 3.000 **ou** R$ 12.000 em 6× de R$ 2.000. Ver
       [`contexto/2026-09-07-escopo-vendido-e-condicao-comercial.md`](contexto/2026-09-07-escopo-vendido-e-condicao-comercial.md).
-- [ ] Confirmar recebimento da 2ª parcela do setup (R$ 2.500) em **15/10/2026**.
-- [ ] Criar a pasta no Drive e a planilha de leads.
-- [ ] Acessos: Business Manager, conta de anúncio, pixel, domínio, plataforma do low ticket.
-- [ ] Identidade visual: logo, cores, fontes e **banco de fotos dos eventos** (maior ativo visual).
-- [ ] WhatsApp de destino dos leads.
+- [ ] Confirmar a 2ª parcela do setup (R$ 2.500) em **15/10/2026**.
+- [ ] Criar a planilha de leads no Drive.
 - [ ] Alinhar no kickoff que **a Simple não executa o comercial** — a reunião de vendas é dela.
 
 ## Observações
