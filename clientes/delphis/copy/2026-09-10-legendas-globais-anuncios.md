@@ -28,11 +28,14 @@ Depois da cena vem o que os vídeos não contam: que isso tem quatro versões co
 
 ## Modelo 1 · A frase que ficou
 
-Você monta a frase na cabeça, revisa uma vez, e quando decide falar o assunto na mesa
-já é outro. A reunião acaba e a frase continua inteira com você.
+Você monta a frase na cabeça, revisa uma vez, espera a hora certa de falar. Aí o
+assunto na mesa vira outro, alguém pergunta se você quer acrescentar alguma coisa e
+você diz que não. A reunião acaba e a frase continua inteira com você.
 
-Isso tem quatro versões diferentes, e cada uma se resolve de um jeito. O diagnóstico
-mostra qual é a sua, por que o que você já tentou não pegou e por onde começar agora.
+A gente costuma achar que é falta de preparo ou nervosismo, e quase nunca é. São
+quatro jeitos diferentes de travar, cada um com uma origem e uma saída própria, e é
+por isso que dica genérica não resolve. O diagnóstico mostra qual é o seu, por que o
+que você já tentou não pegou e por onde começar.
 
 Clique em Saiba mais e responda. São poucas perguntas e a leitura vem na hora, de graça.
 
@@ -40,12 +43,14 @@ Clique em Saiba mais e responda. São poucas perguntas e a leitura vem na hora, 
 
 ## Modelo 2 · A resposta que chega depois
 
-A resposta boa sempre chega. Só que ela chega no carro, no chuveiro, às vezes no dia
-seguinte, quando já não serve para nada.
+A resposta boa sempre chega. Só que ela chega no carro, no chuveiro, às vezes só no
+dia seguinte, pronta e na ordem certa, quando já não serve para nada. E fica a
+impressão de que quem falou ali não foi bem você.
 
-Quando isso se repete há anos, não é um dia ruim, é um padrão. E são quatro padrões
-possíveis. O diagnóstico mostra qual é o seu, o que está por trás dele e o que precisa
-mudar para parar.
+Se acontece de vez em quando, foi um dia ruim. Se acontece há anos, é padrão. E são
+quatro padrões possíveis, cada um com uma saída diferente, o que explica por que o
+mesmo conselho funciona para uns e não faz nada por outros. O diagnóstico mostra qual
+é o seu, o que está por trás dele e o que precisa mudar.
 
 Clique em Saiba mais e faça o seu. Leva poucos minutos e não custa nada.
 
