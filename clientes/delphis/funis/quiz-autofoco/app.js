@@ -1,0 +1,325 @@
+const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "2308443446594670", custom_webhook: "" };
+
+/* Planilha de leads. Webhook do Make: cenário "[Delphis Fonseca] Diagnóstico AUTOFOCO → Sheets". */
+const LEADS_ENDPOINT = "https://hook.us2.make.com/3wzu02g0mdb771irfu6ngavgrp1k6njv";
+
+function getUTMs() {
+  const p = new URLSearchParams(location.search);
+  return {
+    utm_source: p.get("utm_source") || "", utm_medium: p.get("utm_medium") || "",
+    utm_campaign: p.get("utm_campaign") || "", utm_content: p.get("utm_content") || "",
+    utm_term: p.get("utm_term") || "",
+  };
+}
+const URL_UTMS = getUTMs();
+function trackEvent(name, data = {}) {
+  const payload = { ...data, ts: Date.now() };
+  console.log(`[TRACK] ${name}`, payload);
+  try {
+    if (TRACKING_CONFIG.ga4_id && typeof gtag === "function") gtag("event", name, data);
+    if (TRACKING_CONFIG.meta_pixel_id && typeof fbq === "function") fbq("trackCustom", name, data);
+    if (TRACKING_CONFIG.custom_webhook && navigator.sendBeacon)
+      navigator.sendBeacon(TRACKING_CONFIG.custom_webhook, JSON.stringify({ event: name, ...payload }));
+  } catch (e) { }
+}
+
+function opcao(stepId) {
+  const s = F.steps.find((x) => x.id === stepId);
+  return (s && s.options.find((op) => op.value === state.answers[stepId])) || null;
+}
+
+/* Padrão de travamento (P3) e classificação comercial (P2 x P10). */
+function padraoDoLead() { const o = opcao("padrao"); return (o && o.padrao) || ""; }
+function classificacaoDoLead() {
+  const prof = opcao("profissao"), pront = opcao("prontidao");
+  const qualifica = prof ? prof.qualifica === true : false;
+  const nivel = pront ? pront.nivel : "";
+  if (qualifica && nivel === "alto") return "QUALIFICADO";
+  if (nivel === "nutrir") return "A NUTRIR";
+  return "FORA POR ORA";
+}
+
+function enviarLead() {
+  if (!LEADS_ENDPOINT) return;
+  const a = state.answers;
+  const label = (stepId) => { const o = opcao(stepId); return o ? o.label : ""; };
+  const lead = {
+    data: new Date().toISOString(),
+    nome: a.nomeResp || "", whatsapp: a.whatsapp || "", email: a.email || "",
+    classificacao: classificacaoDoLead(), padrao: padraoDoLead(),
+    situacao: label("situacao"), profissao: label("profissao"), problema: label("problema"),
+    depois: label("depois"), tempo: label("tempo"), custo: label("custo"),
+    tentativas: label("tentativas"), objetivo: label("objetivo"), prontidao: label("prontidao"),
+    frente: "Diagnóstico AUTOFOCO", origem: document.referrer || location.href,
+    ...URL_UTMS,
+  };
+  /* Form-urlencoded: o unico Content-Type que o modo no-cors permite e que o Make
+     ja quebra em campos nomeados. Cada chave do lead vira uma coluna na planilha. */
+  const corpo = new URLSearchParams();
+  Object.keys(lead).forEach((k) => corpo.append(k, lead[k] == null ? "" : String(lead[k])));
+  try {
+    fetch(LEADS_ENDPOINT, { method: "POST", mode: "no-cors", keepalive: true, body: corpo });
+  } catch (e) { }
+}
+
+const STORE_KEY = "delphis_diagnostico_autofoco";
+const F = window.FLOW;
+const app = document.getElementById("app");
+const progressEl = document.getElementById("progress");
+
+let state = { view: 0, answers: {}, started: false };
+let stepEnterTime = 0;
+
+function save() { try { sessionStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {} }
+function loadSaved() { try { return JSON.parse(sessionStorage.getItem(STORE_KEY)); } catch (e) { return null; } }
+function clearSaved() { try { sessionStorage.removeItem(STORE_KEY); } catch (e) {} }
+
+function el(html) { const t = document.createElement("template"); t.innerHTML = html.trim(); return t.content.firstElementChild; }
+function scrollTop() { window.scrollTo({ top: 0, behavior: "smooth" }); }
+
+function updateProgress(stepIdx) {
+  const total = F.steps.length;
+  const human = stepIdx + 1;
+  const pct = Math.round((stepIdx / total) * 100);
+  const label = stepIdx === 0 ? "Começando" : (stepIdx === total - 1 ? "Última pergunta" : `Pergunta ${human} de ${total}`);
+  progressEl.hidden = false;
+  document.getElementById("progress-label").textContent = label;
+  document.getElementById("progress-pct").textContent = `${pct}%`;
+  document.getElementById("progress-bar").style.width = `${pct}%`;
+}
+
+function renderStep(i) {
+  const step = F.steps[i];
+  updateProgress(i);
+  stepEnterTime = Date.now();
+  trackEvent("step_view", { step_id: step.id, step_number: i + 1 });
+
+  const selected = state.answers[step.id];
+  const opts = step.options.map((o, idx) => `
+    <button class="opt" role="radio" tabindex="${idx === 0 ? 0 : -1}"
+            aria-checked="${selected === o.value ? "true" : "false"}" data-value="${o.value}">
+      <span class="dot" aria-hidden="true"></span>
+      <span class="txt">${o.label}</span>
+    </button>`).join("");
+
+  const intro = i === 0 ? `
+      <span class="selo">${F.hero.selo}</span>
+      <h1>${F.hero.titulo}</h1>
+      <p class="lead" style="margin:-4px 0 22px">${F.hero.subtitulo}</p>` : "";
+  const screen = el(`
+    <section class="card screen">
+      ${intro}
+      <h2 id="q-${step.id}">${step.pergunta}</h2>
+      <div class="options" role="radiogroup" aria-labelledby="q-${step.id}">${opts}</div>
+      <div class="actions">
+        ${i > 0
+          ? '<button class="btn btn-ghost" id="back">← Voltar</button>'
+          : '<span class="hint">Toque na opção que mais combina. Avança sozinho.</span>'}
+      </div>
+    </section>`);
+  app.replaceChildren(screen);
+  scrollTop();
+
+  const optionEls = [...screen.querySelectorAll(".opt")];
+  let advancing = false;
+  function choose(node) {
+    if (advancing) return;
+    optionEls.forEach(o => { o.setAttribute("aria-checked", "false"); o.tabIndex = -1; });
+    node.setAttribute("aria-checked", "true"); node.tabIndex = 0;
+    state.answers[step.id] = node.dataset.value;
+    save();
+    if (!state.started) { state.started = true; trackEvent("funnel_start", {}); }
+    trackEvent("step_complete", { step_id: step.id, time_on_step: Date.now() - stepEnterTime });
+    advancing = true;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    setTimeout(() => { (i < F.steps.length - 1) ? goToStep(i + 1) : renderCaptura(); }, reduce ? 0 : 300);
+  }
+  optionEls.forEach((node, idx) => {
+    node.addEventListener("click", () => choose(node));
+    node.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); choose(node); }
+      if (e.key === "ArrowDown" || e.key === "ArrowRight") { e.preventDefault(); optionEls[(idx + 1) % optionEls.length].focus(); }
+      if (e.key === "ArrowUp" || e.key === "ArrowLeft") { e.preventDefault(); optionEls[(idx - 1 + optionEls.length) % optionEls.length].focus(); }
+    });
+  });
+
+  if (i > 0) screen.querySelector("#back").addEventListener("click", () => {
+    trackEvent("step_back", { from: step.id });
+    goToStep(i - 1);
+  });
+}
+
+function renderCaptura() {
+  progressEl.hidden = true;
+  const c = F.captura;
+  trackEvent("step_view", { step_id: "captura" });
+  const fields = c.campos.map(f => `
+    <div class="field">
+      <label for="${f.id}">${f.label} ${f.required ? '<span class="req" title="obrigatório">*</span>' : '<span class="opt-tag">(opcional)</span>'}</label>
+      <input id="${f.id}" name="${f.id}" type="${f.type}" autocomplete="${f.autocomplete}"
+             placeholder="${f.placeholder}" value="${state.answers[f.id] ? String(state.answers[f.id]).replace(/"/g,'&quot;') : ""}"
+             ${f.required ? 'aria-required="true"' : ""} aria-describedby="${f.id}-err" />
+      <p class="err-msg" id="${f.id}-err"></p>
+    </div>`).join("");
+
+  const screen = el(`
+    <section class="card screen">
+      <p class="eyebrow">Quase lá</p>
+      <h2>${c.titulo}</h2>
+      <p class="lead">${c.subtitulo}</p>
+      <div class="errors" id="err" role="alert" aria-live="assertive"></div>
+      <form id="form" novalidate>
+        ${fields}
+        <div class="actions">
+          <button class="btn btn-ghost" id="back" type="button">← Voltar</button>
+          <button class="btn btn-primary btn-block" id="submit" type="submit">${c.cta}</button>
+        </div>
+        <p class="hint" style="margin-top:14px">${c.privacidade}</p>
+      </form>
+    </section>`);
+  app.replaceChildren(screen);
+  scrollTop();
+
+  c.campos.filter((f) => f.mask === "phone").forEach((f) => {
+    const input = screen.querySelector(`#${f.id}`);
+    if (!input) return;
+    input.inputMode = "numeric";
+    input.maxLength = 16;
+    const fmt = (v) => {
+      const d = v.replace(/\D/g, "").slice(0, 11);
+      if (d.length <= 2) return d ? "(" + d : "";
+      if (d.length <= 7) return "(" + d.slice(0, 2) + ") " + d.slice(2);
+      return "(" + d.slice(0, 2) + ") " + d.slice(2, 7) + "-" + d.slice(7);
+    };
+    if (input.value) input.value = fmt(input.value);
+    input.addEventListener("input", () => { input.value = fmt(input.value); });
+  });
+
+  screen.querySelector("#back").addEventListener("click", () => goToStep(F.steps.length - 1));
+
+  screen.querySelector("#form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const errBox = screen.querySelector("#err");
+    errBox.classList.remove("show");
+    const problems = [];
+    c.campos.forEach(f => {
+      const input = screen.querySelector(`#${f.id}`);
+      const msg = screen.querySelector(`#${f.id}-err`);
+      const val = input.value.trim();
+      let problem = "";
+      if (f.required && !val) problem = "Esse campo é obrigatório.";
+      else if (f.type === "tel" && val && val.replace(/\D/g, "").length < 11) problem = "Informe o WhatsApp completo com DDD.";
+      else if (f.type === "email" && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) problem = "Informe um e-mail válido.";
+      if (problem) {
+        problems.push(f.label);
+        input.setAttribute("aria-invalid", "true");
+        msg.textContent = "Erro: " + problem; msg.classList.add("show");
+      } else {
+        input.removeAttribute("aria-invalid"); msg.classList.remove("show");
+        state.answers[f.id] = val;
+      }
+    });
+    if (problems.length) {
+      errBox.textContent = "Confira os campos: " + problems.join(", ") + ".";
+      errBox.classList.add("show"); errBox.focus?.();
+      trackEvent("field_error", { step_id: "captura", fields: problems });
+      return;
+    }
+    const submitBtn = screen.querySelector("#submit");
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = '<span class="spinner"></span>Enviando...';
+    state.answers._completedAt = new Date().toISOString();
+    state.completed = true;
+    save();
+    trackEvent("funnel_complete", { padrao: padraoDoLead(), classificacao: classificacaoDoLead() });
+    /* Evento de conversao da campanha (objetivo: Leads). Dispara uma vez, no envio. */
+    try {
+      if (typeof fbq === "function") fbq("track", "Lead", {
+        content_name: "Diagnostico AUTOFOCO",
+        content_category: padraoDoLead(),
+        status: classificacaoDoLead(),
+      });
+    } catch (e) { }
+    enviarLead();
+    renderGerando();
+  });
+}
+
+/* Ponte entre o quiz e o diagnostico: 5 segundos de barra ate 100%, com o
+   passo a passo do que esta sendo feito. Da tempo do lead chegar na leitura
+   com a sensacao de que ela foi montada para ele. */
+function renderGerando() {
+  progressEl.hidden = true;
+  trackEvent("step_view", { step_id: "gerando" });
+  const passos = [
+    "Lendo as suas respostas...",
+    "Comparando com os quatro padrões de travamento...",
+    "Identificando o que se repete no seu caso...",
+    "Escrevendo a sua leitura...",
+    "Pronto. Abrindo o seu diagnóstico.",
+  ];
+  const screen = el(`
+    <section class="card screen gerando">
+      <span class="selo">Diagnóstico personalizado</span>
+      <h2>Estamos montando a sua leitura</h2>
+      <p class="status" id="gen-status">${passos[0]}</p>
+      <div class="gen-track"><div class="gen-bar" id="gen-bar"></div></div>
+      <p class="gen-pct" id="gen-pct">0%</p>
+    </section>`);
+  app.replaceChildren(screen);
+  scrollTop();
+
+  const DURACAO = 5000, TICK = 50;
+  const bar = screen.querySelector("#gen-bar");
+  const pct = screen.querySelector("#gen-pct");
+  const status = screen.querySelector("#gen-status");
+  let passado = 0;
+  const timer = setInterval(() => {
+    passado += TICK;
+    const p = Math.min(100, Math.round((passado / DURACAO) * 100));
+    bar.style.width = p + "%";
+    pct.textContent = p + "%";
+    const i = Math.min(passos.length - 1, Math.floor((p / 100) * passos.length));
+    if (status.textContent !== passos[i]) status.textContent = passos[i];
+    if (passado >= DURACAO) {
+      clearInterval(timer);
+      window.location.href = "diagnostico.html";
+    }
+  }, TICK);
+}
+
+function goToStep(i) { state.view = i; save(); renderStep(i); }
+
+function render() {
+  if (state.view === "captura") return renderCaptura();
+  if (typeof state.view === "number") return renderStep(state.view);
+  renderStep(0);
+}
+
+function offerResume(saved) {
+  const banner = el(`
+    <div class="resume">
+      Você começou a responder antes. Quer continuar de onde parou?
+      <div>
+        <button class="btn btn-primary" id="resume-yes">Continuar</button>
+        <button class="link" id="resume-no">Recomeçar</button>
+      </div>
+    </div>`);
+  app.replaceChildren(banner);
+  banner.querySelector("#resume-yes").addEventListener("click", () => { state = saved; render(); });
+  banner.querySelector("#resume-no").addEventListener("click", () => { clearSaved(); state = { view: 0, answers: {}, started: false }; render(); });
+}
+
+window.addEventListener("beforeunload", () => {
+  if (state.started && !state.completed && state.view !== "captura") trackEvent("funnel_abandon", { last_step: state.view });
+});
+
+(function init() {
+  trackEvent("page_view", { funil: "diagnostico-autofoco" });
+  const saved = loadSaved();
+  if (saved && saved.started && !(saved.answers && saved.answers._completedAt)) {
+    offerResume(saved);
+  } else {
+    render();
+  }
+})();
