@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Seu diagnóstico · Rafael Cobra</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <style>
+    :root{--bg:#FFFFFF;--text:#17140F}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font-family:"Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  </style>
+  <!-- PENDENTE: Pixel da Meta. Mesmo ID do index.html e do app.js. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Fontes do manual, carregadas sem bloquear a renderização: se o Google
+       Fonts demorar ou cair, a página abre na pilha local e nada trava. -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* --- específico do relatório --- */
+    .report-head { text-align: center; padding: 20px 0 6px; }
+    .report-head .selo { margin-bottom: 12px; }
+    .report-head h1 { font-size: 26px; }
+    .etapa { margin: 0 0 16px; }
+    .etapa h3 { font-size: 13px; text-transform: uppercase; letter-spacing: .08em; color: var(--primary); margin: 0 0 8px; }
+    .etapa p { margin: 0 0 10px; }
+
+    /* selo do índice (IRP) */
+    .irp { display: flex; align-items: center; gap: 16px; justify-content: center; text-align: left;
+      border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 20px; margin: 6px 0 12px;
+      background: color-mix(in srgb, var(--primary) 7%, var(--surface)); }
+    .irp-num { font-family: var(--font-serif); font-size: 42px; font-weight: 700; line-height: 1; color: var(--primary-700); }
+    .irp-txt { font-weight: 700; font-size: 16px; color: var(--text); }
+    .irp-txt span { display: block; font-weight: 400; font-size: 13px; color: var(--muted); margin-top: 3px; max-width: 260px; }
+    .irp.alta .irp-num { color: var(--wine); }
+    .irp.media .irp-num { color: var(--primary-700); }
+    .irp.baixa .irp-num { color: var(--petrol); }
+
+    /* resultado nomeado */
+    .resultado { display: inline-block; border: 1px solid color-mix(in srgb, var(--primary) 40%, var(--border));
+      background: var(--accent-soft); border-radius: 99px; padding: 8px 18px; margin: 2px 0 10px;
+      font-family: var(--font-serif); font-size: 17px; font-weight: 700; color: var(--primary-700); }
+
+    /* aviso de configuração: aparece se o WhatsApp não estiver preenchido */
+    .aviso { background: #FAEDEA; border: 1px solid #E8C6BE; color: var(--wine); border-radius: var(--radius-sm);
+      padding: 12px 14px; margin: 0 0 16px; font-size: 14.5px; text-align: left; }
+
+    .metodo { margin: 0; padding-left: 18px; }
+    .metodo li { margin: 0 0 8px; }
+    .metodo strong { color: var(--primary-700); }
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 8px 0; }
+    .compare .col { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 14px; background: var(--surface); }
+    .compare .col h4 { margin: 0 0 8px; font-size: 14px; }
+    .compare .col.bad h4 { color: var(--muted); }
+    .compare .col.good { background: color-mix(in srgb, var(--primary) 6%, var(--surface)); border-color: color-mix(in srgb, var(--primary) 30%, var(--border)); }
+    .compare ul { margin: 0; padding-left: 18px; font-size: 15px; color: var(--muted); }
+    .compare .good ul { color: var(--text); }
+    .cta-inline { text-align: center; margin: 22px 0; }
+    .cta-inline .btn { width: 100%; max-width: 420px; }
+
+    /* --- bloco de autoridade --- */
+    .autor { display: flex; align-items: center; gap: 15px; margin: 2px 0 14px; }
+    .autor-foto { width: 96px; height: 96px; flex: 0 0 96px; border-radius: 50%; object-fit: cover;
+      border: 2px solid var(--primary); background: var(--accent-soft); }
+    .autor-nome { display: block; font-family: var(--font-serif); font-size: 19px; font-weight: 700; letter-spacing: .05em; color: var(--primary-700); line-height: 1.15; }
+    .autor-cargo { display: block; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
+    .autor-ig { display: inline-block; font-size: 13.5px; color: var(--primary-700); font-weight: 600; margin-top: 7px; text-decoration: none; }
+    .autor-ig:hover { text-decoration: underline; }
+    .autor-fala { border-left: 3px solid var(--primary); padding: 2px 0 2px 14px; margin: 14px 0 6px;
+      font-family: var(--font-serif); font-size: 16.5px; line-height: 1.45; color: var(--text); }
+    .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0 6px; }
+    .cred { border: 1px solid var(--border); border-radius: var(--radius-sm); background: color-mix(in srgb, var(--primary) 5%, var(--surface)); padding: 13px 14px; }
+    .cred .n { font-family: var(--font-serif); font-size: 21px; font-weight: 700; color: var(--primary-700); line-height: 1.05; }
+    .cred .d { font-size: 12.5px; color: var(--muted); margin-top: 3px; }
+    .cred.full { grid-column: 1 / -1; }
+
+    /* --- depoimentos em vídeo --- */
+    /* Três vídeos verticais. No desktop os três cabem lado a lado e a faixa não
+       rola. No celular vira carrossel: cada item ocupa 64%, então o terceiro
+       aparece cortado na borda e a pessoa entende que dá para arrastar. */
+    .dep-videos { display: flex; gap: 12px; margin: 0 0 14px; overflow-x: auto;
+      scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin; padding-bottom: 4px; }
+    .dep-video { flex: 0 0 calc((100% - 24px) / 3); scroll-snap-align: start; margin: 0; }
+    .dep-video video { display: block; width: 100%; aspect-ratio: 9 / 16; object-fit: cover;
+      background: var(--ink); border: 1px solid var(--border); border-radius: var(--radius-sm); }
+    .dep-video figcaption { margin-top: 7px; text-align: center; font-size: 11.5px;
+      letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+    .dep-video figcaption b { display: block; font-size: 13px; letter-spacing: .02em;
+      text-transform: none; color: var(--primary-700); font-weight: 700; }
+
+    /* --- depoimentos em print ---
+       Print de conversa só serve se der para ler. Por isso os dois verticais
+       dividem a linha no desktop e ocupam a largura toda no celular, e o print
+       largo (do grupo) atravessa as duas colunas. Cada um abre em tamanho real
+       ao clicar, porque no celular nem o print inteiro fica legível. */
+    .dep-prints { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 0 0 8px; }
+    .dep-print { margin: 0; }
+    .dep-print.largo { grid-column: 1 / -1; }
+    .dep-print a { display: block; }
+    .dep-print img { width: 100%; height: auto; display: block; border: 1px solid var(--border);
+      border-radius: var(--radius-sm); background: var(--accent-soft); }
+    /* Os dois verticais têm proporções diferentes (0,90 e 0,72), então sem isto
+       uma legenda fica mais alta que a outra. object-fit:contain iguala a caixa
+       SEM cortar: print cortado é print ilegível. A sobra encosta no creme da
+       marca e passa por moldura. */
+    .dep-print:not(.largo) img { aspect-ratio: 3 / 4; object-fit: contain; }
+    .dep-print figcaption { margin-top: 7px; text-align: center; font-size: 11.5px;
+      letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+    .dep-print figcaption b { display: block; font-size: 13px; letter-spacing: .02em;
+      text-transform: none; color: var(--primary-700); font-weight: 700; }
+    .dep-dica { margin: 2px 0 14px; text-align: center; font-size: 12.5px; color: var(--muted); }
+
+    /* --- depoimentos --- */
+    .dep { border: 1px solid var(--border); border-left: 3px solid var(--primary);
+      border-radius: var(--radius-sm); background: var(--bg-2); padding: 16px 18px; margin: 0 0 12px; }
+    .dep p { margin: 0; font-size: 15.5px; line-height: 1.5; }
+    .dep .quem { display: block; margin-top: 10px; font-size: 12.5px; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--primary-700); font-weight: 600; }
+
+    /* FAQ. A estratégia dele pede o bloco, e ele responde objeção real, não
+       objeção inventada. Sem accordion: esse público lê, e esconder resposta
+       atrás de clique só cria atrito. */
+    .faq { margin: 0; }
+    .faq dt { font-weight: 700; color: var(--text); margin: 14px 0 4px; }
+    .faq dt:first-child { margin-top: 0; }
+    .faq dd { margin: 0; color: var(--muted); }
+
+    /* Para quem é e para quem não é */
+    .cta-box { background: color-mix(in srgb, var(--primary) 7%, var(--surface)); border: 1px solid color-mix(in srgb, var(--primary) 26%, var(--border)); border-radius: var(--radius); padding: 22px; text-align: center; margin-top: 8px; }
+    .clube { font-size: 15px; color: var(--muted); margin-top: 14px; }
+
+    @media (max-width: 520px){
+      .compare { grid-template-columns: 1fr; }
+      .dep-video { flex-basis: 64%; }
+      .dep-prints { grid-template-columns: 1fr; }
+      .cred-grid { grid-template-columns: 1fr; }
+      .irp { flex-direction: column; text-align: center; gap: 8px; }
+      .irp-txt span { max-width: none; }
+    }
+    @media print {
+      .no-print, .dep-videos { display: none !important; }
+      body { background: #fff; }
+      .card { box-shadow: none; border-color: #ddd; margin: 0; }
+      .topbar { color: #000; }
+      .etapa, .compare .col, .cta-box { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <span class="wordmark">Rafael Cobra</span>
+        <span class="brand-tag">Psicanalista</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card screen" id="report"></div>
+  </main>
+
+  <script src="flow.js" defer></script>
+  <script src="diagnostico.js" defer></script>
+</body>
+</html>
