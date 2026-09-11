@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Roadmap Estratégico Digital · Adriana Brunelly</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    padding: 16mm 18mm 24mm 18mm;
+    position: relative;
+    page-break-after: always;
+    background: #fff;
+  }
+  .page:last-child { page-break-after: auto; }
+  .runhead {
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; color: var(--muted);
+    letter-spacing: .06em; text-transform: uppercase;
+    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt;
+  }
+  .runfoot {
+    position: absolute; bottom: 9mm; left: 18mm; right: 18mm;
+    text-align: center; font-size: 7.5pt; color: var(--muted);
+  }
+  .kicker {
+    color: var(--gold); font-size: 9pt; font-weight: bold;
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt;
+  }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
+  .box-dark {
+    background: var(--navy-dark); color: #f5f3ee;
+    padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt;
+  }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light {
+    background: var(--beige); border-left: 3pt solid var(--gold);
+    padding: 10pt 14pt; margin: 11pt 0;
+  }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .fase-header {
+    background: var(--navy-dark); color: #fff;
+    padding: 10pt 16pt; margin-bottom: 10pt;
+    border-left: 4pt solid var(--gold);
+  }
+  .fase-header .fk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .fase-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .fase-header .fd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 12pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 38pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+  .footer-note { margin-top: 24pt; padding-top: 8pt; border-top: 1pt solid var(--gold); font-size: 8.5pt; color: var(--muted); width: 60%; }
+</style>
+</head>
+<body>
+
+<!-- PÁGINA 1 · CAPA -->
+<div class="page cover">
+  <div class="kicker">Plano de Ação Personalizado</div>
+  <h1>Roadmap<br>Estratégico<br>Digital</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    Da calçada, vendendo doce de porta em porta, à decoradora<br>
+    das festas de R$ 150 mil. Agora, a mentora.<br>
+    Os primeiros 90 dias. Passo a passo, fase a fase.<br>
+    Sem atalho, sem improviso, sem ideia solta.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">Adriana Brunelly</div>
+    <div class="lbl">Mentor Estratégico</div>
+    <div class="val">Daniel Souza</div>
+  </div>
+</div>
+
+<!-- PÁGINA 2 · CONTEXTO E DECISÕES FUNDAMENTAIS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Adriana Brunelly</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Começar</div>
+  <h1 style="font-size:19pt;">Contexto e Decisões Fundamentais</h1>
+  <p class="lead">Leia esta página inteira antes de executar qualquer passo. Todas as decisões a seguir partem do que está aqui.</p>
+
+  <div class="box-dark">
+    <div class="bt">A decisão mais importante deste plano</div>
+    <p>Um público, uma promessa, uma esteira. O público é <strong>dono de buffet, decoradora e doceira que já fatura bem e não vê o dinheiro sobrar</strong>. Nada de falar para o mercado de eventos inteiro. Nada de abrir frente nova antes de vender a mentoria.</p>
+    <p>E a promessa não entra pela palavra posicionamento. A sua própria pesquisa mostrou que 88% desse mercado não sabe o que isso significa. A porta de entrada é a dor que eles já sentem e já procuram no Google.</p>
+    <p><strong>Você não perde cliente por preço. Você perde porque o cliente ainda não percebeu o seu valor antes de ver o número.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A esteira: dois produtos, nenhum a mais</div>
+    <p><strong>WhatsApp de Valor · R$ 47 ·</strong> já está no ar, na Greenn. Papel: porta de entrada. Quem não tem caixa para a mentoria compra aqui, ajuda a pagar a mídia e vira aluno, ou seja, vira <strong>prova</strong>.</p>
+    <p><strong>Método ACA · R$ 30 mil ·</strong> carro-chefe. Encontro semanal, turma que abre e fecha, 90 dias de jornada. É ele que paga a operação.</p>
+    <p><strong>Regra dos 90 dias: não crie um terceiro produto.</strong> Nem intermediário, nem imersão, nem nada. Se aparecer objeção de valor na call, a resposta é forma de pagamento ou o produto de R$ 47. <strong>Nunca desconto no Método ACA.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A matemática dos R$ 30 mil por mês</div>
+    <p><strong>1 venda do Método ACA por mês = R$ 30 mil.</strong> É esse o primeiro degrau, e ele não é aleatório: é exatamente o lucro mensal que a decoração te dava antes de você fechar a empresa. O objetivo dos 90 dias é recolocar esse número no caixa, agora sem barracão, sem caminhão e sem 25 funcionários.</p>
+    <p>1 venda por mês, com conversão de 1 a cada 4 sessões, pede <strong>4 sessões de diagnóstico por mês</strong>, ou seja, 1 por semana. Para agendar 4 sessões por mês na base quente, a conta é de <strong>15 abordagens por dia útil</strong>: cerca de 330 no mês, 1 em cada 5 responde, 1 em cada 10 conversas vira sessão.</p>
+    <p>Esse número é <strong>operacional, não aspiracional.</strong> É só fazer.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Foco deste roadmap</div>
+    <p>Estes 90 dias existem para uma coisa só: <strong>tirar você do zero e deixar a mentoria vendendo todo mês</strong>. Meta do período: R$ 90 mil faturados e o funil no ar alimentando a agenda. Quando isso acontecer, vem o Roadmap 2, que trata de escala, dos R$ 30 mil aos R$ 100 mil por mês, com equipe e mídia maior. Não tente queimar etapas.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 3 · RITMO + RESPONSABILIDADES -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Adriana Brunelly</span><span>Página 3</span></div>
+  <div class="kicker">Como Vamos Trabalhar</div>
+  <h1 style="font-size:19pt;">Ritmo e Divisão de Responsabilidades</h1>
+  <p class="lead">Você pediu uma coisa na nossa conversa: alguém que fale clica aqui, põe o dedo aqui. É assim que este projeto vai funcionar.</p>
+
+  <div class="box-light">
+    <div class="bt">Ritmo de acompanhamento</div>
+    <p><strong>Reunião individual a cada 15 dias</strong> para leitura de números, identificação do gargalo da quinzena e ajuste do plano. Entre elas, o grupo privado no WhatsApp fica aberto todo dia, em horário comercial.</p>
+    <p>No grupo: <strong>Carlos Durães</strong> para entrega e estratégia, <strong>Renan Martini</strong> para tráfego, contas e números. Dúvida técnica, dúvida de execução, esboço para revisar: manda ali, não espera a reunião chegar.</p>
+    <p>A execução acontece <strong>entre as calls.</strong> As calls servem para afinar, não para decidir o que fazer. O que fazer já está aqui dentro.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Regra de comunicação deste projeto</div>
+    <p>Você escreveu no grupo que é leiga em tecnologia e que sigla em inglês te trava. <strong>Combinado assumido pela Simple:</strong> todo termo novo vem traduzido, e toda tarefa sua vem em passo a passo numerado, com print ou vídeo de um minuto quando precisar de clique.</p>
+    <p>Da sua parte, o combinado é o contrário: <strong>quando não entender, pergunte na hora.</strong> Ficar quieta para não atrapalhar é o único jeito de este projeto atrasar.</p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Divisão de responsabilidades</div>
+    <p><strong>A Simple constrói e opera:</strong> a copy do funil, as perguntas do quiz, a página de diagnóstico, os roteiros dos seus vídeos, os criativos, a planilha de leads, os scripts de abordagem e de negociação, a configuração e a gestão das campanhas.</p>
+    <p><strong>Adriana executa:</strong> as abordagens diárias, as sessões de diagnóstico, a gravação e a edição dos vídeos com os roteiros que a gente manda, a montagem da grade do Método ACA e a liberação dos acessos.</p>
+    <p>O funil coloca lead na porta. <strong>Quem coloca dinheiro no caixa é a rotina comercial.</strong></p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 4 · FASE 1 · CAIXA RÁPIDO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Adriana Brunelly</span><span>Página 4</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 1 · Dias 1 a 10</div>
+    <h2>Caixa Rápido</h2>
+    <div class="fd">Antes de qualquer anúncio: o dinheiro que já está na sua agenda de contatos.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que esta fase vem primeiro</div>
+    <p>Você tem 25 anos dentro do mercado que quer mentorar. Conhece dono de buffet pelo nome, sabe qual doceira não consegue cobrar, já dividiu salão com metade das decoradoras da região. <strong>Isso não é lista fria: é a sua vida profissional inteira.</strong></p>
+    <p>E é isso que financia a mídia. Tráfego pago sem caixa vira dívida. Venda feita na mão vira verba de campanha. Cliente nosso vendeu mentoria de R$ 36 mil em três dias rodando exatamente esta fase, sem um real de anúncio.</p>
+  </div>
+
+  <div class="passo-label">Passo 1</div>
+  <h3>Mapear tudo que já existe</h3>
+  <ul class="check">
+    <li>Montar uma planilha única de oportunidades, com nome, segmento, cidade, como você conhece a pessoa e qual a oportunidade.
+      <ul class="sub">
+        <li>Donos de buffet, decoradoras, doceiras e assessoras que você conhece pessoalmente de Londrina e região</li>
+        <li>Fornecedores e parceiros dos seus 25 anos: floricultura, som, foto, locação, espaços de festa</li>
+        <li>Alunas do curso que você vendeu em 2023, inclusive as de fora do Brasil</li>
+        <li>Quem já respondeu o seu formulário de diagnóstico no link da bio</li>
+        <li>Seguidores do Instagram que comentam e respondem story com frequência</li>
+      </ul>
+    </li>
+    <li>Classificar cada nome em três colunas: <strong>sessão de diagnóstico</strong>, <strong>indicação</strong> ou <strong>comprador do acervo</strong>.</li>
+    <li>Lista fechada até o dia 3. Meta mínima: 120 nomes.</li>
+  </ul>
+
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 5 · FASE 1 · PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Adriana Brunelly</span><span>Página 5</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 1 · Dias 1 a 10 · Parte 2</div>
+    <h2>Abordar e Converter</h2>
+    <div class="fd">A lista só vale se virar conversa, e a conversa só vale se virar caixa.</div>
+  </div>
+
+  <div class="passo-label">Passo 2</div>
+  <h3>Abordar com o script da Simple</h3>
+  <ul class="check">
+    <li>A Simple entrega os scripts prontos até o dia 2. São três: reencontro com quem já foi cliente ou parceiro, convite para sessão de diagnóstico e pedido de indicação qualificada.</li>
+    <li>Pedido de indicação sempre com perfil claro, nunca no vago.
+      <ul class="sub">
+        <li>Errado: você conhece alguém que precisa de ajuda?</li>
+        <li>Certo: você conhece algum dono de buffet que fatura bem e vive reclamando que não sobra nada no fim do mês?</li>
+      </ul>
+    </li>
+    <li>Nada de mensagem copiada e colada. Cada uma começa citando algo real da relação de vocês: a festa que você fez, o salão onde se cruzaram, o ano em que trabalharam juntas.</li>
+    <li><strong>Follow-up obrigatório em 2 dias</strong> para quem não respondeu. Quem some não é quem não quer: é quem está no operacional, montando salão. Esse é justamente o seu melhor cliente.</li>
+    <li>Registrar tudo na planilha no mesmo dia. Sem registro, não existe.</li>
+  </ul>
+
+  <div class="passo-label">Passo 3</div>
+  <h3>Transformar venda em verba de campanha</h3>
+  <ul class="check">
+    <li>O caixa que sair desta fase tem destino definido: <strong>mídia e ferramentas, não retirada.</strong> É esse dinheiro que coloca o funil no ar sem você tirar do próprio bolso.</li>
+    <li>Venda parcelada no cartão: avaliar a <strong>antecipação de recebíveis</strong> para ter a verba disponível ainda neste mês. O custo da antecipação é pequeno perto de um mês a mais sem campanha.</li>
+    <li>Levar o resultado fechado para a reunião quinzenal: quantos nomes, quantas respostas, quantas sessões, quanto entrou.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da Fase 1 · até o dia 10</div>
+    <p>120 nomes mapeados · 100% da base abordada · 20 conversas ativas · <strong>4 sessões de diagnóstico agendadas</strong> · primeira venda ou primeira negociação do acervo encaminhada.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 5 · FASE 2 · OFERTA E POSICIONAMENTO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Adriana Brunelly</span><span>Página 6</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 2 · Dias 1 a 14</div>
+    <h2>Oferta e Posicionamento</h2>
+    <div class="fd">Fechar a grade do Método ACA e arrumar a casa onde o lead vai cair.</div>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Prioridade máxima</div>
+    <p>Quando o lead clicar no seu perfil, ele precisa encontrar <strong>a especialista</strong>, não a decoradora que parou. Hoje são 6.136 seguidores e um feed que ainda conta a história antiga. A pessoa decide em três segundos se você é quem ela procurava.</p>
+  </div>
+
+  <div class="passo-label">Passo 4</div>
+  <h3>Fechar a grade do Método ACA</h3>
+  <ul class="check">
+    <li>Assistir à aula <strong>Como Montar o High Ticket</strong> na área de membros. É a primeira coisa a fazer, antes de escrever qualquer linha da oferta.</li>
+    <li>Escrever a grade a partir do que você decidiu na call: <strong>encontro semanal, turma que abre e fecha, jornada de 90 dias</strong>. As três camadas do ACA viram as três fases: Autorreconhecimento, Conexão e Comunicação, Autoridade.
+      <ul class="sub">
+        <li>Semana 1 precisa entregar <strong>um resultado pequeno e concreto</strong>. Foi o que faltou no curso de 2023, quando as alunas acharam denso. Sugestão: a aluna sai da primeira semana com a própria Dívida de Valor calculada, em reais</li>
+        <li>Definir o que fica fora do escopo, para deixar explícito na página</li>
+      </ul>
+    </li>
+    <li>Definir preço e pagamento: R$ 30 mil, em até 12 vezes, condição à vista definida por você. <strong>O valor não cai.</strong> Mande o esboço no grupo na primeira versão, sem esperar ficar pronto.</li>
+  </ul>
+
+  <div class="box-dark">
+    <div class="bt">A regra que resolve a sua trava de sempre</div>
+    <p>Aqui a gente vende primeiro e detalha depois. Você não precisa da mentoria 100% montada para começar a conversar com cliente. Precisa da promessa clara, da grade em pé e do preço definido. <strong>O resto se constrói com a primeira turma dentro.</strong></p>
+  </div>
+
+  <div class="passo-label">Passo 5</div>
+  <h3>Reescrever o Instagram</h3>
+  <ul class="check">
+    <li>Bio na fórmula quem eu ajudo, qual resultado, qual credencial, qual o próximo passo.
+      <ul class="sub">
+        <li>Sugestão pronta: Ajudo buffets, decoradores e doceiras a cobrarem o que valem · 25 anos no mercado de eventos, de festa de R$ 8 mil a projeto de R$ 165 mil · Faça seu diagnóstico gratuito</li>
+      </ul>
+    </li>
+    <li>Quatro destaques: <strong>Comece aqui</strong>, <strong>Quem sou</strong>, <strong>O Método ACA</strong>, <strong>Resultados</strong>.</li>
+    <li>Dois posts fixados: a virada de 2017 (a semana dos 13 eventos) e o convite para o diagnóstico.</li>
+    <li>Fotos: você avisou que não tem nenhuma. A Simple manda até o dia 5 um roteiro de roupa, fundo, luz e enquadramento para resolver com o celular, sem estúdio. E garimpe no seu próprio feed as fotos das festas de alto padrão: elas são prova visual e já estão lá.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 6 · FASE 3 · AQUISIÇÃO MANUAL PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Adriana Brunelly</span><span>Página 7</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 3 · Dias 1 a 90 · Parte 1</div>
+    <h2>Aquisição Manual</h2>
+    <div class="fd">O motor principal dos 90 dias. Roda todo dia, com ou sem anúncio no ar.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que o manual anda junto com o funil</div>
+    <p>Desde 2023 você não faz uma venda no digital. Não é falta de produto e não é falta de método: é que <strong>nenhuma conversa de venda está acontecendo</strong>. Funil nenhum resolve isso sozinho, e o funil ainda vai levar algumas semanas para ficar de pé.</p>
+    <p>Tem outro motivo, e ele é o mais importante para a copy: <strong>as objeções reais só aparecem na conversa</strong>. Cada sessão que você fizer nas próximas semanas devolve para a gente a frase exata que a sua cliente usa. É com essa frase que a gente escreve o quiz e os anúncios.</p>
+  </div>
+
+  <div class="passo-label">Passo 6</div>
+  <h3>Assistir às aulas de aquisição</h3>
+  <ul class="check">
+    <li>Social Selling partes 1 e 2, Outbound, Call de Vendas um a um e Pré-Vendas. Nessa ordem, na área de membros.</li>
+    <li>Não é conteúdo para acumular: é para executar na mesma semana. <strong>Sem isso você está improvisando, e improviso na frente da venda queima lead bom.</strong> Você vende há 25 anos, então o que muda aqui é o ambiente, não a habilidade.</li>
+  </ul>
+
+  <div class="passo-label">Passo 7</div>
+  <h3>Montar a rotina e o controle</h3>
+  <ul class="check">
+    <li>Bloquear <strong>90 minutos por dia, no mesmo horário</strong>, só para abordagem. Essa é a hora mais cara do seu dia. Nada entra na frente dela.</li>
+    <li>Usar a planilha de controle que a Simple entrega: nome, origem, data da abordagem, data do follow-up, status e próxima ação com data.</li>
+    <li>Mapear leads novos toda semana, para a lista nunca secar.
+      <ul class="sub">
+        <li>Hashtags e geolocalização de salões e buffets nas cidades médias do Paraná e de São Paulo</li>
+        <li>Perfis que seguem as grandes referências de decoração e confeitaria</li>
+        <li>Expositores e visitantes das feiras do setor</li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="passo-label">Passo 8</div>
+  <h3>Executar as abordagens diárias</h3>
+  <ul class="check">
+    <li><strong>Mês 1: 15 abordagens por dia útil.</strong> Mês 2: 20 por dia. Mês 3: 30 por dia, já misturando com os leads que chegam pelo quiz.</li>
+    <li>Distribuição no mês 1: 70% base quente (quem você conhece), 30% social selling frio. A partir do mês 2, inverter conforme a base quente vai sendo trabalhada.</li>
+    <li>Sempre personalizada, sempre citando algo real do perfil da pessoa. O seu diferencial aqui é brutal: <strong>você fala a língua dela porque você foi ela.</strong></li>
+    <li>Follow-up em 2 dias, sem exceção, e no máximo 4 toques antes de parar.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 7 · FASE 3 · AQUISIÇÃO MANUAL PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Adriana Brunelly</span><span>Página 8</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 3 · Dias 1 a 90 · Parte 2</div>
+    <h2>A Sessão de Diagnóstico</h2>
+    <div class="fd">A conversa que transforma abordagem em venda de R$ 30 mil.</div>
+  </div>
+
+  <div class="passo-label">Passo 9</div>
+  <h3>Conduzir a sessão</h3>
+  <ul class="check">
+    <li>Assistir à aula de Call de Vendas um a um <strong>antes</strong> da primeira sessão. Os scripts e a matriz de objeções vêm da Simple.</li>
+    <li>Gravar todas as sessões, com o aviso à pessoa no começo. <strong>Revisar as três primeiras junto com o mentor</strong> na reunião quinzenal.</li>
+    <li>A sessão segue a lógica do seu próprio método: primeiro a pessoa enxerga quanto está deixando na mesa, depois entende por quê, e só então ouve a proposta.
+      <ul class="sub">
+        <li>Abertura: quanto você fatura, quanto acha que sobra, quanto sobra de verdade</li>
+        <li>Implicação: quanto de desconto, quanto de extra não cobrado, quantos projetos de baixa margem por mês. Isso é a Dívida de Valor dela, em reais</li>
+        <li>Virada: a pergunta não é quanto custa entrar. É <strong>quanto custa continuar igual</strong></li>
+        <li>Proposta: Método ACA, R$ 30 mil, formas de pagamento</li>
+      </ul>
+    </li>
+    <li>Objeção de valor nunca vira desconto. Vira forma de pagamento, ou vira o produto de R$ 47.</li>
+    <li>Toda sessão sem fechamento sai com <strong>próximo passo com data marcada</strong>. Nunca com vou pensar.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">A sua prova, enquanto não existe depoimento de aluna</div>
+    <p>Você não tem depoimento de aluno ainda, e tudo bem: <strong>a prova é você</strong>. Use os seus números, que são verificáveis e são raros nesse mercado.</p>
+    <p>Faturava R$ 2 milhões com 15% de margem. Reposicionou, passou a atender só quem pagava de R$ 20 mil para cima e faturou R$ 1,2 milhão com 40%. <strong>Faturou 40% menos e lucrou 60% mais.</strong> De R$ 300 mil para R$ 480 mil de lucro, com menos festa, menos equipe e menos noite sem dormir.</p>
+    <p>E o fecho que ninguém copia: já em transição de carreira, sem postar decoração, uma cliente insistiu e fechou <strong>R$ 165 mil</strong> com você, de outro estado.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Metas numéricas desta fase</div>
+    <p><strong>Dia 30:</strong> 300 abordagens feitas · 4 a 6 sessões realizadas · <strong>1 venda do Método ACA</strong></p>
+    <p><strong>Dia 60:</strong> 4 a 8 sessões no mês · <strong>2 vendas acumuladas</strong> · primeiras vendas do produto de R$ 47</p>
+    <p><strong>Dia 90:</strong> 10 a 12 sessões no mês, já com lead do funil · <strong>3 vendas acumuladas, R$ 90 mil no período</strong> · turma 1 do Método ACA rodando</p>
+    <p><strong>Alerta vermelho:</strong> chegou no dia 30 com menos de 4 sessões realizadas, o problema é volume de abordagem. Chegou com 6 sessões e nenhuma venda, o problema é fechamento ou qualificação, não é o produto. Nos dois casos: pausar, levar as gravações para a reunião e ajustar antes de seguir.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 8 · FASE 4 · CONTEÚDO ORGÂNICO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Adriana Brunelly</span><span>Página 9</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 4 · Dias 1 a 90</div>
+    <h2>Conteúdo Orgânico</h2>
+    <div class="fd">Roda em paralelo. Não é pré-requisito para venda.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">A vantagem que você já tem e não está usando</div>
+    <p>Você fez três anos de stories diários e viu a empresa explodir sem saber o que era tráfego. <strong>Você já sabe fazer conteúdo.</strong> O que muda agora é o assunto: antes você mostrava a festa pronta, agora você mostra a conta por trás da festa.</p>
+  </div>
+
+  <div class="passo-label">Passo 10</div>
+  <h3>Falar nos três níveis de consciência</h3>
+  <ul class="check">
+    <li><strong>Quem nem sabe que tem o problema:</strong> a doceira que acha que está indo bem porque a agenda está cheia.
+      <ul class="sub">
+        <li>Agenda cheia não é sinal de lucro. Já vi buffet lotado fechar as portas</li>
+        <li>Quanto custa o extra que você fez de graça no último evento</li>
+      </ul>
+    </li>
+    <li><strong>Quem sabe que tem o problema:</strong> quem já percebeu que trabalha demais e não sobra.
+      <ul class="sub">
+        <li>Por que o cliente pede desconto, e o que ninguém te fala sobre isso</li>
+        <li>Mandei o orçamento e a pessoa sumiu. O erro aconteceu antes do orçamento</li>
+        <li>Como aumentar o preço sem perder o cliente</li>
+      </ul>
+    </li>
+    <li><strong>Quem já sabe o que quer:</strong> os bastidores do Método ACA, a turma, o antes e depois.</li>
+    <li>Regra de ouro do seu conteúdo: <strong>não use a palavra posicionamento no gancho.</strong> Use dinheiro, cliente, desconto, orçamento, margem. Posicionamento é o que você entrega, não o que você anuncia.</li>
+  </ul>
+
+  <div class="passo-label">Passo 11</div>
+  <h3>Manter a rotina e gravar o material do funil</h3>
+  <ul class="check">
+    <li>12 publicações por semana, produzidas em lote em um único dia. CTA sempre para o diagnóstico.</li>
+    <li>Gravar os vídeos dos criativos com os roteiros que a Simple manda. Vão junto: gancho, texto, CTA e orientação de edição e de trilha.
+      <ul class="sub">
+        <li>Trilha instrumental, como você já faz. Música com direito autoral reprova criativo no Meta</li>
+      </ul>
+    </li>
+    <li>Começar a captar depoimento desde o dia 1, sem esperar a primeira turma.
+      <ul class="sub">
+        <li>Alunas do curso de 2023 que tiveram qualquer resultado, mesmo pequeno</li>
+        <li>Clientes e parceiros dos 25 anos de decoração, em print e em vídeo</li>
+        <li>A Simple envia o guia com as perguntas prontas</li>
+      </ul>
+    </li>
+    <li>Subir tudo no Drive do projeto, na pasta de Material Visual, assim que gravar.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 9 · FASE 5 · FUNIL PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Adriana Brunelly</span><span>Página 10</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 5 · Dias 15 a 60 · Parte 1</div>
+    <h2>Funil de Quiz</h2>
+    <div class="fd">A Simple constrói. Você aprova, grava e recebe o lead pronto.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Como o funil funciona, em português</div>
+    <p>O anúncio não convida ninguém para uma reunião. Convida para um <strong>diagnóstico gratuito</strong>: a pessoa responde algumas perguntas sobre o negócio dela e recebe na hora um relatório com a <strong>Dívida de Valor dela, em reais</strong>, ou seja, quanto ela está deixando na mesa por ano em desconto, extra não cobrado e projeto de baixa margem.</p>
+    <p>Quem tem caixa e perfil cai na página que convida para a sessão com você. <strong>Quem não tem cai na página do produto de R$ 47</strong>, compra, entra na sua base e ajuda a pagar o anúncio. Ninguém é desperdiçado.</p>
+    <p>E tudo que a pessoa respondeu chega até você antes da conversa: segmento, tempo de mercado, faturamento, o que mais dói. <strong>Você chega na conversa já sabendo com quem está falando.</strong></p>
+  </div>
+
+  <div class="passo-label">Passo 12</div>
+  <h3>Aprovar a estratégia e a copy</h3>
+  <ul class="check">
+    <li>A Simple entrega, na semana seguinte à aprovação deste roadmap: a big idea, as perguntas do quiz, a página de diagnóstico, a copy dos anúncios e os roteiros dos seus vídeos.</li>
+    <li>O seu papel na aprovação é um só, e é insubstituível: <strong>ler em voz alta e dizer se é a sua voz.</strong> Se tiver uma frase que você nunca falaria, marque. A gente reescreve.</li>
+    <li>Prazo de aprovação: 48 horas. Cada dia parado aqui é um dia a mais sem lead.</li>
+  </ul>
+
+  <div class="passo-label">Passo 13</div>
+  <h3>Resolver a infraestrutura</h3>
+  <ul class="check">
+    <li>Liberar para o Renan: Instagram, página do Facebook, gerenciador de negócios e conta de anúncio. Agendamento na segunda-feira da semana seguinte.</li>
+    <li><strong>Conta de anúncio pré-paga.</strong> Você não usa cartão de crédito, então a conta vai funcionar com Pix ou boleto. Duas consequências para combinar desde já:
+      <ul class="sub">
+        <li>A campanha para de rodar quando o saldo acaba. Alguém precisa acompanhar a recarga, e esse alguém é você</li>
+        <li>A gente testa com um valor pequeno antes de depender disso</li>
+      </ul>
+    </li>
+    <li>Definir em qual nome fica cada conta, já que você avisou que o registro será no nome da sua irmã. <strong>Conferir também o checkout que já está no ar na Greenn</strong>, antes da primeira venda, não depois.</li>
+    <li>Resolver o armazenamento do Drive, que está cheio, e trocar a máquina quando o caixa permitir. A Simple manda a sugestão de equipamento com melhor custo e benefício.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 10 · FASE 5 · FUNIL PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Adriana Brunelly</span><span>Página 11</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 5 · Dias 15 a 60 · Parte 2</div>
+    <h2>Tráfego e Leitura de Números</h2>
+    <div class="fd">Começar pequeno, ler o dado, só então colocar mais dinheiro.</div>
+  </div>
+
+  <div class="passo-label">Passo 14</div>
+  <h3>Subir as campanhas</h3>
+  <ul class="check">
+    <li>Gestão do <strong>Renan Martini</strong>. Início assim que houver caixa da Fase 1 e os criativos gravados.</li>
+    <li>Verba inicial de validação: <strong>R$ 50 por dia, cerca de R$ 1.500 no mês</strong>. Esse é o valor para aprender, não para escalar. Ele sai do caixa rápido, não do seu bolso.</li>
+    <li>Segmentação pelo nicho: interesses de buffet, confeitaria, decoração e festas, nas cidades médias e grandes do Paraná e de São Paulo, onde está a maior concentração do seu mercado.</li>
+    <li>Promessa dos anúncios sem número de faturamento explícito, para não reprovar no Meta.</li>
+  </ul>
+
+  <div class="passo-label">Passo 15</div>
+  <h3>Ler as métricas a cada 7 dias</h3>
+  <ul class="check">
+    <li>Quatro números, e só. O Renan leva a leitura pronta para a reunião.
+      <ul class="sub">
+        <li>Custo por lead acima da meta, o problema é o criativo</li>
+        <li>Menos de 40% das pessoas terminando o quiz, o problema são as perguntas</li>
+        <li>Menos de 60% comparecendo na sessão, o problema é o follow-up</li>
+        <li>Sessão acontecendo e não fechando, o problema é a conversa, e a gente revisa a gravação junto</li>
+      </ul>
+    </li>
+    <li>Nada de mexer em campanha no susto. <strong>Sete dias de dado antes de qualquer decisão.</strong></li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Regra de ouro do tráfego para ticket alto</div>
+    <p>Uma venda do Método ACA paga <strong>vinte meses</strong> de mídia nesse orçamento inicial. Por isso o jogo aqui não é lead barato: é lead certo. Se vier pouco lead e caro, mas do perfil que fatura de R$ 40 mil a R$ 100 mil por mês, a campanha está certa.</p>
+    <p>E o produto de R$ 47 tem um papel específico nessa conta: ele não sustenta a mídia sozinho, mas transforma quem não pode pagar a mentoria em <strong>aluna, lista e depoimento</strong>. Meta do período: 100 alunas no WhatsApp de Valor.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 11 · BÔNUS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Adriana Brunelly</span><span>Página 12</span></div>
+  <div class="fase-header">
+    <div class="fk">Bônus · A partir do dia 60</div>
+    <h2>Os Ativos Que Só Você Tem</h2>
+    <div class="fd">Planta agora, colhe no mês 4 e 5. Sem tirar o foco dos 90 dias.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que entra agora, e não antes</div>
+    <p>Nada aqui pode competir com a rotina de abordagem e com o funil. Estes três ativos entram quando a máquina principal já estiver girando, porque são de ciclo longo e retorno alto.</p>
+  </div>
+
+  <div class="passo-label">Bônus 1</div>
+  <h3>A venda do acervo, que é a sua própria tese</h3>
+  <ul class="check">
+    <li>O comprador do seu barracão não é qualquer um: é <strong>quem tem espaço ou buffet e quer somar decoração para aumentar a margem</strong>. Você mesma disse que quando junta decoração com buffet, o negócio explode.</li>
+    <li>São pessoas que você conhece pelo nome. <strong>Isso é indicação e conversa direta, não é campanha.</strong> Foi por isso que o anúncio que você tentou trouxe lead desqualificado.</li>
+    <li>Vender o acervo para um dono de espaço é uma <strong>consultoria de margem disfarçada de venda de móvel</strong>. A pessoa compra o material e você entrega, junto, como precificar aquilo. É a porta natural para o Método ACA.</li>
+  </ul>
+
+  <div class="passo-label">Bônus 2</div>
+  <h3>Parceria com espaços e buffets</h3>
+  <ul class="check">
+    <li>Mapear de 5 a 10 espaços de festa e buffets de médio porte da região para uma proposta de treinamento da equipe comercial deles.</li>
+    <li>Ciclo de venda mais longo e ticket maior, por isso planta agora.</li>
+    <li>Meta: <strong>3 conversas em andamento até o dia 90</strong>, não fechamento.</li>
+  </ul>
+
+  <div class="passo-label">Bônus 3</div>
+  <h3>Feiras e eventos do setor</h3>
+  <ul class="check">
+    <li>O seu mercado ainda se encontra presencialmente, e você é conhecida nesse circuito. Mapear as feiras do setor do próximo semestre.</li>
+    <li>Ir como visitante primeiro, com uma meta clara de conversas e o link do diagnóstico na mão.</li>
+    <li>Palco vem depois, quando houver caso de aluna para contar.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 12 · CHECKPOINTS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Adriana Brunelly</span><span>Página 13</span></div>
+  <div class="kicker">Checkpoints de Progresso</div>
+  <h1 style="font-size:19pt;">Como Saber Que Você Está no Caminho Certo</h1>
+  <p class="lead">Cada checkpoint marca o final de uma janela. Se algum item não estiver fechado, leve para a próxima call quinzenal. Ajuste de rota imediato, sem esconder.</p>
+
+  <h3 class="navy" style="margin-top:10pt;">CHECKPOINT 1 · DIA 10 (Caixa Rápido)</h3>
+  <ul class="check">
+    <li>Planilha com 120 nomes mapeados e classificados</li>
+    <li>100% da base abordada, com follow-up registrado</li>
+    <li>4 sessões de diagnóstico agendadas</li>
+    <li>Grade do Método ACA em esboço, enviada no grupo</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:10pt;">CHECKPOINT 2 · DIA 14 (Oferta e Casa Arrumada)</h3>
+  <ul class="check">
+    <li>Método ACA fechado: grade, entregáveis, preço e formas de pagamento</li>
+    <li>Instagram reescrito: bio, 4 destaques, 2 posts fixados e foto nova</li>
+    <li>Aulas de aquisição assistidas</li>
+    <li>Copy do funil aprovada e roteiros de vídeo recebidos</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:10pt;">CHECKPOINT 3 · DIA 30 (Primeira Venda)</h3>
+  <ul class="check">
+    <li>300 abordagens feitas e registradas</li>
+    <li>4 a 6 sessões realizadas e gravadas</li>
+    <li><strong>1 venda do Método ACA</strong></li>
+    <li>Vídeos dos criativos gravados e no Drive</li>
+    <li>Acessos liberados e conta de anúncio pré-paga testada</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:10pt;">CHECKPOINT 4 · DIA 60 (Funil no Ar)</h3>
+  <ul class="check">
+    <li>Quiz e página de diagnóstico publicados e recebendo lead</li>
+    <li>Campanhas rodando com verba do caixa rápido</li>
+    <li>2 vendas acumuladas do Método ACA</li>
+    <li>Primeiras vendas do WhatsApp de Valor e primeiros depoimentos gravados</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:10pt;">CHECKPOINT 5 · DIA 90 (Máquina Girando)</h3>
+  <ul class="check">
+    <li>3 vendas acumuladas, R$ 90 mil faturados no período</li>
+    <li>Turma 1 do Método ACA rodando com encontro semanal</li>
+    <li>10 a 12 sessões no mês, com lead vindo do funil</li>
+    <li>Custo por lead e taxa de comparecimento dentro da meta</li>
+    <li><strong>Pronto para receber o Roadmap 2</strong></li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 13 · MATERIAIS DE APOIO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Adriana Brunelly</span><span>Página 14</span></div>
+  <div class="kicker">Materiais de Apoio</div>
+  <h1 style="font-size:19pt;">Recursos para Executar o Plano</h1>
+  <p class="lead">Tudo abaixo está na área de membros ou vem pelo grupo. Se algum link não foi compartilhado, peça no grupo. Você não precisa assistir tudo de uma vez: cada material está amarrado a um passo.</p>
+
+  <ul class="check">
+    <li><strong>Como Montar o High Ticket</strong>
+      <ul class="sub"><li>Para o Passo 4. É a primeira aula a assistir, antes de escrever a grade do Método ACA</li></ul>
+    </li>
+    <li><strong>Social Selling partes 1 e 2</strong>
+      <ul class="sub"><li>Para os Passos 6 e 8. Como abordar sem parecer vendedora de mensagem pronta</li></ul>
+    </li>
+    <li><strong>Outbound</strong>
+      <ul class="sub"><li>Para o Passo 8, quando a base quente começar a esgotar</li></ul>
+    </li>
+    <li><strong>Call de Vendas um a um</strong>
+      <ul class="sub"><li>Para o Passo 9. Assistir antes da primeira sessão, não depois</li></ul>
+    </li>
+    <li><strong>Pré-Vendas e planilha de controle</strong>
+      <ul class="sub"><li>Para o Passo 7. A planilha vem pronta, é só preencher</li></ul>
+    </li>
+    <li><strong>Scripts de caixa rápido, abordagem e negociação</strong>
+      <ul class="sub"><li>Para as Fases 1 e 3. A Simple entrega até o dia 2</li></ul>
+    </li>
+    <li><strong>Roteiro de fotos e roteiros de vídeo</strong>
+      <ul class="sub"><li>Para os Passos 5 e 11. Inclui o que vestir, fundo, luz, gancho, texto e edição</li></ul>
+    </li>
+    <li><strong>Guia de captação de depoimentos</strong>
+      <ul class="sub"><li>Para o Passo 11. As perguntas prontas para mandar para quem já foi sua aluna ou cliente</li></ul>
+    </li>
+    <li><strong>Auditoria de social selling com a Cecilia</strong>
+      <ul class="sub"><li>Bônus do seu contrato. Entra quando as abordagens estiverem rodando</li></ul>
+    </li>
+    <li><strong>Método Simple Growth e Growth Model</strong>
+      <ul class="sub"><li>Para as Fases 5. Como o funil de quiz funciona e quais alavancas mexer em cada número</li></ul>
+    </li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 14 · FECHAMENTO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Adriana Brunelly</span><span>Página 15</span></div>
+  <div style="padding-top:32mm;">
+    <div class="kicker">Lembre-se Sempre Disto</div>
+    <h1 style="font-size:19pt;">Antes de Fechar Este Documento</h1>
+    <p style="margin-top:10pt;">Adriana, você entrou nesse mercado vendendo doce na calçada e saiu dele como uma das decoradoras mais reconhecidas da sua cidade. Você teve 25 funcionários, fundou um dos melhores buffets da região e, numa segunda-feira de 2017, depois de entregar 13 eventos em uma semana, sentou na frente do computador e descobriu sozinha o que consultor nenhum tinha te falado: que quem vende para todo mundo não se posiciona para ninguém.</p>
+    <p>Aí você fez o que quase ninguém faz. Demitiu, cortou, reduziu faturamento de propósito e <strong>lucrou mais trabalhando menos</strong>. Esses três anos parada no digital não foram falta de talento, não foram falta de método e não foram falta de produto. Você tem os três.</p>
+    <p><strong class="navy">Foi falta de ordem e de alguém dizendo exatamente o que fazer primeiro.</strong></p>
+    <p>É isso que este documento é. Este roadmap é o método. A execução é sua. A cada 15 dias o mentor estratégico vai te encontrar na conversa quinzenal, mas o que coloca dinheiro no caixa é o que você faz <strong>entre as calls</strong>.</p>
+    <p>Dúvidas no meio do caminho: mande no grupo. Não espere a próxima call para perguntar, e não fique quieta achando que a pergunta é boba. Aqui a pergunta boba é a que não é feita.</p>
+    <p style="margin-top:12pt;">Você tem 25 anos de estrada no mercado que quer mentorar. Você tem um método com nome e uma tese que é só sua. Você tem a prova nos seus próprios números. Você tem o produto de entrada no ar e a mentoria desenhada. Você tem o método.</p>
+    <p><strong class="navy">O próximo passo é começar.</strong></p>
+    <div class="footer-note">Roadmap Estratégico Digital · Adriana Brunelly · 90 dias · Versão 1.0</div>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+</body>
+</html>

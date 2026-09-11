@@ -59,9 +59,14 @@ onde a outra parou (o Git é a memória compartilhada).
 >   — quem ela é, como pensa e os riscos do projeto.
 > - [`contexto/2026-09-07-escopo-vendido-e-condicao-comercial.md`](contexto/2026-09-07-escopo-vendido-e-condicao-comercial.md)
 >   — o que foi vendido e a condição comercial.
+> - [`estrategia/2026-09-11-estrategia-completa-funil-quiz.md`](estrategia/2026-09-11-estrategia-completa-funil-quiz.md)
+>   — **a estratégia do funil**: big idea, quiz, páginas, anúncios, relatório de diagnóstico,
+>   cadência de 12 dias, tarefas e recomendações.
+>   [Google Doc](https://docs.google.com/document/d/1bTWhmiAQLDfolAMmiHonlFOspKiibov0aYoCRqebM3o/edit).
+> - [`estrategia/2026-09-11-roadmap-estrategico-adriana-brunelly.html`](estrategia/2026-09-11-roadmap-estrategico-adriana-brunelly.html)
+>   — roadmap de 90 dias (PDF na mesma pasta).
 > - [`estrategia/2026-09-10-roteiro-call-mapa-estrategico-v2.md`](estrategia/2026-09-10-roteiro-call-mapa-estrategico-v2.md)
->   — roteiro da call de onboarding (v2). Versão editável no Drive:
->   [Google Doc](https://docs.google.com/document/d/1a11lzbMs41h4_8xUGmhf3JZlALDV35gnrV62vEeknvg/edit), em `3. Estratégia e Tráfego` (pasta interna).
+>   — roteiro da call de onboarding, já realizada.
 
 > ⚠️ **Ela é leiga em tecnologia e pede desculpa antes de perguntar.** Escreveu no grupo:
 > *"sou bem leiga... entendo muito pouco sobre tráfego e automação (Please socorro) NADA NA
@@ -92,9 +97,16 @@ onde a outra parou (o Git é a memória compartilhada).
    pré-paga com Pix/boleto, e isso muda a operação (para de veicular quando o saldo acaba).
 4. **Sem fotos.** Nem dela, nem organizadas dos serviços.
 
-## Estado do projeto (10/09/2026)
+## Estado do projeto (11/09/2026)
 
-Contrato fechado em 04/09, nada implementado. Ela **já entregou os materiais de método e
-pesquisa** (ver `contexto/materiais-cliente/`) e está ativa no grupo do WhatsApp. A call de
-onboarding (Mapa Estratégico) ainda não aconteceu — confirmar a data. O caixa dela é curto e
-depende do funil vender.
+Contrato fechado em 04/09, **onboarding feito em 10/09**. Roadmap de 90 dias e estratégia
+completa entregues em 11/09, aguardando aprovação dela para a Simple construir quiz, páginas
+e criativos.
+
+**A ordem combinada na call, por Teoria das Restrições:** caixa rápido na base de 25 anos
+primeiro, funil depois, mídia por último e com dinheiro da venda manual. O caixa dela é curto
+e depende do funil vender.
+
+**Decisões da call:** mentoria com **encontro semanal, turma que abre e fecha, 90 dias** ·
+a autoridade dela substitui o depoimento de aluna enquanto não existir · vende primeiro,
+detalha depois.

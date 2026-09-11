@@ -11,10 +11,15 @@ ticket "WhatsApp de valor" como caminho para quem não qualifica.
 O método dela tem nome — **ACA®** (Autorreconhecimento → Conexão e Comunicação → Autoridade)
 — e uma tese proprietária escrita, a **"Dívida de Valor"**.
 
-Status: **onboarding.** A call do Mapa Estratégico ainda não aconteceu (confirmar data) —
-roteiro em
-[`estrategia/2026-09-10-roteiro-call-mapa-estrategico-v2.md`](estrategia/2026-09-10-roteiro-call-mapa-estrategico-v2.md)
-(**v2** — a v1 foi escrita antes de ela mandar os materiais).
+Status: **estratégia entregue.** Onboarding feito em **10/09/2026**. Roadmap de 90 dias e
+estratégia completa com as copies do funil prontos em 11/09, aguardando aprovação dela.
+
+**Entregas:**
+- [Roadmap Estratégico de 90 dias](estrategia/2026-09-11-roadmap-estrategico-adriana-brunelly.html)
+  (HTML fonte + PDF na mesma pasta)
+- [Estratégia completa · funil de quiz](estrategia/2026-09-11-estrategia-completa-funil-quiz.md) ·
+  [Google Doc editável](https://docs.google.com/document/d/1bTWhmiAQLDfolAMmiHonlFOspKiibov0aYoCRqebM3o/edit)
+- [Roteiro da call de onboarding (v2)](estrategia/2026-09-10-roteiro-call-mapa-estrategico-v2.md)
 
 ## Contatos
 
