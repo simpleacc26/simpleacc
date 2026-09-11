@@ -61,6 +61,31 @@ qualquer passo." Três a quatro boxes:
   constrói e opera x o que o cliente executa. Fecha com "O funil coloca lead
   na porta. Quem coloca dinheiro no caixa é a rotina comercial."
 
+## Página 4 · A Narrativa: o inimigo, a virada e a abertura (ambos, obrigatória)
+
+Página própria, kicker "A Narrativa", título "O Inimigo, a Virada e a Abertura".
+Lead: "Estas quatro peças sustentam toda a comunicação do projeto." Estas peças
+descem para a Estratégia Completa e para todo criativo, então elas nascem aqui.
+
+1. **O inimigo tem nome** (box-dark): nomeie o hábito que causa a perda, com um
+   nome curto e próprio do vocabulário do cliente. Exemplos validados: **o D-0**
+   (André Donha, produção que só existe no dia do show) e **o orçamento seco**
+   (Adriana Brunelly, o orçamento que sai sem nada antes dele). Descreva a cena,
+   depois diga por que ela custa caro, e feche com "não é falta de talento e não
+   é o mercado".
+2. **A virada** (box-light): "mesmo X, mesmo Y, mesmo Z. A diferença não está em
+   A, está em B." Termine com a pergunta do mercado mudando de lugar (de "como
+   eu cobro mais caro?" para "quanto eu já perdi por não ter feito B?").
+3. **A abertura, na palavra do cliente** (box-light): uma citação literal dele,
+   tirada da transcrição, que conta a cena fundadora. Diga onde usar e o que
+   cuidar no anúncio pago (promessa de ganho reprova na Meta).
+4. **A régua de linguagem do projeto** (box-dark): o que o projeto **fala** e o
+   que **não fala**, com as palavras exatas. Fecha sempre com a mesma regra:
+   descreva a cena e use a frase que a própria pessoa diz, nunca acuse quem ela é.
+
+> Sem esta página, a Estratégia Completa nasce sem âncora e cada criativo
+> inventa a própria linguagem. Ela é obrigatória mesmo em roadmap enxuto.
+
 ## Fase de Caixa Rápido (Lucas; incluir sempre que houver base)
 
 Fase 1, dias 1 a 10. Se o cliente tem QUALQUER base (clientes, ex-clientes,
@@ -112,6 +137,34 @@ alimentam quiz e criativos; a linguagem real do comprador só aparece
 conversando. Citar o dado dramático do baseline (ex.: "1 call de vendas em
 junho" ou a lista quente que já existe).
 
+### A régua de volume (não negocie para baixo)
+
+O erro mais comum ao montar esta fase é pedir volume de abordagem pequeno
+demais, por medo de assustar o cliente. **Volume é a única variável 100% do
+cliente**, e é ela que define o resultado do trimestre inteiro.
+
+- **Com SDR:** de 60 a 100 abordagens por dia útil.
+- **Cliente executando sozinho:** comece em 50 por dia e suba para 100 até o
+  mês 3. Cinquenta mensagens personalizadas cabem em 2h30, e o bloco de
+  abordagem precisa estar **na agenda, no mesmo horário, todo dia**.
+- **A lista seca.** Uma base quente de 150 nomes acaba no primeiro mês. Inclua
+  sempre um passo de **prospecção semanal** (de 100 a 150 perfis novos por
+  semana), senão o volume dos meses 2 e 3 não existe.
+
+**A conta completa, com comparecimento** (o erro clássico é esquecer dele):
+
+> de cada 100 abordagens personalizadas, cerca de 18 respondem, 9 viram conversa
+> real, **2 viram sessão agendada** e **1,3 comparece**.
+
+Conversão de sessão comparecida para venda: use **15%** quando o cliente ainda
+não tem depoimento de aluno, e 25% quando já tem prova. Declare a premissa e
+diga que ela é corrigida com dado real após as 10 primeiras sessões.
+
+Declare também o **teto de agenda** (quantas sessões por dia e por semana o
+cliente aguenta) e diga o que acontece quando o funil passa a trazer mais do que
+o teto: o diagnóstico filtra, e quem tem dor pequena vai para o produto de
+entrada.
+
 Passos (2 páginas, parte 1 e parte 2):
 
 1. **Assistir às aulas de aquisição** (Rômulo, manter sempre): Social Selling
@@ -134,10 +187,19 @@ Passos (2 páginas, parte 1 e parte 2):
    toda call sem fechamento sai com próximo passo datado.
 
 Fecha com box-light **Metas numéricas desta fase**: dia 30, dia 60, dia 90
-(valores coerentes com a matemática da página 2) + **Alerta vermelho**
-(Rômulo, manter sempre): "menos de X vendas até o dia 30 = problema de
-fechamento ou qualificação, não de produto. Pausar, revisar gravações com o
-mentor, ajustar antes de continuar."
+(valores coerentes com a matemática da página 2) + **Alerta vermelho** com
+**três gatilhos separados**, para o cliente saber onde travou sem precisar
+adivinhar:
+
+1. **Volume abaixo do combinado** → o problema é rotina, e o ajuste é na agenda,
+   não na estratégia.
+2. **Volume batido e poucas sessões** → o problema é a mensagem, e a Simple
+   reescreve o script.
+3. **Sessões acontecendo e nenhuma venda** → o problema é qualificação ou
+   fechamento, nunca o produto.
+
+Nos três casos: levar os números para a quinzenal antes de mudar qualquer outra
+coisa.
 
 ## Fase de Conteúdo Orgânico (ambos; paralelo, dias 1 a 90)
 

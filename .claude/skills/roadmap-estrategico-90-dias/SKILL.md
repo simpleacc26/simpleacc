@@ -1,16 +1,16 @@
 ---
 name: roadmap-estrategico-90-dias
 description: >-
-  Gera o Roadmap Estratégico de 90 dias de um cliente da Simple: PDF na
-  identidade visual navy + dourado, seguindo a estrutura validada nos roadmaps
-  do Rômulo Heleno e do Lucas Sobreiro (o melhor dos dois), a partir dos
-  materiais de base do cliente (call de onboarding, canvas de produto e
-  cliente ideal, anotações, call de vendas). Use sempre que alguém pedir
-  "roadmap do cliente X", "monta o roadmap estratégico", "replica o roadmap do
-  Lucas/Rômulo para o cliente X", "plano de ação de 90 dias", ou quando o
-  onboarding de um cliente novo chegar na etapa de elaboração do roadmap.
-  Personaliza tudo à realidade do cliente e valida travessões e paginação
-  antes de entregar.
+  Gera o Roadmap Estratégico de 90 dias de um cliente da Simple: PDF diagramado
+  na identidade navy + dourado, com a narrativa do projeto (inimigo, virada e
+  régua de linguagem), a matemática da meta montada a partir do volume de
+  abordagem, fases com passos numerados, metas por fase e checkpoints, a partir
+  dos materiais de base do cliente (call de vendas, call de onboarding, canvas,
+  anotações). É o documento irmão da Estratégia Completa. Use sempre que alguém
+  pedir "roadmap do cliente X", "monta o roadmap estratégico", "plano de ação de
+  90 dias", ou quando o onboarding de um cliente novo chegar na etapa de
+  elaboração do roadmap. Personaliza tudo à realidade do cliente e valida
+  travessões e paginação antes de entregar.
 ---
 
 # Roadmap Estratégico de 90 dias: gerador por cliente
@@ -51,12 +51,16 @@ antes do PDF).
 - **`references/validacao-e-pdf.md`**: validações obrigatórias e geração do
   PDF com fallbacks.
 
-Referências vivas no repositório (exemplos completos entregues):
-`clientes/lucas-sobreiro/estrategia/2026-07-09-roadmap-estrategico-lucas-sobreiro.html`
-(fonte editável) e
-`clientes/lucas-sobreiro/estrategia/modelo-roadmap-romulo-heleno.pdf`. Se a
-pessoa enviar os PDFs dos dois na conversa, use como calibragem de tom; se
-não enviar, a estrutura embutida aqui basta.
+**Referências vivas** (exemplos completos entregues, em ordem de atualidade):
+André Donha (09/2026, o mais recente e o que trouxe a página de Narrativa),
+Adriana Brunelly (09/2026), Lucas Sobreiro (07/2026) e Rômulo Heleno. Se a
+pessoa enviar os PDFs na conversa, use como calibragem de tom; se não enviar, a
+estrutura embutida aqui basta.
+
+**Documento irmão:** a skill `estrategia-completa-clientes` escreve a copy do
+funil que este roadmap manda implementar. Os dois usam o mesmo CSS e **nenhum
+número pode divergir entre eles**: esteira, ticket, meta, conversão e verba são
+os mesmos. Quem for gerado depois se ajusta ao primeiro.
 
 ## O fluxo (siga nesta ordem)
 
@@ -96,10 +100,21 @@ Com o mapa em mãos, decida a estrutura seguindo as regras de
 - A maioria dos clientes da Simple com contrato de implementação é Perfil B.
   Na dúvida, olhe o que foi vendido no onboarding.
 
-Monte a **matemática da meta** (sempre): meta mensal ÷ ticket = vendas/mês →
-vendas ÷ conversão real = sessões/mês → sessões viram abordagens/dia e leads
-do funil. Os números do roadmap inteiro derivam dessa conta e precisam bater
-entre si (matemática, metas de fase e checkpoints).
+Decida também **a narrativa**, que vira a página 4 e é obrigatória: o inimigo
+com nome próprio, a virada, a abertura na palavra do cliente e a régua de
+linguagem. Sem ela, cada criativo do projeto inventa a própria linguagem.
+
+Monte a **matemática da meta** (sempre). E monte no sentido certo: **comece pelo
+volume de abordagem**, que é a única variável 100% do cliente, e não pela meta
+de faturamento, que é consequência.
+
+> abordagens/dia × dias úteis → respostas → conversas → **sessões agendadas** →
+> **sessões comparecidas** → vendas × ticket = meta
+
+Não esqueça o **comparecimento**: é o erro mais comum e ele infla a projeção em
+uns 40%. As taxas de referência e a régua de volume estão em
+`references/estrutura-e-conteudo.md`. Os números do roadmap inteiro derivam
+dessa conta e precisam bater entre si (matemática, metas de fase e checkpoints).
 
 ### Passo 3: Redação
 
@@ -151,6 +166,11 @@ Chrome (A4, sem margens, sem cabeçalho/rodapé).
 
 - [ ] Todos os materiais de base lidos por inteiro; mapa de extração preenchido
 - [ ] Perfil (A ou B) decidido pelo escopo vendido, não por suposição
+- [ ] Página 4 (A Narrativa) presente: inimigo com nome, virada, abertura citada e régua de linguagem
+- [ ] Matemática montada a partir do volume, com comparecimento na conta
+- [ ] Régua de volume ambiciosa (de 50 a 100 abordagens por dia) e passo de prospecção semanal presente
+- [ ] Teto de agenda declarado
+- [ ] Alerta vermelho com os três gatilhos separados
 - [ ] Matemática da meta consistente em todo o documento (contexto, fases, checkpoints)
 - [ ] Estratégia de caixa rápido presente (base, novo serviço, indicações, antecipação de recebíveis) quando houver base para isso
 - [ ] Big idea, exemplos e fechamento na linguagem real do cliente e do nicho

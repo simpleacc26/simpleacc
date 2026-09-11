@@ -78,7 +78,19 @@ pode ser assumido: se não estiver nos materiais, pergunte.
   parcerias B2B. O Bônus do roadmap planta esses ativos a partir do dia 60 e
   75, sem tirar o foco dos 90 dias.
 
-## 8. Tom e detalhes de personalização
+## 8. A narrativa (vira a página 4 e desce para a Estratégia Completa)
+
+- **O inimigo:** qual hábito causa a perda, e que nome curto ele recebe no
+  vocabulário do próprio cliente. Não é um concorrente e não é o mercado: é uma
+  prática que parece normal e custa caro.
+- **A virada:** a frase "mesmo X, mesmo Y, a diferença está em Z".
+- **A abertura:** a citação literal da transcrição que conta a cena fundadora
+  do cliente. Copie palavra por palavra, não parafraseie.
+- **A régua de linguagem:** o que o projeto fala e o que não fala. Puxe de três
+  lugares: o vocabulário real do nicho, o que a plataforma de anúncio reprova, e
+  o que fere o status do comprador.
+
+## 9. Tom e detalhes de personalização
 
 - Regionalismo e informalidade (tu x você; gaúcho, mineiro).
 - Frases que o cliente repetiu nas calls (viram texto do documento).

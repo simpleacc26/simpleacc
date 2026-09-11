@@ -25,8 +25,13 @@ funil, pronta para implementar**.
 estratégia entrega o texto de cada peça. Mesma identidade visual, mesmo CSS,
 mesma régua de qualidade.
 
-Referências vivas (o padrão atual da casa):
-`clientes/delphis-fonseca/` e `clientes/adriana-brunelly/estrategia/2026-09-11-estrategia-completa-funil-quiz.html`.
+**Referências vivas** (o padrão atual da casa): Delphis Fonseca (08/2026, o
+documento que fixou esta estrutura) e Adriana Brunelly (09/2026). Se a pessoa
+enviar os PDFs na conversa, use como calibragem de tom.
+
+**Documento irmão:** a skill `roadmap-estrategico-90-dias` define a ordem de
+execução, a esteira, a matemática e a narrativa. Os dois usam o mesmo CSS e
+**nenhum número pode divergir entre eles**.
 
 > **Mudou em 09/2026.** A versão anterior desta skill entregava um Google Doc de
 > texto com 8 seções. **Não é mais isso.** O padrão é PDF diagramado, 6 seções e
