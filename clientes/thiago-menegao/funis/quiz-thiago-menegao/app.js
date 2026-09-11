@@ -27,6 +27,9 @@ const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
    "Simple <> Thiago Menegão" do Drive.
    ⚠️ O `addRow` do Make grava POR POSIÇÃO e referencia a aba pelo NOME, que
    aqui é "Untitled" (planilha nasceu de um CSV; ela NÃO se chama "Página1").
+   ⚠️ São 29 colunas desde 11/09, quando entraram "Maior desafio" e "Urgência".
+   A planilha teve que ser REFEITA para o cabeçalho novo: a antiga, de 27
+   colunas, ficou na mesma pasta renomeada para "ANTIGA (não usar)".
    Se mexer na ordem dos campos de `enviarLead()`, no cabeçalho da planilha ou
    no nome da aba, o mapeamento sai do lugar em silêncio. Mexeu, testa de novo
    PELO NAVEGADOR, respondendo o quiz inteiro, e confere LENDO A PLANILHA:
@@ -112,10 +115,12 @@ function enviarLead() {
     momento_da_perda: label("trava"),
     custo: label("custo"),
     tentativa: label("tentativa"),
+    desafio: label("desafio"),
     objetivo: label("objetivo"),
     estrutura_comercial: label("estrutura"),
     volume_reunioes: label("conta"),
     ticket: label("ticket"),
+    urgencia: label("urgencia"),
     frente: (F.config && F.config.frente) || "Funil",
     origem: document.referrer || "",
     page_url: location.href,
@@ -246,6 +251,19 @@ function avancarDe(i) {
    tela avança sozinha no fim: nunca aparece pronta e nunca tem botão.
    Sem porcentagem escrita: número em tela de espera vira contador de paciência.
    ============================================================ */
+/* Avança por BOTÃO ou por TEMPO, o que vier primeiro, e nunca as duas coisas.
+   O botão existe porque o tempo automático ficou longo de propósito (pedido do
+   Thiago em 11/09): quem lê devagar não é atropelado, quem lê rápido não fica
+   preso olhando barra. Sem a trava do `jaFoi`, clicar no fim da barra dispararia
+   a transição duas vezes e pularia uma tela inteira.
+   O clique passa pela guarda de arrasto do motor.js: rolar não avança. */
+function seguirUmaVezSo(botao, proxima, dur) {
+  let jaFoi = false;
+  const segue = () => { if (jaFoi) return; jaFoi = true; clearTimeout(t); proxima(); };
+  const t = setTimeout(segue, dur + 220);
+  if (botao) botao.addEventListener("click", (e) => { if (arrastou(e)) return; segue(); });
+}
+
 function renderIntersticial(inter, proxima) {
   progressEl.hidden = true;
   trackEvent("step_view", { step_id: "intersticial_" + inter.id });
@@ -286,6 +304,7 @@ function renderIntersticial(inter, proxima) {
       <p class="lead inter-texto">${texto}</p>
       <div class="load-track"><div class="load-bar" id="inter-bar"></div></div>
       <p class="hint inter-legenda">${inter.barra}</p>
+      <button class="btn btn-ghost inter-avancar" id="inter-segue" type="button">Continuar</button>
     </section>`);
   app.replaceChildren(screen);
   scrollTop();
@@ -293,7 +312,7 @@ function renderIntersticial(inter, proxima) {
   const bar = screen.querySelector("#inter-bar");
   bar.style.transition = `width ${dur}ms linear`;
   requestAnimationFrame(() => { bar.style.width = "100%"; });
-  setTimeout(proxima, dur + 220);
+  seguirUmaVezSo(screen.querySelector("#inter-segue"), proxima, dur);
 }
 
 function renderCaptura() {
@@ -416,11 +435,14 @@ function renderLoading() {
   progressEl.hidden = true;
   trackEvent("step_view", { step_id: "loading" });
   const reduce = reduzMovimento();
-  /* 6s, não 4,7s: são três mensagens em sequência, e a 4,7s cada uma ficava
-     1,5s na tela, curto demais para ler. Agora fica 2s cada. Aumentar aqui é
-     sempre seguro, porque esta tela também existe para dar tempo de o lead
-     chegar na planilha antes da troca de página. */
-  const dur = reduce ? 800 : 6000;
+  /* 12s: são três mensagens em sequência, e é a única tela do funil que está
+     de fato processando alguma coisa (o lead saiu para a planilha). A 6s cada
+     mensagem ficava 2s, curto para ler. Agora fica 4s cada, e o botão
+     "Continuar" deixa quem não quer esperar seguir na hora (pedido do Thiago
+     em 11/09, que vale para todas as transições).
+     Adiantar pelo botão é seguro: o envio do lead usa `keepalive`, então o POST
+     sobrevive à troca de página. */
+  const dur = reduce ? 800 : 12000;
   const msgs = [
     "Lendo as suas respostas.",
     "Localizando em qual das sete etapas a condução escapa.",
@@ -433,6 +455,7 @@ function renderLoading() {
       <p class="lead inter-texto" id="load-msg">${msgs[0]}</p>
       <div class="load-track"><div class="load-bar" id="load-bar"></div></div>
       <p class="hint inter-legenda">Personalizando com base no que você respondeu.</p>
+      <button class="btn btn-ghost inter-avancar" id="load-segue" type="button">Ver agora</button>
     </section>`);
   app.replaceChildren(screen);
   scrollTop();
@@ -450,7 +473,8 @@ function renderLoading() {
   }
 
   const dest = (F.config && F.config.diagnosticoUrl) || "diagnostico.html";
-  setTimeout(() => { window.location.href = dest; }, dur + 350);
+  seguirUmaVezSo(screen.querySelector("#load-segue"),
+                 () => { window.location.href = dest; }, dur + 130);
 }
 
 /* ---------- navegação ---------- */

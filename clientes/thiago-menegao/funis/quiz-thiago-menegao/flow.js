@@ -66,7 +66,12 @@ window.FLOW = {
        mais das reuniões que já existem, sem aumentar tráfego e sem baixar
        preço. Sem número e sem projeção de futuro: é o desejo dele em primeira
        pessoa, não uma promessa nossa. */
-    cta: "Quero fechar mais das reuniões que já tenho",
+    /* "Aumentar as conversões", não "fechar mais". Thiago levantou a ambiguidade
+       em 11/09 e o Daniel confirmou que a copy antiga confundia: "fechar mais
+       reuniões" se lê como FAZER mais reuniões, que é o contrário exato da
+       promessa do projeto (converter mais das que já existem, sem aumentar
+       tráfego). "Conversão" não tem essa leitura dupla. */
+    cta: "Quero aumentar as conversões das reuniões que já tenho",
     /* Turma de Fundadores. TRAVA DELIBERADA: o bloco só aparece se houver data
        real preenchida aqui, no formato "12 de outubro". Prazo inventado com
        este público custa mais caro que a venda que traria (nota de copy da
@@ -118,7 +123,7 @@ window.FLOW = {
       resumo: "você conduz todos do mesmo jeito, e a frase que aproxima um perfil é exatamente a que afasta o outro.",
       cena: "Com um cliente a reunião flui e fecha. Com o seguinte, mesma preparação, mesmo roteiro, a conversa esfria, e depois você não consegue apontar o que mudou.",
       custo: "Sem leitura de perfil a sua conversão vira sorte de encaixe. Você fecha com quem já pensa parecido com você e perde os outros três, sem nunca ter tido como saber por quê.",
-      caminho: "São quatro perfis em jogo na mesa, o Competidor, o Analítico, o Caridoso e o Social, e cada um precisa de tipo de prova, ritmo e pergunta diferentes. O Diagnóstico existe para identificar quem está na sua frente antes de escolher o que dizer, e o Espelho só devolve a situação nas palavras dele se essa leitura tiver sido feita antes.",
+      caminho: "Ler o lead são duas leituras, não uma. A primeira é o PERFIL, quatro na mesa: o Competidor, o Analítico, o Caridoso e o Social, e cada um precisa de tipo de prova, ritmo e pergunta diferentes. A segunda é a CAMADA, o estrato em que ele está naquele momento da conversa, que decide em que altura a sua resposta precisa entrar. Perfil sem camada acerta o tom e erra a profundidade; camada sem perfil acerta a profundidade e erra o tom. O Diagnóstico existe para fazer as duas antes de escolher o que dizer, e o Espelho só devolve a situação nas palavras dele se elas tiverem sido feitas.",
     },
     camada: {
       nome: "Camada do Lead",
@@ -218,6 +223,16 @@ window.FLOW = {
         { value: "condicao", label: "Só avança se eu melhorar a condição", peso: 2,
           report: "só ver a conversa avançar quando você melhora a condição",
           travas: { condutor: 1, perfil: 1, camada: 1, empilhamento: 3, carencia: 1 } },
+        /* As duas objeções clássicas, pedido do Thiago em 11/09: faltavam as
+           saídas mais comuns da mesa. "Falar com alguém" é falha de condução
+           (não se definiu quem decide antes de apresentar), "não tem verba" é
+           empilhamento (a solução ficou maior que o problema reconhecido). */
+        { value: "falar_com", label: "Diz que precisa falar com o sócio, com a esposa ou com o marido", peso: 2,
+          report: "ouvir que ele precisa falar com o sócio ou com quem decide junto",
+          travas: { condutor: 3, perfil: 1, camada: 2, empilhamento: 0, carencia: 1 } },
+        { value: "sem_verba", label: "Diz que não tem verba agora", peso: 2,
+          report: "ouvir que não tem verba agora",
+          travas: { condutor: 1, perfil: 1, camada: 1, empilhamento: 3, carencia: 1 } },
       ],
     },
     {
@@ -229,7 +244,11 @@ window.FLOW = {
          a pessoa escolher pelo que soa melhor, não pelo que acontece com ela. */
       id: "trava",
       etapa: "Problema · define o seu balde",
-      pergunta: "Em que momento da conversa você sente que perde o controle?",
+      /* NÃO dizer "perde o controle" aqui. "Controle" é conceito do método do
+         Thiago e ainda não foi apresentado ao lead neste ponto do funil: ele
+         não tem consciência de controle, tem consciência de que perdeu a
+         negociação. Palavra do lead, não palavra nossa (nota dele, 11/09). */
+      pergunta: "Em que momento da conversa você sente que perdeu a negociação?",
       options: [
         { value: "condutor", label: "Logo no começo. Ele me trata como mais um vendedor, e quem passa a fazer as perguntas é ele", peso: 3,
           trava: "condutor",
@@ -256,18 +275,20 @@ window.FLOW = {
     {
       id: "custo",
       etapa: "Implicação",
-      pergunta: "O que essa situação já te custou?",
+      /* "causou", não "custou" (pedido do Thiago, 11/09). As opções viraram
+         consequência e não ação, para lerem naturalmente depois do verbo. */
+      pergunta: "O que essa situação já te causou?",
       options: [
-        { value: "desconto", label: "Dar desconto em contrato que valia o preço cheio", peso: 1,
+        { value: "desconto", label: "Desconto dado em contrato que valia o preço cheio", peso: 1,
           report: "dar desconto em contrato que valia o preço cheio",
           travas: { condutor: 1, perfil: 1, camada: 1, empilhamento: 3, carencia: 1 } },
         { value: "agenda", label: "Reunião de retorno que nunca acontece e agenda ocupada com quem não decide", peso: 2,
           report: "encher a agenda com reunião de retorno que nunca acontece",
           travas: { condutor: 1, perfil: 1, camada: 2, empilhamento: 1, carencia: 3 } },
-        { value: "concorrente", label: "Ver concorrente com produto pior fechando no meu lugar", peso: 3,
+        { value: "concorrente", label: "Concorrente com produto pior fechando no meu lugar", peso: 3,
           report: "ver concorrente com produto pior fechando no seu lugar",
           travas: { condutor: 2, perfil: 3, camada: 1, empilhamento: 1, carencia: 1 } },
-        { value: "sem_entender", label: "Sair de reunião sem entender o que aconteceu e repetir o erro na seguinte", peso: 3,
+        { value: "sem_entender", label: "Reunião que termina sem eu entender o que aconteceu, e o erro se repete na seguinte", peso: 3,
           report: "sair de reunião sem entender o que aconteceu e repetir o erro na seguinte",
           travas: { condutor: 1, perfil: 2, camada: 2, empilhamento: 1, carencia: 1 } },
       ],
@@ -289,6 +310,35 @@ window.FLOW = {
         { value: "trafego", label: "Aumentei o investimento em tráfego para compensar no volume", peso: 3,
           report: "aumentar o investimento em tráfego para compensar no volume",
           travas: { condutor: 1, perfil: 1, camada: 2, empilhamento: 2, carencia: 1 } },
+      ],
+    },
+    {
+      /* PERGUNTA NOVA, pedido do Thiago em 11/09. A P3 pergunta QUANDO a
+         negociação escapa; esta pergunta QUAL é o desafio. Mesmo eixo dos cinco
+         baldes, entrada diferente: quem não se reconhece no momento se
+         reconhece no desafio, e as duas respostas juntas deixam a barra
+         dominante muito mais firme.
+         Sem `peso`: o IIC continua saindo de P1 a P5, como calibrado. Esta
+         alimenta só a afinidade das barras. */
+      id: "desafio",
+      etapa: "O maior desafio",
+      pergunta: "Qual é o seu maior desafio nas negociações?",
+      options: [
+        { value: "condutor", label: "Entrar na conversa como consultor, e não como mais um vendedor",
+          report: "entrar na conversa como consultor e não como mais um vendedor",
+          travas: { condutor: 4, perfil: 1, camada: 1, empilhamento: 0, carencia: 1 } },
+        { value: "perfil", label: "Ajustar a conversa para cada tipo de cliente, sem usar o mesmo roteiro com todo mundo",
+          report: "ajustar a conversa para cada tipo de cliente",
+          travas: { condutor: 1, perfil: 4, camada: 1, empilhamento: 1, carencia: 0 } },
+        { value: "camada", label: "Fazer o cliente decidir de verdade, e não só concordar comigo",
+          report: "fazer o cliente decidir de verdade, e não só concordar",
+          travas: { condutor: 0, perfil: 1, camada: 4, empilhamento: 1, carencia: 1 } },
+        { value: "empilhamento", label: "Sustentar o preço sem precisar acrescentar mais entrega para justificar",
+          report: "sustentar o preço sem precisar acrescentar mais entrega",
+          travas: { condutor: 1, perfil: 1, camada: 1, empilhamento: 4, carencia: 1 } },
+        { value: "carencia", label: "Terminar a reunião com uma resposta, e não com um elogio",
+          report: "terminar a reunião com uma resposta e não com um elogio",
+          travas: { condutor: 1, perfil: 0, camada: 1, empilhamento: 1, carencia: 4 } },
       ],
     },
     {
@@ -323,20 +373,30 @@ window.FLOW = {
     },
     {
       /* A CONTA. Junto com o ticket, permite devolver na página o número que o
-         canvas diz que ele faz de madrugada. `reunioes` e `fechadas` são os
-         valores CONSERVADORES usados no cálculo (piso da faixa, nunca o teto). */
+         canvas diz que ele faz de madrugada. `reunioes` é o valor CONSERVADOR
+         usado no cálculo: piso da faixa, nunca o teto.
+
+         MUDOU EM 11/09, pedido do Thiago: o teto antigo parava em 30 por mês,
+         que é uma reunião por dia útil, e deixava de fora quem faz duas ou mais
+         por dia. Entraram as faixas de 30 a 60 e acima de 60.
+         A taxa de fechamento saiu do rótulo: ela não entra em conta nenhuma (o
+         cálculo é sempre "uma a mais a cada dez", independente do que a pessoa
+         fecha hoje) e, com cinco faixas de volume, o rótulo composto virava uma
+         lista longa demais para escolher no celular. */
       id: "conta",
       etapa: "A conta",
-      pergunta: "Quantas reuniões de venda você faz por mês e quantas fecham?",
+      pergunta: "Quantas reuniões de venda você faz por mês?",
       options: [
         { value: "menos8", label: "Menos de 8 reuniões", reunioes: 6,
           report: "fazer menos de oito reuniões por mês" },
-        { value: "8a15", label: "De 8 a 15, e fecho cerca de 2 em cada 10", reunioes: 10,
-          report: "fazer de oito a quinze reuniões por mês e fechar cerca de duas em cada dez" },
-        { value: "15a30_2", label: "De 15 a 30, e fecho cerca de 2 em cada 10", reunioes: 18,
-          report: "fazer de quinze a trinta reuniões por mês e fechar cerca de duas em cada dez" },
-        { value: "15a30_3", label: "De 15 a 30, e fecho mais de 3 em cada 10", reunioes: 18,
-          report: "fazer de quinze a trinta reuniões por mês e fechar mais de três em cada dez" },
+        { value: "8a15", label: "De 8 a 15 reuniões", reunioes: 10,
+          report: "fazer de oito a quinze reuniões por mês" },
+        { value: "15a30", label: "De 15 a 30 reuniões", reunioes: 18,
+          report: "fazer de quinze a trinta reuniões por mês" },
+        { value: "30a60", label: "De 30 a 60 reuniões", reunioes: 30,
+          report: "fazer de trinta a sessenta reuniões por mês" },
+        { value: "mais60", label: "Mais de 60 reuniões", reunioes: 60,
+          report: "fazer mais de sessenta reuniões por mês" },
       ],
     },
     {
@@ -353,8 +413,35 @@ window.FLOW = {
           report: "vender de R$ 3 mil a R$ 5 mil por contrato" },
         { value: "5a25", label: "De R$ 5 mil a R$ 25 mil", ticket: 5000, faixa: "alto",
           report: "vender de R$ 5 mil a R$ 25 mil por contrato" },
-        { value: "acima25", label: "Acima de R$ 25 mil", ticket: 25000, faixa: "alto", topo: true,
-          report: "vender acima de R$ 25 mil por contrato" },
+        /* Duas faixas novas no topo, pedido do Thiago em 11/09: "acima de
+           R$ 25 mil" juntava num balde só quem vende 30 mil e quem vende 300. */
+        { value: "25a50", label: "De R$ 25 mil a R$ 50 mil", ticket: 25000, faixa: "alto", topo: true,
+          report: "vender de R$ 25 mil a R$ 50 mil por contrato" },
+        { value: "acima50", label: "Acima de R$ 50 mil", ticket: 50000, faixa: "alto", topo: true,
+          report: "vender acima de R$ 50 mil por contrato" },
+      ],
+    },
+    {
+      /* PERGUNTA NOVA, pedido do Thiago em 11/09, e é a ÚLTIMA antes da
+         captura de propósito: é a porteira de prontidão que faltava no funil.
+         NÃO barra ninguém, porque este funil vende um produto de R$ 2 mil e
+         todo mundo que conclui recebe a oferta. Serve para priorizar a fila na
+         planilha: quem tem negociação marcada vale contato antes de quem está
+         estudando o assunto.
+         As opções de menor urgência NÃO ancoram em "algo mais barato depois",
+         que é regra do projeto para high ticket. Enquadram como prioridade. */
+      id: "urgencia",
+      etapa: "Urgência",
+      pergunta: "Qual é a sua urgência para resolver esse desafio?",
+      options: [
+        { value: "marcada", label: "Alta. Tenho negociação importante já marcada", prontidao: "alta",
+          report: "ter negociação importante já marcada" },
+        { value: "proxima_call", label: "Alta. Quero corrigir isso antes da próxima call", prontidao: "alta",
+          report: "querer corrigir isso antes da próxima call" },
+        { value: "media", label: "Média. Quero resolver, mas não é a prioridade deste mês", prontidao: "media",
+          report: "querer resolver, sem ser a prioridade deste mês" },
+        { value: "estudando", label: "Baixa. Por enquanto estou entendendo o assunto", prontidao: "baixa",
+          report: "estar entendendo o assunto por enquanto" },
       ],
     },
   ],
@@ -366,14 +453,18 @@ window.FLOW = {
      Especificação completa em copy/2026-09-01-telas-de-carregamento-funil-quiz
      `after` = id da pergunta depois da qual a tela entra.
      `campo` = quando presente, o título recebe a resposta daquela pergunta.
-     `duracao` = quanto a tela segura, em ms. NÃO sai de fórmula, sai de olhar a
-     tela no ar e medir se dá tempo de ler com folga. Os valores atuais são a
-     segunda calibragem do cliente (08/09), que somou 4s a cada uma das duas
-     primeiras e 8s à de autoridade, a de texto mais longo, que é a última antes
-     do formulário. A régua é: o lead tem que terminar a leitura antes da barra,
-     não junto com ela. Barra que acaba junto vira corrida.
+     `duracao` = quanto a tela segura, em ms.
+
+     TERCEIRA CALIBRAGEM (11/09, pedido do Thiago): "o tempo está muito curto
+     para uma pessoa normal ler. Deixa um tempo para passar automaticamente BEM
+     MAIOR e adiciona um botão para a pessoa ir para o próximo", e ele fez
+     questão de dizer que vale para TODAS as transições.
+
+     Com o botão no ar, o tempo automático deixou de ser um cronômetro e virou
+     rede de segurança: quem lê rápido clica e segue, quem lê devagar nunca é
+     atropelado. Por isso os valores subiram muito e sem medo.
      Se apagar o campo, o app.js calcula sozinho por tamanho de texto, mas com
-     teto de 10s, que hoje é menos do que estas telas precisam.
+     teto de 10s, que hoje é bem menos do que estas telas precisam.
      ============================================================ */
   intersticiais: [
     {
@@ -384,15 +475,19 @@ window.FLOW = {
       titulo: "Você acabou de descrever o fim da conversa.",
       texto: "{resposta}: é ali que a conta chega, e quase nunca é ali que o erro acontece. As próximas perguntas procuram o momento anterior.",
       barra: "Organizando suas respostas",
-      duracao: 10000,
+      duracao: 20000,
     },
     {
       id: "reframe",
       after: "custo",
-      titulo: "Reunião perdida quase nunca morre no preço.",
-      texto: "Ela morre alguns minutos antes, quando a condução troca de lado da mesa e o preço vira a única coisa que sobrou para discutir.",
+      /* Título e texto escritos pelo próprio Thiago em 11/09, no lugar dos
+         nossos. Mantidos ao pé da letra: "negociação" no lugar de "reunião",
+         e "liderança da condução" no lugar de "condução", que é a palavra do
+         método dele. */
+      titulo: "A Negociação quase nunca é perdida quando você apresenta o preço.",
+      texto: "Você perde a negociação bem antes, quando a liderança da condução troca de lado da mesa e o preço vira a única coisa que sobrou para analisar e discutir.",
       barra: "Cruzando com as sete etapas",
-      duracao: 9300,
+      duracao: 20000,
     },
     {
       id: "autoridade",
@@ -400,11 +495,14 @@ window.FLOW = {
       titulo: "Quem monta essa análise não veio de vendas.",
       texto: "Thiago Menegão é engenheiro de computação e passou quase duas décadas em estratégia, comunicação e comportamento dentro de empresas como Mercedes, Itaú, Honda, John Deere, Electrolux e Philips, antes de precisar fechar os próprios contratos. A leitura aqui é de comportamento e de decisão, não de técnica de fechamento.",
       barra: "Preparando sua análise",
-      /* 18s: é a tela com mais texto do funil (cerca de 380 caracteres) e a
-         última antes do formulário, e é ela que carrega o lastro corporativo.
-         Vale o tempo: quem lê isto inteiro chega na captura sabendo quem
-         assina a análise. Segunda calibragem do cliente em 08/09. */
-      duracao: 18000,
+      /* 30s: é a tela com mais texto do funil e a última antes do formulário, e
+         é ela que carrega o lastro corporativo. Quem lê isto inteiro chega na
+         captura sabendo quem assina a análise, então vale segurar. Com o botão
+         no ar, ninguém fica preso esperando.
+         ⚠️ PENDENTE: o Thiago disse em 11/09 que vai mandar "um texto mais
+         estratégico" para esta tela. O texto abaixo é o nosso, provisório.
+         Quando o dele chegar, trocar aqui e conferir se 30s ainda cabem. */
+      duracao: 30000,
     },
   ],
 

@@ -10,11 +10,11 @@
    node testar.js --shot     também salva um print da página de diagnóstico
 
    O que ele verifica:
-   1. o quiz avança pelas 9 perguntas e pelos 3 intersticiais sem erro de JS
+   1. o quiz avança pelas 11 perguntas e pelos 3 intersticiais sem erro de JS
    2. a máscara de telefone sobrevive ao autofill do iPhone ("+55 11 ...")
    3. a página de diagnóstico monta para os cinco baldes
    4. nenhuma tela estoura a largura em 320px, 390px e 430px
-   5. nenhuma opção nasce pré-selecionada
+   5. nenhuma opção nasce pré-selecionada, e as telas de carregamento têm botão
    6. rolar com o dedo sobre uma opção não seleciona (guarda de arrasto)
 
    Os arquivos temporários do teste ficam FORA da pasta do funil, para não
@@ -70,9 +70,18 @@ f.addEventListener("load",()=>{
   w.addEventListener("error",(e)=>ERROS.push(e.message));
   let n=0; const vistas=new Set();
   const t=setInterval(()=>{
-    if(n>260){clearInterval(t);log("ERROS:"+(ERROS.join(" | ")||"nenhum"));return}
+    if(n>400){clearInterval(t);log("ERROS:"+(ERROS.join(" | ")||"nenhum"));return}
     n++;
-    if(d.querySelector(".inter-card")){log("INTER "+d.querySelector(".inter-titulo").textContent.trim());return}
+    if(d.querySelector(".inter-card")){
+      const tit=d.querySelector(".inter-titulo").textContent.trim();
+      log("INTER "+tit);
+      // clica o botao de avancar em vez de esperar a barra: testa o botao E
+      // mantem a corrida curta. Se o botao disparasse duas vezes, uma tela
+      // sumiria e a contagem de perguntas acusaria.
+      const segue=d.querySelector(".inter-avancar");
+      if(segue){log("BOTAO "+tit);segue.click();}
+      return;
+    }
     const opts=d.querySelectorAll(".opt"), form=d.querySelector("#form");
     if(opts.length){
       const q=d.querySelector("h2").textContent.trim();
@@ -95,29 +104,36 @@ f.addEventListener("load",()=>{
   },250);
 });
 </script>`);
-/* Orçamento generoso de propósito: as telas de carregamento seguram de 5s a
-   10s cada, mais 6s da tela final, então o quiz inteiro passa de 30s. Se você
-   aumentar `duracao` no flow.js, aumente aqui junto, senão o teste falha por
-   estouro de tempo e não por defeito. */
-const logQuiz = dentro(chrome(["--virtual-time-budget=120000", "--dump-dom", "file://" + path.join(TMP, "quiz.html")]), "log");
+/* O teste avança as telas de carregamento PELO BOTÃO, não esperando a barra.
+   Foi o que permitiu subir as durações para 20s, 20s e 30s sem que a corrida
+   estourasse: esperar as três somaria 82 segundos só de espera.
+   Duas travas cuidam do tempo: o teto de iterações do loop acima (400, a 250ms
+   por volta) e o orçamento de tempo virtual abaixo. Se mexer em `duracao` no
+   flow.js e o teste passar a falhar no item 1, é aqui que se olha, não no
+   funil. */
+const logQuiz = dentro(chrome(["--virtual-time-budget=300000", "--dump-dom", "file://" + path.join(TMP, "quiz.html")]), "log");
 const perguntas = new Set(logQuiz.split("\n").filter((l) => l.startsWith("PERGUNTA")));
 const inters = new Set(logQuiz.split("\n").filter((l) => l.startsWith("INTER")));
 console.log("\n1. quiz de ponta a ponta");
-ok(perguntas.size === 9, `9 perguntas na tela (achou ${perguntas.size})`);
+ok(perguntas.size === 11, `11 perguntas na tela (achou ${perguntas.size})`);
 ok(inters.size === 4, `3 intersticiais + a tela de carregamento (achou ${inters.size})`);
 ok(logQuiz.includes("TELEFONE (11) 99991-2039"), "máscara tira o +55 do autofill sem perder dígito");
 ok(logQuiz.includes("SUBMIT") && logQuiz.includes("INTER Preparando o seu diagnóstico"),
    "captura envia e cai na tela de carregamento antes do diagnóstico");
+/* Por tela DISTINTA: o loop do harness repete o log enquanto a tela está no ar,
+   então contar linhas contaria a mesma tela muitas vezes. */
+const botoes = new Set(logQuiz.split("\n").filter((l) => l.startsWith("BOTAO"))).size;
+ok(botoes === 4, `botão de avançar nas 4 telas de carregamento (achou ${botoes})`);
 ok(!/PRESELECIONADAS [^0]/.test(logQuiz), "nenhuma opção nasce pré-selecionada");
 ok(logQuiz.includes("ERROS:nenhum"), "nenhum erro de JS: " + (logQuiz.match(/ERROS:(.*)/) || [, "?"])[1]);
 
 /* ---------- 2. diagnóstico nos cinco baldes ---------- */
 const PERFIS = [
-  ["Posição de Condutor", { origem: "time", perda: "proposta", trava: "condutor", custo: "concorrente", tentativa: "closer", objetivo: "time", estrutura: "time_completo", conta: "15a30_3", ticket: "acima25" }],
-  ["Leitura de Perfil", { origem: "trafego", perda: "elogia", trava: "perfil", custo: "sem_entender", tentativa: "script", objetivo: "converter", estrutura: "closer", conta: "15a30_2", ticket: "5a25" }],
-  ["Camada do Lead", { origem: "indicacao_conteudo", perda: "vou_pensar", trava: "camada", custo: "agenda", tentativa: "trafego", objetivo: "auditar", estrutura: "agendador", conta: "8a15", ticket: "3a5" }],
-  ["Empilhamento Desproporcional", { origem: "indicacao", perda: "condicao", trava: "empilhamento", custo: "desconto", tentativa: "treinamento", objetivo: "estrutura", estrutura: "sozinho", conta: "menos8", ticket: "ate3" }],
-  ["Consultoria Gratuita", { origem: "indicacao", perda: "elogia", trava: "carencia", custo: "agenda", tentativa: "script", objetivo: "converter", estrutura: "sozinho", conta: "8a15", ticket: "5a25" }],
+  ["Posição de Condutor", { origem: "time", perda: "falar_com", trava: "condutor", custo: "concorrente", tentativa: "closer", desafio: "condutor", objetivo: "time", estrutura: "time_completo", conta: "mais60", ticket: "acima50", urgencia: "marcada" }],
+  ["Leitura de Perfil", { origem: "trafego", perda: "elogia", trava: "perfil", custo: "sem_entender", tentativa: "script", desafio: "perfil", objetivo: "converter", estrutura: "closer", conta: "30a60", ticket: "25a50", urgencia: "proxima_call" }],
+  ["Camada do Lead", { origem: "indicacao_conteudo", perda: "vou_pensar", trava: "camada", custo: "agenda", tentativa: "trafego", desafio: "camada", objetivo: "auditar", estrutura: "agendador", conta: "15a30", ticket: "5a25", urgencia: "media" }],
+  ["Empilhamento Desproporcional", { origem: "indicacao", perda: "sem_verba", trava: "empilhamento", custo: "desconto", tentativa: "treinamento", desafio: "empilhamento", objetivo: "estrutura", estrutura: "sozinho", conta: "menos8", ticket: "ate3", urgencia: "estudando" }],
+  ["Consultoria Gratuita", { origem: "indicacao", perda: "elogia", trava: "carencia", custo: "agenda", tentativa: "script", desafio: "carencia", objetivo: "converter", estrutura: "sozinho", conta: "8a15", ticket: "3a5", urgencia: "media" }],
 ];
 console.log("\n2. diagnóstico nos cinco baldes");
 PERFIS.forEach(([esperado, resp]) => {

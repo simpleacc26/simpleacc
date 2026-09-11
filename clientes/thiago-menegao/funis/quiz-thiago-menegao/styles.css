@@ -180,6 +180,15 @@ strong { color: var(--text); }
 .load-bar { height: 100%; width: 0; border-radius: 99px;
   background: linear-gradient(90deg, var(--gold-700), var(--gold-300)); }
 .inter-legenda { letter-spacing: .04em; }
+/* Botão de avançar das telas de carregamento. Pedido do Thiago em 11/09: com o
+   tempo automático longo, quem lê rápido precisa poder seguir. Fica discreto
+   (fantasma, com contorno) porque é saída opcional e não o caminho principal:
+   o padrão continua sendo ler e deixar a barra terminar. */
+.inter-avancar { margin-top: 20px; display: inline-block; width: auto;
+  border: 1px solid var(--border); padding: 12px 28px; font-size: 15px; }
+@media (hover: hover) and (pointer: fine) {
+  .inter-avancar:hover { color: var(--text); border-color: var(--gold); }
+}
 #load-msg { min-height: 3em; transition: opacity .2s; }
 @media (max-width: 520px) { .inter-card { padding: 36px 18px; } .inter-titulo { font-size: 22px; } }
 

@@ -38,7 +38,14 @@
     .report-head h1 .trava-nome { color: var(--gold-300); display: block; margin-top: 6px; }
     .etapa { margin: 0 0 26px; }
     .etapa h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .14em; color: var(--gold); margin: 0 0 10px; font-weight: 700; }
-    .etapa p { margin: 0 0 12px; }
+    /* Entrelinha do corpo do relatório: 1.55 do global para 1.72 aqui. Pedido
+       do Thiago em 11/09, e faz sentido pela peça: o quiz é feito de telas
+       curtas, esta é uma rolagem longa de texto corrido, e texto longo pede
+       mais respiro entre as linhas para não cansar. Vale para todo bloco de
+       leitura, não só para os parágrafos soltos. */
+    .etapa p { margin: 0 0 14px; line-height: 1.72; }
+    .etapa li, .espelho li, .camadas li, .entrega li, .compare li,
+    .faq .resposta, .escolhas li { line-height: 1.72; }
     .divisor { border: 0; border-top: 1px solid var(--border); margin: 30px 0; }
 
     /* ---- selo do índice ---- */

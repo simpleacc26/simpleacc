@@ -64,7 +64,7 @@ const DEPOIMENTOS = [];
    nome escrito é fato verificável, logo aplicado sugere endosso da marca.
    ============================================================ */
 const LOGOS = [];
-const MARCAS_TEXTO = ["Mercedes", "Itaú", "Honda", "John Deere", "Electrolux", "Philips"];
+const MARCAS_TEXTO = ["Mercedes", "Itaú", "Honda", "John Deere", "Electrolux", "Philips", "Growth Supplements"];
 
 /* Por que o que você tentou não funcionou. A lista é fixa e cobre as saídas
    que o canvas mapeia; a frase de abertura é que recebe a resposta da pessoa. */
@@ -75,7 +75,7 @@ const TENTATIVAS_MORTAS = [
   ["Contratar closer", "transferiu o problema, manteve a dependência e adicionou custo."],
   ["Aumentar tráfego", "comprar mais lead para compensar conversão baixa é a saída mais cara que existe."],
   ["Baixar preço ou parcelar mais", "fechou algumas vendas e corroeu o posicionamento."],
-  ["Terapia, mentalidade, autoconfiança", "trabalhou a crença sem mudar o comportamento, e a crença voltou ao ponto anterior."],
+  ["Terapia, mentalidade, autoconfiança", "melhorou como você se sente antes da reunião, e não mudou nada do que acontece dentro dela. Sem comportamento novo na mesa, a insegurança volta na call seguinte."],
 ];
 
 const ESPELHO = [
@@ -194,10 +194,10 @@ if (!a._completedAt && !a.trava) {
         <p class="conta-legenda">Uma reunião a mais fechada a cada dez, nos últimos doze meses</p>
         <div class="conta-num" id="conta-num" data-valor="${conta.anual}">${P.fmtBRL(0)}</div>
         <p class="conta-legenda">é o que a condução deixou de trazer.</p>
-        <p class="conta-formula">Cálculo feito com os números que você mesmo informou:
-        ${conta.reunioes} reuniões por mês, ticket de ${P.fmtBRL(conta.ticket)}, e apenas
-        uma reunião a mais fechada a cada dez. Usamos sempre o piso de cada faixa que você marcou,
-        nunca o teto.</p>
+        <p class="conta-formula">Estimativa feita <strong>para um ticket de ${P.fmtBRL(conta.ticket)}</strong>
+        e ${conta.reunioes} reuniões por mês, que é o PISO da faixa que você marcou, com apenas uma
+        reunião a mais fechada a cada dez. Como a faixa não pede o valor exato, a conta assume sempre
+        o piso dela e nunca o teto: o seu número real tende a ser maior que este.</p>
       </div>
       <p class="hint" style="margin-top:14px">${ARGUMENTO[segmento]}</p>
     </div>` : "";
@@ -233,6 +233,10 @@ if (!a._completedAt && !a.trava) {
 
     <div class="etapa">
       <h3>Como os cinco pontos de travamento aparecem no seu caso</h3>
+      <p>Toda reunião de alto valor trava em um de cinco pontos, e quase nunca em um só. O que muda
+      de pessoa para pessoa é o peso de cada um. As barras abaixo mostram esse peso no seu caso,
+      calculado a partir das suas respostas: quanto maior a barra, mais aquele ponto aparece na sua
+      conversa. <strong>A do topo é a dominante</strong>, e é ela que comanda o resto desta leitura.</p>
       <div class="travas-lista" id="travas-lista">
         ${travas.map((t) => `
           <div class="trava-item ${t.id === travaId ? "dominante" : ""}">
@@ -244,7 +248,7 @@ if (!a._completedAt && !a.trava) {
             ${t.id === travaId ? `<p class="trava-desc">${t.resumo}</p>` : ""}
           </div>`).join("")}
       </div>
-      <p class="hint" style="margin-top:14px">Percentual de afinidade calculado a partir das suas respostas. O ponto dominante é o que comanda o resto da leitura.</p>
+      <p class="hint" style="margin-top:14px">Nenhuma barra zera, e isso é proposital: os cinco pontos convivem na mesma reunião. O trabalho começa pelo de cima, porque corrigir o dominante costuma baixar os outros junto.</p>
     </div>
 
     <hr class="divisor" />
@@ -260,7 +264,7 @@ if (!a._completedAt && !a.trava) {
       <h3>A leitura do seu cenário</h3>
       <p>Você contou que as suas reuniões chegam principalmente por <strong>${origem}</strong>,
       que as que não fecham costumam terminar com <strong>${perda}</strong>,
-      e que isso já te custou <strong>${custo}</strong>.${estrutura ? ` Hoje a sua operação é de <strong>${estrutura}</strong>.` : ""}</p>
+      e que isso já te causou <strong>${custo}</strong>.${estrutura ? ` Hoje a sua operação é de <strong>${estrutura}</strong>.` : ""}</p>
       <p>Essa combinação é a assinatura de <strong>${trava.nome}</strong>: ${trava.resumo}
       Repare no que ela tem de específico: o ponto onde você sente a perda quase nunca é o ponto onde
       ela acontece. A conta chega no fim da conversa, o erro acontece antes.</p>
@@ -327,25 +331,28 @@ if (!a._completedAt && !a.trava) {
       <h3>A virada</h3>
       <p>Agora você sabe onde a sua conversa quebra. Saber já muda a próxima reunião, e essa parte é sua
       para sempre, tenha você comprado alguma coisa ou não.</p>
-      <p>O que saber não resolve é a estrutura. Enquanto a correção depender de você lembrar, no meio de
-      uma negociação, o que precisa acontecer naquela etapa, ela não vai acontecer.
-      <strong>Condução não se sustenta na memória, se sustenta em protocolo.</strong></p>
+      <p>Saber a etapa que quebrou ajuda, mas não resolve o problema. Enquanto a correção depender de
+      você lembrar, no meio de uma negociação, o que precisa acontecer naquela etapa, ela não vai
+      acontecer. <strong>Condução não se sustenta na memória, se sustenta em protocolo.</strong></p>
     </div>
 
     <div class="etapa">
-      <h3>O que está dentro</h3>
+      <h3>O protocolo que faz isso acontecer</h3>
+      <p>Esse protocolo tem nome, tem ordem e está gravado: é o <strong>${O.nome}</strong>. Ele existe
+      para você não precisar remontar nada sozinho no meio de uma negociação. É isto que está dentro
+      dele:</p>
       <ul class="entrega">
         <li><b>Os seis movimentos do Primal Pitch:</b> os fundamentos da hierarquia primal, emocional e
-        racional, e os cinco elementos que atravessam a conversa inteira: posição, ritmo, intenção,
-        âncora e limite.</li>
+        racional, e os seis elementos que atravessam a conversa inteira: posição, ritmo, intenção,
+        mensagem, âncora e limite.</li>
         <li><b>As sete etapas do Primal Closing:</b> Abertura, Diagnóstico, Espelho, Contexto, Condução,
         Prescrição e Decisão, aplicadas a uma call real, do primeiro minuto ao fechamento ou ao
         follow-up. Cada etapa com a função dela, o critério de saída e o sinal de que a conversa travou,
         em um módulo por etapa.</li>
-        <li><b>Perfis comportamentais e objeção por ferida:</b> a calibragem de linguagem, ritmo e
-        ancoragem para os quatro perfis, e o tratamento de objeção pela ferida ativada, no lugar de
-        resposta pronta.</li>
-        <li><b>O protocolo pós-decisão:</b> a instalação que protege a venda contra o arrependimento e o
+        <li><b>Perfis comportamentais e tratamento de objeção:</b> a calibragem de linguagem, ritmo e
+        ancoragem para os quatro perfis, e como responder a cada objeção pelo que a fez aparecer, no
+        lugar de resposta pronta.</li>
+        <li><b>O protocolo pós-decisão:</b> o processo que protege a venda contra o arrependimento e o
         follow-up estruturado em 2, 24 e 48 horas.</li>
         <li><b>Bônus, o Framework de Análise de Call:</b> o guia que transforma cada reunião perdida em
         informação aproveitável, com a régua das sete etapas para você auditar as suas próprias gravações.</li>
@@ -392,8 +399,9 @@ if (!a._completedAt && !a.trava) {
       Parou de perguntar como convenço este lead e passou a perguntar
       <strong>em que camada este lead decide</strong>.</p>
       <p>Hoje conduz negociações de alto valor com esse protocolo e ensina o método em consultoria,
-      uma empresa por vez. O ${O.nome} gravado existe para que a estrutura inteira chegue a quem
-      quer aplicar sem depender da agenda dele.</p>
+      uma empresa por vez. O ${O.nome} gravado existe para que a estrutura inteira chegue aos
+      empresários que precisam desse conhecimento de forma rápida, assertiva e com um preço
+      acessível.</p>
       <div class="cred-grid">
         <div class="cred"><div class="n">Desde 1993</div><div class="d">estudando comportamento humano</div></div>
         <div class="cred"><div class="n">20 anos</div><div class="d">de mercado, quase duas décadas nos bastidores</div></div>
