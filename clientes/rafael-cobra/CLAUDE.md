@@ -115,6 +115,9 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
   · PDF: `Roadmap Estratégico Digital - Rafael Cobra - 13.08.26.pdf`
 - **Guia de Captação de Depoimentos (13/08):** `estrategia/2026-08-13-guia-captacao-depoimentos-rafael-cobra.html`
   · PDF: `Guia de Captação de Depoimentos · Rafael Cobra.pdf`
+- **Funil de diagnóstico (13/08):** `funis/diagnostico-padrao-afetivo/`
+  · quiz de 10 perguntas + página de diagnóstico · toda a copy vive em `flow.js`
+  · **ainda não publicado**, ver pendência 7
 - **Estratégia Completa (13/08):** `estrategia/2026-08-13-estrategia.html` (26 páginas)
   · PDF: `Estratégia Completa + Copies Funil Diagnóstico Rafael Cobra - 13.08.26.pdf`
   · **ainda não está no Drive:** o PDF precisa ser arrastado para "1. Documentos" à mão
@@ -150,3 +153,19 @@ Nada disso bloqueia execução, mas fica registrado para a próxima sessão:
    vale sobre os entregáveis contratados e ainda não está aqui.
 6. **Confirmar o que é o "Método Cobra" hoje** e se tem registro no INPI. Ele já
    tem logotipo próprio no destaque do Instagram.
+7. **Publicar o funil na Vercel.** O código está na `main`, testado, e o caminho
+   certo é ligar o projeto ao repositório (`create_git_project` com
+   `rootDirectory` em `clientes/rafael-cobra/funis/diagnostico-padrao-afetivo`),
+   para que todo push atualize o que está no ar. **Isso falhou com
+   `repo_no_access`: a conta da Vercel não tem escrita no repo no GitHub.**
+   Alguém precisa instalar o app da Vercel em `simpleacc26/simpleacc` (ou dar
+   acesso à conta conectada). Sem isso, só resta subir arquivo a arquivo, e aí
+   o projeto nasce sem vínculo com o Git, que é exatamente o problema do
+   `quiz-luana-isse`.
+8. **Três dados para o funil tomar tráfego:** WhatsApp comercial dele (vai em
+   `flow.js > marca.whatsapp`), ID do Pixel da Meta (vai em três lugares) e o
+   webhook do Make ligado à planilha de leads (`app.js > LEADS_ENDPOINT`).
+   Enquanto o WhatsApp estiver vazio, os CTAs não abrem conversa e a página
+   avisa, de propósito.
+9. **Logotipo do Método Cobra.** Existe, mas o arquivo nunca chegou. Enquanto
+   isso a marca do funil é tipográfica.

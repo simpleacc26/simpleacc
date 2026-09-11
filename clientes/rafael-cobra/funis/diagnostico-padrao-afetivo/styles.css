@@ -154,7 +154,7 @@ h2 { font-size: 25px; line-height: 1.25; margin: 0 0 16px; }
 /* ---------- botões ---------- */
 .actions { display: flex; gap: 12px; align-items: center; margin-top: 24px; }
 .btn { font: inherit; font-weight: 700; cursor: pointer; border: none; border-radius: 99px; padding: 16px 26px; transition: background .2s, transform .12s, box-shadow .2s, opacity .2s; }
-.btn-primary { background: var(--action); color: var(--on-action); box-shadow: 0 8px 20px rgba(3,1,24,.24); }
+.btn-primary { background: var(--action); color: var(--on-action); box-shadow: 0 8px 20px rgba(23,20,15,.24); }
 .btn-primary:hover { background: var(--action-700); transform: translateY(-1px); }
 .btn-primary:disabled { opacity: .55; cursor: not-allowed; transform: none; box-shadow: none; }
 .btn-ghost { background: transparent; color: var(--muted); padding: 16px 14px; }
@@ -167,7 +167,7 @@ h2 { font-size: 25px; line-height: 1.25; margin: 0 0 16px; }
 /* ---------- tela de carregamento ---------- */
 .loading-card { text-align: center; padding: 40px 26px; }
 .loading-card .eyebrow { display: block; }
-.load-track { height: 10px; background: #EFE7D8; border-radius: 99px; overflow: hidden; margin: 24px 0 4px; }
+.load-track { height: 10px; background: #F0E7D4; border-radius: 99px; overflow: hidden; margin: 24px 0 4px; }
 .load-bar { height: 100%; width: 0; border-radius: 99px;
   background: linear-gradient(90deg, var(--primary-700), var(--primary)); }
 #load-msg { min-height: 1.5em; transition: opacity .2s; }
@@ -183,7 +183,7 @@ h2 { font-size: 25px; line-height: 1.25; margin: 0 0 16px; }
   body { font-size: 16px; }
   h1 { font-size: 25px; } h2 { font-size: 22px; }
   .card { padding: 24px 18px; }
-  .brand .brand-name { font-size: 20px; }
+  .brand .wordmark { font-size: 19px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
