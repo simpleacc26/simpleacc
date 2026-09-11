@@ -8,13 +8,18 @@ Documentos de estratégia, planejamento e diagnósticos (e PDFs gerados).
 | [`2026-08-05-roadmap-estrategico-kaina-barreto.pdf`](2026-08-05-roadmap-estrategico-kaina-barreto.pdf) | **Roadmap de 90 dias v1.0** — entregável contratado. 14 páginas, 5 fases, 21 passos, 5 checkpoints. Fonte editável no `.html` de mesmo nome. |
 | [`2026-08-10-estrategia-completa-funil-quiz.pdf`](2026-08-10-estrategia-completa-funil-quiz.pdf) | ⭐ **Estratégia Completa v1.0 · funil de lead dinâmico.** 23 páginas no modelo validado (referência Thaina e Thiago): Big Idea, copy do quiz, página pós-quiz bloco a bloco, 20 criativos escritos, cadência de 12 dias e recomendações. Fonte editável no `.html` de mesmo nome. |
 | [`2026-08-10-guia-captacao-depoimentos-kaina-barreto.pdf`](2026-08-10-guia-captacao-depoimentos-kaina-barreto.pdf) | **Guia de Captação de Depoimentos.** 4 páginas para ele pedir e coletar depoimento em vídeo dos alunos. Destrava o ângulo de prova dos anúncios. Fonte editável no `.html`. |
+| [`2026-08-28-revisao-do-quiz-publicado.md`](2026-08-28-revisao-do-quiz-publicado.md) | ⭐ **Revisão do quiz publicado** (`omega-painel.vercel.app/quiz`). Devolutiva pedida por ele. O que acertou, o que muda dinheiro em ordem de execução (pixel, pergunta aberta, travas, página pós-quiz, acabamento) e o próximo passo em 3 blocos. |
 | [`2026-08-10-revisao-do-quiz.md`](2026-08-10-revisao-do-quiz.md) | **Revisão do quiz que ele montou** (4 perguntas) contra os 3 fluxos de concorrente. Devolutiva prometida no grupo. Fecha em 6 perguntas, sem pergunta aberta. |
 | [`2026-08-05-estrategia.md`](2026-08-05-estrategia.md) | ⚠️ **SUPERADO** pelo PDF de 10/08. Mantido como histórico. Estratégia em 8 seções — as 8 seções do modelo Simple Acc: big idea, copy do quiz, página de aplicação, anúncios, relatório de diagnóstico, cadência de 12 dias, tarefas e recomendações. [Google Doc](https://docs.google.com/document/d/10E40HEroOoyLFd-KkCfY1W7lOMs4d4QybkOqefP9yMc/edit) na pasta `3. Estratégia e Tráfego`. |
 
 ## A produzir
 
-- [ ] **Implementação do quiz** — a copy já está pronta na estratégia (Seção 2). Falta
-      publicar as páginas. É o Passo 12 do roadmap.
+- [x] **Quiz publicado por ele** em `omega-painel.vercel.app/quiz` (Next.js, dentro do painel
+      OMEGA dele). Revisado em 28/08.
+- [ ] **Página pós-quiz (blocos 2 a 9)** — não implementada. A copy já está pronta na Seção 3
+      da Estratégia Completa, páginas 6 a 9. É o diferencial competitivo do funil.
+- [ ] **Pixel da Meta + Conversions API** — o funil está no ar sem pixel nenhum. Bloqueia
+      liberar verba de tráfego.
 - [ ] **Reposicionamento de oferta** — subir o ticket de R$ 2 mil para R$ 4 a 5 mil e
       desenhar a esteira de downsell. Gatilho combinado: conversão acima de 30% medida
       em volume, não na amostra de 12 calls. É o Passo 21 do roadmap.
