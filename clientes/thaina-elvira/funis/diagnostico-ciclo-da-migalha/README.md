@@ -57,10 +57,18 @@ Stack: HTML/CSS/JS puro, sem build, sem dependências. Construído seguindo o
 ## ⚠️ A regra que define este funil
 
 **A página pós-quiz não vende. Ela sobe o nível de consciência e leva ao WhatsApp.**
-Sem preço, sem checkout, sem pré-agendamento pago. A venda da Sessão Mapa do
-Ciclo (R$ 1.000) acontece na conversa. Decisão da call de 04/08 com a Thaina.
-Se alguém pedir para colocar o preço na página, é mudança de estratégia, não
-ajuste de copy.
+Sem checkout e sem pré-agendamento pago. A venda da Sessão Mapa do Ciclo
+acontece na conversa. Decisão da call de 04/08 com a Thaina, reafirmada em 04/09.
+Se alguém pedir checkout na página, é mudança de estratégia, não ajuste de copy.
+
+> **O preço vive no QUIZ, não na página** (04/09). A última pergunta ancora nos
+> **R$ 450** e no **12x de R$ 46,54** para qualificar por condição. A página
+> segue sem falar de valor: quem chega lá já se posicionou sobre o preço no
+> quiz, e o CTA muda conforme a faixa.
+>
+> O checkout direto na página chegou a ser pedido pela Thaina, mas **ficou de
+> fora nesta rodada**, por decisão de 08/09: primeiro roda uma semana só com a
+> porteira de preço, para a leitura sair limpa.
 
 ## Arquivos
 
@@ -117,16 +125,60 @@ ele nunca aparece como um atributo dela.
 
 ## Qualificação e CTA adaptado
 
+> **Revisado em 04/09.** A última pergunta do quiz deixou de medir **vontade**
+> e passou a medir **condição**. Antes ela perguntava "está pronta para investir
+> em você agora?", que não custa nada responder que sim: 79% da base entrava
+> como MQL e a Thaina gastava atendimento com quem não podia comprar. Agora a
+> pergunta ancora no preço real e no parcelamento:
+>
+> *"A Sessão Mapa do Ciclo é individual, 60 minutos com o Thiago, e o
+> investimento é de R$ 450, que dá para parcelar em até 12x de R$ 46,54.
+> Sabendo disso, o que faz mais sentido para você agora?"*
+>
+> O parcelamento vem no enunciado de propósito: a objeção de preço nasce
+> quebrada antes das alternativas, em vez de depender de a lead escolher a
+> opção certa para descobrir que dá para parcelar.
+>
+> **Nenhuma opção bloqueia o funil.** Todas seguem para a captura. A porteira
+> marca, não expulsa: o lead continua caindo na planilha, só que com uma coluna
+> de condição que é verdadeira.
+
 `classificarLead()` roteia o lead em quatro faixas (a coluna "Classificação" da
 planilha), e a página troca o CTA final:
 
-- **fora**: casada ou em relação fixa **sem** indicar falta de valorização. CTA vira conteúdo primeiro. (regra de cruzamento P7 x P1 da estratégia)
-- **nutrir**: "não neste momento, quero só entender melhor" → CTA "entender melhor como funciona".
-- **fila-quente**: prontidão a ou b → prioridade máxima de atendimento.
-- **qualificado**: "só dependendo do valor" → atender normalmente, com o 12x já na conversa.
+| Resposta na porteira | Faixa | O que a página faz |
+|---|---|---|
+| Consigo investir agora, quero marcar | **fila-quente** | CTA de sessão, prioridade máxima |
+| Consigo se for parcelado | **fila-quente** | igual, o 12x já entra na conversa |
+| R$ 450 está fora, investiria em algo menor | **passo-menor** | CTA vira "falar sobre o meu momento" |
+| Não é sobre o valor, não é o meu momento | **nutrir** | CTA "entender melhor como funciona" |
 
-fila-quente e qualificado veem o mesmo CTA na página (a diferença é só na fila
-do atendimento, porque a página não fala de preço).
+Fora dessas, a porteira de perfil continua valendo: **fora** = casada ou em
+relação fixa **sem** indicar falta de valorização (cruzamento P7 x P1 da
+estratégia), e o CTA vira conteúdo primeiro.
+
+**MQL = `fila-quente`, só.** A faixa `qualificado` antiga ("só dependendo do
+valor") deixou de existir: era ela que inflava a taxa de MQL. Ao trocar a régua,
+a taxa histórica deixa de ser comparável com a nova, então **não compare os dois
+períodos** na planilha de indicadores.
+
+### A faixa `passo-menor` é pesquisa, não descarte
+
+Ela existe para dimensionar quantas mulheres comprariam algo abaixo de R$ 450, e
+alimenta a decisão sobre o low ticket. Em 30 dias dá para saber o tamanho dessa
+demanda em vez de só perder essa gente.
+
+> ⚠️ **Hoje não existe produto no ar para essa faixa** (o low ticket estava
+> pausado em agosto por ROI baixo). Por isso o CTA dela **não promete** uma
+> opção mais barata pelo nome: convida para a conversa no WhatsApp e a lead cai
+> na planilha marcada. Quando o low ticket voltar, é só trocar o CTA e a
+> mensagem dessa faixa em `flow.js → marca.whatsappMsgPorFaixa`.
+
+### A mensagem do WhatsApp muda por faixa
+
+A lead abre a conversa já dizendo onde está em relação ao investimento, então o
+atendimento não precisa descobrir isso na conversa. Configurado em
+`flow.js → marca.whatsappMsgPorFaixa`.
 
 ## Estrutura da página pós-quiz
 
@@ -320,7 +372,12 @@ Antes e depois, com os números que o cliente reportou:
 6. **Depoimentos**: quando os primeiros prints chegarem (ver
    `estrategia/2026-07-21-guia-captacao-depoimentos.pdf`), converter para WebP
    ~520px e somar uma `.depo-gallery` antes do bloco de autoridade (CSS pronto).
-7. **Pixel da Meta e GA4**: preencher `app.js → TRACKING_CONFIG`.
+7. ~~Pixel da Meta e GA4~~ **Pixel ligado em 08/09** (id `1698620051487236`):
+   snippet base nos dois HTML disparando `PageView`, id em
+   `app.js → TRACKING_CONFIG` e evento padrão `Lead` no envio, além dos
+   customizados `funnel_start` / `step_complete` / `funnel_complete`. Era isso
+   que faltava para "Visitas na página" e o connect rate saírem de zero na
+   planilha de indicadores. **GA4 segue pendente** (basta preencher `ga4_id`).
 8. ~~Mesma correção de telefone nos outros funis da casa.~~ **Feito** (19/08).
    O bug era do motor, não deste funil, e a máscara antiga estava igual nos
    funis da Pâmella e do Lucas. Os dois já foram corrigidos em sessões próprias

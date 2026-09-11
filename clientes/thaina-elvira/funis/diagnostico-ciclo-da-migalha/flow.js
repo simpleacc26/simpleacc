@@ -24,8 +24,19 @@ window.FLOW = {
        Se algum dia voltar a ter "X", o botão não abre o WhatsApp de propósito,
        para não mandar lead para número errado. */
     whatsapp: "5511945148716",
-    // Texto que abre no WhatsApp ({nome} e {padrao} são trocados na hora)
+    // Texto que abre no WhatsApp ({nome} e {padrao} são trocados na hora).
+    // Fallback: usado quando a faixa não tem mensagem própria.
     whatsappMsg: "Oi! Sou {nome}, acabei de fazer o diagnóstico e meu resultado foi {padrao}. Quero entender melhor como funciona a sessão.",
+    /* Mensagem por faixa de condição (04/09). A lead abre a conversa já dizendo
+       onde está em relação ao investimento, então o atendimento não precisa
+       descobrir isso na conversa. É a mesma informação da coluna Qualificação
+       da planilha, só que chegando junto com a primeira mensagem. */
+    whatsappMsgPorFaixa: {
+      "fila-quente": "Oi! Sou {nome}, acabei de fazer o diagnóstico e meu resultado foi {padrao}. Quero marcar a minha Sessão Mapa do Ciclo.",
+      "passo-menor": "Oi! Sou {nome}, acabei de fazer o diagnóstico e meu resultado foi {padrao}. Queria saber se existe uma opção mais acessível para começar.",
+      nutrir: "Oi! Sou {nome}, acabei de fazer o diagnóstico e meu resultado foi {padrao}. Quero entender melhor como funciona a sessão.",
+      fora: "Oi! Sou {nome}, acabei de fazer o diagnóstico e meu resultado foi {padrao}. Queria conversar sobre o meu momento."
+    },
   },
 
   hero: {
@@ -176,13 +187,22 @@ window.FLOW = {
     {
       id: "prontidao",
       etapa: "O próximo passo",
+      /* PORTEIRA DE CONDIÇÃO (04/09). Antes esta pergunta media só vontade
+         ("está pronta para investir em você agora?") e por isso 79% da base
+         entrava como MQL. Agora ela ancora no preço real e no parcelamento, e
+         quem responde já se posiciona sobre condição, não sobre desejo.
+         O parcelamento vem no enunciado de propósito: a objeção de preço nasce
+         quebrada antes das alternativas, em vez de depender de a lead escolher
+         a opção certa para descobrir que dá para parcelar.
+         Nenhuma opção bloqueia: todas seguem para a captura. A porteira marca,
+         não expulsa. */
       pergunta:
-        "Se você encontrar um caminho que faça sentido, está pronta para investir em você agora?",
+        "A Sessão Mapa do Ciclo é individual, 60 minutos com o Thiago, e o investimento é de R$ 450, que dá para parcelar em até 12x de R$ 46,54. Sabendo disso, o que faz mais sentido para você agora?",
       options: [
-        { value: "prioridade", label: "Sim, é prioridade para mim neste momento", filaQuente: true },
-        { value: "se-funciona", label: "Sim, se eu entender que funciona para o meu caso", filaQuente: true },
-        { value: "valor", label: "Só dependendo do valor" },
-        { value: "depois", label: "Não neste momento, quero só entender melhor", nutrir: true },
+        { value: "agora", label: "Consigo investir agora, quero marcar", filaQuente: true },
+        { value: "parcelado", label: "Consigo se for parcelado, quero entender as condições", filaQuente: true },
+        { value: "menor", label: "R$ 450 está fora do meu momento, mas eu investiria em algo menor" },
+        { value: "depois", label: "Não é sobre o valor, não é o meu momento", nutrir: true },
       ],
     },
   ],
