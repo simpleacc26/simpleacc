@@ -1,132 +1,123 @@
 ---
 name: estrategia-completa-clientes
 description: >-
-  Gera o documento de estratégia completo de um cliente (modelo Simple Acc /
-  Rafael ALIVANCE) a partir da transcrição ou das notas de uma reunião de
-  onboarding, e entrega como Google Doc FORMATADO no Drive. Use sempre que
-  alguém do time precisar montar a estratégia inicial de um cliente novo,
-  "replicar o doc do Rafael para o cliente X", transformar um onboarding em
-  documento de estratégia, gerar copy de funil/quiz/anúncios/cadência para um
-  cliente, ou criar o material que inicia um projeto — mesmo que não digam
-  explicitamente "documento de estratégia". Cobre desde a extração das
-  informações do onboarding até a entrega do Doc formatado na pasta do cliente.
+  Gera a Estratégia Completa e as Copies do Funil de um cliente da Simple: PDF
+  diagramado na identidade navy + dourado, com big idea, régua de linguagem,
+  quiz com os padrões nomeados, página de diagnóstico em 9 blocos, 25 criativos
+  escritos, cadência de 12 dias e recomendações estratégicas. É o documento
+  irmão do Roadmap de 90 dias. Use sempre que alguém do time precisar montar a
+  estratégia inicial de um cliente novo, transformar um onboarding em documento
+  de estratégia, gerar copy de funil, quiz, anúncios ou cadência para um
+  cliente, ou criar o material que inicia um projeto, mesmo que não digam
+  explicitamente "documento de estratégia".
 ---
 
-# Estratégia Completa para Clientes — gerador de documento no modelo Simple Acc
+# Estratégia Completa e Copies do Funil
 
 ## O que esta skill faz
 
-Pega o **levantamento de um onboarding** (transcrição, notas do Gemini/Meet,
-áudio transcrito, ou um resumo escrito) e produz o **documento de estratégia
-completo** do cliente, na mesma estrutura que já deu certo (Rafael / ALIVANCE
-CLUB → Sabrina / Instituto Sabrina Siqueira), entregue como **Google Doc nativo
-e formatado** na pasta do cliente no Drive.
+Pega o **material de base de um cliente** (transcrição da call de vendas, call
+de onboarding, canvas, pesquisa que o cliente enviou) e produz a **Estratégia
+Completa**: o PDF que acompanha o Roadmap de 90 dias e traz a **copy inteira do
+funil, pronta para implementar**.
 
-O valor está em três coisas que o time costuma errar quando faz na mão:
-1. **Extrair a estratégia certa** do onboarding (não só transcrever — interpretar).
-2. **Seguir a estrutura comprovada** de 8 seções, adaptada ao tipo de funil e ao público.
-3. **Entregar formatado** (títulos, negrito, listas) — e não um "textão" cru.
+É o **documento irmão do roadmap**. O roadmap diz o que fazer e em que ordem; a
+estratégia entrega o texto de cada peça. Mesma identidade visual, mesmo CSS,
+mesma régua de qualidade.
+
+Referências vivas (o padrão atual da casa):
+`clientes/delphis-fonseca/` e `clientes/adriana-brunelly/estrategia/2026-09-11-estrategia-completa-funil-quiz.html`.
+
+> **Mudou em 09/2026.** A versão anterior desta skill entregava um Google Doc de
+> texto com 8 seções. **Não é mais isso.** O padrão é PDF diagramado, 6 seções e
+> as peças listadas abaixo. Se você encontrar um documento de cliente no formato
+> antigo, ele é legado.
 
 ## O fluxo (siga nesta ordem)
 
 ```
-1. EXTRAÇÃO   → ler o onboarding e preencher o mapa estratégico
-2. GERAÇÃO    → escrever as 8 seções no modelo, adaptadas ao cliente
-3. ENTREGA    → virar Google Doc formatado na pasta do cliente no Drive
-4. VERSIONAR  → salvar a fonte (.md) em clientes/<cliente>/estrategia/ no repo
+1. EXTRAÇÃO   → ler todo o material e preencher o mapa estratégico
+2. DECISÕES   → big idea, régua de linguagem, padrões do quiz, régua de segmentação
+3. REDAÇÃO    → escrever as 6 seções no template, 100% na realidade do cliente
+4. VALIDAÇÃO  → zero travessões + zero placeholders + paginação OK
+5. PDF        → navegador headless (mesmos comandos do roadmap)
+6. ENTREGA    → enviar o PDF + versionar HTML e PDF + aprendizados + commit/PR
 ```
 
-Não pule a extração. Gerar copy sem entender o ICP, as frentes e o gargalo é o
-caminho mais rápido pra refazer tudo. Se o onboarding não cobrir algum ponto
-crítico, **assuma o padrão mais provável, sinalize a premissa no documento** e
-siga — não trave esperando informação.
+### Passo 1 · Extração
 
----
+Leia **todo** o material antes de escrever qualquer coisa: transcrições
+inteiras, não só resumos. Use o mapa de **`references/extracao-onboarding.md`**.
 
-### Passo 1 — Extração estratégica
+Se o cliente já tiver roadmap, **leia o roadmap primeiro**: a esteira, a
+matemática, a narrativa e a régua de linguagem já foram decididas lá e os dois
+documentos não podem divergir em nenhum número.
 
-Leia o material do onboarding inteiro antes de escrever qualquer coisa. O
-objetivo é sair com um mapa claro de quem é o cliente, o que vende, pra quem, e
-o que trava o crescimento.
+### Passo 2 · As quatro decisões que vêm antes da copy
 
-Use o framework completo em **`references/extracao-onboarding.md`** — ele lista
-exatamente o que procurar (ICP, dor, frentes/produtos, oferta, mecanismo único,
-provas, ticket, origem de tráfego, gargalo operacional, geografia, destino do
-lead, etc.) e como inferir o que faltar.
+Nenhuma linha é escrita antes destas quatro:
 
-Ao final, escreva um **resumo de 8–12 linhas** do que você extraiu e, se estiver
-conversando com uma pessoa, confirme antes de gerar. Se estiver rodando de forma
-autônoma, registre as premissas assumidas numa nota no topo do documento.
+1. **A big idea.** A virada de chave que reposiciona o problema. Não é o
+   produto, é a frase que faz o ICP pensar "é exatamente sobre mim".
+2. **A régua de linguagem.** O que o projeto **fala** e o que **não fala**,
+   com as palavras exatas. É o que impede a copy de escorregar para jargão de
+   marketing ou para promessa que a plataforma reprova.
+3. **Os padrões do quiz** (3 a 5, normalmente 4). O quiz não devolve um texto
+   genérico: devolve **o nome do padrão da pessoa**. Nomeie o fenômeno, nunca
+   a pessoa. Defina qual pergunta determina o padrão e como o empate resolve.
+4. **A régua de segmentação.** Qualificado, a nutrir e fora por ora, com o
+   critério numérico e o destino de cada um.
 
-### Passo 2 — Geração do documento
+### Passo 3 · Redação
 
-Escreva as **8 seções** seguindo **`references/estrutura-documento.md`**, que traz
-o detalhe de cada seção, exemplos do modelo e como adaptar por tipo de funil
-(aplicação/call, VSL, low ticket, lead magnet, etc.) e por público (B2B x B2C).
+Copie `assets/modelo-estrategia.html` para
+`clientes/<cliente>/estrategia/AAAA-MM-DD-estrategia-completa.html` e escreva
+seção a seção seguindo **`references/estrutura-documento.md`**. Regras:
 
-As 8 seções são:
+- **Tudo na realidade do cliente.** Cada exemplo, número e frase vem do
+  material dele. A linguagem é a do nicho, não a de marketeiro.
+- **Zero travessões.** Vírgula, dois-pontos, ponto ou parênteses. Separador de
+  kicker: "·". Intervalos com "a" (de 30 a 60 segundos).
+- Onde não houver prova real, use `[DEPOIMENTO]` como espaço reservado.
+  **Nunca invente case, número ou depoimento.**
+- Páginas com altura fixa: se um bloco crescer, crie outra parte da mesma
+  seção em vez de espremer.
 
-1. **Big Idea** — a tese central / virada de chave (uma por frente, se houver mais de uma)
-2. **Copy do Quiz** — perguntas no padrão SPIN + captura de dados
-3. **Copy — Página de Aplicação** — headline, dor/espelho do ICP, mecanismo, autoridade, oferta, FAQ, CTA
-4. **Copy dos Anúncios** — 3 ângulos (hook + curta/média/longa) + 10 headlines + 5 hooks
-5. **Relatório de Diagnóstico** — entregue após o quiz, com campos `{{variável}}`
-6. **Cadência de Follow-up — 12 dias** — na voz do cliente, não mecânica
-7. **Tarefas — Onboarding & Primeiros Movimentos** — o que o time executa pra subir o projeto
-8. **Recomendações Estratégicas** — gargalos, riscos e prioridades (o olhar crítico da Simple)
+### Passo 4 · Validação (obrigatória)
 
-Princípios de copy (resposta direta, não "copy bonita"): linguagem do público —
-não de marketeiro; mecanismo único claro; frases curtas e ritmo; zero promessa
-vazia. Se o cliente pediu uma "voz" específica (ex: acolhedora, sem tom
-mecânico), respeite em todo texto, especialmente na cadência.
+Mesma régua do roadmap, em **`references/validacao-e-pdf.md`**: placeholders,
+travessões e o script de estouro de página (esperado: `TODAS-AS-PAGINAS-OK`).
 
-**Clientes com mais de uma frente** (ex: Sabrina = inclusão + implantes): gere
-Quiz, Anúncios e Diagnóstico para cada frente, respeitando o split de mídia
-definido no onboarding. A frente de maior diferenciação costuma ser o
-carro-chefe de marca mesmo quando outra traz o volume financeiro.
+### Passo 5 · PDF
 
-### Passo 3 — Entrega formatada no Drive
+Comandos e fallbacks em `references/validacao-e-pdf.md`.
 
-**Esta é a parte com pegadinha.** A integração de Drive cria Doc nativo a partir
-de texto puro — sem estilos de título. Pra entregar **formatado** (Heading 1/2,
-negrito, listas — como o cliente aprova de imediato), siga o playbook em
-**`references/entrega-drive.md`**.
+### Passo 6 · Entrega e memória
 
-Resumo do caminho que funciona: gerar o conteúdo como **um arquivo HTML**, subir
-na pasta do cliente, e usar **"Abrir com Google Docs"** no navegador — a
-importação de HTML aplica a formatação real. Depois, limpar os arquivos
-intermediários. O playbook tem o passo a passo, os comandos e os erros a evitar
-(não tente subir `.docx` local — é rejeitado/grande demais).
+1. Envie o PDF na sessão.
+2. Salve **HTML + PDF** em `clientes/<cliente>/estrategia/`.
+3. Registre em `aprendizados.md`: data, "estratégia criada", a big idea, os
+   padrões do quiz e a régua de segmentação.
+4. Atualize `CLAUDE.md` do cliente com a big idea e a régua de linguagem, que
+   valem para toda peça futura.
+5. Commit na branch da sessão e PR.
 
-### Passo 4 — Versionar no repositório (memória = Git)
+## Sobre entregar no Drive
 
-Além do Google Doc, **salve a fonte do documento no repositório**, para que a
-estratégia fique versionada junto com o resto do conhecimento do cliente (a
-memória que permanece é o Git, não o Drive).
-
-1. Salve o conteúdo em Markdown em:
-   `clientes/<cliente>/estrategia/AAAA-MM-DD-estrategia.md`
-   (use o `<cliente>` no padrão de pasta — minúsculas, sem acento, com hífen;
-   ex.: `clientes/sense-clinic/estrategia/2026-06-25-estrategia.md`).
-2. No topo do arquivo, inclua: data, autor, link do Google Doc gerado e as
-   premissas assumidas.
-3. Registre uma linha em `clientes/<cliente>/aprendizados.md` (data + "estratégia
-   inicial criada" + link do Doc).
-4. Faça commit numa branch `cliente/<cliente>/estrategia` e abra um PR.
-
-> Assim, da próxima vez que alguém for evoluir a estratégia, lê a versão anterior
-> no repo e cria a próxima (`-v2`), em vez de recomeçar do zero.
-
----
+O PDF é o entregável. Se pedirem uma versão editável, o MCP do Drive
+**converte HTML em Google Doc formatado direto no upload** (`create_file` com
+`contentMimeType: "text/html"`): títulos, negrito, listas e tabelas vêm certos.
+**Cuidado:** formatação dentro de célula de tabela se perde e vira `**`
+literal, então células de tabela vão em texto puro.
 
 ## Checklist antes de entregar
 
-- [ ] Resumo estratégico no topo (ou confirmado com a pessoa), com premissas sinalizadas
-- [ ] As 8 seções presentes e adaptadas ao cliente (nada genérico copiado do Rafael)
-- [ ] Frentes múltiplas cobertas (se aplicável), com split de mídia
-- [ ] Voz/tom pedidos pelo cliente respeitados (principalmente na cadência)
-- [ ] Entregue como **Google Doc formatado** (títulos, negrito, listas) — não texto cru
-- [ ] Doc na **pasta certa** do cliente no Drive
-- [ ] **Fonte (.md) salva em `clientes/<cliente>/estrategia/`** e aprendizado registrado (memória no Git)
-- [ ] Arquivos intermediários (HTML/teste) removidos; sem duplicado de nome igual
-- [ ] Link do Doc final informado à pessoa
+- [ ] Todo o material lido por inteiro, e o roadmap lido se já existir
+- [ ] Nenhum número diverge do roadmap (esteira, ticket, meta, conversão, verba)
+- [ ] Big idea, régua de linguagem, padrões do quiz e régua de segmentação decididos antes da copy
+- [ ] As 6 seções presentes, nada genérico copiado de outro cliente
+- [ ] 25 criativos escritos (15 roteiros de vídeo, 5 estáticos, 5 carrosséis)
+- [ ] Cadência na voz do cliente, com os 5 níveis de follow-up
+- [ ] Recomendações com o olhar crítico da Simple, sem suavizar
+- [ ] Zero travessões, zero placeholders, paginação OK, PDF gerado
+- [ ] PDF enviado, HTML e PDF versionados, aprendizados e CLAUDE.md atualizados, PR aberto

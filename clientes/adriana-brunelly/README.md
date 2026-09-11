@@ -16,9 +16,9 @@ estratégia completa com as copies do funil prontos em 11/09, aguardando aprova�
 
 **Entregas:**
 - [Roadmap Estratégico de 90 dias](estrategia/2026-09-11-roadmap-estrategico-adriana-brunelly.html)
-  (HTML fonte + PDF na mesma pasta)
+  (16 páginas · HTML fonte + PDF na mesma pasta)
 - [Estratégia completa e copies do funil de diagnóstico](estrategia/2026-09-11-estrategia-completa-funil-quiz.html)
-  (HTML fonte + PDF de 24 páginas na mesma pasta)
+  (23 páginas · HTML fonte + PDF na mesma pasta)
 - [Roteiro da call de onboarding (v2)](estrategia/2026-09-10-roteiro-call-mapa-estrategico-v2.md)
 
 ## Contatos

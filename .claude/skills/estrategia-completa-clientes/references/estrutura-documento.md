@@ -1,109 +1,154 @@
-# Estrutura do documento — as 8 seções (modelo Simple Acc)
+# Estrutura do documento, página a página
 
-Esta é a estrutura validada (Rafael/ALIVANCE → Sabrina). Mantenha a ordem e os
-nomes das seções. Adapte o **conteúdo** ao cliente — nunca copie o texto do
-Rafael/Sabrina; use-os só como referência de formato e profundidade.
+O documento tem **22 a 25 páginas** em 6 seções. Mantenha a ordem e os nomes.
+Adapte o **conteúdo** ao cliente: nunca copie o texto de outro cliente, use os
+exemplos só como referência de formato e profundidade.
 
-**Cabeçalho do documento** (antes da seção 1):
-`[Simple Acc] ESTRATÉGIA — {NOME DO CLIENTE/NEGÓCIO}`, com linha de
-Estrategista / Expert, o negócio em uma linha, e (se houver) as frentes + split
-de mídia. Se assumiu premissas, coloque uma nota curta logo abaixo.
-
-Para **clientes com mais de uma frente**, as seções 1, 2, 4 e 5 ganham uma
-versão por frente (ex: "2A. Quiz — Frente X", "2B. Quiz — Frente Y").
+Componentes visuais do template: `kicker` (SEÇÃO N · PARTE N), `h1`,
+`secao-lead`, `box-dark`, `box-light`, `qlabel`, `qtext`, `ul.alt`,
+`copylabel`, `ul.check`, `runhead`, `runfoot`.
 
 ---
 
-## 1. BIG IDEA
-A tese central que reposiciona o problema do ICP. Uma frase de impacto + 1
-parágrafo curto que explica por que o caminho comum falha e o que o cliente faz
-diferente. Uma Big Idea por frente, se houver mais de uma.
-- Foca na DOR/virada de chave, não no produto.
-- Deve fazer o ICP pensar "é exatamente sobre mim".
+## Página 1 · Capa
 
-## 2. COPY DO QUIZ
-Perguntas no padrão **SPIN**, baixa fricção no começo, qualificação por último.
-Ordem inviolável:
-1. **Situação** (fácil, pressupõe contexto)
-2. **Problema** (o gargalo/dor principal)
-3. **Implicação** (o custo de não resolver — faz sentir)
-4. **Necessidade/Tentativas** (o que já tentou)
-5. **Objetivo** (o que quer)
-6. **Perfil** (quem é)
-7. **Qualificação** (filtro duro — faturamento/orçamento se B2B; geografia se
-   negócio local; momento). SEMPRE por último.
-Depois: **Captura de dados** (título + subtítulo + campos mínimos + CTA + aviso
-de privacidade). Cada pergunta com 4 alternativas que já segmentam o lead.
-Promessa do quiz no topo (hero): título + subtítulo + estimativa de tempo.
+Kicker com o nome do funil e do produto (ex.: "Funil de Diagnóstico · Método
+ACA"), título "Estratégia Completa", régua dourada, subtítulo de 3 linhas
+("Quiz, página de diagnóstico, anúncios e cadência. A copy inteira do funil,
+pronta para implementar." + a frase da big idea em itálico), "Preparado para"
++ nome, "Estrategista" + nomes reais.
 
-## 3. COPY — PÁGINA DE APLICAÇÃO
-Na ordem:
-- **Headline** (promessa/dor, não o produto) + **Subheadline**
-- **Prova social** (logo após o headline) — cases/depoimentos ou placeholders `[DEPOIMENTO]`
-- **Bloco de dor — espelho do ICP** (bullets que a pessoa lê e se reconhece) + frase de virada
-- **Reframe — mecanismo do problema** (por que o esforço comum não resolve)
-- **Mecanismo único** (o que o cliente faz, em 3–4 frentes numeradas)
-- **Autoridade — quem é** (credibilidade real extraída do onboarding)
-- **Oferta** (o que a pessoa acessa; inclua recorrência/clube se houver)
-- **CTA primário** + reforço
-- **Qualificação — para quem é / não é** (✓ e ✗)
-- **FAQ** (3–5 objeções principais, respondidas)
-- **CTA final** + microcopy de confiança/privacidade
+## Página 2 · Antes de Ler a Copy · O Funil em Uma Página
 
-## 4. COPY DOS ANÚNCIOS
-- **Big Idea** (pode reusar a da seção 1, ajustada pra anúncio)
-- **3 ângulos**, cada um com: estratégia (1 linha), **Hook** (3 primeiros
-  segundos), **Copy curta** (~50 palavras), **Copy média** (~120), **Copy longa** (~250).
-  Ângulos típicos: dor/identificação, mecanismo único, prova social.
-- **10 headlines** para teste A/B
-- **5 hooks** para vídeo
-Por frente, se houver mais de uma.
+Lead: "Leia esta página antes de aprovar as copies. Tudo o que vem depois parte
+destas decisões." Quatro boxes:
 
-## 5. RELATÓRIO DE DIAGNÓSTICO (entregue após o quiz)
-Documento personalizado com campos `{{variável}}` preenchidos pelas respostas.
-Instruções de uso no topo (substituir variáveis, `[DEPOIMENTO]` = inserir prova,
-botões `[AGENDAR]` levam ao WhatsApp/calendário, tom = direto e sem
-condescendência). Etapas típicas: abertura personalizada → leitura do cenário →
-mecanismo do problema → comparação de cenários → custo de continuar → mecanismo
-da solução → o que precisa acontecer (personalizado pelo gargalo) → prova →
-convite para a próxima etapa → rodapé. Adapte o número de etapas ao ticket
-(ticket alto = mais etapas/prova).
+1. **O caminho do lead** (box-dark): o fluxo completo em uma linha, o que a
+   página de diagnóstico faz e o que ela **não** faz, e por que é assim (ticket
+   e ciclo de decisão).
+2. **A esteira hoje** (box-light): carro-chefe, aproveitamento do não ICP, e a
+   **regra do próximo produto** (o que não criar nestes 90 dias) e a regra de
+   preço (objeção vira forma de pagamento ou downsell, nunca desconto).
+3. **O que a copy precisa compensar** (box-light): a prova que falta e o que
+   entra no lugar dela. Deixa explícito que `[DEPOIMENTO]` é espaço reservado.
+4. **Premissas assumidas** (box-light): conversão, corte de qualificação, quem
+   conduz a sessão, verba. Os mesmos números do roadmap.
 
-## 6. CADÊNCIA DE FOLLOW-UP — 12 DIAS
-Estrutura de 12 dias (base validada Full Seos), na **voz do cliente** — nada
-mecânico. Defina os níveis de FUP (não respondeu / engajou e parou / quer
-agendar e adia / no-show / fez call e não fechou / relacionamento longo).
-Dia a dia com mensagens (manhã/tarde), intercalando check-ins curtos (emoji 👀)
-com mensagens de valor, ligação nos dias-chave, áudio pessoal perto do fim, e um
-dia 12 de "pré break-up". Use tags `{{}}` pra personalizar por frente/resposta.
+## Página 3 · Seção 1 · Big Idea
 
-## 7. TAREFAS — ONBOARDING & PRIMEIROS MOVIMENTOS
-O que o time executa pra subir o projeto, em blocos (ex: Funil & CRM, Conteúdo &
-Criativos, Comercial & Scripts, Mídia). Cada tarefa: responsável, prazo, o quê.
-**Inclua sempre a tarefa que ataca o gargalo central** identificado no onboarding
-(ex: o negócio depende do dono → treinar/contratar comercial). Feche com um
-checklist geral.
+Quatro boxes:
 
-## 8. RECOMENDAÇÕES ESTRATÉGICAS (Simple)
-O olhar crítico, direto. 3–4 blocos: sobre a oferta, sobre o funil, sobre
-conversão, e visão de longo prazo. Aponte gargalos e prioridades sem suavizar —
-o objetivo é resultado. Ex: "o gargalo não é tráfego, é o comercial interno;
-subir anúncio antes de resolver isso só aumenta o esgotamento do dono."
+1. **A big idea** (box-dark): a frase em negrito, o parágrafo que explica por
+   que o caminho comum falha, e a virada de chave.
+2. **A frase que resume a transformação** (box-light): uma linha, formato "de X
+   a Y".
+3. **Por que isso funciona com este público** (box-light): o que respeita o
+   status dele e o que soa pequeno. Dado de mercado quando houver.
+4. **A régua de linguagem** (box-dark): **fala** e **não fala**, com as palavras
+   exatas, e a regra que resume ("descreva a cena e use a frase que a própria
+   pessoa diz, nunca acuse quem ela é").
+
+## Páginas 4 a 7 · Seção 2 · Copy do Quiz
+
+Três ou quatro partes, conforme o número de alternativas. Dez perguntas em
+ordem SPIN, com o rótulo de cada uma no `qlabel` (ex.: "Pergunta 5 · Implicação
+· Alimenta o cálculo"):
+
+1 a 3 **Situação** (fácil, e as que alimentam cálculo, se houver) · 4 a 5
+**Problema** (uma delas define o padrão dominante) · 6 a 7 **Implicação** ·
+8 **Tentativas** · 9 **Objetivo** · 10 **Qualificação**, sempre por último.
+
+- **Hero da página do quiz** (box-light) antes da primeira pergunta: headline,
+  sub, micro (n perguntas · tempo · onde chega o resultado) e botão.
+- **Faixas numéricas com amplitude grande.** Quando a pergunta for de ticket ou
+  faturamento, use de 6 a 7 faixas indo até bem alto. O contraste é o primeiro
+  trabalho de consciência do funil: a pessoa descobre o tamanho do teto
+  respondendo uma pergunta. Explique isso num box logo abaixo.
+- **Box "por que a pergunta X importa tanto"**: qual pergunta separa o lead mais
+  valioso e qual alimenta o cálculo.
+- **Regra de segmentação** (box-dark): qualificado, a nutrir e fora por ora, com
+  critério numérico, destino de cada um e as exceções que valem ouro.
+- **Captura de dados** (box-light): headline, sub, campos, botão e selo de
+  privacidade.
+
+## Páginas 8 a 11 · Seção 3 · Página de Diagnóstico
+
+**Parte 1, a estrutura:**
+- **O trabalho desta página** (box-light): é uma peça só, o que ela faz e a
+  régua ("a pessoa precisa terminar pensando X, e não Y").
+- **Os padrões** (box-dark): de 3 a 5, cada um com nome, onde a perda acontece e
+  uma frase de reconhecimento. **Nomeie o fenômeno, nunca a pessoa.**
+- **Como o padrão é definido**: qual pergunta manda e como o empate resolve.
+- **Variáveis usadas** e **os nove blocos na ordem**.
+
+**Partes 2 a 4, a copy bloco a bloco** (use `copylabel` para cada bloco):
+
+1. O resultado dele (headline com o padrão + sub que tira o julgamento)
+2. A leitura do cenário (devolve as respostas dele, uma a uma)
+3. O espelho (bullets de reconhecimento + "não há nada de errado com você")
+4. **A conta ou o diagnóstico central**, quando o funil calcula algo. Entra em
+   destaque, sozinho na tela do celular.
+5. Por que o que você já tentou não resolveu
+6. O mecanismo (o método do cliente, em camadas, na voz dele)
+7. O que precisa acontecer no seu caso, **personalizado por padrão**, e o custo
+   de continuar
+8. Quem é, prova, para quem é e FAQ (3 a 5 objeções reais)
+9. O convite e o CTA (o que sai da sessão, o que ela não é, CTA e reforço)
+
+## Páginas 12 a 19 · Seção 4 · Copy dos Anúncios
+
+**Parte 1 · Regras e ângulos:**
+- **Regras que valem para todos** (box-dark): destino do tráfego, o que não
+  prometer, não afirmar atributo de quem lê, restrições de plataforma e trilha.
+- **Os três ângulos** (box-light): dor e identificação (capta frio), mecanismo
+  (qualifica), prova e autoridade (converte quem já viu). Quantos roteiros cada
+  um recebe.
+- **Como ler as próximas páginas**: o que cada roteiro traz e por que as
+  durações variam.
+
+**Partes 2 a 5 · Os 15 roteiros de vídeo, em bloco único.** Numerados de 1 a 15,
+agrupados por ângulo, **com duração variando de 30 a 90 segundos**. Cada um com:
+título, ângulo, duração, **gancho, desenvolvimento, virada, CTA e a legenda do
+post**. Os longos são marcados como remarketing.
+
+> Não separe "copy do anúncio" de "roteiro do vídeo" em seções diferentes: é
+> uma peça só, e o time reclama quando precisa cruzar duas partes do documento
+> para montar um criativo.
+
+**Parte 6 · Os 5 estáticos:** arte (a frase) + legenda, mais uma observação de
+produção com a direção de arte do nicho.
+
+**Parte 7 · Os 5 carrosséis:** título e os slides numerados, o último sempre
+levando ao quiz.
+
+**Parte 8 · Headlines, hooks e a largada:** 10 headlines para teste A/B, 5 hooks
+na voz do cliente e o box de **estrutura de largada** (quantos criativos, em que
+ordem sobem, distribuição por ângulo, direção de gravação, quando a mídia entra
+e qual é a régua que importa).
+
+## Páginas 20 a 21 · Seção 5 · Cadência de Atendimento · 12 dias
+
+- **Regra de tom neste nicho** (box-dark): como a pessoa quer ser tratada, o que
+  não usar, e a vantagem que só este cliente tem.
+- **Dia a dia**, com `copylabel` marcando o dia e o tipo (valor, ligação, áudio,
+  quebra de objeção, escassez real, encerramento). Mensagens escritas na voz do
+  cliente, com variáveis.
+- **Os cinco níveis** (box-dark): não respondeu, engajou e parou, quer e adia,
+  no-show, fez a sessão e não fechou.
+
+## Páginas 22 a 23 · Seção 6 · Recomendações Estratégicas
+
+O olhar crítico da Simple, direto, sem suavizar. De 6 a 8 boxes cobrindo: o que
+trava tudo, a alavanca mais barata, a conta honesta do funil, o risco de
+infraestrutura, prova e imagem, o ativo que ninguém está enxergando, e **o que
+monitorar de perto** com os gatilhos numéricos.
 
 ---
 
-## Adaptação por tipo de funil (eixo estratégico)
-| Tipo | Foco |
-|---|---|
-| Aplicação / Call | Qualificação + dor + autoridade + filtro |
-| Webinar | Curiosidade + promessa + antecipação |
-| VSL direta | Mecanismo + desejo + urgência |
-| Low ticket | Impulso + facilidade + risco baixo |
-| Lead magnet | Valor claro + especificidade |
-| Call/Agendamento direto | Autoridade + resultado + facilidade de agendar |
-| Negócio local (B2C) | Geografia + confiança + prova (antes/depois) + acolhimento |
+## O que NÃO entra neste documento
 
-B2C/serviço local (ex: clínica): o "lead" é o paciente/família; a "sessão
-estratégica" vira "avaliação/consulta"; prova social (antes/depois,
-transformação) é o ativo de conversão mais forte; qualifique por geografia.
-B2B/alto ticket: mais prova, mais etapas, qualificação financeira dura.
+- **Tarefas com responsável e prazo.** Isso é do roadmap. Se aparecer aqui,
+  os dois documentos passam a divergir na primeira mudança de plano.
+- **Fases, passos numerados e checkpoints.** Também do roadmap.
+- **Qualquer número que não bata com o roadmap.** Ticket, meta, conversão,
+  verba e esteira são os mesmos nos dois, sempre.

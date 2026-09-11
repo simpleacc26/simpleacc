@@ -59,3 +59,40 @@ Um resumo de 8–12 linhas cobrindo: produto/frentes, ICP + dor + nível de
 consciência, contexto do funil, operação/destino do lead, gargalo central,
 e uma lista de **premissas assumidas**. Confirme com a pessoa (se houver) antes
 de gerar o documento.
+
+---
+
+## As quatro decisões que vêm antes da copy
+
+Depois de preencher o mapa acima, **decida estas quatro coisas e só então
+escreva**. Elas amarram o documento inteiro, e mudar qualquer uma delas depois
+obriga a reescrever metade das páginas.
+
+### 1. A big idea
+A virada de chave que reposiciona o problema. Não é o produto. Precisa fazer o
+ICP pensar "é exatamente sobre mim". Formato que funciona: *"o problema não está
+em X, está em Y"*.
+
+### 2. A régua de linguagem
+As palavras que o projeto **fala** e as que **não fala**, listadas. Vem de três
+lugares: o vocabulário real do nicho, o que a plataforma de anúncio reprova, e
+o que fere o status do comprador. A regra que fecha a régua é sempre a mesma:
+descreva a cena e use a frase que a própria pessoa diz, nunca acuse quem ela é.
+
+### 3. Os padrões do quiz
+De 3 a 5, normalmente 4. O quiz não devolve texto genérico: devolve **o nome do
+padrão da pessoa**. Cada padrão precisa de nome, de onde o problema acontece e
+de uma frase de reconhecimento. **Nomeie o fenômeno, nunca a pessoa.** Defina
+qual pergunta determina o padrão e como o empate resolve.
+
+### 4. A régua de segmentação
+Qualificado, a nutrir e fora por ora, com critério numérico e destino de cada
+um. Inclua as exceções: um lead de faixa baixa com perda alta costuma ser melhor
+que um de faixa alta sem dor.
+
+## Antes de tudo: leia o roadmap
+
+Se o cliente já tem Roadmap de 90 dias, **leia o roadmap antes de escrever a
+estratégia**. Esteira, ticket, meta, conversão, verba e a narrativa (inimigo,
+virada, régua de linguagem) já foram decididos lá. Os dois documentos não podem
+divergir em nenhum número, e quem chega depois se ajusta ao primeiro.
