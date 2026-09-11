@@ -19,6 +19,8 @@ estratégia completa com as copies do funil prontos em 11/09, aguardando aprova�
   (16 páginas · HTML fonte + PDF na mesma pasta)
 - [Estratégia completa e copies do funil de diagnóstico](estrategia/2026-09-11-estrategia-completa-funil-quiz.html)
   (23 páginas · HTML fonte + PDF na mesma pasta)
+- [Guia de Captação de Depoimentos](estrategia/2026-09-11-guia-captacao-depoimentos-adriana-brunelly.html)
+  (4 páginas · HTML fonte + PDF na mesma pasta)
 - [Roteiro da call de onboarding (v2)](estrategia/2026-09-10-roteiro-call-mapa-estrategico-v2.md)
 
 ## Contatos
