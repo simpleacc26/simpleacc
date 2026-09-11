@@ -97,7 +97,7 @@ o balde dominante, o resto é comum aos cinco. Mapeamento completo na seção
 "Os cinco baldes" do `README.md` do projeto.
 
 **Os leads já caem sozinhos numa planilha**, testada de ponta a ponta:
-[Leads · Quiz Diagnóstico de Condução](https://docs.google.com/spreadsheets/d/1WKQCQZHV-9ts7zub_vKxECzUQy6UUNTT9PTgIdW-Of8/edit),
+[Leads · Quiz Diagnóstico de Condução](https://docs.google.com/spreadsheets/d/1pbw3MXztt0BiYKqhCPC8FPnww5abnANPP_bpaZ8iENU/edit),
 na pasta `Simple <> Thiago Menegão` do Drive, alimentada pelo cenário
 `[Thiago Menegão] Diagnóstico de Condução → Sheets` no Make.
 

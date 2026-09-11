@@ -29,7 +29,7 @@ isso a venda chega lá sem origem e não dá para saber qual criativo pagou.
 
 ```bash
 node build-deploy.js     # gera dist/, que é o que sobe
-node testar.js           # 24 checagens antes de qualquer deploy
+node testar.js           # 25 checagens antes de qualquer deploy
 ```
 
 Depois suba o conteúdo de `dist/` para os projetos da Vercel listados em
@@ -229,11 +229,12 @@ pontua, os perfis do `testar.js` e a calibragem.
 ## O índice (IIC)
 
 **Índice de Inversão de Camada**, de 0 a 100. Sai só das perguntas com `peso`
-(P1 a P5). Objetivo, estrutura, volume e ticket não pontuam: servem para o
-espelho e para calibrar o argumento.
+(P1 a P5). Desafio, objetivo, estrutura, volume, ticket e urgência não pontuam:
+servem para o espelho, para as barras, para calibrar o argumento e para priorizar
+a fila na planilha.
 
-`node calibrar.js` roda as 1280 combinações. Hoje: amplitude de 29% a 100%, com
-55% em Alta, 45% em Média e 0,2% em Baixa. A faixa Baixa é rara de propósito,
+`node calibrar.js` roda as 1920 combinações. Hoje: amplitude de 29% a 100%, com
+53% em Alta, 47% em Média e 0,1% em Baixa. A faixa Baixa é rara de propósito,
 porque o quiz não tem alternativa de "está tudo bem": quem responde já se
 reconhece no problema. **Se mexer em qualquer peso, rode a calibragem de novo.**
 
@@ -257,17 +258,24 @@ pessoa joga.
 
 | | |
 | --- | --- |
-| **Planilha** | [Leads · Quiz Diagnóstico de Condução · Thiago Menegão](https://docs.google.com/spreadsheets/d/1WKQCQZHV-9ts7zub_vKxECzUQy6UUNTT9PTgIdW-Of8/edit) |
+| **Planilha** | [Leads · Quiz Diagnóstico de Condução · Thiago Menegão](https://docs.google.com/spreadsheets/d/1pbw3MXztt0BiYKqhCPC8FPnww5abnANPP_bpaZ8iENU/edit) |
 | Pasta no Drive | `Simple <> Thiago Menegão` |
 | Cenário no Make | `[Thiago Menegão] Diagnóstico de Condução → Sheets` (Time Simple Acc, id 6197898) |
 | Webhook | `app.js > LEADS_ENDPOINT` |
 | Aba | **`Untitled`** |
 
-São 27 colunas, na mesma ordem dos campos de `enviarLead()` no `app.js`.
+São **29 colunas**, na mesma ordem dos campos de `enviarLead()` no `app.js`.
 Além dos dados de contato, cada linha traz o **balde dominante**, o IIC com a
 faixa, o segmento de ticket, a conta de 12 meses e as nove respostas do quiz em
-texto legível, mais as cinco UTMs e a URL de origem. É o suficiente para abrir a
-linha e saber com quem se está falando antes de responder.
+texto legível (inclusive o **maior desafio** e a **urgência**), mais as cinco
+UTMs e a URL de origem. É o suficiente para abrir a linha e saber com quem se
+está falando, e com que pressa, antes de responder.
+
+> ⚠️ **A planilha foi REFEITA em 11/09** para caber o cabeçalho de 29 colunas.
+> O Drive não deixa reescrever o cabeçalho de uma planilha existente por aqui, e
+> o `addRow` grava por posição, então não dava para acrescentar coluna no meio.
+> A antiga, de 27 colunas, continua na mesma pasta renomeada para **"ANTIGA
+> (não usar)"**: pode apagar quando quiser.
 
 **Três armadilhas deste conjunto, todas já pisadas pela casa:**
 
@@ -289,7 +297,8 @@ bloco não renderiza, ou a página avisa no topo.
 | --- | --- | --- |
 | **URL do checkout** | `flow.js > marca.checkoutUrl` | os botões não navegam e a página mostra um aviso vermelho no topo |
 | **Pixel da Meta** | `index.html`, `diagnostico.html` (bloco comentado) e `app.js > TRACKING_CONFIG` | nenhum evento sobe |
-| **Logos das marcas** | `diagnostico.js > LOGOS` | entram os nomes em chip, que dizem a mesma coisa sem risco de falsificar marca registrada |
+| **Logos das marcas** | `diagnostico.js > LOGOS` | entram os nomes em chip. O Thiago **autorizou usar as imagens** em 11/09, mas os arquivos ainda não chegaram, e logo de marca registrada não se desenha de memória |
+| **Texto da tela de autoridade** | `flow.js > intersticiais`, id `autoridade` | está o nosso texto provisório. O Thiago disse em 11/09 que vai mandar "um texto mais estratégico" |
 | **Depoimentos** | `diagnostico.js > DEPOIMENTOS` | o bloco inteiro não renderiza |
 | **Prazo da garantia** | `flow.js > oferta.prazoGarantia` | a página fala em garantia sem citar prazo |
 | **Data da Turma de Fundadores** | `flow.js > oferta.dataLimiteFundadores` | o bloco de fundadores não aparece |
@@ -320,9 +329,9 @@ campo mas a tabela de objeções trata "R$ 500 é barato demais", e o texto cita
 
 ## Verificação do que está no ar
 
-Em 08/09/2026 os **nove** arquivos servidos (as duas páginas, o CSS, o favicon,
+Em 11/09/2026 os **nove** arquivos servidos (as duas páginas, o CSS, o favicon,
 os quatro JS e a `thiago.webp`) foram conferidos com `curl` + `cmp` contra o
-`dist/` local e são **byte a byte idênticos** ao build que passou nas 24
+`dist/` local e são **byte a byte idênticos** ao build que passou nas 25
 checagens do `testar.js`. Refaça essa conferência depois de todo deploy.
 
 Comando, rodando dentro de `dist/`:
