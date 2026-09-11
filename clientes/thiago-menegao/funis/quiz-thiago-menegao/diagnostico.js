@@ -349,9 +349,10 @@ if (!a._completedAt && !a.trava) {
         Prescrição e Decisão, aplicadas a uma call real, do primeiro minuto ao fechamento ou ao
         follow-up. Cada etapa com a função dela, o critério de saída e o sinal de que a conversa travou,
         em um módulo por etapa.</li>
-        <li><b>Perfis comportamentais e tratamento de objeção:</b> a calibragem de linguagem, ritmo e
-        ancoragem para os quatro perfis, e como responder a cada objeção pelo que a fez aparecer, no
-        lugar de resposta pronta.</li>
+        <li><b>Perfis, Estratos e tratamento de objeção:</b> a calibragem de linguagem, ritmo e
+        ancoragem para os quatro perfis comportamentais (Competidor, Analítico, Caridoso e Social) e
+        para os quatro Estratos de maturidade, do 5 ao 8, com o que energiza e o que drena cada um.
+        Mais como responder a cada objeção pelo que a fez aparecer, no lugar de resposta pronta.</li>
         <li><b>O protocolo pós-decisão:</b> o processo que protege a venda contra o arrependimento e o
         follow-up estruturado em 2, 24 e 48 horas.</li>
         <li><b>Bônus, o Framework de Análise de Call:</b> o guia que transforma cada reunião perdida em

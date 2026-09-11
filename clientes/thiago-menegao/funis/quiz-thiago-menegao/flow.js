@@ -123,7 +123,7 @@ window.FLOW = {
       resumo: "você conduz todos do mesmo jeito, e a frase que aproxima um perfil é exatamente a que afasta o outro.",
       cena: "Com um cliente a reunião flui e fecha. Com o seguinte, mesma preparação, mesmo roteiro, a conversa esfria, e depois você não consegue apontar o que mudou.",
       custo: "Sem leitura de perfil a sua conversão vira sorte de encaixe. Você fecha com quem já pensa parecido com você e perde os outros três, sem nunca ter tido como saber por quê.",
-      caminho: "Ler o lead são duas leituras, não uma. A primeira é o PERFIL, quatro na mesa: o Competidor, o Analítico, o Caridoso e o Social, e cada um precisa de tipo de prova, ritmo e pergunta diferentes. A segunda é a CAMADA, o estrato em que ele está naquele momento da conversa, que decide em que altura a sua resposta precisa entrar. Perfil sem camada acerta o tom e erra a profundidade; camada sem perfil acerta a profundidade e erra o tom. O Diagnóstico existe para fazer as duas antes de escolher o que dizer, e o Espelho só devolve a situação nas palavras dele se elas tiverem sido feitas.",
+      caminho: "Ler o lead são duas leituras, não uma. A primeira é o PERFIL: Competidor, Analítico, Caridoso e Social, cada um pedindo tipo de prova, ritmo e pergunta diferentes. A segunda é o ESTRATO, a camada de maturidade em que ele está. O Estrato 5 precisa provar do que é capaz, e número de dinheiro não move ele. O 6 quer resultado que dê para medir, e apelo emocional não move ele. O 7 quer cumprir com excelência o papel que ocupa. O 8 avalia a própria trajetória e quer sentido. A maioria das negociações acontece no 5 e no 6, e a mesma frase que energiza um esvazia o outro. Perfil sem Estrato acerta o tom e erra a altura; Estrato sem perfil acerta a altura e erra o tom. O Diagnóstico existe para fazer as duas leituras antes de escolher o que dizer.",
     },
     camada: {
       nome: "Camada do Lead",
@@ -132,7 +132,7 @@ window.FLOW = {
       resumo: "você responde na camada racional uma dúvida que nasceu na camada primal, e a resposta certa chega no lugar errado.",
       cena: "Ele entende tudo, concorda com tudo, elogia o raciocínio, e mesmo assim diz que vai pensar. Não faltou informação. Faltou chegar na camada onde a decisão estava sendo tomada.",
       custo: "É a perda mais cara porque é invisível: nada dá errado na tela. Você reabre a gravação, assiste inteira, e não encontra o erro, porque ele não está no que foi dito, está na camada em que foi dito.",
-      caminho: "A decisão acontece em três camadas, sempre nesta ordem: primal, emocional e racional. O trabalho aqui é identificar em qual delas o lead está antes de responder, e subir com ele, em vez de responder de cima. É exatamente isso que o índice deste diagnóstico mede.",
+      caminho: "A decisão acontece em três camadas, sempre nesta ordem: primal, emocional e racional. Não confunda com o Estrato, que é a maturidade da pessoa: aqui a questão é a altura da DECISÃO dentro daquela conversa, que muda de minuto a minuto. O trabalho é identificar em qual camada o lead está antes de responder, e subir com ele, em vez de responder de cima. É exatamente isso que o índice deste diagnóstico mede.",
     },
     empilhamento: {
       nome: "Empilhamento Desproporcional",
