@@ -2,9 +2,9 @@
 name: estrategia-completa-clientes
 description: >-
   Gera a Estratégia Completa de um cliente da Simple: PDF na identidade navy +
-  dourado, seguindo a estrutura validada na Luana Isse (funil de lead dinâmico),
+  dourado, seguindo a estrutura validada na Adriana Brunelly (funil de diagnóstico),
   com a copy inteira do funil pronta para implementar (big idea, quiz, página
-  pós-quiz, 20 criativos, cadência de 12 dias e recomendações). Use sempre que
+  de diagnóstico, 25 criativos, cadência de 12 dias e recomendações). Use sempre que
   alguém do time precisar montar a estratégia inicial de um cliente novo,
   "replicar a estratégia da Luana para o cliente X", transformar um onboarding
   ou uma call de vendas em documento de estratégia, gerar copy de
@@ -25,10 +25,15 @@ para implementar**, na identidade visual da Simple.
 > skill mandavam entregar como Doc formatado no Drive, com 8 seções. Isso está
 > errado e gerou retrabalho, duas vezes, em clientes diferentes.
 >
-> **A referência agora está commitada, em `assets/exemplos/`:** a Luana Isse
-> (11/08, padrão-ouro, B2B com SDR) e o Rafael Cobra (13/08, o mais completo,
-> B2C e cliente que executa sozinho). **Leia os dois antes de escrever.** O do
-> Rafael traz uma tabela do que muda de um cliente para o outro.
+> **A referência está commitada, em `assets/exemplos/`.** Leia nesta ordem:
+> a **Adriana Brunelly (11/09)**, que é o padrão vigente e vence em caso de
+> conflito; a Luana Isse (11/08, B2B com SDR); e o Rafael Cobra (13/08, B2C e
+> cliente que executa sozinho). **Leia os três antes de escrever.**
+>
+> A Adriana mudou três coisas grandes: o quiz passou a **calcular um número**
+> (10 perguntas, 4 delas alimentando a conta), o resultado passou a ser um de
+> **4 padrões de perda nomeados** em vez do pilar do método, e a seção 4 foi
+> para **25 criativos em 8 partes**, com 15 roteiros completos.
 >
 > Antes, esse padrão vivia só num PDF no Drive, e foi exatamente por isso que
 > duas sessões erraram o formato. **Entregável que define padrão tem que ser
@@ -150,9 +155,10 @@ página densa por screenshot antes de entregar.
 - [ ] As 6 seções presentes, nada genérico copiado de outro cliente
 - [ ] Página 2 ("O Funil em Uma Página") com caminho do lead, esteira, o que a
       copy precisa compensar e as premissas assumidas
-- [ ] Quiz com 8 perguntas, a de qualificação por último, e regra de segmentação
-- [ ] Página pós-quiz com os 9 blocos e as variáveis listadas
-- [ ] 20 criativos **escritos**: 5 estáticos, 5 carrosséis, 10 vídeos
+- [ ] Quiz com 10 perguntas, as de cálculo marcadas, a de qualificação por último, e regra de segmentação
+- [ ] Resultado do quiz são 4 padrões de perda nomeados, com regra de desempate
+- [ ] Página de diagnóstico com os 9 blocos, o bloco da conta e as variáveis listadas
+- [ ] 25 criativos **escritos**: 15 roteiros (gancho, desenvolvimento, virada, CTA, legenda), 5 estáticos, 5 carrosséis
 - [ ] Regras de compliance do nicho explícitas na seção de anúncios
 - [ ] Cadência de 12 dias com os 5 níveis, nomeando quem dispara
 - [ ] Recomendações apontando o gargalo real, sem suavizar

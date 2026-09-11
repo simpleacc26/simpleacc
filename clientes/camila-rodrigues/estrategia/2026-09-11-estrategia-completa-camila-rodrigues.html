@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Estratégia Completa · Camila Rodrigues</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body { font-family: Arial, Helvetica, sans-serif; color: var(--text); font-size: 10pt; line-height: 1.45; }
+  .page { width: 210mm; height: 297mm; overflow: hidden; padding: 16mm 18mm 24mm 18mm; position: relative; page-break-after: always; background: #fff; }
+  .page:last-child { page-break-after: auto; }
+  .runhead { display: flex; justify-content: space-between; font-size: 7.5pt; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt; }
+  .runfoot { position: absolute; bottom: 9mm; left: 18mm; right: 18mm; text-align: center; font-size: 7.5pt; color: var(--muted); }
+  .kicker { color: var(--gold); font-size: 9pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt; }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 12pt; font-size: 10pt; }
+  .box-dark { background: var(--navy-dark); color: #f5f3ee; padding: 11pt 14pt; margin: 10pt 0; border-radius: 2pt; }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light { background: var(--beige); border-left: 3pt solid var(--gold); padding: 10pt 14pt; margin: 10pt 0; }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .sec-header { background: var(--navy-dark); color: #fff; padding: 10pt 16pt; margin-bottom: 10pt; border-left: 4pt solid var(--gold); }
+  .sec-header .fk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .sec-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .sec-header .fd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  .bloco-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin: 11pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 6pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+  .qtext { color: var(--navy); font-weight: bold; font-size: 10.5pt; margin-bottom: 3pt; }
+  .qopts { margin: 2pt 0 5pt 0; }
+  .qopts div { padding-left: 14pt; position: relative; margin-bottom: 2pt; color: #4a5160; }
+  .qopts div::before { content: "▢"; color: var(--gold); position: absolute; left: 0; font-size: 9pt; }
+  .rot { color: var(--navy); font-weight: bold; font-size: 10.5pt; margin-bottom: 3pt; }
+  .rot span { color: var(--gold); font-weight: bold; font-size: 8.5pt; letter-spacing: .06em; }
+  .cover { padding-top: 55mm; }
+  .cover h1 { font-size: 40pt; line-height: 1.06; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- 1 · CAPA -->
+<div class="page cover">
+  <div class="kicker">Funil de Diagnóstico · Método A SALA</div>
+  <h1>Estratégia<br>Completa</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    Quiz, página de diagnóstico, anúncios e cadência.<br>
+    A copy inteira do funil, pronta para implementar.<br>
+    As salas que você ocupou e não foi lido.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">Camila Rodrigues</div>
+    <div class="lbl">Estrategista</div>
+    <div class="val">Daniel Souza · Carlos Durães</div>
+  </div>
+</div>
+
+<!-- 2 · O FUNIL EM UMA PÁGINA -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Camila Rodrigues</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Ler a Copy</div>
+  <h1 style="font-size:19pt;">O Funil em Uma Página</h1>
+  <p class="lead">Leia esta página antes de aprovar as copies. Tudo o que vem depois parte destas decisões.</p>
+
+  <div class="box-dark">
+    <div class="bt">O caminho do lead</div>
+    <p>Anúncio ou conteúdo → Diagnóstico de Ruído de Sala, quiz gratuito de 2 minutos → página de diagnóstico com o padrão e a conta dele → WhatsApp → sessão de diagnóstico → Protocolo da Etiqueta.</p>
+    <p>A página de diagnóstico não vende e não mostra preço. O trabalho dela é dar nome ao padrão da pessoa, mostrar o tamanho do que ela está perdendo e fazer ela querer conversar. A oferta acontece na sessão.</p>
+    <p>Por que assim: etiqueta mexe com vergonha. Ninguém agenda no impulso uma conversa em que vai admitir que não sabe se comportar. O diagnóstico nomeia o problema sem humilhar, e é isso que torna a conversa possível. <strong>O botão abre o WhatsApp com mensagem pronta, não um agendamento automático:</strong> sem pré-vendas e com a agenda dela apertada, o filtro vem antes da agenda.</p>
+      </div>
+
+  <div class="box-light">
+    <div class="bt">A esteira hoje</div>
+    <p><strong>Carro-chefe:</strong> Protocolo da Etiqueta, método A SALA, R$ 2.997 em até 12x. Mentoria online de 8 módulos com encontros ao vivo. É o que este funil vende e é ele que paga a operação.</p>
+    <p><strong>Portas laterais:</strong> curadoria e mesa posta (R$ 2.000 online, R$ 1.987 a diária presencial) e gestão de eventos (R$ 2.497). Aparecem só depois, com quem já é cliente. Não entram na mídia.</p>
+    <p><strong>Regra do terceiro produto:</strong> nada de produto de entrada, turma nova ou e-book nos 90 dias. Objeção de valor na sessão vira forma de pagamento. Nunca desconto no Protocolo da Etiqueta.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">O que a copy precisa compensar</div>
+    <p>Não existe nenhum depoimento de aluno gravado. Enquanto a prova não chega, a copy compensa com o que quase ninguém no nicho tem: ela circula por dentro das salas que o público quer acessar. Televisão, casas de alto padrão, curadoria para lojas e bastidor de eventos de grandes players.</p>
+    <p>Onde houver <strong>[DEPOIMENTO]</strong> no texto, é espaço reservado. Case de aluno só entra quando existir de verdade.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Premissas assumidas</div>
+    <p>Conversão de 30% na sessão, acima do padrão de quem não tem depoimento porque ela vende alto valor por telefone todos os dias, a corrigir com dado real após as 10 primeiras · comparecimento de 60% · corte de qualificação em renda de R$ 6 mil · quem aborda, conduz e fecha é ela, porque não existe pré-vendas · verba inicial de R$ 50 por dia.</p>
+    <p>Não houve call de onboarding. Base: canvas de produto e ICP (31/07), call de vendas (30/07) e perfil público.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 3 · SEÇÃO 1 · BIG IDEA -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Camila Rodrigues</span><span>Página 3</span></div>
+  <div class="sec-header">
+    <div class="fk">Seção 1</div>
+    <h2>Big Idea</h2>
+    <div class="fd">A ideia que sustenta o quiz, a página, os anúncios e o atendimento.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">A big idea</div>
+    <p><strong>Você não é barrado por saber menos. É barrado por não saber estar.</strong></p>
+    <p>A pessoa que você atende não tem problema de competência. Ela entrega e é reconhecida pelo trabalho. Mas existe uma sala onde ela não entra inteira, e não sabe explicar por quê.</p>
+    <p>Por isso a virada não é "aprenda etiqueta". É: <strong>você não perde espaço por não saber a regra, você perde porque a sala te lê antes de você falar.</strong> Essa distância entre quem a pessoa é e o que a sala entende tem nome: é o <strong>Ruído de Sala</strong>.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A frase que resume a transformação</div>
+    <p><strong>De quem se comporta bem a quem é lembrado.</strong></p>
+    <p>Comportar-se bem é não errar, e por isso encolhe. Ser lembrado é ocupar. Ela talvez já saiba as mesmas regras, mas passa a escolher o que comunica em vez de torcer para não escorregar.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Por que isso funciona com este público</div>
+    <p>Ele é profissional de carreira, empresário ou especialista, com 10, 15, 20 anos de estrada. Promessa de "aprenda boas maneiras" soa pequena e infantiliza quem já é sênior.</p>
+    <p>Promessa de <strong>ser lembrado e pertencer</strong> respeita. É a diferença entre falar com quem precisa aprender a se comportar e falar com quem já se comporta bem, e mesmo assim sai da sala sem ter ocupado o lugar que o trabalho dele já conquistou.</p>
+    <p>E tem o dado que decide a porta de entrada: a palavra <strong>etiqueta</strong> soa datada e elitista para boa parte do mercado. Foi essa leitura que travou a própria Camila por meses, quando ouviu de um colega que "não vende esse negócio". Entrar por ela é perder metade do público na primeira linha.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A régua de linguagem, válida para toda peça</div>
+    <p><strong>Fala:</strong> presença · a sala te lê antes de você falar · repertório · ser lembrado · pertencer · ocupar o espaço · a cadeira do canto · o que o seu comportamento comunica · quanto custa continuar encolhendo.</p>
+    <p><strong>Não fala:</strong> etiqueta como promessa de entrada (é o que ela entrega, não o que ela anuncia) · qualquer enquadramento de classe, que reduz o mercado e confirma a objeção · promessa de promoção, convite ou negócio fechado, que a Meta lê como promessa de ganho · deselegante, despreparado ou inseguro como rótulo de quem lê.</p>
+    <p><strong>A regra que resume:</strong> descreva a cena e use a frase que a própria pessoa diz. Nunca acuse quem ela é.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 4 · SEÇÃO 2 PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Camila Rodrigues</span><span>Página 4</span></div>
+  <div class="sec-header">
+    <div class="fk">Seção 2 · Parte 1</div>
+    <h2>Copy do Quiz</h2>
+    <div class="fd">Diagnóstico de Ruído de Sala. Capta, qualifica, conta e já funciona como o primeiro atendimento.</div>
+  </div>
+
+  <p class="lead">Cada pergunta mede uma parte da perda. O resultado não é rótulo genérico: é o nome do padrão dela e o número de salas que ela ocupou sem ser lida, e é isso que faz a pessoa chegar na sessão achando que você enxergou o que ninguém enxergou.</p>
+
+  <div class="box-dark">
+    <div class="bt">Hero da página do quiz</div>
+    <p><strong>Headline:</strong> Quantas salas você já ocupou sem ser lembrado?</p>
+    <p><strong>Sub:</strong> Não é timidez e não é falta de competência. Existem quatro pontos onde a sua presença se perde entre a porta e a saída, e todos eles têm conta.</p>
+    <p><strong>Micro:</strong> 10 perguntas · 2 minutos · resultado no seu WhatsApp · <strong>Botão:</strong> Quero ver a minha conta</p>
+  </div>
+
+  <div class="bloco-label">Pergunta 1 · Situação · perfil</div>
+  <div class="qtext">O que melhor descreve você hoje?</div>
+  <div class="qopts">
+    <div>a) Profissional em cargo de liderança ou em ascensão</div>
+    <div>b) Empresário ou empreendedor que recebe clientes e parceiros</div>
+    <div>c) Especialista ou autônomo que atende público de alto padrão</div>
+    <div>d) Quero isso para a minha vida social e para a minha família</div>
+  </div>
+
+  <div class="bloco-label">Pergunta 2 · Situação · alimenta o cálculo</div>
+  <div class="qtext">Quantas vezes por mês você está numa sala em que a sua imagem conta? Reunião com diretoria, almoço de negócios, evento do setor, jantar com cliente.</div>
+  <div class="qopts">
+    <div>a) Uma vez ou menos</div>
+    <div>b) De 2 a 4 vezes</div>
+    <div>c) De 5 a 8 vezes</div>
+    <div>d) De 9 a 15 vezes</div>
+    <div>e) Mais de 15 vezes, faz parte do meu trabalho</div>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Por que cinco faixas, e não três</div>
+    <p>Quem marca "uma vez ou menos" vê, na mesma tela, que existe gente com mais de 15 salas por mês. O contraste é o primeiro trabalho de consciência do funil, e acontece antes de qualquer texto: a pessoa descobre o tamanho da própria exposição respondendo uma pergunta.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 5 · SEÇÃO 2 PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Camila Rodrigues</span><span>Página 5</span></div>
+  <div class="kicker">Seção 2 · Parte 2</div>
+  <h1 style="font-size:19pt;">Perguntas 3 a 6</h1>
+  <p class="lead">A exposição real, o problema que define o padrão e as duas perguntas que geram o número.</p>
+
+  <div class="bloco-label">Pergunta 3 · Situação · alimenta o cálculo</div>
+  <div class="qtext">Dessas situações, em quantas tem alguém de nível hierárquico ou social acima do seu?</div>
+  <div class="qopts">
+    <div>a) Quase nenhuma</div>
+    <div>b) Algumas</div>
+    <div>c) A maioria</div>
+    <div>d) Praticamente todas</div>
+  </div>
+
+  <div class="bloco-label">Pergunta 4 · Problema · define o padrão dominante</div>
+  <div class="qtext">Nessas salas, o que mais acontece com você?</div>
+  <div class="qopts">
+    <div>a) Entro e já me sinto fora do lugar, não sei ler o ambiente</div>
+    <div>b) Travo na mesa: talher, taça, o que fazer com as mãos</div>
+    <div>c) Tenho o que dizer e não digo, e depois outra pessoa diz</div>
+    <div>d) Me comporto bem e não erro, mas ninguém lembra que eu estava lá</div>
+  </div>
+
+  <div class="bloco-label">Pergunta 5 · Implicação · alimenta o cálculo</div>
+  <div class="qtext">Em quantas dessas salas você sai sem ter dito o que queria dizer?</div>
+  <div class="qopts">
+    <div>a) Quase nunca, eu falo o que preciso</div>
+    <div>b) Em umas 25% delas</div>
+    <div>c) Na metade</div>
+    <div>d) Na maioria</div>
+  </div>
+
+  <div class="bloco-label">Pergunta 6 · Implicação · alimenta o cálculo</div>
+  <div class="qtext">E os convites: você já evitou ou recusou um compromisso desses para não passar por aquilo de novo?</div>
+  <div class="qopts">
+    <div>a) Nunca, eu vou em tudo</div>
+    <div>b) Uma ou outra vez</div>
+    <div>c) Acontece bastante</div>
+    <div>d) Evito sempre que dá</div>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 6 · SEÇÃO 2 PARTE 3 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Camila Rodrigues</span><span>Página 6</span></div>
+  <div class="kicker">Seção 2 · Parte 3</div>
+  <h1 style="font-size:19pt;">Perguntas 7 a 9</h1>
+  <p class="lead">O sentimento, o que ela já tentou e o que ela quer. É aqui que o diagnóstico ganha profundidade.</p>
+
+  <div class="bloco-label">Pergunta 7 · Implicação</div>
+  <div class="qtext">Quando você sai de uma dessas salas, o que você costuma sentir?</div>
+  <div class="qopts">
+    <div>a) Está bom, saio satisfeito com o que fiz ali</div>
+    <div>b) Alívio por não ter passado vergonha</div>
+    <div>c) A sensação de que eu poderia ter ocupado mais espaço</div>
+    <div>d) Que ninguém ali fazia ideia do que eu sei fazer</div>
+  </div>
+
+  <div class="bloco-label">Pergunta 8 · Tentativas</div>
+  <div class="qtext">O que você já tentou para resolver isso?</div>
+  <div class="qopts">
+    <div>a) Nada específico, sempre achei que era o meu jeito</div>
+    <div>b) Observar os outros e imitar o que parece certo</div>
+    <div>c) Vídeo e conteúdo solto na internet antes do compromisso</div>
+    <div>d) Curso ou treinamento de etiqueta, mas não mudou na prática</div>
+  </div>
+
+  <div class="bloco-label">Pergunta 9 · Objetivo</div>
+  <div class="qtext">Se em 3 meses isso mudasse de vez, o que mudaria primeiro?</div>
+  <div class="qopts">
+    <div>a) Eu entraria em qualquer ambiente sem me sentir deslocado</div>
+    <div>b) Eu me posicionaria diante de quem decide</div>
+    <div>c) A minha imagem passaria a comunicar o nível em que eu já estou</div>
+    <div>d) Eu seria lembrado e procurado depois</div>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Por que as perguntas 5, 6 e 8 importam tanto</div>
+    <p>A 5 e a 6 são as que geram o número. Sem elas não existe diagnóstico, existe texto motivacional.</p>
+    <p>A 8 separa o lead. <strong>Quem marca d é o mais valioso do funil:</strong> já pagou por um curso de etiqueta, aprendeu a lista de regras e continuou travando. É com ele que o Ângulo 2 dos anúncios e o Bloco 5 da página falam diretamente, e é o argumento que mais separa a Camila do resto do mercado.</p>
+    <p>Quem marca a também importa, por outro motivo: nunca tratou porque acha que é personalidade. A página inteira existe para desfazer isso.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 7 · SEÇÃO 2 PARTE 4 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Camila Rodrigues</span><span>Página 7</span></div>
+  <div class="kicker">Seção 2 · Parte 4</div>
+  <h1 style="font-size:19pt;">Qualificação, segmentação e captura</h1>
+  <p class="lead">A última pergunta e as regras que o comercial usa no dia a dia.</p>
+
+  <div class="bloco-label">Pergunta 10 · Qualificação · sempre por último</div>
+  <div class="qtext">Qual é a sua renda mensal aproximada hoje?</div>
+  <div class="qopts">
+    <div>a) Até R$ 3 mil</div>
+    <div>b) De R$ 3 mil a R$ 6 mil</div>
+    <div>c) De R$ 6 mil a R$ 10 mil</div>
+    <div>d) De R$ 10 mil a R$ 20 mil</div>
+    <div>e) De R$ 20 mil a R$ 40 mil</div>
+    <div>f) De R$ 40 mil a R$ 80 mil</div>
+    <div>g) Acima de R$ 80 mil</div>
+  </div>
+  <p>Mesma lógica do contraste da Pergunta 2. Quem ganha R$ 6 mil precisa ver que a faixa de cima existe e é ocupada por gente que frequenta exatamente as salas que ele quer ocupar. Faixa alta não afasta: ela mostra o tamanho do teto.</p>
+
+  <div class="box-dark">
+    <div class="bt">Regra de segmentação</div>
+    <p><strong>Qualificado:</strong> P10 de c para cima, ou seja, R$ 6 mil por mês em diante. Vai para a fila de sessão, com <strong>prioridade para quem também marcou P2 em d/e</strong>, que é quem está exposto toda semana e sente mais.</p>
+    <p><strong>A nutrir:</strong> P10 em b. Recebe o diagnóstico completo e fica na base para conteúdo. <strong>Exceção que vale ouro:</strong> se marcou P6 em c/d, entra na fila de sessão mesmo assim. Quem já está recusando convite está pagando o preço mais alto que existe aqui.</p>
+    <p><strong>Fora por ora:</strong> P10 em a. Recebe o diagnóstico completo, sem convite de sessão, e entra na nutrição de conteúdo.</p>
+    <p>Cruze sempre com a <strong>P4</strong>: ela dá o padrão dominante e define o gancho da sua primeira mensagem no WhatsApp.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Captura de dados</div>
+    <p><strong>Headline:</strong> Sua conta está pronta. · <strong>Sub:</strong> Coloque seu WhatsApp abaixo e receba agora o seu número e a leitura completa do seu caso.</p>
+    <p><strong>Campos:</strong> Nome · WhatsApp · E-mail · Profissão · <strong>Botão:</strong> Ver o meu Ruído de Sala</p>
+    <p><strong>Selo:</strong> Seus dados ficam entre você e a nossa equipe. Nada de disparo em massa.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 8 · SEÇÃO 3 PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Camila Rodrigues</span><span>Página 8</span></div>
+  <div class="sec-header">
+    <div class="fk">Seção 3 · Parte 1</div>
+    <h2>Página de Diagnóstico</h2>
+    <div class="fd">A peça central do funil. Ela não vende: entrega a conta e prepara a pessoa para querer conversar.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">O trabalho desta página</div>
+    <p>É uma peça só: o diagnóstico e o convite vivem na mesma página. A pessoa responde o quiz, deixa o WhatsApp e cai direto no resultado dela. O mesmo texto vai por WhatsApp em seguida, para reler com calma.</p>
+    <p>A régua: a pessoa precisa terminar pensando <strong>"é exatamente isso que acontece comigo, e eu nunca tinha feito essa conta"</strong>. O padrão é nomeado e o número é entregue; o caminho para mudar é o Protocolo da Etiqueta.</p>
+    <p><strong>Cuidado inegociável deste nicho:</strong> quem lê está admitindo algo constrangedor. A página nunca ridiculariza o comportamento dele nem usa tom professoral. Ele precisa se sentir compreendido, não corrigido.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Os 4 padrões de perda (o resultado do quiz)</div>
+    <p><strong>1. A Entrada que Não Acontece.</strong> A perda acontece antes de falar. A pessoa entra sem ler a sala, escolhe o canto, e o ambiente já a classificou nos primeiros cinco segundos.</p>
+    <p><strong>2. A Mesa que Trava.</strong> A perda acontece no protocolo. Talher, taça, serviço. Ela passa a refeição inteira gerenciando o próprio medo em vez de conduzir a conversa que a levou ali.</p>
+    <p><strong>3. O Silêncio Caro.</strong> A perda acontece na hora de falar. Ela tem o que dizer, mede, espera o momento certo, e outra pessoa diz. É o padrão mais caro em carreira.</p>
+    <p><strong>4. A Saída Sem Rastro.</strong> A perda acontece no fim. Ela se comporta bem, não erra nada, e ninguém lembra que ela esteve lá. É o padrão que ela menos enxerga, porque parece sucesso.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Como o padrão é definido</div>
+    <p>P4 dá o padrão dominante, cruzada com P5, P6 e P7. Empate resolve pela maior perda: <strong>a</strong> na P4 leva à Entrada que Não Acontece · <strong>b</strong> leva à Mesa que Trava · <strong>c</strong> com P5 em c/d leva ao Silêncio Caro · <strong>d</strong> com P7 em d leva à Saída Sem Rastro.</p>
+    <p><strong>Variáveis:</strong> {{nome}} · {{padrao}} · {{perfil}} (P1) · {{salas_mes}} (P2) · {{exposicao}} (P3) · {{resposta_p4}} · {{percentual_silencio}} (P5) · {{convites_evitados}} (P6) · {{sentimento}} (P7) · {{tentativas}} (P8) · {{objetivo}} (P9) · {{salas_ano}} · {{salas_perdidas_ano}} · {{link_whatsapp}}</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Os nove blocos, na ordem</div>
+    <p>1. O resultado dela · 2. A leitura do cenário · 3. O espelho · 4. A conta · 5. Por que o que você já tentou não resolveu · 6. O mecanismo · 7. O que precisa acontecer no seu caso e o que custa continuar · 8. Quem é a Camila, prova, para quem é e FAQ · 9. O convite e o CTA</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 9 · SEÇÃO 3 PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Camila Rodrigues</span><span>Página 9</span></div>
+  <div class="kicker">Seção 3 · Parte 2</div>
+  <h1 style="font-size:19pt;">A Copy, Bloco a Bloco</h1>
+  <p class="lead">Blocos 1 a 3: o resultado, a leitura do cenário e o espelho.</p>
+
+  <div class="bloco-label">Bloco 1 · O resultado dela</div>
+  <p><strong>Headline:</strong> {{nome}}, o seu padrão é {{padrao}}.</p>
+  <p><strong>Sub:</strong> Isso não é um julgamento sobre a sua educação. É o nome do lugar por onde a sua presença está se perdendo, e é o começo do fim dele.</p>
+
+  <div class="bloco-label">Bloco 2 · A leitura do cenário</div>
+  <p>Eu li as suas respostas com atenção. Vou ser direta com você, porque é disso que você precisa agora, e não de mais uma lista de regras.</p>
+  <p>Você é {{perfil}} e está em cerca de {{salas_mes}} salas por mês em que a sua imagem conta. Em {{exposicao}} delas tem alguém de nível acima do seu. Quando você está lá, o que mais acontece é {{resposta_p4}}. Em {{percentual_silencio}} dessas salas você sai sem ter dito o que queria dizer. Sobre convites, você marcou: {{convites_evitados}}. E quando sai, o que você sente é {{sentimento}}.</p>
+  <p>Essa combinação é a assinatura de {{padrao}}. E ela diz uma coisa importante: isso não fica parado. Cada mês que passa, a distância entre o que você é e o que a sala entende sobre você aumenta um pouco.</p>
+
+  <div class="bloco-label">Bloco 3 · O espelho</div>
+  <p>Você é bom no que faz. Ninguém precisa te dizer isso: o seu trabalho diz. Te procuram, te entregam responsabilidade, e quando o assunto é técnico o seu nome aparece.</p>
+  <p>Provavelmente você se reconhece aqui:</p>
+  <ul class="check">
+    <li>Ficou num coffee break de mãos vazias, porque tomar alguma coisa na frente da diretoria parecia mais arriscado</li>
+    <li>Olhou de canto para ver qual talher a outra pessoa ia pegar primeiro</li>
+    <li>Tinha a resposta certa na cabeça e esperou o momento, e aí outra pessoa falou</li>
+    <li>Saiu de um evento com a sensação de que ninguém registrou que você estava lá</li>
+    <li>Pesquisou no celular, dentro do banheiro do restaurante, o que fazer com o guardanapo</li>
+    <li>Preferiu não ir a um compromisso importante para não passar por aquilo de novo</li>
+  </ul>
+  <p>Não há nada de errado com você. Há um padrão na sua presença. E padrão não se resolve estudando mais, nem decorando mais regra, nem tentando de novo no próximo evento.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 10 · SEÇÃO 3 PARTE 3 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Camila Rodrigues</span><span>Página 10</span></div>
+  <div class="kicker">Seção 3 · Parte 3</div>
+  <h1 style="font-size:19pt;">A Conta e o Mecanismo</h1>
+  <p class="lead">Blocos 4 a 6: o número, por que o que ela tentou não resolveu, e o método.</p>
+
+  <div class="bloco-label">Bloco 4 · A conta</div>
+  <p>Com as suas respostas, a conta fica assim:</p>
+  <p><strong>Salas de decisão:</strong> {{salas_mes}} por mês × 12 = <strong>{{salas_ano}} por ano</strong>.<br>
+  <strong>Em quantas você encolheu:</strong> {{percentual_silencio}} delas.</p>
+  <p><strong>O seu Ruído de Sala: {{salas_perdidas_ano}} salas por ano.</strong> Salas em que você esteve presente, entregou, e saiu sem ter sido lido pelo que você é.</p>
+  <p>{{nome}}, essas salas não voltam. Não é como dinheiro, que dá para recuperar no mês seguinte. Cada uma delas teve uma pessoa, uma conversa e uma chance que aconteceram uma vez só.</p>
+  <p><em>Nota de implementação: este é o bloco mais importante da página. O número entra grande, em destaque, sozinho na tela do celular.</em></p>
+
+  <div class="bloco-label">Bloco 5 · Por que o que você já tentou não resolveu</div>
+  <p>Você marcou que já {{tentativas}}. Isso não foi desperdício: você provavelmente sabe mais regra que a média das pessoas naquelas salas.</p>
+  <p>Só que observar e imitar entrega o gesto sem entregar o critério: você copia o que viu, muda o contexto e trava de novo. Vídeo solto na internet resolve a dúvida daquele dia e não constrói repertório. E curso de etiqueta entrega uma lista para decorar, que funciona enquanto a situação é idêntica ao exemplo e quebra na primeira mesa diferente.</p>
+  <p>Nenhuma dessas três coisas mexe no lugar onde a sua presença está se perdendo.</p>
+
+  <div class="bloco-label">Bloco 6 · O mecanismo</div>
+  <p>A maioria ensina regra: qual talher, qual taça, como cumprimentar. Eu vou muito antes disso.</p>
+  <p>Eu trabalho dentro dessas salas todos os dias. Monto mesa em casas de alto padrão, opero os bastidores de eventos de gente que movimenta muito dinheiro, faço curadoria para lojas e já levei esse assunto para a televisão. O que eu aprendi nesse tempo é que <strong>as pessoas que circulam bem não decoraram nada. Elas aprenderam a ler.</strong></p>
+  <p>A diferença não está na regra. Está no que a sala entende antes de você falar. O <strong>método A SALA</strong> trabalha isso em quatro estágios, nesta ordem: <strong>Leitura</strong>, decifrar hierarquia, energia e clima antes de agir; <strong>Presença</strong>, alinhar postura, tom e ritmo ao que você quer comunicar; <strong>Mesa</strong>, resolver o terreno mais concreto, de talher a almoço de negócios; e <strong>Domínio</strong>, transformar boa conduta em memória social e convite.</p>
+  <p>Nessa ordem, porque fora dela não funciona. O princípio que atravessa tudo: <strong>a sala lê você antes de você falar, com ou sem a sua permissão. A escolha é comunicar de propósito.</strong></p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 11 · SEÇÃO 3 PARTE 4 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Camila Rodrigues</span><span>Página 11</span></div>
+  <div class="kicker">Seção 3 · Parte 4</div>
+  <h1 style="font-size:19pt;">Personalização, Prova e CTA</h1>
+  <p class="lead">Blocos 7 a 9: onde a página fala do caso dela, mostra a prova e vira conversa.</p>
+
+  <div class="bloco-label">Bloco 7 · O que precisa acontecer no seu caso · personalizado por {{padrao}}</div>
+  <p><strong>A Entrada que Não Acontece:</strong> hoje você reage ao ambiente em vez de ler o ambiente. A primeira mudança é mapear a sala nos primeiros trinta segundos, e ela sozinha muda o resto.</p>
+  <p><strong>A Mesa que Trava:</strong> é o terreno mais concreto e o de correção mais rápida. Resolvido ele, some a maior fonte de constrangimento antecipado, que é o que faz você recusar convite.</p>
+  <p><strong>O Silêncio Caro:</strong> você tem o conteúdo e perde o tempo. Não é insegurança sobre o que dizer, é falta de critério sobre quando dizer. A mudança é no timing, não na coragem.</p>
+  <p><strong>A Saída Sem Rastro:</strong> você já sabe estar, e é por isso que esse padrão engana. Falta o que vem depois do "prazer em conhecer": puxar conversa, sustentar relação e sair deixando rastro.</p>
+  <p><strong>O custo de continuar como está:</strong> {{salas_perdidas_ano}} vezes três, em três anos. E não é só número. É o convite que não veio e a conversa que mudaria o seu ano.</p>
+
+  <div class="bloco-label">Bloco 8 · Quem é a Camila, prova e FAQ</div>
+  <p>Sou consultora de etiqueta, curadoria e mesa posta. Levei esse tema para a televisão, treino equipes e famílias em casas de alto padrão, faço curadoria para lojas e opero os bastidores de eventos de grandes players. Isso me coloca, todo mês, dentro das salas em que a maioria entra uma vez na vida. E o que eu mais vejo lá dentro não é gente despreparada: é gente excelente que encolhe na hora que mais importa. <strong>[DEPOIMENTO] [DEPOIMENTO]</strong></p>
+  <p><strong>"Etiqueta não é coisa de rico?"</strong> Não. Quem mais sente essa dor é justamente quem convive com gente de alto escalão sem ter crescido nesse ambiente. Saber estar é o que permite circular entre mundos diferentes sem se sentir estrangeiro em nenhum.</p>
+  <p><strong>"Já fiz curso de etiqueta e não mudou nada."</strong> Porque ele te deu uma lista, e lista só funciona na situação igual ao exemplo. Aqui a leitura de ambiente vem antes da regra.</p>
+  <p><strong>"Vou ter que me expor?"</strong> A prática é em ambiente fechado. Ninguém é corrigido em público para virar exemplo.</p>
+
+  <div class="bloco-label">Bloco 9 · O convite e o CTA</div>
+  <p>{{nome}}, eu abro algumas conversas por semana para olhar esse número junto com a pessoa. São 30 minutos, comigo, sem apresentação de slide.</p>
+  <p>O que sai dali: onde está a sua maior perda e o que muda primeiro. O que não é: não é aula nem apresentação de produto disfarçada. Se fizer sentido seguirmos juntos, eu te explico como. Se não fizer, você sai com a sua leitura na mão do mesmo jeito.</p>
+  <p><strong>CTA:</strong> Quero minha sessão de diagnóstico · <strong>Reforço:</strong> o seu trabalho já provou o que você vale. Falta a sala entender isso.</p>
+  <p><em>Ramificação: quem marcou P10 em a não vê o CTA de sessão. Recebe o diagnóstico completo e um convite para acompanhar o conteúdo. Oferecer sessão para quem não qualifica gasta a agenda da Camila e ensina a pessoa a dizer não.</em></p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 12 · SEÇÃO 4 PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Camila Rodrigues</span><span>Página 12</span></div>
+  <div class="sec-header">
+    <div class="fk">Seção 4 · Parte 1</div>
+    <h2>Copy dos Anúncios</h2>
+    <div class="fd">25 criativos escritos: 15 roteiros de vídeo, 5 estáticos e 5 carrosséis.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Regras que valem para todos os anúncios</div>
+    <p>O destino é sempre o <strong>quiz gratuito</strong>, nunca a sessão e nunca a mentoria. Nenhum anúncio cita preço.</p>
+    <p><strong>Não prometer resultado profissional.</strong> Nada de promoção, aumento ou negócio fechado como consequência. A Meta lê como promessa de ganho, e este público desconfia de guru.</p>
+    <p><strong>Não afirmar atributo de quem lê.</strong> Nada de "você é deselegante" ou "você não sabe se comportar". Além de reprovar, é o jeito mais rápido de perder quem já chega envergonhado. A régua é descrever a cena e citar a frase que ela mesma diz.</p>
+    <p><strong>Não usar enquadramento de classe.</strong> Nada que sugira que isso é coisa de elite ou de quem nasceu bem. Reduz o mercado e confirma a objeção que a gente precisa desarmar.</p>
+    <p><strong>Trilha instrumental em todo vídeo.</strong> Música com direito autoral reprova criativo.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Os três ângulos, e o que cada um faz</div>
+    <p><strong>Ângulo 1 · Cena e identificação.</strong> Repete de volta a cena que ela viveu essa semana. É o que mais capta público frio, porque é a dor que ela nunca contou para ninguém. <strong>Sete roteiros.</strong></p>
+    <p><strong>Ângulo 2 · Mecanismo.</strong> A conta que ninguém faz e o motivo de curso de etiqueta não resolver. É o que mais qualifica: separa quem só se incomoda de quem quer resolver. <strong>Quatro roteiros.</strong></p>
+    <p><strong>Ângulo 3 · Prova e autoridade.</strong> Ela dentro das salas que o público quer acessar. É o que mais converte quem já viu você antes. <strong>Quatro roteiros.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Como ler as próximas páginas</div>
+    <p>Cada roteiro traz gancho, desenvolvimento, virada, CTA e a legenda do post. O roteiro é o que ela fala; a legenda é o texto que acompanha o anúncio e funciona sozinho para quem assiste sem som.</p>
+    <p>As durações variam de 30 a 90 segundos de propósito. Os curtos captam frio e os longos convertem remarketing, e a Meta precisa dos dois no mesmo conjunto para escolher.</p>
+    <p>Todo roteiro vale como anúncio e como conteúdo orgânico. Para orgânico, troque o CTA por "link na bio".</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 13 · SEÇÃO 4 PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Camila Rodrigues</span><span>Página 13</span></div>
+  <div class="kicker">Seção 4 · Parte 2</div>
+  <h1 style="font-size:19pt;">Roteiros 1 a 4 · cena e identificação</h1>
+  <p class="lead">As quatro cenas mais comuns do nicho. São os criativos de entrada.</p>
+
+  <div class="rot"><span>Roteiro 1 · Ângulo 1 · 45 segundos</span><br>"O café que você não tomou"</div>
+  <p><strong>Gancho:</strong> "Você já ficou num coffee break de mãos vazias, só porque a diretoria estava ali?"<br>
+  <strong>Desenvolvimento:</strong> "E aí você fica pensando: se eu pegar o café agora, vão reparar em mim? E se eu derrubar? Melhor ficar quieto."<br>
+  <strong>Virada:</strong> "Isso não é timidez. É que ninguém nunca te ensinou o que aquele ambiente espera. E enquanto você gerencia esse medo, a conversa que importava acontece sem você."<br>
+  <strong>CTA:</strong> "Fiz um diagnóstico de 2 minutos que calcula quantas salas isso já te custou."<br>
+  <strong>Legenda:</strong> Ficar de mãos vazias no coffee break não é educação, é desconforto. E ele tem conta. O diagnóstico gratuito mostra a sua.</p>
+
+  <div class="rot"><span>Roteiro 2 · Ângulo 1 · 40 segundos</span><br>"A resposta que você não deu"</div>
+  <p><strong>Gancho:</strong> "Você já teve a resposta certa na cabeça e ficou esperando o momento certo pra falar?"<br>
+  <strong>Desenvolvimento:</strong> "Aí a reunião andou, o assunto passou, e cinco minutos depois outra pessoa falou exatamente o que você ia dizer."<br>
+  <strong>Virada:</strong> "E ela foi elogiada por isso. Não porque sabia mais. Porque sabia a hora."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.<br>
+  <strong>Legenda:</strong> Ter o conteúdo não basta. Saber a hora de entrar é outra habilidade, e ela se aprende. Faça o diagnóstico de 2 minutos.</p>
+
+  <div class="rot"><span>Roteiro 3 · Ângulo 1 · 40 segundos</span><br>"O talher que você olhou de canto"</div>
+  <p><strong>Gancho:</strong> "Você já esperou o outro pegar o talher primeiro pra saber qual era?"<br>
+  <strong>Desenvolvimento:</strong> "Quase todo mundo já. E quase ninguém conta pra ninguém."<br>
+  <strong>Virada:</strong> "O problema não é o talher. É que enquanto você administra isso, você não está na conversa. E era a conversa que te levou até ali."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.<br>
+  <strong>Legenda:</strong> A mesa é onde a insegurança aparece mais rápido. Também é onde ela se resolve mais rápido. Descubra o seu padrão em 2 minutos.</p>
+
+  <div class="rot"><span>Roteiro 4 · Ângulo 1 · 40 segundos</span><br>"Ninguém lembrou que você estava lá"</div>
+  <p><strong>Gancho:</strong> "Você foi ao evento, se comportou bem, não errou nada. E ninguém lembrou que você estava lá."<br>
+  <strong>Desenvolvimento:</strong> "Você cumprimentou todo mundo, falou o necessário, agradeceu e saiu no horário."<br>
+  <strong>Virada:</strong> "Não errar não é o mesmo que ocupar. São duas habilidades diferentes, e o mercado só paga pela segunda."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.<br>
+  <strong>Legenda:</strong> Comportar-se bem é defensivo. Ser lembrado é outra coisa. Descubra em 2 minutos qual é o seu padrão.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 14 · SEÇÃO 4 PARTE 3 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Camila Rodrigues</span><span>Página 14</span></div>
+  <div class="kicker">Seção 4 · Parte 3</div>
+  <h1 style="font-size:19pt;">Roteiros 5 a 7 · cena e identificação</h1>
+  <p class="lead">Duas cenas curtas para teste rápido e a versão longa de remarketing.</p>
+
+  <div class="rot"><span>Roteiro 5 · Ângulo 1 · 35 segundos</span><br>"O convite que você recusou"</div>
+  <p><strong>Gancho:</strong> "Você já inventou um compromisso pra não ir num jantar de trabalho?"<br>
+  <strong>Desenvolvimento:</strong> "Achou mais seguro ficar de fora do que passar duas horas se policiando."<br>
+  <strong>Virada:</strong> "Esse é o preço mais alto de todos, porque ele não aparece. A sala aconteceu sem você e você nem soube o que perdeu."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.<br>
+  <strong>Legenda:</strong> O convite recusado é a perda que ninguém contabiliza. Descubra em 2 minutos quantas salas isso já te custou.</p>
+
+  <div class="rot"><span>Roteiro 6 · Ângulo 1 · 30 segundos</span><br>"Deixa eu me arrumar aqui"</div>
+  <p><strong>Gancho:</strong> "Toda vez que eu digo que sou consultora de etiqueta, a pessoa fala a mesma frase: deixa eu me arrumar aqui."<br>
+  <strong>Desenvolvimento:</strong> "Ela endireita a coluna, tira o cotovelo da mesa e ri sem graça."<br>
+  <strong>Virada:</strong> "Todo mundo sente que está sendo lido o tempo todo. Quase ninguém sabe o que está comunicando."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.<br>
+  <strong>Legenda:</strong> A reação é sempre a mesma, e ela diz muito. Descubra em 2 minutos o que a sala está lendo em você.</p>
+
+  <div class="rot"><span>Roteiro 7 · Ângulo 1 · 90 segundos</span><br>"A cena inteira" · remarketing</div>
+  <p><strong>Gancho:</strong> "Você conhece essa cena. Almoço com o cliente importante, mesa posta, todo mundo conversando. E você ali, contando os talheres antes de sentar."<br>
+  <strong>Desenvolvimento:</strong> "Aí vem o pensamento: é o meu jeito, eu sou mais quieto mesmo. Eu ouvi isso de uma mulher que me contou que não conseguia tomar nem um café quando os diretores iam para o coffee break. Ela ficava parada, de mãos vazias, esperando todo mundo sair. Ela não era despreparada. Era excelente no que fazia."<br>
+  <strong>Virada:</strong> "Existe uma distância entre quem você é e o que a sala entende sobre você. E essa distância custa: sai em conversa que você não puxou, em convite que você recusou, em reunião em que você tinha a resposta e não falou."<br>
+  <strong>CTA:</strong> "Eu montei um diagnóstico gratuito que calcula quantas salas isso já te custou. São 2 minutos e você recebe o seu número. Ver a conta não dói. Continuar sem ver, dói."<br>
+  <strong>Legenda:</strong> A versão completa da conversa que eu tenho com quase todo profissional que me procura. Se você já saiu de uma sala com a sensação de não ter ocupado o seu lugar, assiste até o fim.</p>
+
+  <div class="box-light">
+    <div class="bt">Observação de veiculação</div>
+    <p>Os roteiros longos convertem melhor com quem já viu você antes, e custam mais caro no frio. Suba curtos e longos no mesmo conjunto e deixe a Meta escolher. Conforme a audiência aquece, aumente o peso dos longos.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 15 · SEÇÃO 4 PARTE 4 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Camila Rodrigues</span><span>Página 15</span></div>
+  <div class="kicker">Seção 4 · Parte 4</div>
+  <h1 style="font-size:19pt;">Roteiros 8 a 11 · mecanismo</h1>
+  <p class="lead">O que separa a Camila do resto do nicho. É o conjunto que mais qualifica.</p>
+
+  <div class="rot"><span>Roteiro 8 · Ângulo 2 · 50 segundos</span><br>"A conta que ninguém faz"</div>
+  <p><strong>Gancho:</strong> "Faz uma conta comigo. Quantas reuniões, almoços e eventos importantes você teve esse mês?"<br>
+  <strong>Desenvolvimento:</strong> "Agora pensa: em quantos deles você saiu sem ter dito o que queria dizer? Em quantos você ficou no canto? Quantos convites você recusou?"<br>
+  <strong>Virada:</strong> "Multiplica por 12. Essas salas não voltam. Dinheiro você recupera no mês seguinte; sala, não: cada uma teve uma chance que aconteceu uma vez só."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.<br>
+  <strong>Legenda:</strong> Some as salas em que você encolheu e multiplique por 12. Esse número tem nome: Ruído de Sala. Descubra o seu em 2 minutos.</p>
+
+  <div class="rot"><span>Roteiro 9 · Ângulo 2 · 55 segundos</span><br>"Curso de etiqueta não resolve isso"</div>
+  <p><strong>Gancho:</strong> "Você já fez curso de etiqueta e continua travando. Eu vou te explicar por quê."<br>
+  <strong>Desenvolvimento:</strong> "Não foi o curso que falhou. Ele te deu uma lista: esse talher, aquela taça, esse cumprimento. E a lista funciona."<br>
+  <strong>Virada:</strong> "Funciona enquanto a situação é idêntica ao exemplo. Na primeira mesa diferente você volta ao ponto de partida. E é no contexto novo que estão as melhores oportunidades."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.<br>
+  <strong>Legenda:</strong> Se decorar regra resolvesse, você já teria resolvido. O problema não está na lista. Faça o diagnóstico gratuito.</p>
+
+  <div class="rot"><span>Roteiro 10 · Ângulo 2 · 45 segundos</span><br>"Eu não ensino a decorar regra"</div>
+  <p><strong>Gancho:</strong> "Eu não ensino ninguém a decorar qual talher usar."<br>
+  <strong>Desenvolvimento:</strong> "Tem muita gente boa ensinando isso, e você provavelmente já aprendeu."<br>
+  <strong>Virada:</strong> "O meu trabalho é outro: fazer a sala entender quem você é. Porque competência esse mercado tem de sobra. O que falta é leitura."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.<br>
+  <strong>Legenda:</strong> Todo mundo nessas salas sabe fazer o trabalho. A diferença aparece antes de qualquer um abrir a boca. Descubra o seu padrão.</p>
+
+  <div class="rot"><span>Roteiro 11 · Ângulo 2 · 80 segundos</span><br>"Por que ficar quieto pareceu seguro" · remarketing</div>
+  <p><strong>Gancho:</strong> "Em algum momento você decidiu que ficar quieto era mais seguro do que falar errado. E funcionou."<br>
+  <strong>Desenvolvimento:</strong> "Eu entendo. Você nunca passou vergonha nem foi motivo de comentário. O silêncio te protegeu de verdade."<br>
+  <strong>Virada:</strong> "Só que ele cobrou uma taxa que você não viu. Toda sala em que você não errou, também não ocupou. E a sala não registra quem passou sem incomodar. Ela registra quem esteve presente. Não errar te tirou do risco e te tirou do jogo junto."<br>
+  <strong>CTA:</strong> "O trabalho não é te deixar mais ousado. É te dar critério pra saber quando entrar. Comece descobrindo quantas salas isso já te custou: diagnóstico gratuito de 2 minutos no link."<br>
+  <strong>Legenda:</strong> O silêncio te protege de errar e te tira do jogo junto. Assiste até o fim.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 16 · SEÇÃO 4 PARTE 5 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Camila Rodrigues</span><span>Página 16</span></div>
+  <div class="kicker">Seção 4 · Parte 5</div>
+  <h1 style="font-size:19pt;">Roteiros 12 a 15 · prova e autoridade</h1>
+  <p class="lead">Ela dentro das salas que o público quer acessar. É o que mais converte quem já viu você antes.</p>
+
+  <div class="rot"><span>Roteiro 12 · Ângulo 3 · 50 segundos</span><br>"Eu monto a mesa que você só viu por fora"</div>
+  <p><strong>Gancho:</strong> "Eu monto a mesa dos eventos que talvez você só tenha visto por fora."<br>
+  <strong>Desenvolvimento:</strong> "Casa de alto padrão, bastidor de evento grande, curadoria para loja. Já levei esse assunto para a televisão."<br>
+  <strong>Virada:</strong> "Isso me coloca, todo mês, dentro das salas em que a maioria entra uma vez na vida. E de lá dá pra ver o que ninguém fala: não é o mais preparado que é lembrado. É o que sabe estar."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.<br>
+  <strong>Legenda:</strong> Aprendi isso trabalhando dentro dessas salas, não em livro. Descubra em 2 minutos o que a sua sala está lendo em você.</p>
+
+  <div class="rot"><span>Roteiro 13 · Ângulo 3 · 50 segundos</span><br>"O que eu mais vejo lá dentro"</div>
+  <p><strong>Gancho:</strong> "O que mais me impressiona nesses ambientes não é quem sabe tudo. É quem encolhe."<br>
+  <strong>Desenvolvimento:</strong> "Gente excelente, com currículo e resultado, que chega, escolhe a cadeira do canto e some."<br>
+  <strong>Virada:</strong> "E sempre pelo mesmo motivo, que não tem nada a ver com capacidade: ninguém ensinou a essa pessoa o que o comportamento dela comunica."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.<br>
+  <strong>Legenda:</strong> Não falta competência nessas salas. Falta repertório. E repertório se aprende.</p>
+
+  <div class="rot"><span>Roteiro 14 · Ângulo 3 · 45 segundos</span><br>"A sala decide em cinco segundos"</div>
+  <p><strong>Gancho:</strong> "A sala decide sobre você em cinco segundos. Antes de você dizer qualquer coisa."<br>
+  <strong>Desenvolvimento:</strong> "Como você entra, onde senta, o que faz com as mãos, quanto demora pra olhar pra alguém."<br>
+  <strong>Virada:</strong> "Eu passo os meus dias montando o ambiente onde essas decisões acontecem. E currículo não entra nessa conta, porque a sala não tem acesso a ele."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.<br>
+  <strong>Legenda:</strong> A sala não tem acesso ao seu currículo. Ela tem acesso a como você entra. Descubra o que ela está lendo.</p>
+
+  <div class="rot"><span>Roteiro 15 · Ângulo 3 · 90 segundos</span><br>"A história inteira" · remarketing</div>
+  <p><strong>Gancho:</strong> "Eu não aprendi isso em livro. Aprendi montando mesa, recebendo gente e resolvendo bastidor."<br>
+  <strong>Desenvolvimento:</strong> "Comecei dando aula de etiqueta pra criança e montando mesa em casa de família. Hoje opero evento de player grande, faço curadoria pra loja e treino equipe em casa de alto padrão."<br>
+  <strong>Virada:</strong> "E foi de dentro dessas salas que eu entendi o que separa quem pertence de quem só está presente. Não é dinheiro nem berço nem regra decorada. É leitura: quem circula bem entra, percebe a hierarquia e o clima, e a partir disso escolhe postura e tempo de fala."<br>
+  <strong>CTA:</strong> "Hoje eu ajudo profissional e empresário a ocupar essas salas. Diagnóstico gratuito no link."<br>
+  <strong>Legenda:</strong> Mesa posta, bastidor de evento e televisão. E o que separa quem pertence não tem nada a ver com decorar regra.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 17 · SEÇÃO 4 PARTE 6 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Camila Rodrigues</span><span>Página 17</span></div>
+  <div class="kicker">Seção 4 · Parte 6</div>
+  <h1 style="font-size:19pt;">Os 5 Estáticos</h1>
+  <p class="lead">Cartão de texto sobre foto de mesa ou bastidor. Funciona aqui porque parece constatação de quem é do ramo, não anúncio.</p>
+
+  <div class="bloco-label">Estático 1 · Cena</div>
+  <p><strong>Arte:</strong> "Fiquei o coffee break inteiro de mãos vazias. Só porque a diretoria estava ali."<br>
+  <strong>Legenda:</strong> Se isso já aconteceu com você, o problema não é timidez. É repertório que ninguém te ensinou. O diagnóstico gratuito de 2 minutos calcula quantas salas isso já te custou.</p>
+
+  <div class="bloco-label">Estático 2 · Cena</div>
+  <p><strong>Arte:</strong> "Esperei ele pegar o talher primeiro. Todas as vezes."<br>
+  <strong>Legenda:</strong> Enquanto você administra isso, você não está na conversa. E era a conversa que te levou até ali. Descubra o seu padrão em 2 minutos.</p>
+
+  <div class="bloco-label">Estático 3 · Mecanismo</div>
+  <p><strong>Arte:</strong> "Você foi em 8 salas importantes esse mês. Em quantas você foi lembrado?"<br>
+  <strong>Legenda:</strong> Some as salas em que você encolheu e multiplique por 12. Esse número tem nome, e ele não volta. O diagnóstico gratuito calcula o seu.</p>
+
+  <div class="bloco-label">Estático 4 · Mecanismo</div>
+  <p><strong>Arte:</strong> "Curso de etiqueta não resolve. Eu já fiz."<br>
+  <strong>Legenda:</strong> A lista de regras funciona enquanto a situação é igual ao exemplo. Quebra na primeira mesa diferente. Faça o diagnóstico gratuito de 2 minutos.</p>
+
+  <div class="bloco-label">Estático 5 · Autoridade</div>
+  <p><strong>Arte:</strong> "Eu monto a mesa dos eventos que você só viu por fora."<br>
+  <strong>Legenda:</strong> Consultora de etiqueta, curadoria e mesa posta. Televisão, casas de alto padrão e bastidor de grandes eventos. Descubra em 2 minutos o que a sala está lendo em você.</p>
+
+  <div class="box-light">
+    <div class="bt">Observação de produção</div>
+    <p>Frase em tipografia serifada sobre <strong>foto real do acervo dela</strong>, escurecida: mesa posta, salão montado, bastidor de evento. Esse é um dos poucos nichos em que a foto do trabalho já é prova visual do que ela ensina.</p>
+    <p>Nada de arte colorida de infoproduto. O público é adulto, sênior, e associa sobriedade a quem entrega alto padrão. O acervo já existe no feed dela, com 1.120 publicações, e custa zero para produzir.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 18 · SEÇÃO 4 PARTE 7 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Camila Rodrigues</span><span>Página 18</span></div>
+  <div class="kicker">Seção 4 · Parte 7</div>
+  <h1 style="font-size:19pt;">Os 5 Carrosséis</h1>
+  <p class="lead">Um slide por ideia, frases curtas. O último slide sempre leva ao quiz.</p>
+
+  <div class="bloco-label">Carrossel 1 · Cena · "5 sinais de que a sala não está te lendo"</div>
+  <p>1. Você conta os talheres antes de sentar. 2. Escolhe o prato mais fácil de comer, não o que queria. 3. Fala pouco, para não falar errado. 4. Sai aliviado por não ter passado vergonha. 5. E ninguém lembra que você estava na mesa. 6. Nenhum desses sinais é sobre o que você sabe. 7. Todos são sobre o que a sala entendeu. 8. Descubra o seu padrão em 2 minutos. Link na bio.</p>
+
+  <div class="bloco-label">Carrossel 2 · Cena · "As frases que você já disse pra si mesmo"</div>
+  <p>1. Cinco frases que quase todo profissional já disse. 2. "Melhor ficar quieto do que falar besteira." 3. "Esse ambiente não é pra mim." 4. "Eu não sei conversar com esse tipo de gente." 5. "Sou mais quieto mesmo, é o meu jeito." 6. "Depois eu aprendo isso direito." 7. Nenhuma delas é o problema. Todas são sintoma do mesmo. 8. Faça o diagnóstico gratuito.</p>
+
+  <div class="bloco-label">Carrossel 3 · Mecanismo · "Por que o curso de etiqueta não resolveu"</div>
+  <p>1. Você fez o curso e continuou travando. 2. Não foi o curso que falhou. 3. Ele te deu uma lista de regras. 4. Lista funciona enquanto a situação é igual ao exemplo. 5. Na primeira mesa diferente, ela não cobre. 6. O trabalho é antes: aprender a ler o ambiente. 7. Comece pelo diagnóstico gratuito. Link na bio.</p>
+
+  <div class="bloco-label">Carrossel 4 · Mecanismo · "Os 4 lugares por onde a sua presença se perde"</div>
+  <p>1. Trabalhando dentro dessas salas, são sempre os mesmos quatro. 2. A entrada que não acontece: você reage ao ambiente em vez de ler. 3. A mesa que trava: o protocolo consome a sua atenção. 4. O silêncio caro: você tem a resposta e perde a hora. 5. A saída sem rastro: não errou nada e ninguém lembrou. 6. Todos têm conta, e conta se calcula. 7. Descubra o seu em 2 minutos.</p>
+
+  <div class="bloco-label">Carrossel 5 · Autoridade · "O que eu vejo dos bastidores"</div>
+  <p>1. Eu trabalho nos bastidores de eventos de gente que movimenta muito dinheiro. 2. Monto mesa em casa de alto padrão. Já levei isso pra TV. 3. E o que eu mais vejo não é gente despreparada. 4. É gente excelente que encolhe na hora que importa. 5. Todos achando que era timidez ou jeito. 6. Não era. Era repertório que ninguém ensinou. 7. Comece pelo diagnóstico gratuito. Link na bio.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 19 · SEÇÃO 4 PARTE 8 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Camila Rodrigues</span><span>Página 19</span></div>
+  <div class="kicker">Seção 4 · Parte 8</div>
+  <h1 style="font-size:19pt;">Headlines, Hooks e a Largada</h1>
+  <p class="lead">O que testar primeiro e o que sobe antes do quê.</p>
+
+  <div class="bloco-label">10 headlines para teste A/B</div>
+  <p>1. Você não é barrado por saber menos. É barrado por não saber estar.<br>
+  2. Quantas salas você já ocupou sem ser lembrado?<br>
+  3. A sala te lê antes de você falar. Sempre.<br>
+  4. Comportar-se bem é não errar. O jogo é ser lembrado.<br>
+  5. Competência te leva até a porta. Presença te faz entrar.<br>
+  6. Já ficou num coffee break de mãos vazias porque a diretoria estava ali?<br>
+  7. Não é timidez. É repertório que ninguém te ensinou.<br>
+  8. Curso de etiqueta te dá uma lista. É por isso que ele não resolve.<br>
+  9. A sala não tem acesso ao seu currículo.<br>
+  10. Você tinha a resposta. Outra pessoa falou primeiro.</p>
+
+  <div class="bloco-label">5 hooks para abrir vídeo, na voz dela</div>
+  <p>1. "Você já ficou num coffee break de mãos vazias só porque a diretoria estava ali?"<br>
+  2. "Faz uma conta comigo: em quantas salas você saiu sem dizer o que queria?"<br>
+  3. "Toda vez que eu digo que sou consultora de etiqueta, a pessoa fala a mesma frase."<br>
+  4. "A sala decide sobre você em cinco segundos. Antes de você falar."<br>
+  5. "Eu monto a mesa dos eventos que talvez você só tenha visto por fora."</p>
+
+  <div class="box-dark">
+    <div class="bt">Estrutura de largada da campanha</div>
+    <p><strong>25 criativos na largada:</strong> 15 roteiros de vídeo, 5 estáticos e 5 carrosséis, todos escritos nas páginas anteriores. Renovação a cada 15 dias.</p>
+    <p><strong>Ordem:</strong> estáticos e carrosséis entram primeiro, porque não dependem de gravação e sobem enquanto ela grava. Os vídeos entram em três levas: grave 5 por sessão, 3 sessões fecham os 15.</p>
+    <p><strong>Distribuição:</strong> 7 roteiros de cena, 4 de mecanismo e 4 de autoridade, com estáticos e carrosséis na mesma proporção. Comece com peso em cena e migre para mecanismo conforme a audiência aquece.</p>
+    <p><strong>Direção de gravação:</strong> trilha instrumental, sem corte a cada segundo, sem legenda animada exagerada. <strong>Grave em salão montado, com mesa posta atrás, sempre que possível:</strong> é o que dá autoridade instantânea neste nicho e é o que a concorrência não tem. A regra de ouro do gancho: os 3 primeiros segundos são a frase dela, não a sua opinião.</p>
+    <p><strong>Quando:</strong> a mídia sobe depois do caixa rápido da base e depois do bloco comercial estar rodando, conforme o roadmap. Verba inicial de R$ 50 por dia. A régua não é custo por lead: é <strong>custo por sessão comparecida</strong>, e ela fica abaixo de R$ 150 para um ticket de R$ 2.997.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 20 · SEÇÃO 5 PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Camila Rodrigues</span><span>Página 20</span></div>
+  <div class="sec-header">
+    <div class="fk">Seção 5 · Parte 1</div>
+    <h2>Cadência de Atendimento · 12 dias</h2>
+    <div class="fd">Na sua voz, mandada por você. O objetivo é agendar a sessão de diagnóstico.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Regra de tom neste nicho</div>
+    <p>Quem responde este quiz acabou de admitir algo constrangedor. Nada de urgência artificial, nada de escassez inventada, nada de vocabulário de coach.</p>
+    <p>E existe uma exigência que nenhum outro cliente da Simple tem: <strong>a sua cadência é amostra grátis do produto.</strong> Uma mensagem mal escrita, apressada ou insistente demais destrói a autoridade de uma consultora de etiqueta mais rápido que qualquer objeção de preço. Toda mensagem sai revisada.</p>
+    <p>A regra de ouro do follow-up aqui: <strong>quem não responde não é quem não quer.</strong> É quem está numa reunião, num evento ou constrangido demais para responder. O lead mais travado costuma ser o melhor cliente.</p>
+    <p>O que abre toda conversa é o resultado do quiz, com o padrão dela nomeado e o número na mesa.</p>
+  </div>
+
+  <div class="bloco-label">Dia 1 · até 10 minutos depois do quiz</div>
+  <p>"{{nome}}, aqui é a Camila. Acabei de ver o seu diagnóstico: o seu padrão é {{padrao}}, e a conta deu {{salas_perdidas_ano}} salas no ano. Você já desconfiava desse número ou te pegou de surpresa?"</p>
+
+  <div class="bloco-label">Dia 1 · tarde, se não respondeu</div>
+  <p>"Te mandei o diagnóstico completo aqui em cima. Quando der uma parada entre um compromisso e outro, olha o Bloco 4. É a conta."</p>
+
+  <div class="bloco-label">Dia 2</div>
+  <p>"{{nome}}, fiquei pensando numa coisa que você respondeu: {{resposta_marcante}}. Isso costuma vir de um lugar bem específico. Posso te falar sobre isso?"</p>
+
+  <div class="bloco-label">Dia 3 · para quem não respondeu</div>
+  <p>"{{nome}}, não vou insistir. Só não queria que o seu diagnóstico ficasse perdido no WhatsApp. Ele é sobre você, não sobre a minha agenda."</p>
+
+  <div class="bloco-label">Dia 4 · valor</div>
+  <p>"Uma coisa que demorei anos para entender: a sala não te lê pelo que você sabe. Ela te lê por como você entra. Enquanto eu não arrumei o que vinha antes da minha fala, eu continuava sendo a mais preparada e a menos lembrada."</p>
+
+  <div class="bloco-label">Dia 5 · leu e parou</div>
+  <p>"Você leu e não respondeu, tudo bem. Só me diz uma coisa, sem compromisso: a conta que apareceu ali fez sentido pra você ou achou que ficou alta demais?"</p>
+
+  <div class="bloco-label">Dia 6 · valor</div>
+  <p>"Tem uma pergunta que eu faço em toda primeira conversa: há quanto tempo você está esperando isso melhorar sozinho? A resposta costuma assustar a própria pessoa."</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 21 · SEÇÃO 5 PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Camila Rodrigues</span><span>Página 21</span></div>
+  <div class="kicker">Seção 5 · Parte 2</div>
+  <h1 style="font-size:19pt;">Dias 7 a 12 e os cinco níveis</h1>
+  <p class="lead">Onde a cadência vira playbook, e não lista de mensagens.</p>
+
+  <div class="bloco-label">Dia 7 · história</div>
+  <p>"Uma mulher me contou que não conseguia tomar nem um café quando os diretores iam pro coffee break. Ficava parada, de mãos vazias, esperando todo mundo sair. Ela era excelente no que fazia. Se você estiver nessa fase, eu sei exatamente onde dói."</p>
+
+  <div class="bloco-label">Dia 8 · quebra de objeção</div>
+  <p>"Sei o que talvez esteja passando pela sua cabeça: isso é coisa de rico, não é pra mim. Eu ouço isso toda semana. Quem mais sente essa dor é justamente quem convive com gente de alto escalão sem ter crescido nesse ambiente. Saber estar é o que te deixa circular entre mundos diferentes sem ser estrangeiro em nenhum."</p>
+
+  <div class="bloco-label">Dia 9 · quer agendar e adia</div>
+  <p>"{{nome}}, você me disse que queria marcar e não marcou. Não estou te cobrando. Só quero te mostrar uma coisa: adiar essa conversa é o mesmo movimento de escolher a cadeira do canto. É o padrão trabalhando."</p>
+
+  <div class="bloco-label">Dia 10 · áudio pessoal</div>
+  <p>Áudio de 40 a 60 segundos, sem roteiro lido: "{{nome}}, Camila aqui. Eu passo os meus dias dentro dessas salas, então sei o tamanho do que você está carregando. Se for pra passar mais um ano igual, prefiro que seja escolha sua e não do padrão. Me dá 30 minutos que eu te mostro de onde vem a sua conta."</p>
+
+  <div class="bloco-label">Dia 11 · escassez real</div>
+  <p>"{{nome}}, eu abro poucas conversas por semana porque preparo cada uma antes, lendo o seu diagnóstico. Se você quiser olhar esse número comigo ainda nesta rodada, me avisa hoje ou amanhã que eu encaixo."</p>
+
+  <div class="bloco-label">Dia 12 · encerramento</div>
+  <p>"{{nome}}, vou parar de te escrever, porque insistir é justamente o oposto do que eu ensino. Seu diagnóstico continua valendo e a conta também. Quando fizer sentido, é só me chamar, não precisa refazer nada. E, sinceramente: mesmo que você nunca faça nada comigo, refaça essa conta daqui a três meses. Ela sozinha já muda decisão."</p>
+
+  <div class="box-light">
+    <div class="bt">Os cinco níveis</div>
+    <p><strong>N1 não respondeu:</strong> cadência completa acima.</p>
+    <p><strong>N2 engajou e parou:</strong> retomar pelo padrão dela, nunca pela cobrança.</p>
+    <p><strong>N3 quer e adia:</strong> oferecer dois horários concretos, sempre. Nunca "me avisa quando puder". E fora do horário comercial: início da manhã ou fim de tarde.</p>
+    <p><strong>N4 no-show:</strong> sem culpa. "Imagino que a agenda comeu o horário, acontece toda semana comigo." Uma remarcação, e só.</p>
+    <p><strong>N5 fez a sessão e não fechou:</strong> parar o comercial por 15 dias e voltar com conteúdo. É o grupo mais quente que existe: já viu a conta e já conversou com você. Depois de 60 dias, uma pergunta só: "conseguiu mexer naquilo que a gente falou da entrada?"</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 22 · SEÇÃO 6 PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Camila Rodrigues</span><span>Página 22</span></div>
+  <div class="sec-header">
+    <div class="fk">Seção 6 · Parte 1</div>
+    <h2>Recomendações Estratégicas</h2>
+    <div class="fd">O que a Simple recomenda além da copy.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Sobre o que trava tudo: a agenda</div>
+    <p>Este é o ponto mais importante do documento. A Camila trabalha em tempo integral no comercial de outra operação, com cerca de 100 ligações por dia, e ainda opera a gestão de eventos de um player. O tempo dela já está inteiramente comprometido com o negócio de outra pessoa.</p>
+    <p>Não existe pré-vendas neste projeto. Quem responde o WhatsApp, quem faz a cadência de 12 dias e quem conduz a sessão é a mesma pessoa. Sem blindar de 2 a 3 horas por dia, o funil entrega lead numa operação que não atende, e a mídia queima.</p>
+    <p><strong>Regra prática: nenhum real de mídia antes do bloco comercial estar acontecendo todo dia útil por duas semanas seguidas.</strong> O bloco é de manhã, antes de qualquer demanda de evento aparecer. Demanda de evento sempre expande para ocupar o tempo disponível.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre a grade da mentoria, que é a segunda trava</div>
+    <p>O conceito está pronto: método nomeado, 8 módulos escritos, promessa clara e preço definido. <strong>O que não existe é a grade.</strong> Quantos encontros, com que frequência, o que o aluno recebe em cada semana, por quanto tempo tem acesso.</p>
+    <p>Não é detalhe operacional: a sessão de vendas não fecha sem isso, porque a primeira pergunta depois do "quanto custa" é "como funciona". É a primeira coisa do roadmap, no dia 7.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre a alavanca mais barata</div>
+    <p>Ela tem 9.458 seguidores, alunas das aulas de etiqueta na igreja e no curso Pais e Filhos, clientes de curadoria e treinamento em casas de Alphaville, e a rede inteira do ecossistema de eventos em que trabalha: players, patrocinadores, fornecedores e convidados.</p>
+    <p>Isso é caixa em 30 dias, sem mídia e sem produto novo. Não deixe para depois porque parece pequeno: é o que financia a mídia do resto do plano, e está detalhado na Fase 1 do roadmap.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre a conta do funil</div>
+    <p>É preciso ser honesto com o número. Não existe produto de entrada, por decisão. A consequência é que quem não qualifica não monetiza, e a mídia é paga inteiramente pelas vendas da mentoria.</p>
+    <p>Isso é aceitável nos 90 dias porque o ticket sustenta: uma venda de R$ 2.997 paga vinte dias de mídia no orçamento inicial. Deixa de ser aceitável quando a verba subir. Aí o degrau mais barato de abrir é um material gravado sobre mesa e almoço de negócios, que é a dúvida mais concreta e mais buscada do público, e que sai de graça se as aulas ao vivo forem gravadas desde a primeira turma.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 23 · SEÇÃO 6 PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Camila Rodrigues</span><span>Página 23</span></div>
+  <div class="kicker">Seção 6 · Parte 2</div>
+  <h1 style="font-size:19pt;">Operação, Prova e o Que Monitorar</h1>
+  <p class="lead">Os pontos que decidem se a copy acima vira venda ou vira documento parado.</p>
+
+  <div class="box-light">
+    <div class="bt">Sobre prova, que é a maior fragilidade do funil</div>
+    <p>Não existe um único depoimento gravado. É o item de maior retorno sobre esforço do projeto inteiro: três vídeos de 60 segundos resolvem a maior objeção de um produto de R$ 2.997 vendido por quem ainda não tem case público na mentoria.</p>
+    <p>E vale o cuidado do nicho, que já está no guia de depoimentos: <strong>ninguém quer aparecer dizendo que não sabia usar o talher.</strong> O depoimento certo fala do ganho (segurança, convite, relação que abriu), nunca da vergonha anterior.</p>
+    <p>Enquanto não houver depoimento, a prova é o bastidor: mesas montadas, eventos operados, treinamentos realizados. Mostrar o trabalho é a segunda melhor prova, e o acervo já existe.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre imagem e identidade, que é o risco de data</div>
+    <p>Duas coisas precisam existir antes de qualquer promessa de data de veiculação: <strong>identidade visual definida</strong> (cores, tipografia, logo) e <strong>fotos próprias em salão montado</strong>. Sem elas, o quiz e a página saem genéricos e os estáticos não conseguem usar o acervo com coerência.</p>
+    <p>A Simple manda o roteiro de fotos antes de ela sair fotografando. E vale garimpar o feed: as fotos de mesa posta e de bastidor já são prova visual do que ela ensina, e já existem.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre o posicionamento do perfil</div>
+    <p>Quando o lead recebe a mensagem dela, a primeira coisa que faz é clicar no perfil. Hoje ele encontra uma bio com cinco serviços empilhados: etiqueta social, corporativa, kids, à mesa, mentorias, curadoria, mesa posta e gestão de eventos. Isso comunica prestadora de serviços variados, não especialista.</p>
+    <p>O perfil precisa dizer uma coisa só, e essa coisa é a mentoria. Está na Fase 2 do roadmap, no dia 14, e é pré-requisito para a cadência funcionar.</p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">O que monitorar de perto</div>
+    <p><strong>A taxa de conclusão do quiz.</strong> São 10 perguntas e quatro delas pedem número. Se a conclusão ficar abaixo de 40%, o problema são as perguntas de cálculo, e a gente simplifica as faixas antes de mexer na mídia.</p>
+    <p><strong>A conversão real das primeiras sessões.</strong> A premissa é 30%, acima do padrão de quem não tem prova, apoiada em ela vender alto valor por telefone há anos. Se vier muito abaixo, o problema é qualificação e não condução, e a gente ajusta a P10.</p>
+    <p><strong>A agenda dela.</strong> Ela é quem aborda, quem faz a sessão, quem fecha, quem grava e quem edita. Se a semana apertar, avisa: a gente reordena o plano, não abandona.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+</body>
+</html>
