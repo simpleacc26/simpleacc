@@ -1,0 +1,31 @@
+Carimbo,Nome,E-mail,WhatsApp digitado,Telefone (55),Cenário,PDF enviado,Caminho,Cargo,Setor,Faturamento,Margem,Autonomia,Remuneração,Pontuação,Qualificado,Motivo da reprovação,O que mais se repetiu (P2),O que já tentou (P3),Decisões sem você (P4),O que incomoda imaginar (P5),utm_source,utm_medium,utm_campaign,utm_content,utm_term,fbclid,gclid,Veio de,"=ARRAYFORMULA(IF(ROW(A:A)=1;""Dia"";IF(A:A="""";"""";LEFT(A:A;10))))","=ARRAYFORMULA(IF(ROW(A:A)=1;""Origem"";IF(A:A="""";"""";IF(V:V="""";""direto"";V:V))))",,PAINEL — atualiza sozinho,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Números gerais,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Leads recebidos,"=COUNTIF(B2:B;""?*"")",,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Qualificados,"=COUNTIF(P:P;""sim"")",,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,% qualificados,"=IF(COUNTIF(B2:B;""?*"")=0;""—"";ROUND(100*COUNTIF(P:P;""sim"")/COUNTIF(B2:B;""?*"");1)&""%"")",,"Dono ≥ R$ 200 mil/mês, ou executivo com autonomia"
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Cenário,Leads,% do total,PDF correspondente
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,O Adiador,"=COUNTIF(F:F;""O Adiador"")","=IF(COUNTIF(B2:B;""?*"")=0;""—"";ROUND(100*COUNTIF(F:F;""O Adiador"")/COUNTIF(B2:B;""?*"");1)&""%"")",Diagnostico-01
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,O Gargalo,"=COUNTIF(F:F;""O Gargalo"")","=IF(COUNTIF(B2:B;""?*"")=0;""—"";ROUND(100*COUNTIF(F:F;""O Gargalo"")/COUNTIF(B2:B;""?*"");1)&""%"")",Diagnostico-02
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Time que não Assume,"=COUNTIF(F:F;""Time que não Assume"")","=IF(COUNTIF(B2:B;""?*"")=0;""—"";ROUND(100*COUNTIF(F:F;""Time que não Assume"")/COUNTIF(B2:B;""?*"");1)&""%"")",Diagnostico-03
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Plano que não Vira Execução,"=COUNTIF(F:F;""Plano que não Vira Execução"")","=IF(COUNTIF(B2:B;""?*"")=0;""—"";ROUND(100*COUNTIF(F:F;""Plano que não Vira Execução"")/COUNTIF(B2:B;""?*"");1)&""%"")",Diagnostico-04
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Por que não qualificou,Leads,,Só conta quem foi reprovado
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,faturamento abaixo de R$ 200 mil,"=COUNTIF(Q:Q;""faturamento abaixo de R$ 200 mil"")",,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,cargo fora do ICP (só diretor qualifica),"=COUNTIF(Q:Q;""cargo fora do ICP (só diretor qualifica)"")",,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,sem autonomia para decidir investimento,"=COUNTIF(Q:Q;""sem autonomia para decidir investimento"")",,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,remuneração abaixo de R$ 20 mil,"=COUNTIF(Q:Q;""remuneração abaixo de R$ 20 mil"")",,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,COMO LER,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Uma linha por lead que concluiu o quiz. Quem abandona no meio não aparece: o envio só acontece quando o formulário de contato é enviado.,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"Telefone (55) é o número normalizado, e é ele que vai na URL da Etapa 2. WhatsApp digitado guarda o que o lead escreveu, para conferir quando algo não casar.",,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Qualificado (sim/não) e Motivo já vêm calculados da página. Não recalcule aqui.,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,As colunas de utm dizem de qual anúncio o lead veio. Vazias = tráfego direto ou link sem parâmetro.,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,PARA QUEM FOR MEXER NA INTEGRAÇÃO,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,"O Make escreve as colunas A a AC POR POSIÇÃO. Se você inserir, remover ou reordenar coluna aqui, o cenário passa a gravar dado na coluna errada e não avisa.",,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,AD e AE são fórmula na linha 1 e valem para a planilha toda. Não digite por cima e não apague a linha 1.,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Esta planilha tem dado pessoal de lead. Não deixe o compartilhamento como 'qualquer pessoa com o link'.,,,

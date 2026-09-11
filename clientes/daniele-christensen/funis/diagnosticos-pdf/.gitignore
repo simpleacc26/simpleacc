@@ -1,0 +1,6 @@
+# HTML intermediário que o gen.py escreve antes de imprimir o PDF.
+# É descartável e some a cada build: o que vale é o gen.py e o PDF.
+01-o-adiador.html
+02-o-gargalo.html
+03-time-que-nao-assume.html
+04-plano-que-nao-vira-execucao.html
