@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Quiz Versão B · Alivance Club</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fahkwang:wght@500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #1c1c42;
+    --navy-2: #292859;
+    --gold: #b6975f;
+    --gold-bright: #d8c6a3;
+    --gold-soft: #f3ecdd;
+    --paper: #f7f6f2;
+    --card: #ffffff;
+    --ink: #23232e;
+    --ink-muted: #5c5c6b;
+    --line: #e4e1d8;
+    --crit: #b23b3b;
+    --ok: #2f7d5b;
+    --ok-soft: #e4f1ea;
+    --warm: #c8863b;
+    --warm-soft: #f6ecdd;
+    --display: 'Fahkwang', Georgia, serif;
+    --body: 'Inter', -apple-system, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--body); line-height: 1.62; -webkit-font-smoothing: antialiased; }
+  .doc { max-width: 900px; margin: 0 auto; padding: 0 24px 90px; }
+
+  header.cover { background: var(--navy); color: #fff; margin: 0 -24px 44px; padding: 56px 40px 44px; }
+  .kicker { color: var(--gold); font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; margin-bottom: 16px; }
+  header.cover h1 { font-family: var(--display); font-weight: 600; font-size: clamp(1.7rem, 4vw, 2.5rem); line-height: 1.15; letter-spacing: -0.01em; margin-bottom: 18px; text-wrap: balance; }
+  header.cover h1 span { color: var(--gold); }
+  .lead { color: rgba(255,255,255,0.82); font-size: 1.05rem; max-width: 48em; }
+  .meta { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 26px; padding-top: 22px; border-top: 1px solid rgba(255,255,255,0.14); font-size: 0.82rem; color: rgba(255,255,255,0.65); }
+  .meta b { color: #fff; font-weight: 600; }
+
+  section { margin-bottom: 48px; }
+  .sec-num { color: var(--gold); font-family: var(--display); font-weight: 600; font-size: 0.9rem; letter-spacing: 0.05em; }
+  h2 { font-family: var(--display); font-weight: 600; font-size: 1.55rem; color: var(--navy); margin: 4px 0 6px; letter-spacing: -0.01em; text-wrap: balance; }
+  .sec-sub { color: var(--ink-muted); font-size: 0.96rem; margin-bottom: 22px; max-width: 54em; }
+  h3 { font-size: 1.1rem; color: var(--navy); margin: 22px 0 8px; font-weight: 600; }
+  p { margin-bottom: 12px; }
+  strong { font-weight: 600; color: var(--ink); }
+  em { color: var(--navy); font-style: italic; }
+
+  .callout { background: var(--gold-soft); border-left: 4px solid var(--gold); border-radius: 0 10px 10px 0; padding: 14px 18px; margin: 14px 0; font-size: 0.92rem; }
+  .callout b { color: var(--navy); }
+
+  .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px,1fr)); gap: 12px; margin: 18px 0; }
+  .pillar-card { border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; background: var(--card); }
+  .pillar-card .pt { font-weight: 700; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 5px; }
+  .pillar-card p { font-size: 0.85rem; color: var(--ink-muted); margin: 0; }
+  .pill { display: inline-block; font-size: 0.64rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; color: #fff; }
+  .pill.M { background:#7a5cc8; } .pill.N { background:#2f7d5b; } .pill.V { background:#c8863b; } .pill.T { background:#b23b3b; }
+  .pill.filtro { background: var(--navy); } .pill.sai { background: var(--crit); } .pill.balde { background: var(--gold); color: var(--navy); }
+
+  .flow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 18px 0; font-size: 0.82rem; }
+  .flow .node { border-radius: 999px; padding: 7px 14px; font-weight: 600; }
+  .flow .warm { background: var(--warm-soft); color: #8a5a1f; border: 1px solid #e6c79a; }
+  .flow .deep { background: var(--navy); color: #fff; }
+  .flow .filt { background: var(--crit); color: #fff; }
+  .flow .arr { color: var(--gold); font-weight: 700; }
+
+  .screen { background: var(--navy); border-radius: 18px; padding: 30px 28px; margin: 16px 0; }
+  .screen.warm-screen { box-shadow: inset 0 0 0 2px rgba(200,134,59,0.4); }
+  .screen .cat { color: var(--gold); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
+  .screen .qq { font-family: var(--display); color: #fff; font-size: 1.4rem; font-weight: 500; line-height: 1.3; margin-bottom: 6px; text-wrap: balance; }
+  .screen .qhint { color: rgba(255,255,255,0.55); font-size: 0.85rem; margin-bottom: 18px; }
+  .screen .opt { background: rgba(255,255,255,0.05); border: 2px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; color: rgba(255,255,255,0.92); font-size: 0.96rem; display: flex; gap: 10px; align-items: flex-start; }
+  .screen .opt .lbl { color: var(--gold); font-weight: 700; flex: 0 0 auto; }
+  .screen .opt .otag { margin-left: auto; flex: 0 0 auto; }
+  .hero-screen { text-align: center; }
+  .hero-screen .htag { color: var(--gold); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600; margin-bottom: 16px; }
+  .hero-screen h4 { font-family: var(--display); color: var(--gold); font-weight: 500; font-size: 1.7rem; line-height: 1.25; margin-bottom: 16px; text-wrap: balance; }
+  .hero-screen .hsub { color: rgba(255,255,255,0.75); font-size: 1rem; max-width: 40em; margin: 0 auto 16px; }
+  .hero-screen .hfilter { color: rgba(255,255,255,0.5); font-size: 0.85rem; max-width: 38em; margin: 0 auto; border-top: 1px solid rgba(255,255,255,0.12); padding-top: 14px; }
+
+  .why { border: 1px solid var(--line); border-left: 3px solid var(--gold); border-radius: 0 12px 12px 0; background: var(--card); padding: 16px 20px; margin-bottom: 30px; }
+  .why h5 { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; font-weight: 700; }
+  .why p { font-size: 0.9rem; margin-bottom: 10px; }
+  .why table { width: 100%; border-collapse: collapse; margin-top: 6px; font-size: 0.85rem; }
+  .why td { padding: 7px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .why td:first-child { width: 44px; font-weight: 700; color: var(--navy); }
+  .why td.tg { width: 96px; }
+
+  table.contrast { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem; }
+  table.contrast th, table.contrast td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  table.contrast th { background: var(--navy); color: #fff; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.03em; }
+  table.contrast td:first-child { font-weight: 600; color: var(--navy); width: 26%; }
+
+  .exit-screen { background: #2a2330; border-radius: 18px; padding: 28px; color: #fff; margin: 16px 0; }
+  .exit-screen h4 { font-family: var(--display); color: var(--gold); font-weight: 500; font-size: 1.25rem; margin-bottom: 10px; }
+  .exit-screen p { color: rgba(255,255,255,0.75); font-size: 0.92rem; }
+
+  .report-map { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px,1fr)); gap: 14px; margin: 16px 0; }
+  .rm { border: 1px solid var(--line); border-radius: 12px; padding: 16px; background: var(--card); border-top: 4px solid var(--c, var(--gold)); }
+  .rm .rt { font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .rm p { font-size: 0.85rem; color: var(--ink-muted); margin: 0; }
+
+  ul.clean { list-style: none; margin: 8px 0 12px; }
+  ul.clean li { padding: 6px 0 6px 22px; position: relative; font-size: 0.93rem; }
+  ul.clean li::before { content: "→"; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
+
+  footer { margin-top: 60px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 0.78rem; color: var(--ink-muted); text-align: center; }
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <header class="cover">
+    <div class="kicker">Documento interno SimpleAcc · Quiz anotado</div>
+    <h1>Quiz <span>Versão B</span>: aquece, identifica o balde, revela o gargalo</h1>
+    <p class="lead">O quiz começa leve para aquecer o lead, os baldes saem da identidade e da estrutura do expert, e o gargalo (a Big Idea dos 4 pilares) nasce dessa combinação. Faturamento por último. Cada tela vem com a argumentação de por que existe.</p>
+    <div class="meta">
+      <span><b>Cliente:</b> Rafael Granella · Alivance Club</span>
+      <span><b>Tipo:</b> Killer (descobre o gargalo)</span>
+      <span><b>Big Idea:</b> "O modelo por trás do modelo"</span>
+    </div>
+  </header>
+
+  <section>
+    <div class="sec-num">00 · Como ler este documento</div>
+    <h2>A lógica em uma frase</h2>
+    <p>O quiz classifica o lead em um <strong>balde</strong> (quem ele é e como está estruturado) enquanto o aquece com perguntas fáceis, e só depois revela o <strong>gargalo</strong> (qual dos 4 pilares trava o próximo salto). O relatório junta os dois: <em>"você é este tipo de expert, e por isso o seu erro é esse; para corrigir, faça isso."</em></p>
+
+    <div class="callout"><b>Princípios da metodologia deste quiz:</b>
+      <ul class="clean" style="margin-top:8px;">
+        <li>O que mais move a conversão de um quiz é a <b>ordem e a densidade das perguntas</b>, mais do que o criativo.</li>
+        <li>O quiz precisa <b>aquecer com o tempo</b>: começa com perguntas fáceis de identificação e deixa as densas para depois, quando o lead já está no flow.</li>
+        <li>A pergunta "como está a sua operação hoje" é densa demais para abrir, então fica no miolo, não no início.</li>
+        <li>Cada pergunta leve ajuda a achar o balde, e cada alternativa é o lead dizendo qual balde ele é.</li>
+        <li>Faturamento sempre por último, para não criar fricção de dinheiro antes de o lead se envolver.</li>
+        <li>Relatório personalizado por balde, no modelo Carol e José.</li>
+      </ul>
+    </div>
+
+    <h3>O flow do quiz</h3>
+    <div class="flow">
+      <span class="node warm">1. Identidade</span><span class="arr">›</span>
+      <span class="node warm">2. Produto</span><span class="arr">›</span>
+      <span class="node warm">3. Aquisição</span><span class="arr">›</span>
+      <span class="node warm">4. Time</span><span class="arr">›</span>
+      <span class="node deep">5. Operação</span><span class="arr">›</span>
+      <span class="node deep">6. Gargalo</span><span class="arr">›</span>
+      <span class="node filt">7. Faturamento</span>
+    </div>
+    <p style="font-size:0.85rem;color:var(--ink-muted);">As 4 primeiras são leves e rápidas (aquecimento + classificam o balde). As duas do meio são as densas (revelam o gargalo). A última é o filtro de caixa.</p>
+
+    <h3>Os 4 pilares (o gargalo sai daqui)</h3>
+    <div class="pillars">
+      <div class="pillar-card"><div class="pt" style="color:#7a5cc8;">Método <span class="pill M">M</span></div><p>A entrega está na cabeça dele. Não é replicável, não escala sem a presença dele em cada sessão.</p></div>
+      <div class="pillar-card"><div class="pt" style="color:#2f7d5b;">Modelo de negócio <span class="pill N">N</span></div><p>O formato de receita tem teto estrutural. Vende tempo e acesso, não transformação escalável.</p></div>
+      <div class="pillar-card"><div class="pt" style="color:#c8863b;">Processo de vendas <span class="pill V">V</span></div><p>A aquisição depende de indicação e da presença dele. Sem previsibilidade, sem processo.</p></div>
+      <div class="pillar-card"><div class="pt" style="color:#b23b3b;">Mentalidade <span class="pill T">T</span></div><p>Identidade de mentor, não de empresário. Medo de soltar o controle, de cobrar mais, de mudar de patamar.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-num">01 · Abertura</div>
+    <h2>Hero: a Big Idea na primeira tela</h2>
+    <div class="screen hero-screen">
+      <div class="htag">Diagnóstico de Modelo · Alivance Club · Rafael Granella</div>
+      <h4>Agenda cheia, resultado entregue, e o faturamento travado no mesmo lugar.</h4>
+      <p class="hsub">Não é falta de esforço. É o teto do modelo em que você opera. Enquanto você age como mentor e não como empresário da educação, o número não sobe, por mais que você entregue. Em 7 perguntas rápidas, descubra qual dos 4 pilares do seu negócio está segurando o seu próximo salto.</p>
+      <p class="hfilter">Feito para mentores, treinadores e consultores que já vivem da própria operação e sentem que bateram num teto que mais esforço não resolve.</p>
+    </div>
+    <div class="why">
+      <h5>Por que esta abertura</h5>
+      <p>Ela carrega a Big Idea-mestra ("o modelo por trás do modelo") e planta a promessa do diagnóstico na linguagem que o público já reconhece: agenda cheia, resultado entregue e faturamento travado. O reframe "não é falta de esforço, é o teto do modelo" separa o mentor do empresário da educação logo de cara. O "7 perguntas rápidas" avisa que é curto e fácil, o que reduz o abandono na entrada. E a dor pressupõe alguém com operação rodando, então o iniciante não se reconhece.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-num">02 · Fase 1: Aquecimento (perguntas leves que classificam o balde)</div>
+    <h2>As 4 perguntas fáceis do começo</h2>
+    <p class="sec-sub">Rápidas, de múltipla escolha óbvia, sem exigir reflexão. Elas fazem o lead entrar no flow e, ao mesmo tempo, montam o perfil dele (o balde). Nenhuma delas pede dinheiro nem obriga o lead a se expor.</p>
+
+    <h3>Pergunta 1</h3>
+    <div class="screen warm-screen">
+      <div class="cat">Pergunta 1 de 7 · Quem é você</div>
+      <div class="qq">Pra começar, como você se posiciona hoje?</div>
+      <div class="opt"><span class="lbl">A</span><span>Mentor: ensino o que já domino e entrego resultado no meu nicho</span><span class="otag pill balde">Balde</span></div>
+      <div class="opt"><span class="lbl">B</span><span>Especialista ou consultor: entrego solução técnica sob medida</span><span class="otag pill balde">Balde</span></div>
+      <div class="opt"><span class="lbl">C</span><span>Coach ou treinador: trabalho desenvolvimento e metodologia própria</span><span class="otag pill balde">Balde</span></div>
+      <div class="opt"><span class="lbl">D</span><span>Um pouco de cada, dependendo do cliente</span><span class="otag pill balde">Balde</span></div>
+    </div>
+    <div class="why">
+      <h5>Por que esta pergunta, e o que cada resposta captura</h5>
+      <p>É a abertura mais leve possível: falar de si mesmo. Todo mundo responde na hora, e a resposta já define o primeiro eixo do balde (a identidade). "Quem é você" (mentor, especialista ou consultor) é o começo natural de um quiz que aquece. Nenhuma opção é de saída aqui, porque a intenção é aquecer, não filtrar. O filtro real fica para o fim.</p>
+    </div>
+
+    <h3>Pergunta 2</h3>
+    <div class="screen warm-screen">
+      <div class="cat">Pergunta 2 de 7 · Seu produto</div>
+      <div class="qq">E qual é o formato principal da sua entrega hoje?</div>
+      <div class="opt"><span class="lbl">A</span><span>Mentoria individual, um a um</span><span class="otag pill balde">Balde</span></div>
+      <div class="opt"><span class="lbl">B</span><span>Mentoria ou grupo recorrente (mensal, quinzenal)</span><span class="otag pill balde">Balde</span></div>
+      <div class="opt"><span class="lbl">C</span><span>Programa fechado com prazo (3, 6, 12 meses)</span><span class="otag pill balde">Balde</span></div>
+      <div class="opt"><span class="lbl">D</span><span>Consultoria por projeto</span><span class="otag pill balde">Balde</span></div>
+    </div>
+    <div class="why">
+      <h5>Por que esta pergunta</h5>
+      <p>Segunda pergunta do flow de aquecimento: "qual o seu tipo de produto" (mentoria individual, quinzenal). Continua leve e classifica o segundo eixo do balde: a estrutura do produto. O formato já é um forte indício do gargalo. Quem entrega só individual costuma esbarrar em Método e Modelo (teto de tempo). Isso alimenta a leitura do relatório mais na frente.</p>
+    </div>
+
+    <h3>Pergunta 3</h3>
+    <div class="screen warm-screen">
+      <div class="cat">Pergunta 3 de 7 · Como o cliente chega</div>
+      <div class="qq">Como os seus clientes chegam até você hoje?</div>
+      <div class="opt"><span class="lbl">A</span><span>Indicação e networking</span><span class="otag pill balde">Balde</span></div>
+      <div class="opt"><span class="lbl">B</span><span>Conteúdo e social selling (Instagram, direct)</span><span class="otag pill balde">Balde</span></div>
+      <div class="opt"><span class="lbl">C</span><span>Lançamentos ou campanhas pontuais</span><span class="otag pill balde">Balde</span></div>
+      <div class="opt"><span class="lbl">D</span><span>Prospecção ativa, com um time indo atrás</span><span class="otag pill balde">Balde</span></div>
+    </div>
+    <div class="why">
+      <h5>Por que esta pergunta</h5>
+      <p>Terceira do flow ("qual o seu modelo de vendas: lançamento, perpétuo, um a um"). Classifica o eixo de aquisição do balde. Também é o primeiro sinal do pilar Vendas: quem responde "indicação e networking" está entregando que a aquisição depende de sorte, que é a dor do Bucket "aquisição por sorte". Ainda é uma pergunta fácil, sem peso emocional.</p>
+    </div>
+
+    <h3>Pergunta 4</h3>
+    <div class="screen warm-screen">
+      <div class="cat">Pergunta 4 de 7 · Seu time de vendas</div>
+      <div class="qq">E quem cuida das vendas hoje?</div>
+      <div class="opt"><span class="lbl">A</span><span>Só eu fecho todas as vendas</span><span class="otag pill balde">Balde</span></div>
+      <div class="opt"><span class="lbl">B</span><span>Eu mais uma pessoa (um SDR ou um closer)</span><span class="otag pill balde">Balde</span></div>
+      <div class="opt"><span class="lbl">C</span><span>Tenho um time de vendas já estruturado</span><span class="otag pill balde">Balde</span></div>
+      <div class="opt"><span class="lbl">D</span><span>Não tenho um processo de vendas definido ainda</span><span class="otag pill balde">Balde</span></div>
+    </div>
+    <div class="why">
+      <h5>Por que esta pergunta, e por que ela fecha o aquecimento</h5>
+      <p>É a quarta pergunta do aquecimento: "quantas pessoas você tem no time de vendas". Fecha o perfil do balde no eixo de estrutura comercial e ainda é leve. "Só eu fecho todas as vendas" é o maior sinal do pilar Mentalidade (o negócio depende inteiramente dele) e de Modelo. Ao fim desta pergunta, o lead já respondeu 4 perguntas fáceis e está aquecido para as densas.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-num">03 · Fase 2: Aprofundamento (as densas, agora que o lead está no flow)</div>
+    <h2>As duas perguntas que revelam o gargalo</h2>
+    <p class="sec-sub">Só chegam aqui depois de aquecer. São reflexivas de propósito, porque é aqui que o pilar travado aparece. Como o lead já está no meio do quiz, ele encara a densidade sem abandonar.</p>
+
+    <h3>Pergunta 5</h3>
+    <div class="screen">
+      <div class="cat">Pergunta 5 de 7 · Sua operação hoje</div>
+      <div class="qq">Agora que já te conheço melhor: como está a sua operação hoje?</div>
+      <div class="opt"><span class="lbl">A</span><span>A entrega me consome, e sobra pouco tempo pra crescer o negócio</span><span class="otag pill M">Método</span></div>
+      <div class="opt"><span class="lbl">B</span><span>A receita depende de fechar cliente novo toda vez, sem recorrência que sustente</span><span class="otag pill N">Modelo</span></div>
+      <div class="opt"><span class="lbl">C</span><span>Só cresço se eu trabalhar mais, e a agenda já está no limite</span><span class="otag pill N">Modelo</span></div>
+      <div class="opt"><span class="lbl">D</span><span>No fundo eu sei que preciso mudar algo estrutural, mas não sei o quê</span><span class="otag pill T">Mentalidade</span></div>
+    </div>
+    <div class="why">
+      <h5>Por que esta pergunta vem só agora</h5>
+      <p>É a pergunta mais densa do quiz, e por isso não pode abrir. No SPIN ela é uma fase de implicação, um terceiro nível, então precisa vir depois do aquecimento. Aqui ela funciona: o lead já respondeu quem é, o que vende, como vende e com quem, e agora consegue refletir sobre o momento atual sem travar. As respostas apontam o pilar.</p>
+    </div>
+
+    <h3>Pergunta 6</h3>
+    <div class="screen">
+      <div class="cat">Pergunta 6 de 7 · O próximo salto</div>
+      <div class="qq">Quando você pensa no seu próximo salto de faturamento, o que mais trava?</div>
+      <div class="opt"><span class="lbl">A</span><span>Minha entrega ainda depende de eu estar presente em tudo</span><span class="otag pill M">Método</span></div>
+      <div class="opt"><span class="lbl">B</span><span>Meu modelo de receita tem um teto e não escala sem inflar a operação</span><span class="otag pill N">Modelo</span></div>
+      <div class="opt"><span class="lbl">C</span><span>Minha aquisição é imprevisível, ainda depende muito de indicação</span><span class="otag pill V">Vendas</span></div>
+      <div class="opt"><span class="lbl">D</span><span>Sou eu: tenho dificuldade de soltar o controle e mudar de patamar</span><span class="otag pill T">Mentalidade</span></div>
+    </div>
+    <div class="why">
+      <h5>Por que esta é a pergunta Killer</h5>
+      <p>É a pergunta que crava o gargalo. Cada opção é um dos 4 pilares na forma mais direta. Somada aos sinais das perguntas 2, 3, 4 e 5, ela dá ao relatório alta confiança sobre qual pilar priorizar. É a pergunta de maior peso no diagnóstico: em caso de empate na soma, o pilar escolhido aqui vence, porque é onde o próprio lead aponta a raiz.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-num">04 · Fase 3: Faturamento e captura</div>
+    <h2>Pergunta 7: o faturamento, sempre por último</h2>
+    <div class="screen">
+      <div class="cat">Pergunta 7 de 7 · Faturamento</div>
+      <div class="qq">Pra fechar, qual é o faturamento médio mensal da SUA mentoria ou consultoria hoje?</div>
+      <div class="qhint">Estamos falando da receita que vem da sua mentoria ou consultoria, não de outro negócio, salário ou projeção futura.</div>
+      <div class="opt"><span class="lbl">A</span><span>Abaixo de R$20 mil por mês</span><span class="otag pill sai">SAI</span></div>
+      <div class="opt"><span class="lbl">B</span><span>Entre R$20 mil e R$50 mil por mês</span><span class="otag pill filtro">ICP</span></div>
+      <div class="opt"><span class="lbl">C</span><span>Entre R$50 mil e R$100 mil por mês</span><span class="otag pill filtro">ICP</span></div>
+      <div class="opt"><span class="lbl">D</span><span>Entre R$100 mil e R$300 mil por mês</span><span class="otag pill filtro">ICP+</span></div>
+      <div class="opt"><span class="lbl">E</span><span>Acima de R$300 mil por mês</span><span class="otag pill filtro">ICP++</span></div>
+    </div>
+    <div class="why">
+      <h5>Por que ela fica por último, e o que cada resposta captura</h5>
+      <p>Mudar a pergunta de faturamento de lugar, jogando pro fim, costuma virar o resultado da conversão. A razão é simples: pedir dinheiro cedo cria fricção e derruba o preenchimento. Deixando por último, o lead já se envolveu e responde sem resistência. A especificação "da SUA mentoria, não de outro negócio, salário ou projeção" corrige o erro real relatado antes (o lead que declarou 20k mas contava outra renda).</p>
+      <table>
+        <tr><td>A</td><td class="tg"><span class="pill sai">Fora</span></td><td>Abaixo de R$20 mil a mentoria ainda não sustenta o ticket de R$115k por ano. Vai para a nutrição, com a porta aberta pro futuro.</td></tr>
+        <tr><td>B, C</td><td class="tg"><span class="pill filtro">ICP</span></td><td>O núcleo do north-star (o Fabrício "faturava bem" antes de escalar). Segue para a captura.</td></tr>
+        <tr><td>D, E</td><td class="tg"><span class="pill filtro">ICP premium</span></td><td>Prioridade máxima no comercial. A granularidade acima de R$100 mil existe só pra o time priorizar a fila.</td></tr>
+      </table>
+    </div>
+
+    <h2>Captura</h2>
+    <div class="screen">
+      <div class="cat">Seu diagnóstico está pronto</div>
+      <div class="qq">Pra onde enviamos a leitura completa do seu caso?</div>
+      <div class="qhint">Nome completo, WhatsApp com DDD e e-mail. O diagnóstico e o próximo passo vão pro seu WhatsApp.</div>
+    </div>
+    <div class="why">
+      <h5>Por que a captura vem só agora</h5>
+      <p>A captura vem no fim, depois inclusive do faturamento. Assim, só o lead que se envolveu no quiz inteiro e passou pelo filtro de caixa chega ao CRM. O nível de comprometimento de quem completa é muito maior, e o pipeline para de encher de curioso.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-num">05 · Página de saída</div>
+    <h2>Para quem o faturamento filtrou</h2>
+    <div class="exit-screen">
+      <h4>O Alivance Club foi desenhado para um momento específico.</h4>
+      <p>Ele é para mentores e consultores que já vivem da própria operação e faturam acima de R$20 mil por mês, e que sentem que bateram num teto estrutural. Se esse ainda não é o seu momento, não tem problema: o Rafael compartilha, de graça, o conteúdo que ajuda a construir a base que leva até lá. Comece por aqui. <br><span style="color:var(--gold);font-weight:600;">[Acessar o conteúdo gratuito]</span></p>
+    </div>
+    <div class="why">
+      <h5>Por que uma saída, e não uma rejeição</h5>
+      <p>Quem responde "abaixo de 20k" na última pergunta não vai para a captura nem para o pipeline de agendamento, vai para esta página. O tom é acolhedor e mantém a porta aberta ("ainda não é o seu momento"), o que preserva a marca e cria um banco de leads menores que pode virar produto de entrada no futuro. Nunca "você não serve", sempre "ainda não é a hora".</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-num">06 · Lógica do relatório</div>
+    <h2>Do balde e do gargalo ao diagnóstico personalizado</h2>
+    <p class="sec-sub">O relatório junta duas leituras. O <b>balde</b> (perfil) vem das perguntas 1 a 4: identidade, produto, aquisição e time. O <b>gargalo</b> (pilar) vem das perguntas 5 e 6, com o desempate na 6. O texto final combina os dois, no modelo Carol e José.</p>
+    <div class="callout"><b>Modelo da frase de abertura do relatório:</b> "Fulano, pelo que você respondeu, você é um <em>[mentor que entrega individual e vende por indicação, fechando as vendas sozinho]</em>. E é justamente por isso que o seu próximo salto está travado em <em>[Modelo de negócio]</em>. Veja o que isso significa e o que corrige."</div>
+    <div class="report-map">
+      <div class="rm" style="--c:#7a5cc8;"><div class="rt">Gargalo: Método</div><p>"O seu resultado ainda mora na sua cabeça." Próximo passo: transformar a entrega em método replicável. Prova: casos que saíram da entrega 1:1 dependente.</p></div>
+      <div class="rm" style="--c:#2f7d5b;"><div class="rt">Gargalo: Modelo</div><p>"O teto é do formato, não seu." Próximo passo: redesenhar o modelo de receita. Prova: o Fabrício fez R$600k trabalhando 1 dia por semana quando mudou o modelo.</p></div>
+      <div class="rm" style="--c:#c8863b;"><div class="rt">Gargalo: Vendas</div><p>"Você tem aquisição por sorte, não por sistema." Próximo passo: um processo de aquisição previsível. Prova: sair da dependência de indicação.</p></div>
+      <div class="rm" style="--c:#b23b3b;"><div class="rt">Gargalo: Mentalidade</div><p>"O gargalo é a sua identidade de mentor, não o mercado." Próximo passo: operar como empresário da educação. Prova: a Greice fez R$500k em 3 meses ajustando ticket e mentalidade.</p></div>
+    </div>
+    <div class="callout"><b>Fecho de todo relatório (independente do pilar):</b> a Big Idea reaparece. Mexer em um pilar só dá resultado parcial, porque os 4 se sustentam juntos. E a sessão estratégica é apresentada como o único lugar onde os 4 são olhados ao mesmo tempo, a ponte natural do diagnóstico para a call, sem soar como pitch.</div>
+  </section>
+
+  <section>
+    <div class="sec-num">07 · Por que B é radicalmente diferente de A</div>
+    <h2>O contraste que faz o teste valer a pena</h2>
+    <table class="contrast">
+      <thead><tr><th>Dimensão</th><th>Versão A (atual)</th><th>Versão B (esta)</th></tr></thead>
+      <tbody>
+        <tr><td>Enquadramento</td><td>Diagnóstico neutro e lisonjeiro de "modelo de negócio"</td><td>Killer: aponta o pilar oculto que trava o salto</td></tr>
+        <tr><td>Big Idea</td><td>Genérica ("descubra por que não opera como negócio")</td><td>"O modelo por trás do modelo", os 4 pilares</td></tr>
+        <tr><td>Início do quiz</td><td>Abre com perguntas densas de gargalo e operação</td><td>Abre leve (identidade, produto, aquisição, time) e aquece</td></tr>
+        <tr><td>Baldes</td><td>Não segmenta o perfil do lead</td><td>Perfil por identidade e estrutura, com o gargalo saindo dessa combinação</td></tr>
+        <tr><td>Faturamento</td><td>No meio do quiz, gerando fricção</td><td>Sempre por último</td></tr>
+        <tr><td>Relatório</td><td>Perfil genérico (previsibilidade, ticket, escala, modelo)</td><td>Balde mais pilar travado, no modelo Carol e José</td></tr>
+        <tr><td>O que o teste mede</td><td colspan="2">% de lead qualificado (faturamento igual ou acima de 20k na própria mentoria) que agenda e comparece, não volume bruto. B ganha se entregar mais lead-comprador agendando, mesmo com menos leads no total.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    SimpleAcc · Quiz Versão B anotado · Cliente: Rafael Granella, Alivance Club
+  </footer>
+
+</div>
+</body>
+</html>

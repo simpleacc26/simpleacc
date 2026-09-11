@@ -1,0 +1,969 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Playbook Comercial Alivance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fahkwang:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600;700&display=swap" />
+<style>
+  /* Paleta herdada do funil do Rafael (relatório do quiz e página de agendamento).
+     Documento assumidamente escuro, como todas as peças da marca. */
+  :root{
+    --ground:#1c1c42;
+    --deep:#141433;
+    --panel:#292859;
+    --sunk:#23234e;
+    --gold:#c8b28b;
+    --gold-deep:#e0cba6;
+    --gold-tint:rgba(200,178,139,.12);
+    --gold-hair:rgba(200,178,139,.28);
+    --ink:rgba(255,255,255,.86);
+    --ink-2:rgba(255,255,255,.62);
+    --ink-3:rgba(255,255,255,.42);
+    --line:rgba(255,255,255,.09);
+    --erro:#d09090;
+    --erro-tint:rgba(208,144,144,.1);
+    --ok:#8fbb9e;
+
+    --serif:'Fahkwang',Georgia,'Times New Roman',serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    --r:6px;
+    --shadow:0 1px 2px rgba(0,0,0,.24), 0 10px 28px rgba(0,0,0,.24);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:1.5rem}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  body{
+    margin:0;background:var(--ground);color:var(--ink);
+    font-family:var(--sans);font-size:16px;line-height:1.68;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--gold);color:var(--ground)}
+  a{color:var(--gold)}
+  a:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:2px}
+
+  /* ── casca ───────────────────────────────────────── */
+  .topo{background:var(--deep);border-bottom:1px solid var(--gold-hair);padding:3rem 0 2.4rem}
+  .wrap{width:min(100% - 2.5rem, 76rem);margin-inline:auto}
+  .marca{
+    font-family:var(--mono);font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;
+    color:var(--gold);margin:0 0 1.1rem;
+  }
+  .topo h1{
+    font-family:var(--serif);font-weight:500;font-size:clamp(2rem,5vw,3.1rem);
+    line-height:1.1;margin:0 0 .8rem;text-wrap:balance;color:#fff;letter-spacing:-.01em;
+  }
+  .topo h1 em{font-style:italic;color:var(--gold)}
+  .topo .lede{margin:0;max-width:48rem;color:var(--ink-2);font-size:1.02rem}
+  .meta{
+    display:flex;flex-wrap:wrap;gap:.5rem 1rem;margin-top:1.7rem;
+    font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--ink-3);
+  }
+  .meta span{display:inline-flex;align-items:center;gap:.45rem}
+  .meta span::before{content:"";width:4px;height:4px;background:var(--gold);transform:rotate(45deg)}
+
+  /* ── grade ───────────────────────────────────────── */
+  .grade{display:grid;gap:3rem;align-items:start;padding:3rem 0 5rem}
+  @media(min-width:64rem){
+    .grade{grid-template-columns:15rem 1fr;gap:3.5rem}
+    nav.indice{position:sticky;top:1.5rem;max-height:calc(100vh - 3rem);overflow-y:auto}
+  }
+  nav.indice ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.1rem}
+  nav.indice a{
+    display:block;padding:.42rem .6rem;border-left:2px solid var(--line);
+    color:var(--ink-2);text-decoration:none;font-size:.83rem;line-height:1.4;
+    transition:border-color .18s,color .18s,background .18s;
+  }
+  nav.indice a:hover{border-color:var(--gold);color:#fff;background:var(--gold-tint)}
+  nav.indice a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  nav.indice .n{font-family:var(--mono);font-size:.64rem;color:var(--ink-3);margin-right:.45rem}
+
+  main{min-width:0}
+  section{margin-bottom:3.8rem;scroll-margin-top:1.5rem}
+  section:last-of-type{margin-bottom:0}
+
+  h2{
+    font-family:var(--serif);font-weight:500;font-size:clamp(1.5rem,3.2vw,2.05rem);
+    line-height:1.18;margin:0 0 .5rem;text-wrap:balance;color:#fff;
+  }
+  h2 .eyebrow{
+    display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;font-weight:400;
+  }
+  h3{
+    font-family:var(--sans);font-weight:600;font-size:1rem;
+    margin:2.3rem 0 .9rem;color:#fff;
+  }
+  .sub{color:var(--ink-2);max-width:62ch;margin:0 0 1.6rem}
+  p{margin:0 0 1rem;max-width:68ch}
+  strong{color:#fff;font-weight:600}
+  ul{margin:0 0 1.2rem;padding-left:1.1rem}
+  li{margin-bottom:.5rem}
+  li::marker{color:var(--gold)}
+
+  /* ── tabela ──────────────────────────────────────── */
+  .rolagem{overflow-x:auto;margin:0 0 1.4rem;border:1px solid var(--line);border-radius:var(--r)}
+  table{border-collapse:collapse;width:100%;min-width:34rem;font-size:.89rem;background:var(--panel)}
+  th,td{text-align:left;padding:.72rem .95rem;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{
+    background:var(--sunk);font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--gold);font-weight:400;
+  }
+  tbody tr:last-child td{border-bottom:none}
+  td strong{font-weight:600}
+
+  /* ── cartão de mensagem ──────────────────────────── */
+  .msg{
+    background:var(--panel);border:1px solid var(--line);border-radius:var(--r);
+    box-shadow:var(--shadow);margin-bottom:.9rem;overflow:hidden;
+  }
+  .msg > header{
+    display:flex;align-items:center;gap:.7rem;flex-wrap:wrap;
+    padding:.6rem .95rem;background:var(--sunk);border-bottom:1px solid var(--line);
+  }
+  .rot{
+    font-family:var(--mono);font-size:.68rem;font-weight:600;letter-spacing:.08em;
+    color:var(--ground);background:var(--gold);padding:.16rem .45rem;border-radius:2px;
+  }
+  .quando{
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;color:var(--ink-3);
+    flex:1 1 auto;min-width:0;
+  }
+  .copiar{
+    font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;
+    background:transparent;border:1px solid var(--gold-hair);color:var(--ink-2);
+    padding:.3rem .6rem;border-radius:2px;cursor:pointer;transition:all .18s;white-space:nowrap;
+  }
+  .copiar:hover{border-color:var(--gold);color:var(--gold);background:var(--gold-tint)}
+  .copiar:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .copiar[data-feito="1"]{border-color:var(--ok);color:var(--ok)}
+  .fala{margin:0;padding:1.1rem 1.15rem;font-size:1rem;line-height:1.72;color:var(--ink)}
+  .fala p{margin:0 0 .85rem;max-width:62ch}
+  .fala p:last-child{margin-bottom:0}
+  .fala .var{color:var(--gold-deep);font-weight:600;background:var(--gold-tint);padding:0 .18rem;border-radius:2px}
+  .msg.audio .fala{font-style:italic}
+  .porque{
+    margin:0;padding:.8rem 1.15rem;border-top:1px dashed var(--line);
+    background:var(--sunk);font-size:.84rem;color:var(--ink-2);max-width:none;
+  }
+  .porque b{
+    font-family:var(--mono);font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--ink-3);display:block;margin-bottom:.25rem;font-weight:400;
+  }
+
+  /* ── nota ────────────────────────────────────────── */
+  .nota{
+    border:1px solid var(--line);border-left:2px solid var(--gold);background:var(--gold-tint);
+    border-radius:var(--r);padding:1rem 1.15rem;margin:1.4rem 0;font-size:.9rem;color:var(--ink-2);
+  }
+  .nota.grave{border-left-color:var(--erro);background:var(--erro-tint)}
+  .nota.grave b{color:var(--erro)}
+  .nota b{color:#fff}
+  .nota p{max-width:none;margin:0 0 .6rem}
+  .nota p:last-child{margin:0}
+
+  /* ── cartões de perfil ───────────────────────────── */
+  .cartoes{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:1rem;margin:1.4rem 0}
+  .perfil{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:1.1rem 1.2rem}
+  .perfil .tag{
+    display:inline-block;font-family:var(--mono);font-size:.6rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ground);background:var(--gold);
+    padding:.14rem .45rem;border-radius:2px;margin-bottom:.7rem;font-weight:600;
+  }
+  .perfil h4{font-family:var(--serif);font-weight:500;font-size:1.1rem;margin:0 0 .5rem;color:#fff}
+  .perfil p{font-size:.88rem;margin:0 0 .6rem;max-width:none;color:var(--ink-2)}
+  .perfil p:last-child{margin:0}
+  .perfil em{color:var(--ink-3);font-style:italic}
+
+  .rodape{
+    border-top:1px solid var(--line);margin-top:1rem;padding:2rem 0 3rem;
+    font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--ink-3);
+  }
+
+  @media print{
+    body{background:#fff;color:#000}
+    .topo{background:#fff;border-bottom:2px solid #000}
+    .topo h1,.topo .lede,.marca{color:#000}
+    nav.indice,.copiar{display:none}
+    .grade{grid-template-columns:1fr;padding:0}
+    .msg,.perfil{break-inside:avoid;box-shadow:none;border:1px solid #999;background:#fff}
+    .fala,.porque,.nota,table{background:#fff;color:#000}
+  }
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="wrap">
+    <p class="marca">Alivance Club &middot; time comercial</p>
+    <h1>Playbook <em>Comercial</em></h1>
+    <p class="lede">
+      Qualificação, follow-up e confirmação de reunião, reescritos sobre a metodologia de
+      vendas high ticket e sobre o que os dois diagnósticos já entregam antes da primeira
+      mensagem.
+    </p>
+    <div class="meta">
+      <span>27 de agosto de 2026</span>
+      <span>Substitui o script de maio/26</span>
+      <span>Diagnóstico A e Diagnóstico B</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap grade">
+
+  <nav class="indice" aria-label="Índice">
+    <ol>
+      <li><a href="#quiz"><span class="n">01</span>O que o quiz já entregou</a></li>
+      <li><a href="#perfis"><span class="n">02</span>O perfil em 3 mensagens</a></li>
+      <li><a href="#qualificacao"><span class="n">03</span>Frente 1 · Qualificação</a></li>
+      <li><a href="#followup"><span class="n">04</span>Frente 2 · Follow-up</a></li>
+      <li><a href="#noshow"><span class="n">05</span>Frente 3 · Anti no-show</a></li>
+      <li><a href="#quarenta"><span class="n">06</span>As 48h depois do sim</a></li>
+      <li><a href="#objecoes"><span class="n">07</span>Objeções</a></li>
+      <li><a href="#nunca"><span class="n">08</span>O que nunca fazer</a></li>
+      <li><a href="#regua"><span class="n">09</span>A ordem da fila</a></li>
+      <li><a href="#medir"><span class="n">10</span>O que medir</a></li>
+      <li><a href="#treinar"><span class="n">11</span>Como treinar isso</a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <!-- ══════════ 01 ══════════ -->
+    <section id="quiz">
+      <h2><span class="eyebrow">O que mudou</span>O quiz já fez metade do diagnóstico</h2>
+      <p class="sub">
+        Existem oito descobertas que precisam sair antes de alguém entrar na agenda do Rafael.
+        Boa parte delas já chega respondida, e é por isso que o script novo é curto: ele não
+        repete o que o funil perguntou. O que muda é que os dois diagnósticos entregam coisas
+        diferentes, então a conversa muda dependendo de onde o lead veio.
+      </p>
+
+      <div class="rolagem">
+        <table>
+          <thead>
+            <tr><th>Descoberta</th><th>Diagnóstico A</th><th>Diagnóstico B</th><th>Onde buscar o que falta</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>Problema</strong></td><td>vem no quiz, o gargalo marcado</td><td>vem no quiz, o que trava o próximo salto</td><td>já resolvido</td></tr>
+            <tr><td><strong>Consequência</strong></td><td>vem no quiz, como isso impacta hoje</td><td>vem no quiz, como está a operação</td><td>já resolvido</td></tr>
+            <tr><td><strong>Estrutura atual</strong></td><td>parcial</td><td>vem no quiz: formato de entrega, canal de aquisição e quem vende</td><td>M2 se veio do A</td></tr>
+            <tr><td><strong>Tentativas anteriores</strong></td><td>vem no quiz, o que já tentou</td><td>não vem</td><td>M6</td></tr>
+            <tr><td><strong>Meta</strong></td><td>vem no quiz, o objetivo de 12 meses</td><td>não vem</td><td>M7</td></tr>
+            <tr><td><strong>Capacidade</strong></td><td>faixa marcada</td><td>faixa marcada</td><td>M3, sempre, porque a faixa não está segurando</td></tr>
+            <tr><td><strong>Motivo</strong></td><td>não vem</td><td>não vem</td><td>M2 e A1</td></tr>
+            <tr><td><strong>Impacto emocional</strong></td><td>não vem</td><td>não vem</td><td>M5</td></tr>
+            <tr><td><strong>Urgência</strong></td><td>não vem</td><td>não vem</td><td>M4 e M8</td></tr>
+            <tr><td><strong>Decisor</strong></td><td>não vem</td><td>não vem</td><td>M9</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="nota grave">
+        <p><b>A faixa de faturamento do quiz não está segurando, e erra para os dois lados.</b>
+        O Rafael levantou na reunião que o lead marca acima de R$ 20 mil e, na conversa,
+        aparece outro número. Só que o contrário também acontece, e um dos clientes que ele
+        fechou tinha marcado a faixa mais baixa. Marcar uma faixa é um clique, dizer o número
+        é um compromisso.</p>
+        <p>Por isso a <strong>M3 é obrigatória</strong> em todo mundo, tanto quando a faixa
+        parece boa quanto quando parece ruim, e é o número dito por ele que vale na seção 09.</p>
+      </div>
+
+      <div class="nota">
+        <p><b>Regra de ouro do playbook inteiro.</b> Quem qualifica não diagnostica, pergunta
+        e anota. Toda vez que der vontade de explicar o método do Rafael, é sinal de que você
+        saiu do lugar de quem conduz e virou quem apresenta. O diagnóstico é o trabalho dele
+        na reunião, não o seu no WhatsApp.</p>
+      </div>
+
+      <div class="nota">
+        <p><b>Uma voz só para o lead.</b> Todo contato sai assinado pela mesma pessoa, do
+        primeiro WhatsApp até a reunião. Para quem está do outro lado existe alguém
+        acompanhando o caso do começo ao fim, e é isso que sustenta o "o Rafael já olhou as
+        suas respostas" na véspera.</p>
+      </div>
+    </section>
+
+    <!-- ══════════ 02 ══════════ -->
+    <section id="perfis">
+      <h2><span class="eyebrow">Leitura</span>Reconhecer o perfil em três mensagens</h2>
+      <p class="sub">
+        O jeito que ele escreve as primeiras mensagens já entrega bastante coisa. Você não
+        precisa acertar sempre, precisa perceber para onde inclinar a conversa. Esses quatro
+        aparecem com frequência no perfil do Alivance, que é dono de negócio já rodando.
+      </p>
+
+      <div class="cartoes">
+        <div class="perfil">
+          <span class="tag">Perfil A</span>
+          <h4>Objetivo</h4>
+          <p>Responde em uma linha, não faz rodeio, quer saber o que ganha e quanto tempo leva. Costuma perguntar o preço cedo. <em>"É pra quem? Quanto custa? Como funciona?"</em></p>
+          <p><strong>Como conduzir:</strong> vá direto, traga número e resultado, ofereça o horário rápido. Se você enrolar, ele some.</p>
+          <p><strong>Onde não pisar:</strong> tomar o tempo dele com contexto que ele não pediu.</p>
+        </div>
+        <div class="perfil">
+          <span class="tag">Perfil B</span>
+          <h4>Analítico</h4>
+          <p>Quer entender o mecanismo antes de decidir. Pergunta como funciona o programa, quanto tempo dura, quem mais já passou. Muitas vezes é consultor e reconhece método quando vê. <em>"Qual é o formato? Como é a entrega?"</em></p>
+          <p><strong>Como conduzir:</strong> seja concreta, dê etapa e estrutura, diga o que acontece na reunião passo a passo. Se improvisar, ele percebe.</p>
+          <p><strong>Onde não pisar:</strong> promessa vaga e resposta genérica.</p>
+        </div>
+        <div class="perfil">
+          <span class="tag">Perfil C</span>
+          <h4>Relacional</h4>
+          <p>Conta a história do negócio dele, manda áudio longo, fala do time e dos clientes. Quer ser visto antes de ser vendido.</p>
+          <p><strong>Como conduzir:</strong> deixa ele falar, devolve o que ele disse com as palavras dele, fala do ambiente e das pessoas que ele vai encontrar. O acesso pesa mais que o método para esse perfil.</p>
+          <p><strong>Onde não pisar:</strong> cortar a fala dele para chegar na agenda.</p>
+        </div>
+        <div class="perfil">
+          <span class="tag">Perfil D</span>
+          <h4>Cauteloso</h4>
+          <p>Demora para responder, evita compromisso, usa "vou ver", "me manda mais informação", "depois eu te falo". Às vezes já se queimou com mentoria antes.</p>
+          <p><strong>Como conduzir:</strong> segurança e previsibilidade. Diz exatamente quanto dura, com quem é, o que acontece. Oferece a saída digna em vez de pressionar, que é o que faz esse perfil voltar.</p>
+          <p><strong>Onde não pisar:</strong> pressa e insistência. Pressão trava esse perfil de vez.</p>
+        </div>
+      </div>
+
+      <p><strong>A regra:</strong> nas três ou quatro primeiras mensagens você já sente qual
+      é o dominante e inclina a conversa naquela direção. Não são perfis fixos e a mesma
+      pessoa pode ter sinal de dois, então vá com o mais forte.</p>
+    </section>
+
+    <!-- ══════════ 03 ══════════ -->
+    <section id="qualificacao">
+      <h2><span class="eyebrow">Frente 1</span>Qualificação no WhatsApp</h2>
+      <p class="sub">
+        Doze mensagens. Confirma o que o quiz disse, tira o número da boca dele, mede a
+        distância entre onde está e onde achava que estaria, checa o decisor, constrói o valor
+        da reunião e só então marca.
+      </p>
+
+      <article class="msg">
+        <header><span class="rot">M1</span><span class="quando">até 30 min depois do quiz</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p><span class="var">{Nome}</span>, aqui é a Isadora, do time do Rafael Granella, tudo bem?</p>
+          <p>Acabei de ver que você terminou o diagnóstico agora há pouco.</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Nenhuma conclusão, nenhum anexo, nenhum pitch. Espera ele responder, nem que seja um oi. Mensagem que já chega entregando é lida e não respondida.</p>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">M2</span><span class="quando">a transição</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>Olhei suas respostas aqui e tem dois pontos que me chamaram atenção de verdade.</p>
+          <p>Antes de eu te falar o que eu vi, queria entender três coisas do seu cenário pra avaliar se faz sentido eu te levar pro Rafael. Pode ser?</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Abre curiosidade sobre o que foi visto e monta o enquadramento de seleção sem anunciar que existe uma oferta esperando no fim. "Te levar pro Rafael" já diz que existe um filtro no meio do caminho. Entra logo depois do oi dele, sem rodeio.</p>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">M3</span><span class="quando">o número &middot; obrigatória</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>No diagnóstico você marcou <span class="var">{faixa que ele marcou}</span>. Em número mesmo, quanto a sua mentoria fatura num mês normal?</p>
+        </div>
+        <p class="porque"><b>Por quê</b>É aqui que o filtro para de vazar. A faixa é clique e o número é compromisso, e é o número dito por ele que vale na régua de corte da seção 09. Se ele desconversar, insista uma vez com naturalidade: <em>pode ser aproximado, é só pra eu te direcionar certo.</em></p>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">M4</span><span class="quando">a distância</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>E esse número está perto de onde você imaginava estar a essa altura?</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Aqui aparece o vão entre onde ele está e onde achava que estaria. Toda a urgência da conversa nasce desse vão, e quem mede o tamanho dele é ele mesmo, o que vale muito mais do que você apontando.</p>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">M5</span><span class="quando">o incômodo concreto</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>E o que mais te incomoda nisso hoje?</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Se vier resposta rasa, insista uma vez: <em>me conta um exemplo de quando isso pesou de verdade.</em> Não avance com resposta vaga, porque é daqui que sai a frase literal que volta no follow-up e na véspera da reunião.</p>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">M6</span><span class="quando">o que ele já tentou</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>E o que você já tentou pra resolver isso até aqui?</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Quem veio do Diagnóstico A já respondeu isso no quiz, então aqui você confirma e pede o detalhe: <em>e o que aconteceu?</em> Quem veio do B não respondeu, e a pergunta é obrigatória. O que ele já tentou e não funcionou é o que sustenta a resposta de objeção mais adiante.</p>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">M7</span><span class="quando">o destino</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>Se daqui a doze meses você olhasse pro seu negócio e pensasse "agora sim, chegou onde eu queria", o que teria mudado?</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Faz ele descrever o destino com as próprias palavras, o que abre muito mais do que perguntar de meta de faturamento. Quem veio do A já marcou um objetivo no quiz, e aqui ele detalha.</p>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">M8</span><span class="quando">a urgência</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>E se ficar exatamente como está até o fim do ano, o que acontece?</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Urgência de verdade nasce do custo de não agir, dito por ele. Isso substitui qualquer escassez inventada e é o que você devolve no follow-up quando ele sumir.</p>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">M9</span><span class="quando">o decisor</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>Uma coisa que eu sempre pergunto: as decisões do negócio você toma sozinho ou tem sócio junto?</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Reunião sem quem decide é reunião perdida, e isso aparece depois como "preciso falar com meu sócio" na hora do fechamento. Se tiver sócio, o sócio entra na reunião.</p>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">M10</span><span class="quando">o valor da reunião</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>Pelo que você me contou, faz sentido eu te colocar na agenda do Rafael.</p>
+          <p>Ele entra na conversa com o seu diagnóstico e o que a gente falou aqui na mão, e te mostra onde está o teto do seu negócio hoje e o que precisa mudar de estrutura pra você romper. São trinta minutos, com ele direto.</p>
+          <p>No final ele te diz o que fazer e se topa te acompanhar nisso.</p>
+        </div>
+        <p class="porque"><b>Por quê</b>A reunião deixa de ser trinta minutos genéricos e passa a ser uma leitura preparada com o nome dele, feita por quem construiu o negócio que ele está tentando construir. É isso que sustenta o valor, e é a mesma trava que derruba no-show na Frente 3. A última linha inverte a posição: ele não decide se quer, ele descobre se foi aceito.</p>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">M11</span><span class="quando">a capacidade de investir</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>Última coisa antes de eu ver a agenda.</p>
+          <p>Se nessa conversa o Rafael achar um caminho que resolve isso de verdade, você está num momento de conseguir investir pra fazer acontecer este ano, ou seria coisa pra mais pra frente?</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Filtra capacidade e decisão sem cravar número, de propósito. O programa é anual e de ticket alto, e jogar o valor por WhatsApp antes de qualquer contexto fecha a porta de gente que compraria depois de entender. O número aparece com o Rafael, com o cenário já na mesa. Se travar aqui, travou de graça.</p>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">M12</span><span class="quando">o agendamento</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>Tenho <span class="var">{dia}</span> às <span class="var">{hora}</span> e <span class="var">{dia}</span> às <span class="var">{hora}</span>.</p>
+          <p>Em qual dos dois você consegue estar num lugar tranquilo, com trinta minutos livres e sem atender ninguém?</p>
+          <p>Fechado. Vou reservar <span class="var">{dia}</span> às <span class="var">{hora}</span> na agenda do Rafael. Posso contar com você nesse horário?</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Perguntar "quando você pode?" entrega o ritmo e gera "depois eu vejo". A condição de estar sozinho e sem atender ninguém vai dentro da pergunta, então ele se compromete no ato de escolher. Espera o sim escrito, que é a primeira trava do anti no-show.</p>
+      </article>
+
+      <div class="nota">
+        <p><b>Uma pergunta por vez.</b> Mandou, espera. Não emenda a próxima antes de ele
+        responder e não preenche o silêncio com explicação, porque é no segundo fôlego que
+        vem a parte mais útil da resposta.</p>
+      </div>
+
+      <div class="nota">
+        <p><b>Devolve antes de seguir.</b> A cada duas ou três respostas, repete o que ele
+        disse em uma frase antes da próxima pergunta. Isso é o que faz a conversa parecer
+        conversa e não formulário, e é o que faz ele se sentir ouvido sem você ter gastado
+        nenhuma informação.</p>
+      </div>
+    </section>
+
+    <!-- ══════════ 04 ══════════ -->
+    <section id="followup">
+      <h2><span class="eyebrow">Frente 2</span>Follow-up em duas trilhas</h2>
+      <p class="sub">
+        Follow-up é extensão da condução, usando as palavras dele. Toda mensagem daqui cita
+        algo que ele disse, no quiz ou na conversa. Mensagem genérica é o que treina o lead a
+        ignorar você.
+      </p>
+
+      <h3>Trilha A &middot; respondeu o quiz e nunca respondeu no WhatsApp</h3>
+
+      <article class="msg">
+        <header><span class="rot">A1</span><span class="quando">4 horas depois</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p><span class="var">{Nome}</span>, imagino que o dia tenha sido cheio aí. Me conta uma coisa quando puder: o que te fez parar pra responder o diagnóstico hoje?</p>
+        </div>
+        <p class="porque"><b>Por quê</b>É a descoberta que o quiz não entrega, o motivo. E é uma pergunta fácil, que ele responde sem sentir que está entrando em nada.</p>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">A2</span><span class="quando">dia seguinte, manhã</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p><span class="var">{Nome}</span>, no diagnóstico você marcou <span class="var">{resposta dele}</span>. Isso vem se repetindo há quanto tempo aí?</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Uma pergunta, sobre algo que ele mesmo respondeu. Sem link, sem material, sem lembrete de que você está tentando falar com ele.</p>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">A3</span><span class="quando">dia 4 &middot; a saída digna</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p><span class="var">{Nome}</span>, pode ser que você tenha respondido no impulso e não seja hora de mexer nisso agora, o que acontece bastante e tá tudo certo. Se for o caso me fala que eu paro por aqui.</p>
+        </div>
+        <p class="porque"><b>Por quê</b>É contraintuitiva e é a que mais traz resposta. Oferecer a saída tira a pressão e devolve o controle pra ele, que é o oposto de perseguir. Repare que ela não diz que o problema dele se resolve em outro lugar, só que talvez não seja a hora.</p>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">A4</span><span class="quando">dia 8 &middot; encerramento</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p><span class="var">{Nome}</span>, vou encerrar seu diagnóstico por aqui. Suas respostas ficam guardadas comigo, então se em algum momento você quiser retomar é só me chamar nesse mesmo número. Sucesso aí no seu negócio.</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Sem drama de última chance e sem link de Instagram como prêmio de consolação. O próximo passo concreto é ele saber que o registro está guardado, e encerrar bem é o que faz o lead voltar meses depois.</p>
+      </article>
+
+      <h3>Trilha B &middot; conversou e sumiu no meio</h3>
+
+      <article class="msg">
+        <header><span class="rot">B1</span><span class="quando">1 dia depois</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p><span class="var">{Nome}</span>, você me falou que <span class="var">{frase literal dele}</span>. Fiquei pensando nisso depois que a gente parou de conversar. Você chegou a olhar a agenda?</p>
+        </div>
+        <p class="porque"><b>Por quê</b>A frase literal é a diferença entre uma mensagem que ele reconhece e uma que ele ignora. É por isso que a M5 pede exemplo concreto.</p>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">B2</span><span class="quando">3 dias depois</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p><span class="var">{Nome}</span>, continua de pé aquilo que você me contou sobre <span class="var">{meta da M7}</span>? Se sim eu seguro um horário com o Rafael pra essa semana, se mudou alguma coisa me fala que eu libero.</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Dá o próximo passo e a saída na mesma mensagem, e as duas exigem resposta. Qualquer uma das duas é melhor que silêncio.</p>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">B3</span><span class="quando">6 dias &middot; encerramento com inteligência</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p><span class="var">{Nome}</span>, vou parar de te procurar aqui. Antes de fechar seu registro, me diz só uma coisa: o que fez você não seguir? Pergunto de verdade, serve pra eu não repetir o mesmo com a próxima pessoa.</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Traz resposta de gente calada há uma semana, e o que vier vale para o funil inteiro, não só para esse lead. Anote todas num lugar só, porque vira matéria-prima de copy e de ajuste de quiz.</p>
+      </article>
+
+      <div class="nota">
+        <p><b>Quem trabalhar primeiro quando a fila encher.</b> Lead irritado com a própria
+        situação tem energia alta e decide. Lead conformado tem energia baixa e não decide,
+        por melhor que o perfil pareça no quiz. Entre dois iguais no papel, trabalhe primeiro
+        quem demonstrou incômodo na M5.</p>
+      </div>
+
+      <div class="nota">
+        <p><b>Quem já compareceu e não fechou</b> não entra em nenhuma dessas trilhas. Esse
+        follow-up é do Rafael, e a Isadora só reaparece se ele pedir. Trabalhar o lead
+        pós-reunião pelo WhatsApp do pré-vendas desfaz a posição construída até aqui.</p>
+      </div>
+    </section>
+
+    <!-- ══════════ 05 ══════════ -->
+    <section id="noshow">
+      <h2><span class="eyebrow">Frente 3</span>Confirmação e anti no-show</h2>
+      <p class="sub">
+        O no-show não nasce no dia da reunião. Nasce na conversa anterior, quando ninguém
+        vendeu a importância daquela reunião. Se a M10 foi bem feita, metade do trabalho já
+        está feito, e o resto é esta régua.
+      </p>
+
+      <article class="msg">
+        <header><span class="rot">R0</span><span class="quando">no ato do agendamento &middot; a mais importante</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>Fechado, <span class="var">{Nome}</span>. <span class="var">{dia}</span> às <span class="var">{hora}</span>, com o Rafael, pelo Meet, meia hora.</p>
+          <p>Duas coisas pra você aproveitar de verdade: esteja num lugar onde dê pra falar sem atender ninguém, e se você divide as decisões do negócio com alguém, traz essa pessoa junto.</p>
+          <p>Te mando o link no dia. Posso confirmar esse horário?</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Compromisso que a pessoa digita pesa mais do que compromisso que ela só ouve. Espera o sim escrito antes de dar a conversa por fechada.</p>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">R1</span><span class="quando">no mesmo dia &middot; a lição de casa</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p><span class="var">{Nome}</span>, pra conversa de <span class="var">{dia}</span> render, separa três coisas:</p>
+          <p>1. Seu faturamento médio dos últimos três meses<br />2. Quantos clientes você atende hoje e quanto tempo cada um consome da sua semana<br />3. Onde você quer estar daqui a doze meses, com número</p>
+          <p>Não precisa ser planilha, pode ser de cabeça. É com isso que o Rafael monta a leitura do seu caso.</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Quem investe tempo antes, aparece. E os três números são exatamente os que o Rafael precisa na mesa para a conversa render, então a mensagem trabalha duas vezes.</p>
+      </article>
+
+      <article class="msg audio">
+        <header><span class="rot">R2</span><span class="quando">véspera &middot; áudio de 30 segundos do Rafael</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>"Oi <span class="var">{Nome}</span>, aqui é o Rafael. Vi que a gente conversa amanhã às <span class="var">{hora}</span>. Já dei uma olhada no que você respondeu e tenho uma ideia de onde tá o gargalo. Traz seus números que eu te devolvo a leitura. Até amanhã."</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Nada produzido, gravado no celular. Ouvir a voz de quem vai atender muda o peso da reunião, e o áudio avisa que existe trabalho feito esperando por ele.</p>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">R3</span><span class="quando">logo depois do áudio</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p><span class="var">{Nome}</span>, amanhã às <span class="var">{hora}</span> é a nossa conversa. Me confirma com um ok que tá de pé?</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Exige resposta ativa. "Confirmando nossa reunião de amanhã" não pede nada, então não confirma nada.</p>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">R3.1</span><span class="quando">se não confirmar até a noite</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p><span class="var">{Nome}</span>, não consegui sua confirmação pra amanhã. Se o horário complicou me fala agora que eu remarco numa boa, prefiro remarcar do que te deixar sem.</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Se não responder isso também, liga. Não descubra na hora.</p>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">R4</span><span class="quando">1 hora antes</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p><span class="var">{Nome}</span>, daqui a uma hora vocês se falam, segue o link: <span class="var">{link}</span></p>
+          <p>O Rafael já olhou suas respostas e chega com o seu cenário na mão, então vocês vão direto ao ponto. Já separou os números?</p>
+        </div>
+        <p class="porque"><b>Por quê</b>A segunda linha é o que mais derruba no-show no documento inteiro. Ela avisa que existe trabalho personalizado esperando, e faltar passa a ter custo. A pergunta no fim ainda arranca uma última confirmação.</p>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">R5</span><span class="quando">10 minutos antes</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p><span class="var">{Nome}</span>, o Rafael já está na sala, é só entrar por aqui: <span class="var">{link}</span></p>
+        </div>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">R6</span><span class="quando">5 minutos depois do horário &middot; mensagem e ligação</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p><span class="var">{Nome}</span>, o Rafael tá na sala te esperando, consegue entrar?</p>
+        </div>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">R7</span><span class="quando">30 minutos depois</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p><span class="var">{Nome}</span>, imagino que apareceu alguma coisa aí. O Rafael tinha separado esse horário pro seu caso e já tinha olhado suas respostas, me fala se dá pra remarcar ainda essa semana.</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Custo real, não escassez inventada. O horário existiu, foi reservado no nome dele e teve preparo em cima.</p>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">R8</span><span class="quando">dia seguinte, se silêncio</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p><span class="var">{Nome}</span>, você marcou <span class="var">{resposta dele}</span> como o que mais trava hoje, e já tentou resolver isso do jeito que dá pra tentar sozinho. Se resolvesse assim, já estaria resolvido.</p>
+          <p>Consigo abrir um horário na <span class="var">{dia}</span>. Se você não quer resolver isso agora, me fala que eu encerro sua aplicação e libero a vaga.</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Se não responder aqui, ele cai na Trilha B do follow-up. E repare que a saída oferecida é parar, nunca resolver por outro caminho.</p>
+      </article>
+
+      <div class="nota grave">
+        <p><b>Régua de remarcação: no máximo duas.</b> Na terceira o lead sai da fila ativa e
+        entra em nutrição. Agenda que aceita ser furada três vezes ensina ao lead que ela não
+        vale nada.</p>
+        <p>E toda remarcação recomeça a régua do zero, da R0 até a R5. Sem isso o segundo
+        no-show vem.</p>
+      </div>
+    </section>
+
+    <!-- ══════════ 06 ══════════ -->
+    <section id="quarenta">
+      <h2><span class="eyebrow">Pós-agendamento</span>As 48 horas depois do sim</h2>
+      <p class="sub">
+        Marcou não quer dizer que compareceu. As primeiras 48 horas depois do agendamento são
+        onde o lead esfria, comenta com o sócio e conclui sozinho que não é a hora. Você planta
+        o argumento dele antes disso acontecer.
+      </p>
+
+      <article class="msg">
+        <header><span class="rot">P1</span><span class="quando">logo depois de marcar</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p><span class="var">{Nome}</span>, só pra você ter o contexto: o Rafael abre poucos horários por semana pra esse tipo de conversa, e eu segurei o seu porque o seu cenário é bem o que ele destrava.</p>
+          <p>Vou te mandar aqui alguns casos de gente que estava no mesmo ponto que você antes de entrar.</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Ele acabou de tomar uma decisão e precisa se sentir bem com ela. Isso também dá a ele a frase pronta caso o sócio pergunte por que ele vai gastar meia hora nisso.</p>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">P2</span><span class="quando">24 horas depois de marcar</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p><span class="var">{Nome}</span>, separei aqui o caso de um mentor que chegou travado no mesmo ponto que você me descreveu e virou o jogo ajustando o modelo, sem trabalhar mais. Achei que ia fazer sentido pra você ver antes da conversa.</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Anexe o depoimento ou o print. Escolhe pelo perfil dele: objetivo recebe caso com número, analítico recebe caso com processo, relacional recebe caso com a história da pessoa, cauteloso recebe caso de quem já tinha tentado antes e não tinha dado certo.</p>
+      </article>
+
+      <div class="nota">
+        <p><b>Se alguém questionar ele.</b> Você já plantou a resposta. Nas mensagens
+        anteriores ficou claro que o horário é escasso, que foi reservado no nome dele e que
+        o Rafael preparou o caso. Se o sócio perguntar, ele tem o que responder.</p>
+      </div>
+    </section>
+
+    <!-- ══════════ 07 ══════════ -->
+    <section id="objecoes">
+      <h2><span class="eyebrow">Condução</span>Objeções antes da reunião</h2>
+      <p class="sub">
+        Objeção quase nunca é recusa, é o lead pedindo mais segurança com outras palavras. O
+        que não pode acontecer é você validar a ideia de que ele resolve isso sozinho ou em
+        outro lugar.
+      </p>
+
+      <h3>"Me manda mais informação por aqui"</h3>
+      <article class="msg">
+        <header><span class="rot">R</span><span class="quando">resposta</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>Consigo, mas o que eu te mando por aqui é genérico e você já viu conteúdo genérico o suficiente. O que muda o jogo é o Rafael olhar os seus números e te dizer onde está o seu teto, e isso leva trinta minutos. <span class="var">{dia}</span> às <span class="var">{hora}</span> ou <span class="var">{dia}</span> às <span class="var">{hora}</span>?</p>
+        </div>
+      </article>
+
+      <h3>"Quanto custa?"</h3>
+      <article class="msg">
+        <header><span class="rot">R</span><span class="quando">resposta</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>Isso o Rafael apresenta na conversa, porque depende do que faz sentido pro seu momento. O que eu já adianto é que ele trabalha com quem já fatura e quer estruturar pra crescer.</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Não fale valor por WhatsApp em nenhuma hipótese. Número sem contexto vira comparação de preço, e é justamente isso que a reunião existe pra evitar. Depois de responder, volta pra pergunta que você estava fazendo.</p>
+      </article>
+
+      <h3>"Agora não é o momento"</h3>
+      <article class="msg">
+        <header><span class="rot">R</span><span class="quando">primeiro, separa o que é</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>Entendi, só pra eu te direcionar certo: não é o momento por agenda ou por prioridade?</p>
+        </div>
+      </article>
+      <article class="msg">
+        <header><span class="rot">R</span><span class="quando">se for prioridade</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>Você me disse que <span class="var">{resposta dele}</span> trava o seu negócio hoje, e daqui a seis meses esse ponto vai estar maior do que está agora.</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Se for agenda, ofereça horário fora do comercial e resolva. Se for prioridade, é objeção de verdade e você devolve o custo com as palavras dele.</p>
+      </article>
+
+      <h3>"Preciso falar com meu sócio"</h3>
+      <article class="msg">
+        <header><span class="rot">R</span><span class="quando">resposta</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>Faz total sentido, ele pode entrar na conversa junto? São trinta minutos e evita você ter que reproduzir tudo depois, o que sempre perde metade.</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Se essa objeção apareceu, a M9 não foi feita ou foi feita mal. Traga o sócio para dentro em vez de mandar o lead levar a informação sozinho.</p>
+      </article>
+
+      <h3>"Vou tentar mais um tempo do meu jeito"</h3>
+      <div class="nota grave">
+        <p><b>Nunca responda "faz sentido" aqui.</b> Concordar com essa frase é entregar de
+        graça a ideia de que ele resolve isso sozinho.</p>
+      </div>
+      <article class="msg">
+        <header><span class="rot">R</span><span class="quando">resposta</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p><span class="var">{Nome}</span>, você vem tentando do seu jeito há <span class="var">{tempo que ele disse}</span>, e se esse caminho fosse resolver já teria resolvido. Em trinta minutos com o Rafael você tem a leitura que não veio nesse tempo todo.</p>
+        </div>
+      </article>
+
+      <h3>"Já tentei mentoria antes e não funcionou"</h3>
+      <article class="msg">
+        <header><span class="rot">R</span><span class="quando">primeiro, puxa</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>O que você tentou e o que aconteceu?</p>
+        </div>
+      </article>
+      <article class="msg">
+        <header><span class="rot">R</span><span class="quando">depois que ele contar inteiro</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>Entendi, então o que faltou foi <span class="var">{palavra dele}</span>. É por isso mesmo que eu quero te colocar na frente do Rafael, porque quem te atendeu antes ensinava e ele construiu e opera, além de te colocar num ambiente que nenhum programa te dá.</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Isso não é objeção, é a informação mais valiosa da conversa. Deixa ele contar inteiro antes de responder qualquer coisa, e nunca fale mal de quem atendeu ele antes.</p>
+      </article>
+
+      <h3>"Eu já acompanho o Rafael, vejo os conteúdos dele"</h3>
+      <article class="msg">
+        <header><span class="rot">R</span><span class="quando">resposta</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>Que bom, então você já sabe o nível dele. Só que conteúdo é o que ele fala pra todo mundo, e nessa conversa ele olha o seu caso e te diz o que fazer no seu negócio.</p>
+        </div>
+      </article>
+
+      <h3>Munição, para usar uma de cada vez</h3>
+      <ul>
+        <li>Mais de dez anos operando, mais de quinhentos mentorados, mais de cinco mil clientes</li>
+        <li>Mais de um bilhão gerado pelos clientes dele</li>
+        <li>Sócio do Flávio Augusto, do Caio Carneiro e do Joel Jota</li>
+        <li>Maior ecossistema de educação executiva do mundo, com cerca de dez mil empresários dentro</li>
+        <li>Ele construiu e opera o negócio que a pessoa do outro lado está tentando construir</li>
+        <li>O acesso vale tanto quanto o método, porque ele entra num ambiente onde todo mundo está um patamar acima</li>
+      </ul>
+      <p>Prova entra como contexto de uma frase, dentro da venda da reunião. Nunca como
+      parágrafo solto e nunca como elogio ao Rafael, porque o lead não compra o quanto ele é
+      bom, compra o fato de que só ali existe esse caminho.</p>
+    </section>
+
+    <!-- ══════════ 08 ══════════ -->
+    <section id="nunca">
+      <h2><span class="eyebrow">Armadilhas</span>O que nunca fazer</h2>
+
+      <div class="rolagem">
+        <table>
+          <thead><tr><th>Não faça</th><th>Por quê</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Perguntar "você teve tempo de pensar?"</strong></td><td>Te coloca na posição de quem espera aprovação e derruba tudo que você construiu</td></tr>
+            <tr><td><strong>Perguntar "quando você pode?"</strong></td><td>Pergunta aberta gera "depois eu vejo". Sempre dois horários</td></tr>
+            <tr><td><strong>Dizer "sem compromisso" ou "se fizer sentido"</strong></td><td>Cada saída que você oferece é um motivo que você entrega de graça</td></tr>
+            <tr><td><strong>Validar que ele resolve sozinho ou em outro lugar</strong></td><td>A conversa com o Rafael é o caminho, não uma opção entre outras</td></tr>
+            <tr><td><strong>Falar valor por WhatsApp</strong></td><td>Número sem contexto vira comparação de preço</td></tr>
+            <tr><td><strong>Explicar o método do Rafael</strong></td><td>Cada coisa explicada a mais é um motivo a menos para a reunião existir</td></tr>
+            <tr><td><strong>Entregar o diagnóstico completo por mensagem</strong></td><td>Se ele sai resolvido no WhatsApp, não tem por que aparecer</td></tr>
+            <tr><td><strong>Emendar duas perguntas sem esperar resposta</strong></td><td>A parte útil vem no segundo fôlego, e você corta ela</td></tr>
+            <tr><td><strong>Encerrar mensagem sem próximo passo</strong></td><td>"Qualquer coisa me chama" costuma encerrar a conversa de vez</td></tr>
+            <tr><td><strong>Aceitar remarcação sem data definida</strong></td><td>"Depois a gente vê" é no-show garantido</td></tr>
+            <tr><td><strong>Falar mal de quem atendeu ele antes</strong></td><td>Diferencia pelo que o Rafael faz, não pelo que os outros fazem mal</td></tr>
+            <tr><td><strong>Pedir desculpa por estar falando com ele</strong></td><td>"Desculpa incomodar" avisa que você acha que está incomodando</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══════════ 09 ══════════ -->
+    <section id="regua">
+      <h2><span class="eyebrow">Régua</span>A ordem da fila, não uma peneira</h2>
+      <p class="sub">
+        Faturamento aqui ordena a fila, ele não elimina ninguém. Já teve lead que marcou a
+        faixa mais baixa do quiz e comprou, então nenhuma faixa marcada tira alguém da agenda
+        do Rafael por conta própria.
+      </p>
+
+      <div class="rolagem">
+        <table>
+          <thead><tr><th>Faturamento dito na M3</th><th>O que fazer</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Acima de R$ 30 mil</strong> e já tem mentoria ou consultoria rodando</td><td>Qualificação completa e agenda. É a prioridade da semana</td></tr>
+            <tr><td><strong>Entre R$ 20 mil e R$ 30 mil</strong></td><td>Qualifica e agenda, depois dos de cima</td></tr>
+            <tr><td><strong>Abaixo de R$ 20 mil</strong></td><td>Qualifica, faz as duas perguntas abaixo e agenda. Fica atrás dos outros dois na fila, e só isso</td></tr>
+            <tr><td><strong>Não tem cliente pagando ainda</strong></td><td>Único caso que não vai para a agenda. Encerra com a A4 e guarda o registro</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="nota grave">
+        <p><b>Faturamento baixo não é sinônimo de não comprar.</b> Um dos clientes que o
+        Rafael fechou tinha marcado a faixa mais baixa do quiz. O número de um mês diz onde a
+        pessoa está, e não o que ela consegue decidir: tem quem esteja entre ciclos, quem
+        acabou de reestruturar a operação, quem tem caixa vindo de outro negócio e quem
+        simplesmente respondeu por baixo. Descartar por faixa marcada é jogar fora venda.</p>
+      </div>
+
+      <h3>As duas perguntas para quem veio abaixo de R$ 20 mil</h3>
+      <p>Não é para constranger nem para checar bolso, é para você entender o cenário e o
+      Rafael entrar na reunião sabendo com o que está lidando.</p>
+
+      <article class="msg">
+        <header><span class="rot">M3.1</span><span class="quando">o que explica o número</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>E esse número é o normal do seu negócio hoje ou aconteceu alguma coisa recente que mexeu nele?</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Separa quem está construindo de quem está atravessando um momento. Reestruturação, troca de modelo, fim de um ciclo de turma e saída de sócio aparecem aqui, e todos são cenários de quem compra.</p>
+      </article>
+
+      <article class="msg">
+        <header><span class="rot">M3.2</span><span class="quando">de onde sairia a decisão</span><button class="copiar">Copiar</button></header>
+        <div class="fala">
+          <p>E hoje o seu negócio é sua única fonte de receita ou você tem outra frente rodando junto?</p>
+        </div>
+        <p class="porque"><b>Por quê</b>Muita gente do perfil do Alivance tem empresa, sociedade ou carreira anterior sustentando a estrutura enquanto a mentoria ainda está crescendo. Isso muda tudo e não aparece em nenhuma pergunta do quiz.</p>
+      </article>
+
+      <div class="nota">
+        <p><b>Como isso muda a fila na prática.</b> Se ele responder que o número é atípico ou
+        que existe outra fonte sustentando, ele sobe e passa a ser tratado como os de cima. Se
+        for de fato um negócio pequeno e em construção, ele continua na agenda, só entra nos
+        horários que sobrarem da semana.</p>
+      </div>
+
+      <div class="nota">
+        <p><b>O que ainda protege a agenda.</b> Em agosto o custo por lead qualificado ficou
+        em R$ 220 e cada reunião consome meia hora do Rafael mais o preparo em cima do caso.
+        O que evita desperdício não é cortar por faixa, é a qualificação inteira ter sido
+        feita antes: número dito na M3, decisor checado na M9 e capacidade confirmada na M11.
+        Quem passa por essas três merece o horário, venha da faixa que vier.</p>
+      </div>
+    </section>
+
+    <!-- ══════════ 10 ══════════ -->
+    <section id="medir">
+      <h2><span class="eyebrow">Controle</span>O que medir a partir da semana um</h2>
+      <p class="sub">
+        A base de agosto, até o dia 21: 31 leads somando os dois quizzes, 12 qualificados,
+        taxa de 38%, custo por lead de R$ 85,75 e custo por qualificado de R$ 220. O que
+        falta medir é tudo que acontece depois que o lead chega.
+      </p>
+
+      <div class="rolagem">
+        <table>
+          <thead><tr><th>Número</th><th>Onde ler</th><th>Por que importa</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Taxa de resposta até a M2</strong></td><td>contagem manual</td><td>mede se a abertura funciona. Abaixo de 40% o problema é a M1</td></tr>
+            <tr><td><strong>Quantos travam na M11</strong></td><td>contagem manual</td><td>é a qualificação trabalhando, não é perda</td></tr>
+            <tr><td><strong>Taxa de agendamento</strong></td><td>planilha de leads</td><td>agendados sobre leads trabalhados</td></tr>
+            <tr><td><strong>Confirmação ativa na véspera</strong></td><td>contagem manual</td><td>quem responde a R3 comparece. Meta acima de 80%</td></tr>
+            <tr><td><strong>Taxa de no-show</strong></td><td>hoje não é medida</td><td>sem ela a Frente 3 não prova valor nenhum</td></tr>
+            <tr><td><strong>Motivo do não, vindo da B3</strong></td><td>planilha</td><td>matéria-prima de copy e de ajuste do quiz</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="nota">
+        <p><b>Sinal de alerta.</b> Se a taxa de resposta subir e a de agendamento continuar
+        igual, o problema deixou de ser a abordagem e passou a ser a M10. Aí a próxima
+        conversa é sobre como a reunião está sendo vendida, não sobre o script de abertura.</p>
+      </div>
+    </section>
+
+    <!-- ══════════ 11 ══════════ -->
+    <section id="treinar">
+      <h2><span class="eyebrow">Implantação</span>Como treinar isso sem parar a operação</h2>
+      <p class="sub">
+        Não tenta absorver tudo de uma vez. Uma frente por semana, aplicando nos leads que
+        estiverem chegando.
+      </p>
+
+      <div class="rolagem">
+        <table>
+          <thead><tr><th>Semana</th><th>O que rodar</th></tr></thead>
+          <tbody>
+            <tr><td><strong>1</strong></td><td>Frente 1 inteira, da M1 à M12, em todo lead novo. Só isso</td></tr>
+            <tr><td><strong>2</strong></td><td>Frente 3, a régua de anti no-show, em todo mundo que agendar</td></tr>
+            <tr><td><strong>3</strong></td><td>Frente 2, as duas trilhas de follow-up, e começa a anotar os motivos da B3</td></tr>
+            <tr><td><strong>4</strong></td><td>As 48 horas depois do sim e as objeções, já com repertório dos leads reais</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>A cada quinze dias, abre as últimas dez conversas e olha três coisas: onde você falou
+      mais do que ele, onde deixou uma mensagem sem próximo passo, e onde ofereceu uma saída
+      sem querer. Cada uma dessas vira ajuste na semana seguinte.</p>
+
+      <p>E anota toda objeção nova que aparecer e não estiver aqui. Este documento é
+      atualizado com o que os leads do Rafael estiverem trazendo de verdade.</p>
+    </section>
+
+    <footer class="rodape">
+      Simple Acc &middot; Playbook comercial Alivance Club &middot; 27 de agosto de 2026
+    </footer>
+
+  </main>
+</div>
+
+<script>
+  document.querySelectorAll('.copiar').forEach(function(botao){
+    botao.addEventListener('click', function(){
+      var cartao = botao.closest('.msg');
+      var texto = Array.from(cartao.querySelectorAll('.fala p'))
+        .map(function(p){ return p.innerText.trim(); })
+        .join('\n\n');
+      function feito(){
+        botao.textContent = 'Copiado';
+        botao.dataset.feito = '1';
+        setTimeout(function(){ botao.textContent = 'Copiar'; delete botao.dataset.feito; }, 1800);
+      }
+      function selecionar(){
+        try {
+          var faixa = document.createRange();
+          faixa.selectNodeContents(cartao.querySelector('.fala'));
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(faixa);
+          botao.textContent = 'Selecionado';
+          setTimeout(function(){ botao.textContent = 'Copiar'; }, 1800);
+        } catch (e) {}
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(texto).then(feito, selecionar);
+      } else {
+        selecionar();
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
