@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Estrategia Completa e Copies do Funil de Diagnostico &middot; Adriana Brunelly</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    padding: 16mm 18mm 24mm 18mm;
+    position: relative;
+    page-break-after: always;
+    background: #fff;
+  }
+  .page:last-child { page-break-after: auto; }
+  .runhead {
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; color: var(--muted);
+    letter-spacing: .06em; text-transform: uppercase;
+    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt;
+  }
+  .runfoot {
+    position: absolute; bottom: 9mm; left: 18mm; right: 18mm;
+    text-align: center; font-size: 7.5pt; color: var(--muted);
+  }
+  .kicker {
+    color: var(--gold); font-size: 9pt; font-weight: bold;
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt;
+  }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
+  .box-dark {
+    background: var(--navy-dark); color: #f5f3ee;
+    padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt;
+  }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light {
+    background: var(--beige); border-left: 3pt solid var(--gold);
+    padding: 10pt 14pt; margin: 11pt 0;
+  }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .fase-header {
+    background: var(--navy-dark); color: #fff;
+    padding: 10pt 16pt; margin-bottom: 10pt;
+    border-left: 4pt solid var(--gold);
+  }
+  .fase-header .fk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .fase-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .fase-header .fd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 12pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 34pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+  .footer-note { margin-top: 24pt; padding-top: 8pt; border-top: 1pt solid var(--gold); font-size: 8.5pt; color: var(--muted); width: 60%; }
+</style>
+<style>
+  .secao-lead { font-style: italic; color: #5a6070; margin-bottom: 12pt; font-size: 10pt; }
+  .qlabel { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin: 10pt 0 2pt; }
+  .qtext { color: var(--navy); font-weight: bold; font-size: 11pt; margin-bottom: 4pt; }
+  ul.alt { list-style: none; margin: 0 0 6pt 0; }
+  ul.alt li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; }
+  ul.alt li::before { content: "▢"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  .copylabel { color: var(--navy); font-weight: bold; font-size: 9pt; letter-spacing: .06em; text-transform: uppercase; margin: 9pt 0 3pt; border-bottom: .4pt solid #d9d5cc; padding-bottom: 2pt; }
+</style>
+</head>
+<body>
+<div class="page cover">
+  <div class="kicker">Funil de Diagnóstico · Método ACA</div>
+  <h1>Estratégia<br>Completa</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    Quiz, página de diagnóstico, anúncios e cadência.<br>
+    A copy inteira do funil, pronta para implementar.<br>
+    <em>A conta que o seu talento paga todo mês.</em>
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">Adriana Brunelly</div>
+    <div class="lbl">Estrategista</div>
+    <div class="val">Daniel Souza · Carlos Durães</div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Adriana Brunelly</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Ler a Copy</div>
+  <h1 style="font-size:19pt;">O Funil em Uma Página</h1>
+  <p class="secao-lead">Leia esta página antes de aprovar as copies. Tudo o que vem depois parte destas decisões.</p>
+
+  <div class="box-dark">
+    <div class="bt">O caminho do lead</div>
+    <p>Anúncio ou conteúdo → <strong>Diagnóstico da Dívida de Valor</strong>, quiz gratuito de 2 minutos → página de diagnóstico com o número dele calculado → WhatsApp → sessão de diagnóstico com você → Método ACA.</p>
+    <p>A página de diagnóstico <strong>não vende e não mostra preço</strong>. O trabalho dela é dar nome ao padrão de perda da pessoa, mostrar o valor em reais e fazer ela querer conversar. A oferta acontece na sessão.</p>
+    <p>Por que assim: a mentoria custa R$ 30 mil, valor que esse público considera e não compra por impulso. E é na sessão que aparecem as objeções reais, que depois voltam para a copy.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A esteira hoje</div>
+    <p><strong>Carro-chefe: Método ACA, R$ 30 mil.</strong> Encontro semanal, turma que abre e fecha, jornada de 90 dias. É o que este funil vende e é ele que paga a operação.</p>
+    <p><strong>Aproveitamento do não ICP: WhatsApp de Valor, R$ 47</strong>, na Greenn, já no ar. Não entra na mídia como campanha própria: é a saída de quem não qualifica no quiz. Vira base e vira prova.</p>
+    <p><strong>Regra do terceiro produto:</strong> nada de produto intermediário, imersão ou turma nova nos 90 dias. Objeção de valor na sessão vira forma de pagamento ou vira o produto de R$ 47. <strong>Nunca desconto no Método ACA.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">O que a copy precisa compensar</div>
+    <p>Não existe depoimento de aluna gravado. Enquanto a prova não chega, a copy compensa com o que ninguém no nicho tem: <strong>25 anos dentro do mesmo mercado do comprador</strong>, a trajetória da calçada ao buffet, e o número verificável de ter faturado 40% menos e lucrado 60% mais.</p>
+    <p>Onde houver <strong>[DEPOIMENTO]</strong> no texto, é espaço reservado. Case de aluna só entra quando existir de verdade.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Premissas assumidas</div>
+    <p>Conversão de 25% em venda na sessão, a corrigir com dado real após as 10 primeiras · corte de qualificação em R$ 40 mil de faturamento mensal, vindo da pesquisa da própria Adriana · quem conduz a sessão e fecha é ela, porque não existe pré-vendas · verba inicial de R$ 50 por dia, financiada pelo caixa rápido do roadmap.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Adriana Brunelly</span><span>Página 3</span></div>
+  <div class="kicker">Seção 1</div>
+  <h1 style="font-size:19pt;">Big Idea</h1>
+  <p class="secao-lead">A ideia que sustenta o quiz, a página, os anúncios e o atendimento.</p>
+
+  <div class="box-dark">
+    <div class="bt">A big idea</div>
+    <p><strong>O mercado te ensinou a entregar. Ninguém te ensinou a cobrar.</strong></p>
+    <p>A profissional que você atende não tem problema de talento. Ela monta o evento mais bonito da cidade, é procurada, é indicada e entrega. Mas no fim do mês não sobra, e ela não sabe explicar por quê.</p>
+    <p>Por isso a virada de chave não é "cobre mais caro". É: <strong>você não perde cliente por preço, você perde porque o cliente ainda não percebeu o seu valor antes de ver o número</strong>. Essa diferença tem nome, e tem valor em reais: é a Dívida de Valor.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A frase que resume a transformação</div>
+    <p><strong>De profissional que entrega muito, a profissional que recebe pelo que entrega.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Por que isso funciona com este público</div>
+    <p>Ela é dona de buffet, decoradora, doceira. <strong>Não quer ser tratada como amadora:</strong> tem 10, 15, 20 anos de mercado e reputação na cidade dela. Promessa de "aprenda a precificar" soa pequena e soa curso técnico, que ela já fez.</p>
+    <p>Promessa de <strong>receber pelo que já entrega</strong> respeita. É a diferença entre falar com alguém que precisa aprender a fazer e falar com alguém que já faz melhor que a maioria, e só não está sendo paga por isso.</p>
+    <p>E tem o dado que decide a porta de entrada: <strong>só de 8 a 12% desse mercado sabe o que a palavra posicionamento significa</strong>. Entrar por ela é ficar invisível para 9 em cada 10 pessoas.</p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">A régua de linguagem, válida para toda peça</div>
+    <p><strong>Fala:</strong> margem · lucro · orçamento · fechamento · desconto · extra não cobrado · per capita · cliente certo · a conta do fim do mês · Dívida de Valor · quanto custa continuar igual.</p>
+    <p><strong>Não fala:</strong> posicionamento como promessa de entrada (é o que ela entrega, não o que ela anuncia) · destrave, explosão de faturamento, segredo · promessa de quanto a pessoa vai faturar, que a Meta lê como violação · trabalhar menos como promessa principal, porque a pesquisa dela provou que esse desejo é o último em urgência · amadora, desorganizada ou insegura como rótulo de quem lê.</p>
+    <p><strong>A regra que resume:</strong> descreva a cena e use a frase que a própria pessoa diz. Nunca acuse quem ela é.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Adriana Brunelly</span><span>Página 4</span></div>
+  <div class="kicker">Seção 2 · Parte 1</div>
+  <h1 style="font-size:19pt;">Copy do Quiz</h1>
+  <p class="secao-lead">Diagnóstico da Dívida de Valor. Capta, qualifica, calcula e já funciona como o primeiro atendimento.</p>
+  <p>Cada pergunta mede uma parte da perda. O resultado não é rótulo genérico: é <strong>o nome do padrão dela e o valor em reais</strong>, e é isso que faz a pessoa chegar na sessão achando que você enxergou o que ninguém enxergou.</p>
+
+  <div class="box-light">
+    <div class="bt">Hero da página do quiz</div>
+    <p><strong>Headline:</strong> Quanto o seu negócio de eventos deixa na mesa todo ano?</p>
+    <p><strong>Sub:</strong> Não é falta de cliente e não é falta de talento. Existem quatro pontos onde o dinheiro escapa entre o seu orçamento e o seu caixa, e todos eles têm conta.</p>
+    <p><strong>Micro:</strong> 10 perguntas · 2 minutos · resultado no seu WhatsApp · <strong>Botão:</strong> Quero ver a minha conta</p>
+  </div>
+
+  <div class="qlabel">Pergunta 1 · Situação · Perfil</div>
+  <div class="qtext">O que você faz hoje no mercado de eventos?</div>
+  <ul class="alt">
+    <li>a) Tenho um buffet</li>
+    <li>b) Trabalho com decoração de festas</li>
+    <li>c) Sou doceira ou confeiteira</li>
+    <li>d) Sou assessora ou cerimonialista</li>
+  </ul>
+
+  <div class="qlabel">Pergunta 2 · Situação · Alimenta o cálculo</div>
+  <div class="qtext">Qual é o valor médio de um evento ou pedido seu?</div>
+  <ul class="alt">
+    <li>a) Até R$ 3 mil</li>
+    <li>b) De R$ 3 mil a R$ 8 mil</li>
+    <li>c) De R$ 8 mil a R$ 20 mil</li>
+    <li>d) Acima de R$ 20 mil</li>
+  </ul>
+
+  <div class="qlabel">Pergunta 3 · Situação · Alimenta o cálculo</div>
+  <div class="qtext">Quantos eventos ou pedidos você entrega por mês, em média?</div>
+  <ul class="alt">
+    <li>a) Até 3</li>
+    <li>b) De 4 a 8</li>
+    <li>c) De 9 a 15</li>
+    <li>d) Mais de 15</li>
+  </ul>
+
+  <div class="qlabel">Pergunta 4 · Problema · Define o padrão dominante</div>
+  <div class="qtext">Quando você manda um orçamento, o que mais acontece?</div>
+  <ul class="alt">
+    <li>a) A pessoa agradece e some</li>
+    <li>b) Ela responde pedindo desconto</li>
+    <li>c) Ela compara com alguém mais barato e volta pedindo para cobrir</li>
+    <li>d) Fecha, mas eu fico com a sensação de que cobrei pouco</li>
+  </ul>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Adriana Brunelly</span><span>Página 5</span></div>
+  <div class="kicker">Seção 2 · Parte 2</div>
+  <h1 style="font-size:19pt;">Copy do Quiz: perguntas 5 a 8</h1>
+  <p class="secao-lead">Implicação e tentativas. É aqui que o diagnóstico ganha número e profundidade.</p>
+
+  <div class="qlabel">Pergunta 5 · Implicação · Alimenta o cálculo</div>
+  <div class="qtext">Na hora de fechar, quanto costuma sair de desconto?</div>
+  <ul class="alt">
+    <li>a) Não dou desconto</li>
+    <li>b) Até 10%</li>
+    <li>c) De 10% a 20%</li>
+    <li>d) Mais de 20%, ou dou algum brinde que sai do meu bolso</li>
+  </ul>
+
+  <div class="qlabel">Pergunta 6 · Implicação · Alimenta o cálculo</div>
+  <div class="qtext">E os extras: o cliente pede algo fora do combinado durante o evento?</div>
+  <ul class="alt">
+    <li>a) Quase nunca, meu contrato é bem fechado</li>
+    <li>b) Às vezes, e eu cobro à parte</li>
+    <li>c) Acontece bastante, e eu acabo absorvendo</li>
+    <li>d) Acontece sempre, e eu nem lanço na conta</li>
+  </ul>
+
+  <div class="qlabel">Pergunta 7 · Implicação</div>
+  <div class="qtext">No fim do mês, quando você olha a conta, o que você sente?</div>
+  <ul class="alt">
+    <li>a) Está bom, sobra o que eu planejei</li>
+    <li>b) Entrou muito dinheiro e não sobrou quase nada</li>
+    <li>c) Sobrou menos que no mês passado e eu não sei explicar por quê</li>
+    <li>d) Eu evito olhar</li>
+  </ul>
+
+  <div class="qlabel">Pergunta 8 · Tentativas</div>
+  <div class="qtext">O que você já tentou para resolver isso?</div>
+  <ul class="alt">
+    <li>a) Fiz curso técnico para melhorar ainda mais a entrega</li>
+    <li>b) Comecei a postar mais e a cuidar do Instagram</li>
+    <li>c) Procurei planilha de precificação</li>
+    <li>d) Nunca tentei nada específico, fui levando</li>
+  </ul>
+
+  <div class="box-dark">
+    <div class="bt">Por que as perguntas 5, 6 e 8 importam tanto</div>
+    <p>A 5 e a 6 são as que <strong>geram o número</strong>. Sem elas não existe diagnóstico, existe texto motivacional.</p>
+    <p>A 8 separa o lead. Quem marca <strong>a</strong> ou <strong>c</strong> é o mais valioso do funil: já investiu em técnica ou correu atrás de planilha, e continuou sem margem. É com ele que o Ângulo 2 dos anúncios e o Bloco 4 da página falam diretamente, e é o argumento que mais separa a Adriana do resto do mercado.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Adriana Brunelly</span><span>Página 6</span></div>
+  <div class="kicker">Seção 2 · Parte 3</div>
+  <h1 style="font-size:19pt;">Objetivo, qualificação e captura</h1>
+  <p class="secao-lead">As duas últimas perguntas e as regras que o comercial usa no dia a dia.</p>
+
+  <div class="qlabel">Pergunta 9 · Objetivo</div>
+  <div class="qtext">Se em 3 meses isso mudasse de vez, o que mudaria primeiro?</div>
+  <ul class="alt">
+    <li>a) Eu cobraria o que vale sem medo de perder o cliente</li>
+    <li>b) Eu pararia de correr atrás e passaria a ser procurada</li>
+    <li>c) Eu faria menos eventos e ganharia mais em cada um</li>
+    <li>d) Eu seria a referência da minha cidade</li>
+  </ul>
+
+  <div class="qlabel">Pergunta 10 · Qualificação · Sempre por último</div>
+  <div class="qtext">Quanto o seu negócio fatura por mês, em média, nos últimos 6 meses?</div>
+  <ul class="alt">
+    <li>a) Até R$ 15 mil</li>
+    <li>b) De R$ 15 mil a R$ 40 mil</li>
+    <li>c) De R$ 40 mil a R$ 100 mil</li>
+    <li>d) Acima de R$ 100 mil</li>
+  </ul>
+
+  <div class="box-dark">
+    <div class="bt">Regra de segmentação</div>
+    <p><strong>Qualificado:</strong> P10 em <strong>c</strong> ou <strong>d</strong>. Vai para a fila de sessão de diagnóstico, com prioridade para quem também marcou P5 c/d ou P6 c/d, que é quem tem a maior perda e sente mais.</p>
+    <p><strong>A nutrir:</strong> P10 em <strong>b</strong>. Recebe o diagnóstico completo e fica na base para conteúdo. Se a perda calculada passar de R$ 3 mil por mês, entra na fila de sessão mesmo assim: quem perde R$ 36 mil por ano tem como investir.</p>
+    <p><strong>Fora por ora:</strong> P10 em <strong>a</strong>. Recebe o diagnóstico completo com a oferta do WhatsApp de Valor no fim da página.</p>
+    <p>Cruze sempre com a <strong>P4</strong>: ela dá o padrão dominante e define o gancho da sua primeira mensagem no WhatsApp.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Captura de dados</div>
+    <p><strong>Headline:</strong> Sua conta está pronta. · <strong>Sub:</strong> Coloque seu WhatsApp abaixo e receba agora o seu número e a leitura completa do seu caso.</p>
+    <p><strong>Campos:</strong> Nome · WhatsApp · E-mail · Cidade e estado · <strong>Botão:</strong> Ver minha Dívida de Valor</p>
+    <p><strong>Selo:</strong> Seus dados ficam entre você e a nossa equipe. Nada de disparo em massa.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Adriana Brunelly</span><span>Página 7</span></div>
+  <div class="kicker">Seção 3 · Parte 1</div>
+  <h1 style="font-size:19pt;">Página de Diagnóstico</h1>
+  <p class="secao-lead">A peça central do funil. Ela não vende: entrega o número e prepara a pessoa para querer conversar.</p>
+
+  <div class="box-light">
+    <div class="bt">O trabalho desta página</div>
+    <p>É uma peça só: o diagnóstico e o convite vivem na mesma página. A pessoa responde o quiz, deixa o WhatsApp e cai direto no resultado dela. O mesmo texto vai por WhatsApp em seguida, para reler e para mostrar ao sócio ou ao marido.</p>
+    <p><strong>A régua:</strong> a pessoa precisa terminar a leitura pensando "é exatamente isso que acontece comigo, e eu nunca tinha feito essa conta". O padrão é nomeado e o número é entregue; o caminho para mudar é o Método ACA.</p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Os 4 padrões de perda (o resultado do quiz)</div>
+    <p><strong>1. O Orçamento que Some.</strong> A perda acontece <strong>antes do preço</strong>. O orçamento sai caprichado e a pessoa agradece e desaparece. Ela nunca chegou a perceber o que estava comprando.</p>
+    <p><strong>2. O Desconto Automático.</strong> A perda acontece <strong>no fechamento</strong>. Ela constrói valor a conversa inteira e devolve esse valor na última mensagem, com medo de perder o cliente que já está na mão.</p>
+    <p><strong>3. O Extra Invisível.</strong> A perda acontece <strong>na entrega</strong>. O contrato termina e o serviço continua. É margem saindo pela porta dos fundos, e é o padrão que ela menos enxerga.</p>
+    <p><strong>4. A Agenda Cheia.</strong> A perda acontece <strong>no volume</strong>. Muitos eventos, todos apertados. Entra muito dinheiro, não sobra quase nada, e o cansaço esconde a conta.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Como o padrão é definido</div>
+    <p>P4 dá o padrão dominante, cruzada com P5, P6 e P7. Empate resolve pela maior perda em reais: <strong>a</strong> na P4 leva ao Orçamento que Some · <strong>b</strong> ou <strong>c</strong> com P5 em c/d leva ao Desconto Automático · P6 em c/d leva ao Extra Invisível · P3 em c/d com P7 em b leva à Agenda Cheia.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Variáveis usadas nesta página</div>
+    <p>{{nome}} · {{padrao}} · {{segmento}} (P1) · {{ticket_medio}} (P2) · {{eventos_mes}} (P3) · {{resposta_p4}} · {{percentual_desconto}} (P5) · {{extras}} (P6) · {{sentimento}} (P7) · {{tentativas}} (P8) · {{objetivo}} (P9) · {{divida_mes}} · {{divida_ano}} · {{divida_3anos}} · {{link_agendamento}}</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Os nove blocos, na ordem</div>
+    <p>1. O resultado dela · 2. A leitura do cenário · 3. O espelho · 4. <strong>A conta</strong> · 5. Por que o que você já tentou não resolveu · 6. O mecanismo · 7. O que precisa acontecer no seu caso e o que custa continuar · 8. Quem é a Adriana, prova, para quem é e FAQ · 9. O convite e o CTA</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Adriana Brunelly</span><span>Página 8</span></div>
+  <div class="kicker">Seção 3 · Parte 2</div>
+  <h1 style="font-size:19pt;">A Copy, Bloco a Bloco</h1>
+  <p class="secao-lead">Blocos 1 a 3: o resultado, a leitura do cenário e o espelho.</p>
+
+  <div class="copylabel">Bloco 1 · O resultado dela</div>
+  <p><strong>Headline:</strong> {{nome}}, o seu padrão é o <strong>{{padrao}}</strong>.</p>
+  <p><strong>Sub:</strong> Isso não é um julgamento sobre o seu trabalho. É o nome do lugar por onde o seu dinheiro está saindo, e é o começo do fim dele.</p>
+
+  <div class="copylabel">Bloco 2 · A leitura do cenário</div>
+  <p>Eu li as suas respostas com atenção. Vou ser direta com você, porque é disso que você precisa agora, e não de mais uma frase bonita.</p>
+  <p>Você trabalha com {{segmento}}, entrega cerca de {{eventos_mes}} eventos por mês e o seu ticket médio fica em {{ticket_medio}}. Quando manda um orçamento, o que mais acontece é {{resposta_p4}}. Na hora de fechar sai {{percentual_desconto}} de desconto. Sobre os extras, você marcou: {{extras}}. E no fim do mês, olhando a conta, você sente {{sentimento}}.</p>
+  <p>Essa combinação é a assinatura do <strong>{{padrao}}</strong>. E ela diz uma coisa importante: <strong>isso não fica parado</strong>. Cada mês que passa, a diferença entre o que você entrega e o que você recebe aumenta um pouco.</p>
+
+  <div class="copylabel">Bloco 3 · O espelho</div>
+  <p>Você é boa no que faz. Ninguém precisa te dizer isso: o seu trabalho diz. Te procuram, te indicam, e quando o evento é importante o seu nome aparece.</p>
+  <p>Provavelmente você se reconhece aqui:</p>
+  <ul class="check">
+    <li>Entregou o evento mais bonito da cidade e, no fim do mês, não sobrou para repor o material</li>
+    <li>Mandou o orçamento com capricho e a pessoa agradeceu e sumiu</li>
+    <li>Aceitou o extra de última hora, fez acontecer e nunca lançou na conta</li>
+    <li>Ouviu que fulana faz mais barato, de alguém que nunca viu o seu trabalho de perto</li>
+    <li>Trabalhou o fim de semana inteiro de novo e se perguntou até quando</li>
+    <li>Pensou em subir o preço e travou, com medo de perder o cliente que já tem</li>
+  </ul>
+  <p><strong>Não há nada de errado com você. Há um padrão no seu negócio.</strong> E padrão não se resolve trabalhando mais, nem fazendo mais um curso, nem tentando de novo no próximo orçamento.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Adriana Brunelly</span><span>Página 9</span></div>
+  <div class="kicker">Seção 3 · Parte 3</div>
+  <h1 style="font-size:19pt;">A Conta e o Mecanismo</h1>
+  <p class="secao-lead">Blocos 4 a 6: o número, por que o que ela tentou não resolveu, e o método.</p>
+
+  <div class="copylabel">Bloco 4 · A conta</div>
+  <p>Com as suas respostas, a conta fica assim:</p>
+  <p><strong>Desconto:</strong> {{ticket_medio}} × {{eventos_mes}} eventos × {{percentual_desconto}} = <strong>{{valor_desconto}} por mês</strong><br>
+  <strong>Extras não cobrados:</strong> cerca de <strong>{{valor_extras}} por mês</strong></p>
+  <p style="font-size:12pt;"><strong class="navy">A sua Dívida de Valor: {{divida_mes}} por mês. {{divida_ano}} em doze meses.</strong></p>
+  <p>{{nome}}, esse dinheiro não foi roubado e não se perdeu no mercado. <strong>Ele foi entregue por você, de graça, junto com o seu trabalho.</strong></p>
+  <p><em>Nota de implementação: este é o bloco mais importante da página. O número entra grande, em destaque, sozinho na tela do celular.</em></p>
+
+  <div class="copylabel">Bloco 5 · Por que o que você já tentou não resolveu</div>
+  <p>Você marcou que já {{tentativas}}. Isso não foi desperdício: hoje você entrega melhor que a maioria por causa disso.</p>
+  <p>Só que curso técnico melhora a <strong>entrega</strong>, e o seu problema não está na entrega. Planilha de precificação te dá o número certo, e o seu problema não é saber o número: é sustentar o número na frente do cliente. Postar mais traz mais gente perguntando preço, e mais gente perguntando preço sem valor construído antes é mais orçamento sumindo.</p>
+  <p><strong>Nenhuma dessas três coisas mexe no lugar onde o dinheiro está saindo.</strong></p>
+
+  <div class="copylabel">Bloco 6 · O mecanismo</div>
+  <p>A maioria ensina técnica: como fazer o arranjo, como montar o cardápio, como calcular o per capita. Eu vou muito antes disso.</p>
+  <p>Passei 25 anos nesse mercado. Comecei vendendo doce na calçada, virei doceira de festa, assessora, decoradora, e fundei um dos maiores buffets da minha cidade. O que eu aprendi nesse tempo é que <strong>dá para entregar o evento mais bonito da cidade e não ganhar dinheiro com ele</strong>, e dá para entregar menos eventos, mais tranquilos, e fechar o mês no azul.</p>
+  <p>A diferença não está na entrega. Está no que o cliente percebe <strong>antes</strong> de ver o número. O Método ACA trabalha isso em três camadas, nesta ordem: <strong>Autorreconhecimento</strong>, enxergar o próprio valor e a própria conta; <strong>Conexão e Comunicação</strong>, traduzir esse valor antes do orçamento; e <strong>Autoridade</strong>, sustentar a posição para o seu nome deixar de ser comparado e passar a ser procurado.</p>
+  <p>O princípio que atravessa tudo: <strong>ninguém cobra acima do valor que acredita ter.</strong></p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Adriana Brunelly</span><span>Página 10</span></div>
+  <div class="kicker">Seção 3 · Parte 4</div>
+  <h1 style="font-size:19pt;">Personalização, Prova e CTA</h1>
+  <p class="secao-lead">Blocos 7 a 9: onde a página fala do caso dela, mostra a prova e vira conversa.</p>
+
+  <div class="copylabel">Bloco 7 · O que precisa acontecer no seu caso · personalizado por {{padrao}}</div>
+  <p><strong>O Orçamento que Some:</strong> o seu trabalho começa antes do preço. Hoje o cliente chega no número sem ter percebido o que está comprando, e número sozinho só pode ser comparado com outro número. A primeira mudança é no atendimento, não na tabela.</p>
+  <p><strong>O Desconto Automático:</strong> você constrói valor a conversa inteira e devolve tudo na última mensagem. Não é generosidade, é medo de perder o que já está na mão. A primeira mudança é na condução do fechamento.</p>
+  <p><strong>O Extra Invisível:</strong> a sua perda está na execução. O contrato termina e o serviço continua. A primeira mudança é no escopo escrito, e ela sozinha costuma recuperar a maior parte da conta acima.</p>
+  <p><strong>A Agenda Cheia:</strong> você não precisa de mais cliente, precisa de outro cliente. Foi exatamente aqui que eu estava em 2017, com 13 eventos numa semana e nada sobrando. A primeira mudança é escolher para quem você vende.</p>
+  <p><strong>O custo de continuar como está:</strong> em três anos, {{divida_3anos}}. E não é só dinheiro. É o fim de semana que você não teve, o evento que você aceitou sabendo que não fechava a conta, e a pergunta que volta todo mês.</p>
+
+  <div class="copylabel">Bloco 8 · Quem é a Adriana, prova e FAQ</div>
+  <p>Comecei vendendo doce na calçada, de porta em porta. Virei doceira de festa, assessora, decoradora, e fundei um dos maiores buffets da minha cidade. São 25 anos dentro desse mercado.</p>
+  <p>Em 2017 eu entreguei 13 eventos em uma semana e passei 72 horas sem dormir. Entreguei tudo impecável. Na segunda-feira fui olhar os números e não tinha sobrado quase nada. <strong>Eu faturava R$ 2 milhões com 15% de margem. Depois de mudar para quem eu vendia, faturei R$ 1,2 milhão com 40%: faturei 40% menos e lucrei 60% mais.</strong></p>
+  <p>E já em transição de carreira, sem postar decoração, uma cliente me procurou de outro estado e insistiu até fechar: R$ 150 mil de decoração mais R$ 15 mil de projeto. <strong>[DEPOIMENTO]</strong> <strong>[DEPOIMENTO]</strong></p>
+  <p><strong>"Na minha cidade não tem cliente que paga isso."</strong> Era o que eu pensava. Até separar meus clientes em A, B e C e descobrir que 30% do meu mercado gastava de R$ 20 a R$ 40 mil numa festa. Eram poucos, existiam, e eu não falava com eles.</p>
+  <p><strong>"Já tentei subir o preço e perdi cliente."</strong> Perdeu porque subiu o número sem mudar o que vem antes dele.</p>
+  <p><strong>"Eu não sou boa de tecnologia."</strong> Nem eu. Aqui não tem automação nem sigla em inglês. É gestão e conversa, na linguagem de quem monta salão.</p>
+
+  <div class="copylabel">Bloco 9 · O convite e o CTA</div>
+  <p>{{nome}}, eu abro algumas conversas por semana para olhar esse número junto com a pessoa. São 45 minutos, comigo, sem apresentação de slide.</p>
+  <p>O que sai dali: onde exatamente está a sua maior perda e o que muda primeiro. O que não é: não é aula e não é apresentação de produto disfarçada. Se fizer sentido seguirmos juntas, eu te explico como. Se não fizer, você sai com a sua conta na mão do mesmo jeito.</p>
+  <p><strong>CTA:</strong> Quero minha sessão de diagnóstico · <strong>Reforço:</strong> o seu talento já está pago. Falta você receber por ele.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Adriana Brunelly</span><span>Página 11</span></div>
+  <div class="kicker">Seção 4 · Parte 1</div>
+  <h1 style="font-size:19pt;">Copy dos Anúncios</h1>
+  <p class="secao-lead">Três ângulos e 20 criativos escritos: 5 estáticos, 5 carrosséis e 10 vídeos.</p>
+
+  <div class="box-dark">
+    <div class="bt">Regras que valem para todos os anúncios</div>
+    <p><strong>O destino é sempre o quiz gratuito</strong>, nunca a sessão e nunca a mentoria. Nenhum anúncio cita preço.</p>
+    <p><strong>Não prometer faturamento.</strong> Nada de "fature R$ 50 mil". A Meta lê promessa de ganho como violação de política, e este nicho já desconfia de guru.</p>
+    <p><strong>Não afirmar atributo de quem lê.</strong> Nada de "você é desorganizada" ou "você não sabe cobrar". A régua é descrever a cena e citar a frase que ela mesma diz.</p>
+    <p><strong>Não usar a palavra posicionamento</strong> como promessa. Ela pode aparecer no fim, explicando o mecanismo, nunca no gancho.</p>
+    <p><strong>Trilha instrumental</strong> em todo vídeo, como a Adriana já faz. Música com direito autoral reprova criativo.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Ângulo 1 · Dor e identificação</div>
+    <p><strong>Estratégia:</strong> repetir de volta a cena que ela viveu essa semana. É o ângulo que mais capta público frio, porque é a dor que ela já nomeia sozinha nos grupos de WhatsApp do nicho.</p>
+    <p><strong>Hook:</strong> "Você mandou o orçamento e a pessoa sumiu. O erro não foi o preço."</p>
+  </div>
+
+  <div class="copylabel">Copy curta</div>
+  <p>Mandou o orçamento caprichado e a pessoa agradeceu e sumiu? O erro não foi o valor: foi tudo que veio antes dele. O diagnóstico gratuito de 2 minutos calcula quanto isso te custa por ano.</p>
+
+  <div class="copylabel">Copy média</div>
+  <p>Você atende com atenção, monta o projeto, manda o orçamento bonito. A pessoa lê, agradece e some.</p>
+  <p>Aí vem a conclusão mais comum desse mercado: estou cara demais.</p>
+  <p>Não está. O que aconteceu é que o número chegou antes do valor, e quando isso acontece só sobra uma coisa para comparar: preço.</p>
+  <p>Eu passei 25 anos no mercado de eventos e vivi isso dos dois lados. Fiz um diagnóstico gratuito, de 2 minutos, que calcula quanto o seu negócio deixa na mesa por ano em desconto e extra não cobrado. O número costuma assustar.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Adriana Brunelly</span><span>Página 12</span></div>
+  <div class="kicker">Seção 4 · Parte 2</div>
+  <h1 style="font-size:19pt;">Ângulo 1 · Copy longa</h1>
+  <p class="secao-lead">A versão de remarketing, para quem já viu as curtas e não clicou.</p>
+
+  <div class="copylabel">Copy longa</div>
+  <p>Você conhece essa cena.</p>
+  <p>A noiva chama no WhatsApp, você atende com atenção, monta o projeto, manda o orçamento caprichado. Ela lê, responde que vai ver com o noivo, e nunca mais aparece.</p>
+  <p>Aí vem o pensamento: estou cobrando caro demais.</p>
+  <p>Eu pensei isso por anos. Até a semana em que entreguei 13 eventos e passei 72 horas sem dormir. Entreguei tudo impecável, e na segunda-feira, quando fui olhar os números, entendi que não era o preço. Eu vendia para todo mundo, e quem vende para todo mundo não se posiciona para ninguém.</p>
+  <p>Existe uma diferença entre o valor que você entrega e o valor que o cliente consegue perceber antes de ver o número. Essa diferença tem um custo, ele é mensal, e ele não aparece em planilha nenhuma: sai em desconto no fechamento, em extra que você nunca cobrou, em projeto aceito por um preço que não fechava a conta.</p>
+  <p>Eu montei um diagnóstico gratuito que calcula esse custo no seu caso. São 2 minutos, 10 perguntas, e no fim você recebe o seu número em reais.</p>
+  <p>Toca no link. Ver a conta não dói. Continuar sem ver, dói.</p>
+
+  <div class="box-dark">
+    <div class="bt">Observação de veiculação</div>
+    <p>A copy longa tende a converter melhor com quem já viu você antes, mas custa mais caro no frio. <strong>Suba as três versões no mesmo conjunto e deixe a Meta escolher.</strong> Quando a audiência aquecer, aumente o peso da longa.</p>
+    <p>Este público está no celular no intervalo do evento, em pé, com as mãos ocupadas. Parágrafo curto e frase curta não são estilo: são condição de leitura.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Adriana Brunelly</span><span>Página 13</span></div>
+  <div class="kicker">Seção 4 · Parte 3</div>
+  <h1 style="font-size:19pt;">Ângulo 2 · Mecanismo Único</h1>
+  <p class="secao-lead">A conta que ninguém desse mercado nunca fez. É o ângulo que mais qualifica.</p>
+
+  <p><strong>Hook:</strong> "Faz uma conta comigo: quanto de desconto você deu no último mês?"</p>
+
+  <div class="copylabel">Copy curta</div>
+  <p>Desconto no fechamento, extra que você não cobrou, projeto aceito por menos. Some tudo e multiplique por 12. Esse número tem nome: Dívida de Valor. Descubra o seu em 2 minutos.</p>
+
+  <div class="copylabel">Copy média</div>
+  <p>Faz uma conta rápida comigo.</p>
+  <p>Quantos eventos você entregou no último mês? Quanto de desconto saiu no fechamento de cada um? Quantos extras entraram durante a festa e nunca foram cobrados?</p>
+  <p>Agora multiplica por 12.</p>
+  <p>Esse número é o que o seu negócio deixa na mesa por ano. E ele não está em lugar nenhum: não está na planilha, não está no contrato, não está na sua cabeça.</p>
+  <p>Eu chamo isso de Dívida de Valor. Fiz um diagnóstico gratuito que calcula o seu em 2 minutos.</p>
+
+  <div class="copylabel">Copy longa</div>
+  <p>Todo mundo nesse mercado sabe fazer.</p>
+  <p>Todo mundo sabe montar uma mesa, treinar um garçom, espetar um arranjo, enrolar um brigadeiro. O talento não é o problema.</p>
+  <p>O problema aparece depois: na hora de vender, de cobrar, de sustentar o preço que você mesma calculou.</p>
+  <p>E ele tem um custo que quase ninguém calcula. Todo mês sai desconto no fechamento. Todo mês entra um extra que não foi cobrado. Todo mês se aceita um projeto que não fecha a conta. Isoladamente, cada uma dessas coisas parece pequena, e é por isso que ninguém olha.</p>
+  <p>Junta tudo e multiplica por 12. O resultado costuma ser o valor de um carro.</p>
+  <p>Depois de 25 anos no mercado de eventos eu posso te dizer com alguma segurança: quando não sobra dinheiro, quase nunca é falta de cliente. É isso.</p>
+  <p>Fiz um diagnóstico gratuito, de 2 minutos, que calcula o seu número e te devolve, no WhatsApp, a leitura do que está por trás dele.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Adriana Brunelly</span><span>Página 14</span></div>
+  <div class="kicker">Seção 4 · Parte 4</div>
+  <h1 style="font-size:19pt;">Ângulo 3 · Prova e Autoridade</h1>
+  <p class="secao-lead">O número contraintuitivo dela. Autoridade real, sem depender de depoimento que ainda não existe.</p>
+
+  <p><strong>Hook:</strong> "Eu diminuí o meu faturamento de propósito. E foi aí que eu comecei a ganhar dinheiro."</p>
+
+  <div class="copylabel">Copy curta</div>
+  <p>Faturava R$ 2 milhões e não via o dinheiro. Mudei para quem eu vendia, faturei menos e o lucro subiu 60%. Menos festa, menos equipe, menos madrugada. O diagnóstico gratuito mostra onde a sua margem está indo.</p>
+
+  <div class="copylabel">Copy média</div>
+  <p>Eu diminuí o meu faturamento de propósito.</p>
+  <p>Faturava R$ 2 milhões por ano com 15% de margem. Tinha 25 funcionários registrados e três festas por fim de semana. Numa semana entreguei 13 eventos e passei 72 horas sem dormir.</p>
+  <p>Depois daquela segunda-feira eu decidi atender só o cliente certo. Faturei 40% menos no ano seguinte. E lucrei 60% mais.</p>
+  <p>Foram 25 anos dentro do mercado de eventos para entender isso. Montei um diagnóstico gratuito, de 2 minutos, que mostra onde está a sua margem perdida.</p>
+
+  <div class="copylabel">Copy longa</div>
+  <p>Eu comecei vendendo doce na calçada, de porta em porta, com uma bezinha vermelha e uma família para sustentar.</p>
+  <p>Uma cliente me chamou para fazer os doces do casamento da filha, e eu nunca mais saí do mercado de eventos. Virei doceira de festa, virei assessora, virei decoradora e fundei um dos maiores buffets da minha cidade.</p>
+  <p>Em 2017 minha empresa era reconhecida, tinha 25 funcionários registrados e três festas por fim de semana. E eu não via o dinheiro.</p>
+  <p>Numa semana com 13 eventos, depois de 72 horas sem dormir, eu sentei e fui olhar os números de verdade. Levei dez horas para descobrir uma coisa simples: eu vendia para todo mundo, e quem vende para todo mundo não se posiciona para ninguém.</p>
+  <p>Separei meus clientes em A, B e C. Descobri que 30% do meu mercado gastava de R$ 20 a R$ 40 mil numa festa. Eram poucos, mas existiam. E eu falava com todos, menos com eles.</p>
+  <p>Tomei a decisão mais difícil da minha carreira: parei de atender festa abaixo de R$ 20 mil e desmontei a estrutura. No ano seguinte faturei 40% menos e lucrei 60% mais.</p>
+  <p>Hoje eu ajudo buffets, decoradores e doceiras a fazerem essa mesma conta antes de chegar no esgotamento. Comece pelo diagnóstico gratuito: são 2 minutos.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Adriana Brunelly</span><span>Página 15</span></div>
+  <div class="kicker">Seção 4 · Parte 5</div>
+  <h1 style="font-size:19pt;">Os 5 Estáticos</h1>
+  <p class="secao-lead">Cartão de texto sobre foto de evento. Funciona aqui porque parece constatação de quem é do ramo, não anúncio.</p>
+
+  <div class="copylabel">Estático 1 · Cena</div>
+  <p><strong>Arte:</strong> "Mandei o orçamento. A pessoa agradeceu e sumiu."</p>
+  <p><strong>Legenda:</strong> Se isso acontece toda semana com você, o problema não é o seu preço. É que o número chegou antes do valor. O diagnóstico gratuito de 2 minutos calcula quanto isso te custa por ano.</p>
+
+  <div class="copylabel">Estático 2 · Cena</div>
+  <p><strong>Arte:</strong> "Agenda cheia não é sinal de lucro."</p>
+  <p><strong>Legenda:</strong> Já vi buffet lotado fechar as portas. Volume esconde a conta, e a conta aparece sempre no fim do mês. Descubra em 2 minutos por onde o seu dinheiro está saindo.</p>
+
+  <div class="copylabel">Estático 3 · Mecanismo</div>
+  <p><strong>Arte:</strong> "Você deu 10% de desconto em 6 eventos esse mês. Sabe quanto isso dá no ano?"</p>
+  <p><strong>Legenda:</strong> Some o desconto, os extras que você não cobrou e os projetos que aceitou por menos. Multiplique por 12. Esse número tem nome. O diagnóstico gratuito calcula o seu.</p>
+
+  <div class="copylabel">Estático 4 · Mecanismo</div>
+  <p><strong>Arte:</strong> "Planilha de precificação não resolve. Eu já tentei."</p>
+  <p><strong>Legenda:</strong> A planilha te dá o número certo. Ela não te ajuda a sustentar esse número na frente do cliente, e é ali que o dinheiro sai. Faça o diagnóstico gratuito de 2 minutos.</p>
+
+  <div class="copylabel">Estático 5 · Autoridade</div>
+  <p><strong>Arte:</strong> "Faturei 40% menos. E lucrei 60% mais."</p>
+  <p><strong>Legenda:</strong> 25 anos no mercado de eventos, da calçada vendendo doce ao buffet. Em 2017 eu decidi atender menos gente, e foi quando o dinheiro apareceu. Descubra em 2 minutos onde está a sua margem perdida.</p>
+
+  <div class="box-dark">
+    <div class="bt">Observação de produção</div>
+    <p>Frase em tipografia sóbria sobre <strong>foto real de evento do acervo dela</strong>, escurecida. Esse é o único nicho em que a foto do produto já é prova: mesa posta, salão montado, decoração de alto padrão.</p>
+    <p>Nada de arte colorida de infoproduto. O público é majoritariamente feminino, de 30 a 55 anos, e associa sobriedade a quem entrega alto padrão. Além disso, o acervo visual já existe no feed dela e custa zero para produzir.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Adriana Brunelly</span><span>Página 16</span></div>
+  <div class="kicker">Seção 4 · Parte 6</div>
+  <h1 style="font-size:19pt;">Os 5 Carrosséis</h1>
+  <p class="secao-lead">Um slide por ideia, frases curtas. O último slide sempre leva ao quiz.</p>
+
+  <div class="copylabel">Carrossel 1 · Cena · "5 sinais de que o seu negócio está perdendo dinheiro em silêncio"</div>
+  <p>1. Você entrega o evento mais bonito e não sobra para repor o material. 2. Você manda o orçamento e a pessoa agradece e some. 3. Você dá um desconto que ninguém pediu, só para garantir. 4. O cliente pede um extra durante a festa e você faz, de graça. 5. No fim do mês você prefere não olhar. 6. Nenhum desses sinais é sobre o que você entrega. 7. Todos são sobre o que você recebe. 8. Descubra o seu número em 2 minutos. Link na bio.</p>
+
+  <div class="copylabel">Carrossel 2 · Cena · "As frases que você já disse esse mês"</div>
+  <p>1. Cinco frases que quase toda profissional de eventos já disse. 2. "Trabalho tanto e não sobra nada." 3. "Mandei o orçamento e sumiu." 4. "Fulana faz mais barato." 5. "Deixa que eu resolvo, não precisa pagar." 6. "Ano que vem eu me organizo." 7. Nenhuma delas é o problema. Todas são sintoma do mesmo. 8. Faça o diagnóstico gratuito.</p>
+
+  <div class="copylabel">Carrossel 3 · Mecanismo · "Por que aumentar o preço não resolveu"</div>
+  <p>1. Você subiu o preço e perdeu cliente. 2. Não foi o preço que estava errado. 3. Você mudou o número e não mudou o que vem antes dele. 4. Número sozinho só pode ser comparado com outro número. 5. E aí o cliente compara, e escolhe o menor. 6. O trabalho é antes: fazer ela perceber o valor antes de ver a conta. 7. Comece pelo diagnóstico gratuito. Link na bio.</p>
+
+  <div class="copylabel">Carrossel 4 · Mecanismo · "Os 4 lugares por onde o dinheiro sai"</div>
+  <p>1. Depois de 25 anos nesse mercado, são sempre os mesmos quatro. 2. O orçamento que some: a perda acontece antes do preço. 3. O desconto automático: você constrói valor e devolve no fechamento. 4. O extra invisível: o contrato acaba e o serviço continua. 5. A agenda cheia: muito evento, margem apertada em todos. 6. Todos têm conta, e conta se calcula. 7. Descubra o seu em 2 minutos.</p>
+
+  <div class="copylabel">Carrossel 5 · Autoridade · "A semana que mudou o meu negócio"</div>
+  <p>1. Em 2017 eu entreguei 13 eventos em uma semana. 2. Quinta, sexta, sábado e domingo. 72 horas sem dormir. 3. Entreguei tudo impecável. A casa aplaudiu. 4. Na segunda-feira eu fui olhar os números. 5. Não tinha sobrado quase nada. 6. Levei dez horas para entender: eu vendia para todo mundo. 7. No ano seguinte faturei 40% menos e lucrei 60% mais. 8. Comece pela conta. Diagnóstico gratuito na bio.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Adriana Brunelly</span><span>Página 17</span></div>
+  <div class="kicker">Seção 4 · Parte 7</div>
+  <h1 style="font-size:19pt;">Os 10 Vídeos · roteiros 1 a 4</h1>
+  <p class="secao-lead">Conjunto A: a cena de quem entrega muito e recebe pouco. De 30 a 60 segundos.</p>
+  <p>Cada roteiro vale como anúncio e como conteúdo orgânico. Para orgânico, troque o CTA final por "link na bio".</p>
+
+  <div class="copylabel">Vídeo 1 · "O orçamento que some" · 45s</div>
+  <p><strong>Gancho:</strong> "Você mandou o orçamento, ela agradeceu e sumiu. Eu vou te falar onde o erro aconteceu, e não foi no preço."<br>
+  <strong>Desenvolvimento:</strong> "E aí você começa a fazer conta na cabeça. Será que tá caro? Será que eu devia ter parcelado mais? Será que a concorrente cobrou menos?"<br>
+  <strong>Virada:</strong> "Não é nada disso. Ela sumiu porque recebeu um número antes de perceber o que estava comprando. E número sozinho só dá para comparar com outro número."<br>
+  <strong>CTA:</strong> "Fiz um diagnóstico de 2 minutos que calcula quanto isso te custa por ano. Link aqui embaixo."</p>
+
+  <div class="copylabel">Vídeo 2 · "O desconto que ninguém pediu" · 40s</div>
+  <p><strong>Gancho:</strong> "Já reparou que às vezes você dá desconto antes do cliente pedir?"<br>
+  <strong>Desenvolvimento:</strong> "Manda o valor e já emenda: mas dá para fazer por tanto, ou já parcelo em dez, ou já incluo o transporte."<br>
+  <strong>Virada:</strong> "Isso não é simpatia, é medo de perder. E o cliente sente. Você passou a conversa inteira construindo valor e devolveu tudo na última mensagem."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.</p>
+
+  <div class="copylabel">Vídeo 3 · "O extra que você fez de graça" · 50s</div>
+  <p><strong>Gancho:</strong> "Quantos extras você fez de graça no último evento?"<br>
+  <strong>Desenvolvimento:</strong> "A mãe da noiva pediu mais duas mesas. O cerimonial pediu para esticar uma hora. Alguém pediu para trocar a flor. E você fez, porque você resolve."<br>
+  <strong>Virada:</strong> "Cada um desses parece pequeno. Só que eles não estão no contrato, não estão na planilha e não estão no seu preço. Isso é margem saindo pela porta dos fundos."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.</p>
+
+  <div class="copylabel">Vídeo 4 · "Agenda cheia, conta vazia" · 40s</div>
+  <p><strong>Gancho:</strong> "Se a sua agenda está cheia e não sobra dinheiro, o problema não é volume."<br>
+  <strong>Desenvolvimento:</strong> "Eu já tive três festas num fim de semana e 25 funcionários registrados. Era a empresa mais reconhecida da minha cidade."<br>
+  <strong>Virada:</strong> "E eu trabalhava demais para uma margem que não pagava o meu cansaço. Mais evento não conserta margem. Só multiplica o problema."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Adriana Brunelly</span><span>Página 18</span></div>
+  <div class="kicker">Seção 4 · Parte 7</div>
+  <h1 style="font-size:19pt;">Roteiros 5 a 7 · mecanismo</h1>
+  <p class="secao-lead">Conjunto B: o que separa a Adriana de todo o resto do nicho.</p>
+
+  <div class="copylabel">Vídeo 5 · "A conta que ninguém faz" · 50s</div>
+  <p><strong>Gancho:</strong> "Faz uma conta comigo. Quantos eventos você entregou esse mês?"<br>
+  <strong>Desenvolvimento:</strong> "Agora pensa: quanto de desconto saiu em cada um? Quantos extras entraram e não foram cobrados? Quantos projetos você aceitou por um valor que não fechava?"<br>
+  <strong>Virada:</strong> "Multiplica por 12. Esse número costuma ser o valor de um carro. E ele não está em planilha nenhuma, porque cada pedaço dele parece pequeno demais para anotar."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.</p>
+
+  <div class="copylabel">Vídeo 6 · "Curso técnico não resolve isso" · 55s</div>
+  <p><strong>Gancho:</strong> "Você já fez curso de arranjo, de confeitaria, de montagem. E continua sem margem."<br>
+  <strong>Desenvolvimento:</strong> "Não foi o curso que falhou. Ele melhorou a sua entrega, e a sua entrega já era boa."<br>
+  <strong>Virada:</strong> "O dinheiro não está saindo na entrega. Está saindo no orçamento, no fechamento e no extra que você faz de graça. Melhorar ainda mais o que já está bom não mexe em nenhum desses três."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.</p>
+
+  <div class="copylabel">Vídeo 7 · "Eu não ensino a fazer" · 50s</div>
+  <p><strong>Gancho:</strong> "Eu não ensino ninguém a montar arranjo."<br>
+  <strong>Desenvolvimento:</strong> "Tem muita gente boa ensinando isso, e você provavelmente já aprendeu. Aliás, você faz melhor do que a maioria."<br>
+  <strong>Virada:</strong> "O meu trabalho é outro: fazer você receber pelo que já entrega. Porque talento esse mercado tem de sobra. O que falta é conta."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.</p>
+
+  <div class="box-dark">
+    <div class="bt">Direção de gravação</div>
+    <p>Trilha instrumental, sem legenda animada exagerada, sem corte a cada segundo. Este público reconhece exagero de produção e associa a promessa fácil.</p>
+    <p><strong>Cenário:</strong> sempre que possível, gravar em salão montado, com mesa posta atrás, ou com o acervo ao fundo. É o que dá autoridade instantânea neste nicho e é o que a concorrência não tem.</p>
+    <p>Grave em lote, 5 por sessão. Duas sessões fecham os 10. <strong>A regra de ouro do gancho: os 3 primeiros segundos são a frase dela, não a sua opinião.</strong></p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Adriana Brunelly</span><span>Página 19</span></div>
+  <div class="kicker">Seção 4 · Parte 7</div>
+  <h1 style="font-size:19pt;">Roteiros 8 a 10 · autoridade</h1>
+  <p class="secao-lead">Conjunto C: o que converte quem já viu você antes.</p>
+
+  <div class="copylabel">Vídeo 8 · "A semana dos 13 eventos" · 55s</div>
+  <p><strong>Gancho:</strong> "Eu entreguei 13 eventos em uma semana. Quinta, sexta, sábado e domingo."<br>
+  <strong>Desenvolvimento:</strong> "72 horas sem dormir. Entreguei tudo impecável, as casas aplaudiram, os clientes agradeceram."<br>
+  <strong>Virada:</strong> "Na segunda-feira eu sentei para olhar os números e não tinha sobrado quase nada. Passei dez horas na frente do computador até entender: eu vendia para todo mundo, e quem vende para todo mundo não se posiciona para ninguém."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.</p>
+
+  <div class="copylabel">Vídeo 9 · "Eu comecei vendendo doce na calçada" · 50s</div>
+  <p><strong>Gancho:</strong> "Eu comecei nesse mercado vendendo doce de porta em porta, numa bezinha vermelha."<br>
+  <strong>Desenvolvimento:</strong> "Uma cliente me chamou para fazer os doces do casamento da filha dela. Eu nunca tinha visto uma festa daquele tamanho. Depois disso virei doceira, assessora, decoradora, e fundei um dos maiores buffets da minha cidade."<br>
+  <strong>Virada:</strong> "E mesmo assim eu passei anos sem ver o dinheiro. O que me tirou de lá não foi trabalhar mais. Foi escolher para quem eu vendia."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.</p>
+
+  <div class="copylabel">Vídeo 10 · "Faturei menos e ganhei mais" · 50s</div>
+  <p><strong>Gancho:</strong> "Eu diminuí o meu faturamento de propósito. Todo mundo achou que eu tinha enlouquecido."<br>
+  <strong>Desenvolvimento:</strong> "Demiti 25 funcionários registrados, cortei linha de telefone, desmontei uma estrutura que levou anos para montar. E anunciei que não atenderia mais festa abaixo de 20 mil."<br>
+  <strong>Virada:</strong> "No ano seguinte eu faturei 40% menos. E lucrei 60% mais. Com menos festa, menos equipe e menos madrugada."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.</p>
+
+  <div class="box-light">
+    <div class="bt">Distribuição por ângulo</div>
+    <p>Dos 20 criativos: <strong>8 de cena</strong> (identificação, o que mais capta frio), <strong>7 de mecanismo</strong> (o que mais qualifica) e <strong>5 de autoridade</strong> (o que mais converte quem já viu antes). Comece com peso em cena e migre para mecanismo conforme a audiência aquece.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Adriana Brunelly</span><span>Página 20</span></div>
+  <div class="kicker">Seção 4 · Parte 8</div>
+  <h1 style="font-size:19pt;">Headlines, Hooks e a Largada</h1>
+  <p class="secao-lead">O que testar primeiro e o que sobe antes do quê.</p>
+
+  <div class="box-light">
+    <div class="bt">10 headlines para teste A/B</div>
+    <p>1. Você não trabalha pouco. Você cobra pouco pelo que já entrega.<br>
+    2. Mandou o orçamento e a pessoa sumiu? O erro foi antes do preço.<br>
+    3. Agenda cheia não é sinal de lucro.<br>
+    4. Quanto o seu buffet deixa na mesa todo ano?<br>
+    5. Eu faturei 40% menos e lucrei 60% mais. Foi de propósito.<br>
+    6. O cliente não pede desconto por causa do preço.<br>
+    7. Todo mundo sabe fazer. O problema está no vender.<br>
+    8. A conta que nenhuma decoradora faz no fim do mês.<br>
+    9. Você tem uma dívida que não aparece em planilha nenhuma.<br>
+    10. Quantos extras você fez de graça no último evento?</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">5 hooks para vídeo, na voz dela</div>
+    <p>1. "Você mandou o orçamento, ela agradeceu e sumiu. O erro não foi o preço."<br>
+    2. "Faz uma conta comigo: quanto de desconto você deu no último mês?"<br>
+    3. "Eu diminuí o meu faturamento de propósito. E foi aí que eu comecei a ganhar dinheiro."<br>
+    4. "Se a sua agenda está cheia e não sobra dinheiro, o problema não é volume."<br>
+    5. "Eu entreguei 13 eventos em uma semana. Na segunda-feira eu descobri o que estava errado."</p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Estrutura de largada da campanha</div>
+    <p><strong>20 criativos na largada:</strong> 5 estáticos, 5 carrosséis e 10 vídeos, todos escritos nas páginas anteriores. Renovação a cada 15 dias.</p>
+    <p><strong>Ordem:</strong> estáticos e carrosséis entram primeiro, porque não dependem de gravação e sobem enquanto ela grava. Os vídeos entram em duas levas, uma por sessão de gravação.</p>
+    <p><strong>Quando:</strong> a mídia sobe depois do caixa rápido da base, conforme o roadmap. Verba inicial de R$ 50 por dia.</p>
+    <p><strong>A régua que importa não é custo por lead: é custo por sessão de diagnóstico comparecida.</strong> Uma venda do Método ACA paga vinte meses de mídia nesse orçamento. O jogo é lead certo, não lead barato.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Adriana Brunelly</span><span>Página 21</span></div>
+  <div class="kicker">Seção 5 · Parte 1</div>
+  <h1 style="font-size:19pt;">Cadência de Atendimento · 12 dias</h1>
+  <p class="secao-lead">Na sua voz, mandada por você. O objetivo é agendar a sessão de diagnóstico.</p>
+
+  <div class="box-dark">
+    <div class="bt">Regra de tom neste nicho</div>
+    <p>Ela tem 10, 15, 20 anos de mercado e reputação na cidade dela. <strong>Não quer ser tratada como amadora.</strong> Nada de urgência artificial, nada de escassez inventada, nada de vocabulário de coach.</p>
+    <p><strong>E a regra de ouro do follow-up aqui:</strong> quem não responde não é quem não quer. É quem está montando salão às 6 da manhã. O lead mais sobrecarregado costuma ser o melhor cliente, e ele precisa de mais toques, não de menos.</p>
+    <p>Você tem uma vantagem que ninguém no funil tem: <strong>você foi ela</strong>. Onde qualquer concorrente manda argumento, você manda a cena que viveu.</p>
+    <p>O que abre toda conversa é o resultado do quiz, com o padrão dela nomeado e o número na mesa.</p>
+  </div>
+
+  <div class="copylabel">Dia 1 · até 10 minutos depois do quiz</div>
+  <p>"{{nome}}, aqui é a Adriana. Acabei de ver o seu diagnóstico: o seu padrão é o {{padrao}}, e a conta deu {{divida_ano}} no ano. Você já desconfiava desse número ou te pegou de surpresa?"</p>
+
+  <div class="copylabel">Dia 1 · tarde, se não respondeu</div>
+  <p>"Te mandei o diagnóstico completo aqui em cima. Quando der uma parada entre um evento e outro, olha o Bloco 4. É a conta." 👀</p>
+
+  <div class="copylabel">Dia 2</div>
+  <p>"{{nome}}, fiquei pensando numa coisa que você respondeu: {{resposta_marcante}}. Isso costuma vir de um lugar bem específico. Posso te falar sobre isso?"</p>
+
+  <div class="copylabel">Dia 3 · para quem não respondeu</div>
+  <p>"{{nome}}, não vou insistir. Só não queria que o seu diagnóstico ficasse perdido no WhatsApp junto com orçamento de fornecedor. Ele é sobre o seu negócio, não sobre a minha agenda."</p>
+
+  <div class="copylabel">Dia 4 · valor</div>
+  <p>"Uma coisa que demorei anos para entender: o cliente não pede desconto porque está caro. Ele pede porque ainda não percebeu o que está comprando. Enquanto eu não arrumei o que vinha antes do preço, eu só perdia margem."</p>
+
+  <div class="copylabel">Dia 5 · leu e parou</div>
+  <p>"Você leu e não respondeu, tudo bem. Só me diz uma coisa, sem compromisso: a conta que apareceu ali fez sentido pra você ou achou que ficou alta demais?"</p>
+
+  <div class="copylabel">Dia 6 · valor</div>
+  <p>"Tem uma pergunta que eu faço em toda primeira conversa: há quanto tempo você está esperando isso melhorar sozinho? A resposta costuma assustar a própria pessoa."</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Adriana Brunelly</span><span>Página 22</span></div>
+  <div class="kicker">Seção 5 · Parte 2</div>
+  <h1 style="font-size:19pt;">Dias 7 a 12 e os cinco níveis</h1>
+  <p class="secao-lead">Onde a cadência vira playbook, e não lista de mensagens.</p>
+
+  <div class="copylabel">Dia 7 · história</div>
+  <p>"Em 2017 eu entreguei 13 eventos numa semana. 72 horas sem dormir, tudo impecável, e na segunda-feira não tinha sobrado quase nada. Foi ali que eu fui olhar os números pela primeira vez. Se você estiver nessa fase, eu sei exatamente onde dói."</p>
+
+  <div class="copylabel">Dia 8 · quebra de objeção</div>
+  <p>"Sei o que talvez esteja passando pela sua cabeça: na minha cidade não tem cliente que paga isso. Eu pensava igual. Até separar meus clientes em A, B e C e descobrir que 30% do meu mercado gastava de 20 a 40 mil numa festa. Eram poucos. Mas existiam, e eu não falava com eles."</p>
+
+  <div class="copylabel">Dia 9 · quer agendar e adia</div>
+  <p>"{{nome}}, você me disse que queria marcar e não marcou. Não estou te cobrando. Só quero te mostrar uma coisa: adiar essa conversa é o mesmo movimento de adiar o aumento de preço. É o padrão trabalhando."</p>
+
+  <div class="copylabel">Dia 10 · áudio pessoal</div>
+  <p>Áudio de 40 a 60 segundos, na voz dela, sem roteiro lido: "{{nome}}, Adriana aqui. Eu comecei vendendo doce na calçada e passei 25 anos nesse mercado, então eu sei exatamente o tamanho do que você está carregando. Se for para você passar mais um ano igual, prefiro que seja escolha sua e não do padrão. Me dá 45 minutos que eu te mostro de onde vem a sua conta."</p>
+
+  <div class="copylabel">Dia 11 · escassez real</div>
+  <p>"{{nome}}, a turma do Método ACA abre e fecha. Se você quiser olhar esse número comigo antes de eu fechar as conversas desta rodada, me avisa hoje ou amanhã que eu encaixo."</p>
+
+  <div class="copylabel">Dia 12 · encerramento</div>
+  <p>"{{nome}}, vou parar de te escrever. Seu diagnóstico continua valendo e a conta também. Quando fizer sentido, é só me chamar, não precisa refazer nada. E, sinceramente: mesmo que você nunca faça nada comigo, refaça essa conta todo mês. Ela sozinha já muda decisão."</p>
+
+  <div class="box-dark">
+    <div class="bt">Os cinco níveis</div>
+    <p><strong>N1 não respondeu:</strong> cadência completa acima.</p>
+    <p><strong>N2 engajou e parou:</strong> retomar pelo padrão dela, nunca pela cobrança.</p>
+    <p><strong>N3 quer e adia:</strong> oferecer dois horários concretos, sempre. Nunca "me avisa quando puder". E fora do horário de evento: início de manhã na terça, quarta ou quinta.</p>
+    <p><strong>N4 no-show:</strong> sem culpa. "Imagino que a correria comeu o horário, acontece toda semana comigo." Uma remarcação, e só.</p>
+    <p><strong>N5 fez a sessão e não fechou:</strong> parar o comercial por 15 dias e voltar com conteúdo. É o grupo mais quente que existe: já viu a conta e já conversou com você. Depois de 60 dias, uma pergunta só: "conseguiu mexer naquilo que a gente falou do fechamento?"</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Adriana Brunelly</span><span>Página 23</span></div>
+  <div class="kicker">Seção 6 · Parte 1</div>
+  <h1 style="font-size:19pt;">Recomendações Estratégicas</h1>
+  <p class="secao-lead">O que a Simple recomenda além da copy.</p>
+
+  <div class="box-dark">
+    <div class="bt">Sobre o que trava tudo: a grade da mentoria</div>
+    <p>A Adriana chegou mais preparada que a média: método nomeado, tese proprietária escrita em documento de 9 páginas, pesquisa de mercado com fonte da Abrape e do Sebrae, e cinco promessas testadas contra três fontes. Isso é raro.</p>
+    <p><strong>O que não existe é a grade.</strong> Quantos encontros, o que a aluna recebe, o que acontece em cada semana. O preço está justificado, o público definido, a promessa pronta. A entrega, não.</p>
+    <p>Não é detalhe operacional: <strong>a sessão de vendas não fecha sem isso</strong>. É a primeira coisa do roadmap, no dia 14.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre a alavanca mais barata</div>
+    <p>25 anos de mercado em Londrina e região. Ela conhece <strong>pelo nome</strong> dono de buffet, doceira, decoradora, assessora, fornecedor de som, de flor e de foto. Tem ainda as alunas do curso de 2023 e quem já respondeu o formulário no link da bio.</p>
+    <p>Isso é caixa em 30 dias, sem mídia e sem produto novo. <strong>Não deixe para depois porque parece pequeno: é o que financia a mídia do resto do plano.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre a conta do funil</div>
+    <p>É preciso ser honesto com o número. Se o funil trouxer 300 respostas no mês e 5% comprarem o WhatsApp de Valor, são 15 vendas, R$ 705. <strong>Isso não sustenta campanha.</strong></p>
+    <p>O papel do produto de R$ 47 não é receita: é aproveitar quem não qualifica em vez de descartar, gerar lista, e principalmente <strong>gerar aluna, ou seja, gerar prova</strong>. Hoje não existe nenhum depoimento, e essa é a maior fragilidade do funil.</p>
+    <p>Quem paga a operação é a mentoria.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · Adriana Brunelly</span><span>Página 24</span></div>
+  <div class="kicker">Seção 6 · Parte 2</div>
+  <h1 style="font-size:19pt;">Operação, Prova e o Que Monitorar</h1>
+  <p class="secao-lead">Os pontos que decidem se a copy acima vira venda ou vira documento parado.</p>
+
+  <div class="box-dark">
+    <div class="bt">Sobre a infraestrutura, que é o risco de data</div>
+    <p>A Adriana não tem cartão de crédito e avisou no grupo que tudo será no nome da irmã. Duas providências antes de qualquer promessa de data de veiculação:</p>
+    <p><strong>Conta de anúncio pré-paga</strong> com Pix ou boleto, testada com valor pequeno. Pré-pago para de veicular quando o saldo acaba, e alguém precisa acompanhar a recarga.</p>
+    <p><strong>Conferir o checkout que já está no ar na Greenn</strong> antes da primeira venda do produto de R$ 47, e não depois. Se estiver no nome errado, é melhor descobrir agora.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre prova e imagem</div>
+    <p>Dois ativos estão vazios e são de ciclo longo, então começam já: <strong>depoimento</strong>, garimpando as alunas de 2023 que tiveram qualquer resultado, e prints de clientes de decoração; e <strong>foto</strong>, porque ela avisou que não tem nenhuma.</p>
+    <p>A Simple manda o roteiro de fotos antes de ela sair fotografando. E vale garimpar o feed dela: <strong>as fotos das festas de alto padrão são prova visual do que ela ensina e já existem</strong>.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre o acervo, que ninguém está enxergando como estratégia</div>
+    <p>O comprador do barracão é dono de espaço ou de buffet que quer somar decoração para aumentar a margem. <strong>É exatamente o ICP da mentoria.</strong> Vender o acervo para ele é uma consultoria de margem disfarçada de venda de móvel, e é a porta de entrada mais natural que existe para o Método ACA.</p>
+    <p>E é venda por conversa, não por campanha: são pessoas que ela conhece pelo nome. Foi por isso que o anúncio que ela tentou sozinha trouxe lead desqualificado.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">O que monitorar de perto</div>
+    <p><strong>A taxa de conclusão do quiz.</strong> São 10 perguntas e quatro delas pedem número. Se a conclusão ficar abaixo de 40%, o problema são as perguntas de cálculo, e a gente simplifica as faixas antes de mexer na mídia.</p>
+    <p><strong>A conversão real das primeiras sessões.</strong> A premissa é 25%. Ela vende há 25 anos, então se vier muito abaixo o problema é qualificação, não condução, e a gente ajusta a P10.</p>
+    <p><strong>A agenda dela.</strong> Ela é quem aborda, quem faz a sessão, quem fecha, quem grava e quem edita. Se a semana apertar, avisa: a gente reordena o plano, não abandona.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+</body>
+</html>

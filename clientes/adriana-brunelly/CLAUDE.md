@@ -59,10 +59,10 @@ onde a outra parou (o Git é a memória compartilhada).
 >   — quem ela é, como pensa e os riscos do projeto.
 > - [`contexto/2026-09-07-escopo-vendido-e-condicao-comercial.md`](contexto/2026-09-07-escopo-vendido-e-condicao-comercial.md)
 >   — o que foi vendido e a condição comercial.
-> - [`estrategia/2026-09-11-estrategia-completa-funil-quiz.md`](estrategia/2026-09-11-estrategia-completa-funil-quiz.md)
->   — **a estratégia do funil**: big idea, quiz, páginas, anúncios, relatório de diagnóstico,
->   cadência de 12 dias, tarefas e recomendações.
->   [Google Doc](https://docs.google.com/document/d/1bTWhmiAQLDfolAMmiHonlFOspKiibov0aYoCRqebM3o/edit).
+> - [`estrategia/2026-09-11-estrategia-completa-funil-quiz.html`](estrategia/2026-09-11-estrategia-completa-funil-quiz.html)
+>   — **a estratégia do funil** (24 páginas, PDF na mesma pasta): big idea e régua de linguagem,
+>   quiz com os 4 padrões de perda, página de diagnóstico em 9 blocos, 20 criativos escritos,
+>   cadência de 12 dias e recomendações.
 > - [`estrategia/2026-09-11-roadmap-estrategico-adriana-brunelly.html`](estrategia/2026-09-11-roadmap-estrategico-adriana-brunelly.html)
 >   — roadmap de 90 dias (PDF na mesma pasta).
 > - [`estrategia/2026-09-10-roteiro-call-mapa-estrategico-v2.md`](estrategia/2026-09-10-roteiro-call-mapa-estrategico-v2.md)
@@ -86,6 +86,14 @@ onde a outra parou (o Git é a memória compartilhada).
 > R$ 480 mil). Os materiais dela resumem como "+167% de lucro", mas 167% é o aumento da
 > **margem** (15% → 40%). Usar número errado de lucro na copy de quem ensina margem seria o
 > pior erro possível.
+
+## A narrativa do projeto (usar em toda peça)
+
+- **O inimigo tem nome: o orçamento seco.** O orçamento que sai sem nada antes dele.
+- **A virada:** de orçamento seco a valor percebido antes do preço.
+- **Os 4 padrões de perda** que o quiz devolve: O Orçamento que Some · O Desconto Automático ·
+  O Extra Invisível · A Agenda Cheia.
+- **Régua de linguagem** completa na página 3 da estratégia e na página 4 do roadmap.
 
 ## O que trava o funil hoje (10/09/2026)
 
