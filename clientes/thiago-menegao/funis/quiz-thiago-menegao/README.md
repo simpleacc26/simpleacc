@@ -5,7 +5,7 @@ build e sem nenhuma dependência externa (nem fonte, nem CDN): a página abre
 igual offline e nada quebra se um terceiro cair.
 
 ```
-anúncio → quiz (9 perguntas, 3 telas de carregamento) → captura
+anúncio → quiz (11 perguntas, 3 telas de carregamento) → captura
         → tela de carregamento real → página de diagnóstico e oferta → checkout
 ```
 
@@ -297,7 +297,7 @@ bloco não renderiza, ou a página avisa no topo.
 | --- | --- | --- |
 | **URL do checkout** | `flow.js > marca.checkoutUrl` | os botões não navegam e a página mostra um aviso vermelho no topo |
 | **Pixel da Meta** | `index.html`, `diagnostico.html` (bloco comentado) e `app.js > TRACKING_CONFIG` | nenhum evento sobe |
-| **Logos das marcas** | `diagnostico.js > LOGOS` | entram os nomes em chip. O Thiago **autorizou usar as imagens** em 11/09, mas os arquivos ainda não chegaram, e logo de marca registrada não se desenha de memória |
+| **Logos das marcas** | `diagnostico.js > LOGOS` | entram os nomes em chip. O Thiago **autorizou usar as imagens** em 11/09 e o Daniel pediu para buscar na internet. Tentamos por três caminhos e nenhum fecha o conjunto das sete marcas (detalhe na seção abaixo), então **os arquivos precisam vir dele** |
 | **Texto da tela de autoridade** | `flow.js > intersticiais`, id `autoridade` | está o nosso texto provisório. O Thiago disse em 11/09 que vai mandar "um texto mais estratégico" |
 | **Depoimentos** | `diagnostico.js > DEPOIMENTOS` | o bloco inteiro não renderiza |
 | **Prazo da garantia** | `flow.js > oferta.prazoGarantia` | a página fala em garantia sem citar prazo |
@@ -307,12 +307,36 @@ Sobre as duas últimas, é decisão consciente e não descuido: prazo inventado 
 este público custa mais caro que a venda que traria. **O prazo da Turma de
 Fundadores só entra se a data for real e o preço subir mesmo.**
 
+### Por que os logos não vieram da internet
+
+Em 11/09 o Daniel autorizou buscar os logos na internet em vez de esperar o
+Thiago mandar. São sete marcas: Mercedes, Itaú, Honda, John Deere, Electrolux,
+Philips e Growth Supplements. Nenhum dos três caminhos fecha o conjunto:
+
+1. **Wikimedia Commons** só tem foto e redesenho dessas marcas, não o arquivo
+   oficial. Redesenho de marca registrada numa página de venda é justamente o
+   que não se faz.
+2. **`logo.clearbit.com`** é bloqueado pela política de rede deste ambiente
+   (502 no CONNECT). Política de organização não se contorna nem se insiste.
+3. **CDN do simple-icons** cobre 3 das 7. Faixa com 3 logos e 4 chips de texto
+   fica pior que a faixa de texto inteira que já está no ar.
+
+Os sites oficiais também não abrem por aqui: `honda.com.br` e `itau.com.br`
+devolvem 403 e `mercedes-benz.com.br` não responde.
+
+**Decisão:** fica a faixa de nomes em chip, que já está no ar e é honesta. O
+`LOGOS` em `diagnostico.js` continua vazio e aceita os arquivos assim que
+chegarem: basta preencher o array e subir as imagens em `logos/`. Peça ao
+Thiago os sete arquivos em PNG ou SVG, de preferência em versão monocromática
+clara, que é o que combina com o fundo escuro da página.
+
 ### A confirmar com o cliente antes de publicar
 
 1. **Citar as marcas nominalmente** (Mercedes, Itaú, Honda, John Deere,
    Electrolux e Philips), o "desde 1993", os "20 anos" e os "50+ projetos".
    Tudo isso está escrito na estratégia entregue a ele em 06/08, mas nunca foi
-   confirmado como claim público.
+   confirmado como claim público. Growth Supplements entrou na faixa a pedido
+   do próprio Thiago em 11/09, essa está confirmada.
 2. **Expor a hora de R$ 9 mil** na página. É o texto aprovado na estratégia e
    funciona como âncora real, mas é o preço de outro produto dele ficando
    público.
