@@ -1,0 +1,300 @@
+/* ============================================================
+   EVANDRO FERNANDES · Funil Diagnóstico de Receita Invisível (HDM)
+   Identidade extraída do site oficial hdmfy.com.br (assets/css/style.css):
+   fundo quase preto, teal para azul no realce, cartões translúcidos.
+   ============================================================ */
+
+/* ╔══════════════════════════════════════════════════════════╗
+   ║  PALETA, TROQUE AQUI. Espelha os tokens do hdmfy.com.br.  ║
+   ╚══════════════════════════════════════════════════════════╝ */
+:root {
+  /* Fundos (do site) */
+  --bg:         #030507;
+  --bg-2:       #080e1a;
+  --bg-3:       #0d1526;
+
+  /* Marca (do site) */
+  --teal:       #00E3BB;
+  --blue:       #30B9FF;
+
+  /* Aliases que o relatório usa */
+  --primary:      #00E3BB;
+  --primary-700:  #30B9FF;
+  --accent-soft:  rgba(0,227,187,.10);
+
+  /* Texto (do site) */
+  --text:       #eef2ff;
+  --muted:      rgba(210,225,255,.72);
+  --muted-2:    rgba(170,190,225,.48);
+
+  /* Superfícies e bordas (do site) */
+  --surface:    rgba(255,255,255,.04);
+  --surface-2:  rgba(255,255,255,.06);
+  --border:     rgba(255,255,255,.10);
+  --border-t:   rgba(0,227,187,.25);
+
+  --action:     #00E3BB;
+  --ring:       #00E3BB;
+  --err:        #ff8a6b;
+
+  --grad:       linear-gradient(90deg, var(--teal), var(--blue));
+  --grad-135:   linear-gradient(135deg, var(--teal), var(--blue));
+
+  --radius:     20px;
+  --radius-sm:  14px;
+  --maxw:       600px;
+  --ease:       cubic-bezier(.16, 1, .3, 1);
+
+  /* Inter é a fonte da marca. Usa se existir na máquina, senão cai no
+     stack do sistema. Sem Google Fonts (regra de performance). */
+  --font:       Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono:  "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+
+/* Fundo em duas camadas, para não sobrar faixa em nenhum tamanho de tela:
+   o html leva a cor sólida (cobre qualquer sobra e mata o flash claro) e o body
+   leva o gradiente com min-height 100vh (cobre a viewport inteira mesmo com
+   conteúdo curto). Sem background-attachment fixed: ele dimensiona o fundo pela
+   viewport e deixa sem pintura o que passa disso, virando uma faixa branca. */
+html {
+  scroll-behavior: smooth;
+  /* Mesma cor em que o gradiente do body TERMINA. Se ficar diferente, qualquer
+     sobra abaixo do body vira um degrau visível no rodapé. */
+  background: var(--bg-2);
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(1100px 620px at 50% -8%, rgba(0,227,187,.10), transparent 62%),
+    radial-gradient(900px 520px at 88% 4%, rgba(48,185,255,.08), transparent 60%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  font-family: var(--font);
+  font-size: 17px; line-height: 1.55;
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+
+/* ---------- topo / logo ---------- */
+.topbar { padding: 26px 0 8px; text-align: center; }
+.brand { display: inline-flex; flex-direction: column; align-items: center; gap: 5px; }
+.brand .brand-name {
+  font-size: 26px; font-weight: 800; letter-spacing: .12em;
+  background: var(--grad);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
+}
+.brand .brand-tag {
+  font-size: 9.5px; letter-spacing: .30em; text-transform: uppercase;
+  color: var(--muted-2); padding-left: .30em;
+}
+.brand .logo-img { height: 46px; width: auto; }
+
+/* ---------- progresso (sem número, só a barra) ---------- */
+/* Barra sticky translúcida com desfoque. Fundo sólido aqui vira uma tarja preta
+   de ponta a ponta no desktop, porque a faixa ocupa a largura toda enquanto o
+   resto da página tem o brilho da marca. */
+.progress-wrap {
+  position: sticky; top: 0; z-index: 20;
+  background: rgba(3, 5, 7, .62);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 14px 0 10px;
+}
+.progress-track { height: 5px; background: rgba(255,255,255,.08); border-radius: 99px; overflow: hidden; }
+.progress-bar {
+  height: 100%; width: 0; border-radius: 99px;
+  transition: width .5s var(--ease);
+  background: var(--grad);
+  box-shadow: 0 0 14px rgba(0,227,187,.45);
+}
+
+/* ---------- cartão / telas ---------- */
+.card {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.02)),
+    var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 30px 26px; margin: 16px 0 28px;
+}
+.screen { animation: fade .45s var(--ease) both; }
+@keyframes fade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+
+.eyebrow {
+  font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: .16em;
+  margin: 0 0 12px;
+  background: var(--grad);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
+}
+h1, h2 { font-weight: 800; letter-spacing: -.02em; color: var(--text); }
+h1 { font-size: 31px; line-height: 1.14; margin: 0 0 14px; }
+h2 { font-size: 24px; line-height: 1.22; margin: 0 0 16px; }
+.lead { color: var(--muted); font-size: 16.5px; margin: 0 0 8px; }
+.hint { color: var(--muted-2); font-size: 14px; }
+.grad-text {
+  background: var(--grad);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
+}
+
+/* ---------- selo do hero ---------- */
+.selo {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(0,227,187,.08); color: var(--teal);
+  font-size: 11.5px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+  padding: 7px 15px; border-radius: 99px; margin-bottom: 18px;
+  border: 1px solid var(--border-t);
+}
+.selo::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--teal); box-shadow: 0 0 8px var(--teal);
+}
+
+/* ---------- opções (auto-avanço) ----------
+   .opt é <button>: precisa de color e font explícitos, senão herda o padrão
+   do navegador e some no fundo escuro. O fundo dele destaca do cartão. */
+.options { display: grid; gap: 11px; margin: 22px 0 6px; }
+.opt {
+  display: flex; align-items: center; gap: 14px;
+  width: 100%;
+  font: inherit; color: var(--text);
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: var(--radius-sm);
+  padding: 16px; cursor: pointer; text-align: left;
+  background: var(--surface-2);
+  transition: border-color .2s, background .2s, transform .15s;
+}
+.opt .dot {
+  flex: 0 0 20px; height: 20px; border: 2px solid rgba(255,255,255,.28);
+  border-radius: 50%; display: grid; place-items: center; transition: border-color .2s;
+}
+.opt .dot::after {
+  content: ""; width: 10px; height: 10px; border-radius: 50%;
+  background: var(--teal); transform: scale(0); transition: transform .18s var(--ease);
+}
+.opt .txt { font-size: 15.5px; flex: 1; text-align: left; color: var(--text); }
+
+/* Selecionado: cor da marca MAIS anel interno, para nunca ser igual ao hover */
+.opt[aria-checked="true"] {
+  border-color: var(--teal);
+  background: rgba(0,227,187,.10);
+  box-shadow: inset 0 0 0 1px var(--teal);
+}
+.opt[aria-checked="true"] .dot { border-color: var(--teal); }
+.opt[aria-checked="true"] .dot::after { transform: scale(1); }
+
+/* Hover só onde existe ponteiro de verdade: em touch o hover gruda depois do
+   toque e a tela seguinte abriria com uma opção parecendo já escolhida. */
+@media (hover: hover) and (pointer: fine) {
+  .opt:hover {
+    border-color: rgba(255,255,255,.30);
+    background: rgba(255,255,255,.09);
+    transform: translateY(-1px);
+  }
+}
+.opt:focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+
+/* ---------- formulário ---------- */
+.field { margin: 18px 0; }
+.field label { display: block; font-weight: 600; font-size: 14.5px; margin-bottom: 7px; color: var(--text); }
+.field .req { color: var(--teal); }
+.field .opt-tag { color: var(--muted-2); font-weight: 400; }
+.field input {
+  width: 100%; font: inherit; padding: 15px 14px; color: var(--text);
+  border: 1px solid rgba(255,255,255,.14); border-radius: var(--radius-sm);
+  background: rgba(255,255,255,.05);
+  transition: border-color .2s, box-shadow .2s;
+}
+.field input::placeholder { color: var(--muted-2); }
+.field input:focus {
+  outline: none; border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(0,227,187,.18);
+}
+.field input[aria-invalid="true"] { border-color: var(--err); }
+.field .err-msg { color: var(--err); font-size: 13.5px; margin-top: 6px; display: none; }
+.field .err-msg.show { display: block; }
+
+/* ---------- erros no topo ---------- */
+.errors {
+  display: none; background: rgba(255,138,107,.10); border: 1px solid rgba(255,138,107,.35);
+  color: var(--err); border-radius: var(--radius-sm); padding: 12px 14px; margin-bottom: 16px; font-size: 14.5px;
+}
+.errors.show { display: block; }
+
+/* ---------- botões ----------
+   Sem white-space no .btn geral: CTA longo do relatório transborda a pílula.
+   O nowrap vive só no .btn-short (o "Voltar"). */
+.actions { display: flex; gap: 12px; align-items: center; margin-top: 24px; }
+.btn {
+  font: inherit; font-weight: 700; cursor: pointer; border: none;
+  border-radius: 99px; padding: 16px 24px;
+  transition: transform .12s var(--ease), box-shadow .2s, opacity .2s;
+}
+.btn-primary {
+  background: var(--grad); color: #04121a;
+  box-shadow: 0 8px 26px rgba(0,227,187,.22);
+}
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 30px rgba(0,227,187,.32); }
+.btn-primary:disabled { opacity: .55; cursor: not-allowed; transform: none; box-shadow: none; }
+.btn-ghost { background: transparent; color: var(--muted); padding: 16px 12px; }
+.btn-ghost:hover { color: var(--text); }
+.btn-short { white-space: nowrap; }
+.btn-block { width: 100%; justify-content: center; display: flex; text-align: center; }
+.btn:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
+.spinner {
+  display: inline-block; width: 15px; height: 15px;
+  border: 2px solid rgba(4,18,26,.35); border-top-color: #04121a;
+  border-radius: 50%; animation: spin .7s linear infinite; vertical-align: -3px; margin-right: 8px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---------- resume banner ---------- */
+.resume {
+  background: rgba(0,227,187,.07); border: 1px solid var(--border-t);
+  border-radius: var(--radius-sm); padding: 14px 16px; margin: 14px 0; font-size: 15px;
+}
+.resume button { margin-top: 10px; margin-right: 8px; }
+.link {
+  background: none; border: none; color: var(--teal); font: inherit;
+  text-decoration: underline; cursor: pointer; padding: 0;
+}
+
+.foot { text-align: center; color: var(--muted-2); font-size: 12.5px; padding: 10px 0 36px; }
+
+/* ---------- responsivo ---------- */
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  h1 { font-size: 26px; } h2 { font-size: 21px; }
+  .card { padding: 24px 18px; }
+  .brand .brand-name { font-size: 23px; }
+  .btn { padding: 15px 20px; }
+}
+
+/* ---------- preferências do usuário ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* ---------- impressão: o tema escuro vira claro ---------- */
+@media print {
+  body {
+    background: #fff !important; color: #10151c !important;
+    font-size: 11.5pt;
+  }
+  .no-print { display: none !important; }
+  .card {
+    background: #fff !important; border: 1px solid #d8dee8 !important;
+    box-shadow: none !important; margin: 0 !important;
+  }
+  h1, h2, .lead, .opt .txt { color: #10151c !important; }
+  .hint, .foot { color: #5b6675 !important; }
+  .eyebrow, .grad-text, .brand .brand-name {
+    -webkit-text-fill-color: #0a7f6b !important; color: #0a7f6b !important;
+    background: none !important;
+  }
+  .selo { background: #eafaf6 !important; color: #0a7f6b !important; border-color: #9fe0d2 !important; }
+}

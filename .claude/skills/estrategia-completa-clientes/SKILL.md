@@ -1,8 +1,8 @@
 ---
 name: estrategia-completa-clientes
 description: >-
-  Gera o documento de estratégia completo de um cliente (modelo Simple Acc /
-  Rafael ALIVANCE) a partir da transcrição ou das notas de uma reunião de
+  Gera o documento de estratégia completo de um cliente (modelo Simple Acc ·
+  Funil de Lead Dinâmico) a partir da transcrição ou das notas de uma reunião de
   onboarding, e entrega como Google Doc FORMATADO no Drive. Use sempre que
   alguém do time precisar montar a estratégia inicial de um cliente novo,
   "replicar o doc do Rafael para o cliente X", transformar um onboarding em
@@ -18,22 +18,30 @@ description: >-
 
 Pega o **levantamento de um onboarding** (transcrição, notas do Gemini/Meet,
 áudio transcrito, ou um resumo escrito) e produz o **documento de estratégia
-completo** do cliente, na mesma estrutura que já deu certo (Rafael / ALIVANCE
-CLUB → Sabrina / Instituto Sabrina Siqueira), entregue como **Google Doc nativo
-e formatado** na pasta do cliente no Drive.
+completo** do cliente, no modelo atual **Estratégia Completa · Funil de Lead
+Dinâmico** (referência viva: Lucas Sobreiro, 20/07/26), entregue como **Google
+Doc nativo e formatado** na pasta do cliente no Drive.
 
 O valor está em três coisas que o time costuma errar quando faz na mão:
 1. **Extrair a estratégia certa** do onboarding (não só transcrever — interpretar).
-2. **Seguir a estrutura comprovada** de 8 seções, adaptada ao tipo de funil e ao público.
+2. **Seguir a estrutura comprovada** de 6 seções, adaptada ao tipo de funil e ao público.
 3. **Entregar formatado** (títulos, negrito, listas) — e não um "textão" cru.
+
+> **O documento de estratégia e o roadmap são complementos, não o mesmo doc.**
+> Esta skill entrega as copies do funil (as 6 seções abaixo). O plano de ação
+> (tarefas, fases, divisão de responsabilidades, checkpoints) vive no roadmap,
+> gerado pela skill `roadmap-estrategico-90-dias`. Por isso o modelo atual não
+> tem mais as seções antigas de "Relatório de Diagnóstico" e "Tarefas /
+> Onboarding": o diagnóstico é a página de resultado do quiz (entregue na
+> implementação do funil) e as tarefas são o roadmap.
 
 ## O fluxo (siga nesta ordem)
 
 ```
 1. EXTRAÇÃO   → ler o onboarding e preencher o mapa estratégico
-2. GERAÇÃO    → escrever as 8 seções no modelo, adaptadas ao cliente
+2. GERAÇÃO    → escrever as 6 seções no modelo, adaptadas ao cliente
 3. ENTREGA    → virar Google Doc formatado na pasta do cliente no Drive
-4. VERSIONAR  → salvar a fonte (.md) em clientes/<cliente>/estrategia/ no repo
+4. VERSIONAR  → salvar a fonte (.md/.html) em clientes/<cliente>/estrategia/ no repo
 ```
 
 Não pule a extração. Gerar copy sem entender o ICP, as frentes e o gargalo é o
@@ -60,20 +68,24 @@ autônoma, registre as premissas assumidas numa nota no topo do documento.
 
 ### Passo 2 — Geração do documento
 
-Escreva as **8 seções** seguindo **`references/estrutura-documento.md`**, que traz
+Escreva as **6 seções** seguindo **`references/estrutura-documento.md`**, que traz
 o detalhe de cada seção, exemplos do modelo e como adaptar por tipo de funil
 (aplicação/call, VSL, low ticket, lead magnet, etc.) e por público (B2B x B2C).
 
-As 8 seções são:
+As 6 seções são:
 
 1. **Big Idea** — a tese central / virada de chave (uma por frente, se houver mais de uma)
-2. **Copy do Quiz** — perguntas no padrão SPIN + captura de dados
-3. **Copy — Página de Aplicação** — headline, dor/espelho do ICP, mecanismo, autoridade, oferta, FAQ, CTA
-4. **Copy dos Anúncios** — 3 ângulos (hook + curta/média/longa) + 10 headlines + 5 hooks
-5. **Relatório de Diagnóstico** — entregue após o quiz, com campos `{{variável}}`
-6. **Cadência de Follow-up — 12 dias** — na voz do cliente, não mecânica
-7. **Tarefas — Onboarding & Primeiros Movimentos** — o que o time executa pra subir o projeto
-8. **Recomendações Estratégicas** — gargalos, riscos e prioridades (o olhar crítico da Simple)
+2. **Copy do Quiz** — perguntas no padrão SPIN + regra de segmentação + captura de dados
+3. **Copy — Página de Aplicação** — headline, dor/espelho do ICP, reframe, mecanismo, autoridade, oferta, para quem é/não é, FAQ, CTA
+4. **Copy dos Anúncios** — 3 ângulos (dor, mecanismo, autoridade), cada um vira 1 conjunto de 10 anúncios (hook + curta/média/longa) + 10 headlines + 5 hooks
+5. **Cadência de Follow-up — 12 dias** — na voz do cliente, não mecânica, com níveis N1 a N5
+6. **Recomendações Estratégicas** — gargalos, riscos e prioridades (o olhar crítico da Simple)
+
+> **Capa e cabeçalho (modelo Funil de Lead Dinâmico):** a capa traz o wordmark
+> `SIMPLE`, o kicker `ESTRATÉGIA · FUNIL DE LEAD DINÂMICO`, o título `Estratégia
+> Completa`, o subtítulo que lista as 6 entregas, e Cliente / Estrategista +
+> ano. Logo abaixo, o cabeçalho: `Estrategista: X · Expert: Y`, o negócio em uma
+> linha, a frente única (ou frentes + split de mídia) e as premissas assumidas.
 
 Princípios de copy (resposta direta, não "copy bonita"): linguagem do público —
 não de marketeiro; mecanismo único claro; frases curtas e ritmo; zero promessa
@@ -121,8 +133,8 @@ memória que permanece é o Git, não o Drive).
 
 ## Checklist antes de entregar
 
-- [ ] Resumo estratégico no topo (ou confirmado com a pessoa), com premissas sinalizadas
-- [ ] As 8 seções presentes e adaptadas ao cliente (nada genérico copiado do Rafael)
+- [ ] Capa e cabeçalho no modelo Funil de Lead Dinâmico (Cliente/Estrategista, negócio em uma linha, frente, premissas)
+- [ ] As 6 seções presentes e adaptadas ao cliente (nada genérico copiado de outro cliente)
 - [ ] Frentes múltiplas cobertas (se aplicável), com split de mídia
 - [ ] Voz/tom pedidos pelo cliente respeitados (principalmente na cadência)
 - [ ] Entregue como **Google Doc formatado** (títulos, negrito, listas) — não texto cru
