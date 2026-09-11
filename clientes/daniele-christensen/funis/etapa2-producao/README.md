@@ -38,9 +38,12 @@ inspecionar o cálculo abre o protótipo do disco.
 
 ## O que a build põe
 
-O Google Tag Manager (`GTM-PHG5489R`), o mesmo contêiner do quiz — o funil é um
-só, e contêineres separados obrigariam a casar duas propriedades na mão para ver
-a jornada inteira.
+O Google Tag Manager (`GTM-PHG5489R`) e o Microsoft Clarity (`ygctxxrs01`), os
+mesmos do quiz — o funil é um só, e propriedades separadas obrigariam a casar
+duas na mão para ver a jornada inteira. Os dois vêm de `../gtm.py`.
+
+O Meta Pixel **não** entra aqui: ninguém chega nesta página por anúncio, então
+ele seria peso sem retorno.
 
 ## Os dois disparos invisíveis
 

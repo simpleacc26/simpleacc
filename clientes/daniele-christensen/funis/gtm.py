@@ -1,14 +1,21 @@
 # -*- coding: utf-8 -*-
 """
-Injeção do Google Tag Manager, compartilhada pelas duas builds de produção.
+Injeção da cabeça de medição, compartilhada pelas duas builds de produção.
+
+Apesar do nome do arquivo, que ficou por causa do histórico, aqui mora tudo o
+que mede a jornada: Google Tag Manager, o carregador do Meta Pixel e o
+Microsoft Clarity.
 
 O contêiner é o mesmo nas duas páginas (GTM-PHG5489R), porque o funil é um só:
 o lead entra pelo quiz e volta na Etapa 2. Contêineres separados obrigariam a
-casar duas propriedades na mão para ver a jornada inteira.
+casar duas propriedades na mão para ver a jornada inteira. O projeto do Clarity
+segue a mesma regra, pelo mesmo motivo: uma gravação por lead, do anúncio ao
+agendamento, e não dois painéis para cruzar na mão.
 
-O GTM **não** entra nos protótipos. Protótipo é a URL que a Dani e a gente
-abrimos para revisar copy; se ele disparasse tag, a medição da campanha viria
-suja de visita interna.
+Nada disto entra nos protótipos nem no link de validação. Protótipo é a URL que
+a Dani e a gente abrimos para revisar copy; se ele disparasse tag, a medição da
+campanha viria suja de visita interna, e o Clarity encheria as gravações de
+sessão nossa.
 
 ## Por que existe um preconnect e um carregador de Pixel aqui
 
@@ -41,6 +48,7 @@ também, a conta de visitas dobraria e o connect rate ficaria bonito e falso.
 
 CONTAINER = "GTM-PHG5489R"
 PIXEL = "1818495198816821"
+CLARITY_ID = "ygctxxrs01"
 
 # Os dois domínios do caminho crítico da medição. O googletagmanager serve o
 # gtm.js e, depois, o GA4; o connect.facebook.net serve o fbevents.js.
@@ -68,6 +76,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 })(window,document,'script','dataLayer','%s');</script>
 <!-- End Google Tag Manager -->""" % CONTAINER
 
+# Microsoft Clarity: mapa de calor e gravação de sessão. Vai por último na
+# cabeça, depois do Pixel e do GTM, de propósito.
+#
+# O connect rate do Meta depende de o PageView do Pixel sair rápido (o cabeçalho
+# deste arquivo explica a fila inteira). O Clarity não participa dessa conta,
+# então ele não pode disputar conexão com quem participa: entra depois, e o
+# `t.async=1` do próprio snippet garante que ele nunca segura a renderização.
+#
+# Pelo mesmo motivo ele não ganha `preconnect`. Um terceiro aperto de mão TLS
+# aberto na largada tiraria banda dos dois que decidem se a visita é contada.
+CLARITY = """<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "%s");
+</script>
+<!-- End Microsoft Clarity -->""" % CLARITY_ID
+
 # O <body> explícito não é enfeite. Estes arquivos não têm <html>/<head>/<body>,
 # e o parser só sai da <head> quando encontra conteúdo de corpo. Sem abrir o
 # <body> aqui, o <noscript> cairia dentro da <head> e o iframe não renderizaria
@@ -92,6 +120,7 @@ def injeta(html, troca, pixel=False):
     cabeca = PRECONNECT + "\n" + CABECA
     if pixel:
         cabeca = PRECONNECT + "\n" + PIXEL_BASE + "\n" + CABECA
+    cabeca = cabeca + "\n" + CLARITY
     html = troca(html, "<style>", cabeca + "\n<style>", "a abertura do <style>")
     html = troca(html, "</style>\n", "</style>\n\n" + CORPO + "\n", "o fim do <style>")
     return html
@@ -111,6 +140,13 @@ def confere(html, pixel=False):
         return "esperava os dois preconnect do caminho crítico"
     if html.index("preconnect") > html.index("gtm.js?id="):
         return "o preconnect precisa vir antes do script do GTM, senão não adianta"
+    if html.count(CLARITY_ID) != 1:
+        return "esperava o projeto %s do Clarity uma vez" % CLARITY_ID
+    if html.index("clarity.ms/tag/") < html.index("gtm.js?id="):
+        return ("o Clarity precisa vir depois do GTM: ele não entra na conta do "
+                "connect rate e não pode disputar conexão com quem entra")
+    if html.index("clarity.ms/tag/") > html.index("<body>"):
+        return "o Clarity precisa ficar na <head>"
     if pixel:
         if html.count("fbevents.js") != 1:
             return "esperava o carregador do Pixel uma vez"

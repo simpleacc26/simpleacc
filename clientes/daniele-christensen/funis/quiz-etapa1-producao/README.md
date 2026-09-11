@@ -32,12 +32,25 @@ Toda remoção é conferida no fim. Se alguém reescrever um trecho do protótip
 um recorte deixar de casar, a build falha em vez de publicar um arquivo
 quebrado.
 
-## Google Tag Manager
+## Medição
 
-Contêiner `GTM-PHG5489R`, injetado pela build: o script no fim da head e o
-noscript no início do body. A Etapa 2 usa o **mesmo** contêiner, porque o funil
-é um só — separar obrigaria a casar duas propriedades na mão para ver a jornada
-inteira.
+Tudo o que mede esta página é injetado pela build, a partir de `../gtm.py`:
+
+| O quê | Identificador | Observação |
+|---|---|---|
+| Google Tag Manager | `GTM-PHG5489R` | script no fim da head, noscript no início do body |
+| Meta Pixel | `1818495198816821` | só o carregador; quem dispara o PageView é a tag do GTM |
+| Microsoft Clarity | `ygctxxrs01` | mapa de calor e gravação de sessão |
+
+A Etapa 2 usa o **mesmo** contêiner do GTM e o **mesmo** projeto do Clarity,
+porque o funil é um só — separar obrigaria a casar duas propriedades na mão para
+ver a jornada inteira.
+
+O Clarity entra por último na head, depois do Pixel e do GTM. Ele não participa
+da conta do connect rate do Meta, então não pode disputar conexão com quem
+participa. Pelo mesmo motivo ele não ganha `preconnect`.
+
+O link de validação e os protótipos continuam **sem nenhuma das três**.
 
 O GTM não entra no protótipo. Protótipo é a URL de revisão; se disparasse tag, a
 medição da campanha viria suja de visita interna.
