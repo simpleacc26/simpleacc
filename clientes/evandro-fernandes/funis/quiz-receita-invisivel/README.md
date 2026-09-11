@@ -14,7 +14,8 @@ Stack: HTML/CSS/JS puro, sem dependências, sem build. Mobile-first.
 - `diagnostico.html` + `diagnostico.js` · relatório auto-preenchido + Baixar PDF + WhatsApp
 - `favicon.png` · ícone oficial do HDM, 64px
 - `api/lead.js` · proxy serverless: anexa a `X-Api-Key` e encaminha ao CRM
-- `integracao-planilha.gs` · Apps Script da planilha de leads
+- `integracao-planilha.gs` · Apps Script da planilha de leads · **sem uso** (o backup
+  em planilha foi descartado em 13/08; mantido só como referência)
 
 ## Como rodar local
 ```
@@ -81,11 +82,22 @@ diferentes, sem perder lead.
 **Conferido em 16/08/2026:** tamanho 64, sem espaços, digital `a236dc3cb61e`,
 igual ao valor que o Evandro enviou. Pode religar a trava.
 
-## Estado da integração (13/08/2026, 19h40)
-**Conectado.** O HDM desligou a trava do nó e o lead passou a cair no CRM dele.
-Conferido por curl: `POST` sem auth volta 200 `{"message":"Workflow was started"}`.
-Falta religar a autenticação (`X-Api-Key`, Header Auth) e corrigir o mapeamento
-dos campos do lado deles. Ver `especificacao-webhook-leads.md`.
+## Estado da integração: ✅ FECHADA (18/08/2026)
+
+O cliente confirmou no grupo: **"Integração realizada com sucesso"**, com print do
+lead entrando no CRM dele. Linha do tempo:
+
+| Data | O que aconteceu |
+| ---- | --------------- |
+| 13/08 | Diagnosticado o 403: o nó do n8n estava em **Basic Auth** enquanto a chave era de **Header Auth**. |
+| 13/08, 19h40 | O HDM desligou a trava e o lead passou a cair no CRM. |
+| 16/08 | Proxy `/api/lead` no ar; chave em variável de ambiente, conferida por impressão digital. |
+| 17/08 | O HDM religou a trava como **Header Auth**. Lead de teste entrou com as respostas do quiz mapeadas. |
+| 18/08 | Cliente confirma sucesso. `Situacao`, `Problema` e `Implicacao` já aparecem no registro. |
+
+**Continua em aberto:** o campo de faturamento. No último print o valor ainda
+aparecia como `R$ 3.001,00` (o CRM lê o texto `"De R$ 300 mil a 1 milhão por mês"`
+e extrai os dígitos). Ver `especificacao-webhook-leads.md`.
 
 ## Destino dos leads: só o CRM do cliente
 Decisão de 13/08/2026: **sem backup em planilha**. O lead vai direto para o
@@ -96,8 +108,8 @@ gerar custo de operações.
   o `LEADS_ENDPOINT` está vazio. Nada consome operação.
 - A planilha criada (`docs.google.com/spreadsheets/d/1A1xFuIldVeAM7S0HQfza4hj-GZRZxAqahlFRqoJc1Gk`)
   ficou sem uso. Pode ser apagada ou guardada para outro fim.
-- **Consequência a vigiar:** enquanto a autenticação do webhook não for corrigida,
-  o funil não tem destino nenhum para lead. Não subir tráfego antes disso.
+- **Resolvido em 18/08:** o webhook está autenticado e recebendo. O funil tem
+  destino. O que segura o tráfego agora são os 30 anúncios, que não existem.
 - Para reativar o backup um dia: colar a URL do webhook em `LEADS_ENDPOINT` e
   reativar o cenário no Make.
 
@@ -109,8 +121,12 @@ gerar custo de operações.
       `qualificado` (o que serve para rotear) e descarta 4 das 7 respostas. Subir
       tráfego assim inverte a qualificação. Detalhe e o que pedir ao time deles em
       `especificacao-webhook-leads.md`.
-- [ ] **HDM religar a trava como Header Auth**, não Basic (foi Basic que travou
-      tudo na primeira tentativa). Do nosso lado já está tudo pronto e conferido.
+- [ ] **Os 30 anúncios** (3 conjuntos × 10: dor, mecanismo, autoridade). É o item
+      que destrava o tráfego e o mais atrasado do projeto: era para estar pronto no
+      dia 8. Ver `../../estrategia/2026-08-18-proximos-passos.md`.
+- [ ] **API oficial do WhatsApp com número dedicado.** Os CTAs apontam hoje para o
+      WhatsApp Business da DigiEnge em linha fixa. Aguenta volume baixo; com
+      tráfego pago vira gargalo (sem automação, sem distribuição entre atendentes).
 
 **Melhora a entrega, não bloqueia:**
 - [ ] **Logo oficial** em SVG/PNG para o topo da página (hoje wordmark "HDM" em
@@ -121,4 +137,5 @@ gerar custo de operações.
 
 **Resolvido:** deploy público (200), identidade HDM, favicon oficial, WhatsApp
 dos CTAs (`551151941273`, conta comercial DigiEnge), integridade conferida com
-`curl`+`cmp`, tom formalizado para alto ticket.
+`curl`+`cmp`, tom formalizado para alto ticket, **integração com o CRM fechada e
+confirmada pelo cliente**, chave fora do Git e fora do navegador via proxy.

@@ -26,14 +26,21 @@ isso nem o curl de exemplo do próprio HDM passava. O CORS deles já liberava
 trás. Prova de que o problema era só autenticação: path inventado dava 404 e o
 path deles dava 403, logo o workflow existia e estava ativo.
 
-### ⏳ PENDENTE: religar a trava com `X-Api-Key`
+### ✅ TRAVA RELIGADA E FUNCIONANDO (18/08/2026)
 
-O HDM vai reativar a autenticação. Quando reativar, precisa ser **Header Auth**
-com nome `X-Api-Key` (não Basic Auth, que foi o que travou da primeira vez).
+O HDM reativou a autenticação como **Header Auth** com nome `X-Api-Key`, e o lead
+continua entrando. Confirmado pelo cliente no grupo ("Integração realizada com
+sucesso") com print do registro no CRM.
 
-Do nosso lado isso exige preencher a `CRM_API_KEY` no `app.js` e republicar.
-**Enquanto a chave estiver vazia e a trava ligada, o funil volta a levar 403** e
-o lead para de chegar. Os dois lados têm que virar juntos.
+Do nosso lado a chave **não fica mais no `app.js`**: ela vive na variável de
+ambiente `HDM_CRM_API_KEY` na Vercel e quem anexa o header é o proxy
+`api/lead.js`. Assim ela não entra no Git nem chega ao navegador do lead.
+
+Houve um mal-entendido que vale registrar: ao explicar a mudança, a palavra
+"diferente" fez o cliente achar que o **contrato** tinha mudado. Não mudou: mesmo
+header, mesmo nome, mesmo valor, mesmo JSON. O que mudou foi só **qual máquina
+anexa o header** (o nosso servidor, em vez do navegador). Ao explicar isso para
+um cliente técnico, separar explicitamente o *onde* do *o quê*.
 
 Conferência que qualquer um roda, sem depender do site (tem que voltar 200):
 
@@ -44,7 +51,15 @@ curl -i -X POST https://n8n.digienge.ai/webhook/quizzreceitainvisivel \
   -d '{"nome":"TESTE","email":"teste@simpleacc.com.br","whatsapp":"5511999999999"}'
 ```
 
-### ⚠️ MAPEAMENTO DE CAMPOS NO CRM (achado em 13/08, precisa de ajuste)
+### ⚠️ MAPEAMENTO DE CAMPOS (corrigido em parte, 18/08)
+
+**Corrigido:** `situacao`, `problema` e `implicacao` já aparecem no registro do
+CRM, junto de nome, data, WhatsApp e e-mail.
+
+**Continua errado:** o **faturamento**. No último print o valor ainda entra como
+`R$ 3.001,00`. Detalhe do diagnóstico abaixo, que segue válido para esse campo.
+
+#### O achado original (13/08)
 
 O lead chega, mas o CRM do HDM **não está lendo o payload todo**. Pelo print do
 registro do primeiro lead:
