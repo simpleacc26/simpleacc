@@ -17,3 +17,7 @@
 **/.cache/
 **/.DS_Store
 **/Thumbs.db
+
+# Pacotes gerados para distribuir skills ou entregas
+# (o conteudo real fica versionado em .claude/skills/ e em clientes/)
+*.zip
