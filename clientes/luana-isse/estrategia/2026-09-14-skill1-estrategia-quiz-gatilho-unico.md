@@ -253,13 +253,24 @@ Nenhum adjetivo concorda com quem responde. Foi verificado uma a uma.
 - Coloquei outra pessoa para vender por mim
 - Nunca tentei, não sei por onde começar
 
-### 6 · PORTEIRA · caixa
-**Qual o valor do seu produto principal?**
-- Ainda não vendi
-- Até R$ 997
-- De R$ 1 mil a R$ 3 mil
-- De R$ 3 mil a R$ 10 mil
-- Acima de R$ 10 mil
+### 6 · PORTEIRA · tamanho da operação
+**Quanto você fatura por mês hoje com o seu trabalho?**
+- Ainda não faturo de forma constante
+- Até R$ 5 mil
+- De R$ 5 mil a R$ 15 mil
+- De R$ 15 mil a R$ 30 mil
+- Acima de R$ 30 mil
+
+> **Trocada em 14/09**, no lugar de "qual o valor do seu produto principal".
+> A de ticket era redundante: as perguntas 1 e 2 já identificam quem não vende.
+> Faturamento entrega o que o ticket não entregava, que é tamanho de operação,
+> e serve para o tráfego cruzar qualidade de criativo.
+>
+> **A prontidão (7) foi mantida de propósito.** A R$ 1.997, dinheiro quase não
+> discrimina: quem fatura R$ 8 mil paga tanto quanto quem fatura R$ 50 mil. O
+> que separa a fila é intenção. E a própria cliente disse na call que
+> faturamento é o campo em que o lead mente, então a qualificação não pode se
+> apoiar só nele.
 
 ### 7 · PORTEIRA · prontidão
 **Se existisse um caminho para a sua venda acontecer sem você na call, quando você começaria?**
