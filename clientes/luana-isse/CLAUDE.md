@@ -25,7 +25,23 @@ onde o outro parou (o Git é a memória compartilhada).
 - **Quem é:** jornalista, copywriter, estrategista digital e master coach. Cria movimento,
   causa e posicionamento para especialistas. Mora em SC; trabalha só à tarde/noite
   (Deus e família vêm antes — não trabalha de manhã).
-- **Produto principal (decidido em 04/08):** mentoria em grupo **MMPV**, **R$ 7 mil**, 17 alunos.
+> ⚠️ **A OFERTA MUDOU EM 11/09.** Leia
+> `estrategia/2026-09-14-novo-funil-ask-deep-dive.md` antes de qualquer entrega.
+> O produto principal agora é o **Método Gatilho Único**, R$ 1.997, vendido por
+> VSL. A mentoria de R$ 7 mil saiu: perdia aluno sempre pelo mesmo motivo, falta
+> de tempo para executar. Os pilares do MMPV viraram **bônus**. A campanha do
+> quiz está **pausada** e o quiz precisa ser refeito, não ajustado.
+
+- **Produto principal (11/09):** **Método Gatilho Único**, **R$ 1.997**, entregue
+  por VSL. Promessa: vender a mentoria com **um único conteúdo**, sem depender de
+  call todos os dias, lançamento ou postar diariamente. Order bumps de baixo
+  ticket (3 a 4). Mentalidade, movimento, posicionamento e tráfego entram como bônus.
+- **Público (11/09):** mentores e infoprodutores **que já vendem** e estão
+  cansados de depender de call. **Mudou:** antes era especialista iniciante e
+  invisível. Não é o mesmo funil.
+- **Tráfego (11/09):** a Simple assume. **R$ 100/dia no total**, R$ 50 para a VSL
+  e R$ 50 para o quiz.
+- **Produto anterior (04/08, descontinuado):** mentoria em grupo **MMPV**, **R$ 7 mil**, 17 alunos.
   Nome confirmado; o mecanismo é recontado na linguagem de restauração da identidade.
   A **consultoria de movimento/posicionamento a R$ 15 mil** é porta lateral, por indicação.
   **Individual de R$ 30 mil** para a base e ultra qualificados.

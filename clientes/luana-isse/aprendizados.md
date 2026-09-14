@@ -157,3 +157,29 @@ o algoritmo por falta de sinal e encarece o lead.
 O certo nesse orçamento: **otimizar por `Lead`** e usar as conversões
 personalizadas **para medir**, decidindo na mão onde pôr dinheiro. Trocar o
 evento de otimização só quando o volume justificar.
+
+## 14/09/2026 · O quiz foi construído pulando a etapa 1 do ASK
+
+Lendo o `metodo ask.pdf` para montar o funil novo, apareceu uma constatação sobre
+o funil antigo: **os quatro baldes dele saíram dos pilares do MMPV, não de
+pesquisa com o mercado.** Vieram da estrutura do produto, de dentro para fora.
+
+O ASK é explícito que esse é o maior erro do método: pular o **Deep Dive** e ir
+direto para a pesquisa de balde, porque quem está mergulhado no próprio mercado
+acredita que já sabe quais são os baldes e normalmente não sabe.
+
+Bate com o que a própria cliente disse ao pausar a campanha em 11/09: *"a minha
+oferta tá o mecanismo e não uma oferta realmente irresistível"*. **Mecanismo no
+lugar de oferta é o sintoma de funil desenhado de dentro para fora.**
+
+**Regra para os próximos funis de quiz:** os baldes saem de Deep Dive com a base
+do cliente, nunca dos pilares do método dele. Se não houver base para pesquisar,
+isso vira pendência declarada, não suposição silenciosa.
+
+Duas coisas que o ASK reforça e que já valem como padrão da casa:
+
+- **A pergunta imediatamente antes da captura é a pergunta de segmentação.** É
+  ela que define o balde, e por isso não pode ser uma pergunta qualquer.
+- **A análise do Deep Dive é feita por pessoa lendo, não por máquina.** O sinal
+  de quem vira cliente é o **tamanho e a emoção da resposta aberta**, não só o
+  conteúdo. Ordenar pelas mais longas e ler os 20% do topo.
