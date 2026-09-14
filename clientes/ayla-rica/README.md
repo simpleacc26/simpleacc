@@ -4,9 +4,14 @@ Ayla Pedra Rica é estrategista comercial (ex-supervisora do Insider/Érico
 Rocha) que atua como estrategista de lançamentos para experts e está montando
 uma frente de implementação comercial B2B. Contratou a Simple (consultoria de
 90 dias + 30 de bônus, fechada em 06/07/2026) para estruturar oferta e um funil
-de quiz de high ticket, começando pela expert Carol (Feng Shui). Meta: R$50k/mês
-em high ticket. Detalhes em `contexto/2026-07-14-contexto-inicial.md` e no roadmap
-de 90 dias em `estrategia/2026-07-20-roadmap-estrategico-ayla-rica.pdf`.
+de quiz de high ticket. Meta: R$50k/mês em high ticket.
+
+O projeto ficou parado entre julho e setembro e **foi reiniciado em 14/09/2026**,
+com o funil apontado para a **mentoria da própria Ayla para experts** (a expert
+Carol passou a ser case de entrega). Documentos vigentes:
+`estrategia/2026-09-14-roadmap-estrategico-ayla-rica.pdf` (plano de execução) e
+`estrategia/2026-09-14-estrategia-completa-ayla-rica.pdf` (copy do funil).
+Contexto em `contexto/2026-07-14-contexto-inicial.md`.
 
 ## Contatos
 

@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Estratégia Completa · Ayla Pedra Rica</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    padding: 16mm 18mm 24mm 18mm;
+    position: relative;
+    page-break-after: always;
+    background: #fff;
+  }
+  .page:last-child { page-break-after: auto; }
+  .runhead {
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; color: var(--muted);
+    letter-spacing: .06em; text-transform: uppercase;
+    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt;
+  }
+  .runfoot {
+    position: absolute; bottom: 9mm; left: 18mm; right: 18mm;
+    text-align: center; font-size: 7.5pt; color: var(--muted);
+  }
+  .kicker {
+    color: var(--gold); font-size: 9pt; font-weight: bold;
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt;
+  }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
+  .box-dark {
+    background: var(--navy-dark); color: #f5f3ee;
+    padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt;
+  }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light {
+    background: var(--beige); border-left: 3pt solid var(--gold);
+    padding: 10pt 14pt; margin: 11pt 0;
+  }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .sec-header {
+    background: var(--navy-dark); color: #fff;
+    padding: 10pt 16pt; margin-bottom: 10pt;
+    border-left: 4pt solid var(--gold);
+  }
+  .sec-header .fk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .sec-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .sec-header .fd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  .bloco-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 12pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+  .alt { margin: 3pt 0 6pt 0; color: #4a5160; }
+  .qlabel { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 9pt; }
+  .qtext { color: var(--navy); font-weight: bold; font-size: 10.5pt; margin-bottom: 3pt; }
+
+  .cover { padding-top: 55mm; }
+  .cover h1 { font-size: 38pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- 1 · CAPA -->
+<div class="page cover">
+  <div class="kicker">Funil de Diagnóstico · Método OCC</div>
+  <h1>Estratégia<br>Completa</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    Quiz, página de diagnóstico, anúncios e cadência.<br>
+    A copy inteira do funil, pronta para implementar.<br>
+    A conta que a sua base já poderia ter pago.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">Ayla Pedra Rica</div>
+    <div class="lbl">Estrategista</div>
+    <div class="val">Daniel Souza · Carlos Durães</div>
+  </div>
+</div>
+
+<!-- 2 · O FUNIL EM UMA PÁGINA -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Ayla Pedra Rica</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Ler a Copy</div>
+  <h1 style="font-size:19pt;">O Funil em Uma Página</h1>
+  <p class="lead">Leia esta página antes de aprovar as copies. Tudo o que vem depois parte destas decisões.</p>
+
+  <div class="box-dark">
+    <div class="bt">O caminho do lead</div>
+    <p>Anúncio ou conteúdo → Diagnóstico da Receita Parada, quiz gratuito de 2 minutos → página de diagnóstico com o número dele calculado → WhatsApp → sessão de diagnóstico com você → mentoria.</p>
+    <p>A página de diagnóstico <strong>não vende e não mostra preço</strong>. O trabalho dela é dar nome ao padrão de perda do expert, mostrar o valor em reais e fazer ele querer conversar. A oferta acontece na sessão.</p>
+    <p>Por que assim: a mentoria custa R$ 15 mil, valor que esse público considera e não compra por impulso. E é na sessão que aparecem as objeções reais, que depois voltam para a copy.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A esteira hoje</div>
+    <p><strong>Carro-chefe: Mentoria de Implementação Comercial para experts, R$ 15 mil.</strong> Jornada de 90 dias: oferta de high ticket montada, comercial em pé e rotina rodando. É o que este funil vende.</p>
+    <p><strong>Porta lateral: implementação comercial B2B, R$ 20 mil por mês.</strong> Para empresa, não para expert. Só aparece na sessão quando o perfil pedir, nunca na mídia.</p>
+    <p><strong>Produto de entrada: não existe hoje, e não entra nos 90 dias.</strong> Quem não qualifica recebe o diagnóstico completo e fica na base para conteúdo. Objeção de valor na sessão vira forma de pagamento, nunca desconto.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">O que a copy precisa compensar</div>
+    <p>Não existe depoimento de expert que passou pela mentoria, porque ela ainda não teve turma. Enquanto a prova não chega, a copy compensa com o que quase ninguém no nicho tem: <strong>R$ 8 milhões vendidos pessoalmente em high ticket</strong>, um ano supervisionando um time que fechava de 35 a 40 contratos por semana, e um case de entrega, a Carol, com produto validado em dois meses.</p>
+    <p>Onde houver [DEPOIMENTO] no texto, é espaço reservado. Case de mentorado só entra quando existir de verdade.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Premissas assumidas</div>
+    <p>Ticket de R$ 15 mil e nome do método (OCC), <strong>as duas premissas mais importantes, ambas pendentes desde o canvas de julho e a validar por você</strong> · conversão de 20% na sessão no começo, subindo para 25% com a prova · comparecimento de 60% · corte de qualificação em R$ 25 mil de faturamento mensal · quem conduz a sessão e fecha é você, porque não existe pré-vendas · verba inicial de R$ 50 por dia, financiada pelo caixa rápido do roadmap · tratamento por "você".</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 3 · SEÇÃO 1 · BIG IDEA -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Ayla Pedra Rica</span><span>Página 3</span></div>
+  <div class="sec-header">
+    <div class="fk">Seção 1</div>
+    <h2>Big Idea</h2>
+    <div class="fd">A ideia que sustenta o quiz, a página, os anúncios e o atendimento.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">A big idea</div>
+    <p><strong>Seguidor não é cliente. O que vende high ticket é conversa, não audiência.</strong></p>
+    <p>O expert que você atende não tem problema de conteúdo. Ele posta, é procurado, é indicado, tem gente que já comprou dele e fala bem. Mas o faturamento só se mexe quando ele lança, e entre um lançamento e outro não entra quase nada.</p>
+    <p>Por isso a virada de chave não é "cresça mais". É: <strong>a sua base já está pronta para comprar o caro, e ninguém nunca ofereceu.</strong> Essa diferença tem nome e tem valor em reais: é a <strong>Receita Parada</strong>.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A frase que resume a transformação</div>
+    <p><strong>De expert que junta plateia a expert que vende high ticket todo mês.</strong></p>
+    <p>A pergunta do mercado muda. Deixa de ser "como eu consigo mais audiência?" e passa a ser "quanto a base que eu já tenho já poderia ter me pagado?".</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">O mecanismo: Método OCC</div>
+    <p><strong>1. Oferta.</strong> Transformar o que ele já sabe numa oferta de high ticket que pode ser vendida numa conversa, e não num lançamento.</p>
+    <p><strong>2. Conversa.</strong> A sessão de diagnóstico e o comercial: quem aborda, quem conduz, quem fecha, e com qual script.</p>
+    <p><strong>3. Constância.</strong> A rotina que faz isso acontecer toda semana, sem depender de data de lançamento nem de algoritmo.</p>
+    <p>Nessa ordem, porque fora dela não funciona.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A régua de linguagem, válida para toda peça</div>
+    <p><strong>Fala:</strong> oferta · conversa · sessão · fechamento · base · aluno que já comprou · agenda · caixa · high ticket · quanto a sua base já poderia ter pago · Receita Parada.</p>
+    <p><strong>Não fala:</strong> promessa de quanto a pessoa vai faturar, que a Meta lê como violação · escala, destrave, segredo, virar referência como promessa de entrada · lançamento como solução, porque parte desse público saiu queimado de um · vocabulário de agência (tráfego, criativo, CPL) na porta de entrada, porque é exatamente o que traumatizou ele · amador, desorganizado ou preguiçoso como rótulo de quem lê.</p>
+    <p>A regra que resume: <strong>descreva a cena e use a frase que o próprio expert diz. Nunca acuse quem ele é.</strong></p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 4 · SEÇÃO 2 PARTE 1 · QUIZ -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Ayla Pedra Rica</span><span>Página 4</span></div>
+  <div class="sec-header">
+    <div class="fk">Seção 2 · Parte 1</div>
+    <h2>Copy do Quiz</h2>
+    <div class="fd">Diagnóstico da Receita Parada. Capta, qualifica, calcula e já funciona como o primeiro atendimento.</div>
+  </div>
+
+  <p>Cada pergunta mede uma parte da perda. O resultado não é rótulo genérico: é o nome do padrão dele e o valor em reais, e é isso que faz a pessoa chegar na sessão achando que você enxergou o que ninguém enxergou.</p>
+
+  <div class="box-dark">
+    <div class="bt">Hero da página do quiz</div>
+    <p><strong>Headline:</strong> Quanto a sua base já poderia ter te pagado?</p>
+    <p><strong>Sub:</strong> Não é falta de audiência e não é falta de autoridade. Existem quatro pontos onde a venda do seu high ticket trava, e todos eles têm conta.</p>
+    <p><strong>Micro:</strong> 10 perguntas · 2 minutos · resultado no seu WhatsApp · <strong>Botão:</strong> Quero ver a minha conta</p>
+  </div>
+
+  <div class="qlabel">Pergunta 1 · Situação · Perfil</div>
+  <div class="qtext">Em que área você atua como especialista?</div>
+  <div class="alt">a) Saúde (medicina, odontologia, nutrição, psicologia) · b) Educação e ensino · c) Negócios, carreira ou finanças · d) Estética, bem-estar ou espiritualidade</div>
+
+  <div class="qlabel">Pergunta 2 · Situação · Alimenta o cálculo</div>
+  <div class="qtext">Quantas pessoas já compraram alguma coisa sua, somando tudo?</div>
+  <div class="alt">a) Até 50 · b) De 50 a 200 · c) De 200 a 500 · d) De 500 a 1.000 · e) De 1.000 a 3.000 · f) De 3.000 a 10.000 · g) Mais de 10.000</div>
+
+  <div class="qlabel">Pergunta 3 · Situação · Alimenta o cálculo</div>
+  <div class="qtext">Qual é o preço do seu produto mais caro hoje?</div>
+  <div class="alt">a) Ainda não tenho produto pago · b) Até R$ 500 · c) De R$ 500 a R$ 2 mil · d) De R$ 2 mil a R$ 5 mil · e) De R$ 5 mil a R$ 15 mil · f) De R$ 15 mil a R$ 30 mil · g) Acima de R$ 30 mil</div>
+
+  <div class="box-light">
+    <div class="bt">Por que sete faixas, e não quatro</div>
+    <p>Quem marca "até R$ 500" vê, na mesma tela, que existe gente da mesma área entregando mentoria acima de R$ 30 mil. O contraste é o primeiro trabalho de consciência do funil, e ele acontece antes de qualquer texto: a pessoa descobre o tamanho do teto respondendo uma pergunta.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 5 · SEÇÃO 2 PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Ayla Pedra Rica</span><span>Página 5</span></div>
+  <div class="kicker">Seção 2 · Parte 2</div>
+  <h1 style="font-size:19pt;">Perguntas 4 a 6</h1>
+  <p class="lead">O problema que define o padrão e as duas perguntas que geram o número.</p>
+
+  <div class="qlabel">Pergunta 4 · Problema · Define o padrão dominante</div>
+  <div class="qtext">Quando você oferece alguma coisa para a sua audiência, o que mais acontece?</div>
+  <div class="alt">a) Junta bastante gente, todo mundo elogia, e vende pouco · b) Vendem o meu produto mais barato, e quase ninguém sobe para o caro · c) Só entra dinheiro quando eu faço um lançamento, e entre um e outro não entra nada · d) Quase não ofereço, minha agenda é toda de atendimento e entrega</div>
+
+  <div class="qlabel">Pergunta 5 · Implicação · Alimenta o cálculo</div>
+  <div class="qtext">Das pessoas que já compraram de você, quantas chegaram a receber uma oferta de mentoria ou acompanhamento de alto valor?</div>
+  <div class="alt">a) A maior parte recebeu · b) Menos da metade recebeu · c) Quase ninguém recebeu · d) Nenhuma, eu nunca ofereci isso</div>
+
+  <div class="qlabel">Pergunta 6 · Implicação</div>
+  <div class="qtext">Hoje, quem faz a venda do seu produto mais caro?</div>
+  <div class="alt">a) Eu mesmo, quando sobra tempo na agenda · b) Ninguém, quem quer comprar chega e compra sozinho · c) Uma agência ou um gestor de tráfego cuida disso · d) Tenho alguém no comercial comigo</div>
+
+  <div class="box-light">
+    <div class="bt">Por que a 5 e a 6 importam tanto</div>
+    <p>A <strong>5 é a que gera o número</strong>. Sem ela não existe diagnóstico, existe texto motivacional: é ela que diz quantas pessoas da base já confiam no expert e nunca ouviram uma oferta.</p>
+    <p>A <strong>6 é a que separa o lead</strong>. Quem marca a ou b é o mais valioso do funil: tem base, tem produto, e literalmente ninguém está vendendo. É com ele que o Ângulo 2 dos anúncios e o Bloco 5 da página falam diretamente, e é o argumento que mais separa você do resto do mercado.</p>
+    <p>Quem marca c costuma trazer a objeção mais forte da sessão, o trauma de agência. Prepare o gancho: a agência entrega criativo, não entrega conversa.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 6 · SEÇÃO 2 PARTE 3 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Ayla Pedra Rica</span><span>Página 6</span></div>
+  <div class="kicker">Seção 2 · Parte 3</div>
+  <h1 style="font-size:19pt;">Perguntas 7 a 9</h1>
+  <p class="lead">O sentimento, o que ele já tentou e o que ele quer. É aqui que o diagnóstico ganha profundidade.</p>
+
+  <div class="qlabel">Pergunta 7 · Implicação</div>
+  <div class="qtext">No fim do mês, quando você olha o faturamento, o que você sente?</div>
+  <div class="alt">a) Está bom, entra o que eu planejei · b) Entra, mas depende inteiramente de eu estar lançando alguma coisa · c) Trabalho muito e o número não sai do lugar · d) Evito olhar</div>
+
+  <div class="qlabel">Pergunta 8 · Tentativas</div>
+  <div class="qtext">O que você já tentou para destravar a venda do seu produto de alto valor?</div>
+  <div class="alt">a) Contratei agência ou gestor de tráfego · b) Fiz lançamento · c) Fiz curso de marketing, copy ou vendas · d) Nunca tentei nada específico, fui levando</div>
+
+  <div class="qlabel">Pergunta 9 · Objetivo</div>
+  <div class="qtext">Se em 90 dias isso mudasse de vez, o que mudaria primeiro?</div>
+  <div class="alt">a) Eu venderia high ticket todo mês, sem depender de data · b) Eu pararia de depender de lançamento para faturar · c) Eu teria alguém vendendo por mim, com processo · d) Eu passaria a ser procurado, em vez de correr atrás</div>
+
+  <div class="box-light">
+    <div class="bt">Por que a 8 é a pergunta mais estratégica do quiz</div>
+    <p>Ela separa o lead por <strong>trauma</strong>, e trauma é a emoção que mais decide nesse nicho. Quem marca <strong>a</strong> já pagou agência e ficou sem resposta: é o lead que mais converte com você, porque a sua promessa é exatamente o oposto do que ele viveu, e é aqui que entra a sua frase, a de que ele acabou achando que seguidor é cliente.</p>
+    <p>Quem marca <strong>b</strong> já fez lançamento e sabe o que é faturar num mês e zerar no outro. Quem marca <strong>c</strong> estudou e continua sem vender, o que prova que o problema nunca foi conhecimento.</p>
+    <p>Cruze sempre a 8 com a 6: agência contratada mais ninguém vendendo é o retrato do lead que a sua mentoria resolve em 90 dias.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 7 · SEÇÃO 2 PARTE 4 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Ayla Pedra Rica</span><span>Página 7</span></div>
+  <div class="kicker">Seção 2 · Parte 4</div>
+  <h1 style="font-size:19pt;">Qualificação, segmentação e captura</h1>
+  <p class="lead">A última pergunta e as regras que o comercial usa no dia a dia.</p>
+
+  <div class="qlabel">Pergunta 10 · Qualificação · Sempre por último</div>
+  <div class="qtext">Quanto o seu negócio fatura por mês, em média, nos últimos 6 meses?</div>
+  <div class="alt">a) Até R$ 5 mil · b) De R$ 5 mil a R$ 15 mil · c) De R$ 15 mil a R$ 25 mil · d) De R$ 25 mil a R$ 50 mil · e) De R$ 50 mil a R$ 100 mil · f) De R$ 100 mil a R$ 300 mil · g) Acima de R$ 300 mil</div>
+
+  <p>Mesma lógica de contraste da Pergunta 3. Quem fatura R$ 15 mil precisa ver que a faixa de cima existe e é ocupada por gente da mesma área. Faixa alta não afasta: ela mostra o tamanho do teto.</p>
+
+  <div class="box-dark">
+    <div class="bt">Regra de segmentação</div>
+    <p><strong>Qualificado:</strong> P10 de d para cima, ou seja, R$ 25 mil por mês em diante. Vai para a fila de sessão, com prioridade para quem também marcou P5 c/d (base nunca ofertada) e P6 a/b (ninguém vendendo), que é quem tem a maior perda e sente mais.</p>
+    <p><strong>A nutrir:</strong> P10 em b ou c. Recebe o diagnóstico completo e fica na base para conteúdo. <strong>Exceção que vale ouro:</strong> se a Receita Parada calculada passar de R$ 100 mil, entra na fila de sessão mesmo assim. Quem tem uma base grande e fatura pouco é exatamente quem mais precisa de você.</p>
+    <p><strong>Fora por ora:</strong> P10 em a, ou P2 em a (base de até 50 pessoas). Recebe o diagnóstico completo e entra na lista de conteúdo. Sem base não existe o que ativar.</p>
+    <p>Cruze sempre com a P4: ela dá o padrão dominante e define o gancho da sua primeira mensagem no WhatsApp.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Captura de dados</div>
+    <p><strong>Headline:</strong> Sua conta está pronta. · <strong>Sub:</strong> Coloque seu WhatsApp abaixo e receba agora o seu número e a leitura completa do seu caso.</p>
+    <p><strong>Campos:</strong> Nome · WhatsApp · E-mail · Instagram (para você olhar o perfil antes da conversa) · <strong>Botão:</strong> Ver minha Receita Parada</p>
+    <p><strong>Selo:</strong> Seus dados ficam entre você e a nossa equipe. Nada de disparo em massa.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 8 · SEÇÃO 3 PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Ayla Pedra Rica</span><span>Página 8</span></div>
+  <div class="sec-header">
+    <div class="fk">Seção 3 · Parte 1</div>
+    <h2>Página de Diagnóstico</h2>
+    <div class="fd">A peça central do funil. Ela não vende: entrega o número e prepara a pessoa para querer conversar.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">O trabalho desta página</div>
+    <p>É uma peça só: o diagnóstico e o convite vivem na mesma página. A pessoa responde o quiz, deixa o WhatsApp e cai direto no resultado dela. O mesmo texto vai por WhatsApp em seguida, para reler e para mostrar ao sócio.</p>
+    <p>A régua: a pessoa precisa terminar a leitura pensando <strong>"é exatamente isso que acontece comigo, e eu nunca tinha feito essa conta"</strong>. O padrão é nomeado e o número é entregue; o caminho para mudar é a mentoria.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Os 4 padrões de perda (o resultado do quiz)</div>
+    <p><strong>1. A Plateia.</strong> A perda acontece na audiência. Ele junta gente, recebe elogio, é indicado, e quase ninguém compra. Construiu público e nunca construiu oferta.</p>
+    <p><strong>2. O Teto do Barato.</strong> A perda acontece na esteira. Vende bem o produto de entrada e ninguém sobe. O barato virou o teto, e o caro nunca foi ofertado de verdade.</p>
+    <p><strong>3. O Lançamento Refém.</strong> A perda acontece no calendário. Só entra dinheiro quando ele lança. Entre um e outro, o caixa para, e ele recomeça do zero toda vez.</p>
+    <p><strong>4. A Base Esquecida.</strong> A perda acontece no arquivo. Tem gente que já comprou, já confia e nunca recebeu uma segunda oferta. É o padrão que ele menos enxerga e o que tem a maior conta.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Como o padrão é definido</div>
+    <p>P4 dá o padrão dominante, cruzada com P5, P6 e P7. Empate resolve pela maior perda em reais: <strong>a</strong> na P4 leva à Plateia · <strong>b</strong> leva ao Teto do Barato · <strong>c</strong> leva ao Lançamento Refém · <strong>d</strong>, ou P5 em c/d com base acima de 500 pessoas, leva à Base Esquecida.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Variáveis usadas nesta página</div>
+    <p>{{nome}} · {{padrao}} · {{area}} (P1) · {{base_total}} (P2) · {{ticket_atual}} (P3) · {{resposta_p4}} · {{base_sem_oferta}} (P5) · {{quem_vende}} (P6) · {{sentimento}} (P7) · {{tentativas}} (P8) · {{objetivo}} (P9) · {{ticket_potencial}} · {{receita_parada}} · {{receita_parada_3anos}} · {{link_agendamento}}</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Os nove blocos, na ordem</div>
+    <p>1. O resultado dele · 2. A leitura do cenário · 3. O espelho · 4. A conta · 5. Por que o que você já tentou não resolveu · 6. O mecanismo · 7. O que precisa acontecer no seu caso e o que custa continuar · 8. Quem é a Ayla, prova, para quem é e FAQ · 9. O convite e o CTA</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 9 · SEÇÃO 3 PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Ayla Pedra Rica</span><span>Página 9</span></div>
+  <div class="kicker">Seção 3 · Parte 2</div>
+  <h1 style="font-size:19pt;">A Copy, Bloco a Bloco</h1>
+  <p class="lead">Blocos 1 a 3: o resultado, a leitura do cenário e o espelho.</p>
+
+  <div class="bloco-label">Bloco 1 · O resultado dele</div>
+  <p><strong>Headline:</strong> {{nome}}, o seu padrão é o {{padrao}}.</p>
+  <p><strong>Sub:</strong> Isso não é um julgamento sobre o seu trabalho. É o nome do lugar onde a sua venda está travando, e é o começo do fim dele.</p>
+
+  <div class="bloco-label">Bloco 2 · A leitura do cenário</div>
+  <p>Eu li as suas respostas com atenção. Vou ser direta com você, porque é disso que você precisa agora, e não de mais um conteúdo gratuito.</p>
+  <p>Você atua em {{area}}, já teve {{base_total}} pessoas comprando de você e o seu produto mais caro hoje é {{ticket_atual}}. Quando você oferece alguma coisa, o que mais acontece é {{resposta_p4}}. Da sua base, {{base_sem_oferta}}. Hoje, quem vende o seu produto mais caro é {{quem_vende}}. E no fim do mês, olhando o faturamento, você sente {{sentimento}}.</p>
+  <p>Essa combinação é a assinatura do {{padrao}}. E ela diz uma coisa importante: <strong>isso não fica parado.</strong> Cada mês que passa, mais gente entra na sua base, confia em você e nunca recebe uma oferta.</p>
+
+  <div class="bloco-label">Bloco 3 · O espelho</div>
+  <p>Você é bom no que faz. Ninguém precisa te dizer isso: o seu resultado diz. Te procuram, te indicam, e quando alguém precisa do seu tema o seu nome aparece.</p>
+  <p>Provavelmente você se reconhece aqui:</p>
+  <ul class="check">
+    <li>Postou, teve alcance bom, gente elogiando nos comentários, e nenhuma venda do produto caro</li>
+    <li>Fez um lançamento que deu certo e no mês seguinte o caixa voltou para o zero</li>
+    <li>Tem aluno que comprou o seu curso há um ano, te acompanha até hoje, e nunca ouviu falar de mentoria</li>
+    <li>Contratou agência, recebeu criativo para gravar, e continuou sem nenhuma conversa de venda acontecendo</li>
+    <li>Pensou em cobrar mais caro e travou, porque não sabia como venderia</li>
+    <li>Olhou a agenda cheia de atendimento e percebeu que não sobrou uma hora para vender</li>
+  </ul>
+  <p>Não há nada de errado com você. <strong>Há um padrão no seu negócio.</strong> E padrão não se resolve postando mais, nem fazendo mais um curso, nem esperando o próximo lançamento.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 10 · SEÇÃO 3 PARTE 3 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Ayla Pedra Rica</span><span>Página 10</span></div>
+  <div class="kicker">Seção 3 · Parte 3</div>
+  <h1 style="font-size:19pt;">A Conta e o Mecanismo</h1>
+  <p class="lead">Blocos 4 a 6: o número, por que o que ele tentou não resolveu, e o método.</p>
+
+  <div class="bloco-label">Bloco 4 · A conta</div>
+  <p>Com as suas respostas, a conta fica assim:</p>
+  <p>Pessoas que já compraram de você: <strong>{{base_total}}</strong><br>
+  Dessas, nunca receberam uma oferta de alto valor: <strong>{{base_sem_oferta}}</strong><br>
+  Régua conservadora de mercado: <strong>1% de uma base quente compra um high ticket</strong><br>
+  Ticket de referência para a sua área: <strong>{{ticket_potencial}}</strong></p>
+  <p><strong>A sua Receita Parada: {{receita_parada}}.</strong></p>
+  <p>{{nome}}, esse dinheiro não foi perdido para a concorrência e não foi embora por causa de algoritmo. <strong>Ele está parado na sua própria base, esperando alguém oferecer.</strong> E ele é conservador de propósito: é 1%, uma única vez, sem contar quem entra na sua base daqui para frente.</p>
+  <p><em>Nota de implementação: este é o bloco mais importante da página. O número entra grande, em destaque, sozinho na tela do celular.</em></p>
+
+  <div class="bloco-label">Bloco 5 · Por que o que você já tentou não resolveu</div>
+  <p>Você marcou que já {{tentativas}}. Isso não foi desperdício: hoje você entende do seu tema e tem autoridade por causa disso.</p>
+  <p>Só que <strong>agência entrega criativo, não entrega conversa</strong>. Ela coloca gente na sua porta e vai embora, e aí sobra para você, que já está com a agenda cheia de atendimento. <strong>Lançamento move o faturamento de um mês</strong> e te obriga a recomeçar do zero no seguinte. E <strong>curso de marketing te dá o conhecimento</strong>, mas conhecimento não senta e vende.</p>
+  <p>Nenhuma das três mexe no lugar onde a sua venda está travando: ninguém está tendo a conversa que transforma a sua base em cliente de alto valor.</p>
+
+  <div class="bloco-label">Bloco 6 · O mecanismo</div>
+  <p>A maioria vai te ensinar a aparecer mais: mais conteúdo, mais tráfego, mais audiência. Eu vou muito antes disso.</p>
+  <p>Eu passei um ano supervisionando o comercial de uma das maiores operações de high ticket do Brasil, e vendi <strong>R$ 8 milhões</strong> pessoalmente, olhando no olho. O que eu aprendi lá é que <strong>não existe high ticket vendido por conteúdo. Existe high ticket vendido por conversa</strong>, e alguém precisa fazer essa conversa acontecer todo dia.</p>
+  <p>O Método OCC trabalha isso em três camadas, nesta ordem: <strong>Oferta</strong>, transformar o que você já sabe numa oferta que pode ser vendida numa conversa; <strong>Conversa</strong>, a sessão de diagnóstico, o script e a condução até o fechamento; e <strong>Constância</strong>, a rotina que faz isso acontecer toda semana, sem depender de data de lançamento.</p>
+  <p>O princípio que atravessa tudo: <strong>seguidor não é cliente, e audiência sem oferta é só plateia.</strong></p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 11 · SEÇÃO 3 PARTE 4 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Ayla Pedra Rica</span><span>Página 11</span></div>
+  <div class="kicker">Seção 3 · Parte 4</div>
+  <h1 style="font-size:19pt;">Personalização, Prova e CTA</h1>
+  <p class="lead">Blocos 7 a 9: onde a página fala do caso dele, mostra a prova e vira conversa.</p>
+
+  <div class="bloco-label">Bloco 7 · O que precisa acontecer no seu caso · personalizado por {{padrao}}</div>
+  <p><strong>A Plateia:</strong> você tem público e não tem oferta. Enquanto não existir um produto de alto valor desenhado para ser vendido numa conversa, todo o seu alcance vira elogio. A primeira mudança é na oferta, não no conteúdo.</p>
+  <p><strong>O Teto do Barato:</strong> a sua esteira para no produto de entrada. Quem comprou o barato nunca foi convidado para o caro. A primeira mudança é criar o degrau de cima.</p>
+  <p><strong>O Lançamento Refém:</strong> o seu faturamento tem data marcada, e fora dela o caixa para. A primeira mudança é montar a rotina de conversa que roda toda semana, independente de campanha.</p>
+  <p><strong>A Base Esquecida:</strong> a sua maior oportunidade já confia em você e está no seu arquivo. A primeira mudança é a mais rápida: ofertar para quem já comprou, antes de investir um real em anúncio.</p>
+  <p><strong>O custo de continuar como está:</strong> em três anos, {{receita_parada_3anos}}. E não é só dinheiro: é a agenda que nunca abre e a pergunta que volta todo fim de mês.</p>
+
+  <div class="bloco-label">Bloco 8 · Quem é a Ayla, prova e FAQ</div>
+  <p>Eu sou 100% comercial: já fui SDR, já fui closer, e passei um ano como supervisora comercial na operação do Insider, do Érico Rocha, onde o time fechava de 35 a 40 contratos por semana. Eu mesma vendi <strong>R$ 8 milhões</strong> em evento presencial, com a meta de nunca sair com menos de 7 vendas, e teve evento em que eu fiz 12.</p>
+  <p>Quando eu saí de lá e comecei a pegar expert, eu vi o contrário do que via no palco: gente com produto bom, com autoridade, com plateia, e sem venda nenhuma.</p>
+  <p>E tem a prova que é de entrega, não de palco: peguei uma especialista de Feng Shui, a Carol, e <strong>validamos o produto dela em dois meses</strong>, do zero à primeira leva de vendas. [DEPOIMENTO] [DEPOIMENTO]</p>
+  <p><strong>"Já contratei agência e não deu certo."</strong> É o que eu mais escuto. Agência entrega criativo e vai embora. Eu entrego a oferta montada, o script e a conversa acontecendo.</p>
+  <p><strong>"Minha audiência é pequena."</strong> Base pequena e quente vende high ticket. Base grande e fria não vende nada. A conta que você acabou de ver usa só quem já comprou de você.</p>
+  <p><strong>"Não tenho tempo, minha agenda é de atendimento."</strong> Esse é exatamente o diagnóstico. A gente monta a rotina de venda que cabe na sua semana, e é ela que abre a sua agenda depois.</p>
+  <p><strong>"E quanto custa?"</strong> A sessão é gratuita e não tem apresentação de slide. O investimento eu apresento na conversa, depois de entender o seu caso.</p>
+
+  <div class="bloco-label">Bloco 9 · O convite e o CTA</div>
+  <p>{{nome}}, eu abro algumas conversas por semana para olhar esse número junto com a pessoa. São 45 minutos, comigo.</p>
+  <p>O que sai dali: onde exatamente a sua venda está travando e o que muda primeiro. Não é aula e não é apresentação de produto disfarçada. Se fizer sentido seguirmos juntos, eu te explico como. Se não fizer, você sai com a sua conta na mão.</p>
+  <p><strong>CTA:</strong> Quero minha sessão de diagnóstico · <strong>Reforço:</strong> a sua autoridade já está construída. Falta alguém sentar e vender.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 12 · SEÇÃO 4 PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Ayla Pedra Rica</span><span>Página 12</span></div>
+  <div class="sec-header">
+    <div class="fk">Seção 4 · Parte 1</div>
+    <h2>Copy dos Anúncios</h2>
+    <div class="fd">25 criativos escritos: 15 roteiros de vídeo, 5 estáticos e 5 carrosséis.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Regras que valem para todos os anúncios</div>
+    <p><strong>O destino é sempre o quiz gratuito</strong>, nunca a sessão e nunca a mentoria. Nenhum anúncio cita preço.</p>
+    <p><strong>Não prometer faturamento.</strong> Nada de "fature R$ 50 mil com a sua base". A Meta lê promessa de ganho como violação, e este público já desconfia de guru.</p>
+    <p><strong>Não afirmar atributo de quem lê.</strong> Nada de "você não sabe vender" ou "você é desorganizado". A régua é descrever a cena e citar a frase que ele mesmo diz.</p>
+    <p><strong>Cuidado redobrado com expert da saúde</strong>, que é o nicho prioritário: nada que soe como promessa de resultado clínico ou que possa esbarrar em conselho de classe. A gente fala do negócio dele, nunca do tratamento dele.</p>
+    <p><strong>Trilha instrumental em todo vídeo.</strong> Música com direito autoral reprova criativo.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Os três ângulos, e o que cada um faz</div>
+    <p><strong>Ângulo 1 · Cena e identificação.</strong> Repete de volta a cena que ele viveu esse mês. É o que mais capta público frio, porque é a dor que ele já nomeia sozinho. <strong>Sete roteiros.</strong></p>
+    <p><strong>Ângulo 2 · Mecanismo.</strong> A conta que ninguém desse mercado nunca fez, e a diferença entre audiência e conversa. É o que mais qualifica: separa quem só reclama de quem quer resolver. <strong>Quatro roteiros.</strong></p>
+    <p><strong>Ângulo 3 · Prova e autoridade.</strong> Os R$ 8 milhões, o palco e o case da Carol. É o que mais converte quem já viu você antes. <strong>Quatro roteiros.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Como ler as próximas páginas</div>
+    <p>Cada roteiro traz gancho, desenvolvimento, virada, CTA e a legenda do post. O roteiro é o que você fala; a legenda é o texto que acompanha o anúncio e funciona sozinho para quem assiste sem som.</p>
+    <p>As durações variam de 30 a 90 segundos de propósito. Os curtos captam frio e os longos convertem remarketing, e a Meta precisa dos dois no mesmo conjunto para escolher. Conforme a audiência aquece, aumente o peso dos longos.</p>
+    <p>Todo roteiro vale como anúncio e como conteúdo orgânico. Para orgânico, troque o CTA por "link na bio".</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 13 · SEÇÃO 4 PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Ayla Pedra Rica</span><span>Página 13</span></div>
+  <div class="kicker">Seção 4 · Parte 2</div>
+  <h1 style="font-size:19pt;">Roteiros 1 a 3 · cena e identificação</h1>
+  <p class="lead">As três cenas mais comuns do nicho. São os criativos de entrada.</p>
+
+  <div class="bloco-label">Roteiro 1 · Ângulo 1 · 45 segundos · "O post que bombou e não vendeu"</div>
+  <p><strong>Gancho:</strong> "O seu post bombou, encheu de comentário elogiando, e não vendeu nada. Eu vou te falar onde está o erro, e não é no conteúdo."</p>
+  <p><strong>Desenvolvimento:</strong> "Aí você começa a achar que precisa postar mais, testar outro formato, entrar em outra rede."</p>
+  <p><strong>Virada:</strong> "Não é nada disso. Ninguém compra mentoria de R$ 15 mil por causa de um Reels. Compra depois de uma conversa. E se ninguém está tendo essa conversa, não tem post que resolva."</p>
+  <p><strong>CTA:</strong> "Fiz um diagnóstico de 2 minutos que calcula quanto a sua base já poderia ter te pagado."</p>
+  <p><strong>Legenda:</strong> Alcance bom e venda zero não é problema de conteúdo. É que entre o seu post e a venda do seu produto caro falta uma conversa que ninguém está tendo. O diagnóstico gratuito calcula quanto isso já te custou.</p>
+
+  <div class="bloco-label">Roteiro 2 · Ângulo 1 · 40 segundos · "O aluno que nunca ouviu a segunda oferta"</div>
+  <p><strong>Gancho:</strong> "Você tem aluno que comprou seu curso há um ano, te segue até hoje e nunca ouviu falar da sua mentoria?"</p>
+  <p><strong>Desenvolvimento:</strong> "Ele confia em você. Ele já pagou uma vez. Ele já teve resultado. E ele nunca recebeu um convite para o próximo passo."</p>
+  <p><strong>Virada:</strong> "Essa pessoa é o cliente mais barato que você tem, e ela está parada no seu arquivo. Não é que ela não quer comprar. É que ninguém ofereceu."</p>
+  <p><strong>CTA:</strong> diagnóstico gratuito no link.</p>
+  <p><strong>Legenda:</strong> Quem já comprou de você uma vez é quem tem mais chance de comprar o caro. Faça a conta de quantos nunca receberam uma oferta. O diagnóstico gratuito faz por você em 2 minutos.</p>
+
+  <div class="bloco-label">Roteiro 3 · Ângulo 1 · 50 segundos · "O mês seguinte ao lançamento"</div>
+  <p><strong>Gancho:</strong> "Como é o seu mês seguinte a um lançamento?"</p>
+  <p><strong>Desenvolvimento:</strong> "Faturou bem, comemorou, entregou. E aí vem o mês seguinte: nenhuma venda, nenhuma conversa, e você já começa a pensar no próximo lançamento, porque é a única coisa que você sabe que funciona."</p>
+  <p><strong>Virada:</strong> "Isso não é um negócio, é um ciclo. E o problema do ciclo é que você recomeça do zero toda vez, com a mesma base que já estava lá."</p>
+  <p><strong>CTA:</strong> diagnóstico gratuito no link.</p>
+  <p><strong>Legenda:</strong> Faturar num mês e zerar no outro não é sazonalidade, é ausência de rotina de venda. Descubra em 2 minutos quanto a sua base já poderia ter te pagado entre um lançamento e outro.</p>
+
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 14 · SEÇÃO 4 PARTE 3 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Ayla Pedra Rica</span><span>Página 14</span></div>
+  <div class="kicker">Seção 4 · Parte 3</div>
+  <h1 style="font-size:19pt;">Roteiros 4 a 6 · cena e identificação</h1>
+  <p class="lead">A cena da agenda e as duas curtas para teste rápido.</p>
+
+  <div class="bloco-label">Roteiro 4 · Ângulo 1 · 40 segundos · "Agenda cheia de atendimento"</div>
+  <p><strong>Gancho:</strong> "Se a sua agenda está cheia e o faturamento não sai do lugar, o problema não é falta de trabalho."</p>
+  <p><strong>Desenvolvimento:</strong> "Você atende o dia inteiro, entrega bem, e no fim do dia não sobrou uma hora para falar com alguém que poderia comprar o seu produto caro."</p>
+  <p><strong>Virada:</strong> "Atender é entrega. Vender é outra atividade, e ela precisa de hora marcada na agenda igual consulta. Se ela não tem hora, ela não acontece."</p>
+  <p><strong>CTA:</strong> diagnóstico gratuito no link.</p>
+  <p><strong>Legenda:</strong> Agenda cheia de atendimento não é sinal de negócio saudável. Descubra em 2 minutos o que a sua base já poderia ter pago enquanto você atendia.</p>
+
+  <div class="bloco-label">Roteiro 5 · Ângulo 1 · 35 segundos · "A agência que sumiu"</div>
+  <p><strong>Gancho:</strong> "Você já contratou agência, recebeu uma lista de criativos para gravar, e nunca mais teve resposta?"</p>
+  <p><strong>Desenvolvimento:</strong> "Você gravou. Subiu campanha. Apareceu seguidor. E venda do produto caro, nenhuma."</p>
+  <p><strong>Virada:</strong> "Não é que a agência seja ruim. É que ela entrega criativo, e criativo não senta com o seu lead e vende. Alguém precisa ter essa conversa, e não era ela."</p>
+  <p><strong>CTA:</strong> diagnóstico gratuito no link.</p>
+  <p><strong>Legenda:</strong> Criativo não vende high ticket. Conversa vende. Se você já pagou agência e continuou sem venda, o diagnóstico gratuito mostra onde o processo parou.</p>
+
+  <div class="bloco-label">Roteiro 6 · Ângulo 1 · 30 segundos · "Seguidor não é cliente"</div>
+  <p><strong>Gancho:</strong> "Seguidor não é cliente."</p>
+  <p><strong>Desenvolvimento:</strong> "Eu sei que dói ouvir isso depois de anos construindo audiência. Mas número de seguidor não aparece no seu extrato."</p>
+  <p><strong>Virada:</strong> "O que aparece é quantas conversas de venda aconteceram esse mês. Se a resposta for nenhuma, o problema nunca foi o seu alcance."</p>
+  <p><strong>CTA:</strong> diagnóstico gratuito no link.</p>
+  <p><strong>Legenda:</strong> Audiência é vaidade quando não existe oferta. Descubra em 2 minutos quanto a sua base já poderia ter te pagado.</p>
+
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 15 · SEÇÃO 4 PARTE 4 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Ayla Pedra Rica</span><span>Página 15</span></div>
+  <div class="kicker">Seção 4 · Parte 4</div>
+  <h1 style="font-size:19pt;">Roteiros 7 a 9 · a cena longa e o mecanismo</h1>
+  <p class="lead">A peça de remarketing que conta tudo, e a virada para a conta que ninguém faz.</p>
+
+  <div class="bloco-label">Roteiro 7 · Ângulo 1 · 90 segundos · "A cena inteira" · remarketing</div>
+  <p><strong>Gancho:</strong> "Você conhece essa cena. Você é bom no que faz, tem autoridade, tem gente que te indica. Posta, aparece, responde direct. E no fim do mês o faturamento é o mesmo de sempre."</p>
+  <p><strong>Desenvolvimento:</strong> "Aí vem o pensamento: preciso crescer mais. Aparecer mais. Talvez contratar uma agência. Eu vi esse filme de perto, porque eu passei um ano dentro de uma operação que vendia de 35 a 40 contratos de alto valor por semana, e depois comecei a pegar expert de fora."</p>
+  <p><strong>Virada:</strong> "E era sempre a mesma coisa: audiência boa, produto bom, autoridade construída, e nenhuma conversa de venda acontecendo. Ninguém compra mentoria de cinco dígitos por causa de um post. Compra depois de sentar com alguém que entende o caso dele. E enquanto essa conversa não acontece, a sua base fica parada, confiando em você, sem receber uma oferta."</p>
+  <p><strong>CTA:</strong> "Eu montei um diagnóstico gratuito que calcula esse número no seu caso. São 2 minutos e no fim você recebe quanto a sua base já poderia ter te pagado. Ver a conta não dói. Continuar sem ver, dói."</p>
+  <p><strong>Legenda:</strong> A versão completa da conversa que eu tenho com quase todo expert que me procura. Se você já fechou um mês inteiro sem entender por que o faturamento não sobe, assiste até o fim.</p>
+
+  <div class="bloco-label">Roteiro 8 · Ângulo 2 · 50 segundos · "A conta que ninguém faz"</div>
+  <p><strong>Gancho:</strong> "Faz uma conta comigo. Quantas pessoas já compraram alguma coisa sua, somando tudo?"</p>
+  <p><strong>Desenvolvimento:</strong> "Agora pensa: dessas, quantas chegaram a receber um convite para trabalhar com você de perto? Não um post falando que você tem mentoria. Um convite, direto, para a pessoa."</p>
+  <p><strong>Virada:</strong> "A régua do mercado é que 1% de uma base quente compra um high ticket. Só 1%. Multiplica esse 1% pelo seu ticket e você vai ver um número que está parado há anos no seu arquivo."</p>
+  <p><strong>CTA:</strong> diagnóstico gratuito no link.</p>
+  <p><strong>Legenda:</strong> Base que já comprou, confiança construída, e nenhuma oferta feita. Esse número tem nome: Receita Parada. Descubra o seu em 2 minutos.</p>
+
+  <div class="bloco-label">Roteiro 9 · Ângulo 2 · 55 segundos · "Conteúdo não vende high ticket"</div>
+  <p><strong>Gancho:</strong> "Você já postou muito e continua sem vender o seu produto caro."</p>
+  <p><strong>Desenvolvimento:</strong> "Não foi o conteúdo que falhou. Ele fez o trabalho dele: te deu autoridade, te deu audiência, te deu indicação."</p>
+  <p><strong>Virada:</strong> "Só que conteúdo é o que faz a pessoa confiar em você. Conversa é o que faz ela comprar. São duas atividades diferentes, e a maioria dos experts só faz a primeira."</p>
+  <p><strong>CTA:</strong> diagnóstico gratuito no link.</p>
+  <p><strong>Legenda:</strong> Se conteúdo vendesse high ticket sozinho, você já teria vendido. O problema não está no que você publica. Faça o diagnóstico gratuito.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 16 · SEÇÃO 4 PARTE 5 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Ayla Pedra Rica</span><span>Página 16</span></div>
+  <div class="kicker">Seção 4 · Parte 5</div>
+  <h1 style="font-size:19pt;">Roteiros 10 a 12 · mecanismo e prova</h1>
+  <p class="lead">Os dois que mais qualificam, e a entrada da autoridade.</p>
+
+  <div class="bloco-label">Roteiro 10 · Ângulo 2 · 50 segundos · "Eu não ensino a aparecer"</div>
+  <p><strong>Gancho:</strong> "Eu não ensino ninguém a crescer no Instagram."</p>
+  <p><strong>Desenvolvimento:</strong> "Tem muita gente boa ensinando isso, e você provavelmente já aprendeu. Aliás, a sua audiência já é maior do que a da maioria."</p>
+  <p><strong>Virada:</strong> "O meu trabalho é outro: montar a sua oferta de alto valor e colocar a conversa de venda para acontecer toda semana. Porque audiência esse mercado tem de sobra. O que falta é alguém sentar e vender."</p>
+  <p><strong>CTA:</strong> diagnóstico gratuito no link.</p>
+  <p><strong>Legenda:</strong> Todo mundo nesse mercado sabe aparecer. O problema aparece na hora de vender o caro. Descubra em 2 minutos onde a sua venda está travando.</p>
+
+  <div class="bloco-label">Roteiro 11 · Ângulo 2 · 80 segundos · "Por que o lançamento não resolveu" · remarketing</div>
+  <p><strong>Gancho:</strong> "Você fez lançamento, faturou, e no mês seguinte voltou para o zero. Aí concluiu que precisa lançar de novo."</p>
+  <p><strong>Desenvolvimento:</strong> "Eu entendo. O lançamento funciona: ele junta todo mundo no mesmo dia e força a decisão. O problema não é o lançamento, é ele ser a única coisa que você tem."</p>
+  <p><strong>Virada:</strong> "Porque ele te obriga a recomeçar do zero toda vez, com a mesma base que já estava lá. E entre um e outro, a pessoa que estava pronta para comprar o seu high ticket não tinha com quem falar. Quem vende alto valor todo mês não lança mais. Tem rotina de conversa."</p>
+  <p><strong>CTA:</strong> "O trabalho é antes do próximo lançamento. Comece descobrindo quanto a sua base já poderia ter pago: diagnóstico gratuito de 2 minutos no link."</p>
+  <p><strong>Legenda:</strong> Depender de lançamento para faturar é a forma mais cansativa de tocar um negócio de expert. Assiste até o fim.</p>
+
+  <div class="bloco-label">Roteiro 12 · Ângulo 3 · 55 segundos · "R$ 8 milhões olhando no olho"</div>
+  <p><strong>Gancho:</strong> "Eu vendi R$ 8 milhões olhando no olho, em evento presencial."</p>
+  <p><strong>Desenvolvimento:</strong> "Minha meta era nunca sair de um evento com menos de 7 vendas. Teve evento em que eu fiz 12. E não era porque eu tinha audiência: eu não tinha nenhuma. Era conversa, uma atrás da outra."</p>
+  <p><strong>Virada:</strong> "Quando eu saí de lá e comecei a pegar expert, eu vi o contrário. Gente com audiência enorme, produto bom, autoridade construída, e nenhuma venda de alto valor. Sobrava plateia e faltava conversa."</p>
+  <p><strong>CTA:</strong> diagnóstico gratuito no link.</p>
+  <p><strong>Legenda:</strong> Vendi R$ 8 milhões sem ter um seguidor. O que eu tinha era conversa acontecendo todo dia. Descubra em 2 minutos quanto a sua base já poderia ter te pagado.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 17 · SEÇÃO 4 PARTE 6 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Ayla Pedra Rica</span><span>Página 17</span></div>
+  <div class="kicker">Seção 4 · Parte 6</div>
+  <h1 style="font-size:19pt;">Roteiros 13 a 15 · prova e autoridade</h1>
+  <p class="lead">A sua origem, o case e a história inteira. É o conjunto que mais converte quem já viu você antes.</p>
+
+  <div class="bloco-label">Roteiro 13 · Ângulo 3 · 50 segundos · "Eu vim do outro lado do balcão"</div>
+  <p><strong>Gancho:</strong> "Eu não venho do marketing. Eu venho do comercial."</p>
+  <p><strong>Desenvolvimento:</strong> "Já fui SDR, já fui closer, e passei um ano supervisionando o time de uma das maiores operações de high ticket do país, que fechava de 35 a 40 contratos por semana."</p>
+  <p><strong>Virada:</strong> "É por isso que eu não vou te entregar uma lista de criativos para gravar. Eu vou montar a sua oferta, o seu script e a sua rotina de conversa. Porque foi isso que eu fiz a vida inteira, e é isso que vende alto valor."</p>
+  <p><strong>CTA:</strong> diagnóstico gratuito no link.</p>
+  <p><strong>Legenda:</strong> Agência entrega criativo. Eu venho do comercial e entrego conversa acontecendo. Faça o diagnóstico gratuito de 2 minutos.</p>
+
+  <div class="bloco-label">Roteiro 14 · Ângulo 3 · 50 segundos · "Validamos o produto dela em dois meses"</div>
+  <p><strong>Gancho:</strong> "Peguei uma especialista que não vendia nada fora de lançamento gratuito."</p>
+  <p><strong>Desenvolvimento:</strong> "Ela tinha base, tinha método próprio e tinha reputação. O que não tinha era uma oferta de alto valor e ninguém conversando com quem já estava lá dentro."</p>
+  <p><strong>Virada:</strong> "Em dois meses a gente montou a oferta e validou o produto com as primeiras vendas. Não teve segredo, não teve tráfego novo, não teve audiência nova. Teve oferta e conversa."</p>
+  <p><strong>CTA:</strong> diagnóstico gratuito no link.</p>
+  <p><strong>Legenda:</strong> Produto validado em dois meses, com a base que ela já tinha. Descubra em 2 minutos o tamanho da sua.</p>
+
+  <div class="bloco-label">Roteiro 15 · Ângulo 3 · 90 segundos · "A história inteira" · remarketing</div>
+  <p><strong>Gancho:</strong> "Durante um ano eu acordei todo dia para fazer uma coisa só: garantir que o time vendesse contrato de alto valor. De 35 a 40 por semana."</p>
+  <p><strong>Desenvolvimento:</strong> "Eu era 100% comercial. Já tinha sido SDR, já tinha sido closer. Meus SDRs faziam 80 ligações por dia e agendavam de 8 a 10 reuniões. Eu mesma vendi R$ 8 milhões olhando no olho, em evento, com a meta de nunca sair com menos de 7 vendas."</p>
+  <p><strong>Virada:</strong> "Quando eu saí e comecei a olhar o mercado de expert, eu levei um susto. Gente muito melhor do que eu no próprio tema, com audiência que eu nunca tive, faturando uma fração do que aquele time fazia. E o motivo era sempre o mesmo: ninguém estava tendo conversa de venda. Estava todo mundo esperando o post, o algoritmo ou a agência resolverem o que só uma conversa resolve."</p>
+  <p><strong>CTA:</strong> "Hoje eu monto a oferta de alto valor do expert e coloco essa conversa para acontecer. Começa pelo diagnóstico gratuito no link: 2 minutos, e você vê quanto a sua base já poderia ter te pagado."</p>
+  <p><strong>Legenda:</strong> A história completa de como eu saí de uma operação que vendia 40 contratos por semana e fui descobrir por que o expert com audiência não vende.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 17 · SEÇÃO 4 PARTE 6 · ESTÁTICOS -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Ayla Pedra Rica</span><span>Página 18</span></div>
+  <div class="kicker">Seção 4 · Parte 7</div>
+  <h1 style="font-size:19pt;">Os 5 Estáticos</h1>
+  <p class="lead">Frase sóbria sobre fundo limpo. Funciona aqui porque parece constatação de quem é do ramo, não anúncio.</p>
+
+  <div class="bloco-label">Estático 1 · Cena</div>
+  <p><strong>Arte:</strong> "O post bombou. E não vendeu nada."</p>
+  <p><strong>Legenda:</strong> Se isso acontece todo mês com você, o problema não é o seu conteúdo. É que entre o post e a venda do seu produto caro falta uma conversa que ninguém está tendo. O diagnóstico gratuito de 2 minutos calcula quanto isso já te custou.</p>
+
+  <div class="bloco-label">Estático 2 · Cena</div>
+  <p><strong>Arte:</strong> "Seguidor não é cliente."</p>
+  <p><strong>Legenda:</strong> Número de seguidor não aparece no extrato. O que aparece é quantas conversas de venda aconteceram esse mês. Descubra em 2 minutos quanto a sua base já poderia ter te pagado.</p>
+
+  <div class="bloco-label">Estático 3 · Mecanismo</div>
+  <p><strong>Arte:</strong> "Quantos dos seus alunos nunca ouviram falar da sua mentoria?"</p>
+  <p><strong>Legenda:</strong> Quem já comprou de você é quem tem mais chance de comprar o caro. Some quantos nunca receberam um convite e multiplique por 1%. Esse número tem nome: Receita Parada. O diagnóstico gratuito calcula o seu.</p>
+
+  <div class="bloco-label">Estático 4 · Mecanismo</div>
+  <p><strong>Arte:</strong> "Agência entrega criativo. Não entrega conversa."</p>
+  <p><strong>Legenda:</strong> Por isso você gravou tudo o que pediram, subiu campanha, apareceu seguidor, e a venda do produto caro não veio. Faça o diagnóstico gratuito de 2 minutos.</p>
+
+  <div class="bloco-label">Estático 5 · Autoridade</div>
+  <p><strong>Arte:</strong> "Vendi R$ 8 milhões sem ter um seguidor."</p>
+  <p><strong>Legenda:</strong> Um ano no comercial de uma operação que fechava 40 contratos de alto valor por semana, e R$ 8 milhões vendidos por mim, olhando no olho. Não era audiência: era conversa acontecendo todo dia. Descubra em 2 minutos o que falta na sua.</p>
+
+  <div class="box-light">
+    <div class="bt">Observação de produção</div>
+    <p>Tipografia sóbria, fundo escuro ou foto real sua de bastidor de evento. <strong>Nada de arte colorida de infoproduto</strong>: o público é expert com autoridade construída e associa sobriedade a quem fala de dinheiro a sério.</p>
+    <p>A sua foto de evento presencial é o ativo visual mais forte que existe aqui, porque é a prova de onde você vem e é exatamente o que nenhum concorrente de agência tem.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 18 · SEÇÃO 4 PARTE 7 · CARROSSÉIS -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Ayla Pedra Rica</span><span>Página 19</span></div>
+  <div class="kicker">Seção 4 · Parte 8</div>
+  <h1 style="font-size:19pt;">Os 5 Carrosséis</h1>
+  <p class="lead">Um slide por ideia, frases curtas. O último slide sempre leva ao quiz.</p>
+
+  <div class="bloco-label">Carrossel 1 · Cena · "5 sinais de que a sua audiência está parada"</div>
+  <p>1. O post bombou e não vendeu nada. 2. Você tem aluno de um ano atrás que nunca ouviu falar da sua mentoria. 3. Só entra dinheiro quando você lança. 4. Você contratou agência e continuou sem conversa de venda. 5. A sua agenda está cheia, mas só de entrega. 6. Nenhum desses sinais é sobre o que você sabe. 7. Todos são sobre o que você oferece. 8. Descubra o seu número em 2 minutos. Link na bio.</p>
+
+  <div class="bloco-label">Carrossel 2 · Cena · "As frases que você já disse esse ano"</div>
+  <p>1. Cinco frases que quase todo expert já disse. 2. "Preciso postar mais." 3. "Depois do lançamento eu organizo isso." 4. "Minha audiência não compra caro." 5. "A agência não entregou o que prometeu." 6. "Não tenho tempo de vender, minha agenda é de atendimento." 7. Nenhuma delas é o problema. Todas são sintoma do mesmo. 8. Faça o diagnóstico gratuito.</p>
+
+  <div class="bloco-label">Carrossel 3 · Mecanismo · "Por que o seu conteúdo não vende o caro"</div>
+  <p>1. Você posta, tem alcance, tem elogio. 2. E não vende o produto de alto valor. 3. Conteúdo faz a pessoa confiar em você. 4. Conversa faz a pessoa comprar. 5. São duas atividades diferentes. 6. A maioria dos experts só faz a primeira. 7. Comece pelo diagnóstico gratuito. Link na bio.</p>
+
+  <div class="bloco-label">Carrossel 4 · Mecanismo · "Os 4 lugares onde a venda do expert trava"</div>
+  <p>1. Depois de um ano dentro de uma operação de high ticket, são sempre os mesmos quatro. 2. A Plateia: muita audiência, nenhuma oferta. 3. O Teto do Barato: vende o de entrada e ninguém sobe. 4. O Lançamento Refém: só entra quando lança. 5. A Base Esquecida: já comprou, confia, e nunca recebeu uma segunda oferta. 6. Todos têm conta, e conta se calcula. 7. Descubra o seu em 2 minutos.</p>
+
+  <div class="bloco-label">Carrossel 5 · Autoridade · "O que eu aprendi vendendo R$ 8 milhões no olho"</div>
+  <p>1. Passei um ano no comercial de uma operação que fechava 40 contratos por semana. 2. Eu mesma vendi R$ 8 milhões, em evento, presencialmente. 3. Minha meta: nunca sair com menos de 7 vendas. Teve evento de 12. 4. E eu não tinha um seguidor sequer. 5. Quando fui olhar o mercado de expert, vi o oposto. 6. Audiência enorme, autoridade construída, e nenhuma venda de alto valor. 7. Sobrava plateia e faltava conversa. 8. Comece pela conta. Diagnóstico gratuito na bio.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 19 · SEÇÃO 4 PARTE 8 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Ayla Pedra Rica</span><span>Página 20</span></div>
+  <div class="kicker">Seção 4 · Parte 9</div>
+  <h1 style="font-size:19pt;">Headlines, Hooks e a Largada</h1>
+  <p class="lead">O que testar primeiro e o que sobe antes do quê.</p>
+
+  <div class="box-light">
+    <div class="bt">10 headlines para teste A/B</div>
+    <p>1. Seguidor não é cliente.<br>
+    2. O post bombou e não vendeu nada? O problema não é o conteúdo.<br>
+    3. Quanto a sua base já poderia ter te pagado?<br>
+    4. Quantos dos seus alunos nunca ouviram falar da sua mentoria?<br>
+    5. Vendi R$ 8 milhões sem ter um seguidor.<br>
+    6. Agência entrega criativo. Não entrega conversa.<br>
+    7. Depender de lançamento não é estratégia, é ciclo.<br>
+    8. A conta que nenhum expert faz no fim do mês.<br>
+    9. Você tem uma receita parada e ela não aparece em relatório nenhum.<br>
+    10. Audiência sem oferta é só plateia.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">5 hooks para abrir vídeo, na sua voz</div>
+    <p>1. "O seu post bombou, encheu de elogio, e não vendeu nada."<br>
+    2. "Faz uma conta comigo: quantas pessoas já compraram algo seu?"<br>
+    3. "Eu vendi R$ 8 milhões olhando no olho, sem ter um seguidor."<br>
+    4. "Você tem aluno de um ano atrás que nunca ouviu falar da sua mentoria."<br>
+    5. "Seguidor não é cliente. E eu vou te provar com a sua própria conta."</p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Estrutura de largada da campanha</div>
+    <p><strong>25 criativos na largada:</strong> 15 roteiros de vídeo, 5 estáticos e 5 carrosséis, todos escritos nas páginas anteriores. Renovação a cada 15 dias.</p>
+    <p><strong>Ordem:</strong> estáticos e carrosséis entram primeiro, porque não dependem de gravação e sobem enquanto você grava. Os vídeos entram em três levas: grave 5 por sessão, 3 sessões fecham os 15.</p>
+    <p><strong>Distribuição:</strong> 7 roteiros de cena, 4 de mecanismo e 4 de autoridade. Comece com peso em cena e migre para mecanismo conforme a audiência aquece.</p>
+    <p><strong>Direção de gravação:</strong> trilha instrumental, sem corte a cada segundo, sem legenda animada exagerada. Grave sempre que possível <strong>em ambiente de evento ou escritório comercial</strong>: é o que dá autoridade instantânea aqui e é o que a concorrência de agência não tem. A regra de ouro do gancho: os 3 primeiros segundos são a frase dele, não a sua opinião.</p>
+    <p><strong>Quando:</strong> a mídia sobe depois do caixa rápido da base, conforme o roadmap. Verba inicial de R$ 50 por dia. A régua não é custo por lead: é <strong>custo por sessão qualificada comparecida</strong>, com teto de R$ 750, que é 5% do ticket. Uma venda da mentoria paga dez meses de mídia nesse orçamento.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 20 · SEÇÃO 5 PARTE 1 · CADÊNCIA -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Ayla Pedra Rica</span><span>Página 21</span></div>
+  <div class="sec-header">
+    <div class="fk">Seção 5 · Parte 1</div>
+    <h2>Cadência de Atendimento · 12 dias</h2>
+    <div class="fd">Na sua voz, mandada por você. O objetivo é agendar a sessão de diagnóstico.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Regra de tom neste nicho</div>
+    <p>Ele tem autoridade no tema dele e quase sempre mais tempo de mercado que qualquer um que já tentou vender para ele. <strong>Não quer ser tratado como iniciante.</strong> Nada de urgência artificial, nada de escassez inventada, nada de vocabulário de guru.</p>
+    <p>E a regra de ouro do follow-up aqui: <strong>quem não responde não é quem não quer.</strong> É quem está em atendimento o dia inteiro. A sua própria régua diz que o agendamento sai por volta do quinto contato: o lead mais ocupado costuma ser o melhor cliente, e ele precisa de mais toques, não de menos.</p>
+    <p>Você tem uma vantagem que ninguém no funil tem: <strong>você já fez essa conversa milhares de vezes.</strong> Onde qualquer concorrente manda argumento, você manda a pergunta certa.</p>
+    <p>O que abre toda conversa é o resultado do quiz, com o padrão dele nomeado e o número na mesa.</p>
+  </div>
+
+  <div class="bloco-label">Dia 1 · até 10 minutos depois do quiz</div>
+  <p>"{{nome}}, aqui é a Ayla. Acabei de ver o seu diagnóstico: o seu padrão é o {{padrao}}, e a conta deu {{receita_parada}} parados na sua base. Você já desconfiava desse número ou te pegou de surpresa?"</p>
+
+  <div class="bloco-label">Dia 1 · tarde, se não respondeu</div>
+  <p>"Te mandei o diagnóstico completo aqui em cima. Quando der uma parada entre um atendimento e outro, olha o Bloco 4. É a conta."</p>
+
+  <div class="bloco-label">Dia 2</div>
+  <p>"{{nome}}, fiquei pensando numa coisa que você respondeu: {{resposta_p4}}. Isso costuma vir de um lugar bem específico, e quase nunca é o que a pessoa imagina. Posso te falar sobre isso?"</p>
+
+  <div class="bloco-label">Dia 3 · para quem não respondeu</div>
+  <p>"{{nome}}, não vou insistir. Só não queria que o seu diagnóstico ficasse perdido no WhatsApp junto com mensagem de paciente e de fornecedor. Ele é sobre o seu negócio, não sobre a minha agenda."</p>
+
+  <div class="bloco-label">Dia 4 · valor</div>
+  <p>"Uma coisa que eu demorei para entender, e eu vim do comercial: conteúdo faz a pessoa confiar em você, mas quem faz ela comprar é a conversa. Enquanto ninguém estiver sentando com quem já te acompanha, o número que eu te mandei só cresce."</p>
+
+  <div class="bloco-label">Dia 5 · leu e parou</div>
+  <p>"Você leu e não respondeu, tudo bem. Só me diz uma coisa, sem compromisso: a conta que apareceu ali fez sentido pra você ou achou que ficou alta demais?"</p>
+
+  <div class="bloco-label">Dia 6 · valor</div>
+  <p>"Tem uma pergunta que eu faço em toda primeira conversa: quantas conversas de venda do seu produto mais caro aconteceram no último mês? A resposta costuma assustar a própria pessoa."</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 21 · SEÇÃO 5 PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Ayla Pedra Rica</span><span>Página 22</span></div>
+  <div class="kicker">Seção 5 · Parte 2</div>
+  <h1 style="font-size:19pt;">Dias 7 a 12 e os cinco níveis</h1>
+  <p class="lead">Onde a cadência vira playbook, e não lista de mensagens.</p>
+
+  <div class="bloco-label">Dia 7 · história</div>
+  <p>"Eu passei um ano supervisionando um time que fechava de 35 a 40 contratos por semana, e vendi R$ 8 milhões olhando no olho. Não tinha audiência, não tinha post. Quando comecei a pegar expert, vi o oposto: audiência enorme e nenhuma venda. Se você estiver nessa, eu sei onde dói."</p>
+
+  <div class="bloco-label">Dia 8 · quebra de objeção</div>
+  <p>"Sei o que talvez esteja passando pela sua cabeça: já contratei alguém e não deu certo. Escuto isso quase toda semana. E quase sempre o que contrataram foi entrega de criativo, não alguém para colocar a conversa de venda de pé. Só uma das duas vende alto valor."</p>
+
+  <div class="bloco-label">Dia 9 · quer agendar e adia</div>
+  <p>"{{nome}}, você me disse que queria marcar e não marcou. Não estou te cobrando. Só quero te mostrar uma coisa: adiar essa conversa é o mesmo movimento de adiar a oferta para a sua base. É o padrão trabalhando."</p>
+
+  <div class="bloco-label">Dia 10 · áudio pessoal</div>
+  <p>Áudio de 40 a 60 segundos, na sua voz, sem roteiro lido: "{{nome}}, Ayla aqui. Eu vim do comercial e passei anos vendo gente boa demais no próprio tema faturar uma fração do que podia, só porque ninguém sentava e vendia. Se for para passar mais um ano assim, prefiro que seja escolha sua e não do padrão. Me dá 45 minutos que eu te mostro de onde vem a sua conta."</p>
+
+  <div class="bloco-label">Dia 11 · escassez real</div>
+  <p>"{{nome}}, eu atendo poucos experts por vez, porque eu entro junto na operação e não tenho como fazer isso em escala. Se você quiser olhar esse número comigo antes de eu fechar as vagas desta rodada, me avisa hoje ou amanhã que eu encaixo."</p>
+
+  <div class="bloco-label">Dia 12 · encerramento</div>
+  <p>"{{nome}}, vou parar de te escrever. Seu diagnóstico continua valendo e a conta também. Quando fizer sentido, é só me chamar, não precisa refazer nada. E, sinceramente: mesmo que você nunca faça nada comigo, refaça essa conta a cada trimestre. Ela sozinha já muda decisão."</p>
+
+  <div class="box-light">
+    <div class="bt">Os cinco níveis</div>
+    <p><strong>N1 não respondeu:</strong> cadência completa acima.</p>
+    <p><strong>N2 engajou e parou:</strong> retomar pelo padrão dele, nunca pela cobrança.</p>
+    <p><strong>N3 quer e adia:</strong> oferecer dois horários concretos, sempre. Nunca "me avisa quando puder". E fora do horário de atendimento dele: começo da manhã ou fim da tarde.</p>
+    <p><strong>N4 no-show:</strong> sem culpa. "Imagino que o atendimento comeu o horário, acontece toda semana comigo." Uma remarcação, e só.</p>
+    <p><strong>N5 fez a sessão e não fechou:</strong> parar o comercial por 15 dias e voltar com conteúdo. É o grupo mais quente que existe. Depois de 60 dias, uma pergunta só: "conseguiu ofertar para aquela base que a gente mapeou?"</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 22 · SEÇÃO 6 PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Ayla Pedra Rica</span><span>Página 23</span></div>
+  <div class="sec-header">
+    <div class="fk">Seção 6 · Parte 1</div>
+    <h2>Recomendações Estratégicas</h2>
+    <div class="fd">O que a Simple recomenda além da copy.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Sobre o que trava tudo: a oferta não existe no papel</div>
+    <p>Este é o gargalo real, e ele está aberto desde julho. <strong>A sua mentoria não tem grade, não tem preço oficial e não tem nome de método.</strong> O canvas foi entregue com essas perguntas e voltou sem resposta.</p>
+    <p>Tudo neste documento assume duas premissas: ticket de R$ 15 mil e Método OCC. Se o seu número for outro, a matemática do roadmap muda junto, e a copy da página muda com ela.</p>
+    <p><strong>Não é detalhe operacional: a sessão de vendas não fecha sem isso, e a mídia não sobe antes disso.</strong> É a primeira coisa do roadmap, com prazo até 27 de setembro.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre a alavanca mais barata</div>
+    <p>Você passou um ano dentro da maior operação de high ticket do país e conhece pelo nome expert, produtor, closer, SDR e gestor de tráfego. Some a isso a base da Carol e quem já te procurou pedindo ajuda comercial.</p>
+    <p>Isso é caixa em 30 dias, sem mídia e sem produto novo. Não deixe para depois porque parece pequeno: <strong>é o que financia a mídia do resto do plano</strong>, e é exatamente a conversa que você vende.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre a conta do funil, com honestidade</div>
+    <p>Com R$ 50 por dia, o funil traz de 150 a 200 respostas de quiz por mês, e dessas de 8 a 10 entram na sua agenda. <strong>Isso não sustenta o plano sozinho.</strong> No mês 1 e 2, quem paga a conta é a abordagem manual.</p>
+    <p>O papel do funil nos primeiros 90 dias é outro: qualificar antes da conversa e aquecer o lead com um diagnóstico que nenhum concorrente entrega. <strong>Ele não é a fonte de lead, é o filtro e o pré-atendimento.</strong> Vira fonte a partir do mês 3.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre não ter produto de entrada</div>
+    <p>Você não tem produto barato, e a recomendação é <strong>não criar um nos 90 dias</strong>. Produto de entrada resolve aproveitamento de não-ICP e gera prova, mas custa tempo de montagem e de operação, e o seu gargalo hoje é oferta de alto valor, não variedade de esteira.</p>
+    <p>Quem não qualifica recebe o diagnóstico completo e entra na lista de conteúdo. Depois dos 90 dias, o degrau mais barato de abrir é um treinamento comercial curto para o time do expert, que já nasce vendido pela mentoria.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 23 · SEÇÃO 6 PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Ayla Pedra Rica</span><span>Página 24</span></div>
+  <div class="kicker">Seção 6 · Parte 2</div>
+  <h1 style="font-size:19pt;">Operação, Prova e o Que Monitorar</h1>
+  <p class="lead">Os pontos que decidem se a copy acima vira venda ou vira documento parado.</p>
+
+  <div class="box-dark">
+    <div class="bt">Sobre o risco número 1: a sua agenda</div>
+    <p>O projeto ficou dois meses parado, e o motivo não foi falta de plano: foi a operação dos seus clientes comendo a sua semana. <strong>Você é quem aborda, quem faz a sessão, quem fecha e quem grava os vídeos.</strong> Não existe SDR e não existe closer.</p>
+    <p>A regra prática que protege este funil: <strong>a mídia não sobe enquanto o bloco diário de abordagem não estiver rodando por duas semanas seguidas.</strong> Subir campanha com a agenda travada só gera lead que apodrece no WhatsApp, e lead frio é pior que lead nenhum, porque queima a base.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre prova e imagem</div>
+    <p>Dois ativos estão vazios e são de ciclo longo, então começam já. <strong>Depoimento:</strong> a Carol é o case mais forte que você tem, com produto validado em dois meses, e ainda não está empacotado em vídeo. Some os closers e SDRs que você treinou e hoje vendem bem.</p>
+    <p><strong>Imagem:</strong> a sua foto de evento presencial é a prova visual que nenhuma agência concorrente tem. Garimpe o que já existe antes de produzir qualquer coisa nova. O Guia de Captação de Depoimentos já está com você desde julho.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre compliance e o nicho da saúde</div>
+    <p>O ICP prioritário é expert da saúde, e isso impõe duas linhas que a copy nunca cruza: <strong>nada que soe como promessa de resultado clínico</strong> e nada que possa esbarrar em conselho de classe. A gente fala do negócio dele, do faturamento dele e da base dele, nunca do tratamento que ele entrega.</p>
+    <p>Some a regra geral da Meta: nenhuma promessa de ganho e nenhum atributo pessoal afirmado sobre quem lê.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">O que monitorar de perto</div>
+    <p><strong>A taxa de conclusão do quiz.</strong> São 10 perguntas e três delas pedem número. Se a conclusão ficar abaixo de 40%, o problema são as perguntas de cálculo, e a gente simplifica as faixas antes de mexer na mídia.</p>
+    <p><strong>A conversão real das primeiras sessões.</strong> A premissa é 20%, subindo para 25% com a prova. Você vende há anos, então se vier muito abaixo o problema é qualificação, não condução, e a gente ajusta a P10.</p>
+    <p><strong>O sinal de vida semanal.</strong> Três números no grupo toda sexta: abordagens, sessões e quanto entrou. É o combinado do roadmap, e é o indicador que avisa cedo quando a semana apertou.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+</body>
+</html>
