@@ -153,35 +153,27 @@ Nada disso bloqueia execução, mas fica registrado para a próxima sessão:
    vale sobre os entregáveis contratados e ainda não está aqui.
 6. **Confirmar o que é o "Método Cobra" hoje** e se tem registro no INPI. Ele já
    tem logotipo próprio no destaque do Instagram.
-7. **Publicar o funil na Vercel.** O projeto **já existe**:
-   `quiz-rafael-cobra` (`prj_PIuLI9E6uDJYxxcYuqyAKtY04rg1`), time Simpleacc,
-   alias `quiz-rafael-cobra-simpleacc.vercel.app`. **Mas o que está no ar é
-   incompleto**: só `index.html` e `favicon.svg`. Não use como está.
+7. **Funil PUBLICADO em 14/09, por deploy temporário.** Está no ar em
+   `temporary-quick-khaki-tlodwfa.vercel.app`, com os 7 arquivos byte a byte
+   iguais aos do repo. Foi feito com `npx vercel deploy --temporary --yes`,
+   que publica **sem login** e lendo do disco.
+   **Atenção: deploy temporário expira em 60 minutos se ninguém reivindicar.**
+   Se o link acima estiver morto, é isso: basta rodar o comando de novo, de
+   dentro de `funis/diagnostico-padrao-afetivo/`.
 
-   **Por que parou.** Duas rotas, as duas bloqueadas por motivos diferentes:
-   - `create_git_project` (a rota certa, que liga o projeto ao repo e passa a
-     atualizar sozinho a cada push) falha com **`repo_no_access`**: a conta da
-     Vercel não tem escrita em `simpleacc26/simpleacc` no GitHub. **Instalar o
-     app da Vercel no repo é uma ação de browser, com login e permissão de
-     admin: nenhuma sessão de agente faz isso.** É o passo humano.
-   - `deploy_to_vercel` (mandar arquivo por arquivo) exige colar o conteúdo
-     inteiro dentro da chamada. São **77 KB** entre `app.js`, `diagnostico.js`,
-     `styles.css` e `diagnostico.html`, e a chamada sai truncada. Rendeu dois
-     deploys parciais. **Não insista por esse caminho.**
+   **Para virar permanente**, alguém logado na Vercel abre o `claimUrl` que a
+   CLI devolve. Depois disso, o ideal continua sendo ligar o projeto ao repo
+   (`create_git_project`, `rootDirectory` na pasta do funil), para atualizar a
+   cada push. Isso exige **instalar o app da Vercel em `simpleacc26/simpleacc`**
+   (<https://github.com/apps/vercel/installations/new>), que é ação de browser
+   com permissão de admin.
 
-   **Como terminar, em ordem de preferência:**
-   1. Instalar o app da Vercel em `simpleacc26/simpleacc`
-      (<https://github.com/apps/vercel/installations/new>), ou em Vercel >
-      Project > Settings > Git > Connect Git Repository. Depois disso a ligação
-      é um comando, com `rootDirectory` em
-      `clientes/rafael-cobra/funis/diagnostico-padrao-afetivo`.
-   2. Ou rodar `vercel deploy --prod` de dentro da pasta, numa máquina logada.
-
-   **Ao publicar, lembrar da trava de acesso:** o time tem **Vercel
-   Authentication ligada por padrão**, então a URL responde 302 para o login da
-   Vercel e o cliente não abre. O `quiz-luana-isse` está público porque a
-   proteção foi desligada nele. Desligar só **depois** que o conteúdo certo
-   estiver no ar.
+   **O que NÃO funciona, já testado:** publicar pelo MCP (`deploy_to_vercel`)
+   exige colar 77 KB de código dentro da chamada e sai truncado. Rendeu dois
+   deploys parciais no projeto `quiz-rafael-cobra`
+   (`prj_PIuLI9E6uDJYxxcYuqyAKtY04rg1`), que **está incompleto e não deve ser
+   usado como está**. Ele também nasceu com Vercel Authentication ligada, o
+   padrão do time, então respondia 302 para o login.
 
 8. **Três dados para o funil tomar tráfego:** WhatsApp comercial dele (vai em
    `flow.js > marca.whatsapp`), ID do Pixel da Meta (vai em três lugares) e o
