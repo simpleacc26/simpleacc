@@ -206,6 +206,46 @@ histórico dela com tráfego sem validação já custou caro uma vez.
 
 ---
 
+## Atualização de 14/09, depois de achar a skill da casa
+
+O método ASK está operacionalizado na skill **`quiz-pesquisa-estrategia`**
+(a Fábrica de Quiz), sincronizada na conta e **não versionada neste
+repositório**, que é por que ela não aparecia em busca no Git. Ela confirma o
+plano acima e acrescenta três coisas:
+
+1. **O mesmo portão duro.** *"Matéria-prima de pesquisa: se estiver vazio ou
+   raso, PARE e peça. Bucket inventado é o erro fatal nº 1."* Para o
+   posicionamento novo a nossa matéria-prima é rasa, então o Deep Dive não é
+   preciosismo, é o portão.
+2. **O critério de bucket:** `(Dor + Urgência + Caixa) × Facilidade de Provar`,
+   cada dimensão de 0 a 10. Dor alta com caixa baixo não é bucket.
+3. **Comprador real x sósia.** O avatar é quem **compra**, não quem **parece**.
+   Aqui o sósia é quem quer ter mentoria e ainda não vende; o comprador é quem
+   já vende e está cansado de call. As perguntas 3, 4, 5 e 6 do formulário
+   existem para separar os dois na análise.
+
+### Ressalva importante sobre a calibragem da skill
+
+A skill é escrita para **high ticket** e diz isso. O produto novo é **R$ 1.997
+por VSL**, que não é. A regra de embutir um **proxy de caixa** no gancho, para
+"repelir o quebrado", faz sentido a R$ 15 mil por call, onde lead ruim queima
+uma call. A R$ 1.997 com R$ 50/dia, lead ruim custa um clique, e filtrar caixa
+no gancho **seca o volume** de que o algoritmo precisa.
+
+**Decisão: ancorar na dor, filtrar caixa depois**, na porteira do quiz e nos
+buckets. É uma divergência consciente do default da skill, registrada aqui para
+quem for revisar.
+
+### O que somar ao formulário por causa disso
+
+- **Voz do mercado literal.** A análise precisa render de 20 a 25 frases nas
+  palavras exatas de quem respondeu. A pergunta 1 já puxa isso; ao tabular,
+  **copie literal, não parafraseie.**
+- As fechadas 3 a 6 já cobrem os proxies de caixa (o que vende, como vende,
+  ticket, volume de call, tempo de casa). Mantidas de propósito.
+
+Recon de mercado feito em `2026-09-14-recon-de-mercado.md`.
+
 ## Pendência sobre o material
 
 **Os capítulos 14 a 18 do PDF não foram extraídos.** A leitura do arquivo parou
@@ -217,5 +257,23 @@ no meio do Capítulo 13. Ficaram de fora justamente:
 - Cap. 17 e 18, upsell e loop de feedback
 
 O que está neste documento vem dos capítulos 12 e 13, que trazem o processo
-completo e o Deep Dive, e é suficiente para a etapa 1. **Para montar o quiz e o
-diagnóstico ao pé da letra do livro, preciso desses capítulos.**
+completo e o Deep Dive, e é suficiente para a etapa 1.
+
+**E a skill da casa aponta para arquivos que também não existem na máquina:**
+
+- `metodo/metodo-mestre-quiz.md`, declarado como fonte de verdade acima da
+  própria skill ("se algo conflitar, o Método-Mestre vence"), com as seções §0,
+  §1, §3, §4 e §8 de leitura obrigatória
+- `references/big-idea.md`
+- `references/lentes-mentores.md`, com as lentes Hormozi x Brunson e o gate de
+  dupla revisão
+- `references/exemplo-simple-acc.md`, o exemplo-ouro
+
+A pasta da skill tem **só o `SKILL.md`**. Sem o §3 não dá para escolher o tipo
+de quiz pela matriz da casa, e sem o §4 não dá para aplicar a regra de
+bucket-worthiness. **Esses arquivos precisam ser recuperados antes da Skill 1
+rodar por inteiro.**
+
+Nota lateral: a skill `gerar-quiz-diag-pag-pos-quiz` **sincronizada na conta
+está desatualizada** em relação à do repositório (5,9 KB contra 12,5 KB, e sem
+o `estrutura-invisivel.md`). Quem rodar pela conta pega a versão velha.
