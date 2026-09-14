@@ -315,6 +315,12 @@ function abrirWhatsApp() {
     .replace("{nome}", nome)
     .replace("{idr}", idr)
     .replace("{faixa}", faixaIDR(idr).nome.toLowerCase());
+  /* Contact é evento PADRÃO do Meta. Esta é a ação de fundo de funil: o lead
+     saindo do relatório para a conversa. Marcar aqui separa quem só leu o
+     diagnóstico de quem foi falar com o Guilherme. */
+  try {
+    if (typeof fbq === "function") fbq("track", "Contact", { content_name: "CTA WhatsApp do relatorio", idr: idr });
+  } catch (e) { /* tracking nunca segura o clique */ }
   window.open(`https://wa.me/${F.marca.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
 }
 /* qualquer CTA com a classe .cta-wpp (são 3, distribuídos) abre o WhatsApp */
