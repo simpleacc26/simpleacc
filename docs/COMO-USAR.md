@@ -90,9 +90,11 @@ quando a tarefa combina (ou você pede pelo nome).
 | **`/prompt-mestre`** | Comando (funil/copy) | Vira um especialista em **copy de resposta direta + estratégia de funil + front-end**. Conduz diagnóstico → aprofundamento → confirmação → geração. Entrega **página/funil em HTML puro** e/ou **copy de anúncios** (ângulos, headlines, hooks). Pergunta o que falta, não inventa. | Digite `/prompt-mestre` em qualquer sessão. Na pasta de um cliente, já usa o contexto dele. |
 | **Estratégia Completa para Clientes** (`estrategia-completa-clientes`) | Skill (automática) | Pega o **onboarding** (transcrição, notas, áudio, resumo) e gera o **documento de estratégia de 8 seções** (Big Idea, Quiz, Página de Aplicação, Anúncios, Diagnóstico, Cadência 12 dias, Tarefas, Recomendações). Entrega como **Google Doc formatado** no Drive e salva a fonte em `clientes/<cliente>/estrategia/`. | Peça: *"transforma esse onboarding do cliente X em documento de estratégia"*. |
 | **Gerar Quiz + Diagnóstico + Página Pós-Quiz** (`gerar-quiz-diag-pag-pos-quiz`) | Skill (automática) | Pega a **copy aprovada** e **coloca o funil no ar**: quiz + página pós-quiz (diagnóstico + PDF + WhatsApp) na identidade do cliente, **publica na Vercel**, cria a **planilha de leads** no Drive e testa a integração. **Confirma a conta da Simple** antes de publicar (nunca conta pessoal). | Peça: *"monta/implementa o funil do cliente X"* ou *"sobe a página na Vercel"*. |
+| **Copy de Criativos e Roteiros** (`copy-criativos-e-roteiros`) | Skill (automática) | Pega a **estratégia aprovada** e entrega as **peças para subir e para gravar**: 3 ângulos de copy em três tamanhos, 10 headlines, 5 ganchos e os **roteiros de vídeo** na voz do cliente, mais o **plano de teste** e o **briefing** para quem edita. Aplica as regras da casa (sem travessão, sem prova inventada, sem promessa de ganho). | Peça: *"cria as copies dos anúncios do cliente X"*, *"roteiro de vídeo para ele gravar"*, *"os criativos saturaram, preciso de novos"*. |
 
 **Como se encaixam:** Onboarding → *Estratégia Completa* (gera o doc + copy) →
-*Gerar Quiz…* (publica o funil + leads). O `/prompt-mestre` é o coringa para
+*Gerar Quiz…* (publica o funil + leads) → *Copy de Criativos e Roteiros*
+(as peças que levam tráfego para esse funil). O `/prompt-mestre` é o coringa para
 páginas/anúncios avulsos.
 
 > Outros comandos virão (ex.: `/roteiro`, `/copy`) conforme cadastrarmos novos

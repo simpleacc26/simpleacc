@@ -21,6 +21,7 @@ a tarefa combina (ou você pode pedir pelo nome).
 | ------------------------------- | -------- |
 | `estrategia-completa-clientes`  | **Estratégia Completa para Clientes** — a partir do onboarding (transcrição/notas), gera o documento de estratégia de 8 seções e entrega como Google Doc formatado na pasta do cliente no Drive. |
 | `gerar-quiz-diag-pag-pos-quiz`  | **Gerar Quiz + Diagnóstico + Página Pós-Quiz** — pega a copy aprovada (da skill acima), monta o quiz + página pós-quiz + PDF na identidade do cliente, **publica na Vercel** (confere a conta da Simple antes), cria a planilha de leads no Drive e testa a integração. |
+| `copy-criativos-e-roteiros`     | **Copy de criativos e roteiros de vídeo** — transforma a estratégia aprovada em peças prontas: 3 ângulos de copy (curta/média/longa), 10 headlines, 5 ganchos e roteiros de vídeo para gravar, com plano de teste e briefing de produção. Aplica as regras da casa (sem travessão, sem prova inventada, sem promessa de ganho). |
 
 ## Como usar
 
