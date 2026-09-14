@@ -139,12 +139,25 @@ Publique no projeto antigo só um redirect, preservando a query string para não
 perder as UTMs:
 ```json
 { "redirects": [
+  { "source": "/",
+    "destination": "https://<novo>.vercel.app/",
+    "permanent": false },
   { "source": "/:path*",
     "destination": "https://<novo>.vercel.app/:path*",
     "permanent": false }
 ] }
 ```
+**As duas regras são necessárias.** `/:path*` casa com qualquer caminho, menos
+com a raiz: `/` tem o segmento vazio e passa direto pela regra, caindo no
+`index.html` estático. Ou seja, justo a URL que a pessoa cola no anúncio e no
+Instagram é a única que não redireciona no servidor. Testar só
+`/alguma-coisa` dá 307 e engana. **Confira sempre `/` separado:**
+```bash
+curl -s -o /dev/null -w '%{http_code} -> %{redirect_url}\n' https://<antigo>.vercel.app/
+```
+
 Use `permanent: false` (307): 301 fica cacheado no navegador e é sofrido de
 desfazer. Vale a pena deixar também um `index.html` com
 `location.replace(... + location.search + location.hash)` como rede de
-segurança.
+segurança. Ele salva a raiz num browser, mas não salva crawler nem preview de
+link, então não substitui a regra `/`.

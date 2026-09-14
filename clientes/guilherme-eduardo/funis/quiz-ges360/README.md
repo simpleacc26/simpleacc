@@ -68,7 +68,9 @@ objetivo 0.5). Faixas: 78+ crítica · 60 a 77 alta · 40 a 59 moderada · abaix
 | `diagnostico.html` / `diagnostico.js` | Página pós-quiz: calcula o IDR e monta o relatório personalizado com os 3 CTAs |
 | `styles.css` | Identidade GES360 (navy `#001824`, dourado `#B49024`, CTA verde `#249C3C`) |
 | `logo.webp` | Logo GES360 oficial, enviada pelo cliente em 11/08 (520x137, fundo transparente). Substituiu o recorte de baixa qualidade que tinha sido extraído da apresentação comercial. |
+| Pixel da Meta | `1388793123452401`, no `<head>` dos dois HTMLs. Ver a seção "Pixel" abaixo. |
 | `favicon.png` | Ícone da aba: o **G** da logo, recortado do arquivo oficial, sobre o navy da marca (180x180) |
+| `guilherme.webp` | Foto do Guilherme no bloco de autoridade do relatório (200x200, recorte em ombros para ler bem no círculo de 92px) |
 
 ## Pendências para ficar 100%
 
@@ -84,10 +86,32 @@ objetivo 0.5). Faixas: 78+ crítica · 60 a 77 alta · 40 a 59 moderada · abaix
    ⚠️ Dos 8 aprovados, **só 4 estão publicados**, e 2 deles em versão recomprimida (400 px),
    porque o deploy pelo MCP da Vercel embute os arquivos na chamada e imagem grande não passa.
    Ligando o projeto ao repositório, entram os 8 em qualidade cheia.
-4. **Foto do Guilherme** no bloco "Quem é o Guilherme". O CSS `.autor-foto` já está pronto: basta
-   colocar `guilherme.webp` na pasta e adicionar
-   `<img class="autor-foto" src="guilherme.webp" alt="Guilherme Eduardo" />` dentro de `.autor`,
-   em `diagnostico.js` (é assim no funil do Felipe).
+4. ✅ **Foto do Guilherme no ar**, no bloco de autoridade do relatório
+   (`guilherme.webp`, enviada pelo cliente em 25/08).
+
+## Pixel da Meta
+
+ID `1388793123452401`, instalado no `<head>` do `index.html` e do `diagnostico.html`.
+
+**O pixel sozinho não bastaria.** O quiz inteiro acontece numa URL só, então o
+`PageView` do snippet conta uma visita e para por aí: não dá para ver onde o lead
+desiste nem otimizar campanha. Por isso o `meta_pixel_id` também está preenchido
+em `TRACKING_CONFIG` (`app.js`), e aí cada passo do funil vira evento.
+
+| Evento | Tipo | Quando dispara |
+| --- | --- | --- |
+| `PageView` | padrão | abertura das duas páginas |
+| `page_view`, `funnel_start`, `step_view`, `step_complete`, `funnel_complete` | custom | ao longo do quiz, um por passo |
+| **`Lead`** | **padrão** | envio do formulário, com `classificacao` (qualificado / nutrir / fora) |
+| **`Contact`** | **padrão** | clique em qualquer um dos 3 CTAs de WhatsApp do relatório, com o IDR |
+
+**Otimize a campanha em `Lead`**, não em PageView nem nos eventos custom: o Meta
+entrega muito melhor em cima de evento padrão. A `classificacao` junto permite
+separar depois quem era ICP de quem não era.
+
+> O funil tem regra de **zero dependência externa**, e o pixel quebra essa regra
+> de propósito: é o único script de terceiro na página. Se algum dia ele sair,
+> limpe também o `meta_pixel_id` em `app.js` e os dois `fbq("track", ...)`.
 
 ## Como republicar
 
@@ -121,9 +145,13 @@ projetos separados na Vercel. **Isto é gambiarra e precisa ser desfeito.**
 | --- | --- |
 | `quiz-guilhermeeduardo` | `index.html`, `diagnostico.html`, `flow.js`, `app.js` (o link público) |
 | `ges360-cdn` | `styles.css` |
-| `ges360-relatorio` | `diagnostico.js`, `kayo-4767.webp`, `kayo-4763.webp` |
-| `ges360-assets` | `kayo-4756.webp`, `kayo-4750.webp` |
-| **jsDelivr** (não é Vercel) | `logo.webp` e `favicon.png`, direto deste repositório |
+| `ges360-relatorio` | `diagnostico.js` (só texto agora) |
+| **jsDelivr** (não é Vercel) | `logo.webp`, `favicon.png`, `guilherme.webp` e **os 4 prints**, direto deste repositório |
+
+O projeto `ges360-assets` **não é mais usado** e pode ser apagado: os prints
+passaram para o jsDelivr, e agora em **qualidade cheia** (antes dois deles iam
+recomprimidos a 400 px só para caber na chamada de deploy). Com isso todo deploy
+do relatório virou **só texto**, que é a parte segura do MCP.
 
 Por isso os HTMLs publicados apontam para URLs absolutas, enquanto **os arquivos
 deste repositório usam caminhos relativos e são autocontidos** (a versão certa).
