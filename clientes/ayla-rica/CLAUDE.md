@@ -21,9 +21,13 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
   Insider/Érico Rocha, R$8M vendidos). Toca 3 frentes: agência de lançamentos
   para experts (cliente principal: Carol, Feng Shui), implementação comercial
   B2B (R$20k/mês) e mentoria comercial própria em estruturação.
-- **Projeto Simple:** consultoria de 90 dias (+30 bônus) para chegar a R$50k/mês
-  em high ticket. Primeiro foco: funil de quiz dinâmico para a expert Carol
-  (high ticket R$3-4k), substituindo lançamentos gratuitos.
+- **Projeto Simple:** consultoria de 90 dias para chegar a R$50k/mês em high
+  ticket. **Reiniciado em 14/09/2026** (ficou parado entre julho e setembro),
+  com dia 90 em 12/12.
+- **Foco decidido em 14/09:** o funil vende a **mentoria da própria Ayla para
+  experts** (premissa de ticket R$ 15 mil, Método OCC), e a expert Carol vira
+  **case de entrega**, não o produto do funil. Inimigo nomeado: "A Audiência
+  Parada"; número do quiz: "Receita Parada".
 - **Público / ICP (da Ayla):** experts com produto validado (foco saúde) que
   querem mentoria/pós-graduação; traumatizados com agências; querem ser
   referência, não "mais do mesmo".
