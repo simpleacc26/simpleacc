@@ -121,3 +121,34 @@ Log do que funciona e do que não funciona com este cliente.
   falo" (P4) e "Fico remoendo o que eu deveria ter dito" (P5) viraram as duas
   aberturas. Já eram a fala do público, escritas na pesquisa, e nenhum roteiro tinha
   usado.
+
+## Script de pré-vendas · 14/09/2026
+
+- **O no-show não é falha de lembrete, é falha de preço.** A pessoa falta porque, na
+  hora da escolha, aquele horário valia menos que a outra coisa que apareceu. Então a
+  régua anti no-show não é uma sequência de lembretes, é uma sequência de aumentos de
+  valor: preparo visível, compromisso ativo no ato do agendamento, e horário com dono
+  e com fila.
+- **A mensagem do ato do agendamento vale mais que todas as outras juntas.** Ela pede
+  uma frase de volta ("qual é a próxima situação real em que você vai precisar se
+  comunicar bem?"). Quem responde investiu alguma coisa e passa a ter o que perder.
+  Quem não responde é agendamento frágil, e isso dá para prever com antecedência.
+- **O quiz já respondeu quase todo o diagnóstico comercial.** Motivo, problema,
+  consequência, meta e urgência estão nas dez respostas. Sobra pouco para perguntar,
+  e o que sobra é o que mais converte: a cena concreta, o impacto emocional e a
+  próxima situação marcada na agenda.
+- **Abrir com "oi, tudo bem, vi que você se interessou" joga fora o funil inteiro.**
+  Toda abordagem começa citando duas respostas que a pessoa marcou. É o que derruba a
+  desconfiança antes dela existir.
+- **Com empresário e executivo, a palavra timidez afasta.** Eles não se reconhecem
+  nela e ela reduz o problema a traço de personalidade. Use travamento, bloqueio ou
+  descreva a cena. A palavra cabe com o público do produto de entrada, não com o HT.
+- **Urgência sem agressividade existe e vem da própria resposta do lead.** "Isso se
+  repete há mais de 10 anos" e "já custou oportunidade" são dados que ele mesmo
+  assinou. Devolver a conta com calma funciona melhor que qualquer contagem
+  regressiva com este público, que recua na hora que sente pressão de vendedor.
+- **Toda mensagem de cobrança precisa de saída digna na mesma mensagem.** "Me responde
+  1 ou 2" com a opção 2 sendo "agora não é o meu momento" gera mais resposta que
+  qualquer pergunta aberta, e encerra sem constrangimento quem não vai avançar.
+- **Régua de remarcação: no máximo duas.** A terceira falta é uma resposta. Insistir
+  depois dela desvaloriza a agenda do expert diante do lead.
