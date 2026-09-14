@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Estratégia Completa · André Donha</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root { --navy: #1b2a4a; --navy-dark: #14213d; --gold: #b8863b; --beige: #f4f1ea; --text: #333a45; --muted: #8a8f98; }
+  body { font-family: Arial, Helvetica, sans-serif; color: var(--text); font-size: 10pt; line-height: 1.45; }
+  .page { width: 210mm; height: 297mm; overflow: hidden; padding: 16mm 18mm 24mm 18mm; position: relative; page-break-after: always; background: #fff; }
+  .page:last-child { page-break-after: auto; }
+  .runhead { display: flex; justify-content: space-between; font-size: 7.5pt; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt; }
+  .runfoot { position: absolute; bottom: 9mm; left: 18mm; right: 18mm; text-align: center; font-size: 7.5pt; color: var(--muted); }
+  .kicker { color: var(--gold); font-size: 9pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt; }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 12pt; font-size: 10pt; }
+  .box-dark { background: var(--navy-dark); color: #f5f3ee; padding: 11pt 14pt; margin: 10pt 0; border-radius: 2pt; }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light { background: var(--beige); border-left: 3pt solid var(--gold); padding: 10pt 14pt; margin: 10pt 0; }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .tag { display: inline-block; background: var(--gold); color: #fff; font-size: 7.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; padding: 2pt 7pt; border-radius: 2pt; margin: 9pt 0 4pt; }
+  .item { border-left: 2pt solid #e2d9c8; padding-left: 10pt; margin-bottom: 4pt; }
+  .item p { margin-bottom: 3.5pt; }
+  .item p:last-child { margin-bottom: 0; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 11pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 6pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 38pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+</style>
+</head>
+<body>
+
+<div class="page cover">
+  <div class="kicker">Estratégia Completa</div>
+  <h1>Funil de<br>Lead Dinâmico</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    Quiz, página de diagnóstico e anúncios.<br>
+    A copy inteira do funil, pronta para implementar.<br>
+    O custo do D-0 · Metodologia D-90.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">André Donha · Musikalis</div>
+    <div class="lbl">Estrategista</div>
+    <div class="val">Daniel Souza · Carlos Durães</div>
+  </div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · André Donha</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Ler a Copy</div>
+  <h1 style="font-size:19pt;">O Funil em Uma Página</h1>
+  <p class="lead">Leia esta página antes de aprovar as copies. Tudo o que vem depois parte destas decisões.</p>
+
+  <div class="box-dark">
+    <div class="bt">O caminho do lead</div>
+    <p>Anúncio → Diagnóstico de Margem (quiz gratuito) → Página de diagnóstico → Vaga no workshop → Workshop ao vivo → Matrícula no GPM</p>
+    <p>A página de diagnóstico não vende e não mostra preço. O trabalho dela é entregar o resultado, elevar o nível de consciência e fazer a pessoa querer estar na sala. <strong>A oferta do GPM, a R$ 1.497, acontece no fim do workshop</strong>, com condição de 48 horas.</p>
+    <p>Por que assim: este comprador não decide por empolgação, decide por evidência. E o workshop é o formato que o André entrega bem, que já existe e que resolve 30 pessoas de uma vez, em vez de 30 calls.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A esteira hoje</div>
+    <p><strong>Carro-chefe:</strong> GPM, certificação de Gestor de Produção Musikalis, R$ 1.497. É o que este funil vende.</p>
+    <p><strong>Porta lateral:</strong> Mentoria de Produção, de R$ 5 mil a R$ 20 mil. Aparece só na conversa, quando o porte pede. Não entra na mídia.</p>
+    <p><strong>Aproveitamento do não ICP:</strong> Musikalis Pro, R$ 49,90 por mês ou R$ 397 por ano. Quem ainda não tem orçamento para a certificação recebe o diagnóstico, cria a conta grátis e vira base.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">O que a copy precisa compensar</div>
+    <p>A Musikalis tem 27 seguidores e nenhum depoimento de aluno. Enquanto os depoimentos não chegam, a página compensa com a prova que já existe e que é grande: <strong>56 apresentações no palco do Blue Note</strong>, os tributos a Aretha Franklin e a Tina Turner, 20 anos de consultoria global e a certificação PMP. Onde houver [DEPOIMENTO] no texto, é espaço reservado.</p>
+    <p>A favor: o show do dia 11 de setembro no Bourbon Street gera prova nova, bastidor filmado e de 3 a 5 depoimentos em vídeo, tudo antes do primeiro workshop.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Premissas assumidas</div>
+    <p>Comparecimento de workshop de 40 por cento · conversão de sala para matrícula de 12 por cento · corte de qualificação em orçamento médio de produção acima de R$ 5 mil · mídia de R$ 50 a R$ 100 por dia na validação · tratamento por "você" em todas as peças.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · André Donha</span><span>Página 3</span></div>
+  <div class="kicker">Seção 1</div>
+  <h1 style="font-size:19pt;">Big Idea</h1>
+  <p class="lead">A ideia que sustenta o quiz, a página, os anúncios, o workshop e o atendimento.</p>
+
+  <div class="box-dark">
+    <div class="bt">A big idea</div>
+    <p><strong>A produção não quebra no dia do show. Ela quebra 90 dias antes.</strong></p>
+    <p>O show lota, a casa aplaude de pé, o artista agradece, e no fim do mês não sobrou nada. A explicação que o meio dá é sempre a mesma: cachê baixo, casa apertando, mercado difícil. Não é.</p>
+    <p>O que existe é <strong>o custo do D-0</strong>: toda decisão tomada em cima da hora custa mais caro do que a mesma decisão tomada com antecedência. A passagem comprada na semana, o rider resolvido na passagem de som, o orçamento fechado no chute, o acerto no boca a boca. Nada disso aparece como prejuízo na hora. Aparece no fim, quando não dá mais para corrigir.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A frase que resume a transformação</div>
+    <p><strong>De produtor D-0 a produtor D-90.</strong></p>
+    <p>Mesma banda, mesmo palco, mesma casa, mesmo público. A diferença entre a produção que deixa margem e a que não deixa não está no talento nem no cachê: está em <strong>quando</strong> cada decisão foi tomada.</p>
+    <p>Com isso a pergunta muda. Deixa de ser "como eu cobro mais caro?" e passa a ser <strong>"como eu paro de perder o que já era meu?".</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">O mecanismo: a metodologia D-90</div>
+    <p>Toda produção tem as mesmas áreas de decisão: orçamento, operação e logística, palco e técnica, marketing e bilheteria, contrato e acerto financeiro, e o pós evento. O D-90 distribui essas decisões em uma linha do tempo que começa 90 dias antes do show, com o que precisa estar fechado em D-90, D-75, D-60, D-40 e D-7.</p>
+    <p>É o PMBOK do PMI traduzido para quem monta show. E dentro da plataforma quem executa a linha do tempo é a ferramenta, com a assistente de IA gerando o rider, o mapa de palco, o orçamento e o contrato.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A régua de linguagem, válida para toda peça</div>
+    <p><strong>Fala:</strong> margem, orçamento, cronograma, rider, mapa de palco, cachê, decisão tomada a tempo, produção que se paga, D-90, casa cheia sem lucro.</p>
+    <p><strong>Não fala:</strong> promessa de quanto a pessoa vai faturar por mês · destrave, explosão, segredo, fórmula · a palavra mentoria solta · acusar o leitor de ser desorganizado. A régua é descrever a cena, nunca julgar quem lê.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · André Donha</span><span>Página 4</span></div>
+  <div class="kicker">Seção 2 · Parte 1</div>
+  <h1 style="font-size:19pt;">Copy do Quiz</h1>
+  <p class="lead">Capta, qualifica, entrega valor real e já funciona como o primeiro atendimento.</p>
+
+  <div class="box-dark">
+    <div class="bt">Como ler esta seção</div>
+    <p>O quiz não devolve rótulo de personalidade. Devolve <strong>um número e um endereço</strong>: o índice D-90 da produção da pessoa, de 0 a 100, e o elo onde ela mais perde dinheiro. É isso que faz ela chegar no workshop já convencida de que alguém enxergou a produção dela de dentro.</p>
+    <p>E é a mesma peça que, a partir do dia 45, substitui o onboarding atual da plataforma. Hoje aquele fluxo tem 7 telas e joga todo mundo no mesmo lugar. Depois desta troca, quem cria conta já entra vendo o próprio índice e a primeira coisa a fazer.</p>
+  </div>
+
+  <h3 style="margin-top:8pt;">Hero da página do quiz</h3>
+  <div class="item">
+    <p><strong>Título:</strong> Descubra quanto a sua produção está perdendo antes do show começar</p>
+    <p><strong>Subtítulo:</strong> São 9 perguntas e 2 minutos. No fim você recebe o índice D-90 da sua produção e o ponto exato onde o dinheiro está escapando: orçamento, operação, palco ou bilheteria.</p>
+    <p><strong>Tempo:</strong> 2 minutos · <strong>CTA:</strong> Fazer o diagnóstico</p>
+  </div>
+
+  <div class="tag">P1 · Situação</div>
+  <div class="item">
+    <p><strong>Qual é o seu papel quando o show acontece?</strong></p>
+    <p>a) Sou músico e me viro na produção do meu próprio trabalho · b) Sou produtor: monto shows e eventos para artistas e casas · c) Cuido da produção dentro de uma igreja, empresa ou instituição · d) Tenho produtora, casa de shows ou escola</p>
+  </div>
+
+  <div class="tag">P2 · Situação</div>
+  <div class="item">
+    <p><strong>Quantas produções você toca por ano?</strong></p>
+    <p>a) De 1 a 3 · b) De 4 a 10 · c) De 11 a 24 · d) Mais de 24</p>
+  </div>
+
+  <div class="tag">P3 · Situação · pesa 40 pontos no índice</div>
+  <div class="item">
+    <p><strong>Com quanta antecedência você começa a fechar uma produção?</strong></p>
+    <p>a) Na semana do evento, no grito · b) De 2 a 4 semanas antes · c) Cerca de 30 dias antes · d) 60 dias ou mais, com cronograma escrito</p>
+  </div>
+
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · André Donha</span><span>Página 5</span></div>
+  <div class="kicker">Seção 2 · Parte 2</div>
+  <h1 style="font-size:19pt;">Copy do Quiz: perguntas 4 a 9</h1>
+
+<div class="tag">P4 · Problema · define o elo dominante</div>
+  <div class="item">
+    <p><strong>Onde a sua produção mais escapa hoje?</strong></p>
+    <p>a) <strong>Orçamento:</strong> fecho o preço no chute e descubro o custo real depois · b) <strong>Operação:</strong> passagem, hospedagem, transporte e equipe sempre em cima da hora · c) <strong>Palco:</strong> rider, mapa de palco e retorno resolvidos na hora da passagem de som · d) <strong>Bilheteria:</strong> o show fica pronto e a casa não enche</p>
+  </div>
+
+  <div class="tag">P5 · Implicação · pesa 15 pontos</div>
+  <div class="item">
+    <p><strong>O que isso já te custou na última produção?</strong></p>
+    <p>a) A margem sumiu: o show aconteceu e eu não ganhei nada · b) Coloquei dinheiro do meu bolso para o show não cair · c) Recebi, mas 30 a 60 dias depois de já ter pago tudo · d) Perdi a data ou o contrato por não ter fechado a tempo</p>
+  </div>
+    <div class="tag">P6 · Implicação · pesa 30 pontos</div>
+  <div class="item">
+    <p><strong>Como você controla a produção hoje?</strong></p>
+    <p>a) Grupo de WhatsApp e áudio · b) Uma planilha que eu mesmo montei · c) Planilha mais um app de tarefas · d) Um sistema de gestão de verdade</p>
+  </div>
+
+  <div class="tag">P7 · Tentativas · pesa 15 pontos</div>
+  <div class="item">
+    <p><strong>O que você já tentou para organizar isso?</strong></p>
+    <p>a) Nada estruturado, vou aprendendo no tranco · b) Curso de produção que era mais teoria do que prática · c) Contratei alguém para ajudar e não resolveu · d) Montei o meu próprio processo, mas ele só funciona comigo dentro</p>
+  </div>
+
+  <div class="tag">P8 · Objetivo</div>
+  <div class="item">
+    <p><strong>O que mudaria mais o seu jogo nos próximos 6 meses?</strong></p>
+    <p>a) Fechar produção sabendo a margem antes de assinar · b) Parar de apagar incêndio na semana do show · c) Subir o meu cachê e ser levado a sério pelas casas · d) Produzir para outros artistas e transformar isso em renda</p>
+  </div>
+
+  <div class="tag">P9 · Porteira · qualificação</div>
+  <div class="item">
+    <p><strong>Qual é o orçamento médio de uma produção sua?</strong></p>
+    <p>a) Até R$ 5 mil · b) De R$ 5 mil a R$ 20 mil · c) De R$ 20 mil a R$ 80 mil · d) Acima de R$ 80 mil</p>
+  </div>
+
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · André Donha</span><span>Página 6</span></div>
+  <div class="kicker">Seção 2 · Parte 3</div>
+  <h1 style="font-size:19pt;">O Índice, a Porteira e a Captura</h1>
+  <p class="lead">Como o resultado é calculado, quem entra na fila de abordagem e o que é pedido antes de mostrar o diagnóstico.</p>
+
+  <div class="box-dark">
+    <div class="bt">Como o índice D-90 é calculado</div>
+    <p><strong>P3 antecedência:</strong> a=0 · b=12 · c=24 · d=40 · <strong>P6 controle:</strong> a=0 · b=10 · c=20 · d=30 · <strong>P5 custo:</strong> a=0 · b=5 · c=15 · d=10 · <strong>P7 tentativas:</strong> a=0 · b=5 · c=8 · d=15. Total de 0 a 100.</p>
+    <p><strong>As quatro faixas:</strong> 0 a 30 Produção D-0 · 31 a 55 Produção reativa · 56 a 80 Produção organizada · 81 a 100 Produção D-90.</p>
+    <p><strong>Vazamento estimado</strong>, aplicado ao orçamento médio da P9: faixa D-0 de 20 a 35 por cento · reativa de 12 a 20 por cento · organizada de 5 a 12 por cento · D-90 até 5 por cento.</p>
+    <p><strong>André precisa chancelar essas faixas antes de publicar.</strong> Elas saem da sua experiência de produção e da metodologia, não de estatística de internet, e é isso que as torna defensáveis.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Regra de segmentação</div>
+    <p><strong>b, c e d na P9 são o ICP.</strong> Quem tem orçamento tem margem a perder. Abordagem prioritária no WhatsApp e convite direto para o workshop. O d entra na conversa já com a Mentoria de Produção na mesa.</p>
+    <p><strong>a na P9</strong> recebe o diagnóstico completo, cria a conta grátis na plataforma, entra na nutrição e é convidado para o workshop, mas não é prioridade de abordagem. É aqui que o efeito Smart Fit funciona: a assinatura barata existe exatamente para esta pessoa.</p>
+    <p>Cruzar sempre com a P4, que dá o elo dominante e define o gancho da primeira mensagem.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Captura de dados</div>
+    <p><strong>Título:</strong> Seu diagnóstico está pronto · <strong>Subtítulo:</strong> Preencha abaixo para ver o índice da sua produção e receber uma cópia no WhatsApp. Leva 30 segundos.</p>
+    <p><strong>Campos:</strong> Nome · WhatsApp · E-mail · Cidade · <strong>CTA:</strong> Ver meu diagnóstico</p>
+    <p><strong>Privacidade:</strong> Seus dados estão seguros. Nada de spam, só o seu diagnóstico e o próximo passo.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · André Donha</span><span>Página 7</span></div>
+  <div class="kicker">Seção 3 · Parte 1</div>
+  <h1 style="font-size:19pt;">Página de Diagnóstico</h1>
+  <p class="lead">A peça central deste funil. Ela não vende: ela prepara o produtor para querer estar na sala.</p>
+
+  <div class="box-dark">
+    <div class="bt">O trabalho desta página</div>
+    <p>É uma peça só: o diagnóstico e o convite para o workshop vivem na mesma página. A pessoa responde o quiz, deixa os dados e cai direto aqui, no resultado dela.</p>
+    <p>A régua: ela precisa terminar a leitura pensando <strong>"é exatamente isso que acontece comigo"</strong>, e não "já entendi tudo sozinho". O elo é nomeado e o custo é quantificado; o caminho para corrigir é o D-90, e o D-90 se aprende no workshop e na certificação.</p>
+    <p>Esta página é mais longa que o normal de propósito. O produtor é cético por profissão: ele já viu curso de produção que era teoria, já contratou gente que não resolveu, e decide por profundidade, não por empolgação.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Os nove blocos, na ordem</div>
+    <p>1. O resultado dele, com número · 2. A leitura do cenário · 3. O espelho · 4. Por que o que ele tentou não funcionou · 5. O mecanismo D-90 · 6. O que precisa acontecer no caso dele, por elo · 7. Quem é o André e a prova · 8. Para quem é e para quem não é, com FAQ · 9. O convite para o workshop.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Variáveis usadas nesta página</div>
+    <p>{{nome}} · {{indice}} · {{faixa}} · {{elo_dominante}} (P4) · {{papel}} (P1) · {{antecedencia}} (P3) · {{custo}} (P5) · {{controle}} (P6) · {{tentativa}} (P7) · {{objetivo}} (P8) · {{orcamento}} (P9) · {{vazamento_reais}} (calculado).</p>
+    <p>[DEPOIMENTO] marca os espaços reservados para prova, preenchidos assim que os vídeos do show do dia 11 e da primeira turma estiverem editados.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Uma decisão de arquitetura que vale dizer em voz alta</div>
+    <p>Esta página tem <strong>um CTA só</strong>: a vaga no workshop. A conta grátis na plataforma é criada no caminho, junto com a captura, e não disputa a atenção. Dois botões dividiriam a decisão e nenhum dos dois seria clicado.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · André Donha</span><span>Página 8</span></div>
+  <div class="kicker">Seção 3 · Parte 2</div>
+  <h1 style="font-size:19pt;">A Copy, Bloco a Bloco</h1>
+
+  <div class="tag">Bloco 1 · O resultado dele</div>
+  <div class="item">
+    <p><strong>Headline:</strong> {{nome}}, o índice D-90 da sua produção é {{indice}} de 100.</p>
+    <p><strong>Faixa:</strong> {{faixa}}</p>
+    <p><strong>Subheadline:</strong> Isso não é um julgamento da sua competência como produtor. É a medida de quanto da sua produção ainda é decidida em cima da hora, e quanto isso custa.</p>
+    <p><strong>Destaque numérico:</strong> Em uma produção de {{orcamento}}, a faixa típica de vazamento nesse índice fica entre {{vazamento_reais}}. Por produção.</p>
+  </div>
+
+  <div class="tag">Bloco 2 · A leitura do cenário</div>
+  <div class="item">
+    <p>Você contou que começa a fechar uma produção {{antecedencia}}, que controla tudo com {{controle}}, e que o que mais escapa hoje é {{elo_dominante}}. Na última produção, isso te custou: {{custo}}.</p>
+    <p>Essa combinação tem assinatura. Ela é a de quem produz bem e decide tarde. O show sai, a plateia aplaude, e a conta fecha no zero ou abaixo dele. Não porque você cobrou pouco: <strong>porque entre o dia em que você fechou e o dia do show, o preço de tudo mudou e você já não tinha como negociar.</strong></p>
+  </div>
+
+  <div class="tag">Bloco 3 · O espelho</div>
+  <div class="item">
+    <p>Você provavelmente se reconhece aqui:</p>
+    <p>· Fechou o cachê do show antes de saber quanto custaria a equipe.</p>
+    <p>· Emitiu passagem na semana do evento e viu o preço triplicar.</p>
+    <p>· Mandou o rider por áudio no WhatsApp e descobriu no palco que faltava retorno.</p>
+    <p>· Descobriu o mapa de palco na hora da passagem de som, com a casa cobrando pressa.</p>
+    <p>· Pagou tudo antes e recebeu 40 dias depois do show.</p>
+    <p>· Fez um show impecável, com a casa cheia, e no fim do mês não sobrou nada.</p>
+    <p><strong>Virada:</strong> nada disso é falta de competência. É o custo do D-0, a produção que só existe no dia. E ele é previsível: ele aparece toda vez que uma decisão que podia ter sido tomada com 60 dias é tomada com 6.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · André Donha</span><span>Página 9</span></div>
+  <div class="kicker">Seção 3 · Parte 3</div>
+  <h1 style="font-size:19pt;">A Copy, Bloco a Bloco</h1>
+
+  <div class="tag">Bloco 4 · Por que o que você tentou não funcionou</div>
+  <div class="item">
+    <p>Existem dois produtores no mercado. O <strong>D-0</strong> resolve tudo no dia: ele é rápido, é bom de apagar incêndio, e todo mundo elogia a capacidade dele de virar o jogo em cima da hora. O <strong>D-90</strong> talvez saiba exatamente a mesma coisa, mas decidiu antes, e por isso a produção dele custa menos, erra menos e sobra mais.</p>
+    <p>A distância entre os dois não é talento nem experiência. É <strong>o momento da decisão</strong>. Por isso {{tentativa}} não mudou o seu jogo: curso de produção ensina o que fazer, e você já sabe o que fazer. O que faltava era <strong>quando</strong>, e um lugar onde isso não dependa da sua memória no meio de seis produções ao mesmo tempo.</p>
+  </div>
+
+  <div class="tag">Bloco 5 · O mecanismo</div>
+  <div class="item">
+    <p><strong>D-90: a metodologia de gestão de produção da Musikalis.</strong></p>
+    <p>Toda produção tem seis áreas de decisão: orçamento, operação e logística, palco e técnica, marketing e bilheteria, contrato e acerto financeiro, e pós evento. O D-90 distribui as decisões dessas seis áreas numa linha do tempo que começa 90 dias antes.</p>
+    <p>· <strong>D-90:</strong> escopo, orçamento e margem alvo fechados antes de assinar.</p>
+    <p>· <strong>D-75:</strong> equipe confirmada, contrato e logística encaminhados.</p>
+    <p>· <strong>D-60:</strong> rider, mapa de palco e lista de inputs enviados para a casa.</p>
+    <p>· <strong>D-40:</strong> plano de marketing e bilheteria rodando.</p>
+    <p>· <strong>D-7:</strong> conferência final, sem nenhuma decisão nova.</p>
+    <p>É o PMBOK do PMI traduzido para quem monta show. Dentro da plataforma, quem executa essa linha do tempo é a ferramenta: a assistente de IA gera o rider, o mapa de palco, o orçamento e o contrato, e o dashboard mostra a margem antes, durante e depois.</p>
+  </div>
+
+  <div class="tag">Bloco 6 · O que precisa acontecer no seu caso</div>
+  <div class="item">
+    <p>Personalizado por {{elo_dominante}}:</p>
+    <p><strong>Orçamento:</strong> você fecha preço antes de conhecer o custo. O primeiro passo é orçar por categoria, com margem alvo definida, antes de dizer sim.</p>
+    <p><strong>Operação:</strong> o seu custo não está no cachê, está no calendário. Passagem, hospedagem e transporte decididos em D-75 mudam a conta inteira.</p>
+    <p><strong>Palco:</strong> rider e mapa de palco enviados em D-60 param de virar discussão na passagem de som, e param de virar equipamento alugado às pressas.</p>
+    <p><strong>Bilheteria:</strong> a casa não enche sozinha. Plano de comunicação e venda começando em D-40 é o que separa a casa cheia da casa amiga.</p>
+    <p><strong>O custo de continuar onde está:</strong> não é só a margem desta produção. É a casa que não te chama de novo, o artista que troca de produtor, e o ano inteiro trabalhando muito para terminar no mesmo lugar.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · André Donha</span><span>Página 10</span></div>
+  <div class="kicker">Seção 3 · Parte 4</div>
+  <h1 style="font-size:19pt;">Autoridade, Qualificação, FAQ e CTA</h1>
+
+  <div class="tag">Bloco 7 · Quem é o André e a prova</div>
+  <div class="item">
+    <p>André Donha é engenheiro, formado também em regência e composição pelo Conservatório Brasileiro de Música. Passou 20 anos em consultoria global, atuou em 13 países, foi sócio de uma das quatro maiores consultorias do mundo e é certificado PMP pelo Project Management Institute.</p>
+    <p>E produz show. <strong>São 56 apresentações no palco do Blue Note</strong>, a casa mais difícil de acessar do país, com os tributos a Aretha Franklin, o Divas e o Tina Turner. Nenhuma delas começou no dia do show.</p>
+    <p>A Musikalis nasceu de um prejuízo dele: seis músicos, passagens emitidas na semana do evento, R$ 400 por cabeça virando R$ 1.200, e a margem inteira do show indo embora. O D-90 é o método que ele criou para nunca mais fazer isso, primeiro para as próprias produções, depois para todo mundo.</p>
+    <p>[DEPOIMENTO] [DEPOIMENTO] [DEPOIMENTO] com a função visível: produtor sério só confia em outro produtor sério.</p>
+  </div>
+
+  <div class="tag">Bloco 8 · Para quem é e para quem não é</div>
+  <div class="item">
+    <p><strong>É para você se:</strong> já monta shows ou eventos e sente a margem sumir · quer parar de decidir tudo em cima da hora · quer ser levado a sério pelas casas e cobrar pelo que entrega · é músico e quer virar produtor de verdade.</p>
+    <p><strong>Talvez não seja o momento se:</strong> você ainda não produziu nenhum evento · procura atalho para lotar casa sem método · acha que produção é só ter contato.</p>
+  </div>
+
+  <div class="tag">Bloco 8 · FAQ</div>
+  <div class="item">
+    <p><strong>Isso é mais um curso de produção?</strong> Não. Curso ensina o que fazer, e você já sabe o que fazer. O que a certificação entrega é quando fazer, com uma ferramenta que executa a linha do tempo por você.</p>
+    <p><strong>Eu produzo sozinho, isso serve?</strong> Serve mais ainda. Quanto menor a equipe, mais caro sai cada decisão tomada tarde.</p>
+    <p><strong>Já tentei planilha e não parei em pé.</strong> Planilha não te avisa. A linha do tempo avisa, e a assistente gera o documento que você deixaria para depois.</p>
+    <p><strong>Minha produção é pequena.</strong> A margem de uma produção pequena é justamente a que menos aguenta uma passagem que triplica.</p>
+    <p><strong>Quanto custa?</strong> O workshop é gratuito. No fim dele o André apresenta a certificação, o formato e o investimento.</p>
+  </div>
+
+  <div class="tag">Bloco 9 · O convite e o CTA</div>
+  <div class="item">
+    <p>{{nome}}, o seu diagnóstico aponta {{elo_dominante}} como o ponto onde a sua produção mais perde dinheiro hoje. No próximo workshop Desafios da Produção, ao vivo e gratuito, o André mostra a linha do tempo D-90 inteira e monta na frente da sala o rider e o mapa de palco de uma produção real.</p>
+    <p><strong>CTA:</strong> Quero minha vaga no workshop · <strong>Reforço:</strong> a sala é limitada porque o André responde pergunta ao vivo. Quem entra recebe também a gravação.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · André Donha</span><span>Página 11</span></div>
+  <div class="kicker">Seção 4 · Parte 1</div>
+  <h1 style="font-size:19pt;">Copy dos Anúncios</h1>
+  <p class="lead">Três ângulos e 20 criativos escritos: 5 estáticos, 5 carrosséis e 10 vídeos.</p>
+
+  <div class="box-dark">
+    <div class="bt">Regras que valem para todos os anúncios</div>
+    <p><strong>O destino é sempre o diagnóstico gratuito</strong>, nunca o workshop direto e nunca a certificação. Nenhum anúncio cita preço.</p>
+    <p><strong>Nada de promessa de ganho.</strong> A big idea de "ganhar R$ 10 mil por mês como músico", que funciona no workshop e na conversa, a Meta lê como promessa de faturamento. Em anúncio, a mesma ideia entra pelo avesso: não é quanto você vai ganhar, é quanto você já está perdendo.</p>
+    <p><strong>Nada de acusar o leitor.</strong> Não escreva "você é desorganizado" nem "você não sabe produzir". A régua é descrever a cena, não julgar a pessoa.</p>
+  </div>
+
+  <div class="tag">Ângulo 1 · Cena e identificação</div>
+  <p style="margin-bottom:4pt;"><strong>Estratégia:</strong> espelhar uma cena que ele reconhece na hora, sem julgar quem ele é.</p>
+  <p><strong>Hook:</strong> "A passagem que ia custar R$ 400 custou R$ 1.200. Acabou a margem do show."</p>
+
+  <div class="item">
+    <p><strong>COPY CURTA</strong></p>
+    <p>O show lotou, a casa aplaudiu de pé e no fim do mês não sobrou nada. Isso não é cachê baixo. É o preço de decidir em cima da hora. Faça o diagnóstico gratuito de 2 minutos e veja quanto a sua produção está perdendo antes de o show começar.</p>
+  </div>
+
+  <div class="item">
+    <p><strong>COPY MÉDIA</strong></p>
+    <p>Tem uma cena que se repete. Você fecha o show, monta a banda, escolhe a casa. Deixa a passagem para depois porque tem coisa mais urgente. Chega a semana do evento e o que ia custar R$ 400 por cabeça custa R$ 1.200. Você compra assim mesmo, porque o show não pode cair. A plateia aplaude de pé, todo mundo te elogia, e a sua margem inteira ficou no aeroporto. A explicação que o meio dá é sempre a mesma: cachê baixo, mercado difícil. Não é. É o custo de decidir tarde, e ele pode ser medido. O diagnóstico é gratuito e leva 2 minutos.</p>
+  </div>
+
+  <div class="item">
+    <p><strong>COPY LONGA</strong></p>
+    <p>Você fez tudo o que precisava fazer. Montou a banda certa, ensaiou, conseguiu a casa, cuidou do artista, resolveu o que ninguém viu. O show saiu impecável. E quando você senta para fechar a conta, não sobrou nada. Aí vem a explicação de sempre: a casa apertou, o cachê está baixo, o mercado está difícil. Acontece que a conta não fechou por nenhum desses motivos. Ela não fechou porque a passagem foi emitida na semana e triplicou, porque o rider foi resolvido na passagem de som e virou equipamento alugado às pressas, porque o orçamento foi fechado no chute e o custo real apareceu depois. Nada disso aparece como prejuízo na hora. Aparece no fim, quando já não dá para corrigir. Existe um nome para isso: o custo do D-0, a produção que só existe no dia. E a boa notícia é que ele é previsível, e portanto pode ser medido e corrigido. O diagnóstico gratuito leva 2 minutos e mostra em qual das quatro áreas a sua produção está perdendo mais.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · André Donha</span><span>Página 12</span></div>
+  <div class="kicker">Seção 4 · Parte 2</div>
+  <h1 style="font-size:19pt;">Ângulo 2 · Mecanismo Único</h1>
+  <p class="lead">Apresentar o inimigo nomeado, que é território livre, e contrastar com o que já falhou.</p>
+
+  <p><strong>Hook:</strong> "Existem dois produtores no mercado: o D-0 e o D-90. A diferença não é talento."</p>
+
+  <div class="item">
+    <p><strong>COPY CURTA</strong></p>
+    <p>A sua produção não quebra no dia do show. Ela quebra 90 dias antes, quando as decisões que dariam margem ainda podiam ser tomadas. Descubra em 2 minutos o índice D-90 da sua produção.</p>
+  </div>
+
+  <div class="item">
+    <p><strong>COPY MÉDIA</strong></p>
+    <p>Existem dois produtores no mercado. O D-0 resolve tudo no dia: é rápido, é bom de apagar incêndio, e todo mundo elogia a capacidade dele de virar o jogo em cima da hora. O D-90 talvez saiba exatamente a mesma coisa, mas decidiu antes. Por isso a produção dele custa menos, erra menos e sobra mais. A diferença entre os dois não é talento nem contato: é o momento da decisão. O diagnóstico gratuito mede em 2 minutos onde a sua produção ainda decide no D-0.</p>
+  </div>
+
+  <div class="item">
+    <p><strong>COPY LONGA</strong></p>
+    <p>Você já ouviu que precisa cobrar mais caro, que precisa escolher melhor as casas, que precisa de contato. Talvez tenha tentado, e por um ou dois shows pareceu funcionar. Depois tudo voltou ao mesmo lugar. O que todas essas orientações têm em comum é o alvo: elas miram no preço. E o que come a margem de um produtor competente não está no preço. Está no calendário. Toda decisão tomada em cima da hora custa mais caro do que a mesma decisão tomada com antecedência: a passagem, o equipamento, o freelancer, o material de divulgação, tudo. Existe um nome para isso, o custo do D-0, e existe um método para eliminá-lo. Ele se chama D-90 e distribui as decisões de seis áreas da produção numa linha do tempo que começa 90 dias antes do show: orçamento e margem em D-90, equipe e contrato em D-75, rider e mapa de palco em D-60, marketing e bilheteria em D-40, e em D-7 nenhuma decisão nova. É o PMBOK do PMI traduzido para quem monta show. O primeiro passo é medir onde a sua produção está hoje. O diagnóstico é gratuito e leva 2 minutos.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · André Donha</span><span>Página 13</span></div>
+  <div class="kicker">Seção 4 · Parte 3</div>
+  <h1 style="font-size:19pt;">Ângulo 3 · Prova e Autoridade</h1>
+  <p class="lead">Autoridade construída no palco, que fala a língua de quem desconfia de curso de internet.</p>
+
+  <p><strong>Hook:</strong> "56 apresentações no Blue Note. Nenhuma delas começou no dia do show."</p>
+
+  <div class="item">
+    <p><strong>COPY CURTA</strong></p>
+    <p>Engenheiro, PMP, 20 anos de consultoria global e 56 apresentações no palco do Blue Note. O método que ele usa para produzir agora está em uma plataforma. Faça o diagnóstico gratuito da sua produção. [DEPOIMENTO]</p>
+  </div>
+
+  <div class="item">
+    <p><strong>COPY MÉDIA</strong></p>
+    <p>Passei 20 anos organizando operação de empresa grande, em 13 países, e a vida inteira tocando. Quando comecei a produzir os meus próprios espetáculos, descobri que o que quebrava a conta não era o cachê: era a decisão tomada tarde. Levei a mesma engenharia que eu usava na indústria para o palco e montei uma linha do tempo de 90 dias para produção musical. Foram 56 apresentações no Blue Note com esse método rodando. Agora ele está numa plataforma, com a assistente de IA gerando rider, mapa de palco, orçamento e contrato. Comece pelo diagnóstico gratuito da sua produção. [DEPOIMENTO]</p>
+  </div>
+
+  <div class="item">
+    <p><strong>COPY LONGA</strong></p>
+    <p>A maior parte de quem ensina produção nunca teve que fechar a conta de uma. A minha história é outra. Sou engenheiro, fiz regência e composição no Conservatório Brasileiro de Música, passei 20 anos em consultoria global, trabalhei em 13 países e fui sócio de uma das quatro maiores consultorias do mundo. E toco desde os 15 anos. Quando voltei a produzir, montei espetáculos que entraram no palco do Blue Note, que é a casa mais difícil de acessar deste país, e ali aprendi na prática uma coisa que ninguém me ensinou em escola de música: o show não quebra no dia. Ele quebra semanas antes, em cada decisão que ficou para depois. Eu mesmo perdi a margem inteira de um espetáculo por emitir seis passagens na semana do evento. Foi disso que nasceu o D-90: a linha do tempo que distribui as decisões da produção nos 90 dias que antecedem o show. Hoje ela é uma plataforma, com metodologia, ferramentas e uma assistente de IA que gera os documentos que você deixaria para a última hora. Se você produz e sente que a conta nunca fecha, comece medindo. O diagnóstico é gratuito. [DEPOIMENTO]</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · André Donha</span><span>Página 14</span></div>
+  <div class="kicker">Seção 4 · Parte 4</div>
+  <h1 style="font-size:19pt;">Os 5 Estáticos</h1>
+  <p class="lead">Texto sobre fundo escuro com dourado, na identidade que a Musikalis já usa. Funciona neste nicho porque parece constatação de bastidor, não anúncio.</p>
+
+  <div class="tag">Estático 1 · Cena</div>
+  <div class="item">
+    <p><strong>Arte:</strong> "A passagem ia custar R$ 400. Custou R$ 1.200."</p>
+    <p><strong>Legenda:</strong> O show saiu impecável e a margem ficou no aeroporto. Não foi cachê baixo, foi decisão tomada tarde. Descubra em 2 minutos quanto a sua produção está perdendo antes de começar.</p>
+  </div>
+
+  <div class="tag">Estático 2 · Cena</div>
+  <div class="item">
+    <p><strong>Arte:</strong> "Casa cheia. Plateia de pé. E no fim do mês, nada."</p>
+    <p><strong>Legenda:</strong> Acontece com produtor bom, e acontece sempre pelo mesmo motivo. Faça o diagnóstico gratuito e veja em qual área a sua produção perde mais: orçamento, operação, palco ou bilheteria.</p>
+  </div>
+
+  <div class="tag">Estático 3 · Mecanismo</div>
+  <div class="item">
+    <p><strong>Arte:</strong> "A produção não quebra no dia do show. Ela quebra 90 dias antes."</p>
+    <p><strong>Legenda:</strong> Toda decisão tomada em cima da hora custa mais caro do que a mesma decisão tomada com antecedência. Isso tem nome, tem preço e pode ser medido. Diagnóstico gratuito de 2 minutos.</p>
+  </div>
+
+  <div class="tag">Estático 4 · Mecanismo</div>
+  <div class="item">
+    <p><strong>Arte:</strong> "Existem dois produtores: o D-0 e o D-90."</p>
+    <p><strong>Legenda:</strong> O D-0 é ótimo apagando incêndio. O D-90 talvez saiba exatamente o mesmo, mas decidiu antes, e por isso sobra. A diferença não é talento. Descubra em qual você está hoje.</p>
+  </div>
+
+  <div class="tag">Estático 5 · Autoridade</div>
+  <div class="item">
+    <p><strong>Arte:</strong> "56 apresentações no Blue Note. Nenhuma começou no dia do show."</p>
+    <p><strong>Legenda:</strong> Engenheiro, PMP, 20 anos de consultoria global e uma metodologia de produção criada no palco. Se você produz e a conta nunca fecha, comece pelo diagnóstico gratuito.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · André Donha</span><span>Página 15</span></div>
+  <div class="kicker">Seção 4 · Parte 5</div>
+  <h1 style="font-size:19pt;">Os 5 Carrosséis</h1>
+  <p class="lead">Um slide por ideia, frases curtas. O último slide sempre leva ao diagnóstico.</p>
+
+  <div class="tag">Carrossel 1 · Cena · "O dia seguinte ao show perfeito"</div>
+  <div class="item">
+    <p>1. O show lotou. 2. A banda tocou como nunca. 3. A casa quer você de volta. 4. Você senta para fechar a conta. 5. Não sobrou nada. 6. E você não fez nada de errado no dia do show. 7. O erro aconteceu 60 dias antes. 8. Descubra onde, em 2 minutos. Link na bio.</p>
+  </div>
+
+  <div class="tag">Carrossel 2 · Cena · "As frases que todo produtor já disse"</div>
+  <div class="item">
+    <p>1. Cinco frases que todo produtor já disse. 2. "Depois eu emito a passagem." 3. "O rider eu mando amanhã." 4. "A gente acerta o mapa de palco no dia." 5. "Confia, é de boca mesmo." 6. Nenhuma delas parece cara na hora que é dita. 7. Todas aparecem na conta no fim. 8. Faça o diagnóstico gratuito.</p>
+  </div>
+
+  <div class="tag">Carrossel 3 · Mecanismo · "O custo do D-0"</div>
+  <div class="item">
+    <p>1. Existe um custo que não entra em planilha nenhuma. 2. É o custo de decidir em cima da hora. 3. A passagem que triplica. 4. O equipamento alugado às pressas. 5. O freelancer que cobra dobrado porque é amanhã. 6. Isso tem nome: o custo do D-0. 7. E é o que come a margem de produtor bom. 8. Meça o seu em 2 minutos. Link na bio.</p>
+  </div>
+
+  <div class="tag">Carrossel 4 · Mecanismo · "A linha do tempo D-90"</div>
+  <div class="item">
+    <p>1. Toda produção tem seis áreas de decisão. 2. D-90: orçamento e margem, antes de assinar. 3. D-75: equipe, contrato e logística. 4. D-60: rider, mapa de palco e inputs. 5. D-40: marketing e bilheteria. 6. D-7: conferência, e nenhuma decisão nova. 7. É o PMBOK traduzido para quem monta show. 8. Veja onde a sua produção está hoje.</p>
+  </div>
+
+  <div class="tag">Carrossel 5 · Autoridade · "O que 56 noites no Blue Note ensinam"</div>
+  <div class="item">
+    <p>1. Foram 56 apresentações no palco do Blue Note. 2. Aretha Franklin, Divas, Tina Turner. 3. Nenhuma delas começou no dia do show. 4. Cada uma começou 90 dias antes. 5. E o método veio de um prejuízo meu. 6. Seis passagens emitidas na semana do evento. 7. A margem inteira do show foi embora. 8. Foi para isso não acontecer de novo que nasceu o D-90.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Observação de produção</div>
+    <p>Os carrosséis saem na identidade que a Musikalis já usa: fundo escuro, tipografia clara, dourado nos destaques, com o microfone da marca discreto. Isso mantém a coerência entre o perfil, o funil e o material do workshop, e reduz o tempo de produção.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · André Donha</span><span>Página 16</span></div>
+  <div class="kicker">Seção 4 · Parte 6</div>
+  <h1 style="font-size:19pt;">Os 10 Vídeos · roteiros 1 a 5</h1>
+  <p class="lead">André falando, vertical, de 30 a 60 segundos. Sempre que possível gravado no palco, no camarim ou na montagem, não em frente a uma parede branca.</p>
+
+  <div class="tag">Vídeo 1 · Cena</div>
+  <div class="item">
+    <p><strong>Hook:</strong> "Eu perdi a margem inteira de um show por causa de seis passagens de avião."</p>
+    <p><strong>Desenvolvimento:</strong> conta a cena real: seis músicos, passagens deixadas para depois, semana do Rock in Rio, R$ 400 virando R$ 1.200. O show foi ótimo e não sobrou nada. <strong>CTA:</strong> mede a sua em 2 minutos, link na bio.</p>
+  </div>
+
+  <div class="tag">Vídeo 2 · Cena</div>
+  <div class="item">
+    <p><strong>Hook:</strong> "Se você controla a sua produção por áudio de WhatsApp, o problema não é o WhatsApp."</p>
+    <p><strong>Desenvolvimento:</strong> o áudio de quatro minutos funciona até a terceira produção simultânea. Depois disso a informação existe, mas ninguém acha. <strong>CTA:</strong> diagnóstico gratuito.</p>
+  </div>
+
+  <div class="tag">Vídeo 3 · Cena</div>
+  <div class="item">
+    <p><strong>Hook:</strong> "O show lotou e você não ganhou nada. Já aconteceu, né?"</p>
+    <p><strong>Desenvolvimento:</strong> casa cheia não é sinônimo de produção lucrativa, e a diferença entre as duas coisas cabe numa planilha de custos feita antes de assinar. <strong>CTA:</strong> descubra onde está o seu vazamento.</p>
+  </div>
+
+  <div class="tag">Vídeo 4 · Cena</div>
+  <div class="item">
+    <p><strong>Hook:</strong> "Toda casa de show tem uma história de rider que chegou na hora da passagem de som."</p>
+    <p><strong>Desenvolvimento:</strong> rider atrasado não é falta de organização, é decisão empurrada. E ela sempre volta como equipamento alugado no dia, pelo dobro. <strong>CTA:</strong> diagnóstico gratuito de 2 minutos.</p>
+  </div>
+
+  <div class="tag">Vídeo 5 · Mecanismo</div>
+  <div class="item">
+    <p><strong>Hook:</strong> "A sua produção não quebra no dia do show. Ela quebra 90 dias antes."</p>
+    <p><strong>Desenvolvimento:</strong> apresenta o custo do D-0 e a ideia de que o momento da decisão, e não o preço, é o que define a margem. <strong>CTA:</strong> meça o índice D-90 da sua produção.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · André Donha</span><span>Página 17</span></div>
+  <div class="kicker">Seção 4 · Parte 6</div>
+  <h1 style="font-size:19pt;">Os 10 Vídeos · roteiros 6 a 10</h1>
+
+  <div class="tag">Vídeo 6 · Mecanismo</div>
+  <div class="item">
+    <p><strong>Hook:</strong> "São seis áreas numa produção, e quase todo mundo só olha para duas."</p>
+    <p><strong>Desenvolvimento:</strong> orçamento, operação, palco, bilheteria, contrato e pós evento. A maioria cuida de palco e de banda, e é nas outras quatro que o dinheiro escapa. <strong>CTA:</strong> descubra qual é a sua área mais fraca.</p>
+  </div>
+
+  <div class="tag">Vídeo 7 · Mecanismo</div>
+  <div class="item">
+    <p><strong>Hook:</strong> "Cobrar mais caro não resolve. Eu vou te explicar por quê em 40 segundos."</p>
+    <p><strong>Desenvolvimento:</strong> preço maior aplicado sobre uma produção que decide tarde só aumenta o valor absoluto do que vaza. Primeiro se fecha o vazamento, depois se sobe o preço. <strong>CTA:</strong> diagnóstico gratuito no link.</p>
+  </div>
+
+  <div class="tag">Vídeo 8 · Mecanismo · gravado na plataforma</div>
+  <div class="item">
+    <p><strong>Hook:</strong> "Vou gerar o rider e o mapa de palco de um show inteiro. Cronometra."</p>
+    <p><strong>Desenvolvimento:</strong> tela gravada, a assistente de IA gerando os documentos em segundos, e a comparação com as duas horas que isso leva na mão. <strong>CTA:</strong> faça o diagnóstico e veja a plataforma por dentro.</p>
+  </div>
+
+  <div class="tag">Vídeo 9 · Autoridade</div>
+  <div class="item">
+    <p><strong>Hook:</strong> "56 apresentações no Blue Note. Nenhuma delas começou no dia do show."</p>
+    <p><strong>Desenvolvimento:</strong> o que é preciso entregar para entrar e voltar a um palco desse nível, e por que isso depende mais de cronograma do que de sorte. <strong>CTA:</strong> comece pelo diagnóstico gratuito.</p>
+  </div>
+
+  <div class="tag">Vídeo 10 · Autoridade</div>
+  <div class="item">
+    <p><strong>Hook:</strong> "Passei 20 anos organizando indústria em 13 países. Depois apliquei isso num show."</p>
+    <p><strong>Desenvolvimento:</strong> a mesma engenharia que organiza uma planta industrial organiza uma produção musical, e ninguém tinha feito essa tradução. <strong>CTA:</strong> diagnóstico gratuito de 2 minutos.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Direção de gravação e distribuição por ângulo</div>
+    <p>Sem trilha, sem legenda animada exagerada, sem corte a cada segundo. Este público associa produção excessiva a superficialidade. Grave no ambiente real: palco montando, camarim, mesa de som, plataforma na tela. A credibilidade aqui vem do lugar, não da energia.</p>
+    <p>Dos 20 criativos: <strong>8 de cena</strong> (identificação, o que mais capta frio), <strong>7 de mecanismo</strong> (o que mais qualifica) e <strong>5 de autoridade</strong> (o que mais converte quem já viu antes). Começar com peso em cena e migrar para mecanismo conforme a audiência aquece.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · André Donha</span><span>Página 18</span></div>
+  <div class="kicker">Seção 4 · Parte 7</div>
+  <h1 style="font-size:19pt;">Headlines e Hooks para Teste</h1>
+
+  <h3 style="margin-top:6pt;">10 headlines para teste A/B</h3>
+  <ul class="check">
+    <li>A produção não quebra no dia do show. Ela quebra 90 dias antes.</li>
+    <li>A passagem ia custar R$ 400. Custou R$ 1.200.</li>
+    <li>Casa cheia, plateia de pé, e no fim do mês nada.</li>
+    <li>Existem dois produtores: o D-0 e o D-90. Qual é você?</li>
+    <li>O que come a sua margem não é o cachê. É o calendário.</li>
+    <li>56 apresentações no Blue Note. Nenhuma começou no dia do show.</li>
+    <li>Descubra em 2 minutos quanto a sua produção perde antes de começar.</li>
+    <li>Cobrar mais caro não resolve produção que decide tarde.</li>
+    <li>O improviso tem preço. E ele aparece sempre no fim.</li>
+    <li>Você não produz mal. Você decide tarde.</li>
+  </ul>
+
+  <h3 style="margin-top:10pt;">5 hooks para vídeo, na voz do André</h3>
+  <ul class="check">
+    <li>"Eu perdi a margem inteira de um show por causa de seis passagens de avião."</li>
+    <li>"Se você controla a sua produção por áudio de WhatsApp, o problema não é o WhatsApp."</li>
+    <li>"Existem dois produtores no mercado, e a diferença entre eles não é talento."</li>
+    <li>"56 apresentações no Blue Note. Nenhuma delas começou no dia do show."</li>
+    <li>"Cobrar mais caro não resolve. Eu vou te explicar por quê em 40 segundos."</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Estrutura de largada da campanha</div>
+    <p>20 criativos na largada: 5 estáticos, 5 carrosséis e 10 vídeos, todos escritos nas páginas anteriores e distribuídos entre os três ângulos.</p>
+    <p>Estáticos e carrosséis entram primeiro, porque não dependem de gravação e podem subir enquanto os vídeos são produzidos. O peso maior em vídeo é proposital: é onde o André tem mais material real para mostrar, e é o formato que mais qualifica neste nicho.</p>
+    <p>Investimento inicial de R$ 50 a R$ 100 por dia, financiado pelo caixa da primeira turma. Volume alto de criativo na largada para a Meta encontrar o vencedor rápido.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · André Donha</span><span>Página 19</span></div>
+  <div class="kicker">Seção 5 · Parte 1</div>
+  <h1 style="font-size:19pt;">Cadência de Atendimento · 10 dias</h1>
+  <p class="lead">Disparada no WhatsApp, na voz do André. O objetivo não é vender: é colocar a pessoa na sala do workshop.</p>
+
+  <div class="box-dark">
+    <div class="bt">Regra de tom neste nicho</div>
+    <p>Produtor é cético por profissão e já foi queimado por curso que era teoria. Nada de urgência artificial, nada de escassez inventada, nada de vocabulário de guru.</p>
+    <p>Frases curtas, poucas maiúsculas, quase nenhum emoji. Ele responde a especificidade técnica, não a empolgação. <strong>O ativo que abre toda conversa é o índice dele, com o elo nomeado.</strong></p>
+  </div>
+
+  <div class="tag">Dia 1 · manhã</div>
+  <div class="item"><p>{{nome}}, aqui é do time do André Donha, da Musikalis. Teu diagnóstico chegou aí? Se quiser eu reenvio.</p></div>
+
+  <div class="tag">Dia 1 · tarde</div>
+  <div class="item"><p>Teu índice deu {{indice}} de 100, com o vazamento concentrado em {{elo_dominante}}. É o caso mais comum de quem produz {{papel}}. No workshop do dia {{data}} o André abre justamente essa parte, ao vivo. Te garanto uma vaga?</p></div>
+
+  <div class="tag">Dia 2</div>
+  <div class="item"><p>{{nome}}, o workshop é dia {{data}}, das 19h30 às 21h, online e gratuito. Ele monta um rider e um mapa de palco na frente da sala, de uma produção real. Posso te inscrever?</p></div>
+
+  <div class="tag">Dia 3 · valor</div>
+  <div class="item"><p>Um ponto do teu diagnóstico: quem tem o vazamento em {{elo_dominante}} costuma tentar resolver cobrando mais caro, e é exatamente o que não move. {{micro_orientacao_por_elo}}</p></div>
+
+  <div class="tag">Dia 4 · ligação</div>
+  <div class="item"><p>Tentativa de ligação e, depois, mensagem: te liguei rapidinho só para confirmar tua vaga, {{nome}}. Me diz se posso reservar.</p></div>
+
+  <div class="tag">Dia 5 · prova</div>
+  <div class="item"><p>Olha o bastidor de uma produção rodando em D-90: [VÍDEO do show do Bourbon Street]. Esse é o padrão que o André mostra no workshop. [DEPOIMENTO curto]</p></div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · André Donha</span><span>Página 20</span></div>
+  <div class="kicker">Seção 5 · Parte 2</div>
+  <h1 style="font-size:19pt;">Cadência: dias 6 a 10 e os níveis</h1>
+
+  <div class="tag">Dia 6 · valor</div>
+  <div class="item"><p>Pergunta honesta, {{nome}}: se as próximas cinco produções acontecerem exatamente do jeito que a última aconteceu, tá tudo bem? Se incomodou, a aula é gratuita e responde isso.</p></div>
+
+  <div class="tag">Dia 7 · áudio pessoal do André</div>
+  <div class="item"><p>"{{nome}}, André aqui. Vi o teu diagnóstico. O teu caso é dos que eu gosto: você produz bem e tá perdendo dinheiro em {{elo_dominante}}, que é a parte mais fácil de arrumar. Aparece no workshop dia {{data}} que eu mostro isso ao vivo."</p></div>
+
+  <div class="tag">Dia 8 · lembrete de vaga</div>
+  <div class="item"><p>{{nome}}, as vagas do workshop de {{data}} fecham amanhã porque o André responde pergunta ao vivo e a sala é limitada. Te guardo uma?</p></div>
+
+  <div class="tag">Dia 9 · segunda ligação</div>
+  <div class="item"><p>Segunda tentativa de ligação, em outro horário do dia, e mensagem curta com o link de inscrição.</p></div>
+
+  <div class="tag">Dia 10 · pré break-up</div>
+  <div class="item"><p>{{nome}}, vou parar de te chamar para não virar chateação. O teu diagnóstico fica salvo na tua conta e essa conversa fica aberta: quando quiser retomar, é só me chamar. Sucesso nas produções aí.</p></div>
+
+  <div class="box-light">
+    <div class="bt">Os cinco níveis</div>
+    <p><strong>N1 não respondeu:</strong> cadência completa acima.</p>
+    <p><strong>N2 engajou e parou:</strong> retomar pelo conteúdo do elo dele, nunca pela cobrança.</p>
+    <p><strong>N3 quer e adia:</strong> oferecer a data do workshop seguinte antes de insistir na atual. Produtor tem agenda refém de show.</p>
+    <p><strong>N4 inscreveu e não compareceu:</strong> sem culpa. "Imprevisto de produção acontece, {{nome}}. Te mando a gravação e te guardo vaga na próxima, dia {{data2}}."</p>
+    <p><strong>N5 assistiu e não comprou:</strong> cadência quinzenal de valor por 60 dias, com convite de retomada a cada 15 dias. É o grupo mais quente que existe: já viu o diagnóstico e já viu o André ensinando.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A régua do follow-up</div>
+    <p>Todo inscrito tem follow-up em até 48 horas, tenha comparecido ou não. Lead sem follow-up esfria e vira prejuízo de mídia. Sem registro no CRM, não existe.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · André Donha</span><span>Página 21</span></div>
+  <div class="kicker">Seção 6 · Parte 1</div>
+  <h1 style="font-size:19pt;">Recomendações Estratégicas</h1>
+  <p class="lead">O que a Simple recomenda além da copy.</p>
+
+  <div class="box-dark">
+    <div class="bt">Sobre o gargalo real</div>
+    <p>O gargalo deste projeto não é tráfego, não é produto e não é estratégia. É que hoje <strong>não existe uma coisa com preço para comprar</strong>. Enquanto a oferta do GPM não estiver escrita, precificada e com data de turma no calendário, este funil entrega lead para uma operação que não tem o que vender, e a mídia queima.</p>
+    <p>Por isso a ordem do roadmap é essa e não outra: oferta primeiro, sala depois, mídia por último.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre o balde furado que já existe</div>
+    <p>São 26 usuários cadastrados e quase nenhum ativo. O próprio André mostrou no painel: gente que fez o onboarding, não cadastrou uma banda, uma equipe ou uma produção, e nunca voltou.</p>
+    <p>Duas correções, e as duas são baratas: <strong>o onboarding de 7 telas passa a ser o diagnóstico</strong>, então quem entra já sai com um índice e uma primeira tarefa; e <strong>o convite de upgrade passa a existir</strong>, porque hoje não existe em lugar nenhum da plataforma. Ligar tráfego antes de fazer isso é encher um balde furado.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre o preço da certificação</div>
+    <p>A R$ 180, uma turma cheia de 12 pessoas rende R$ 2.160 e não paga a mídia que encheu a sala. A referência que o próprio André mandou, a Rock in Rio Academy, cobra 10 vezes R$ 529 por um dia de evento.</p>
+    <p>A R$ 1.497, uma única turma de 8 pessoas cobre o trimestre de trabalho e a mídia. <strong>O preço estava errado, não o produto.</strong> E preço baixo neste caso não gera volume: gera dúvida sobre o que está sendo vendido.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre o músico liso e o produtor que paga</div>
+    <p>Essa tensão apareceu na call de vendas e vale resolver por escrito. O músico que tira R$ 200 por produção é o coração do projeto e é quem enche a rede, mas ele não paga R$ 1.497 hoje. O produtor que já roda orçamento de R$ 20 mil paga, e paga rápido, porque para ele o vazamento é dinheiro visível.</p>
+    <p>A solução não é escolher um dos dois: é dar a cada um a porta certa. <strong>A porteira da P9 faz exatamente isso.</strong> Quem tem orçamento vira matrícula. Quem não tem vira usuário grátis, vira base e vira o mercado dos próximos anos.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+<div class="page">
+  <div class="runhead"><span>Estratégia · André Donha</span><span>Página 22</span></div>
+  <div class="kicker">Seção 6 · Parte 2</div>
+  <h1 style="font-size:19pt;">Recomendações Estratégicas</h1>
+
+  <div class="box-light">
+    <div class="bt">Sobre o workshop, que é onde o dinheiro acontece</div>
+    <p>O primeiro workshop, dia 25 de agosto, teve 12 pessoas e nenhuma conversão. Não foi o formato: <strong>faltou oferta no fim</strong>. Três coisas precisam ser respeitadas daqui em diante: a oferta do GPM entra no encerramento, com condição de 48 horas e sem desconto no valor; todo inscrito entra no CRM e na cadência, inclusive quem não comparecer; e toda aula é gravada e transcrita, porque vira conteúdo da Academy, cortes de criativo e material de contexto para escrevermos no tom dele.</p>
+    <p>E um detalhe que vende sozinho: <strong>gerar o rider e o mapa de palco ao vivo, na frente da sala.</strong> Nenhum concorrente faz isso porque nenhum tem a ferramenta.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre compliance e mídia</div>
+    <p>Dois riscos de reprovação neste projeto: <strong>promessa de ganho</strong> (a ideia de "ganhar R$ 10 mil por mês como músico" é excelente no workshop e proibida no anúncio) e <strong>afirmação de atributo pessoal do leitor</strong> ("você é desorganizado", "você não sabe produzir"). A régua para o time e para as gravações é sempre a mesma: descrever a cena, nunca acusar a pessoa.</p>
+    <p>E a métrica que importa não é custo por lead. É <strong>custo por matrícula, e a régua saudável fica abaixo de R$ 350</strong> para um ticket de R$ 1.497.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre a prova social, o ativo mais subaproveitado</div>
+    <p>São 56 apresentações no Blue Note, três espetáculos autorais, um show no Bourbon Street nesta semana e uma rede que inclui o produtor do The Voice e a presidência da Warner. Isso é exatamente o tipo de evidência que o produtor cético exige, e hoje quase nada está empacotado.</p>
+    <p>Filmar o bastidor do show do dia 11 e captar de 3 a 5 depoimentos ali vale mais do que qualquer criativo novo. É a prova de que o método existe na prática, feita no lugar onde ela é indiscutível.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Sobre a esteira, depois dos 90 dias</div>
+    <p>O MPM, o white label para escolas, o marketplace de fornecedores e a Musikalis Intelligence continuam de pé e não foram descartados. Eles só não cabem nos 90 dias, porque cada um exige comprador, preço e funil próprios.</p>
+    <p>Quando a turma estiver enchendo sozinha, a ordem recomendada é: primeiro o <strong>MPM</strong>, porque tira o André do gargalo da entrega e usa gente que ele mesmo formou; depois o <strong>B2B</strong> com escolas e igrejas, que tem ticket maior e ciclo previsível. A plataforma Vaartus é outro negócio inteiro e merece o próprio roadmap.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de lead dinâmico</div>
+</div>
+
+</body>
+</html>

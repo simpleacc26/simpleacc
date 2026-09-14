@@ -15,6 +15,7 @@ clientes/
 | Cliente                    | Pasta                          | Status |
 | -------------------------- | ------------------------------ | ------ |
 | Interno Simple Acc / Inova | `0-interno-simpleacc-inova/`   | ativo  |
+| André Donha (Musikalis)    | `andre-donha/`                 | ativo  |
 | Carol e José               | `carol-e-jose/`                | ativo  |
 | Clínica Vital              | `clinica-vital/`               | ativo  |
 | Daniele Christensen        | `daniele-christensen/`         | ativo  |

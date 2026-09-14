@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Estratégia Completa · Evandro Fernandes</title>
+<style>
+  @page { size: A4; margin: 16mm 18mm 18mm 18mm; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body { font-family: Arial, Helvetica, sans-serif; color: var(--text); font-size: 10.5pt; line-height: 1.5; }
+  .cover {
+    height: 261mm; display: flex; flex-direction: column; justify-content: center;
+    page-break-after: always; position: relative;
+  }
+  .cover .wm { color: var(--gold); font-size: 12pt; font-weight: bold; letter-spacing: .5em; }
+  .cover .kick { color: var(--navy); font-size: 10.5pt; font-weight: bold; letter-spacing: .28em; margin-top: 26pt; text-transform: uppercase; }
+  .cover h1 { color: var(--navy); font-size: 40pt; line-height: 1.05; margin: 10pt 0 16pt; }
+  .cover .rule { width: 40mm; height: 2.5pt; background: var(--gold); margin: 4pt 0 16pt; }
+  .cover .sub { font-size: 12.5pt; color: #4a5160; line-height: 1.6; max-width: 150mm; }
+  .cover .who { position: absolute; bottom: 8mm; left: 0; }
+  .cover .who .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 9pt; }
+  .cover .who .val { font-size: 11pt; color: var(--text); }
+  .cover .year { position: absolute; bottom: 8mm; right: 0; color: var(--gold); font-weight: bold; letter-spacing: .4em; font-size: 11pt; }
+
+  .head {
+    background: var(--navy-dark); color: #eef1f6; padding: 14pt 16pt; margin-bottom: 16pt; border-left: 4pt solid var(--gold);
+  }
+  .head p { margin-bottom: 5pt; font-size: 9.8pt; }
+  .head p:last-child { margin-bottom: 0; }
+  .head .strat { color: #fff; font-weight: bold; letter-spacing: .04em; }
+  .head b { color: #fff; }
+
+  h2 {
+    color: var(--navy); font-size: 15pt; margin: 20pt 0 8pt; padding-bottom: 5pt;
+    border-bottom: 1.5pt solid var(--gold); page-break-after: avoid;
+  }
+  h2 .num { color: var(--gold); }
+  h3 { color: var(--navy); font-size: 11.5pt; margin: 12pt 0 4pt; page-break-after: avoid; }
+  h4 { color: var(--navy); font-size: 10.5pt; margin: 9pt 0 3pt; page-break-after: avoid; }
+  p { margin-bottom: 7pt; }
+  ul { margin: 4pt 0 8pt 0; list-style: none; }
+  ul li { padding-left: 14pt; position: relative; margin-bottom: 3pt; }
+  ul li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 7pt; top: 2pt; }
+  ul.plain li::before { content: "→"; font-size: 9pt; top: 0; }
+  ol { margin: 4pt 0 8pt 18pt; }
+  ol li { margin-bottom: 3pt; }
+  .lead-idea { font-size: 13pt; color: var(--navy); font-weight: bold; font-style: italic; line-height: 1.4; margin: 6pt 0 10pt; }
+  .box {
+    background: var(--beige); border-left: 3pt solid var(--gold); padding: 9pt 13pt; margin: 9pt 0;
+    page-break-inside: avoid;
+  }
+  .box .bt { color: var(--navy); font-weight: bold; font-size: 9pt; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 4pt; }
+  .angle { page-break-inside: avoid; margin-bottom: 10pt; }
+  .q { page-break-inside: avoid; margin-bottom: 7pt; }
+  .navy { color: var(--navy); }
+  .muted { color: var(--muted); }
+  .yn li.y::before { content: "✓"; color: #4a7a4a; }
+  .yn li.n::before { content: "✗"; color: #a85a5a; }
+  strong { color: var(--navy); }
+  .runfoot { text-align: center; font-size: 7.5pt; color: var(--muted); margin-top: 18pt; padding-top: 6pt; border-top: .5pt solid #d9d5cc; }
+</style>
+</head>
+<body>
+
+<!-- CAPA -->
+<div class="cover">
+  <div class="wm">SIMPLE</div>
+  <div class="kick">Estratégia · Funil de Lead Dinâmico</div>
+  <h1>Estratégia<br>Completa</h1>
+  <div class="rule"></div>
+  <div class="sub">Big idea, funil de quiz, página de aplicação, anúncios, cadência de follow-up e recomendações estratégicas.</div>
+  <div class="who">
+    <div class="lbl">Cliente</div>
+    <div class="val">Evandro Fernandes</div>
+    <div class="lbl">Estrategista</div>
+    <div class="val">Daniel Souza</div>
+  </div>
+  <div class="year">2026</div>
+</div>
+
+<!-- CABEÇALHO -->
+<div class="head">
+  <p class="strat">Estrategista: Daniel Souza · Expert: Evandro Fernandes</p>
+  <p><b>Negócio em uma linha:</b> consultoria high ticket de Recuperação de Receita (metodologia HDM) para donos de negócio digital que perdem receita nos 3 funis (Marketing, Comercial e CS), sem saber onde nem quanto.</p>
+  <p><b>Frente única:</b> consultoria HDM (carro-chefe R$ 60 mil, escalando até R$ 180 mil). Funil de aplicação via quiz (Diagnóstico de Receita Invisível), com não-ICP direcionado ao produto de entrada (assinatura da plataforma HDM).</p>
+  <p><b>Premissas assumidas:</b> ticket do high ticket fixado em R$ 60 mil (roadmap de 22/07, vale sobre o range do canvas de R$ 50 mil a 180 mil). Corte de qualificação do quiz em R$ 300 mil/mês de faturamento (coerente com o ICP). Conversão de call considerada 40% (a validar). Produto de entrada e ticket final a bater com o Evandro.</p>
+</div>
+
+<!-- 1. BIG IDEA -->
+<h2><span class="num">1.</span> Big Idea</h2>
+<p class="lead-idea">O dinheiro que falta na sua empresa não está no tráfego que você ainda não comprou. Está na receita que já entrou pela porta e vaza sem ninguém ver.</p>
+<p>O caminho comum de quem quer crescer é comprar mais lead: mais tráfego, mais criativo, mais verba na Meta. Só que lead mais caro não resolve o problema real, que é a evasão entre os 3 funis. Lead que chega e ninguém rastreia. Oportunidade que morre no comercial sem follow-up. Cliente que cancela no CS sem nenhum alerta. Isso é a Receita Invisível: dinheiro que você já pagou para trazer e perde no meio do caminho.</p>
+<p>A virada do Evandro: você não precisa de mais tráfego, precisa parar de perder o que já pagou para trazer. O HDM lê o comportamento real do lead (Endognose), trata Marketing, Comercial e CS como um organismo único e recupera essa receita em 90 a 180 dias, sem aumentar a mídia. Não é achismo nem dashboard bonito: é diagnóstico em R$ mais implementação até o caixa mudar.</p>
+
+<!-- 2. COPY DO QUIZ -->
+<h2><span class="num">2.</span> Copy do Quiz · Diagnóstico de Receita Invisível</h2>
+<h3>Hero da página do quiz</h3>
+<p><strong>Título:</strong> Descubra quanto de receita a sua empresa está perdendo sem perceber.</p>
+<p><strong>Subtítulo:</strong> Responda em 2 minutos e receba um diagnóstico personalizado, direto no seu WhatsApp, com uma estimativa de quanto escapa nos seus 3 funis e o próximo passo para recuperar.</p>
+<p class="muted">Tempo estimado: 2 minutos · CTA: Começar meu diagnóstico</p>
+
+<h3>Perguntas (padrão SPIN, qualificação por último)</h3>
+
+<div class="q">
+<h4>P1 · Situação. Qual é o modelo do seu negócio hoje?</h4>
+<ul><li>a) Agência ou coprodução</li><li>b) Infoproduto ou negócio de autoridade</li><li>c) Empresa B2B com equipe comercial</li><li>d) SaaS ou serviço recorrente</li></ul>
+</div>
+
+<div class="q">
+<h4>P2 · Situação. Como os dados de Marketing, Comercial e CS conversam hoje?</h4>
+<ul><li>a) Cada área tem o próprio número, em ferramentas separadas</li><li>b) Tenho um CRM, mas marketing e CS ficam de fora</li><li>c) Uso planilhas e WhatsApp para juntar na mão</li><li>d) Não tenho ideia de onde estão os dados</li></ul>
+</div>
+
+<div class="q">
+<h4>P3 · Problema. O que mais trava o seu resultado neste momento?</h4>
+<ul><li>a) Lead caro que chega e não vira cliente</li><li>b) Oportunidade que morre no comercial sem follow-up</li><li>c) Cliente que cancela no CS sem aviso</li><li>d) Sei que perco receita, mas não sei onde</li></ul>
+</div>
+
+<div class="q">
+<h4>P4 · Implicação. Se nada mudar, como fica a sua empresa daqui a 12 meses?</h4>
+<ul><li>a) Igual: investindo mais em tráfego para o mesmo resultado</li><li>b) Pior: margem apertando com o CAC subindo</li><li>c) Não sei, e isso me incomoda</li><li>d) Vou crescer, mas queimando caixa que não precisava</li></ul>
+</div>
+
+<div class="q">
+<h4>P5 · Tentativas. O que você já tentou para destravar?</h4>
+<ul><li>a) Mais tráfego ou trocar de gestor</li><li>b) Implantar um CRM ou ferramenta de dados</li><li>c) Consultoria ou treinamento de vendas</li><li>d) Ainda não tentei nada estruturado</li></ul>
+</div>
+
+<div class="q">
+<h4>P6 · Objetivo. O que você mais quer nos próximos 6 meses?</h4>
+<ul><li>a) Reduzir o custo de aquisição sem perder volume</li><li>b) Aumentar a conversão do comercial</li><li>c) Reduzir churn e aumentar o LTV</li><li>d) Ter previsibilidade e decidir por dado, não por achismo</li></ul>
+</div>
+
+<div class="q">
+<h4>P7 · Perfil. Qual é o seu papel na empresa?</h4>
+<ul><li>a) Dono ou CEO</li><li>b) Sócio</li><li>c) Diretor comercial ou de marketing</li><li>d) Gestor ou coordenador</li></ul>
+</div>
+
+<div class="q">
+<h4>P8 · Qualificação (filtro). Qual é o faturamento mensal da sua empresa hoje?</h4>
+<ul><li>a) Até R$ 100 mil</li><li>b) De R$ 100 a 300 mil</li><li>c) De R$ 300 mil a 1 milhão</li><li>d) Acima de R$ 1 milhão</li></ul>
+</div>
+
+<div class="box">
+  <div class="bt">Regra de segmentação</div>
+  <p>c e d na P8 = ICP (agenda a sessão estratégica com o Evandro). a e b = oferta do produto de entrada (assinatura da plataforma HDM), que aquece o lead e ajuda a pagar a mídia.</p>
+</div>
+
+<h3>Captura de dados</h3>
+<p><strong>Título:</strong> Seu diagnóstico está pronto.</p>
+<p><strong>Subtítulo:</strong> Preencha abaixo para receber o relatório personalizado no WhatsApp (leva 30 segundos).</p>
+<p><strong>Campos:</strong> Nome · WhatsApp · E-mail · Empresa</p>
+<p><strong>CTA:</strong> Receber meu diagnóstico</p>
+<p class="muted"><strong>Privacidade:</strong> Seus dados estão seguros e tratados conforme a LGPD, com o seu consentimento. Nada de spam, só o seu relatório e o próximo passo.</p>
+
+<!-- 3. PÁGINA DE APLICAÇÃO -->
+<h2><span class="num">3.</span> Copy · Página de Aplicação (Sessão Estratégica)</h2>
+<p><strong>Headline:</strong> A sua empresa está perdendo receita nos 3 funis. Esta sessão mostra onde e quanto.</p>
+<p><strong>Subheadline:</strong> Sessão estratégica gratuita com Evandro Fernandes para donos de negócio digital que querem recuperar a Receita Invisível, sem aumentar o investimento em tráfego.</p>
+<p><strong>Prova social (logo após o headline):</strong> [DEPOIMENTO em vídeo do case JusExpert, mais de R$ 30 milhões] + faixa com prints de resultado de clientes.</p>
+
+<h3>Bloco de dor (espelho do ICP)</h3>
+<ul>
+  <li>Você investe cada vez mais em tráfego, e a conversão comercial não acompanha.</li>
+  <li>Seus dados estão espalhados entre plataforma de pagamento, CRM, planilhas e WhatsApp.</li>
+  <li>Comercial e CS trabalham desconectados: o que o CS aprende nunca chega ao marketing.</li>
+  <li>Você sabe que perde receita em algum lugar, mas não consegue provar onde nem quanto.</li>
+  <li>Já contratou consultoria ou ferramenta que prometeu resolver e entregou dashboard bonito, sem mudar o resultado.</li>
+</ul>
+<p><strong>Virada:</strong> o problema não é gerar mais lead. É a receita que escapa entre o marketing, o comercial e o CS. E receita que escapa se recupera.</p>
+
+<h3>Reframe (mecanismo do problema)</h3>
+<p>A maioria trata os 3 funis como etapas isoladas de um funil linear. Na prática, eles são um organismo: cada evasão não gerida num funil encarece o próximo. Lead mal lido vira comercial ineficiente, que vira CS apagando incêndio, que vira churn que ninguém viu chegar. E ninguém está olhando para o comportamento real do lead, só para o que ele declara. Resultado: mais verba no modelo errado, mesmo caixa.</p>
+
+<h3>Mecanismo único (o Método HDM)</h3>
+<ol>
+  <li><strong>Diagnóstico 360°:</strong> a Endognose lê o comportamento real do lead e calcula, em R$, quanto de receita está vazando nos 3 funis.</li>
+  <li><strong>Arquitetura de recuperação:</strong> os 3 funis desenhados como um organismo único, com os KPIs priorizados por impacto financeiro.</li>
+  <li><strong>Implementação assistida e acompanhamento:</strong> setup da plataforma HDM, estruturação de processos e treinamento, até o resultado aparecer no caixa.</li>
+</ol>
+
+<h3>Autoridade</h3>
+<p>Evandro Fernandes atua há mais de 20 anos em vendas B2B e gestão comercial, criou a metodologia HDM e a plataforma hdmfy, e assina o case JusExpert (mais de R$ 30 milhões de receita gerada). Autor de "Prospecção 2.0", "Marketing da Gamificação" e do livro "Receita Invisível". Não é mais uma agência nem um software para configurar sozinho: é diagnóstico de dados comportamentais mais implementação, feito por quem criou o método.</p>
+
+<h3>Oferta da página</h3>
+<p>Sessão estratégica gratuita de 30 a 45 minutos: diagnóstico do seu momento mais o desenho do próximo passo para recuperar a Receita Invisível. Sem compromisso e sem enrolação.</p>
+<p><strong>CTA primário:</strong> Quero minha sessão estratégica</p>
+<p><strong>Reforço:</strong> as agendas da semana são limitadas pelo próprio Evandro (máximo 2 sessões por dia).</p>
+
+<h3>Para quem é / não é</h3>
+<ul class="yn">
+  <li class="y">Dono de negócio digital com operação validada que travou o crescimento ou viu a margem apertar</li>
+  <li class="y">Quem fatura a partir de R$ 300 mil/mês e quer recuperar receita sem aumentar o tráfego</li>
+  <li class="y">Quem está disposto a implementar um método com dados, não só ouvir opinião</li>
+  <li class="n">Quem está começando do zero, sem operação nem faturamento</li>
+  <li class="n">Quem procura fórmula mágica ou mais um dashboard sem execução</li>
+  <li class="n">Quem não tem estrutura comercial nem verba para investir no próprio crescimento agora</li>
+</ul>
+
+<h3>FAQ</h3>
+<ul class="plain">
+  <li><strong>É consultoria ou software?</strong> A plataforma HDM é o motor, mas o que você contrata é consultoria: diagnóstico, implementação assistida e acompanhamento até o resultado. A ferramenta vem dentro, não no lugar do método.</li>
+  <li><strong>Meus dados são uma bagunça.</strong> É exatamente por isso. O primeiro módulo é justamente organizar e ler o que hoje está espalhado, e transformar isso em receita recuperada em R$.</li>
+  <li><strong>Não tenho tempo para mais um projeto.</strong> A implementação é assistida pela equipe. Você decide, a equipe executa junto com o seu time. O que você ganha é tempo, porque para de apagar incêndio no escuro.</li>
+  <li><strong>Funciona para o meu nicho?</strong> O método é de receita, não de nicho. Agência, infoproduto, B2B ou SaaS: onde há 3 funis, há Receita Invisível para recuperar.</li>
+  <li><strong>Quanto custa?</strong> A sessão estratégica é gratuita. Se fizer sentido para os dois lados, o Evandro apresenta o formato e o investimento na própria sessão, com base no tamanho da receita que dá para recuperar.</li>
+</ul>
+<p><strong>CTA final:</strong> Agendar minha sessão estratégica gratuita</p>
+<p class="muted"><strong>Microcopy:</strong> seus dados ficam só com a equipe do Evandro e são tratados conforme a LGPD. Sem spam.</p>
+
+<!-- 4. ANÚNCIOS -->
+<h2><span class="num">4.</span> Copy dos Anúncios</h2>
+<p><strong>Big Idea do anúncio:</strong> o problema não é o custo do lead. É a receita que já entrou e vaza no meio do caminho.</p>
+<p class="muted">Cada ângulo abaixo vira um conjunto de 10 anúncios (variações de gancho, cópia e corte do mesmo criativo), nos 3 ângulos da estratégia: dor, mecanismo e autoridade.</p>
+
+<div class="angle">
+<h3>Ângulo 1 · Dor e identificação (a receita que vaza)</h3>
+<p class="muted">Estratégia: nomear a dor que o dono sente mas não sabe nomear, tirando o foco do custo do lead.</p>
+<p><strong>Hook:</strong> "O seu lead não está caro. A sua receita está vazando."</p>
+<p><strong>Copy curta (~50 palavras):</strong> O seu lead não está caro. A sua receita está vazando. Se você investe cada vez mais em tráfego e a conversão não acompanha, o problema não é o anúncio: é a receita que escapa entre o marketing, o comercial e o CS. Responda o diagnóstico gratuito de 2 minutos e descubra onde.</p>
+<p><strong>Copy média (~120 palavras):</strong> Tem empresa que aumenta a verba de tráfego todo mês e não entende por que a margem só aperta. A resposta quase nunca está no anúncio. Está na receita que já entrou e vaza: o lead que chega e ninguém rastreia, o orçamento que morre sem follow-up, o cliente que cancela sem nenhum alerta. É a Receita Invisível, e ela não precisa de nenhum lead novo para aparecer. O diagnóstico gratuito do Evandro Fernandes estima, em 2 minutos, quanto a sua empresa está perdendo nos 3 funis e qual é o próximo passo para recuperar. Clique, responda e receba o seu relatório no WhatsApp.</p>
+<p><strong>Copy longa (~250 palavras):</strong> Ninguém te avisou disso: a partir de um certo tamanho, o seu maior vazamento de dinheiro não é o tráfego caro, é a receita que você já pagou para trazer e perde no meio do caminho. O lead entra e não é rastreado. A oportunidade esquenta e ninguém faz o follow-up. O cliente fica insatisfeito no CS e cancela, e o marketing nunca fica sabendo. Cada um desses pontos é receita saindo pela porta dos fundos, todo mês, sem aparecer em nenhum relatório. É a Receita Invisível. O erro comum é tratar marketing, comercial e CS como três áreas separadas, cada uma com o próprio número. Na prática são um organismo: quando um vaza, encarece o próximo. O Evandro Fernandes passou 20 anos em vendas B2B e criou a metodologia HDM justamente para ler o comportamento real do lead e recuperar essa receita, sem aumentar a mídia. Foi assim que nasceu o case JusExpert, mais de R$ 30 milhões. O primeiro passo é gratuito: um diagnóstico de 2 minutos que estima quanto a sua empresa perde nos 3 funis e te devolve um relatório no WhatsApp, com o gargalo identificado e o próximo movimento. Sem fórmula mágica: leitura de dados, feita por quem criou o método. Clique em Saiba mais e responda o seu diagnóstico.</p>
+</div>
+
+<div class="angle">
+<h3>Ângulo 2 · Mecanismo único (os 3 funis / Endognose)</h3>
+<p class="muted">Estratégia: apresentar a virada de chave concreta e contraintuitiva que prova o método.</p>
+<p><strong>Hook:</strong> "Marketing, comercial e CS: três funis, ou três ilhas que não se falam?"</p>
+<p><strong>Copy curta:</strong> Marketing, comercial e CS na sua empresa são três funis integrados, ou três ilhas que não se falam? Enquanto cada um olha só o próprio número, a receita escapa entre eles. O método HDM trata os três como um organismo só. Faça o diagnóstico gratuito e veja onde a sua vaza.</p>
+<p><strong>Copy média:</strong> Existe um dinheiro parado dentro da sua empresa que não precisa de nenhum lead novo para aparecer. Ele está no lead que o marketing traz e o comercial não lê, na oportunidade que esquenta e ninguém trabalha, no cliente que o CS perde sem avisar ninguém. Isso acontece porque marketing, comercial e CS operam como ilhas. O HDM lê o comportamento real do lead (Endognose) e trata os 3 funis como um organismo único, onde cada dado alimenta o próximo. Comece pelo diagnóstico gratuito: 2 minutos e você recebe no WhatsApp a leitura do seu momento e o próximo passo.</p>
+<p><strong>Copy longa:</strong> A maioria das empresas digitais cresceu montando marketing, comercial e CS em momentos diferentes, com ferramentas diferentes, cada um com o próprio painel. Parece organização. Na prática, é onde a receita vaza. Porque o comportamento do lead não respeita a sua divisão de áreas: ele clica no anúncio, entra num webinar, conversa com o vendedor, reclama no suporte, e cada pedaço dessa história fica preso numa ilha. Ninguém vê o todo, então ninguém age a tempo. O Evandro Fernandes criou a metodologia HDM para resolver exatamente isso. A Endognose lê o comportamento real do lead, não o que ele declara, e conecta os 3 funis num organismo só: o que o CS aprende volta para o marketing, o que o marketing captura chega pronto para o comercial. É assim que se recupera a Receita Invisível sem gastar mais em tráfego. Antes de qualquer conversa, o primeiro passo é entender o seu momento: o diagnóstico gratuito estima em 2 minutos quanto você perde e onde, e devolve um relatório no WhatsApp. Se fizer sentido, dali sai uma sessão estratégica com o Evandro. Clique e responda agora.</p>
+</div>
+
+<div class="angle">
+<h3>Ângulo 3 · Prova e autoridade (JusExpert e o criador do HDM)</h3>
+<p class="muted">Estratégia: autoridade real mais prova de resultado, para quebrar o ceticismo de quem já se decepcionou com ferramenta.</p>
+<p><strong>Hook:</strong> "R$ 30 milhões recuperados com uma ideia: parar de olhar só o tráfego."</p>
+<p><strong>Copy curta:</strong> Mais de R$ 30 milhões de receita, com uma ideia simples: parar de olhar só o tráfego e começar a recuperar a receita que já vazava nos 3 funis. O Evandro Fernandes faz isso há 20 anos e criou o método HDM. Diagnóstico gratuito em 2 minutos, no link.</p>
+<p><strong>Copy média:</strong> Em 20 anos de vendas B2B, o Evandro Fernandes viu o mesmo padrão se repetir: empresa boa deixando dinheiro na mesa não por falta de lead, mas por não gerir a evasão entre marketing, comercial e CS. Ele transformou esse padrão em método, o HDM, e em plataforma. O resultado mais conhecido é o case JusExpert: mais de R$ 30 milhões gerados a partir da gestão da Receita Invisível. [DEPOIMENTO: case real em uma linha]. Se a sua operação funciona mas a margem travou, o diagnóstico gratuito mostra onde a receita escapa. 2 minutos, relatório no WhatsApp.</p>
+<p><strong>Copy longa:</strong> Tem uma cena que se repete em quase toda empresa digital que cresceu rápido. O produto é bom, o tráfego roda, os leads entram. E mesmo assim a margem trava e o dono não sabe explicar por quê. Quando o Evandro Fernandes olha essa operação por dentro, encontra sempre as mesmas coisas: lead que entra e não é rastreado, oportunidade sem follow-up, CS que perde cliente sem avisar o marketing, dados espalhados em cinco ferramentas. Foram 20 anos em vendas B2B, criando equipe comercial no digital quando ninguém sabia o que era isso, para o Evandro entender o padrão: empresa que cresce com previsibilidade gere a evasão nos 3 funis; empresa que só compra mais tráfego tem teto. Ele transformou isso na metodologia HDM e na plataforma hdmfy, e o case JusExpert prova o tamanho da coisa: mais de R$ 30 milhões. [DEPOIMENTO: case com resultado concreto]. O caminho começa com um diagnóstico gratuito de 2 minutos: você responde, recebe um relatório personalizado no WhatsApp com a estimativa da sua Receita Invisível, e se fizer sentido agenda uma sessão estratégica com o próprio Evandro. Sem fórmula genérica: leitura de dados e método aplicado à sua empresa. O link está aqui embaixo.</p>
+</div>
+
+<h3>10 headlines para teste A/B</h3>
+<ol>
+  <li>O seu lead não está caro. A sua receita está vazando</li>
+  <li>O problema não é o tráfego. É a receita que escapa nos 3 funis</li>
+  <li>Existe um dinheiro parado dentro da sua empresa agora</li>
+  <li>Marketing, comercial e CS: três funis ou três ilhas?</li>
+  <li>Você sabe quanto de receita perde por mês sem perceber?</li>
+  <li>Comprar mais lead não conserta o que vaza depois do clique</li>
+  <li>R$ 30 milhões recuperados sem aumentar o tráfego</li>
+  <li>A receita invisível que nenhum relatório te mostra</li>
+  <li>Descubra em 2 minutos onde a sua empresa perde receita</li>
+  <li>Empresa que só compra tráfego tem teto</li>
+</ol>
+
+<h3>5 hooks para vídeo</h3>
+<ol>
+  <li>"O seu lead não está caro. A sua receita está vazando. Deixa eu te provar em 40 segundos."</li>
+  <li>"Tem um dinheiro parado dentro da sua empresa agora, e ele não precisa de nenhum lead novo para aparecer."</li>
+  <li>"Marketing, comercial e CS na sua empresa se falam? Ou cada um olha o próprio número enquanto a receita escapa entre eles?"</li>
+  <li>"20 anos vendo empresas por dentro me ensinaram uma coisa: quem cresce com margem gere a evasão, não compra mais tráfego."</li>
+  <li>"R$ 30 milhões vieram de uma ideia simples: parar de olhar só o tráfego. Deixa eu te mostrar onde a sua receita vaza."</li>
+</ol>
+
+<!-- 5. CADÊNCIA -->
+<h2><span class="num">5.</span> Cadência de Follow-up · 12 dias</h2>
+<p class="muted">Níveis: N1 não respondeu · N2 engajou e parou · N3 quer agendar e adia · N4 no-show · N5 fez a call e não fechou. Voz da equipe do Evandro, com áudio do próprio Evandro perto do fim. Tags {{}} para personalizar por resposta.</p>
+<ul class="plain">
+  <li><strong>Dia 1 (manhã):</strong> {{nome}}, aqui é a Marina, do time do Evandro Fernandes. Seu diagnóstico de Receita Invisível chegou aí no WhatsApp? Qualquer coisa eu reenvio.</li>
+  <li><strong>Dia 1 (tarde):</strong> o Evandro olhou o seu diagnóstico e comentou que o seu caso tem receita mais fácil de recuperar do que você imagina. Quer que eu te mostre os horários da sessão estratégica?</li>
+  <li><strong>Dia 2:</strong> {{nome}}, separei dois horários na agenda do Evandro esta semana: {{h1}} e {{h2}}. Qual encaixa melhor?</li>
+  <li><strong>Dia 3:</strong> 👀</li>
+  <li><strong>Dia 4 (valor):</strong> um dado do seu diagnóstico que vale destacar: empresas com {{gargalo}} costumam recuperar receita só ajustando o follow-up de oportunidade. É o tipo de ponto que o Evandro desenha com você na sessão. Bora marcar?</li>
+  <li><strong>Dia 5 (ligação):</strong> tentativa de ligação mais mensagem: te liguei para agilizar seu agendamento, {{nome}}. Me diz um horário bom que eu ligo de novo.</li>
+  <li><strong>Dia 6 (case):</strong> olha o que aconteceu com uma operação de {{segmento}} que estava igual à sua [DEPOIMENTO curto]. A diferença foi parar de olhar só o tráfego.</li>
+  <li><strong>Dia 7:</strong> 👀</li>
+  <li><strong>Dia 8 (valor):</strong> pergunta honesta, {{nome}}: se a receita continuar vazando nos próximos 12 meses do jeito que está, tá tudo bem para você? Se a resposta incomodar, a sessão é gratuita e resolve a dúvida do próximo passo.</li>
+  <li><strong>Dia 9 (áudio do Evandro):</strong> áudio curto do próprio Evandro: "{{nome}}, Evandro aqui. Vi seu diagnóstico, seu caso é dos que eu gosto: receita clara para recuperar e ajuste rápido. Me dá 40 minutos que eu te mostro onde está o dinheiro. Combina um horário com a Marina."</li>
+  <li><strong>Dia 10:</strong> {{nome}}, a agenda do Evandro para a semana que vem abre hoje. Te guardo um horário?</li>
+  <li><strong>Dia 11 (ligação):</strong> segunda tentativa de ligação mais mensagem curta.</li>
+  <li><strong>Dia 12 (pré break-up):</strong> {{nome}}, vou encerrar seu acompanhamento por aqui para dar lugar à fila de diagnósticos. Se quiser retomar, é só me chamar nesta conversa. O diagnóstico fica salvo e a porta fica aberta. Sucesso.</li>
+</ul>
+<p><strong>N4 no-show:</strong> sem cobrança com culpa: "imprevisto acontece, {{nome}}. Te reencaixo ainda esta semana: {{h1}} ou {{h2}}?"</p>
+<p><strong>N5 não fechou:</strong> cadência quinzenal de valor (case mais conteúdo) por 60 dias, com convite de retomada a cada 15 dias.</p>
+
+<!-- 6. RECOMENDAÇÕES -->
+<h2><span class="num">6.</span> Recomendações Estratégicas</h2>
+<h3>Sobre a oferta</h3>
+<p>O ticket de R$ 60 mil está certo para o ICP de entrada, mas é a esteira que torna o funil lucrativo: o downsell do Diagnóstico 360° isolado salva a call que não fecha o high ticket, e a assinatura da plataforma HDM monetiza o não-ICP e ajuda a pagar a mídia. Prioridade: fechar os três níveis nas duas primeiras semanas, com direcionamento nosso. Nunca dar desconto no high ticket; a régua de negociação é forma de pagamento ou downsell.</p>
+<h3>Sobre o funil</h3>
+<p>O trunfo do Evandro é raro: o HDM devolve à Meta cerca de 40 pontos de dados (contra 1 a 2 do padrão), então o próprio tráfego dele nasce mais barato. Usar isso como prova viva nos criativos de autoridade. Duas travas técnicas inegociáveis: a integração quiz para HDM tem que ser em tempo real (webhook), não planilha, senão o lead esfria; e todo o rastreamento tem que ser no conforme da LGPD, com consentimento explícito. O manual anda junto com o tráfego desde o dia 1: as objeções reais das calls alimentam o quiz e os criativos.</p>
+<h3>Sobre conversão</h3>
+<p>O gargalo do Evandro nunca foi fechar (é closer de 20 anos), é ter agendamento qualificado com consistência. O teto de 2 calls/dia sustenta a meta, mas cria dependência do fundador. Assim que o funil encher a agenda, estruturar um SDR dedicado na DigiEnge (usando o próprio HDM como CRM e prova viva). Decisão de contratação no dia 60, não no 90.</p>
+<h3>Visão de longo prazo</h3>
+<p>Os ativos únicos do Evandro são o fosso competitivo contra consultoria genérica: a plataforma proprietária, o case JusExpert, o laboratório na operação da Simple e a certificação de consultores. Ponto de atenção que muda a prioridade dos 90 dias: a urgência de caixa (a dívida de desenvolvimento) pede receita cedo, então o roadmap prioriza caixa rápido e primeira venda antes de construção. Depois dos 90 dias, a certificação (formar consultores que vendem usando o HDM) e o SaaS aberto são a máquina de escala do Roadmap 2. E a prova social do nicho é o ativo que mais precisa crescer agora: cada case de dono de negócio digital documentado vale mais que qualquer criativo novo.</p>
+
+<div class="runfoot">Estratégia Completa · Funil de Lead Dinâmico · Evandro Fernandes · Simple 2026 · Versão 1.0</div>
+
+</body>
+</html>
