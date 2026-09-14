@@ -1,82 +1,71 @@
 # Integração Quiz → Make → Sheets → GHL (Delphis)
 
-Última atualização: 14/09/2026. Status: **aguardando autorização da conexão GHL no Make.**
+Última atualização: 14/09/2026. Status: **contato no CRM implementado, falta o pipeline e a oportunidade.**
 
 ## Peças
 
 | Peça | Identificador |
 | ---- | ------------- |
 | Funil | `https://autofoco.vercel.app` (pasta `funis/quiz-autofoco`) |
-| Webhook Make | `https://hook.us2.make.com/3wzu02g0mdb771irfu6ngavgrp1k6njv` (hook 2766246) |
-| Cenário Make | **6134483** — `[Delphis Fonseca] Diagnóstico AUTOFOCO → Sheets` (time 1317940) |
+| Cenário Make | **6134483** — `[Delphis Fonseca] Diagnóstico AUTOFOCO → Sheets + GHL` (time 1317940) |
+| Webhook | hook 2766246 (o endereço fica em `app.js`, `LEADS_ENDPOINT`) |
 | Planilha de leads | `1I5dn9kDWkCBteLKKaO3-V5y7va2pyZJGGp_KwLPk3H8` |
 | Conexão Google | 5139463 — `My Google connection (ssouzadaniel.ads@gmail.com)` |
-| GHL location | `Is3rj2clTtHoaWODpqS7` |
-| Conexão GHL no Make | **ainda não existe** — ver "Pendência" abaixo |
+| GHL location | `Is3rj2clTtHoaWODpqS7` — `Delphis da Fonseca's Account` |
+| Autenticação no GHL | **Private Integration token**, guardado só no módulo 3 do cenário. Não fica neste repositório. |
+| Cenário temporário | 6272276 — laboratório de teste, pode apagar quando tudo estiver validado |
 
-## Payload que o funil envia
+## Por que token e não OAuth
 
-Form-urlencoded, uma chave por coluna. Enviado em `app.js`, função `enviarLead()`.
+A conexão OAuth da location exige um login no navegador, que ninguém da automação
+consegue fazer sozinho. O token de integração privada foi gerado dentro do GHL do
+Delphis e entra como header `Authorization: Bearer` no módulo HTTP. Não expira como o
+OAuth e não precisa de ninguém clicando no Make. Se um dia for revogado, basta trocar o
+header do módulo 3.
 
-`data`, `nome`, `whatsapp`, `email`, `classificacao`, `padrao`, `situacao`, `profissao`,
-`problema`, `depois`, `tempo`, `custo`, `tentativas`, `objetivo`, `prontidao`, `frente`,
-`origem`, `utm_source`, `utm_medium`, `utm_campaign`, `utm_content`, `utm_term`.
+## Como está o cenário hoje
 
-- `classificacao` ∈ `QUALIFICADO` · `A NUTRIR` · `FORA POR ORA`
-- `padrao` ∈ `O Invisível` · `O Travado` · `O Personagem` · `O Correto`
-- `frente` é sempre `Diagnóstico AUTOFOCO` (serve para separar funis futuros)
+1. `gateway:CustomWebHook` — recebe o lead do quiz.
+2. `google-sheets:addRow` — grava na planilha. Fonte de conferência, não mexer.
+3. `http:ActionSendData` — `POST /contacts/upsert` no GHL, com `builtin:Ignore` no erro.
+   Se o CRM cair, o lead ainda cai na planilha e nada se perde.
 
-## Desenho da automação (modelo Ju Godinho)
+O módulo de oportunidade ainda não existe, porque depende de um pipeline.
 
-Referência: cenário **5937136** `V4 - Ju Godinho (Quiz B)`. Mesma espinha, quatro módulos:
+### Campos personalizados criados no GHL
 
-1. `gateway:CustomWebHook` — o que já existe hoje.
-2. `google-sheets:addRow` — o que já existe hoje. **Não mexer**, a planilha continua sendo a
-   fonte de conferência.
-3. `highlevel:universal` — `POST /contacts/upsert`, com `locationId`, nome, email, telefone,
-   `source`, `tags` e os `customFields` do diagnóstico. Upsert (não create) para não duplicar
-   quem responde o quiz duas vezes. Com `builtin:Ignore` no erro.
-4. `highlevel:createAnOpportunity` — usa `{{3.body.contact.id}}`, pipeline e estágio de
-   entrada, status `open`, título com o nome do lead. Com `builtin:Ignore` no erro.
+Dezoito campos, um por resposta do quiz, todos com o prefixo `AUTOFOCO ·`. Os ids ficam
+no corpo do módulo 3. Nome, e-mail e telefone vão para os campos nativos do contato.
 
-O `Ignore` nos dois módulos de GHL é o padrão da casa: se o CRM cair, o lead ainda cai na
-planilha e nada se perde.
+### Telefone
 
-### Tags planejadas no contato
+O funil manda `(11) 98765-4321` e o módulo converte para E.164 (`+5511987654321`) antes
+de enviar. Sem isso o disparo de mensagem da fase 2 não funciona.
 
-- `diagnostico-autofoco` (fixa, identifica a origem)
-- `qualificado` · `a-nutrir` · `fora-por-ora` (vem da `classificacao`)
+### Tags gravadas no contato
+
+- `diagnostico-autofoco`, fixa, identifica a origem
+- `qualificado` · `a-nutrir` · `fora-por-ora`, derivada da `classificacao`
 - `padrao-invisivel` · `padrao-travado` · `padrao-personagem` · `padrao-correto`
 
-As tags de classificação são o gatilho dos templates e do follow-up automático da fase 2,
-e por isso precisam ser normalizadas (minúsculas, sem acento, com hífen).
+São elas que vão disparar os templates e o follow-up automático da fase 2.
 
-### Pipeline proposto
+## O que falta
 
-Espelha o manual de pré-vendas (`estrategia/2026-09-14-script-pre-vendas-delphis.html`):
+1. **Pipeline.** A API do GHL só lê pipelines, não cria. Precisa ser feito na interface,
+   com estes estágios, espelhando o manual de pré-vendas:
+   Lead novo (quiz) · Em conversa · Sessão agendada · Sessão realizada · Proposta ·
+   Cliente · Perdido.
+2. **Módulo 4**, a oportunidade, que usa o `contact.id` devolvido pelo módulo 3.
+3. **Teste ponta a ponta** com um lead real passando pelo quiz.
 
-1. Lead novo (quiz) ← estágio de entrada da automação
-2. Em conversa
-3. Sessão agendada
-4. Sessão realizada
-5. Proposta
-6. Cliente
-7. Perdido
+## Pendências de higiene
 
-## Pendência que trava o resto
-
-A conexão OAuth da location do Delphis não existe no Make e só pode ser criada por alguém
-logado no GHL dele. Foi aberta uma solicitação de credencial no Make:
-
-`https://us2.make.com/1317940/credentials-requests/inbox?requestId=9da45b23-b86f-4496-80f6-61015bdfb82d`
-
-Depois que a conexão existir, a sequência é:
-
-1. `GET /locations/Is3rj2clTtHoaWODpqS7/customFields` para ver o que já existe
-2. Criar os campos personalizados que faltarem (um por resposta do quiz)
-3. `GET /opportunities/pipelines` para pegar pipeline e estágio (criar se não houver)
-4. Adicionar os módulos 3 e 4 ao cenário 6134483
-5. Testar com um lead de teste e conferir contato, campos, tags e oportunidade no CRM
+- A planilha de leads continua compartilhada como "qualquer pessoa com o link pode editar",
+  com nome, telefone e e-mail dos leads. Precisa ser restrita.
+- O fuso da conta GHL está em `America/Los_Angeles`. Deveria ser `America/Sao_Paulo`,
+  senão agendamento e automação por horário saem errados.
+- Apagar da planilha as linhas de teste e do GHL o contato `teste simple (apagar)`.
 
 ## Fase 2 (depois desta)
 
