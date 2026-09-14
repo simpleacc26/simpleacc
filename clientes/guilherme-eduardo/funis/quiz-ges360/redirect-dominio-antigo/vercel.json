@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/",
+      "destination": "https://quiz-guilhermeeduardo.vercel.app/",
+      "permanent": false
+    },
+    {
       "source": "/:path*",
       "destination": "https://quiz-guilhermeeduardo.vercel.app/:path*",
       "permanent": false
