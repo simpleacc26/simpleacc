@@ -152,3 +152,9 @@ Log do que funciona e do que não funciona com este cliente.
   qualquer pergunta aberta, e encerra sem constrangimento quem não vai avançar.
 - **Régua de remarcação: no máximo duas.** A terceira falta é uma resposta. Insistir
   depois dela desvaloriza a agenda do expert diante do lead.
+- **Formato importa tanto quanto o conteúdo quando quem executa é o próprio expert.** A
+  primeira versão do manual estava escrita para leitura corrida. O Delphis tem 40 anos de
+  carreira e pouca estrada em marketing digital, então a versão que vale é a de consulta:
+  seis partes separadas, resumo de uma frase no topo de cada seção, colunas de faça e não
+  faça, glossário dos termos (lead, no-show, follow-up, régua), rotina diária em três
+  janelas de tempo fixo e um cartão de bolso imprimível com a sequência inteira.

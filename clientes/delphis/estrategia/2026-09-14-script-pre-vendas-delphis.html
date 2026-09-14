@@ -3,142 +3,185 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Script de Pré-Vendas · Delphis Fonseca · Método AUTOFOCO</title>
+<title>Manual de Pré-Vendas · Delphis Fonseca · Método AUTOFOCO</title>
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   :root{
     --navy:#1b2a4a; --navy-dark:#14213d; --gold:#b8863b; --gold-soft:#d9b477;
-    --beige:#f4f1ea; --paper:#fbf9f5; --text:#2f3640; --muted:#79808c;
-    --line:#e3ded3; --green:#2f6b4f; --red:#8c3b33;
+    --beige:#f4f1ea; --paper:#fbf9f5; --text:#2b323c; --muted:#6f7681;
+    --line:#e3ded3; --green:#2c6a4e; --red:#8c3b33;
   }
   html{scroll-behavior:smooth}
   body{background:var(--paper);color:var(--text);
     font-family:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
-    font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
-  .wrap{display:flex;align-items:flex-start;max-width:1240px;margin:0 auto}
+    font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  .wrap{display:flex;align-items:flex-start;max-width:1300px;margin:0 auto}
+  .ui{font-family:system-ui,-apple-system,"Segoe UI",Arial,sans-serif}
 
-  /* ---------- índice ---------- */
-  nav{position:sticky;top:0;width:268px;flex:0 0 268px;height:100vh;overflow-y:auto;
-    padding:30px 20px 60px 26px;border-right:1px solid var(--line);background:var(--beige)}
-  nav .marca{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);
-    font-weight:700;font-family:system-ui,-apple-system,Arial,sans-serif;margin-bottom:4px}
-  nav .marca small{display:block;color:var(--muted);letter-spacing:.1em;font-weight:600;margin-top:4px}
-  nav ol{list-style:none;margin-top:22px;counter-reset:n}
-  nav ol li{counter-increment:n;margin-bottom:2px}
-  nav ol li a{display:block;padding:7px 10px 7px 34px;position:relative;text-decoration:none;
-    color:#4a515e;font-size:14px;line-height:1.35;border-radius:4px;
-    font-family:system-ui,-apple-system,Arial,sans-serif}
-  nav ol li a::before{content:counter(n,decimal-leading-zero);position:absolute;left:8px;top:7px;
-    color:var(--gold);font-size:11px;font-weight:700;letter-spacing:.04em}
-  nav ol li a:hover{background:#fff;color:var(--navy)}
-  .navnote{margin-top:26px;padding-top:16px;border-top:1px solid var(--line);
-    font-size:12px;line-height:1.6;color:var(--muted);font-family:system-ui,Arial,sans-serif}
+  /* ---------------- índice ---------------- */
+  nav{position:sticky;top:0;width:280px;flex:0 0 280px;height:100vh;overflow-y:auto;
+    padding:28px 18px 60px 24px;border-right:1px solid var(--line);background:var(--beige)}
+  nav .marca{font-family:system-ui,Arial,sans-serif;font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--gold);font-weight:700}
+  nav .marca small{display:block;color:var(--muted);letter-spacing:.08em;font-weight:600;margin-top:5px;font-size:10.5px}
+  nav .grupo{font-family:system-ui,Arial,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--navy);margin:20px 0 6px;padding-bottom:5px;border-bottom:1px solid #ddd7cb}
+  nav a{display:block;padding:6px 8px 6px 30px;position:relative;text-decoration:none;color:#464e5b;
+    font-size:14px;line-height:1.35;border-radius:4px;font-family:system-ui,Arial,sans-serif}
+  nav a b{position:absolute;left:6px;color:var(--gold);font-size:11.5px;font-weight:700}
+  nav a:hover{background:#fff;color:var(--navy)}
+  .navnote{margin-top:22px;padding-top:14px;border-top:1px solid var(--line);
+    font-size:12px;line-height:1.55;color:var(--muted);font-family:system-ui,Arial,sans-serif}
 
-  /* ---------- conteúdo ---------- */
-  main{flex:1;min-width:0;padding:54px 62px 140px;background:var(--paper)}
-  header.capa{border-bottom:2px solid var(--gold);padding-bottom:34px;margin-bottom:44px}
+  /* ---------------- conteúdo ---------------- */
+  main{flex:1;min-width:0;padding:50px 58px 140px}
+  header.capa{border-bottom:2px solid var(--gold);padding-bottom:30px;margin-bottom:14px}
   header.capa .kicker{font-family:system-ui,Arial,sans-serif;font-size:11.5px;font-weight:700;
-    letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px}
-  header.capa h1{font-size:47px;line-height:1.08;color:var(--navy);letter-spacing:-.5px}
-  header.capa .sub{margin-top:16px;font-size:19px;color:#535b68;font-style:italic;max-width:62ch}
-  header.capa .meta{margin-top:26px;font-family:system-ui,Arial,sans-serif;font-size:12.5px;
-    color:var(--muted);display:flex;gap:26px;flex-wrap:wrap}
+    letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+  header.capa h1{font-size:46px;line-height:1.06;color:var(--navy);letter-spacing:-.5px}
+  header.capa .sub{margin-top:14px;font-size:19px;color:#4f5764;font-style:italic;max-width:60ch}
+  header.capa .meta{margin-top:22px;font-family:system-ui,Arial,sans-serif;font-size:12.5px;
+    color:var(--muted);display:flex;gap:24px;flex-wrap:wrap}
   header.capa .meta b{color:var(--navy);font-weight:600}
 
-  section{margin-bottom:66px;scroll-margin-top:24px}
-  .sechead{border-left:4px solid var(--gold);padding:2px 0 2px 18px;margin-bottom:26px}
+  .partehead{background:var(--navy-dark);color:#fff;padding:16px 22px;border-left:5px solid var(--gold);
+    margin:62px 0 26px;border-radius:2px}
+  .partehead .pk{font-family:system-ui,Arial,sans-serif;font-size:10.5px;font-weight:700;
+    letter-spacing:.2em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:5px}
+  .partehead h2{font-size:25px;color:#fff;line-height:1.2}
+  .partehead p{margin:6px 0 0;color:#c4cbd8;font-size:15px;font-style:italic;max-width:70ch}
+
+  section{margin-bottom:52px;scroll-margin-top:16px}
+  .sechead{margin-bottom:16px}
   .sechead .sk{font-family:system-ui,Arial,sans-serif;font-size:11px;font-weight:700;
-    letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
-  .sechead h2{font-size:31px;line-height:1.15;color:var(--navy);letter-spacing:-.3px}
-  .sechead .sd{margin-top:8px;color:var(--muted);font-style:italic;font-size:16px;max-width:70ch}
+    letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:5px}
+  .sechead h3{font-size:28px;line-height:1.15;color:var(--navy);letter-spacing:-.3px}
 
-  h3{font-size:21px;color:var(--navy);margin:34px 0 10px;line-height:1.25}
-  h4{font-size:16.5px;color:var(--navy);margin:22px 0 8px;
-    font-family:system-ui,Arial,sans-serif;font-weight:700}
-  p{margin-bottom:13px;max-width:74ch}
-  ul,ol{margin:0 0 15px 22px;max-width:74ch}
-  li{margin-bottom:7px}
+  /* resumo no topo de cada seção */
+  .resumo{background:#fff;border:1px solid var(--line);border-left:4px solid var(--navy);
+    padding:14px 20px;margin:0 0 24px;max-width:78ch;border-radius:2px}
+  .resumo .rt{font-family:system-ui,Arial,sans-serif;font-size:10.5px;font-weight:700;
+    letter-spacing:.15em;text-transform:uppercase;color:var(--navy);margin-bottom:6px}
+  .resumo p{margin:0;font-size:17px}
+
+  h4{font-size:20px;color:var(--navy);margin:30px 0 8px;line-height:1.25}
+  h5{font-size:16px;color:var(--navy);margin:20px 0 6px;font-family:system-ui,Arial,sans-serif;font-weight:700}
+  p{margin-bottom:11px;max-width:76ch}
+  ul,ol{margin:0 0 14px 22px;max-width:76ch}
+  li{margin-bottom:6px}
   strong{color:var(--navy)}
-  em{color:#4d5563}
-  a{color:var(--gold)}
-  .lbl{font-family:system-ui,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.16em;
-    text-transform:uppercase;color:var(--gold);margin:30px 0 8px}
+  a{color:#9a6f2c}
 
-  /* ---------- mensagens ---------- */
+  /* faça / não faça */
+  .faca{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0 22px;max-width:80ch}
+  .faca > div{padding:14px 18px;border-radius:3px;font-size:16px;line-height:1.55}
+  .faca .sim{background:#f0f5f1;border-left:3px solid var(--green)}
+  .faca .nao{background:#fbf2f1;border-left:3px solid var(--red)}
+  .faca .t{font-family:system-ui,Arial,sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;margin-bottom:8px}
+  .faca .sim .t{color:var(--green)} .faca .nao .t{color:var(--red)}
+  .faca ul{margin:0 0 0 17px;max-width:none} .faca li{margin-bottom:5px}
+
+  /* passos numerados */
+  .passos{counter-reset:pz;margin:18px 0 24px;max-width:80ch}
+  .passo{counter-increment:pz;position:relative;padding:0 0 2px 52px;margin-bottom:18px}
+  .passo::before{content:counter(pz);position:absolute;left:0;top:0;width:34px;height:34px;
+    background:var(--navy);color:#fff;border-radius:50%;display:flex;align-items:center;
+    justify-content:center;font-family:system-ui,Arial,sans-serif;font-size:15px;font-weight:700}
+  .passo b.tit{display:block;color:var(--navy);font-family:system-ui,Arial,sans-serif;font-size:17px;
+    margin-bottom:3px;padding-top:5px}
+  .passo p{margin-bottom:6px}
+  .passo .tempo{font-family:system-ui,Arial,sans-serif;font-size:12px;color:var(--muted);
+    background:var(--beige);border:1px solid var(--line);border-radius:20px;padding:2px 10px;
+    display:inline-block;margin-bottom:6px}
+
+  /* mensagens */
   .msg{position:relative;background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold-soft);
-    border-radius:3px 12px 12px 3px;padding:18px 62px 18px 22px;margin:12px 0 6px;max-width:74ch;
-    font-size:16.5px;line-height:1.62;box-shadow:0 1px 2px rgba(27,42,74,.05)}
+    border-radius:3px 12px 12px 3px;padding:16px 60px 16px 20px;margin:10px 0 4px;max-width:72ch;
+    font-size:17px;line-height:1.6;box-shadow:0 1px 2px rgba(27,42,74,.05)}
   .msg .tag{display:block;font-family:system-ui,Arial,sans-serif;font-size:10.5px;font-weight:700;
-    letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:9px}
-  .msg p{margin-bottom:9px;max-width:none}
+    letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  .msg p{margin-bottom:8px;max-width:none}
   .msg p:last-child{margin-bottom:0}
-  .msg .v{background:#f6efe1;color:#8a5a1a;padding:0 3px;border-radius:2px;font-size:15.5px}
-  .copy{position:absolute;top:12px;right:12px;border:1px solid var(--line);background:var(--beige);
+  .msg .v{background:#f6efe1;color:#8a5a1a;padding:0 3px;border-radius:2px;font-size:16px}
+  .copy{position:absolute;top:11px;right:11px;border:1px solid var(--line);background:var(--beige);
     color:var(--muted);font-family:system-ui,Arial,sans-serif;font-size:10.5px;font-weight:700;
-    letter-spacing:.09em;text-transform:uppercase;padding:5px 9px;border-radius:4px;cursor:pointer}
+    letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:4px;cursor:pointer}
   .copy:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
   .copy.ok{background:var(--green);color:#fff;border-color:var(--green)}
-  .porque{max-width:74ch;margin:0 0 22px;padding:10px 16px;background:#f3f4f2;border-left:2px solid #c9cfc7;
-    font-size:14.5px;line-height:1.6;color:#4f5761;font-family:system-ui,Arial,sans-serif}
+  .porque{max-width:72ch;margin:0 0 20px;padding:8px 15px;background:#f2f3f1;border-left:2px solid #c6ccc4;
+    font-size:14.5px;line-height:1.55;color:#4a525c;font-family:system-ui,Arial,sans-serif}
   .porque b{color:var(--navy)}
 
-  /* ---------- caixas ---------- */
-  .box{background:var(--beige);border-left:3px solid var(--gold);padding:18px 22px;margin:22px 0;max-width:78ch}
-  .box .bt{font-family:system-ui,Arial,sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--navy);margin-bottom:8px}
-  .box p:last-child{margin-bottom:0}
+  /* caixas */
+  .box{background:var(--beige);border-left:3px solid var(--gold);padding:16px 20px;margin:20px 0;max-width:80ch}
+  .box .bt{font-family:system-ui,Arial,sans-serif;font-size:11px;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--navy);margin-bottom:7px}
+  .box p:last-child,.box ul:last-child{margin-bottom:0}
   .dark{background:var(--navy-dark);color:#eef1f6;border-left:3px solid var(--gold)}
-  .dark .bt{color:var(--gold-soft)}
-  .dark strong{color:#fff}
-  .alerta{background:#fbf2f1;border-left:3px solid var(--red)}
-  .alerta .bt{color:var(--red)}
+  .dark .bt{color:var(--gold-soft)} .dark strong{color:#fff}
+  .alerta{background:#fbf2f1;border-left:3px solid var(--red)} .alerta .bt{color:var(--red)}
 
-  /* ---------- tabelas ---------- */
-  table{border-collapse:collapse;width:100%;max-width:80ch;margin:18px 0;font-size:15px;
-    font-family:system-ui,Arial,sans-serif}
-  th{background:var(--navy-dark);color:#fff;text-align:left;padding:10px 13px;font-size:12px;
-    letter-spacing:.1em;text-transform:uppercase;font-weight:700}
-  td{border-bottom:1px solid var(--line);padding:11px 13px;vertical-align:top;line-height:1.55}
+  /* tabelas */
+  .tw{max-width:82ch}
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:15.5px;font-family:system-ui,Arial,sans-serif}
+  th{background:var(--navy-dark);color:#fff;text-align:left;padding:9px 12px;font-size:11.5px;
+    letter-spacing:.09em;text-transform:uppercase;font-weight:700}
+  td{border-bottom:1px solid var(--line);padding:10px 12px;vertical-align:top;line-height:1.5}
   tr:nth-child(even) td{background:#fff}
   td b{color:var(--navy)}
 
-  /* ---------- cards ---------- */
-  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px;margin:20px 0;max-width:80ch}
-  .card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);padding:18px 20px;border-radius:3px}
-  .card h5{font-family:system-ui,Arial,sans-serif;font-size:15px;color:var(--navy);margin-bottom:4px}
-  .card .ct{font-size:12px;color:var(--gold);font-family:system-ui,Arial,sans-serif;font-weight:700;
-    letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
-  .card p{font-size:15px;margin-bottom:8px}
+  /* cards */
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:14px;margin:18px 0;max-width:82ch}
+  .card{background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);padding:16px 18px;border-radius:3px}
+  .card .ct{font-size:11px;color:var(--gold);font-family:system-ui,Arial,sans-serif;font-weight:700;
+    letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+  .card h5{margin:0 0 7px;font-size:17px}
+  .card p{font-size:15.5px;margin-bottom:7px;line-height:1.5}
   .card p:last-child{margin-bottom:0}
 
-  /* ---------- régua ---------- */
-  .step{position:relative;padding:0 0 4px 66px;margin-bottom:30px;max-width:80ch}
-  .step .quando{position:absolute;left:0;top:2px;width:52px;text-align:center;
-    font-family:system-ui,Arial,sans-serif;font-size:11px;font-weight:700;line-height:1.25;
-    color:var(--navy);background:var(--beige);border:1px solid var(--gold-soft);border-radius:4px;padding:7px 2px}
-  .step h4{margin-top:0}
+  /* fluxo */
+  .fluxo{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin:20px 0 8px;max-width:84ch}
+  .fl{background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);padding:13px 14px;border-radius:3px;
+    font-family:system-ui,Arial,sans-serif;position:relative}
+  .fl .n{font-size:11px;font-weight:700;color:var(--gold);letter-spacing:.1em}
+  .fl b{display:block;color:var(--navy);font-size:15px;margin:3px 0 5px}
+  .fl span{font-size:13.5px;color:#535b66;line-height:1.45;display:block}
 
-  .nao{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;max-width:78ch}
-  .nao span{flex:0 0 auto;color:var(--red);font-weight:700;font-family:system-ui,Arial,sans-serif;font-size:14px}
+  /* régua tempo */
+  .step{position:relative;padding:0 0 2px 92px;margin-bottom:26px;max-width:82ch}
+  .step .quando{position:absolute;left:0;top:2px;width:78px;text-align:center;
+    font-family:system-ui,Arial,sans-serif;font-size:12px;font-weight:700;line-height:1.25;
+    color:var(--navy);background:var(--beige);border:1px solid var(--gold-soft);border-radius:4px;padding:7px 3px}
+  .step h5{margin-top:2px;font-size:17px}
 
-  .tw{max-width:80ch}
-  hr{border:0;border-top:1px solid var(--line);margin:38px 0;max-width:80ch}
+  .nao10{display:flex;gap:12px;align-items:flex-start;margin-bottom:11px;max-width:80ch}
+  .nao10 span{flex:0 0 auto;color:var(--red);font-weight:700;font-family:system-ui,Arial,sans-serif;font-size:14px;padding-top:2px}
 
-  @media (max-width:980px){
+  /* checklist */
+  .check{list-style:none;margin:14px 0 20px;max-width:78ch}
+  .check li{padding-left:32px;position:relative;margin-bottom:9px;font-size:16.5px}
+  .check li::before{content:"";position:absolute;left:0;top:4px;width:17px;height:17px;
+    border:1.5px solid var(--gold);border-radius:3px;background:#fff}
+
+  hr{border:0;border-top:1px solid var(--line);margin:34px 0;max-width:82ch}
+
+  @media (max-width:1000px){
     .wrap{display:block}
-    nav{position:static;width:auto;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:22px 20px}
-    nav ol{columns:2;column-gap:14px}
-    main{padding:30px 20px 90px}
+    nav{position:static;width:auto;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:20px}
+    main{padding:26px 18px 90px}
+    header.capa h1{font-size:32px}
+    .faca{grid-template-columns:1fr}
     .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
-    .tw table{min-width:540px}
-    header.capa h1{font-size:33px}
-    .msg{padding:16px 16px 44px 18px}
-    .copy{top:auto;bottom:10px;right:10px}
+    .tw table{min-width:530px}
+    .msg{padding:15px 15px 42px 17px} .copy{top:auto;bottom:9px;right:9px}
+    .step{padding-left:0} .step .quando{position:static;display:inline-block;margin-bottom:8px;width:auto;padding:5px 12px}
   }
   @media print{
     nav{display:none} .wrap{display:block} main{padding:0}
-    body{background:#fff;font-size:11pt} .copy{display:none}
-    section{page-break-inside:auto} .msg,.card,.step,.box{page-break-inside:avoid}
+    body{background:#fff;font-size:10.5pt} .copy{display:none}
+    .msg,.card,.step,.box,.passo,.fl{page-break-inside:avoid}
+    .partehead{page-break-before:always}
   }
 </style>
 </head>
@@ -147,30 +190,45 @@
 
 <nav>
   <div class="marca">Método AUTOFOCO
-    <small>Pré-vendas · v1 · 14.09.2026</small>
+    <small>Manual de pré-vendas · v2 · 14.09.2026</small>
   </div>
-  <ol>
-    <li><a href="#s1">Como usar este documento</a></li>
-    <li><a href="#s2">Quem chega até aqui</a></li>
-    <li><a href="#s3">Os três princípios</a></li>
-    <li><a href="#s4">O tom da casa</a></li>
-    <li><a href="#s5">Leitura rápida do lead</a></li>
-    <li><a href="#s6">As sete descobertas</a></li>
-    <li><a href="#s7">Abordagem ativa</a></li>
-    <li><a href="#s8">Quando ele chama primeiro</a></li>
-    <li><a href="#s9">Espelho: nomear o padrão</a></li>
-    <li><a href="#s10">Contexto: o que já tentou</a></li>
-    <li><a href="#s11">A ponte para a sessão</a></li>
-    <li><a href="#s12">Objeções antes da sessão</a></li>
-    <li><a href="#s13">Follow-up</a></li>
-    <li><a href="#s14">No-show: a régua</a></li>
-    <li><a href="#s15">Depois da sessão</a></li>
-    <li><a href="#s16">O que medir</a></li>
-    <li><a href="#s17">Os dez nãos</a></li>
-  </ol>
+
+  <div class="grupo">Parte 1 · Entenda</div>
+  <a href="#s1"><b>1</b>O caminho inteiro</a>
+  <a href="#s2"><b>2</b>As palavras que eu uso</a>
+  <a href="#s3"><b>3</b>As três regras</a>
+
+  <div class="grupo">Parte 2 · A rotina</div>
+  <a href="#s4"><b>4</b>Seu dia em 3 janelas</a>
+  <a href="#s5"><b>5</b>Checklist do lead novo</a>
+  <a href="#s6"><b>6</b>Ler a planilha</a>
+
+  <div class="grupo">Parte 3 · A conversa</div>
+  <a href="#s7"><b>7</b>Passo 1: abordar</a>
+  <a href="#s8"><b>8</b>Passo 2: confirmar</a>
+  <a href="#s9"><b>9</b>Passo 3: perguntar</a>
+  <a href="#s10"><b>10</b>Passo 4: nomear</a>
+  <a href="#s11"><b>11</b>Passo 5: convidar</a>
+
+  <div class="grupo">Parte 4 · Quando trava</div>
+  <a href="#s12"><b>12</b>As 7 objeções</a>
+  <a href="#s13"><b>13</b>Quem não respondeu</a>
+
+  <div class="grupo">Parte 5 · O no-show</div>
+  <a href="#s14"><b>14</b>Por que faltam</a>
+  <a href="#s15"><b>15</b>A régua, hora a hora</a>
+  <a href="#s16"><b>16</b>Quando faltou</a>
+
+  <div class="grupo">Parte 6 · Fechar o ciclo</div>
+  <a href="#s17"><b>17</b>Depois da sessão</a>
+  <a href="#s18"><b>18</b>Os 5 números</a>
+  <a href="#s19"><b>19</b>Os dez nãos</a>
+  <a href="#s20"><b>20</b>Cartão de bolso</a>
+
   <div class="navnote">
-    Toque em <b>copiar</b> em qualquer mensagem para levar o texto pronto para o WhatsApp.
-    Troque o que estiver <span style="background:#f6efe1;color:#8a5a1a;padding:0 3px">destacado</span> pelos dados do lead.
+    Toque em <b>copiar</b> em qualquer mensagem e ela vai pronta para o WhatsApp.
+    Troque o que estiver <span style="background:#f6efe1;color:#8a5a1a;padding:0 3px">destacado</span>
+    pelos dados da pessoa.
   </div>
 </nav>
 
@@ -178,364 +236,352 @@
 
 <header class="capa">
   <div class="kicker">Funil de Diagnóstico · Mentoria CONEXÃO</div>
-  <h1>Script de<br>Pré-Vendas</h1>
-  <div class="sub">Da resposta do quiz até a pessoa sentada na sessão estratégica.
-  Abordagem, follow-up e a régua que transforma horário marcado em horário cumprido.</div>
+  <h1>Manual de<br>Pré-Vendas</h1>
+  <div class="sub">O que fazer, em que ordem e com que palavras, desde o momento em que
+  alguém responde o quiz até a pessoa sentada na sua frente na sessão.</div>
   <div class="meta">
-    <span><b>Preparado para</b> Delphis Fonseca</span>
+    <span><b>Para</b> Delphis Fonseca</span>
     <span><b>Por</b> SimpleAcc</span>
-    <span><b>Versão</b> 1.0 · 14 de setembro de 2026</span>
+    <span><b>Versão</b> 2.0 · 14 de setembro de 2026</span>
   </div>
 </header>
 
-<!-- ================= 1 ================= -->
+<div class="box dark" style="max-width:82ch;margin-top:26px">
+  <div class="bt">Como este manual funciona</div>
+  <p>Ele é dividido em seis partes. As partes 1 e 2 você lê uma vez, no começo, e não precisa
+  voltar. As partes 3, 4 e 5 são de consulta: você abre no meio do atendimento, procura a
+  situação em que está e copia a mensagem.</p>
+  <p><strong>Se você tiver quinze minutos hoje, leia a seção 1, a seção 4 e a seção 20.</strong>
+  Com essas três você já consegue rodar a operação inteira. O resto você consulta quando
+  precisar.</p>
+</div>
+
+<!-- ============ PARTE 1 ============ -->
+<div class="partehead">
+  <div class="pk">Parte 1 de 6</div>
+  <h2>Entenda o terreno</h2>
+  <p>Três seções curtas. Depois delas você sabe onde cada coisa acontece e o que cada palavra significa.</p>
+</div>
+
+<!-- ---------- 1 ---------- -->
 <section id="s1">
-  <div class="sechead">
-    <div class="sk">Seção 01</div>
-    <h2>Como usar este documento</h2>
-    <div class="sd">Ele não é para ser decorado. É para ser consultado com o WhatsApp aberto do lado.</div>
+  <div class="sechead"><div class="sk">Seção 01</div><h3>O caminho inteiro</h3></div>
+  <div class="resumo">
+    <div class="rt">Em uma frase</div>
+    <p>O anúncio leva ao quiz, o quiz entrega o diagnóstico, o diagnóstico manda a pessoa para
+    o seu WhatsApp, e o seu trabalho começa exatamente aí: transformar essa conversa em uma
+    sessão marcada e cumprida.</p>
   </div>
 
-  <p>Tudo que está aqui nasceu de uma constatação simples: o seu funil já faz metade do trabalho
-  de vendas antes de você abrir a boca. A pessoa respondeu dez perguntas sobre a própria
-  comunicação, leu um diagnóstico com o nome do padrão dela e só então chegou até você.
-  Ela chega quente, identificada e com as palavras dela registradas numa planilha.</p>
-
-  <p>O que este documento faz é impedir que esse ativo seja desperdiçado. Cada mensagem daqui
-  usa alguma coisa que a própria pessoa já disse. Nenhuma começa com "oi, tudo bem, vi que você
-  se interessou". Essa frase joga fora tudo que o quiz construiu.</p>
-
-  <div class="box">
-    <div class="bt">Três regras de uso</div>
-    <p><strong>1. Os textos são base, não jaula.</strong> Leia a mensagem, entenda a intenção
-    dela (está explicada logo abaixo de cada uma) e escreva com a sua boca. Papagaio treinado
-    a pessoa percebe em duas mensagens, e aí você perdeu o frame.</p>
-    <p><strong>2. Nunca mande o bloco inteiro de uma vez.</strong> Cada mensagem termina numa
-    pergunta. Espere a resposta. Quem pergunta conduz, quem despeja texto vira folheto.</p>
-    <p><strong>3. Tudo que estiver destacado é variável.</strong> Nome, padrão, tempo, custo,
-    profissão: está tudo na planilha de leads, coluna por coluna. Se você não tiver o dado,
-    não invente e não use a frase.</p>
+  <div class="fluxo">
+    <div class="fl"><span class="n">ETAPA 1</span><b>O anúncio</b><span>A pessoa vê o vídeo e clica.</span></div>
+    <div class="fl"><span class="n">ETAPA 2</span><b>O quiz</b><span>Ela responde 10 perguntas sobre a própria comunicação.</span></div>
+    <div class="fl"><span class="n">ETAPA 3</span><b>O diagnóstico</b><span>Ela lê na tela o nome do padrão dela e o que trava.</span></div>
+    <div class="fl"><span class="n">ETAPA 4</span><b>A planilha</b><span>Todas as respostas dela caem numa linha, automaticamente.</span></div>
+    <div class="fl" style="border-top-color:var(--gold)"><span class="n">ETAPA 5</span><b>Você entra aqui</b><span>WhatsApp. É o assunto deste manual inteiro.</span></div>
+    <div class="fl"><span class="n">ETAPA 6</span><b>A sessão</b><span>45 minutos ao vivo, e é onde a venda acontece.</span></div>
   </div>
 
-  <h3>Se quem atende for você mesmo</h3>
-  <p>Hoje você responde os leads pessoalmente, e isso é uma vantagem enorme: a pessoa está
-  falando com quem ela viu no anúncio. As mensagens estão escritas na sua voz, em primeira pessoa.</p>
-
-  <h3>Se um dia entrar alguém do time</h3>
-  <p>Mude duas coisas e o script continua funcionando. A abertura passa a ser
-  <em>"aqui é a Fulana, eu trabalho com o Delphis"</em>, e antes de passar o horário você
-  acrescenta uma frase que edifica quem vai conduzir a sessão:
-  <em>"quem vai olhar o seu caso é o próprio Delphis, são quarenta anos de carreira e mais de
-  quatro mil comunicadores formados, e ele mesmo relê as respostas antes"</em>.
-  Sem essa frase, a pessoa acha que vai conversar com um atendente e o no-show dispara.</p>
-</section>
-
-<!-- ================= 2 ================= -->
-<section id="s2">
-  <div class="sechead">
-    <div class="sk">Seção 02</div>
-    <h2>Quem chega até aqui</h2>
-    <div class="sd">Antes de qualquer script, saber com quem você está falando e o que ela já viu.</div>
+  <h4>Duas portas de entrada, e você precisa cuidar das duas</h4>
+  <div class="cards">
+    <div class="card">
+      <div class="ct">Porta A</div>
+      <h5>Ela chama você</h5>
+      <p>Terminou o quiz, clicou no botão do diagnóstico e caiu no seu WhatsApp com uma
+      mensagem pronta dizendo o nome e o padrão dela.</p>
+      <p><strong>É o lead mais quente que existe.</strong> Responda em minutos. Vá para a seção 8.</p>
+    </div>
+    <div class="card">
+      <div class="ct">Porta B</div>
+      <h5>Ela não chama</h5>
+      <p>Terminou o quiz, leu o diagnóstico e não clicou em nada. Ela só existe na planilha,
+      com nome, WhatsApp e as dez respostas.</p>
+      <p><strong>É a maior parte das pessoas e é onde quase todo mundo perde dinheiro.</strong>
+      Você vai atrás. Vá para a seção 7.</p>
+    </div>
   </div>
-
-  <p>A pessoa que entra no seu WhatsApp já passou por três coisas: viu um anúncio sobre o
-  abismo entre o que ela sabe e o que ela consegue transmitir, respondeu dez perguntas e leu
-  um diagnóstico com o nome do padrão dela. Ela não é um lead frio, ela é alguém que acabou
-  de se ver descrito na tela.</p>
-
-  <h3>O perfil que interessa</h3>
-  <p>Empresário, sócio, executivo em cargo de liderança e profissional liberal, principalmente
-  médico, advogado, consultor e arquiteto. Gente entre trinta e cinco e cinquenta e poucos anos,
-  procurada justamente quando o problema é difícil, com currículo que ninguém questiona.</p>
-
-  <p>A dor dessa pessoa não é timidez e ela vai reagir mal se você chamar de timidez. A dor é
-  a distância entre a competência que ela tem e o valor que chega no outro. Ela sabe do assunto,
-  ela é boa no que faz, e mesmo assim a sala vira para outro lado quando ela fala.</p>
-
-  <div class="box dark">
-    <div class="bt">O que ela nunca vai admitir de primeira</div>
-    <p>Que isso já custou dinheiro. Ela vai falar de "insegurança", de "não ser muito de
-    aparecer", de "preferir o bastidor". O seu trabalho na conversa é fazer ela mesma chegar
-    no custo, com as palavras dela. Se você chegar antes e disser <strong>"isso está te
-    custando clientes"</strong>, vira acusação e ela fecha.</p>
-  </div>
-
-  <h3>O que a planilha entrega antes de você escrever</h3>
-  <div class="tw"><table>
-    <tr><th style="width:32%">Coluna</th><th>Para que serve na conversa</th></tr>
-    <tr><td><b>Padrão</b></td><td>O Invisível, O Travado, O Personagem ou O Correto. Define o ângulo inteiro da abordagem.</td></tr>
-    <tr><td><b>Classificação</b></td><td>Qualificado, A nutrir ou Fora por ora. Define se você oferece sessão, entrada ou nutrição.</td></tr>
-    <tr><td><b>Profissão</b></td><td>Empresário, executivo, liberal ou em construção de carreira. Diz quem decide sozinho.</td></tr>
-    <tr><td><b>Situação</b></td><td>Onde pesa mais: empresa, câmera, palco ou venda. É a cena que você vai usar.</td></tr>
-    <tr><td><b>Problema e Depois</b></td><td>O que se repete e o que acontece depois. É o material da etapa do espelho.</td></tr>
-    <tr><td><b>Tempo</b></td><td>Há quanto tempo isso se repete. É a sua fonte legítima de urgência.</td></tr>
-    <tr><td><b>Custo</b></td><td>Oportunidade, reconhecimento, convites recusados ou tudo junto. Ela já assinou embaixo.</td></tr>
-    <tr><td><b>Tentativas</b></td><td>Oratória, terapia, treino sozinho ou nunca tratou. Define por que ainda não resolveu.</td></tr>
-    <tr><td><b>Objetivo</b></td><td>O que mudaria em três meses. É o destino que você vende na sessão.</td></tr>
-    <tr><td><b>Prontidão</b></td><td>A temperatura declarada por ela mesma. Define a velocidade da sua condução.</td></tr>
-  </table></div>
 
   <div class="box alerta">
-    <div class="bt">Leia antes de escrever</div>
-    <p>Trinta segundos olhando a linha da planilha valem mais que qualquer técnica deste
-    documento. A primeira mensagem que prova que você leu as respostas é a que derruba a
-    desconfiança inteira.</p>
+    <div class="bt">O erro que custa mais caro</div>
+    <p>Esperar que as pessoas da Porta B apareçam sozinhas. Elas não vão. E o motivo é o
+    próprio problema delas: falar com você é exatamente o tipo de exposição que essa pessoa
+    passou a vida evitando. Quem vai atrás é você.</p>
   </div>
 </section>
 
-<!-- ================= 3 ================= -->
+<!-- ---------- 2 ---------- -->
+<section id="s2">
+  <div class="sechead"><div class="sk">Seção 02</div><h3>As palavras que eu uso</h3></div>
+  <div class="resumo">
+    <div class="rt">Em uma frase</div>
+    <p>Doze termos que aparecem o tempo todo neste manual e nas conversas com a Simple.
+    Leia uma vez e volte aqui quando bater dúvida.</p>
+  </div>
+
+  <div class="tw"><table>
+    <tr><th style="width:26%">Termo</th><th>O que quer dizer na prática</th></tr>
+    <tr><td><b>Lead</b></td><td>Uma pessoa que respondeu o quiz e deixou o contato. Cada linha da planilha é um lead.</td></tr>
+    <tr><td><b>Padrão</b></td><td>O resultado do quiz: O Invisível, O Travado, O Personagem ou O Correto. Diz por onde a pessoa trava.</td></tr>
+    <tr><td><b>Classificação</b></td><td>Qualificado, A nutrir ou Fora por ora. Diz o que você oferece para essa pessoa.</td></tr>
+    <tr><td><b>Qualificado</b></td><td>Perfil certo e momento certo. É quem recebe convite para a sessão. Prioridade absoluta.</td></tr>
+    <tr><td><b>Abordagem</b></td><td>A sua primeira mensagem para quem não chamou você.</td></tr>
+    <tr><td><b>Espelho</b></td><td>Você devolve o problema dela com tanta precisão que ela responde "é exatamente isso".</td></tr>
+    <tr><td><b>Objeção</b></td><td>O motivo que ela dá para não avançar. Não é um não, é um pedido de informação.</td></tr>
+    <tr><td><b>Follow-up</b></td><td>As mensagens que você manda para quem sumiu, em dias combinados e em número limitado.</td></tr>
+    <tr><td><b>Trilha</b></td><td>A sequência de follow-up certa para cada situação. Neste manual são três: A, B e C.</td></tr>
+    <tr><td><b>No-show</b></td><td>A pessoa marcou a sessão e não apareceu. É o maior desperdício da operação.</td></tr>
+    <tr><td><b>Régua</b></td><td>A sequência de mensagens com hora marcada que faz a pessoa aparecer. Seção 15.</td></tr>
+    <tr><td><b>Comparecimento</b></td><td>De cada 10 sessões marcadas, quantas aconteceram. Abaixo de 7, tem coisa errada na régua.</td></tr>
+  </table></div>
+</section>
+
+<!-- ---------- 3 ---------- -->
 <section id="s3">
-  <div class="sechead">
-    <div class="sk">Seção 03</div>
-    <h2>Os três princípios</h2>
-    <div class="sd">Se você esquecer todo o resto, estes três sustentam a conversa sozinhos.</div>
+  <div class="sechead"><div class="sk">Seção 03</div><h3>As três regras</h3></div>
+  <div class="resumo">
+    <div class="rt">Em uma frase</div>
+    <p>Se você esquecer todo o resto deste manual, estas três sustentam a conversa sozinhas.</p>
   </div>
 
   <div class="cards">
     <div class="card">
-      <div class="ct">Princípio 1</div>
+      <div class="ct">Regra 1</div>
       <h5>Quem pergunta conduz</h5>
-      <p>A conversa inteira é sua enquanto você estiver perguntando. No minuto em que você
-      começa a explicar o método, você entrega o comando e vira professor.</p>
-      <p>Regra prática: a pessoa fala setenta por cento, você fala trinta.</p>
+      <p>Enquanto você estiver perguntando, a conversa é sua. No minuto em que você começa a
+      explicar o método, você vira professor e perde o comando.</p>
+      <p><strong>Na prática:</strong> a pessoa escreve mais que você. Sempre.</p>
     </div>
     <div class="card">
-      <div class="ct">Princípio 2</div>
-      <h5>Você não resolve nada por mensagem</h5>
-      <p>O que ela tem é informação demais e leitura de menos. Se você explicar o caminho no
-      WhatsApp, ela agradece, some e vai tentar sozinha de novo.</p>
-      <p>No texto você nomeia o problema. A solução mora na sessão.</p>
+      <div class="ct">Regra 2</div>
+      <h5>Não resolva nada por mensagem</h5>
+      <p>Ela já tem informação de sobra, o que falta é leitura. Se você explicar o caminho no
+      WhatsApp, ela agradece, some e tenta sozinha de novo.</p>
+      <p><strong>Na prática:</strong> no texto você dá nome ao problema. A solução mora na sessão.</p>
     </div>
     <div class="card">
-      <div class="ct">Princípio 3</div>
+      <div class="ct">Regra 3</div>
       <h5>A urgência é dela, não sua</h5>
-      <p>Você nunca precisa dizer "últimas vagas". A urgência verdadeira já está na resposta
-      dela: isso se repete há anos e continua se repetindo.</p>
-      <p>Seu papel é devolver essa conta, com calma, e deixar o silêncio trabalhar.</p>
+      <p>Você nunca precisa dizer "últimas vagas". A urgência já está escrita na resposta dela:
+      isso se repete há anos e continua se repetindo.</p>
+      <p><strong>Na prática:</strong> devolva a conta com calma e espere.</p>
     </div>
   </div>
 
   <div class="box dark">
     <div class="bt">A frase que resume tudo</div>
-    <p>A pessoa só tem o problema depois que ela mesma diz que tem. Se você descrever o
-    problema e ela não confirmar em voz alta, na cabeça dela o problema não existe, e nada do
-    que você oferecer vai fazer sentido.</p>
-  </div>
-</section>
-
-<!-- ================= 4 ================= -->
-<section id="s4">
-  <div class="sechead">
-    <div class="sk">Seção 04</div>
-    <h2>O tom da casa</h2>
-    <div class="sd">Acolhedor na forma, firme no conteúdo. Nunca agressivo, nunca morno.</div>
+    <p>A pessoa só tem o problema depois que ela mesma disser que tem. Se você descrever o
+    problema e ela não confirmar, na cabeça dela aquilo não existe, e nada do que você oferecer
+    vai fazer sentido.</p>
   </div>
 
-  <p>O público que você atende é procurado, respeitado e acostumado a decidir. Pressão de
-  vendedor com essa gente produz o efeito contrário: ela recua e some, sem discutir. Por outro
-  lado, gentileza sem direção também não move, porque ela já convive com esse problema há anos
-  e aprendeu a conviver.</p>
-
-  <p>O ponto de equilíbrio é o tom de quem já viu esse caso centenas de vezes e fala com calma
-  justamente por isso.</p>
-
-  <div class="tw"><table>
-    <tr><th style="width:50%">Faça</th><th>Nunca faça</th></tr>
-    <tr>
-      <td>Nomear o que ela vive com precisão, usando as palavras que ela marcou.</td>
-      <td>Adjetivar a pessoa. Nada de "você parece inseguro" ou "você é tímido".</td>
-    </tr>
-    <tr>
-      <td>Perguntar e esperar. Silêncio de alguns segundos faz ela completar a resposta.</td>
-      <td>Mandar três mensagens seguidas sem ela ter respondido a primeira.</td>
-    </tr>
-    <tr>
-      <td>Usar o tempo que ela mesma declarou como fonte de urgência.</td>
-      <td>Inventar escassez. "Só hoje", "última vaga", contagem regressiva.</td>
-    </tr>
-    <tr>
-      <td>Dar saída digna em toda mensagem de cobrança: "se não for o momento, tudo bem".</td>
-      <td>Fazer a pessoa se sentir devendo alguma coisa a você.</td>
-    </tr>
-    <tr>
-      <td>Escrever como quem fala. Frases curtas, vírgula onde é vírgula.</td>
-      <td>Ponto final no lugar de vírgula, texto quebrado em pedacinhos dramáticos.</td>
-    </tr>
-    <tr>
-      <td>Áudio curto quando o assunto for delicado. A sua voz é o seu maior ativo.</td>
-      <td>Áudio de três minutos explicando o método.</td>
-    </tr>
-  </table></div>
+  <h4>O tom, em duas colunas</h4>
+  <div class="faca">
+    <div class="sim">
+      <div class="t">Faça</div>
+      <ul>
+        <li>Falar com calma de quem já viu esse caso centenas de vezes</li>
+        <li>Usar as palavras que ela marcou no quiz</li>
+        <li>Perguntar e esperar, mesmo que demore</li>
+        <li>Dar saída digna em toda cobrança: "se não for o momento, tudo bem"</li>
+        <li>Mandar áudio curto quando o assunto for delicado</li>
+      </ul>
+    </div>
+    <div class="nao">
+      <div class="t">Nunca faça</div>
+      <ul>
+        <li>Dizer que ela é tímida, insegura ou travada</li>
+        <li>Mandar três mensagens sem ela ter respondido a primeira</li>
+        <li>Inventar escassez: "só hoje", "última vaga"</li>
+        <li>Fazer a pessoa sentir que deve alguma coisa a você</li>
+        <li>Áudio de três minutos explicando o método</li>
+      </ul>
+    </div>
+  </div>
 
   <div class="box">
     <div class="bt">Sobre a palavra timidez</div>
-    <p>Com o público da mentoria, evite. Empresário e executivo não se reconhecem nessa palavra
-    e ela reduz o problema deles a uma característica de personalidade. Use travamento, bloqueio,
-    ruído, ou simplesmente descreva a cena. A palavra timidez cabe com o público do produto de
-    entrada, não com este.</p>
+    <p>Com empresário, executivo e médico, evite. Eles não se reconhecem nessa palavra e ela
+    reduz o problema deles a um traço de personalidade. Diga travamento, bloqueio, ou
+    simplesmente descreva a cena. A palavra timidez cabe no público do Detonando a Timidez,
+    não neste.</p>
   </div>
 </section>
 
-<!-- ================= 5 ================= -->
-<section id="s5">
-  <div class="sechead">
-    <div class="sk">Seção 05</div>
-    <h2>Leitura rápida do lead</h2>
-    <div class="sd">Os quatro padrões, o que cada um precisa ouvir e onde você não pode pisar.</div>
+<!-- ============ PARTE 2 ============ -->
+<div class="partehead">
+  <div class="pk">Parte 2 de 6</div>
+  <h2>A sua rotina</h2>
+  <p>Quanto tempo isso toma por dia, em que momentos, e o que fazer com cada lead novo.</p>
+</div>
+
+<!-- ---------- 4 ---------- -->
+<section id="s4">
+  <div class="sechead"><div class="sk">Seção 04</div><h3>Seu dia em 3 janelas</h3></div>
+  <div class="resumo">
+    <div class="rt">Em uma frase</div>
+    <p>Quarenta minutos por dia, divididos em três momentos fixos. Fora deles, você responde
+    só quem responder você.</p>
   </div>
 
-  <p>O padrão que saiu no quiz não é um rótulo decorativo, ele é a instrução de como conversar.
-  Cada um desses quatro perfis trava por um motivo diferente e reage mal a coisas diferentes.</p>
+  <p>Você tem estúdio, palco e mentorias em andamento. Atendimento no WhatsApp não pode
+  competir com isso o dia inteiro, senão vira o dia inteiro. Três janelas resolvem.</p>
 
-  <div class="cards">
-    <div class="card">
-      <div class="ct">Padrão 1</div>
-      <h5>O Invisível</h5>
-      <p><b>Como ele chega:</b> sabe muito, prepara muito, e nada disso chega inteiro do outro lado.</p>
-      <p><b>O que ele precisa ouvir:</b> que não falta conteúdo, falta direção. Ele entrega
-      informação e não entrega destino.</p>
-      <p><b>Onde não pisar:</b> qualquer coisa que soe como "você precisa estudar mais". Ele
-      já estudou mais que todo mundo na sala e é justamente esse o problema.</p>
+  <div class="passos">
+    <div class="passo">
+      <b class="tit">Janela da manhã: leads novos</b>
+      <span class="tempo">15 minutos</span>
+      <p>Abra a planilha e veja quem entrou desde ontem. Para cada pessoa marcada como
+      <strong>Qualificado</strong>, mande a primeira mensagem (seção 7). Comece pelos mais
+      recentes, eles respondem mais.</p>
+      <p>Se tiver muita gente, atenda os qualificados primeiro e deixe o resto para a janela
+      da tarde. Três qualificados bem atendidos valem mais que quinze respostas de uma linha.</p>
     </div>
-    <div class="card">
-      <div class="ct">Padrão 2</div>
-      <h5>O Travado</h5>
-      <p><b>Como ele chega:</b> evita, adia, inventa desculpa, e depois se cobra por isso.</p>
-      <p><b>O que ele precisa ouvir:</b> que coragem não se decide, se constrói em dose certa
-      e com condução. O primeiro passo é exposição controlada.</p>
-      <p><b>Onde não pisar:</b> desafio. "Vamos lá, é só se jogar" faz ele sumir na hora.
-      Ele já ouviu isso a vida inteira e a cada vez se sentiu pior.</p>
+    <div class="passo">
+      <b class="tit">Janela do meio do dia: a régua</b>
+      <span class="tempo">10 minutos</span>
+      <p>Aqui você cuida de quem já tem sessão marcada. Mande a confirmação de véspera para
+      as sessões de amanhã e o aviso de uma hora antes para as de hoje (seção 15).</p>
+      <p>É a janela mais curta e a que mais protege dinheiro, porque é ela que faz a pessoa
+      aparecer.</p>
     </div>
-    <div class="card">
-      <div class="ct">Padrão 3</div>
-      <h5>O Personagem</h5>
-      <p><b>Como ele chega:</b> liga a câmera ou sobe no palco e vira outra pessoa.</p>
-      <p><b>O que ele precisa ouvir:</b> que a técnica que ele aprendeu virou máscara, e que o
-      caminho é desmontar, não acrescentar.</p>
-      <p><b>Onde não pisar:</b> elogiar a performance dele. Ele sabe que soa artificial e o
-      elogio confirma o medo de que ninguém enxerga quem ele é.</p>
-    </div>
-    <div class="card">
-      <div class="ct">Padrão 4</div>
-      <h5>O Correto</h5>
-      <p><b>Como ele chega:</b> fala bem, não erra, e não marca ninguém.</p>
-      <p><b>O que ele precisa ouvir:</b> que não falta técnica, falta risco. Presença nasce
-      quando aparece verdade, e verdade tem custo.</p>
-      <p><b>Onde não pisar:</b> tratar como iniciante. É o mais rápido dos quatro e ele tem
-      consciência disso. Fale com ele de ajuste fino, não de aprendizado.</p>
+    <div class="passo">
+      <b class="tit">Janela do fim do dia: quem sumiu</b>
+      <span class="tempo">15 minutos</span>
+      <p>Mande os follow-ups que venceram hoje (seção 13), recupere quem faltou na sessão
+      (seção 16) e anote na planilha o que aconteceu em cada conversa.</p>
+      <p>Anotar não é burocracia: daqui a duas semanas você não vai lembrar o que essa pessoa
+      te disse, e é exatamente isso que faz a próxima mensagem funcionar.</p>
     </div>
   </div>
-
-  <h3>A classificação decide o que você oferece</h3>
-  <div class="tw"><table>
-    <tr><th style="width:22%">Classificação</th><th style="width:38%">Quem é</th><th>O que você oferece</th></tr>
-    <tr>
-      <td><b>Qualificado</b></td>
-      <td>Empresário, executivo ou liberal que se declarou pronto ou querendo entender como funciona.</td>
-      <td>Sessão estratégica de 45 minutos. É a prioridade absoluta do dia.</td>
-    </tr>
-    <tr>
-      <td><b>A nutrir</b></td>
-      <td>Perfil certo, momento errado. Tem interesse e disse que não é a hora.</td>
-      <td>Conversa curta, diagnóstico reforçado e nutrição. Volta em trinta dias com um convite leve.</td>
-    </tr>
-    <tr>
-      <td><b>Fora por ora</b></td>
-      <td>Em construção de carreira, ou quis só o diagnóstico.</td>
-      <td>Produto de entrada. Atenda com o mesmo carinho, essa pessoa indica e volta.</td>
-    </tr>
-  </table></div>
-
-  <div class="box">
-    <div class="bt">Regra de foco</div>
-    <p>Quem é qualificado você responde primeiro, sempre. Se o dia apertar, é melhor atender
-    três qualificados com profundidade do que responder quinze pessoas com uma linha cada.</p>
-  </div>
-</section>
-
-<!-- ================= 6 ================= -->
-<section id="s6">
-  <div class="sechead">
-    <div class="sk">Seção 06</div>
-    <h2>As sete descobertas</h2>
-    <div class="sd">O que você precisa saber antes de convidar alguém para a sessão, e o que o quiz já entregou de graça.</div>
-  </div>
-
-  <p>Existe um conjunto mínimo de informações sem o qual nenhuma conversa de venda se sustenta.
-  A boa notícia é que o seu quiz já responde quase tudo. O que sobra, você pergunta em duas ou
-  três mensagens.</p>
-
-  <div class="tw"><table>
-    <tr><th style="width:24%">Descoberta</th><th style="width:36%">O quiz já entrega</th><th>O que você ainda pergunta</th></tr>
-    <tr><td><b>Motivo</b><br>por que agora</td><td>Parcialmente, pela situação e pelo objetivo.</td><td>"O que fez você parar e responder isso hoje?"</td></tr>
-    <tr><td><b>Problema</b></td><td>Sim, na íntegra. É a resposta da pergunta 4.</td><td>Só confirmar: "é isso mesmo que acontece?"</td></tr>
-    <tr><td><b>Consequência</b></td><td>Sim, na pergunta 7 sobre o que já custou.</td><td>"Você consegue me dar um exemplo concreto disso?"</td></tr>
-    <tr><td><b>Impacto prático</b></td><td>Não.</td><td>"Onde isso aparece na sua semana? Com que frequência?"</td></tr>
-    <tr><td><b>Impacto emocional</b></td><td>Parcialmente, na pergunta sobre o depois.</td><td>"E como você fica depois que acontece?"</td></tr>
-    <tr><td><b>Meta</b></td><td>Sim, na pergunta 9.</td><td>"Se isso destravasse, qual seria a primeira coisa que você faria?"</td></tr>
-    <tr><td><b>Urgência</b></td><td>Sim, tempo e prontidão.</td><td>"Você tem alguma situação marcada nos próximos dias?"</td></tr>
-  </table></div>
-
-  <div class="box dark">
-    <div class="bt">A pergunta que vale por todas</div>
-    <p><strong>"Você tem alguma reunião, gravação, apresentação ou conversa importante marcada
-    para os próximos dias?"</strong></p>
-    <p>Ela faz três coisas de uma vez: revela urgência real com data, dá a cena que vai ser
-    trabalhada na sessão, e cria um motivo natural para a conversa acontecer logo. Se a pessoa
-    disser que tem alguma coisa na semana que vem, a sessão precisa ser antes. Isso não é
-    pressão, é lógica, e ela mesma enxerga.</p>
-  </div>
-
-  <h3>Sobre o decisor</h3>
-  <p>Empresário e profissional liberal em geral decidem sozinhos, então este ponto raramente
-  atrapalha. Ele aparece de outro jeito: executivo em empresa grande às vezes quer que a
-  companhia pague. Vale saber disso antes, não para bloquear, e sim para você não ser
-  surpreendido depois. Uma pergunta resolve: <em>"esse tipo de investimento você decide
-  sozinho ou passa por alguém aí?"</em></p>
-</section>
-
-<!-- ================= 7 ================= -->
-<section id="s7">
-  <div class="sechead">
-    <div class="sk">Seção 07</div>
-    <h2>Abordagem ativa</h2>
-    <div class="sd">A pessoa respondeu o quiz e não chamou você. Esse lead vale tanto quanto o outro e quase sempre é ignorado.</div>
-  </div>
-
-  <p>Boa parte das pessoas termina o quiz, lê o diagnóstico, se reconhece, e não clica no botão.
-  Não é falta de interesse, é o freio de sempre: ela acabou de admitir uma coisa que não admite
-  em voz alta. Falar com você é exatamente o que ela evita fazer na vida.</p>
-
-  <p>Por isso a abordagem ativa não pode soar como cobrança. Ela precisa soar como continuação
-  do diagnóstico que a pessoa acabou de ler.</p>
 
   <div class="box alerta">
-    <div class="bt">Janela de tempo</div>
-    <p>O ideal é responder em até dez minutos depois que o lead cai na planilha. Uma hora depois
-    a chance de resposta já caiu muito, e no dia seguinte ela caiu pela metade. Se você estiver
-    em estúdio ou em aula, deixe uma janela fixa no fim de cada turno para varrer os leads novos.</p>
+    <div class="bt">A única exceção às janelas</div>
+    <p>Lead da Porta A, que chamou você por conta própria, não espera janela nenhuma. Ele está
+    com a página aberta neste momento. Responda assim que puder, nem que seja uma linha.
+    Depois de uma hora, a chance de resposta já caiu muito.</p>
+  </div>
+</section>
+
+<!-- ---------- 5 ---------- -->
+<section id="s5">
+  <div class="sechead"><div class="sk">Seção 05</div><h3>Checklist do lead novo</h3></div>
+  <div class="resumo">
+    <div class="rt">Em uma frase</div>
+    <p>Sete passos, na ordem. Faça um de cada vez e espere a resposta antes do próximo.</p>
   </div>
 
-  <h3>A1 · Primeiro contato</h3>
+  <ul class="check">
+    <li><strong>1. Leia a linha na planilha.</strong> Cinco colunas bastam, e leva trinta segundos (seção 6).</li>
+    <li><strong>2. Mande a primeira mensagem.</strong> Porta A vai para a seção 8, Porta B vai para a seção 7.</li>
+    <li><strong>3. Espere.</strong> Não mande uma segunda mensagem antes de ela responder a primeira.</li>
+    <li><strong>4. Confirme o que ela vive</strong> e espere ela dizer "é isso mesmo" (seção 10).</li>
+    <li><strong>5. Faça duas perguntas</strong>, uma de cada vez (seção 9).</li>
+    <li><strong>6. Convide para a sessão</strong> com dois horários concretos (seção 11).</li>
+    <li><strong>7. Mande a mensagem R0 na hora</strong> em que ela escolher o horário (seção 15). Esta é a mais importante do manual.</li>
+  </ul>
+
+  <div class="box">
+    <div class="bt">Quanto tempo isso toma de verdade</div>
+    <p>A conversa inteira, do primeiro contato ao horário marcado, costuma levar de dez a
+    quinze minutos do seu tempo, espalhados ao longo de um ou dois dias. Cada mensagem sua leva
+    menos de um minuto, e a maior parte do tempo é a pessoa pensando e respondendo, não você
+    trabalhando.</p>
+  </div>
+</section>
+
+<!-- ---------- 6 ---------- -->
+<section id="s6">
+  <div class="sechead"><div class="sk">Seção 06</div><h3>Ler a planilha em 30 segundos</h3></div>
+  <div class="resumo">
+    <div class="rt">Em uma frase</div>
+    <p>A planilha tem 22 colunas, mas você só precisa de cinco antes de escrever a primeira
+    mensagem. As outras você usa durante a conversa.</p>
+  </div>
+
+  <h4>As cinco que você lê sempre</h4>
+  <div class="tw"><table>
+    <tr><th style="width:22%">Coluna</th><th style="width:30%">Exemplo do que aparece</th><th>Para que serve</th></tr>
+    <tr><td><b>Nome</b></td><td>Ricardo</td><td>Use só o primeiro nome, sempre.</td></tr>
+    <tr><td><b>Classificação</b></td><td>Qualificado</td><td>Decide se você oferece a sessão, o produto de entrada ou nutrição.</td></tr>
+    <tr><td><b>Padrão</b></td><td>O Invisível</td><td>Decide o ângulo inteiro da conversa (seção 10).</td></tr>
+    <tr><td><b>Tempo</b></td><td>Mais de 10 anos</td><td>É a sua fonte de urgência. Ela mesma escreveu isso.</td></tr>
+    <tr><td><b>Custo</b></td><td>Oportunidade que foi para outro</td><td>É a conta que ela já assinou. Use na primeira mensagem.</td></tr>
+  </table></div>
+
+  <h4>As que você usa durante a conversa</h4>
+  <div class="tw"><table>
+    <tr><th style="width:22%">Coluna</th><th>Onde entra</th></tr>
+    <tr><td><b>Situação</b></td><td>Empresa, câmera, palco ou venda. É a cena que você cita.</td></tr>
+    <tr><td><b>Problema</b></td><td>O que se repete. É a frase que você devolve no espelho.</td></tr>
+    <tr><td><b>Depois</b></td><td>O que acontece quando passa. Entra junto com o problema.</td></tr>
+    <tr><td><b>Tentativas</b></td><td>Oratória, terapia, treino sozinho ou nada. Define por que ainda não resolveu (seção 10).</td></tr>
+    <tr><td><b>Objetivo</b></td><td>O que mudaria em três meses. É o destino que você vende.</td></tr>
+    <tr><td><b>Profissão</b></td><td>Diz se essa pessoa decide sozinha ou não.</td></tr>
+  </table></div>
+
+  <h4>O que fazer com cada classificação</h4>
+  <div class="tw"><table>
+    <tr><th style="width:20%">Se aparecer</th><th style="width:34%">Quem é</th><th>Você oferece</th></tr>
+    <tr><td><b>Qualificado</b></td><td>Empresário, executivo ou profissional liberal que se disse pronto ou querendo entender como funciona.</td><td><strong>A sessão estratégica.</strong> Prioridade do dia.</td></tr>
+    <tr><td><b>A nutrir</b></td><td>Perfil certo, momento errado. Disse que tem interesse mas não é a hora.</td><td>Conversa curta e um retorno em trinta dias (trilha C, seção 13).</td></tr>
+    <tr><td><b>Fora por ora</b></td><td>Em construção de carreira, ou quis só o diagnóstico.</td><td>O Detonando a Timidez. Atenda com o mesmo cuidado, essa pessoa indica e volta.</td></tr>
+  </table></div>
+</section>
+
+<!-- ============ PARTE 3 ============ -->
+<div class="partehead">
+  <div class="pk">Parte 3 de 6</div>
+  <h2>A conversa, passo a passo</h2>
+  <p>Cinco passos na ordem. Cada seção tem o que fazer, o que não fazer e as mensagens prontas.</p>
+</div>
+
+<!-- ---------- 7 ---------- -->
+<section id="s7">
+  <div class="sechead"><div class="sk">Seção 07 · Passo 1</div><h3>Abordar quem não chamou</h3></div>
+  <div class="resumo">
+    <div class="rt">Em uma frase</div>
+    <p>A pessoa da Porta B respondeu o quiz e não clicou em nada. Você vai atrás dela citando
+    duas respostas que ela marcou, e só isso já derruba a desconfiança.</p>
+  </div>
+
+  <div class="faca">
+    <div class="sim">
+      <div class="t">Faça</div>
+      <ul>
+        <li>Mande no mesmo dia, de preferência em minutos</li>
+        <li>Comece dizendo que leu as respostas dela</li>
+        <li>Termine com uma pergunta de sim ou não</li>
+        <li>Uma mensagem só, e espere</li>
+      </ul>
+    </div>
+    <div class="nao">
+      <div class="t">Nunca faça</div>
+      <ul>
+        <li>"Oi, tudo bem? Vi que você se interessou"</li>
+        <li>Se apresentar como quem está vendendo alguma coisa</li>
+        <li>Explicar o método logo de cara</li>
+        <li>Mandar de novo no mesmo dia se ela não responder</li>
+      </ul>
+    </div>
+  </div>
+
+  <h4>A1 · Primeira mensagem</h4>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">A1 · até 10 minutos depois do quiz</span>
+    <span class="tag">A1 · o quanto antes, no mesmo dia</span>
     <p><span class="v">{Nome}</span>, aqui é o Delphis.</p>
     <p>Acabei de ler as suas respostas no diagnóstico e teve uma coisa ali que eu não consegui
     deixar passar: você marcou que isso se repete <span class="v">{tempo}</span> e que já custou
     <span class="v">{custo}</span>.</p>
     <p>Posso te devolver a leitura do que eu vi? É rápido.</p>
   </div>
-  <div class="porque">
-    <b>Por que funciona:</b> não pergunta "tudo bem?", não se apresenta como vendedor e não pede
-    nada. Usa duas respostas dela para provar que alguém leu de verdade, e termina com uma
-    pergunta de sim ou não que é fácil de responder. Quem responde "pode" já abriu a conversa.
-  </div>
+  <div class="porque"><b>Por quê:</b> não pede nada, prova que alguém leu de verdade, e termina
+  com uma pergunta fácil de responder. Quem responde "pode" já abriu a conversa.</div>
 
-  <h3>A2 · Se não respondeu no mesmo dia</h3>
+  <h4>A2 · Se não respondeu no mesmo dia</h4>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">A2 · cerca de 4 horas depois, ou na manhã seguinte</span>
+    <span class="tag">A2 · algumas horas depois, ou na manhã seguinte</span>
     <p><span class="v">{Nome}</span>, sem pressa nenhuma para me responder.</p>
     <p>Vou te adiantar uma coisa que talvez te poupe tempo. O seu resultado deu
     <span class="v">{padrão}</span>, e esse é o que mais engana. Quem tem esse padrão costuma
@@ -543,16 +589,13 @@
     <p>Quando puder, me responde uma coisa só: isso aparece mais em
     <span class="v">{situação}</span>, ou já começou a aparecer em outros lugares também?</p>
   </div>
-  <div class="porque">
-    <b>Por que funciona:</b> entrega um pedaço de leitura de graça, contraria a solução óbvia
-    (abre um loop na cabeça dela) e pede uma resposta de uma palavra. A frase de abertura tira
-    qualquer peso de cobrança, e é exatamente o que faz o público dela responder.
-  </div>
+  <div class="porque"><b>Por quê:</b> entrega um pedaço de leitura de graça, contraria a solução
+  óbvia e pede uma resposta de uma palavra. "Sem pressa" tira qualquer cheiro de cobrança.</div>
 
-  <h3>A2-B · Alternativa em áudio</h3>
-  <p>Com este público, um áudio seu de trinta a quarenta segundos converte melhor que qualquer
-  texto, porque a sua voz é a prova do que você vende. Use no lugar do A2 quando o lead for
-  qualificado. Roteiro do áudio:</p>
+  <h4>A2-B · A mesma mensagem em áudio</h4>
+  <p>Com este público, um áudio seu de trinta segundos funciona melhor que qualquer texto,
+  porque a sua voz é a prova do que você vende. Use no lugar do A2 quando o lead for
+  qualificado.</p>
   <div class="msg">
     <button class="copy">copiar</button>
     <span class="tag">A2-B · roteiro de áudio, 30 a 40 segundos</span>
@@ -563,64 +606,50 @@
     mundo imagina que é.</p>
     <p>Me diz se eu entendi certo e eu te falo o que eu vi.</p>
   </div>
-  <div class="porque">
-    <b>Por que funciona:</b> o áudio quebra a barreira de "isso é robô ou é assistente". Ele
-    termina pedindo validação, não agendamento, então ninguém se sente empurrado.
-  </div>
+  <div class="porque"><b>Por quê:</b> o áudio derruba a dúvida de "isso é robô ou é assistente".
+  E termina pedindo validação, não agendamento, então ninguém se sente empurrado.</div>
 
-  <h3>Quando o lead não é qualificado</h3>
+  <h4>A1-C · Quando a classificação não é Qualificado</h4>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">A1-C · classificação fora por ora ou a nutrir</span>
+    <span class="tag">A1-C · A nutrir ou Fora por ora</span>
     <p><span class="v">{Nome}</span>, aqui é o Delphis. Li as suas respostas.</p>
     <p>O seu padrão deu <span class="v">{padrão}</span>, e a boa notícia é que ele responde
     rápido quando alguém mostra por onde começar. Você não precisa vencer isso de uma vez,
     você precisa tirar isso do comando.</p>
     <p>Quer que eu te mostre qual é o primeiro degrau?</p>
   </div>
-  <div class="porque">
-    <b>Por que funciona:</b> mesma temperatura humana, destino diferente. Aqui o próximo passo
-    é o produto de entrada, e não a sessão. Tratar bem quem não compra agora é o que faz essa
-    pessoa voltar em seis meses no nível certo, e indicar no meio tempo.
-  </div>
+  <div class="porque"><b>Por quê:</b> mesma temperatura humana, destino diferente. Aqui o próximo
+  passo é o Detonando a Timidez, não a sessão. Quem é bem tratado agora volta no nível certo
+  depois, e indica no meio tempo.</div>
 </section>
 
-<!-- ================= 8 ================= -->
+<!-- ---------- 8 ---------- -->
 <section id="s8">
-  <div class="sechead">
-    <div class="sk">Seção 08</div>
-    <h2>Quando ele chama primeiro</h2>
-    <div class="sd">A abertura decide o resto. Se começar torto, o cheiro fica na conversa inteira.</div>
+  <div class="sechead"><div class="sk">Seção 08 · Passo 1 alternativo</div><h3>Quando ela chama primeiro</h3></div>
+  <div class="resumo">
+    <div class="rt">Em uma frase</div>
+    <p>Este é o lead mais quente do funil e o mais fácil de estragar. Não responda "oi, me conta
+    mais sobre você": comece já confirmando o que ela marcou.</p>
   </div>
 
-  <p>A pessoa clicou no botão e chegou com a mensagem pronta dizendo o nome e o padrão dela.
-  Esse é o lead mais quente do funil e o mais fácil de estragar, porque a tentação é responder
-  "oi, que bom, me conta mais sobre você" e devolver o comando para ela.</p>
-
-  <p>A abertura precisa fazer quatro coisas em pouquíssimas linhas: dar segurança sobre com quem
-  ela está falando, dizer o que vai acontecer nessa conversa, tirar da mesa o medo de estar
-  entrando num pitch disfarçado, e fazer a primeira pergunta.</p>
-
-  <h3>B1 · Resposta de abertura</h3>
+  <h4>B1 · Resposta de abertura</h4>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">B1 · responda em minutos, esse lead está com a página aberta</span>
+    <span class="tag">B1 · responda em minutos, ela está com a página aberta</span>
     <p><span class="v">{Nome}</span>, que bom te ver por aqui. Eu já estou com as suas respostas
     abertas na minha frente.</p>
-    <p>Antes de eu te falar qualquer coisa, me confirma se eu entendi certo. O que mais se repete
-    com você é <span class="v">{problema}</span>, e depois que passa você
+    <p>Antes de eu te falar qualquer coisa, me confirma se eu entendi certo. O que mais se
+    repete com você é <span class="v">{problema}</span>, e depois que passa você
     <span class="v">{depois}</span>. É isso mesmo?</p>
   </div>
-  <div class="porque">
-    <b>Por que funciona:</b> a primeira coisa que a pessoa faz na conversa é concordar com você.
-    É a etapa do espelho começando cedo. E "estou com as suas respostas abertas" é prova, não
-    promessa: ela sente que já existe um caso aberto com o nome dela.
-  </div>
+  <div class="porque"><b>Por quê:</b> a primeira coisa que ela faz na conversa é concordar com
+  você. E "estou com as suas respostas abertas" é prova, não promessa.</div>
 
-  <h3>B2 · Desarme e permissão para perguntar</h3>
+  <h4>B2 · Tire a culpa dela e peça licença para perguntar</h4>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">B2 · depois que ela confirma</span>
+    <span class="tag">B2 · logo depois que ela confirma</span>
     <p>É isso mesmo que eu esperava ler, e eu vou te dizer por quê.</p>
     <p>Isso não é falta de preparo e não é falta de conteúdo. Você marcou que já
     <span class="v">{tentativas}</span>, e continua acontecendo. Não continua porque você fez
@@ -628,100 +657,116 @@
     <p>Vou te fazer duas ou três perguntas antes de te dizer qual é o caminho. Elas são rápidas,
     pode ser?</p>
   </div>
-  <div class="porque">
-    <b>Por que funciona:</b> tira a culpa da pessoa e coloca no mecanismo, que é a única forma
-    de alguém competente aceitar ajuda sem se sentir diminuído. E pede licença para conduzir,
-    o que devolve o comando da conversa para você de forma elegante.
+  <div class="porque"><b>Por quê:</b> tira a culpa da pessoa e coloca no mecanismo, que é a única
+  forma de alguém competente aceitar ajuda sem se sentir diminuído. E pede licença para conduzir.</div>
+
+  <div class="box">
+    <div class="bt">Daqui em diante as duas portas se juntam</div>
+    <p>A partir deste ponto, o caminho é o mesmo para quem chamou e para quem foi chamado:
+    perguntar (seção 9), nomear (seção 10) e convidar (seção 11).</p>
+  </div>
+</section>
+
+<!-- ---------- 9 ---------- -->
+<section id="s9">
+  <div class="sechead"><div class="sk">Seção 09 · Passo 2</div><h3>Duas perguntas, uma de cada vez</h3></div>
+  <div class="resumo">
+    <div class="rt">Em uma frase</div>
+    <p>O quiz já respondeu quase tudo. Faltam duas ou três coisas, e uma delas vale mais que
+    todas as outras juntas: se ela tem alguma situação importante marcada nos próximos dias.</p>
   </div>
 
-  <h3>B3 · Perguntas de aprofundamento</h3>
-  <p>Uma de cada vez, e espere a resposta antes da próxima. Escolha duas ou três, nunca as cinco.</p>
+  <h4>O que o quiz já respondeu e o que falta</h4>
+  <div class="tw"><table>
+    <tr><th style="width:30%">O que você precisa saber</th><th style="width:30%">Já está na planilha?</th><th>Se não está, pergunte</th></tr>
+    <tr><td><b>O que se repete</b></td><td>Sim, coluna Problema</td><td>Só confirmar</td></tr>
+    <tr><td><b>Há quanto tempo</b></td><td>Sim, coluna Tempo</td><td>Nada</td></tr>
+    <tr><td><b>O que já custou</b></td><td>Sim, coluna Custo</td><td>"Me dá um exemplo concreto disso?"</td></tr>
+    <tr><td><b>O que ela quer</b></td><td>Sim, coluna Objetivo</td><td>Nada</td></tr>
+    <tr><td><b>A cena real</b></td><td>Não</td><td>Pergunta 1 abaixo</td></tr>
+    <tr><td><b>Como ela fica depois</b></td><td>Em parte</td><td>Pergunta 2 abaixo</td></tr>
+    <tr><td><b>A urgência com data</b></td><td>Não</td><td>Pergunta 3 abaixo, a mais importante</td></tr>
+  </table></div>
 
+  <h4>Escolha duas, nunca as cinco</h4>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">B3.1 · a cena</span>
+    <span class="tag">Pergunta 1 · a cena</span>
     <p>Me conta uma situação recente em que isso aconteceu. Onde você estava, quem estava na
     sala, e em que momento você sentiu que perdeu o fio?</p>
   </div>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">B3.2 · o impacto emocional</span>
+    <span class="tag">Pergunta 2 · o que fica depois</span>
     <p>E depois que acaba, como você fica? Quanto tempo aquilo ainda fica na sua cabeça?</p>
   </div>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">B3.3 · a urgência real</span>
+    <span class="tag">Pergunta 3 · a mais importante de todas</span>
     <p>Você tem alguma reunião, gravação, apresentação ou conversa importante marcada para os
     próximos dias?</p>
   </div>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">B3.4 · o custo, sem acusar</span>
+    <span class="tag">Pergunta 4 · o custo, sem acusar</span>
     <p>Deixa eu te fazer uma pergunta mais difícil, e pode me dizer que não sabe. Se você fosse
     chutar, quanto você acha que isso já te custou em oportunidade nos últimos anos?</p>
   </div>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">B3.5 · a consequência de nada mudar</span>
+    <span class="tag">Pergunta 5 · a consequência de deixar como está</span>
     <p>E se daqui a três meses isso continuar exatamente igual, o que você sente ao olhar para
     esse período?</p>
   </div>
-  <div class="porque">
-    <b>Por que funcionam:</b> nenhuma delas fala do seu produto. Elas fazem a pessoa reviver a
-    cena, medir o próprio custo e enxergar sozinha a consequência de deixar como está. É assim
-    que a urgência nasce sem você precisar produzir urgência. Depois de cada resposta,
-    <b>espere alguns segundos antes de responder</b>. A pessoa quase sempre completa com uma
-    segunda mensagem, e é nessa segunda que vem a verdade.
+
+  <div class="box dark">
+    <div class="bt">Por que a pergunta 3 vale por todas</div>
+    <p>Ela faz três coisas de uma vez: revela urgência com data, entrega a cena que você vai
+    trabalhar na sessão, e cria um motivo natural para a conversa acontecer logo. Se a pessoa
+    disser que tem alguma coisa na semana que vem, <strong>a sessão precisa ser antes disso</strong>.
+    Isso não é pressão, é lógica, e ela mesma enxerga sozinha.</p>
   </div>
 
-  <div class="box alerta">
-    <div class="bt">Os dois erros clássicos desta etapa</div>
-    <p><strong>Dar solução cedo demais.</strong> No instante em que você explica o que fazer,
-    a conversa vira aula e a pessoa vai tentar sozinha.</p>
-    <p><strong>Pular para o próximo assunto sem confirmar.</strong> Toda resposta importante
-    precisa de um "então deixa eu ver se entendi" antes de você seguir.</p>
+  <div class="faca">
+    <div class="sim">
+      <div class="t">Faça</div>
+      <ul>
+        <li>Uma pergunta por mensagem</li>
+        <li>Espere alguns segundos depois da resposta antes de escrever</li>
+        <li>Confirme antes de seguir: "então deixa eu ver se entendi"</li>
+      </ul>
+    </div>
+    <div class="nao">
+      <div class="t">Nunca faça</div>
+      <ul>
+        <li>Mandar as cinco perguntas de uma vez</li>
+        <li>Dar solução no meio das perguntas</li>
+        <li>Pular para o próximo assunto sem confirmar o anterior</li>
+      </ul>
+    </div>
   </div>
+  <div class="porque"><b>Sobre esperar:</b> quando a pessoa termina de responder e você não
+  escreve na hora, ela quase sempre manda uma segunda mensagem completando. É nessa segunda
+  que vem a verdade.</div>
 </section>
 
-<!-- ================= 9 ================= -->
-<section id="s9">
-  <div class="sechead">
-    <div class="sk">Seção 09</div>
-    <h2>Espelho: nomear o padrão</h2>
-    <div class="sd">Nomear o problema com tanta precisão que a pessoa responde "é exatamente isso".</div>
+<!-- ---------- 10 ---------- -->
+<section id="s10">
+  <div class="sechead"><div class="sk">Seção 10 · Passo 3</div><h3>Nomear o padrão dela</h3></div>
+  <div class="resumo">
+    <div class="rt">Em uma frase</div>
+    <p>Você devolve o problema dela com tanta precisão que ela responde "é exatamente isso".
+    Sem essa confirmação em voz alta, nada do que vier depois funciona.</p>
   </div>
 
-  <p>Esta é a etapa mais curta e a que mais decide. Você vai devolver para a pessoa o que ela
-  te contou, organizado em três camadas: o que ela faz, por que isso acontece, e o que isso
-  custa sem ela perceber. Você não resolve nada aqui, você só dá nome.</p>
+  <p>É a etapa mais curta e a que mais decide. <strong>Você não resolve nada aqui, só dá nome.</strong>
+  Abaixo está o texto pronto para cada um dos quatro padrões. Copie o que corresponder à coluna
+  Padrão da planilha.</p>
 
-  <p>O teste é simples. Se a resposta dela for <em>"é exatamente isso"</em> ou
-  <em>"você acabou de descrever a minha vida"</em>, pode avançar. Se for <em>"mais ou menos"</em>,
-  volte uma casa e pergunte mais.</p>
-
-  <h3>Modelo geral</h3>
+  <h4>Se deu O Invisível</h4>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">E1 · estrutura em três camadas</span>
-    <p>Pelo que você me contou, é isso que está acontecendo.</p>
-    <p>Na superfície, <span class="v">{o comportamento que ela descreveu}</span>.</p>
-    <p>Por baixo disso, <span class="v">{a causa estrutural, pelo padrão dela}</span>.</p>
-    <p>E o custo que ninguém enxerga é <span class="v">{o que ela marcou na pergunta de custo}</span>,
-    que já vem acontecendo <span class="v">{tempo}</span>.</p>
-    <p>É isso mesmo que você vive, ou eu li alguma coisa errada?</p>
-  </div>
-  <div class="porque">
-    <b>Por que funciona:</b> a pergunta no final é obrigatória. Ela transforma o seu diagnóstico
-    na admissão dela. Sem essa confirmação em voz alta, na cabeça dela o problema continua sendo
-    "uma coisa que às vezes acontece".
-  </div>
-
-  <h3>Espelho pronto por padrão</h3>
-
-  <h4>O Invisível</h4>
-  <div class="msg">
-    <button class="copy">copiar</button>
-    <span class="tag">E2 · O Invisível</span>
+    <span class="tag">Espelho · O Invisível</span>
     <p>Você chega preparado, domina o assunto, e mesmo assim a sala não vira para você. Aí você
     sai achando que faltou explicar melhor, e da próxima vez você prepara mais ainda.</p>
     <p>Não é falta de conteúdo. Você entrega informação e não entrega direção, então o que você
@@ -730,10 +775,10 @@
     <p>É isso que acontece com você?</p>
   </div>
 
-  <h4>O Travado</h4>
+  <h4>Se deu O Travado</h4>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">E2 · O Travado</span>
+    <span class="tag">Espelho · O Travado</span>
     <p>Aparece a oportunidade, você já sabe que devia ir, e alguma coisa decide por você que
     não é dessa vez. Depois vem a cobrança, e a cobrança te deixa pior para a próxima.</p>
     <p>O ponto é esse: a decisão de falar não está sendo sua, está sendo do travamento. E ele
@@ -741,10 +786,10 @@
     <p>Faz sentido para você do jeito que eu descrevi?</p>
   </div>
 
-  <h4>O Personagem</h4>
+  <h4>Se deu O Personagem</h4>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">E2 · O Personagem</span>
+    <span class="tag">Espelho · O Personagem</span>
     <p>Na conversa normal você é você. Liga a câmera, sobe no palco, abre a reunião importante,
     e entra outra pessoa no seu lugar. Uma versão mais dura, mais ensaiada, que você mesmo
     assiste depois e não reconhece.</p>
@@ -754,10 +799,10 @@
     <p>É isso mesmo?</p>
   </div>
 
-  <h4>O Correto</h4>
+  <h4>Se deu O Correto</h4>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">E2 · O Correto</span>
+    <span class="tag">Espelho · O Correto</span>
     <p>Você fala bem. Não gagueja, não se perde, não passa vergonha. E sai da sala sem ter
     marcado ninguém, o que é ainda mais incômodo, porque não dá nem para dizer que deu errado.</p>
     <p>Aqui não falta técnica, falta risco. Presença aparece quando aparece verdade, e verdade
@@ -765,109 +810,39 @@
     têm de você.</p>
     <p>Você se reconhece nisso?</p>
   </div>
+
+  <div class="box alerta">
+    <div class="bt">Como saber se funcionou</div>
+    <p>Resposta do tipo <strong>"é exatamente isso"</strong> ou <strong>"você descreveu a minha
+    vida"</strong>: pode avançar para o convite.</p>
+    <p>Resposta do tipo <strong>"mais ou menos"</strong> ou <strong>"em parte"</strong>: volte
+    uma casa, faça mais uma pergunta da seção 9 e tente de novo. Convidar com o espelho fraco
+    é o que produz sessão marcada que ninguém cumpre.</p>
+  </div>
+
+  <h4>Onde você não pode pisar, por padrão</h4>
+  <div class="tw"><table>
+    <tr><th style="width:24%">Padrão</th><th>Nunca diga para essa pessoa</th></tr>
+    <tr><td><b>O Invisível</b></td><td>Qualquer coisa que soe como "você precisa estudar mais". Ele já estuda mais que todo mundo, e é esse o problema.</td></tr>
+    <tr><td><b>O Travado</b></td><td>"Vamos lá, é só se jogar." Ele ouviu isso a vida inteira e a cada vez se sentiu pior.</td></tr>
+    <tr><td><b>O Personagem</b></td><td>Elogiar a performance dele. Ele sabe que soa artificial, e o elogio confirma que ninguém enxerga quem ele é.</td></tr>
+    <tr><td><b>O Correto</b></td><td>Tratar como iniciante. Fale com ele de ajuste fino, não de aprendizado.</td></tr>
+  </table></div>
 </section>
 
-<!-- ================= 10 ================= -->
-<section id="s10">
-  <div class="sechead">
-    <div class="sk">Seção 10</div>
-    <h2>Contexto: o que já tentou</h2>
-    <div class="sd">Cada tentativa frustrada que ela relembra torna o seu caminho mais necessário.</div>
-  </div>
-
-  <p>A pessoa não chegou até você virgem de tentativa. Ela fez curso, fez terapia, treinou
-  sozinha gravando no celular, ou decidiu que aquilo era um traço dela e nunca tratou. O quiz
-  já te disse qual foi o caminho. Sua função aqui é fazer ela recontar o que aconteceu, com
-  empatia, para que fique evidente onde a peça faltou.</p>
-
-  <div class="msg">
-    <button class="copy">copiar</button>
-    <span class="tag">C1 · abrir o histórico</span>
-    <p>Você me disse que já <span class="v">{tentativas}</span>. Me conta uma coisa: em que
-    ponto você sentiu que aquilo não resolveu?</p>
-  </div>
-  <div class="porque">
-    <b>Por que funciona:</b> não pergunta "por que não deu certo", que soa como julgamento.
-    Pergunta em que ponto, que é uma pergunta técnica e deixa a pessoa confortável para contar.
-  </div>
-
-  <h4>Se ela fez curso de oratória</h4>
-  <div class="msg">
-    <button class="copy">copiar</button>
-    <span class="tag">C2 · oratória</span>
-    <p>Isso que você fez foi válido, só que resolveu um pedaço.</p>
-    <p>Curso de oratória trabalha a sua fala: postura, respiração, ritmo, começo meio e fim. E o
-    seu travamento não está na fala. Ele está em para onde vai a sua atenção enquanto você fala.</p>
-    <p>É por isso que você sai do curso melhor e, na primeira situação que importa de verdade,
-    tudo volta.</p>
-  </div>
-
-  <h4>Se ela fez terapia ou autoconhecimento</h4>
-  <div class="msg">
-    <button class="copy">copiar</button>
-    <span class="tag">C2 · terapia</span>
-    <p>Terapia é importante e eu não sou contra, pelo contrário. Só que ela trabalha a origem,
-    e origem entendida não vira comportamento sozinha.</p>
-    <p>Você pode saber exatamente de onde vem o seu travamento e continuar travando na quinta
-    de manhã, na reunião. Entender e destravar são dois trabalhos diferentes.</p>
-  </div>
-
-  <h4>Se ela treinou sozinha</h4>
-  <div class="msg">
-    <button class="copy">copiar</button>
-    <span class="tag">C2 · treino sozinho</span>
-    <p>Gravar e repetir sozinho resolve nervosismo, e o seu problema não é nervosismo.</p>
-    <p>Tem uma coisa que treino sozinho nunca vai te dar: alguém de fora que escuta e te diz o
-    que realmente chegou. Você está avaliando a sua comunicação com o mesmo ouvido que criou o
-    problema.</p>
-  </div>
-
-  <h4>Se ela nunca tratou</h4>
-  <div class="msg">
-    <button class="copy">copiar</button>
-    <span class="tag">C2 · nunca tratou</span>
-    <p>Você conviveu com isso <span class="v">{tempo}</span> sem nunca ter olhado de frente,
-    e mesmo assim construiu o que construiu.</p>
-    <p>Isso me diz duas coisas. A primeira é que o seu problema não é capacidade. A segunda é
-    que esse é provavelmente o ponto da sua carreira com maior diferença entre o que você faz e
-    o que você colhe.</p>
-  </div>
-
-  <div class="box dark">
-    <div class="bt">O que precisa acontecer no fim desta etapa</div>
-    <p>A pessoa precisa sair com a sensação de que já gastou tempo e dinheiro tentando resolver
-    isso por conta própria e que nenhuma das tentativas endereçou o problema certo. Não porque
-    ela é incapaz, e sim porque ninguém nomeou o que estava acontecendo. É esse estado que faz
-    ela querer a sessão.</p>
-  </div>
-</section>
-
-<!-- ================= 11 ================= -->
+<!-- ---------- 11 ---------- -->
 <section id="s11">
-  <div class="sechead">
-    <div class="sk">Seção 11</div>
-    <h2>A ponte para a sessão</h2>
-    <div class="sd">Aqui você não vende a mentoria. Você vende a conversa. E é essa venda que decide o no-show.</div>
+  <div class="sechead"><div class="sk">Seção 11 · Passo 4</div><h3>Convidar para a sessão</h3></div>
+  <div class="resumo">
+    <div class="rt">Em uma frase</div>
+    <p>Aqui você não vende a mentoria, vende a conversa. E o jeito como você convida é o que
+    decide se a pessoa vai aparecer no dia.</p>
   </div>
 
-  <p>Guarde esta frase, ela é o eixo de todo o documento:</p>
-
-  <div class="box dark">
-    <div class="bt">A causa raiz do no-show</div>
-    <p><strong>A pessoa falta porque a etapa anterior não vendeu a importância da reunião.</strong>
-    Quando o horário vale pouco na cabeça dela, qualquer coisa ganha dele: um café que apareceu,
-    um paciente que atrasou, uma reunião que entrou por cima. Não é desrespeito, é preço.
-    O horário está barato.</p>
-  </div>
-
-  <p>Tudo que vem a seguir existe para encarecer aquele horário. E encarecer significa três
-  coisas concretas: a pessoa sabe exatamente o que vai receber, sabe que alguém se preparou
-  especificamente para ela, e deu alguma coisa de si para conseguir aquele lugar.</p>
-
-  <h3>P1 · O convite</h3>
+  <h4>P1 · O convite</h4>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">P1 · só depois do espelho confirmado</span>
+    <span class="tag">P1 · só depois de ela confirmar o espelho</span>
     <p><span class="v">{Nome}</span>, o que você me contou dá para nomear com precisão, mas não
     por mensagem. Por escrito eu te dou informação, e informação você já tem de sobra. O que
     está faltando é leitura.</p>
@@ -881,26 +856,23 @@
     <p>Eu tenho <span class="v">{dia} às {hora}</span> e <span class="v">{dia} às {hora}</span>.
     Qual dos dois funciona melhor para você?</p>
   </div>
-  <div class="porque">
-    <b>Por que funciona, parágrafo por parágrafo:</b> o primeiro justifica por que não dá para
-    resolver ali e não soa como esquiva. O segundo dá escassez verdadeira, com motivo real, e
-    promete preparo personalizado, que é o que mais aumenta valor percebido. O terceiro entrega
-    a promessa em três itens e derruba o medo do pitch disfarçado, que é o medo número um deste
-    público. O quarto oferece duas opções fechadas em vez de perguntar "qual seu melhor horário",
-    porque pergunta aberta vira "depois eu vejo minha agenda".
-  </div>
+  <div class="porque"><b>Por quê, parágrafo por parágrafo:</b> o 1 explica por que não dá para
+  resolver ali sem parecer esquiva. O 2 dá escassez verdadeira e promete preparo com o nome
+  dela, que é o que mais faz a pessoa aparecer depois. O 3 entrega a promessa em três itens e
+  derruba o medo de cair num pitch disfarçado, que é o medo número um deste público. O 4 dá duas
+  opções em vez de perguntar "qual seu melhor horário", que vira "depois eu vejo minha agenda".</div>
 
   <div class="box">
-    <div class="bt">Sempre duas opções, nunca a agenda inteira</div>
-    <p>Dois horários concretos fazem a pessoa escolher entre A e B. A agenda inteira faz a
-    pessoa escolher entre marcar e não marcar. E se ela disser que nenhum dos dois serve, ótimo,
-    ela já está negociando horário e não mais decidindo se vai.</p>
+    <div class="bt">Sempre dois horários, nunca a agenda inteira</div>
+    <p>Dois horários fazem a pessoa escolher entre A e B. A agenda aberta faz a pessoa escolher
+    entre marcar e não marcar. E se ela disser que nenhum dos dois serve, ótimo: ela já está
+    negociando horário, não decidindo se vai.</p>
   </div>
 
-  <h3>P2 · Se ela perguntar o preço antes de agendar</h3>
+  <h4>P2 · Se ela perguntar o preço antes de marcar</h4>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">P2 · a pergunta mais comum desta etapa</span>
+    <span class="tag">P2 · a pergunta mais comum deste momento</span>
     <p>Pergunta justa e eu vou te responder com honestidade: depende do que eu encontrar.</p>
     <p>Os caminhos que eu conduzo são diferentes em intensidade e em tempo, e eu não consigo te
     dizer qual é o seu antes de olhar o seu caso de frente. Te jogar um número agora seria chute,
@@ -909,44 +881,55 @@
     independente de seguirmos juntos ou não.</p>
     <p>Fica de pé <span class="v">{dia} às {hora}</span>?</p>
   </div>
-  <div class="porque">
-    <b>Por que funciona:</b> não foge da pergunta, valida ela, e devolve a lógica do médico que
-    não receita antes de examinar. Termina retomando o agendamento, porque toda resposta de
-    objeção precisa voltar para o próximo passo.
-  </div>
+  <div class="porque"><b>Por quê:</b> não foge da pergunta e usa a lógica do médico, que não
+  receita antes de examinar. E volta para o agendamento na última linha, que é o que toda
+  resposta de objeção precisa fazer.</div>
 
-  <h3>P3 · Quando ela some entre o convite e o sim</h3>
+  <h4>P3 · Convidou e ela sumiu antes de responder</h4>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">P3 · algumas horas depois do convite sem resposta</span>
+    <span class="tag">P3 · algumas horas depois do convite</span>
     <p><span class="v">{Nome}</span>, eu vou segurar os dois horários até o fim do dia e depois
     eu preciso liberar, porque tem gente na fila.</p>
     <p>Não quero te apressar. Só prefiro te avisar do que deixar você achando que o horário
     fica parado esperando.</p>
     <p>Qual dos dois eu marco?</p>
   </div>
-  <div class="porque">
-    <b>Por que funciona:</b> urgência com causa verdadeira e aviso prévio, que é o oposto de
-    pressão. A frase "não quero te apressar" faz exatamente o trabalho de tirar a defesa da
-    pessoa enquanto o prazo continua de pé.
+  <div class="porque"><b>Por quê:</b> urgência com causa verdadeira e aviso prévio, que é o
+  oposto de pressão. "Não quero te apressar" tira a defesa da pessoa e o prazo continua de pé.</div>
+
+  <div class="box alerta">
+    <div class="bt">Assim que ela escolher o horário</div>
+    <p>Vá direto para a mensagem <strong>R0</strong>, na seção 15. Ela precisa sair nos segundos
+    seguintes, e é a mensagem que mais protege a sua agenda em todo este manual.</p>
   </div>
 </section>
 
-<!-- ================= 12 ================= -->
+<!-- ============ PARTE 4 ============ -->
+<div class="partehead">
+  <div class="pk">Parte 4 de 6</div>
+  <h2>Quando trava</h2>
+  <p>As sete objeções que sempre aparecem, e o que fazer com quem simplesmente sumiu.</p>
+</div>
+
+<!-- ---------- 12 ---------- -->
 <section id="s12">
-  <div class="sechead">
-    <div class="sk">Seção 12</div>
-    <h2>Objeções antes da sessão</h2>
-    <div class="sd">Objeção não é rejeição, é pedido de informação. Quem não quer comprar não objeta, some.</div>
+  <div class="sechead"><div class="sk">Seção 12</div><h3>As 7 objeções</h3></div>
+  <div class="resumo">
+    <div class="rt">Em uma frase</div>
+    <p>Objeção não é um não, é um pedido de informação. Quem não quer comprar não objeta, some.</p>
   </div>
 
-  <p>Regra geral para todas: acolha, responda em três linhas no máximo, e volte para o próximo
-  passo na última frase. Objeção respondida sem retomar o agendamento morre no ar.</p>
+  <div class="box">
+    <div class="bt">A fórmula para todas</div>
+    <p><strong>Acolha, responda em três linhas, e volte para o horário na última frase.</strong>
+    Objeção respondida sem retomar o agendamento morre no ar e a conversa esfria.</p>
+  </div>
 
-  <h4>"Isso é curso de oratória?"</h4>
+  <h5>1. "Isso é curso de oratória?"</h5>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">O1</span>
+    <span class="tag">Objeção 1</span>
     <p>Não, e eu faço questão dessa distinção. Oratória é uma parte da comunicação e é a menor
     delas.</p>
     <p>O trabalho aqui é sobre o que faz a sua mensagem chegar: presença, clareza, identidade e
@@ -954,20 +937,20 @@
     ninguém lembra.</p>
   </div>
 
-  <h4>"Já fiz curso e não resolveu, por que agora seria diferente?"</h4>
+  <h5>2. "Já fiz curso e não resolveu, por que agora seria diferente?"</h5>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">O2</span>
+    <span class="tag">Objeção 2</span>
     <p>Porque aquele curso trabalhou a sua fala, e o seu travamento não está na fala. Está em
     para onde vai a sua atenção enquanto você fala.</p>
     <p>É por isso que você melhora no ambiente do curso e volta ao normal na reunião que
     importa. Não é você que não aprende, é que o trabalho foi feito na camada errada.</p>
   </div>
 
-  <h4>"Me manda um material por escrito para eu ver"</h4>
+  <h5>3. "Me manda um material por escrito"</h5>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">O3</span>
+    <span class="tag">Objeção 3</span>
     <p>Eu até mandaria, mas material por escrito é exatamente o que você já tem de sobra, e não
     foi o que resolveu até aqui.</p>
     <p>O que eu tenho para te dar é uma leitura do seu caso, e leitura eu não consigo entregar
@@ -975,52 +958,47 @@
     <p>Prefere <span class="v">{dia}</span> ou <span class="v">{dia}</span>?</p>
   </div>
 
-  <h4>"Não tenho tempo agora, minha agenda está impossível"</h4>
+  <h5>4. "Não tenho tempo, minha agenda está impossível"</h5>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">O4</span>
+    <span class="tag">Objeção 4</span>
     <p>Eu entendo, e é justamente por causa dessa agenda que eu quero olhar isso com você.</p>
     <p>O que você me descreveu acontece dentro dela: nas reuniões, nas conversas, nas decisões.
     Enquanto ninguém tratar, ele continua cobrando o pedágio toda semana, em silêncio.</p>
-    <p>São 45 minutos uma vez. Me diz o horário mais difícil de alguém te atrapalhar, começo do
-    dia ou fim do dia, que eu abro um espaço ali.</p>
+    <p>São 45 minutos uma vez. Me diz o horário em que é mais difícil alguém te atrapalhar,
+    começo do dia ou fim do dia, que eu abro um espaço ali.</p>
   </div>
 
-  <h4>"Isso é uma conversa de vendas, né?"</h4>
+  <h5>5. "Isso é uma conversa de vendas, né?"</h5>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">O5 · desarme preventivo</span>
+    <span class="tag">Objeção 5</span>
     <p>Vou ser transparente com você: se fizer sentido seguirmos juntos, sim, eu vou te explicar
     como funciona. Não faria sentido eu esconder isso.</p>
     <p>O que eu não faço é transformar os 45 minutos em apresentação de produto. Eles são sobre
     o seu caso, e a leitura é sua no fim, independente da sua decisão. Se eu achar que não é
     para você, eu vou te dizer isso também.</p>
   </div>
-  <div class="porque">
-    <b>Dica:</b> antecipe essa objeção em vez de esperar por ela. Uma frase do tipo
-    <em>"eu aposto que você já entrou em conversa achando que era papo e era pitch, e eu não
-    vou fazer isso com você"</em> derruba a defesa antes de ela ser levantada, e este público
-    responde muito bem a isso.
-  </div>
+  <div class="porque"><b>Melhor ainda:</b> diga isso <b>antes</b> de ela perguntar, no meio do
+  convite. Algo como "eu aposto que você já entrou em conversa achando que era papo e era pitch,
+  e eu não vou fazer isso com você". Derrubar a defesa antes de ela subir funciona muito bem
+  com este público.</div>
 
-  <h4>"Vou ver a minha agenda e te falo"</h4>
+  <h5>6. "Vou ver a minha agenda e te falo"</h5>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">O6</span>
+    <span class="tag">Objeção 6</span>
     <p>Claro. Só me ajuda com uma coisa para eu não ficar te perseguindo: você me responde hoje
     ainda ou amanhã de manhã?</p>
     <p>Qualquer uma das duas está ótima, eu só preciso saber se seguro o horário ou libero.</p>
   </div>
-  <div class="porque">
-    <b>Por que funciona:</b> transforma um "depois eu vejo" num compromisso com prazo, e ainda
-    te dá permissão explícita para cobrar no dia combinado. Sem isso você vira o chato que fica
-    mandando mensagem.
-  </div>
+  <div class="porque"><b>Por quê:</b> transforma um "depois eu vejo" em compromisso com prazo, e
+  te dá permissão para cobrar no dia combinado. Sem isso você vira o chato que fica insistindo.</div>
 
-  <h4>"Preciso falar com minha esposa ou meu sócio"</h4>
+  <h5>7. "Preciso falar com minha esposa ou meu sócio"</h5>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">O7</span>
+    <span class="tag">Objeção 7</span>
     <p>Faz todo sentido. Essa conversa inclusive fica melhor quando não é só sua.</p>
     <p>Deixa eu te propor o seguinte: a sessão é sobre o seu caso e não depende dessa decisão
     ainda. Vamos fazer ela, você sai com a leitura completa, e aí você tem alguma coisa concreta
@@ -1028,31 +1006,34 @@
   </div>
 </section>
 
-<!-- ================= 13 ================= -->
+<!-- ---------- 13 ---------- -->
 <section id="s13">
-  <div class="sechead">
-    <div class="sk">Seção 13</div>
-    <h2>Follow-up</h2>
-    <div class="sd">Follow-up não é cobrança, é continuação da condução. Ele usa as palavras da pessoa para mostrar que não decidir também é uma decisão.</div>
+  <div class="sechead"><div class="sk">Seção 13</div><h3>Quem não respondeu</h3></div>
+  <div class="resumo">
+    <div class="rt">Em uma frase</div>
+    <p>Três trilhas, no máximo cinco mensagens cada, todas com saída digna. Perseguir lead queima
+    a sua imagem com um público que circula nos mesmos lugares que você.</p>
   </div>
 
-  <p>Três trilhas, de acordo com onde a pessoa parou. Nenhuma delas passa de cinco mensagens,
-  e todas terminam com uma saída digna. Perseguir lead queima a sua imagem com um público que
-  circula nos mesmos lugares.</p>
+  <h4>Qual trilha usar</h4>
+  <div class="tw"><table>
+    <tr><th style="width:16%">Trilha</th><th style="width:40%">Quando usar</th><th>Quantas mensagens</th></tr>
+    <tr><td><b>A</b></td><td>Respondeu o quiz e nunca respondeu você.</td><td>3, nos dias 2, 4 e 8.</td></tr>
+    <tr><td><b>B</b></td><td>Conversou com você e sumiu antes de marcar.</td><td>3, nos dias 1, 3 e 7.</td></tr>
+    <tr><td><b>C</b></td><td>Disse com todas as letras que não é o momento.</td><td>2, no ato e 30 dias depois.</td></tr>
+  </table></div>
 
-  <div class="box">
-    <div class="bt">Duas frases proibidas no follow-up</div>
-    <p><strong>"Você teve tempo de pensar?"</strong> e <strong>"Conseguiu ver aquilo que te
-    mandei?"</strong>. As duas colocam você na posição de quem espera aprovação e quebram o
-    lugar de quem conduz. Sempre traga informação nova ou uma pergunta que faça a pessoa pensar.</p>
+  <div class="box alerta">
+    <div class="bt">Duas frases proibidas</div>
+    <p><strong>"Você teve tempo de pensar?"</strong> e <strong>"Conseguiu ver o que eu te
+    mandei?"</strong>. As duas te colocam esperando a aprovação dela. Traga sempre informação
+    nova ou uma pergunta que faça ela pensar.</p>
   </div>
 
-  <h3>Trilha A · fez o quiz e nunca respondeu</h3>
-  <p>As mensagens A1 e A2 da seção 7 já foram. Se continuou em silêncio, seguem estas.</p>
-
+  <h4>Trilha A · fez o quiz e nunca respondeu</h4>
   <div class="step">
     <div class="quando">Dia 2</div>
-    <h4>A3 · o custo, em uma cena</h4>
+    <h5>A3 · o custo, em uma cena</h5>
     <div class="msg">
       <button class="copy">copiar</button>
       <span class="tag">A3</span>
@@ -1064,10 +1045,9 @@
       Eu guardo a sua leitura.</p>
     </div>
   </div>
-
   <div class="step">
     <div class="quando">Dia 4</div>
-    <h4>A4 · saída digna</h4>
+    <h5>A4 · responda 1 ou 2</h5>
     <div class="msg">
       <button class="copy">copiar</button>
       <span class="tag">A4</span>
@@ -1076,14 +1056,13 @@
       <p>Qualquer uma das duas resolve para mim, eu só não gosto de ficar insistindo com quem
       não quer.</p>
     </div>
-    <div class="porque"><b>Por que funciona:</b> resposta de um caractere, sem constrangimento,
-    e a opção 2 encerra sem a pessoa precisar dizer não. Boa parte das respostas que aparecem
-    no funil inteiro vem de mensagens como esta.</div>
+    <div class="porque"><b>Por quê:</b> resposta de um caractere, sem constrangimento, e a opção
+    2 encerra sem a pessoa precisar dizer não. É uma das mensagens que mais gera resposta no
+    funil inteiro.</div>
   </div>
-
   <div class="step">
     <div class="quando">Dia 8</div>
-    <h4>A5 · encerramento</h4>
+    <h5>A5 · encerramento</h5>
     <div class="msg">
       <button class="copy">copiar</button>
       <span class="tag">A5 · última da trilha</span>
@@ -1096,63 +1075,56 @@
     </div>
   </div>
 
-  <h3>Trilha B · conversou e sumiu antes de marcar</h3>
-
+  <h4>Trilha B · conversou e sumiu antes de marcar</h4>
   <div class="step">
     <div class="quando">1 dia</div>
-    <h4>B-F1 · retomar pelo que ela disse</h4>
+    <h5>B1 · retomar pelo que ela disse</h5>
     <div class="msg">
       <button class="copy">copiar</button>
-      <span class="tag">B-F1</span>
+      <span class="tag">Trilha B · mensagem 1</span>
       <p><span class="v">{Nome}</span>, fiquei pensando na nossa conversa de ontem, naquilo que
       você me contou sobre <span class="v">{a cena que ela descreveu}</span>.</p>
       <p>Quero ser direto com você: o que você me descreveu tem solução clara. A minha única
       dúvida é se este é o momento certo para você olhar isso. Me diz o que você está pensando.</p>
     </div>
-    <div class="porque"><b>Por que funciona:</b> não pergunta se ela decidiu, pergunta o que ela
-    está pensando. É a mensagem que faz a objeção real aparecer, e objeção que aparece é objeção
-    que dá para tratar.</div>
+    <div class="porque"><b>Por quê:</b> não pergunta se ela decidiu, pergunta o que ela está
+    pensando. É a mensagem que faz a objeção real aparecer, e objeção que aparece dá para tratar.</div>
   </div>
-
   <div class="step">
     <div class="quando">3 dias</div>
-    <h4>B-F2 · prova, não pressão</h4>
+    <h5>B2 · prova, não pressão</h5>
     <div class="msg">
       <button class="copy">copiar</button>
-      <span class="tag">B-F2</span>
+      <span class="tag">Trilha B · mensagem 2</span>
       <p><span class="v">{Nome}</span>, lembrei de você por causa de um caso parecido.</p>
-      <p><span class="v">{Uma história curta de aluno com o mesmo padrão: como chegou, o que
-      mudou, em quanto tempo}</span>.</p>
+      <p><span class="v">{Conte um caso curto de aluno com o mesmo padrão: como ele chegou, o
+      que mudou e em quanto tempo}</span>.</p>
       <p>Não mandei para te convencer de nada. Mandei porque o ponto de partida dele era igual
       ao seu, e eu achei que valia você saber que isso se resolve.</p>
     </div>
-    <div class="porque"><b>Cuidado ao escolher a história:</b> conte o caso de alguém do mesmo
-    nível da pessoa. Para um empresário de quarenta e cinco anos, história de alguém que "venceu
-    a timidez para gravar stories" desvende. Use casos de sala de reunião, palco, entrevista e
-    negociação.</div>
+    <div class="porque"><b>Cuidado ao escolher o caso:</b> conte a história de alguém do mesmo
+    nível dela. Para um empresário de 45 anos, um caso de alguém que "venceu a timidez para
+    gravar stories" faz o efeito contrário. Use sala de reunião, palco, entrevista e negociação.</div>
   </div>
-
   <div class="step">
     <div class="quando">7 dias</div>
-    <h4>B-F3 · encerramento com inteligência</h4>
+    <h5>B3 · encerramento</h5>
     <div class="msg">
       <button class="copy">copiar</button>
-      <span class="tag">B-F3 · última da trilha</span>
+      <span class="tag">Trilha B · mensagem 3, última</span>
       <p><span class="v">{Nome}</span>, vou parar de te procurar, e sem nenhum ressentimento.</p>
-      <p>Só quero deixar registrado o que eu ouvi de você: isso se repete <span class="v">{tempo}</span>
-      e já custou <span class="v">{custo}</span>. Não decidir também é uma decisão, e essa decisão
-      tem uma consequência que você mesmo já me descreveu.</p>
+      <p>Só quero deixar registrado o que eu ouvi de você: isso se repete
+      <span class="v">{tempo}</span> e já custou <span class="v">{custo}</span>. Não decidir
+      também é uma decisão, e essa decisão tem uma consequência que você mesmo já me descreveu.</p>
       <p>Quando quiser retomar, é só chamar. A porta fica aberta.</p>
     </div>
   </div>
 
-  <h3>Trilha C · perfil certo, momento errado</h3>
-  <p>Pessoa qualificada que disse com todas as letras que não é a hora. Não insista, marque
-  para voltar. Este é o lead que mais fecha no trimestre seguinte.</p>
-
+  <h4>Trilha C · perfil certo, momento errado</h4>
+  <p>Não insista. Marque para voltar. Este é o lead que mais fecha no trimestre seguinte.</p>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">C-F1 · no ato</span>
+    <span class="tag">Trilha C · no ato</span>
     <p>Entendi, e obrigado por ser honesto comigo, isso facilita muito.</p>
     <p>Eu vou fazer o seguinte: guardo a sua leitura e te procuro daqui a uns trinta dias para
     saber como está. Se antes disso aparecer alguma situação em que isso pesar, me chama que eu
@@ -1160,67 +1132,102 @@
   </div>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">C-F2 · trinta dias depois</span>
+    <span class="tag">Trilha C · trinta dias depois</span>
     <p><span class="v">{Nome}</span>, aqui é o Delphis. A gente conversou no mês passado e você
     me disse que não era o momento, lembra?</p>
-    <p>Estou passando só para saber de uma coisa: aquele ponto do <span class="v">{situação}</span>
-    melhorou sozinho ou continua igual?</p>
+    <p>Estou passando só para saber de uma coisa: aquele ponto do
+    <span class="v">{situação}</span> melhorou sozinho ou continua igual?</p>
   </div>
-  <div class="porque">
-    <b>Por que funciona:</b> a pergunta é honesta e a resposta quase sempre é "continua igual".
-    Quando ela mesma escreve isso, a conversa recomeça do ponto certo e a urgência voltou sem
-    você ter produzido nenhuma.
-  </div>
+  <div class="porque"><b>Por quê:</b> a resposta quase sempre é "continua igual". Quando ela mesma
+  escreve isso, a conversa recomeça do ponto certo e a urgência voltou sem você ter produzido
+  nenhuma.</div>
 </section>
 
-<!-- ================= 14 ================= -->
+<!-- ============ PARTE 5 ============ -->
+<div class="partehead">
+  <div class="pk">Parte 5 de 6</div>
+  <h2>Fazer a pessoa aparecer</h2>
+  <p>A parte mais importante do manual. Cada sessão marcada que ninguém cumpre é uma venda
+  perdida e uma hora sua que não volta.</p>
+</div>
+
+<!-- ---------- 14 ---------- -->
 <section id="s14">
-  <div class="sechead">
-    <div class="sk">Seção 14</div>
-    <h2>No-show: a régua</h2>
-    <div class="sd">A sessão é o ativo mais caro da operação. Cada horário vazio é uma venda que não aconteceu e uma hora sua que não volta.</div>
+  <div class="sechead"><div class="sk">Seção 14</div><h3>Por que as pessoas faltam</h3></div>
+  <div class="resumo">
+    <div class="rt">Em uma frase</div>
+    <p>Ninguém falta porque esqueceu. A pessoa falta porque, na hora de escolher, aquele horário
+    valia menos que a outra coisa que apareceu.</p>
   </div>
 
   <div class="box dark">
-    <div class="bt">Entenda antes de aplicar</div>
-    <p>Ninguém falta porque esqueceu. Lembrete resolve esquecimento, e esquecimento é a menor
-    parte do problema. <strong>A pessoa falta porque, na hora da escolha, aquele horário valia
-    menos que a outra coisa que apareceu.</strong></p>
-    <p>Então a régua abaixo não é uma sequência de lembretes. É uma sequência de aumentos de
-    valor. Cada mensagem faz o horário valer mais, até chegar num ponto em que faltar custa
-    caro na cabeça dela.</p>
+    <div class="bt">Entenda isto antes de aplicar a régua</div>
+    <p>A falta não é desrespeito, é preço. <strong>O horário estava barato na cabeça dela.</strong>
+    Apareceu um café com um colega, um paciente atrasou, entrou uma reunião por cima, e a sua
+    conversa perdeu.</p>
+    <p>Então a régua da seção 15 não é uma sequência de lembretes. Lembrete resolve esquecimento,
+    e esquecimento é a menor parte do problema. <strong>É uma sequência de aumentos de valor.</strong></p>
   </div>
 
-  <h3>Os três aumentos de valor</h3>
+  <h4>As três coisas que encarecem o horário</h4>
   <div class="cards">
     <div class="card">
-      <div class="ct">Aumento 1</div>
+      <div class="ct">Alavanca 1</div>
       <h5>Preparo visível</h5>
-      <p>Ela precisa saber que existe trabalho sendo feito com o nome dela antes da hora.
-      "Eu reli as suas respostas e separei o que vou te mostrar" muda tudo, porque faltar
+      <p>Ela precisa saber que existe trabalho sendo feito com o nome dela antes da hora.</p>
+      <p>"Eu reli as suas respostas e separei o que vou te mostrar" muda tudo, porque faltar
       passa a significar desperdiçar o trabalho de alguém.</p>
     </div>
     <div class="card">
-      <div class="ct">Aumento 2</div>
+      <div class="ct">Alavanca 2</div>
       <h5>Compromisso ativo</h5>
-      <p>Quem só recebeu um horário não deu nada em troca. Quem respondeu uma pergunta, mandou
-      uma frase ou escolheu entre duas opções, investiu. Peça sempre um micro compromisso no
-      ato do agendamento.</p>
+      <p>Quem só recebeu um horário não deu nada em troca.</p>
+      <p>Quem respondeu uma pergunta ou mandou uma frase investiu alguma coisa, e passa a ter o
+      que perder. Por isso o R0 pede uma resposta.</p>
     </div>
     <div class="card">
-      <div class="ct">Aumento 3</div>
+      <div class="ct">Alavanca 3</div>
       <h5>Dono e fila</h5>
-      <p>O horário precisa ter dono e precisa ter fila. "Está na minha agenda com o seu nome"
-      mais "se não der, me avisa que eu passo para outra pessoa" é urgência verdadeira, sem
-      nenhuma agressividade.</p>
+      <p>O horário precisa ter o nome dela e precisa ter alguém esperando.</p>
+      <p>"Está na minha agenda com o seu nome" mais "se não der, me avisa que eu passo para
+      outra pessoa" é urgência de verdade, sem nenhuma agressividade.</p>
     </div>
   </div>
 
-  <h3>A régua completa</h3>
+  <h4>O que reduz falta antes mesmo da régua começar</h4>
+  <ul>
+    <li><strong>Nunca marque para dali a mais de três dias.</strong> Quanto maior a distância
+    entre o sim e a sessão, maior a falta. O ideal é dentro de 48 horas.</li>
+    <li><strong>Prefira começo ou fim do dia</strong> para empresário e médico. O meio do dia é
+    onde o imprevisto entra por cima.</li>
+    <li><strong>Nunca pule o R0.</strong> Agendamento sem compromisso ativo falta muito mais, e
+    você consegue prever isso com antecedência.</li>
+    <li><strong>Se a pessoa não responder o pedido do R0</strong>, trate o agendamento como
+    frágil e reforce na véspera.</li>
+  </ul>
+</section>
+
+<!-- ---------- 15 ---------- -->
+<section id="s15">
+  <div class="sechead"><div class="sk">Seção 15</div><h3>A régua, hora a hora</h3></div>
+  <div class="resumo">
+    <div class="rt">Em uma frase</div>
+    <p>Seis mensagens curtas em momentos fixos, do segundo em que ela escolhe o horário até dez
+    minutos antes da sessão. Juntas levam menos de dois minutos do seu dia.</p>
+  </div>
+
+  <div class="tw"><table>
+    <tr><th style="width:22%">Quando</th><th style="width:24%">Mensagem</th><th>O que ela faz</th></tr>
+    <tr><td><b>No ato</b></td><td>R0</td><td>Encarece o horário. A mais importante de todas.</td></tr>
+    <tr><td><b>Véspera, de manhã</b></td><td>R1</td><td>Mostra que o preparo existe e pede confirmação.</td></tr>
+    <tr><td><b>Véspera, à noite</b></td><td>R1.1</td><td>Só se ela não confirmou o R1.</td></tr>
+    <tr><td><b>1 hora antes</b></td><td>R2</td><td>Prova final de que tem trabalho pronto esperando por ela.</td></tr>
+    <tr><td><b>10 minutos antes</b></td><td>R3</td><td>Manda o link. Nunca antes disso.</td></tr>
+  </table></div>
 
   <div class="step">
     <div class="quando">No ato</div>
-    <h4>R0 · a mensagem mais importante deste documento</h4>
+    <h5>R0 · a mensagem mais importante deste manual</h5>
     <div class="msg">
       <button class="copy">copiar</button>
       <span class="tag">R0 · segundos depois de ela escolher o horário</span>
@@ -1235,49 +1242,45 @@
       <p>E se em algum momento você vir que não vai conseguir, me avisa antes que eu passo o
       horário para outra pessoa, sem problema nenhum.</p>
     </div>
-    <div class="porque">
-      <b>Por que esta mensagem sozinha derruba metade dos no-shows:</b> ela faz os três aumentos
-      de valor de uma vez. O horário ganha dono ("com o seu nome"), a pessoa assume um compromisso
-      ativo (o pedido 2, que ela responde em segundos), e existe uma fila real, dita sem ameaça.
-      O pedido 1 ainda aumenta a expectativa, porque sinaliza que vai acontecer alguma coisa ali
-      e não só um papo. <b>Se a pessoa não responder o pedido 2, considere o agendamento frágil
-      e reforce na véspera.</b>
-    </div>
+    <div class="porque"><b>Por quê:</b> faz as três alavancas de uma vez. O horário ganha dono,
+    a pessoa assume um compromisso ativo (o pedido 2, que ela responde em segundos) e existe uma
+    fila real, dita sem ameaça. O pedido 1 ainda aumenta a expectativa, porque sinaliza que vai
+    acontecer alguma coisa ali e não só um papo. <b>Esta mensagem sozinha derruba boa parte das
+    faltas.</b></div>
   </div>
 
   <div class="step">
-    <div class="quando">Véspera</div>
-    <h4>R1 · confirmação com preparo</h4>
+    <div class="quando">Véspera manhã</div>
+    <h5>R1 · confirmação com preparo</h5>
     <div class="msg">
       <button class="copy">copiar</button>
-      <span class="tag">R1 · 24 horas antes, de preferência de manhã</span>
+      <span class="tag">R1 · 24 horas antes</span>
       <p><span class="v">{Nome}</span>, amanhã às <span class="v">{hora}</span> é a nossa conversa.</p>
       <p>Já reli as suas respostas e separei o que eu quero te mostrar sobre o
       <span class="v">{padrão}</span>. Te mando o link dez minutos antes.</p>
       <p>Me confirma aqui que está de pé?</p>
     </div>
-    <div class="porque"><b>Por que funciona:</b> não é lembrete, é prestação de contas do preparo.
-    E pede uma confirmação explícita, que é o dado mais importante do dia seguinte.</div>
+    <div class="porque"><b>Por quê:</b> não é lembrete, é prestação de contas do preparo. E a
+    confirmação que ela dá aqui é o dado mais importante do dia seguinte.</div>
   </div>
 
   <div class="step">
-    <div class="quando">Véspera</div>
-    <h4>R1.1 · se não confirmou até o fim do dia</h4>
+    <div class="quando">Véspera noite</div>
+    <h5>R1.1 · só se ela não confirmou</h5>
     <div class="msg">
       <button class="copy">copiar</button>
-      <span class="tag">R1.1</span>
+      <span class="tag">R1.1 · fim do dia da véspera</span>
       <p>Não recebi a sua confirmação e eu prefiro perguntar direto do que ficar supondo.</p>
       <p>Continua de pé amanhã às <span class="v">{hora}</span>? Se precisar mudar, me fala hoje
       que eu remanejo sem nenhum problema, ainda dá tempo de outra pessoa usar.</p>
     </div>
-    <div class="porque"><b>Por que funciona:</b> transparência no lugar de cobrança, e uma saída
-    honrosa que a pessoa pode usar. É muito melhor remarcar na véspera do que ficar com o horário
-    vazio no dia.</div>
+    <div class="porque"><b>Por quê:</b> é muito melhor remarcar na véspera do que ficar com o
+    horário vazio no dia. Transparência no lugar de cobrança, com uma saída honrosa.</div>
   </div>
 
   <div class="step">
-    <div class="quando">1 hora</div>
-    <h4>R2 · a mensagem do preparo específico</h4>
+    <div class="quando">1 hora antes</div>
+    <h5>R2 · o preparo específico</h5>
     <div class="msg">
       <button class="copy">copiar</button>
       <span class="tag">R2 · uma hora antes</span>
@@ -1285,13 +1288,13 @@
       <p>Estou com o seu diagnóstico aqui do lado e com a <span class="v">{situação que ela
       mandou no R0}</span> anotada, que é por onde eu quero começar. Já já te mando o link.</p>
     </div>
-    <div class="porque"><b>Por que funciona:</b> é a prova final de que existe trabalho pronto
-    esperando por ela. Quando esta mensagem chega, faltar deixou de ser uma opção barata.</div>
+    <div class="porque"><b>Por quê:</b> quando esta mensagem chega, faltar deixou de ser uma
+    opção barata. Existe trabalho pronto, com o nome dela, esperando.</div>
   </div>
 
   <div class="step">
-    <div class="quando">10 min</div>
-    <h4>R3 · o link</h4>
+    <div class="quando">10 min antes</div>
+    <h5>R3 · o link</h5>
     <div class="msg">
       <button class="copy">copiar</button>
       <span class="tag">R3 · dez minutos antes</span>
@@ -1301,10 +1304,20 @@
     <div class="porque"><b>Regra:</b> mande o link sempre nesta janela, nunca no dia anterior.
     Link mandado cedo demais se perde na conversa e vira motivo de atraso.</div>
   </div>
+</section>
+
+<!-- ---------- 16 ---------- -->
+<section id="s16">
+  <div class="sechead"><div class="sk">Seção 16</div><h3>Quando ela não apareceu</h3></div>
+  <div class="resumo">
+    <div class="rt">Em uma frase</div>
+    <p>Quatro mensagens, do minuto 4 ao dia 4. A do mesmo dia é a que mais recupera sessão, e
+    quase ninguém manda.</p>
+  </div>
 
   <div class="step">
     <div class="quando">+4 min</div>
-    <h4>R4 · ela não entrou</h4>
+    <h5>R4 · ela não entrou</h5>
     <div class="msg">
       <button class="copy">copiar</button>
       <span class="tag">R4 · quatro a cinco minutos depois da hora</span>
@@ -1316,21 +1329,21 @@
 
   <div class="step">
     <div class="quando">+12 min</div>
-    <h4>R5 · a última janela</h4>
+    <h5>R5 · a última janela</h5>
     <div class="msg">
       <button class="copy">copiar</button>
-      <span class="tag">R5 · doze minutos depois</span>
+      <span class="tag">R5 · doze minutos depois da hora</span>
       <p><span class="v">{Nome}</span>, vou ficar mais cinco minutos aqui na sala.</p>
       <p>Se aconteceu alguma coisa aí, me avisa que a gente resolve de outro jeito.</p>
     </div>
-    <div class="porque"><b>Por que funciona:</b> dá um prazo concreto sem cobrar, e a segunda
-    linha abre espaço para a pessoa dizer a verdade. Muita gente responde aqui, envergonhada,
-    e a sessão acontece meia hora depois.</div>
+    <div class="porque"><b>Por quê:</b> dá um prazo concreto sem cobrar, e a segunda linha abre
+    espaço para a pessoa dizer a verdade. Muita gente responde aqui, envergonhada, e a sessão
+    acontece meia hora depois.</div>
   </div>
 
   <div class="step">
     <div class="quando">Mesmo dia</div>
-    <h4>R6 · a recuperação, e ela é a mais importante</h4>
+    <h5>R6 · a recuperação, e é a que mais funciona</h5>
     <div class="msg">
       <button class="copy">copiar</button>
       <span class="tag">R6 · 40 a 60 minutos depois do horário perdido</span>
@@ -1343,21 +1356,18 @@
       <p>Eu consigo abrir <span class="v">{dia} às {hora}</span>. Quer que eu segure esse para
       você?</p>
     </div>
-    <div class="porque">
-      <b>Por que funciona:</b> a primeira frase acolhe e tira a culpa, porque culpa faz o público
-      dela sumir de vez por constrangimento. A segunda devolve a consequência usando as palavras
-      dela, e lembra do preparo que existiu, o que faz a pessoa sentir que desperdiçou alguma
-      coisa real. A terceira pede um sim ativo em vez de oferecer a agenda aberta. É a mensagem
-      que mais recupera sessão.
-    </div>
+    <div class="porque"><b>Por quê:</b> a primeira frase acolhe e tira a culpa, porque culpa faz
+    este público sumir de vez por constrangimento. A segunda devolve a consequência com as
+    palavras dela e lembra que houve preparo, então ela sente que desperdiçou algo real. A
+    terceira pede um sim ativo em vez de abrir a agenda.</div>
   </div>
 
   <div class="step">
     <div class="quando">Dia +1</div>
-    <h4>R7 · se não respondeu o R6</h4>
+    <h5>R7 · se ela não respondeu o R6</h5>
     <div class="msg">
       <button class="copy">copiar</button>
-      <span class="tag">R7</span>
+      <span class="tag">R7 · dia seguinte</span>
       <p><span class="v">{Nome}</span>, não vou ficar insistindo, não é o meu estilo. Só não
       quero que isso morra por causa de horário.</p>
       <p>Me responde com 1 ou 2:</p>
@@ -1369,208 +1379,225 @@
 
   <div class="step">
     <div class="quando">Dia +4</div>
-    <h4>R8 · encerramento com a leitura na mão dela</h4>
+    <h5>R8 · encerramento</h5>
     <div class="msg">
       <button class="copy">copiar</button>
-      <span class="tag">R8 · última mensagem da régua</span>
+      <span class="tag">R8 · última mensagem</span>
       <p><span class="v">{Nome}</span>, vou liberar o seu horário aqui e encerrar por enquanto.</p>
       <p>Deixo uma coisa só: quando chegar a próxima <span class="v">{situação}</span> e aquilo
       se repetir, você já vai saber o nome do que aconteceu. Está escrito no seu diagnóstico,
       é <span class="v">{padrão}</span>.</p>
       <p>Quando quiser tratar isso, me chama aqui que eu te encaixo. Foi bom te conhecer.</p>
     </div>
-    <div class="porque"><b>Por que funciona:</b> encerra sem mágoa e planta uma âncora. A próxima
-    vez que o travamento acontecer, e vai acontecer, a pessoa vai lembrar de você. Uma parte
-    relevante dos retornos vem exatamente daqui.</div>
+    <div class="porque"><b>Por quê:</b> encerra sem mágoa e planta uma âncora. Na próxima vez que
+    o travamento acontecer, e vai acontecer, ela vai lembrar de você.</div>
   </div>
 
   <div class="box alerta">
-    <div class="bt">Régua de remarcação: no máximo duas</div>
-    <p>Primeira remarcação: normal, a vida acontece, remarque com naturalidade.</p>
-    <p>Segunda remarcação: remarque, e diga com clareza que é o último horário que você segura.
-    <em>"Vou abrir esse, e esse é o último que eu consigo segurar. Combinado?"</em></p>
-    <p>Terceira: não remarque. A pessoa vai para nutrição com uma mensagem gentil. Quem falta
-    três vezes não está dizendo que a agenda é difícil, está dizendo que não é prioridade, e
-    insistir só desvaloriza a sua agenda diante dela.</p>
+    <div class="bt">Regra de remarcação: no máximo duas</div>
+    <p><strong>Primeira:</strong> remarque com naturalidade, a vida acontece.</p>
+    <p><strong>Segunda:</strong> remarque e diga que é o último horário que você segura.
+    "Vou abrir esse, e esse é o último que eu consigo segurar. Combinado?"</p>
+    <p><strong>Terceira:</strong> não remarque. Quem falta três vezes não está dizendo que a
+    agenda é difícil, está dizendo que não é prioridade. Mande a mensagem da trilha C e siga.</p>
   </div>
-
-  <h3>O que fazer antes de tudo isso</h3>
-  <p>A régua salva a sessão marcada. O que reduz o no-show de forma estrutural acontece antes:</p>
-  <ul>
-    <li><strong>Nunca marque para dali a mais de três dias.</strong> Quanto maior a distância
-    entre o sim e a sessão, maior o no-show. O ideal é dentro de 48 horas.</li>
-    <li><strong>Prefira horários de começo ou de fim do dia</strong> para empresário e médico.
-    O meio do dia é onde o imprevisto entra por cima.</li>
-    <li><strong>Peça o compromisso ativo do R0 sempre.</strong> Agendamento sem micro compromisso
-    tem taxa de falta muito maior, e você consegue prever isso com antecedência.</li>
-    <li><strong>Um áudio curto seu na véspera</strong> faz um trabalho que texto nenhum faz com
-    este público. Quinze segundos, dizendo que está preparado e que espera a pessoa.</li>
-    <li><strong>Anote todo no-show</strong> com o padrão, a classificação e a origem. Em poucas
-    semanas você vai enxergar de qual perfil e de qual horário vem a maior parte das faltas, e
-    aí o ajuste deixa de ser adivinhação.</li>
-  </ul>
 </section>
 
-<!-- ================= 15 ================= -->
-<section id="s15">
-  <div class="sechead">
-    <div class="sk">Seção 15</div>
-    <h2>Depois da sessão</h2>
-    <div class="sd">A conversa nunca termina no ar. Ou fechou, ou tem um próximo passo com data e hora.</div>
+<!-- ============ PARTE 6 ============ -->
+<div class="partehead">
+  <div class="pk">Parte 6 de 6</div>
+  <h2>Fechar o ciclo</h2>
+  <p>O que fazer depois da sessão, os cinco números que você acompanha e a página para imprimir.</p>
+</div>
+
+<!-- ---------- 17 ---------- -->
+<section id="s17">
+  <div class="sechead"><div class="sk">Seção 17</div><h3>Depois da sessão</h3></div>
+  <div class="resumo">
+    <div class="rt">Em uma frase</div>
+    <p>A conversa nunca termina no ar. Ou fechou, ou tem um próximo passo com dia e hora marcados.</p>
   </div>
 
-  <p>Esta seção é curta de propósito, porque a condução da sessão em si é outro trabalho. O que
-  entra aqui é só o que continua sendo pré-vendas depois que a pessoa sai da sala.</p>
-
-  <h3>Se fechou</h3>
-  <p>As primeiras 48 horas decidem se a pessoa mantém a decisão ou se arrepende. Duas coisas
-  precisam acontecer nesse prazo:</p>
+  <h4>Se fechou: as primeiras 48 horas</h4>
+  <p>São elas que decidem se a pessoa mantém a decisão ou se arrepende. Duas coisas precisam
+  acontecer nesse prazo:</p>
   <ul>
-    <li><strong>Uma vitória rápida.</strong> Alguma coisa concreta na mão dela no mesmo dia:
-    o acesso, o material inicial, a data do primeiro encontro. Decisão sem entrega imediata
-    esfria.</li>
-    <li><strong>Uma frase para ela repetir.</strong> Sempre aparece alguém para questionar o
-    investimento. Entregue a resposta pronta: <em>"quando te perguntarem, a resposta mais
-    simples é que você investiu em ser percebido pelo que você sabe, porque foi exatamente
-    isso que você fez"</em>.</li>
+    <li><strong>Uma vitória rápida.</strong> Alguma coisa concreta na mão dela no mesmo dia: o
+    acesso, o material inicial, a data do primeiro encontro. Decisão sem entrega imediata esfria.</li>
+    <li><strong>Uma frase para ela repetir.</strong> Sempre aparece alguém questionando o
+    investimento. Entregue a resposta pronta: <em>"quando te perguntarem, a resposta mais simples
+    é que você investiu em ser percebido pelo que você sabe, porque foi exatamente isso que você
+    fez"</em>.</li>
   </ul>
 
-  <h3>Se não fechou</h3>
-  <p>A pessoa não pode sair da sessão com a sensação de que está tudo bem e que depois vocês
-  se falam. Ela precisa sair com a batata quente na mão, e isso se faz com as palavras dela,
-  não com pressão.</p>
+  <h4>Se não fechou</h4>
+  <p>Ela não pode sair achando que está tudo bem e que depois vocês se falam. Precisa sair com a
+  questão na mão, e isso se faz com as palavras dela, não com pressão.</p>
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">D1 · encerramento da sessão sem fechamento</span>
+    <span class="tag">Encerramento da sessão sem fechamento</span>
     <p>Você me disse hoje que isso se repete <span class="v">{tempo}</span> e que já custou
     <span class="v">{custo}</span>. Isso continua sendo verdade quando você sair daqui.</p>
-    <p>Deixa eu te fazer uma pergunta direta: o que eu ouvi de você hoje me diz que você sabe
+    <p>Deixa eu te fazer uma pergunta bem direta: o que eu ouvi de você hoje me diz que você sabe
     o que precisa ser feito. O que está te impedindo de dar esse passo agora, especificamente?</p>
   </div>
-  <div class="porque"><b>E então combine o próximo passo com data e hora.</b> Nunca "depois a
-  gente se fala". Diga: <em>"posso te ligar amanhã? Qual o melhor horário?"</em>. Ligação com
-  hora marcada, não mensagem solta. Conversa que termina no ar termina em nada.</div>
+  <div class="porque"><b>E então combine o próximo passo com dia e hora.</b> Nunca "depois a gente
+  se fala". Diga: "posso te ligar amanhã? Qual o melhor horário?". Ligação com hora marcada, não
+  mensagem solta. Conversa que termina no ar termina em nada.</div>
 
   <div class="msg">
     <button class="copy">copiar</button>
-    <span class="tag">D2 · 48 horas depois da sessão</span>
+    <span class="tag">48 horas depois da sessão</span>
     <p><span class="v">{Nome}</span>, quero ser bem direto com você.</p>
     <p>O que você me descreveu tem solução clara e eu te mostrei qual é. A minha única dúvida
     é se este é o momento certo para você. Me diz o que você está pensando, sem cerimônia.</p>
   </div>
 </section>
 
-<!-- ================= 16 ================= -->
-<section id="s16">
-  <div class="sechead">
-    <div class="sk">Seção 16</div>
-    <h2>O que medir</h2>
-    <div class="sd">Cinco números. Sem eles, ajuste vira palpite.</div>
+<!-- ---------- 18 ---------- -->
+<section id="s18">
+  <div class="sechead"><div class="sk">Seção 18</div><h3>Os 5 números</h3></div>
+  <div class="resumo">
+    <div class="rt">Em uma frase</div>
+    <p>Cinco números, olhados uma vez por semana. Sem eles, ajustar a operação vira palpite.</p>
   </div>
 
   <div class="tw"><table>
-    <tr><th style="width:30%">Número</th><th style="width:26%">Onde olhar</th><th>O que ele te diz</th></tr>
+    <tr><th style="width:26%">Número</th><th style="width:26%">Como calcular</th><th>Se estiver ruim, arrume</th></tr>
     <tr>
-      <td><b>Tempo até a primeira resposta</b></td>
-      <td>Hora do lead na planilha contra hora da sua mensagem.</td>
-      <td>É o número que mais mexe em tudo o resto. Se estiver passando de uma hora, nenhum
-      script salva.</td>
+      <td><b>Tempo até a sua resposta</b></td>
+      <td>Hora que o lead caiu contra hora da sua mensagem.</td>
+      <td>Passou de uma hora? Nenhum script salva. Ajuste as janelas da seção 4.</td>
     </tr>
     <tr>
-      <td><b>Taxa de resposta</b></td>
-      <td>Quantos responderam sobre quantos você abordou.</td>
-      <td>Se estiver baixa, o problema está na mensagem A1, não no lead.</td>
+      <td><b>Quantos respondem</b></td>
+      <td>Responderam dividido por abordados.</td>
+      <td>Baixo? O problema está na mensagem A1, seção 7.</td>
     </tr>
     <tr>
-      <td><b>Taxa de agendamento</b></td>
-      <td>Quantos marcaram sobre quantos conversaram.</td>
-      <td>Se estiver baixa com conversa boa, o problema está na ponte, seção 11.</td>
+      <td><b>Quantos marcam</b></td>
+      <td>Marcaram dividido por conversaram.</td>
+      <td>Baixo com conversa boa? O problema está no convite, seção 11.</td>
     </tr>
     <tr>
-      <td><b>Taxa de comparecimento</b></td>
-      <td>Quantos entraram na sala sobre quantos marcaram.</td>
-      <td>Abaixo de setenta por cento, revise o R0 e o R2. Quase sempre é o preparo que não
-      está sendo comunicado.</td>
+      <td><b>Quantos aparecem</b></td>
+      <td>Entraram na sala dividido por marcaram.</td>
+      <td>Abaixo de 7 em 10? Revise o R0 e o R2, seção 15.</td>
     </tr>
     <tr>
-      <td><b>No-show por origem</b></td>
+      <td><b>Quem falta</b></td>
       <td>Cruze as faltas com padrão, classificação e horário.</td>
-      <td>Revela o perfil e a faixa de horário que mais falta. É aqui que mora o ajuste fino.</td>
+      <td>Mostra qual perfil e qual faixa de horário falta mais. É o ajuste fino.</td>
     </tr>
   </table></div>
 
   <div class="box">
-    <div class="bt">Registro obrigatório</div>
-    <p>Depois de toda conversa, escreva na linha do lead: o que ela disse com as palavras dela,
-    a objeção que apareceu e o próximo passo com data. Conversa que não vira registro morre na
-    memória, e a sua memória já está ocupada com estúdio, palco e mentoria em andamento.</p>
+    <div class="bt">O registro obrigatório</div>
+    <p>Depois de toda conversa, escreva na linha do lead três coisas: <strong>o que ela disse com
+    as palavras dela, a objeção que apareceu e o próximo passo com data.</strong> Conversa que
+    não vira registro morre na memória, e a sua já está ocupada com estúdio, palco e mentoria.</p>
   </div>
 
   <div class="box dark">
-    <div class="bt">Uma pergunta por semana</div>
-    <p>Toda sexta, olhe as objeções que apareceram e pergunte: <strong>qual delas apareceu mais
-    de duas vezes, e o que eu preciso dizer antes para ela não aparecer mais?</strong> Objeção
-    repetida não se trata na hora em que ela surge, se trata antes, no anúncio, no quiz, no
-    diagnóstico ou na abordagem. É assim que a operação melhora sozinha.</p>
+    <div class="bt">Uma pergunta toda sexta</div>
+    <p><strong>Qual objeção apareceu mais de duas vezes esta semana, e o que eu preciso dizer
+    antes para ela não aparecer mais?</strong></p>
+    <p>Objeção repetida não se trata na hora em que ela surge, se trata antes: no anúncio, no
+    quiz, no diagnóstico ou na primeira mensagem. É assim que a operação melhora sozinha, e é a
+    única tarefa de análise que você precisa fazer.</p>
   </div>
 </section>
 
-<!-- ================= 17 ================= -->
-<section id="s17">
-  <div class="sechead">
-    <div class="sk">Seção 17</div>
-    <h2>Os dez nãos</h2>
-    <div class="sd">Se tiver que imprimir uma página só deste documento, imprima esta.</div>
+<!-- ---------- 19 ---------- -->
+<section id="s19">
+  <div class="sechead"><div class="sk">Seção 19</div><h3>Os dez nãos</h3></div>
+  <div class="resumo">
+    <div class="rt">Em uma frase</div>
+    <p>Se você imprimir uma página só deste manual além do cartão de bolso, imprima esta.</p>
   </div>
 
-  <div class="nao"><span>01</span><p><strong>Não comece com "oi, tudo bem, vi que você se
+  <div class="nao10"><span>01</span><p><strong>Não comece com "oi, tudo bem, vi que você se
   interessou".</strong> Essa frase joga fora tudo que o quiz construiu. Comece pelo que ela
   respondeu.</p></div>
-
-  <div class="nao"><span>02</span><p><strong>Não explique o método por mensagem.</strong> Você
+  <div class="nao10"><span>02</span><p><strong>Não explique o método por mensagem.</strong> Você
   resolve de graça, ela agradece e vai tentar sozinha de novo.</p></div>
-
-  <div class="nao"><span>03</span><p><strong>Não fale preço antes da sessão.</strong> Preço sem
+  <div class="nao10"><span>03</span><p><strong>Não fale preço antes da sessão.</strong> Preço sem
   diagnóstico é chute, e chute leva a pessoa a decidir errado contra você.</p></div>
-
-  <div class="nao"><span>04</span><p><strong>Não mande três mensagens seguidas sem resposta.</strong>
-  Uma mensagem, uma pergunta, e espere. Silêncio faz parte da condução.</p></div>
-
-  <div class="nao"><span>05</span><p><strong>Não invente escassez.</strong> A sua agenda já é
-  verdadeiramente apertada. Use o motivo real e ele é mais forte que qualquer contagem regressiva.</p></div>
-
-  <div class="nao"><span>06</span><p><strong>Não chame de timidez</strong> quem é empresário,
+  <div class="nao10"><span>04</span><p><strong>Não mande três mensagens seguidas sem
+  resposta.</strong> Uma mensagem, uma pergunta, e espere.</p></div>
+  <div class="nao10"><span>05</span><p><strong>Não invente escassez.</strong> A sua agenda já é
+  apertada de verdade, e o motivo real é mais forte que qualquer contagem regressiva.</p></div>
+  <div class="nao10"><span>06</span><p><strong>Não chame de timidez</strong> quem é empresário,
   executivo ou profissional liberal. Descreva a cena, não a personalidade.</p></div>
-
-  <div class="nao"><span>07</span><p><strong>Não deixe conversa terminar no ar.</strong> Toda
-  conversa termina com um próximo passo que tem data e hora.</p></div>
-
-  <div class="nao"><span>08</span><p><strong>Não pergunte "conseguiu pensar?".</strong> Essa
-  pergunta te coloca esperando a aprovação dela. Traga sempre informação nova.</p></div>
-
-  <div class="nao"><span>09</span><p><strong>Não remarque mais de duas vezes.</strong> A terceira
-  falta é uma resposta, e insistir depois dela desvaloriza a sua agenda.</p></div>
-
-  <div class="nao"><span>10</span><p><strong>Não trate mal quem não é o perfil.</strong> Essa
+  <div class="nao10"><span>07</span><p><strong>Não deixe conversa terminar no ar.</strong> Toda
+  conversa termina com um próximo passo que tem dia e hora.</p></div>
+  <div class="nao10"><span>08</span><p><strong>Não pergunte "conseguiu pensar?".</strong> Isso te
+  coloca esperando a aprovação dela. Traga sempre informação nova.</p></div>
+  <div class="nao10"><span>09</span><p><strong>Não remarque mais de duas vezes.</strong> A
+  terceira falta é uma resposta.</p></div>
+  <div class="nao10"><span>10</span><p><strong>Não trate mal quem não é o perfil.</strong> Essa
   pessoa indica, volta e fala de você. Ofereça o primeiro degrau e encerre com carinho.</p></div>
+</section>
 
-  <hr>
+<!-- ---------- 20 ---------- -->
+<section id="s20">
+  <div class="sechead"><div class="sk">Seção 20</div><h3>Cartão de bolso</h3></div>
+  <div class="resumo">
+    <div class="rt">Em uma frase</div>
+    <p>O manual inteiro em uma página. Imprima esta e deixe do lado do computador.</p>
+  </div>
 
-  <div class="box dark">
-    <div class="bt">A régua para lembrar de tudo</div>
-    <p>Leia a resposta dela. Devolva o que ela disse com precisão. Pergunte, e espere.
-    Não resolva de graça. Venda a conversa, não o produto. Encareça o horário antes de precisar
-    defendê-lo. E toda vez que for cobrar alguma coisa, dê uma saída digna na mesma mensagem.</p>
+  <div class="box" style="background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);padding:24px 26px">
+    <div class="bt" style="font-size:12.5px;margin-bottom:14px">A sequência, do começo ao fim</div>
+
+    <p><strong>1. Leia a linha na planilha.</strong> Nome, Classificação, Padrão, Tempo, Custo.
+    Trinta segundos.</p>
+
+    <p><strong>2. Primeira mensagem.</strong> Cite duas respostas dela e termine com uma pergunta.
+    Nunca "oi, tudo bem".</p>
+
+    <p><strong>3. Confirme o que ela vive.</strong> Devolva o padrão dela com precisão e espere o
+    "é exatamente isso". Sem isso, não avance.</p>
+
+    <p><strong>4. Duas perguntas.</strong> Uma de cada vez. A mais importante: "você tem alguma
+    reunião ou apresentação importante marcada para os próximos dias?"</p>
+
+    <p><strong>5. Convide com dois horários.</strong> 45 minutos, ao vivo, com preparo. Diga o que
+    é e o que não é. Nunca abra a agenda inteira.</p>
+
+    <p><strong>6. R0 na hora.</strong> "Está na minha agenda com o seu nome", peça uma frase de
+    volta, e avise que o horário vai para outra pessoa se ela não puder.</p>
+
+    <p><strong>7. Véspera, uma hora antes, dez minutos antes.</strong> Confirmação com preparo,
+    aviso com a situação dela anotada, e o link.</p>
+
+    <p><strong>8. Faltou?</strong> Minuto 4 "estou na sala", minuto 12 "fico mais cinco", e no
+    mesmo dia a mensagem de recuperação. Essa é a que traz a pessoa de volta.</p>
+
+    <p><strong>9. Sumiu?</strong> Trilha A, B ou C. No máximo três mensagens, sempre com saída
+    digna.</p>
+
+    <p><strong>10. Anote.</strong> O que ela disse, a objeção e o próximo passo com data.</p>
+
+    <hr style="margin:20px 0">
+
+    <div class="bt" style="font-size:12.5px;margin-bottom:10px">As três regras</div>
+    <p style="margin-bottom:6px">Quem pergunta conduz. Não resolva nada por mensagem. A urgência é
+    dela, não sua.</p>
+
+    <div class="bt" style="font-size:12.5px;margin:18px 0 10px">Se só der para lembrar de uma coisa</div>
+    <p style="margin-bottom:0">A pessoa falta porque o horário estava barato. Encareça ele antes
+    de precisar defendê-lo.</p>
   </div>
 </section>
 
-<footer style="border-top:1px solid var(--line);padding-top:22px;margin-top:20px;
+<footer style="border-top:1px solid var(--line);padding-top:20px;margin-top:24px;
   font-family:system-ui,Arial,sans-serif;font-size:13px;color:var(--muted);max-width:80ch">
-  <p style="margin-bottom:6px"><b style="color:var(--navy)">Script de Pré-Vendas · Método AUTOFOCO</b></p>
-  <p style="margin-bottom:6px">Documento de trabalho. Ele melhora com o uso: toda objeção nova
-  que aparecer, toda frase que funcionar melhor que a daqui, volte e atualize. A versão que vale
-  é sempre a última.</p>
-  <p>Preparado pela SimpleAcc para Delphis Fonseca · versão 1.0 · 14 de setembro de 2026</p>
+  <p style="margin-bottom:6px"><b style="color:var(--navy)">Manual de Pré-Vendas · Método AUTOFOCO</b></p>
+  <p style="margin-bottom:6px">Documento de trabalho. Ele melhora com o uso: toda objeção nova que
+  aparecer, toda frase que funcionar melhor que a daqui, volte e atualize. A versão que vale é
+  sempre a última.</p>
+  <p>Preparado pela SimpleAcc para Delphis Fonseca · versão 2.0 · 14 de setembro de 2026</p>
 </footer>
 
 </main>
@@ -1585,13 +1612,14 @@ document.addEventListener("click", function (e) {
   var clone = msg.cloneNode(true);
   var lixo = clone.querySelectorAll(".copy, .tag");
   for (var i = 0; i < lixo.length; i++) lixo[i].remove();
+  var MARCA = "@@QUEBRA@@";
   var texto = [];
   var ps = clone.querySelectorAll("p");
   for (var j = 0; j < ps.length; j++) {
-    var bruto = ps[j].innerHTML.replace(/<br\s*\/?>/gi, "\u0001");
+    var bruto = ps[j].innerHTML.replace(/<br\s*\/?>/gi, MARCA);
     var tmp = document.createElement("div");
     tmp.innerHTML = bruto;
-    var linhas = (tmp.textContent || "").split("\u0001");
+    var linhas = (tmp.textContent || "").split(MARCA);
     for (var k = 0; k < linhas.length; k++) {
       linhas[k] = linhas[k].replace(/\s+/g, " ").trim();
     }
@@ -1599,10 +1627,9 @@ document.addEventListener("click", function (e) {
   }
   var saida = texto.join("\n\n");
   var feito = function () {
-    var antes = btn.textContent;
     btn.textContent = "copiado";
     btn.classList.add("ok");
-    setTimeout(function () { btn.textContent = antes; btn.classList.remove("ok"); }, 1600);
+    setTimeout(function () { btn.textContent = "copiar"; btn.classList.remove("ok"); }, 1600);
   };
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(saida).then(feito, function () { fallback(saida, feito); });
