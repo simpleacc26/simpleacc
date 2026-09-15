@@ -19,14 +19,14 @@ Briefing e estratégia já foram feitos pelo Daniel.
 
 - Pasta no Drive: "Simple <> Fabrício" → `1. Documentos`
 - Instagram: `@dralailla.hodie` _(confirmar com o cliente)_
-- Funil no ar: _(a preencher após o deploy)_
-- Planilha de leads: _(a preencher)_
+- Funil no ar: https://quiz-hodie-simpleacc.vercel.app
+- Planilha de leads: https://docs.google.com/spreadsheets/d/1S8c-A31ackttwLUqr2ciij6Ao4e3ZvQCXuFsbXc1hfY/edit
 
 ## Projetos
 
 | Projeto | Pasta | Status | Deploy |
 | ------- | ----- | ------ | ------ |
-| Quiz IMF (funil de quiz) | `funis/quiz-hodie/` | construído, aguardando WhatsApp e aprovação | _(a preencher)_ |
+| Quiz IMF (funil de quiz) | `funis/quiz-hodie/` | no ar, aguardando WhatsApp, integração de leads e aprovação | [quiz-hodie-simpleacc.vercel.app](https://quiz-hodie-simpleacc.vercel.app) |
 
 ## Observações
 
