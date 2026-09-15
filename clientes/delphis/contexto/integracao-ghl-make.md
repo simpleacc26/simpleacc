@@ -112,3 +112,23 @@ do estágio e dos campos.
 
 Templates de mensagem no GHL e disparo automático da primeira mensagem e do follow-up,
 usando as mensagens do manual de pré-vendas e as tags de classificação como gatilho.
+
+## WhatsApp no GHL · decisão pendente
+
+A fase 2 depende de conectar o WhatsApp à conta. O bloqueio não é técnico, é qual número
+usar, e a escolha não tem volta fácil.
+
+**Quando um número entra na API oficial do WhatsApp, ele sai do aplicativo.** Deixa de
+funcionar no celular e passa a existir só dentro do GHL. Não dá para usar os dois ao mesmo
+tempo.
+
+O número que está no funil hoje é `5511944659466`, o mesmo que o Delphis usa. Então:
+
+- **Número novo, dedicado:** ele mantém o WhatsApp pessoal como está e a automação roda
+  num número separado. Exige trocar o número nos botões do funil (`flow.js`, campo
+  `whatsapp`) e republicar. É o caminho recomendado.
+- **Migrar o número atual:** o histórico de conversa dele não vem junto e ele passa a
+  atender tudo pelo GHL, no navegador ou no aplicativo do GHL. Só faz sentido se ele
+  aceitar mudar a rotina de atendimento.
+
+Templates prontos para submissão em `copy/2026-09-15-templates-whatsapp-ghl.md`.
