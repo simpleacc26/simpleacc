@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>A sua leitura · HODIE</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <style>
+    :root{--bg:#F5EFE8;--text:#2C2C2C}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* --- específico do relatório --- */
+    .report-head { text-align: center; padding: 16px 0 10px; }
+    .report-head h1 { font-size: 27px; margin-bottom: 18px; }
+
+    /* selo do índice (IMF), colorido por faixa */
+    .imf { display: inline-flex; flex-direction: column; align-items: center; gap: 4px;
+      border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 34px;
+      background: var(--accent-soft); }
+    .imf-num { font-family: var(--font-serif); font-size: 42px; line-height: 1; color: var(--primary-700); }
+    .imf-faixa { font-size: 11px; text-transform: uppercase; letter-spacing: .17em; color: var(--muted); }
+    .imf-alto { border-color: var(--terracota); background: rgba(183,110,121,.09); }
+    .imf-alto .imf-num { color: #97505B; }
+    .imf-medio { border-color: var(--primary); }
+    .imf-baixo { background: var(--surface); }
+
+    .etapa { margin: 0 0 26px; }
+    .etapa h3 { font-family: var(--font-serif); font-size: 13px; text-transform: uppercase; letter-spacing: .15em; color: var(--primary-700); font-weight: 400; margin: 0 0 10px; }
+    .etapa p { margin: 0 0 12px; }
+
+    .metodo { margin: 0; padding-left: 20px; }
+    .metodo li { margin: 0 0 12px; }
+    .metodo strong { color: var(--primary-700); }
+
+    .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 10px 0; }
+    .compare .col { border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 16px; background: var(--surface); }
+    .compare .col h4 { margin: 0 0 10px; font-size: 14px; font-weight: 600; }
+    .compare .col.bad h4 { color: var(--muted); }
+    .compare .col.good { background: var(--accent-soft); border-color: var(--primary); }
+    .compare ul { margin: 0; padding-left: 17px; font-size: 14.5px; color: var(--muted); }
+    .compare .good ul { color: var(--text); }
+
+    /* relato clínico anonimizado (o nicho médico não permite depoimento de paciente) */
+    .caso { border-left: 2px solid var(--primary); background: var(--accent-soft);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0; padding: 15px 17px; margin: 12px 0; }
+    .caso p { margin: 0; font-size: 15.5px; }
+
+    .cta-inline { text-align: center; margin: 26px 0; }
+    .cta-inline .btn { width: 100%; max-width: 430px; }
+
+    /* --- bloco de autoridade (obrigatório) --- */
+    .autor { display: flex; align-items: center; gap: 16px; margin: 2px 0 16px; }
+    .autor-marca { width: 82px; height: 82px; flex: 0 0 82px; border-radius: 50%;
+      display: grid; place-items: center; background: #2C2C2C; color: var(--primary);
+      font-family: var(--font-serif); font-size: 32px; letter-spacing: .1em; }
+    .autor-nome { display: block; font-family: var(--font-serif); font-size: 20px; color: var(--primary-700); line-height: 1.15; }
+    .autor-cargo { display: block; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
+    .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0 6px; }
+    .cred { border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--accent-soft); padding: 14px; }
+    .cred .n { font-family: var(--font-serif); font-size: 18px; color: var(--primary-700); line-height: 1.1; }
+    .cred .d { font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+    .eco { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .eco-chip { border: 1px solid var(--border); border-radius: 999px; padding: 7px 13px; font-size: 12.5px; color: var(--muted); background: var(--surface); }
+    .eco-chip b { color: var(--primary-700); font-weight: 600; }
+
+    .cta-box { background: var(--accent-soft); border: 1px solid var(--primary); border-radius: var(--radius); padding: 26px 22px; text-align: center; margin-top: 10px; }
+    .clube { font-size: 15px; color: var(--muted); margin-top: 16px; }
+
+    .wpp-pendente { margin-top: 18px; padding: 13px 15px; border-radius: var(--radius-sm);
+      background: #F7E9E4; border: 1px solid #E3C3B8; color: var(--err); font-size: 14.5px; text-align: center; }
+
+    @media (max-width: 520px) {
+      .compare { grid-template-columns: 1fr; }
+      .cred-grid { grid-template-columns: 1fr; }
+      .autor-marca { width: 66px; height: 66px; flex-basis: 66px; font-size: 26px; }
+    }
+    @media print {
+      body { background: #fff; }
+      .card { box-shadow: none; border-color: #ddd; margin: 0; }
+      .etapa, .compare .col, .cta-box, .caso { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <div class="brand-accent" aria-hidden="true">
+          <span class="line"></span><span class="dot"></span><span class="line"></span>
+        </div>
+        <span class="brand-name">Hodie</span>
+        <span class="brand-tag">Dra. Lailla de Oliveira</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card screen" id="report"><!-- preenchido por diagnostico.js --></div>
+  </main>
+
+  <p class="foot">HODIE · Dra. Lailla de Oliveira · CRM-SP 239430 · Jundiaí-SP e atendimento on-line. Esta leitura é educativa, baseada apenas nas suas respostas, e não substitui consulta, diagnóstico ou prescrição médica. Resultados de tratamento são individuais.</p>
+
+  <script src="flow.js" defer></script>
+  <script src="indice.js" defer></script>
+  <script src="diagnostico.js" defer></script>
+</body>
+</html>
