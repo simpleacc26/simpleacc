@@ -157,3 +157,80 @@ o algoritmo por falta de sinal e encarece o lead.
 O certo nesse orçamento: **otimizar por `Lead`** e usar as conversões
 personalizadas **para medir**, decidindo na mão onde pôr dinheiro. Trocar o
 evento de otimização só quando o volume justificar.
+
+## 14/09/2026 · O quiz foi construído pulando a etapa 1 do ASK
+
+Lendo o `metodo ask.pdf` para montar o funil novo, apareceu uma constatação sobre
+o funil antigo: **os quatro baldes dele saíram dos pilares do MMPV, não de
+pesquisa com o mercado.** Vieram da estrutura do produto, de dentro para fora.
+
+O ASK é explícito que esse é o maior erro do método: pular o **Deep Dive** e ir
+direto para a pesquisa de balde, porque quem está mergulhado no próprio mercado
+acredita que já sabe quais são os baldes e normalmente não sabe.
+
+Bate com o que a própria cliente disse ao pausar a campanha em 11/09: *"a minha
+oferta tá o mecanismo e não uma oferta realmente irresistível"*. **Mecanismo no
+lugar de oferta é o sintoma de funil desenhado de dentro para fora.**
+
+**Regra para os próximos funis de quiz:** os baldes saem de Deep Dive com a base
+do cliente, nunca dos pilares do método dele. Se não houver base para pesquisar,
+isso vira pendência declarada, não suposição silenciosa.
+
+Duas coisas que o ASK reforça e que já valem como padrão da casa:
+
+- **A pergunta imediatamente antes da captura é a pergunta de segmentação.** É
+  ela que define o balde, e por isso não pode ser uma pergunta qualquer.
+- **A análise do Deep Dive é feita por pessoa lendo, não por máquina.** O sinal
+  de quem vira cliente é o **tamanho e a emoção da resposta aberta**, não só o
+  conteúdo. Ordenar pelas mais longas e ler os 20% do topo.
+
+## 15/09/2026 · Checagem de sintaxe não substitui abrir a página
+
+Aconteceu três vezes na mesma sessão, com a mesma assinatura: `node --check`
+passando e a página quebrando em `ReferenceError` na primeira interação.
+
+**`node --check` valida sintaxe. Não valida referência indefinida.** Quando se
+reescreve um arquivo preservando blocos do anterior (o handler de WhatsApp, o
+bloco do Pixel, a prova social), os blocos preservados continuam chamando as
+funções antigas, que não existem mais. A sintaxe está perfeita: é uma chamada a
+uma função que simplesmente não está lá.
+
+Aqui foram `calcularIRV()` e `pilarDominante()`, sobreviventes da versão com
+índice, dentro do `abrirWhatsApp()` e do `paramsQualificacao()` que eu tinha
+copiado inteiros.
+
+**Regra:** depois de reescrever qualquer arquivo do funil, **renderizar as duas
+páginas de verdade**, em 430px e 900px, com `pageerror` e `console.error`
+capturados. Leva dois minutos e é a única coisa que pega esta classe de bug.
+Depois de colar um bloco preservado, `grep` das funções que ele chama contra as
+que ainda existem.
+
+## 15/09/2026 · Payload novo exige remapear o Make E trocar o cabeçalho
+
+O quiz do Gatilho Único mudou o payload de 26 para 22 campos. Duas coisas
+precisam andar juntas, e esquecer qualquer uma corrompe a planilha em silêncio:
+
+1. **O mapeamento do Make é por posição** (`useColumnHeaders: false`). Remapear
+   o `addRow` é obrigatório, senão cada resposta cai na coluna errada.
+2. **O cabeçalho da planilha não se atualiza sozinho.** O Make grava valores,
+   não nomes de coluna. Com o cenário certo e o cabeçalho velho, os dados entram
+   corretos e rotulados errados, o que é pior do que quebrar.
+
+E há um terceiro detalhe: **os leads antigos ficam ilegíveis sob o cabeçalho
+novo.** Antes de trocar, duplicar a aba como arquivo histórico. Não renomear a
+aba `Untitled`, que o `addRow` referencia pelo nome.
+
+## 15/09/2026 · Coerência de resposta também é porteira
+
+A porteira de faturamento sozinha não segura quem responde de forma
+contraditória. Testando o funil de ponta a ponta apareceu a combinação "ainda
+estou estruturando o que vendo" + "não vendo com constância" + "faturo acima de
+R$ 30 mil", que passava como lead qualificado.
+
+Lead mente sobre faturamento, e a própria Luana já tinha dito isso. **Quando
+duas respostas anteriores contradizem a porteira, elas valem mais do que a
+porteira**, porque ninguém mente sobre o que vende, só sobre quanto ganha.
+
+Está no código, em `classificarLead()`: os dois sinais **juntos** mandam para
+`fora`. Um sozinho não, porque dá para estar reestruturando a oferta e vendendo
+normalmente.

@@ -5,8 +5,8 @@
    Pontos que fogem da base da skill, todos intencionais:
    1. A barra de progresso não mostra número nenhum: nem "Pergunta X de N",
       nem porcentagem (pedido do cliente, confirmado no Thaina/Thiago).
-   2. Cálculo do IRV (Índice de Ruptura de Valor) a partir dos pesos, com os
-      pesos calibrados sobre as 1024 combinações (ver nota no flow.js).
+   2. SEM índice numérico. É um quiz Killer: o resultado nomeia um erro, não
+      mede uma nota. O IRV foi removido em 14/09 (ver nota no flow.js).
    3. Classificação em 4 faixas, não 3: fila-quente, qualificado, nutrir e
       fora. A página mostra 3 CTAs (fila-quente e qualificado compartilham),
       mas a planilha recebe as 4, para priorizar a fila do atendimento.
@@ -27,7 +27,7 @@ function metaPadrao(evento, params) {
 }
 
 /* Webhook do Make que grava o lead na planilha. Vazio = não envia.
-   Cenário: "[Luana Isse] Diagnóstico de Autoridade → Sheets" (instantâneo,
+   Cenário: "[Luana Isse] Diagnóstico Gatilho Único → Sheets" (instantâneo,
    só roda quando chega lead: 2 operações por lead, sem varredura). */
 const LEADS_ENDPOINT = "https://hook.us2.make.com/1rm87vnhc54p2qp9afdxc9jvczh341t5";
 
@@ -69,29 +69,20 @@ let state = { view: 0, answers: {}, started: false };
 let stepEnterTime = 0;
 
 /* ============================================================
-   IRV: Índice de Ruptura de Valor
-   Só as perguntas de diagnóstico pontuam (as que têm peso nas opções).
-   Tempo, objetivo e as duas porteiras ficam de fora.
-   ============================================================ */
-function calcularIRV(answers) {
-  let soma = 0, max = 0;
-  F.steps.forEach((s) => {
-    const pontua = s.options.some((o) => typeof o.peso === "number");
-    if (!pontua) return;
-    max += Math.max(...s.options.map((o) => o.peso || 0));
-    const escolhida = s.options.find((o) => o.value === answers[s.id]);
-    if (escolhida && typeof escolhida.peso === "number") soma += escolhida.peso;
-  });
-  const pct = max ? Math.round((soma / max) * 100) : 0;
-  const faixa = pct >= 66 ? "Alta" : (pct >= 33 ? "Média" : "Baixa");
-  return { pct, faixa };
-}
+   O DIAGNÓSTICO
+   Quiz do tipo Killer: o resultado é um erro nomeado, NÃO uma nota.
+   NÃO EXISTE ÍNDICE AQUI, e isso é decisão, não esquecimento. O funil
+   anterior tinha um, e 89% das combinações caíam na mesma faixa: era
+   decoração. Se alguém pedir "um número para priorizar", o número sai das
+   porteiras (faturamento e prontidão), não de um índice inventado.
 
-/* Pilar do MMPV onde a ruptura está concentrada (vem da pergunta de problema) */
-function pilarDominante(answers) {
-  const s = F.steps.find((x) => x.id === "problema");
-  const o = s && s.options.find((op) => op.value === answers.problema);
-  return (o && o.pilar) || "Posicionamento";
+   O diagnóstico vem de UMA pergunta só, a de segmentação (`cena`), que é a
+   última antes da captura. Cada alternativa carrega um `diag` no flow.js.
+   ============================================================ */
+function diagnosticoDe(answers) {
+  const s = F.steps.find((x) => x.id === "cena");
+  const o = s && s.options.find((op) => op.value === answers.cena);
+  return (o && o.diag) || "pitch";
 }
 
 /* ============================================================
@@ -122,22 +113,33 @@ function celularValido(v) {
 /* Resultado nomeado: o que vai no WhatsApp, na planilha e no topo do relatório. */
 function resultadoNomeado(answers) {
   const R = F.resultados || {};
-  return R[pilarDominante(answers)] || "Excelente e invisível";
+  return R[diagnosticoDe(answers)] || "Pitch que mora na sua cabeça";
 }
 
-/* Quatro faixas na planilha, três CTAs na página. A regra de corte cruzada
-   mora aqui, no código, e não só no documento de estratégia.
-   fila-quente  pronta agora, dentro do ICP de caixa e com ruptura alta
-   qualificado  entra na sessão do mesmo jeito, só não fura fila
-   nutrir       é momento, não é "algo mais barato"
-   fora         ainda não fatura de forma constante ou está abaixo do corte */
+/* Quatro faixas na planilha. A regra de corte cruzada mora aqui, no código, e
+   não só no documento de estratégia, porque documento não roda.
+   fila-quente  já vende dentro do ICP e quer começar agora
+   qualificado  já vende, mas fatura pouco ou quer entender melhor antes
+   nutrir       é momento, não é "algo mais barato". Volta depois
+   fora         ainda não fatura de forma constante. Recebe o diagnóstico e sai da fila
+
+   NINGUÉM É BARRADO NA TELA: todo mundo recebe o diagnóstico, inclusive quem
+   cai em "fora". Quem não compra hoje pode comprar em seis meses, e a
+   experiência ruim fecha essa porta. A faixa serve para ordenar a fila do
+   atendimento e para medir QUALIDADE de criativo, não só volume. */
 function classificarLead(a) {
   const stepFat = F.steps.find((s) => s.id === "faturamento");
   const optFat = stepFat && stepFat.options.find((o) => o.value === a.faturamento);
   if (optFat && optFat.fora) return "fora";
-  if (a.prontidao === "depois" || a.prontidao === "pesquisando") return "nutrir";
-  const caixaBom = ["10a25", "25a50", "acima50"].indexOf(a.faturamento) > -1;
-  if (a.prontidao === "sim" && caixaBom && calcularIRV(a).pct >= 66) return "fila-quente";
+  /* Coerência das respostas. Quem diz que ainda está estruturando o que vende E
+     que não vende com constância não está no recorte, mesmo que marque uma
+     faixa alta de faturamento depois. Os dois sinais juntos são inequívocos;
+     um sozinho não é (dá para estar reestruturando a oferta e vendendo). */
+  if (a.vende === "estruturando" && a.como === "sem_constancia") return "fora";
+  if (a.prontidao === "entender" || a.prontidao === "pesquisando") return "nutrir";
+  const caixaBom = ["5a15", "15a30", "acima30"].indexOf(a.faturamento) > -1;
+  const agora = a.prontidao === "semana" || a.prontidao === "mes";
+  if (agora && caixaBom) return "fila-quente";
   return "qualificado";
 }
 
@@ -150,26 +152,24 @@ function enviarLead() {
     const o = s && s.options.find((op) => op.value === a[stepId]);
     return o ? o.label : "";
   };
-  const irv = calcularIRV(a);
+  /* ATENÇÃO AO MEXER AQUI: o mapeamento do Make é POR POSIÇÃO, não por nome.
+     Mudar a ordem destes campos, ou inserir um no meio, desalinha a planilha
+     inteira em silêncio. Campo novo entra NO FIM, antes das UTMs. */
   const lead = {
     timestamp: dataHoraBR(),
     nome: a.nomeResp || "",
     whatsapp: fmtTel(a.whatsapp || ""),
     email: a.email || "",
-    irv: irv.pct + "%",
-    irv_faixa: irv.faixa,
-    pilar: pilarDominante(a),
     resultado: resultadoNomeado(a),
     qualificacao: classificarLead(a),
-    situacao: label("situacao"),
-    problema: label("problema"),
-    tempo: label("tempo"),
-    impacto: label("impacto"),
-    necessidade: label("necessidade"),
-    objetivo: label("objetivo"),
-    perfil: label("perfil"),
+    vende: label("vende"),
+    como_vende: label("como"),
+    volume_calls: label("volume"),
+    o_que_pesa: label("peso"),
+    ja_tentou: label("tentou"),
     faturamento: label("faturamento"),
     prontidao: label("prontidao"),
+    cena: label("cena"),
     frente: (F.config && F.config.frente) || "Funil",
     origem: document.referrer || "",
     page_url: location.href,
@@ -365,15 +365,13 @@ function renderCaptura() {
     submitBtn.innerHTML = '<span class="spinner"></span>Enviando...';
     state.answers._completedAt = new Date().toISOString();
     save();
-    const irvFim = calcularIRV(state.answers);
+    const diagFim = diagnosticoDe(state.answers);
     const qualifFim = classificarLead(state.answers);
-    trackEvent("funnel_complete", { irv: irvFim.pct, faixa: irvFim.faixa, qualificacao: qualifFim });
+    trackEvent("funnel_complete", { diagnostico: diagFim, qualificacao: qualifFim });
     /* CONVERSÃO. É este o evento que a campanha otimiza. */
     metaPadrao("Lead", {
       content_name: (F.config && F.config.frente) || "Funil",
-      content_category: pilarDominante(state.answers),
-      irv: irvFim.pct,
-      faixa: irvFim.faixa,
+      content_category: diagFim,
       qualificacao: qualifFim,
       resultado: resultadoNomeado(state.answers),
     });
@@ -395,9 +393,7 @@ function renderCaptura() {
     if (EVENTO_FAIXA[qualifFim] && TRACKING_CONFIG.meta_pixel_id && typeof fbq === "function") {
       try {
         fbq("trackCustom", EVENTO_FAIXA[qualifFim], {
-          irv: irvFim.pct,
-          faixa: irvFim.faixa,
-          pilar: pilarDominante(state.answers),
+          diagnostico: diagFim,
         });
       } catch (e) { /* tracking nunca quebra o funil */ }
     }
@@ -411,12 +407,24 @@ function renderCaptura() {
 function renderLoading() {
   progressEl.hidden = true;
   trackEvent("step_view", { step_id: "loading" });
+  /* 5 segundos cravados até 100%, pedido do cliente em 15/09. Quem pediu para
+     reduzir movimento recebe 800ms: a tela existe para dar sensação de
+     personalização, não para prender ninguém que não consegue vê-la animar. */
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const dur = reduce ? 800 : 4700;
+  const dur = reduce ? 800 : 5000;
+  /* As frases citam o que a PESSOA respondeu, não o funil. É isso que faz a
+     espera parecer processamento e não enrolação. Uma a cada dur/msgs.length. */
+  const nome = String(state.answers.nomeResp || "").trim().split(" ")[0];
+  const oi = nome ? nome + ", " : "";
+  const stepCena = F.steps.find((x) => x.id === "cena");
+  const optCena = stepCena && stepCena.options.find((o) => o.value === state.answers.cena);
   const msgs = [
-    "Analisando as suas respostas...",
-    "Calculando o seu Índice de Ruptura de Valor...",
-    "Montando o seu diagnóstico personalizado...",
+    oi ? oi + "estamos lendo as suas respostas..." : "Lendo as suas respostas...",
+    optCena
+      ? "Cruzando a cena que você escolheu com as quatro partes da venda..."
+      : "Cruzando as suas respostas com as quatro partes da venda...",
+    "Identificando qual delas só existe quando você está ao vivo...",
+    oi ? "Montando o diagnóstico de " + nome + "..." : "Montando o seu diagnóstico...",
   ];
   const screen = el(`
     <section class="card screen loading-card">

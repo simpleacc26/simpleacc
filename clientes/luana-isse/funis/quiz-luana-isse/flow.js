@@ -1,187 +1,178 @@
 /* ============================================================
    FLOW. Toda a copy do quiz vive aqui.
-   Cliente: Luana Isse · Método MMPV (Multiplicação do Valor Percebido)
-   Índice: IRV, Índice de Ruptura de Valor.
-   Estrutura: blueprint "estrutura invisível" da Simple (9 passos SPIN,
-   as 2 porteiras no fim, índice só nas perguntas de diagnóstico).
+   Cliente: Luana Isse · Método Gatilho Único (R$ 1.997, vendido por VSL)
+
+   ESTE FUNIL SUBSTITUI O ANTERIOR, ELE NÃO É UMA EVOLUÇÃO DELE.
+   O anterior falava com o especialista que o mercado não enxerga e vendia a
+   mentoria MMPV de R$ 7 mil. Este fala com quem JÁ VENDE e cansou de depender
+   de call. Outro público, outro problema, outro preço.
+
+   TIPO DE QUIZ: Killer. O resultado é um erro nomeado, não uma nota.
+   NÃO EXISTE ÍNDICE DE 0 A 100 AQUI, e isso é decisão: no funil anterior o
+   índice existia e 89% das combinações caíam na mesma faixa. Era decoração.
+
+   A PERGUNTA 8 É A DE SEGMENTAÇÃO. É ela, e só ela, que define o diagnóstico.
+   Ela vem imediatamente antes da captura de propósito (método ASK).
+
+   RECORTE: o funil fala com QUEM JÁ VENDE. Decisão de 14/09, para priorizar
+   qualificação. Quem ainda não vende não tem call que funcione para extrair,
+   que é a matéria-prima do método.
+
    Padrão de escrita: nunca usar travessões. Sem emoji.
-   LINGUAGEM NEUTRA EM GÊNERO: o ICP dela tem homens e mulheres (psicólogos,
-   advogados, médicos, nutricionistas, coaches). Nenhum adjetivo pode concordar
-   com o leitor. Ao escrever opção nova, leia em voz alta como homem e como
-   mulher: se soar errado numa das duas, reescreva.
+   LINGUAGEM NEUTRA EM GÊNERO: o público tem homens e mulheres. Nenhum adjetivo
+   pode concordar com quem lê. Ao escrever opção nova, leia em voz alta como
+   homem e como mulher: se soar errado numa das duas, reescreva.
    ============================================================ */
 window.FLOW = {
   config: {
-    storeKey: "luana_isse_quiz",
-    frente: "Diagnóstico de Autoridade",
+    storeKey: "luana_gatilho_unico",
+    frente: "Diagnóstico Gatilho Único",
     diagnosticoUrl: "diagnostico.html",
-    indice: { sigla: "IRV", nome: "Índice de Ruptura de Valor" },
   },
 
   marca: {
     nome: "Luana Isse",
     expert: "Luana Isse",
-    tagline: "Método MMPV",
+    tagline: "Método Gatilho Único",
     instagram: "@luana.isse",
-    // WhatsApp comercial, só dígitos, formato internacional.
     whatsapp: "5547992730303",
-    /* A mensagem leva o RESULTADO NOMEADO, não só o nome: quem atende abre a
-       conversa já sabendo o diagnóstico. Placeholders: {nome} {resultado}
-       {irv} {faixa} {pilar}. */
-    whatsappMsg: "Oi, Luana! Sou {nome}. Fiz o Diagnóstico de Autoridade e o meu resultado foi {resultado}, com IRV de {irv} (ruptura {faixa}) concentrada em {pilar}. Quero falar sobre a sessão de posicionamento.",
+    /* A mensagem leva o RESULTADO NOMEADO: quem atende abre a conversa já
+       sabendo o diagnóstico. Placeholders: {nome} {resultado} */
+    whatsappMsg: "Oi, Luana! Sou {nome}. Fiz o Diagnóstico Gatilho Único e o meu resultado foi \"{resultado}\". Quero entender como resolver isso.",
+    /* CTA principal do relatório. Enquanto estiver vazio, o botão cai no
+       WhatsApp. Assim que a VSL estiver no ar, é só preencher aqui. */
+    vslUrl: "",
   },
 
-  /* Resultado nomeado por pilar. É o que vai no WhatsApp, na planilha e no
-     topo do relatório. Escrito na linguagem dela: chega de ser excelente e
-     continuar invisível. */
+  /* Os quatro diagnósticos. Cada um é uma das quatro tarefas que o conteúdo
+     único precisa cumprir para substituir a call: ter uma oferta, apresentar,
+     quebrar objeção e conduzir até a compra. Se uma falha, a venda não
+     sobrevive fora do ao vivo. */
   resultados: {
-    Mentalidade:    "Excelente na sombra",
-    Movimento:      "Excelente sem causa",
-    Posicionamento: "Excelente e intercambiável",
-    Vendas:         "Excelente sem caminho de venda",
+    oferta:   "Oferta que só existe na conversa",
+    pitch:    "Pitch que mora na sua cabeça",
+    objecao:  "Fechamento que depende de improviso",
+    conducao: "Convence, mas não conduz",
   },
 
   hero: {
-    titulo: "Existe um motivo pelo qual o mercado ainda ignora você",
-    subtitulo: "Responda e descubra o tamanho da sua Ruptura de Valor Percebido, a distância entre o que você sabe e o que o mercado enxerga, e onde exatamente ela está travando as suas vendas.",
+    titulo: "Qual parte da sua venda só existe quando você está ao vivo?",
+    subtitulo: "Responda e descubra o que impede a sua mentoria de ser vendida sem você dentro de uma call.",
     tempo: "Leva cerca de 2 minutos e o resultado é seu na hora",
   },
 
-  /* Ordem SPIN. peso 0 a 3 entra no IRV (só nas perguntas de diagnóstico:
-     situação, problema, impacto, o que já tentou e perfil). Tempo, objetivo e
-     as duas porteiras não pontuam.
-     PESOS CALIBRADOS: rodamos as 1024 combinações antes de publicar. Com os
-     pesos iniciais, 89% caíam em "Alta" e "Baixa" era impossível, ou seja, o
-     número era teatro. Baixando as alternativas mais leves para 0 e 1, a
-     amplitude foi para 20% a 100% e a distribuição para ~50% Alta, ~49% Média,
-     ~1% Baixa. A faixa Baixa é rara de propósito: o quiz não tem alternativa
-     de "está tudo bem", porque quem responde já se reconhece no problema.
-     Se mexer em qualquer peso, RODE A DISTRIBUIÇÃO DE NOVO. */
   steps: [
     {
-      id: "situacao",
-      etapa: "Situação",
-      pergunta: "Como as pessoas chegam até você hoje?",
+      id: "vende",
+      etapa: "O que você vende",
+      pergunta: "O que você vende hoje?",
       options: [
-        { value: "so_indicacao", label: "Quase tudo por indicação de quem já me conhece", peso: 3,
-          report: "receber gente quase só por indicação de quem já te conhece" },
-        { value: "indicacao_insta", label: "Indicação e, de vez em quando, alguém do Instagram", peso: 2,
-          report: "viver de indicação e, de vez em quando, alguém que chega pelo Instagram" },
-        { value: "chega_gente", label: "Já recebo mensagens de gente que não me conhecia", peso: 1,
-          report: "já receber mensagens de gente que ainda não te conhecia" },
-        { value: "fluxo", label: "Tenho fluxo constante de gente me procurando", peso: 0,
-          report: "já ter um fluxo constante de gente te procurando" },
+        { value: "mentoria_ind", label: "Mentoria individual", report: "vender mentoria individual" },
+        { value: "mentoria_gru", label: "Mentoria em grupo", report: "vender mentoria em grupo" },
+        { value: "consultoria", label: "Consultoria", report: "vender consultoria" },
+        { value: "curso", label: "Curso ou formação", report: "vender curso ou formação" },
+        { value: "estruturando", label: "Ainda estou estruturando", report: "ainda estar estruturando o que vende" },
       ],
     },
     {
-      id: "problema",
-      etapa: "Problema",
-      pergunta: "O que mais te trava hoje?",
+      id: "como",
+      etapa: "Como vende",
+      pergunta: "Como a venda acontece hoje?",
       options: [
-        { value: "expor", label: "Me expor. Sinto que estou fazendo papel de outra pessoa", peso: 3, pilar: "Mentalidade",
-          report: "travar na hora de aparecer, sentindo que está fazendo papel de outra pessoa" },
-        { value: "sem_causa", label: "Não sei o que eu defendo. Falo do meu serviço, não de uma ideia", peso: 3, pilar: "Movimento",
-          report: "falar do seu serviço sem ter clareza do que você defende" },
-        { value: "generico", label: "O que eu falo poderia ser dito por qualquer colega da minha área", peso: 2, pilar: "Posicionamento",
-          report: "dizer o que qualquer colega da sua área também poderia dizer" },
-        { value: "sem_oferta", label: "Sei comunicar, mas não tenho oferta nem processo para vender", peso: 1, pilar: "Vendas",
-          report: "comunicar bem, mas sem uma oferta e um processo que sustentem a venda" },
+        { value: "call", label: "Call de vendas, um a um", report: "fechar em call de vendas, uma pessoa por vez" },
+        { value: "aula_call", label: "Aula ou live e depois a call", report: "levar para uma aula e fechar na call depois" },
+        { value: "direct", label: "Conversa no direct ou no WhatsApp", report: "vender conversando no direct ou no WhatsApp" },
+        { value: "pagina", label: "Página de vendas, sem call", report: "já vender por página, sem call" },
+        { value: "sem_constancia", label: "Não vendo com constância", report: "ainda não vender com constância" },
       ],
     },
     {
-      id: "tempo",
-      etapa: "Há quanto tempo",
-      pergunta: "Há quanto tempo isso se repete?",
+      id: "volume",
+      etapa: "Volume",
+      pergunta: "Quantas calls de venda você fez nos últimos 30 dias?",
       options: [
-        { value: "recente", label: "Começou nos últimos meses", report: "alguns meses" },
-        { value: "ano", label: "Mais de um ano", report: "mais de um ano" },
-        { value: "anos", label: "Vários anos, virou o normal", report: "vários anos" },
-        { value: "sempre", label: "Desde que comecei, nunca foi diferente", report: "praticamente desde que você começou" },
+        { value: "zero", label: "Nenhuma", report: "não ter feito nenhuma call no último mês" },
+        { value: "1a5", label: "De 1 a 5", report: "uma a cinco calls no último mês" },
+        { value: "6a15", label: "De 6 a 15", report: "seis a quinze calls no último mês" },
+        { value: "16a30", label: "De 16 a 30", report: "de dezesseis a trinta calls no último mês" },
+        { value: "mais30", label: "Mais de 30", report: "mais de trinta calls no último mês" },
       ],
     },
     {
-      id: "impacto",
-      etapa: "Impacto",
-      pergunta: "Se nada mudar, como você imagina os próximos 12 meses?",
+      id: "peso",
+      etapa: "O que pesa",
+      pergunta: "O que mais pesa hoje nesse formato?",
       options: [
-        { value: "igual", label: "Igual: continuo excelente e o mercado não me enxerga", peso: 3,
-          report: "seguir excelente no que faz enquanto o mercado segue sem te enxergar" },
-        { value: "preco", label: "Continuo competindo por preço", peso: 2,
-          report: "continuar competindo por preço, como se fosse mais um nome na lista" },
-        { value: "esteira", label: "Continuo trocando hora por dinheiro, sem escalar", peso: 1,
-          report: "continuar trocando hora por dinheiro, sem conseguir escalar" },
-        { value: "desistir", label: "Não sei se continuo tentando o digital", peso: 2,
-          report: "a dúvida real sobre continuar ou não tentando o digital" },
+        { value: "tempo", label: "O tempo que some da minha semana", report: "o tempo que some da sua semana" },
+        { value: "repetir", label: "Repetir a mesma conversa do zero toda vez", report: "recomeçar a mesma conversa do zero toda vez" },
+        { value: "noshow", label: "Gente que agenda e não aparece", report: "gente que agenda e não aparece" },
+        { value: "sem_caixa", label: "Gente que chega sem poder pagar", report: "gente que chega na call sem poder pagar" },
+        { value: "dependencia", label: "Depender de mim para qualquer venda acontecer", report: "toda venda depender de você estar presente" },
       ],
     },
     {
-      id: "necessidade",
+      id: "tentou",
       etapa: "O que já tentou",
-      pergunta: "O que você já tentou para mudar isso?",
+      pergunta: "O que você já fez para depender menos da call?",
       options: [
-        { value: "cursos", label: "Cursos de marketing digital que não saíram do papel", peso: 3,
-          report: "fazer cursos de marketing digital que nunca saíram do papel" },
-        { value: "social_media", label: "Contratei social media ou agência, e não veio cliente", peso: 2,
-          report: "contratar social media ou agência sem que viesse cliente" },
-        { value: "constancia", label: "Postei com constância, por conta própria, e nada mudou", peso: 1,
-          report: "postar com constância, por conta própria, sem que nada mudasse" },
-        { value: "nada", label: "Ainda não tentei nada estruturado", peso: 0,
-          report: "ainda não ter tentado nada estruturado" },
-      ],
-    },
-    {
-      id: "objetivo",
-      etapa: "Objetivo",
-      pergunta: "O que você mais quer nos próximos 6 meses?",
-      options: [
-        { value: "clareza", label: "Ter clareza do que eu falo e para quem", report: "ter clareza do que você fala e para quem" },
-        { value: "referencia", label: "Virar referência no que eu faço", report: "virar referência no que faz" },
-        { value: "cobrar", label: "Cobrar o que o meu trabalho realmente vale", report: "cobrar o que o seu trabalho realmente vale" },
-        { value: "mentoria", label: "Lançar a minha mentoria", report: "lançar a sua mentoria" },
-      ],
-    },
-    {
-      id: "perfil",
-      etapa: "Seu perfil",
-      pergunta: "Qual frase mais representa você hoje?",
-      options: [
-        { value: "bom_invisivel", label: "Faço um trabalho muito bom e quase ninguém sabe disso", peso: 3,
-          report: "fazer um trabalho muito bom que quase ninguém conhece" },
-        { value: "sem_linha", label: "Tenho conteúdo demais na cabeça e nenhuma linha clara", peso: 3,
-          report: "ter conteúdo demais na cabeça e nenhuma linha clara" },
-        { value: "audiencia_fria", label: "Já tenho audiência, mas ela não me vê como autoridade", peso: 2,
-          report: "ter audiência que ainda não te enxerga como autoridade" },
-        { value: "virar_mentor", label: "Quero migrar para mentoria e não sei por onde começar", peso: 1,
-          report: "querer migrar para mentoria sem saber por onde começar" },
+        { value: "gravou", label: "Gravei uma VSL ou aula e não converteu como eu esperava", report: "ter gravado uma VSL ou aula que não converteu como você esperava" },
+        { value: "pagina", label: "Escrevi a oferta numa página e continuei precisando da call", report: "ter escrito a oferta numa página e continuado preso à call" },
+        { value: "outra_pessoa", label: "Coloquei outra pessoa para vender por mim", report: "ter colocado outra pessoa para vender no seu lugar" },
+        { value: "nada", label: "Nunca tentei, não sei por onde começar", report: "ainda não ter tentado nada nessa direção" },
       ],
     },
 
-    /* ---- PORTEIRA 1: faturamento. 6 faixas. As duas primeiras filtram. ---- */
+    /* ---- PORTEIRA 1: tamanho da operação. A primeira opção filtra. ---- */
     {
       id: "faturamento",
-      etapa: "Momento",
+      etapa: "O seu momento",
       pergunta: "Quanto você fatura por mês hoje com o seu trabalho?",
       options: [
-        { value: "sem_constancia", label: "Ainda não faturo de forma constante", fora: true },
-        { value: "ate5", label: "Até R$ 5 mil", fora: true },
-        { value: "5a10", label: "De R$ 5 mil a R$ 10 mil" },
-        { value: "10a25", label: "De R$ 10 mil a R$ 25 mil" },
-        { value: "25a50", label: "De R$ 25 mil a R$ 50 mil" },
-        { value: "acima50", label: "Acima de R$ 50 mil" },
+        { value: "nao_constante", label: "Ainda não faturo de forma constante", fora: true },
+        { value: "ate5", label: "Até R$ 5 mil" },
+        { value: "5a15", label: "De R$ 5 mil a R$ 15 mil" },
+        { value: "15a30", label: "De R$ 15 mil a R$ 30 mil" },
+        { value: "acima30", label: "Acima de R$ 30 mil" },
       ],
     },
 
-    /* ---- PORTEIRA 2: prontidão. A opção de nutrir enquadra como momento,
-       nunca como "algo mais barato". ---- */
+    /* ---- PORTEIRA 2: prontidão. Mantida junto com a de faturamento porque
+       medem coisas diferentes: uma diz o tamanho, a outra diz se a pessoa se
+       mexe. A R$ 1.997 dinheiro quase não discrimina, intenção discrimina. ---- */
     {
       id: "prontidao",
       etapa: "O próximo passo",
-      pergunta: "Você busca um processo estruturado para resolver isso de vez, mesmo que represente um investimento maior do que um curso ou uma ferramenta?",
+      pergunta: "Se existisse um caminho para a sua venda acontecer sem você na call, quando você começaria?",
       options: [
-        { value: "sim", label: "Sim, quero resolver de vez e entendo que é um investimento" },
-        { value: "entender", label: "Sim, mas preciso entender melhor como funciona antes" },
-        { value: "depois", label: "Ainda não é prioridade para mim agora", nutrir: true },
-        { value: "pesquisando", label: "Só estou pesquisando por enquanto", nutrir: true },
+        { value: "semana", label: "Essa semana" },
+        { value: "mes", label: "Neste mês" },
+        { value: "entender", label: "Quero entender melhor antes" },
+        { value: "pesquisando", label: "Só estou pesquisando" },
+      ],
+    },
+
+    /* ---- PERGUNTA DE SEGMENTAÇÃO. É ela que define o diagnóstico. ----
+       Repare que ela pede uma PROJEÇÃO, não uma confissão: a pessoa não
+       precisa admitir uma falha, só imaginar uma cena. Se perguntássemos
+       "qual é o seu erro", quase todo mundo escolheria o que pega menos mal.
+       Se mexer nas alternativas, mexa no `diag` junto. */
+    {
+      id: "cena",
+      etapa: "Uma cena",
+      pergunta: "Imagine que você gravou um único conteúdo e mandou para alguém que tem o perfil certo. O que você acha que aconteceria?",
+      options: [
+        { value: "sem_oferta", diag: "oferta",
+          label: "Ia travar antes: eu nem sei qual oferta colocaria, monto na hora para cada pessoa",
+          report: "nem saber qual oferta colocaria, porque ela é montada na hora para cada pessoa" },
+        { value: "perco_fio", diag: "pitch",
+          label: "Eu não saberia o que falar. Ao vivo sai fácil, gravando eu perco o fio",
+          report: "não saber o que falar gravando, mesmo sendo fácil ao vivo" },
+        { value: "duvida", diag: "objecao",
+          label: "Ia até bem, mas na primeira dúvida sem eu lá para responder, a pessoa desiste",
+          report: "a pessoa desistir na primeira dúvida, sem você lá para responder" },
+        { value: "elogia", diag: "conducao",
+          label: "A pessoa ia gostar, elogiar, e não comprar",
+          report: "a pessoa gostar, elogiar e não comprar" },
       ],
     },
   ],

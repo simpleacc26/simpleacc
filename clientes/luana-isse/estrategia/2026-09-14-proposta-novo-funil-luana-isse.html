@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Nova proposta de funil · Luana Isse</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a; --navy-dark: #14213d; --gold: #b8863b;
+    --beige: #f4f1ea; --text: #333a45; --muted: #8a8f98;
+  }
+  body { font-family: Arial, Helvetica, sans-serif; color: var(--text); font-size: 10pt; line-height: 1.45; }
+  .page { width: 210mm; height: 297mm; overflow: hidden; padding: 16mm 18mm 24mm 18mm; position: relative; page-break-after: always; background: #fff; }
+  .page:last-child { page-break-after: auto; }
+  .runhead { display: flex; justify-content: space-between; font-size: 7.5pt; color: var(--muted); letter-spacing: .06em; text-transform: uppercase; border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt; }
+  .runfoot { position: absolute; bottom: 9mm; left: 18mm; right: 18mm; text-align: center; font-size: 7.5pt; color: var(--muted); }
+  .kicker { color: var(--gold); font-size: 9pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt; }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 12pt; font-size: 10pt; }
+  .box-dark { background: var(--navy-dark); color: #f5f3ee; padding: 11pt 14pt; margin: 10pt 0; border-radius: 2pt; }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; } .box-dark p:last-child { margin-bottom: 0; }
+  .box-light { background: var(--beige); border-left: 3pt solid var(--gold); padding: 10pt 14pt; margin: 10pt 0; }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; } .box-light p:last-child { margin-bottom: 0; }
+  .tag { display: inline-block; background: var(--gold); color: #fff; font-size: 7.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; padding: 2pt 7pt; border-radius: 2pt; margin: 9pt 0 4pt; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 11pt 0 3pt; }
+  ul.check { list-style: none; margin-bottom: 6pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3pt; }
+  ul.check > li::before { content: "\25A0"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "\2192"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+  .q { border-left: 2pt solid #e2d9c8; padding-left: 10pt; margin: 0 0 8pt; }
+  .q .num { color: var(--gold); font-size: 8pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; }
+  .q .perg { color: var(--navy); font-weight: bold; font-size: 10.5pt; margin: 1pt 0 3pt; }
+  .q ul { list-style: none; }
+  .q ul li { padding-left: 12pt; position: relative; margin-bottom: 1.5pt; font-size: 9.5pt; color: #4a5160; }
+  .q ul li::before { content: "\25CB"; color: var(--gold); position: absolute; left: 0; font-size: 7pt; top: 2pt; }
+  table { width: 100%; border-collapse: collapse; margin: 8pt 0; font-size: 9pt; }
+  th { background: var(--navy); color: #fff; text-align: left; padding: 5pt 7pt; font-size: 8pt; letter-spacing: .06em; text-transform: uppercase; }
+  td { padding: 5pt 7pt; border-bottom: .4pt solid #e2ded5; vertical-align: top; }
+  .cover { padding-top: 55mm; }
+  .cover h1 { font-size: 36pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- 1 CAPA -->
+<div class="page cover">
+  <div class="kicker">Nova proposta de funil</div>
+  <h1>A venda que<br>ficou presa<br>numa call</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    A promessa, o quiz e a página pós-quiz.<br>
+    Reconstruídos para o Método Gatilho Único.<br>
+    Para a sua leitura e validação.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">Luana Isse</div>
+    <div class="lbl">Simple Acc</div>
+    <div class="val">Daniel Souza · Carlos Durães · Renan Martini</div>
+    <div class="lbl">Data</div>
+    <div class="val">14 de setembro de 2026</div>
+  </div>
+</div>
+
+<!-- 2 POR QUE REFAZER -->
+<div class="page">
+  <div class="runhead"><span>Nova proposta · Luana Isse</span><span>Página 2</span></div>
+  <div class="kicker">Antes de tudo</div>
+  <h1 style="font-size:20pt;">Por que o funil é refeito, e não ajustado</h1>
+  <p class="lead">Leia esta página antes das outras. Tudo o que vem depois parte daqui.</p>
+
+  <p>Na nossa call de 11 de setembro você disse duas coisas que mudaram o projeto inteiro. A primeira foi sobre a oferta anterior:</p>
+
+  <div class="box-light">
+    <p style="font-style:italic;">"A minha oferta tá o mecanismo e não uma oferta realmente irresistível."</p>
+  </div>
+
+  <p>A segunda foi o motivo pelo qual você criou o Gatilho Único, e é a frase mais forte que saiu da call:</p>
+
+  <div class="box-dark">
+    <div class="bt">A frase que virou a base de tudo</div>
+    <p style="font-size:13pt; line-height:1.4;">"Sua melhor venda já aconteceu. O problema é que ela ficou presa dentro de uma call."</p>
+  </div>
+
+  <p>O quiz que está pausado foi construído para outra oferta e para outra pessoa. Ele fala com o especialista que ninguém enxerga, mede a distância entre o valor que a pessoa tem e o que o mercado percebe, e leva para uma mentoria de R$ 7 mil.</p>
+
+  <p><strong>O Gatilho Único fala com outra gente.</strong> Fala com quem já vende, já sabe o que dizer numa call e está no limite da agenda. Não é o mesmo problema, não é o mesmo público e não é o mesmo preço.</p>
+
+  <table>
+    <tr><th style="width:26%;">&nbsp;</th><th>Funil pausado</th><th>Funil novo</th></tr>
+    <tr><td><strong>Para quem</strong></td><td>Especialista que o mercado não enxerga</td><td>Quem já vende e cansou de call</td></tr>
+    <tr><td><strong>O problema</strong></td><td>Distância entre valor e percepção</td><td>A venda só existe ao vivo</td></tr>
+    <tr><td><strong>Para onde leva</strong></td><td>Sessão estratégica e mentoria de R$ 7 mil</td><td>VSL do Gatilho Único, R$ 1.997</td></tr>
+  </table>
+
+  <p>Mudar a copy por cima da estrutura antiga não resolveria. A estrutura inteira nasceu de uma pergunta que não é mais a sua pergunta.</p>
+
+  <div class="runfoot">Nova proposta de funil · Método Gatilho Único</div>
+</div>
+
+<!-- 3 A PROMESSA -->
+<div class="page">
+  <div class="runhead"><span>Nova proposta · Luana Isse</span><span>Página 3</span></div>
+  <div class="kicker">O centro de tudo</div>
+  <h1 style="font-size:20pt;">A promessa</h1>
+  <p class="lead">É ela que o anúncio carrega, que o quiz entrega e que a página confirma.</p>
+
+  <div class="box-dark">
+    <div class="bt">Promessa principal</div>
+    <p style="font-size:15pt; line-height:1.35;">Qual parte da sua venda só existe quando você está ao vivo?</p>
+    <p style="margin-top:7pt;">Em 2 minutos, descubra o que impede a sua mentoria de ser vendida sem você dentro de uma call.</p>
+  </div>
+
+  <h3>Por que esta e não outra</h3>
+
+  <p><strong>Ela promete um diagnóstico, não um resultado.</strong> Você não promete faturamento, e esta promessa respeita isso. O que ela entrega é clareza sobre um problema específico.</p>
+
+  <p><strong>Ela só pode ser cumprida pelo seu método.</strong> Testamos a promessa contra a pergunta que separa uma ideia específica de uma genérica: outro produto do mercado resolveria isso? "Venda mais caro" qualquer formação de alto ticket resolve. "Venda no automático" qualquer curso de perpétuo resolve. <strong>"Vender sem estar ao vivo" é exatamente o que o Gatilho Único faz, e mais nada no mercado está ancorado aí.</strong></p>
+
+  <p><strong>Ela filtra sozinha quem não é o seu público.</strong> Repare nas duas palavras "a sua venda". Elas pressupõem que a venda já existe. Quem só quer ter uma mentoria um dia não se reconhece na frase e segue adiante, sem entrar na sua lista e sem consumir a sua verba.</p>
+
+  <div class="box-light">
+    <div class="bt">Duas variações para os criativos</div>
+    <p><strong>Para a sua base, que já te conhece:</strong> "Você já sabe exatamente o que dizer para vender. O problema é que isso só existe dentro de uma call."</p>
+    <p><strong>Para quem já tentou gravar e não vendeu:</strong> "Gravou e não vendeu? O problema não é o vídeo."</p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">O funil fala com quem já vende</div>
+    <p>Esta é a decisão que orienta todo o resto: <strong>priorizar qualificação, não volume.</strong></p>
+    <p>Repare nas duas palavras "a sua venda". Elas pressupõem que a venda já existe. Quem só pretende ter uma mentoria um dia não se reconhece na frase, e segue adiante sem entrar na sua lista.</p>
+    <p>O motivo não é elitismo, é prático: <strong>o Gatilho Único extrai o que já funciona na sua call.</strong> Quem nunca fechou ao vivo não tem essa matéria-prima. Entraria no funil, consumiria verba, e não teria o que gravar.</p>
+    <p>No "para quem é" da sua VSL está escrito <em>"já vende ou quer estruturar"</em>. Vale alinhar as duas peças, senão o anúncio filtra e a VSL reabre.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">O que deixamos de fora, de propósito</div>
+    <p><strong>Alto ticket</strong> é a categoria mais disputada do seu nicho, e briga com o seu preço de R$ 1.997.</p>
+    <p><strong>Vendas automáticas</strong> já tem dono no mercado e promete uma máquina, que é o oposto do que você vende.</p>
+    <p><strong>Como vender sem call</strong> atrai quem ainda não vende, que é justamente quem não tem o que gravar.</p>
+  </div>
+
+  <div class="runfoot">Nova proposta de funil · Método Gatilho Único</div>
+</div>
+
+<!-- NOVA: A CONEXAO COM A VSL -->
+<div class="page">
+  <div class="runhead"><span>Nova proposta · Luana Isse</span><span>Página 4</span></div>
+  <div class="kicker">A conexão</div>
+  <h1 style="font-size:20pt;">Como o quiz entrega para a sua VSL</h1>
+  <p class="lead">Lemos a sua VSL. Esta página mostra por que as duas peças se encaixam sem se atrapalhar.</p>
+
+  <p>A sua VSL tem uma virada logo no começo, e ela é o melhor momento do texto:</p>
+
+  <div class="box-light">
+    <p style="font-style:italic;">"Comecei a procurar uma maneira de eliminar as calls. E foi aí que eu descobri que estava tentando resolver o problema errado. Porque o problema nunca foi a call."</p>
+  </div>
+
+  <p><strong>O quiz foi desenhado para preparar essa virada, não para estragar ela.</strong></p>
+
+  <ul class="check">
+    <li>O <strong>quiz</strong> responde <em>qual parte</em> da venda da pessoa só existe ao vivo. Ele nomeia o sintoma.</li>
+    <li>A <strong>VSL</strong> responde <em>por que</em> isso acontece, e é aí que entra a sua virada: o problema nunca foi a call, foi o que nunca saiu de dentro dela.</li>
+  </ul>
+
+  <p>Quem chega na VSL já viu o próprio sintoma com nome. Quando você diz que o problema não é a call, a pessoa não ouve isso como uma frase de efeito: ela já tem um caso concreto na cabeça, o dela.</p>
+
+  <div class="passo-label">Cada diagnóstico cai num lugar do seu método</div>
+  <table>
+    <tr><th style="width:38%;">Diagnóstico do quiz</th><th>Onde o Gatilho Único resolve</th></tr>
+    <tr><td>Oferta que só existe na conversa</td><td>Módulo 2 · Persona, mercado e oferta. O P de Pesquisa do PME</td></tr>
+    <tr><td>Pitch que mora na sua cabeça</td><td>Módulo 3 · Venda com um único conteúdo. O E de Expressão</td></tr>
+    <tr><td>Fechamento que depende de improviso</td><td>Módulo 3 · a parte de objeções da Copy Gatilho Único</td></tr>
+    <tr><td>Convence, mas não conduz</td><td>Módulo 3 e 4 · chamada para ação, checkout e follow-up</td></tr>
+  </table>
+
+  <div class="box-dark">
+    <div class="bt">O que isso resolve na prática</div>
+    <p>A pessoa sai do quiz sabendo o nome do problema dela e entra na VSL já querendo a resposta. Você não precisa gastar os primeiros minutos do vídeo convencendo alguém de que tem um problema.</p>
+  </div>
+
+  <div class="runfoot">Nova proposta de funil · Método Gatilho Único</div>
+</div>
+
+<!-- 4 O QUIZ, PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Nova proposta · Luana Isse</span><span>Página 5</span></div>
+  <div class="kicker">O quiz · perguntas 1 a 5</div>
+  <h1 style="font-size:20pt;">As perguntas</h1>
+  <p class="lead">Oito perguntas e a captura. Começa fácil, fica mais pontual, e o contato vem só no fim.</p>
+
+  <div class="q">
+    <div class="num">Pergunta 1 · abre sem ameaça</div>
+    <div class="perg">O que você vende hoje?</div>
+    <ul><li>Mentoria individual</li><li>Mentoria em grupo</li><li>Consultoria</li><li>Curso ou formação</li><li>Ainda estou estruturando</li></ul>
+  </div>
+
+  <div class="q">
+    <div class="num">Pergunta 2 · situação</div>
+    <div class="perg">Como a venda acontece hoje?</div>
+    <ul><li>Call de vendas, um a um</li><li>Aula ou live e depois a call</li><li>Conversa no direct ou no WhatsApp</li><li>Página de vendas, sem call</li><li>Não vendo com constância</li></ul>
+  </div>
+
+  <div class="q">
+    <div class="num">Pergunta 3 · dá dimensão sem cobrar nada</div>
+    <div class="perg">Quantas calls de venda você fez nos últimos 30 dias?</div>
+    <ul><li>Nenhuma</li><li>De 1 a 5</li><li>De 6 a 15</li><li>De 16 a 30</li><li>Mais de 30</li></ul>
+  </div>
+
+  <div class="q">
+    <div class="num">Pergunta 4 · faz sentir o custo</div>
+    <div class="perg">O que mais pesa hoje nesse formato?</div>
+    <ul><li>O tempo que some da minha semana</li><li>Repetir a mesma conversa do zero toda vez</li><li>Gente que agenda e não aparece</li><li>Gente que chega sem poder pagar</li><li>Depender de mim para qualquer venda acontecer</li></ul>
+  </div>
+
+  <div class="q">
+    <div class="num">Pergunta 5 · o que já tentou</div>
+    <div class="perg">O que você já fez para depender menos da call?</div>
+    <ul><li>Gravei uma VSL ou aula e não converteu como eu esperava</li><li>Escrevi a oferta numa página e continuei precisando da call</li><li>Coloquei outra pessoa para vender por mim</li><li>Nunca tentei, não sei por onde começar</li></ul>
+  </div>
+
+  <div class="runfoot">Nova proposta de funil · Método Gatilho Único</div>
+</div>
+
+<!-- 5 O QUIZ, PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Nova proposta · Luana Isse</span><span>Página 6</span></div>
+  <div class="kicker">O quiz · perguntas 6 a 8 e captura</div>
+  <h1 style="font-size:20pt;">As duas porteiras e a pergunta que decide</h1>
+
+  <div class="q">
+    <div class="num">Pergunta 6 · porteira de tamanho</div>
+    <div class="perg">Quanto você fatura por mês hoje com o seu trabalho?</div>
+    <ul><li>Ainda não faturo de forma constante</li><li>Até R$ 5 mil</li><li>De R$ 5 mil a R$ 15 mil</li><li>De R$ 15 mil a R$ 30 mil</li><li>Acima de R$ 30 mil</li></ul>
+  </div>
+
+  <div class="q">
+    <div class="num">Pergunta 7 · porteira de prontidão</div>
+    <div class="perg">Se existisse um caminho para a sua venda acontecer sem você na call, quando você começaria?</div>
+    <ul><li>Essa semana</li><li>Neste mês</li><li>Quero entender melhor antes</li><li>Só estou pesquisando</li></ul>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Pergunta 8 · é ela que define o diagnóstico</div>
+    <p style="font-size:11.5pt; line-height:1.4;">Imagine que você gravou um único conteúdo e mandou para alguém que tem o perfil certo. O que você acha que aconteceria?</p>
+    <p style="margin-top:7pt;">a) Ia travar antes: eu nem sei qual oferta colocaria, monto na hora para cada pessoa</p>
+    <p>b) Eu não saberia o que falar. Ao vivo sai fácil, gravando eu perco o fio</p>
+    <p>c) Ia até bem, mas na primeira dúvida sem eu lá para responder, a pessoa desiste</p>
+    <p>d) A pessoa ia gostar, elogiar, e não comprar</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Como as perguntas 6 e 7 qualificam</div>
+    <p>Ninguém é barrado na tela: <strong>todo mundo recebe o diagnóstico.</strong> Elas ordenam a sua fila, classificando cada lead em <strong>pronto agora</strong>, <strong>qualificado</strong>, <strong>nutrir</strong> ou <strong>fora</strong>.</p>
+    <p>A <strong>6</strong> diz o tamanho da operação; a <strong>7</strong>, se a pessoa vai se mexer. A R$ 1.997 quem fatura R$ 8 mil paga tanto quanto quem fatura R$ 50 mil, então <strong>é a prontidão que separa a fila</strong>, não o dinheiro.</p>
+  </div>
+
+  <div class="q">
+    <div class="num">Captura</div>
+    <div class="perg">Seu diagnóstico está pronto.</div>
+    <ul><li>Deixe o seu contato para acessar agora e receber uma cópia no WhatsApp</li><li>Nome · WhatsApp · E-mail</li><li>Botão: Ver meu diagnóstico</li></ul>
+  </div>
+
+  <div class="runfoot">Nova proposta de funil · Método Gatilho Único</div>
+</div>
+
+<!-- 6 OS QUATRO DIAGNÓSTICOS -->
+<div class="page">
+  <div class="runhead"><span>Nova proposta · Luana Isse</span><span>Página 7</span></div>
+  <div class="kicker">O resultado</div>
+  <h1 style="font-size:20pt;">Os quatro diagnósticos</h1>
+  <p class="lead">Cada pessoa recebe um, e cada um leva a uma leitura diferente na página.</p>
+
+  <p>Eles não foram inventados. Saem das <strong>quatro tarefas que o seu conteúdo único precisa cumprir</strong> para substituir a call: ter uma oferta, apresentá-la, quebrar a objeção e conduzir até a compra. Se uma delas falha, a venda não sobrevive fora do ao vivo.</p>
+
+  <div class="box-light">
+    <div class="bt">Por que a pergunta 8 acerta</div>
+    <p>Ela pede uma <strong>projeção</strong>, não uma confissão. A pessoa não precisa admitir uma falha, só imaginar uma cena. Se perguntássemos direto "qual é o seu erro", quase todo mundo escolheria a alternativa que pega menos mal.</p>
+  </div>
+
+  <div class="tag">Diagnóstico 1</div>
+  <h3>Oferta que só existe na conversa</h3>
+  <p>Monta a oferta na hora, adapta preço e escopo para cada pessoa. Não existe uma oferta fixa para colocar num vídeo. <em>Fala assim:</em> "depende do caso", "eu vejo com cada um".</p>
+
+  <div class="tag">Diagnóstico 2</div>
+  <h3>Pitch que mora na sua cabeça</h3>
+  <p>Vende muito bem ao vivo e nunca escreveu o que diz. O argumento existe, afiado de tanto repetir, mas só dentro dela. <em>Fala assim:</em> "na call eu fecho", "pessoalmente é fácil".</p>
+
+  <div class="tag">Diagnóstico 3</div>
+  <h3>Fechamento que depende de improviso</h3>
+  <p>Fecha porque responde objeção em tempo real. Acredita que, sem estar presente, tudo desmonta. <em>Fala assim:</em> "cada um vem com uma dúvida diferente".</p>
+
+  <div class="tag">Diagnóstico 4</div>
+  <h3>Convence, mas não conduz</h3>
+  <p>A pessoa assiste, elogia, diz que quer, e não compra. Falta o caminho entre o "quero" e o pagamento. <em>Fala assim:</em> "todo mundo elogia e ninguém compra".</p>
+
+  <div class="box-light">
+    <div class="bt">Este quiz não tem nota de 0 a 100</div>
+    <p>E é decisão, não esquecimento. No funil anterior o índice existia, e quando rodamos todas as combinações possíveis, 89% delas caíam na mesma faixa. O número parecia informação e era decoração.</p>
+    <p>Aqui o resultado é o <strong>diagnóstico nomeado</strong>. Menos peça para dar errado, e a pessoa sai com algo que ela consegue repetir em voz alta.</p>
+  </div>
+
+  <div class="runfoot">Nova proposta de funil · Método Gatilho Único</div>
+</div>
+
+<!-- 7 ESTRUTURA DA PÁGINA -->
+<div class="page">
+  <div class="runhead"><span>Nova proposta · Luana Isse</span><span>Página 8</span></div>
+  <div class="kicker">A página pós-quiz</div>
+  <h1 style="font-size:20pt;">O que a pessoa vê depois de responder</h1>
+  <p class="lead">A página não vende e não mostra preço. Ela entrega o diagnóstico e abre a porta para a VSL.</p>
+
+  <div class="box-dark">
+    <div class="bt">O caminho do lead</div>
+    <p><strong>Anúncio → Quiz (2 minutos) → Página com o diagnóstico → VSL do Gatilho Único → Compra</strong></p>
+    <p>O quiz faz o trabalho que a call fazia no começo: descobrir onde a pessoa está travada e fazer ela enxergar isso. Quando chega na VSL, ela já sabe qual é o problema dela e já quer a solução.</p>
+  </div>
+
+  <p><strong>Uma decisão que precisa do seu aval:</strong> a página leva para a VSL, ou leva para o seu WhatsApp?</p>
+
+  <ul class="check">
+    <li><strong>Para a VSL</strong> é o que faz o Gatilho Único ser o que ele promete: venda sem call. É a nossa recomendação.</li>
+    <li><strong>Para o WhatsApp</strong> aumenta a chance de fechar cada lead, mas recoloca você dentro da conversa, que é o que estamos tirando.</li>
+  </ul>
+
+  <p>A proposta é: <strong>VSL como caminho principal</strong>, e um botão discreto de WhatsApp para quem quiser falar com você mesmo assim.</p>
+
+  <div class="passo-label">Os blocos da página, na ordem</div>
+  <ul class="check">
+    <li><strong>O seu diagnóstico</strong> · o nome do resultado, grande, logo no topo</li>
+    <li><strong>O que as suas respostas mostram</strong> · devolve o que a pessoa respondeu, na voz do diagnóstico</li>
+    <li><strong>Por que isso acontece</strong> · o mecanismo do problema, específico do diagnóstico dela</li>
+    <li><strong>O que muda quando resolve</strong> · o antes e depois concreto</li>
+    <li><strong>O que precisa acontecer</strong> · a prescrição, diferente para cada diagnóstico</li>
+    <li><strong>Quem já fez esse caminho</strong> · os depoimentos</li>
+    <li><strong>O próximo passo</strong> · a VSL</li>
+  </ul>
+
+  <div class="runfoot">Nova proposta de funil · Método Gatilho Único</div>
+</div>
+
+<!-- 8 COPY DA PÁGINA -->
+<div class="page">
+  <div class="runhead"><span>Nova proposta · Luana Isse</span><span>Página 9</span></div>
+  <div class="kicker">A copy, escrita</div>
+  <h1 style="font-size:20pt;">Exemplo completo: diagnóstico 2</h1>
+  <p class="lead">Escrevemos um por inteiro para você sentir o tom. Os outros três seguem a mesma estrutura.</p>
+
+  <div class="tag">Topo</div>
+  <p style="font-size:14pt; color:var(--navy); font-weight:bold; line-height:1.3;">Pitch que mora na sua cabeça</p>
+
+  <div class="tag">O que as suas respostas mostram</div>
+  <p>Você faz call de vendas e fecha. Não é sorte: depois de tantas conversas, você já sabe onde a pessoa vai hesitar e o que dizer na hora certa.</p>
+  <p>E quando imaginou gravar um único conteúdo, a sua resposta foi que perderia o fio. Ao vivo sai fácil, sozinho na frente da câmera não sai.</p>
+  <p><strong>Isso quer dizer uma coisa boa: o seu argumento de venda existe e funciona.</strong> Ele só nunca saiu de dentro de você.</p>
+
+  <div class="tag">Por que isso acontece</div>
+  <p>Numa call, você não segue um roteiro. Você reage. A pessoa fala, você percebe o tom, escolhe o próximo argumento. Funciona tão bem que vira invisível: você nunca precisou saber qual é a ordem, porque a outra pessoa sempre deu a deixa.</p>
+  <p>Na gravação não tem deixa. E aí falta o que nunca existiu escrito: <strong>a sequência.</strong></p>
+
+  <div class="tag">O que muda quando resolve</div>
+  <p>A mesma conversa que hoje acontece uma vez, com uma pessoa, passa a acontecer com quantas pessoas assistirem. Sem agenda, sem remarcar, sem começar do zero.</p>
+
+  <div class="tag">O que precisa acontecer</div>
+  <ul class="check">
+    <li><strong>Extrair o que você já diz.</strong> Não inventar roteiro novo. Gravar duas calls suas e transcrever.</li>
+    <li><strong>Achar a sequência.</strong> Descobrir a ordem que se repete nas conversas que fecharam.</li>
+    <li><strong>Substituir a deixa.</strong> Onde a pessoa dava a deixa, o conteúdo antecipa.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Nota sobre o tom</div>
+    <p>Repare que o diagnóstico <strong>começa elogiando e a pessoa concorda</strong>, porque é verdade: ela vende bem. O problema aparece depois, e como consequência da qualidade dela, não como defeito. É isso que faz ela continuar lendo em vez de se defender.</p>
+  </div>
+
+  <div class="runfoot">Nova proposta de funil · Método Gatilho Único</div>
+</div>
+
+<!-- 9 O QUE PRECISAMOS -->
+<div class="page">
+  <div class="runhead"><span>Nova proposta · Luana Isse</span><span>Página 10</span></div>
+  <div class="kicker">Para seguir</div>
+  <h1 style="font-size:20pt;">O que precisamos de você</h1>
+
+  <div class="passo-label">1 · Validar o que está aqui</div>
+  <p>Principalmente três coisas: <strong>a promessa</strong> da página 3, <strong>a pergunta 8</strong> da página 6 e <strong>os quatro diagnósticos</strong> da página 7. Se algum deles não soar como a sua gente fala, é só dizer e a gente reescreve.</p>
+
+  <div class="passo-label">2 · Alinhar o "para quem é" da VSL</div>
+  <p>O funil inteiro foi calibrado para falar com <strong>quem já vende</strong>, buscando qualificação em vez de volume. O "para quem é" da sua VSL ainda diz "já vende ou quer estruturar".</p>
+  <p>Se o anúncio e o quiz filtram e a VSL reabre, o filtro se perde justamente onde a decisão de compra acontece. <strong>Vale ajustar essa linha na VSL.</strong></p>
+
+  <div class="passo-label">3 · Decidir para onde a página leva</div>
+  <p>VSL ou WhatsApp. A nossa recomendação é VSL, e o argumento dos dois lados está na página 8.</p>
+
+  <div class="box-light">
+    <div class="bt">Uma pergunta sobre a escrita</div>
+    <p>A sua VSL está escrita no feminino: "está <strong>cansada</strong> de depender de calls", "<strong>disposta</strong> a construir". As perguntas do quiz estão em linguagem neutra, para falar com homens e mulheres.</p>
+    <p>Isso é escolha sua e a gente segue: <strong>o seu público é só de mulheres, ou é misto?</strong> Se for misto, vale alinhar as duas peças, porque metade de quem ler a VSL vai sentir que ela não é sobre ele.</p>
+  </div>
+
+  <div class="passo-label">4 · Uma pesquisa curta para a sua base</div>
+  <div class="box-dark">
+    <div class="bt">Este é o pedido mais importante</div>
+    <p>Os quatro diagnósticos da página 6 são a nossa melhor leitura, feita a partir do que você contou na call. <strong>Mas eles ainda não vieram da boca do seu público.</strong></p>
+    <p>A metodologia que usamos é clara num ponto: inventar os grupos em vez de descobrir é o erro que mais custa caro. E foi o que aconteceu no funil anterior, onde os quatro resultados saíram dos pilares do MMPV, ou seja, da estrutura do seu método, e não do que o mercado fala.</p>
+    <p>Por isso queremos mandar <strong>uma pergunta aberta</strong> para a sua base, os seus mentorados e o seu grupo. Leva 2 minutos para responder e nos dá a linguagem real de quem compra.</p>
+  </div>
+  <p>Se as respostas confirmarem os quatro diagnósticos, seguimos com confiança. Se mostrarem outra coisa, corrigimos antes de gastar verba, e não depois.</p>
+
+  <div class="passo-label">5 · Os criativos</div>
+  <p>Com a promessa validada, você grava. O Renan monta as campanhas com os R$ 50 por dia combinados para o quiz.</p>
+
+  <div class="box-light">
+    <div class="bt">O que já está pronto e não se perde</div>
+    <p>A estrutura técnica do funil anterior continua servindo: o motor do quiz, o endereço na internet, o rastreamento, a planilha de leads que chega na hora e os depoimentos que já estão autorizados. <strong>O que muda é a copy, não a máquina.</strong></p>
+  </div>
+
+  <div class="runfoot">Nova proposta de funil · Método Gatilho Único</div>
+</div>
+
+</body>
+</html>

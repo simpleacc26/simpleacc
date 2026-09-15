@@ -1,63 +1,94 @@
 /* ============================================================
-   DIAGNÓSTICO. Carta de vendas personalizada a partir das respostas.
-   Ordem dos blocos conforme o blueprint da Simple:
-   0 cabeçalho e selo do índice · 1 antes de tudo · 2 seu cenário ·
-   3 por que não resolveu · 4 dois caminhos · CTA · 5 o método ·
-   6 o que precisa acontecer · CTA · 7 quem é a Luana (autoridade) ·
-   8 depoimentos · 9 CTA final adaptado à qualificação.
-   Padrão: nunca usar travessões. Sem emoji. Linguagem neutra em gênero.
+   DIAGNÓSTICO · Método Gatilho Único
+   Monta o relatório personalizado a partir das respostas do quiz.
+
+   Quiz do tipo Killer: o resultado é um ERRO NOMEADO, não uma nota.
+   Não existe índice aqui. Ver o comentário no flow.js.
+
+   O diagnóstico sai de UMA pergunta só, a `cena`, que é a última antes da
+   captura. Cada alternativa carrega um `diag`.
+
+   Padrão de escrita: sem travessões, sem emoji.
+   LINGUAGEM NEUTRA EM GÊNERO em todo texto que a pessoa lê.
    ============================================================ */
-const STORE_KEY = "luana_isse_quiz";
+const STORE_KEY = (window.FLOW && window.FLOW.config && window.FLOW.config.storeKey) || "luana_gatilho_unico";
 const F = window.FLOW;
 const report = document.getElementById("report");
 
 function getState() { try { return JSON.parse(sessionStorage.getItem(STORE_KEY)) || {}; } catch (e) { return {}; } }
 function frase(stepId) {
-  const step = F.steps.find(s => s.id === stepId);
-  const val = (getState().answers || {})[stepId];
-  const opt = step && step.options.find(o => o.value === val);
-  return (opt && opt.report) || "";
+  const st = getState().answers || {};
+  const s = F.steps.find((x) => x.id === stepId);
+  const o = s && s.options.find((op) => op.value === st[stepId]);
+  return o ? (o.report || o.label) : "";
 }
-function valor(stepId) { return (getState().answers || {})[stepId]; }
 function esc(s) { return String(s == null ? "" : s).replace(/[<>&]/g, c => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c])); }
 
 const a = getState().answers || {};
 
-function calcularIRV(answers) {
-  let soma = 0, max = 0;
-  F.steps.forEach((s) => {
-    const pontua = s.options.some((o) => typeof o.peso === "number");
-    if (!pontua) return;
-    max += Math.max(...s.options.map((o) => o.peso || 0));
-    const escolhida = s.options.find((o) => o.value === answers[s.id]);
-    if (escolhida && typeof escolhida.peso === "number") soma += escolhida.peso;
-  });
-  const pct = max ? Math.round((soma / max) * 100) : 0;
-  return { pct, faixa: pct >= 66 ? "Alta" : (pct >= 33 ? "Média" : "Baixa") };
-}
-function pilarDominante(answers) {
-  const s = F.steps.find((x) => x.id === "problema");
-  const o = s && s.options.find((op) => op.value === answers.problema);
-  return (o && o.pilar) || "Posicionamento";
+function diagnosticoDe(answers) {
+  const s = F.steps.find((x) => x.id === "cena");
+  const o = s && s.options.find((op) => op.value === answers.cena);
+  return (o && o.diag) || "pitch";
 }
 
-/* Leitura por pilar: o que precisa acontecer no caso de quem respondeu */
-const LEITURA_PILAR = {
-  Mentalidade: {
-    resumo: "a sua ruptura está concentrada em <strong>Mentalidade</strong>: você sabe o que faz, mas trava na hora de ocupar o espaço que é seu.",
-    caminho: "Antes de qualquer estratégia, o trabalho é remover o bloqueio que faz você se esconder. Enquanto se posicionar parecer arrogância, nenhuma tática pega. Não é falta de técnica, é permissão.",
+/* ============================================================
+   AS QUATRO LEITURAS
+   Uma por diagnóstico. Cada uma tem:
+     porque  · o mecanismo do problema, na voz de quem vive ele
+     antes   · o que acontece hoje
+     depois  · o que passa a acontecer
+     passos  · a prescrição, três movimentos concretos
+     modulo  · onde o Gatilho Único resolve, para amarrar com a VSL
+
+   REGRA DE TOM: começa reconhecendo o que a pessoa faz bem, e o problema
+   aparece como CONSEQUÊNCIA dessa qualidade, nunca como defeito. É isso que
+   faz ela continuar lendo em vez de se defender.
+   ============================================================ */
+const LEITURA = {
+  oferta: {
+    porque: "Numa conversa, você lê a pessoa e monta a proposta na medida. Escopo, entrega, preço. Isso funciona, e funciona tão bem que virou o seu jeito de vender. Só que significa uma coisa: <strong>hoje você não tem uma oferta, você tem uma conversa.</strong> E conversa não se grava.",
+    antes: ["Cada proposta é montada do zero", "O preço muda conforme a pessoa", "Só você sabe explicar o que está vendendo", "Nada disso cabe num vídeo"],
+    depois: ["Uma promessa clara, escrita", "Um escopo que não muda a cada conversa", "Qualquer pessoa entende sem você explicar", "E agora existe o que gravar"],
+    passos: [
+      "<strong>Fechar a oferta antes de gravar qualquer coisa.</strong> Uma promessa, um escopo, um preço. Gravar sem isso é gravar uma dúvida.",
+      "<strong>Escolher uma dor só.</strong> A oferta que serve para todo mundo não convence ninguém, e é ela que obriga você a improvisar na hora.",
+      "<strong>Escrever a oferta em uma frase.</strong> Se não couber em uma frase, ainda não está fechada."
+    ],
+    modulo: "É o Módulo 2 do Gatilho Único, de persona, mercado e oferta. O P de Pesquisa."
   },
-  Movimento: {
-    resumo: "a sua ruptura está concentrada em <strong>Movimento</strong>: você fala do que faz, e ainda não do que defende.",
-    caminho: "O trabalho é transformar o seu conhecimento em causa. Ninguém lembra de quem descreve um serviço; lembra de quem defende uma ideia. Sem causa, o conteúdo vira informação e informação não gera lembrança.",
+  pitch: {
+    porque: "Numa call você não segue roteiro, você reage. A pessoa fala, você percebe o tom e escolhe o próximo argumento. Funciona tão bem que ficou invisível: você nunca precisou saber qual é a ordem, porque a outra pessoa sempre deu a deixa. <strong>Na gravação não tem deixa.</strong> E aí falta o que nunca existiu escrito, que é a sequência.",
+    antes: ["O argumento existe, mas só dentro de você", "Cada call começa do zero", "Sai fácil ao vivo, trava na câmera", "A venda depende da sua presença"],
+    depois: ["O argumento está escrito e ordenado", "A mesma conversa roda quantas vezes precisar", "A câmera vira só o meio", "A venda acontece sem você estar lá"],
+    passos: [
+      "<strong>Extrair o que você já diz.</strong> Não inventar roteiro novo: gravar duas calls suas e transcrever.",
+      "<strong>Achar a sequência.</strong> Descobrir a ordem que se repete nas conversas que fecharam. Ela existe, você só nunca olhou para ela.",
+      "<strong>Substituir a deixa.</strong> Onde a pessoa dava a deixa, o conteúdo antecipa."
+    ],
+    modulo: "É o Módulo 3 do Gatilho Único, o coração do programa. O E de Expressão."
   },
-  Posicionamento: {
-    resumo: "a sua ruptura está concentrada em <strong>Posicionamento</strong>: o que você diz poderia ser dito por qualquer colega da sua área.",
-    caminho: "O trabalho é ficar inconfundível: identidade, narrativa e arquétipo. Enquanto você for intercambiável, a decisão do cliente volta para o preço, porque não existe outro critério visível.",
+  objecao: {
+    porque: "Você fecha porque responde na hora. A pessoa hesita, você percebe e devolve o argumento certo. Daí vem a sensação de que, sem você presente, tudo desmonta. <strong>Mas objeção não é imprevisível.</strong> Quem vende há algum tempo ouve as mesmas cinco ou seis, com palavras diferentes. Elas são finitas, e o que é finito cabe num roteiro.",
+    antes: ["A dúvida aparece e você improvisa", "Sem você, a pessoa trava e some", "Cada call resolve as mesmas objeções de novo", "Você acredita que só ao vivo funciona"],
+    depois: ["A dúvida é respondida antes de aparecer", "A pessoa segue sozinha até o fim", "A objeção é resolvida uma vez, para sempre", "O conteúdo sustenta o que você sustentava"],
+    passos: [
+      "<strong>Listar as objeções reais.</strong> Não as que você imagina: as que apareceram nas últimas dez conversas.",
+      "<strong>Ordenar por frequência.</strong> As duas ou três primeiras respondem pela maioria das perdas.",
+      "<strong>Responder dentro do conteúdo, antes da pergunta.</strong> Quem responde antes parece que leu a mente. Quem responde depois parece que está se defendendo."
+    ],
+    modulo: "É a parte de objeções da Copy Gatilho Único, no Módulo 3."
   },
-  Vendas: {
-    resumo: "a sua ruptura está concentrada em <strong>Vendas</strong>: você já comunica bem, e o que falta é caminho de compra.",
-    caminho: "O trabalho é oferta, processo e condução. Você já constrói percepção; o que não existe ainda é a ponte entre quem admira o seu conteúdo e quem contrata você.",
+  conducao: {
+    porque: "A pessoa assiste, elogia, diz que era exatamente o que precisava. E não compra. Isso não é falta de interesse: <strong>o seu conteúdo fez o trabalho de convencer e parou ali.</strong> Convencer e vender são coisas diferentes. Uma termina em concordância, a outra termina em decisão, e decisão precisa de um caminho.",
+    antes: ["O conteúdo termina e a pessoa fica parada", "Elogio não vira compra", "Falta clareza do próximo passo", "A venda volta a depender de você chamar"],
+    depois: ["O conteúdo termina apontando uma ação", "O próximo passo é único e óbvio", "A pessoa decide sozinha", "A compra acontece sem você chamar"],
+    passos: [
+      "<strong>Definir um próximo passo só.</strong> Duas opções no fim de um conteúdo viram nenhuma.",
+      "<strong>Tornar esse passo imediato.</strong> Quanto mais perto do fim do vídeo, menos chance de a vida atravessar.",
+      "<strong>Tirar tudo que compete.</strong> Menu, link solto, mais um vídeo depois. Tudo que oferece uma saída, a pessoa usa."
+    ],
+    modulo: "É a chamada para ação no Módulo 3, mais a estrutura de checkout e follow-up do Módulo 4."
   },
 };
 
@@ -90,7 +121,7 @@ const PRINTS = [
   },
   {
     src: "depoimentos/print-nathy.jpg", largo: true,
-    quem: "Nathy", papel: "mentorada da turma atual",
+    quem: "Nathy", papel: "mentorada",
     alt: "Mensagem no grupo da mentoria: Luanaaa, grupo! Hoje eu vendi a minha primeira mentoria no Método Tekton que criei a partir do MMPV. Eu tô super feliz. 1 mês que fiz minha escolha de estar aqui e já iniciou os resultados. Sei que tem muito mais para vir. A Luana responde: Uau, parabéns Nathy, é só começo!",
   },
 ];
@@ -113,7 +144,7 @@ const VIDEOS = [
   { src: "depoimentos/dep-2.mp4", poster: "depoimentos/dep-2.jpg", nome: "Caroline Seyler", papel: "mentorada" },
 ];
 
-if (!a._completedAt && !a.problema) {
+if (!a._completedAt && !a.cena) {
   report.innerHTML = `
     <p class="eyebrow">Seu diagnóstico</p>
     <h2>Ainda não temos as suas respostas</h2>
@@ -121,121 +152,114 @@ if (!a._completedAt && !a.problema) {
     <div class="actions"><a class="btn btn-primary btn-block" href="index.html">Fazer agora</a></div>`;
 } else {
   const nome = esc((a.nomeResp || "").split(" ")[0]) || "tudo bem";
-  const situacao = frase("situacao") || "o seu momento atual";
-  const problema = frase("problema") || "o que mais te trava hoje";
-  const tempo = frase("tempo") || "um tempo";
-  const impacto = frase("impacto") || "seguir no mesmo ponto";
-  const tentativa = frase("necessidade") || "buscar uma solução";
-  const objetivo = frase("objetivo") || "ter reconhecimento pelo que você entrega";
-  const perfil = frase("perfil") || "";
+  const vende = frase("vende") || "o seu trabalho";
+  const como = frase("como") || "vender como vende hoje";
+  const volume = frase("volume") || "as calls do último mês";
+  const peso = frase("peso") || "o peso desse formato";
+  const tentou = frase("tentou") || "buscar uma saída";
+  const cena = frase("cena") || "";
 
-  const irv = calcularIRV(a);
-  const pilar = pilarDominante(a);
-  const leitura = LEITURA_PILAR[pilar];
+  const diag = diagnosticoDe(a);
+  const L = LEITURA[diag];
+  const resultado = (F.resultados && F.resultados[diag]) || "Pitch que mora na sua cabeça";
 
-  const faixaClasse = irv.faixa === "Alta" ? "alta" : (irv.faixa === "Média" ? "media" : "baixa");
-  const resultado = (F.resultados && F.resultados[pilar]) || "Excelente e invisível";
-
-  /* Mesma regra do app.js. Quatro faixas para o atendimento, três CTAs na
-     página: fila-quente e qualificado veem o mesmo botão. */
+  /* Mesma regra do app.js, repetida aqui porque as duas páginas são
+     independentes. Se mexer em uma, mexa na outra. */
   const stepFat = F.steps.find((s) => s.id === "faturamento");
   const optFat = stepFat && stepFat.options.find((o) => o.value === a.faturamento);
-  const caixaBom = ["10a25", "25a50", "acima50"].indexOf(a.faturamento) > -1;
+  const caixaBom = ["5a15", "15a30", "acima30"].indexOf(a.faturamento) > -1;
+  const agora = a.prontidao === "semana" || a.prontidao === "mes";
   const nivel = (optFat && optFat.fora) ? "fora"
-    : ((a.prontidao === "depois" || a.prontidao === "pesquisando") ? "nutrir"
-      : ((a.prontidao === "sim" && caixaBom && irv.pct >= 66) ? "fila-quente" : "qualificado"));
+    : ((a.prontidao === "entender" || a.prontidao === "pesquisando") ? "nutrir"
+      : ((agora && caixaBom) ? "fila-quente" : "qualificado"));
 
   let ctaLabel, ctaExtra, fecho;
-  if (nivel === "qualificado" || nivel === "fila-quente") {
-    ctaLabel = "Quero agendar minha sessão de posicionamento";
-    ctaExtra = '<p class="hint">São poucos horários por semana, porque cada sessão é preparada antes com base no seu diagnóstico.</p>';
-    fecho = '<p class="clube">Na sessão, a Luana lê o seu caso com nome e sobrenome e desenha o caminho. Você sai com clareza, decida ou não seguir.</p>';
+  if (nivel === "fila-quente" || nivel === "qualificado") {
+    ctaLabel = "Quero construir meu Gatilho Único";
+    ctaExtra = '<p class="hint">A Luana explica o método inteiro em uma aula. É ela que mostra como sair daqui.</p>';
+    fecho = '<p class="clube">Você já tem o que é mais difícil: uma venda que funciona. O que falta é tirar ela de dentro da call.</p>';
   } else if (nivel === "nutrir") {
-    ctaLabel = "Quero entender melhor como funciona";
-    ctaExtra = '<p class="hint">Sem compromisso e no seu tempo. A equipe te explica o caminho e o que faz sentido para o seu momento.</p>';
-    fecho = '<p class="clube">Não existe hora errada para entender o que está travando. A decisão vem depois, quando fizer sentido para você.</p>';
+    ctaLabel = "Quero entender como funciona";
+    ctaExtra = '<p class="hint">Sem compromisso e no seu tempo. A aula mostra o caminho inteiro, e você decide depois.</p>';
+    fecho = '<p class="clube">Não existe hora errada para entender o que está travando. A decisão vem quando fizer sentido.</p>';
   } else {
     ctaLabel = "Falar com a equipe no WhatsApp";
-    ctaExtra = '<p class="hint">A equipe te indica por onde começar no seu momento, e te avisa da próxima conferência gratuita.</p>';
-    fecho = '<p class="clube">Comece pelo conteúdo e pela próxima conferência. O caminho existe, e ele tem ordem.</p>';
+    ctaExtra = '<p class="hint">A equipe te indica por onde começar no seu momento.</p>';
+    fecho = '<p class="clube">O Gatilho Único parte de uma venda que já funciona. Quando a sua estiver de pé, ele encaixa.</p>';
   }
-  const ctaInline = `<div class="cta-inline"><button class="btn btn-primary cta-wpp">${ctaLabel}</button></div>`;
+
+  /* CTA principal leva para a VSL quando ela existir. Enquanto `vslUrl`
+     estiver vazio no flow.js, cai no WhatsApp e nada quebra. */
+  const vsl = (F.marca && F.marca.vslUrl) || "";
+  const botao = (cls) => vsl && nivel !== "fora"
+    ? `<a class="btn btn-primary ${cls}" href="${vsl}" target="_blank" rel="noopener">${ctaLabel}</a>`
+    : `<button class="btn btn-primary cta-wpp ${cls}">${ctaLabel}</button>`;
+  const ctaInline = `<div class="cta-inline">${botao("")}</div>`;
 
   report.innerHTML = `
     <div class="report-head">
-      <span class="selo">Diagnóstico de Autoridade</span>
-      <h1>O seu Índice de Ruptura de Valor</h1>
+      <span class="selo">Diagnóstico Gatilho Único</span>
+      <h1>A parte da sua venda que só existe ao vivo</h1>
       <div class="resultado">${resultado}</div>
-      <div class="irv ${faixaClasse}">
-        <div class="irv-num">${irv.pct}%</div>
-        <div class="irv-txt">Ruptura ${irv.faixa}<span>distância entre o que você sabe e o que o mercado enxerga</span></div>
-      </div>
-      <p class="hint">Calculado a partir das suas respostas em ${new Date().toLocaleDateString("pt-BR")}</p>
+      <p class="hint">A partir das suas respostas em ${new Date().toLocaleDateString("pt-BR")}</p>
     </div>
 
     <div class="etapa">
       <h3>Antes de tudo</h3>
-      <p>Oi, ${nome}. Li com atenção tudo o que você respondeu, e quero começar por uma coisa que talvez ninguém tenha te dito:
-      <strong>o que trava o seu reconhecimento não é falta de competência, nem falta de esforço.</strong>
-      Tem explicação, tem nome, e tem caminho.</p>
+      <p>Oi, ${nome}. Li tudo o que você respondeu, e quero começar pelo que talvez ninguém tenha te dito:
+      <strong>o que trava a sua venda não é falta de competência.</strong> É o contrário.
+      O que trava é uma coisa que você faz bem demais, e por isso nunca precisou escrever.</p>
     </div>
 
     <div class="etapa">
       <h3>O seu cenário hoje</h3>
-      <p>Pelo que você me contou, o seu momento é de <strong>${situacao}</strong>, e o que mais pesa é
-      <strong>${problema}</strong>. Isso já dura <strong>${tempo}</strong>, e a tendência, se nada mudar,
-      é <strong>${impacto}</strong>.${perfil ? ` Você também se descreveu como alguém que vive <strong>${perfil}</strong>.` : ""}</p>
-      <p>Esse padrão se repete em quase todo especialista que chega até mim. E ele tem um nome.</p>
+      <p>Você vende <strong>${vende}</strong>, e a venda acontece ao <strong>${como}</strong>.
+      Foram <strong>${volume}</strong>, e o que mais pesa nesse formato é <strong>${peso}</strong>.</p>
+      <p>Você já chegou a <strong>${tentou}</strong>. E quando imaginou gravar um único conteúdo,
+      a sua resposta foi que <strong>${cena}</strong>.</p>
     </div>
 
     <div class="etapa">
-      <h3>Por que não mudou até agora</h3>
-      <p>Você já chegou a <strong>${tentativa}</strong>, e mesmo assim o reconhecimento não veio.
-      Faz sentido: todas essas saídas miram na tática, e o que trava um especialista competente não está na tática.</p>
-      <p>O nome disso é <strong>Ruptura de Valor Percebido</strong>: a distância entre o valor que você possui e o valor
-      que você consegue comunicar ao mercado. Enquanto essa distância existir, nenhuma estratégia será suficiente para
-      gerar vendas consistentes, porque tática aplicada em cima de uma percepção quebrada só produz mais ruído.</p>
-      <p>No seu caso, ${leitura.resumo}</p>
+      <h3>Por que isso acontece</h3>
+      <p>${L.porque}</p>
     </div>
 
     <div class="etapa">
-      <h3>Dois especialistas, e a diferença entre eles</h3>
+      <h3>O que muda quando resolve</h3>
       <div class="compare">
         <div class="col bad">
-          <h4>O especialista técnico</h4>
-          <ul><li>Sabe muito e estuda muito</li><li>Tem formação e certificados</li><li>É elogiado por quem já conhece</li><li>E continua sendo comparado por preço</li></ul>
+          <h4>Como é hoje</h4>
+          <ul>${L.antes.map(x => `<li>${x}</li>`).join("")}</ul>
         </div>
         <div class="col good">
-          <h4>O especialista percebido</h4>
-          <ul><li>Talvez saiba exatamente o mesmo</li><li>Mas construiu outra percepção</li><li>É lembrado, indicado e valorizado</li><li>E vende mentorias de alto valor</li></ul>
+          <h4>Como passa a ser</h4>
+          <ul>${L.depois.map(x => `<li>${x}</li>`).join("")}</ul>
         </div>
       </div>
-      <p class="hint">A diferença entre os dois não é conhecimento. É comunicação de valor, e isso se constrói.</p>
+      <p class="hint">A mesma conversa que hoje acontece uma vez, com uma pessoa, passa a acontecer com quantas assistirem.</p>
     </div>
 
     ${ctaInline}
 
     <div class="etapa">
-      <h3>Como o método funciona</h3>
-      <p>O <strong>MMPV, Método de Multiplicação do Valor Percebido</strong>, existe para eliminar a ruptura. Em quatro pilares, nessa ordem:</p>
+      <h3>O que precisa acontecer</h3>
       <ol class="metodo">
-        <li><strong>Mentalidade:</strong> remove os bloqueios que impedem você de ocupar o seu espaço.</li>
-        <li><strong>Movimento:</strong> transforma o seu conhecimento em causa.</li>
-        <li><strong>Posicionamento:</strong> transforma a sua causa em autoridade percebida.</li>
-        <li><strong>Vendas:</strong> transformam a sua autoridade em faturamento.</li>
+        ${L.passos.map(x => `<li>${x}</li>`).join("")}
       </ol>
-      <p class="hint">Fora dessa ordem não funciona. É por isso que começar pelo marketing raramente sustenta.</p>
+      <p class="hint">${L.modulo}</p>
     </div>
 
     <div class="etapa">
-      <h3>O que precisa acontecer agora</h3>
-      <p>${leitura.caminho}</p>
-      <p>O que você quer, <strong>${objetivo}</strong>, é totalmente possível. O primeiro passo é uma
-      <strong>sessão de posicionamento</strong>: uma leitura do seu caso com nome e sobrenome, e o desenho do
-      próximo passo. Não é apresentação de produto.</p>
+      <h3>Como o Gatilho Único funciona</h3>
+      <p>O método tem três movimentos, nessa ordem:</p>
+      <ol class="metodo">
+        <li><strong>Pesquisa:</strong> entender o mercado, o desejo e a objeção antes de escrever qualquer coisa.</li>
+        <li><strong>Mecanismo:</strong> organizar a oferta e o argumento que sustentam a venda.</li>
+        <li><strong>Expressão:</strong> transformar isso em um único conteúdo que apresenta, quebra objeção e conduz até a compra.</li>
+      </ol>
+      <p class="hint">Fora dessa ordem não funciona. É por isso que gravar antes de fechar a oferta quase nunca converte.</p>
+      ${ctaInline}
     </div>
-
-    ${ctaInline}
 
     <div class="etapa">
       <h3>Quem é a Luana Isse</h3>
@@ -247,15 +271,14 @@ if (!a._completedAt && !a.problema) {
           <a class="autor-ig" href="https://www.instagram.com/luana.isse/" target="_blank" rel="noopener">@luana.isse</a>
         </div>
       </div>
-      <p>Passei dez anos construindo narrativa e movimento para líderes que precisavam ser lembrados pelo que
-      representam. Hoje faço a mesma engenharia para o especialista brilhante que ninguém vê.</p>
-      <p class="autor-fala">"Depois de acompanhar dezenas de especialistas, percebi que o verdadeiro problema não é o
-      marketing. É a distância entre o valor que eles possuem e o valor que conseguem comunicar ao mercado."</p>
+      <p>Passei dez anos construindo narrativa para líderes que precisavam ser lembrados pelo que representam.
+      Hoje ajudo especialistas a tirar de dentro da call a venda que já funciona ali.</p>
+      <p class="autor-fala">"Durante muito tempo eu achei que o problema eram as calls. Até perceber que eu estava
+      tentando resolver o problema errado. O problema nunca foi a call."</p>
       <div class="cred-grid">
         <div class="cred"><div class="n">10 anos</div><div class="d">de comunicação e narrativa para líderes</div></div>
         <div class="cred"><div class="n">30</div><div class="d">especialistas já mentorados</div></div>
-        <div class="cred"><div class="n">87</div><div class="d">pessoas em evento presencial, no orgânico</div></div>
-        <div class="cred"><div class="n">17</div><div class="d">alunos na turma atual da mentoria</div></div>
+        <div class="cred full"><div class="n">87</div><div class="d">pessoas em evento presencial, no orgânico</div></div>
       </div>
     </div>
 
@@ -285,7 +308,7 @@ if (!a._completedAt && !a.problema) {
       <p>Dar o primeiro passo é simples, e no seu tempo.</p>
       ${ctaExtra}
       <div class="actions" style="justify-content:center">
-        <button class="btn btn-primary cta-wpp">${ctaLabel}</button>
+        ${botao("")}
       </div>
       ${fecho}
     </div>`;
@@ -305,14 +328,10 @@ function abrirWhatsApp() {
     console.warn("[funil] WhatsApp não configurado em flow.js > marca.whatsapp");
     return;
   }
-  const irv = calcularIRV(a);
-  const pilar = pilarDominante(a);
+  const diag = diagnosticoDe(a);
   const msg = (F.marca.whatsappMsg || "")
     .replace("{nome}", (a.nomeResp || "").split(" ")[0] || "")
-    .replace("{resultado}", (F.resultados && F.resultados[pilar]) || "")
-    .replace("{irv}", irv.pct + "%")
-    .replace("{faixa}", irv.faixa.toLowerCase())
-    .replace("{pilar}", pilar);
+    .replace("{resultado}", (F.resultados && F.resultados[diag]) || "");
   window.open(`https://wa.me/${F.marca.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
 }
 
@@ -332,14 +351,14 @@ function metaPadrao(evento, params) {
 function paramsQualificacao() {
   try {
     const a = getState().answers || {};
-    const irv = calcularIRV(a);
-    const pilar = pilarDominante(a);
+    const diag = diagnosticoDe(a);
     return {
       content_name: (F.config && F.config.frente) || "Funil",
-      content_category: pilar,
-      irv: irv.pct,
-      faixa: irv.faixa,
-      resultado: (F.resultados && F.resultados[pilar]) || "",
+      content_category: diag,
+      diagnostico: diag,
+      faturamento: a.faturamento || "",
+      prontidao: a.prontidao || "",
+      resultado: (F.resultados && F.resultados[diag]) || "",
     };
   } catch (e) { return {}; }   // tracking nunca derruba o relatório
 }
