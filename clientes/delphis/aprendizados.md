@@ -158,3 +158,27 @@ Log do que funciona e do que não funciona com este cliente.
   seis partes separadas, resumo de uma frase no topo de cada seção, colunas de faça e não
   faça, glossário dos termos (lead, no-show, follow-up, régua), rotina diária em três
   janelas de tempo fixo e um cartão de bolso imprimível com a sequência inteira.
+
+## Integração com o GHL · 15/09/2026
+
+- **Conexão OAuth de location no Make exige um navegador.** Quando ninguém consegue fazer
+  esse login, o caminho é um **token de integração privada** gerado dentro do GHL, usado
+  como `Authorization: Bearer` num módulo HTTP. Não expira como o OAuth, não precisa de
+  ninguém clicando no Make, e dá para montar a automação inteira pela API.
+- **A API do GHL cria campo personalizado, contato e oportunidade, mas não cria
+  pipeline.** Pipeline é só pela interface. Vale saber antes de prometer prazo.
+- **Escopo de token é literal.** Pedir "View Locations" não dá escrita: o ajuste de fuso
+  voltou 401. Ao gerar o token, marcar também o Edit do que for mexer.
+- **`toJSON` não funciona como função do Make.** A tentativa de usar para escapar aspas no
+  corpo JSON derrubou a chamada em silêncio (o Ignore engoliu). O que funciona é a variável
+  entre aspas, `"{{1.nome}}"`, igual o cenário da Ju que já roda em produção.
+- **`scenarios_run` com `data` não alimenta módulo de webhook.** A execução dá SUCCESS sem
+  processar nada. Para testar cenário de webhook, tem que bater no endereço do webhook.
+- **Telefone precisa sair em E.164 do Make.** `(11) 98765-4321` vira `+5511987654321` com
+  `+55{{replace(1.whatsapp; "/\D/g"; "")}}`. Sem isso o disparo de mensagem não funciona.
+- **Mandar `firstName` e `name` juntos no upsert é o certo.** O GHL divide o nome completo
+  sozinho e o `firstName` fica só com o primeiro nome, que é o que a saudação dos templates
+  usa.
+- **Importação de base histórica precisa de um campo de data própria.** O `dateAdded` do
+  GHL marca a entrada no CRM, não a resposta do quiz. Sem um campo separado, todo lead
+  importado parece de hoje e a régua de follow-up é aplicada no tempo errado.

@@ -1,6 +1,6 @@
 # Integração Quiz → Make → Sheets → GHL (Delphis)
 
-Última atualização: 14/09/2026. Status: **no ar e testado ponta a ponta.**
+Última atualização: 15/09/2026. Status: **no ar, testado e com a base histórica importada.**
 
 ## Peças
 
@@ -13,7 +13,6 @@
 | Conexão Google | 5139463 — `My Google connection (ssouzadaniel.ads@gmail.com)` |
 | GHL location | `Is3rj2clTtHoaWODpqS7` — `Delphis da Fonseca's Account` |
 | Autenticação no GHL | **Private Integration token**, guardado só no módulo 3 do cenário. Não fica neste repositório. |
-| Cenário temporário | 6272276 — laboratório de teste, pode apagar quando tudo estiver validado |
 
 ## Por que token e não OAuth
 
@@ -34,17 +33,21 @@ header do módulo 3.
 Os dois módulos do GHL ignoram erro de propósito: se o CRM cair, o lead ainda fica na
 planilha e nada se perde.
 
-### Filtro no módulo 4
+### Sem filtro no módulo 4
 
-Só cria oportunidade para quem **não** é `FORA POR ORA`. Esse público é perfil errado
-para a mentoria e entupiria o pipeline, que precisa servir de fila de trabalho. Ele
-continua virando contato com as tags, e o destino dele é o produto de entrada.
-Para colocar todo mundo no pipeline, basta remover o filtro do módulo.
+Todo lead entra no pipeline, inclusive `FORA POR ORA`. Decisão do time em 14/09. Se um
+dia o pipeline ficar pesado demais para servir de fila de trabalho, basta voltar o
+filtro `classificacao ≠ FORA POR ORA` no módulo.
 
 ### Campos personalizados criados no GHL
 
-Dezoito campos, um por resposta do quiz, todos com o prefixo `AUTOFOCO ·`. Os ids ficam
-no corpo do módulo 3. Nome, e-mail e telefone vão para os campos nativos do contato.
+Dezenove campos com o prefixo `AUTOFOCO ·`: um por resposta do quiz mais a **Data do
+quiz**. Os ids ficam no corpo do módulo 3. Nome, e-mail e telefone vão para os campos
+nativos do contato.
+
+A Data do quiz existe porque o `dateAdded` do GHL marca quando o contato entrou no CRM,
+não quando a pessoa respondeu. Sem ela, todo lead importado pareceria ter chegado hoje e
+a régua de follow-up seria aplicada no tempo errado.
 
 ### Telefone
 
@@ -84,22 +87,26 @@ preenchidos, e a oportunidade aberta no estágio de entrada com o nome no format
 O GHL divide o nome completo sozinho: `firstName` fica só com o primeiro nome, que é o
 que os templates da fase 2 vão usar na saudação.
 
-## O que falta
+## Importação da base histórica · 15/09/2026
 
-1. **Fuso da conta**, ainda em `America/Los_Angeles`. O token não tem escopo de escrita
-   em Locations, então precisa ser trocado na interface, em Settings → Business Profile.
-2. **Oportunidade do Claudemir**, primeiro lead real que entrou no CRM (14/09, 19:51).
-   Ele chegou entre a instalação do módulo 3 e a do módulo 4, então virou contato sem
-   oportunidade. Basta abrir uma no estágio de entrada.
-3. **Leads anteriores.** Os ~27 leads que já estão na planilha não estão no CRM, porque
-   entraram antes da integração. Dá para importar de uma vez, se fizer sentido.
+Os 24 leads reais que já estavam na planilha foram importados: contato com os 19 campos,
+as tags, o telefone em E.164, e uma oportunidade cada um no estágio de entrada. A Data do
+quiz veio da planilha, não do relógio. Todos ganharam a tag **`lote-inicial`**, para dar
+para separar quem entrou antes da integração de quem entra pelo funil agora.
+
+Distribuição: 9 qualificados, 1 a nutrir, 14 fora por ora.
+
+O script está em `scratchpad/importar.py` da sessão. Ele usa upsert, então rodar de novo
+não duplica ninguém. Se for repetir num outro cliente, o que muda são os ids do pipeline,
+do estágio e dos campos.
 
 ## Pendências de higiene
 
 - A planilha de leads segue aberta para edição por link. Decisão do time em 14/09.
-- Apagar da planilha as linhas de teste (`Teste Simple (apagar)`, `Teste GHL Dois (apagar)`
-  e as do Renan). No GHL já foram removidas.
-- Apagar o cenário temporário 6272276 quando ninguém mais precisar dele.
+- Apagar da planilha as seis linhas de teste (`Teste Simple (apagar)`, `Teste "Aspas" GHL`,
+  `Teste GHL Dois`, `teste`, `tete`, `renanant`). No GHL elas nunca entraram: o importador
+  reconhece e pula.
+- O fuso da conta foi corrigido para `America/Sao_Paulo` em 14/09.
 
 ## Fase 2 (depois desta)
 
