@@ -10,6 +10,23 @@
     body{margin:0;background:var(--bg);color:var(--text);
       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
   </style>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1388793123452401');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1388793123452401&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel Code -->
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="apple-touch-icon" href="favicon.png" />
   <link rel="stylesheet" href="styles.css" />
@@ -37,7 +54,9 @@
                      border: 1px solid var(--border-ui); background: #ECE5DD; }
     .depo-shot figcaption { font-size: 14px; line-height: 1.45; color: var(--muted);
                             margin-top: 9px; padding-left: 11px; border-left: 3px solid var(--gold); }
-    /* citação: fala literal, com atribuição e data. Não imita um print. */
+    /* citação: fala literal, com atribuição e data. Não imita um print.
+       Sem uso desde 15/09/2026 (a prova social virou so print). Fica aqui
+       porque a regra continua valendo se alguma fala voltar sem print. */
     .depo-quote { margin: 18px 0 6px; padding: 16px 18px; background: var(--gold-soft);
                   border: 1px solid var(--border); border-left: 3px solid var(--gold);
                   border-radius: var(--radius-sm); }
@@ -57,8 +76,17 @@
     .metodo li { margin: 0 0 8px; }
     .metodo strong { color: var(--gold-light); }
     /* bloco de autoridade (Quem é o Guilherme) */
-    .autor { display: flex; align-items: center; gap: 15px; margin: 2px 0 14px; }
-    .autor-foto { width: 92px; height: 92px; flex: 0 0 92px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); }
+    /* Foto em retrato 3:4, nao em circulo: e um retrato de estudio de corpo
+       ate a cintura, e o circulo obrigava a recortar so a cabeca, jogando fora
+       a postura, que e justo o que faz a foto funcionar como autoridade.
+       Aumentada de 92px para 150px em 15/09/2026 a pedido do Guilherme. */
+    .autor { display: flex; align-items: center; gap: 18px; margin: 2px 0 16px; }
+    .autor-foto { width: 150px; height: 200px; flex: 0 0 150px; border-radius: var(--radius-sm);
+                  object-fit: cover; border: 2px solid var(--gold); }
+    @media (max-width: 420px){
+      .autor { gap: 14px; }
+      .autor-foto { width: 120px; height: 160px; flex: 0 0 120px; }
+    }
     .autor-nome { display: block; font-family: var(--font-serif); font-size: 19px; font-weight: 700; letter-spacing: .05em; color: var(--gold-light); line-height: 1.15; }
     .autor-cargo { display: block; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
     .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0 6px; }

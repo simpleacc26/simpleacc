@@ -8,7 +8,10 @@
 
 /* ---- Tracking plugável: preencha os IDs e os eventos vão junto.
    Vazio = só loga no console. ---- */
-const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
+/* meta_pixel_id ligado: sem isto o pixel do <head> conta UMA PageView e para
+   por aí, porque o quiz inteiro acontece numa URL só. Com o id preenchido, cada
+   passo do funil vira evento no Meta e dá para ver onde o lead desiste. */
+const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "1388793123452401", custom_webhook: "" };
 
 /* Webhook do Make que grava o lead na planilha. Cenário
    "[Guilherme Eduardo] Diagnóstico IDR (GES360) → Sheets" no time Simple Acc.
@@ -274,6 +277,13 @@ function renderCaptura() {
     state.answers._completedAt = new Date().toISOString();
     save();
     trackEvent("funnel_complete", { answers: { ...state.answers } });
+    /* Lead é evento PADRÃO do Meta. O trackCustom acima serve para analisar,
+       mas a campanha só otimiza direito em cima de um evento padrão. Vai com a
+       classificação para dar para separar lead qualificado de fora do perfil
+       na hora de otimizar. */
+    try {
+      if (typeof fbq === "function") fbq("track", "Lead", { content_name: "Diagnostico IDR", classificacao: classificarLead(state.answers) });
+    } catch (e) {}
     enviarLead();
     renderLoading();
   });
