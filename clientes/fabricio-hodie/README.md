@@ -26,7 +26,7 @@ Briefing e estratégia já foram feitos pelo Daniel.
 
 | Projeto | Pasta | Status | Deploy |
 | ------- | ----- | ------ | ------ |
-| Quiz IMF (funil de quiz) | `funis/quiz-hodie/` | no ar, aguardando WhatsApp, integração de leads e aprovação | [quiz-hodie-simpleacc.vercel.app](https://quiz-hodie-simpleacc.vercel.app) |
+| Quiz IMF (funil de quiz) | `funis/quiz-hodie/` | no ar, captando leads, aguardando aprovação da Dra. Lailla | [quiz-hodie-simpleacc.vercel.app](https://quiz-hodie-simpleacc.vercel.app) |
 
 ## Observações
 

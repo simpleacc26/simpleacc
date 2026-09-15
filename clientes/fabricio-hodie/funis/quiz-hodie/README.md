@@ -9,22 +9,18 @@ para o WhatsApp do consultório, para agendar a consulta de investigação.
 
 **Planilha de leads:** [Leads · Índice do Metabolismo da Fome · HODIE](https://docs.google.com/spreadsheets/d/1S8c-A31ackttwLUqr2ciij6Ao4e3ZvQCXuFsbXc1hfY/edit)
 
-> ## 🚨 NÃO SUBIR TRÁFEGO AINDA
-> Três bloqueios abertos:
-> 1. **WhatsApp do consultório não configurado.** `flow.js` → `marca.whatsapp`
->    está vazio. Enquanto estiver, os CTAs avisam na tela em vez de abrir uma
->    conversa com um número errado.
-> 2. **Integração com a planilha de leads** ainda não ligada (`LEADS_ENDPOINT`
->    em `app.js`). Sem ela, o lead responde e não é registrado em lugar nenhum.
->    O webhook e a planilha já existem, falta o cenário no Make (ver abaixo).
-> 3. **Aprovação da Dra. Lailla** em toda a copy, e consentimento assinado dos
->    dois casos clínicos usados no relatório. Ver `../../contexto/compliance-cfm.md`.
+**Captação de leads:** ligada e testada. Webhook do Make ativo, cenário
+`[HODIE] Quiz IMF → Sheets` rodando, lead caindo na planilha com as UTMs.
 
-> ℹ️ **Deriva conhecida entre o repo e o que está no ar:** a versão publicada é
-> idêntica ao repositório em todos os arquivos, exceto por comentários em
-> `styles.css` (os comentários da paleta no `:root`) e uma seta num comentário
-> do `app.js`. Nenhum efeito no funil. O próximo deploy, que é obrigatório para
-> ligar o WhatsApp e o `LEADS_ENDPOINT`, já resolve.
+> ## 🚨 Antes de subir tráfego
+> 1. **Aprovação da Dra. Lailla** em toda a copy, e consentimento assinado dos
+>    dois casos clínicos usados no relatório. Ver `../../contexto/compliance-cfm.md`.
+> 2. **CTA sem destino.** Por decisão do Daniel, o WhatsApp do consultório não
+>    foi configurado (`flow.js` → `marca.whatsapp` vazio). O funil captura o lead
+>    normalmente, mas quem clica no CTA vê o aviso de canal em configuração em
+>    vez de abrir uma conversa. O atendimento acontece pela planilha, com a
+>    equipe puxando o lead. Se um dia quiserem o CTA ativo, basta preencher o
+>    número e republicar.
 
 ## O que é
 
@@ -102,19 +98,20 @@ O anúncio aponta para a **raiz com query** (`/?utm_source=...`), nunca para
 
 ## Ligar a planilha de leads
 
-Feito até aqui:
+Está tudo ligado e testado:
 
 - [x] Planilha criada na pasta do cliente no Drive, com as 23 colunas na ordem
       do payload (link acima)
-- [x] Webhook criado no Make, time Simple Acc:
+- [x] Webhook no Make, time Simple Acc:
       `https://hook.us2.make.com/vuvci258shxi12m92b40q9ycmkeb6w9i`
       (nome: `[HODIE] Quiz IMF → Sheets`, id 2818523)
-- [ ] Cenário no Make ligando o webhook ao `addRow` (faltou permissão nesta
-      sessão para criar o cenário)
-- [ ] `LEADS_ENDPOINT` preenchido no `app.js` e redeploy
-- [ ] Teste ponta a ponta
+- [x] Cenário `[HODIE] Quiz IMF → Sheets` (id 6288590) ativo, webhook → `addRow`
+- [x] `LEADS_ENDPOINT` preenchido no `app.js` e publicado
+- [x] Testado ponta a ponta, validando **lendo a planilha**: o payload gerado
+      pelo funil real caiu com as 9 respostas, o IMF, a qualificação e as 4 UTMs
+      nas colunas certas. Linhas de teste apagadas depois.
 
-Para fechar o cenário no Make (`gateway:CustomWebHook` → `google-sheets:addRow`,
+Como o cenário está montado (`gateway:CustomWebHook` → `google-sheets:addRow`,
 conexão Google id 5139463):
 
 | Campo | Valor |
@@ -142,19 +139,14 @@ Mapeamento coluna a coluna (o `addRow` grava por posição, então a ordem impor
 | V | Página | `meta.page_url` |
 | W | Referrer | `meta.referrer` |
 
-Depois: colar a URL do webhook em `LEADS_ENDPOINT` (topo do `app.js`),
-republicar e **testar de verdade**, enviando um lead e conferindo a linha na
-planilha com as UTMs. Validar lendo a planilha, nunca o status HTTP. Por fim,
-apagar a linha de teste.
-
-Atenção: o Make só estrutura o lead com `application/json` (já tratado em
+Atenção para quem for mexer nisso: o Make só estrutura o lead com `application/json` (já tratado em
 `enviarLead`). Com `text/plain` ele responde "Accepted" e grava linha vazia, sem
 erro nenhum na tela. E confira o cabeçalho da planilha contra o mapeamento antes
 de ativar: o `addRow` grava por posição.
 
 ## Pendências do cliente
 
-- [ ] WhatsApp oficial do consultório
+- [ ] WhatsApp oficial do consultório (dispensado pelo Daniel por ora, ver topo)
 - [ ] Logo em SVG ou PNG com fundo transparente (hoje o wordmark é feito em CSS)
 - [ ] Foto da Dra. Lailla para o bloco de autoridade
 - [ ] Confirmação do RQE, para poder publicar "Endocrinologia" (hoje o funil usa

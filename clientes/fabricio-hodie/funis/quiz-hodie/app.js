@@ -8,10 +8,10 @@
    Vazio = só loga no console. ---- */
 const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
 
-/* Planilha de leads via Make (webhook instant → Google Sheets).
+/* Planilha de leads via Make (webhook instant -> Google Sheets).
    Cole a URL do webhook do Make aqui. O Make só estrutura o lead quando
    recebe application/json (já tratado em enviarLead). Vazio = não envia. */
-const LEADS_ENDPOINT = "";
+const LEADS_ENDPOINT = "https://hook.us2.make.com/vuvci258shxi12m92b40q9ycmkeb6w9i";
 
 /* UTMs capturadas da URL no carregamento (a página do quiz não muda de URL até
    o envio, então isso preserva os parâmetros do anúncio). */
@@ -85,8 +85,11 @@ function enviarLead() {
     // application/json de verdade: com text/plain o Make aceita e grava linha
     // vazia, sem erro nenhum na tela. keepalive garante que o POST sobreviva
     // ao redirect para o relatório.
+    // o .catch é obrigatório: try/catch não pega promise rejeitada, e sem ele
+    // um webhook fora do ar vira erro não tratado no console do lead.
     fetch(LEADS_ENDPOINT, { method: "POST", keepalive: true,
-      headers: { "Content-Type": "application/json" }, body: JSON.stringify(lead) });
+      headers: { "Content-Type": "application/json" }, body: JSON.stringify(lead) })
+      .catch(() => {});
   } catch (e) { /* não bloqueia o lead */ }
 }
 
