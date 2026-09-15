@@ -132,3 +132,18 @@ O número que está no funil hoje é `5511944659466`, o mesmo que o Delphis usa.
   aceitar mudar a rotina de atendimento.
 
 Templates prontos para submissão em `copy/2026-09-15-templates-whatsapp-ghl.md`.
+
+### Número escolhido · 15/09/2026
+
+**(11) 99547-2411**, formato E.164 `5511995472411`. Chip já existente, no nome do Delphis,
+guardado num aparelho reserva. Ele liberou o uso.
+
+Quando a conexão estiver no ar, trocar em `funis/quiz-autofoco/flow.js`, campo
+`marca.whatsapp`, de `5511944659466` para `5511995472411`, e republicar na Vercel.
+
+**A troca só pode acontecer depois da conexão funcionando.** Se o funil apontar para o
+número antes, o lead manda mensagem para um aparelho guardado na gaveta, e nada do que
+chegar nesse período migra para a plataforma depois.
+
+O número de treinamentos `5511944659466` continua como está: app, grupos, histórico e a
+campanha de engajamento clique-para-WhatsApp. Nada muda nele.
