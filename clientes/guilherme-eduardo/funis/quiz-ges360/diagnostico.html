@@ -74,8 +74,17 @@
     .metodo li { margin: 0 0 8px; }
     .metodo strong { color: var(--gold-light); }
     /* bloco de autoridade (Quem é o Guilherme) */
-    .autor { display: flex; align-items: center; gap: 15px; margin: 2px 0 14px; }
-    .autor-foto { width: 92px; height: 92px; flex: 0 0 92px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); }
+    /* Foto em retrato 3:4, nao em circulo: e um retrato de estudio de corpo
+       ate a cintura, e o circulo obrigava a recortar so a cabeca, jogando fora
+       a postura, que e justo o que faz a foto funcionar como autoridade.
+       Aumentada de 92px para 150px em 15/09/2026 a pedido do Guilherme. */
+    .autor { display: flex; align-items: center; gap: 18px; margin: 2px 0 16px; }
+    .autor-foto { width: 150px; height: 200px; flex: 0 0 150px; border-radius: var(--radius-sm);
+                  object-fit: cover; border: 2px solid var(--gold); }
+    @media (max-width: 420px){
+      .autor { gap: 14px; }
+      .autor-foto { width: 120px; height: 160px; flex: 0 0 120px; }
+    }
     .autor-nome { display: block; font-family: var(--font-serif); font-size: 19px; font-weight: 700; letter-spacing: .05em; color: var(--gold-light); line-height: 1.15; }
     .autor-cargo { display: block; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
     .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0 6px; }

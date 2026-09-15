@@ -70,7 +70,7 @@ objetivo 0.5). Faixas: 78+ crítica · 60 a 77 alta · 40 a 59 moderada · abaix
 | `logo.webp` | Logo GES360 oficial, enviada pelo cliente em 11/08 (520x137, fundo transparente). Substituiu o recorte de baixa qualidade que tinha sido extraído da apresentação comercial. |
 | Pixel da Meta | `1388793123452401`, no `<head>` dos dois HTMLs. Ver a seção "Pixel" abaixo. |
 | `favicon.png` | Ícone da aba: o **G** da logo, recortado do arquivo oficial, sobre o navy da marca (180x180) |
-| `guilherme.webp` | Foto do Guilherme no bloco de autoridade do relatório (200x200, recorte em ombros para ler bem no círculo de 92px) |
+| `guilherme.webp` | Foto do Guilherme no bloco de autoridade do relatório. Retrato de estúdio enviado em 15/09, em **3:4** (360x480), exibido a 150px de largura. Substituiu o recorte circular de 92px, que o cliente achou pequeno demais. O círculo obrigava a cortar só a cabeça e jogava fora a postura, que é o que faz a foto funcionar. |
 
 ## Pendências para ficar 100%
 
@@ -81,13 +81,12 @@ objetivo 0.5). Faixas: 78+ crítica · 60 a 77 alta · 40 a 59 moderada · abaix
    `https://hook.us2.make.com/r18d4hny5o7c7hce9cfcn09fhyja8d6c` (`LEADS_ENDPOINT` em `app.js`),
    e o cenário **"[Guilherme Eduardo] Diagnóstico IDR (GES360) → Sheets"** (time Simple Acc,
    ID 5924272) grava as 26 colunas na planilha. Testado ponta a ponta.
-3. ✅ **Depoimentos reais no ar**: 4 prints do Dr. Kayo em ordem narrativa mais 1 citação que
-   varia com o objetivo do lead (ver `depoimentos/README.md`).
-   ⚠️ Dos 8 aprovados, **só 4 estão publicados**, e 2 deles em versão recomprimida (400 px),
-   porque o deploy pelo MCP da Vercel embute os arquivos na chamada e imagem grande não passa.
-   Ligando o projeto ao repositório, entram os 8 em qualidade cheia.
-4. ✅ **Foto do Guilherme no ar**, no bloco de autoridade do relatório
-   (`guilherme.webp`, enviada pelo cliente em 25/08).
+3. ✅ **Prova social renovada em 15/09/2026**, a pedido do Guilherme: saiu o conjunto antigo
+   (4 prints de maio e junho mais 3 citações) e entrou uma série de **6 prints cobrindo janeiro
+   a agosto**, com a planilha de evolução mensal na frente. Ver `depoimentos/README.md`.
+   ⚠️ Junho estava como **R$ 71.800** no relatório e a planilha diz **R$ 61.800**. Corrigido
+   junto, no parágrafo do case e no card de credencial.
+4. ✅ **Foto do Guilherme no ar** e ampliada em 15/09, no bloco de autoridade do relatório.
 
 ## Pixel da Meta
 
@@ -146,12 +145,17 @@ projetos separados na Vercel. **Isto é gambiarra e precisa ser desfeito.**
 | `quiz-guilhermeeduardo` | `index.html`, `diagnostico.html`, `flow.js`, `app.js` (o link público) |
 | `ges360-cdn` | `styles.css` |
 | `ges360-relatorio` | `diagnostico.js` (só texto agora) |
-| **jsDelivr** (não é Vercel) | `logo.webp`, `favicon.png`, `guilherme.webp` e **os 4 prints**, direto deste repositório |
+| **jsDelivr** (não é Vercel) | `logo.webp`, `favicon.png`, `guilherme.webp` e **os 6 prints**, direto deste repositório |
 
 O projeto `ges360-assets` **não é mais usado** e pode ser apagado: os prints
 passaram para o jsDelivr, e agora em **qualidade cheia** (antes dois deles iam
 recomprimidos a 400 px só para caber na chamada de deploy). Com isso todo deploy
 do relatório virou **só texto**, que é a parte segura do MCP.
+
+⚠️ **O jsDelivr é fixado num commit (SHA).** Toda vez que uma imagem mudar, o commit muda, e a
+URL fixada nos arquivos publicados tem que ser atualizada junto. A ordem é: commitar e dar push
+primeiro, pegar o SHA novo, só então publicar os HTMLs e o `diagnostico.js` apontando para ele.
+Publicar antes do push deixa a página pedindo imagem que ainda não existe no CDN.
 
 Por isso os HTMLs publicados apontam para URLs absolutas, enquanto **os arquivos
 deste repositório usam caminhos relativos e são autocontidos** (a versão certa).

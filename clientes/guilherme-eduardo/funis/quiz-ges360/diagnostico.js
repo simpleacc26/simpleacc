@@ -110,40 +110,37 @@ if (!a._completedAt && !a.problema) {
   const ctaInline = `<div class="cta-inline"><button class="btn btn-primary cta-wpp">${ctaLabel}</button></div>`;
 
   /* ---------- Depoimentos (Dr. Kayo Andrade, com autorização em contrato) ------
-     Servidos por gargalo e por objetivo, igual ao CTA: o lead vê a prova que
-     responde à objeção dele, não uma galeria genérica.
+     Prova social renovada em 15/09/2026 a pedido do Guilherme. Saiu o conjunto
+     antigo (4 prints de maio e junho + 3 citações que variavam com o objetivo)
+     e entrou esta série, que cobre janeiro a agosto e mostra a curva inteira em
+     vez de um mês isolado.
+
      Só entra material SEM nome de paciente. Ver depoimentos/README.md.
 
-     São 4 PRINTS reais em ordem narrativa (dado duro, objeção de preço, objeção
-     de público, aspiração) mais 1 CITAÇÃO atribuída com data, que varia com o
-     objetivo. A citação nunca repete o que já está nos prints. Recriar um print
-     de WhatsApp em HTML seria fabricar a aparência de um documento, e isso não
-     se faz: por isso ela vai como citação, não como imagem.
-     Os outros 4 prints aprovados ficam em depoimentos/ para o time usar no
-     WhatsApp (ver README). */
-  const PRINTS = {
-    /* Atenção: este print é do dia 22/05, com o mês ainda em curso (R$ 64.761).
-       A legenda diz isso de propósito: sem essa frase o número parece
-       contradizer o R$ 86.771 do fechamento citado logo acima. */
-    tabela:   { src: "kayo-4756.webp", w: 470, h: 681,
-      cap: "Antes de começar, ele tinha medo de que ninguém fosse pagar pelos programas. Este print é do dia 22 de maio, com o mês ainda em curso: fechou em R$ 86.771." },
-    preco:    { src: "kayo-4750.webp", w: 560, h: 419,
-      cap: "Sobre o medo de que o paciente ache caro, depois de fechar 3 programas em um dia: \"ninguém pediu desconto, ninguém achou caro\"." },
-    perfil:   { src: "kayo-4767.webp", w: 560, h: 529,
-      cap: "Um programa de R$ 4.400 e dois de R$ 3.000, fechados com três pacientes novos que ele mesmo classificaria como \"sem perfil\"." },
-    plantao:  { src: "kayo-4763.webp", w: 560, h: 723,
-      cap: "Ele dava plantão de 18 horas na UTI às terças, por R$ 1.500. Nesta terça, fechou um programa de R$ 9 mil dentro da própria clínica." },
-  };
-
-  /* Citação por objetivo. Texto literal do Dr. Kayo, com a data, apresentado
-     como citação e não como imagem de conversa. */
-  /* As falas aqui não repetem nenhum dos 4 prints acima, de propósito. */
-  const CITACOES = {
-    "sair-plantao": { fala: "Estou pisando em nuvens. Fazendo o que eu amo fazer, e sendo reconhecido e bem remunerado por isso. Nunca estive tão realizado.", quando: "9 de junho" },
-    "vender-natural": { fala: "O que mudou? Minha confiança e a forma de entregar. Eu não preciso tentar convencê-los: ao final da consulta eles já estão convencidos.", quando: "19 de maio" },
-    "_padrao": { fala: "Dentre todos os investimentos que eu fiz, esse foi o de maior retorno. Muito obrigado!", quando: "26 de maio, quando o mês já passava de R$ 75 mil" },
-  };
-  const cit = CITACOES[valor("objetivo")] || CITACOES._padrao;
+     A ordem é narrativa: a série mensal (aconteceu e se sustentou), o topo com
+     a reação do Kayo, uma venda à vista (derruba "meu paciente não paga"), um
+     dia comum (é rotina, não sorte), dois dias somados (escala) e o plantão que
+     virou consultório (o que muda na vida dele). */
+  const PRINTS = [
+    { src: "kayo-evolucao-mensal.webp", w: 560, h: 734,
+      alt: "Planilha de evolução mensal do faturamento da clínica do Dr. Kayo Andrade em 2026",
+      cap: "A evolução mês a mês da clínica do Dr. Kayo em 2026. A virada acontece em maio: os quatro meses anteriores fecharam em R$ 27,6 mil por mês, em média, e os quatro seguintes, em R$ 93,1 mil." },
+    { src: "kayo-agosto-104k.webp", w: 560, h: 687,
+      alt: "Print de conversa de WhatsApp com o Dr. Kayo Andrade sobre o fechamento de agosto",
+      cap: "Agosto fechou em R$ 104.050, o segundo mês seguido acima de R$ 100 mil, num mês em que ele ainda tirou férias." },
+    { src: "kayo-6680-quinta.webp", w: 560, h: 448,
+      alt: "Print de conversa de WhatsApp com o Dr. Kayo Andrade sobre um programa vendido à vista",
+      cap: "Sobre o medo de que o paciente ache caro: um programa de acompanhamento de 3 meses fechado por R$ 6.680, à vista." },
+    { src: "kayo-17600-segunda.webp", w: 560, h: 476,
+      alt: "Print de conversa de WhatsApp com o Dr. Kayo Andrade sobre o faturamento de uma segunda-feira",
+      cap: "R$ 17.600 numa segunda-feira normal, somando uma consulta, um programa novo e duas renovações. Não é pico, é rotina." },
+    { src: "kayo-36400-dois-dias.webp", w: 560, h: 315,
+      alt: "Print de conversa de WhatsApp com o Dr. Kayo Andrade sobre dois dias de faturamento",
+      cap: "Segunda e terça do mesmo mês: R$ 36.400 e quatro protocolos vendidos." },
+    { src: "kayo-23200-plantao.webp", w: 560, h: 541,
+      alt: "Print de conversa de WhatsApp com o Dr. Kayo Andrade comparando plantão e consultório",
+      cap: "Ele fazia plantão às quintas e faturava menos de R$ 1.000 no dia. Nesta quinta, atendendo no próprio consultório, fechou R$ 23.200." },
+  ];
 
   /* Prints ficam em depoimentos/; a foto do Guilherme fica na raiz do funil.
      No repositório os dois são caminhos relativos e a pasta é autocontida. A
@@ -153,15 +150,10 @@ if (!a._completedAt && !a.problema) {
   const figura = (p) => `
       <figure class="depo-shot">
         <img src="${ASSETS}${p.src}" width="${p.w}" height="${p.h}" loading="lazy" decoding="async"
-             alt="Print de conversa de WhatsApp com o Dr. Kayo Andrade" />
+             alt="${p.alt}" />
         <figcaption>${p.cap}</figcaption>
       </figure>`;
-  /* Ordem narrativa: dado duro, objeção de preço, objeção de público, aspiração. */
-  const galeriaDepoimentos = [PRINTS.tabela, PRINTS.preco, PRINTS.perfil, PRINTS.plantao].map(figura).join("") + `
-      <blockquote class="depo-quote">
-        <p>${cit.fala}</p>
-        <cite>Dr. Kayo Andrade, por WhatsApp, ${cit.quando}</cite>
-      </blockquote>`;
+  const galeriaDepoimentos = PRINTS.map(figura).join("");
 
   report.innerHTML = `
     <div class="report-head">
@@ -264,7 +256,7 @@ if (!a._completedAt && !a.problema) {
     <div class="etapa">
       <h3>Quem é o Guilherme</h3>
       <div class="autor">
-        <img class="autor-foto" src="${ASSETS_MARCA}guilherme.webp" width="92" height="92"
+        <img class="autor-foto" src="${ASSETS_MARCA}guilherme.webp" width="150" height="200"
              loading="lazy" decoding="async" alt="Guilherme Eduardo" />
         <div>
           <span class="autor-nome">GUILHERME EDUARDO</span>
@@ -277,19 +269,20 @@ if (!a._completedAt && !a.problema) {
       vive, atração, conversão e retenção de paciente, e estruturou o GES360 para resolvê-las na
       ordem certa.</p>
       <div class="cred-grid">
-        <div class="cred"><div class="n">+322%</div><div class="d">de faturamento em um mês na clínica do Dr. Kayo, de R$ 20,5 mil para R$ 86,7 mil</div></div>
-        <div class="cred"><div class="n">R$ 50,8 mil</div><div class="d">fechados em 3 dias de atendimento, sem aumentar a agenda</div></div>
-        <div class="cred"><div class="n">R$ 71,8 mil</div><div class="d">o patamar sustentado no mês seguinte, provando que não foi pico</div></div>
+        <div class="cred"><div class="n">R$ 93,1 mil</div><div class="d">a média mensal da clínica do Dr. Kayo nos 4 meses depois da virada, contra R$ 27,6 mil nos 4 meses antes</div></div>
+        <div class="cred"><div class="n">3,4x</div><div class="d">o salto no faturamento, sem aumentar um único dia de atendimento</div></div>
+        <div class="cred"><div class="n">2 meses</div><div class="d">seguidos acima de R$ 100 mil: julho em R$ 119.707 e agosto em R$ 104.050</div></div>
         <div class="cred"><div class="n">R$ 48 mil</div><div class="d">em 7 dias na clínica do Dr. André, nutrólogo</div></div>
       </div>
     </div>
 
     <div class="etapa">
       <h3>Isso já aconteceu antes</h3>
-      <p>O Dr. Kayo Andrade é médico e aplicou o GES360 dentro da própria clínica. Ele saiu de
-      <strong>R$ 20.546 em abril para R$ 86.771 em maio</strong>, e sustentou R$ 71.800 em junho,
-      sem aumentar um único dia de atendimento. Abaixo estão as conversas, publicadas com
-      autorização dele.</p>
+      <p>O Dr. Kayo Andrade é médico e aplicou o GES360 dentro da própria clínica. Nos quatro
+      meses anteriores ele faturava <strong>R$ 27,6 mil por mês</strong>, em média. Nos quatro
+      meses seguintes, <strong>R$ 93,1 mil</strong>, com julho em R$ 119.707 e agosto em
+      R$ 104.050, sem aumentar um único dia de atendimento. Abaixo estão a planilha e as
+      conversas, publicadas com autorização dele.</p>
       ${galeriaDepoimentos}
       <p class="hint">O que esses casos têm em comum: nenhum deles precisou de mais pacientes
       para faturar mais. O que mudou foi o modelo de receita.</p>
