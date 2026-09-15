@@ -1,7 +1,15 @@
-# Quiz · Diagnóstico de Autoridade (Luana Isse)
+# Quiz · Diagnóstico Gatilho Único (Luana Isse)
 
-Funil de quiz da Luana Isse. Anúncio ou bio → quiz de 9 passos → captura →
+Funil de quiz da Luana Isse. Anúncio ou bio → quiz de 8 passos → captura →
 tela de carregamento → diagnóstico personalizado com CTA de WhatsApp.
+
+> **REFEITO EM 14/09, não ajustado.** A oferta mudou na call de 11/09: saiu a
+> mentoria MMPV de R$ 7 mil, entrou o **Método Gatilho Único, R$ 1.997, vendido
+> por VSL**, e o público passou a ser **quem já vende** e está cansado de
+> depender de call. Funil novo, promessa nova, perguntas novas. O quiz antigo
+> (Diagnóstico de Autoridade, com IRV e os pilares do MMPV) não existe mais.
+> Antes de mexer aqui, leia
+> `estrategia/2026-09-14-skill1-estrategia-quiz-gatilho-unico.md`.
 
 **No ar:** https://quiz-luana-isse.vercel.app
 
@@ -14,8 +22,15 @@ tela de carregamento → diagnóstico personalizado com CTA de WhatsApp.
 
 Segue o blueprint `references/estrutura-invisivel.md` da skill
 `gerar-quiz-diag-pag-pos-quiz`, com os ajustes validados no projeto
-Thaina/Thiago aplicados por cima, e com a copy, o índice e a identidade
-visual da Luana.
+Thaina/Thiago aplicados por cima, e com a copy e a identidade visual da Luana.
+
+**A estratégia é ASK (Ryan Levesque), não pontuação.** É um **quiz Killer**: o
+resultado nomeia um erro que a pessoa não sabia que estava cometendo, e não
+devolve nota nenhuma. A **pergunta de segmentação vem imediatamente antes da
+captura**, e é ela, sozinha, que define o diagnóstico. Os buckets saíram da
+linguagem do comprador real, não dos pilares do método da Luana: inventar
+bucket a partir do próprio método é o erro fatal que o ASK nomeia, e foi
+exatamente o que a versão anterior deste quiz fez.
 
 **Identidade visual vem do manual de marca oficial dela**, não de inferência:
 cores em `contexto/marca/`, com o dourado `#B49055` e o escuro `#030118`.
@@ -23,13 +38,20 @@ Montserrat no corpo (do manual) e Playfair Display nos títulos, substituta da
 Humble Nostalgia, que é paga. As fontes carregam sem bloquear a renderização,
 então Google Fonts fora do ar não trava a página.
 
-- **Índice:** IRV, Índice de Ruptura de Valor. Só as perguntas de diagnóstico
-  pontuam. Faixas: ≥ 66% Alta · 33 a 65% Média · < 33% Baixa.
-- **Resultado nomeado**, por pilar: Excelente e escondida · Excelente sem causa ·
-  Excelente e intercambiável · Excelente sem caminho de venda. Vai no topo do
-  relatório, na mensagem de WhatsApp e na planilha.
-- **Pilar dominante:** sai da pergunta de problema e mapeia para um dos quatro
-  pilares do MMPV. É o que personaliza a leitura e o "o que precisa acontecer".
+- **Sem índice numérico.** Quiz Killer não mede, nomeia. O IRV foi removido:
+  era decoração (89% das combinações caíam na mesma faixa) e prometia precisão
+  que o quiz não tem.
+- **Resultado nomeado**, um dos quatro: Oferta que só existe na conversa ·
+  Pitch que mora na sua cabeça · Fechamento que depende de improviso · Convence,
+  mas não conduz. Cada um é uma das quatro tarefas que o conteúdo único precisa
+  cumprir para substituir a call. Vai no topo do relatório, na mensagem de
+  WhatsApp e na planilha.
+- **O diagnóstico sai da pergunta de segmentação (`cena`)**, a última antes da
+  captura, e de nenhuma outra. A pessoa escolhe uma cena concreta ("mandei o
+  conteúdo para alguém e...") e cada opção carrega o seu `diag` no `flow.js`.
+  Sem peso, sem soma, sem inferência.
+- **Duas porteiras no fim:** `faturamento` (a primeira opção, "ainda não faturo
+  de forma constante", marca `fora: true`) e `prontidao`.
 - **Qualificação em 4 faixas** na planilha (fila-quente, qualificado, nutrir,
   fora) e **3 CTAs** na página: fila-quente e qualificado veem o mesmo botão.
   A quarta faixa serve para priorizar a fila do atendimento.
@@ -47,7 +69,7 @@ então Google Fonts fora do ar não trava a página.
 | Arquivo | O que é |
 |---|---|
 | `index.html` | Casca do quiz (marca + barra de progresso) |
-| `flow.js` | **Toda a copy, os pesos e os resultados nomeados.** Mexer aqui |
+| `flow.js` | **Toda a copy, os 8 passos e os resultados nomeados.** Mexer aqui |
 | `app.js` | Motor: render, validação, persistência, tracking, envio do lead |
 | `diagnostico.html` | Casca do relatório |
 | `diagnostico.js` | Monta o diagnóstico personalizado |
@@ -62,12 +84,15 @@ então Google Fonts fora do ar não trava a página.
    porcentagem. Número ali faz o quiz parecer longo e medido, e derruba
    conclusão. Só a barra enchendo.
 2. **Sem rodapé** nas páginas do funil.
-3. **Pesos calibrados sobre as 1024 combinações antes de publicar.** Na
-   primeira versão, 89% caíam em "Alta" e "Baixa" era impossível: o número era
-   teatro. Recalibrando com 0 e 1 nas alternativas mais leves, ficou 20% a 100%
-   com ~50% Alta, ~49% Média, ~1% Baixa. A faixa Baixa é rara de propósito,
-   porque o quiz não tem alternativa de "está tudo bem".
-   **Se mexer em qualquer peso, rode a distribuição de novo.**
+3. **Índice numérico só entra se sobreviver ao teste da distribuição.** A
+   primeira versão deste funil tinha o IRV: 89% das combinações caíam na mesma
+   faixa e "Baixa" era praticamente impossível. Era teatro de precisão.
+   Removido em 14/09. Se um dia alguém quiser pontuação de volta, rode a
+   distribuição sobre todas as combinações ANTES de publicar: se uma faixa
+   engole mais de dois terços, o índice não está medindo nada.
+   **A distribuição atual das 200.000 combinações** (com as 4 faixas de
+   qualificação) está em ~23% fora, ~38% nutrir, ~29% fila-quente, ~10%
+   qualificado. Rode de novo se mexer em `classificarLead()`.
 4. **Regra de corte cruzada vive no código**, em `classificarLead()`, não só no
    documento de estratégia.
 5. **Mensagem de WhatsApp leva o resultado nomeado**, não só o nome. Quem
@@ -121,8 +146,8 @@ duas páginas (o `PageView` sai do bloco base) e o ID também vive em
 | `step_view`, `step_complete`, `funnel_abandon`, ... | personalizado | Análise de passo a passo |
 
 **`Lead` é o que a campanha otimiza.** Ele leva parâmetros de qualificação:
-`qualificacao` (fila-quente, qualificado, nutrir, fora), `faixa`, `irv`,
-`resultado` e `content_category` (o pilar).
+`qualificacao` (fila-quente, qualificado, nutrir, fora), `resultado` e
+`content_category` (o diagnóstico). `faixa` e `irv` saíram junto com o índice.
 
 ### Por que existe um evento por faixa, além do parâmetro
 
@@ -150,15 +175,29 @@ parâmetro de evento, e não há Advanced Matching ligado. Se um dia for ligar,
 
 ## Planilha e integração
 
-**Leads · Diagnóstico de Autoridade · Luana Isse**, no Drive dela, pasta
+**Leads · Diagnóstico · Luana Isse**, no Drive dela, pasta
 "3. Estratégia e Tráfego":
 https://docs.google.com/spreadsheets/d/14QWEtzfTYxLcImWQW_Pcw0BJtNK1BY14jthvCUKhxLo/edit
 
-26 colunas: data, contato, IRV, faixa, pilar, **resultado**, qualificação, as 9
-respostas por extenso, frente, origem, página e as 5 UTMs.
+**22 colunas** desde 15/09 (eram 26). Nesta ordem, que é a ordem do payload em
+`app.js > enviarLead()`:
+
+```
+Data/Hora | Nome | WhatsApp | E-mail | Resultado | Qualificacao | Vende |
+Como vende | Volume de calls | O que pesa | Ja tentou | Faturamento |
+Prontidao | Cena | Frente | Origem | Pagina | utm_source | utm_medium |
+utm_campaign | utm_content | utm_term
+```
+
+> ⚠️ **O cabeçalho da planilha precisa ser trocado à mão.** O cenário do Make já
+> foi remapeado para estas 22 colunas em 15/09, mas a aba ainda tem o cabeçalho
+> antigo (26 colunas, com IRV/faixa/pilar). Antes de mandar tráfego:
+> **1)** duplique a aba atual como arquivo histórico (os leads antigos só fazem
+> sentido sob o cabeçalho antigo); **2)** limpe a aba `Untitled` e cole o
+> cabeçalho acima na linha 1. Não renomeie a aba (ver abaixo).
 
 Cenário no Make (time Simple Acc):
-**[Luana Isse] Diagnóstico de Autoridade → Sheets**, id `5982387`, webhook
+**[Luana Isse] Diagnóstico Gatilho Único → Sheets**, id `5982387`, webhook
 instantâneo. Só roda quando chega lead: **2 operações por lead, sem varredura
 e sem agendamento**. Nada de crédito queimando à toa.
 
@@ -188,6 +227,13 @@ Cole `+55 11 99991-2039` no campo de WhatsApp e confirme que o campo mostra
 - [ ] **Pacote de logos** em SVG ou PNG transparente. O que está no ar foi
       extraído do PDF do manual.
 - [ ] **GA4** em `app.js > TRACKING_CONFIG`, se for usar. O Pixel da Meta já está.
+- [ ] **URL da VSL** em `flow.js > marca.vslUrl`. Enquanto estiver vazio, todos
+      os CTAs do relatório caem no WhatsApp, que é o comportamento seguro. Assim
+      que a VSL do Gatilho Único estiver no ar, preencher ali e republicar: o
+      botão passa a levar direto para a VSL para todo mundo, menos quem caiu em
+      `fora`, que continua no WhatsApp.
+- [ ] **Trocar o cabeçalho da planilha** para as 22 colunas novas (ver acima).
+      Até isso acontecer, os leads novos entram sob nomes de coluna errados.
 
 ## Como rodar e publicar
 
