@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Estratégia Completa · Delphis Fonseca · Método AUTOFOCO</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body { font-family: Arial, Helvetica, sans-serif; color: var(--text); font-size: 10pt; line-height: 1.45; }
+  .page {
+    width: 210mm; height: 297mm; overflow: hidden;
+    padding: 16mm 18mm 24mm 18mm; position: relative;
+    page-break-after: always; background: #fff;
+  }
+  .page:last-child { page-break-after: auto; }
+  .runhead {
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; color: var(--muted);
+    letter-spacing: .06em; text-transform: uppercase;
+    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt;
+  }
+  .runfoot { position: absolute; bottom: 9mm; left: 18mm; right: 18mm; text-align: center; font-size: 7.5pt; color: var(--muted); }
+  .kicker { color: var(--gold); font-size: 9pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt; }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
+  .box-dark { background: var(--navy-dark); color: #f5f3ee; padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt; }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light { background: var(--beige); border-left: 3pt solid var(--gold); padding: 10pt 14pt; margin: 11pt 0; }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .secao-header { background: var(--navy-dark); color: #fff; padding: 10pt 16pt; margin-bottom: 10pt; border-left: 4pt solid var(--gold); }
+  .secao-header .sk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .secao-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .secao-header .sd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin: 11pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12pt; margin-bottom: 5pt; }
+  .pergunta { color: var(--navy); font-weight: bold; font-size: 10.5pt; margin-bottom: 4pt; }
+  .alts { display: grid; grid-template-columns: 1fr 1fr; gap: 2pt 16pt; margin-bottom: 8pt; }
+  .alts div { padding-left: 12pt; text-indent: -12pt; font-size: 9.5pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.two { column-count: 2; column-gap: 16pt; }
+  ul.two > li { break-inside: avoid; font-size: 9.5pt; }
+  p { margin-bottom: 6pt; }
+  .var { background: var(--beige); color: #8a5a1a; padding: 0 2pt; font-size: 9.5pt; }
+  .navy { color: var(--navy); }
+  .cover { padding-top: 58mm; }
+  .cover h1 { font-size: 38pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl2 { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- 1 · CAPA -->
+<div class="page cover">
+  <div class="kicker">Funil de Diagnóstico · Mentoria CONEXÃO</div>
+  <h1>Estratégia<br>Completa</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    Quiz, página de diagnóstico, anúncios e cadência.<br>
+    A copy inteira do funil, pronta para implementar.<br>
+    A distância entre o que você sabe e o que o outro percebe.
+  </div>
+  <div class="meta">
+    <div class="lbl2">Preparado para</div>
+    <div class="val">Delphis Fonseca</div>
+    <div class="lbl2">Estrategista</div>
+    <div class="val">Daniel Souza · Carlos Durães</div>
+  </div>
+</div>
+
+<!-- 2 · O FUNIL EM UMA PÁGINA -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Delphis Fonseca</span><span>Página 2</span></div>
+  <div class="kicker">Antes de ler a copy</div>
+  <h1 style="font-size:19pt;">O Funil em Uma Página</h1>
+  <p class="lead">Leia esta página antes de aprovar as copies. Tudo o que vem depois parte destas decisões.</p>
+
+  <div class="box-dark">
+    <div class="bt">O caminho do lead</div>
+    <p>Anúncio ou conteúdo → Diagnóstico AUTOFOCO, quiz gratuito de 2 minutos → Página de diagnóstico com VSL → WhatsApp → Sessão estratégica com você → Mentoria CONEXÃO.</p>
+    <p>A página de diagnóstico não vende e não mostra preço. O trabalho dela é <strong>nomear o padrão de travamento da pessoa</strong>, elevar o nível de consciência e fazer ela querer conversar. A oferta acontece na sessão, depois do diagnóstico ao vivo.</p>
+    <p>Por que assim: a mentoria vai de R$ 10 mil a R$ 30 mil, valor que esse público considera e não compra por impulso. E é na sessão que aparecem as objeções reais, que depois voltam para a copy.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A esteira hoje</div>
+    <p><strong>Carro-chefe:</strong> Mentoria CONEXÃO, individual, em três níveis. CONEXÃO 30 (5 encontros, 12x R$ 899), CONEXÃO 60 (9 encontros, 12x R$ 1.690) e CONEXÃO 120 (20 encontros, R$ 30 mil no PIX ou 12x R$ 2.990), com o Ecossistema AUTOFOCO nos níveis altos. É o que este funil vende.</p>
+    <p><strong>Produto em grupo, na faixa de R$ 4 mil:</strong> decisão marcada para o dia 14 do roadmap. Ele resolve o teto de agenda e recebe quem qualifica e não fecha o individual. Enquanto não existir, esse lead fica na base.</p>
+    <p><strong>Produto de entrada:</strong> Detonando a Timidez, R$ 899 ou 10x de R$ 89,90, na Hotmart. Não entra na mídia como campanha própria: ele é a saída de quem não qualifica no quiz.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">O que a copy precisa compensar</div>
+    <p>Ainda não há depoimento gravado com autorização. Enquanto a prova não chega, a copy compensa com o que ninguém no nicho tem: 40 anos de carreira desde 1984, o primeiro curso de formação de apresentadores de TV do SENAC reconhecido pelo MEC, ministrado por 22 anos, mais de 4.000 alunos formados e uma lista de ex-alunos que hoje está no ar.</p>
+    <p>Onde houver <span class="var">[DEPOIMENTO]</span> no texto, é espaço reservado. Nome e imagem de ex-aluno conhecido só entram com <strong>autorização escrita</strong>.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Premissas assumidas</div>
+    <p>Conversão de 30% em sessão estratégica, confirmada com o Daniel · comparecimento de 60% · ticket médio de R$ 20 mil no mix da esteira · quem conduz a sessão e fecha é você, porque ainda não existe pré-vendas · <strong>orçamento de mídia a definir.</strong></p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 3 · SEÇÃO 1 · BIG IDEA -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Delphis Fonseca</span><span>Página 3</span></div>
+  <div class="secao-header">
+    <div class="sk">Seção 1</div>
+    <h2>Big Idea</h2>
+    <div class="sd">A ideia que sustenta o quiz, a página, os anúncios e o atendimento.</div>
+  </div>
+
+  <div class="lbl">A big idea</div>
+  <h3>O mercado te ensinou a falar. Ninguém te ensinou a chegar.</h3>
+  <p>O profissional que você atende não tem problema de conteúdo. Ele estudou, tem experiência e entrega resultado. Mas quando abre a boca, aquilo que ele sabe não chega inteiro do outro lado, e quem é lembrado na sala é outro.</p>
+  <p>Por isso a virada de chave não é "aprenda a falar melhor". É: <strong>o problema não está na sua fala, está na distância entre o que você sabe e o que o outro percebe.</strong> A oratória tradicional tenta fechar essa distância com truque, e faz o contrário: cria um personagem, e personagem afasta.</p>
+  <p>A promessa não é virar orador. É fazer o valor que a pessoa já tem finalmente chegar. O produto vende presença e identidade, não técnica de palco, e essa é a linha que separa você de todo o resto do nicho.</p>
+
+  <div class="lbl">A frase que resume a transformação</div>
+  <p><strong class="navy">De profissional que sabe muito, a profissional que é percebido pelo que sabe.</strong></p>
+
+  <div class="lbl">Por que isso funciona com este público</div>
+  <p>Ele é empresário, executivo, médico, advogado, professor, especialista. Não quer ser tratado como inseguro nem como tímido: isso fere o status dele. Promessa de conquistar plateia soa pequena. Promessa de ser percebido pelo valor que ele já construiu respeita. É a diferença entre falar com alguém que precisa de ajuda e falar com alguém que resolve tudo sozinho, menos isso.</p>
+
+  <div class="box-light">
+    <div class="bt">A régua de linguagem, válida para toda peça</div>
+    <p><strong>Fala:</strong> chegar · presença · distância entre o que você sabe e o que o outro percebe · tirar o foco de si na hora certa · a técnica serve ao resultado · comunicar como você mesmo, melhor preparado · o branco não é falta de memória.</p>
+    <p><strong>Não fala:</strong> oratória como categoria do produto · truque, fórmula ou script de palco · "aprenda a falar em público" como promessa central · tímido, inseguro ou travado como rótulo da pessoa (a palavra timidez só aparece no produto de entrada, e descrevendo a cena, nunca acusando) · promessa de resultado financeiro · valor da mentoria dentro de anúncio pago.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 4 · SEÇÃO 2 PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Delphis Fonseca</span><span>Página 4</span></div>
+  <div class="secao-header">
+    <div class="sk">Seção 2 · Parte 1</div>
+    <h2>Copy do Quiz</h2>
+    <div class="sd">Diagnóstico AUTOFOCO. Capta, qualifica e já funciona como o primeiro atendimento.</div>
+  </div>
+  <p>Cada pergunta mede uma parte do travamento. O resultado não é rótulo genérico: é o nome do padrão dele, e é isso que faz a pessoa chegar na sessão achando que você enxergou o que ninguém enxergou.</p>
+
+  <div class="lbl">Hero da página do quiz</div>
+  <p><strong>Headline:</strong> Você sabe do que fala. Por que isso não chega?<br>
+  <strong>Sub:</strong> Não é falta de conteúdo e não é falta de talento. Existem quatro pontos de travamento entre o que você sabe e o que o outro percebe, e todo travamento tem origem.<br>
+  <strong>Micro:</strong> 10 perguntas · 2 minutos · resultado personalizado no seu WhatsApp · <strong>Botão:</strong> Quero meu diagnóstico</p>
+
+  <div class="lbl">Pergunta 1 · Situação</div>
+  <div class="pergunta">Onde a sua comunicação mais pesa hoje?</div>
+  <div class="alts">
+    <div>a) Reuniões, apresentações e decisões na empresa</div>
+    <div>b) Vídeo, câmera e redes sociais</div>
+    <div>c) Palco, aula, palestra ou evento</div>
+    <div>d) Conversa de venda, negociação e atendimento</div>
+  </div>
+
+  <div class="lbl">Pergunta 2 · Situação · Perfil</div>
+  <div class="pergunta">E a sua vida profissional?</div>
+  <div class="alts">
+    <div>a) Sou empresário ou sócio</div>
+    <div>b) Sou executivo ou ocupo cargo de liderança</div>
+    <div>c) Sou profissional liberal (médico, advogado, consultor, arquiteto)</div>
+    <div>d) Sou CLT, estudante ou estou em transição de carreira</div>
+  </div>
+
+  <div class="lbl">Pergunta 3 · Problema · Define o padrão dominante</div>
+  <div class="pergunta">Qual dessas frases mais parece ter saído da sua boca?</div>
+  <div class="alts">
+    <div>a) "Eu sei do assunto, mas na hora não sai como eu penso"</div>
+    <div>b) "Eu evito, adio e invento desculpa para não aparecer"</div>
+    <div>c) "Quando ligo a câmera, eu viro outra pessoa"</div>
+    <div>d) "Eu falo bem, mas não causo o impacto que poderia"</div>
+  </div>
+
+  <div class="lbl">Pergunta 4 · Problema</div>
+  <div class="pergunta">O que mais se repete quando você precisa se comunicar?</div>
+  <div class="alts">
+    <div>a) Dou branco justamente no que eu mais domino</div>
+    <div>b) Fico me observando enquanto falo</div>
+    <div>c) Ensaio a frase na cabeça e não falo</div>
+    <div>d) Falo demais, me perco e não fecho a ideia</div>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 5 · SEÇÃO 2 PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Delphis Fonseca</span><span>Página 5</span></div>
+  <div class="secao-header">
+    <div class="sk">Seção 2 · Parte 2</div>
+    <h2>Copy do Quiz: perguntas 5 a 8</h2>
+    <div class="sd">Problema, implicação e o que ele já tentou. É aqui que o diagnóstico ganha profundidade.</div>
+  </div>
+
+  <div class="lbl">Pergunta 5 · Problema</div>
+  <div class="pergunta">E depois que passa, o que acontece?</div>
+  <div class="alts">
+    <div>a) Fico remoendo o que eu deveria ter dito</div>
+    <div>b) Me cobro e evito a próxima oportunidade</div>
+    <div>c) Acho que fui bem, mas vejo que não gerou nada</div>
+    <div>d) Deixo outra pessoa assumir e me arrependo depois</div>
+  </div>
+
+  <div class="lbl">Pergunta 6 · Implicação</div>
+  <div class="pergunta">Há quanto tempo isso se repete?</div>
+  <div class="alts">
+    <div>a) Menos de 2 anos</div>
+    <div>b) De 2 a 5 anos</div>
+    <div>c) De 5 a 10 anos</div>
+    <div>d) Mais de 10 anos, em fases diferentes da carreira</div>
+  </div>
+
+  <div class="lbl">Pergunta 7 · Implicação</div>
+  <div class="pergunta">O que isso já custou a você?</div>
+  <div class="alts">
+    <div>a) Oportunidade, promoção ou cliente que foi para outro</div>
+    <div>b) Reconhecimento por algo que eu mesmo construí</div>
+    <div>c) Convites que eu recusei e depois me arrependi</div>
+    <div>d) Todas as anteriores</div>
+  </div>
+
+  <div class="lbl">Pergunta 8 · Tentativas</div>
+  <div class="pergunta">O que você já tentou para resolver?</div>
+  <div class="alts">
+    <div>a) Curso de oratória ou de falar em público</div>
+    <div>b) Terapia ou trabalho de autoconhecimento</div>
+    <div>c) Treino sozinho, gravando e repetindo</div>
+    <div>d) Nunca tratei isso a sério</div>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Por que a pergunta 8 importa tanto</div>
+    <p>Quem marca <strong>a</strong> é o lead mais valioso do funil: já pagou por oratória, saiu com truque e não resolveu. Toda a página de diagnóstico e o ângulo 2 dos anúncios falam diretamente com ele, e é o argumento que mais separa você do resto do mercado.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 6 · SEÇÃO 2 PARTE 3 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Delphis Fonseca</span><span>Página 6</span></div>
+  <div class="secao-header">
+    <div class="sk">Seção 2 · Parte 3</div>
+    <h2>Objetivo, qualificação e captura</h2>
+    <div class="sd">As duas últimas perguntas e as regras que o comercial usa no dia a dia.</div>
+  </div>
+
+  <div class="lbl">Pergunta 9 · Objetivo</div>
+  <div class="pergunta">Se em 3 meses isso destravasse de vez, o que mudaria primeiro?</div>
+  <div class="alts">
+    <div>a) Eu apareceria e me posicionaria sem sofrer</div>
+    <div>b) Eu venderia e negociaria com outra segurança</div>
+    <div>c) Eu assumiria o palco, a aula ou a liderança que hoje evito</div>
+    <div>d) Eu seria reconhecido pelo que realmente sei</div>
+  </div>
+
+  <div class="lbl">Pergunta 10 · Qualificação</div>
+  <div class="pergunta">Se existisse um caminho estruturado para resolver isso, qual frase te descreve hoje?</div>
+  <div class="alts">
+    <div>a) Estou pronto, é prioridade e tenho condição de investir</div>
+    <div>b) Quero muito, mas preciso entender como funciona</div>
+    <div>c) Tenho interesse, mas não é o meu momento</div>
+    <div>d) Só quero o diagnóstico por enquanto</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Regra de segmentação</div>
+    <p><strong>Qualificado:</strong> P2 em a, b ou c, mais P10 em a ou b. Vai para a fila de sessão estratégica, com prioridade.</p>
+    <p><strong>A nutrir:</strong> interesse alto e momento ruim (P10 c). Fica na base para conteúdo, sem gasto comercial, e recebe a oferta do produto de entrada por WhatsApp.</p>
+    <p><strong>Fora por ora:</strong> P10 d, ou P2 d combinado com P10 c ou d. Recebe o diagnóstico completo com a oferta do Detonando a Timidez no fim da página.</p>
+    <p>Cruze sempre com a <strong>P3</strong>: ela dá o padrão dominante e define o gancho da sua primeira mensagem no WhatsApp.</p>
+  </div>
+
+  <div class="lbl">Captura de dados</div>
+  <p><strong>Headline:</strong> Seu diagnóstico está pronto. · <strong>Sub:</strong> Coloque seu WhatsApp abaixo e receba agora a leitura completa do seu caso.</p>
+  <p><strong>Campos:</strong> Nome · WhatsApp · E-mail · <strong>Botão:</strong> Receber meu diagnóstico</p>
+  <p><strong>Selo:</strong> Seus dados ficam entre você e a nossa equipe. Nada de disparo em massa.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 7 · SEÇÃO 3 PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Delphis Fonseca</span><span>Página 7</span></div>
+  <div class="secao-header">
+    <div class="sk">Seção 3 · Parte 1</div>
+    <h2>Página de Diagnóstico</h2>
+    <div class="sd">A peça central do funil. Ela não vende: prepara a pessoa para querer conversar.</div>
+  </div>
+
+  <div class="lbl">O trabalho desta página</div>
+  <p>É uma peça só: o diagnóstico e o convite para a sessão vivem na mesma página. A pessoa responde o quiz, deixa o WhatsApp e cai direto no resultado dela. O mesmo texto vai por WhatsApp em seguida, para reler.</p>
+  <p>No topo da página entra a <strong>VSL de 5 minutos</strong>, gravada por você no seu estúdio, lendo o padrão em voz alta. Para um locutor com 40 anos de microfone, o vídeo é o ativo mais forte da página, e ele já é a primeira amostra do método.</p>
+  <p>A régua: a pessoa precisa terminar a leitura pensando "é exatamente isso que acontece comigo", e não "já entendi tudo sozinho". O padrão é nomeado; o caminho para quebrá-lo é a mentoria.</p>
+
+  <div class="lbl">Os nove blocos, na ordem</div>
+  <ul class="check">
+    <li>1. O resultado dele · 2. A leitura do cenário · 3. O espelho</li>
+    <li>4. Por que o que você já tentou não resolveu · 5. O mecanismo</li>
+    <li>6. O que precisa acontecer no seu caso, e o que custa continuar</li>
+    <li>7. Quem é o Delphis e a prova · 8. Para quem é, para quem não é, e FAQ</li>
+    <li>9. O convite e o CTA</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Os 4 padrões possíveis (o resultado do quiz)</div>
+    <p><strong>1. O Invisível.</strong> Sabe muito e isso não aparece quando fala. Entrega o conteúdo, e a lembrança fica com outro. É o padrão mais comum entre especialistas.</p>
+    <p><strong>2. O Travado.</strong> A timidez decide por ele: adia, evita, ensaia na cabeça e não fala. Competência real, exposição zero.</p>
+    <p><strong>3. O Personagem.</strong> Aprendeu técnica e virou outro. Soa ensaiado, e o que ele ganhou em postura perdeu em verdade.</p>
+    <p><strong>4. O Correto.</strong> Fala bem, não erra, e não marca. Quer autoridade e presença, não instrução de palco.</p>
+  </div>
+
+  <div class="lbl">Variáveis usadas nesta página</div>
+  <p><span class="var">{{nome}}</span> · <span class="var">{{padrao_identificado}}</span> (P3 cruzada com P4) · <span class="var">{{situacao}}</span> (P1) · <span class="var">{{repeticao}}</span> (P4) · <span class="var">{{tempo_padrao}}</span> (P6) · <span class="var">{{custo_declarado}}</span> (P7) · <span class="var">{{tentativas}}</span> (P8) · <span class="var">{{objetivo}}</span> (P9) · <span class="var">{{link_agendamento}}</span></p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 8 · SEÇÃO 3 PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Delphis Fonseca</span><span>Página 8</span></div>
+  <div class="secao-header">
+    <div class="sk">Seção 3 · Parte 2</div>
+    <h2>A Copy, Bloco a Bloco</h2>
+    <div class="sd">Blocos 1 a 3: o resultado, a leitura do cenário e o espelho.</div>
+  </div>
+
+  <div class="lbl">Bloco 1 · O resultado dele</div>
+  <p><strong>Headline:</strong> <span class="var">{{nome}}</span>, o seu padrão é o <span class="var">{{padrao_identificado}}</span>.</p>
+  <p><strong>Subheadline:</strong> Isso não é um julgamento sobre você. É o nome do que se repete, e é o começo do fim dele.</p>
+
+  <div class="lbl">Bloco 2 · A leitura do cenário</div>
+  <p>Li as suas respostas com atenção. Vou ser direto com você, porque acho que é disso que você precisa agora, e não de mais uma frase bonita.</p>
+  <p>Você me disse que a sua comunicação pesa mais em <span class="var">{{situacao}}</span>, que o que mais se repete é <span class="var">{{repeticao}}</span>, e que isso já dura <span class="var">{{tempo_padrao}}</span>. Você marcou que já custou <span class="var">{{custo_declarado}}</span>.</p>
+  <p>Essa combinação é a assinatura do <span class="var">{{padrao_identificado}}</span>. E ela diz uma coisa importante: isso não fica parado. Cada ano que passa, a distância entre o que você sabe e o que os outros percebem aumenta um pouco.</p>
+
+  <div class="lbl">Bloco 3 · O espelho</div>
+  <p>Você é competente. Ninguém precisa te dizer isso: o seu trabalho diz.</p>
+  <p>Você resolve o que os outros não resolvem, te procuram quando o assunto é difícil, e você entrega. Aí chega a hora de falar sobre isso, e parece que nada do que você é conta.</p>
+  <p>Provavelmente você se reconhece aqui:</p>
+  <ul class="check">
+    <li>Você sai da reunião com a sensação de que não foi entendido, mesmo dominando o assunto.</li>
+    <li>A pessoa menos preparada da sala foi a mais lembrada.</li>
+    <li>Você dá branco justamente naquilo que sabe de cor.</li>
+    <li>Você adia o vídeo, recusa o convite, deixa passar, e depois se cobra.</li>
+    <li>No cafezinho você é ótimo. Diante da câmera some a naturalidade.</li>
+    <li>Você já fez um curso de oratória e saiu de lá com truque, não com segurança.</li>
+  </ul>
+  <p><strong>Não há nada de errado com você. Há um padrão em você.</strong> E padrão não se resolve com força de vontade, nem decorando mais uma estrutura, nem tentando de novo na próxima reunião.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 9 · SEÇÃO 3 PARTE 3 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Delphis Fonseca</span><span>Página 9</span></div>
+  <div class="secao-header">
+    <div class="sk">Seção 3 · Parte 3</div>
+    <h2>A Copy, Bloco a Bloco</h2>
+    <div class="sd">Blocos 4 a 6: por que não funcionou, o mecanismo e o que precisa acontecer.</div>
+  </div>
+
+  <div class="lbl">Bloco 4 · Por que o que você já tentou não resolveu</div>
+  <p>Você marcou que já <span class="var">{{tentativas}}</span>. Isso não foi desperdício: hoje você entende o próprio funcionamento melhor do que a maioria.</p>
+  <p>Só que a técnica de oratória ensina você a se observar mais. Postura, gesto, entonação, texto decorado, tempo de pausa. Ela acrescenta itens à sua lista de vigilância, e o travamento nasce exatamente do excesso de vigilância sobre si mesmo.</p>
+  <p><strong>É por isso que o branco aparece justamente no assunto que você mais domina.</strong> Não é falta de memória. É atenção no lugar errado.</p>
+
+  <div class="lbl">Bloco 5 · O mecanismo</div>
+  <p>A maioria ensina técnica: como se portar, como abrir os braços, como respirar, como decorar. Eu vou muito antes disso.</p>
+  <p>Passei 40 anos em rádio, televisão, teatro, narração e dublagem, e 22 anos formando apresentadores no SENAC. O que eu aprendi nesse tempo é que dá para falar tecnicamente perfeito e não chegar em ninguém, e dá para falar de um jeito simples, sem truque nenhum, e a sala inteira parar.</p>
+  <p>A diferença não está na boca. Está em <strong>para onde vai a sua atenção enquanto você fala</strong>. Enquanto você estiver se avaliando, você não está com quem te ouve. O Método AUTOFOCO ensina a tirar o foco de si na hora certa e devolver a atenção para a entrega.</p>
+  <p>O princípio que atravessa tudo: <strong>a técnica serve ao resultado, ela não aparece.</strong> E o objetivo não é te fazer parecer nada. É te fazer ser, e ser compreendido.</p>
+
+  <div class="lbl">Bloco 6 · O que precisa acontecer no seu caso</div>
+  <p><strong>Personalizado por <span class="var">{{padrao_identificado}}</span></strong></p>
+  <p><strong>O Invisível:</strong> o trabalho começa pela intenção. Você entrega informação e não entrega direção. Enquanto o seu conteúdo não tiver destino claro, ele continua correto e esquecível.</p>
+  <p><strong>O Travado:</strong> o primeiro passo é a exposição controlada, não a coragem. Coragem não se decide, se constrói em dose certa e com orientação, e é assim que a timidez sai do comando.</p>
+  <p><strong>O Personagem:</strong> antes de qualquer coisa, desmontar o que você aprendeu. Você não precisa de mais técnica, precisa devolver a sua identidade para dentro da fala.</p>
+  <p><strong>O Correto:</strong> aqui não falta técnica, falta risco. Presença nasce quando aparece verdade, e verdade tem custo. É o trabalho mais rápido e o que muda mais depressa a percepção de autoridade.</p>
+  <p><strong>O custo de continuar como está:</strong> não é só a oportunidade que não veio. É o ano que passa igual, o convite que você recusa em silêncio, e a distância entre o que você construiu e o que os outros enxergam continuando exatamente do tamanho que está.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 10 · SEÇÃO 3 PARTE 4 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Delphis Fonseca</span><span>Página 10</span></div>
+  <div class="secao-header">
+    <div class="sk">Seção 3 · Parte 4</div>
+    <h2>Autoridade, Qualificação, FAQ e CTA</h2>
+    <div class="sd">Blocos 7 a 9: onde a página fecha e vira conversa.</div>
+  </div>
+
+  <div class="lbl">Bloco 7 · Quem é o Delphis e a prova</div>
+  <p>Comunicação desde 1984. Rádio na Jovem Pan, Antena 1, Gazeta, Transamérica e Band. Jornalismo e apresentação na Rede Bandeirantes. Narração de documentários ligados a Discovery, National Geographic, BBC e ID. Dublagem para produções de Disney, Warner, Paramount, HBO e Netflix. Teatro, cinema e carreira musical, com shows e apresentações ao lado de orquestra.</p>
+  <p>Criei e ministrei por 22 anos o <strong>primeiro curso de formação de apresentadores de TV do SENAC São Paulo</strong>, reconhecido pelo MEC, o primeiro do gênero no Brasil. Mais de <strong>4.000 pessoas formadas</strong>, e a maior parte delas nunca quis ser apresentador: eram médicos, advogados, executivos, empresários e professores que precisavam ser compreendidos.</p>
+  <p><span class="var">[DEPOIMENTO]</span> <span class="var">[DEPOIMENTO]</span> <span class="var">[DEPOIMENTO]</span>, com a profissão visível e o rosto, mediante autorização escrita.</p>
+
+  <div class="lbl">Bloco 8 · Para quem é, para quem não é</div>
+  <p><strong>É para você se:</strong> você tem competência reconhecida e ela não aparece quando você fala · você já tentou resolver com técnica e continuou travando · você quer comunicar como você mesmo, e não virar outra pessoa.</p>
+  <p><strong>Talvez não seja o momento se:</strong> você procura fórmula pronta, script ou truque de palco · você quer resultado sem praticar entre as sessões · você quer um curso gravado e barato agora, e nesse caso o caminho é o Detonando a Timidez.</p>
+
+  <div class="lbl">Bloco 8 · FAQ</div>
+  <p><strong>Isso é curso de oratória?</strong> Não. Oratória é uma parte da comunicação, e a menor delas. O trabalho aqui é sobre o que faz a sua mensagem chegar: presença, clareza, identidade e conexão.</p>
+  <p><strong>Já fiz curso de oratória e não resolveu. Por que agora?</strong> Porque aquele curso trabalhou a sua fala, e o seu travamento não está na fala. Está em para onde vai a sua atenção enquanto você fala.</p>
+  <p><strong>Eu sou muito tímido, tem jeito?</strong> Tem, e é a origem do método. Eu fui uma criança extremamente tímida e comecei no rádio justamente por não ser visto. O objetivo não é te transformar em outra pessoa, é tirar a timidez do comando.</p>
+  <p><strong>Quanto custa a sessão?</strong> Nada. O que custa é continuar mais um ano sendo percebido abaixo do que você é.</p>
+
+  <div class="lbl">Bloco 9 · O convite e o CTA</div>
+  <p><span class="var">{{nome}}</span>, entre os estúdios, o palco e as mentorias em andamento, eu abro poucas sessões por semana. São 45 minutos, comigo, ao vivo, para olhar a sua comunicação de frente e nomear a origem do que se repete.</p>
+  <p>O que sai dali: o nome do seu padrão, a origem provável dele e o caminho concreto para destravar. O que não é: não é aula, não é papo motivacional e não é apresentação de produto disfarçada. Se fizer sentido seguirmos juntos, eu te explico como. Se não fizer, você sai com a leitura mesmo assim.</p>
+  <p><strong>CTA:</strong> Quero minha sessão estratégica · <strong>Reforço:</strong> você já esperou tempo demais para ser percebido pelo que sabe.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 11 · SEÇÃO 4 PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Delphis Fonseca</span><span>Página 11</span></div>
+  <div class="secao-header">
+    <div class="sk">Seção 4 · Parte 1</div>
+    <h2>Copy dos Anúncios</h2>
+    <div class="sd">Três ângulos e 20 criativos escritos: 5 estáticos, 5 carrosséis e 10 vídeos.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Regras que valem para todos os anúncios</div>
+    <p>O destino é sempre o quiz gratuito, nunca a sessão e nunca a mentoria. <strong>Nenhum anúncio cita preço.</strong></p>
+    <p>Não vender oratória. A palavra pode aparecer para ser derrubada, nunca como categoria do produto.</p>
+    <p>Não afirmar atributo pessoal de quem lê. Nada de "você é inseguro" ou "você é tímido". A régua é descrever a cena e citar a frase que a pessoa mesma diz, nunca acusar quem ela é.</p>
+    <p>Nome e imagem de ex-aluno conhecido só entram com autorização escrita. Sem isso, a prova é numérica: 40 anos, 4.000 alunos, SENAC e MEC.</p>
+  </div>
+
+  <div class="lbl">Ângulo 1 · Dor e identificação</div>
+  <p><em>Estratégia: repetir de volta a cena que ele viveu essa semana. É o ângulo que mais capta público frio.</em></p>
+  <p><strong>Hook:</strong> "A pessoa menos preparada da sala foi a mais lembrada."</p>
+
+  <div class="lbl">Copy curta</div>
+  <p>A pessoa menos preparada da sala foi a mais lembrada, e você sabia mais do que ela. Isso não é falta de conteúdo: é a distância entre o que você sabe e o que o outro percebe. Faça o diagnóstico gratuito de 2 minutos e descubra onde a sua comunicação trava.</p>
+
+  <div class="lbl">Copy média</div>
+  <p>Tem uma cena que se repete: a reunião acaba, a decisão sai, e quem foi lembrado não foi quem mais sabia. Foi quem conseguiu chegar.</p>
+  <p>Se você já saiu de uma sala com a sensação de ter ficado abaixo do que você é, o problema não é o seu conteúdo. É o espaço entre o que você sabe e o que o outro percebe. E esse espaço não se fecha com truque de palco, porque o travamento vem justamente de se observar demais enquanto fala.</p>
+  <p>Sou Delphis Fonseca. Passei 40 anos em rádio, TV, teatro e dublagem e formei mais de 4.000 pessoas. O diagnóstico gratuito lê o seu padrão em 2 minutos e manda o resultado no seu WhatsApp.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 12 · SEÇÃO 4 PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Delphis Fonseca</span><span>Página 12</span></div>
+  <div class="secao-header">
+    <div class="sk">Seção 4 · Parte 2</div>
+    <h2>Ângulo 1 · Copy longa</h2>
+    <div class="sd">A versão de remarketing, para quem já viu as curtas e não clicou.</div>
+  </div>
+
+  <div class="lbl">Copy longa</div>
+  <p>Você conquistou o que muita gente não conquista. Formação, experiência, resultado. As pessoas te procuram quando o assunto é difícil, e você resolve.</p>
+  <p>Aí chega a hora de falar sobre isso. Numa reunião, num vídeo, num palco, numa reunião de conselho. E o que sai é menor do que o que você é. A decisão vai para outro, o crédito fica com outro, e você volta para casa com uma sensação difícil de explicar para quem te acha seguro.</p>
+  <p>Como você é inteligente, tenta resolver do jeito que resolve tudo: estudando. Faz um curso de oratória, aprende a postura, a respiração, a estrutura da apresentação. Aplica, funciona por duas semanas, e volta tudo. Muita gente sai desses cursos pior, porque agora tem um personagem para sustentar.</p>
+  <p>É aqui que quase todo mundo trava, porque ninguém contou uma coisa: <strong>o problema não está na sua fala.</strong> Está em para onde vai a sua atenção enquanto você fala. Enquanto uma parte de você estiver observando você mesmo, avaliando se a frase saiu bem, você não está com quem te ouve. É por isso que o branco aparece justamente no assunto que você domina.</p>
+  <p>Eu comecei no rádio em 1984, e comecei porque era tímido: no rádio ninguém me via. De lá para cá foram televisão, teatro, narração e a dublagem, que faço até hoje. Criei o primeiro curso de formação de apresentadores de TV do SENAC, reconhecido pelo MEC, e o ministrei por 22 anos. Mais de 4.000 pessoas passaram por lá, a maioria delas sem nenhuma vontade de ser apresentador.</p>
+  <p>O primeiro passo é gratuito: um diagnóstico de 2 minutos que identifica o seu padrão e te devolve, no WhatsApp, a leitura do que está por trás dele. Clique e responda.</p>
+
+  <div class="box-light">
+    <div class="bt">Observação de veiculação</div>
+    <p>A copy longa costuma converter melhor neste público, que é analítico e decide por profundidade, mas custa mais caro no frio. Suba as três versões no mesmo conjunto e deixe a Meta escolher. Quando a audiência aquecer, aumente o peso da longa.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 13 · SEÇÃO 4 PARTE 3 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Delphis Fonseca</span><span>Página 13</span></div>
+  <div class="secao-header">
+    <div class="sk">Seção 4 · Parte 3</div>
+    <h2>Ângulo 2 · Mecanismo Único</h2>
+    <div class="sd">A virada contraintuitiva, com a voz como prova. É o ângulo que ninguém consegue copiar.</div>
+  </div>
+  <p><strong>Hook:</strong> (você fala a mesma frase em três vozes diferentes) "Isso aqui é técnica. Conexão é outra coisa."</p>
+
+  <div class="lbl">Copy curta</div>
+  <p>Passei 40 anos dando voz a personagens. Aprendi que dá para soar tecnicamente perfeito e não chegar em ninguém. Comunicação não é falar bem, é chegar. Descubra em 2 minutos onde a sua trava.</p>
+
+  <div class="lbl">Copy média</div>
+  <p>Todo curso de oratória te ensina a se olhar mais: a postura, o gesto, a respiração, a pausa. E aí você aplica, funciona por duas semanas e volta tudo. Sabe por quê? Porque o travamento não vem de falta de técnica, vem de excesso de autoavaliação, e a técnica só acrescentou mais uma coisa para você vigiar em si mesmo.</p>
+  <p>Eu dublo há décadas. Já fui vilão, herói, narrador. Posso trocar de voz, de ritmo e de intenção em segundos, e isso é só técnica. O que faz diferença é outra coisa: para onde vai a sua atenção enquanto você fala.</p>
+  <p>O diagnóstico gratuito mostra em 2 minutos qual é o seu padrão de travamento e de onde ele provavelmente vem.</p>
+
+  <div class="lbl">Copy longa</div>
+  <p>Existe uma pergunta que eu ouço em quase toda primeira conversa: "por que eu sei tanto e na hora não sai?".</p>
+  <p>A pessoa já tentou de tudo. Já fez curso de oratória, já decorou estrutura, já ensaiou na frente do espelho, já gravou e regravou. E continua dando branco justamente no assunto que domina.</p>
+  <p>A resposta é desconfortável e libertadora ao mesmo tempo: <strong>o problema nunca esteve na fala, esteve em para onde vai a atenção enquanto se fala.</strong> Enquanto uma parte de você estiver se observando, medindo se está indo bem, essa parte não está com quem te ouve. E o ouvinte sente. Ele não sabe explicar, mas sente que tem alguém ali se protegendo.</p>
+  <p>A maioria dos profissionais ensina técnica para melhorar a performance. Eu vou muito antes disso. Depois de 40 anos entre rádio, televisão, teatro, narração e dublagem, e de 22 anos formando apresentadores no primeiro curso do gênero reconhecido pelo MEC no Brasil, eu construí um método que faz o caminho inverso: em vez de te ensinar a se olhar mais, ele te ensina a tirar o foco de si na hora certa.</p>
+  <p>Não é sobre parecer seguro. É sobre ser, e ser compreendido. Quando a atenção volta para o lugar certo, o comportamento muda sozinho: você não aprende a disfarçar melhor o nervoso, ele deixa de ter para onde crescer.</p>
+  <p>O primeiro passo é gratuito: um diagnóstico de 2 minutos que identifica o seu padrão e devolve a leitura no seu WhatsApp.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 14 · SEÇÃO 4 PARTE 4 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Delphis Fonseca</span><span>Página 14</span></div>
+  <div class="secao-header">
+    <div class="sk">Seção 4 · Parte 4</div>
+    <h2>Ângulo 3 · Prova e Autoridade</h2>
+    <div class="sd">Autoridade real, sem depender de depoimento que ainda não existe.</div>
+  </div>
+  <p><strong>Hook:</strong> "Você provavelmente já assistiu a alguém que eu formei, sem saber."</p>
+
+  <div class="lbl">Copy curta</div>
+  <p>Criei o primeiro curso de formação de apresentadores de TV do SENAC, reconhecido pelo MEC, e o ministrei por 22 anos. Mais de 4.000 alunos, muitos hoje no ar. O mesmo método, aplicado a quem precisa ser compreendido no trabalho. Faça o diagnóstico gratuito.</p>
+
+  <div class="lbl">Copy média</div>
+  <p>Quando propus ao SENAC criar um curso de formação de apresentadores de TV, me disseram que não existia mercado. Abrimos uma turma de teste com 10 vagas e apareceram 120 pessoas no primeiro dia. Abrimos quatro turmas. Depois o MEC aprovou o conteúdo e aquele virou o primeiro curso do gênero com certificação profissional no Brasil. Ministrei por 22 anos.</p>
+  <p>O que quase ninguém sabe é que a maior parte dos meus mais de 4.000 alunos nunca quis ser apresentador. Eram médicos, advogados, executivos, empresários e professores que precisavam ser compreendidos no que fazem.</p>
+  <p>Se você tem competência de sobra e sente que ela não aparece quando você fala, o diagnóstico gratuito leva 2 minutos.</p>
+
+  <div class="lbl">Copy longa</div>
+  <p>Em 1984 eu entrei no rádio, e entrei porque era tímido. No rádio ninguém me via. Foi o único lugar onde eu consegui começar.</p>
+  <p>Quarenta anos depois, já passei por televisão, teatro, cinema, narração de documentário e dublagem, que faço até hoje. E no meio disso tudo aconteceu a coisa que mais mudou a minha vida profissional: eu propus ao SENAC criar um curso de formação de apresentadores de TV. Disseram que não existia mercado. Abrimos uma turma de teste com 10 vagas, apareceram 120 pessoas no primeiro dia, e abrimos quatro turmas. Depois o MEC aprovou, e virou o primeiro curso do gênero com certificação profissional no Brasil. Ministrei por 22 anos.</p>
+  <p>Mais de 4.000 pessoas passaram por lá. Parte delas você vê hoje na televisão. Mas a maioria nunca quis ser apresentador: eram profissionais que precisavam ser compreendidos e não conseguiam. E o que travava todos era a mesma coisa, do médico ao apresentador: eles se olhavam demais enquanto falavam.</p>
+  <p>É isso que eu trabalho. Não com técnica de palco, mas devolvendo a atenção para o lugar certo, que é a entrega e quem está ouvindo. A técnica existe, e ela serve ao resultado: ela não aparece.</p>
+  <p>Se você sente que sabe muito mais do que consegue transmitir, responda o diagnóstico gratuito de 2 minutos e receba a leitura do seu caso no WhatsApp.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 15 · SEÇÃO 4 PARTE 5 · ESTÁTICOS -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Delphis Fonseca</span><span>Página 15</span></div>
+  <div class="secao-header">
+    <div class="sk">Seção 4 · Parte 5</div>
+    <h2>Os 5 Estáticos</h2>
+    <div class="sd">Cartão de texto. Funciona aqui porque parece constatação, não anúncio.</div>
+  </div>
+
+  <div class="lbl">Estático 1 · Cena</div>
+  <p><strong>Arte:</strong> "A pessoa menos preparada da sala foi a mais lembrada."<br>
+  <strong>Legenda:</strong> E você sabia mais do que ela. Isso não é azar nem falta de conteúdo: é a distância entre o que você sabe e o que o outro percebe. Diagnóstico gratuito de 2 minutos no link.</p>
+
+  <div class="lbl">Estático 2 · Cena</div>
+  <p><strong>Arte:</strong> "Você dá branco justamente no que sabe de cor."<br>
+  <strong>Legenda:</strong> Isso não é falta de memória. É excesso de autoavaliação, e tem tratamento. Descubra em 2 minutos qual é o seu padrão de travamento.</p>
+
+  <div class="lbl">Estático 3 · Mecanismo</div>
+  <p><strong>Arte:</strong> "Curso de oratória te dá truque. Não te dá presença."<br>
+  <strong>Legenda:</strong> Se técnica resolvesse, você já teria resolvido. O problema não está na sua fala, está em para onde vai a sua atenção enquanto você fala. Faça o diagnóstico gratuito.</p>
+
+  <div class="lbl">Estático 4 · Mecanismo</div>
+  <p><strong>Arte:</strong> "Não é sobre parecer. É sobre ser, e ser compreendido."<br>
+  <strong>Legenda:</strong> A técnica serve ao resultado, ela não aparece. Quem aprende a fingir segurança sustenta um personagem; quem tira o foco de si na hora certa é lembrado. Descubra o seu padrão em 2 minutos.</p>
+
+  <div class="lbl">Estático 5 · Autoridade</div>
+  <p><strong>Arte:</strong> "Formei mais de 4.000 comunicadores. A maioria não queria ser apresentador."<br>
+  <strong>Legenda:</strong> Eram médicos, advogados, executivos e professores que precisavam ser compreendidos. 22 anos no primeiro curso de apresentadores de TV do SENAC, reconhecido pelo MEC. O diagnóstico gratuito leva 2 minutos.</p>
+
+  <div class="box-light">
+    <div class="bt">Observação de produção</div>
+    <p>Cartão de texto sobre fundo escuro, com a tipografia sóbria que combina com o público de 40 a 60 anos. Nada de arte colorida de infoproduto: neste nicho, sobriedade é sinal de autoridade e reduz o tempo de produção a quase zero.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 16 · SEÇÃO 4 PARTE 6 · CARROSSÉIS -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Delphis Fonseca</span><span>Página 16</span></div>
+  <div class="secao-header">
+    <div class="sk">Seção 4 · Parte 6</div>
+    <h2>Os 5 Carrosséis</h2>
+    <div class="sd">Um slide por ideia, frases curtas. O último slide sempre leva ao quiz.</div>
+  </div>
+
+  <div class="lbl">Carrossel 1 · Cena · "5 sinais de que você está sendo percebido abaixo do que é"</div>
+  <p>1. Você explica e precisam explicar de novo depois de você. 2. A ideia vira boa quando outra pessoa repete. 3. Você é procurado para resolver, não para apresentar. 4. Você evita o vídeo e adia a palestra. 5. Nenhum desses sinais é sobre o que você sabe. 6. Todos são sobre o que chega do outro lado. 7. Descubra a origem disso em 2 minutos. Link na bio.</p>
+
+  <div class="lbl">Carrossel 2 · Cena · "As frases que você já disse para si mesmo"</div>
+  <p>1. Cinco frases que quase todo profissional competente já disse. 2. "Na hora não sai como eu penso." 3. "Deu branco justamente no que eu sei de cor." 4. "Eu deveria ter falado naquela reunião." 5. "Falar não é comigo." 6. Nenhuma delas é o problema. Todas são sintoma do mesmo. 7. Faça o diagnóstico gratuito e veja qual é o seu padrão.</p>
+
+  <div class="lbl">Carrossel 3 · Mecanismo · "Por que o curso de oratória não resolveu"</div>
+  <p>1. Você fez o curso, aprendeu a técnica e continuou travando. 2. Não foi o curso que falhou. 3. Ele te ensinou a se observar melhor. 4. E o travamento nasce justamente do excesso de autoobservação. 5. Por isso o branco vem no assunto que você domina. 6. A saída é o contrário: tirar o foco de si na hora certa. 7. Comece pelo diagnóstico gratuito. Link na bio.</p>
+
+  <div class="lbl">Carrossel 4 · Mecanismo · "Os 4 padrões de travamento"</div>
+  <p>1. Depois de 40 anos e mais de 4.000 alunos, quatro padrões se repetem. 2. O Invisível: sabe muito e não é lembrado. 3. O Travado: adia, evita e ensaia na cabeça. 4. O Personagem: aprendeu técnica e virou outro. 5. O Correto: fala bem, não erra e não marca. 6. Todos têm origem, e origem se trabalha. 7. Descubra o seu em 2 minutos.</p>
+
+  <div class="lbl">Carrossel 5 · Autoridade · "O que muda quando você para de se observar"</div>
+  <p>1. Existe um ponto em que a pessoa para de se assistir enquanto fala. 2. Não é quando ela fica confiante. 3. É quando a atenção dela sai de si e vai para quem ouve. 4. Aí some o branco, some o roteiro decorado e sobra ela. 5. Ela não aprendeu técnica nenhuma. 6. Ela mudou o lugar da atenção. 7. Esse é o trabalho. Comece pelo diagnóstico gratuito.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 17 · VÍDEOS 1 A 4 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Delphis Fonseca</span><span>Página 17</span></div>
+  <div class="secao-header">
+    <div class="sk">Seção 4 · Parte 7</div>
+    <h2>Os 10 Vídeos · roteiros 1 a 4</h2>
+    <div class="sd">Conjunto A: a cena de quem sabe e não é percebido. De 30 a 60 segundos.</div>
+  </div>
+  <p><em>Cada roteiro vale como anúncio e como conteúdo orgânico. Para orgânico, troque o CTA final por "link na bio".</em></p>
+
+  <div class="lbl">Vídeo 1 · "A pessoa menos preparada da sala" · 45s</div>
+  <p><strong>Gancho:</strong> "A pessoa menos preparada da sala foi a mais lembrada. E você sabia mais do que ela."<br>
+  <strong>Desenvolvimento:</strong> "E aí você começa a fazer conta. Será que eu falei pouco? Será que eu deveria ter interrompido? Será que o problema é que eu não tenho presença?"<br>
+  <strong>Virada:</strong> "Não é nada disso. Ela não sabia mais. Ela chegou. E chegar não é falar bonito, é o que acontece com a atenção de quem fala."<br>
+  <strong>CTA:</strong> "Fiz um diagnóstico de 2 minutos que mostra o padrão por trás disso. Link aqui embaixo."</p>
+
+  <div class="lbl">Vídeo 2 · "O branco" · 40s</div>
+  <p><strong>Gancho:</strong> "Você dá branco justamente no assunto que sabe de cor. Já reparou?"<br>
+  <strong>Desenvolvimento:</strong> "No que você não domina, você improvisa tranquilo. No que é a sua especialidade, trava."<br>
+  <strong>Virada:</strong> "Porque no assunto que é seu, você se cobra. E cobrança tira a atenção de quem te ouve e coloca em você. O branco não é falta de memória, é atenção no lugar errado."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.</p>
+
+  <div class="lbl">Vídeo 3 · "Não se esconda atrás da competência" · 50s</div>
+  <p><strong>Gancho:</strong> "Você resolve o que ninguém resolve. E não consegue apresentar isso."<br>
+  <strong>Desenvolvimento:</strong> "Todo mundo te procura quando o problema é difícil. Aí chega a reunião de diretoria, ou o vídeo, ou o palco, e você prefere que outro fale."<br>
+  <strong>Virada:</strong> "Competência não vira percepção sozinha. Existe uma distância entre o que você sabe e o que o outro percebe, e ela não se fecha estudando mais."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.</p>
+
+  <div class="lbl">Vídeo 4 · "O convite que você recusou" · 40s</div>
+  <p><strong>Gancho:</strong> "Você já recusou um convite e inventou um motivo, não já?"<br>
+  <strong>Desenvolvimento:</strong> "A palestra, a entrevista, a apresentação para o cliente grande. Você disse que estava sem agenda. Não estava."<br>
+  <strong>Virada:</strong> "Cada não desses parece pequeno. Só que somados eles constroem uma carreira menor do que a que você é capaz de ter."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 18 · VÍDEOS 5 A 7 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Delphis Fonseca</span><span>Página 18</span></div>
+  <div class="secao-header">
+    <div class="sk">Seção 4 · Parte 7</div>
+    <h2>Roteiros 5 a 7 · mecanismo</h2>
+    <div class="sd">Conjunto B: o que separa você de todo o resto do nicho.</div>
+  </div>
+
+  <div class="lbl">Vídeo 5 · "Três vozes" · 45s</div>
+  <p><strong>Gancho:</strong> (você fala a mesma frase em três vozes completamente diferentes) "Isso aqui é técnica."<br>
+  <strong>Desenvolvimento:</strong> "Eu faço isso há décadas. Já fui vilão, herói, narrador. Posso mudar voz, ritmo e intenção em segundos."<br>
+  <strong>Virada:</strong> "E mesmo assim eu posso soar perfeito e não chegar em ninguém. Porque conexão não é performance. É o que acontece com a atenção de quem fala."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.</p>
+
+  <div class="lbl">Vídeo 6 · "O curso de oratória te ensinou errado" · 55s</div>
+  <p><strong>Gancho:</strong> "Todo curso de oratória te ensina a se olhar mais. É exatamente esse o problema."<br>
+  <strong>Desenvolvimento:</strong> "Postura, gesto, respiração, pausa, texto decorado. Você sai de lá com uma lista de coisas para vigiar em si mesmo enquanto fala."<br>
+  <strong>Virada:</strong> "Só que o travamento nasce do excesso de autoavaliação. Você não precisa de mais uma coisa para controlar. Precisa tirar o foco de si na hora certa."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.</p>
+
+  <div class="lbl">Vídeo 7 · "Eu não te ensino a falar" · 50s</div>
+  <p><strong>Gancho:</strong> "Eu não ensino ninguém a falar bem."<br>
+  <strong>Desenvolvimento:</strong> "Tem muita gente ensinando isso. Como se portar, como abrir os braços, como levantar o queixo. Funciona por duas semanas."<br>
+  <strong>Virada:</strong> "Meu trabalho é outro: fazer o que você sabe finalmente chegar. Quando isso acontece, você não precisa de técnica nenhuma, porque a sala para de olhar como você fala e passa a ouvir o que você diz."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.</p>
+
+  <div class="box-light">
+    <div class="bt">Direção de gravação</div>
+    <p>Sem trilha, sem legenda animada exagerada, sem corte a cada segundo. Este público associa produção excessiva a superficialidade, e a sua voz já sustenta o vídeo inteiro sozinha.</p>
+    <p>Grave em lote, 5 por sessão, no seu estúdio. Duas sessões fecham os 10. A regra de ouro do gancho: <strong>os 3 primeiros segundos são a frase dele, não a sua opinião.</strong></p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 19 · VÍDEOS 8 A 10 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Delphis Fonseca</span><span>Página 19</span></div>
+  <div class="secao-header">
+    <div class="sk">Seção 4 · Parte 7</div>
+    <h2>Roteiros 8 a 10 · autoridade</h2>
+    <div class="sd">Conjunto C: o que converte quem já viu você antes.</div>
+  </div>
+
+  <div class="lbl">Vídeo 8 · "Disseram que não existia mercado" · 50s</div>
+  <p><strong>Gancho:</strong> "Quando eu propus criar um curso de apresentadores de TV, me disseram que não existia mercado."<br>
+  <strong>Desenvolvimento:</strong> "Abrimos uma turma de teste com 10 vagas. Apareceram 120 pessoas no primeiro dia. Abrimos quatro turmas."<br>
+  <strong>Virada:</strong> "Depois o MEC aprovou e virou o primeiro curso do gênero no Brasil. Ministrei por 22 anos. Mais de 4.000 pessoas passaram por lá, e a maioria nunca quis ser apresentador. Só queriam ser compreendidas."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.</p>
+
+  <div class="lbl">Vídeo 9 · "Eu comecei no rádio porque era tímido" · 55s</div>
+  <p><strong>Gancho:</strong> "Eu comecei no rádio em 1984 porque era tímido. No rádio ninguém me via."<br>
+  <strong>Desenvolvimento:</strong> "Era o único lugar onde eu conseguia falar. Depois vieram a televisão, o teatro, o palco e a dublagem."<br>
+  <strong>Virada:</strong> "O que me tirou de lá não foi coragem, foi entender uma coisa: enquanto eu estivesse pensando em mim, eu ia continuar travando. No dia em que a minha atenção foi para quem ouvia, o resto veio junto."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.</p>
+
+  <div class="lbl">Vídeo 10 · "A pergunta que eu mais ouço" · 50s</div>
+  <p><strong>Gancho:</strong> "A pergunta que eu mais ouço é: por que eu sei tanto e na hora não sai?"<br>
+  <strong>Desenvolvimento:</strong> "A pessoa já fez curso, já decorou estrutura, já ensaiou no espelho, já gravou e regravou. E continua travando."<br>
+  <strong>Virada:</strong> "A resposta é desconfortável e libertadora: o problema nunca esteve na fala. Está em para onde vai a atenção enquanto se fala. E isso, diferente de talento, se trabalha."<br>
+  <strong>CTA:</strong> diagnóstico gratuito no link.</p>
+
+  <div class="box-light">
+    <div class="bt">Distribuição por ângulo</div>
+    <p>Dos 20 criativos: <strong>8 de cena</strong> (identificação, o que mais capta frio), <strong>7 de mecanismo</strong> (o que mais qualifica) e <strong>5 de autoridade</strong> (o que mais converte quem já viu antes). Comece com peso em cena e migre para mecanismo conforme a audiência aquece.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 20 · HEADLINES, HOOKS E LARGADA -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Delphis Fonseca</span><span>Página 20</span></div>
+  <div class="secao-header">
+    <div class="sk">Seção 4 · Parte 8</div>
+    <h2>Headlines, Hooks e a Largada</h2>
+    <div class="sd">O que testar primeiro e o que sobe antes do quê.</div>
+  </div>
+
+  <div class="lbl">10 headlines para teste A/B</div>
+  <ul class="check two">
+    <li>A pessoa menos preparada da sala foi a mais lembrada.</li>
+    <li>Você sabe do que fala. Por que isso não chega?</li>
+    <li>O branco não é falta de memória.</li>
+    <li>Curso de oratória te dá truque. Não te dá presença.</li>
+    <li>Você dá branco justamente no que sabe de cor.</li>
+    <li>Não é sobre parecer. É sobre ser, e ser compreendido.</li>
+    <li>Formei quem hoje você vê na TV. O método é o mesmo para a sua reunião.</li>
+    <li>Dá para falar perfeito e não chegar em ninguém.</li>
+    <li>A câmera revela quem você tenta esconder.</li>
+    <li>Descubra em 2 minutos onde a sua comunicação trava.</li>
+  </ul>
+
+  <div class="lbl">5 hooks para vídeo, na sua voz</div>
+  <ul class="check">
+    <li>(trocando de voz três vezes) "Isso aqui é técnica. Conexão é outra coisa."</li>
+    <li>"Você dá branco justamente no assunto que sabe de cor. Já reparou?"</li>
+    <li>"Eu comecei no rádio em 1984 porque era tímido. Ninguém me via."</li>
+    <li>"Todo curso de oratória te ensina a se olhar mais. É esse o problema."</li>
+    <li>"A pessoa menos preparada da sala foi a mais lembrada. E você sabia mais."</li>
+  </ul>
+
+  <div class="box-dark">
+    <div class="bt">Estrutura de largada da campanha</div>
+    <p>20 criativos na largada: 5 estáticos, 5 carrosséis e 10 vídeos, todos escritos nas páginas anteriores. Contra o criativo único que roda hoje na sua conta, e com renovação a cada 15 dias.</p>
+    <p><strong>Ordem:</strong> estáticos e carrosséis entram primeiro, porque não dependem de gravação e podem subir enquanto você grava. Os vídeos entram em duas levas, uma por sessão de gravação no seu estúdio.</p>
+    <p><strong>Quando:</strong> a mídia sobe depois do caixa rápido da base, conforme o roadmap. O orçamento diário fica a definir, e a régua que importa não é custo por lead: <strong>é custo por sessão estratégica comparecida.</strong></p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 21 · CADÊNCIA PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Delphis Fonseca</span><span>Página 21</span></div>
+  <div class="secao-header">
+    <div class="sk">Seção 5 · Parte 1</div>
+    <h2>Cadência de Atendimento · 12 dias</h2>
+    <div class="sd">Na sua voz, mandada por você. O objetivo é agendar a sessão estratégica.</div>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Regra de tom neste nicho</div>
+    <p>Ele é adulto, analítico e não quer ser tratado como inseguro. Nada de urgência artificial, nada de escassez inventada, nada de vocabulário de coach. Frases curtas, poucas maiúsculas, quase nenhum emoji.</p>
+    <p>Você tem uma vantagem que ninguém no funil tem: <strong>a sua voz é o produto.</strong> Onde qualquer concorrente manda texto, você manda áudio de 30 segundos. Por isso o áudio entra no dia 1, e não no fim. O que abre toda conversa é o resultado do quiz, com o padrão dele nomeado.</p>
+  </div>
+
+  <div class="lbl">Dia 1 · áudio</div>
+  <p>"<span class="var">{{nome}}</span>, aqui é o Delphis. Li o seu diagnóstico: o seu padrão é o <span class="var">{{padrao_identificado}}</span>. Posso te contar em um minuto o que costuma destravar nesse caso?"</p>
+
+  <div class="lbl">Dia 2</div>
+  <p>Fiquei pensando numa coisa que você respondeu: <span class="var">{{resposta_marcante}}</span>. Isso costuma vir de um lugar bem específico. Posso te falar sobre isso?</p>
+
+  <div class="lbl">Dia 3 · para quem não respondeu</div>
+  <p><span class="var">{{nome}}</span>, não vou insistir. Só não queria que o seu diagnóstico ficasse parado no WhatsApp junto com o resto. Ele é sobre a sua carreira, não sobre a minha agenda.</p>
+
+  <div class="lbl">Dia 4 · valor</div>
+  <p>Uma coisa que eu vejo em quase todo profissional que responde como você respondeu: ele acha que precisa estudar mais para se comunicar melhor. Não precisa. Se fosse isso, você já teria resolvido.</p>
+
+  <div class="lbl">Dia 5 · leu e parou</div>
+  <p>Você leu e não respondeu. Tudo bem. Só me diz uma coisa, sem compromisso: o que você leu ali fez sentido ou não?</p>
+
+  <div class="lbl">Dia 6 · valor</div>
+  <p>Tem uma pergunta que eu faço em toda primeira conversa: há quanto tempo você está esperando isso melhorar sozinho? A resposta costuma assustar a própria pessoa.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 22 · CADÊNCIA PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Delphis Fonseca</span><span>Página 22</span></div>
+  <div class="secao-header">
+    <div class="sk">Seção 5 · Parte 2</div>
+    <h2>Dias 7 a 12 e os cinco níveis</h2>
+    <div class="sd">Onde a cadência vira playbook, e não lista de mensagens.</div>
+  </div>
+
+  <div class="lbl">Dia 7 · quer agendar e adia</div>
+  <p><span class="var">{{nome}}</span>, você me disse que queria marcar e não marcou. Não estou te cobrando. Só quero te mostrar uma coisa: adiar essa conversa é o mesmo movimento de adiar o vídeo e recusar o convite. É o padrão trabalhando.</p>
+
+  <div class="lbl">Dia 8 · quebra de objeção</div>
+  <p>Eu não ensino ninguém a falar bonito e não vendo técnica de palco. O que eu faço é tirar você do lugar onde o que você sabe chega menor do que é. O resto é consequência.</p>
+
+  <div class="lbl">Dia 9 · no-show</div>
+  <p>Você não apareceu e eu não fiquei chateado. A vaga continua sua se quiser remarcar. Uma vez.</p>
+
+  <div class="lbl">Dia 10 · áudio pessoal</div>
+  <p>"<span class="var">{{nome}}</span>, Delphis aqui. Eu comecei no rádio em 1984 porque era tímido, então eu sei exatamente o tamanho do que você está carregando. Se for para você ficar mais um ano igual, prefiro que seja escolha sua e não do padrão. Me dá 45 minutos que eu te mostro de onde vem o que se repete."</p>
+
+  <div class="lbl">Dia 11 · fez a sessão e não fechou</div>
+  <p>A gente conversou e você decidiu não seguir agora. Respeito. Só deixo registrado: o que trava raramente é o dinheiro, é a dúvida se dá para ser diferente depois de tanto tempo. Dá. Quando quiser, é só chamar.</p>
+
+  <div class="lbl">Dia 12 · encerramento</div>
+  <p><span class="var">{{nome}}</span>, vou parar de te escrever. Seu diagnóstico continua valendo e a leitura que eu te mandei também. Quando fizer sentido, você sabe onde me achar.</p>
+
+  <div class="box-dark">
+    <div class="bt">Os cinco níveis</div>
+    <p><strong>N1 não respondeu:</strong> cadência completa acima.</p>
+    <p><strong>N2 engajou e parou:</strong> retomar pelo conteúdo do padrão dele, nunca pela cobrança.</p>
+    <p><strong>N3 quer e adia:</strong> oferecer horário fora do padrão, começo da manhã ou fim da tarde, antes de insistir. Se travar de novo, deixar na base de conteúdo.</p>
+    <p><strong>N4 no-show:</strong> sem culpa. Uma remarcação, e só.</p>
+    <p><strong>N5 fez a sessão e não fechou:</strong> cadência quinzenal de valor por 60 dias. É o grupo mais quente que existe: já viu o diagnóstico e já conversou com você.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 23 · RECOMENDAÇÕES 1 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Delphis Fonseca</span><span>Página 23</span></div>
+  <div class="secao-header">
+    <div class="sk">Seção 6 · Parte 1</div>
+    <h2>Recomendações Estratégicas</h2>
+    <div class="sd">O que a Simple recomenda além da copy.</div>
+  </div>
+
+  <div class="lbl">Sobre o ativo real</div>
+  <p>Você não tem problema de produto nem de fechamento. Você fatura, já vendeu R$ 30 mil à vista no PIX e vende desde sempre, em rádio, televisão e palco. O gargalo é que <strong>entre o anúncio e a sua agenda não existe nada</strong>: o lead cai cru no seu WhatsApp pessoal, 90% não responde nem à primeira mensagem, e você tenta atender entre uma dublagem e outra. Por isso o funil começa pela qualificação e pela cadência, e não por mais volume de lead.</p>
+
+  <div class="lbl">Sobre a alavanca mais barata</div>
+  <p>Mais de 4.000 alunos formados em 22 anos de SENAC, os mentorados, os 6.500 seguidores e o público dos seus shows. Isso é caixa em 30 dias, sem mídia e sem produto novo. Não deixe para depois porque parece pequeno: <strong>é o que financia a mídia do resto do plano.</strong></p>
+
+  <div class="lbl">Sobre o formato de entrega</div>
+  <p>A CONEXÃO 120 consome 20 encontros individuais. Chegar a R$ 100 mil por mês só pelo individual são cerca de 60 encontros no calendário de quem passa o dia em estúdio. É vendável e não é entregável. <strong>O produto em grupo de R$ 4 mil que você propôs não é um extra, é o que torna a meta possível:</strong> 25 alunos entregam o mesmo faturamento com 8 encontros. Ele também dá destino a quem qualifica e não fecha o individual, que hoje simplesmente some.</p>
+
+  <div class="lbl">Sobre prova e compliance</div>
+  <p>Dois cuidados. O primeiro é a prova social: os nomes conhecidos que passaram por você são o ativo mais forte do funil e o mais lento de liberar. Comece agora, com <strong>autorização escrita de nome e imagem</strong>, e priorize quem tem profissão visível, porque executivo se reconhece em executivo. O segundo é a régua de anúncio: descrever a cena e citar a frase que a pessoa diz, nunca afirmar atributo dela, e nunca prometer resultado de carreira.</p>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+<!-- 24 · RECOMENDAÇÕES 2 -->
+<div class="page">
+  <div class="runhead"><span>Estratégia · Delphis Fonseca</span><span>Página 24</span></div>
+  <div class="secao-header">
+    <div class="sk">Seção 6 · Parte 2</div>
+    <h2>Recomendações Estratégicas</h2>
+    <div class="sd">Estrutura, comercial, conteúdo e o que monitorar.</div>
+  </div>
+
+  <div class="lbl">Sobre a estrutura de mídia</div>
+  <p>Ficou decidido manter a conta atual pelo aquecimento, e a Simple já está vinculada como parceira no portfólio Delphis Studios. A recomendação é <strong>abrir uma conta de anúncios nova dentro do mesmo portfólio, reaproveitando o pixel já aquecido</strong>: preserva o histórico e isola a operação da agência que você está deixando. A comunicação com eles vem depois disso, não antes, e não existe impedimento contratual, já que o seu contrato vai até outubro ou novembro e não tem cláusula de exclusividade.</p>
+
+  <div class="lbl">Sobre o comercial, que é o gargalo</div>
+  <p>Duas providências valem mais que qualquer otimização de campanha: <strong>um número comercial separado do seu WhatsApp pessoal</strong> e <strong>uma pessoa executando a cadência de 12 dias</strong>. Enquanto isso não existir, cada lead depende de você estar fora do estúdio no momento certo. Vale registrar um ativo que já provou o caminho: você montou sozinho um formulário de qualificação, colocou no link da bio e fechou uma venda por ali, sem tráfego. O quiz não é aposta, é a versão profissional de algo que já funcionou com o seu público.</p>
+
+  <div class="lbl">Sobre o conteúdo orgânico</div>
+  <p>Perfil único, o seu, como já decidimos. E um ativo que hoje está fora do plano e deveria entrar: <strong>o palco</strong>. A sua maior venda veio de alguém que te viu cantar no teatro. O público dos seus shows é maduro, tem repertório e tem dinheiro, exatamente o perfil que paga mentoria de alto valor, e esse encontro hoje acontece por acaso. Uma fala de 1 a 2 minutos no show e o QR do diagnóstico no material transformam cada apresentação em captação.</p>
+
+  <div class="box-light">
+    <div class="bt">O que monitorar de perto</div>
+    <p><strong>Conversão real das primeiras sessões.</strong> A premissa é 30%. Se o primeiro mês vier bem abaixo disso, o problema está na qualificação do quiz ou na condução da sessão, e a gente ajusta a P10 antes de mexer na mídia.</p>
+    <p><strong>O orçamento de mídia, que segue a definir.</strong> A régua é custo por sessão comparecida, e uma única venda da CONEXÃO 120 paga meses de campanha. O jogo aqui é lead certo, não lead barato.</p>
+    <p><strong>A sua agenda.</strong> Estúdio, palco e aulas concorrem com as sessões. Se a semana apertar, avisa: a gente reordena o plano, não abandona.</p>
+  </div>
+  <div class="runfoot">Estratégia completa · funil de diagnóstico</div>
+</div>
+
+</body>
+</html>

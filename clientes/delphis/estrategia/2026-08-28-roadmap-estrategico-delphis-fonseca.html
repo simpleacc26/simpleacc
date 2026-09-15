@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Roadmap Estratégico Digital · Delphis Fonseca</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    padding: 16mm 18mm 24mm 18mm;
+    position: relative;
+    page-break-after: always;
+    background: #fff;
+  }
+  .page:last-child { page-break-after: auto; }
+  .runhead {
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; color: var(--muted);
+    letter-spacing: .06em; text-transform: uppercase;
+    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt;
+  }
+  .runfoot {
+    position: absolute; bottom: 9mm; left: 18mm; right: 18mm;
+    text-align: center; font-size: 7.5pt; color: var(--muted);
+  }
+  .kicker {
+    color: var(--gold); font-size: 9pt; font-weight: bold;
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt;
+  }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
+  .box-dark {
+    background: var(--navy-dark); color: #f5f3ee;
+    padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt;
+  }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light {
+    background: var(--beige); border-left: 3pt solid var(--gold);
+    padding: 10pt 14pt; margin: 11pt 0;
+  }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .fase-header {
+    background: var(--navy-dark); color: #fff;
+    padding: 10pt 16pt; margin-bottom: 10pt;
+    border-left: 4pt solid var(--gold);
+  }
+  .fase-header .fk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .fase-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .fase-header .fd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 12pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 38pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+  .footer-note { margin-top: 24pt; padding-top: 8pt; border-top: 1pt solid var(--gold); font-size: 8.5pt; color: var(--muted); width: 60%; }
+</style>
+</head>
+<body>
+
+<!-- PÁGINA 1 · CAPA -->
+<div class="page cover">
+  <div class="kicker">Plano de Ação Personalizado</div>
+  <h1>Roadmap<br>Estratégico<br>Digital</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    De 40 anos de rádio, TV, palco e dublagem à mentoria de comunicação de alto valor.<br>
+    Os primeiros 90 dias. Passo a passo, fase a fase.<br>
+    Sem atalho, sem improviso, sem ideia solta.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">Delphis Fonseca</div>
+    <div class="lbl">Mentor Estratégico</div>
+    <div class="val">Daniel Souza</div>
+  </div>
+</div>
+
+<!-- PÁGINA 2 · CONTEXTO E DECISÕES FUNDAMENTAIS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Delphis Fonseca</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Começar</div>
+  <h1 style="font-size:19pt;">Contexto e Decisões Fundamentais</h1>
+  <p class="lead">Leia esta página inteira antes de executar qualquer passo. Todas as decisões a seguir partem do que está aqui.</p>
+
+  <div class="box-dark">
+    <div class="bt">A decisão mais importante deste plano</div>
+    <p>Um público, uma promessa, uma esteira. O mercado que você disputa vende oratória: truque, postura, braço aberto. Você mesmo disse que não quer fazer ninguém parecer, quer fazer a pessoa ser. Então a comunicação de aquisição não pode competir na categoria oratória, porque nela você vira mais um. Ela precisa mudar a categoria.</p>
+    <p><strong>A virada de chave que sustenta tudo: o problema do seu cliente não é falar em público. É a distância entre o que ele sabe e o que o outro percebe.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A esteira</div>
+    <p><strong>Detonando a Timidez, R$ 899:</strong> produto de entrada, gravado, com aulas ao vivo de bônus. Captura, gera audiência e paga a mídia. Não é o produto que faz o mês.</p>
+    <p><strong>Mentoria CONEXÃO, o carro-chefe:</strong> CONEXÃO 30 (12x R$ 899), CONEXÃO 60 (12x R$ 1.690) e CONEXÃO 120 (R$ 30 mil no PIX ou 12x R$ 2.990), com o Ecossistema AutoFoco nos níveis mais altos.</p>
+    <p><strong>Produto em grupo, na faixa de R$ 4 mil:</strong> a ideia que você trouxe entra na esteira e tem uma página inteira de decisão na Fase 2. Ele resolve o seu maior gargalo, que não é vender: é caber na sua agenda.</p>
+    <p>Regra de preço: nunca dar desconto no valor da mentoria. Objeção de valor se resolve por forma de pagamento ou por degrau abaixo na esteira. E nenhum quarto produto nos 90 dias.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A matemática dos R$ 100 mil por mês</div>
+    <p>Meta de R$ 100 mil por mês até o dia 90, com ticket médio de R$ 20 mil no mix da esteira. São <strong>5 vendas por mês</strong>.</p>
+    <p>5 vendas com 30% de conversão em sessão estratégica (premissa a ajustar com o seu número real) pedem <strong>17 sessões realizadas por mês</strong>. Com 60% de comparecimento, são <strong>28 sessões agendadas</strong>, pouco mais de 1 por dia útil. Cabe na sua agenda.</p>
+    <p>Com 20% dos leads qualificados agendando, o funil precisa entregar <strong>de 30 a 35 leads qualificados por semana</strong>. Uma única venda da CONEXÃO 120 paga de 5 a 7 meses de mídia nesse ritmo.</p>
+    <p>Esse número é <strong>operacional, não aspiracional.</strong> É só fazer.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 3 · RITMO + RESPONSABILIDADES + FOCO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Delphis Fonseca</span><span>Página 3</span></div>
+  <div class="box-light">
+    <div class="bt">Ritmo de acompanhamento</div>
+    <p>Encontros individuais a cada 15 dias com o mentor estratégico, mais frequentes neste primeiro mês pela velocidade da implantação. Dúvida do dia a dia vai direto no grupo: <strong>Carlos</strong> para entrega, estratégia e implementação do funil, <strong>Renan</strong> para tráfego e estrutura de campanha, <strong>Ceci</strong> na consultoria de social selling.</p>
+    <p>A execução acontece <strong>entre as calls.</strong> As calls servem para afinar, não para decidir o que fazer. O que fazer já está aqui dentro.</p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Divisão de responsabilidades</div>
+    <p><strong>A Simple constrói e opera:</strong> o quiz de diagnóstico e a página pós-quiz, a VSL roteirizada, as copies das páginas e dos anúncios, os roteiros dos criativos, o traqueamento e o painel de métricas, a gestão das campanhas com o Renan, os scripts de pré-vendas, as auditorias de social selling e comercial, este roadmap e as aulas do método.</p>
+    <p><strong>Delphis executa:</strong> as gravações (você tem estúdio próprio, isso é uma vantagem enorme), as abordagens da base, as calls de venda, a validação das copies e do quiz, a contratação e a rotina do pré-vendas, e as decisões de produto que só você pode tomar.</p>
+    <p>O funil coloca lead na porta. <strong>Quem coloca dinheiro no caixa é a rotina comercial.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Foco deste roadmap</div>
+    <p>Este documento cobre <strong>apenas os primeiros 90 dias</strong>, com uma prioridade clara: fazer a mentoria vender com previsibilidade, sem depender de indicação e sem depender de você responder lead entre uma gravação e outra.</p>
+    <p>Uma observação de calendário que importa: o seu contrato com a agência atual se encerra entre outubro e novembro, ou seja, <strong>dentro desta janela de 90 dias</strong>. O plano foi desenhado para que, quando ele terminar, a estrutura nova já esteja rodando com histórico próprio e a transição seja uma decisão sua, não uma urgência.</p>
+    <p>Quando os R$ 100 mil por mês estiverem de pé, vem o <strong>Roadmap 2: a escala dos 100 aos 250 mil por mês</strong>. Não tente queimar etapas.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 4 · FASE 1 · CAIXA RÁPIDO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Delphis Fonseca</span><span>Página 4</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 1 · Dias 1 a 10</div>
+    <h2>Caixa Rápido: a Base que Você Já Tem</h2>
+    <div class="fd">Antes de comprar o primeiro lead, colher o que já está pago.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que esta fase vem primeiro</div>
+    <p>Em 22 anos de SENAC você formou mais de 4.000 alunos. Some os mentorados, os 6.500 seguidores e o público que assiste aos seus shows. A sua venda mais alta até hoje, R$ 30 mil à vista no PIX, veio de uma pessoa que te viu cantar no teatro, não de um anúncio.</p>
+    <p>Esse é o ativo mais barato e mais quente do projeto, e ele está parado. <strong>O caixa desta fase é o que financia a mídia das fases seguintes,</strong> sem tirar dinheiro do seu bolso.</p>
+  </div>
+
+  <div class="passo-label">Passo 1</div>
+  <h3>Mapear todas as oportunidades da base até o dia 3</h3>
+  <ul class="check">
+    <li>Uma planilha única, com nome, origem, telefone, contexto e potencial.
+      <ul class="sub">
+        <li>Ex-alunos do SENAC de quem você tem contato, mentorados atuais e antigos, pessoas que pediram informação e não fecharam.</li>
+        <li>Público dos shows: quem comprou ingresso, quem te procurou depois, quem conversou no camarim.</li>
+        <li>Indicações nunca trabalhadas e a rede de ex-alunos que hoje está na TV e no mercado.</li>
+      </ul>
+    </li>
+    <li>Classificar cada nome por caminho: sessão estratégica, produto de entrada ou pedido de indicação.</li>
+  </ul>
+
+  <div class="passo-label">Passo 2</div>
+  <h3>Executar as abordagens de caixa rápido</h3>
+  <ul class="check">
+    <li>Mentorados atuais e antigos: convidar para o próximo nível da esteira e <strong>pedir de 3 a 5 indicações qualificadas</strong>, com perfil descrito (não peça indicação genérica, peça o nome de quem precisa se posicionar e trava).</li>
+    <li>Ex-alunos e lista de shows: reativação pessoal, na sua voz, convidando para uma conversa de diagnóstico. Nada de mensagem de massa.</li>
+    <li>Usar os scripts que a Simple entrega no grupo e registrar tudo na planilha. Sem registro, não existe.</li>
+  </ul>
+
+  <div class="passo-label">Passo 3</div>
+  <h3>Transformar venda em caixa de mídia</h3>
+  <ul class="check">
+    <li>Venda parcelada no cartão: avaliar a <strong>antecipação de recebíveis</strong> para ter o caixa hoje.</li>
+    <li>Destino desse caixa: mídia e ferramentas do projeto, não retirada.</li>
+    <li>Levar o resultado da base para o primeiro encontro quinzenal.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta desta fase, até o dia 10</div>
+    <p>Base 100% mapeada e abordada · de 5 a 8 sessões estratégicas agendadas · pelo menos 1 venda ou 1 antecipação fechada, garantindo o caixa dos primeiros 30 dias de mídia.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 5 · FASE 2 · ESTEIRA E POSICIONAMENTO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Delphis Fonseca</span><span>Página 5</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 2 · Dias 1 a 14</div>
+    <h2>Esteira e Posicionamento</h2>
+    <div class="fd">Quando o lead clicar no seu perfil, ele precisa encontrar o método, não só o artista.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">A decisão de esteira que muda o seu ano</div>
+    <p>Você propôs um produto em grupo na faixa de R$ 4 mil, com cerca de 8 encontros ao vivo. Fizemos a conta e ela é decisiva.</p>
+    <p>Chegar a R$ 100 mil só pelo individual significa cerca de <strong>3 CONEXÃO 120 por mês, ou seja, 60 encontros na sua agenda.</strong> O mesmo faturamento no formato em grupo, com 25 alunos, custa <strong>8 encontros</strong>. É o mesmo resultado com um sétimo do seu tempo.</p>
+    <p>O grupo ainda resolve outro problema: hoje o lead que quer, entende o valor e não paga o individual simplesmente some. Com o grupo, ele tem para onde ir.</p>
+  </div>
+
+  <div class="passo-label">Passo 4</div>
+  <h3>Fechar a esteira até o dia 14</h3>
+  <ul class="check">
+    <li>Validar o produto em grupo no encontro quinzenal: nome, promessa, número de encontros, tamanho da turma, preço e data da turma piloto.</li>
+    <li>Confirmar o que escalona entre CONEXÃO 30, 60 e 120, com o <strong>Ecossistema AutoFoco</strong> (psicólogo, fonoaudióloga e equipe) explícito na apresentação. É ele que sustenta o valor de R$ 30 mil diante de um concorrente de R$ 3 mil.</li>
+    <li>Fechar a estrutura do Detonando a Timidez: quantas aulas, temas, ordem e carga horária. Esse é o dado que hoje trava a página de vendas e a área de membros.</li>
+  </ul>
+
+  <div class="passo-label">Passo 5</div>
+  <h3>Resolver a promessa do produto de entrada</h3>
+  <ul class="check">
+    <li>O nome funciona e fica. O que precisa mudar é a primeira linha da página, que hoje promete vencer a timidez enquanto o método promete outra coisa, melhor.
+      <ul class="sub">
+        <li>A direção aprovada: detonar a timidez não é deixar de ser tímido, é tirar a timidez do comando.</li>
+        <li>A Simple reescreve as duas páginas, detonandoatimidez.com.br e metodoautofoco.com.br, e você valida o tom.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="passo-label">Passo 6</div>
+  <h3>Reposicionar o Instagram</h3>
+  <ul class="check">
+    <li>Perfil único, o seu. Decisão já tomada no onboarding: nada de marca nova, porque quem compra, compra você.</li>
+    <li>Bio na fórmula quem eu ajudo, qual resultado, qual credencial e qual o próximo passo. Sugestão para validar: <em>Ajudo quem sabe muito a fazer isso chegar. 40 anos de rádio, TV e dublagem. Criador do primeiro curso de apresentadores do SENAC. Diagnóstico gratuito abaixo.</em></li>
+    <li>Quatro destaques: Comece aqui · Quem sou · O Método · Resultados. Dois posts fixados e foto profissional.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 6 · FASE 3 PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Delphis Fonseca</span><span>Página 6</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 3 · Dias 1 a 90 · Parte 1</div>
+    <h2>Aquisição Manual: o Motor Principal</h2>
+    <div class="fd">Você sabe vender. O que falta é o processo entre o lead e a sua agenda.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que o manual anda junto com o funil</div>
+    <p>O seu diagnóstico é preciso e você mesmo fez: põe o criativo, manda para o WhatsApp e você se vira para responder, marcar e vender. Hoje <strong>90% dos leads não respondem nem à primeira mensagem</strong>, e você chegou a passar semanas com um lead só.</p>
+    <p>Nenhum funil conserta isso sozinho. O funil qualifica e organiza a fila. Quem transforma fila em caixa é a rotina comercial, e é ela que estamos montando aqui. Ela também dá o que o funil precisa: as objeções reais e as palavras exatas do seu comprador.</p>
+  </div>
+
+  <div class="passo-label">Passo 7</div>
+  <h3>Assistir às aulas de aquisição antes de estruturar</h3>
+  <ul class="check">
+    <li>Social Selling partes 1 e 2, Outbound, Call de Vendas 1 a 1 e Pré-Vendas, no portal da Simple.</li>
+    <li>Você domina a conversa, então use as aulas para o que falta: padronizar em processo o que hoje só existe na sua cabeça, para poder delegar depois.</li>
+    <li>Consultoria de social selling com a Ceci: framework de abordagem e copy das mensagens.</li>
+  </ul>
+
+  <div class="passo-label">Passo 8</div>
+  <h3>Estruturar o pré-vendas</h3>
+  <ul class="check">
+    <li>Definir quem faz o primeiro contato. Enquanto não houver essa pessoa, o gargalo continua sendo você entre uma dublagem e outra.
+      <ul class="sub">
+        <li>Meta: pessoa definida até o dia 30, com fixo mais variável por reunião realizada.</li>
+        <li>A Simple entrega playbook, scripts e a planilha de controle. Você contrata e conduz.</li>
+      </ul>
+    </li>
+    <li>Planilha de controle com nome, origem (base, social selling, funil), data da abordagem, status, follow-up e resultado da sessão.</li>
+    <li>Número de WhatsApp dedicado ao comercial, separado do seu pessoal. O lead do funil não pode cair no mesmo lugar em que o estúdio te chama.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Uma correção de rota que vale dinheiro</div>
+    <p>Você tentou anúncio para formulário e abandonou por resultado nulo, e hoje roda tudo para o WhatsApp. O problema não era o formulário: era não existir nada entre o clique e a conversa. Prova disso é que o formulário que <strong>você mesmo montou e colocou no link da bio já fechou uma venda</strong>, organicamente, sem tráfego. É esse caminho que vamos profissionalizar.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 7 · FASE 3 PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Delphis Fonseca</span><span>Página 7</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 3 · Dias 1 a 90 · Parte 2</div>
+    <h2>Aquisição Manual: a Rotina Diária</h2>
+    <div class="fd">O que precisa acontecer todo dia útil, chova ou faça sol.</div>
+  </div>
+
+  <div class="passo-label">Passo 9</div>
+  <h3>Executar as abordagens diárias</h3>
+  <ul class="check">
+    <li>De 40 a 60 abordagens personalizadas por dia útil quando o pré-vendas estiver de pé. Até lá, 20 por dia, feitas por você em bloco, no mesmo horário.</li>
+    <li>Distribuição enquanto a base está quente: 50% base e indicações, 30% social selling (quem comenta, quem salva, quem assiste aos seus vídeos até o fim), 20% outbound frio para o perfil profissional que precisa se posicionar.</li>
+    <li>Quando a base esgotar, inverter: social selling e outbound assumem o volume.</li>
+    <li>Follow-up obrigatório em até 2 dias. Ninguém sai da planilha sem próximo passo datado.</li>
+  </ul>
+
+  <div class="passo-label">Passo 10</div>
+  <h3>Conduzir a call de vendas</h3>
+  <ul class="check">
+    <li>Assistir à aula de Call de Vendas antes da primeira sessão da nova estrutura, para alinhar linguagem com o time.</li>
+    <li>Gravar todas as sessões, com consentimento. As 3 primeiras são revisadas com o mentor na auditoria comercial que faz parte do seu contrato.</li>
+    <li>Nunca recuar no preço. Objeção de valor se resolve por forma de pagamento ou por degrau abaixo na esteira, nunca por desconto.</li>
+    <li>Priorizar entrada no PIX mais saldo parcelado. Você já fez isso: a venda de R$ 30 mil à vista mostra que o seu público paga quando o valor está claro.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Metas numéricas desta fase</div>
+    <p><strong>Dia 30:</strong> 10 sessões realizadas, 2 vendas fechadas, base 100% trabalhada e pessoa de pré-vendas definida.</p>
+    <p><strong>Dia 60:</strong> 3 vendas no mês, cerca de R$ 60 mil, com pelo menos 1 delas vinda do funil.</p>
+    <p><strong>Dia 90:</strong> 5 vendas no mês, R$ 100 mil, com 1 sessão estratégica por dia útil na agenda.</p>
+    <p><strong>Alerta vermelho:</strong> menos de 2 vendas até o dia 30 não é problema de produto, é problema de qualificação ou de fechamento. Pausar, revisar as gravações com o mentor e ajustar antes de aumentar verba.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 8 · FASE 4 · CONTEÚDO ORGÂNICO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Delphis Fonseca</span><span>Página 8</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 4 · Dias 1 a 90 · Em paralelo</div>
+    <h2>Conteúdo Orgânico e Materiais do Funil</h2>
+    <div class="fd">Roda em paralelo. Não é pré-requisito para vender.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">O seu conteúdo tem um ativo que nenhum concorrente tem</div>
+    <p>Clube da Fala, Método Fluxo e os outros vendem método e seguidores. Nenhum deles tem 40 anos de rádio, TV, teatro e dublagem, nem formou quem hoje está no ar. Você é dublador profissional com estúdio próprio: <strong>a sua voz é a prova do produto.</strong></p>
+    <p>Um vídeo em que você troca de voz e de personagem e depois diz que aquilo é técnica, e que conexão é outra coisa, é impossível de copiar. É por aí que a comunicação sai da categoria oratória.</p>
+  </div>
+
+  <div class="passo-label">Passo 11</div>
+  <h3>Publicar nos três níveis de consciência</h3>
+  <ul class="check">
+    <li>Quem não sabe que tem o problema: a pessoa competente que passa despercebida na reunião, o profissional que trava na câmera, a reserva confundida com arrogância.</li>
+    <li>Quem já sabe: por que o branco não é falta de memória e sim excesso de autoavaliação, por que decorar texto piora, o que a câmera revela.</li>
+    <li>Quem já conhece a solução: bastidor de mentoria, antes e depois de aluno, o Ecossistema AutoFoco, os 22 anos formando apresentadores.</li>
+  </ul>
+
+  <div class="passo-label">Passo 12</div>
+  <h3>Manter a rotina semanal</h3>
+  <ul class="check">
+    <li>12 publicações por semana, produzidas em lote no seu estúdio, com CTA fixo para o diagnóstico.</li>
+    <li>Reaproveitar o que já existe: acervo de aulas, palestras, shows e bastidores de dublagem.</li>
+  </ul>
+
+  <div class="passo-label">Passo 13</div>
+  <h3>Gravar os materiais do funil</h3>
+  <ul class="check">
+    <li>Os 15 criativos iniciais em vídeo, carrossel e estático, com roteiros da Simple. Você grava em lote, com data combinada no grupo.</li>
+    <li>A <strong>VSL de 5 minutos</strong> da página de diagnóstico, também roteirizada pela Simple. Para um locutor com estúdio, é uma tarde de trabalho que sustenta o funil inteiro.</li>
+    <li>Depoimentos em vídeo de alunos e mentorados. A Simple envia o guia com os tópicos de direcionamento.</li>
+    <li>Confirmar por escrito a autorização de nome e imagem dos alunos conhecidos antes de qualquer anúncio que os cite.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 9 · FASE 5 PARTE 1 · FUNIL -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Delphis Fonseca</span><span>Página 9</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 5 · Dias 1 a 30 · Parte 1</div>
+    <h2>O Sistema de Aquisição: a Simple Implementa</h2>
+    <div class="fd">Um único funil, dois caminhos. É isso que separa lead caro de curioso.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Como o funil funciona</div>
+    <p>Anúncio, quiz de diagnóstico, VSL de 5 minutos com a leitura do resultado, coleta no CRM, abordagem do pré-vendas e sessão estratégica com você.</p>
+    <p>O ponto decisivo: o quiz separa dois públicos que não são o mesmo. Quem tem perfil profissional de alto valor vai para a sessão estratégica e para a mentoria. Quem não tem recebe a oferta do Detonando a Timidez. <strong>Assim o lead certo chega até você e o lead que não fecharia mentoria paga a mídia,</strong> em vez de sumir.</p>
+  </div>
+
+  <div class="passo-label">Passo 14</div>
+  <h3>Aprovar quiz, páginas e copies</h3>
+  <ul class="check">
+    <li>A Simple entrega o quiz, a página pós-quiz, a página de vendas do produto de entrada e as copies dos anúncios. Você valida o tom nas primeiras entregas, depois o time segue.</li>
+    <li>As perguntas do quiz precisam capturar profissão, contexto de exposição (apresenta, lidera, vende, grava) e nível de investimento. É esse corte que decide o caminho do lead.</li>
+    <li>Ponto de partida: as perguntas do formulário que você já usa. Elas mostram o que você considera um bom cliente. Envie o link no grupo.</li>
+  </ul>
+
+  <div class="passo-label">Passo 15</div>
+  <h3>Montar a infraestrutura</h3>
+  <ul class="check">
+    <li>CRM e automação, com a integração do quiz para o CRM e para a planilha, configurados pela Simple.</li>
+    <li>Número de WhatsApp dedicado ao comercial, com API. Nunca WhatsApp Web.</li>
+    <li>Traqueamento e painel de métricas ligados antes da primeira campanha subir. Sem isso, não se sabe o que otimizar.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Uma decisão de comunicação para não confundir o cliente</div>
+    <p>O número 899 aparece duas vezes na sua esteira: é o preço à vista do produto de entrada e é a parcela da CONEXÃO 30. Em anúncio e em conversa isso vira confusão. Vamos definir e padronizar como cada um é comunicado antes de qualquer peça ir para o ar.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 10 · FASE 5 PARTE 2 · TRÁFEGO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Delphis Fonseca</span><span>Página 10</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 5 · Dias 1 a 30 · Parte 2</div>
+    <h2>Tráfego Pago</h2>
+    <div class="fd">Estrutura organizada, verba compatível com o ticket e métrica revisada a cada 7 dias.</div>
+  </div>
+
+  <div class="passo-label">Passo 16</div>
+  <h3>Organizar a estrutura de contas</h3>
+  <ul class="check">
+    <li>A vinculação da Simple como parceira no portfólio Delphis Studios já está feita, com acesso a página, conta de anúncios, Instagram e pixels.</li>
+    <li>Auditar o nível de permissão de cada pessoa que hoje tem acesso, incluindo a agência atual, e reduzir ao mínimo necessário.</li>
+    <li>Rodar a operação nova em conta de anúncios separada dentro do mesmo portfólio, aproveitando o pixel já aquecido. Isso preserva o histórico e evita que duas operações se atrapalhem na mesma conta.</li>
+    <li>Comunicar a agência sobre a campanha paralela só depois que a estrutura estiver isolada e as permissões revisadas. Você confirmou que não existe cláusula de exclusividade, então a decisão é de sequência, não de permissão.</li>
+  </ul>
+
+  <div class="passo-label">Passo 17</div>
+  <h3>Subir e otimizar as campanhas</h3>
+  <ul class="check">
+    <li>Gestão com o Renan. Início com <strong>15 criativos</strong> em três formatos, contra o criativo único que roda hoje, e renovação a cada 15 dias.</li>
+    <li>Verba de validação de <strong>R$ 100 por dia nos primeiros 15 dias</strong>, financiada pelo caixa da Fase 1. Depois da primeira venda vinda do funil, subir para a faixa de R$ 150 a R$ 200 por dia.
+      <ul class="sub">
+        <li>Uma observação franca: o investimento atual, na casa de R$ 100 por semana, não sustenta 5 vendas por mês. Nesse patamar não existe previsibilidade, existe sorte.</li>
+        <li>4 vendas do produto de entrada pagam um mês inteiro da fase de validação.</li>
+      </ul>
+    </li>
+    <li>Revisão de métricas a cada 7 dias, com gatilhos claros: custo por lead fora da meta pede troca de criativo, conclusão do quiz abaixo de 40% pede ajuste de perguntas, comparecimento abaixo de 60% pede mais follow-up.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Regra de ouro do tráfego high ticket</div>
+    <p>O jogo aqui não é lead barato, é lead certo. Uma venda da CONEXÃO 120 paga meses de mídia. Perseguir o lead de menor custo é o caminho mais rápido para encher a agenda de conversa que não fecha, que é exatamente o que você já viveu.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 11 · BÔNUS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Delphis Fonseca</span><span>Página 11</span></div>
+  <div class="fase-header">
+    <div class="fk">Bônus · A partir do dia 60</div>
+    <h2>O Palco e a Escola: os Seus Dois Ativos Exclusivos</h2>
+    <div class="fd">Planta agora, colhe no mês 4. Sem tirar o foco dos 90 dias.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que entra agora</div>
+    <p>A sua maior venda veio de um show. O seu repertório, dos anos 50 aos 2000, e as apresentações com orquestra reúnem exatamente o público que paga mentoria de alto valor: maduro, com repertório e com dinheiro. Hoje esse encontro acontece por acaso.</p>
+    <p>E existe a escola: 22 anos de SENAC, o primeiro curso de apresentadores do Brasil reconhecido pelo MEC, mais de 4.000 pessoas formadas. É rede, é prova e é porta de entrada em empresa.</p>
+  </div>
+
+  <div class="passo-label">Passo 18</div>
+  <h3>Transformar cada show em ativo de aquisição</h3>
+  <ul class="check">
+    <li>QR code do diagnóstico no material do show e no telão, com follow-up do pré-vendas em até 48 horas.</li>
+    <li>Uma fala curta de 1 a 2 minutos no show, apresentando o trabalho de comunicação. Quem te vê no palco já entendeu a prova, só não sabe que existe o produto.</li>
+    <li>Usar os vídeos das apresentações como criativo e criar público de remarketing com quem assiste até o fim. O pixel dos shows, o Delphis 2025, já tem esse histórico.</li>
+  </ul>
+
+  <div class="passo-label">Passo 19</div>
+  <h3>Abrir a frente corporativa a partir da escola</h3>
+  <ul class="check">
+    <li>Mapear ex-alunos que hoje ocupam cargo de decisão em empresa, emissora ou agência.</li>
+    <li>Oferta de treinamento de comunicação para times, com ciclo de venda mais longo. Por isso planta no dia 60 e colhe no mês 4.</li>
+    <li>Meta do bônus: <strong>de 3 a 5 conversas corporativas em andamento até o dia 90</strong>. Conversa, não fechamento.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 12 · CHECKPOINTS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Delphis Fonseca</span><span>Página 12</span></div>
+  <div class="kicker">Checkpoints de Progresso</div>
+  <h1 style="font-size:19pt;">Como Saber Que Você Está no Caminho Certo</h1>
+  <p class="lead">Cada checkpoint marca o final de uma janela. Se algum item não estiver fechado, leve para o próximo encontro quinzenal. Ajuste de rota imediato, sem esconder.</p>
+
+  <h3 class="navy" style="margin-top:8pt;">CHECKPOINT 1 · DIA 10 (CAIXA RÁPIDO)</h3>
+  <ul class="check">
+    <li>Base inteira mapeada em planilha e 100% abordada</li>
+    <li>De 5 a 8 sessões estratégicas agendadas</li>
+    <li>1 venda ou 1 antecipação fechada, com o caixa de mídia garantido</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:8pt;">CHECKPOINT 2 · DIA 14 (ESTEIRA E POSICIONAMENTO)</h3>
+  <ul class="check">
+    <li>Produto em grupo decidido: formato, tamanho de turma, preço e data da piloto</li>
+    <li>Estrutura de aulas do Detonando a Timidez fechada</li>
+    <li>Instagram reposicionado: bio, destaques, posts fixados e foto</li>
+    <li>Quiz e primeiras copies validados por você</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:8pt;">CHECKPOINT 3 · DIA 30 (ESTRUTURA NO AR)</h3>
+  <ul class="check">
+    <li>Funil no ar, campanhas rodando e painel de métricas funcionando</li>
+    <li>15 criativos gravados e a VSL publicada</li>
+    <li>10 sessões realizadas e 2 vendas fechadas</li>
+    <li>Pessoa de pré-vendas definida e planilha de controle em uso</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:8pt;">CHECKPOINT 4 · DIA 60 (PREVISIBILIDADE)</h3>
+  <ul class="check">
+    <li>3 vendas no mês, cerca de R$ 60 mil, com pelo menos 1 vinda do funil</li>
+    <li>Custo por sessão realizada dentro da faixa de R$ 250 a R$ 330</li>
+    <li>Produto de entrada vendendo e pagando a mídia</li>
+    <li>Turma piloto do produto em grupo com data marcada</li>
+  </ul>
+
+  <h3 class="navy" style="margin-top:8pt;">CHECKPOINT 5 · DIA 90 (META)</h3>
+  <ul class="check">
+    <li>5 vendas no mês e R$ 100 mil de faturamento</li>
+    <li>1 sessão estratégica por dia útil na agenda</li>
+    <li>De 3 a 5 conversas corporativas em andamento</li>
+    <li>Estrutura de mídia própria consolidada para a transição da agência</li>
+    <li>Pronto para receber o Roadmap 2</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 13 · MATERIAIS DE APOIO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Delphis Fonseca</span><span>Página 13</span></div>
+  <div class="kicker">Materiais de Apoio</div>
+  <h1 style="font-size:19pt;">Recursos para Executar o Plano</h1>
+  <p class="lead">Todas as aulas e templates abaixo estão na área de membros e no grupo. Se algum link não foi compartilhado, peça no grupo.</p>
+
+  <ul class="check">
+    <li><strong>Social Selling, partes 1 e 2</strong>
+      <ul class="sub"><li>Como transformar seguidor em conversa. Base do Passo 7 e da consultoria com a Ceci.</li></ul>
+    </li>
+    <li><strong>Outbound</strong>
+      <ul class="sub"><li>Prospecção fria para o perfil profissional que precisa se posicionar. Alimenta o Passo 9.</li></ul>
+    </li>
+    <li><strong>Call de Vendas 1 a 1</strong>
+      <ul class="sub"><li>Estrutura da sessão estratégica e tratamento de objeção sem desconto. Ver antes da primeira call, Passo 10.</li></ul>
+    </li>
+    <li><strong>Pré-Vendas e planilha de CRM</strong>
+      <ul class="sub"><li>Cadência, follow-up e controle. Base do Passo 8 e da contratação do pré-vendas.</li></ul>
+    </li>
+    <li><strong>Playbook comercial e scripts</strong>
+      <ul class="sub"><li>Abordagem da base, reativação e agendamento. Usado já na Fase 1.</li></ul>
+    </li>
+    <li><strong>Como Montar o High Ticket</strong>
+      <ul class="sub"><li>Apoia a decisão do produto em grupo e o ajuste da esteira, Passo 4.</li></ul>
+    </li>
+    <li><strong>Método Simple Growth</strong>
+      <ul class="sub"><li>A lógica do funil de quiz e do diagnóstico. Contexto para validar o Passo 14.</li></ul>
+    </li>
+    <li><strong>Growth Model</strong>
+      <ul class="sub"><li>Planilha de projeção com as alavancas do seu negócio. É onde a matemática da página 2 vira acompanhamento.</li></ul>
+    </li>
+    <li><strong>Guia de captação de depoimentos</strong>
+      <ul class="sub"><li>Tópicos de direcionamento para gravar depoimento de aluno. Apoia o Passo 13.</li></ul>
+    </li>
+    <li><strong>Auditorias de social selling e comercial</strong>
+      <ul class="sub"><li>Análise das suas conversas e das suas calls gravadas, incluídas no seu contrato.</li></ul>
+    </li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 14 · FECHAMENTO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · Delphis Fonseca</span><span>Página 14</span></div>
+  <div style="padding-top:40mm;">
+    <div class="kicker">Lembre-se Sempre Disto</div>
+    <h1 style="font-size:19pt;">Antes de Fechar Este Documento</h1>
+    <p style="margin-top:10pt;">Você começou no rádio em 1984 justamente por não ser visto, e passou 40 anos aprendendo a chegar nas pessoas pela voz, pela câmera e pelo palco. Criou o primeiro curso de apresentadores do país, formou mais de 4.000 pessoas e colocou no ar gente que hoje o Brasil inteiro reconhece. Quando alguém senta na sua frente, você vende.</p>
+    <p>Não foi falta de método. Não foi falta de autoridade. Não foi falta de talento comercial.</p>
+    <p><strong class="navy">Foi falta de estrutura entre o anúncio e a sua agenda.</strong></p>
+    <p>Este roadmap é o método. A execução é sua. A cada 15 dias o mentor estratégico vai te encontrar na conversa quinzenal, mas o que coloca dinheiro no caixa é o que você faz <strong>entre as calls</strong>.</p>
+    <p>Dúvidas no meio do caminho: mande no grupo. Não espere a próxima call para perguntar.</p>
+    <p style="margin-top:12pt;">Você tem 40 anos de carreira que ninguém no seu mercado tem. Você tem um método com nome, mecanismo e ecossistema. Você tem estúdio, voz e palco para produzir o que a maioria precisa terceirizar. Agora você tem o processo comercial.</p>
+    <p><strong class="navy">O próximo passo é começar.</strong></p>
+    <div class="footer-note">Roadmap Estratégico Digital · Delphis Fonseca · 90 dias · Versão 1.0</div>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+</body>
+</html>
