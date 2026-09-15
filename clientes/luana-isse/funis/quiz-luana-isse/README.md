@@ -175,8 +175,9 @@ parâmetro de evento, e não há Advanced Matching ligado. Se um dia for ligar,
 
 ## Planilha e integração
 
-**Leads · Diagnóstico · Luana Isse**, no Drive dela, pasta
-"3. Estratégia e Tráfego":
+**Leads · Diagnóstico de Autoridade · Luana Isse**, na **raiz** da pasta
+"Simple <> Luana Isse" no Drive (não em "3. Estratégia e Tráfego", como este
+README dizia antes por engano):
 https://docs.google.com/spreadsheets/d/14QWEtzfTYxLcImWQW_Pcw0BJtNK1BY14jthvCUKhxLo/edit
 
 **22 colunas** desde 15/09 (eram 26). Nesta ordem, que é a ordem do payload em
@@ -189,12 +190,15 @@ Prontidao | Cena | Frente | Origem | Pagina | utm_source | utm_medium |
 utm_campaign | utm_content | utm_term
 ```
 
-> ⚠️ **O cabeçalho da planilha precisa ser trocado à mão.** O cenário do Make já
-> foi remapeado para estas 22 colunas em 15/09, mas a aba ainda tem o cabeçalho
-> antigo (26 colunas, com IRV/faixa/pilar). Antes de mandar tráfego:
-> **1)** duplique a aba atual como arquivo histórico (os leads antigos só fazem
-> sentido sob o cabeçalho antigo); **2)** limpe a aba `Untitled` e cole o
-> cabeçalho acima na linha 1. Não renomeie a aba (ver abaixo).
+**O quiz novo grava na aba `QUIZ 02`**, criada pelo cliente em 15/09. A aba
+antiga (`Untitled`, 26 colunas com IRV/faixa/pilar) **não pode ser reaproveitada
+nem limpa**: ela é o histórico do quiz anterior e os leads de lá só fazem
+sentido sob o cabeçalho antigo. Decisão do cliente, e é a decisão certa.
+
+> ⚠️ **O cabeçalho da `QUIZ 02` precisa ser colado à mão**, na linha 1, com as 22
+> colunas acima. O Make grava valores, não nomes de coluna: com a aba sem
+> cabeçalho ou com cabeçalho errado, os dados entram certos e ficam rotulados
+> errados, o que é pior do que quebrar.
 
 Cenário no Make (time Simple Acc):
 **[Luana Isse] Diagnóstico Gatilho Único → Sheets**, id `5982387`, webhook
@@ -203,10 +207,11 @@ e sem agendamento**. Nada de crédito queimando à toa.
 
 Detalhes que quebram se alguém mexer:
 
-- A aba da planilha chama **"Untitled"** (nome de nascença de planilha criada a
-  partir de CSV). O `addRow` do Make referencia a aba pelo **nome**:
+- O `addRow` do Make referencia a aba pelo **nome**, hoje `QUIZ 02`:
   **renomear quebra o cenário** com "400 Unable to parse range" e o Make
-  desativa sozinho. Não renomeie.
+  desativa sozinho, em silêncio. Se um dia a aba precisar de outro nome, troque
+  no cenário **antes** de renomear na planilha, e mande um lead de teste.
+  A aba `Untitled` continua lá como histórico do quiz anterior. Não apague.
 - O mapeamento é **por posição**, não por cabeçalho. Inserir coluna no meio
   desalinha tudo.
 - O POST vai em `application/json` com `keepalive`. **Validar sempre lendo a
@@ -232,8 +237,12 @@ Cole `+55 11 99991-2039` no campo de WhatsApp e confirme que o campo mostra
       que a VSL do Gatilho Único estiver no ar, preencher ali e republicar: o
       botão passa a levar direto para a VSL para todo mundo, menos quem caiu em
       `fora`, que continua no WhatsApp.
-- [ ] **Trocar o cabeçalho da planilha** para as 22 colunas novas (ver acima).
-      Até isso acontecer, os leads novos entram sob nomes de coluna errados.
+- [ ] **Colar o cabeçalho das 22 colunas na linha 1 da aba `QUIZ 02`** (ver
+      acima). Até isso acontecer, os leads entram sem rótulo de coluna.
+- [ ] **Fechar o compartilhamento público da planilha.** Em 15/09 ela estava
+      com `anyone: writer`: qualquer pessoa com o link edita, e a planilha tem
+      nome, telefone e e-mail de lead. Todo mundo do time já tem acesso
+      nominal, então restringir não tira o acesso de ninguém.
 
 ## Como rodar e publicar
 
