@@ -407,12 +407,24 @@ function renderCaptura() {
 function renderLoading() {
   progressEl.hidden = true;
   trackEvent("step_view", { step_id: "loading" });
+  /* 5 segundos cravados até 100%, pedido do cliente em 15/09. Quem pediu para
+     reduzir movimento recebe 800ms: a tela existe para dar sensação de
+     personalização, não para prender ninguém que não consegue vê-la animar. */
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const dur = reduce ? 800 : 4700;
+  const dur = reduce ? 800 : 5000;
+  /* As frases citam o que a PESSOA respondeu, não o funil. É isso que faz a
+     espera parecer processamento e não enrolação. Uma a cada dur/msgs.length. */
+  const nome = String(state.answers.nomeResp || "").trim().split(" ")[0];
+  const oi = nome ? nome + ", " : "";
+  const stepCena = F.steps.find((x) => x.id === "cena");
+  const optCena = stepCena && stepCena.options.find((o) => o.value === state.answers.cena);
   const msgs = [
-    "Analisando as suas respostas...",
-    "Cruzando as suas respostas com os quatro gatilhos...",
-    "Montando o seu diagnóstico personalizado...",
+    oi ? oi + "estamos lendo as suas respostas..." : "Lendo as suas respostas...",
+    optCena
+      ? "Cruzando a cena que você escolheu com as quatro partes da venda..."
+      : "Cruzando as suas respostas com as quatro partes da venda...",
+    "Identificando qual delas só existe quando você está ao vivo...",
+    oi ? "Montando o diagnóstico de " + nome + "..." : "Montando o seu diagnóstico...",
   ];
   const screen = el(`
     <section class="card screen loading-card">

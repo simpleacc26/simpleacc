@@ -84,6 +84,12 @@ então Google Fonts fora do ar não trava a página.
    porcentagem. Número ali faz o quiz parecer longo e medido, e derruba
    conclusão. Só a barra enchendo.
 2. **Sem rodapé** nas páginas do funil.
+2b. **Tela de carregamento de 5 segundos cravados** entre a captura e o
+   relatório, com a barra indo até 100% e quatro frases que citam o que a
+   pessoa respondeu, inclusive o primeiro nome dela. Não é enfeite: é o que
+   transforma a espera em sensação de processamento personalizado. Quem pede
+   para reduzir movimento recebe 800ms, porque a tela existe para quem a vê
+   animar. Pedido do cliente em 15/09.
 3. **Índice numérico só entra se sobreviver ao teste da distribuição.** A
    primeira versão deste funil tinha o IRV: 89% das combinações caíam na mesma
    faixa e "Baixa" era praticamente impossível. Era teatro de precisão.
@@ -141,13 +147,21 @@ duas páginas (o `PageView` sai do bloco base) e o ID também vive em
 | `PageView` | padrão | Abertura de qualquer uma das duas páginas |
 | `ViewContent` | padrão | Primeira resposta do quiz, e abertura do relatório |
 | **`Lead`** | **padrão** | **Envio do contato. É o evento de conversão** |
-| `Contact` | padrão | Clique em qualquer CTA de WhatsApp no relatório |
+| `Contact` | padrão | Clique em qualquer um dos 3 CTAs de WhatsApp no relatório |
 | `LeadFilaQuente` / `LeadQualificado` / `LeadNutrir` / `LeadFora` | personalizado | Junto com o `Lead`, um por faixa |
 | `step_view`, `step_complete`, `funnel_abandon`, ... | personalizado | Análise de passo a passo |
 
 **`Lead` é o que a campanha otimiza.** Ele leva parâmetros de qualificação:
 `qualificacao` (fila-quente, qualificado, nutrir, fora), `resultado` e
 `content_category` (o diagnóstico). `faixa` e `irv` saíram junto com o índice.
+
+**Tudo isso foi verificado disparando de verdade**, em 15/09: um `fbq` espião
+instalado antes da biblioteca, o funil percorrido de ponta a ponta e os quatro
+níveis de qualificação abertos no relatório. Confirmado `PageView` nas duas
+páginas, `ViewContent` na primeira resposta e na abertura do relatório, `Lead` +
+o evento da faixa na captura, e `Contact` no clique do WhatsApp, todos com os
+parâmetros certos. **Conferir que o código está lá não é conferir que dispara:**
+refaça esse teste sempre que mexer no motor.
 
 ### Por que existe um evento por faixa, além do parâmetro
 

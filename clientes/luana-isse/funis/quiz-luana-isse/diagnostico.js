@@ -258,6 +258,7 @@ if (!a._completedAt && !a.cena) {
         <li><strong>Expressão:</strong> transformar isso em um único conteúdo que apresenta, quebra objeção e conduz até a compra.</li>
       </ol>
       <p class="hint">Fora dessa ordem não funciona. É por isso que gravar antes de fechar a oferta quase nunca converte.</p>
+      ${ctaInline}
     </div>
 
     <div class="etapa">
