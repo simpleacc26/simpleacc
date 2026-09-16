@@ -5,8 +5,11 @@ Entrega o eixo do Scorecard DOC que cede primeiro (Desejo, Oferta ou Caminho), o
 Índice de Sustentação e a conta em reais do vazamento, e manda o lead para a rota
 que couber.
 
-**No ar:** https://prova-de-carga-simpleacc.vercel.app
+**No ar:** https://prova-de-carga.vercel.app
 (Vercel, time Simpleacc, projeto `prova-de-carga`, target production)
+
+`prova-de-carga-simpleacc.vercel.app` é o alias que a Vercel cria sozinha e
+continua respondendo. O endereço curto é o de divulgação.
 
 **Preview em artifact:** https://claude.ai/artifact/Gg19jNWGvD6DuuzFpsb2u1
 Mesmo conteúdo, para quando for mais prático mandar um link que não é o de
@@ -233,6 +236,13 @@ npx vercel deploy --prod --yes --archive=tgz \
 
 O `.vercelignore` mantém o `README.md` fora da publicação.
 
+O alias curto foi criado uma vez e sobrevive aos deploys seguintes:
+
+```bash
+npx vercel alias set prova-de-carga-simpleacc.vercel.app \
+  prova-de-carga.vercel.app --scope simpleacc --token "$VERCEL_TOKEN"
+```
+
 > 🚨 **O token nunca entra no repositório.** Exporte na sessão ou guarde fora da
 > árvore do Git. Regra da casa: `.env` é ignorado, segredo não se commita.
 
@@ -251,7 +261,7 @@ A publicação substitui a árvore inteira: arquivo que faltar vira 404 silencio
 Status 200 não prova integridade, então compare o conteúdo, não o código.
 
 ```bash
-BASE=https://prova-de-carga-simpleacc.vercel.app
+BASE=https://prova-de-carga.vercel.app
 REPO=clientes/fabricio-alves/funis/prova-de-carga
 for f in index.html leitura.html aplicacao.html fora-de-fase.html styles.css \
          flow.js motor.js app.js leitura.js favicon.svg \
