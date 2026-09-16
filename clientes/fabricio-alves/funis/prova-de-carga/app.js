@@ -116,7 +116,6 @@
         '<p class="eyebrow">' + esc(F.hero.eyebrow) + "</p>" +
         "<h1>" + esc(F.hero.titulo) + "</h1>" +
         '<p class="lead">' + esc(F.hero.subtitulo) + "</p>" +
-        '<p class="hint">' + esc(F.hero.tempo) + "</p>" +
         '<hr class="regua">'
       : "";
 

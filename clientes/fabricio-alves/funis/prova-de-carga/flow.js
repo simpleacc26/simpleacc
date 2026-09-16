@@ -28,8 +28,7 @@ window.FLOW = {
     eyebrow: "Medição estrutural da oferta",
     titulo: "Sua operação já vende. Onde ela cede quando a verba dobra?",
     subtitulo:
-      "Dez perguntas, três minutos. Você sai com o eixo que encarece cada venda, a conta em reais do que já paga a mais por mês e o que não adianta mexer até isso ser corrigido.",
-    tempo: "Três minutos. Nenhuma pergunta de dinheiro antes da nona.",
+      "Descubra qual dos três eixos da sua oferta cede primeiro quando a verba sobe, quanto esse ponto já custa por mês em reais, e o que não adianta mexer enquanto ele não for corrigido.",
   },
 
   /* ------------------------------------------------------------------ *

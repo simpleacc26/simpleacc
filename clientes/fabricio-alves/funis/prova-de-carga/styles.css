@@ -117,12 +117,6 @@ strong { font-weight: 600; color: var(--tinta); }
   max-width: var(--coluna);
   margin: 0 0 14px;
 }
-.hint {
-  font-size: 12.5px;
-  letter-spacing: 0.02em;
-  color: var(--tinta-tenue);
-  margin: 0;
-}
 .nota {
   font-size: 13.5px;
   line-height: 1.55;
