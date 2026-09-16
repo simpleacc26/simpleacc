@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Script Greicy Speroto</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --navy-900: #0F1F3A;
+    --navy-700: #1E3A5F;
+    --navy-500: #3A5578;
+    --gold-500: #B8935A;
+    --gold-300: #D4B885;
+    --paper: #FBF7F0;
+    --paper-sunk: #F3EDE0;
+    --ink: #171A1F;
+    --ink-muted: #5A6373;
+    --rule: #E4DBC7;
+    --danger: #A63B2C;
+    --success: #3F6B4A;
+
+    --bg: var(--paper);
+    --bg-sunk: var(--paper-sunk);
+    --fg: var(--ink);
+    --fg-muted: var(--ink-muted);
+    --accent: var(--gold-500);
+    --accent-strong: var(--navy-900);
+    --hairline: var(--rule);
+    --code-bg: #EFE7D3;
+    --code-fg: #2E2A20;
+    --msg-bg: #E7F0DA;
+    --msg-fg: #1F2F1A;
+    --msg-border: #B8CC98;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0B1526;
+      --bg-sunk: #0F1F3A;
+      --fg: #F0E7D2;
+      --fg-muted: #9BA5B8;
+      --accent: #D4B885;
+      --accent-strong: #F0E7D2;
+      --hairline: #24344F;
+      --code-bg: #182842;
+      --code-fg: #E0D5B8;
+      --msg-bg: #1E2E1B;
+      --msg-fg: #D8E4C5;
+      --msg-border: #3F5F30;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0B1526;
+    --bg-sunk: #0F1F3A;
+    --fg: #F0E7D2;
+    --fg-muted: #9BA5B8;
+    --accent: #D4B885;
+    --accent-strong: #F0E7D2;
+    --hairline: #24344F;
+    --code-bg: #182842;
+    --code-fg: #E0D5B8;
+    --msg-bg: #1E2E1B;
+    --msg-fg: #D8E4C5;
+    --msg-border: #3F5F30;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--fg);
+    background: var(--bg);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .wrap {
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 60px;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 60px 32px 120px;
+  }
+
+  @media (max-width: 900px) {
+    .wrap { grid-template-columns: 1fr; gap: 40px; padding: 32px 20px 80px; }
+    aside { position: static !important; max-height: none !important; }
+  }
+
+  aside {
+    position: sticky;
+    top: 40px;
+    align-self: start;
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
+    padding-right: 8px;
+    border-right: 1px solid var(--hairline);
+  }
+  @media (max-width: 900px) {
+    aside { border-right: none; border-bottom: 1px solid var(--hairline); padding-bottom: 24px; }
+  }
+  aside .brand {
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 15px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+  aside .brand-sub {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fg-muted);
+    margin-bottom: 28px;
+  }
+  aside nav ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    counter-reset: toc;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  aside nav ol li { counter-increment: toc; }
+  aside nav a {
+    display: block;
+    text-decoration: none;
+    color: var(--fg-muted);
+    font-size: 13.5px;
+    line-height: 1.4;
+    padding: 4px 0 4px 30px;
+    position: relative;
+    border-radius: 2px;
+    transition: color 0.15s ease;
+  }
+  aside nav a::before {
+    content: counter(toc, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+  }
+  aside nav a:hover, aside nav a:focus-visible {
+    color: var(--accent-strong);
+    outline: none;
+  }
+
+  main { min-width: 0; max-width: 720px; }
+
+  header.hero {
+    padding-bottom: 40px;
+    margin-bottom: 48px;
+    border-bottom: 1px solid var(--hairline);
+    position: relative;
+  }
+  header.hero::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: var(--accent);
+  }
+  .eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(34px, 5vw, 46px);
+    line-height: 1.08;
+    margin: 0 0 20px;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+    color: var(--accent-strong);
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .lede {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--fg);
+    max-width: 620px;
+    margin: 0;
+    text-wrap: pretty;
+  }
+  .meta {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.06em;
+    color: var(--fg-muted);
+  }
+  .meta span strong {
+    display: block;
+    color: var(--accent);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-bottom: 2px;
+    font-size: 10px;
+  }
+
+  section.chapter {
+    padding-top: 40px;
+    margin-top: 40px;
+    border-top: 1px solid var(--hairline);
+    scroll-margin-top: 40px;
+  }
+  section.chapter:first-of-type { border-top: none; margin-top: 0; padding-top: 0; }
+
+  .chapter-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    margin-bottom: 14px;
+    display: block;
+  }
+  h2 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.12;
+    letter-spacing: -0.01em;
+    margin: 0 0 24px;
+    text-wrap: balance;
+    color: var(--accent-strong);
+  }
+  h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    margin: 44px 0 14px;
+    color: var(--accent-strong);
+    text-wrap: balance;
+  }
+  h4 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.01em;
+    margin: 28px 0 10px;
+    color: var(--accent-strong);
+  }
+
+  p { margin: 0 0 16px; text-wrap: pretty; }
+  strong { color: var(--accent-strong); font-weight: 600; }
+  em { color: var(--fg); }
+
+  ul, ol {
+    padding-left: 22px;
+    margin: 0 0 20px;
+  }
+  li { margin-bottom: 8px; }
+  ul li::marker { color: var(--accent); }
+  ol { padding-left: 26px; }
+  ol li::marker { color: var(--accent); font-family: 'JetBrains Mono', monospace; font-size: 0.9em; }
+
+  .msg {
+    background: var(--msg-bg);
+    color: var(--msg-fg);
+    border-left: 3px solid var(--msg-border);
+    padding: 14px 18px;
+    margin: 14px 0 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13.5px;
+    line-height: 1.6;
+    border-radius: 0 6px 6px 0;
+  }
+  .msg::before {
+    content: "MENSAGEM";
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+    color: var(--msg-fg);
+    opacity: 0.6;
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+
+  .callout {
+    background: var(--bg-sunk);
+    border-left: 3px solid var(--accent);
+    padding: 18px 22px;
+    margin: 22px 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+
+  .kv {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 6px 20px;
+    margin: 16px 0 24px;
+    font-size: 14.5px;
+  }
+  .kv dt {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding-top: 3px;
+    font-weight: 500;
+  }
+  .kv dd { margin: 0; }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 20px 0;
+  }
+  @media (max-width: 600px) { .grid-2 { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--bg-sunk);
+    padding: 20px 22px;
+    border-radius: 6px;
+    border: 1px solid var(--hairline);
+  }
+  .card h4 { margin-top: 0; color: var(--accent-strong); }
+  .card .tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    background: var(--accent);
+    color: var(--paper);
+    border-radius: 3px;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  :root[data-theme="dark"] .card .tag,
+  :root:not([data-theme="light"]) .card .tag {
+    color: var(--navy-900);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .card .tag { color: var(--navy-900); }
+  }
+
+  .step {
+    counter-reset: descoberta;
+    list-style: none;
+    padding: 0;
+  }
+  .step li {
+    counter-increment: descoberta;
+    padding-left: 40px;
+    position: relative;
+    margin-bottom: 12px;
+  }
+  .step li::before {
+    content: counter(descoberta);
+    position: absolute;
+    left: 0;
+    top: 2px;
+    width: 28px;
+    height: 28px;
+    border: 1.5px solid var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .nono {
+    padding: 20px 24px;
+    border: 1px solid var(--danger);
+    border-radius: 6px;
+    margin: 20px 0;
+    background: color-mix(in srgb, var(--danger) 6%, var(--bg));
+  }
+  .nono h4 {
+    color: var(--danger);
+    margin-top: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 12px;
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .nono ul { margin-bottom: 0; }
+  .nono ul li::marker { color: var(--danger); }
+
+  hr.rule {
+    border: none;
+    border-top: 1px solid var(--hairline);
+    margin: 32px 0;
+  }
+  hr.gold {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, var(--accent) 0%, var(--accent) 40%, transparent 100%);
+    margin: 40px 0 32px;
+  }
+
+  footer.foot {
+    margin-top: 80px;
+    padding-top: 32px;
+    border-top: 1px solid var(--hairline);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--fg-muted);
+    text-transform: uppercase;
+  }
+
+  a { color: var(--accent); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+  @media print {
+    aside { display: none; }
+    .wrap { display: block; padding: 0; }
+    main { max-width: none; }
+    section.chapter { break-inside: avoid-page; }
+    h2, h3 { break-after: avoid-page; }
+    body { font-size: 11pt; }
+  }
+</style>
+
+<div class="wrap">
+  <aside>
+    <div class="brand">Simple Acc</div>
+    <div class="brand-sub">Greicy Speroto</div>
+    <nav>
+      <ol>
+        <li><a href="#s1">Antes de mandar qualquer mensagem</a></li>
+        <li><a href="#s2">Os quatro princípios</a></li>
+        <li><a href="#s3">Reconhecer o perfil em 3 mensagens</a></li>
+        <li><a href="#s4">Roteiro geral em 7 etapas</a></li>
+        <li><a href="#s5">Abordagem por procedimento</a></li>
+        <li><a href="#s6">As 7 objeções mais comuns</a></li>
+        <li><a href="#s7">Fechamento e agendamento</a></li>
+        <li><a href="#s8">Follow-up quando ela some</a></li>
+        <li><a href="#s9">Racionalização positiva</a></li>
+        <li><a href="#s10">Recorrência</a></li>
+        <li><a href="#s11">O que nunca fazer</a></li>
+      </ol>
+    </nav>
+  </aside>
+
+  <main>
+    <header class="hero">
+      <div class="eyebrow">Script de vendas &middot; WhatsApp</div>
+      <h1>Como conversar com quem chega pelo anúncio <em>e transformar mensagem em agendamento</em></h1>
+      <p class="lede">Guia prático para atender as leads que chegam pelos anúncios do Meta na clínica Greicy Speroto. Metodologia de vendas high ticket adaptada à realidade de Chapecó, aos procedimentos oferecidos e ao perfil das pacientes que aparecem no WhatsApp.</p>
+      <div class="meta">
+        <span><strong>Cliente</strong>Greicy Speroto Harmonização Facial</span>
+        <span><strong>Praça</strong>Chapecó, SC</span>
+        <span><strong>Canal</strong>WhatsApp Business + IG Direct</span>
+        <span><strong>Versão</strong>v1 &middot; ago/2026</span>
+      </div>
+    </header>
+
+    <section class="chapter" id="s1">
+      <span class="chapter-num">01 &middot; Preparo</span>
+      <h2>Antes de mandar qualquer mensagem</h2>
+      <p>Quando o WhatsApp toca, a Greicy tem 2 minutos para responder. Lead que espera mais que isso já esfriou. Se estiver em atendimento, deixe uma resposta pronta salva no WhatsApp Business que puxa por atalho.</p>
+      <p>Modelo de "primeira resposta em 2 minutos" (para quando não puder atender na hora):</p>
+      <div class="msg">Oi, [nome], aqui é a Greicy da clínica. Recebi seu contato agora, tô finalizando um atendimento e te chamo em uns minutos, tá? Enquanto isso, me conta rapidinho o que te fez procurar a gente hoje.</div>
+      <p>Essa mensagem faz três coisas ao mesmo tempo: humaniza (você já se apresentou pelo nome), justifica o pequeno atraso e já começa o diagnóstico com uma pergunta aberta. A pessoa responde e você chega no atendimento já com contexto.</p>
+    </section>
+
+    <section class="chapter" id="s2">
+      <span class="chapter-num">02 &middot; Fundamentos</span>
+      <h2>Os quatro princípios que guiam tudo</h2>
+      <p>Estes quatro princípios valem para toda conversa, do primeiro "oi" ao pós-venda.</p>
+
+      <div class="callout">
+        <span class="callout-label">Princípio 1</span>
+        <p><strong>Ouvir 70%, falar 30%.</strong> A paciente tem que sentir que foi ouvida antes de sentir vontade de comprar. Nunca chegue oferecendo pacote. Você escuta, você entende o que ela quer, aí você prescreve.</p>
+      </div>
+      <div class="callout">
+        <span class="callout-label">Princípio 2</span>
+        <p><strong>Autoridade calma.</strong> Você não é uma vendedora tentando empurrar. Você é uma profissional de saúde estética que diagnostica e prescreve. Fale como uma médica que já viu esse caso mil vezes, com calma e certeza. Sem gírias comerciais, sem "vou te dar um descontinho especial", sem "aproveita que a promoção acaba hoje". Isso destrói a autoridade em segundos.</p>
+      </div>
+      <div class="callout">
+        <span class="callout-label">Princípio 3</span>
+        <p><strong>A dor da paciente é dela, não sua.</strong> Não assuma o problema como se fosse seu. Não implore por resposta. Não fique ansiosa se ela demorar. Você mostra o caminho, ela escolhe se quer trilhar. Isso ironicamente é o que mais faz ela querer comprar.</p>
+      </div>
+      <div class="callout">
+        <span class="callout-label">Princípio 4</span>
+        <p><strong>Fechamento sempre com próximo passo concreto.</strong> Toda conversa termina com uma coisa marcada. Ou é o agendamento (comprou), ou é uma pré-reserva de horário (quer pensar), ou é uma data específica para retomar a conversa (não decidiu agora). Nunca "qualquer coisa você me chama". Isso é sinônimo de "adeus".</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="s3">
+      <span class="chapter-num">03 &middot; Diagnóstico</span>
+      <h2>Como reconhecer o perfil da paciente em 3 mensagens</h2>
+      <p>O jeito que ela escreve as primeiras mensagens já entrega muito. Você não precisa acertar 100%. Você precisa perceber para onde inclinar a conversa. São basicamente cinco perfis que aparecem em estética.</p>
+
+      <div class="grid-2">
+        <div class="card">
+          <span class="tag">Perfil A</span>
+          <h4>Quer performance e resultado visível</h4>
+          <p>Escreve direto, faz pergunta objetiva, quer saber preço rápido, quer ver antes e depois. Foco: "quanto tempo dura, quanto muda, quanto custa, quando posso vir".</p>
+          <p><strong>Como conduzir:</strong> vá direto — números, prazo, foto de resultado, agenda.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Perfil B</span>
+          <h4>Quer ser acolhida e contar a história</h4>
+          <p>Manda áudio de 2 minutos contando que a mãe fez, que a amiga fez, que ela tá se sentindo mal, que quer se sentir bem.</p>
+          <p><strong>Como conduzir:</strong> acolha primeiro, valide a história ("nossa, entendo perfeitamente"), depois traga o roteiro. Se for muito objetiva com ela, ela sente frieza e some.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Perfil C</span>
+          <h4>Precisa de garantia e processo</h4>
+          <p>Faz pergunta técnica: "qual toxina você usa?", "quantas unidades?", "quanto tempo dura o efeito?".</p>
+          <p><strong>Como conduzir:</strong> seja técnica também. Responda com precisão, mostre que tem processo. Se enrolar com ela, você perde.</p>
+        </div>
+        <div class="card">
+          <span class="tag">Perfil D</span>
+          <h4>Se sente pesada, com vergonha</h4>
+          <p>Manda mensagem meio desculpando por procurar: "nunca fiz nada, tô com vergonha", "sei que sou meio velha pra isso".</p>
+          <p><strong>Como conduzir:</strong> acolha com dignidade, tire a vergonha da conversa ("é super comum a primeira vez, quase todas as minhas pacientes começam assim"). Nunca ironize, nunca faça piada.</p>
+        </div>
+        <div class="card" style="grid-column: 1 / -1;">
+          <span class="tag">Perfil E</span>
+          <h4>Tem medo de "ficar diferente"</h4>
+          <p>Faz pergunta mais receosa: "vai ficar natural?", "não quero ficar com cara de plástico", "e se eu não gostar?".</p>
+          <p><strong>Como conduzir:</strong> reforce naturalidade e reversibilidade. Foto de resultado que preserva a identidade da paciente. Nunca fale de mudanças radicais.</p>
+        </div>
+      </div>
+      <p><strong>A regra:</strong> nas primeiras 3–4 mensagens você já sente qual desses cinco perfis é dominante. Aí você inclina a conversa toda naquela direção.</p>
+    </section>
+
+    <section class="chapter" id="s4">
+      <span class="chapter-num">04 &middot; Roteiro</span>
+      <h2>Roteiro geral em 7 etapas</h2>
+      <p>Toda conversa segue esse fluxo, independente do procedimento. O tempo entre uma etapa e outra varia (às vezes é tudo em 20 minutos, às vezes é ao longo de 2 dias com pausas), mas a ordem não muda.</p>
+
+      <h3>Etapa 1 &middot; Abertura</h3>
+      <p><em>Primeiros 2 a 5 minutos. Objetivo: apresentar quem é você, gerar confiança e abrir o diagnóstico.</em></p>
+      <div class="msg">Oi, [nome], que bom que veio até a gente. Aqui é a Greicy, sou enfermeira estética especializada em harmonização facial, atendo aqui em Chapecó há mais de 6 anos. Antes de eu te falar qualquer coisa sobre procedimento, deixa eu te fazer uma pergunta: o que te fez procurar a gente agora, especificamente hoje? Tem alguma coisa que você tá querendo mudar há um tempo?</div>
+      <p>Essa abertura faz 4 coisas: se apresenta como profissional (não como vendedora), estabelece experiência (6 anos, especialização), sinaliza que vai ouvir antes de oferecer e já abre o diagnóstico com uma pergunta que exige mais que "sim ou não".</p>
+
+      <h3>Etapa 2 &middot; Diagnóstico</h3>
+      <p><em>A mais importante. Objetivo: entender o que ela quer, o que ela sente, quanto isso incomoda e há quanto tempo.</em></p>
+      <p>Sete descobertas essenciais que você precisa fazer nessa etapa, sem parecer interrogatório. Vão saindo naturalmente:</p>
+      <ol class="step">
+        <li><strong>Motivo</strong> &mdash; o que fez ela procurar hoje?</li>
+        <li><strong>Problema</strong> &mdash; o que exatamente incomoda? (as rugas na testa, o rosto caindo, o nariz que ela nunca gostou)</li>
+        <li><strong>Consequência</strong> &mdash; o que esse incômodo faz na vida dela? (evita foto, evita sair, briga com o espelho)</li>
+        <li><strong>Impacto prático</strong> &mdash; quantas vezes por semana isso aparece? (toda hora que se olha no espelho, quando põe maquiagem, em festas)</li>
+        <li><strong>Impacto emocional</strong> &mdash; como isso faz ela se sentir? (envelhecida, cansada, feia)</li>
+        <li><strong>Meta</strong> &mdash; como ela gostaria de estar em 3 ou 6 meses?</li>
+        <li><strong>Urgência</strong> &mdash; tem alguma data específica? (casamento da irmã, aniversário de 40, viagem)</li>
+      </ol>
+      <div class="callout">
+        <span class="callout-label">Regra dos 5 segundos</span>
+        <p>Quando ela responder, espera. Não pula em cima da resposta. Muitas vezes ela vai complementar sozinha e você vai ganhar informação de graça. O silêncio faz a paciente falar mais.</p>
+      </div>
+      <p><strong>O que NÃO fazer nessa etapa:</strong> dar solução, sugerir procedimento, falar preço. Nada disso. Você só escuta e anota mentalmente.</p>
+
+      <h3>Etapa 3 &middot; Espelho (rotular o problema)</h3>
+      <p><em>Objetivo: fazer ela sentir que foi ouvida e entendida melhor do que ela mesma se descreveria.</em></p>
+      <p>Depois de ouvir tudo, você resume o que ela falou de volta pra ela, com palavras suas, mas usando as palavras dela nas partes emocionais:</p>
+      <div class="msg">Deixa eu ver se eu entendi bem, [nome]. Você me falou que faz uns 2 anos que você olha no espelho e sente que envelheceu 10, que evita foto em família, que já pensou em fazer harmonização mas tem medo de ficar com "cara de plástico", e que agora resolveu tomar uma atitude porque o casamento da sua irmã é em maio. É isso mesmo?</div>
+      <p>Quando ela responde "é exatamente isso, você entendeu tudo", você conquistou a autoridade da conversa. Ela agora te vê como alguém que sabe do que tá falando. Só a partir daqui você pode começar a prescrever.</p>
+      <p>Se ela corrigir alguma coisa, anote a correção e valide de novo. Você não pode prescrever enquanto ela não confirmar o diagnóstico.</p>
+
+      <h3>Etapa 4 &middot; Contexto (o que ela já tentou)</h3>
+      <p><em>Objetivo: entender o que ela já fez, o que não funcionou, e posicionar a solução como o próximo passo lógico.</em></p>
+      <div class="msg">Antes de eu te explicar o que faz mais sentido para o seu caso, me conta uma coisa: você já tentou fazer alguma coisa antes por isso? Cremes, tratamentos, alguma outra clínica?</div>
+      <dl class="kv">
+        <dt>Nunca fez nada</dt>
+        <dd>Ótimo, você é a primeira. Reforce a dignidade da decisão dela.</dd>
+        <dt>Cremes/caseiro</dt>
+        <dd>Valide o esforço, mostre o limite: "creme trabalha só na superfície, o que você tá me descrevendo é uma questão de estrutura profunda, que precisa de outro tipo de intervenção".</dd>
+        <dt>Outra clínica</dt>
+        <dd>Nunca fale mal da outra clínica. Pergunte o que especificamente não gostou. Use isso para diferenciar seu trabalho.</dd>
+      </dl>
+
+      <h3>Etapa 5 &middot; Condução (apresentar a solução)</h3>
+      <p><em>Objetivo: mostrar o que você recomenda, focando em resultado, não em procedimento. Aqui você prescreve. Vem como um médico, não como uma vendedora.</em></p>
+      <div class="msg">[nome], pelo que você me contou, o que faz mais sentido para o seu caso é [Botox / Full Face / etc]. Vou te explicar por quê.
+
+Você me falou que o que mais te incomoda é [X]. Esse procedimento vai atuar exatamente nisso. Em [Y] semanas você vai começar a notar [Z]. Sobre o medo de ficar artificial que você mencionou, aqui a gente trabalha com uma técnica de aplicação em doses pequenas, distribuídas, justamente para o efeito ser natural. Você continua sendo você, só mais descansada.</div>
+      <p>Se tiver foto de antes e depois de uma paciente com perfil parecido, manda. Se tiver depoimento, manda. Escolha o depoimento pelo perfil dela: se ela é do Perfil A (performance), depoimento com resultado objetivo. Se ela é do Perfil B (acolhida), depoimento emocional.</p>
+      <p><strong>Ainda não fale preço.</strong> Fale de resultado, de processo, de segurança.</p>
+
+      <h3>Etapa 6 &middot; Prescrição (agora sim, o preço)</h3>
+      <p><em>O preço só entra quando ela perguntar. Se ela não perguntou, ela ainda não tá pronta.</em></p>
+      <p>Quando ela perguntar "quanto fica?", você responde com calma, sem se justificar, sem pedir desculpa:</p>
+      <div class="msg">O investimento para o [procedimento] fica em R$ [valor]. A gente pode fazer no cartão em até [X] vezes se preferir. Me conta, se a gente marcar a sua aplicação para [dia da semana], o que funcionaria melhor pra você: manhã ou tarde?</div>
+      <p>Repare no que aconteceu: você falou o preço, ofereceu a condição de pagamento, e imediatamente já foi pro fechamento com uma escolha de horário. Você não perguntou "e aí, o que você acha?". Isso deixa espaço para dúvida. Você assumiu que o próximo passo é marcar. É a chamada <strong>escolha entre A e B</strong>.</p>
+      <div class="callout">
+        <span class="callout-label">Regra crítica</span>
+        <p>Depois que você falou o preço, você fica em silêncio. Não fica se explicando, não emenda "mas é porque a gente usa o melhor produto, sabe...", não oferece desconto antes dela pedir. Fala o preço, oferece o horário, e espera ela responder.</p>
+      </div>
+
+      <h3>Etapa 7 &middot; Decisão (o fechamento)</h3>
+      <p><strong>Se ela topa:</strong> fecha o horário, manda a confirmação com endereço, orientações pré-procedimento, e já ativa a racionalização positiva (seção 09).</p>
+      <p><strong>Se ela hesita:</strong> passa para o tratamento de objeções (seção 06).</p>
+      <p><strong>Se ela diz "vou pensar":</strong> não deixe cair no vazio. Marque um retorno específico:</p>
+      <div class="msg">Sem problema, [nome]. Só pra eu me organizar aqui na agenda: posso te ligar amanhã às [hora] pra confirmar? Se você fechar, eu já garanto o horário [dia] para você. Se não fizer sentido, eu libero a vaga.</div>
+      <p>Isso cria compromisso, tira a vaga da conversa em aberto e pressiona sem parecer pressão.</p>
+    </section>
+
+    <section class="chapter" id="s5">
+      <span class="chapter-num">05 &middot; Cardápio</span>
+      <h2>Abordagem por procedimento</h2>
+      <p>Cada procedimento tem uma dor, um medo e um resultado diferentes. Aqui o ajuste fino do roteiro.</p>
+
+      <h3>5.1 &middot; Botox</h3>
+      <dl class="kv">
+        <dt>Dor</dt>
+        <dd>Rugas de expressão (testa, glabela, pés-de-galinha), rosto "cansado", parece brava sem estar.</dd>
+        <dt>Medo</dt>
+        <dd>Ficar com cara paralisada, sobrancelha caída, ficar artificial.</dd>
+        <dt>Ticket</dt>
+        <dd>R$ 1.000 (aplicação padrão).</dd>
+      </dl>
+      <p>No diagnóstico, pergunte quando ela nota mais as rugas: "de manhã ao acordar? Em foto? Quando ri?". Isso te dá material para o espelho.</p>
+      <p>Na prescrição, sempre traga a comparação: "o Botox trabalha relaxando o músculo que faz a ruga, não paralisa, não some sua expressão. Você vai continuar rindo, chorando, franzindo a testa, só que sem marcar."</p>
+      <p>Ancore no tempo: "a aplicação leva 15 minutos, o resultado começa a aparecer em 3 a 5 dias e fica lindo por volta de 15 dias. Dura em torno de 4 meses."</p>
+      <div class="callout">
+        <span class="callout-label">Ponto crítico</span>
+        <p>Botox é a porta de entrada. Muitas pacientes vão vir "só pelo Botox". <strong>Não force full face na primeira conversa.</strong> Faça o Botox bem feito, apresente resultado, e ela mesma vai voltar para mais. Botox bem feito é o melhor vendedor para os procedimentos seguintes.</p>
+      </div>
+
+      <h3>5.2 &middot; Full Face</h3>
+      <dl class="kv">
+        <dt>Dor</dt>
+        <dd>Rosto caído, olhar cansado, ovalação do rosto perdida, "não me reconheço mais no espelho".</dd>
+        <dt>Medo</dt>
+        <dd>Ficar com cara de outra pessoa, ficar exagerada, gastar muito e não gostar.</dd>
+        <dt>Frequência</dt>
+        <dd>~1 fechamento por mês. Meta: 2–3.</dd>
+      </dl>
+      <p>Full Face é o procedimento mais lucrativo e mais difícil de fechar. Aqui o diagnóstico precisa ser mais longo. Você vai fazer 3 a 4 conversas antes de fechar, provavelmente. Não tenta fechar na primeira.</p>
+      <p>Na primeira conversa, foca em entender o que ela quer mudar globalmente. Pergunte:</p>
+      <div class="msg">Quando você se olha no espelho e não gosta do que vê, o que exatamente te incomoda? Se você pudesse mudar 3 coisas, quais seriam?</div>
+      <p>Anote as 3 coisas. Isso vai virar seu mapa. Na segunda conversa, você volta com uma proposta que endereça exatamente aqueles 3 pontos, mostrando o passo a passo.</p>
+      <p>Full Face é uma decisão que envolve o marido em muitos casos. Antecipe:</p>
+      <div class="msg">[nome], como o full face é um investimento maior e um resultado que vai aparecer pra família toda, é muito comum a pessoa querer conversar com o marido antes de decidir. Se for o seu caso, posso agendar uma conversa de 15 minutos com vocês dois juntos? Assim eu explico tudo pra ele também e vocês decidem juntos.</div>
+      <div class="callout">
+        <span class="callout-label">Ponto crítico</span>
+        <p>Full Face vende por transformação, não por procedimento. <strong>Não venda "3 ml de ácido hialurônico".</strong> Venda "o rosto que você tinha aos 30 anos", "olhar descansado nas fotos do casamento". Foto de antes e depois de uma paciente com perfil parecido vale mais que qualquer explicação técnica.</p>
+      </div>
+
+      <h3>5.3 &middot; Preenchimento labial</h3>
+      <dl class="kv">
+        <dt>Dor</dt>
+        <dd>Lábio fino, assimetria, boca "sumindo", canto da boca caído.</dd>
+        <dt>Medo</dt>
+        <dd>Ficar com boca de pato, ficar exagerada, o marido não gostar.</dd>
+      </dl>
+      <p>É o procedimento que mais tem "medo de ficar exagerada". Antecipe isso no espelho:</p>
+      <div class="msg">[nome], você me falou que tem medo de ficar com "boca de pato". Isso acontece quando o profissional aplica muito produto de uma vez, ou aplica no lugar errado. Aqui a gente trabalha com aplicação leve, respeitando o desenho natural da sua boca. Se você quiser uma boca sutilmente mais definida, é isso que você vai ter. Ninguém vai olhar e perceber que você fez, vão só perceber que você tá bonita.</div>
+      <p>Pergunte se ela tem foto de referência (uma boca que ela gosta). Isso ancora expectativa.</p>
+
+      <h3>5.4 &middot; Rinomodelação</h3>
+      <dl class="kv">
+        <dt>Dor</dt>
+        <dd>Nariz que ela nunca gostou (giba, ponta caída, assimetria), quer mudar mas tem medo de cirurgia.</dd>
+        <dt>Medo</dt>
+        <dd>Dor, sangramento, ficar torto, ter que operar depois.</dd>
+        <dt>Duração</dt>
+        <dd>1 ano e meio a 2 anos.</dd>
+      </dl>
+      <p>É o procedimento com o resultado mais visível e mais "wow". Um ml aplicado direito muda o rosto todo. Use isso.</p>
+      <div class="msg">[nome], o que você me contou é super comum. Muita paciente minha tá exatamente nessa: nunca gostou do nariz, sempre pensou em fazer alguma coisa, mas cirurgia parece grande demais. A rinomodelação faz o que a rinoplastia faz em várias situações, mas sem corte, sem recuperação. Você entra aqui, em 30 minutos a gente aplica, você sai com o nariz novo. Vou te mostrar uma paciente que fez, dá pra você ver a diferença.</div>
+      <div class="callout">
+        <span class="callout-label">Obrigatório</span>
+        <p><strong>Foto de antes e depois.</strong> Rinomodelação vende quase sozinha quando ela vê o resultado de outra pessoa.</p>
+      </div>
+
+      <h3>5.5 &middot; Bioestimulador de colágeno</h3>
+      <dl class="kv">
+        <dt>Dor</dt>
+        <dd>Flacidez, rosto "murcho", falta de firmeza, envelhecimento geral.</dd>
+        <dt>Medo</dt>
+        <dd>Não ver resultado, gastar e não sentir diferença, dor na aplicação.</dd>
+        <dt>Prazo</dt>
+        <dd>Resultado começa em ~30 dias, pico em 60–90 dias.</dd>
+      </dl>
+      <p>É o mais difícil de vender porque o resultado é lento. Você precisa gerenciar expectativa desde a primeira conversa:</p>
+      <div class="msg">[nome], o bioestimulador é diferente do preenchimento tradicional. Ele não preenche na hora, ele estimula o seu próprio colágeno a se reproduzir. O resultado começa a aparecer em torno de 30 dias e o pico é em 60 a 90 dias. Vale muito a pena porque é uma melhora que vem de dentro, sua pele fica mais firme, mais viva. Mas exige paciência.</div>
+      <p>Se ela quer resultado imediato, ofereça combinação com preenchimento. Se ela quer o efeito duradouro e progressivo, bioestimulador puro.</p>
+    </section>
+
+    <section class="chapter" id="s6">
+      <span class="chapter-num">06 &middot; Blindagem</span>
+      <h2>Contorno das 7 objeções mais comuns em estética</h2>
+      <p>Objeção não é rejeição. Objeção é pedido de mais informação. Se ela não tivesse interesse, ela não estaria objetando. Cada objeção resolvida bem aproxima do fechamento.</p>
+
+      <h3>6.1 &middot; "Tá caro" / "Não tenho esse valor agora"</h3>
+      <p>Nunca dê desconto de cara. Isso destrói a percepção de valor.</p>
+      <div class="msg">Entendo perfeitamente, [nome], e é super natural ter essa reação, principalmente na primeira vez. A gente tem condição de pagamento parcelada em até [X] vezes no cartão, o que baixa muito a parcela mensal. Fica em R$ [valor da parcela] por mês. Isso caberia melhor no seu momento agora?</div>
+      <p>Se ela ainda hesitar, pergunte:</p>
+      <div class="msg">Deixa eu te fazer uma pergunta direta. Se o valor fosse [50% do valor], você faria hoje? Ou o valor não é a questão principal, é mais uma insegurança sobre se vale a pena?</div>
+      <p>Isso revela a objeção real. Muitas vezes preço é máscara para outra coisa (medo de não gostar, medo do marido, insegurança).</p>
+
+      <h3>6.2 &middot; "Vou pensar" / "Preciso decidir"</h3>
+      <p>O clássico. Nunca aceite "vou pensar" como resposta final.</p>
+      <div class="msg">Tranquilo. Só uma coisa antes de você desligar: pelo que a gente conversou, você acha que o procedimento faz sentido pro seu caso? A dúvida é sobre o valor, sobre a data, sobre alguma coisa específica?</div>
+      <p>A resposta dela vai te dizer se é objeção de preço disfarçada, de tempo, ou se ela realmente tá em cima do muro. Se for cima do muro, marque retorno específico:</p>
+      <div class="msg">Beleza. Vou deixar sua vaga pré-reservada para [dia], [hora], e te ligo amanhã às [hora exata] para você me confirmar. Se você não quiser mais, tudo bem, eu libero a vaga na hora. Combinado?</div>
+
+      <h3>6.3 &middot; "Vou conversar com meu marido"</h3>
+      <p>Não empurre uma decisão isolada nem trate o marido como obstáculo. Faça o marido virar parte do processo:</p>
+      <div class="msg">Faz total sentido, [nome]. É um investimento importante e é comum a gente conversar com quem divide a vida. Deixa eu te ajudar: posso agendar 15 minutinhos comigo, com vocês dois juntos, no WhatsApp mesmo ou por chamada de vídeo? Assim eu explico tudo pra ele também e vocês decidem juntos. Qual horário funciona hoje ou amanhã?</div>
+
+      <h3>6.4 &middot; "Tenho medo de ficar artificial"</h3>
+      <p>Essa é a objeção mais fácil de neutralizar, porque a solução é técnica.</p>
+      <div class="msg">[nome], esse é o receio mais comum e é super legítimo. Vou te explicar: aqui a gente trabalha com uma técnica de aplicação conservadora, começando com dose menor. Se depois de 15 dias você quiser mais efeito, a gente complementa. Nunca o contrário. Isso garante que o resultado seja sutil e natural. Você continua sendo você. Quer ver o antes e depois de uma paciente que também tinha esse mesmo medo?</div>
+      <p>Manda a foto. A foto resolve.</p>
+
+      <h3>6.5 &middot; "Dói muito?"</h3>
+      <div class="msg">Nada disso. Antes da aplicação a gente passa um anestésico tópico que deixa a região dormente, então você vai sentir só uma pressão leve, tipo uma picadinha bem rápida. A maioria das pacientes acha bem mais tranquilo do que imaginava. E se a qualquer momento você quiser fazer uma pausa, é só me avisar.</div>
+
+      <h3>6.6 &middot; "E se eu não gostar do resultado?"</h3>
+      <div class="msg">Duas coisas importantes. Primeiro, todos os procedimentos que a gente faz são gradativos, ou seja, a gente sempre começa com menos e vai ajustando ao longo das semanas. Segundo, você tem um retorno gratuito comigo em 15 dias para gente avaliar juntas o resultado e fazer qualquer ajuste que faça sentido. Você não fica sozinha em nenhum momento.</div>
+
+      <h3>6.7 &middot; "Não é o momento agora"</h3>
+      <div class="msg">Entendo, [nome]. Deixa eu te perguntar: se você olhar daqui a 3 meses, com tudo igual, sem ter feito nada, como você acha que vai estar se sentindo em relação a isso? Melhor, igual, pior?</div>
+      <p>Deixe ela responder. Na resposta ela geralmente admite que vai estar igual ou pior. Aí:</p>
+      <div class="msg">É por isso que eu te falei que hoje é um bom dia pra decidir. Não porque eu tô te apressando, é porque o incômodo que você tá sentindo hoje não vai passar sozinho. Você quer que eu te reserve a vaga pra [dia mais próximo] e a gente resolve isso na semana que vem?</div>
+    </section>
+
+    <section class="chapter" id="s7">
+      <span class="chapter-num">07 &middot; Fechamento</span>
+      <h2>Fechamento e agendamento</h2>
+      <p>Quando ela topa, faça o fechamento com clareza. Nada de "beleza, então tá combinado". Formaliza:</p>
+      <div class="msg">Perfeito, [nome]. Fica marcado pra [dia da semana], [data], às [hora]. Vou te mandar aqui o endereço com o link do Google Maps, as orientações pré-procedimento e o link do pagamento (ou "a máquina fica aqui, pode ser cartão ou Pix na hora"). Chega uns 10 minutos antes para gente conversar com calma e você não ficar apertada. Alguma dúvida?</div>
+      <p>Depois manda, em mensagens separadas:</p>
+      <ol>
+        <li>Endereço com link do Maps</li>
+        <li>Orientações pré-procedimento (o que evitar, o que trazer)</li>
+        <li>Se aplicável, link de pagamento antecipado ou reserva de vaga</li>
+        <li>Uma mensagem de "estou te esperando, qualquer dúvida me chama"</li>
+      </ol>
+    </section>
+
+    <section class="chapter" id="s8">
+      <span class="chapter-num">08 &middot; Follow-up</span>
+      <h2>Follow-up quando ela some ou não decide</h2>
+      <p>Este é o assunto que mais dá dinheiro parado. A maioria das clínicas manda "oi, tudo bem? tem novidade?" e queima o lead. A gente não faz isso.</p>
+
+      <h3>Follow-up 1 &middot; 24 horas depois</h3>
+      <p>Se ela não fechou. Não pergunte "teve tempo de pensar?". Isso posiciona você como vendedora esperando aprovação. Faça diferente:</p>
+      <div class="msg">Oi, [nome], aqui é a Greicy. Passando pra fechar aquele nosso papo de ontem. O que você me contou sobre [dor específica dela] tem solução clara com o [procedimento], e a minha única dúvida é se esse é o momento certo pra você. Me fala o que você tá pensando.</div>
+      <p>Essa frase abre espaço para a objeção real aparecer. Se ela responder, a venda tá viva. Se ela sumir, ela sumiu por outro motivo e não vale forçar.</p>
+
+      <h3>Follow-up 2 &middot; 3 dias depois</h3>
+      <p>Se não respondeu o follow-up 1. Aqui você manda algo de valor, sem cobrar:</p>
+      <div class="msg">[nome], tô mandando aqui uma paciente minha que fez o [procedimento] recentemente e me autorizou compartilhar. O antes e depois dela é bem parecido com o que você me descreveu. Achei que ia ser útil pra você ver. Qualquer coisa, tô por aqui.</div>
+      <p>Anexa foto de antes e depois. Sem pergunta, sem cobrança.</p>
+
+      <h3>Follow-up 3 &middot; 7 dias depois</h3>
+      <p>Última tentativa antes de encerrar o ciclo:</p>
+      <div class="msg">[nome], vou ser direta com você porque sei que sua atenção é disputada por muita coisa. Você me procurou porque queria resolver [dor dela]. Se isso ainda faz sentido, tô com uma vaga aberta para [dia] e posso segurar pra você. Se não faz mais sentido agora, sem problema, só me avisa que eu tiro do meu radar e libero espaço para outras pessoas. Combinado?</div>
+      <p>Isso dá a ela a chance de dizer "sim vamos" ou "agora não". Qualquer resposta é melhor que o silêncio infinito.</p>
+
+      <h3>Follow-up 4 &middot; 30 dias depois</h3>
+      <p>Se ela não respondeu nada, uma última mensagem, sem cobrança nenhuma:</p>
+      <div class="msg">Oi, [nome], só passando pra dizer que se em algum momento você quiser retomar aquele papo sobre [procedimento], é só me chamar aqui. Um beijo, boa semana.</div>
+      <p>Isso mantém a porta aberta sem parecer desespero. Muitas pacientes voltam meses depois.</p>
+    </section>
+
+    <section class="chapter" id="s9">
+      <span class="chapter-num">09 &middot; Pós-venda</span>
+      <h2>Racionalização positiva (as 48h depois de fechar)</h2>
+      <p>Fechou a venda? O trabalho não acabou. As primeiras 48 horas depois do fechamento são as mais perigosas para arrependimento. A paciente pode conversar com alguém, ouvir "você gastou tudo isso com quê?", e cancelar.</p>
+
+      <h3>Logo depois de fechar (mesmo dia)</h3>
+      <div class="msg">[nome], que decisão bacana. Você vai ver que o resultado vai te surpreender. Já te mando aqui um material com todos os cuidados pré e pós-procedimento, e o meu contato direto pra qualquer dúvida antes do dia. Tô muito animada pra te ver aqui!</div>
+      <p>Manda um PDF ou infográfico bonito com "seu procedimento passo a passo". Ela sente que fez uma escolha profissional.</p>
+
+      <h3>24 horas depois</h3>
+      <div class="msg">Oi, [nome], tudo bem? Passando pra te falar que separei aqui uma foto de resultado de uma paciente com um caso bem parecido com o seu, achei que você ia gostar de ver enquanto se prepara. [envia foto] Qualquer dúvida antes do dia, tô por aqui.</div>
+      <p>Isso alimenta a expectativa positiva. Ela vai chegar no dia animada, não em dúvida.</p>
+
+      <div class="callout">
+        <span class="callout-label">Se alguém questionar ela</span>
+        <p>Você já plantou o argumento que ela vai usar. Nas mensagens anteriores você reforçou que ela tomou uma decisão profissional, baseada em análise, com resultado esperado claro. Se o marido perguntar "por que você gastou tanto?", ela tem resposta na ponta da língua.</p>
+      </div>
+    </section>
+
+    <section class="chapter" id="s10">
+      <span class="chapter-num">10 &middot; Recorrência</span>
+      <h2>Recorrência (Botox e retornos)</h2>
+      <p>Botox dura 4 meses. Isso é ouro. Cada paciente que fez Botox é uma venda garantida a cada 4 meses, se você lembrar dela.</p>
+
+      <h3>O sistema simples</h3>
+      <ol>
+        <li><strong>No dia da aplicação:</strong> registra no seu prontuário eletrônico ou numa planilha simples a data e coloca lembrete para daqui a 3 meses e meio.</li>
+        <li><strong>3 meses e meio depois:</strong> manda uma mensagem carinhosa.</li>
+      </ol>
+      <div class="msg">Oi, [nome], tudo bem? Aqui é a Greicy. Vi aqui que já vai fazer 4 meses desde a sua última aplicação de Botox. Como você tá se sentindo? Se já tá começando a notar as rugas voltando, é o momento certo pra gente marcar a manutenção. Tô com essas datas abertas: [3 opções]. Qual funciona melhor pra você?</div>
+      <p>Isso não é venda, é cuidado. E fecha quase sempre.</p>
+
+      <h3>Outros retornos</h3>
+      <dl class="kv">
+        <dt>Full Face</dt>
+        <dd>Primeiro retorno em 15 dias (avaliação gratuita), depois convite para complementação em 3 a 6 meses conforme o caso.</dd>
+        <dt>Rinomodelação</dt>
+        <dd>Retorno em 15 dias (avaliação gratuita), lembrete de manutenção em 12 a 18 meses.</dd>
+        <dt>Bioestimulador</dt>
+        <dd>Sessões pré-agendadas no primeiro fechamento (a série toda de 2 a 3 sessões marcada de uma vez).</dd>
+      </dl>
+    </section>
+
+    <section class="chapter" id="s11">
+      <span class="chapter-num">11 &middot; Armadilhas</span>
+      <h2>O que nunca fazer</h2>
+      <p>Lista rápida das armadilhas que estragam a autoridade e a venda.</p>
+      <div class="nono">
+        <h4>10 mandamentos do "não"</h4>
+        <ul>
+          <li><strong>Dar desconto antes de a paciente pedir.</strong> Se você reduz o preço sozinha, ela pensa "então valia menos". Suspeita, não alívio.</li>
+          <li><strong>Falar preço no meio do diagnóstico.</strong> Preço é a última coisa que sai. Se ela pergunta cedo, desvia com elegância: "primeiro deixa eu entender melhor seu caso, aí te passo o valor com certeza."</li>
+          <li><strong>Prometer o que não vai entregar.</strong> "Fica 15 anos mais nova em uma aplicação" mata a confiança na hora que ela vê o resultado real.</li>
+          <li><strong>Perguntar "teve tempo de pensar?".</strong> Isso te posiciona como vendedora esperando aprovação. Sempre traga uma pergunta ou informação nova.</li>
+          <li><strong>Deixar conversa terminar no ar.</strong> Toda mensagem tem que terminar com pergunta, próximo passo ou hora marcada.</li>
+          <li><strong>Falar mal de outra clínica ou profissional.</strong> Nunca. Diferencie pelo que você faz, não pelo que os outros fazem mal.</li>
+          <li><strong>Explicar demais o procedimento.</strong> Você é a prescritora, não a professora. Ela quer resolver o problema, não fazer curso de estética.</li>
+          <li><strong>Preencher silêncio com ansiedade.</strong> Depois que você fala o preço, cala a boca. O silêncio dela não é rejeição, é ela pensando.</li>
+          <li><strong>Pedir desculpa pelo preço.</strong> "Sei que é bastante, mas...". Não. O preço é o preço. Se você não acredita no valor, ela também não vai acreditar.</li>
+          <li><strong>Aceitar "vou pensar" sem uma data específica de retorno.</strong> "Vou pensar" sem data é sinônimo de "não".</li>
+        </ul>
+      </div>
+
+      <hr class="gold">
+
+      <h3>Como usar este material</h3>
+      <p>Não tenta memorizar tudo de uma vez. Pega uma seção por semana e treina.</p>
+      <dl class="kv">
+        <dt>Semana 1</dt>
+        <dd>As 7 etapas do roteiro geral e os 4 princípios.</dd>
+        <dt>Semana 2</dt>
+        <dd>Reconhecer os 5 perfis nas primeiras mensagens.</dd>
+        <dt>Semana 3</dt>
+        <dd>As 7 objeções e como responder cada uma.</dd>
+        <dt>Semana 4</dt>
+        <dd>Sistematizar o follow-up e a recorrência.</dd>
+      </dl>
+      <p>A cada 15 dias, olha para as suas últimas 10 conversas de WhatsApp e analisa: onde eu falei preço cedo demais, onde eu deixei sem próximo passo, onde eu falei mais do que ela. Cada erro identificado vira melhoria na próxima conversa.</p>
+      <p>E anota, num caderninho ou planilha, cada objeção nova que aparecer e não estiver aqui. A gente atualiza esse documento a cada 2 meses com o que o mercado de Chapecó está pedindo.</p>
+    </section>
+
+    <footer class="foot">
+      Simple Acc &middot; Greicy Speroto Harmonização Facial &middot; v1 &middot; ago/2026
+    </footer>
+  </main>
+</div>
+
+</body>
+</html>
