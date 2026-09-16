@@ -6,7 +6,7 @@
 
 /* ---- Tracking plugável: preencha os IDs e os eventos vão junto.
    Vazio = só loga no console. ---- */
-const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
+const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "1981914359169331", custom_webhook: "" };
 
 /* Planilha de leads via Make (webhook instant -> Google Sheets).
    Cole a URL do webhook do Make aqui. O Make só estrutura o lead quando
@@ -30,7 +30,14 @@ function trackEvent(name, data = {}) {
   console.log(`[TRACK] ${name}`, payload);
   try {
     if (TRACKING_CONFIG.ga4_id && typeof gtag === "function") gtag("event", name, data);
-    if (TRACKING_CONFIG.meta_pixel_id && typeof fbq === "function") fbq("trackCustom", name, data);
+    /* PRIVACIDADE: para a Meta vai SÓ o nome do evento, nunca o payload.
+       Este é um funil médico: as respostas do quiz e o IMF são sinais de
+       saúde e não podem ser enviados para plataforma de anúncio. Quem
+       precisa desse dado é a planilha, que é do cliente. */
+    if (TRACKING_CONFIG.meta_pixel_id && typeof fbq === "function") {
+      fbq("trackCustom", name);
+      if (name === "funnel_complete") fbq("track", "Lead");
+    }
     if (TRACKING_CONFIG.custom_webhook && navigator.sendBeacon)
       navigator.sendBeacon(TRACKING_CONFIG.custom_webhook, JSON.stringify({ event: name, ...payload }));
   } catch (e) { /* tracking nunca quebra o funil */ }

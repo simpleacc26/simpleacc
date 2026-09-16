@@ -47,6 +47,27 @@ trocar o eixo de bucket, mexa só em `bucketRegras`.
 >    equipe puxando o lead. Se um dia quiserem o CTA ativo, basta preencher o
 >    número e republicar.
 
+## Tracking
+
+**Pixel da Meta `1981914359169331`** instalado nas duas páginas (PageView) e
+ligado ao motor em `TRACKING_CONFIG.meta_pixel_id`. Ao concluir o quiz dispara
+um evento padrão `Lead`.
+
+> ⚠️ **Para a Meta vai só o NOME do evento, nunca o payload.** Este é um funil
+> médico: as respostas do quiz e o IMF são sinais de saúde e não podem ser
+> enviados para plataforma de anúncio. Quem recebe esse dado é a planilha, que
+> é do cliente. Se alguém "melhorar" o `trackEvent` mandando `data` para o
+> `fbq`, está criando um problema de privacidade, não um ganho de otimização.
+
+## Foto da Dra. Lailla
+
+O bloco de autoridade usa `marca.foto` (flow.js). Vazio = monograma H da marca.
+Para usar a foto: coloque o arquivo nesta pasta, escreva o nome dele em
+`marca.foto` (ex.: `"dra-lailla.webp"`) e republique. Nenhuma outra linha muda.
+
+Formato esperado: WebP quadrado, cerca de 240px, abaixo de 60KB. O recorte do
+CSS é circular com `object-position: 50% 18%` (enquadra o rosto).
+
 ## O que é
 
 | Página | Arquivo | O que faz |

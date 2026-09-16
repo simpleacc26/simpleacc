@@ -67,6 +67,8 @@
     .autor-marca { width: 82px; height: 82px; flex: 0 0 82px; border-radius: 50%;
       display: grid; place-items: center; background: #2C2C2C; color: var(--primary);
       font-family: var(--font-serif); font-size: 32px; letter-spacing: .1em; }
+    .autor-foto { width: 82px; height: 82px; flex: 0 0 82px; border-radius: 50%;
+      object-fit: cover; object-position: 50% 18%; border: 2px solid var(--primary); }
     .autor-nome { display: block; font-family: var(--font-serif); font-size: 20px; color: var(--primary-700); line-height: 1.15; }
     .autor-cargo { display: block; font-size: 11px; letter-spacing: .15em; text-transform: uppercase; color: var(--muted); margin-top: 6px; }
     .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0 6px; }
@@ -86,7 +88,7 @@
     @media (max-width: 520px) {
       .compare { grid-template-columns: 1fr; }
       .cred-grid { grid-template-columns: 1fr; }
-      .autor-marca { width: 66px; height: 66px; flex-basis: 66px; font-size: 26px; }
+      .autor-marca, .autor-foto { width: 66px; height: 66px; flex-basis: 66px; font-size: 26px; }
     }
     @media print {
       body { background: #fff; }
@@ -94,6 +96,23 @@
       .etapa, .compare .col, .cta-box, .caso { break-inside: avoid; }
     }
   </style>
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1981914359169331');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1981914359169331&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel -->
 </head>
 <body>
   <header class="topbar">

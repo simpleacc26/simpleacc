@@ -28,6 +28,11 @@ window.FLOW = {
        número errado. NÃO subir tráfego antes de preencher. */
     whatsapp: "",
     whatsappMsg: "Olá! Sou {nome}, acabei de fazer a leitura do metabolismo da fome no site da HODIE e quero falar sobre a consulta de investigação.",
+    /* Foto da Dra. Lailla no bloco de autoridade. Deixe vazio e o relatório
+       usa o monograma H da marca. Assim que o arquivo existir na pasta do
+       funil, basta escrever o nome dele aqui (ex.: "dra-lailla.webp") e
+       republicar: nenhuma outra linha muda. */
+    foto: "",
   },
 
   /* O índice do cliente. É o ativo que a HODIE leva para o Instagram e para

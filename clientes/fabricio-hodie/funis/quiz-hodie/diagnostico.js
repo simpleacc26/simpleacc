@@ -184,7 +184,9 @@ if (!a._completedAt && !a.problema && !a.situacao) {
     <div class="etapa">
       <h3>Quem conduz o seu tratamento</h3>
       <div class="autor">
-        <div class="autor-marca" aria-hidden="true">H</div>
+        ${F.marca.foto
+          ? `<img class="autor-foto" src="${F.marca.foto}" alt="Dra. Lailla de Oliveira" />`
+          : `<div class="autor-marca" aria-hidden="true">H</div>`}
         <div>
           <span class="autor-nome">Dra. Lailla de Oliveira</span>
           <span class="autor-cargo">Médica · CRM-SP 239430</span>
