@@ -107,3 +107,22 @@ O que funciona e o que não funciona neste cliente. Leia antes de criar.
 - **Descubra a aba antes de montar o cenário.** O nome padrão em conta em
   português é `Página1`, não `Sheet1`, e o `addRow` falha calado se errar. Dá
   para listar as abas por RPC do Make, sem abrir a planilha.
+
+## Sobre a ordem das perguntas (16/09/2026)
+
+- 🚨 **Pergunta que exige número não pode vir no começo.** A P2 do Prova de
+  Carga pedia quanto o custo por venda tinha subido nos últimos seis a doze
+  meses: exige memória e medição, logo depois da primeira tela. Feedback do
+  cliente: as primeiras têm que ser fáceis, respondidas de cabeça. A ordem agora
+  sobe de dificuldade, e os três números ficam nas posições 6, 7 e 8, quando a
+  pessoa já investiu tempo e não abandona por causa de um número.
+- **Ao reordenar, três coisas quebram calado:** pergunta que cita outra que
+  ainda não veio ("segurar esse custo" apontava para uma pergunta que passou
+  para o fim), tela de implicação que perde o argumento no ponto onde caiu, e o
+  cabeçalho da planilha, que mapeia por posição. As três foram corrigidas juntas.
+- **Headline de instrumento soa datada.** "Sua operação já vende. Onde ela cede
+  quando a verba dobra?" foi lida pelo cliente como técnica demais, gente falando
+  como nos anos 60. O problema era vocabulário de laboratório ("medição
+  estrutural", "verba"), não densidade. Trocado por "Sua oferta vende hoje. Ela
+  aguenta o dobro de investimento?", que é a palavra do mercado e uma alternativa
+  que o próprio brand book autoriza. **Contenção não é arcaísmo.**

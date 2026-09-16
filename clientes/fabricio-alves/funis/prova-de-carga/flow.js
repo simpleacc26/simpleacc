@@ -25,16 +25,17 @@ window.FLOW = {
   },
 
   hero: {
-    eyebrow: "Medição estrutural da oferta",
-    titulo: "Sua operação já vende. Onde ela cede quando a verba dobra?",
+    eyebrow: "Medição da oferta",
+    titulo: "Sua oferta vende hoje. Ela aguenta o dobro de investimento?",
     subtitulo:
-      "Descubra qual dos três eixos da sua oferta cede primeiro quando a verba sobe, quanto esse ponto já custa por mês em reais, e o que não adianta mexer enquanto ele não for corrigido.",
+      "Descubra o que na sua oferta cede primeiro quando você sobe o investimento, quanto esse ponto já custa por mês em reais, e o que não adianta mexer antes de corrigir isso.",
   },
 
   /* ------------------------------------------------------------------ *
-   * As dez perguntas, em seis camadas.
+   * As dez perguntas, em seis camadas. A ordem sobe de dificuldade: primeiro o
+   * que ele responde de cabeca, os numeros so depois de ele ja estar dentro.
    * papel:  organizacao interna, NUNCA renderizado na tela.
-   * eixo:   pontos por eixo (so nas perguntas 6, 7 e 8).
+   * eixo:   pontos por eixo (so nas perguntas 3, 4 e 5).
    * marca:  bandeira que a pagina de resultado usa.
    * conta:  faixa que alimenta a aritmetica do vazamento.
    * report: a frase em terceira pessoa que o espelho costura.
@@ -79,52 +80,9 @@ window.FLOW = {
     },
 
     {
-      id: "alta",
-      papel: "Camada 2 · situação",
-      pergunta:
-        "Nos últimos seis a doze meses, quanto subiu o custo por venda da oferta principal?",
-      opcoes: [
-        { value: "ate20", label: "Até 20%", conta: { piso: 0.1, medio: 0.15 }, report: "subiu até 20%" },
-        { value: "20a50", label: "De 20% a 50%", conta: { piso: 0.2, medio: 0.35 }, report: "subiu entre 20% e 50%" },
-        { value: "50a100", label: "De 50% a 100%", conta: { piso: 0.5, medio: 0.75 }, report: "subiu entre 50% e 100%" },
-        { value: "dobrou", label: "Mais que dobrou", conta: { piso: 1.0, medio: 1.0 }, report: "mais que dobrou" },
-        { value: "nao_sei", label: "Não subiu, ou não sei", naoMede: true, report: "não subiu, ou você ainda não mediu" },
-      ],
-    },
-
-    {
-      id: "vendas",
-      papel: "Camada 2 · situação",
-      pergunta: "Quantas vendas por mês a oferta principal faz hoje?",
-      opcoes: [
-        { value: "ate10", label: "Até 10", conta: { piso: 5, medio: 8 }, report: "até 10 vendas por mês" },
-        { value: "10a30", label: "De 10 a 30", conta: { piso: 10, medio: 20 }, report: "de 10 a 30 vendas por mês" },
-        { value: "30a100", label: "De 30 a 100", conta: { piso: 30, medio: 65 }, report: "de 30 a 100 vendas por mês" },
-        { value: "mais100", label: "Mais de 100", conta: { piso: 100, medio: 100 }, report: "mais de 100 vendas por mês" },
-      ],
-    },
-
-    { implicacao: "leilao" },
-
-    {
-      id: "custo",
-      papel: "Camada 2 · situação",
-      pergunta:
-        "Quanto custa hoje uma venda da oferta principal, contando só a mídia?",
-      opcoes: [
-        { value: "ate500", label: "Até R$500", conta: { piso: 250, medio: 375 }, report: "até R$500 por venda" },
-        { value: "500a2k", label: "De R$500 a R$2.000", conta: { piso: 500, medio: 1250 }, report: "de R$500 a R$2.000 por venda" },
-        { value: "2ka8k", label: "De R$2.000 a R$8.000", conta: { piso: 2000, medio: 5000 }, report: "de R$2.000 a R$8.000 por venda" },
-        { value: "acima8k", label: "Acima de R$8.000", conta: { piso: 8000, medio: 8000 }, report: "acima de R$8.000 por venda" },
-        { value: "nao_meco", label: "Não meço", naoMede: true, report: "um custo por venda que você ainda não mede" },
-        { value: "sem_trafego", label: "Não faço tráfego pago", semTrafego: true, naoMede: true, report: "nenhuma mídia paga rodando hoje" },
-      ],
-    },
-
-    {
       id: "ajuste",
-      papel: "Camada 3 · comportamento",
-      pergunta: "Qual foi o último ajuste que você fez para segurar esse custo?",
+      papel: "Camada 2 · comportamento, fácil de responder",
+      pergunta: "Qual foi o último ajuste que você fez para melhorar o custo por venda?",
       opcoes: [
         { value: "criativo", label: "Troquei criativo, copy ou público", sintoma: "desejo", report: "trocar criativo, copy ou público" },
         { value: "preco", label: "Mexi em preço, bônus, garantia ou parcelamento", sintoma: "oferta", report: "mexer em preço, bônus, garantia ou parcelamento" },
@@ -135,7 +93,7 @@ window.FLOW = {
 
     {
       id: "concorrencia",
-      papel: "Camada 4 · problema, uma por eixo",
+      papel: "Camada 3 · problema, uma por eixo",
       pergunta: "Quando você olha os anúncios dos concorrentes diretos, o que vê?",
       opcoes: [
         {
@@ -168,9 +126,11 @@ window.FLOW = {
       ],
     },
 
+    { implicacao: "leilao" },
+
     {
       id: "fechamento",
-      papel: "Camada 4 · problema, uma por eixo",
+      papel: "Camada 3 · problema, uma por eixo",
       pergunta: "No fechamento, o que mais acontece com quem chega interessado?",
       opcoes: [
         {
@@ -201,11 +161,9 @@ window.FLOW = {
       ],
     },
 
-    { implicacao: "terco" },
-
     {
       id: "vazamento",
-      papel: "Camada 4 · problema, uma por eixo",
+      papel: "Camada 3 · problema, uma por eixo",
       pergunta: "Do clique ao pagamento, onde mais gente se perde?",
       opcoes: [
         {
@@ -233,6 +191,49 @@ window.FLOW = {
           naoMede: true,
           report: "num ponto do percurso que você ainda não consegue medir",
         },
+      ],
+    },
+
+    { implicacao: "terco" },
+
+    {
+      id: "vendas",
+      papel: "Camada 4 · situação, os números",
+      pergunta: "Quantas vendas por mês a oferta principal faz hoje?",
+      opcoes: [
+        { value: "ate10", label: "Até 10", conta: { piso: 5, medio: 8 }, report: "até 10 vendas por mês" },
+        { value: "10a30", label: "De 10 a 30", conta: { piso: 10, medio: 20 }, report: "de 10 a 30 vendas por mês" },
+        { value: "30a100", label: "De 30 a 100", conta: { piso: 30, medio: 65 }, report: "de 30 a 100 vendas por mês" },
+        { value: "mais100", label: "Mais de 100", conta: { piso: 100, medio: 100 }, report: "mais de 100 vendas por mês" },
+      ],
+    },
+
+    {
+      id: "custo",
+      papel: "Camada 4 · situação, os números",
+      pergunta:
+        "Quanto custa hoje uma venda da oferta principal, contando só a mídia?",
+      opcoes: [
+        { value: "ate500", label: "Até R$500", conta: { piso: 250, medio: 375 }, report: "até R$500 por venda" },
+        { value: "500a2k", label: "De R$500 a R$2.000", conta: { piso: 500, medio: 1250 }, report: "de R$500 a R$2.000 por venda" },
+        { value: "2ka8k", label: "De R$2.000 a R$8.000", conta: { piso: 2000, medio: 5000 }, report: "de R$2.000 a R$8.000 por venda" },
+        { value: "acima8k", label: "Acima de R$8.000", conta: { piso: 8000, medio: 8000 }, report: "acima de R$8.000 por venda" },
+        { value: "nao_meco", label: "Não meço", naoMede: true, report: "um custo por venda que você ainda não mede" },
+        { value: "sem_trafego", label: "Não faço tráfego pago", semTrafego: true, naoMede: true, report: "nenhuma mídia paga rodando hoje" },
+      ],
+    },
+
+    {
+      id: "alta",
+      papel: "Camada 4 · situação, os números",
+      pergunta:
+        "Nos últimos seis a doze meses, quanto subiu o custo por venda da oferta principal?",
+      opcoes: [
+        { value: "ate20", label: "Até 20%", conta: { piso: 0.1, medio: 0.15 }, report: "subiu até 20%" },
+        { value: "20a50", label: "De 20% a 50%", conta: { piso: 0.2, medio: 0.35 }, report: "subiu entre 20% e 50%" },
+        { value: "50a100", label: "De 50% a 100%", conta: { piso: 0.5, medio: 0.75 }, report: "subiu entre 50% e 100%" },
+        { value: "dobrou", label: "Mais que dobrou", conta: { piso: 1.0, medio: 1.0 }, report: "mais que dobrou" },
+        { value: "nao_sei", label: "Não subiu, ou não sei", naoMede: true, report: "não subiu, ou você ainda não mediu" },
       ],
     },
 

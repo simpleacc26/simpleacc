@@ -48,7 +48,7 @@
   }
 
   /* ---------------------------------------------------------------- eixo */
-  /* Soma das perguntas 6, 7 e 8. Empate sobe para o eixo mais a montante:
+  /* Soma das perguntas 3, 4 e 5. Empate sobe para o eixo mais a montante:
      causa vem antes de sintoma na ordem de reconstrução. */
   var ORDEM = ["desejo", "oferta", "caminho"];
 

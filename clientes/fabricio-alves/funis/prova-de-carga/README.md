@@ -55,6 +55,35 @@ externa** (nem Google Fonts, nem CDN).
 > `diagnostico.js` declararam `const F` no mesmo escopo global e a página de
 > resultado quebrou calada. Toda lógica que as duas páginas precisam mora ali.
 
+## A ordem das perguntas
+
+A ordem **sobe de dificuldade**, e essa é a regra: no começo só o que a pessoa
+responde de cabeça, e os números só depois de ela já estar dentro.
+
+| # | Pergunta | Por que aí |
+| :-- | :-- | :-- |
+| 1 | O que vende | Identificação, sem julgamento |
+| 2 | Último ajuste | Comportamento. Ele lembra sem pensar |
+| 3 | Concorrência | Observação. Pontua o eixo Desejo |
+| 4 | Fechamento | Observação. Pontua o eixo Oferta |
+| 5 | Onde se perde | Observação. Pontua o eixo Caminho |
+| 6 | Vendas por mês | Primeiro número, e o mais fácil dos três |
+| 7 | Custo por venda | Segundo número |
+| 8 | Alta do custo por venda | O mais difícil: exige memória e medição |
+| 9 | Faturamento | Porteira de fase |
+| 10 | Quem executa | Porteira de execução |
+
+As três telas de implicação pousam onde o argumento delas encaixa: `leilao`
+depois da P3 (o clique encareceu para todos, a oferta igual encarece só o dele),
+`terco` depois da P5 (a conversão que cai um ponto é um terço da receita, e
+emenda no bloco de números), `ajustes` depois da P8, respondendo ao que ele
+marcou na P2.
+
+**Ao mexer na ordem, confira três coisas:** nenhuma pergunta pode citar outra que
+ainda não veio ("esse custo" só funciona depois da P7), as implicações continuam
+fazendo sentido no ponto onde caíram, e o cabeçalho da planilha e o mapeamento
+do cenário no Make acompanham a nova ordem.
+
 ## Os três baldes (método ASK)
 
 O **eixo** decide QUAL leitura o lead recebe; o **Índice de Sustentação** decide
@@ -65,15 +94,15 @@ QUÃO intensa; o **dialeto** decide o vocabulário. Eixos independentes.
 | **Desejo** | A promessa entre iguais | A promessa deixou de se distinguir das vizinhas | Trocar criativo de novo |
 | **Oferta** | O sim que ficou caro | O acordo não sustenta a decisão sozinho | Baixar preço, empilhar bônus |
 | **Caminho** | O percurso que vaza | A decisão nasce pronta e se perde até o pagamento | Comprar mais tráfego, trocar ferramenta |
-| **Fora de fase** | — | Não há erosão a medir: a estrutura ainda não recebeu carga | Nenhum |
+| **Fora de fase** | (sem selo) | Não há erosão a medir: a estrutura ainda não recebeu carga | Nenhum |
 
-Pontuação: soma das perguntas 6, 7 e 8. Empate sobe para o eixo mais **a
+Pontuação: soma das perguntas 3, 4 e 5. Empate sobe para o eixo mais **a
 montante** (Desejo antes de Oferta, Oferta antes de Caminho), porque causa vem
 antes de sintoma. Diferença de um ponto entre os dois maiores, e o segundo com
 pelo menos um ponto: a página ganha um parágrafo de "segundo eixo em observação",
 nunca dois diagnósticos.
 
-Varredura das 64 combinações de P6 x P7 x P8: Desejo 19, Oferta 24, Caminho 21.
+Varredura das 64 combinações de P3 x P4 x P5: Desejo 19, Oferta 24, Caminho 21.
 Nenhum eixo órfão.
 
 Para trocar o eixo de balde, mexa só nos campos `eixo` das opções em `flow.js`.
@@ -205,11 +234,11 @@ da planilha é o cabeçalho escrito à mão e **a ordem dela é contrato**: mexe
 coluna sem mexer no mapeamento do cenário desalinha tudo dali para baixo.
 
 ```
- 1 Data e hora              16 P4  Custo por venda
- 2 Nome                     17 P5  Último ajuste
- 3 WhatsApp                 18 P6  Concorrência
- 4 E-mail                   19 P7  Fechamento
- 5 Rota                     20 P8  Onde se perde
+ 1 Data e hora              16 P4  Fechamento
+ 2 Nome                     17 P5  Onde se perde
+ 3 WhatsApp                 18 P6  Vendas por mês
+ 4 E-mail                   19 P7  Custo por venda
+ 5 Rota                     20 P8  Alta do custo por venda
  6 Eixo que cede            21 P9  Faturamento
  7 Índice de Sustentação    22 P10 Quem executa
  8 Vazamento conservador    23 utm_source
@@ -218,8 +247,8 @@ coluna sem mexer no mapeamento do cenário desalinha tudo dali para baixo.
 11 Sintoma percebido        26 utm_content
 12 Não mede                 27 utm_term
 13 P1  O que vende          28 Página
-14 P2  Alta do custo        29 Referrer
-15 P3  Vendas por mês
+14 P2  Último ajuste        29 Referrer
+15 P3  Concorrência
 ```
 
 ### Como validar de novo
