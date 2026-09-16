@@ -20,7 +20,8 @@ window.FLOW = {
     instagram: "",
     selo: "img/capuz-selo.webp",
     marcaFigura: "img/falcao-punho.webp",
-    conceito: "img/mergulho-stoop.webp",
+    conceito: "img/mergulho-stoop-claro.webp",   // versão para fundo de tinta
+    conceitoEscuro: "img/mergulho-stoop.webp",  // versão para fundo de pergaminho
   },
 
   hero: {
@@ -84,7 +85,7 @@ window.FLOW = {
       pergunta:
         "Nos últimos seis a doze meses, quanto subiu o custo por venda da oferta principal?",
       opcoes: [
-        { value: "ate20", label: "Até 20%", conta: { piso: 0.2, medio: 0.2 }, report: "subiu até 20%" },
+        { value: "ate20", label: "Até 20%", conta: { piso: 0.1, medio: 0.15 }, report: "subiu até 20%" },
         { value: "20a50", label: "De 20% a 50%", conta: { piso: 0.2, medio: 0.35 }, report: "subiu entre 20% e 50%" },
         { value: "50a100", label: "De 50% a 100%", conta: { piso: 0.5, medio: 0.75 }, report: "subiu entre 50% e 100%" },
         { value: "dobrou", label: "Mais que dobrou", conta: { piso: 1.0, medio: 1.0 }, report: "mais que dobrou" },
@@ -142,13 +143,13 @@ window.FLOW = {
           value: "igual_barato",
           label: "Prometem o mesmo que eu, com mecanismo parecido e preço menor",
           eixo: { desejo: 3 },
-          report: "concorrentes prometendo o mesmo, com mecanismo parecido e preço menor",
+          report: "prometem o mesmo que você, com mecanismo parecido e preço menor",
         },
         {
           value: "igual_preco",
           label: "Prometem o mesmo que eu, com preço parecido",
           eixo: { desejo: 2 },
-          report: "concorrentes prometendo o mesmo, com preço parecido",
+          report: "prometem o mesmo que você, com preço parecido",
         },
         {
           value: "distingo",
@@ -156,14 +157,14 @@ window.FLOW = {
             "Prometem coisa diferente. A minha promessa ainda se distingue, e mesmo assim o custo por venda subiu",
           eixo: {},
           marca: "fora_do_desejo",
-          report: "uma promessa que ainda se distingue das vizinhas",
+          report: "prometem coisa diferente, e mesmo assim o seu custo por venda subiu",
         },
         {
           value: "nao_acompanho",
           label: "Não acompanho os concorrentes",
           eixo: { desejo: 1 },
           naoMede: true,
-          report: "nenhum acompanhamento do que os concorrentes prometem",
+          report: "você não acompanha o que eles prometem",
         },
       ],
     },
@@ -196,7 +197,7 @@ window.FLOW = {
           label:
             "Decide sem negociar. O que mudou é que chega menos gente decidida do que antes",
           eixo: { caminho: 1 },
-          report: "chegar menos gente decidida do que antes",
+          report: "decidir sem negociar, e o que mudou é que chega menos gente decidida do que antes",
         },
       ],
     },
@@ -260,15 +261,15 @@ window.FLOW = {
           value: "equipe",
           label: "Tenho equipe que executa. Falta quem comande a decisão estrutural",
           equipe: true,
-          report: "uma equipe que executa, faltando quem comande a decisão estrutural",
+          report: "uma equipe que executa, e falta quem comande a decisão estrutural",
         },
         {
           value: "com_dois",
           label: "Eu executo com uma ou duas pessoas",
           rota: "diagnostico",
-          report: "você e mais uma ou duas pessoas na execução",
+          report: "você e mais uma ou duas pessoas",
         },
-        { value: "so_eu", label: "Sou só eu", rota: "diagnostico", report: "só você na execução" },
+        { value: "so_eu", label: "Sou só eu", rota: "diagnostico", report: "só você" },
         {
           value: "terceirizar",
           label: "Preferia terceirizar tudo",
@@ -459,7 +460,7 @@ window.FLOW = {
     alta: {
       nome: "Sustentação em observação",
       leitura:
-        "Os sinais estão concentrados num eixo só, e os outros dois ainda respondem. É a melhor hora possível para medir: a correção é de uma alavanca, não de três.",
+        "O sinal que a medição encontrou ainda é baixo. A estrutura está cedendo num ponto, e os outros dois eixos continuam absorvendo o que sobra. É a melhor hora possível para medir: a correção é de uma alavanca, não de três.",
     },
   },
 

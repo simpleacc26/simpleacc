@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Ainda não é a hora · Fabrício Alves</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/cormorant-garamond-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Página 0. Sem vídeo, sem pitch, sem preço, sem lista de espera disfarçada.
+     Honesta e curta, por decisão do cliente. Não acrescente oferta aqui. -->
+
+<main class="prancha">
+  <div class="folha">
+
+    <div class="marca">
+      <span class="marca-nome">Fabrício Alves</span>
+      <span class="marca-assinatura">Arquiteto de Ofertas</span>
+    </div>
+
+    <h1 id="titulo">A sua operação ainda não está na fase em que esta medição faz diferença.</h1>
+
+    <p class="lead">Isso não é um julgamento. É uma leitura de sequência.</p>
+
+    <span class="linha-diag"></span>
+
+    <p>A erosão estrutural só aparece quando a estrutura recebe carga: tráfego pago rodando, oferta
+    validada, faturamento com histórico. Antes disso, o que existe é construção, e construção tem
+    outro instrumento.</p>
+
+    <p>Medir a sustentação de uma oferta que ainda não foi submetida a carga devolveria um número
+    sem significado, e eu prefiro te dizer isso agora a te vender uma medição que não mede nada.</p>
+
+    <hr class="regua">
+
+    <p class="eyebrow">O que precisa existir antes</p>
+    <ul class="sintomas">
+      <li>Uma oferta própria, com nome, que já pagou a própria conta</li>
+      <li>Tráfego pago rodando, não um teste de duas semanas</li>
+      <li>Faturamento com histórico, acima de R$50 mil por mês</li>
+      <li>Carga na estrutura: volume suficiente para a falha aparecer</li>
+    </ul>
+
+    <hr class="regua">
+
+    <p>O que serve agora é acompanhar o que eu publico. É ali que a tese aparece em casos reais, e é
+    ali que você reconhece a erosão quando ela chegar até você.</p>
+
+    <div class="btn-linha">
+      <a class="btn" id="btn-conteudo" href="#" data-ig>Acompanhar o conteúdo</a>
+      <p class="btn-micro">Sem oferta, sem lista de espera, sem cadastro.</p>
+      <div class="aviso" id="aviso-ig">O perfil ainda está sendo preparado para receber quem chega por
+      aqui. Guarde este endereço: quando a oferta rodar com tráfego e o faturamento passar de R$50 mil
+      por mês, a Prova de Carga estará aqui.</div>
+    </div>
+
+    <span class="linha-diag"></span>
+
+    <p class="nota">Quando a oferta rodar com tráfego e o faturamento passar de R$50 mil por mês, a
+    Prova de Carga estará aqui.</p>
+
+  </div>
+
+  <footer class="rodape">
+    <img src="img/capuz-selo.webp" alt="" aria-hidden="true">
+    <span>Fabrício Alves · Arquiteto de Ofertas</span>
+  </footer>
+</main>
+
+<script src="flow.js"></script>
+<script>
+(function () {
+  "use strict";
+  var F = window.FLOW;
+  var KEY = (F.config && F.config.storeKey) || "fa_prova_de_carga";
+  var st = {};
+  try { st = JSON.parse(sessionStorage.getItem(KEY)) || {}; } catch (e) {}
+
+  var nome = String((st.lead && st.lead.name) || "").trim().split(/\s+/)[0];
+  if (nome) {
+    document.getElementById("titulo").textContent =
+      nome + ", a sua operação ainda não está na fase em que esta medição faz diferença.";
+  }
+
+  var btn = document.getElementById("btn-conteudo");
+  if (F.marca.instagram) {
+    btn.href = F.marca.instagram;
+    btn.target = "_blank";
+    btn.rel = "noopener";
+    btn.removeAttribute("data-ig");
+  } else {
+    btn.addEventListener("click", function (e) {
+      e.preventDefault();
+      document.getElementById("aviso-ig").classList.add("visivel");
+    });
+  }
+})();
+</script>
+</body>
+</html>
