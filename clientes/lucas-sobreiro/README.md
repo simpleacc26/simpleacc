@@ -17,6 +17,8 @@ Produto principal: **BIO Society** (high ticket). Degrau de entrada: **BIO Essen
 | Âncora | o dinheiro que já entra e some | a cena de sair e algo parar |
 | Entrega | vazamento nomeado + estimativa em reais | índice de 0 a 100 + três fatores |
 | Aba na planilha | `Quiz A` | `Quiz B` |
+| URL | https://lucas-diagnostico-clinica.vercel.app | https://lucas-raio-x-clinica.vercel.app |
+| Projeto na Vercel | `lucas-diagnostico-clinica` | `lucas-raio-x-clinica` |
 
 Rodam em sequência, não em paralelo: com o volume atual um teste simultâneo
 não é legível. A Versão A sobe primeiro.
@@ -34,7 +36,11 @@ Zero dependência, zero build. É HTML, CSS e JS puro.
 
 - **Planilha de leads:** a mesma do funil anterior, segmentada por aba
   (`Quiz A` e `Quiz B`).
-- **Make:** webhook instant → Google Sheets `addRow`.
+- **Make:** cenário `[Lucas Sobreiro] Funil Clínica → Sheets` (id 5747069), webhook instant
+  com router de três saídas, filtrando pelo campo `quiz` do payload:
+  `A` → aba `Quiz A`, `B` → aba `Quiz B`, ausente → aba `Untitled` (funil antigo).
+  A rota do funil antigo tem filtro negativo explícito: sem ele o Make a trata como
+  "sempre roda" e cada lead novo era gravado duas vezes.
 - **Meta Pixel:** `1096905346357097`, o mesmo nos dois. Evento de conversão: `Lead`.
   Eventos de leitura do funil: `InitiateCheckout`, `QuizStep`, `QuizCaptura`,
   `ViewContent`, `Contact`.
