@@ -183,14 +183,67 @@ em `../../ferramentas/recorte-gravuras.py`, com o procedimento comentado.
   nenhum preço fora da primeira pergunta do formulário de aplicação.
 - **Celular:** nenhuma opção aparece pré-selecionada ao carregar a tela.
 
+## Captura de leads
+
+Está no ar e validada. O funil manda um `POST application/json` para o webhook do
+Make, que grava uma linha na planilha.
+
+| Peça | Onde |
+| :-- | :-- |
+| `LEADS_ENDPOINT` | `app.js`, topo do arquivo |
+| Webhook do Make | `hook.us2.make.com/uf4aep6wfsrakc9i2fqtw65izcrqqslb` (id 2822579) |
+| Cenário | `[Fabrício Alves] Prova de Carga → Sheets`, id 6300088, ativo |
+| Planilha | [Leads \| Arquiteto de Ofertas](https://docs.google.com/spreadsheets/d/1bm_YZSzJP7xMBx1X_Asbav-KQcIalfoZtRF-5DK9exU/edit?gid=0#gid=0), aba `Página1` |
+
+O envio dispara no fim do quiz, uma vez, e nunca bloqueia a navegação: se o
+webhook cair, o lead ainda vê a leitura do eixo dele.
+
+### As 29 colunas
+
+O `addRow` roda com `includesHeaders: false` e mapeia **por posição**. A linha 1
+da planilha é o cabeçalho escrito à mão e **a ordem dela é contrato**: mexer numa
+coluna sem mexer no mapeamento do cenário desalinha tudo dali para baixo.
+
+```
+ 1 Data e hora              16 P4  Custo por venda
+ 2 Nome                     17 P5  Último ajuste
+ 3 WhatsApp                 18 P6  Concorrência
+ 4 E-mail                   19 P7  Fechamento
+ 5 Rota                     20 P8  Onde se perde
+ 6 Eixo que cede            21 P9  Faturamento
+ 7 Índice de Sustentação    22 P10 Quem executa
+ 8 Vazamento conservador    23 utm_source
+ 9 Vazamento realista       24 utm_medium
+10 Dialeto                  25 utm_campaign
+11 Sintoma percebido        26 utm_content
+12 Não mede                 27 utm_term
+13 P1  O que vende          28 Página
+14 P2  Alta do custo        29 Referrer
+15 P3  Vendas por mês
+```
+
+### Como validar de novo
+
+**Status HTTP não é validação.** O Make responde `Accepted` antes de o Google
+Sheets ver o dado; um mapeamento torto responde `Accepted` igual. Valide lendo a
+planilha.
+
+1. Responda o funil inteiro no navegador, com UTMs na URL.
+2. Abra a planilha e confira **coluna a coluna** da linha nova.
+3. Apague a linha de teste.
+
+No sandbox o passo 1 não fecha: o proxy bloqueia o domínio do Make e o `fetch`
+morre em `ERR_CERT_AUTHORITY_INVALID`. Isso é limite do ambiente, não bug do
+funil. O contorno é capturar o payload que o funil monta (interceptando o
+`fetch`) e reenviar por `curl` de fora do navegador. Foi o que se fez aqui, com
+o payload real de uma passagem completa.
+
 ## Pendências antes de subir tráfego
 
 - [ ] **WhatsApp do Fabrício.** `flow.js` → `marca.whatsapp`. Enquanto vazio, o
       botão da rota B mostra um aviso em vez de abrir conversa. O lead continua
       sendo capturado.
 - [ ] **Instagram.** `flow.js` → `marca.instagram`. É o único destino da Página 0.
-- [ ] **Webhook do Make** em `app.js` → `LEADS_ENDPOINT`, e a planilha de leads no
-      Drive dele. Enquanto vazio, **nenhum lead é gravado**.
 - [ ] **Webhook das aplicações** em `aplicacao.html` → `APLICACAO_ENDPOINT`.
       Enquanto vazio, a página avisa o candidato que a aplicação não foi enviada,
       em vez de engolir em silêncio.

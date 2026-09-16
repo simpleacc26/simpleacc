@@ -9,8 +9,8 @@
   var M = window.MOTOR;
   var STORE_KEY = (F.config && F.config.storeKey) || "fa_prova_de_carga";
 
-  /* Webhook do Make. Preencher para ligar a captação. Ver README. */
-  var LEADS_ENDPOINT = "";
+  /* Webhook do Make, cenário "[Fabrício Alves] Prova de Carga → Sheets". */
+  var LEADS_ENDPOINT = "https://hook.us2.make.com/uf4aep6wfsrakc9i2fqtw65izcrqqslb";
 
   var TRACKING = { ga4_id: "", meta_pixel_id: "" };
 

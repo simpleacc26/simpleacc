@@ -88,3 +88,22 @@ O que funciona e o que não funciona neste cliente. Leia antes de criar.
   não resolve, porque a vinheta varia. O que resolve é alfa por diferença de
   luminância contra um blur do próprio cinza. Script em
   `ferramentas/recorte-gravuras.py`.
+
+## Sobre a captura de leads (16/09/2026)
+
+- 🚨 **Status HTTP não valida integração.** O webhook do Make responde
+  `Accepted` no instante em que recebe o POST, antes de o Google Sheets ver
+  qualquer coisa. Um mapeamento trocado responde `Accepted` igual. **Valide
+  lendo a planilha**, coluna a coluna, e só então apague a linha de teste.
+- **`addRow` com `includesHeaders: false` mapeia por posição.** Escreva o
+  cabeçalho à mão na linha 1 e trate a ordem dele como contrato: mexer numa
+  coluna sem mexer no cenário desalinha tudo dali para baixo. São 29 colunas
+  neste funil, listadas no README.
+- **O sandbox não consegue testar o envio pelo navegador.** O proxy bloqueia o
+  domínio do Make e o `fetch` morre em `ERR_CERT_AUTHORITY_INVALID`. Não é bug
+  do funil. O contorno que funciona: interceptar o `fetch` na página, capturar o
+  payload exato que o funil monta numa passagem completa, e reenviar por `curl`
+  fora do navegador. Assim o que se testa é o payload real, não um inventado.
+- **Descubra a aba antes de montar o cenário.** O nome padrão em conta em
+  português é `Página1`, não `Sheet1`, e o `addRow` falha calado se errar. Dá
+  para listar as abas por RPC do Make, sem abrir a planilha.
