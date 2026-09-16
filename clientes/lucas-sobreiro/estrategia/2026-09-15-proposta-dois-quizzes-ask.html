@@ -1,0 +1,881 @@
+<title>Duas Rotas para o Funil do Lucas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+  :root{
+    --ink:#0A1626;
+    --ink-2:#16202f;
+    --slate:#46535f;
+    --blue:#3E5C8A;
+    --blue-soft:#8197B6;
+    --paper:#F5F7FB;
+    --surface:#FFFFFF;
+    --wash:#EEF3FA;
+    --rule:#D5DEEC;
+    --terra:#a85a4f;
+    --vA:#14514E;
+    --vA-wash:#E6F0EE;
+    --vB:#8C4A2F;
+    --vB-wash:#F6EAE3;
+    --bad:#A8352E;
+    --good:#2F6B4F;
+    --warn:#8A6410;
+
+    --display:"Bodoni Moda","Bodoni 72","Didot","Hoefler Text",Georgia,serif;
+    --text:"Source Serif 4","Iowan Old Style",Palatino,Georgia,serif;
+    --label:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+
+    --measure:68ch;
+    --gutter:clamp(18px,5vw,56px);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --ink:#EDF2F9;
+      --ink-2:#D3DCEA;
+      --slate:#A5B2C4;
+      --blue:#8FADDC;
+      --blue-soft:#6D82A3;
+      --paper:#0A1220;
+      --surface:#101B2C;
+      --wash:#15233A;
+      --rule:#25354E;
+      --terra:#D9897C;
+      --vA:#6FBFB6;
+      --vA-wash:#11302E;
+      --vB:#D9936E;
+      --vB-wash:#34211A;
+      --bad:#E08B84;
+      --good:#79BB99;
+      --warn:#D4AC5A;
+    }
+  }
+  :root[data-theme="dark"]{
+    --ink:#EDF2F9;
+    --ink-2:#D3DCEA;
+    --slate:#A5B2C4;
+    --blue:#8FADDC;
+    --blue-soft:#6D82A3;
+    --paper:#0A1220;
+    --surface:#101B2C;
+    --wash:#15233A;
+    --rule:#25354E;
+    --terra:#D9897C;
+    --vA:#6FBFB6;
+    --vA-wash:#11302E;
+    --vB:#D9936E;
+    --vB-wash:#34211A;
+    --bad:#E08B84;
+    --good:#79BB99;
+    --warn:#D4AC5A;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--text);
+    font-size:17px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- nav ---------- */
+  .topnav{
+    position:sticky; top:env(safe-area-inset-top,0px); z-index:50;
+    background:color-mix(in srgb, var(--paper) 92%, transparent);
+    backdrop-filter:saturate(1.4) blur(10px);
+    border-bottom:1px solid var(--rule);
+  }
+  .topnav .in{
+    max-width:1120px; margin:0 auto;
+    padding-inline:var(--gutter); padding-block:10px;
+    display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+  }
+  .topnav .mark{
+    font-family:var(--label); font-size:11px; letter-spacing:.22em;
+    text-transform:uppercase; color:var(--blue); font-weight:600;
+    white-space:nowrap;
+  }
+  .topnav nav{display:flex; gap:14px; flex-wrap:wrap}
+  .topnav a{
+    font-family:var(--label); font-size:11.5px; letter-spacing:.06em;
+    color:var(--slate); text-decoration:none; padding:2px 0;
+    border-bottom:1px solid transparent;
+  }
+  .topnav a:hover,.topnav a:focus-visible{color:var(--ink); border-bottom-color:var(--terra)}
+
+  .wrap{max-width:1120px; margin:0 auto; padding-inline:var(--gutter)}
+  .prose{max-width:var(--measure)}
+
+  /* ---------- hero ---------- */
+  .hero{padding-block:clamp(40px,7vw,86px) clamp(28px,4vw,48px)}
+  .eyebrow{
+    font-family:var(--label); font-size:11px; letter-spacing:.24em;
+    text-transform:uppercase; color:var(--terra); font-weight:600;
+    margin:0 0 20px;
+  }
+  h1{
+    font-family:var(--display); font-weight:400;
+    font-size:clamp(34px,6.2vw,62px); line-height:1.06;
+    letter-spacing:-.015em; text-wrap:balance; margin:0 0 22px;
+  }
+  .standfirst{font-size:clamp(18px,2.2vw,21px); color:var(--ink-2); margin:0 0 30px; max-width:60ch}
+  .meta-row{
+    display:flex; flex-wrap:wrap; gap:10px 26px;
+    font-family:var(--label); font-size:11.5px; letter-spacing:.05em;
+    color:var(--slate); border-top:1px solid var(--rule); padding-top:16px;
+  }
+  .meta-row b{color:var(--ink); font-weight:500}
+
+  /* ---------- sections ---------- */
+  section{padding-block:clamp(34px,5vw,58px)}
+  section + section{border-top:1px solid var(--rule)}
+  .band{background:var(--surface); border-top:1px solid var(--rule); border-bottom:1px solid var(--rule)}
+  h2{
+    font-family:var(--display); font-weight:400;
+    font-size:clamp(26px,3.8vw,40px); line-height:1.12;
+    letter-spacing:-.01em; text-wrap:balance; margin:0 0 6px;
+  }
+  h3{
+    font-family:var(--text); font-weight:600;
+    font-size:clamp(18px,2.2vw,22px); line-height:1.3;
+    margin:34px 0 10px; text-wrap:balance;
+  }
+  h4{
+    font-family:var(--label); font-weight:600; font-size:11.5px;
+    letter-spacing:.18em; text-transform:uppercase; color:var(--blue);
+    margin:26px 0 10px;
+  }
+  .kicker{
+    font-family:var(--label); font-size:11px; letter-spacing:.22em;
+    text-transform:uppercase; color:var(--blue); font-weight:600; margin:0 0 14px;
+  }
+  p{margin:0 0 16px}
+  .lede{font-size:18.5px; color:var(--ink-2)}
+  ul,ol{margin:0 0 18px; padding-left:1.15em}
+  li{margin:0 0 8px}
+  strong{font-weight:600}
+  em{font-style:italic}
+  a{color:var(--blue)}
+
+  /* ---------- data ---------- */
+  .tbl-scroll{overflow-x:auto; margin:0 0 20px; border:1px solid var(--rule); border-radius:3px; background:var(--surface)}
+  table{border-collapse:collapse; width:100%; min-width:520px; font-size:15px}
+  th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--rule); vertical-align:top}
+  thead th{
+    font-family:var(--label); font-size:10.5px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--blue); font-weight:600;
+    background:var(--wash); white-space:nowrap;
+  }
+  tbody tr:last-child td{border-bottom:0}
+  td.num,th.num{font-family:var(--label); font-variant-numeric:tabular-nums; white-space:nowrap}
+  .pill{
+    display:inline-block; font-family:var(--label); font-size:10.5px;
+    letter-spacing:.1em; text-transform:uppercase; font-weight:600;
+    padding:2px 8px; border-radius:2px; white-space:nowrap;
+  }
+  .pill.bad{background:color-mix(in srgb,var(--bad) 16%,transparent); color:var(--bad)}
+  .pill.good{background:color-mix(in srgb,var(--good) 16%,transparent); color:var(--good)}
+  .pill.warn{background:color-mix(in srgb,var(--warn) 18%,transparent); color:var(--warn)}
+  .pill.a{background:var(--vA-wash); color:var(--vA)}
+  .pill.b{background:var(--vB-wash); color:var(--vB)}
+
+  .note{
+    border-left:2px solid var(--terra); padding:2px 0 2px 18px;
+    margin:0 0 20px; color:var(--ink-2); font-size:16px;
+  }
+  .flag{
+    background:var(--wash); border:1px solid var(--rule);
+    padding:16px 18px; margin:0 0 20px; border-radius:3px; font-size:16px;
+  }
+  .flag .h{
+    font-family:var(--label); font-size:10.5px; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--terra); font-weight:600;
+    display:block; margin-bottom:8px;
+  }
+  .flag p:last-child{margin-bottom:0}
+
+  /* ---------- version blocks ---------- */
+  .vhead{
+    display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;
+    padding-bottom:14px; margin-bottom:22px; border-bottom:2px solid currentColor;
+  }
+  .vhead .tag{
+    font-family:var(--label); font-size:12px; font-weight:600;
+    letter-spacing:.18em; text-transform:uppercase;
+  }
+  .vhead h2{margin:0; color:var(--ink)}
+  #versao-a{--vc:var(--vA); --vw:var(--vA-wash)}
+  #versao-b{--vc:var(--vB); --vw:var(--vB-wash)}
+  #versao-a .vhead,#versao-b .vhead{color:var(--vc)}
+  .vgrid{display:grid; grid-template-columns:1fr; gap:26px}
+  @media(min-width:920px){.vgrid{grid-template-columns:1.25fr .85fr; gap:44px; align-items:start}}
+
+  .qlist{counter-reset:q; list-style:none; padding:0; margin:0}
+  .qlist > li{
+    counter-increment:q; position:relative;
+    padding:0 0 18px 46px; margin:0 0 18px;
+    border-bottom:1px solid var(--rule);
+  }
+  .qlist > li:last-child{border-bottom:0}
+  .qlist > li::before{
+    content:"P" counter(q); position:absolute; left:0; top:2px;
+    font-family:var(--label); font-size:11.5px; font-weight:600;
+    letter-spacing:.06em; color:var(--vc, var(--blue));
+    background:var(--vw, var(--wash)); padding:2px 7px; border-radius:2px;
+  }
+  .qlist .q{display:block; font-weight:600; margin-bottom:8px}
+  .qlist .role{
+    font-family:var(--label); font-size:10px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--slate); display:block; margin-bottom:6px;
+  }
+  .opts{list-style:none; padding:0; margin:0; font-size:15.5px}
+  .opts li{margin:0 0 5px; padding-left:20px; position:relative; color:var(--ink-2)}
+  .opts li::before{content:""; position:absolute; left:2px; top:.62em; width:7px; height:7px; border:1px solid var(--blue-soft); border-radius:50%}
+  .opts li .b{font-family:var(--label); font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--vc,var(--blue)); margin-left:6px}
+  .gate{background:var(--wash); margin-left:-14px; padding-left:60px !important; padding-right:14px; border-radius:3px}
+
+  .sidecard{background:var(--vw,var(--wash)); border:1px solid var(--rule); border-radius:3px; padding:20px 22px}
+  .sidecard h4{margin-top:0; color:var(--vc,var(--blue))}
+  .sidecard + .sidecard{margin-top:18px}
+  .sidecard p:last-child,.sidecard ul:last-child{margin-bottom:0}
+  .sidecard ul{padding-left:1.05em; font-size:15.5px}
+
+  .copyblock{
+    background:var(--surface); border:1px solid var(--rule);
+    border-left:3px solid var(--vc,var(--terra));
+    padding:18px 20px; margin:0 0 18px; border-radius:2px;
+  }
+  .copyblock .lbl{
+    font-family:var(--label); font-size:10px; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--slate); display:block; margin-bottom:10px;
+  }
+  .copyblock .h{font-family:var(--display); font-size:clamp(20px,2.6vw,26px); line-height:1.16; margin:0 0 10px; text-wrap:balance}
+  .copyblock p:last-child{margin-bottom:0}
+  .copyblock .cta{
+    display:inline-block; margin-top:6px; font-family:var(--label);
+    font-size:12px; font-weight:600; letter-spacing:.04em;
+    background:var(--vc,var(--ink)); color:var(--paper);
+    padding:9px 16px; border-radius:3px;
+  }
+
+  .steps{list-style:none; counter-reset:s; padding:0; margin:0 0 18px}
+  .steps li{counter-increment:s; position:relative; padding-left:34px; margin-bottom:11px; font-size:16px}
+  .steps li::before{
+    content:counter(s); position:absolute; left:0; top:.1em;
+    font-family:var(--label); font-size:11px; font-weight:600;
+    width:22px; height:22px; display:grid; place-items:center;
+    border:1px solid var(--rule); border-radius:50%; color:var(--slate);
+  }
+
+  footer{padding-block:38px 56px; border-top:1px solid var(--rule); color:var(--slate); font-size:14.5px}
+  footer .sig{font-family:var(--label); font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--blue)}
+
+  @media (prefers-reduced-motion: reduce){*{animation:none !important; transition:none !important}}
+  @media print{.topnav{display:none} body{background:#fff}}
+</style>
+
+<div class="topnav">
+  <div class="in">
+    <span class="mark">Simple Acc &middot; Lucas Sobreiro</span>
+    <nav>
+      <a href="#metodo">Método</a>
+      <a href="#icp">ICP</a>
+      <a href="#buckets">Buckets</a>
+      <a href="#versao-a">Versão A</a>
+      <a href="#versao-b">Versão B</a>
+      <a href="#comparativo">Comparativo</a>
+      <a href="#anuncios">Anúncios</a>
+      <a href="#pagina">Página</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Proposta de reformulação &middot; Funil de quiz</p>
+    <h1>Duas rotas para o funil do Lucas</h1>
+    <p class="standfirst">Dois quizzes construídos pelo método ASK, distintos entre si e distintos do atual, com a copy, as perguntas, a lógica de segmentação e o relatório pós-quiz prontos para aprovação antes de qualquer linha de código.</p>
+    <div class="meta-row">
+      <span><b>Cliente</b> Lucas Sobreiro &middot; Método BIO</span>
+      <span><b>Produto</b> BIO Society, high ticket</span>
+      <span><b>Data</b> 15 de setembro de 2026</span>
+      <span><b>Status</b> aguardando validação</span>
+    </div>
+  </header>
+
+  <!-- ================= MÉTODO ================= -->
+  <section id="metodo">
+    <p class="kicker">01 &middot; O método</p>
+    <h2>O método ASK, aplicado de verdade</h2>
+    <div class="prose">
+      <p class="lede">O ASK, de Ryan Levesque, parte de uma ideia simples: pessoas diferentes com o mesmo sintoma precisam de conversas diferentes. Em vez de fazer uma pergunta e dar uma resposta, você descobre em qual grupo a pessoa está e prescreve para aquele grupo.</p>
+
+      <h4>A sequência</h4>
+      <ol class="steps">
+        <li><b>Deep Dive.</b> Ouvir o mercado em pergunta aberta, antes de escrever qualquer alternativa. É daqui que saem os grupos, nunca da cabeça de quem escreve.</li>
+        <li><b>Buckets.</b> De 3 a 5 grupos que cobrem a maioria do mercado. Um grupo só é grupo se mudar a mensagem, a prova, a prescrição e a abertura da call.</li>
+        <li><b>Micro compromissos.</b> A primeira pergunta é fácil, fala do dia a dia da pessoa e não ameaça. As perguntas que dão preguiça ou desconfiança ficam no fim, quando ela já investiu dois minutos e quer o resultado.</li>
+        <li><b>Prescrição, não rótulo.</b> O resultado diz o que fazer no caso dela, não o que ela é.</li>
+        <li><b>Segmentação no follow-up.</b> Cada grupo recebe uma cadência e uma abertura de call diferentes.</li>
+      </ol>
+
+      <h4>Onde o quiz atual fica de fora disso</h4>
+      <p>As nove perguntas hoje formam um questionário SPIN bem escrito, mas todas as respostas levam ao mesmo relatório, sem índice, sem grupo e sem prescrição diferente. Quem responde não recebe um diagnóstico, recebe um texto que reordena o que acabou de dizer. E o comercial recebe um lead que ninguém consegue classificar antes da conversa.</p>
+
+      <h4>A divergência que a Simple aplica de propósito</h4>
+      <p>Levesque vende infoproduto, então o gancho dele pode ser mais largo: volume importa e o filtro acontece nos buckets. High ticket por call é o oposto, porque cada lead sem intenção queima uma agenda do Lucas, que tem teto declarado de duas sessões por dia. Por isso as duas versões abaixo puxam para a intenção, e não para o volume.</p>
+
+      <div class="note">
+        <p><strong>O teste do filtro.</strong> Se um dono de clínica descapitalizado se identifica com o gancho exatamente como se identifica o dono de clínica que fatura R$ 80 mil, falta um indicador de caixa na promessa. O gancho bom repele quem não pode pagar pela própria âncora, sem nunca dizer isso na cara de ninguém.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ICP ================= -->
+  <section id="icp" class="band">
+    <p class="kicker">02 &middot; Matéria-prima</p>
+    <h2>Quem é esse dono de clínica</h2>
+    <div class="prose">
+      <p class="lede">Levantado do Canvas de Produto e Cliente Ideal (06/07), das anotações do onboarding (07/07) e da Estratégia Completa (23/07). As frases abaixo são literais, do jeito que foram escritas.</p>
+    </div>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th style="width:26%">Camada</th><th>O que existe registrado</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>O que ele fala em voz alta</b></td>
+            <td>"Estou trabalhando mais do que imaginava." &middot; "Meu faturamento parece ter travado." &middot; "Minha agenda está cheia." &middot; "Talvez eu precise contratar." &middot; "Acho que cheguei no limite."</td>
+          </tr>
+          <tr>
+            <td><b>O que ele não diz em público</b></td>
+            <td>O medo de "descobrir que construiu o negócio da forma errada". Esse é o único item da lista de medos que ele nunca vai falar numa mesa de colegas.</td>
+          </tr>
+          <tr>
+            <td><b>Do que ele tem medo</b></td>
+            <td>Cobrar mais e perder clientes. Contratar e aumentar custos. Delegar e perder qualidade. Mexer no que funciona.</td>
+          </tr>
+          <tr>
+            <td><b>O que ele já tentou</b></td>
+            <td>Tráfego pago ou agência, curso e treinamento para ele ou para a equipe, contratar mais gente. Nenhum resolveu, e é isso que vira o vilão da copy.</td>
+          </tr>
+          <tr>
+            <td><b>O que ele quer de verdade</b></td>
+            <td>"Ter uma empresa que cresce mais do que exige dele."</td>
+          </tr>
+          <tr>
+            <td><b>Como ele não quer ser visto</b></td>
+            <td>Como alguém que vive apagando incêndio. Que trabalha muito e cresce pouco. Que "não saiu do lugar". Facilmente substituível.</td>
+          </tr>
+          <tr>
+            <td><b>O que repele ele</b></td>
+            <td>Tom de coach, promessa de dinheiro fácil, fórmula, jargão de guru. Ele tem 35 a 55 anos, renda pessoal acima de R$ 25 mil e um diploma que levou anos.</td>
+          </tr>
+          <tr>
+            <td><b>Nível de consciência</b></td>
+            <td>Sabe que travou. Não sabe por quê. Isso define a promessa: <b>descobrir onde está o erro</b>, nunca "como crescer".</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prose">
+      <div class="flag">
+        <span class="h">Limite honesto desta base</span>
+        <p>Tudo acima é o Lucas descrevendo os clientes dele, mais o preenchimento do canvas por ele. Não existe Deep Dive com os donos de clínica: nenhuma pergunta aberta foi feita a eles ainda. As duas versões abaixo tratam isso, cada uma carregando uma pergunta aberta que coleta a fala real sem cobrar nada do lead. Em quatro semanas a Simple passa a ter a voz do mercado de verdade, e os buckets deixam de ser hipótese.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BUCKETS ================= -->
+  <section id="buckets">
+    <p class="kicker">03 &middot; Segmentação</p>
+    <h2>Os quatro grupos, pontuados</h2>
+    <div class="prose">
+      <p class="lede">O critério da casa para high ticket: um grupo só vale se tiver dor, pressa e caixa, multiplicados pela facilidade de provar resultado ali. Dor sem caixa é lead bonito que não fecha.</p>
+    </div>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:22%">Grupo</th>
+            <th>Como ele descreve</th>
+            <th class="num">Dor</th>
+            <th class="num">Pressa</th>
+            <th class="num">Caixa</th>
+            <th class="num">Provar</th>
+            <th class="num">Produto</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>Balcão que não fecha</b><br><span style="font-size:14px;color:var(--slate)">pilar Vendas</span></td>
+            <td>"Apresento o orçamento, o paciente diz que vai pensar, e some."</td>
+            <td class="num">9</td><td class="num">8</td><td class="num">9</td><td class="num">9</td>
+            <td class="num"><span class="pill good">5.832</span></td>
+          </tr>
+          <tr>
+            <td><b>Agenda cheia, lucro magro</b><br><span style="font-size:14px;color:var(--slate)">pilar Vendas e gestão</span></td>
+            <td>"Atendo o dia inteiro e o fim do mês não fecha com o tanto que trabalho."</td>
+            <td class="num">9</td><td class="num">7</td><td class="num">9</td><td class="num">8</td>
+            <td class="num"><span class="pill good">4.536</span></td>
+          </tr>
+          <tr>
+            <td><b>Clínica de um dono só</b><br><span style="font-size:14px;color:var(--slate)">pilar Produtividade</span></td>
+            <td>"Se eu paro, a clínica para. Não tiro férias há anos."</td>
+            <td class="num">8</td><td class="num">6</td><td class="num">8</td><td class="num">7</td>
+            <td class="num"><span class="pill warn">2.688</span></td>
+          </tr>
+          <tr>
+            <td><b>Refém da indicação</b><br><span style="font-size:14px;color:var(--slate)">pilar Vendas, entrada</span></td>
+            <td>"Mês bom e mês fraco, depende de quem indicou."</td>
+            <td class="num">8</td><td class="num">8</td><td class="num">5</td><td class="num">7</td>
+            <td class="num"><span class="pill bad">2.240</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prose">
+      <div class="note">
+        <p><strong>O grupo mais fraco é justamente a porta de entrada do funil atual.</strong> "Refém da indicação" pontua 2.240 porque é o único cuja dor não pressupõe dinheiro entrando, então clínica com fila e clínica vazia usam a mesma frase para descrever o problema. Nos 12 dias em que o funil rodou, "poucos pacientes novos entrando" foi a opção escolhida pelas duas únicas leads pagas que entraram, e uma delas marcou "até R$ 15 mil" e "só estou pesquisando".</p>
+      </div>
+
+      <h3>Cliente norte</h3>
+      <p>A clínica que fatura de R$ 30 a R$ 80 mil, com agenda cheia, que já tentou agência e curso, e cujo dono conduz ou fiscaliza pessoalmente a conversa de orçamento. Os dois primeiros grupos são a âncora. O quarto grupo continua existindo no quiz, porque o método ASK não esconde grupo nenhum, mas ele sai pelo produto de entrada (BIO Essential) em vez de queimar agenda do Lucas.</p>
+    </div>
+  </section>
+
+  <!-- ================= VERSÃO A ================= -->
+  <section id="versao-a" class="band">
+    <div class="vhead">
+      <span class="tag">Versão A</span>
+      <h2>O Vazamento</h2>
+      <span class="pill a">Quiz tipo Killer</span>
+    </div>
+
+    <div class="prose">
+      <p class="lede">O quiz Killer procura o erro escondido. Aqui ele procura o dinheiro que já entra na clínica e sai sem ninguém perceber.</p>
+
+      <h4>Big Idea</h4>
+      <p style="font-family:var(--display); font-size:clamp(21px,3vw,28px); line-height:1.2; color:var(--vA)">Tem dinheiro saindo da sua clínica todo mês, por uma porta que ninguém está olhando.</p>
+      <p>A âncora é o orçamento que evapora, o paciente que diz que vai pensar e nunca mais recebe uma mensagem, a agenda com buraco porque ninguém confirma, o preço parado há dois anos. Quatro coisas que só um processo comercial instalado resolve, e que nenhum curso, nenhuma agência e nenhuma contratação consertam. É isso que faz a promessa passar no teste de intencionalidade.</p>
+      <p><strong>O indicador de caixa vem embutido:</strong> para ter vazamento, precisa ter dinheiro circulando. Quem não tem paciente não se identifica com a frase, e sai sozinho, sem porta na cara.</p>
+    </div>
+
+    <div class="vgrid">
+      <div>
+        <h4>As nove perguntas</h4>
+        <ol class="qlist">
+          <li>
+            <span class="role">Situação &middot; abre na primeira tela</span>
+            <span class="q">Quando um paciente novo chega, quem conduz a conversa sobre o tratamento?</span>
+            <ul class="opts">
+              <li>Eu mesmo, no meio dos atendimentos</li>
+              <li>A recepção ou a secretária, do jeito dela</li>
+              <li>Tenho alguém dedicado ao comercial</li>
+              <li>Ninguém conduz, o paciente decide sozinho</li>
+            </ul>
+          </li>
+          <li>
+            <span class="role">Problema &middot; define o grupo</span>
+            <span class="q">Pensando nos últimos três meses, o que mais se repete na sua clínica?</span>
+            <ul class="opts">
+              <li>Apresento o orçamento e o paciente some <span class="b">Balcão</span></li>
+              <li>Agenda cheia e o lucro não corresponde <span class="b">Lucro magro</span></li>
+              <li>Quando eu saio, a clínica desanda <span class="b">Um dono só</span></li>
+              <li>Mês bom e mês fraco, conforme a indicação <span class="b">Indicação</span></li>
+            </ul>
+          </li>
+          <li>
+            <span class="role">Quantificação &middot; a pergunta que mais diagnostica</span>
+            <span class="q">Dos orçamentos que a sua clínica apresenta, quantos viram tratamento?</span>
+            <ul class="opts">
+              <li>Menos de 3 em cada 10</li>
+              <li>Entre 3 e 5 em cada 10</li>
+              <li>Mais de 5 em cada 10</li>
+              <li>Não sei, a gente não acompanha</li>
+            </ul>
+          </li>
+          <li>
+            <span class="role">Vazamento &middot; follow-up</span>
+            <span class="q">Quando o paciente diz que vai pensar, o que acontece depois?</span>
+            <ul class="opts">
+              <li>Alguém retoma o contato em até 48 horas</li>
+              <li>Retomamos quando lembramos</li>
+              <li>A gente espera ele voltar</li>
+              <li>Não tenho certeza do que acontece</li>
+            </ul>
+          </li>
+          <li>
+            <span class="role">Vazamento &middot; preço</span>
+            <span class="q">Quando foi a última vez que a clínica reajustou os preços?</span>
+            <ul class="opts">
+              <li>Nos últimos 6 meses</li>
+              <li>Entre 6 meses e 1 ano</li>
+              <li>Mais de 1 ano</li>
+              <li>Não lembro</li>
+            </ul>
+          </li>
+          <li>
+            <span class="role">Implicação &middot; o custo de seguir igual</span>
+            <span class="q">Se a clínica seguir exatamente assim por 12 meses, o que mais incomoda você?</span>
+            <ul class="opts">
+              <li>Faturar o mesmo trabalhando o mesmo tanto</li>
+              <li>Ver clínica menor crescendo mais rápido</li>
+              <li>Continuar sendo a peça que não pode faltar</li>
+              <li>Fechar o ano sem saber para onde foi o dinheiro</li>
+            </ul>
+          </li>
+          <li>
+            <span class="role">Tentativas &middot; mata objeção antes da call</span>
+            <span class="q">O que você já tentou para aumentar o faturamento?</span>
+            <ul class="opts">
+              <li>Tráfego pago ou agência</li>
+              <li>Curso ou treinamento, para mim ou para a equipe</li>
+              <li>Contratei mais gente</li>
+              <li>Ainda não tentei nada estruturado</li>
+            </ul>
+          </li>
+          <li class="gate">
+            <span class="role">Porteira 1 &middot; caixa</span>
+            <span class="q">Qual o faturamento mensal da clínica hoje?</span>
+            <ul class="opts">
+              <li>Até R$ 15 mil</li>
+              <li>De R$ 15 a 30 mil</li>
+              <li>De R$ 30 a 50 mil</li>
+              <li>De R$ 50 a 80 mil</li>
+              <li>De R$ 80 a 100 mil</li>
+              <li>Acima de R$ 100 mil</li>
+            </ul>
+          </li>
+          <li class="gate">
+            <span class="role">Porteira 2 &middot; intenção</span>
+            <span class="q">Você busca um processo comercial instalado na clínica, com acompanhamento, mesmo que represente um investimento maior do que um curso avulso?</span>
+            <ul class="opts">
+              <li>Sim, quero resolver de vez e entendo que é investimento</li>
+              <li>Sim, mas preciso entender melhor como funciona</li>
+              <li>No momento não é prioridade investir nisso</li>
+              <li>Só estou pesquisando</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+
+      <div>
+        <div class="sidecard">
+          <h4>Por que nessa ordem</h4>
+          <p>P1 é sobre a rotina dele e não ameaça ninguém, então abre na primeira tela junto com a promessa. P3 é a pergunta mais valiosa do quiz: "não sei, a gente não acompanha" já é o diagnóstico, e quem responde isso reconhece o problema sozinho. As duas porteiras vão no fim, depois de dois minutos investidos.</p>
+        </div>
+        <div class="sidecard">
+          <h4>O que o relatório entrega</h4>
+          <ul>
+            <li>O vazamento principal, nomeado</li>
+            <li>Uma estimativa em reais do que ele custa por mês, montada com o faturamento e a taxa de fechamento que o próprio lead informou</li>
+            <li>Por que agência, curso e contratação não resolveram isso</li>
+            <li>O primeiro movimento, específico do grupo dele</li>
+            <li>Prova de alguém do mesmo grupo</li>
+          </ul>
+        </div>
+        <div class="sidecard">
+          <h4>A pergunta aberta</h4>
+          <p>Depois da captura, já no relatório: <em>"Em uma frase, o que mais incomoda você hoje no negócio?"</em> Opcional, sem travar nada. É o Deep Dive que a Simple ainda não tem, colhido sem cobrar nada do lead, e chega no WhatsApp do comercial antes da call.</p>
+        </div>
+      </div>
+    </div>
+
+    <h4>Copy da entrada</h4>
+    <div class="copyblock">
+      <span class="lbl">Primeira tela, acima da dobra</span>
+      <p class="h">Tem dinheiro saindo da sua clínica todo mês, por uma porta que ninguém está olhando.</p>
+      <p>Responda 9 perguntas rápidas e descubra qual dos quatro vazamentos está levando esse dinheiro embora, e quanto ele custa por mês na sua conta.</p>
+      <p style="font-size:14.5px;color:var(--slate)">2 minutos &middot; confidencial &middot; o resultado aparece na hora</p>
+    </div>
+
+    <h4>Copy do relatório, abertura e fechamento</h4>
+    <div class="copyblock">
+      <span class="lbl">Bloco de abertura, depois do selo do vazamento</span>
+      <p>Antes de qualquer coisa: o que apareceu aqui não tem relação com competência clínica. Você estudou anos para dominar a técnica, e a técnica está funcionando, porque o paciente chega, é bem atendido e elogia. O que ninguém ensinou foi o que fazer entre o elogio e a assinatura do orçamento, e é exatamente nesse espaço que o dinheiro escapa.</p>
+    </div>
+    <div class="copyblock">
+      <span class="lbl">Fechamento, faixa qualificada</span>
+      <p>O próximo passo é uma sessão estratégica de 40 minutos com o Lucas, onde ele abre com você a conta desse vazamento e desenha o processo que fecha essa porta na sua clínica. Toque no botão verde aqui embaixo, que abre o WhatsApp com a mensagem já escrita, e a equipe devolve dois horários ainda hoje. Não é apresentação de proposta e você não precisa preparar nada.</p>
+      <span class="cta">Quero a sessão estratégica</span>
+    </div>
+    <div class="copyblock">
+      <span class="lbl">Fechamento, faixa de nutrição, sem porta na cara</span>
+      <p>Pelo que você respondeu, o seu momento pede um ajuste antes de um processo completo, e isso é uma boa notícia, porque sai mais rápido. Toque no botão aqui embaixo e chame a equipe do Lucas no WhatsApp escrevendo "vazamento". Eles mandam o material que resolve esse ponto específico, sem call e sem compromisso.</p>
+      <span class="cta">Falar com a equipe</span>
+    </div>
+  </section>
+
+  <!-- ================= VERSÃO B ================= -->
+  <section id="versao-b">
+    <div class="vhead">
+      <span class="tag">Versão B</span>
+      <h2>Índice de Dependência</h2>
+      <span class="pill b">Quiz tipo Score</span>
+    </div>
+
+    <div class="prose">
+      <p class="lede">O quiz Score entrega um número que a pessoa quer melhorar. Aqui o número mede uma coisa que o dono de clínica sente todo dia e nunca mediu.</p>
+
+      <h4>Big Idea</h4>
+      <p style="font-family:var(--display); font-size:clamp(21px,3vw,28px); line-height:1.2; color:var(--vB)">Toda vez que você sai da clínica, alguma coisa para de funcionar.</p>
+      <p>A âncora é uma cena, não um conceito. O orçamento que fica parado esperando você voltar, a decisão que ninguém toma sem perguntar, as férias que viraram home office. O canvas registra isso do jeito mais direto possível na lista de como esse empresário não quer ser visto: "alguém que vive apagando incêndio", "alguém que trabalha muito e cresce pouco", "facilmente substituível". Ele reconhece a cena antes de terminar de ler a frase.</p>
+      <p>O índice transforma esse incômodo difuso em medida, e medida dá o que acompanhar. Quem vai bem no número tem orgulho de mostrar, quem vai mal quer saber como sair de lá. Os dois viram conversa.</p>
+      <p><strong>O ativo que fica com o Lucas:</strong> o IDD vira conteúdo de Instagram, abertura de call e material de evento presencial. O funil atual não entrega número nenhum, e o blueprint da casa trata o índice como o ativo principal do cliente.</p>
+    </div>
+
+    <div class="vgrid">
+      <div>
+        <h4>As nove perguntas</h4>
+        <ol class="qlist">
+          <li>
+            <span class="role">Situação &middot; abre na primeira tela &middot; peso 3</span>
+            <span class="q">Se você tirasse 15 dias de férias começando amanhã, o que aconteceria com o faturamento?</span>
+            <ul class="opts">
+              <li>Cairia quase tudo <span class="b">3 pts</span></li>
+              <li>Cairia bastante <span class="b">2 pts</span></li>
+              <li>Cairia um pouco <span class="b">1 pt</span></li>
+              <li>Seguiria igual <span class="b">0 pt</span></li>
+            </ul>
+          </li>
+          <li>
+            <span class="role">Comercial &middot; peso 3</span>
+            <span class="q">Quem vende na sua clínica hoje?</span>
+            <ul class="opts">
+              <li>Só eu, ninguém mais conduz orçamento <span class="b">3 pts</span></li>
+              <li>Eu e a recepção, cada um do seu jeito <span class="b">2 pts</span></li>
+              <li>A recepção conduz e eu confiro <span class="b">1 pt</span></li>
+              <li>Tenho alguém dedicado ao comercial <span class="b">0 pt</span></li>
+            </ul>
+          </li>
+          <li>
+            <span class="role">Tempo &middot; peso 3</span>
+            <span class="q">Numa semana normal, quanto do seu tempo é atendimento e quanto é negócio?</span>
+            <ul class="opts">
+              <li>Quase tudo atendimento <span class="b">3 pts</span></li>
+              <li>Atendo muito e sobra pouco <span class="b">2 pts</span></li>
+              <li>Consigo separar um turno por semana <span class="b">1 pt</span></li>
+              <li>Tenho agenda fixa de gestão <span class="b">0 pt</span></li>
+            </ul>
+          </li>
+          <li>
+            <span class="role">Processo &middot; peso 2</span>
+            <span class="q">Se entrasse uma pessoa nova na recepção amanhã, ela teria onde aprender como a clínica funciona?</span>
+            <ul class="opts">
+              <li>Não, aprende comigo no dia a dia <span class="b">2 pts</span></li>
+              <li>Tem algumas coisas anotadas <span class="b">1 pt</span></li>
+              <li>Sim, está tudo escrito <span class="b">0 pt</span></li>
+              <li>Nunca precisei pensar nisso <span class="b">2 pts</span></li>
+            </ul>
+          </li>
+          <li>
+            <span class="role">Aquisição &middot; peso 2</span>
+            <span class="q">Como entra paciente novo hoje?</span>
+            <ul class="opts">
+              <li>Indicação, quase toda <span class="b">2 pts</span></li>
+              <li>Indicação e um pouco de redes sociais <span class="b">1 pt</span></li>
+              <li>Tenho um fluxo que roda sem mim <span class="b">0 pt</span></li>
+              <li>Varia muito, não sei dizer <span class="b">2 pts</span></li>
+            </ul>
+          </li>
+          <li>
+            <span class="role">Implicação &middot; não pontua</span>
+            <span class="q">O que mais incomodaria você daqui a 12 meses?</span>
+            <ul class="opts">
+              <li>Seguir sendo a peça que não pode faltar</li>
+              <li>Perder um profissional bom e travar a clínica</li>
+              <li>Crescer e a vida pessoal pagar a conta</li>
+              <li>Não saber dizer se cresceu ou não</li>
+            </ul>
+          </li>
+          <li>
+            <span class="role">Objetivo &middot; não pontua</span>
+            <span class="q">O que você mais quer nos próximos 6 meses?</span>
+            <ul class="opts">
+              <li>Faturar mais sem aumentar minha carga</li>
+              <li>Uma equipe que funciona sem mim</li>
+              <li>Previsibilidade de paciente e de receita</li>
+              <li>Margem melhor com o mesmo movimento</li>
+            </ul>
+          </li>
+          <li class="gate">
+            <span class="role">Porteira 1 &middot; caixa</span>
+            <span class="q">Qual o faturamento mensal da clínica hoje?</span>
+            <ul class="opts">
+              <li>Até R$ 15 mil</li>
+              <li>De R$ 15 a 30 mil</li>
+              <li>De R$ 30 a 50 mil</li>
+              <li>De R$ 50 a 80 mil</li>
+              <li>De R$ 80 a 100 mil</li>
+              <li>Acima de R$ 100 mil</li>
+            </ul>
+          </li>
+          <li class="gate">
+            <span class="role">Porteira 2 &middot; intenção</span>
+            <span class="q">Você busca um processo estruturado para sair do centro da operação, mesmo que represente um investimento maior do que um curso avulso?</span>
+            <ul class="opts">
+              <li>Sim, quero resolver de vez e entendo que é investimento</li>
+              <li>Sim, mas preciso entender melhor como funciona</li>
+              <li>No momento não é prioridade investir nisso</li>
+              <li>Só estou pesquisando</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+
+      <div>
+        <div class="sidecard">
+          <h4>Como o índice é calculado</h4>
+          <p style="font-family:var(--label); font-size:14px; line-height:1.6">IDD = soma dos pontos &divide; 13 &times; 100</p>
+          <p>Somam apenas P1 a P5, que são as perguntas de diagnóstico. Implicação, objetivo e as duas porteiras não pontuam, seguindo a regra da casa.</p>
+          <ul>
+            <li><b>66 a 100</b> A clínica para quando você para</li>
+            <li><b>33 a 65</b> Dependência alta e administrável</li>
+            <li><b>0 a 32</b> Clínica que anda sozinha</li>
+          </ul>
+        </div>
+        <div class="sidecard">
+          <h4>O que o relatório entrega</h4>
+          <ul>
+            <li>O número, com selo grande e faixa colorida</li>
+            <li>Os três pontos que mais pesaram no índice dele, em ordem</li>
+            <li>O que cada ponto a menos vale em tempo e em receita</li>
+            <li>Qual atacar primeiro, e por que esse antes dos outros</li>
+            <li>Prova de alguém que saiu da mesma faixa</li>
+          </ul>
+        </div>
+        <div class="sidecard">
+          <h4>A pergunta aberta</h4>
+          <p>No relatório: <em>"Qual parte da clínica você mais gostaria de não precisar tocar?"</em> Opcional. Colhe a fala real e entrega ao comercial a frase exata que abre a call.</p>
+        </div>
+      </div>
+    </div>
+
+    <h4>Copy da entrada</h4>
+    <div class="copyblock">
+      <span class="lbl">Primeira tela, acima da dobra</span>
+      <p class="h">Toda vez que você sai da clínica, alguma coisa para de funcionar.</p>
+      <p>Nove perguntas, dois minutos, e você recebe um número de 0 a 100 que mede o quanto a clínica ainda precisa de você para faturar, com os três pontos que mais pesam no seu caso.</p>
+      <p style="font-size:14.5px;color:var(--slate)">2 minutos &middot; confidencial &middot; o seu índice aparece na hora</p>
+    </div>
+
+    <h4>Copy do relatório, abertura e fechamento</h4>
+    <div class="copyblock">
+      <span class="lbl">Bloco de abertura, logo abaixo do selo do índice</span>
+      <p>Esse número mede uma coisa só: o quanto a clínica ainda precisa de você para faturar. Ele não tem relação com quantas horas você trabalha, e é aí que costuma surpreender. Quase todo dono de clínica com agenda cheia pontua alto aqui, e não por ter feito algo errado: você construiu o negócio em cima da sua própria capacidade técnica, que era exatamente o ativo disponível no começo. O problema aparece depois, quando esse ativo vira o teto.</p>
+    </div>
+    <div class="copyblock">
+      <span class="lbl">Fechamento, faixa qualificada</span>
+      <p>O Lucas reserva 40 minutos por semana para ler índices como o seu e desenhar qual dos três pontos sai primeiro. Toque no botão verde aqui embaixo, que abre o WhatsApp com o seu índice já na mensagem, e a equipe devolve dois horários ainda hoje. Sem proposta, sem preparação, sem enrolação.</p>
+      <span class="cta">Quero ler meu índice com o Lucas</span>
+    </div>
+    <div class="copyblock">
+      <span class="lbl">Fechamento, faixa de nutrição, sem porta na cara</span>
+      <p>Pelo que você respondeu, dá para baixar esse índice em algumas semanas mexendo em um ponto só, e faz mais sentido começar por aí. Toque no botão aqui embaixo e chame a equipe do Lucas no WhatsApp escrevendo "índice". Eles mandam o passo a passo desse primeiro ponto, sem call e sem compromisso.</p>
+      <span class="cta">Falar com a equipe</span>
+    </div>
+  </section>
+
+  <!-- ================= COMPARATIVO ================= -->
+  <section id="comparativo" class="band">
+    <p class="kicker">04 &middot; Decisão</p>
+    <h2>A contra B</h2>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th style="width:20%"></th><th>Versão A &middot; O Vazamento</th><th>Versão B &middot; Índice de Dependência</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><b>Tipo ASK</b></td><td><span class="pill a">Killer</span> acha o erro escondido</td><td><span class="pill b">Score</span> entrega um número</td></tr>
+          <tr><td><b>Âncora</b></td><td>O dinheiro que já entra e some</td><td>A cena de sair e algo parar</td></tr>
+          <tr><td><b>Emoção dominante</b></td><td>Perda concreta, mensurável em reais</td><td>Cansaço, e o retrato que ele não quer</td></tr>
+          <tr><td><b>Indicador de caixa</b></td><td><span class="pill good">Forte</span> sem faturamento não há vazamento</td><td><span class="pill warn">Médio</span> filtra mais nas porteiras</td></tr>
+          <tr><td><b>Pilar que puxa</b></td><td>Vendas</td><td>Produtividade e Autoliderança</td></tr>
+          <tr><td><b>Grupo que mais atrai</b></td><td>Balcão que não fecha, Lucro magro</td><td>Clínica de um dono só</td></tr>
+          <tr><td><b>Ativo que gera</b></td><td>Uma conta em reais que o comercial usa na call</td><td>Um índice com nome, que vira conteúdo</td></tr>
+          <tr><td><b>Poça de tráfego frio</b></td><td>Menor, promessa mais específica</td><td>Maior, a cena é mais universal</td></tr>
+          <tr><td><b>Risco principal</b></td><td>Sem as taxas de referência validadas pelo Lucas, a conta em reais perde credibilidade</td><td>Atrai dono de clínica pequena, que também se sente indispensável</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prose">
+      <h3>Recomendação</h3>
+      <p><strong>Subir a Versão A primeiro, e segurar a B como desafiante.</strong> Dois motivos.</p>
+      <p>O primeiro é de diagnóstico: o problema que os 12 dias no ar expuseram foi qualificação, não volume. A leitura que entrou fora do perfil entrou pela porta mais larga, e a Versão A é a que fecha essa porta pela própria promessa.</p>
+      <p>O segundo é de estatística. Com 146 visualizações de página em 12 dias, um teste A e B simultâneo não é legível: cada versão receberia menos de 80 sessões, e a diferença entre 8% e 15% de conversão levaria mais de um mês para aparecer. Rodar em sequência entrega leitura limpa em duas semanas por versão.</p>
+
+      <div class="flag">
+        <span class="h">Critério objetivo de troca</span>
+        <p>A Versão A roda 14 dias. Se a conversão de visualização em lead ficar abaixo de 8%, ou se mais de 40% dos leads caírem nas duas faixas mais baixas de faturamento, entra a Versão B no lugar. Se passar de 12% com a maioria acima de R$ 30 mil, a B vira o teste do mês seguinte em vez de substituta.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ANÚNCIOS ================= -->
+  <section id="anuncios">
+    <p class="kicker">05 &middot; Entrada</p>
+    <h2>Os ângulos que alimentam cada versão</h2>
+    <div class="prose">
+      <p class="lede">A promessa do anúncio precisa ser a mesma promessa da primeira tela. Foi essa costura que quebrou no funil atual, onde o vídeo entrega reconhecimento e a página recebe com linguagem de consultoria. Cada ângulo abaixo aparece uma vez só, com dor e prova diferentes.</p>
+    </div>
+
+    <div class="tbl-scroll">
+      <table>
+        <thead>
+          <tr><th class="num">#</th><th>Versão</th><th>Ângulo</th><th>Dor específica</th><th>Emoção</th><th>Gancho</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="num">1</td><td><span class="pill a">A</span></td><td>O orçamento que evapora</td><td>Paciente elogia, diz que vai pensar, e some</td><td>Perda</td><td>"O paciente elogiou, pediu para pensar, e nunca mais voltou. Você sabe quanto isso custou?"</td></tr>
+          <tr><td class="num">2</td><td><span class="pill a">A</span></td><td>O preço parado</td><td>Tabela sem reajuste há mais de um ano</td><td>Constrangimento</td><td>"A sua tabela de preços é de quando? Se você precisou pensar, já achamos um vazamento."</td></tr>
+          <tr><td class="num">3</td><td><span class="pill a">A</span></td><td>A objeção da agência</td><td>Já pagou tráfego e não virou paciente</td><td>Desconfiança</td><td>"Você pagou agência e chegou mais gente. O problema é que chegar e fechar são coisas diferentes."</td></tr>
+          <tr><td class="num">4</td><td><span class="pill a">A</span></td><td>Autoridade, 22 anos de banco</td><td>Nunca aprendeu o negócio, só a técnica</td><td>Alívio</td><td>"22 anos olhando empresa por dentro num banco. As que cresciam tinham uma coisa em comum."</td></tr>
+          <tr><td class="num">5</td><td><span class="pill b">B</span></td><td>As férias que não acontecem</td><td>A clínica para quando o dono para</td><td>Cansaço</td><td>"Quando foram as suas últimas férias de verdade, sem abrir o celular para resolver clínica?"</td></tr>
+          <tr><td class="num">6</td><td><span class="pill b">B</span></td><td>O medo de delegar</td><td>Delegar e perder qualidade</td><td>Medo</td><td>"Você não delega porque acha que ninguém faz como você. E provavelmente é verdade. O problema é outro."</td></tr>
+          <tr><td class="num">7</td><td><span class="pill b">B</span></td><td>O teto do dom</td><td>Crescimento limitado pelas horas do dono</td><td>Frustração</td><td>"Clínica que depende do dono cresce até onde o dono aguenta. Depois disso, para."</td></tr>
+          <tr><td class="num">8</td><td><span class="pill b">B</span></td><td>O retrato indesejado</td><td>Ser visto como quem apaga incêndio</td><td>Identidade</td><td>"Você queria ser o dono da clínica. Virou o funcionário mais caro dela."</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="prose">
+      <div class="note">
+        <p><strong>Duas construções saem da copy nova.</strong> A Big Idea atual, "o problema não é crescer, é o modelo que tu usa para crescer", usa a estrutura "não é X, é Y", banida pelo padrão de escrita da casa por soar a texto de máquina. E o verbo "destravar", que aparece em quase toda peça atual, também sai. As duas âncoras propostas dizem a mesma coisa sem nenhuma das duas muletas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PÁGINA ================= -->
+  <section id="pagina" class="band">
+    <p class="kicker">06 &middot; Estrutura</p>
+    <h2>O que muda na página, nas duas versões</h2>
+    <div class="prose">
+      <p class="lede">Independente da versão escolhida, cinco correções entram. As três primeiras saíram de um teste do funil atual rodado em navegador móvel com o identificador do Instagram, que é por onde vem todo o tráfego. As duas últimas, de conferir a implementação contra o blueprint da casa.</p>
+      <ol class="steps">
+        <li><b>A pergunta sobe para cima da dobra.</b> Hoje a primeira alternativa começa a 561 pixels de uma tela de 664, então quem chega vê o título, o subtítulo e uma única opção cortada na borda de baixo. Título curto, subtítulo de uma linha, e as quatro alternativas visíveis sem rolar. A barra de progresso só aparece a partir da segunda tela, porque "0%" na chegada desanima em vez de orientar.</li>
+        <li><b>O botão de WhatsApp vira link de verdade.</b> Hoje ele usa uma chamada de script que o navegador interno do Instagram costuma engolir, e é o último toque antes da conversa.</li>
+        <li><b>A barra de progresso reaparece em 100% na tela do formulário</b>, que é o ponto de maior atrito do funil inteiro.</li>
+        <li><b>Entra o bloco de autoridade do Lucas</b>, com foto, o parágrafo dos 22 anos no comercial do banco e quatro credenciais em número. O relatório atual vai de depoimentos direto para o botão, e em high ticket o lead está comprando acesso a uma pessoa que ele ainda não viu.</li>
+        <li><b>Três faixas de saída em vez de duas.</b> Hoje quem fatura até R$ 15 mil recebe o mesmo texto de quem fatura R$ 50 mil e está indeciso. O não ICP passa a sair pelo BIO Essential, que é o degrau que a estratégia já previa e a implementação não usou.</li>
+      </ol>
+    </div>
+  </section>
+
+  <footer>
+    <p class="sig">Simple Acc &middot; Estratégia</p>
+    <p>Documento de validação. Fontes: Estratégia Completa e Copies do Funil de Quiz (23/07/2026), Canvas de Produto e Cliente Ideal (06/07/2026), anotações do onboarding (07/07/2026), planilha de leads do funil, métricas da campanha de 3 a 15 de setembro de 2026 e teste do funil no ar em navegador móvel realizado em 15/09/2026.</p>
+    <p>Método de construção do quiz: ASK, de Ryan Levesque, na adaptação para high ticket usada pela casa. Padrão de escrita da copy conforme o prompt mestre de copy da Simple.</p>
+  </footer>
+
+</div>
