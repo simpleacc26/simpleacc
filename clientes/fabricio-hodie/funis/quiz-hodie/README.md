@@ -61,12 +61,26 @@ um evento padrão `Lead`.
 
 ## Foto da Dra. Lailla
 
-O bloco de autoridade usa `marca.foto` (flow.js). Vazio = monograma H da marca.
-Para usar a foto: coloque o arquivo nesta pasta, escreva o nome dele em
-`marca.foto` (ex.: `"dra-lailla.webp"`) e republique. Nenhuma outra linha muda.
+No ar: `dra-lailla.webp` (240x240, 5,6KB), lida de `marca.foto` no flow.js.
+Deixar `marca.foto` vazio faz o relatório voltar ao monograma H da marca, sem
+quebrar nada.
 
-Formato esperado: WebP quadrado, cerca de 240px, abaixo de 60KB. O recorte do
-CSS é circular com `object-position: 50% 18%` (enquadra o rosto).
+Origem: `DSC_1739.jpg.jpeg` na pasta **2. Material Visual** do Drive (retrato
+2894x4345, 7,9MB). Recortada em quadrado centrado no rosto e reduzida. Para
+refazer o recorte a partir do original:
+
+```python
+from PIL import Image, ImageOps
+im = ImageOps.exif_transpose(Image.open("original.jpg")).convert("RGB")
+w, h = im.size
+lado, cx, topo = int(w*0.62), int(w*0.52), int(h*0.055)
+box = (cx - lado//2, topo, cx - lado//2 + lado, topo + lado)
+im.crop(box).resize((240, 240), Image.LANCZOS).save("dra-lailla.webp", "WEBP", quality=86, method=6)
+```
+
+O arquivo de 7,9MB **derruba a sessão do conector do Drive**: não dá para
+baixar por lá. O caminho que funcionou foi liberar o link e baixar por
+`https://drive.usercontent.google.com/download?id=<ID>&export=download&confirm=t`.
 
 ## O que é
 

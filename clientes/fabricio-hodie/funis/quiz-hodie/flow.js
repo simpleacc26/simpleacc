@@ -32,7 +32,7 @@ window.FLOW = {
        usa o monograma H da marca. Assim que o arquivo existir na pasta do
        funil, basta escrever o nome dele aqui (ex.: "dra-lailla.webp") e
        republicar: nenhuma outra linha muda. */
-    foto: "",
+    foto: "dra-lailla.webp",
   },
 
   /* O índice do cliente. É o ativo que a HODIE leva para o Instagram e para
