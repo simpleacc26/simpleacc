@@ -65,6 +65,7 @@ function enviarLead() {
     email: a.email || "",
     whatsapp: a.whatsapp || "",
     qualificacao: window.classificarLead(a),
+    bucket: (F.buckets[window.definirBucket(a)] || {}).nome || "",
     indice_pct: indice.pct,
     indice_faixa: F.indice.faixas[indice.faixa].titulo,
     frente: (F.config && F.config.frente) || "Funil",

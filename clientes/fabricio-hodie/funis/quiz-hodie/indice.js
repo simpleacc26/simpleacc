@@ -38,3 +38,17 @@ window.classificarLead = function (answers) {
   if (flag("investimento", "nutrir") || flag("prontidao", "nutrir")) return "nutrir";
   return "qualificado";
 };
+
+/* Bucket do método ASK. Cascata: a primeira regra que casar vence, e a
+   última regra não tem condição, então todo lead sempre sai com um bucket.
+   Quem decide é o flow.js (bucketRegras), nunca este arquivo. */
+window.definirBucket = function (answers) {
+  const F = window.FLOW;
+  const regras = (F && F.bucketRegras) || [];
+  for (const r of regras) {
+    const okPerfil = !r.perfil || r.perfil.includes(answers.perfil);
+    const okTentou = !r.tentou || r.tentou.includes(answers.necessidade);
+    if (okPerfil && okTentou) return r.bucket;
+  }
+  return regras.length ? regras[regras.length - 1].bucket : "";
+};

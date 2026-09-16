@@ -51,6 +51,12 @@ if (!a._completedAt && !a.problema && !a.situacao) {
   const faixa = F.indice.faixas[indice.faixa];
   const qualificacao = window.classificarLead(a);
 
+  /* Bucket (método ASK): decide QUAL diagnóstico. O IMF decide QUÃO intenso.
+     Se algum dia o bucket vier vazio, o relatório ainda monta, só sem os
+     blocos segmentados, em vez de quebrar na cara do lead. */
+  const bucketId = window.definirBucket(a);
+  const B = (F.buckets && F.buckets[bucketId]) || null;
+
   /* CTA final adaptado às 3 faixas. Ninguém leva porta na cara. */
   let ctaLabel, ctaExtra, fechamento;
   if (qualificacao === "fora") {
@@ -77,6 +83,7 @@ if (!a._completedAt && !a.problema && !a.situacao) {
         <span class="imf-faixa">${faixa.titulo}</span>
       </div>
       <p class="lead" style="margin-top:12px">${faixa.resumo}</p>
+      ${B ? `<p class="bucket-selo">Perfil identificado: <strong>${B.nome}</strong></p>` : ""}
       <p class="hint">${F.indice.explicacao} ${F.indice.ressalva}</p>
     </div>
 
@@ -88,6 +95,7 @@ if (!a._completedAt && !a.problema && !a.situacao) {
       Fome que não passa, vontade de doce que aperta sempre no mesmo horário e peso que
       volta depois do esforço não são falha de caráter. São sinais de um metabolismo da fome
       que pode estar desregulado. E sintoma se investiga.</p>
+      ${B ? `<p class="bucket-chamada">${B.chamada}</p>` : ""}
     </div>
 
     <div class="etapa">
@@ -101,39 +109,23 @@ if (!a._completedAt && !a.problema && !a.situacao) {
 
     <div class="etapa">
       <h3>Por que não se resolveu até agora</h3>
-      <p>Você já passou por <strong>${tentativa}</strong>, e mesmo assim continua no mesmo ponto.
-      Faz sentido. Quase tudo que o mercado oferece mira no comportamento: comer menos,
-      resistir mais, ter mais disciplina. Só que disciplina é exatamente a variável que a
-      fisiologia derruba. Quando a sinalização da saciedade está alterada, a fome aumenta e
-      o controle alimentar fica mais difícil, por mais determinada que você seja.</p>
-      <p>E tem um segundo ponto, que quase ninguém conta: a literatura mostra que boa parte
-      do peso perdido tende a voltar no primeiro ano quando o tratamento é interrompido sem
-      uma estrutura de manutenção. Ou seja, o problema não é só começar a emagrecer.
-      É o que sustenta o resultado depois.</p>
+      <p>Você já passou por <strong>${tentativa}</strong>, e mesmo assim continua no mesmo
+      ponto. Faz sentido, e o motivo é específico do seu caso.</p>
+      ${B ? `<p>${B.porque}</p>` : ""}
     </div>
 
     <div class="etapa">
       <h3>Dois caminhos daqui para a frente</h3>
-      <div class="compare">
+      ${B ? `<div class="compare">
         <div class="col bad">
-          <h4>Seguir tentando por fora</h4>
-          <ul>
-            <li>Mais uma dieta, mais uma promessa</li>
-            <li>A causa continua sem nome</li>
-            <li>Medicação por conta própria, sem ajuste</li>
-            <li>Nada preparado para depois que o peso cai</li>
-          </ul>
+          <h4>${B.caminhos.ruim.titulo}</h4>
+          <ul>${B.caminhos.ruim.itens.map(i => `<li>${i}</li>`).join("")}</ul>
         </div>
         <div class="col good">
-          <h4>Tratar como questão médica</h4>
-          <ul>
-            <li>Investigação com exames dirigidos</li>
-            <li>A causa nomeada em um laudo</li>
-            <li>Conduta e dose ajustadas por médica</li>
-            <li>Uma fase desenhada para a manutenção</li>
-          </ul>
+          <h4>${B.caminhos.bom.titulo}</h4>
+          <ul>${B.caminhos.bom.itens.map(i => `<li>${i}</li>`).join("")}</ul>
         </div>
-      </div>
+      </div>` : ""}
     </div>
 
     ${ctaInline}
@@ -142,13 +134,13 @@ if (!a._completedAt && !a.problema && !a.situacao) {
       <h3>Como funciona o método da HODIE</h3>
       <p>O tratamento é conduzido pela Dra. Lailla em três fases, na ordem:</p>
       <ol class="metodo">
-        <li><strong>Investigar.</strong> Consulta aprofundada sobre a sua história de peso,
+        <li class="${B && B.enfase === "investigar" ? "fase-chave" : ""}"><strong>Investigar.</strong> Consulta aprofundada sobre a sua história de peso,
         comportamento alimentar, sono e rotina, mais exames dirigidos. No retorno, os exames
         são explicados um a um e você recebe o seu laudo individual, o Mapa da Causa.</li>
-        <li><strong>Tratar.</strong> Plano individualizado: regulação da fome com a classe de
+        <li class="${B && B.enfase === "tratar" ? "fase-chave" : ""}"><strong>Tratar.</strong> Plano individualizado: regulação da fome com a classe de
         medicações quando indicada, plano alimentar e cuidado com a preservação de massa
         muscular, com retornos frequentes para ajuste de conduta.</li>
-        <li><strong>Sustentar.</strong> A fase que o mercado geralmente não oferece.
+        <li class="${B && B.enfase === "sustentar" ? "fase-chave" : ""}"><strong>Sustentar.</strong> A fase que o mercado geralmente não oferece.
         Reavaliações periódicas e monitoramento da composição corporal, pensados para o
         período em que o corpo tende a puxar o peso de volta.</li>
       </ol>
@@ -158,10 +150,10 @@ if (!a._completedAt && !a.problema && !a.situacao) {
 
     <div class="etapa">
       <h3>O que precisa acontecer agora</h3>
-      <p>O primeiro passo é a <strong>consulta de investigação</strong>. É nela que a sua
-      história é ouvida por inteiro e os exames certos para o seu caso são definidos.
-      No retorno você sai com a causa nomeada e o caminho recomendado, incluindo se a
-      medicação faz sentido para você ou não.</p>
+      ${B ? `<p>${B.agora}</p>` : ""}
+      <p>O formato é sempre o mesmo: a <strong>consulta de investigação</strong>, onde a sua
+      história é ouvida por inteiro e os exames certos para o seu caso são definidos. No
+      retorno você sai com a causa nomeada e o caminho recomendado.</p>
       <p>O que você respondeu que mais quer, <strong>${objetivo}</strong>, começa por aí:
       por uma resposta. Não por mais uma tentativa.</p>
     </div>

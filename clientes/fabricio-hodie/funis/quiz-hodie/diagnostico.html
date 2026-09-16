@@ -28,6 +28,16 @@
     .imf-medio { border-color: var(--primary); }
     .imf-baixo { background: var(--surface); }
 
+    /* selo e chamada do bucket (método ASK) */
+    .bucket-selo { margin: 12px 0 0; font-size: 13px; color: var(--muted); }
+    .bucket-selo strong { color: var(--primary-700); font-family: var(--font-serif); font-size: 15px; }
+    .bucket-chamada { margin: 14px 0 0; padding: 13px 16px; border-left: 2px solid var(--primary);
+      background: var(--accent-soft); border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-family: var(--font-serif); font-size: 17px; font-style: italic; color: var(--primary-700); }
+    /* a fase que o bucket elege como ponto de virada */
+    .metodo li.fase-chave { background: var(--accent-soft); border-radius: var(--radius-sm);
+      padding: 10px 12px; margin-left: -12px; list-style-position: inside; }
+
     .etapa { margin: 0 0 26px; }
     .etapa h3 { font-family: var(--font-serif); font-size: 13px; text-transform: uppercase; letter-spacing: .15em; color: var(--primary-700); font-weight: 400; margin: 0 0 10px; }
     .etapa p { margin: 0 0 12px; }
