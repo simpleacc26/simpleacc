@@ -42,6 +42,5 @@ Zero dependência, zero build. É HTML, CSS e JS puro.
 
 ## Pendências do cliente
 
-- Depoimentos ainda não casados por bucket.
 - A qual dos quatro grupos pertence cada depoimento, para casar a prova com o lead.
 - Validação das taxas de referência de fechamento de orçamento.
