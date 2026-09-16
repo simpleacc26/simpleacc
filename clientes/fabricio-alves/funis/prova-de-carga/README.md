@@ -5,10 +5,12 @@ Entrega o eixo do Scorecard DOC que cede primeiro (Desejo, Oferta ou Caminho), o
 Índice de Sustentação e a conta em reais do vazamento, e manda o lead para a rota
 que couber.
 
-**Preview navegável (completo):** https://claude.ai/artifact/Gg19jNWGvD6DuuzFpsb2u1
-**Vercel:** projeto `prova-de-carga` criado no time Simpleacc, alias
-`prova-de-carga-simpleacc.vercel.app`. ⚠️ **Ainda não está servindo o funil
-inteiro.** Ver "Publicar", abaixo.
+**No ar:** https://prova-de-carga-simpleacc.vercel.app
+(Vercel, time Simpleacc, projeto `prova-de-carga`, target production)
+
+**Preview em artifact:** https://claude.ai/artifact/Gg19jNWGvD6DuuzFpsb2u1
+Mesmo conteúdo, para quando for mais prático mandar um link que não é o de
+produção.
 
 > 🚨 **A palavra "quiz" não aparece em nenhuma superfície pública.** Na página,
 > no anúncio e na conversa diz-se **medição**. Regra do cliente.
@@ -218,30 +220,39 @@ Deploy na conta/time **da Simple** na Vercel, nunca em conta pessoal, publicando
 depois. A publicação substitui a árvore inteira: arquivo que faltar vira 404
 silencioso. Confira cada arquivo com `curl` depois de todo deploy.
 
-### 🚨 Estado atual e o que destrava
+### Como publicar
 
-O projeto `prova-de-carga` existe no time Simpleacc e a URL está reservada, mas a
-**produção só tem as quatro páginas e o favicon**, sem CSS, sem JS e sem as
-gravuras. Não compartilhe esse endereço ainda. O preview completo e navegável
-está no link do topo.
-
-O motivo é concreto. Este funil tem **77KB de binário** (quatro gravuras e quatro
-fontes) e existem dois caminhos para publicar:
-
-| Caminho | Situação |
-| --- | --- |
-| **Projeto ligado ao Git** (`create_git_project` com `rootDirectory`) | ✅ O certo. Publica sozinho a cada push e some a classe inteira de problema de binário. **Bloqueado:** o Vercel responde `repo_no_access` para `simpleacc26/simpleacc` |
-| **Deploy inline pelo MCP** | ❌ Exige o binário em base64 transcrito à mão. O arquivo de 26KB corrompeu e o deploy foi recusado. É o risco que a skill da casa já documenta |
-| **Vercel CLI com token** | Não disponível nesta sessão (sem CLI e sem token) |
-
-**O que destrava, e é um clique do lado do cliente:** dar ao Vercel acesso ao
-repositório no GitHub. Em vercel.com, no time Simpleacc, `Settings` →
-`Git` → conectar a conta do GitHub e autorizar `simpleacc26/simpleacc`. Feito
-isso, é só criar o projeto apontando `rootDirectory` para esta pasta, e daí em
-diante **todo push publica sozinho**, que é como este funil deveria viver de
-qualquer jeito.
+Pelo **CLI da Vercel, com token da conta**. É o caminho que funciona, e é o que a
+skill da casa já recomendava:
 
 ```bash
+cd clientes/fabricio-alves/funis/prova-de-carga
+npx vercel deploy --prod --yes --archive=tgz \
+  --scope simpleacc --name prova-de-carga --token "$VERCEL_TOKEN"
+```
+
+O `.vercelignore` mantém o `README.md` fora da publicação.
+
+> 🚨 **O token nunca entra no repositório.** Exporte na sessão ou guarde fora da
+> árvore do Git. Regra da casa: `.env` é ignorado, segredo não se commita.
+
+Duas armadilhas que já custaram tempo neste projeto:
+
+1. **O deploy inline do MCP não serve para este funil.** Ele tem 77KB de binário
+   entre fontes e gravuras, e o payload em base64 precisa ser transcrito à mão:
+   o arquivo maior corrompeu e o deploy foi recusado. Use o CLI.
+2. **Projeto novo nasce com proteção de deployment ligada** e devolve 302 em
+   tudo, inclusive nos arquivos. Desligue o `ssoProtection` antes de conferir,
+   senão a verificação passa batido achando que é erro de deploy.
+
+### Depois de todo deploy, confira byte a byte
+
+A publicação substitui a árvore inteira: arquivo que faltar vira 404 silencioso.
+Status 200 não prova integridade, então compare o conteúdo, não o código.
+
+```bash
+BASE=https://prova-de-carga-simpleacc.vercel.app
+REPO=clientes/fabricio-alves/funis/prova-de-carga
 for f in index.html leitura.html aplicacao.html fora-de-fase.html styles.css \
          flow.js motor.js app.js leitura.js favicon.svg \
          img/falcao-punho.webp img/capuz-selo.webp img/mergulho-stoop.webp \
@@ -249,11 +260,18 @@ for f in index.html leitura.html aplicacao.html fora-de-fase.html styles.css \
          fonts/cormorant-garamond-latin-400-normal.woff2 \
          fonts/cormorant-garamond-latin-600-normal.woff2 \
          fonts/ibm-plex-sans-latin-400-normal.woff2 \
-         fonts/ibm-plex-sans-latin-500-normal.woff2 \
          fonts/ibm-plex-sans-latin-600-normal.woff2; do
-  echo "$f $(curl -s -o /dev/null -w '%{http_code}' "$BASE/$f")"
+  curl -s "$BASE/$f" | cmp -s - "$REPO/$f" && echo "OK   $f" || echo "FALHA $f"
 done
 ```
+
+Conferido assim em 16/09/2026: **18 de 18 arquivos idênticos ao repo.**
+
+### O que melhora quando der
+
+Ligar o projeto ao Git (`vercel git connect`) faz todo push publicar sozinho e
+dispensa o token na mão. Depende de o Vercel ter acesso a `simpleacc26/simpleacc`
+no GitHub, que hoje ele não tem (`repo_no_access`).
 
 O anúncio aponta para a **raiz com query** (`/?utm_source=...`), nunca para
 `/index.html`, senão as UTMs se perdem.

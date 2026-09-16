@@ -67,13 +67,20 @@ O que funciona e o que não funciona neste cliente. Leia antes de criar.
 
 ## Sobre publicar
 
-- 🚨 **O deploy inline do MCP da Vercel não serve para este funil.** Ele tem 77KB
-  de binário entre fontes e gravuras, e o payload em base64 precisa ser
-  transcrito à mão: o arquivo de 26KB corrompeu e o deploy foi recusado. É
-  exatamente o que a skill da casa avisa.
-  **O caminho certo é projeto ligado ao Git**, que publica sozinho a cada push.
-  Isso depende de o Vercel ter acesso ao repositório no GitHub, que hoje ele não
-  tem (`repo_no_access`). Ver a pendência no README do funil.
+- 🚨 **O deploy inline do MCP da Vercel não serve para funil com binário.** Este
+  tem 77KB entre fontes e gravuras, e o payload em base64 precisa ser transcrito
+  à mão: o arquivo maior corrompeu e o deploy foi recusado. É exatamente o que a
+  skill da casa avisa. **O que resolveu foi o CLI da Vercel com token da conta**,
+  que sobe os arquivos direto do disco. Receita no README do funil.
+  Melhor ainda seria projeto ligado ao Git, que publica sozinho a cada push, mas
+  isso depende de o Vercel receber acesso a `simpleacc26/simpleacc` no GitHub,
+  que hoje ele não tem (`repo_no_access`).
+- **Projeto novo na Vercel nasce com proteção de deployment ligada.** Devolve 302
+  em tudo, arquivo por arquivo, e a conferência pós-deploy parece um deploy
+  quebrado quando na verdade é só o SSO. Desligue o `ssoProtection` antes de
+  conferir. Aconteceu nos dois funis desta sessão.
+- **Status 200 não prova integridade.** Compare o conteúdo com `cmp`, nunca só o
+  código HTTP. São 18 arquivos aqui, e foi assim que a conferência fechou.
 - **Fonte de marca sem requisição externa dá certo.** Cormorant Garamond e IBM
   Plex Sans servidas do próprio projeto, com subset dos glifos usados: 117KB
   viraram 66KB, e a regra de zero requisição externa continua de pé.
