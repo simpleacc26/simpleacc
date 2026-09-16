@@ -10,7 +10,32 @@ para o WhatsApp do consultório, para agendar a consulta de investigação.
 **Planilha de leads:** [Leads · Índice do Metabolismo da Fome · HODIE](https://docs.google.com/spreadsheets/d/1S8c-A31ackttwLUqr2ciij6Ao4e3ZvQCXuFsbXc1hfY/edit)
 
 **Captação de leads:** ligada e testada. Webhook do Make ativo, cenário
-`[HODIE] Quiz IMF → Sheets` rodando, lead caindo na planilha com as UTMs.
+`[HODIE] Quiz IMF → Sheets` rodando, lead caindo na planilha com as UTMs e o
+bucket (coluna X).
+
+## Buckets (método ASK)
+
+O bucket decide **qual** diagnóstico o lead recebe; o IMF decide **quão**
+intenso. Eixos independentes de propósito.
+
+| # | Bucket | Quem cai aqui | Argumento central | Fase em destaque |
+| --- | --- | --- | --- | --- |
+| 1 | Reganho depois do tratamento | P7 = já usei, parei e voltou | Faltou a fase de manutenção, não disciplina | Sustentar |
+| 2 | Tratamento conduzido, não receita avulsa | P7 = quero usar com médica | O que falta é o antes e o depois da receita | Investigar |
+| 3 | Exames normais, pergunta sem resposta | P5 = ouvi que meus exames estão normais | Normal não quer dizer investigado | Investigar |
+| 4 | Causa antes da medicação | P7 = não posso ou não quero | Medicação é ferramenta, não o tratamento | Investigar |
+| 5 | Disciplina no limite, corpo sem resposta | resto (nunca usou) | Disciplina é a variável que a fisiologia derruba | Tratar |
+
+**North-star:** bucket 1 (Dor 10 · Urgência 9 · Caixa 9 · Facilidade de provar 9).
+Já pagou pela medicação, que é cara, e está vendo o peso voltar agora.
+
+A atribuição é uma **cascata** em `bucketRegras` (flow.js): primeira regra que
+casar vence, a última não tem condição. Varredura das 20 combinações P7 x P5:
+todos alcançáveis, nenhuma órfã.
+
+Cada bucket muda o selo, a chamada, o reframe do "por que não se resolveu", as
+duas colunas de caminhos, a fase destacada no método e o próximo passo. Para
+trocar o eixo de bucket, mexa só em `bucketRegras`.
 
 > ## 🚨 Antes de subir tráfego
 > 1. **Aprovação da Dra. Lailla** em toda a copy, e consentimento assinado dos
