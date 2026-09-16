@@ -6,8 +6,8 @@ Produto principal: **BIO Society** (high ticket). Degrau de entrada: **BIO Essen
 ## O que tem aqui
 
 - `estrategia/` — a proposta aprovada dos dois quizzes (método ASK) e os documentos de estratégia.
-- `funis/quiz-a-vazamento/` — Quiz A "O Vazamento", tipo Killer.
-- `funis/quiz-b-indice/` — Quiz B "Índice de Dependência", tipo Score.
+- `funis/diagnostico-clinica/` — Quiz A "O Vazamento", tipo Killer.
+- `funis/raio-x-clinica/` — Quiz B "Índice de Dependência", tipo Score.
 
 ## Os dois funis
 
@@ -24,7 +24,7 @@ não é legível. A Versão A sobe primeiro.
 ## Como rodar local
 
 ```bash
-cd clientes/lucas-sobreiro/funis/quiz-a-vazamento
+cd clientes/lucas-sobreiro/funis/diagnostico-clinica
 python3 -m http.server 8111   # abre em http://127.0.0.1:8111
 ```
 
@@ -42,6 +42,6 @@ Zero dependência, zero build. É HTML, CSS e JS puro.
 
 ## Pendências do cliente
 
-- Foto do Lucas para o bloco de autoridade (hoje entra um monograma no lugar).
+- Depoimentos ainda não casados por bucket.
 - A qual dos quatro grupos pertence cada depoimento, para casar a prova com o lead.
 - Validação das taxas de referência de fechamento de orçamento.

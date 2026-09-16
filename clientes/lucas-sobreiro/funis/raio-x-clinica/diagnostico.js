@@ -186,7 +186,8 @@ function montarRelatorio() {
 
     <div class="autoridade">
       <div class="quem">
-        <div class="mono" aria-hidden="true">LS</div>
+        <img class="foto" src="lucas-sobreiro.webp" width="92" height="92"
+             alt="Lucas Sobreiro, mentor de evolução empresarial para donos de clínica." />
         <div>
           <p class="nome">Lucas Sobreiro</p>
           <p class="cargo">Mentoria de evolução empresarial</p>

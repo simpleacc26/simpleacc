@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex" />
-  <title>Seu Índice de Dependência · Método BIO</title>
+  <title>Seu diagnóstico · Método BIO</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
@@ -41,30 +41,6 @@
     }
     .load-bar { height: 100%; width: 0%; border-radius: 999px; background: var(--primary); }
     @media (prefers-reduced-motion: reduce) { .load-bar { transition: none !important; } }
-
-
-    /* ---------- selo do índice (exclusivo do Quiz B) ---------- */
-    .idd-box {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 22px 20px; margin: 4px 0 16px; text-align: center;
-    }
-    .idd-num {
-      font-family: var(--font-serif); font-size: 62px; font-weight: 700;
-      line-height: 1; color: var(--primary-700); display: block;
-    }
-    .idd-de { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
-    .idd-faixa {
-      font-family: var(--font-serif); font-size: 19px; font-weight: 700;
-      margin: 12px 0 0; color: var(--text);
-    }
-    .fator { display: flex; gap: 12px; align-items: flex-start; margin: 0 0 14px; }
-    .fator .pos {
-      flex: 0 0 26px; width: 26px; height: 26px; border-radius: 50%;
-      background: var(--primary); color: var(--on-action);
-      display: grid; place-items: center; font-size: 13px; font-weight: 700;
-    }
-    .fator .ft { margin: 0; font-weight: 700; font-size: 16px; }
-    .fator .fd { margin: 2px 0 0; font-size: 15px; color: var(--muted); }
 
     /* ---------- relatório ---------- */
     .selo {
@@ -109,11 +85,10 @@
       border-radius: var(--radius); padding: 22px 20px; margin: 30px 0;
     }
     .autoridade .quem { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
-    .autoridade .mono {
-      width: 62px; height: 62px; flex: 0 0 62px; border-radius: 50%;
-      background: var(--primary); color: var(--on-action);
-      display: grid; place-items: center; font-family: var(--font-serif);
-      font-size: 23px; font-weight: 700; letter-spacing: .02em;
+    .autoridade .foto {
+      width: 92px; height: 92px; flex: 0 0 92px; border-radius: 50%;
+      object-fit: cover; border: 2px solid var(--primary);
+      background: var(--bg-2);
     }
     .autoridade .nome { font-family: var(--font-serif); font-size: 19px; font-weight: 700; margin: 0; }
     .autoridade .cargo {
@@ -165,7 +140,7 @@
 
   <main class="container">
     <section class="card screen loading-card" id="preparando">
-      <h2>Calculando o seu Índice de Dependência</h2>
+      <h2>Preparando o diagnóstico da sua clínica</h2>
       <p class="load-msg" id="load-msg">Lendo as suas respostas...</p>
       <div class="load-track"><div class="load-bar" id="load-bar"></div></div>
     </section>
