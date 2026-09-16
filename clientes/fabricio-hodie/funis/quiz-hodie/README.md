@@ -148,7 +148,7 @@ depois. Depois de todo deploy, confira cada arquivo com `curl`, porque a
 publicação substitui a árvore inteira e arquivo faltante vira 404 silencioso.
 
 ```bash
-for f in index.html diagnostico.html styles.css app.js flow.js indice.js diagnostico.js favicon.svg; do
+for f in index.html diagnostico.html styles.css app.js flow.js indice.js diagnostico.js favicon.svg dra-lailla.webp; do
   echo "$f $(curl -s -o /dev/null -w '%{http_code}' "$BASE/$f")"
 done
 ```
@@ -208,8 +208,9 @@ de ativar: o `addRow` grava por posição.
 
 - [ ] WhatsApp oficial do consultório (dispensado pelo Daniel por ora, ver topo)
 - [ ] Logo em SVG ou PNG com fundo transparente (hoje o wordmark é feito em CSS)
-- [ ] Foto da Dra. Lailla para o bloco de autoridade
+- [x] Foto da Dra. Lailla para o bloco de autoridade (no ar, `dra-lailla.webp`)
 - [ ] Confirmação do RQE, para poder publicar "Endocrinologia" (hoje o funil usa
       só "Médica · CRM-SP 239430")
 - [ ] Consentimento assinado dos dois casos clínicos do relatório
-- [ ] IDs de GA4 e Pixel da Meta, se quiserem tracking (`TRACKING_CONFIG` no `app.js`)
+- [x] Pixel da Meta `1981914359169331` instalado e ligado no `TRACKING_CONFIG`
+- [ ] ID do GA4, se quiserem tracking também por lá (`TRACKING_CONFIG` no `app.js`)
