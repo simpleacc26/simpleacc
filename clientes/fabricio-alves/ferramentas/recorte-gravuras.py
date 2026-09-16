@@ -26,8 +26,8 @@ CARMIM_CLARO = (0xD9, 0x40, 0x40)   # sobre fundo de tinta o carmim some; sobe u
 
 PECAS = [
     # (arquivo de origem, nome de saida, largura final)
-    ("falcao-encapuzado-punho", "falcao-punho", 400),
-    ("capuz-selo", "capuz-selo", 200),
+    ("falcao-encapuzado-punho", "falcao-punho", 300),
+    ("capuz-selo", "capuz-selo", 130),
     ("mergulho-stoop", "mergulho-stoop", 260),
 ]
 
@@ -63,7 +63,7 @@ def salva(destino, rgb, alfa, para_fundo_escuro=False):
         rgb = saida
 
     arr = np.dstack([rgb.astype(np.uint8), alfa])
-    Image.fromarray(arr, "RGBA").save(destino, "WEBP", quality=86, method=6)
+    Image.fromarray(arr, "RGBA").save(destino, "WEBP", quality=82, method=6)
     print(destino, os.path.getsize(destino), "bytes")
 
 
