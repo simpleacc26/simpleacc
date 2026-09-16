@@ -15,15 +15,21 @@ clientes/
 | Cliente                    | Pasta                          | Status |
 | -------------------------- | ------------------------------ | ------ |
 | Interno Simple Acc / Inova | `0-interno-simpleacc-inova/`   | ativo  |
+| Ana Carla Henriques (Blindecell) | `ana-carla-henriques/`   | ativo  |
 | André Donha (Musikalis)    | `andre-donha/`                 | ativo  |
 | Carol e José               | `carol-e-jose/`                | ativo  |
 | Clínica Vital              | `clinica-vital/`               | ativo  |
 | Daniele Christensen        | `daniele-christensen/`         | ativo  |
 | Dra. Jac MacDowell         | `dra-jac-macdowell/`           | ativo  |
 | Eliana Franz               | `eliana-franz/`                | ativo  |
+| Fabrício Alves             | `fabricio-alves/`              | ativo  |
+| Fabrício e Dra. Lailla (HODIE) | `fabricio-hodie/`          | ativo  |
 | Gustavo Ono                | `gustavo-ono/`                 | ativo  |
 | Juliana Godinho            | `juliana-godinho/`             | ativo  |
+| Kainã Barreto              | `kaina-barreto/`               | ativo  |
 | Luana Isse                 | `luana-isse/`                  | ativo  |
+| Omar e Greicy              | `omar-e-greicy/`               | ativo  |
+| Rafael Cobra               | `rafael-cobra/`                | ativo  |
 | Rafael Granella            | `rafael-granella/`             | ativo  |
 | Rômulo Heleno              | `romulo-heleno/`               | ativo  |
 | Sense Clinic               | `sense-clinic/`                | ativo  |

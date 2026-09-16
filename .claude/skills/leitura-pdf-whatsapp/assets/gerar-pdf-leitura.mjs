@@ -65,16 +65,30 @@ if (WHATSAPP) {
 const dir = mkdtempSync(join(tmpdir(), 'leitura-'));
 const chromeFlags = ['--headless', '--no-sandbox', '--disable-gpu'];
 
-// 3) mede a altura real do conteúdo na largura de celular
+// 3) mede a altura real do conteúdo na largura de celular.
+//    IMPORTANTE: medir DEPOIS do load (window.onload) e forçar o decode das
+//    imagens. Se medir antes, as imagens (depoimentos) ainda não têm altura, o
+//    total sai curto e o excedente joga uma segunda página fantasma no PDF.
+//    Mede no evento 'load' (as imagens já carregaram e têm altura) usando
+//    scrollHeight. Medir antes do load deixa o total curto e cria página
+//    fantasma. O 'load' dispara sob o virtual-time (diferente de image.decode(),
+//    que não resolve nesse modo).
 const measureHtml = html.replace(/<\/body>/i,
-  `<script>document.title=Math.ceil(document.body.getBoundingClientRect().height)+'px'</script></body>`);
+  `<script>window.addEventListener('load',function(){` +
+  `document.title=Math.ceil(Math.max(` +
+  `document.documentElement.scrollHeight,document.body.scrollHeight))+'px';});</script></body>`);
 const measurePath = join(dir, 'measure.html');
 writeFileSync(measurePath, measureHtml);
 const dom = execFileSync(EXEC, [...chromeFlags, `--window-size=${WIDTH},900`,
-  '--virtual-time-budget=3000', '--dump-dom', `file://${measurePath}`],
+  '--virtual-time-budget=8000', '--dump-dom', `file://${measurePath}`],
   { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
 const mt = dom.match(/<title>(\d+)px<\/title>/);
-const h = (mt ? parseInt(mt[1], 10) : 1200) + 2; // +2px evita página fantasma
+// Folga de segurança: a medição via DOM (scrollHeight) costuma sair alguns px
+// menor que a altura real de impressão (padding do container + arredondamento),
+// e qualquer excedente joga uma segunda página inteira no PDF. Uma folga
+// generosa some como uma faixa mínima de fundo no rodapé (invisível), enquanto
+// uma folga curta reintroduz a página fantasma. Erramos para o lado seguro.
+const h = (mt ? parseInt(mt[1], 10) : 1200) + 80;
 
 // 4) injeta @page de página única e gera o PDF
 const finalHtml = html.replace(/<\/style>/i,
