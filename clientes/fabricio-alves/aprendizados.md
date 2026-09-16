@@ -1,0 +1,83 @@
+# Aprendizados · Fabrício Alves
+
+O que funciona e o que não funciona neste cliente. Leia antes de criar.
+
+---
+
+## Sobre a marca
+
+- **A lista de palavras proibidas é o posicionamento, não frescura.** O arquétipo
+  Sábio-Governante cai inteiro com uma palavra de guru. Ver
+  `contexto/regras-de-linguagem.md` antes de escrever qualquer coisa.
+- **Posição importa tanto quanto palavra.** "Erosão estrutural" pode aparecer,
+  mas só depois da dor, em posição de veredito. Na headline, não. Os 21 critérios
+  do Scorecard não aparecem nem por alusão. Preço, em uma única tela do funil.
+- **O calor humano entra pelo respeito, nunca pela leveza.** Recusar um cliente
+  inadequado comunica mais cuidado do que qualquer post de bastidor. Sempre que a
+  peça parecer fria, a correção é ser mais preciso, não mais simpático.
+
+## Sobre o público
+
+- **Ele diz "escalar" e vive "margem".** O funil entra pela palavra que ele diz.
+- **Ele terceiriza a causa.** Sente o sintoma e culpa o leilão, o criativo, o
+  gestor. Culpar o leilão preserva a autoestima. Copy que acusa o leitor perde;
+  copy que troca o réu ganha.
+- **A pior etiqueta possível é "parou de vender".** A gramática certa é sempre
+  "sua operação já vende; a pergunta é se ela aguenta mais verba sem queimar
+  margem". A oferta é o próximo passo de quem cresce, não socorro de quem caiu.
+- **A cicatriz da mentoria é a objeção mais forte do mercado inteiro** (86 dos 345
+  operadores da pesquisa). Ela morre no formato, não no argumento: escopo fechado,
+  artefatos contáveis, data de saída, garantia de entrega.
+
+## Sobre a copy (16/09/2026)
+
+- **Estrato 7 e a conta em reais brigam, e dá para resolver.** O Estrato 7 não
+  responde a custo de inação financeiro, e o funil inteiro do Fabrício é
+  construído sobre a conta. A solução foi rebaixar a conta de motor para
+  **evidência**: o custo de inação principal virou quem depende da operação e não
+  está sendo atendido, e o número entra depois, como confirmação. Ver
+  `contexto/estratos-primal.md`, seção final.
+- **A prova num anúncio dele não pode ser número de caso** (política da Meta). O
+  que sobra e funciona: o dado fiscal com fonte, o corpus de 345 operadores, a
+  precisão do mecanismo e a postura de risco ("o exame pode terminar em não é
+  caso"). A peça 5 usa o corpus e é a prova mais forte que existe sem depender de
+  autorização de ninguém.
+- **Aspiração não morde no frio.** O teste de junho dele mediu isso: Ansiedade e
+  Objeção venceram, Desejo ficou em último. Subir tensão primeiro.
+
+## Sobre o funil (16/09/2026)
+
+- **Três buckets, não cinco, e por um motivo.** Os buckets são os eixos do
+  Scorecard DOC, que é o instrumento proprietário. Inventar um quarto eixo para
+  bater meta de quantidade quebraria o mecanismo que a oferta vende. A riqueza
+  veio de duas camadas independentes: Índice de Sustentação em três graus e dois
+  dialetos. Dá 18 leituras distintas sem inventar nada.
+- **Índice em linguagem de carga, nunca em nota.** Decisão dele, e está certa:
+  nota humilha, e o instrumento pontuado é pago.
+- **O índice precisa ser calibrado varrendo as combinações, sempre.** Na primeira
+  versão, "sustentação baixa" caía em dois terços dos casos e o índice perdia o
+  sentido. É o mesmo erro do primeiro índice da casa, no funil anterior. Varra as
+  combinações antes de publicar.
+- **A conta bate com o exemplo do próprio cliente** (R$3.300 e R$25.900). Sempre
+  confira a aritmética contra o exemplo que ele já calculou, antes de subir.
+- **Faixa aberta para baixo quebra a conta.** O documento dele cobre faixa aberta
+  para cima ("usa o piso nas duas contas") e não cobre "Até R$500", onde o piso
+  literal é zero. Resolvido com metade do teto, e registrado como decisão a
+  confirmar.
+
+## Sobre publicar
+
+- 🚨 **O deploy inline do MCP da Vercel não serve para este funil.** Ele tem 77KB
+  de binário entre fontes e gravuras, e o payload em base64 precisa ser
+  transcrito à mão: o arquivo de 26KB corrompeu e o deploy foi recusado. É
+  exatamente o que a skill da casa avisa.
+  **O caminho certo é projeto ligado ao Git**, que publica sozinho a cada push.
+  Isso depende de o Vercel ter acesso ao repositório no GitHub, que hoje ele não
+  tem (`repo_no_access`). Ver a pendência no README do funil.
+- **Fonte de marca sem requisição externa dá certo.** Cormorant Garamond e IBM
+  Plex Sans servidas do próprio projeto, com subset dos glifos usados: 117KB
+  viraram 66KB, e a regra de zero requisição externa continua de pé.
+- **Gravura com fundo vinhetado não casa com fundo chapado.** `mix-blend-mode`
+  não resolve, porque a vinheta varia. O que resolve é alfa por diferença de
+  luminância contra um blur do próprio cinza. Script em
+  `ferramentas/recorte-gravuras.py`.

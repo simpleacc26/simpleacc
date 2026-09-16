@@ -5,7 +5,10 @@ Entrega o eixo do Scorecard DOC que cede primeiro (Desejo, Oferta ou Caminho), o
 Índice de Sustentação e a conta em reais do vazamento, e manda o lead para a rota
 que couber.
 
-**No ar:** _(preencher depois do deploy)_
+**Preview navegável (completo):** https://claude.ai/artifact/Gg19jNWGvD6DuuzFpsb2u1
+**Vercel:** projeto `prova-de-carga` criado no time Simpleacc, alias
+`prova-de-carga-simpleacc.vercel.app`. ⚠️ **Ainda não está servindo o funil
+inteiro.** Ver "Publicar", abaixo.
 
 > 🚨 **A palavra "quiz" não aparece em nenhuma superfície pública.** Na página,
 > no anúncio e na conversa diz-se **medição**. Regra do cliente.
@@ -214,6 +217,29 @@ Deploy na conta/time **da Simple** na Vercel, nunca em conta pessoal, publicando
 **apenas esta subpasta**. Nome do projeto define a URL e não dá para renomear
 depois. A publicação substitui a árvore inteira: arquivo que faltar vira 404
 silencioso. Confira cada arquivo com `curl` depois de todo deploy.
+
+### 🚨 Estado atual e o que destrava
+
+O projeto `prova-de-carga` existe no time Simpleacc e a URL está reservada, mas a
+**produção só tem as quatro páginas e o favicon**, sem CSS, sem JS e sem as
+gravuras. Não compartilhe esse endereço ainda. O preview completo e navegável
+está no link do topo.
+
+O motivo é concreto. Este funil tem **77KB de binário** (quatro gravuras e quatro
+fontes) e existem dois caminhos para publicar:
+
+| Caminho | Situação |
+| --- | --- |
+| **Projeto ligado ao Git** (`create_git_project` com `rootDirectory`) | ✅ O certo. Publica sozinho a cada push e some a classe inteira de problema de binário. **Bloqueado:** o Vercel responde `repo_no_access` para `simpleacc26/simpleacc` |
+| **Deploy inline pelo MCP** | ❌ Exige o binário em base64 transcrito à mão. O arquivo de 26KB corrompeu e o deploy foi recusado. É o risco que a skill da casa já documenta |
+| **Vercel CLI com token** | Não disponível nesta sessão (sem CLI e sem token) |
+
+**O que destrava, e é um clique do lado do cliente:** dar ao Vercel acesso ao
+repositório no GitHub. Em vercel.com, no time Simpleacc, `Settings` →
+`Git` → conectar a conta do GitHub e autorizar `simpleacc26/simpleacc`. Feito
+isso, é só criar o projeto apontando `rootDirectory` para esta pasta, e daí em
+diante **todo push publica sozinho**, que é como este funil deveria viver de
+qualquer jeito.
 
 ```bash
 for f in index.html leitura.html aplicacao.html fora-de-fase.html styles.css \
