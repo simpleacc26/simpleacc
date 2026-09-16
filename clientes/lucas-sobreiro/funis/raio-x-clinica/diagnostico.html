@@ -108,10 +108,14 @@
       background: var(--surface); border: 1px solid var(--border);
       border-radius: var(--radius); padding: 22px 20px; margin: 30px 0;
     }
-    .autoridade .quem { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+    .autoridade .quem {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: 14px; margin-bottom: 20px;
+    }
     .autoridade .foto {
-      width: 92px; height: 92px; flex: 0 0 92px; border-radius: 50%;
-      object-fit: cover; border: 2px solid var(--primary);
+      width: 100%; max-width: 290px; aspect-ratio: 1023 / 1537;
+      object-fit: cover; display: block;
+      border-radius: var(--radius); border: 1px solid var(--border);
       background: var(--bg-2);
     }
     .autoridade .nome { font-family: var(--font-serif); font-size: 19px; font-weight: 700; margin: 0; }
@@ -130,15 +134,6 @@
       background: var(--surface); border: 1px solid var(--border);
       border-radius: var(--radius); padding: 24px 20px; margin: 30px 0 10px; text-align: center;
     }
-    .deepdive { margin: 16px 0 4px; text-align: left; }
-    .deepdive label { display: block; font-size: 14px; color: var(--muted); margin-bottom: 6px; }
-    .deepdive textarea {
-      width: 100%; min-height: 72px; resize: vertical;
-      border: 1px solid var(--border); border-radius: var(--radius-sm);
-      padding: 11px 13px; font: inherit; font-size: 15px;
-      background: var(--bg); color: var(--text);
-    }
-    .deepdive textarea:focus { outline: 2px solid var(--ring); outline-offset: 1px; }
     /* O CTA é um link de verdade, não um botão com window.open: dentro do
        navegador do Instagram o window.open costuma ser engolido, e esse é o
        último toque antes da conversa. */

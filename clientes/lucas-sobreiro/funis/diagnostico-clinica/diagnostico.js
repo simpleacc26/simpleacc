@@ -187,7 +187,7 @@ function montarRelatorio() {
 
     <div class="autoridade">
       <div class="quem">
-        <img class="foto" src="lucas-sobreiro.webp" width="92" height="92"
+        <img class="foto" src="lucas-sobreiro.webp" width="460" height="691" loading="lazy"
              alt="Lucas Sobreiro, mentor de evolução empresarial para donos de clínica." />
         <div>
           <p class="nome">Lucas Sobreiro</p>
@@ -209,10 +209,6 @@ function montarRelatorio() {
     <div class="cta-box">
       <h2 style="margin-top:0">O próximo passo${primeiroNome ? ", " + primeiroNome : ""}</h2>
       <p>${CTA.texto}</p>
-      <div class="deepdive">
-        <label for="dd">Se quiser, escreva em uma frase o que mais te incomoda hoje no negócio. O Lucas lê antes da conversa.</label>
-        <textarea id="dd" rows="2" placeholder="Opcional"></textarea>
-      </div>
       ${botao("cta-3")}
     </div>`;
 }
@@ -278,11 +274,9 @@ if (a.problema) {
    que o lead escreveu. Sem window.open: dentro do navegador do Instagram ele
    falha calado, e este é o último toque antes da conversa. */
 function montarUrlWpp() {
-  const dd = document.getElementById("dd");
-  const extra = dd && dd.value.trim() ? " " + dd.value.trim() : "";
   const msg = (F.marca.whatsappMsg || "")
     .replace("{nome}", primeiroNome)
-    .replace("{vazamento}", V.nome) + extra;
+    .replace("{vazamento}", V.nome);
   return `https://wa.me/${F.marca.whatsapp}?text=${encodeURIComponent(msg)}`;
 }
 document.addEventListener("click", (e) => {

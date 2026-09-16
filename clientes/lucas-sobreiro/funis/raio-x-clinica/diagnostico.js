@@ -186,7 +186,7 @@ function montarRelatorio() {
 
     <div class="autoridade">
       <div class="quem">
-        <img class="foto" src="lucas-sobreiro.webp" width="92" height="92"
+        <img class="foto" src="lucas-sobreiro.webp" width="460" height="691" loading="lazy"
              alt="Lucas Sobreiro, mentor de evolução empresarial para donos de clínica." />
         <div>
           <p class="nome">Lucas Sobreiro</p>
@@ -208,10 +208,6 @@ function montarRelatorio() {
     <div class="cta-box">
       <h2 style="margin-top:0">O próximo passo${primeiroNome ? ", " + primeiroNome : ""}</h2>
       <p>${CTA.texto}</p>
-      <div class="deepdive">
-        <label for="dd">Se quiser, escreva em uma frase qual parte da clínica você mais gostaria de não precisar tocar. O Lucas lê antes da conversa.</label>
-        <textarea id="dd" rows="2" placeholder="Opcional"></textarea>
-      </div>
       ${botao("cta-3")}
     </div>`;
 }
@@ -266,11 +262,9 @@ if (a.ferias) {
 }
 
 function montarUrlWpp() {
-  const dd = document.getElementById("dd");
-  const extra = dd && dd.value.trim() ? " " + dd.value.trim() : "";
   const msg = (F.marca.whatsappMsg || "")
     .replace("{nome}", primeiroNome)
-    .replace("{indice}", String(IDD)) + extra;
+    .replace("{indice}", String(IDD));
   return `https://wa.me/${F.marca.whatsapp}?text=${encodeURIComponent(msg)}`;
 }
 document.addEventListener("click", (e) => {
