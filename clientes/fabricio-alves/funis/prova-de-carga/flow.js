@@ -354,7 +354,7 @@ window.FLOW = {
     subtitulo:
       "A leitura abre na tela a seguir. O laudo preliminar em PDF vai para o seu WhatsApp.",
     consentimento:
-      "Os números que você informou alimentam só a sua conta. Nada é publicado, comparado ou vendido.",
+      "Ao continuar, você concorda com os termos de uso e a política de privacidade. Sem call. Sem lista de espera disfarçada.",
     botao: "Ver a minha leitura",
   },
 

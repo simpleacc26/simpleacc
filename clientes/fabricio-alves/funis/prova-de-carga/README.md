@@ -157,12 +157,8 @@ preserva as hachuras finas e o carmim das jesses.
 O stoop não entra em anúncio. Regra do cliente: se a legenda explica **como** o
 corte é feito, fica privada; se apenas nomeia que o corte existe, é feed.
 
-Para refazer o recorte a partir dos PNG originais, o procedimento está em
-`../../../../docs/` nenhum lugar ainda: está no histórico desta branch, no script
-que gerou os `.webp`. Resumo: redimensiona, `L = grayscale`, `papel =
-GaussianBlur(L, raio = largura/14)`, `alfa = clip((papel - L) / 105, 0, 1)`, zera
-alfa abaixo de 0,09 e num anel de 2,2% da borda (senão a vinheta vira um fantasma
-retangular).
+Para refazer o recorte a partir dos PNG originais da image-bible, o script está
+em `../../ferramentas/recorte-gravuras.py`, com o procedimento comentado.
 
 ## O que foi testado
 
