@@ -52,7 +52,7 @@ window.FLOW = {
   hero: {
     titulo: "Por que você atrai homens que não te escolhem?",
     subtitulo: "Não é azar, não é dedo podre e não é falta de opção. É um padrão, e todo padrão tem origem.",
-    tempo: "10 perguntas, cerca de 2 minutos, e o resultado é seu na hora",
+    tempo: "10 perguntas · 2 minutos · resultado personalizado no seu WhatsApp",
   },
 
   /* Ordem SPIN. peso 0 a 3 entra no IRP (só nas perguntas de diagnóstico).
@@ -66,7 +66,7 @@ window.FLOW = {
     {
       id: "situacao",
       etapa: "Situação",
-      pergunta: "Como está a sua vida amorosa hoje?",
+      pergunta: "Como está sua vida amorosa hoje?",
       options: [
         { value: "solteira", label: "Solteira, e faz tempo que não aparece nada sério", peso: 1,
           report: "estar solteira há um tempo, sem que apareça nada sério" },
@@ -76,6 +76,19 @@ window.FLOW = {
           report: "estar com alguém que não define nada" },
         { value: "recompondo", label: "Acabei de sair de uma relação e ainda estou me recompondo", peso: 0,
           report: "estar se recompondo de uma relação que acabou" },
+      ],
+    },
+    /* P2 no documento aprovado: situação e perfil. Não pontua no IRP, mas é
+       uma das três condições da regra de segmentação. */
+        {
+      id: "perfil",
+      etapa: "Situação · Perfil",
+      pergunta: "E sua vida profissional?",
+      options: [
+        { value: "empresaria", label: "Sou empresária ou sócia" },
+        { value: "executiva", label: "Sou executiva ou ocupo cargo de liderança" },
+        { value: "liberal", label: "Sou profissional liberal (médica, advogada, psicóloga, dentista)" },
+        { value: "transicao", label: "Sou CLT em transição ou recomeço" },
       ],
     },
     {
@@ -93,6 +106,7 @@ window.FLOW = {
           report: "ter conquistado tudo, menos uma relação que preste" },
       ],
     },
+
     {
       id: "repeticao",
       etapa: "O padrão",
@@ -148,7 +162,7 @@ window.FLOW = {
     {
       id: "tentativas",
       etapa: "O que já tentou",
-      pergunta: "O que você já tentou para resolver isso?",
+      pergunta: "O que você já tentou?",
       options: [
         { value: "terapia", label: "Terapia", peso: 1, report: "fazer terapia" },
         { value: "conteudo", label: "Livros, cursos e conteúdo sobre relacionamento", peso: 1, report: "ler os livros e consumir conteúdo sobre relacionamento" },
@@ -168,29 +182,17 @@ window.FLOW = {
       ],
     },
 
-    /* ---- PORTEIRA 1: perfil. Define o ICP da mentoria de R$ 12 mil. ---- */
-    {
-      id: "perfil",
-      etapa: "Sobre você",
-      pergunta: "E a sua vida profissional, como está hoje?",
-      options: [
-        { value: "empresaria", label: "Sou empresária ou sócia" },
-        { value: "executiva", label: "Sou executiva ou ocupo cargo de liderança" },
-        { value: "liberal", label: "Sou profissional liberal (médica, advogada, psicóloga, dentista)" },
-        { value: "transicao", label: "Sou CLT, em transição ou recomeço" },
-      ],
-    },
 
-    /* ---- PORTEIRA 2: prontidão. A opção de nutrir enquadra como momento,
+    /* ---- PORTEIRA: prontidão. A opção de nutrir enquadra como momento,
        nunca como "algo mais barato". ---- */
     {
       id: "prontidao",
       etapa: "O próximo passo",
-      pergunta: "Você quer resolver isso com acompanhamento, mesmo que represente um investimento maior do que uma terapia avulsa ou um curso?",
+      pergunta: "O quanto você está disposta a investir para resolver isso agora?",
       options: [
-        { value: "pronta", label: "Sim, é prioridade e tenho condição de investir" },
-        { value: "entender", label: "Sim, mas preciso entender como funciona antes" },
-        { value: "sem_condicao", label: "Quero muito, mas não é o meu momento financeiro", nutrir: true },
+        { value: "pronta", label: "Estou pronta, é prioridade e tenho condição de investir" },
+        { value: "entender", label: "Quero muito, mas preciso entender como funciona" },
+        { value: "sem_condicao", label: "Tenho interesse, mas não é o meu momento financeiro", nutrir: true },
         { value: "so_diagnostico", label: "Só quero o diagnóstico por enquanto", fora: true },
       ],
     },
@@ -198,7 +200,7 @@ window.FLOW = {
 
   captura: {
     titulo: "Seu diagnóstico está pronto.",
-    subtitulo: "Deixe o seu contato para ver a leitura completa agora e receber uma cópia no WhatsApp.",
+    subtitulo: "Coloque seu WhatsApp abaixo e receba agora a leitura completa do seu padrão.",
     campos: [
       { id: "nomeResp", label: "Seu nome", type: "text", required: true, autocomplete: "name", placeholder: "Como posso te chamar?" },
       { id: "whatsapp", label: "Seu WhatsApp (com DDD)", type: "tel", required: true, autocomplete: "tel", placeholder: "(11) 99999-9999", mask: "phone" },

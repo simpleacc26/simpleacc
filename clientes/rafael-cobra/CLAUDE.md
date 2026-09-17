@@ -131,6 +131,23 @@ Base de conhecimento do cliente. Tudo que a SimpleAcc faz para ele acumula aqui.
 - **Cliente:** Rafael Cobra — _(WhatsApp/e-mail a preencher)_
 - **Interno:** Carlos Durães · Daniel
 
+## Estado em 17/09 (passagem para o Renan)
+
+- **Funil NO AR e público:** <https://quiz-rafael-cobra.vercel.app>
+  (projeto `quiz-rafael-cobra`, time Simpleacc). Publicado pela CLI com token,
+  e a Vercel Authentication foi desligada, senão a página pedia login.
+- **O funil foi alinhado ao documento aprovado de 20/08** (que é o mesmo de 26
+  páginas do repo, renomeado ao ser compartilhado). Ver os aprendizados: a
+  ordem das perguntas e a regra de corte estavam diferentes do que o cliente
+  aprovou.
+- **Planilha de leads criada**, em "5. Relatórios e Alinhamentos":
+  <https://docs.google.com/spreadsheets/d/1pAdSeuFPZrPXbGOFzF2CIOd7zhiAGkkypv-8HDF8ClI/edit>
+  Falta ligar o `LEADS_ENDPOINT` nela.
+- **Nenhum depoimento existe no Drive dele** (pasta "Depoimentos" vazia, e nada
+  fora dela). Provável causa: **o Guia de Captação de Depoimentos nunca foi
+  subido para o Drive do cliente**, diferente do que foi feito em outros
+  clientes. Ele nunca recebeu as instruções.
+
 ## Pendências abertas (13/08)
 
 Nada disso bloqueia execução, mas fica registrado para a próxima sessão:

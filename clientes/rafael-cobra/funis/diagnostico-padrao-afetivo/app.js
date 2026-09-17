@@ -145,23 +145,28 @@ function resultadoNomeado(answers) {
   return R[padraoDominante(answers)] || "A Provedora Emocional";
 }
 
-/* O ICP da mentoria, conforme a seção 2 da estratégia: mulher com carreira
-   consolidada. Quem está em transição entra na sessão do mesmo jeito quando
-   diz que é prioridade, só não fura fila. */
+/* O ICP da mentoria e a regra de corte vêm LITERALMENTE da seção 2 do
+   documento aprovado em 20/08: "Qualificada: P2 em a, b ou c, mais P6 em c ou
+   d, mais P10 em a ou b." Ou seja, profissão dentro do ICP, padrão com 5 anos
+   ou mais, e disposição a investir. Antes daqui o corte usava o IRP no lugar
+   da P6, o que era aproximação minha e não o que o cliente aprovou. */
 const PERFIL_ICP = ["empresaria", "executiva", "liberal"];
+const TEMPO_QUALIFICA = ["5a10", "mais10"];
+const PRONTIDAO_QUALIFICA = ["pronta", "entender"];
 
-/* Quatro faixas na planilha, três CTAs na página. A regra de corte cruzada
-   mora aqui, no código, e não só no documento de estratégia.
-   fila-quente  pronta agora, dentro do ICP e com repetição alta
-   qualificado  entra na sessão do mesmo jeito, só não fura fila
-   nutrir       é momento financeiro, não é "algo mais barato"
-   fora         só queria o diagnóstico, e isso é uma resposta legítima */
+/* Quatro faixas na planilha, três CTAs na página.
+   fila-quente  as três condições do documento: perfil, tempo e prontidão
+   qualificado  quer resolver, mas falha numa das outras duas condições
+   nutrir       é momento financeiro, não é "algo mais barato" (P10 c)
+   fora         só queria o diagnóstico, e isso é resposta legítima (P10 d) */
 function classificarLead(a) {
   const stepPr = F.steps.find((s) => s.id === "prontidao");
   const optPr = stepPr && stepPr.options.find((o) => o.value === a.prontidao);
   if (optPr && optPr.fora) return "fora";
   if (optPr && optPr.nutrir) return "nutrir";
-  if (a.prontidao === "pronta" && PERFIL_ICP.indexOf(a.perfil) > -1 && calcularIRP(a).pct >= 66) return "fila-quente";
+  if (PERFIL_ICP.indexOf(a.perfil) > -1
+      && TEMPO_QUALIFICA.indexOf(a.tempo) > -1
+      && PRONTIDAO_QUALIFICA.indexOf(a.prontidao) > -1) return "fila-quente";
   return "qualificado";
 }
 

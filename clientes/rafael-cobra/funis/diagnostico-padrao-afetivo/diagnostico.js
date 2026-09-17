@@ -101,14 +101,17 @@ if (!a._completedAt && !a.problema) {
   const faixaClasse = irp.faixa === "Alta" ? "alta" : (irp.faixa === "Média" ? "media" : "baixa");
   const resultado = (F.resultados && F.resultados[padrao]) || "A Provedora Emocional";
 
-  /* Mesma regra do app.js. Quatro faixas para o atendimento, três CTAs na
+  /* Mesma regra do app.js, que por sua vez é a regra literal da seção 2 do
+     documento aprovado. Quatro faixas para o atendimento, três CTAs na
      página: fila-quente e qualificado veem o mesmo botão. */
   const PERFIL_ICP = ["empresaria", "executiva", "liberal"];
   const stepPr = F.steps.find((s) => s.id === "prontidao");
   const optPr = stepPr && stepPr.options.find((o) => o.value === a.prontidao);
   const nivel = (optPr && optPr.fora) ? "fora"
     : ((optPr && optPr.nutrir) ? "nutrir"
-      : ((a.prontidao === "pronta" && PERFIL_ICP.indexOf(a.perfil) > -1 && irp.pct >= 66) ? "fila-quente" : "qualificado"));
+      : ((PERFIL_ICP.indexOf(a.perfil) > -1
+          && ["5a10", "mais10"].indexOf(a.tempo) > -1
+          && ["pronta", "entender"].indexOf(a.prontidao) > -1) ? "fila-quente" : "qualificado"));
 
   let ctaLabel, ctaExtra, fecho;
   if (nivel === "qualificado" || nivel === "fila-quente") {
