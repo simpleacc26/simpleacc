@@ -1,4 +1,48 @@
-# Publicar na Vercel (escopado, URL limpa, público)
+# Deploy na Vercel
+
+> ## ⚡ Como publicar de dentro de uma sessão de agente
+>
+> **Com token do time, que é o melhor caso:** peça um token da Vercel e rode
+> a CLI, que lê os arquivos do disco e publica no projeto certo.
+>
+> ```bash
+> export VERCEL_TOKEN='...'          # nunca commitar, nunca ecoar
+> npx -y vercel@latest link --project <projeto> --scope <time> --yes --token "$VERCEL_TOKEN"
+> npx -y vercel@latest deploy --prod --scope <time> --yes --token "$VERCEL_TOKEN"
+> ```
+>
+> **Depois de publicar, desligue a Vercel Authentication**, senão a URL pede
+> login e o cliente não abre. Todo projeto novo nasce com ela ligada.
+> Some `.vercel/` e `.env*.local` ao `.gitignore` do funil antes de commitar.
+>
+> ## Sem token e sem login? Use `vercel deploy --temporary`
+>
+> **Validado em 14/09/26, no funil do Rafael Cobra.** A CLI da Vercel publica
+> **sem nenhum login** e **lendo os arquivos do disco**, o que resolve os dois
+> bloqueios clássicos de uma sessão remota:
+>
+> ```bash
+> cd <pasta do funil>
+> npx -y vercel@latest deploy --temporary --yes
+> ```
+>
+> Sai uma URL no ar na hora e um **`claimUrl`**. A pessoa abre o claimUrl,
+> logada na Vercel, e o deploy passa a ser dela, em definitivo.
+>
+> **Prazo: o deploy temporário expira em 60 minutos se ninguém reivindicar.**
+> Então mande o claimUrl junto com o link, na mesma mensagem, e diga o prazo.
+>
+> **Por que isso importa:** as outras duas rotas travam.
+> - `create_git_project` exige que a conta da Vercel tenha escrita no repo no
+>   GitHub. Se der `repo_no_access`, só um humano resolve (instalar o app da
+>   Vercel é tela de browser com permissão de admin).
+> - `deploy_to_vercel` (MCP) exige colar o conteúdo dos arquivos dentro da
+>   chamada. Um funil tem de 60 a 80 KB de código e a chamada sai truncada,
+>   gerando deploy parcial. **Não use MCP para publicar funil.**
+>
+> Depois de reivindicado, o caminho definitivo continua sendo ligar o projeto
+> ao repositório, para atualizar a cada push.
+
 
 Objetivo: funil no ar numa **URL limpa e pública**, na conta/time Vercel do
 cliente (geralmente o time da empresa). Entregue o link no final.
