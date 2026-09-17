@@ -453,7 +453,11 @@ var P = {
     ajuda:"Margem líquida aproximada.",
     ops:[{t:"Menos de 10%"},{t:"Entre 10% e 20%"},{t:"Entre 20% e 30%"},{t:"Acima de 30%"},{t:"Não sei dizer com precisão"}]},
   b6:{ id:"P6",
-    titulo:"Qual é o seu nível de autonomia para decidir sobre investimento em desenvolvimento, seu ou da sua equipe de gestores?",
+    // "investimento em" saiu a pedido da Dani em 17/09: para quem não é dono
+    // nem sócio, a palavra investimento puxava a pergunta para orçamento e
+    // fazia o executivo se declarar sem autonomia por não assinar cheque. O que
+    // a régua quer saber é se a decisão sobre desenvolvimento passa por ele.
+    titulo:"Qual é o seu nível de autonomia para decidir sobre desenvolvimento, seu ou da sua equipe de gestores?",
     ops:[
       {t:"Total, a decisão é minha", pt:10},
       {t:"Parcial, decido até um determinado valor", pt:6},
