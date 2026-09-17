@@ -32,6 +32,7 @@ público masculino para este cliente (ver `aprendizados.md`).
 | **Crio 360 da Eli** (criolipólise, mecanismo próprio) | R$ 4.500 (parcelável, ex.: até 12x) | Foco principal. Alternativa premium à lipo: sem cirurgia, sem repouso, sem atestado. Resultado visível em ~15 dias, protocolo completo (não "por região"). |
 | **Depilação a laser** | Consultar tabela vigente (usar placeholder `[PREÇO]` / `[PARCELAS]x de [VALOR_PARCELA]` até confirmar) | Regiões já usadas em copy: axila e virilha. Segunda linha de oferta. |
 | Massagem | — | Aparece nos anúncios (batch 13.01), oferta secundária. |
+| **Flace Off** (lançamento, 2026-09) | Não confirmado | Protocolo novo pra tratar flacidez pós-emagrecimento (firmeza/aparência da pele), promovido por enquanto só em **Pinhalzinho** (não confirmado em Chapecó). ICP é quem **já emagreceu** (cita canetinha emagrecedora) e ficou com a pele flácida, diferente do ICP do Crio 360 (que ainda não conseguiu eliminar a gordura). Mecanismo, sessões e áreas do corpo tratadas ainda não confirmados, ver `copy/2026-09-17-legendas-flace-off.md`. |
 
 Diferenciais do negócio: clínica moderna, procedimento exclusivo (Crio 360),
 já atendeu clientes de fora do país. Argumento forte: "a única 5 estrelas da
