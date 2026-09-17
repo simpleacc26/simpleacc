@@ -41,6 +41,10 @@ Zero dependência, zero build. É HTML, CSS e JS puro.
   `A` → aba `Quiz A`, `B` → aba `Quiz B`, ausente → aba `Untitled` (funil antigo).
   A rota do funil antigo tem filtro negativo explícito: sem ele o Make a trata como
   "sempre roda" e cada lead novo era gravado duas vezes.
+  As rotas Quiz A e Quiz B gravam com `valueInputOption: RAW`, não `USER_ENTERED`.
+  Com USER_ENTERED o Sheets lê o `utm_id` como número e o ID de 18 dígitos do Meta
+  perde precisão: `120248121169420701` vira `120248121169420704`, e o cruzamento
+  entre planilha e Meta quebra sem erro nenhum. RAW também mantém a data legível.
 - **Meta Pixel:** `1096905346357097`, o mesmo nos dois. Evento de conversão: `Lead`.
   Eventos de leitura do funil: `InitiateCheckout`, `QuizStep`, `QuizCaptura`,
   `ViewContent`, `Contact`.
