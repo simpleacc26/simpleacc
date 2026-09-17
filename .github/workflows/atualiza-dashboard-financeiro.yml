@@ -1,0 +1,71 @@
+name: Atualiza Dashboard Financeiro (interno)
+
+# Sincroniza o dashboard financeiro da Innova/Simple Acc 1x por dia:
+# baixa a planilha DFC/DRE do Drive, regenera os dados, CIFRA (dados.enc) e
+# commita. A Vercel redeploya automaticamente ao receber o commit.
+
+on:
+  schedule:
+    # 05:00 BRT (08:00 UTC) — todo dia de manha
+    - cron: '0 8 * * *'
+  workflow_dispatch: {}   # permite rodar manualmente pelo botao "Run workflow"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: dashboard-financeiro
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+    defaults:
+      run:
+        working-directory: clientes/0-interno-simpleacc-inova/dashboard-financeiro
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instala dependencias
+        run: pip install openpyxl
+
+      - name: Sincroniza dados (Drive -> dados.json)
+        env:
+          # se vazio, baixa pela planilha publica (link). se preenchido, usa a conta de servico.
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          DRIVE_FILE_ID: ${{ secrets.DRIVE_FILE_ID }}
+        run: |
+          if [ -n "$GOOGLE_SERVICE_ACCOUNT_JSON" ]; then pip install google-api-python-client google-auth; fi
+          python scripts/sync.py
+
+      - name: Cifra os dados (dados.enc)
+        env:
+          DASHBOARD_PASSWORD: ${{ secrets.DASHBOARD_PASSWORD }}
+        run: node scripts/encrypt.js
+
+      - name: Commita se houve mudanca
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          enc=clientes/0-interno-simpleacc-inova/dashboard-financeiro/dados.enc
+          if git diff --quiet -- "$enc"; then
+            echo "Sem alteracoes nos dados."
+          else
+            git config user.name  "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add "$enc"
+            git commit -m "chore(dashboard-financeiro): atualiza dados $(date +%F)"
+            git push
+          fi
+
+      - name: Publica na Vercel
+        if: ${{ env.VERCEL_TOKEN != '' }}
+        env:
+          VERCEL_ORG_ID: team_bD5dst9eSAc4qVaaynXWifXr
+          VERCEL_PROJECT_ID: prj_W1LOJs8nM6W3vnzi8CCYaGJ0XFLh
+        run: npx --yes vercel@latest deploy --prod --yes --token "$VERCEL_TOKEN"

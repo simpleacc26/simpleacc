@@ -1,0 +1,4 @@
+# binario da planilha baixado pela sincronizacao (nao versionar)
+scripts/dfc_dre.xlsm
+# dados em claro NUNCA vao para o Git — so o dados.enc (cifrado) e versionado
+dados.json
