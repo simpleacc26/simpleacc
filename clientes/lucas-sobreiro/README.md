@@ -50,7 +50,13 @@ Zero dependência, zero build. É HTML, CSS e JS puro.
   `ViewContent`, `Contact`.
 - **WhatsApp do CTA:** 55 51 98111-5195.
 
+## Decisões tomadas
+
+- **Depoimentos não são segmentados por bucket.** Cada funil mostra o mesmo
+  conjunto de 6 prints para todo lead, independente do grupo em que ele caiu.
+  Decidido em 17/09/2026. Não reabrir sem pedido do cliente.
+
 ## Pendências do cliente
 
-- A qual dos quatro grupos pertence cada depoimento, para casar a prova com o lead.
-- Validação das taxas de referência de fechamento de orçamento.
+- Validação das taxas de referência de fechamento de orçamento, que dão lastro
+  à estimativa em reais do relatório do Quiz A.
