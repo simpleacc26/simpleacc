@@ -17,3 +17,15 @@ Log do que funciona e do que não funciona com este cliente.
 | 16/09/2026 | No módulo `google-sheets:updateCell` do Make o parâmetro é `cell`, não `cellAddress`. Com o nome errado o erro que volta é enganoso: "Unable to parse range". | Integração Make |
 | 16/09/2026 | Arquivo grande (7,9MB) **derruba a sessão do conector do Google Drive** no `download_file_content`, com erro enganoso de "session expired". Falha nas 4 tentativas, enquanto arquivos de dezenas de KB baixam normal. Saída: liberar o link e baixar por `drive.usercontent.google.com/download?id=<ID>&export=download&confirm=t`. | Foto da Dra. Lailla |
 | 16/09/2026 | Num funil médico, o pixel da Meta recebe **só o nome do evento**. As respostas do quiz e o índice são sinais de saúde e não podem ir para plataforma de anúncio. O motor da casa mandava o objeto `data` inteiro para o `fbq` por padrão. | Instalação do pixel |
+
+## Sobre extrair a copy do funil para o cliente ler (17/09/2026)
+
+- O documento de copy que o cliente lê e comenta é **gerado por script**
+  (`ferramentas/extrai-copy-do-funil.mjs`), a partir do próprio `flow.js` do
+  funil. Não se edita à mão: se a página mudar, roda de novo.
+- 🚨 **Valide contra a tela, não contra o arquivo.** Os relatórios se montam em
+  tempo de execução e a variação está em três eixos independentes: 5 perfis, 3
+  faixas do índice e 3 rotas de convite. São 44 combinações, e todas foram
+  renderizadas semeando `sessionStorage` antes de dar o documento por conferido.
+- **Ângulo e Atenção não vão para o cliente.** São nota interna de quem escreve.
+  Criativo, título, descrição e CTA são peça e ficam.

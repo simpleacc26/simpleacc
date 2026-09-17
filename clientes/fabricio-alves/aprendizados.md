@@ -126,3 +126,29 @@ O que funciona e o que não funciona neste cliente. Leia antes de criar.
   estrutural", "verba"), não densidade. Trocado por "Sua oferta vende hoje. Ela
   aguenta o dobro de investimento?", que é a palavra do mercado e uma alternativa
   que o próprio brand book autoriza. **Contenção não é arcaísmo.**
+
+## Sobre extrair a copy do funil para o cliente ler (17/09/2026)
+
+- **Documento de copy se gera por script, nunca à mão.** O pedido era o texto
+  exato do que está no ar; transcrever 7 mil palavras convida a erro silencioso.
+  O extrator lê o próprio `flow.js` do funil e monta o documento. Se a página
+  mudar, roda de novo: o documento não é uma cópia, é uma saída.
+- 🚨 **Conferir contra o arquivo não basta, tem que conferir contra a tela.**
+  Parte da copy dos relatórios só existe montada em tempo de execução, e algumas
+  variações não aparecem em combinação nenhuma das comuns. Duas passaram perto
+  de ficar de fora: a conta como número único (só quando as três faixas marcadas
+  são abertas para cima) e o parágrafo do segundo eixo. Saíram varrendo as
+  respostas possíveis e semeando `sessionStorage` para renderizar cada caso.
+- **Relatório repetido três vezes ninguém lê.** A primeira versão trazia os três
+  relatórios inteiros, e 80% era idêntico. Ficou melhor separado em duas partes:
+  o que muda conforme o eixo, um por um, e o esqueleto comum escrito uma vez, na
+  ordem da tela, com as variações marcadas no lugar onde aparecem. Nada se perde
+  e o documento cai pela metade.
+- **Nota interna não vai para o documento do cliente.** "Ângulo" e "Atenção" são
+  instrução para quem escreve. Criativo, título, descrição e CTA são peça e
+  ficam. O extrator separa os dois.
+- **O Drive converte `text/markdown` em Doc formatado**, com títulos e negrito.
+  Duas armadilhas: quebra de linha no meio do parágrafo vira parágrafo novo, e
+  duas linhas seguidas viram um parágrafo só. Por isso o passo de normalização
+  antes de subir. Como não há API de edição de conteúdo aqui, corrigir depois
+  significa criar de novo e mandar o antigo para a lixeira.
