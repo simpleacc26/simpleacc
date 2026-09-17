@@ -1,0 +1,679 @@
+/* Prova de Carga · Fabrício Alves, Arquiteto de Ofertas
+   ---------------------------------------------------------------------------
+   Identidade: gravura clássica sobre pergaminho. Preto profundo, carmim sempre
+   mínimo, muito espaço negativo. A referência é prancha de tratado, não página
+   de produto. Ver contexto/marca-e-identidade.md e a image-bible do cliente.
+
+   O elemento assinatura é a LINHA DE DIAGNÓSTICO: um fio fino que termina num
+   ponto carmim. É o visual hammer da marca (o falcão em stoop) reduzido a duas
+   primitivas, e está reproduzido aqui em CSS puro: barra de progresso, divisor
+   de bloco e marcador do eixo.
+
+   Fontes servidas do próprio projeto. Zero requisição externa, regra da casa.
+   --------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("fonts/cormorant-garamond-latin-400-normal.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("fonts/cormorant-garamond-latin-600-normal.woff2") format("woff2");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("fonts/ibm-plex-sans-latin-400-normal.woff2") format("woff2");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("fonts/ibm-plex-sans-latin-600-normal.woff2") format("woff2");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+
+:root {
+  --pergaminho: #EDE8DC;
+  --pergaminho-fundo: #E6E0D2;
+  --tinta: #0D0D0D;
+  --tinta-corpo: #1C1A17;
+  --tinta-suave: rgba(13, 13, 13, 0.62);
+  --tinta-tenue: rgba(13, 13, 13, 0.42);
+  --fio: rgba(13, 13, 13, 0.20);
+  --fio-forte: rgba(13, 13, 13, 0.38);
+  --carmim: #A61C1C;
+
+  --serifada: "Cormorant Garamond", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --sans: "IBM Plex Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  --coluna: 640px;
+  --raio: 2px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* O motor foca o título a cada tela para o leitor de tela anunciar a pergunta.
+   Sem isto o Chromium desenha o anel de foco em volta do h1 a cada avanço. */
+[tabindex="-1"]:focus { outline: none; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--pergaminho-fundo);
+  color: var(--tinta-corpo);
+  font-family: var(--sans);
+  font-size: 16.5px;
+  line-height: 1.62;
+  font-feature-settings: "kern" 1, "liga" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .serif { font-family: var(--serifada); color: var(--tinta); font-weight: 600; }
+h1 { font-size: clamp(31px, 6.2vw, 44px); line-height: 1.14; letter-spacing: -0.005em; margin: 0 0 16px; }
+h2 { font-size: clamp(24px, 4.6vw, 31px); line-height: 1.2; margin: 0 0 12px; }
+h3 { font-size: 20px; line-height: 1.28; margin: 0 0 8px; }
+p { margin: 0 0 15px; }
+strong { font-weight: 600; color: var(--tinta); }
+
+/* ---------------------------------------------------------------- prancha */
+/* A folha de pergaminho com a marca de chapa: a borda fina que a prensa deixa
+   no papel em volta da gravura. */
+.prancha {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 14px;
+}
+.folha {
+  background: var(--pergaminho);
+  border: 1px solid var(--fio);
+  padding: clamp(26px, 6vw, 56px) clamp(20px, 5.4vw, 60px);
+  margin: clamp(12px, 3vw, 30px) 0;
+  position: relative;
+}
+.folha::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1px solid rgba(13, 13, 13, 0.10);
+  pointer-events: none;
+}
+.folha > * { position: relative; }
+
+/* ------------------------------------------------------------ tipografia */
+.eyebrow {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--tinta-tenue);
+  margin: 0 0 14px;
+}
+.lead {
+  font-size: 17px;
+  line-height: 1.58;
+  color: var(--tinta-suave);
+  max-width: var(--coluna);
+  margin: 0 0 14px;
+}
+.nota {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--tinta-suave);
+}
+
+/* ---------------------------------------------- a linha de diagnostico */
+/* O fio que desce e termina no ponto carmim. Usado como divisor de bloco. */
+.linha-diag {
+  display: block;
+  height: 40px;
+  margin: 30px 0;
+  position: relative;
+}
+.linha-diag::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0;
+  width: 1px; height: 32px;
+  background: var(--fio-forte);
+}
+.linha-diag::after {
+  content: "";
+  position: absolute;
+  left: -2.5px; top: 32px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--carmim);
+}
+.linha-diag.centro { text-align: center; }
+.linha-diag.centro::before { left: 50%; }
+.linha-diag.centro::after { left: calc(50% - 2.5px); }
+
+/* Régua horizontal com o ponto no fim. */
+.regua {
+  border: 0;
+  height: 1px;
+  background: var(--fio);
+  margin: 28px 0;
+  position: relative;
+}
+.regua::after {
+  content: "";
+  position: absolute;
+  right: 0; top: -2.5px;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--carmim);
+}
+
+/* ------------------------------------------------------------- cabecalho */
+.marca {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+}
+.marca-nome {
+  font-family: var(--sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--tinta);
+}
+.marca-assinatura {
+  font-family: var(--serifada);
+  font-size: 15px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--tinta-tenue);
+}
+.marca-assinatura::before { content: "· "; }
+
+/* ------------------------------------------------------------- progresso */
+.progresso { margin-bottom: 30px; }
+.progresso-trilho {
+  position: relative;
+  height: 1px;
+  background: var(--fio);
+}
+.progresso-feito {
+  position: absolute;
+  left: 0; top: 0; height: 1px;
+  background: var(--fio-forte);
+  transition: width 0.42s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.progresso-ponto {
+  position: absolute;
+  top: -2.5px;
+  width: 6px; height: 6px;
+  margin-left: -3px;
+  border-radius: 50%;
+  background: var(--carmim);
+  transition: left 0.42s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.progresso-rotulo {
+  margin-top: 11px;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--tinta-tenue);
+}
+
+/* --------------------------------------------------------------- pergunta */
+.pergunta {
+  font-family: var(--serifada);
+  font-size: clamp(24px, 4.8vw, 31px);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--tinta);
+  margin: 0 0 22px;
+  max-width: var(--coluna);
+}
+
+.opcoes { display: block; margin: 0; }
+
+/* Opção: retângulo de fio fino, canto vivo. O estado selecionado não preenche,
+   marca: ganha o ponto carmim na margem, como anotação de tratado. */
+.opt {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: var(--tinta-corpo);
+  background: transparent;
+  border: 1px solid var(--fio);
+  border-radius: var(--raio);
+  padding: 14px 16px 14px 34px;
+  margin-bottom: 9px;
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.16s ease, background-color 0.16s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.opt::before {
+  content: "";
+  position: absolute;
+  left: 15px; top: 50%;
+  width: 5px; height: 5px;
+  margin-top: -2.5px;
+  border-radius: 50%;
+  background: transparent;
+  border: 1px solid var(--fio-forte);
+  transition: background-color 0.16s ease, border-color 0.16s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .opt:hover { border-color: var(--fio-forte); background: rgba(13, 13, 13, 0.025); }
+  .opt:hover::before { border-color: var(--carmim); }
+}
+.opt:active { background: rgba(13, 13, 13, 0.05); }
+.opt:focus-visible { outline: 2px solid var(--carmim); outline-offset: 2px; }
+.opt[aria-checked="true"] { border-color: var(--tinta); background: rgba(13, 13, 13, 0.035); }
+.opt[aria-checked="true"]::before { background: var(--carmim); border-color: var(--carmim); }
+
+.voltar {
+  margin-top: 20px;
+  background: none;
+  border: 0;
+  padding: 6px 0;
+  font: inherit;
+  font-size: 13px;
+  color: var(--tinta-tenue);
+  cursor: pointer;
+  letter-spacing: 0.02em;
+}
+.voltar:hover { color: var(--tinta); }
+.voltar:focus-visible { outline: 2px solid var(--carmim); outline-offset: 2px; }
+
+/* ------------------------------------------------------------ implicacao */
+/* Tela de fato, sem pitch. Fundo de tinta, para quebrar o ritmo do pergaminho. */
+.implicacao {
+  background: var(--tinta);
+  color: var(--pergaminho);
+  margin: -1px calc(clamp(20px, 5.4vw, 60px) * -1);
+  padding: clamp(32px, 7vw, 54px) clamp(20px, 5.4vw, 60px);
+}
+.implicacao .eyebrow { color: rgba(237, 232, 220, 0.42); }
+.implicacao p {
+  font-family: var(--serifada);
+  font-size: clamp(21px, 4.2vw, 27px);
+  line-height: 1.3;
+  color: var(--pergaminho);
+  margin: 0 0 10px;
+  max-width: var(--coluna);
+}
+.implicacao .remate {
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.58;
+  color: rgba(237, 232, 220, 0.72);
+  margin: 22px 0 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(237, 232, 220, 0.18);
+}
+.implicacao .seguir {
+  margin-top: 26px;
+  background: transparent;
+  color: var(--pergaminho);
+  border: 1px solid rgba(237, 232, 220, 0.4);
+  border-radius: var(--raio);
+  padding: 12px 24px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.implicacao .seguir:hover { border-color: var(--pergaminho); }
+.implicacao .seguir:focus-visible { outline: 2px solid var(--carmim); outline-offset: 2px; }
+
+/* --------------------------------------------------------------- captura */
+.campo { margin-bottom: 16px; }
+.campo label {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--tinta-tenue);
+  margin-bottom: 7px;
+}
+.campo input {
+  width: 100%;
+  font: inherit;
+  font-size: 16px;
+  color: var(--tinta-corpo);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--fio-forte);
+  border-radius: 0;
+  padding: 9px 2px;
+}
+.campo input:focus { outline: 0; border-bottom-color: var(--carmim); }
+.campo input::placeholder { color: rgba(13, 13, 13, 0.26); }
+.erro {
+  display: none;
+  font-size: 12.5px;
+  color: var(--carmim);
+  margin-top: 6px;
+}
+.campo.invalido .erro { display: block; }
+.campo.invalido input { border-bottom-color: var(--carmim); }
+
+/* ---------------------------------------------------------------- botoes */
+.btn {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pergaminho);
+  background: var(--tinta);
+  border: 1px solid var(--tinta);
+  border-radius: var(--raio);
+  padding: 16px 22px;
+  cursor: pointer;
+  transition: background-color 0.16s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.btn:hover { background: #000; }
+.btn:focus-visible { outline: 2px solid var(--carmim); outline-offset: 3px; }
+.btn[disabled] { opacity: 0.5; cursor: default; }
+.btn-micro {
+  margin: 10px 0 0;
+  font-size: 12px;
+  color: var(--tinta-tenue);
+  text-align: center;
+}
+.btn-linha { margin: 26px 0 0; }
+
+/* ----------------------------------------------------------- carregamento */
+.carregando { padding: clamp(40px, 12vw, 90px) 0; }
+.carregando .msg {
+  font-family: var(--serifada);
+  font-size: clamp(20px, 4vw, 25px);
+  color: var(--tinta);
+  min-height: 2.5em;
+  margin: 0 0 30px;
+}
+.carregando .trilho { position: relative; height: 1px; background: var(--fio); }
+.carregando .feito { position: absolute; left: 0; top: 0; height: 1px; width: 0; background: var(--fio-forte); }
+.carregando .ponto {
+  position: absolute; top: -2.5px; left: 0;
+  width: 6px; height: 6px; margin-left: -3px;
+  border-radius: 50%; background: var(--carmim);
+}
+
+/* ------------------------------------------------------------- resultado */
+.res-abertura {
+  font-family: var(--serifada);
+  font-size: clamp(19px, 3.6vw, 23px);
+  font-style: italic;
+  color: var(--tinta-suave);
+  margin: 0 0 22px;
+}
+
+/* O veredito: bloco de tinta com o eixo nomeado. */
+.veredito {
+  background: var(--tinta);
+  color: var(--pergaminho);
+  margin: 0 calc(clamp(20px, 5.4vw, 60px) * -1) 0;
+  padding: clamp(30px, 6vw, 46px) clamp(20px, 5.4vw, 60px);
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: start;
+}
+.veredito .eyebrow { color: rgba(237, 232, 220, 0.42); }
+.veredito-eixo {
+  font-family: var(--serifada);
+  font-size: clamp(38px, 9vw, 58px);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--pergaminho);
+  margin: 0 0 6px;
+}
+.veredito-selo {
+  font-family: var(--serifada);
+  font-size: clamp(19px, 3.8vw, 24px);
+  font-style: italic;
+  color: rgba(237, 232, 220, 0.78);
+  margin: 0 0 20px;
+}
+.veredito-sust {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--pergaminho);
+  border: 1px solid rgba(237, 232, 220, 0.34);
+  border-radius: var(--raio);
+  padding: 7px 12px;
+  display: inline-block;
+  margin: 0 0 12px;
+}
+.veredito-sust::before {
+  content: "";
+  display: inline-block;
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--carmim);
+  margin-right: 8px;
+  vertical-align: 1px;
+}
+.veredito-leitura {
+  font-size: 14.5px;
+  line-height: 1.58;
+  color: rgba(237, 232, 220, 0.72);
+  margin: 0;
+  max-width: 34em;
+}
+.veredito-fig { width: 84px; opacity: 0.92; }
+.veredito-fig img { width: 100%; display: block; }
+@media (max-width: 620px) {
+  .veredito { grid-template-columns: 1fr; }
+  .veredito-fig { width: 62px; }
+}
+
+.bloco { margin: 40px 0 0; }
+.bloco > h2 { margin-bottom: 14px; }
+
+.sintomas { list-style: none; padding: 0; margin: 16px 0 0; }
+.sintomas li {
+  position: relative;
+  padding: 9px 0 9px 22px;
+  border-top: 1px solid var(--fio);
+  font-size: 15px;
+}
+.sintomas li:last-child { border-bottom: 1px solid var(--fio); }
+.sintomas li::before {
+  content: "";
+  position: absolute;
+  left: 2px; top: 18px;
+  width: 8px; height: 1px;
+  background: var(--fio-forte);
+}
+
+/* A conta do vazamento. */
+.conta {
+  border: 1px solid var(--fio-forte);
+  border-radius: var(--raio);
+  padding: clamp(20px, 4.4vw, 30px);
+  margin: 18px 0 0;
+}
+.conta-faixa {
+  font-family: var(--serifada);
+  font-size: clamp(27px, 6vw, 40px);
+  font-weight: 600;
+  line-height: 1.12;
+  color: var(--tinta);
+  margin: 0 0 8px;
+}
+.conta-faixa .ate { color: var(--tinta-tenue); font-weight: 400; font-style: italic; }
+.conta-formula {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--tinta-suave);
+  margin: 14px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid var(--fio);
+}
+.conta-formula code {
+  font-family: var(--sans);
+  font-weight: 600;
+  color: var(--tinta);
+  background: rgba(13, 13, 13, 0.05);
+  padding: 1px 5px;
+  border-radius: var(--raio);
+}
+
+/* Comparação de cenários. */
+.cenarios { margin: 18px 0 0; }
+.cenario {
+  display: grid;
+  grid-template-columns: 116px 1fr;
+  gap: 16px;
+  padding: 15px 0;
+  border-top: 1px solid var(--fio);
+}
+.cenario:last-child { border-bottom: 1px solid var(--fio); }
+.cenario-rot {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tinta-tenue);
+  padding-top: 3px;
+}
+.cenario-txt { font-size: 15px; margin: 0; }
+.cenario.destaque .cenario-rot { color: var(--carmim); }
+@media (max-width: 560px) {
+  .cenario { grid-template-columns: 1fr; gap: 5px; }
+}
+
+/* O que não adianta mexer. */
+.nao-adianta {
+  border-left: 2px solid var(--carmim);
+  padding: 2px 0 2px 18px;
+  margin: 18px 0 0;
+}
+.nao-adianta h3 { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--carmim); margin-bottom: 8px; }
+.nao-adianta p { margin: 0; font-size: 15px; }
+
+/* Fase do método em destaque. */
+.fases { list-style: none; padding: 0; margin: 16px 0 0; counter-reset: fase; }
+.fases li {
+  counter-increment: fase;
+  position: relative;
+  padding: 13px 0 13px 40px;
+  border-top: 1px solid var(--fio);
+  font-size: 15px;
+}
+.fases li:last-child { border-bottom: 1px solid var(--fio); }
+.fases li::before {
+  content: counter(fase);
+  position: absolute;
+  left: 2px; top: 13px;
+  font-family: var(--serifada);
+  font-size: 18px;
+  color: var(--tinta-tenue);
+}
+.fases li.chave { background: rgba(166, 28, 28, 0.04); padding-left: 40px; }
+.fases li.chave::before { color: var(--carmim); }
+.fases li.chave .rot {
+  display: inline-block;
+  font-size: 9.5px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--carmim);
+  margin-left: 8px;
+  vertical-align: 1px;
+}
+
+/* Casos. */
+.caso { padding: 20px 0; border-top: 1px solid var(--fio); }
+.caso:last-of-type { border-bottom: 1px solid var(--fio); }
+.caso-num {
+  font-family: var(--serifada);
+  font-size: clamp(26px, 5vw, 34px);
+  font-weight: 600;
+  color: var(--tinta);
+  line-height: 1.1;
+}
+.caso-num .janela { font-size: 15px; font-style: italic; color: var(--tinta-tenue); font-weight: 400; }
+.caso-nome {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--tinta-tenue);
+  margin: 6px 0 8px;
+}
+.caso p { margin: 0; font-size: 14.5px; color: var(--tinta-suave); }
+
+/* Autoridade. */
+.autor-topo { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
+.autor-selo { width: 60px; flex: none; }
+.autor-selo img { width: 100%; display: block; }
+.autor-nome { font-family: var(--serifada); font-size: 25px; font-weight: 600; color: var(--tinta); line-height: 1.1; }
+.autor-cargo { font-size: 10.5px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--tinta-tenue); margin-top: 5px; }
+.creds { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--fio); border: 1px solid var(--fio); margin-top: 20px; }
+.cred { background: var(--pergaminho); padding: 16px; }
+.cred-num { font-family: var(--serifada); font-size: 25px; font-weight: 600; color: var(--tinta); line-height: 1.1; }
+.cred-ctx { font-size: 12.5px; color: var(--tinta-suave); margin-top: 3px; }
+
+/* Rodapé. */
+.rodape {
+  margin-top: 46px;
+  padding-top: 22px;
+  border-top: 1px solid var(--fio);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 12px;
+  color: var(--tinta-tenue);
+}
+.rodape img { width: 34px; opacity: 0.55; }
+.rodape a { color: var(--tinta-suave); }
+
+/* Figura da marca no topo. Bloco alinhado à direita, acima do texto: em coluna
+   estreita o float entrava por dentro do h1 e quebrava a leitura. */
+.hero-fig {
+  display: block;
+  width: 108px;
+  margin: 0 0 6px auto;
+}
+@media (min-width: 700px) {
+  .hero-fig { float: right; width: 150px; margin: 4px 0 16px 28px; }
+}
+
+/* Ornamento centrado, para o conceito da oferta cirúrgica. */
+.ornamento { display: block; width: 74px; margin: 34px auto; }
+
+/* Aviso de canal em configuração. */
+.aviso {
+  display: none;
+  margin-top: 12px;
+  padding: 13px 15px;
+  border: 1px solid var(--fio-forte);
+  border-radius: var(--raio);
+  font-size: 13.5px;
+  color: var(--tinta-suave);
+}
+.aviso.visivel { display: block; }
+
+.sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}

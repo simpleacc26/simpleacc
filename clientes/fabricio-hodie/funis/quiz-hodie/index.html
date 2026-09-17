@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Índice do Metabolismo da Fome · HODIE</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="description" content="Sua fome não é fraqueza. É um sintoma. Receba a leitura do que pode estar por trás da sua dificuldade de emagrecer." />
+  <!-- CSS crítico mínimo, evita o flash antes do styles.css -->
+  <style>
+    :root{--bg:#F5EFE8;--text:#2C2C2C}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1981914359169331');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=1981914359169331&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Meta Pixel -->
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <div class="brand-accent" aria-hidden="true">
+          <span class="line"></span><span class="dot"></span><span class="line"></span>
+        </div>
+        <span class="brand-name">Hodie</span>
+        <span class="brand-tag">Dra. Lailla de Oliveira</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- barra de progresso, só aparece durante as perguntas -->
+  <div class="progress-wrap" id="progress" hidden>
+    <div class="container">
+      <div class="progress-meta">
+        <span id="progress-label">Começando</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div id="app" aria-live="polite"><!-- as telas são renderizadas aqui --></div>
+  </main>
+
+  <p class="foot">HODIE · Dra. Lailla de Oliveira · CRM-SP 239430 · Jundiaí-SP e atendimento on-line. Este conteúdo é educativo e não substitui consulta médica.</p>
+
+  <script src="flow.js" defer></script>
+  <script src="indice.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

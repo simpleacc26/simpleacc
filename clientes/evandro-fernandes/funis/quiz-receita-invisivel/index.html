@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Diagnóstico de Receita Invisível · HDM</title>
+  <meta name="description" content="Descubra quanto de receita a sua empresa perde sem perceber nos 3 funis (Marketing, Comercial e CS) e o próximo passo para recuperar, sem aumentar o tráfego." />
+  <!-- Favicon: ícone oficial do HDM (img/HDM_ICONE_ROXO@2x.png do hdmfy.com.br),
+       recortado no bounding box e reduzido para 64px. Servido daqui, e não linkado
+       do site do cliente, para a aba não quebrar se ele trocar o caminho da imagem. -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <meta name="theme-color" content="#030507" />
+  <!-- CSS crítico mínimo (evita flash claro antes do styles.css) -->
+  <style>
+    :root{--bg:#030507;--text:#eef2ff}
+    html,body{background:#030507}
+    body{margin:0;color:var(--text);
+      font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <!-- PENDENTE: quando tiver o SVG/PNG do logo, troque tudo abaixo por:
+             <img class="logo-img" src="logo.svg" alt="HDM · Human Data Management"> -->
+        <span class="brand-name">HDM</span>
+        <span class="brand-tag">Human Data Management</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Barra de progresso: só a barra, sem número. Anunciar o tamanho da fila
+       ("Pergunta 3 de 7") faz o quiz parecer longo justo na abertura. -->
+  <div class="progress-wrap" id="progress" hidden>
+    <div class="container">
+      <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div id="app" aria-live="polite"><!-- as telas são renderizadas aqui --></div>
+  </main>
+
+  <p class="foot">HDM · Human Data Management · Evandro Fernandes</p>
+
+  <script src="flow.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
