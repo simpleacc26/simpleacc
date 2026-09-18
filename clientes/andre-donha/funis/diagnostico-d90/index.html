@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Diagnóstico D-90 · Musikalis</title>
+<meta name="description" content="Descubra em 2 minutos quanto a sua produção está perdendo antes de o show começar.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --off-white:#F4F7FB; --branco:#FFF; --navy-deep:#04092A; --navy:#070C5F; --royal:#0A138A;
+    --azul-medio:#ADC4E1; --pale:#CCDCF0; --borda:#BFCFE3; --muted:#474A85; --ouro:#D9A520; --alerta:#C52020;
+    --display:"Montserrat","Inter",system-ui,sans-serif;
+    --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+    --r:6px; --sombra:0 1px 2px rgba(4,9,42,.06),0 8px 24px -12px rgba(4,9,42,.16); --sombra-card:0 1px 3px rgba(4,9,42,.06);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--off-white);color:var(--navy);font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  img{max-width:100%}
+  [hidden]{display:none!important}
+
+  /* topo fixo */
+  .topo{position:sticky;top:0;z-index:20;background:rgba(244,247,251,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--borda);padding:14px 20px calc(10px + env(safe-area-inset-top,0px))}
+  .topo-in{max-width:620px;margin:0 auto}
+  .marca{display:flex;align-items:center;gap:8px;margin-bottom:11px}
+  .marca svg{width:17px;height:17px;flex:none}
+  .marca span{font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:.17em;text-transform:uppercase;color:var(--navy)}
+  .regua .trilho{position:relative;height:2px;background:var(--pale);border-radius:2px;margin-bottom:7px}
+  .regua .feito{position:absolute;left:0;top:0;height:2px;background:var(--royal);border-radius:2px;transition:width .45s cubic-bezier(.4,0,.2,1)}
+  .regua .cursor{position:absolute;top:-3px;width:8px;height:8px;border-radius:50%;background:var(--royal);margin-left:-4px;transition:left .45s cubic-bezier(.4,0,.2,1)}
+  .regua .marcas{display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;letter-spacing:.04em;color:var(--muted)}
+  .regua .marcas b{font-weight:400}
+  .regua .marcas .on{color:var(--royal);font-weight:700}
+
+  .palco{max-width:620px;margin:0 auto;padding:34px 20px 60px}
+
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .hero{margin:0 0 4px}
+  .hero h1{font-family:var(--display);font-weight:700;font-size:clamp(26px,5.6vw,38px);line-height:1.13;letter-spacing:-.025em;margin:0 0 14px;text-wrap:balance;color:var(--navy)}
+  .hero p{font-size:clamp(15px,2.5vw,17px);color:var(--muted);margin:0;max-width:48ch;line-height:1.5}
+  .hero strong{color:var(--navy);font-weight:600}
+  .divisor{height:1px;background:var(--borda);margin:30px 0 26px}
+
+  .meta-linha{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin:0 0 12px}
+  .fase{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--royal);margin:0}
+  .contador{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted);font-variant-numeric:tabular-nums;flex:none}
+  .pergunta{font-family:var(--display);font-weight:600;font-size:clamp(22px,4.6vw,30px);line-height:1.24;margin:0 0 24px;text-wrap:balance;letter-spacing:-.015em;color:var(--navy)}
+
+  .opcoes{display:flex;flex-direction:column;gap:10px}
+  .op{display:flex;align-items:flex-start;gap:13px;width:100%;text-align:left;background:var(--branco);border:1px solid var(--borda);border-radius:var(--r);padding:16px 17px;color:var(--navy);font-family:var(--body);font-size:15.5px;line-height:1.4;cursor:pointer;transition:border-color .15s,box-shadow .15s,background .15s}
+  .op:hover{border-color:var(--royal);box-shadow:var(--sombra-card)}
+  .op .bolha{width:17px;height:17px;border-radius:50%;border:1.5px solid var(--borda);flex:none;margin-top:2px;position:relative;transition:border-color .15s,background .15s}
+  .op[data-on="true"]{border-color:var(--royal);background:var(--pale)}
+  .op[data-on="true"] .bolha{border-color:var(--royal);background:var(--royal);box-shadow:0 0 0 3px rgba(10,19,138,.14)}
+  .op[data-on="true"] .bolha::after{content:"";position:absolute;left:4px;top:4px;width:5px;height:5px;border-radius:50%;background:#fff}
+  .op:focus-visible{outline:2px solid var(--royal);outline-offset:2px}
+  .op b{font-weight:600}
+
+  .voltar{margin-top:22px;background:none;border:0;padding:6px 0;cursor:pointer;font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+  .voltar:hover{color:var(--royal)}
+  .voltar:focus-visible{outline:2px solid var(--royal);outline-offset:3px}
+
+  /* captura */
+  .campo{margin-bottom:14px}
+  .campo label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .campo input{width:100%;background:var(--branco);border:1px solid var(--borda);border-radius:var(--r);padding:14px 15px;font-family:var(--body);font-size:16px;color:var(--navy)}
+  .campo input:focus{outline:2px solid var(--royal);outline-offset:0;border-color:var(--royal)}
+  .campo .erro{color:var(--alerta);font-size:12.5px;margin-top:5px;display:none}
+  .campo.invalido .erro{display:block}
+  .campo.invalido input{border-color:var(--alerta)}
+  .privacidade{font-size:12.5px;color:var(--muted);margin:14px 0 0;line-height:1.45}
+
+  .btn{font-family:var(--body);font-weight:600;font-size:16px;border:0;border-radius:var(--r);background:var(--ouro);color:#2A1E00;padding:16px 20px;cursor:pointer;width:100%;transition:filter .15s;display:block;text-align:center;text-decoration:none}
+  .btn:hover{filter:brightness(1.06)}
+  .btn:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+  .btn-sec{background:var(--branco);color:var(--royal);border:1px solid var(--royal)}
+  .btn-sec:hover{background:var(--pale);filter:none}
+
+  /* carregando */
+  .carregando{min-height:58vh;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center}
+  .linhas{width:100%;max-width:260px;display:flex;flex-direction:column;gap:7px;margin-bottom:26px}
+  .ln{height:3px;background:var(--pale);border-radius:3px;position:relative;overflow:hidden}
+  .ln i{position:absolute;inset:0;background:var(--royal);border-radius:3px;transform:translateX(-100%);animation:varre 1.5s linear infinite}
+  .ln:nth-child(2) i{animation-delay:.22s}
+  .ln:nth-child(3) i{animation-delay:.44s}
+  @keyframes varre{to{transform:translateX(100%)}}
+  .carregando .passo-txt{font-family:var(--mono);font-size:12px;color:var(--muted);margin:0 0 18px;letter-spacing:.03em;min-height:1.4em}
+  .carregando .assina{font-family:var(--display);font-weight:600;font-size:16px;color:var(--navy);margin:0;max-width:320px;line-height:1.4}
+
+  /* diagnóstico */
+  .bloco{margin:0 0 40px}
+  .rot{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--royal);margin:0 0 9px}
+  h2{font-family:var(--display);font-weight:700;font-size:clamp(20px,3.6vw,25px);line-height:1.2;margin:0 0 12px;color:var(--navy);letter-spacing:-.015em;text-wrap:balance}
+  .bloco p{margin:0 0 12px}
+  .bloco p:last-child{margin:0}
+
+  .placar{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 100%);color:#fff;border-radius:var(--r);padding:26px 24px;box-shadow:var(--sombra);margin-bottom:22px}
+  .placar .rot{color:var(--azul-medio);margin-bottom:6px}
+  .placar .num{font-family:var(--display);font-weight:700;font-size:clamp(50px,13vw,68px);line-height:1;margin:0;font-variant-numeric:tabular-nums;letter-spacing:-.035em;color:#fff}
+  .placar .num sub{font-family:var(--mono);font-size:17px;font-weight:400;color:var(--azul-medio);vertical-align:baseline;letter-spacing:0}
+  .placar .faixa{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin:10px 0 18px}
+  .medidor .barra{display:flex;gap:2px;height:12px;margin-bottom:8px}
+  .medidor .seg{flex:1;border-radius:2px;background:rgba(255,255,255,.17)}
+  .medidor .esc{display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;color:var(--azul-medio);letter-spacing:.04em}
+
+  .vazamento{border:1px solid var(--borda);border-left:3px solid var(--alerta);border-radius:var(--r);background:var(--branco);padding:18px 20px;box-shadow:var(--sombra-card);margin-bottom:22px}
+  .vazamento .rot{color:var(--alerta);margin-bottom:5px}
+  .vazamento .val{font-family:var(--display);font-weight:700;font-size:clamp(24px,5.4vw,30px);color:var(--navy);margin:0;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+  .vazamento .obs{font-size:13px;color:var(--muted);margin:7px 0 0;line-height:1.45}
+
+  .dims{border:1px solid var(--borda);border-radius:var(--r);overflow:hidden;background:var(--branco);box-shadow:var(--sombra-card)}
+  .dim{display:flex;align-items:center;gap:12px;padding:13px 16px;border-bottom:1px solid var(--borda);font-size:14.5px}
+  .dim:last-child{border-bottom:0}
+  .dim .nome{flex:1}
+  .dim .st{font-family:var(--mono);font-size:10px;letter-spacing:.09em;color:var(--royal)}
+  .dim.mau{background:#FCF2F2}
+  .dim.mau .nome{font-weight:600}
+  .dim.mau .st{color:var(--alerta);font-weight:700}
+
+  ul.espelho{list-style:none;margin:0 0 14px;padding:0}
+  ul.espelho li{position:relative;padding-left:22px;margin-bottom:9px;color:var(--navy)}
+  ul.espelho li::before{content:"";position:absolute;left:0;top:9px;width:9px;height:1.5px;background:var(--royal)}
+  .virada{border-left:3px solid var(--royal);padding-left:16px;margin-top:18px}
+  .virada p{margin:0}
+
+  .linha-tempo{border:1px solid var(--borda);border-radius:var(--r);background:var(--branco);overflow:hidden;box-shadow:var(--sombra-card);margin-bottom:14px}
+  .etapa{display:flex;gap:14px;padding:13px 16px;border-bottom:1px solid var(--borda);font-size:14.5px}
+  .etapa:last-child{border-bottom:0}
+  .etapa .cod{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--royal);flex:none;width:52px;padding-top:2px}
+
+  .faq{border-top:1px solid var(--borda)}
+  .faq details{border-bottom:1px solid var(--borda)}
+  .faq summary{padding:15px 0;cursor:pointer;font-weight:600;font-size:15.5px;list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-family:var(--mono);color:var(--royal);font-weight:400;flex:none}
+  .faq details[open] summary::after{content:"\2013"}
+  .faq summary:focus-visible{outline:2px solid var(--royal);outline-offset:2px}
+  .faq .resp{padding:0 0 16px;color:var(--muted);font-size:14.5px}
+
+  .autoridade{background:var(--branco);border:1px solid var(--borda);border-radius:var(--r);padding:22px;box-shadow:var(--sombra-card)}
+  .autoridade .num-grande{font-family:var(--display);font-weight:700;font-size:34px;color:var(--royal);margin:0;line-height:1;letter-spacing:-.02em}
+  .autoridade .num-leg{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin:5px 0 16px}
+
+  .convite{background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 100%);color:#fff;border-radius:var(--r);padding:28px 24px;box-shadow:var(--sombra);margin-top:8px}
+  .convite h2{color:#fff}
+  .convite p{color:var(--azul-medio)}
+  .convite .btn{margin-top:18px}
+  .convite .btn-sec{background:transparent;color:#fff;border-color:rgba(255,255,255,.5);margin-top:10px}
+  .convite .btn-sec:hover{background:rgba(255,255,255,.1)}
+
+  .rodape{border-top:1px solid var(--borda);margin-top:44px;padding-top:18px;padding-bottom:calc(20px + env(safe-area-inset-bottom,0px));font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;text-align:center}
+  @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <div class="topo-in">
+    <div class="marca">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="9" y="2" width="6" height="11" rx="3" fill="#0A138A"/>
+        <path d="M5.5 11a6.5 6.5 0 0 0 13 0" stroke="#0A138A" stroke-width="1.7" stroke-linecap="round"/>
+        <path d="M12 17.5V22" stroke="#0A138A" stroke-width="1.7" stroke-linecap="round"/>
+      </svg>
+      <span>Musikalis</span>
+    </div>
+    <div class="regua" id="regua" aria-hidden="true"></div>
+  </div>
+</header>
+
+<main class="palco" id="palco"></main>
+
+<script>
+(function(){
+  var palco = document.getElementById('palco');
+  var reguaEl = document.getElementById('regua');
+  var semMov = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var MARCOS = [
+    {c:'D-90', n:'Concepção'}, {c:'D-60', n:'Estruturação'}, {c:'D-30', n:'Ativação'},
+    {c:'D-7', n:'Pré-show'}, {c:'D-Day', n:'Execução'}, {c:'D+7', n:'Pós-show'}
+  ];
+
+  var PERGUNTAS = [
+    { idx:0, q:'Qual é o seu papel quando o show acontece?',
+      ops:[{t:'Sou músico e me viro na produção do meu próprio trabalho'},
+           {t:'Sou produtor: monto shows e eventos para artistas e casas'},
+           {t:'Cuido da produção dentro de uma igreja, empresa ou instituição'},
+           {t:'Tenho produtora, casa de shows ou escola'}] },
+    { idx:0, q:'Quantas produções você toca por ano?',
+      ops:[{t:'De 1 a 3'},{t:'De 4 a 10'},{t:'De 11 a 24'},{t:'Mais de 24'}] },
+    { idx:0, q:'Com quanta antecedência você começa a fechar uma produção?', peso:'antecedencia',
+      ops:[{t:'Na semana do evento, no grito',p:0},
+           {t:'De 2 a 4 semanas antes',p:12},
+           {t:'Cerca de 30 dias antes',p:24},
+           {t:'60 dias ou mais, com cronograma escrito',p:40}] },
+    { idx:1, q:'Onde a sua produção mais escapa hoje?', elo:true,
+      ops:[{t:'<b>Orçamento e Resultados:</b> fecho o preço no chute e descubro o custo depois',d:0},
+           {t:'<b>Operação:</b> equipe, transporte e hospedagem sempre em cima da hora',d:1},
+           {t:'<b>Legal e Negociação:</b> acerto no boca a boca e corro atrás do dinheiro depois',d:2},
+           {t:'<b>Marketing:</b> o show fica pronto e a casa não enche',d:3}] },
+    { idx:2, q:'O que isso já te custou na última produção?', peso:'custo',
+      ops:[{t:'A margem sumiu: o show aconteceu e eu não ganhei nada',p:0},
+           {t:'Coloquei dinheiro do meu bolso para o show não cair',p:5},
+           {t:'Recebi, mas 30 a 60 dias depois de já ter pago tudo',p:15},
+           {t:'Perdi a data ou o contrato por não ter fechado a tempo',p:10}] },
+    { idx:3, q:'Como você controla a produção hoje?', peso:'controle',
+      ops:[{t:'Grupo de WhatsApp e áudio',p:0},
+           {t:'Uma planilha que eu mesmo montei',p:10},
+           {t:'Planilha mais um app de tarefas',p:20},
+           {t:'Um sistema de gestão de verdade',p:30}] },
+    { idx:3, q:'O que você já tentou para organizar isso?', peso:'tentativa',
+      ops:[{t:'Nada estruturado, vou aprendendo no tranco',p:0},
+           {t:'Curso de produção que era mais teoria do que prática',p:5},
+           {t:'Contratei alguém para ajudar e não resolveu',p:8},
+           {t:'Montei o meu próprio processo, mas ele só funciona comigo dentro',p:15}] },
+    { idx:4, q:'O que mudaria mais o seu jogo nos próximos 6 meses?',
+      ops:[{t:'Fechar produção sabendo a margem antes de assinar'},
+           {t:'Parar de apagar incêndio na semana do show'},
+           {t:'Subir o meu cachê e ser levado a sério pelas casas'},
+           {t:'Produzir para outros artistas e transformar isso em renda'}] },
+    { idx:5, q:'Qual é o orçamento médio de uma produção sua?', orcamento:true,
+      ops:[{t:'Até R$ 5 mil',v:3000},{t:'De R$ 5 mil a R$ 20 mil',v:12000},
+           {t:'De R$ 20 mil a R$ 80 mil',v:50000},{t:'Acima de R$ 80 mil',v:120000}] }
+  ];
+
+  var DIMENSOES = [
+    { nome:'Orçamento e Resultados',
+      diag:'Você fecha preço antes de conhecer o custo. O primeiro passo é orçar por categoria, com margem alvo definida, antes de dizer sim.',
+      sintoma:'fecha o preço no chute e descobre o custo depois' },
+    { nome:'Operação',
+      diag:'O seu custo não está no cachê, está no calendário. Passagem, hospedagem e transporte decididos em D-60 mudam a conta inteira.',
+      sintoma:'resolve equipe, transporte e hospedagem em cima da hora' },
+    { nome:'Legal e Negociação',
+      diag:'Acerto no boca a boca vira dinheiro atrasado e discussão depois do show. Contrato e condição fechados em D-60 tiram isso da mesa.',
+      sintoma:'acerta no boca a boca e corre atrás do dinheiro depois' },
+    { nome:'Marketing',
+      diag:'A casa não enche sozinha. Plano de comunicação e venda começando em D-30 é o que separa a casa cheia da casa amiga.',
+      sintoma:'termina a produção e descobre que a casa não enche' }
+  ];
+
+  var FAIXAS = [
+    {max:30, nome:'Produção sem método', vaz:[.20,.35], cor:'#C52020'},
+    {max:55, nome:'Produção reativa',    vaz:[.12,.20], cor:'#D9A520'},
+    {max:80, nome:'Produção organizada', vaz:[.05,.12], cor:'#D9A520'},
+    {max:100,nome:'Produção D-90',       vaz:[.01,.05], cor:'#5BA87A'}
+  ];
+
+  var estado = { passo:0, respostas:[], travado:false, lead:null };
+
+  function reais(n){ return 'R$ ' + Math.round(n).toLocaleString('pt-BR'); }
+
+  function desenhaRegua(i){
+    var pct = (i/(MARCOS.length-1))*100;
+    var m = MARCOS.map(function(t,k){ return '<b class="'+(k===i?'on':'')+'">'+t.c+'</b>'; }).join('');
+    reguaEl.innerHTML = '<div class="trilho"><div class="feito" style="width:'+pct+'%"></div>'+
+      '<div class="cursor" style="left:'+pct+'%"></div></div><div class="marcas">'+m+'</div>';
+  }
+
+  function topo(){ window.scrollTo({top:0, behavior: semMov ? 'auto':'smooth'}); }
+
+  /* ---------- perguntas ---------- */
+  var PROMESSA = 'Descubra quanto a sua produção está perdendo antes de o show começar';
+  var HERO =
+    '<div class="hero">'+
+      '<h1>'+PROMESSA+'.</h1>'+
+      '<p>Você recebe o <strong>índice D-90 da sua produção</strong>, o <strong>valor estimado que escapa ' +
+      'a cada evento</strong> e o ponto exato de onde o dinheiro está saindo: orçamento, operação, ' +
+      'negociação ou marketing.</p>'+
+    '</div><div class="divisor"></div>';
+
+  function verPergunta(){
+    var p = PERGUNTAS[estado.passo], mk = MARCOS[p.idx];
+    desenhaRegua(p.idx);
+    var primeira = estado.passo === 0;
+    var ops = p.ops.map(function(o,k){
+      return '<button class="op" data-k="'+k+'"><span class="bolha"></span><span>'+o.t+'</span></button>';
+    }).join('');
+    palco.innerHTML =
+      (primeira ? HERO : '<h1 class="sr-only">'+PROMESSA+'</h1>')+
+      '<div class="meta-linha"><p class="fase">'+mk.c+' &middot; '+mk.n+'</p>'+
+      '<span class="contador">'+(estado.passo+1<10?'0':'')+(estado.passo+1)+'/09</span></div>'+
+      '<h2 class="pergunta">'+p.q+'</h2>'+
+      '<div class="opcoes">'+ops+'</div>'+
+      (estado.passo>0 ? '<button class="voltar" id="volta">&larr; Voltar</button>' : '');
+
+    Array.prototype.forEach.call(palco.querySelectorAll('.op'), function(b){
+      b.onclick = function(){
+        if(estado.travado){ return; }
+        estado.travado = true;
+        b.setAttribute('data-on','true');
+        estado.respostas[estado.passo] = +b.dataset.k;
+        setTimeout(function(){
+          estado.travado = false;
+          if(estado.passo === PERGUNTAS.length-1){ verCaptura(); }
+          else { estado.passo++; verPergunta(); topo(); }
+        }, semMov ? 90 : 330);
+      };
+    });
+    var v = document.getElementById('volta');
+    if(v){ v.onclick = function(){ if(estado.travado){return;} estado.passo--; verPergunta(); topo(); }; }
+  }
+
+  /* ---------- captura ---------- */
+  function verCaptura(){
+    desenhaRegua(5);
+    palco.innerHTML =
+      '<p class="fase">Último passo</p>'+
+      '<h1 class="pergunta">Seu diagnóstico está pronto.</h1>'+
+      '<p style="color:var(--muted);margin:-12px 0 24px">Preencha abaixo para ver o índice da sua produção e receber uma cópia no WhatsApp. Leva 30 segundos.</p>'+
+      '<form id="form" novalidate>'+
+        '<div class="campo" id="c-nome"><label for="nome">Nome</label><input id="nome" name="nome" type="text" autocomplete="name" required><span class="erro">Digite o seu nome.</span></div>'+
+        '<div class="campo" id="c-zap"><label for="zap">WhatsApp</label><input id="zap" name="zap" type="tel" inputmode="tel" autocomplete="tel" placeholder="(11) 90000-0000" required><span class="erro">Digite um WhatsApp com DDD.</span></div>'+
+        '<div class="campo" id="c-email"><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" required><span class="erro">Digite um e-mail válido.</span></div>'+
+        '<div class="campo" id="c-cidade"><label for="cidade">Cidade</label><input id="cidade" name="cidade" type="text" autocomplete="address-level2" required><span class="erro">Digite a sua cidade.</span></div>'+
+        '<button class="btn" type="submit">Ver meu diagnóstico</button>'+
+        '<p class="privacidade">Seus dados estão seguros. Nada de spam, só o seu diagnóstico e o próximo passo.</p>'+
+      '</form>'+
+      '<button class="voltar" id="volta">&larr; Voltar</button>';
+
+    document.getElementById('volta').onclick = function(){ verPergunta(); topo(); };
+    var form = document.getElementById('form');
+    form.onsubmit = function(e){
+      e.preventDefault();
+      var ok = true;
+      function check(id, val){
+        var c = document.getElementById('c-'+id);
+        if(val){ c.classList.remove('invalido'); } else { c.classList.add('invalido'); ok = false; }
+      }
+      var nome = form.nome.value.trim(), zap = form.zap.value.replace(/\D/g,''),
+          email = form.email.value.trim(), cidade = form.cidade.value.trim();
+      check('nome', nome.length >= 2);
+      check('zap', zap.length >= 10);
+      check('email', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email));
+      check('cidade', cidade.length >= 2);
+      if(!ok){ palco.querySelector('.campo.invalido input').focus(); return; }
+      estado.lead = {nome:nome, zap:zap, email:email, cidade:cidade};
+      verCarregando();
+    };
+  }
+
+  /* ---------- carregando ---------- */
+  function verCarregando(){
+    topo();
+    palco.innerHTML =
+      '<div class="carregando">'+
+        '<div class="linhas"><div class="ln"><i></i></div><div class="ln"><i></i></div><div class="ln"><i></i></div></div>'+
+        '<p class="passo-txt" id="ptxt">Lendo as suas respostas&hellip;</p>'+
+        '<p class="assina">"Para quem não pode se dar ao luxo de improvisar."</p>'+
+      '</div>';
+    var etapas = ['Lendo as suas respostas…','Cruzando com a metodologia D-90…','Calculando o vazamento por produção…'];
+    var i = 0, el = document.getElementById('ptxt');
+    var t = setInterval(function(){ i++; if(i<etapas.length && el){ el.textContent = etapas[i]; } }, 820);
+    setTimeout(function(){ clearInterval(t); verDiagnostico(); }, 2600);
+  }
+
+  /* ---------- cálculo ---------- */
+  function calcula(){
+    var pts = 0;
+    PERGUNTAS.forEach(function(p, i){
+      if(p.peso){ pts += p.ops[estado.respostas[i]].p; }
+    });
+    var elo = DIMENSOES[ PERGUNTAS[3].ops[ estado.respostas[3] ].d ];
+    var orc = PERGUNTAS[8].ops[ estado.respostas[8] ].v;
+    var faixa = FAIXAS.filter(function(f){ return pts <= f.max; })[0];
+    return { pts:pts, elo:elo, orc:orc, faixa:faixa,
+             vazMin: orc*faixa.vaz[0], vazMax: orc*faixa.vaz[1] };
+  }
+
+  /* ---------- diagnóstico ---------- */
+  function verDiagnostico(){
+    var r = calcula(), nome = estado.lead.nome.split(' ')[0];
+    desenhaRegua(5);
+
+    var segs = '';
+    var ativos = Math.round((r.pts/100)*24);
+    for(var i=0;i<24;i++){
+      segs += '<div class="seg" style="'+(i<ativos ? 'background:'+r.faixa.cor : '')+'"></div>';
+    }
+    var linhasDim = DIMENSOES.map(function(d){
+      var mau = d.nome === r.elo.nome;
+      return '<div class="dim'+(mau?' mau':'')+'"><span class="nome">'+d.nome+'</span>'+
+             '<span class="st">'+(mau?'CRÍTICO':'OK')+'</span></div>';
+    }).join('');
+
+    palco.innerHTML =
+      '<div class="bloco">'+
+        '<div class="placar">'+
+          '<p class="rot">Índice D-90 da produção de '+nome+'</p>'+
+          '<p class="num">'+r.pts+'<sub>/100</sub></p>'+
+          '<p class="faixa" style="color:'+r.faixa.cor+'">'+r.faixa.nome+'</p>'+
+          '<div class="medidor"><div class="barra">'+segs+'</div>'+
+            '<div class="esc"><span>SEM MÉTODO</span><span>REATIVA</span><span>ORGANIZADA</span><span>D-90</span></div>'+
+          '</div>'+
+        '</div>'+
+        '<div class="vazamento">'+
+          '<p class="rot">Vazamento estimado por produção</p>'+
+          '<p class="val">'+reais(r.vazMin)+' a '+reais(r.vazMax)+'</p>'+
+          '<p class="obs">Faixa estimada pela metodologia D-90 sobre o orçamento médio que você informou. Não é um julgamento da sua competência: é a medida de quanto da sua produção ainda é decidida em cima da hora.</p>'+
+        '</div>'+
+        '<div class="dims">'+linhasDim+'</div>'+
+      '</div>'+
+
+      '<div class="bloco">'+
+        '<p class="rot">A leitura do seu cenário</p>'+
+        '<h2>Não falta competência. Falta decidir antes.</h2>'+
+        '<p>'+nome+', você contou que '+r.elo.sintoma+'. Essa combinação tem assinatura: é a de quem produz bem e decide tarde.</p>'+
+        '<p>O show sai, a plateia aplaude, e a conta fecha no zero ou abaixo dele. Não porque você cobrou pouco, mas porque <strong>entre o dia em que você fechou e o dia do show, o preço de tudo mudou e você já não tinha como negociar.</strong></p>'+
+      '</div>'+
+
+      '<div class="bloco">'+
+        '<p class="rot">O espelho</p>'+
+        '<h2>Você provavelmente se reconhece aqui</h2>'+
+        '<ul class="espelho">'+
+          '<li>Fechou o cachê do show antes de saber quanto custaria a equipe.</li>'+
+          '<li>Emitiu passagem na semana do evento e viu o preço triplicar.</li>'+
+          '<li>Mandou o rider por áudio e descobriu no palco que faltava retorno.</li>'+
+          '<li>Acertou o mapa de palco na hora da passagem de som, com a casa cobrando pressa.</li>'+
+          '<li>Pagou tudo antes e recebeu 40 dias depois do show.</li>'+
+          '<li>Fez um show impecável, com a casa cheia, e no fim do mês não sobrou nada.</li>'+
+        '</ul>'+
+        '<div class="virada"><p>Nada disso é falta de competência. É o preço de decidir em cima da hora, e ele é previsível: aparece toda vez que uma decisão que podia ter sido tomada com 60 dias é tomada com 6.</p></div>'+
+      '</div>'+
+
+      '<div class="bloco">'+
+        '<p class="rot">O que precisa acontecer no seu caso</p>'+
+        '<h2>'+r.elo.nome+'</h2>'+
+        '<p>'+r.elo.diag+'</p>'+
+        '<p><strong>O custo de continuar onde está</strong> não é só a margem desta produção. É a casa que não te chama de novo, o artista que troca de produtor, e o ano inteiro trabalhando muito para terminar no mesmo lugar.</p>'+
+      '</div>'+
+
+      '<div class="bloco">'+
+        '<p class="rot">O mecanismo</p>'+
+        '<h2>Metodologia D-90</h2>'+
+        '<p>Toda produção tem as mesmas áreas de decisão. O D-90 distribui essas decisões numa linha do tempo que começa 90 dias antes do show.</p>'+
+        '<div class="linha-tempo">'+
+          '<div class="etapa"><span class="cod">D-90</span><span><strong>Concepção.</strong> Escopo, orçamento e margem alvo fechados antes de assinar.</span></div>'+
+          '<div class="etapa"><span class="cod">D-60</span><span><strong>Estruturação.</strong> Equipe confirmada, contrato, logística, rider e mapa de palco enviados.</span></div>'+
+          '<div class="etapa"><span class="cod">D-30</span><span><strong>Ativação.</strong> Plano de marketing e venda de ingresso rodando.</span></div>'+
+          '<div class="etapa"><span class="cod">D-7</span><span><strong>Pré-show.</strong> Conferência final, sem nenhuma decisão nova.</span></div>'+
+          '<div class="etapa"><span class="cod">D-Day</span><span><strong>Execução.</strong> O dia do show com tudo já resolvido.</span></div>'+
+          '<div class="etapa"><span class="cod">D+7</span><span><strong>Pós-show.</strong> Apuração financeira, pesquisa de satisfação e o que ajustar na próxima.</span></div>'+
+        '</div>'+
+        '<p style="color:var(--muted);font-size:14.5px">Dentro da plataforma Musikalis, quem executa essa linha do tempo é a ferramenta: a assistente de IA gera o rider, o mapa de palco, o orçamento e o contrato, e o painel mostra a margem antes, durante e depois.</p>'+
+      '</div>'+
+
+      '<div class="bloco">'+
+        '<p class="rot">Quem está por trás</p>'+
+        '<div class="autoridade">'+
+          '<p class="num-grande">56</p>'+
+          '<p class="num-leg">apresentações no palco do Blue Note</p>'+
+          '<p>A Musikalis foi criada por <strong>André Donha</strong>: engenheiro, formado também em regência e composição pelo Conservatório Brasileiro de Música, certificado PMP, com 20 anos em consultoria global e atuação em 13 países.</p>'+
+          '<p>E produz show. Foram 56 apresentações no Blue Note, com os tributos a Aretha Franklin, o Divas e o Tina Turner. Nenhuma delas começou no dia do show.</p>'+
+          '<p style="color:var(--muted);font-size:14.5px;margin-top:14px">A metodologia nasceu de um prejuízo dele: seis músicos, passagens emitidas na semana do evento, R$ 400 por cabeça virando R$ 1.200, e a margem inteira do show indo embora.</p>'+
+        '</div>'+
+      '</div>'+
+
+      '<div class="bloco">'+
+        '<p class="rot">Perguntas frequentes</p>'+
+        '<h2>O que costuma vir depois</h2>'+
+        '<div class="faq">'+
+          '<details><summary>Isso é mais um curso de produção?</summary><div class="resp">Não. Curso ensina o que fazer, e você já sabe o que fazer. O que muda o jogo é <em>quando</em> fazer, com uma ferramenta que executa a linha do tempo por você.</div></details>'+
+          '<details><summary>Eu produzo sozinho. Isso serve?</summary><div class="resp">Serve mais ainda. Quanto menor a equipe, mais caro sai cada decisão tomada tarde.</div></details>'+
+          '<details><summary>Já tentei planilha e não parou em pé.</summary><div class="resp">Planilha não te avisa. A linha do tempo avisa, e a assistente gera o documento que você deixaria para depois.</div></details>'+
+          '<details><summary>Minha produção é pequena.</summary><div class="resp">A margem de uma produção pequena é justamente a que menos aguenta uma passagem que triplica.</div></details>'+
+          '<details><summary>Quanto custa?</summary><div class="resp">A conta na plataforma é gratuita e dá acesso ao cadastro de equipe, mapa de palco, ensaios e repertório. Os planos pagos e as formações da Musikalis Academy ficam visíveis lá dentro.</div></details>'+
+        '</div>'+
+      '</div>'+
+
+      '<div class="convite">'+
+        '<h2>'+nome+', o seu ponto crítico é '+r.elo.nome+'.</h2>'+
+        '<p>Dentro da Musikalis existe uma tela para exatamente isso, com a linha do tempo D-90 aplicada à sua próxima produção. Criar a conta é gratuito e leva um minuto.</p>'+
+        '<a class="btn" href="https://musikalis.com.br/" target="_blank" rel="noopener">Criar conta grátis</a>'+
+        '<a class="btn btn-sec" href="https://musikalis.com.br/" target="_blank" rel="noopener">Falar com produção</a>'+
+      '</div>'+
+
+      '<p class="rodape">Musikalis &middot; metodologia D-90</p>';
+    topo();
+  }
+
+  verPergunta();
+})();
+</script>
+</body>
+</html>
