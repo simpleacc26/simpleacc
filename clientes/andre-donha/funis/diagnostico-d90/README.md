@@ -1,60 +1,82 @@
-# Diagnóstico D-90 · direção visual do funil
+# Diagnóstico D-90 · funil da Musikalis
 
-Protótipo navegável do quiz e da página de diagnóstico da Musikalis, na identidade
-visual oficial do cliente.
+Quiz de 9 perguntas + página de diagnóstico personalizada, na identidade visual
+oficial de musikalis.com.br.
 
-## No ar
+**No ar: https://musikalis-diagnostico.vercel.app**
 
-- **https://musikalis-diagnostico-simpleacc.vercel.app**
-- Projeto Vercel: `musikalis-diagnostico` (time Simpleacc, plano Hobby)
-- Deploy por conteúdo inline via MCP da Vercel, sem repositório ligado
-- `noindex, nofollow` no head: é peça interna, não deve aparecer em busca
-- Proteção de deploy desligada, senão o link pede login do Vercel
+## O que é
 
-> A URL carrega o sufixo `-simpleacc` porque em conta Hobby a Vercel anexa o slug
-> do time ao domínio de produção. Para uma URL limpa, adicionar
-> `musikalis-diagnostico.vercel.app` em Settings → Domains do projeto (é grátis).
+Arquivo único, sem build e sem dependências. O fluxo inteiro roda numa página:
 
-## Como rodar e editar
-
-Arquivo único, sem build e sem dependências. Abra `index.html` no navegador.
-As fontes vêm do Google Fonts; o resto é inline.
-
-Para republicar, use o MCP da Vercel com `target: production` e o conteúdo do
-`index.html`, ou suba pela dashboard.
-
-## Identidade, extraída de musikalis.com.br
-
-Os tokens saíram do CSS do site (`/assets/index-QxTebQNO.css`), onde estão em HSL.
-
-| Token | Hex | Papel no funil |
-| --- | --- | --- |
-| off-white | `#F4F7FB` | fundo de toda tela |
-| navy | `#070C5F` | texto e títulos |
-| azul royal | `#0A138A` | primário, seleção e progresso |
-| azul claro | `#CCDCF0` | preenchimento do selecionado |
-| borda | `#BFCFE3` | bordas de card |
-| ouro | `#D9A520` | só o botão de conversão (no site é a cor do upgrade) |
-| alerta | `#C52020` | dimensão que vaza e valor perdido |
-
-Tipografia: **Montserrat** (display), **Inter** (texto), **JetBrains Mono** (dados).
-Raio de borda 6px e sombra de card copiados do site.
-
-## Decisões de estrutura
+`9 perguntas → captura de lead → tela de leitura → diagnóstico personalizado`
 
 - **Sem tela de abertura.** A primeira pergunta abre junto com a página.
-- **Avanço automático** na seleção, com 330ms de respiro para a marcação aparecer.
-- **A régua é a linha do tempo oficial** do site: D-90 Concepção, D-60 Estruturação,
-  D-30 Ativação, D-7 Pré-show, D-Day Execução, D+7 Pós-show.
-- **Os elos do diagnóstico são as dimensões reais da plataforma:** Orçamento e
-  Resultados, Operação, Legal e Negociação, Marketing.
-- **Assinatura da marca** ("Para quem não pode se dar ao luxo de improvisar") na
-  tela de carregamento. É a frase do hero do site.
+- **Avanço automático** na seleção, com 330ms de respiro. Sem botão de continuar.
+- **A régua do topo é a linha do tempo oficial do site:** D-90 Concepção, D-60
+  Estruturação, D-30 Ativação, D-7 Pré-show, D-Day Execução, D+7 Pós-show. Cada
+  pergunta declara em que etapa da produção ela vive.
 
-## Pendências antes do funil real
+## Como o índice é calculado
 
-1. CTA definitivo. O workshop foi cancelado em 18/09 e era o destino do funil; o
-   protótipo usa "Criar conta grátis" e "Falar com produção", que são os CTAs do site.
-2. Chancela do André nas faixas de vazamento (o número em vermelho).
-3. Logotipo em vetor. O microfone do protótipo foi redesenhado à mão.
-4. Domínio, acessos (Meta, Instagram, admin da plataforma) e a planilha de leads.
+Quatro perguntas pontuam, somando 100:
+
+| Pergunta | Peso | Pontos por alternativa |
+| --- | --- | --- |
+| P3 antecedência | 40 | 0 · 12 · 24 · 40 |
+| P6 controle | 30 | 0 · 10 · 20 · 30 |
+| P5 custo já pago | 15 | 0 · 5 · 15 · 10 |
+| P7 tentativas | 15 | 0 · 5 · 8 · 15 |
+
+Faixas: **0 a 30** produção sem método · **31 a 55** reativa · **56 a 80**
+organizada · **81 a 100** D-90.
+
+O vazamento em reais aplica um percentual da faixa sobre o orçamento médio
+informado na P9 (R$ 3 mil, R$ 12 mil, R$ 50 mil ou R$ 120 mil):
+20 a 35% na primeira faixa, 12 a 20%, 5 a 12% e até 5% na última.
+
+> **Pendente:** essas faixas são estimativas derivadas da metodologia e precisam
+> da chancela do André antes de rodar tráfego. É o número em vermelho da página.
+
+A P4 define o elo dominante entre as dimensões reais da plataforma: Orçamento e
+Resultados, Operação, Legal e Negociação, Marketing. A P9 é a porteira de
+qualificação.
+
+## Identidade, extraída do CSS do site
+
+| Token | Hex | Papel |
+| --- | --- | --- |
+| off-white | `#F4F7FB` | fundo |
+| navy | `#070C5F` | texto e títulos |
+| azul royal | `#0A138A` | primário, seleção, progresso |
+| azul claro | `#CCDCF0` | preenchimento do selecionado |
+| borda | `#BFCFE3` | bordas de card |
+| ouro | `#D9A520` | só o CTA (no site é a cor do upgrade) |
+| alerta | `#C52020` | dimensão crítica e vazamento |
+
+Montserrat (display), Inter (texto), JetBrains Mono (dados). Raio 6px e sombra
+de card copiados do site.
+
+## Deploy
+
+Projeto Vercel `musikalis-diagnostico` (time Simpleacc). A pasta já está
+vinculada via `.vercel/project.json`, que não vai para o Git.
+
+```bash
+cd clientes/andre-donha/funis/diagnostico-d90
+npx vercel deploy --prod --yes --token $VERCEL_TOKEN
+```
+
+O alias limpo `musikalis-diagnostico.vercel.app` está atribuído ao projeto e
+aponta para a produção automaticamente.
+
+## Pendências antes de rodar tráfego
+
+1. **Gravar o lead.** Hoje o formulário valida e segue, mas não persiste. Falta
+   ligar na planilha do Drive e no CRM (GoHighLevel).
+2. **Chancela das faixas de vazamento** com o André.
+3. **CTA final.** Aponta para musikalis.com.br. O workshop foi cancelado em
+   18/09, então "Criar conta grátis" e "Falar com produção" são os CTAs do site.
+   Confirmar se fica assim.
+4. **Logotipo em vetor.** O microfone do topo foi redesenhado à mão.
+5. **Pixel da Meta** e domínio próprio, se for o caso.
