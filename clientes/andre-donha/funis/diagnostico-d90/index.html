@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Direcao visual do funil de diagnostico D-90 da Musikalis.">
+<title>Diagnóstico D-90</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --off-white:#F4F7FB;
+    --branco:#FFFFFF;
+    --navy-deep:#04092A;
+    --navy:#070C5F;
+    --royal:#0A138A;
+    --azul-medio:#ADC4E1;
+    --pale:#CCDCF0;
+    --borda:#BFCFE3;
+    --muted:#474A85;
+    --ouro:#D9A520;
+    --alerta:#C52020;
+    --display:"Montserrat","Inter",system-ui,sans-serif;
+    --body:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,monospace;
+    --r:6px;
+    --sombra:0 1px 2px rgba(4,9,42,.06), 0 8px 24px -12px rgba(4,9,42,.16);
+    --sombra-card:0 1px 3px rgba(4,9,42,.06);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--off-white);color:var(--navy);
+    font-family:var(--body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding-block:56px 80px;padding-left:20px;padding-right:20px}
+
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--royal);margin:0 0 16px}
+  h1{font-family:var(--display);font-weight:700;font-size:clamp(32px,6vw,52px);line-height:1.08;margin:0 0 18px;text-wrap:balance;letter-spacing:-.02em;color:var(--navy)}
+  .tese{font-size:clamp(16px,2.2vw,19px);color:var(--navy);max-width:64ch;margin:0 0 12px;text-wrap:pretty}
+  .tese-sub{font-size:15.5px;color:var(--muted);max-width:64ch;margin:0}
+  h2{font-family:var(--display);font-weight:700;font-size:clamp(21px,3vw,28px);line-height:1.15;margin:0 0 8px;text-wrap:balance;color:var(--navy);letter-spacing:-.01em}
+  .sec{margin-top:64px}
+  .sec-lead{color:var(--muted);max-width:64ch;margin:0 0 24px}
+
+  .tagline{
+    background:linear-gradient(135deg,var(--navy-deep) 0%,var(--navy) 100%);
+    color:#fff;border-radius:var(--r);padding:22px 24px;margin:30px 0 0;box-shadow:var(--sombra);
+  }
+  .tagline .rot{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--azul-medio);margin:0 0 8px}
+  .tagline p{font-family:var(--display);font-weight:600;font-size:clamp(18px,2.6vw,23px);line-height:1.3;margin:0;color:#fff}
+  .tagline small{display:block;margin-top:10px;font-family:var(--body);font-size:13.5px;color:var(--azul-medio);font-weight:400}
+
+  .grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+  .grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+
+  .card{background:var(--branco);border:1px solid var(--borda);border-radius:var(--r);box-shadow:var(--sombra-card)}
+  .sw .chip{height:64px;border-radius:var(--r) var(--r) 0 0;border-bottom:1px solid var(--borda)}
+  .sw .meta{padding:11px 13px}
+  .sw .nome{font-weight:600;font-size:13.5px;margin:0 0 2px}
+  .sw .hex{font-family:var(--mono);font-size:11px;color:var(--royal);margin:0 0 6px}
+  .sw .uso{font-size:12.5px;color:var(--muted);margin:0;line-height:1.42}
+
+  .tipo{padding:18px}
+  .tipo .rot{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--royal);margin:0 0 10px}
+  .tipo .nota{font-size:12.5px;color:var(--muted);margin:0}
+  .a-display{font-family:var(--display);font-weight:700;font-size:25px;line-height:1.12;margin:0 0 8px;letter-spacing:-.01em}
+  .a-body{font-family:var(--body);font-size:16px;font-weight:500;margin:0 0 8px}
+  .a-mono{font-family:var(--mono);font-size:21px;font-weight:700;color:var(--royal);margin:0 0 8px;font-variant-numeric:tabular-nums}
+
+  table{width:100%;border-collapse:collapse;font-size:14.5px}
+  .tabela-wrap{overflow-x:auto;border:1px solid var(--borda);border-radius:var(--r);background:var(--branco);box-shadow:var(--sombra-card)}
+  th,td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--borda);vertical-align:top}
+  th{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:500;white-space:nowrap}
+  tr:last-child td{border-bottom:0}
+  td.antes{color:var(--muted)}
+  td.depois{color:var(--navy);font-weight:500}
+
+  /* protótipo */
+  .proto-area{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:32px;align-items:start}
+  @media (max-width:760px){.proto-area{grid-template-columns:1fr}}
+  .fone{border:1px solid var(--borda);border-radius:22px;background:var(--branco);padding:11px;box-shadow:var(--sombra)}
+  .tela{background:var(--off-white);border-radius:13px;min-height:566px;padding:18px 16px 20px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+  .marca{display:flex;align-items:center;gap:8px;margin-bottom:16px}
+  .marca .ico{width:15px;height:15px;flex:none}
+  .marca span{font-family:var(--display);font-weight:700;font-size:11.5px;letter-spacing:.16em;color:var(--navy);text-transform:uppercase}
+
+  .mini-regua{margin-bottom:20px}
+  .mini-regua .trilho{position:relative;height:2px;background:var(--pale);border-radius:2px;margin:0 0 8px}
+  .mini-regua .feito{position:absolute;left:0;top:0;height:2px;background:var(--royal);border-radius:2px;transition:width .45s cubic-bezier(.4,0,.2,1)}
+  .mini-regua .cursor{position:absolute;top:-3px;width:8px;height:8px;border-radius:50%;background:var(--royal);margin-left:-4px;transition:left .45s cubic-bezier(.4,0,.2,1)}
+  .mini-regua .marcas{display:flex;justify-content:space-between;font-family:var(--mono);font-size:8.5px;letter-spacing:.04em;color:var(--muted)}
+  .mini-regua .marcas b{font-weight:400}
+  .mini-regua .marcas .on{color:var(--royal);font-weight:700}
+
+  .meta-linha{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 9px}
+  .fase{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--royal);margin:0}
+  .contador{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--muted);font-variant-numeric:tabular-nums;flex:none}
+  .pergunta{font-family:var(--display);font-weight:600;font-size:19px;line-height:1.28;margin:0 0 16px;text-wrap:balance;color:var(--navy);letter-spacing:-.01em}
+
+  .canais{display:flex;flex-direction:column;gap:8px}
+  .canal{
+    display:flex;align-items:flex-start;gap:11px;width:100%;text-align:left;
+    background:var(--branco);border:1px solid var(--borda);border-radius:var(--r);
+    padding:12px 13px;color:var(--navy);font-family:var(--body);font-size:13.5px;line-height:1.38;
+    cursor:pointer;transition:border-color .15s,box-shadow .15s,background .15s;
+  }
+  .canal:hover{border-color:var(--royal);box-shadow:var(--sombra-card)}
+  .canal .bolha{width:15px;height:15px;border-radius:50%;border:1.5px solid var(--borda);flex:none;margin-top:1px;transition:border-color .15s,background .15s;position:relative}
+  .canal[data-on="true"]{border-color:var(--royal);background:var(--pale)}
+  .canal[data-on="true"] .bolha{border-color:var(--royal);background:var(--royal);box-shadow:0 0 0 3px rgba(10,19,138,.14)}
+  .canal[data-on="true"] .bolha::after{content:"";position:absolute;left:3.5px;top:3.5px;width:4px;height:4px;border-radius:50%;background:#fff}
+  .canal:focus-visible{outline:2px solid var(--royal);outline-offset:2px}
+  .canal b{font-weight:600}
+
+  .rodape-quiz{margin-top:16px;display:flex;min-height:20px}
+  .voltar{background:none;border:0;padding:4px 0;cursor:pointer;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .voltar:hover{color:var(--royal)}
+  .voltar:focus-visible{outline:2px solid var(--royal);outline-offset:3px}
+
+  .btn{font-family:var(--body);font-weight:600;font-size:14.5px;border:0;border-radius:var(--r);background:var(--ouro);color:#2A1E00;padding:13px 16px;cursor:pointer;width:100%;transition:filter .15s}
+  .btn:hover{filter:brightness(1.06)}
+  .btn:focus-visible{outline:2px solid var(--navy);outline-offset:2px}
+  .btn-sec{background:var(--branco);color:var(--royal);border:1px solid var(--royal);font-weight:600}
+  .btn-sec:hover{background:var(--pale);filter:none}
+  .btn-lin{background:none;border:0;color:var(--muted);font-size:12.5px;font-weight:400;padding:8px 0;width:100%;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+  .btn-lin:hover{color:var(--royal)}
+
+  .carregando{flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center}
+  .carregando .linhas{width:100%;max-width:210px;margin:0 auto 20px;display:flex;flex-direction:column;gap:6px}
+  .carregando .ln{height:3px;background:var(--pale);border-radius:3px;position:relative;overflow:hidden}
+  .carregando .ln i{position:absolute;inset:0;background:var(--royal);border-radius:3px;transform:translateX(-100%);animation:varre 1.5s linear infinite}
+  .carregando .ln:nth-child(2) i{animation-delay:.22s}
+  .carregando .ln:nth-child(3) i{animation-delay:.44s}
+  @keyframes varre{to{transform:translateX(100%)}}
+  .carregando p{font-family:var(--mono);font-size:11px;color:var(--muted);margin:0 0 14px;letter-spacing:.03em}
+  .carregando .assina{font-family:var(--display);font-weight:600;font-size:13.5px;color:var(--navy);margin:0;max-width:230px;line-height:1.4}
+
+  .res-topo{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 4px}
+  .indice{font-family:var(--display);font-weight:700;font-size:56px;line-height:1;color:var(--navy);margin:0;font-variant-numeric:tabular-nums;letter-spacing:-.03em}
+  .indice sub{font-family:var(--mono);font-size:15px;color:var(--muted);font-weight:400;vertical-align:baseline;letter-spacing:0}
+  .faixa-nome{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--alerta);margin:8px 0 14px;font-weight:700}
+
+  .vu{margin:0 0 16px}
+  .vu .barra{display:flex;gap:2px;height:10px;margin-bottom:6px}
+  .vu .seg{flex:1;border-radius:2px;background:var(--pale)}
+  .vu .seg.ativo{background:var(--alerta)}
+  .vu .esc{display:flex;justify-content:space-between;font-family:var(--mono);font-size:8.5px;color:var(--muted);letter-spacing:.04em}
+
+  .vaza{border:1px solid var(--borda);border-left:3px solid var(--alerta);border-radius:var(--r);background:var(--branco);padding:12px 13px;margin-bottom:14px;box-shadow:var(--sombra-card)}
+  .vaza .rot{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--alerta);margin:0 0 4px}
+  .vaza .val{font-family:var(--display);font-weight:700;font-size:20px;color:var(--navy);margin:0;font-variant-numeric:tabular-nums}
+  .vaza .obs{font-size:11.5px;color:var(--muted);margin:4px 0 0;line-height:1.4}
+
+  .dims{margin:0 0 16px;border:1px solid var(--borda);border-radius:var(--r);overflow:hidden;background:var(--branco);box-shadow:var(--sombra-card)}
+  .dim{display:flex;align-items:center;gap:9px;padding:9px 12px;border-bottom:1px solid var(--borda);font-size:12.5px}
+  .dim:last-child{border-bottom:0}
+  .dim .nome{flex:1}
+  .dim .st{font-family:var(--mono);font-size:9px;letter-spacing:.08em;color:var(--royal)}
+  .dim.mau{background:#FCF2F2}
+  .dim.mau .nome{font-weight:600}
+  .dim.mau .st{color:var(--alerta);font-weight:700}
+
+  .nota-lado{border-left:3px solid var(--royal);padding-left:15px;margin:20px 0}
+  .nota-lado .t{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--royal);margin:0 0 6px}
+  .nota-lado p{margin:0 0 7px}
+  .nota-lado p:last-child{margin:0}
+  .nota-lado.atencao{border-left-color:var(--ouro)}
+  .nota-lado.atencao .t{color:#8A6A10}
+
+  .passos{display:flex;flex-direction:column;gap:11px;margin-top:6px}
+  .passo{display:flex;gap:13px;align-items:baseline}
+  .passo .num{font-family:var(--mono);font-size:11px;color:var(--royal);flex:none;width:24px;font-weight:700}
+  .passo p{margin:0;font-size:14.5px;color:var(--muted)}
+  .passo b{color:var(--navy);font-weight:600}
+
+  .rodape{margin-top:64px;border-top:1px solid var(--borda);padding-top:16px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+  @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Direção visual · Funil Musikalis · v2</p>
+  <h1>O diagnóstico com a<br>cara da Musikalis.</h1>
+  <p class="tese">Peguei os tokens direto do CSS de musikalis.com.br. As cores, as três famílias tipográficas, o raio de borda e a sombra dos cards são literalmente os mesmos do site. Quem sai do anúncio, passa pelo quiz e entra na plataforma não percebe emenda nenhuma.</p>
+  <p class="tese-sub">E o site entregou duas coisas melhores do que eu tinha inventado: a linha do tempo oficial e a assinatura da marca.</p>
+
+  <div class="tagline">
+    <p class="rot">A assinatura que já existe no site</p>
+    <p>"Para quem não pode se dar ao luxo de improvisar."</p>
+    <small>É o inimigo do funil nomeado pela própria marca. Vira o fio condutor do quiz, da tela de leitura e dos anúncios. Não precisamos inventar nada.</small>
+  </div>
+
+  <section class="sec">
+    <h2>As duas correções que o site trouxe</h2>
+    <p class="sec-lead">Eu tinha aproximado de memória. O site tem a versão oficial, e ela é melhor.</p>
+    <div class="nota-lado">
+      <p class="t">A régua agora é a linha do tempo real</p>
+      <p>Minha versão usava D-90, D-75, D-60, D-40, D-7 e D-0. O site publica os marcos com nome: <b>D-90 Concepção · D-60 Estruturação · D-30 Ativação · D-7 Pré-show · D-Day Execução · D+7 Pós-show</b>. É essa a régua que atravessa o quiz agora, e cada pergunta declara em que etapa da produção ela vive.</p>
+    </div>
+    <div class="nota-lado">
+      <p class="t">Os elos viraram as dimensões da plataforma</p>
+      <p>Eu chamava de orçamento, operação, palco e bilheteria. O site chama de <b>Gestão de Orçamento e Resultados, Operação, Legal e Negociação, Marketing</b>, que são 4 das 10 dimensões da ferramenta. Usar o nome de dentro do produto faz o diagnóstico apontar para uma tela que existe, em vez de para um conceito.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>O protótipo</h2>
+    <p class="sec-lead">Três das nove perguntas, a tela de leitura e o topo do diagnóstico. A primeira pergunta já abre na tela e a seleção avança sozinha.</p>
+    <div class="proto-area">
+      <div class="fone"><div class="tela" id="tela"></div></div>
+      <div>
+        <div class="card" style="padding:16px 18px;margin-bottom:16px">
+          <p class="t" style="font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--royal);margin:0 0 6px">O que olhar aqui</p>
+          <p style="margin:0;font-size:14.5px;color:var(--muted)">A régua no topo percorre a linha do tempo oficial. As alternativas usam o nome das dimensões da plataforma. E o botão de conversão é o <b style="color:var(--navy)">único elemento dourado</b> da peça, porque no site da Musikalis o ouro está reservado para o momento de upgrade.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card" style="padding:14px"><p style="margin:0 0 3px;font-weight:600;font-size:13.5px">Fundo</p><p style="margin:0;font-size:12.5px;color:var(--muted)">Off-white #F4F7FB, o mesmo do site. Cards em branco puro com a sombra de lá.</p></div>
+          <div class="card" style="padding:14px"><p style="margin:0 0 3px;font-weight:600;font-size:13.5px">Acento</p><p style="margin:0;font-size:12.5px;color:var(--muted)">Azul royal #0A138A em tudo que é interativo, seleção e progresso.</p></div>
+          <div class="card" style="padding:14px"><p style="margin:0 0 3px;font-weight:600;font-size:13.5px">Dados</p><p style="margin:0;font-size:12.5px;color:var(--muted)">JetBrains Mono nos rótulos técnicos. Já é a fonte de dados do site.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Paleta, extraída do site</h2>
+    <p class="sec-lead">Os valores estão no CSS da Musikalis como HSL. Aqui em hexadecimal, com o papel de cada um dentro do funil.</p>
+    <div class="grid-3">
+      <div class="card sw"><div class="chip" style="background:#F4F7FB"></div><div class="meta"><p class="nome">Off-white</p><p class="hex">#F4F7FB</p><p class="uso">O fundo de toda tela. É o background do site.</p></div></div>
+      <div class="card sw"><div class="chip" style="background:#070C5F"></div><div class="meta"><p class="nome">Navy</p><p class="hex">#070C5F</p><p class="uso">Todo o texto e os títulos. É o foreground do site.</p></div></div>
+      <div class="card sw"><div class="chip" style="background:#0A138A"></div><div class="meta"><p class="nome">Azul royal</p><p class="hex">#0A138A</p><p class="uso">O primário. Seleção, progresso e o que é clicável.</p></div></div>
+      <div class="card sw"><div class="chip" style="background:#CCDCF0"></div><div class="meta"><p class="nome">Azul claro</p><p class="hex">#CCDCF0</p><p class="uso">Preenchimento do que está selecionado e trilho do progresso.</p></div></div>
+      <div class="card sw"><div class="chip" style="background:#D9A520"></div><div class="meta"><p class="nome">Ouro</p><p class="hex">#D9A520</p><p class="uso">Só o botão de conversão. No site, o ouro é a cor do upgrade.</p></div></div>
+      <div class="card sw"><div class="chip" style="background:#C52020"></div><div class="meta"><p class="nome">Alerta</p><p class="hex">#C52020</p><p class="uso">A dimensão que vaza e o valor perdido. Nada mais.</p></div></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>Tipografia, a mesma do site</h2>
+    <p class="sec-lead">As três famílias já estão declaradas no CSS da Musikalis. Nada de fonte nova entrando no ecossistema.</p>
+    <div class="grid-2">
+      <div class="card tipo">
+        <p class="rot">Display · Montserrat 600 e 700</p>
+        <p class="a-display">Produção musical com método e elegância</p>
+        <p class="nota">Títulos, perguntas do quiz e o índice grande. É a face dos headlines do site.</p>
+      </div>
+      <div class="card tipo">
+        <p class="rot">Texto · Inter 400, 500 e 600</p>
+        <p class="a-body">Onde a sua produção mais escapa hoje? Orçamento, operação, negociação ou marketing.</p>
+        <p class="nota">Corpo de texto, alternativas e botões. É o body do site.</p>
+      </div>
+      <div class="card tipo">
+        <p class="rot">Dados · JetBrains Mono</p>
+        <p class="a-mono">D-90 · 28/100 · R$ 14.200</p>
+        <p class="nota">Marcos da régua, contador, rótulos e valores. Já é a mono declarada no site.</p>
+      </div>
+      <div class="card tipo">
+        <p class="rot">Detalhes herdados</p>
+        <p class="a-mono" style="font-size:14px">radius 6px · sombra 0 1px 3px</p>
+        <p class="nota">Raio de borda e sombra de card copiados do CSS, para o quiz encostar no site sem degrau visual.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>O que mudou da versão anterior</h2>
+    <div class="tabela-wrap" style="margin-top:18px">
+      <table>
+        <thead><tr><th>Elemento</th><th>Versão 1</th><th>Agora, fiel ao site</th></tr></thead>
+        <tbody>
+          <tr><td>Fundo</td><td class="antes">Preto azulado de palco</td><td class="depois">Off-white #F4F7FB</td></tr>
+          <tr><td>Acento</td><td class="antes">Âmbar de refletor</td><td class="depois">Azul royal, com ouro só na conversão</td></tr>
+          <tr><td>Display</td><td class="antes">Archivo Black</td><td class="depois">Montserrat</td></tr>
+          <tr><td>Texto</td><td class="antes">Archivo</td><td class="depois">Inter</td></tr>
+          <tr><td>Régua</td><td class="antes">D-90 a D-0, aproximada</td><td class="depois">Linha do tempo oficial, com os nomes das etapas</td></tr>
+          <tr><td>Elos</td><td class="antes">Orçamento, operação, palco, bilheteria</td><td class="depois">As dimensões reais da plataforma</td></tr>
+          <tr><td>Medidor</td><td class="antes">VU meter de mesa de som</td><td class="depois">Barra de nível discreta, no peso visual do site</td></tr>
+          <tr><td>CTA final</td><td class="antes">Vaga no workshop</td><td class="depois">Criar conta grátis, o CTA oficial do site</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>O buraco que o cancelamento do workshop abriu</h2>
+    <div class="nota-lado atencao">
+      <p class="t">Precisa de decisão sua e do Daniel</p>
+      <p>O funil aprovado era anúncio, quiz, diagnóstico, <b>workshop</b> e venda do GPM no fim da aula. O workshop era o aquecimento que fazia alguém considerar R$ 1.497. Sem ele, sobrou um degrau no vazio.</p>
+      <p>Vender a certificação direto na página de diagnóstico, para quem conheceu a marca há dois minutos, é pedir muito. Então montei o protótipo com a saída que o próprio site já usa e que não depende de evento nenhum: <b>criar conta grátis</b> como botão principal e <b>falar com produção</b> como segunda porta, para quem a porteira marcou como qualificado.</p>
+      <p>Isso alimenta a rede, que é a prioridade que o André declarou na call, e joga os qualificados para uma conversa no WhatsApp onde o GPM é vendido por gente, não por página. Se vocês preferirem manter a venda direta da certificação, eu troco o botão, mas aí a copy inteira do diagnóstico muda de temperatura.</p>
+    </div>
+    <div class="nota-lado atencao">
+      <p class="t">Duas consequências que não dá para varrer</p>
+      <p>A <b>cadência de WhatsApp de 10 dias</b> que está no documento de copies convida para o workshop em sete das dez mensagens. Ela precisa ser reescrita para a nova saída.</p>
+      <p>E a <b>meta de R$ 30 mil no trimestre</b> do roadmap era feita de duas turmas puxadas por três workshops. Sem eles, a conta muda e precisa ser refeita antes da próxima quinzenal.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <h2>O que falta para eu publicar</h2>
+    <div class="passos">
+      <div class="passo"><span class="num">01</span><p><b>O CTA definitivo</b>, conforme o bloco acima.</p></div>
+      <div class="passo"><span class="num">02</span><p><b>As faixas de vazamento.</b> O número em vermelho é o que dá peso à peça e precisa da chancela do André.</p></div>
+      <div class="passo"><span class="num">03</span><p><b>O logotipo em vetor.</b> Redesenhei o microfone à mão para o protótipo. Para publicar, preciso do arquivo real.</p></div>
+      <div class="passo"><span class="num">04</span><p><b>Domínio e acessos.</b> Onde o quiz vai morar, mais Meta, Instagram e admin da plataforma.</p></div>
+    </div>
+  </section>
+
+  <p class="rodape">Simple Acc · Musikalis · direção visual do funil de quiz · v2</p>
+</div>
+
+<script>
+(function(){
+  var tela = document.getElementById('tela');
+  var marcos = [
+    {c:'D-90', n:'Concepção'},
+    {c:'D-60', n:'Estruturação'},
+    {c:'D-30', n:'Ativação'},
+    {c:'D-7',  n:'Pré-show'},
+    {c:'D-Day',n:'Execução'},
+    {c:'D+7',  n:'Pós-show'}
+  ];
+  var TOTAL = 9;
+  var perguntas = [
+    { idx:0, n:1,
+      q:'Com quanta antecedência você começa a fechar uma produção?',
+      ops:['Na semana do evento, no grito','De 2 a 4 semanas antes','Cerca de 30 dias antes','60 dias ou mais, com cronograma escrito'] },
+    { idx:1, n:4,
+      q:'Onde a sua produção mais escapa hoje?',
+      ops:['<b>Orçamento e Resultados:</b> fecho o preço no chute e descubro o custo depois',
+           '<b>Operação:</b> equipe, transporte e hospedagem sempre em cima da hora',
+           '<b>Legal e Negociação:</b> acerto no boca a boca e corro atrás do dinheiro depois',
+           '<b>Marketing:</b> o show fica pronto e a casa não enche'] },
+    { idx:3, n:9,
+      q:'Como você controla a produção hoje?',
+      ops:['Grupo de WhatsApp e áudio','Uma planilha que eu mesmo montei','Planilha mais um app de tarefas','Um sistema de gestão de verdade'] }
+  ];
+  var passo = 0, travado = false;
+  var semMov = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function marca(){
+    return '<div class="marca"><svg class="ico" viewBox="0 0 24 24" fill="none" aria-hidden="true">'+
+      '<rect x="9" y="2" width="6" height="11" rx="3" fill="#0A138A"/>'+
+      '<path d="M5.5 11a6.5 6.5 0 0 0 13 0" stroke="#0A138A" stroke-width="1.7" stroke-linecap="round"/>'+
+      '<path d="M12 17.5V22" stroke="#0A138A" stroke-width="1.7" stroke-linecap="round"/></svg>'+
+      '<span>Musikalis</span></div>';
+  }
+  function regua(i){
+    var pct = (i/(marcos.length-1))*100;
+    var m = marcos.map(function(t,k){ return '<b class="'+(k===i?'on':'')+'">'+t.c+'</b>'; }).join('');
+    return '<div class="mini-regua"><div class="trilho">'+
+      '<div class="feito" style="width:'+pct+'%"></div>'+
+      '<div class="cursor" style="left:'+pct+'%"></div></div>'+
+      '<div class="marcas">'+m+'</div></div>';
+  }
+  function dois(n){ return (n<10?'0':'')+n; }
+
+  function pergunta(){
+    var p = perguntas[passo], mk = marcos[p.idx];
+    var ops = p.ops.map(function(o,k){
+      return '<button class="canal" data-k="'+k+'"><span class="bolha"></span><span>'+o+'</span></button>';
+    }).join('');
+    var voltar = passo>0 ? '<button class="voltar" id="volta">&larr; Voltar</button>' : '';
+    tela.innerHTML = marca() + regua(p.idx) +
+      '<div class="meta-linha"><p class="fase">'+mk.c+' &middot; '+mk.n+'</p><span class="contador">'+dois(p.n)+'/'+TOTAL+'</span></div>'+
+      '<h3 class="pergunta">'+p.q+'</h3>'+
+      '<div class="canais">'+ops+'</div>'+
+      '<div class="rodape-quiz">'+voltar+'</div>';
+    Array.prototype.forEach.call(tela.querySelectorAll('.canal'), function(b){
+      b.onclick = function(){
+        if(travado){ return; }
+        travado = true;
+        b.setAttribute('data-on','true');
+        setTimeout(function(){
+          travado = false;
+          if(passo === perguntas.length-1){ carregando(); }
+          else { passo++; pergunta(); }
+        }, semMov ? 90 : 330);
+      };
+    });
+    var v = document.getElementById('volta');
+    if(v){ v.onclick = function(){ if(travado){ return; } passo--; pergunta(); }; }
+  }
+
+  function carregando(){
+    tela.innerHTML = marca() +
+      '<div class="carregando">'+
+        '<div class="linhas"><div class="ln"><i></i></div><div class="ln"><i></i></div><div class="ln"><i></i></div></div>'+
+        '<p>Cruzando suas respostas com a metodologia D-90&hellip;</p>'+
+        '<p class="assina">"Para quem não pode se dar ao luxo de improvisar."</p>'+
+      '</div>';
+    setTimeout(resultado, 2000);
+  }
+
+  function resultado(){
+    var segs='';
+    for(var i=0;i<24;i++){ segs += '<div class="seg '+(i<7?'ativo':'')+'"></div>'; }
+    tela.innerHTML = marca() +
+      '<p class="res-topo">Índice D-90 da sua produção</p>'+
+      '<p class="indice">28<sub>/100</sub></p>'+
+      '<p class="faixa-nome">Produção sem método</p>'+
+      '<div class="vu"><div class="barra">'+segs+'</div>'+
+        '<div class="esc"><span>SEM MÉTODO</span><span>REATIVA</span><span>ORGANIZADA</span><span>D-90</span></div></div>'+
+      '<div class="vaza"><p class="rot">Vazamento estimado por produção</p>'+
+        '<p class="val">R$ 6.000 a R$ 14.200</p>'+
+        '<p class="obs">Sobre um orçamento médio de R$ 20 mil a R$ 80 mil.</p></div>'+
+      '<div class="dims">'+
+        '<div class="dim"><span class="nome">Orçamento e Resultados</span><span class="st">OK</span></div>'+
+        '<div class="dim mau"><span class="nome">Operação</span><span class="st">CRÍTICO</span></div>'+
+        '<div class="dim"><span class="nome">Legal e Negociação</span><span class="st">OK</span></div>'+
+        '<div class="dim"><span class="nome">Marketing</span><span class="st">OK</span></div>'+
+      '</div>'+
+      '<div style="margin-top:auto">'+
+        '<button class="btn" id="cta">Criar conta grátis</button>'+
+        '<button class="btn btn-sec" id="cta2" style="margin-top:8px">Falar com produção</button>'+
+        '<button class="btn-lin" id="reset">Rodar o protótipo de novo</button>'+
+      '</div>';
+    function recomeca(){ passo=0; travado=false; pergunta(); }
+    document.getElementById('reset').onclick = recomeca;
+    document.getElementById('cta').onclick = recomeca;
+    document.getElementById('cta2').onclick = recomeca;
+  }
+
+  pergunta();
+})();
+</script>
+</body>
+</html>
