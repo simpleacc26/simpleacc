@@ -39,10 +39,19 @@
 
   .palco{max-width:620px;margin:0 auto;padding:34px 20px 60px}
 
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  .hero{margin:0 0 4px}
+  .hero h1{font-family:var(--display);font-weight:700;font-size:clamp(26px,5.6vw,38px);line-height:1.13;letter-spacing:-.025em;margin:0 0 14px;text-wrap:balance;color:var(--navy)}
+  .hero p{font-size:clamp(15px,2.5vw,17px);color:var(--muted);margin:0 0 18px;max-width:48ch;line-height:1.5}
+  .hero strong{color:var(--navy);font-weight:600}
+  .selos{display:flex;gap:8px;flex-wrap:wrap}
+  .selos span{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:var(--muted);border:1px solid var(--borda);border-radius:2px;padding:5px 9px;background:var(--branco)}
+  .divisor{height:1px;background:var(--borda);margin:30px 0 26px}
+
   .meta-linha{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin:0 0 12px}
   .fase{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--royal);margin:0}
   .contador{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--muted);font-variant-numeric:tabular-nums;flex:none}
-  h1.pergunta{font-family:var(--display);font-weight:600;font-size:clamp(22px,4.6vw,30px);line-height:1.24;margin:0 0 24px;text-wrap:balance;letter-spacing:-.015em;color:var(--navy)}
+  .pergunta{font-family:var(--display);font-weight:600;font-size:clamp(22px,4.6vw,30px);line-height:1.24;margin:0 0 24px;text-wrap:balance;letter-spacing:-.015em;color:var(--navy)}
 
   .opcoes{display:flex;flex-direction:column;gap:10px}
   .op{display:flex;align-items:flex-start;gap:13px;width:100%;text-align:left;background:var(--branco);border:1px solid var(--borda);border-radius:var(--r);padding:16px 17px;color:var(--navy);font-family:var(--body);font-size:15.5px;line-height:1.4;cursor:pointer;transition:border-color .15s,box-shadow .15s,background .15s}
@@ -258,16 +267,27 @@
   function topo(){ window.scrollTo({top:0, behavior: semMov ? 'auto':'smooth'}); }
 
   /* ---------- perguntas ---------- */
+  var HERO =
+    '<div class="hero">'+
+      '<h1>Quanto a sua produção perde antes de o show começar?</h1>'+
+      '<p>São <strong>9 perguntas e 2 minutos</strong>. No fim você recebe o índice D-90 da sua produção, ' +
+      'o <strong>valor estimado que escapa a cada evento</strong> e em qual das quatro áreas está o vazamento: ' +
+      'orçamento, operação, negociação ou marketing.</p>'+
+      '<div class="selos"><span>2 MINUTOS</span><span>9 PERGUNTAS</span><span>GRATUITO</span></div>'+
+    '</div><div class="divisor"></div>';
+
   function verPergunta(){
     var p = PERGUNTAS[estado.passo], mk = MARCOS[p.idx];
     desenhaRegua(p.idx);
+    var primeira = estado.passo === 0;
     var ops = p.ops.map(function(o,k){
       return '<button class="op" data-k="'+k+'"><span class="bolha"></span><span>'+o.t+'</span></button>';
     }).join('');
     palco.innerHTML =
+      (primeira ? HERO : '<h1 class="sr-only">Quanto a sua produção perde antes de o show começar?</h1>')+
       '<div class="meta-linha"><p class="fase">'+mk.c+' &middot; '+mk.n+'</p>'+
       '<span class="contador">'+(estado.passo+1<10?'0':'')+(estado.passo+1)+'/09</span></div>'+
-      '<h1 class="pergunta">'+p.q+'</h1>'+
+      '<h2 class="pergunta">'+p.q+'</h2>'+
       '<div class="opcoes">'+ops+'</div>'+
       (estado.passo>0 ? '<button class="voltar" id="volta">&larr; Voltar</button>' : '');
 
