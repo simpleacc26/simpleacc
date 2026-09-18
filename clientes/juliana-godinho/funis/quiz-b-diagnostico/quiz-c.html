@@ -96,7 +96,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   @keyframes sobe{from{opacity:0; transform:translateY(12px)} to{opacity:1; transform:none}}
 
   /* ── abertura ────────────────────────────────────────── */
-  .abre{display:grid; gap:0; text-align:center; justify-items:center}
+  .abre{display:grid; gap:0; margin:0 0 3.4rem}
   .selo{
     font-size:.64rem; font-weight:600; letter-spacing:.3em;
     text-transform:uppercase; color:var(--ouro);
@@ -104,7 +104,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .selo::after{
     content:""; display:block; width:2.6rem; height:1px;
-    background:var(--ouro-fio); margin:1.5rem auto 0;
+    background:var(--ouro-fio); margin:1.5rem 0 0;
   }
   h1{
     font-family:var(--display); font-weight:400;
@@ -116,30 +116,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .sub{
     max-width:var(--col); color:var(--tinta-2);
     font-size:1.03rem; line-height:1.78; font-weight:300;
-    margin:0 0 3rem;
+    margin:0;
   }
   .sub strong{color:var(--tinta); font-weight:500}
-
-  .ficha{
-    display:grid; gap:0; margin:0 0 3rem;
-    max-width:var(--col); width:100%;
-    background:var(--branco); border:1px solid var(--linha);
-    border-radius:3px; padding:.4rem 1.5rem;
-    box-shadow:0 1px 2px rgba(10,10,10,.03);
-  }
-  .ficha div{
-    display:flex; justify-content:space-between; align-items:baseline;
-    gap:1.4rem; padding:.85rem 0; border-bottom:1px solid var(--linha);
-  }
-  .ficha div:last-child{border-bottom:0}
-  .ficha dt{
-    color:var(--tinta-3); margin:0; font-size:.68rem;
-    letter-spacing:.2em; text-transform:uppercase; font-weight:500;
-  }
-  .ficha dd{
-    color:var(--tinta); margin:0; text-align:right;
-    font-family:var(--display); font-size:1.02rem;
-  }
 
   /* ── botões ──────────────────────────────────────────── */
   .btn{
@@ -157,8 +136,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .btn i{font-style:normal; font-size:.9rem; letter-spacing:0}
   .btn[disabled]{opacity:.3; cursor:not-allowed}
   .rodape-btn{
-    display:flex; align-items:center; gap:1.4rem;
-    flex-wrap:wrap; justify-content:center;
+    display:flex; align-items:center; gap:1.4rem; flex-wrap:wrap;
   }
   .dica{font-size:.76rem; letter-spacing:.06em; color:var(--tinta-3); font-weight:300}
 
@@ -174,10 +152,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     text-wrap:balance;
   }
   h2 em{font-style:italic; color:var(--ouro)}
-  .apoio{
-    color:var(--tinta-3); font-size:.94rem; font-weight:300;
-    margin:0 0 2.6rem; max-width:var(--col);
-  }
 
   .opcoes{display:grid; gap:.6rem; max-width:var(--col)}
   .opt{
@@ -247,13 +221,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   @keyframes pisca{0%,100%{opacity:.22} 50%{opacity:1}}
 
-  /* as telas de pergunta e captura alinham à esquerda */
-  .tela:not(:has(.abre)) .rodape-btn{justify-content:flex-start}
-
   @media (max-width:640px){
     .tela{padding-top:2.8rem}
     .btn{width:100%}
-    .ficha{padding:.3rem 1.2rem}
   }
   @media (prefers-reduced-motion:reduce){
     *{animation:none !important; transition:none !important}
@@ -293,7 +263,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 const PERGUNTAS = [
   { id:"carro", tipo:"unica",
     texto:"Qual desses tratamentos responde pela <em>maior parte</em> do faturamento da sua clínica ou consultório?",
-    apoio:"A primeira pergunta existe para eu saber se o que eu faço serve para o seu caso.",
     opts:[
       {t:"Tratamentos corporais",  r:"com os tratamentos corporais puxando a maior parte do faturamento"},
       {t:"Tratamentos faciais",    r:"com os tratamentos faciais puxando a maior parte do faturamento"},
@@ -306,7 +275,6 @@ const PERGUNTAS = [
 
   { id:"cena", tipo:"unica",
     texto:"Pense na última semana. Qual dessas cenas aconteceu <em>mais vezes</em> na sua clínica ou consultório?",
-    apoio:"Cena da semana passada, não o que você acha que é o seu problema. É daqui que sai o seu diagnóstico.",
     opts:[
       {t:"Parei o que estava fazendo para resolver algo que só eu resolvo", q:"Q1"},
       {t:"Olhei a agenda e vi quase sempre as mesmas clientes", q:"Q2"},
@@ -316,7 +284,6 @@ const PERGUNTAS = [
 
   { id:"equipe", tipo:"unica",
     texto:"Quem entrega o seu trabalho às suas clientes hoje?",
-    apoio:"O seu nome está na porta. A pergunta é por quantas mãos ele passa antes de chegar na cliente.",
     opts:[
       {t:"Só eu, ninguém atende no meu lugar", r:"Hoje você atende sozinha, então tudo que acontece ali passa por você."},
       {t:"Eu e mais uma pessoa", r:"Hoje vocês são duas atendendo, e boa parte das decisões ainda passa por você."},
@@ -327,7 +294,6 @@ const PERGUNTAS = [
 
   { id:"margem", tipo:"unica",
     texto:"Depois de pagar aluguel, produtos, impostos e a sua equipe, <em>quanto costuma sobrar</em> no fim do mês?",
-    apoio:"Quem paga folha sabe que essa conta é a que mais pesa na decisão.",
     opts:[
       {t:"Quase nada, e em alguns meses falta", r:"E no fim do mês quase não sobra, com meses em que chega a faltar."},
       {t:"Sobra pouco, e eu não sei dizer exatamente quanto", r:"E sobra pouco, sem você conseguir dizer exatamente quanto."},
@@ -338,7 +304,6 @@ const PERGUNTAS = [
 
   { id:"tentou", tipo:"multipla",
     texto:"O que você já fez para destravar isso?",
-    apoio:"Pode marcar mais de uma. Serve para eu não te sugerir algo que você já tentou.",
     opts:[
       {t:"Baixei preço ou fiz promoção", r:"Baixar preço e fazer promoção enche a agenda e come a margem no mesmo movimento. <strong>Você vendeu mais e sobrou menos, e não foi coincidência.</strong>"},
       {t:"Abri mais horários e atendi até mais tarde", r:"Abrir mais horários resolve um mês. <strong>No seguinte o teto volta, só que com você mais cansada</strong>, porque a conta continua sendo feita em horas suas."},
@@ -349,7 +314,6 @@ const PERGUNTAS = [
 
   { id:"faturamento", tipo:"unica",
     texto:"Qual a média de faturamento mensal da sua clínica ou consultório nos últimos três meses?",
-    apoio:"Última pergunta. Ela define o que eu consigo te oferecer de verdade.",
     opts:[
       {t:"Até R$ 5 mil", rota:"edp"},
       {t:"De R$ 5 mil a R$ 10 mil", rota:"edp"},
@@ -439,9 +403,10 @@ function pintar(html){
   window.scrollTo({ top:0, behavior:'smooth' });
 }
 
-/* ── 00 · abertura, promessa e subheadline ────────────── */
-function abertura(){
-  pintar(`
+/* ── perguntas ────────────────────────────────────────── */
+/* A promessa abre a página e a primeira pergunta vem logo abaixo,
+   sem tela de introdução e sem botão de começar. */
+const HEROI = `
     <div class="abre">
       <p class="selo">Diagnóstico para donas de clínica e consultório de estética avançada</p>
       <h1>A sua clínica entrega o seu nome pelas <em>mãos de outras pessoas</em></h1>
@@ -451,32 +416,17 @@ function abertura(){
         <strong>Existem quatro pontos onde a clínica de estética avançada trava exatamente
         nesse estágio.</strong> Seis perguntas e eu te digo qual é o seu.
       </p>
+    </div>`;
 
-      <dl class="ficha">
-        <div><dt>Perguntas</dt><dd>Seis</dd></div>
-        <div><dt>Tempo</dt><dd>Menos de 2 minutos</dd></div>
-        <div><dt>Quem analisa</dt><dd>Juliana Godinho</dd></div>
-        <div><dt>Resultado</dt><dd>Na tela, ao terminar</dd></div>
-      </dl>
-
-      <div class="rodape-btn">
-        <button class="btn" id="ir">Começar o diagnóstico <i>&rarr;</i></button>
-        <span class="dica">Sem cadastro para começar</span>
-      </div>
-    </div>`);
-  document.getElementById('ir').onclick = () => { etapa = 1; render(); dl('quiz_inicio'); };
-}
-
-/* ── perguntas ────────────────────────────────────────── */
 function pergunta(){
   const P = PERGUNTAS[etapa-1];
   const multipla = P.tipo === 'multipla';
   const marcadas = multipla ? (R[P.id] || []) : null;
 
   pintar(`
+    ${etapa === 1 ? HEROI : ''}
     <p class="indice">Pergunta ${pad(etapa)} de ${pad(TOTAL)}</p>
     <h2>${P.texto}</h2>
-    ${P.apoio ? `<p class="apoio">${esc(P.apoio)}</p>` : ''}
     <div class="opcoes" role="group">
       ${P.opts.map((o,i) => `
         <button class="opt" data-i="${i}" ${multipla ? `aria-pressed="${marcadas.indexOf(i)>=0}"` : ''}>
@@ -539,8 +489,6 @@ function captura(){
   pintar(`
     <p class="indice">Última etapa</p>
     <h2>Para onde eu envio a sua análise</h2>
-    <p class="apoio">O resultado aparece na tela agora. O número é para o caso de você querer conversar sobre ele depois.</p>
-
     <form class="campos" id="form" novalidate>
       <div class="campo" id="c-nome">
         <label for="nome">Seu nome</label>
@@ -591,10 +539,14 @@ function captura(){
 }
 
 /* ── conclusão ────────────────────────────────────────── */
+/* Idêntica à do index.html de propósito: para pergunta de múltipla
+   escolha devolve ARRAY, porque o diagnostico.html faz .map() em cima
+   de A.tentativas. Devolver string aqui quebra o laudo em silêncio. */
 function frase(id){
   const P = PERGUNTAS.find(p => p.id === id);
   const v = R[id];
-  return Array.isArray(v) ? v.map(i => P.opts[i].r).join(' ') : (P.opts[v] || {}).r || '';
+  if(P.tipo === 'multipla') return (Array.isArray(v) ? v : []).map(k => P.opts[k].r).filter(Boolean);
+  return (P.opts[v] || {}).r || '';
 }
 
 function concluir(){
@@ -659,11 +611,12 @@ function concluir(){
 /* ── roteador ─────────────────────────────────────────── */
 function render(){
   if(fora) return;
-  if(etapa === 0) return abertura();
   if(etapa <= TOTAL) return pergunta();
   return captura();
 }
 
+etapa = 1;
+dl('quiz_inicio');
 render();
 </script>
 
