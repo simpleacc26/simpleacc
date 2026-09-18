@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagnóstico · Juliana Godinho</title>
+<meta name="description" content="Existem quatro pontos onde a clínica de estética avançada trava depois que a dona sai de todas as salas. Seis perguntas dizem qual é o seu.">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MVZDHB3M');</script>
+<!-- End Google Tag Manager -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Montserrat:wght@300;400;500;600&display=swap">
+
+<style>
+  /* ═══════════════════════════════════════════════════════════
+     Quiet luxury. Paleta tirada da identidade da Julia Ottoni:
+     preto, branco e o dourado fosco #A6842A, com off-white de
+     papel no fundo. Estrutura de seção inspirada no layout de
+     coach do Weblium, declaração forte seguida de uma ação só.
+
+     Display em EB Garamond e não em Cormorant Garamond, que é
+     a que ela usa. Motivo registrado no aprendizado de 12/08
+     desta conta: a Cormorant erra a acentuação em português,
+     o agudo de "clínica" cai sobre o "l". A EB Garamond tem
+     desenho praticamente igual e acentua certo.
+     Tema claro único e deliberado.
+     ═══════════════════════════════════════════════════════════ */
+  :root{
+    --papel:#FBFAF7;
+    --branco:#FFFFFF;
+    --creme:#F6F2E9;
+    --tinta:#0A0A0A;
+    --tinta-2:#4A443C;
+    --tinta-3:#8B8378;
+    --ouro:#A6842A;
+    --ouro-fundo:#F3EEDF;
+    --ouro-fio:rgba(166,132,42,.34);
+    --linha:#E7E2D8;
+    --linha-2:#D6CFC0;
+    --erro:#9A3B2E;
+
+    --display:"EB Garamond",Georgia,"Times New Roman",serif;
+    --sans:"Montserrat",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+
+    --wrap:min(100% - 2.6rem, 50rem);
+    --col:min(100%, 33rem);
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--papel); color:var(--tinta);
+    font-family:var(--sans); font-size:16.5px; line-height:1.68;
+    font-weight:400; -webkit-font-smoothing:antialiased;
+  }
+  .wrap{width:var(--wrap); margin-inline:auto}
+  ::selection{background:var(--ouro-fundo); color:var(--tinta)}
+
+  /* ── barra ───────────────────────────────────────────── */
+  .barra{
+    position:sticky; top:0; z-index:5;
+    background:rgba(251,250,247,.92); backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--linha);
+  }
+  .barra .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    gap:1rem; padding:1.05rem 0;
+  }
+  .marca{
+    font-family:var(--display); font-size:1.02rem;
+    letter-spacing:.06em; color:var(--tinta-3); font-weight:400;
+  }
+  .marca b{color:var(--tinta); font-weight:600; letter-spacing:.03em}
+  .passo{
+    font-family:var(--sans); font-size:.7rem; font-weight:500;
+    letter-spacing:.22em; color:var(--tinta-3);
+    font-variant-numeric:tabular-nums;
+  }
+  .passo b{color:var(--ouro); font-weight:600}
+  .trilho{height:2px; background:var(--linha); position:relative}
+  .trilho i{
+    position:absolute; inset:0 auto 0 0; width:0;
+    background:var(--ouro); transition:width .5s cubic-bezier(.4,0,.2,1);
+  }
+
+  /* ── palco ───────────────────────────────────────────── */
+  main{padding:0 0 6rem}
+  .tela{padding:4rem 0 0; animation:sobe .5s cubic-bezier(.2,.7,.3,1) both}
+  @keyframes sobe{from{opacity:0; transform:translateY(12px)} to{opacity:1; transform:none}}
+
+  /* ── abertura ────────────────────────────────────────── */
+  .abre{display:grid; gap:0; margin:0 0 3.4rem}
+  .selo{
+    font-size:.64rem; font-weight:600; letter-spacing:.3em;
+    text-transform:uppercase; color:var(--ouro);
+    margin:0 0 2.2rem; max-width:40ch;
+  }
+  .selo::after{
+    content:""; display:block; width:2.6rem; height:1px;
+    background:var(--ouro-fio); margin:1.5rem 0 0;
+  }
+  h1{
+    font-family:var(--display); font-weight:400;
+    font-size:clamp(2.35rem,6.2vw,4.1rem); line-height:1.06;
+    letter-spacing:-.012em; margin:0 0 1.9rem;
+    max-width:17ch; text-wrap:balance; color:var(--tinta);
+  }
+  h1 em{font-style:italic; color:var(--ouro)}
+  .sub{
+    max-width:var(--col); color:var(--tinta-2);
+    font-size:1.03rem; line-height:1.78; font-weight:300;
+    margin:0;
+  }
+  .sub strong{color:var(--tinta); font-weight:500}
+
+  /* ── botões ──────────────────────────────────────────── */
+  .btn{
+    appearance:none; cursor:pointer; display:inline-flex;
+    align-items:center; justify-content:center; gap:.8rem;
+    background:var(--tinta); color:var(--papel);
+    border:1px solid var(--tinta); border-radius:2px;
+    font-family:var(--sans); font-size:.82rem; font-weight:600;
+    letter-spacing:.14em; text-transform:uppercase;
+    padding:1.15rem 2.6rem;
+    transition:background .18s ease, color .18s ease, border-color .18s ease;
+  }
+  .btn:hover{background:var(--ouro); border-color:var(--ouro); color:var(--branco)}
+  .btn:focus-visible{outline:2px solid var(--ouro); outline-offset:3px}
+  .btn i{font-style:normal; font-size:.9rem; letter-spacing:0}
+  .btn[disabled]{opacity:.3; cursor:not-allowed}
+  .rodape-btn{
+    display:flex; align-items:center; gap:1.4rem; flex-wrap:wrap;
+  }
+  .dica{font-size:.76rem; letter-spacing:.06em; color:var(--tinta-3); font-weight:300}
+
+  /* ── perguntas ───────────────────────────────────────── */
+  .indice{
+    font-size:.64rem; font-weight:600; letter-spacing:.3em;
+    text-transform:uppercase; color:var(--ouro); margin:0 0 1.4rem;
+  }
+  h2{
+    font-family:var(--display); font-weight:400;
+    font-size:clamp(1.7rem,4vw,2.5rem); line-height:1.16;
+    letter-spacing:-.008em; margin:0 0 .8rem; max-width:22ch;
+    text-wrap:balance;
+  }
+  h2 em{font-style:italic; color:var(--ouro)}
+
+  .opcoes{display:grid; gap:.6rem; max-width:var(--col)}
+  .opt{
+    display:flex; align-items:center; gap:1.1rem; width:100%;
+    text-align:left; cursor:pointer; color:var(--tinta);
+    background:var(--branco); border:1px solid var(--linha);
+    border-radius:3px; font-family:var(--sans);
+    font-size:.98rem; font-weight:400; line-height:1.5;
+    padding:1.15rem 1.35rem;
+    transition:border-color .16s ease, box-shadow .16s ease, transform .16s ease;
+  }
+  .opt .ch{
+    flex:0 0 auto; font-family:var(--display); font-size:1.02rem;
+    color:var(--ouro); width:1.1rem; text-align:center;
+    transition:color .16s ease;
+  }
+  .opt .tx{flex:1 1 auto; min-width:0}
+  @media (hover:hover) and (pointer:fine){
+    .opt:hover{
+      border-color:var(--ouro-fio);
+      box-shadow:0 2px 10px rgba(10,10,10,.05);
+      transform:translateY(-1px);
+    }
+  }
+  .opt:focus-visible{outline:2px solid var(--ouro); outline-offset:2px}
+  .opt[aria-pressed="true"]{
+    border-color:var(--ouro); background:var(--ouro-fundo);
+  }
+
+  /* ── formulário ──────────────────────────────────────── */
+  .campos{display:grid; gap:1.7rem; max-width:var(--col); margin:0 0 2.6rem}
+  .campo label{
+    display:block; font-size:.66rem; font-weight:600;
+    letter-spacing:.2em; text-transform:uppercase; color:var(--tinta-3);
+    margin-bottom:.6rem;
+  }
+  .campo input{
+    width:100%; background:var(--branco); color:var(--tinta);
+    border:1px solid var(--linha); border-radius:3px;
+    font-family:var(--sans); font-size:1rem; padding:.95rem 1.1rem;
+    transition:border-color .16s ease;
+  }
+  .campo input::placeholder{color:var(--tinta-3); font-weight:300}
+  .campo input:focus{outline:0; border-color:var(--ouro)}
+  .campo .aviso{
+    display:none; font-size:.74rem; color:var(--erro);
+    margin-top:.5rem; letter-spacing:.02em;
+  }
+  .campo.ruim input{border-color:var(--erro)}
+  .campo.ruim .aviso{display:block}
+  .privacidade{
+    font-size:.76rem; color:var(--tinta-3); font-weight:300;
+    max-width:var(--col); line-height:1.7; margin:1.8rem 0 0;
+  }
+
+  /* ── encerramento fora de perfil ─────────────────────── */
+  .fora{max-width:var(--col)}
+  .fora h2{margin-bottom:1.2rem}
+  .fora p{color:var(--tinta-2); font-weight:300}
+
+  /* ── espera ──────────────────────────────────────────── */
+  .espera{display:flex; align-items:center; gap:.9rem; color:var(--tinta-3); font-weight:300}
+  .espera i{
+    width:.45rem; height:.45rem; border-radius:50%;
+    background:var(--ouro); flex:none;
+    animation:pisca 1.15s ease-in-out infinite;
+  }
+  @keyframes pisca{0%,100%{opacity:.22} 50%{opacity:1}}
+
+  @media (max-width:640px){
+    .tela{padding-top:2.8rem}
+    .btn{width:100%}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important; transition:none !important}
+  }
+</style>
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MVZDHB3M"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<div class="barra">
+  <div class="wrap">
+    <span class="marca"><b>Juliana Godinho</b> · Diagnóstico</span>
+    <span class="passo" id="passo"></span>
+  </div>
+</div>
+<div class="trilho"><i id="fill"></i></div>
+
+<main><div class="wrap"><div class="tela" id="tela"></div></div></main>
+
+<script>
+/* ═══════════════════════════════════════════════════════════
+   QUIZ C · calibrado para o Estrato 7, situações e papéis
+   sociais. A dor que organiza a comunicação inteira não é
+   dúvida de capacidade nem número frustrado, é o dever com
+   quem depende dela: equipe, clientes, o nome na porta.
+
+   Escopo de perguntas idêntico ao quiz que está no ar, para
+   a automação e a planilha continuarem funcionando. Mudam a
+   promessa, a subheadline, o enquadramento das perguntas e
+   a faixa de faturamento, que abre em duas no topo.
+   ═══════════════════════════════════════════════════════════ */
+
+const PERGUNTAS = [
+  { id:"carro", tipo:"unica",
+    texto:"Qual desses tratamentos responde pela <em>maior parte</em> do faturamento da sua clínica ou consultório?",
+    opts:[
+      {t:"Tratamentos corporais",  r:"com os tratamentos corporais puxando a maior parte do faturamento"},
+      {t:"Tratamentos faciais",    r:"com os tratamentos faciais puxando a maior parte do faturamento"},
+      {t:"Injetáveis",             r:"com os injetáveis puxando a maior parte do faturamento"},
+      {t:"Pós-operatório",         r:"com o pós-operatório puxando a maior parte do faturamento"},
+      {t:"Depilação a laser",      r:"com a depilação a laser puxando a maior parte do faturamento"},
+      {t:"Tricologia",             r:"com a tricologia puxando a maior parte do faturamento"},
+      {t:"Nenhuma dessas", fora:true}
+    ]},
+
+  { id:"cena", tipo:"unica",
+    texto:"Pense na última semana. Qual dessas cenas aconteceu <em>mais vezes</em> na sua clínica ou consultório?",
+    opts:[
+      {t:"Parei o que estava fazendo para resolver algo que só eu resolvo", q:"Q1"},
+      {t:"Olhei a agenda e vi quase sempre as mesmas clientes", q:"Q2"},
+      {t:"Dei desconto ou montei promoção para não perder um fechamento", q:"Q3"},
+      {t:"Refiz ou corrigi algo que alguém da equipe deveria ter resolvido", q:"Q4"}
+    ]},
+
+  { id:"equipe", tipo:"unica",
+    texto:"Quem entrega o seu trabalho às suas clientes hoje?",
+    opts:[
+      {t:"Só eu, ninguém atende no meu lugar", r:"Hoje você atende sozinha, então tudo que acontece ali passa por você."},
+      {t:"Eu e mais uma pessoa", r:"Hoje vocês são duas atendendo, e boa parte das decisões ainda passa por você."},
+      {t:"Eu e uma equipe pequena", r:"Você já tem uma equipe pequena atendendo com você, o que significa que a estrutura já começou a existir."},
+      {t:"Tenho equipe atendendo e eu atendo pouco", r:"Você já tem equipe atendendo e quase não atende mais, o que é um passo que poucas dão."},
+      {t:"Só dirijo a clínica, não atendo mais", r:"Você já saiu do atendimento e hoje conduz o negócio, o que muda o tipo de problema que você tem pela frente."}
+    ]},
+
+  { id:"margem", tipo:"unica",
+    texto:"Depois de pagar aluguel, produtos, impostos e a sua equipe, <em>quanto costuma sobrar</em> no fim do mês?",
+    opts:[
+      {t:"Quase nada, e em alguns meses falta", r:"E no fim do mês quase não sobra, com meses em que chega a faltar."},
+      {t:"Sobra pouco, e eu não sei dizer exatamente quanto", r:"E sobra pouco, sem você conseguir dizer exatamente quanto."},
+      {t:"Nunca fechei essa conta, não sei responder", r:"E você nunca fechou essa conta, então hoje não sabe quanto sobra."},
+      {t:"Sobra o suficiente para eu me pagar e reinvestir um pouco", r:"E sobra o suficiente para você se pagar e ainda reinvestir um pouco."},
+      {t:"Sobra bem, e eu acompanho esse número de perto", r:"E sobra bem, com você acompanhando esse número de perto."}
+    ]},
+
+  { id:"tentou", tipo:"multipla",
+    texto:"O que você já fez para destravar isso?",
+    opts:[
+      {t:"Baixei preço ou fiz promoção", r:"Baixar preço e fazer promoção enche a agenda e come a margem no mesmo movimento. <strong>Você vendeu mais e sobrou menos, e não foi coincidência.</strong>"},
+      {t:"Abri mais horários e atendi até mais tarde", r:"Abrir mais horários resolve um mês. <strong>No seguinte o teto volta, só que com você mais cansada</strong>, porque a conta continua sendo feita em horas suas."},
+      {t:"Contratei mais gente para atender", r:"Contratar aumenta a capacidade e <strong>multiplica o número de decisões que ainda passam por você</strong>. Sem processo, cada pessoa nova vira mais um assunto seu."},
+      {t:"Investi em divulgação, tráfego ou equipamento novo", r:"Divulgação e equipamento novo trazem movimento, e <strong>movimento não é lucro</strong>. Quando a estrutura por trás não muda, o dinheiro entra e sai no mesmo ritmo."},
+      {t:"Ainda não fiz nada estruturado", r:"Você ainda não tentou nada estruturado, e <strong>isso joga a seu favor</strong>: não vai precisar desfazer nada antes de começar a fazer certo."}
+    ]},
+
+  { id:"faturamento", tipo:"unica",
+    texto:"Qual a média de faturamento mensal da sua clínica ou consultório nos últimos três meses?",
+    opts:[
+      {t:"Até R$ 5 mil", rota:"edp"},
+      {t:"De R$ 5 mil a R$ 10 mil", rota:"edp"},
+      {t:"De R$ 10 mil a R$ 20 mil", rota:"mentoria"},
+      {t:"De R$ 20 mil a R$ 30 mil", rota:"mentoria"},
+      {t:"De R$ 30 mil a R$ 50 mil", rota:"mentoria"},
+      {t:"De R$ 50 mil a R$ 100 mil", rota:"mentoria"},
+      {t:"Acima de R$ 100 mil", rota:"mentoria"}
+    ]}
+];
+
+/* Quadros mantidos do quiz no ar, com a leitura deslocada do
+   resultado para o dever com quem depende dela. */
+const QUADROS = {
+  Q1:{ nome:"Tudo ainda espera pela sua mão",
+    porque:"A clínica cresceu, e mesmo assim <strong>as decisões que importam continuam paradas até você chegar</strong>. Sua equipe espera, sua cliente espera, e o dia inteiro é interrompido por coisas que só você resolve.<br><br>Enquanto for assim, <strong>o tamanho da sua clínica é o tamanho da sua disponibilidade</strong>.",
+    caminho:"Decidir o que sai da sua mão primeiro e desenhar como isso passa para outra pessoa sem perder o padrão que você construiu." },
+  Q2:{ nome:"O seu nome não está alcançando gente nova",
+    porque:"As suas clientes são fiéis e voltam sempre, e isso é mérito do que você entrega. O que preocupa é que <strong>quem ainda não te conhece não está chegando</strong>, e uma clínica do seu tamanho depende de entrada nova para sustentar a estrutura que você montou.",
+    caminho:"Construir fluxo de cliente nova que não dependa de indicação nem da sua presença pessoal em cada conversa." },
+  Q3:{ nome:"A promoção virou o seu jeito de vender",
+    porque:"<strong>A promoção resolve o mês e cobra o preço no seguinte.</strong> O movimento aumenta, a margem some junto, e a sua base aprende a esperar o desconto para comprar.<br><br>Com folha para pagar, essa conta deixa de ser incômodo e passa a ser risco.",
+    caminho:"Clareza de números primeiro e preço por valor depois, até a promoção deixar de ser o que sustenta a sua venda." },
+  Q4:{ nome:"Você contratou para crescer e virou supervisora",
+    porque:"Você trouxe gente para a sua clínica e prometeu, mesmo que sem dizer em voz alta, que ali elas cresceriam. Hoje <strong>você refaz o que elas deveriam ter resolvido</strong>, e o tempo que era para ser seu vira correção.<br><br>Não é falta de gente boa. <strong>É que a parte mais crítica da entrega ficou sem processo</strong>, e sem processo cada pessoa entrega do jeito dela.",
+    caminho:"Roteiro de atendimento e de venda para a equipe, meta clara por pessoa e um ritual de acompanhamento semanal que não dependa de você estar na sala." }
+};
+
+const PILARES = [
+  {n:"Posicionamento profissional", d:"Ser escolhida pelo valor que a sua clínica entrega, e não pelo preço que ela cobra, mesmo quando quem atende não é você."},
+  {n:"Marketing de diferenciação",  d:"Atrair cliente nova que já chega sabendo por que a sua clínica custa o que custa, sem depender de promoção nem de desconto."},
+  {n:"Experiência do cliente",      d:"Padrão de atendimento que se mantém igual em qualquer sala e com qualquer pessoa da equipe, para a cliente receber sempre o que o seu nome promete."},
+  {n:"Gestão financeira",           d:"Números na mão para pagar bem a sua equipe, se pagar como dona e ainda sobrar para crescer sem aperto."}
+];
+const PILAR_DO_QUADRO = {
+  Q1:{i:0, por:"Se tudo espera por você, o caminho não é somar horas, é transferir decisão com padrão definido."},
+  Q2:{i:1, por:"Base fiel sustenta o presente. Estrutura do seu tamanho precisa de entrada nova para sustentar o futuro."},
+  Q3:{i:3, por:"Enquanto o preço for a ferramenta de venda, a margem vai embora junto com o desconto, todo mês."},
+  Q4:{i:2, por:"Equipe não falha por falta de vontade. Falha onde não existe processo dizendo qual é o padrão."}
+};
+
+const TOTAL = PERGUNTAS.length;
+const R = {};
+let etapa = 0, fora = false;
+
+/* ── infraestrutura já validada no quiz que está no ar ── */
+const WEBHOOK = 'https://hook.us2.make.com/xm49y796rjznhxylkfx1grmgg9wgkbc2';
+const WEBHOOK_FORA = 'https://hook.us2.make.com/ibk31xw6a4uvzxss7t5a9lwmg5afrrrm';
+const FUNIL = 'quiz-c-estrato-7';
+
+function dl(evento, extra){
+  try{
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event: evento, quiz_funil: FUNIL }, extra || {}));
+  }catch(e){}
+}
+function enviar(url, corpo){
+  try{
+    fetch(url, { method:'POST', keepalive:true,
+      headers:{ 'Content-Type':'application/json' },
+      body: JSON.stringify(corpo) }).catch(()=>{});
+  }catch(e){}
+}
+const UTM = (() => {
+  const p = new URLSearchParams(location.search), o = {};
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term'].forEach(k => { if(p.get(k)) o[k] = p.get(k); });
+  return o;
+})();
+
+const tela = document.getElementById('tela');
+const fill = document.getElementById('fill');
+const passo = document.getElementById('passo');
+const pad = n => String(n).padStart(2,'0');
+const esc = s => String(s==null?'':s).replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));
+const LETRA = 'ABCDEFG';
+
+function cabecalho(){
+  const dentro = etapa >= 1 && etapa <= TOTAL;
+  fill.style.width = (dentro ? ((etapa-1)/TOTAL)*100 : (etapa > TOTAL ? 100 : 0)) + '%';
+  passo.innerHTML = dentro ? `<b>${pad(etapa)}</b> / ${pad(TOTAL)}` : '';
+}
+
+function pintar(html){
+  tela.innerHTML = html;
+  tela.style.animation = 'none'; void tela.offsetWidth; tela.style.animation = '';
+  cabecalho();
+  window.scrollTo({ top:0, behavior:'smooth' });
+}
+
+/* ── perguntas ────────────────────────────────────────── */
+/* A promessa abre a página e a primeira pergunta vem logo abaixo,
+   sem tela de introdução e sem botão de começar. */
+const HEROI = `
+    <div class="abre">
+      <p class="selo">Diagnóstico para donas de clínica e consultório de estética avançada</p>
+      <h1>A sua clínica entrega o seu nome pelas <em>mãos de outras pessoas</em></h1>
+      <p class="sub">
+        Em algum momento você deixou de estar em todas as salas, e junto foi embora a
+        certeza de que o que sai de cada uma delas é o que o seu nome promete.
+        <strong>Existem quatro pontos onde a clínica de estética avançada trava exatamente
+        nesse estágio.</strong> Seis perguntas e eu te digo qual é o seu.
+      </p>
+    </div>`;
+
+function pergunta(){
+  const P = PERGUNTAS[etapa-1];
+  const multipla = P.tipo === 'multipla';
+  const marcadas = multipla ? (R[P.id] || []) : null;
+
+  pintar(`
+    ${etapa === 1 ? HEROI : ''}
+    <p class="indice">Pergunta ${pad(etapa)} de ${pad(TOTAL)}</p>
+    <h2>${P.texto}</h2>
+    <div class="opcoes" role="group">
+      ${P.opts.map((o,i) => `
+        <button class="opt" data-i="${i}" ${multipla ? `aria-pressed="${marcadas.indexOf(i)>=0}"` : ''}>
+          <span class="ch">${LETRA[i]}</span><span class="tx">${esc(o.t)}</span>
+        </button>`).join('')}
+    </div>
+    ${multipla ? `
+      <div class="rodape-btn" style="margin-top:2rem">
+        <button class="btn" id="seguir" ${marcadas.length ? '' : 'disabled'}>Continuar <i>&rarr;</i></button>
+        <span class="dica">Pode marcar mais de uma</span>
+      </div>` : ''}
+  `);
+
+  tela.querySelectorAll('.opt').forEach(b => {
+    b.onclick = () => {
+      const i = +b.dataset.i;
+      if(multipla){
+        const lista = R[P.id] || (R[P.id] = []);
+        const pos = lista.indexOf(i);
+        if(pos >= 0) lista.splice(pos,1); else lista.push(i);
+        b.setAttribute('aria-pressed', pos < 0);
+        document.getElementById('seguir').disabled = !lista.length;
+        return;
+      }
+      R[P.id] = i;
+      dl('quiz_resposta', { quiz_pergunta: P.id, quiz_opcao: P.opts[i].t });
+      if(P.opts[i].fora){ fora = true; return encerrar(); }
+      etapa++; render();
+    };
+  });
+
+  const seguir = document.getElementById('seguir');
+  if(seguir) seguir.onclick = () => {
+    dl('quiz_resposta', { quiz_pergunta: P.id, quiz_opcao: (R[P.id]||[]).map(k => P.opts[k].t).join(' + ') });
+    etapa++; render();
+  };
+}
+
+/* ── encerramento de quem está fora do escopo ─────────── */
+function encerrar(){
+  etapa = TOTAL + 1;
+  pintar(`
+    <div class="fora">
+      <p class="indice">Diagnóstico encerrado</p>
+      <h2>O que eu faço não serve para o seu caso</h2>
+      <p>
+        Eu trabalho a estrutura de clínica e consultório de estética avançada, e aplicar
+        isso a outro modelo de negócio não geraria resultado para você. Prefiro te dizer
+        agora do que ocupar o seu tempo.
+      </p>
+      <p>Obrigada por responder até aqui.</p>
+    </div>`);
+  enviar(WEBHOOK_FORA, { motivo:'fora de escopo na P1', funil:FUNIL, utm:UTM, em:new Date().toISOString() });
+  dl('quiz_desqualificado', { quiz_motivo:'fora de escopo na P1' });
+}
+
+/* ── captura ──────────────────────────────────────────── */
+function captura(){
+  etapa = TOTAL + 1;
+  pintar(`
+    <p class="indice">Última etapa</p>
+    <h2>Para onde eu envio a sua análise</h2>
+    <form class="campos" id="form" novalidate>
+      <div class="campo" id="c-nome">
+        <label for="nome">Seu nome</label>
+        <input id="nome" name="nome" type="text" autocomplete="name" placeholder="Como você prefere ser chamada">
+        <span class="aviso">Preciso do seu nome</span>
+      </div>
+      <div class="campo" id="c-fone">
+        <label for="fone">WhatsApp com DDD</label>
+        <input id="fone" name="fone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="(00) 00000-0000">
+        <span class="aviso">Confira o número, faltam dígitos</span>
+      </div>
+      <div class="campo" id="c-mail">
+        <label for="mail">E-mail</label>
+        <input id="mail" name="mail" type="email" autocomplete="email" placeholder="voce@suaclinica.com.br">
+        <span class="aviso">Confira o e-mail</span>
+      </div>
+    </form>
+
+    <div class="rodape-btn">
+      <button class="btn" id="ver">Ver o meu diagnóstico <i>&rarr;</i></button>
+    </div>
+    <p class="privacidade">
+      Os seus dados ficam comigo e com o meu time, e servem só para falar com você
+      sobre o resultado deste diagnóstico.
+    </p>`);
+
+  const fone = document.getElementById('fone');
+  fone.addEventListener('input', () => {
+    let v = fone.value.replace(/\D/g,'').slice(0,11);
+    fone.value = v.length > 10 ? `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`
+              : v.length > 6  ? `(${v.slice(0,2)}) ${v.slice(2,6)}-${v.slice(6)}`
+              : v.length > 2  ? `(${v.slice(0,2)}) ${v.slice(2)}` : v;
+  });
+
+  document.getElementById('ver').onclick = () => {
+    const nome = document.getElementById('nome').value.trim();
+    const digitos = fone.value.replace(/\D/g,'');
+    const mail = document.getElementById('mail').value.trim();
+    let ok = true;
+    const marcar = (id, bom) => { document.getElementById(id).classList.toggle('ruim', !bom); if(!bom) ok = false; };
+    marcar('c-nome', nome.length >= 2);
+    marcar('c-fone', digitos.length >= 10);
+    marcar('c-mail', /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(mail));
+    if(!ok) return;
+    R._nome = nome; R._fone = digitos; R._mail = mail;
+    concluir();
+  };
+}
+
+/* ── conclusão ────────────────────────────────────────── */
+/* Idêntica à do index.html de propósito: para pergunta de múltipla
+   escolha devolve ARRAY, porque o diagnostico.html faz .map() em cima
+   de A.tentativas. Devolver string aqui quebra o laudo em silêncio. */
+function frase(id){
+  const P = PERGUNTAS.find(p => p.id === id);
+  const v = R[id];
+  if(P.tipo === 'multipla') return (Array.isArray(v) ? v : []).map(k => P.opts[k].r).filter(Boolean);
+  return (P.opts[v] || {}).r || '';
+}
+
+function concluir(){
+  const qKey = PERGUNTAS[1].opts[R.cena].q;
+  const Q = QUADROS[qKey];
+  const rota = PERGUNTAS[5].opts[R.faturamento].rota;
+  const P = PILAR_DO_QUADRO[qKey];
+
+  const leadId = (() => {
+    try{ if(crypto && crypto.randomUUID) return crypto.randomUUID(); }catch(e){}
+    return 'l-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2,10);
+  })();
+
+  const payload = {
+    id: leadId, funil: FUNIL,
+    nome:R._nome, fone:R._fone, mail:R._mail,
+    quadroId:qKey, quadro:Q.nome, porque:Q.porque, caminho:Q.caminho, rota:rota,
+    cenario:`Você tem uma clínica ou consultório ${frase('carro')}. ${frase('equipe')} ${frase('margem')}`,
+    tentativas: frase('tentou'),
+    pilares: PILARES, pilarIdx:P.i, pilarNome:PILARES[P.i].n, pilarPor:P.por,
+    utm: UTM,
+    debug: [
+      'carro-chefe: '+PERGUNTAS[0].opts[R.carro].t,
+      'quem entrega: '+PERGUNTAS[2].opts[R.equipe].t,
+      'margem: '+PERGUNTAS[3].opts[R.margem].t,
+      'já tentou: '+((R.tentou||[]).map(k=>PERGUNTAS[4].opts[k].t).join(' + ')||'nada'),
+      'faturamento: '+PERGUNTAS[5].opts[R.faturamento].t
+    ],
+    em: new Date().toISOString()
+  };
+  try{ sessionStorage.setItem('jugodinho_quizb', JSON.stringify(payload)); }catch(e){}
+
+  enviar(WEBHOOK, {
+    lead_id: leadId, funil: FUNIL,
+    nome: R._nome, numero: R._fone, email: R._mail,
+    q1: PERGUNTAS[0].opts[R.carro].t,
+    q2: PERGUNTAS[1].opts[R.cena].t,
+    q3: PERGUNTAS[2].opts[R.equipe].t,
+    q4: PERGUNTAS[3].opts[R.margem].t,
+    q5: (R.tentou||[]).map(k=>PERGUNTAS[4].opts[k].t).join(' + '),
+    q6: PERGUNTAS[5].opts[R.faturamento].t,
+    gargalo: Q.nome, rota: rota,
+    utm_source: UTM.utm_source || '', utm_medium: UTM.utm_medium || '',
+    utm_campaign: UTM.utm_campaign || '', utm_content: UTM.utm_content || '',
+    utm_term: UTM.utm_term || '',
+    em: payload.em
+  });
+
+  dl('quiz_completo_captura', {
+    lead_id: leadId, quiz_quadro: qKey, quiz_rota: rota,
+    quiz_faturamento: PERGUNTAS[5].opts[R.faturamento].t
+  });
+
+  pintar(`
+    <p class="indice">Analisando as suas respostas</p>
+    <h2>Um instante</h2>
+    <div class="espera" style="margin-top:1.6rem"><i></i><span>Montando o seu diagnóstico</span></div>`);
+
+  setTimeout(() => { location.href = 'diagnostico.html'; }, 1400);
+}
+
+/* ── roteador ─────────────────────────────────────────── */
+function render(){
+  if(fora) return;
+  if(etapa <= TOTAL) return pergunta();
+  return captura();
+}
+
+etapa = 1;
+dl('quiz_inicio');
+render();
+</script>
+
+</body>
+</html>
