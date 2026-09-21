@@ -46,12 +46,34 @@ O resto segue a apostila:
 1. **Quiz do tipo Killer** (Procedimento 4). Promete a causa ("onde o seu
    dinheiro está saindo"), não a solução. É o tipo certo para público frio que
    já tentou curso técnico e planilha e continuou sem margem.
-2. **10 perguntas em camadas** (Procedimento 7), com a qualificação financeira
-   por último. As perguntas de ticket e de faturamento têm **7 faixas** de
-   propósito: quem marca a menor descobre, na mesma tela, que a maior é ocupada
-   por gente do mesmo mercado.
-3. **3 interseções de implicação** entre as perguntas, depois da P3, da P6 e da
-   P8. Todas ancoradas em fato verificável da Adriana ou em aritmética pura.
+2. **10 perguntas da mais fácil para a mais reflexiva.** Abre com o que se
+   responde sem pensar (o que você faz, quantos eventos entrega), passa pelo
+   comportamento reconhecível (o que acontece com o orçamento, os extras),
+   depois pelos números (ticket, desconto), e só no fim chega no que exige
+   parar para pensar (o que você sente no fim do mês, o que mudaria em 3
+   meses). A qualificação financeira é sempre a última.
+
+   | # | Pergunta | Por que aqui |
+   | - | -------- | ------------ |
+   | 1 | Segmento | Identificação, zero fricção |
+   | 2 | Eventos por mês | Factual, responde de cabeça |
+   | 3 | O que acontece com o orçamento | Cena reconhecível, define o padrão |
+   | 4 | Extras fora do combinado | Comportamento, sem conta |
+   | 5 | Ticket médio | Primeiro número |
+   | 6 | Desconto no fechamento | Número e um tanto de desconforto |
+   | 7 | O que já tentou | Memória, já aquecida |
+   | 8 | O que sente no fim do mês | Emocional |
+   | 9 | O que mudaria em 3 meses | Projeção, a mais pensada |
+   | 10 | Faturamento | Porteira, sempre por último |
+
+   As perguntas de ticket e de faturamento têm **7 faixas** de propósito: quem
+   marca a menor descobre, na mesma tela, que a maior é ocupada por gente do
+   mesmo mercado.
+3. **3 interseções de implicação**, sempre logo depois da pergunta que elas
+   comentam: a dos 13 eventos vem depois do orçamento, a do desconto anual vem
+   depois da pergunta de desconto, e a do "40% menos, 60% mais" vem depois do
+   "o que você já tentou". Todas ancoradas em fato verificável da Adriana ou em
+   aritmética pura.
 4. **4 buckets** com página de resultado própria (Procedimentos 5 e 6), mais a
    rota de desqualificado que sai da pergunta porteira.
 5. **Roteamento pós-quiz**: qualificado e a nutrir vão para o WhatsApp dela,
@@ -102,7 +124,13 @@ Duas travas de credibilidade:
 | `favicon.svg` | monograma A em ouro sobre preto |
 
 Para mudar texto, mexa **só no `flow.js`**. Para mudar cor, só no `:root` do
-`styles.css`.
+`styles.css`. Para mudar a ordem das perguntas, basta reordenar o array `steps`
+no `flow.js`: o motor não depende da posição. **Só não esqueça das interseções**,
+que são ancoradas pelo `id` da pergunta que vem antes delas.
+
+> A ordem e o microcopy aqui divergem de propósito do PDF da estratégia de
+> 11/09, que trazia as perguntas noutra sequência e um "10 perguntas · 2
+> minutos" sob o título. O funil no ar é a versão boa.
 
 ## Rodar local
 

@@ -191,7 +191,6 @@ function renderCaptura() {
         ${fields}
         <button class="btn btn-primary btn-block" id="submit" type="submit">${c.cta}</button>
         <p class="hint" style="margin-top:14px;text-align:center">${c.privacidade}</p>
-        <p class="microlegal">${c.microlegal}</p>
       </form>
       <div class="actions"><button class="btn btn-ghost" id="back" type="button">&#8592; Voltar</button></div>
     </section>`);
@@ -267,8 +266,7 @@ function renderStep(screenIdx, i) {
   const intro = primeira ? `
       <span class="selo">${F.hero.selo}</span>
       <h1>${F.hero.titulo}</h1>
-      <p class="lead">${F.hero.subtitulo}</p>
-      <p class="hint tempo" style="margin-bottom:6px">${F.hero.tempo}</p>
+      <p class="lead" style="margin-bottom:6px">${F.hero.subtitulo}</p>
       <hr class="rule-gold" />` : "";
 
   const screen = el(`
@@ -277,11 +275,7 @@ function renderStep(screenIdx, i) {
       <p class="eyebrow">${step.etapa}</p>
       <h2 id="q-${step.id}">${step.pergunta}</h2>
       <div class="options" role="radiogroup" aria-labelledby="q-${step.id}">${opts}</div>
-      ${primeira ? `<p class="microlegal">${F.captura.microlegal}</p>` : ""}
-      <div class="actions">
-        ${primeira ? "" : '<button class="btn btn-ghost" id="back" type="button">&#8592; Voltar</button>'}
-        <span class="hint">Toque na opção. Avança sozinho.</span>
-      </div>
+      ${primeira ? "" : '<div class="actions"><button class="btn btn-ghost" id="back" type="button">&#8592; Voltar</button></div>'}
     </section>`);
   app.replaceChildren(screen);
   scrollTop();

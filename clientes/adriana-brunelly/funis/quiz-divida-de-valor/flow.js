@@ -50,7 +50,6 @@ window.FLOW = {
     selo: "Diagnóstico gratuito · 2 minutos",
     titulo: "Quanto o seu negócio de eventos deixa na mesa <em>todo ano</em>?",
     subtitulo: "Não é falta de cliente e não é falta de talento. Existem quatro pontos onde o dinheiro escapa entre o seu orçamento e o seu caixa, e todos eles têm conta.",
-    tempo: "10 perguntas · 2 minutos · a sua conta na tela no fim",
     cta: "Quero ver a minha conta",
   },
 
@@ -65,13 +64,28 @@ window.FLOW = {
     ],
     cta: "Ver a minha Dívida de Valor",
     privacidade: "Os seus dados ficam entre você e a nossa equipe. Nada de disparo em massa.",
-    microlegal: "Ao continuar, você concorda com os termos de uso, de publicidade e de cookies.",
   },
 
   /* ---------------------------------------------------------
      AS 10 PERGUNTAS (apostila, Procedimento 7)
      Camadas: identificação, situação, problema, implicação,
      tentativas, objetivo, qualificação financeira por último.
+
+     Campos de cada opção:
+       report  frase usada no texto do diagnóstico
+       peso    pontos por bucket { orcamento, desconto, extra, agenda }
+       valor   entra no cálculo da Dívida de Valor (ver calculo)
+       nutrir  marca faixa de baixa prontidão na pergunta porteira
+     --------------------------------------------------------- */
+  /* ---------------------------------------------------------
+     AS 10 PERGUNTAS (apostila, Procedimento 7)
+
+     ORDEM: da mais fácil para a mais reflexiva. Abre com o que se
+     responde sem pensar (o que você faz, quantos eventos entrega),
+     passa pelo comportamento reconhecível, depois pelos números, e
+     só no fim chega no que exige parar para pensar (o que você
+     sente no fim do mês, o que mudaria em 3 meses). A qualificação
+     financeira é sempre a última.
 
      Campos de cada opção:
        report  frase usada no texto do diagnóstico
@@ -89,20 +103,6 @@ window.FLOW = {
         { value: "decoracao",  label: "Trabalho com decoração de festas",     report: "decoração de festas" },
         { value: "doceira",    label: "Sou doceira ou confeiteira",           report: "doces e confeitaria" },
         { value: "assessoria", label: "Sou assessora ou cerimonialista",      report: "assessoria e cerimonial" },
-      ],
-    },
-    {
-      id: "ticket",
-      etapa: "O seu ticket",
-      pergunta: "Qual é o valor médio de um evento ou pedido seu?",
-      options: [
-        { value: "ate3",      label: "Até R$ 3 mil",                report: "até R$ 3 mil",              valor: 2000 },
-        { value: "3a8",       label: "De R$ 3 mil a R$ 8 mil",      report: "de R$ 3 mil a R$ 8 mil",    valor: 5500 },
-        { value: "8a15",      label: "De R$ 8 mil a R$ 15 mil",     report: "de R$ 8 mil a R$ 15 mil",   valor: 11500 },
-        { value: "15a30",     label: "De R$ 15 mil a R$ 30 mil",    report: "de R$ 15 mil a R$ 30 mil",  valor: 22500 },
-        { value: "30a60",     label: "De R$ 30 mil a R$ 60 mil",    report: "de R$ 30 mil a R$ 60 mil",  valor: 45000 },
-        { value: "60a120",    label: "De R$ 60 mil a R$ 120 mil",   report: "de R$ 60 mil a R$ 120 mil", valor: 90000 },
-        { value: "acima120",  label: "Acima de R$ 120 mil",         report: "acima de R$ 120 mil",       valor: 150000 },
       ],
     },
     {
@@ -132,18 +132,6 @@ window.FLOW = {
       ],
     },
     {
-      id: "desconto",
-      etapa: "O fechamento",
-      pergunta: "Na hora de fechar, quanto costuma sair de desconto?",
-      options: [
-        { value: "nenhum",  label: "Não dou desconto",            report: "nenhum desconto",        valor: 0 },
-        { value: "ate10",   label: "Até 10%",                     report: "até 10%",                valor: 0.07, peso: { desconto: 1 }, fatMax: 10000 },
-        { value: "10a20",   label: "De 10% a 20%",                report: "de 10% a 20%",           valor: 0.15, peso: { desconto: 2 } },
-        { value: "mais20",  label: "Mais de 20%, ou dou algum brinde que sai do meu bolso",
-          report: "mais de 20%, ou um brinde que sai do seu bolso", valor: 0.25, peso: { desconto: 3 } },
-      ],
-    },
-    {
       id: "extras",
       etapa: "A entrega",
       pergunta: "E os extras: o cliente pede algo fora do combinado durante o evento?",
@@ -159,18 +147,29 @@ window.FLOW = {
       ],
     },
     {
-      id: "sentimento",
-      etapa: "O fim do mês",
-      pergunta: "No fim do mês, quando você olha a conta, o que você sente?",
+      id: "ticket",
+      etapa: "O seu ticket",
+      pergunta: "Qual é o valor médio de um evento ou pedido seu?",
       options: [
-        { value: "ok",         label: "Está bom, sobra o que eu planejei",
-          report: "que está bom, e sobra o que você planejou" },
-        { value: "nao_sobra",  label: "Entrou muito dinheiro e não sobrou quase nada",
-          report: "que entrou muito dinheiro e não sobrou quase nada", peso: { agenda: 2 } },
-        { value: "sobrou_menos", label: "Sobrou menos que no mês passado e eu não sei explicar por quê",
-          report: "que sobrou menos que no mês passado, sem explicação", peso: { extra: 1, agenda: 1 } },
-        { value: "evito",      label: "Eu evito olhar",
-          report: "que prefere não olhar",                             peso: { agenda: 1, extra: 1 } },
+        { value: "ate3",      label: "Até R$ 3 mil",                report: "até R$ 3 mil",              valor: 2000 },
+        { value: "3a8",       label: "De R$ 3 mil a R$ 8 mil",      report: "de R$ 3 mil a R$ 8 mil",    valor: 5500 },
+        { value: "8a15",      label: "De R$ 8 mil a R$ 15 mil",     report: "de R$ 8 mil a R$ 15 mil",   valor: 11500 },
+        { value: "15a30",     label: "De R$ 15 mil a R$ 30 mil",    report: "de R$ 15 mil a R$ 30 mil",  valor: 22500 },
+        { value: "30a60",     label: "De R$ 30 mil a R$ 60 mil",    report: "de R$ 30 mil a R$ 60 mil",  valor: 45000 },
+        { value: "60a120",    label: "De R$ 60 mil a R$ 120 mil",   report: "de R$ 60 mil a R$ 120 mil", valor: 90000 },
+        { value: "acima120",  label: "Acima de R$ 120 mil",         report: "acima de R$ 120 mil",       valor: 150000 },
+      ],
+    },
+    {
+      id: "desconto",
+      etapa: "O fechamento",
+      pergunta: "Na hora de fechar, quanto costuma sair de desconto?",
+      options: [
+        { value: "nenhum",  label: "Não dou desconto",            report: "nenhum desconto",        valor: 0 },
+        { value: "ate10",   label: "Até 10%",                     report: "até 10%",                valor: 0.07, peso: { desconto: 1 }, fatMax: 10000 },
+        { value: "10a20",   label: "De 10% a 20%",                report: "de 10% a 20%",           valor: 0.15, peso: { desconto: 2 } },
+        { value: "mais20",  label: "Mais de 20%, ou dou algum brinde que sai do meu bolso",
+          report: "mais de 20%, ou um brinde que sai do seu bolso", valor: 0.25, peso: { desconto: 3 } },
       ],
     },
     {
@@ -189,6 +188,21 @@ window.FLOW = {
       ],
     },
     {
+      id: "sentimento",
+      etapa: "O fim do mês",
+      pergunta: "No fim do mês, quando você olha a conta, o que você sente?",
+      options: [
+        { value: "ok",         label: "Está bom, sobra o que eu planejei",
+          report: "que está bom, e sobra o que você planejou" },
+        { value: "nao_sobra",  label: "Entrou muito dinheiro e não sobrou quase nada",
+          report: "que entrou muito dinheiro e não sobrou quase nada", peso: { agenda: 2 } },
+        { value: "sobrou_menos", label: "Sobrou menos que no mês passado e eu não sei explicar por quê",
+          report: "que sobrou menos que no mês passado, sem explicação", peso: { extra: 1, agenda: 1 } },
+        { value: "evito",      label: "Eu evito olhar",
+          report: "que prefere não olhar",                             peso: { agenda: 1, extra: 1 } },
+      ],
+    },
+    {
       id: "objetivo",
       etapa: "O seu objetivo",
       pergunta: "Se em 3 meses isso mudasse de vez, o que mudaria primeiro?",
@@ -203,7 +217,6 @@ window.FLOW = {
           report: "ser a referência da sua cidade" },
       ],
     },
-
     /* PORTEIRA · qualificação financeira sempre por último.
        As sete faixas existem pelo contraste: quem marca a primeira
        vê, na mesma tela, que a última é ocupada por gente do mesmo
@@ -236,12 +249,12 @@ window.FLOW = {
      aritmética pura. Nada inventado.
      --------------------------------------------------------- */
   interseccoes: {
-    volume: {
+    orcamento: {
       num: "13 eventos em 1 semana",
       texto: "Foi a semana que mudou o meu negócio. Entreguei os treze, passei 72 horas sem dormir e ficou tudo impecável. Na segunda-feira fui olhar os números e não tinha sobrado quase nada. <strong>Volume não é margem.</strong>",
       fonte: "Adriana Brune'lly, 2017",
     },
-    extras: {
+    desconto: {
       num: "R$ 108 mil por ano",
       texto: "É o que sai de um negócio que dá 10% de desconto em seis eventos de R$ 15 mil por mês. São R$ 1.500 por evento, R$ 9 mil por mês. <strong>Ninguém lança esse número em lugar nenhum.</strong>",
       fonte: "Conta simples, com os números do próprio mercado",

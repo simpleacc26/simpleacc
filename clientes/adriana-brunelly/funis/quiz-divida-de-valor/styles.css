@@ -138,8 +138,6 @@ strong { color: #FBF7EE; font-weight: 700; }
 .selo { display: inline-block; background: var(--accent-soft); color: var(--primary-700);
   font-size: 11.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
   padding: 8px 16px; border-radius: 99px; margin-bottom: 20px; border: 1px solid var(--border); }
-.tempo { display: flex; align-items: baseline; gap: 9px; color: var(--muted); font-size: 14px; margin-top: 18px; }
-.tempo::before { content: "◆"; color: var(--primary); font-size: 9px; flex: 0 0 auto; position: relative; top: -2px; }
 
 /* ---------- opções (auto-avanço) ---------- */
 .options { display: grid; gap: 11px; margin: 26px 0 6px; }
@@ -221,9 +219,6 @@ strong { color: #FBF7EE; font-weight: 700; }
   border-top-color: #14110B; border-radius: 50%; animation: spin .7s linear infinite;
   vertical-align: -3px; margin-right: 9px; }
 @keyframes spin { to { transform: rotate(360deg); } }
-
-/* microcopy jurídica sob o primeiro bloco de opções */
-.microlegal { color: rgba(167,158,141,.75); font-size: 12px; margin-top: 18px; line-height: 1.5; }
 
 /* ---------- tela de loading ---------- */
 .loading-card { text-align: center; padding: 48px 26px; }
