@@ -11,8 +11,14 @@ ticket "WhatsApp de valor" como caminho para quem não qualifica.
 O método dela tem nome — **ACA®** (Autorreconhecimento → Conexão e Comunicação → Autoridade)
 — e uma tese proprietária escrita, a **"Dívida de Valor"**.
 
-Status: **estratégia entregue.** Onboarding feito em **10/09/2026**. Roadmap de 90 dias e
-estratégia completa com as copies do funil prontos em 11/09, aguardando aprovação dela.
+Status em **21/09/2026**: **estratégia entregue, implementação não iniciada.** Onboarding
+feito em 10/09; roadmap, estratégia completa e guia de depoimentos prontos em 11/09 e
+**aguardando aprovação dela desde então**. O funil existe escrito (copy do quiz, da página
+de diagnóstico e dos 25 criativos), mas **nada foi implementado nem publicado**: `funis/`
+está vazio, nenhum vídeo foi gravado e nenhuma campanha está no ar.
+
+> **Chegou agora no projeto?** Comece por
+> [`contexto/2026-09-21-passagem-de-bastao-e-estado-do-projeto.md`](contexto/2026-09-21-passagem-de-bastao-e-estado-do-projeto.md).
 
 **Entregas:**
 - [Roadmap Estratégico de 90 dias](estrategia/2026-09-11-roadmap-estrategico-adriana-brunelly.html)
@@ -29,6 +35,7 @@ estratégia completa com as copies do funil prontos em 11/09, aguardando aprova�
 | --------------------- | ---------------- | ------- |
 | Principal (cliente)   | Adriana Brunelly | diretodaproprietaria@gmail.com · (43) 9 9880-8803 |
 | Responsável SimpleAcc | Daniel Souza     | conduz o Mapa Estratégico e os 5 primeiros encontros |
+| Condução do projeto   | Renan Martini    | gestor de tráfego, performance e dados; **assumiu em 09/2026 no lugar do Carlos Durães**, que saiu da empresa |
 | Financeiro SimpleAcc  | Clara            | contrato, ficha de dados e cobranças |
 
 > Dados cadastrais completos (CPF, RG e endereço) **não ficam no Git** — estão na ficha de
@@ -61,7 +68,7 @@ estratégia completa com as copies do funil prontos em 11/09, aguardando aprova�
 
 | Projeto | Pasta | Status | Deploy |
 | ------- | ----- | ------ | ------ |
-| Funil de quiz (mentoria R$ 30 mil) | a criar em `funis/` | não iniciado — aguarda Mapa Estratégico | — |
+| Funil de quiz (mentoria R$ 30 mil) | a criar em `funis/` | **copy escrita, nada implementado** — aguarda aprovação da estratégia | — |
 | WhatsApp de Valor (low ticket R$ 47) | produto dela, fora do repo | **no ar**, sem venda | [wppdevalor.lovable.app](https://wppdevalor.lovable.app) |
 
 ## Pendências
@@ -89,6 +96,18 @@ estratégia completa com as copies do funil prontos em 11/09, aguardando aprova�
 - [ ] Auditar Instagram, página do Facebook e gerenciador que já existem — **ela perguntou
       isso no grupo e está esperando resposta**.
 - [ ] Listar toda ferramenta do projeto que exige cartão e decidir quem paga o quê.
+
+**Órfãs da saída do Carlos (prometidas a ela na call de 10/09):**
+
+- [ ] ⚠️ **Guia de estruturação do produto de alto valor** — é o que destrava a grade da
+      mentoria de R$ 30 mil, a pendência nº 1 do projeto.
+- [ ] PDF com o **fluxo do funil de vendas**.
+- [ ] **Link da área de membros** — ela ainda não acessou.
+- [ ] **Lista de referências de especialistas** do nicho de eventos.
+- [ ] **Sugestões de equipamento** para gravar (o computador dela é um "Frankenstein").
+- [ ] **Treinamento bônus de social selling com a Cecilia**, na etapa de abordagem.
+- [ ] **Acessos de Facebook, Instagram e conta de anúncio** (item do Renan desde a call).
+- [ ] Orientar sobre o **Drive dela, que está sem espaço** — limpar ou subir de plano.
 
 **Comercial e contrato:**
 

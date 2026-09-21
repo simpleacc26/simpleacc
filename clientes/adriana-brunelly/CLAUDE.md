@@ -60,13 +60,18 @@ onde a outra parou (o Git é a memória compartilhada).
 > - [`contexto/2026-09-07-escopo-vendido-e-condicao-comercial.md`](contexto/2026-09-07-escopo-vendido-e-condicao-comercial.md)
 >   — o que foi vendido e a condição comercial.
 > - [`estrategia/2026-09-11-estrategia-completa-funil-quiz.html`](estrategia/2026-09-11-estrategia-completa-funil-quiz.html)
->   — **a estratégia do funil** (24 páginas, PDF na mesma pasta): big idea e régua de linguagem,
->   quiz com os 4 padrões de perda, página de diagnóstico em 9 blocos, 20 criativos escritos,
->   cadência de 12 dias e recomendações.
+>   — **a estratégia do funil** (23 páginas, PDF na mesma pasta): big idea e régua de linguagem,
+>   quiz de 10 perguntas com os 4 padrões de perda, página de diagnóstico em 9 blocos,
+>   **25 criativos escritos** (15 roteiros de vídeo, 5 estáticos, 5 carrosséis), cadência de
+>   12 dias e recomendações.
 > - [`estrategia/2026-09-11-roadmap-estrategico-adriana-brunelly.html`](estrategia/2026-09-11-roadmap-estrategico-adriana-brunelly.html)
 >   — roadmap de 90 dias (PDF na mesma pasta).
+> - [`estrategia/2026-09-11-guia-captacao-depoimentos-adriana-brunelly.html`](estrategia/2026-09-11-guia-captacao-depoimentos-adriana-brunelly.html)
+>   — guia de captação de depoimentos (4 páginas, PDF na mesma pasta).
 > - [`estrategia/2026-09-10-roteiro-call-mapa-estrategico-v2.md`](estrategia/2026-09-10-roteiro-call-mapa-estrategico-v2.md)
 >   — roteiro da call de onboarding, já realizada.
+> - [`contexto/2026-09-21-passagem-de-bastao-e-estado-do-projeto.md`](contexto/2026-09-21-passagem-de-bastao-e-estado-do-projeto.md)
+>   — quem conduz o projeto hoje e o que ficou órfão com a saída do Carlos.
 
 > ⚠️ **Ela é leiga em tecnologia e pede desculpa antes de perguntar.** Escreveu no grupo:
 > *"sou bem leiga... entendo muito pouco sobre tráfego e automação (Please socorro) NADA NA
@@ -105,11 +110,17 @@ onde a outra parou (o Git é a memória compartilhada).
    pré-paga com Pix/boleto, e isso muda a operação (para de veicular quando o saldo acaba).
 4. **Sem fotos.** Nem dela, nem organizadas dos serviços.
 
-## Estado do projeto (11/09/2026)
+## Estado do projeto (21/09/2026)
 
-Contrato fechado em 04/09, **onboarding feito em 10/09**. Roadmap de 90 dias e estratégia
-completa entregues em 11/09, aguardando aprovação dela para a Simple construir quiz, páginas
-e criativos.
+Contrato fechado em 04/09, **onboarding feito em 10/09**. Roadmap de 90 dias, estratégia
+completa e guia de depoimentos entregues em 11/09, **aguardando aprovação dela desde então**.
+
+⚠️ **O funil está escrito, não construído.** A copy do quiz, da página de diagnóstico e dos
+25 criativos existe no PDF da estratégia; `funis/` e `copy/` estão vazios, nenhum vídeo foi
+gravado e nenhuma campanha está no ar. Não confunda copy pronta com peça pronta.
+
+**Carlos Durães saiu da empresa; Renan Martini assumiu a condução.** O que ficou órfão está
+em [`contexto/2026-09-21-passagem-de-bastao-e-estado-do-projeto.md`](contexto/2026-09-21-passagem-de-bastao-e-estado-do-projeto.md).
 
 **A ordem combinada na call, por Teoria das Restrições:** caixa rápido na base de 25 anos
 primeiro, funil depois, mídia por último e com dinheiro da venda manual. O caixa dela é curto
