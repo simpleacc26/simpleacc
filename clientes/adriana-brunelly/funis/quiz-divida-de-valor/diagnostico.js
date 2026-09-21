@@ -29,6 +29,7 @@ if (!temRespostas) {
 } else {
   const nome = esc((a.nomeResp || "").split(" ")[0]) || "Oi";
   const divida = M.calcularDivida(a);
+  const custos = M.custosDeOperacao(a, divida);
   const bucket = M.definirBucket(a);
   const B = bucket.dados;
   const nivel = M.classificarLead(a, divida);
@@ -41,6 +42,8 @@ if (!temRespostas) {
   const extras = M.frase("extras");
   const sentimento = M.frase("sentimento");
   const tentativas = M.frase("tentativas");
+  const equipe = M.frase("equipe");
+  const comissao = M.frase("comissao");
   const objetivo = M.frase("objetivo");
 
   /* ---- CTA por nível de qualificação ---- */
@@ -170,6 +173,46 @@ if (!temRespostas) {
 
     <!-- Bloco 4 · a conta -->
     ${blocoConta}
+
+    <!-- Bloco 4b · o que a operação come, ao lado da conta -->
+    <div class="etapa">
+      <h3>E tem o que a operação come</h3>
+      ${custos.semConta
+        ? `<p>Você marcou que <strong>nunca fez a conta do que a mão de obra come de um evento</strong>.
+           Não é descuido: quase ninguém nesse mercado faz. Só que esse é o custo que mais cresce sozinho,
+           porque ele sobe a cada evento aceito e nunca aparece numa linha só.</p>
+           <p><strong>Enquanto você não souber esse número, qualquer preço que você colocar é chute.</strong>
+           É a primeira conta que eu faço com quem senta comigo.</p>`
+        : `<p>Somando equipe fixa e freelancer, a mão de obra come <strong>${equipe}</strong>,
+           cerca de <strong>${custos.fmt.custoEquipeMes} por mês</strong> na sua operação.</p>
+           ${custos.equipePesada && divida.pctDesconto > 0
+             ? `<p>Repare no cruzamento: a mão de obra já leva ${equipe}, e ainda assim você dá
+                <strong>${pctDesconto}</strong> de desconto na hora de fechar.
+                <strong>O desconto sai de uma margem que já estava apertada antes de você abrir a boca.</strong></p>`
+             : ``}
+           ${custos.equipePesada
+             ? `<p>Mão de obra acima de 20% quase nunca é preço de mercado: é equipe sem treino, que precisa de
+                mais gente para entregar o mesmo. Você paga caro por mão de obra barata.</p>`
+             : ``}`}
+    </div>
+
+    ${custos.temComissao ? `
+    <!-- Bloco 4c · a conta da comissão -->
+    <div class="etapa destaque">
+      <h3>A conta da comissão</h3>
+      <p>Você paga <strong>${comissao}</strong> para quem te indica festa. Essa é a conta que quase ninguém faz.</p>
+      <p>Comissão não sai do faturamento, sai do <strong>lucro</strong>. Num buffet ou numa decoração que fecha o mês
+      com ${custos.margemRef}% de lucro líquido, pagar ${comissao} significa entregar
+      <strong>cerca de ${custos.fatiaDoLucro}% do lucro daquela festa</strong> para alguém que não montou o salão,
+      não atendeu o cliente e não respondeu no domingo.</p>
+      ${custos.fatiaDoLucro >= 40
+        ? `<p><strong>Nessa faixa, o parceiro deixou de ser parceiro e virou sócio.</strong> E sócio majoritário,
+           dependendo do mês. Eu já vi buffet fechar as portas por causa dessa conta.</p>`
+        : `<p>Não sou contra comissão. Sou contra virar sócio de quem só faz a indicação.</p>`}
+      <p>E o motivo de a porcentagem nunca ser renegociada raramente é o dinheiro:
+      <strong>é o medo de perder quem traz festa.</strong> Você aceita a conta do parceiro pelo volume que ele traz,
+      e não pelo trabalho que você entrega. Isso também é Dívida de Valor.</p>
+    </div>` : ``}
 
     ${ctaInline}
 

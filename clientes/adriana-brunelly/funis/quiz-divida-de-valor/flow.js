@@ -103,10 +103,14 @@ window.FLOW = {
 
      ORDEM: da mais fácil para a mais reflexiva. Abre com o que se
      responde sem pensar (o que você faz, quantos eventos entrega),
-     passa pelo comportamento reconhecível, depois pelos números, e
-     só no fim chega no que exige parar para pensar (o que você
-     sente no fim do mês, o que mudaria em 3 meses). A qualificação
-     financeira é sempre a última.
+     passa pelo comportamento reconhecível, depois pelos números de
+     entrada e de saída, e só no fim chega no que exige parar para
+     pensar (o que você sente no fim do mês, o que mudaria em 3
+     meses). A qualificação financeira é sempre a última.
+
+     São 12 perguntas, o teto da apostila para high ticket. Não
+     passe disso: o lead deste funil é justamente o que não tem
+     tempo.
 
      Campos de cada opção:
        report  frase usada no texto do diagnóstico
@@ -191,6 +195,40 @@ window.FLOW = {
         { value: "10a20",   label: "De 10% a 20%",                report: "de 10% a 20%",           valor: 0.15, peso: { desconto: 2 } },
         { value: "mais20",  label: "Mais de 20%, ou dou algum brinde que sai do meu bolso",
           report: "mais de 20%, ou um brinde que sai do seu bolso", valor: 0.25, peso: { desconto: 3 } },
+      ],
+    },
+    {
+      id: "equipe",
+      etapa: "A sua equipe",
+      pergunta: "Somando equipe fixa e freelancer, quanto a mão de obra come de um evento seu?",
+      options: [
+        { value: "ate10",     label: "Até 10% do valor do evento",
+          report: "até 10% do valor do evento",                  valor: 0.08 },
+        { value: "10a20",     label: "De 10% a 20%",
+          report: "de 10% a 20% do valor do evento",             valor: 0.15 },
+        { value: "20a30",     label: "De 20% a 30%",
+          report: "de 20% a 30% do valor do evento",             valor: 0.25, peso: { agenda: 1 } },
+        { value: "mais30",    label: "Mais de 30%",
+          report: "mais de 30% do valor do evento",              valor: 0.35, peso: { agenda: 2 } },
+        { value: "nunca_fiz", label: "Nunca fiz essa conta",
+          report: "que nunca fez essa conta",                    valor: 0,    peso: { extra: 2 } },
+      ],
+    },
+    {
+      id: "comissao",
+      etapa: "As indicações",
+      pergunta: "E quanto você paga para quem te indica festa, seja assessor, agência ou parceiro?",
+      options: [
+        { value: "nao_trabalho", label: "Não trabalho com indicação de parceiros",
+          report: "não trabalhar com indicação de parceiros",    valor: 0 },
+        { value: "ate3",         label: "Até 3% do valor da festa",
+          report: "até 3% do valor da festa",                    valor: 0.03 },
+        { value: "3a5",          label: "De 3% a 5%",
+          report: "de 3% a 5% do valor da festa",                valor: 0.04 },
+        { value: "5a8",          label: "De 5% a 8%",
+          report: "de 5% a 8% do valor da festa",                valor: 0.065, peso: { desconto: 1 } },
+        { value: "dez_mais",     label: "10% ou mais",
+          report: "10% ou mais do valor da festa",               valor: 0.10,  peso: { desconto: 2 } },
       ],
     },
     {

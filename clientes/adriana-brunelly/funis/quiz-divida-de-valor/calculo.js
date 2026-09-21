@@ -65,6 +65,40 @@
     };
   }
 
+  /* ---- Os dois custos de operação ----
+     Estes NÃO entram na Dívida de Valor. Mão de obra e comissão são
+     custos legítimos do negócio, não dinheiro deixado na mesa, e
+     somar os dois no mesmo número seria inflar a conta. Eles entram
+     na página como leitura própria, ao lado do número. */
+  function custosDeOperacao(a, divida) {
+    a = a || respostas();
+    divida = divida || calcularDivida(a);
+
+    var oEq = opcaoDe("equipe", a);
+    var pctEquipe = oEq && typeof oEq.valor === "number" ? oEq.valor : 0;
+    var semConta = !!(oEq && oEq.value === "nunca_fiz");
+
+    var oCom = opcaoDe("comissao", a);
+    var pctComissao = oCom && typeof oCom.valor === "number" ? oCom.valor : 0;
+
+    /* A conta da comissão é sobre a MARGEM, não sobre o faturamento:
+       é esse o ponto dela. Com lucro líquido de 20%, cada 10% pagos
+       ao parceiro são metade do lucro daquela festa. */
+    var margemRef = 0.20;
+    var fatiaDoLucro = pctComissao > 0 ? Math.min(100, Math.round((pctComissao / margemRef) * 100)) : 0;
+
+    return {
+      pctEquipe: pctEquipe, semConta: semConta,
+      custoEquipeMes: divida.faturamento * pctEquipe,
+      equipePesada: pctEquipe >= 0.20,
+      pctComissao: pctComissao,
+      temComissao: pctComissao > 0,
+      fatiaDoLucro: fatiaDoLucro,
+      margemRef: Math.round(margemRef * 100),
+      fmt: { custoEquipeMes: brl(divida.faturamento * pctEquipe) },
+    };
+  }
+
   /* ---- O bucket dominante ----
      Pontuação por resposta (campo peso em flow.js). No empate o
      lead SOBE para o bucket de maior perda, nunca desce: é a regra
@@ -114,7 +148,8 @@
   global.MOTOR = {
     lerEstado: lerEstado, respostas: respostas, opcaoDe: opcaoDe,
     frase: frase, valor: valor, label: label, brl: brl,
-    calcularDivida: calcularDivida, definirBucket: definirBucket,
+    calcularDivida: calcularDivida, custosDeOperacao: custosDeOperacao,
+    definirBucket: definirBucket,
     classificarLead: classificarLead,
   };
 })(window);

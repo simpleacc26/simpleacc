@@ -27,6 +27,7 @@ mesma linha: padrão, conta em reais, as 10 respostas e as UTMs.
 | Método e arquitetura | Apostila **Funil de Lead Dinâmico** (Daniel Souza · Simple), no Drive |
 | Copy do quiz e do diagnóstico | `estrategia/2026-09-11-estrategia-completa-funil-quiz.html` (páginas 4 a 11) |
 | Narrativa, inimigo e régua de linguagem | `../../CLAUDE.md` |
+| Perguntas que ficaram de fora, para a sessão | [`../../estrategia/2026-09-21-perguntas-da-sessao-de-diagnostico.md`](../../estrategia/2026-09-21-perguntas-da-sessao-de-diagnostico.md) |
 | Identidade visual | Preto, dourado e cristal, definida em 21/09/2026 |
 
 ## A arquitetura
@@ -61,10 +62,14 @@ O resto segue a apostila:
    | 4 | Extras fora do combinado | Comportamento, sem conta |
    | 5 | Ticket médio | Primeiro número |
    | 6 | Desconto no fechamento | Número e um tanto de desconforto |
-   | 7 | O que já tentou | Memória, já aquecida |
-   | 8 | O que sente no fim do mês | Emocional |
-   | 9 | O que mudaria em 3 meses | Projeção, a mais pensada |
-   | 10 | Faturamento | Porteira, sempre por último |
+   | 7 | Custo de mão de obra | Número de saída |
+   | 8 | Comissão a parceiros | Número de saída, e o mais polêmico |
+   | 9 | O que já tentou | Memória, já aquecida |
+   | 10 | O que sente no fim do mês | Emocional |
+   | 11 | O que mudaria em 3 meses | Projeção, a mais pensada |
+   | 12 | Faturamento | Porteira, sempre por último |
+
+   **São 12, que é o teto da apostila para high ticket. Não passe disso.**
 
    As perguntas de ticket e de faturamento têm **7 faixas** de propósito: quem
    marca a menor descobre, na mesma tela, que a maior é ocupada por gente do
@@ -128,6 +133,20 @@ Duas travas de credibilidade:
 | `styles.css` | sistema visual preto, dourado e cristal |
 | `favicon.svg` | monograma A em ouro sobre preto |
 | `adriana.webp` | retrato dela na página de diagnóstico (760px, 106 KB) |
+
+### Os dois custos de operação
+
+As perguntas de **mão de obra** e **comissão** não entram na soma da Dívida de
+Valor, de propósito: são custos legítimos do negócio, não dinheiro deixado na
+mesa. Somar tudo no mesmo número inflaria a conta e derrubaria a credibilidade
+da página. Elas viram dois blocos próprios, ao lado do número:
+
+- **Mão de obra:** mostra o custo em reais e, quando passa de 20% e ainda há
+  desconto, faz o cruzamento ("o desconto sai de uma margem que já estava
+  apertada"). Quem marca "nunca fiz essa conta" recebe outra leitura.
+- **Comissão:** a conta é sobre a margem, não sobre o faturamento. Com 20% de
+  lucro líquido, 10% de comissão é metade do lucro daquela festa. Acima de 40%
+  do lucro, a página nomeia: o parceiro virou sócio.
 
 Para mudar texto, mexa **só no `flow.js`**. Para mudar cor, só no `:root` do
 `styles.css`. Para mudar a ordem das perguntas, basta reordenar o array `steps`

@@ -136,6 +136,8 @@ function enviarLead(etapa) {
     orcamento: M.label("orcamento", a),
     desconto: M.label("desconto", a),
     extras: M.label("extras", a),
+    equipe: M.label("equipe", a),
+    comissao: M.label("comissao", a),
     sentimento: M.label("sentimento", a),
     tentativas: M.label("tentativas", a),
     objetivo: M.label("objetivo", a),
