@@ -70,6 +70,9 @@ onde a outra parou (o Git é a memória compartilhada).
 >   — guia de captação de depoimentos (4 páginas, PDF na mesma pasta).
 > - [`estrategia/2026-09-10-roteiro-call-mapa-estrategico-v2.md`](estrategia/2026-09-10-roteiro-call-mapa-estrategico-v2.md)
 >   — roteiro da call de onboarding, já realizada.
+> - [`contexto/2026-09-21-metodo-da-casa-funil-de-lead-dinamico.md`](contexto/2026-09-21-metodo-da-casa-funil-de-lead-dinamico.md)
+>   — **antes de mexer no funil**: o método da casa, o que ele determina sobre buckets,
+>   perguntas e páginas de resultado, e o que foi adaptado aqui.
 > - [`contexto/2026-09-21-passagem-de-bastao-e-estado-do-projeto.md`](contexto/2026-09-21-passagem-de-bastao-e-estado-do-projeto.md)
 >   — quem conduz o projeto hoje e o que ficou órfão com a saída do Carlos.
 
@@ -115,9 +118,13 @@ onde a outra parou (o Git é a memória compartilhada).
 Contrato fechado em 04/09, **onboarding feito em 10/09**. Roadmap de 90 dias, estratégia
 completa e guia de depoimentos entregues em 11/09, **aguardando aprovação dela desde então**.
 
-⚠️ **O funil está escrito, não construído.** A copy do quiz, da página de diagnóstico e dos
-25 criativos existe no PDF da estratégia; `funis/` e `copy/` estão vazios, nenhum vídeo foi
-gravado e nenhuma campanha está no ar. Não confunda copy pronta com peça pronta.
+**O funil foi construído em 21/09**, em [`funis/quiz-divida-de-valor/`](funis/quiz-divida-de-valor/):
+quiz de 10 perguntas com 3 interseções, 4 buckets, cálculo da Dívida de Valor em reais e
+página de resultado que muda por padrão. Identidade **preto, dourado e cristal**.
+
+⚠️ **Construído não é publicado.** Faltam três coisas que só ela ou o time podem dar: o
+WhatsApp de destino, o webhook da planilha de leads e o link de agendamento. Os 25 criativos
+seguem só escritos: nenhum vídeo gravado, nenhuma arte feita, nenhuma campanha no ar.
 
 **Carlos Durães saiu da empresa; Renan Martini assumiu a condução.** O que ficou órfão está
 em [`contexto/2026-09-21-passagem-de-bastao-e-estado-do-projeto.md`](contexto/2026-09-21-passagem-de-bastao-e-estado-do-projeto.md).

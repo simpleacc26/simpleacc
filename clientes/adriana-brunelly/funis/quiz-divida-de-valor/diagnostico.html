@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>O seu diagnóstico · Adriana Brune'lly</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="theme-color" content="#08070A" />
+  <style>
+    :root{--bg:#08070A;--text:#F4F1EA}
+    body{margin:0;background:#08070A;color:#F4F1EA;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ---------- específico da página de resultado ---------- */
+    .report-head { text-align: center; padding: 4px 0 2px; }
+    .report-head .selo { margin-bottom: 10px; }
+
+    /* Bloco 1 · o resultado (a tela que a pessoa manda print) */
+    .resultado { text-align: center; padding: 14px 0 26px; }
+    .resultado .padrao-rotulo { color: var(--muted); font-size: 12px; letter-spacing: .24em;
+      text-transform: uppercase; margin: 0 0 10px; }
+    .resultado h1 { font-size: 38px; line-height: 1.12; margin: 0 0 14px; }
+    .resultado .padrao-onde { color: var(--primary-700); font-family: var(--font-serif);
+      font-size: 18px; font-style: italic; margin: 0 0 18px; }
+    .resultado .padrao-porque { font-size: 17px; margin: 0 0 14px; }
+    @media (max-width: 520px){ .resultado h1 { font-size: 30px; } }
+
+    .etapa { margin: 0 0 30px; }
+    .etapa h3 { font-size: 11.5px; text-transform: uppercase; letter-spacing: .2em;
+      color: var(--primary); margin: 0 0 14px; font-weight: 700; }
+    .etapa p { margin: 0 0 13px; }
+    .etapa.destaque { border-left: 2px solid var(--primary); padding-left: 20px; }
+
+    /* listas */
+    .espelho { margin: 0 0 16px; padding: 0; list-style: none; }
+    .espelho li { position: relative; padding-left: 26px; margin: 0 0 11px; color: var(--text); }
+    .espelho li::before { content: "◆"; position: absolute; left: 4px; top: 1px;
+      color: var(--primary); font-size: 9px; }
+    .metodo { margin: 0 0 16px; padding-left: 20px; }
+    .metodo li { margin: 0 0 10px; }
+    .metodo strong { color: var(--primary-700); }
+    .principio { font-family: var(--font-serif); font-style: italic; font-size: 19px;
+      color: var(--primary-700); text-align: center; margin: 22px 0 6px; }
+
+    /* Bloco 4 · a conta */
+    .conta { list-style: none; margin: 16px 0; padding: 0; }
+    .conta li { display: flex; justify-content: space-between; gap: 14px; align-items: baseline;
+      padding: 13px 0; border-bottom: 1px solid var(--border-soft); font-size: 15.5px; }
+    .conta li span { color: var(--muted); }
+    .conta li strong { color: var(--primary-700); white-space: nowrap; }
+    .numerao { text-align: center; margin: 26px 0 20px; padding: 30px 18px;
+      border: 1px solid var(--border); border-radius: var(--radius);
+      background: radial-gradient(circle at 50% 0%, rgba(201,162,74,.14), transparent 70%); }
+    .numerao .rotulo { display: block; color: var(--muted); font-size: 11.5px;
+      letter-spacing: .22em; text-transform: uppercase; margin-bottom: 12px; }
+    .numerao .valor { display: block; font-family: var(--font-serif); font-size: 52px; line-height: 1;
+      background: linear-gradient(92deg, #B8892F, #F5E6BC 52%, #B8892F);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+    .numerao .periodo { display: block; color: var(--muted); font-size: 14px; margin-top: 10px; }
+    .numerao .ano { display: block; color: var(--primary-700); font-size: 17px; font-weight: 600; }
+    @media (max-width: 520px){ .numerao .valor { font-size: 40px; } .numerao { padding: 26px 14px; } }
+
+    .custo { color: var(--muted); font-size: 15.5px; }
+    .custo strong { color: var(--primary-700); }
+
+    /* FAQ */
+    .faq .pergunta { font-family: var(--font-serif); font-size: 18px; color: var(--text);
+      margin: 20px 0 8px; font-style: italic; }
+    .faq .pergunta:first-child { margin-top: 0; }
+
+    /* VSL */
+    .vsl { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
+      border-radius: var(--radius-sm); border: 1px solid var(--border); margin: 10px 0 4px; }
+    .vsl iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+    /* depoimentos */
+    .depo-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0 6px; }
+    .depo-shot { width: 100%; height: auto; display: block; border-radius: var(--radius-sm);
+      border: 1px solid var(--border-soft); box-shadow: var(--shadow); }
+    @media (max-width: 520px){ .depo-gallery { grid-template-columns: 1fr; } }
+
+    /* oferta de entrada */
+    .entrada { border: 1px solid var(--border); border-radius: var(--radius); padding: 24px;
+      background: rgba(201,162,74,.06); margin: 0 0 28px; }
+    .entrada-nome { font-family: var(--font-serif); font-size: 22px; margin: 0 0 10px; color: var(--text); }
+    .entrada-nome span { color: var(--primary-700); }
+    .entrada .btn { margin-top: 16px; }
+
+    /* CTAs */
+    .cta-inline { text-align: center; margin: 30px 0; }
+    .cta-inline .btn { width: 100%; max-width: 440px; }
+    .cta-box { border: 1px solid var(--border); border-radius: var(--radius); padding: 30px 24px;
+      text-align: center; margin-top: 10px;
+      background: radial-gradient(circle at 50% 0%, rgba(201,162,74,.12), transparent 72%); }
+    .cta-box h2 { font-size: 23px; }
+    .cta-box .btn { width: 100%; max-width: 440px; }
+    .clube { font-size: 15px; color: var(--muted); margin-top: 18px; }
+    .reforco { font-family: var(--font-serif); font-style: italic; font-size: 18px;
+      color: var(--primary-700); margin: 4px 0 0; }
+
+    @media print {
+      body::before { display: none; }
+      body { background: #fff; color: #111; }
+      .card { box-shadow: none; border-color: #ddd; margin: 0; backdrop-filter: none; background: #fff; }
+      .btn, .cta-inline { display: none !important; }
+      .etapa, .numerao, .cta-box, .entrada { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <span class="monogram" aria-hidden="true">A</span>
+        <span class="brand-name">Adriana Brune'lly</span>
+        <span class="brand-tag">Estrategista em Negócios para Eventos</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="card screen" id="report"><!-- preenchido por diagnostico.js --></div>
+  </main>
+
+  <p class="foot">Este diagnóstico foi montado com as suas respostas. Ele mostra onde o dinheiro sai.
+  O caminho para fechar a conta é o Método ACA.</p>
+
+  <script src="flow.js" defer></script>
+  <script src="calculo.js" defer></script>
+  <script src="diagnostico.js" defer></script>
+</body>
+</html>

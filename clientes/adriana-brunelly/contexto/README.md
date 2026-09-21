@@ -16,6 +16,9 @@ Base do cliente: quem é, oferta, ICP, análise de mercado e linguagem (frases r
   cartão de crédito, contas no nome da irmã, sem fotos, sem depoimentos.
 - [`2026-09-10-call-onboarding-transcricao.md`](2026-09-10-call-onboarding-transcricao.md) —
   transcrição e anotações da call de onboarding, a fonte por trás das decisões.
+- [`2026-09-21-metodo-da-casa-funil-de-lead-dinamico.md`](2026-09-21-metodo-da-casa-funil-de-lead-dinamico.md)
+  — o método da casa por trás do quiz (apostila do Daniel), o que ele determina e o que foi
+  adaptado no caso dela.
 - [`2026-09-21-passagem-de-bastao-e-estado-do-projeto.md`](2026-09-21-passagem-de-bastao-e-estado-do-projeto.md)
   — **leia primeiro se está chegando agora**: o que existe, o que não existe, o que trava e
   os compromissos que ficaram órfãos com a saída do Carlos.

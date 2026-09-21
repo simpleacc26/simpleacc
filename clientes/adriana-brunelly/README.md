@@ -11,11 +11,13 @@ ticket "WhatsApp de valor" como caminho para quem não qualifica.
 O método dela tem nome — **ACA®** (Autorreconhecimento → Conexão e Comunicação → Autoridade)
 — e uma tese proprietária escrita, a **"Dívida de Valor"**.
 
-Status em **21/09/2026**: **estratégia entregue, implementação não iniciada.** Onboarding
-feito em 10/09; roadmap, estratégia completa e guia de depoimentos prontos em 11/09 e
-**aguardando aprovação dela desde então**. O funil existe escrito (copy do quiz, da página
-de diagnóstico e dos 25 criativos), mas **nada foi implementado nem publicado**: `funis/`
-está vazio, nenhum vídeo foi gravado e nenhuma campanha está no ar.
+Status em **21/09/2026**: **estratégia entregue e funil construído, nada publicado.**
+Onboarding feito em 10/09; roadmap, estratégia completa e guia de depoimentos prontos em
+11/09 e **aguardando aprovação dela desde então**. Em 21/09 o quiz e a página de diagnóstico
+foram implementados em [`funis/quiz-divida-de-valor/`](funis/quiz-divida-de-valor/), na
+identidade preto, dourado e cristal. **Falta publicar**: o WhatsApp dela, o webhook da
+planilha de leads e o link de agendamento ainda não existem. Nenhum vídeo foi gravado e
+nenhuma campanha está no ar.
 
 > **Chegou agora no projeto?** Comece por
 > [`contexto/2026-09-21-passagem-de-bastao-e-estado-do-projeto.md`](contexto/2026-09-21-passagem-de-bastao-e-estado-do-projeto.md).
@@ -28,6 +30,8 @@ está vazio, nenhum vídeo foi gravado e nenhuma campanha está no ar.
 - [Guia de Captação de Depoimentos](estrategia/2026-09-11-guia-captacao-depoimentos-adriana-brunelly.html)
   (4 páginas · HTML fonte + PDF na mesma pasta)
 - [Roteiro da call de onboarding (v2)](estrategia/2026-09-10-roteiro-call-mapa-estrategico-v2.md)
+- [Funil do Diagnóstico da Dívida de Valor](funis/quiz-divida-de-valor/) (quiz de 10 perguntas
+  com 3 interseções, 4 buckets e página de resultado que calcula a perda em reais)
 
 ## Contatos
 
@@ -68,7 +72,7 @@ está vazio, nenhum vídeo foi gravado e nenhuma campanha está no ar.
 
 | Projeto | Pasta | Status | Deploy |
 | ------- | ----- | ------ | ------ |
-| Funil de quiz (mentoria R$ 30 mil) | a criar em `funis/` | **copy escrita, nada implementado** — aguarda aprovação da estratégia | — |
+| Funil de quiz (mentoria R$ 30 mil) | [`funis/quiz-divida-de-valor/`](funis/quiz-divida-de-valor/) | **construído, não publicado** — falta WhatsApp, webhook e agenda | pendente |
 | WhatsApp de Valor (low ticket R$ 47) | produto dela, fora do repo | **no ar**, sem venda | [wppdevalor.lovable.app](https://wppdevalor.lovable.app) |
 
 ## Pendências
@@ -115,7 +119,9 @@ está vazio, nenhum vídeo foi gravado e nenhuma campanha está no ar.
       de R$ 3.000 **ou** R$ 12.000 em 6× de R$ 2.000. Ver
       [`contexto/2026-09-07-escopo-vendido-e-condicao-comercial.md`](contexto/2026-09-07-escopo-vendido-e-condicao-comercial.md).
 - [ ] Confirmar a 2ª parcela do setup (R$ 2.500) em **15/10/2026**.
-- [ ] Criar a planilha de leads no Drive.
+- [ ] Criar a planilha de leads no Drive **e o webhook do Make** que alimenta o funil
+      (`LEADS_ENDPOINT` em `funis/quiz-divida-de-valor/app.js`).
+- [ ] Pegar com ela o **WhatsApp de destino** e o **link de agendamento** do funil.
 - [ ] Alinhar no kickoff que **a Simple não executa o comercial** — a reunião de vendas é dela.
 
 ## Observações
