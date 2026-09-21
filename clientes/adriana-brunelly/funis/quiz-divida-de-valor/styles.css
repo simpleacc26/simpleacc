@@ -228,6 +228,9 @@ strong { color: #FBF7EE; font-weight: 700; }
   background: linear-gradient(90deg, var(--primary-900), var(--primary) 45%, #F0DCA8);
   box-shadow: 0 0 12px rgba(201,162,74,.6); }
 #load-msg { min-height: 1.5em; transition: opacity .2s; }
+.load-pct { margin: 10px 0 0; font-family: var(--font-serif); font-size: 26px; letter-spacing: .04em;
+  background: linear-gradient(92deg, #B8892F, #F0DCA8 52%, #B8892F);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 @media (max-width: 520px){ .loading-card { padding: 38px 18px; } }
 
 /* ---------- resume banner ---------- */

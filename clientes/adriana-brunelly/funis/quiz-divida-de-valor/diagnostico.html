@@ -71,6 +71,19 @@
       margin: 20px 0 8px; font-style: italic; }
     .faq .pergunta:first-child { margin-top: 0; }
 
+    /* retrato dela, no bloco em que ela fala de si */
+    .retrato { margin: 0 0 18px; position: relative; }
+    .retrato img { width: 100%; height: auto; display: block; border-radius: var(--radius);
+      border: 1px solid var(--border); box-shadow: var(--shadow); }
+    /* o pe da foto dissolve no fundo preto, em vez de cortar reto */
+    .retrato::after { content: ""; position: absolute; left: 1px; right: 1px; bottom: 1px; height: 38%;
+      border-radius: 0 0 var(--radius) var(--radius); pointer-events: none;
+      background: linear-gradient(180deg, transparent, rgba(8,7,10,.92)); }
+    .retrato figcaption { position: absolute; left: 20px; bottom: 16px; z-index: 1;
+      font-family: var(--font-serif); font-size: 15px; letter-spacing: .14em; text-transform: uppercase;
+      background: linear-gradient(92deg, #B8892F, #F0DCA8 52%, #B8892F);
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
     /* VSL */
     .vsl { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;
       border-radius: var(--radius-sm); border: 1px solid var(--border); margin: 10px 0 4px; }

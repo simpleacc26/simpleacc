@@ -76,7 +76,12 @@ O resto segue a apostila:
    aritmética pura.
 4. **4 buckets** com página de resultado própria (Procedimentos 5 e 6), mais a
    rota de desqualificado que sai da pergunta porteira.
-5. **Roteamento pós-quiz**: qualificado e a nutrir vão para o WhatsApp dela,
+5. **Cinco segundos de carregamento** entre o quiz e o diagnóstico, com barra e
+   porcentagem subindo até 100% e duas frases ("Analisando as suas respostas",
+   "Gerando o seu diagnóstico"). Não é espera técnica: é a pausa que faz o
+   resultado parecer calculado para aquela pessoa, e não tirado da prateleira.
+   Tempo e frases ficam em `flow.js > loading`.
+6. **Roteamento pós-quiz**: qualificado e a nutrir vão para o WhatsApp dela,
    com a mensagem já trazendo o padrão e a conta; fora da faixa recebe a leitura
    completa e a oferta de entrada de R$ 47.
 
@@ -122,6 +127,7 @@ Duas travas de credibilidade:
 | `diagnostico.js` | monta o relatório por bucket e roteia os CTAs |
 | `styles.css` | sistema visual preto, dourado e cristal |
 | `favicon.svg` | monograma A em ouro sobre preto |
+| `adriana.webp` | retrato dela na página de diagnóstico (760px, 106 KB) |
 
 Para mudar texto, mexa **só no `flow.js`**. Para mudar cor, só no `:root` do
 `styles.css`. Para mudar a ordem das perguntas, basta reordenar o array `steps`
@@ -159,6 +165,9 @@ Nenhuma. O funil está no ar e funcionando.
 **Quando existir:**
 
 - [ ] **Logo** no lugar do monograma, nas duas páginas, quando ela enviar.
+- [ ] **Mais fotos.** A pasta de fotos do Drive tem o material do Coco Bambu;
+      hoje o funil usa uma só, no bloco em que ela fala de si. Vale usar outra
+      na abertura quando a identidade estiver fechada.
 - [ ] **Depoimentos** reais em `flow.js` (`depoimentos: []`). Enquanto o array
       estiver vazio a galeria não aparece, e é assim que tem que ser: nunca
       publicar com depoimento inventado. Ver o guia de captação em

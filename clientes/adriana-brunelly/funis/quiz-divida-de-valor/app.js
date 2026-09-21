@@ -351,33 +351,44 @@ function finalizar() {
 function renderLoading() {
   updateProgress(null);
   trackEvent("step_view", { step_id: "loading" });
+  const L = F.loading || {};
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const dur = reduce ? 800 : 4700;
-  const msgs = [
-    "Lendo as suas respostas...",
-    "Cruzando o seu ticket com o seu volume...",
-    "Fechando a sua conta...",
-  ];
+  const dur = reduce ? 800 : (L.duracaoMs || 5000);
+  const msgs = L.mensagens || ["Analisando as suas respostas...", "Gerando o seu diagnóstico..."];
+
   const screen = el(`
     <section class="card screen loading-card">
-      <p class="eyebrow">Quase lá</p>
-      <h2>Fechando a sua conta</h2>
+      <p class="eyebrow">${L.eyebrow || "Quase lá"}</p>
+      <h2>${L.titulo || "Fechando a sua conta"}</h2>
       <p class="lead" id="load-msg">${msgs[0]}</p>
       <div class="load-track"><div class="load-bar" id="load-bar"></div></div>
-      <p class="hint" style="margin-top:18px">O seu resultado é montado com o que você respondeu, não com média de mercado.</p>
+      <p class="load-pct" id="load-pct">0%</p>
+      <p class="hint" style="margin-top:18px">${L.nota || ""}</p>
     </section>`);
   app.replaceChildren(screen);
   scrollTop();
 
   const bar = screen.querySelector("#load-bar");
+  const pct = screen.querySelector("#load-pct");
   const msgEl = screen.querySelector("#load-msg");
-  bar.style.transition = `width ${dur}ms cubic-bezier(.4,0,.2,1)`;
+
+  bar.style.transition = `width ${dur}ms linear`;
   requestAnimationFrame(() => { bar.style.width = "100%"; });
 
-  if (!reduce) {
+  /* O número sobe junto com a barra e chega em 100% no fim dos 5 segundos.
+     É ele que dá a sensação de cálculo acontecendo, mais que a barra. */
+  const inicio = Date.now();
+  const tick = setInterval(() => {
+    const p = Math.min(100, Math.round(((Date.now() - inicio) / dur) * 100));
+    pct.textContent = p + "%";
+    if (p >= 100) clearInterval(tick);
+  }, 60);
+
+  /* As mensagens dividem o tempo por igual entre si. */
+  if (!reduce && msgs.length > 1) {
     let i = 1;
-    const iv = setInterval(() => {
-      if (i < msgs.length) { msgEl.textContent = msgs[i++]; } else { clearInterval(iv); }
+    const troca = setInterval(() => {
+      if (i < msgs.length) { msgEl.textContent = msgs[i++]; } else { clearInterval(troca); }
     }, dur / msgs.length);
   }
 

@@ -124,7 +124,6 @@ if (!temRespostas) {
   report.innerHTML = `
     <div class="report-head">
       <span class="selo">Diagnóstico da Dívida de Valor</span>
-      <p class="hint">Feito com as suas respostas · ${new Date().toLocaleDateString("pt-BR")}</p>
     </div>
 
     <!-- Bloco 1 · o resultado dela (fórmula de identificação da apostila) -->
@@ -223,6 +222,10 @@ if (!temRespostas) {
     <!-- Bloco 8 · quem é a Adriana, prova e FAQ -->
     <div class="etapa">
       <h3>Quem está te dizendo isso</h3>
+      ${F.marca.foto ? `<figure class="retrato">
+        <img src="${F.marca.foto}" alt="${F.marca.fotoAlt || ""}" loading="lazy" width="760" height="949" />
+        <figcaption>${F.marca.nome}</figcaption>
+      </figure>` : ""}
       <p>Comecei vendendo doce na calçada, de porta em porta. Virei doceira de festa, assessora, decoradora,
       e fundei um dos maiores buffets da minha cidade. São 25 anos dentro desse mercado.</p>
       <p>Em 2017 eu entreguei 13 eventos em uma semana e passei 72 horas sem dormir. Entreguei tudo impecável.

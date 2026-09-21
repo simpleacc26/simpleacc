@@ -36,6 +36,27 @@ window.FLOW = {
        Formato internacional, só dígitos, sem o 9 (o número tem 8 dígitos). */
     whatsapp: "554388081317",
     whatsappMsg: "Oi, Adriana! Sou {nome}, acabei de fazer o diagnóstico da Dívida de Valor. O meu padrão deu {padrao} e a conta deu {divida}. Quero conversar sobre isso.",
+    /* Retrato usado na página de diagnóstico, no bloco em que ela fala de si.
+       Original: "FOTO NO COCO BAMBU 7.png", na pasta de fotos do Drive. */
+    foto: "adriana.webp",
+    fotoAlt: "Adriana Brune'lly",
+  },
+
+  /* ---------------------------------------------------------
+     TELA DE CARREGAMENTO
+     Os 5 segundos entre o quiz e o diagnóstico não são espera
+     técnica: são a pausa que faz o resultado parecer calculado
+     para aquela pessoa, e não entregue de prateleira.
+     --------------------------------------------------------- */
+  loading: {
+    duracaoMs: 5000,
+    eyebrow: "Quase lá",
+    titulo: "Fechando a sua conta",
+    mensagens: [
+      "Analisando as suas respostas...",
+      "Gerando o seu diagnóstico...",
+    ],
+    nota: "O seu resultado é montado com o que você respondeu, não com média de mercado.",
   },
 
   /* ---------------------------------------------------------
@@ -228,7 +249,7 @@ window.FLOW = {
     {
       id: "faturamento",
       etapa: "Última pergunta",
-      pergunta: "Quanto o seu negócio fatura por mês, em média, nos últimos 6 meses?",
+      pergunta: "Quanto o seu negócio fatura por mês, em média?",
       options: [
         { value: "ate10",     label: "Até R$ 10 mil",                report: "até R$ 10 mil",              fora: true },
         { value: "10a25",     label: "De R$ 10 mil a R$ 25 mil",     report: "de R$ 10 mil a R$ 25 mil",   nutrir: true, fatMax: 25000 },
