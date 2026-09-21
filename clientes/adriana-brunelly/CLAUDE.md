@@ -125,12 +125,16 @@ por padrão. Identidade **preto, dourado e cristal**.
 No ar em **[quiz-adriana-brunelly.vercel.app](https://quiz-adriana-brunelly.vercel.app)**, com os leads caindo em
 [planilha no Drive](https://docs.google.com/spreadsheets/d/1BIJ89rw5fLqaeWhzvOzIg6xWOYHmjuEPc1I8yI_YzLU/edit) pelo Make.
 
-⚠️ **Falta o WhatsApp dela** em `flow.js > marca.whatsapp`. Sem ele os CTAs não abrem
-conversa nenhuma, e o funil no ar não converte. É a única pendência bloqueante.
+⚠️ **A ordem do funil é QUIZ, depois CAPTURA, depois DIAGNÓSTICO.** Não inverta: a pessoa
+responde primeiro e só deixa o contato quando a conta dela já está pronta. O Procedimento 8
+da apostila manda o contrário, e nesse ponto a apostila está errada para a casa.
 
 ⚠️ **O destino do lead qualificado é WhatsApp, não agenda.** Foi o que se combinou na call
 de 10/09: a página leva o lead a mandar mensagem e a Adriana o chama para a reunião pelo
 script. Agenda direta é o padrão da apostila, não deste projeto.
+
+⚠️ **O WhatsApp do funil é +55 43 8808-1317** (Business dela), que **não** é o número da
+ficha de dados ((43) 9 9880-8803). Confirmar com ela qual recebe o quê antes do tráfego.
 
 Os 25 criativos seguem só escritos: nenhum vídeo gravado, nenhuma arte feita, nenhuma
 campanha no ar.

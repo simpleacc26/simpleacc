@@ -1,14 +1,14 @@
 /* ============================================================
    APP · motor do funil (render, validação, persistência, envio).
 
-   Ordem das telas, conforme a apostila "Funil de Lead Dinâmico":
-     captura -> P1 ... P10, com interseções de implicação no meio
-     -> loading -> página de resultado.
+   Ordem das telas, que é a ordem do método da casa:
+     P1 ... P10 (com interseções de implicação no meio)
+     -> captura -> loading -> página de resultado.
 
-   A captura vem primeiro de propósito: tendo nome, WhatsApp e
-   e-mail, o comercial trabalha o lead mesmo que ele não termine
-   o quiz. O lead é enviado duas vezes: na captura (parcial) e no
-   fim (completo, com bucket e conta).
+   A captura vem DEPOIS do quiz, sempre. A pessoa responde primeiro,
+   e só deixa o contato quando já tem a conta dela pronta do outro
+   lado: a essa altura o dado é a chave do resultado, não um pedágio
+   na porta de entrada.
    ============================================================ */
 
 /* ---------- tracking ---------- */
@@ -54,7 +54,7 @@ const app = document.getElementById("app");
 const progressEl = document.getElementById("progress");
 
 /* ---------- estado ---------- */
-let state = { view: 0, answers: {}, started: false, capturado: false };
+let state = { view: 0, answers: {}, started: false };
 let stepEnterTime = Date.now();
 
 function save() { try { sessionStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {} }
@@ -64,11 +64,12 @@ function clearSaved() { try { sessionStorage.removeItem(STORE_KEY); } catch (e) 
 /* ---------- telas ----------
    Monta a sequência: captura, e depois cada pergunta seguida da
    sua interseção, quando ela existe. */
-const SCREENS = [{ kind: "captura" }];
+const SCREENS = [];
 F.steps.forEach((s, i) => {
   SCREENS.push({ kind: "step", i });
   if (F.interseccoes && F.interseccoes[s.id]) SCREENS.push({ kind: "inter", id: s.id });
 });
+SCREENS.push({ kind: "captura" });
 
 /* ---------- helpers ---------- */
 function el(html) { const t = document.createElement("template"); t.innerHTML = html.trim(); return t.content.firstElementChild; }
@@ -106,16 +107,14 @@ function updateProgress(stepIdx) {
 
 /* ============================================================
    ENVIO DO LEAD
-   Duas chamadas: "parcial" logo na captura (o comercial já pode
-   trabalhar) e "completa" no fim, com bucket, conta e respostas.
+   Uma chamada só, no fim, quando já existem respostas E contato.
    Fire and forget: nunca trava o fluxo.
    ============================================================ */
 function enviarLead(etapa) {
   if (!LEADS_ENDPOINT) return;
   const a = state.answers;
-  const completo = etapa === "completo";
-  const divida = completo ? M.calcularDivida(a) : null;
-  const bucket = completo ? M.definirBucket(a) : null;
+  const divida = M.calcularDivida(a);
+  const bucket = M.definirBucket(a);
 
   /* Payload PLANO, uma chave por coluna da planilha. É o padrão dos
      cenários da casa: o Make mapeia {{1.campo}} direto, sem navegar
@@ -127,10 +126,10 @@ function enviarLead(etapa) {
     email: a.email || "",
     cidade: a.cidade || "",
     etapa: etapa,
-    qualificacao: completo ? M.classificarLead(a, divida) : "parcial",
-    padrao: bucket ? bucket.dados.nome : "",
-    divida_mes: divida && divida.temNumero ? Math.round(divida.mes) : "",
-    divida_ano: divida && divida.temNumero ? Math.round(divida.ano) : "",
+    qualificacao: M.classificarLead(a, divida),
+    padrao: bucket.dados.nome,
+    divida_mes: divida.temNumero ? Math.round(divida.mes) : "",
+    divida_ano: divida.temNumero ? Math.round(divida.ano) : "",
     segmento: M.label("segmento", a),
     ticket: M.label("ticket", a),
     volume: M.label("volume", a),
@@ -184,12 +183,8 @@ function renderCaptura() {
 
   const screen = el(`
     <section class="card screen">
-      <span class="selo">${F.hero.selo}</span>
-      <h1>${F.hero.titulo}</h1>
-      <p class="lead">${F.hero.subtitulo}</p>
-      <p class="hint tempo">${F.hero.tempo}</p>
-      <hr class="rule-gold" />
-      <p class="eyebrow">${c.titulo}</p>
+      <p class="eyebrow">Última etapa</p>
+      <h2>${c.titulo}</h2>
       <p class="lead" style="margin-bottom:6px">${c.subtitulo}</p>
       <form id="form" novalidate>
         <div class="errors" id="err" role="alert" tabindex="-1"></div>
@@ -198,6 +193,7 @@ function renderCaptura() {
         <p class="hint" style="margin-top:14px;text-align:center">${c.privacidade}</p>
         <p class="microlegal">${c.microlegal}</p>
       </form>
+      <div class="actions"><button class="btn btn-ghost" id="back" type="button">&#8592; Voltar</button></div>
     </section>`);
   app.replaceChildren(screen);
   scrollTop();
@@ -241,13 +237,11 @@ function renderCaptura() {
       trackEvent("field_error", { step_id: "captura", fields: problems });
       return;
     }
-    state.started = true;
-    state.capturado = true;
     save();
-    trackEvent("funnel_start", {});
-    enviarLead("parcial");
-    goTo(1);
+    finalizar();
   });
+
+  screen.querySelector("#back").addEventListener("click", () => goTo(SCREENS.length - 2));
 }
 
 /* ============================================================
@@ -267,13 +261,25 @@ function renderStep(screenIdx, i) {
       <span class="txt">${o.label}</span>
     </button>`).join("");
 
+  /* O hero vive na primeira pergunta: o lead já cai respondendo,
+     sem tela de intro no meio, que só gera quebra. */
+  const primeira = screenIdx === 0;
+  const intro = primeira ? `
+      <span class="selo">${F.hero.selo}</span>
+      <h1>${F.hero.titulo}</h1>
+      <p class="lead">${F.hero.subtitulo}</p>
+      <p class="hint tempo" style="margin-bottom:6px">${F.hero.tempo}</p>
+      <hr class="rule-gold" />` : "";
+
   const screen = el(`
     <section class="card screen">
+      ${intro}
       <p class="eyebrow">${step.etapa}</p>
       <h2 id="q-${step.id}">${step.pergunta}</h2>
       <div class="options" role="radiogroup" aria-labelledby="q-${step.id}">${opts}</div>
+      ${primeira ? `<p class="microlegal">${F.captura.microlegal}</p>` : ""}
       <div class="actions">
-        <button class="btn btn-ghost" id="back" type="button">&#8592; Voltar</button>
+        ${primeira ? "" : '<button class="btn btn-ghost" id="back" type="button">&#8592; Voltar</button>'}
         <span class="hint">Toque na opção. Avança sozinho.</span>
       </div>
     </section>`);
@@ -287,6 +293,7 @@ function renderStep(screenIdx, i) {
     optionEls.forEach(o => { o.setAttribute("aria-checked", "false"); o.tabIndex = -1; });
     node.setAttribute("aria-checked", "true"); node.tabIndex = 0;
     state.answers[step.id] = node.dataset.value;
+    if (!state.started) { state.started = true; trackEvent("funnel_start", {}); }
     save();
     trackEvent("step_complete", { step_id: step.id, time_on_step: Date.now() - stepEnterTime });
     advancing = true;
@@ -305,7 +312,7 @@ function renderStep(screenIdx, i) {
     });
   });
 
-  screen.querySelector("#back").addEventListener("click", () => {
+  if (!primeira) screen.querySelector("#back").addEventListener("click", () => {
     trackEvent("step_back", { from: step.id });
     goTo(screenIdx - 1);
   });
@@ -409,7 +416,7 @@ function offerResume(saved) {
   app.replaceChildren(banner);
   banner.querySelector("#resume-yes").addEventListener("click", () => { state = saved; render(); });
   banner.querySelector("#resume-no").addEventListener("click", () => {
-    clearSaved(); state = { view: 0, answers: {}, started: false, capturado: false }; render();
+    clearSaved(); state = { view: 0, answers: {}, started: false }; render();
   });
 }
 

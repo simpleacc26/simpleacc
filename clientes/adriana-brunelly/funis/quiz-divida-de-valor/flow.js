@@ -32,16 +32,19 @@ window.FLOW = {
     monograma: "A",
     tagline: "Estrategista em Negócios para Eventos",
     expert: "Adriana",
-    // WhatsApp em formato internacional, só dígitos. Confirmar antes de publicar.
-    whatsapp: "",
+    /* WhatsApp Business dela: +55 43 8808-1317, confirmado no perfil.
+       Formato internacional, só dígitos, sem o 9 (o número tem 8 dígitos). */
+    whatsapp: "554388081317",
     whatsappMsg: "Oi, Adriana! Sou {nome}, acabei de fazer o diagnóstico da Dívida de Valor. O meu padrão deu {padrao} e a conta deu {divida}. Quero conversar sobre isso.",
   },
 
   /* ---------------------------------------------------------
-     HERO + CAPTURA (apostila, Procedimento 8)
-     A captura é a porta de entrada, não o fim do quiz: tendo o
-     contato, o comercial trabalha o lead mesmo se ele não
-     terminar. Sem tela de intro: o botão leva direto à P1.
+     HERO + CAPTURA
+     ORDEM DO FUNIL, e ela não muda: QUIZ -> CAPTURA -> DIAGNÓSTICO.
+     A pessoa responde primeiro e só deixa o contato quando a conta
+     dela já está pronta do outro lado. Pedir o dado antes de dar
+     qualquer coisa em troca é pedágio na porta, e derruba o topo.
+     O hero vive na primeira pergunta, sem tela de intro no meio.
      --------------------------------------------------------- */
   hero: {
     selo: "Diagnóstico gratuito · 2 minutos",
@@ -52,15 +55,15 @@ window.FLOW = {
   },
 
   captura: {
-    titulo: "Antes de começar",
-    subtitulo: "É para onde eu mando a sua conta depois, junto com a leitura completa do seu caso.",
+    titulo: "A sua conta está pronta.",
+    subtitulo: "Coloque o seu WhatsApp abaixo e receba agora o seu número e a leitura completa do seu caso.",
     campos: [
       { id: "nomeResp", label: "Seu nome", type: "text", required: true, autocomplete: "name", placeholder: "Como eu te chamo?" },
       { id: "whatsapp", label: "Seu WhatsApp (com DDD)", type: "tel", required: true, autocomplete: "tel", placeholder: "(43) 99999-9999", mask: "phone" },
       { id: "email", label: "Seu e-mail", type: "email", required: true, autocomplete: "email", placeholder: "voce@email.com" },
       { id: "cidade", label: "Cidade e estado", type: "text", required: true, autocomplete: "address-level2", placeholder: "Londrina, PR" },
     ],
-    cta: "Começar o meu diagnóstico",
+    cta: "Ver a minha Dívida de Valor",
     privacidade: "Os seus dados ficam entre você e a nossa equipe. Nada de disparo em massa.",
     microlegal: "Ao continuar, você concorda com os termos de uso, de publicidade e de cookies.",
   },

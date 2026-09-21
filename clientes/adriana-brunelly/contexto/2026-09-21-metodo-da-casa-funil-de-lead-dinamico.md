@@ -33,8 +33,9 @@ no Drive: [abrir](https://drive.google.com/file/d/1maJ12zmPG-MvQXHxdX4Cq4r-2blKk
 - **Interseções:** telas curtas de implicação entre as perguntas. É começar a
   vender dentro do próprio marketing.
 - **Empate no score sobe para o bucket maior, nunca desce.**
-- **Captura antes do quiz:** tendo o contato, o comercial trabalha o lead mesmo
-  que ele não termine.
+- **Captura antes do quiz** (Procedimento 8): tendo o contato, o comercial
+  trabalha o lead mesmo que ele não termine. ⚠️ **Este ponto da apostila não é a
+  prática da casa.** Ver a tabela abaixo.
 - **Headline de promessa dupla:** o quê (processo, descoberta) somado ao quanto
   ou como (número e prazo).
 - **A métrica que manda é custo por reunião qualificada comparecida**, não custo
@@ -46,8 +47,15 @@ no Drive: [abrir](https://drive.google.com/file/d/1maJ12zmPG-MvQXHxdX4Cq4r-2blKk
 | ----- | -------------------- | ---------------- | ------ |
 | Buckets | 4 = 1 desqualificado + 3 ICPs | 4 padrões de perda (todos ICP) + rota de desqualificado saindo da pergunta porteira | Os 4 padrões são da tese dela e já estão no documento aprovado. Continua dentro da regra de 3 a 5. |
 | Página por bucket | 4 páginas separadas | 1 página que troca conteúdo por bucket | Mesmo efeito, um quarto da manutenção. O conteúdo que muda é o que a apostila manda mudar: causa-raiz, espelhamento e primeira mudança. |
-| Captura | antes do quiz | antes do quiz | A estratégia de 11/09 colocava no fim. A apostila venceu. |
+| Captura | antes do quiz (Procedimento 8) | **depois do quiz**, antes do diagnóstico | A ordem da casa é QUIZ, CAPTURA, DIAGNÓSTICO, e é ela que vale. A pessoa só deixa o contato quando a conta dela já está pronta do outro lado. O template `criar-funil-quiz` também põe a captura no fim, então quem diverge é a apostila. |
 | VSL na página de resultado | obrigatória | slot pronto e desligado | Ela ainda não gravou. Embed falso não entra. |
+
+## O ponto a reconciliar na apostila
+
+O **Procedimento 8** manda usar a página de captura como pouso do tráfego,
+indo direto para a P1. Nem o template da casa nem a prática fazem isso: a
+captura vem depois do quiz. Vale corrigir a apostila, senão todo funil novo
+nasce com o mesmo erro.
 
 ## O que ainda não foi feito do método
 

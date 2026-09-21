@@ -17,9 +17,8 @@ Os leads caem na planilha
 em `3. Estratégia e Tráfego`, pelo cenário **[Adriana Brunelly] Diagnóstico da
 Dívida de Valor → Sheets** no Make (webhook + Google Sheets, ativo e testado).
 
-O lead é gravado **duas vezes**: `parcial` assim que ele deixa o contato, e
-`completo` no fim, com padrão, conta e respostas. Quem abandona no meio do quiz
-continua no comercial, que é exatamente o motivo de a captura vir antes.
+O lead é gravado uma vez, no fim, quando já existem **respostas e contato** na
+mesma linha: padrão, conta em reais, as 10 respostas e as UTMs.
 
 ## De onde vem cada coisa
 
@@ -30,24 +29,34 @@ continua no comercial, que é exatamente o motivo de a captura vir antes.
 | Narrativa, inimigo e régua de linguagem | `../../CLAUDE.md` |
 | Identidade visual | Preto, dourado e cristal, definida em 21/09/2026 |
 
-## A arquitetura, na ordem da apostila
+## A arquitetura
 
-1. **Captura primeiro** (Procedimento 8). Nome, WhatsApp, e-mail e cidade antes
-   da primeira pergunta, e daí direto para a P1, sem tela de intro. Tendo o
-   contato, o comercial trabalha o lead mesmo se ele não terminar o quiz.
-2. **Quiz do tipo Killer** (Procedimento 4). Promete a causa ("onde o seu
+**A ordem do funil é QUIZ, depois CAPTURA, depois DIAGNÓSTICO.** A pessoa
+responde primeiro e só deixa o contato quando a conta dela já está pronta do
+outro lado: aí o dado é a chave do resultado, não um pedágio na porta. O hero
+fica na primeira pergunta, sem tela de intro no meio, que só gera quebra.
+
+> ⚠️ A apostila, no Procedimento 8, manda o contrário (página de captura como
+> pouso do tráfego, indo direto para a P1). **A prática da casa é a de cima**, e
+> é ela que vale. Vale reconciliar isso na apostila, porque o template da casa
+> (`criar-funil-quiz`) também põe a captura no fim.
+
+O resto segue a apostila:
+
+1. **Quiz do tipo Killer** (Procedimento 4). Promete a causa ("onde o seu
    dinheiro está saindo"), não a solução. É o tipo certo para público frio que
    já tentou curso técnico e planilha e continuou sem margem.
-3. **10 perguntas em camadas** (Procedimento 7), com a qualificação financeira
+2. **10 perguntas em camadas** (Procedimento 7), com a qualificação financeira
    por último. As perguntas de ticket e de faturamento têm **7 faixas** de
    propósito: quem marca a menor descobre, na mesma tela, que a maior é ocupada
    por gente do mesmo mercado.
-4. **3 interseções de implicação** entre as perguntas, depois da P3, da P6 e da
+3. **3 interseções de implicação** entre as perguntas, depois da P3, da P6 e da
    P8. Todas ancoradas em fato verificável da Adriana ou em aritmética pura.
-5. **4 buckets** com página de resultado própria (Procedimentos 5 e 6), mais a
+4. **4 buckets** com página de resultado própria (Procedimentos 5 e 6), mais a
    rota de desqualificado que sai da pergunta porteira.
-6. **Roteamento pós-quiz**: qualificado vai para a agenda, a nutrir vai para o
-   WhatsApp, fora da faixa recebe a leitura completa e a oferta de entrada.
+5. **Roteamento pós-quiz**: qualificado e a nutrir vão para o WhatsApp dela,
+   com a mensagem já trazendo o padrão e a conta; fora da faixa recebe a leitura
+   completa e a oferta de entrada de R$ 47.
 
 ## Os 4 buckets
 
@@ -85,7 +94,7 @@ Duas travas de credibilidade:
 | ------- | ------- |
 | `index.html` | captura + quiz |
 | `diagnostico.html` | página de resultado, com o CSS próprio do relatório |
-| `flow.js` | **toda a copy**: hero, captura, 10 perguntas, interseções, buckets, oferta de entrada |
+| `flow.js` | **toda a copy**: hero, 10 perguntas, interseções, captura, buckets, oferta de entrada |
 | `calculo.js` | motor compartilhado: conta, bucket e classificação do lead |
 | `app.js` | motor do quiz: telas, validação, persistência, tracking, envio do lead |
 | `diagnostico.js` | monta o relatório por bucket e roteia os CTAs |
@@ -109,12 +118,12 @@ Abrir o `index.html` direto pelo arquivo também funciona.
 
 **Trava o funil de verdade:**
 
-- [ ] ⚠️ **WhatsApp da Adriana** em `flow.js` (`marca.whatsapp`, formato
-      `5543998808803`). **Sem isso os CTAs não abrem nada** e o funil, que já
-      está no ar, não converte. É a única coisa que falta para ele funcionar.
+Nenhuma. O funil está no ar e funcionando.
 
 **Já resolvido:**
 
+- [x] ~~WhatsApp~~: `554388081317` (+55 43 8808-1317, conta WhatsApp Business
+      dela). Os CTAs abrem a conversa com o padrão e a conta na mensagem.
 - [x] ~~`LEADS_ENDPOINT`~~: webhook do Make ligado e testado ponta a ponta.
 - [x] ~~Planilha de leads~~: criada, com as 30 colunas mapeadas.
 - [x] ~~Publicação~~: no ar, URL pública.

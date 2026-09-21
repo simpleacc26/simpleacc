@@ -19,8 +19,8 @@ identidade preto, dourado e cristal, e **publicados** em
 [quiz-adriana-brunelly.vercel.app](https://quiz-adriana-brunelly.vercel.app), com os leads caindo em
 [planilha no Drive](https://docs.google.com/spreadsheets/d/1BIJ89rw5fLqaeWhzvOzIg6xWOYHmjuEPc1I8yI_YzLU/edit) pelo Make.
 
-⚠️ **Falta o WhatsApp dela** (`flow.js > marca.whatsapp`): sem ele os CTAs não abrem
-conversa. Nenhum vídeo foi gravado e nenhuma campanha está no ar.
+O funil está **funcionando**: quiz, captura, diagnóstico por padrão, leads na planilha e
+CTA abrindo o WhatsApp dela. Falta a aprovação dela, os vídeos gravados e a campanha no ar.
 
 > **Chegou agora no projeto?** Comece por
 > [`contexto/2026-09-21-passagem-de-bastao-e-estado-do-projeto.md`](contexto/2026-09-21-passagem-de-bastao-e-estado-do-projeto.md).
@@ -41,7 +41,7 @@ conversa. Nenhum vídeo foi gravado e nenhuma campanha está no ar.
 
 | Papel                 | Nome             | Contato |
 | --------------------- | ---------------- | ------- |
-| Principal (cliente)   | Adriana Brunelly | diretodaproprietaria@gmail.com · (43) 9 9880-8803 |
+| Principal (cliente)   | Adriana Brunelly | diretodaproprietaria@gmail.com · (43) 9 9880-8803 (ficha) · **(43) 8808-1317** (WhatsApp Business, é o que o funil usa) |
 | Responsável SimpleAcc | Daniel Souza     | conduz o Mapa Estratégico e os 5 primeiros encontros |
 | Condução do projeto   | Renan Martini    | gestor de tráfego, performance e dados; **assumiu em 09/2026 no lugar do Carlos Durães**, que saiu da empresa |
 | Financeiro SimpleAcc  | Clara            | contrato, ficha de dados e cobranças |
@@ -80,7 +80,7 @@ conversa. Nenhum vídeo foi gravado e nenhuma campanha está no ar.
 
 | Projeto | Pasta | Status | Deploy |
 | ------- | ----- | ------ | ------ |
-| Funil de quiz (mentoria R$ 30 mil) | [`funis/quiz-divida-de-valor/`](funis/quiz-divida-de-valor/) | **no ar**, falta o WhatsApp dela | [quiz-adriana-brunelly.vercel.app](https://quiz-adriana-brunelly.vercel.app) |
+| Funil de quiz (mentoria R$ 30 mil) | [`funis/quiz-divida-de-valor/`](funis/quiz-divida-de-valor/) | **no ar e funcionando** | [quiz-adriana-brunelly.vercel.app](https://quiz-adriana-brunelly.vercel.app) |
 | WhatsApp de Valor (low ticket R$ 47) | produto dela, fora do repo | **no ar**, sem venda | [wppdevalor.lovable.app](https://wppdevalor.lovable.app) |
 
 ## Pendências
@@ -130,8 +130,10 @@ conversa. Nenhum vídeo foi gravado e nenhuma campanha está no ar.
 - [x] ~~Criar a planilha de leads no Drive e o webhook do Make~~ (21/09):
       [planilha](https://docs.google.com/spreadsheets/d/1BIJ89rw5fLqaeWhzvOzIg6xWOYHmjuEPc1I8yI_YzLU/edit) em `3. Estratégia e Tráfego`, cenário
       "[Adriana Brunelly] Diagnóstico da Dívida de Valor → Sheets", testado ponta a ponta.
-- [ ] ⚠️ **Pegar com ela o WhatsApp de destino do funil.** É a única coisa que separa
-      o funil de estar funcionando. Sem ele os CTAs não abrem nada.
+- [x] ~~Pegar com ela o WhatsApp de destino do funil~~ (21/09): `554388081317`.
+- [ ] ⚠️ **Confirmar com ela os dois números.** O funil aponta para o Business
+      (+55 43 8808-1317) e a ficha de dados traz (43) 9 9880-8803. Saber qual recebe
+      lead e qual é pessoal antes de mandar tráfego.
 - [ ] Apagar as 4 linhas de teste da planilha e decidir se ela recebe acesso a ela.
 - [ ] Alinhar no kickoff que **a Simple não executa o comercial** — a reunião de vendas é dela.
 
