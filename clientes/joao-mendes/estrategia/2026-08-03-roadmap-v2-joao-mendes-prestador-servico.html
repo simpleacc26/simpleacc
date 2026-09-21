@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Roadmap Estratégico Digital v2 · João Mendes</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    padding: 16mm 18mm 24mm 18mm;
+    position: relative;
+    page-break-after: always;
+    background: #fff;
+  }
+  .page:last-child { page-break-after: auto; }
+  .runhead {
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; color: var(--muted);
+    letter-spacing: .06em; text-transform: uppercase;
+    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt;
+  }
+  .runfoot {
+    position: absolute; bottom: 9mm; left: 18mm; right: 18mm;
+    text-align: center; font-size: 7.5pt; color: var(--muted);
+  }
+  .kicker {
+    color: var(--gold); font-size: 9pt; font-weight: bold;
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt;
+  }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
+  .box-dark {
+    background: var(--navy-dark); color: #f5f3ee;
+    padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt;
+  }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light {
+    background: var(--beige); border-left: 3pt solid var(--gold);
+    padding: 10pt 14pt; margin: 11pt 0;
+  }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .fase-header {
+    background: var(--navy-dark); color: #fff;
+    padding: 10pt 16pt; margin-bottom: 10pt;
+    border-left: 4pt solid var(--gold);
+  }
+  .fase-header .fk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .fase-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .fase-header .fd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 12pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 38pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+  .footer-note { margin-top: 24pt; padding-top: 8pt; border-top: 1pt solid var(--gold); font-size: 8.5pt; color: var(--muted); width: 60%; }
+</style>
+</head>
+<body>
+
+<!-- PÁGINA 1 · CAPA -->
+<div class="page cover">
+  <div class="kicker">Plano de Ação Personalizado · Versão 2</div>
+  <h1>Roadmap<br>Estratégico<br>Digital</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    De apostar no resultado dos outros a ser pago pelo que você entrega.<br>
+    Os próximos 90 dias. Passo a passo, fase a fase.<br>
+    Sem atalho, sem improviso, sem ideia solta.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">João Mendes</div>
+    <div class="lbl">Mentor Estratégico</div>
+    <div class="val">Daniel Souza</div>
+  </div>
+</div>
+
+<!-- PÁGINA 2 · CONTEXTO E DECISÕES FUNDAMENTAIS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico v2 · João Mendes</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Começar</div>
+  <h1 style="font-size:19pt;">Contexto e Decisões Fundamentais</h1>
+  <p class="lead">Leia esta página inteira antes de executar qualquer passo. Todas as decisões a seguir partem do que está aqui.</p>
+
+  <div class="box-dark">
+    <div class="bt">A decisão mais importante deste plano</div>
+    <p>Duas parcerias quebraram do mesmo jeito. Em 2025, um expert que não gravava as calls. Agora, uma expert com dois fixos atrasados e o cartão travado no meio do lançamento. O ponto em comum não é o nicho, não é a pessoa e não é a sua capacidade: é o <strong>modelo de remuneração</strong>. Setup condicionado à venda, mais 50/50, mais tráfego rachado, significa que quem financia o negócio do outro é você, com um caixa que você não tem.</p>
+    <p><strong>A virada deste roadmap: você deixa de ser sócio de risco e passa a ser pago pelo que entrega. Fixo na entrada, sempre. Participação só existe em cima do fixo, nunca no lugar dele.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A oferta: três serviços, preço na mesa</div>
+    <p><strong>Diagnóstico Express · R$ 497.</strong> Auditoria paga de perfil, funil, oferta e tráfego, entregue em 48h (vídeo gravado mais um PDF de uma página). É a porta de entrada: vende fácil, paga o dia e revela quem tem caixa.</p>
+    <p><strong>Setup de Funil de Diagnóstico · R$ 2.500</strong> na entrada. Quiz, páginas, relatório e automação em 7 dias. Exatamente o que você já sabe montar.</p>
+    <p><strong>Gestão de Funil e Tráfego · R$ 1.800/mês</strong>, mínimo de 3 meses. É a receita que se acumula e o que muda a sua vida.</p>
+    <p>Regra dos 90 dias: <strong>nenhum serviço além destes três.</strong> Menu grande confunde o comprador e dispersa você.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A matemática: do piso de R$ 4.000 aos R$ 10.800/mês</div>
+    <p><strong>Piso de sobrevivência: R$ 4.000/mês.</strong> O caminho mais curto até ele não passa por venda de high ticket. Passa por 1 projeto de consultoria técnica (de R$ 2.500 a R$ 3.500 por laudo ou parecer) somado a 1 cliente de gestão (R$ 1.800). Piso coberto ainda no primeiro mês.</p>
+    <p><strong>Meta dos 90 dias: R$ 10.800/mês recorrentes</strong>, com 6 clientes de gestão ativos, mais os setups de R$ 2.500 na entrada de cada um. A conta que sustenta: <strong>30 abordagens por dia</strong> × 22 dias úteis = 660 contatos/mês; 10% respondem (66 conversas); 15% viram diagnóstico (10 calls/mês); 30% fecham (3 clientes/mês). Com a curva de entrega, isso vira 2 clientes no dia 30, 4 no dia 60 e 6 no dia 90.</p>
+    <p>Esse número é <strong>operacional, não aspiracional.</strong> É só fazer.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos próximos 90 dias</div>
+</div>
+
+<!-- PÁGINA 3 · RITMO, RESPONSABILIDADES, OPERAÇÃO E FOCO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico v2 · João Mendes</span><span>Página 3</span></div>
+  <div class="box-light">
+    <div class="bt">Ritmo de acompanhamento</div>
+    <p>Calls quinzenais com o mentor estratégico, mais frequentes neste primeiro mês pela urgência do caixa. Dúvidas do dia a dia vão direto no grupo: <strong>Carlos</strong> para entrega e estratégia, <strong>Renan</strong> para tráfego, <strong>Cecília</strong> para abordagem e social selling.</p>
+    <p>A execução acontece <strong>entre as calls.</strong> As calls servem para afinar, não para decidir o que fazer. O que fazer já está aqui dentro.</p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Divisão de responsabilidades</div>
+    <p><strong>A Simple direciona e destrava:</strong> este roadmap, as aulas do método (social selling, outbound, call de vendas, funil de quiz), a consultoria de abordagem com a Cecília, a leitura das campanhas com o Renan e a revisão de proposta, preço e gravações nas quinzenais.</p>
+    <p><strong>João executa:</strong> a prospecção diária, as calls de diagnóstico, a entrega dos serviços vendidos, a rotina de conteúdo e o controle do caixa.</p>
+    <p>Ninguém vende por você. <strong>O que coloca dinheiro na conta é a conversa que você abre todo dia de manhã.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Regra de operação (inegociável)</div>
+    <p>Encerramento do dia às 19h e fim de semana livre. Isso não é conselho de bem-estar, é condição de operação: a jornada das 6h às 3h já te derrubou uma vez, e foi justamente o fim de semana em que você desligou o computador que trouxe a clareza que originou este documento. <strong>Decisão tomada com medo de não pagar conta é sempre a decisão errada.</strong> Por isso a Fase 1 existe.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Foco deste roadmap</div>
+    <p>Este documento cobre <strong>apenas os próximos 90 dias</strong> e uma única prioridade: colocar o seu caixa de pé com clientes que pagam fixo. Coprodução não sai do mapa, sai da ordem: ela volta como Bônus a partir do dia 90, com critérios duros. Quando os R$ 10.800/mês estiverem de pé, vem o <strong>Roadmap 3: escala com equipe e coprodução com critério</strong>, onde a sua meta de R$ 50 mil/mês se torna uma conta possível. Não tente queimar etapas.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos próximos 90 dias</div>
+</div>
+
+<!-- PÁGINA 4 · FASE 1 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico v2 · João Mendes</span><span>Página 4</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 1 · Dias 1 a 15</div>
+    <h2>Fechar o Ciclo e Garantir o Piso</h2>
+    <div class="fd">Antes de construir qualquer coisa nova, o chão precisa parar de afundar.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que esta fase vem primeiro</div>
+    <p>Você precisa de R$ 4.000 por mês para manter a casa. Enquanto esse número não estiver garantido, toda decisão sai no aperto, e foi no aperto que você entrou nas duas parcerias que quebraram. <strong>Garantir o piso não é desistir do digital: é comprar o tempo para construí-lo direito.</strong></p>
+  </div>
+
+  <div class="passo-label">Passo 1</div>
+  <h3>Encerrar o ciclo com a expert sem sangrar mais</h3>
+  <ul class="check">
+    <li>Manter a decisão da empresa: nada volta a rodar antes dos R$ 6.000 em atraso. Recuar agora ensina que o combinado é negociável.</li>
+    <li>Encerrar por escrito, com respeito e sem discussão em grupo. Ela está sem caixa e esgotada; briga não devolve o dinheiro e cobra caro na sua reputação.
+      <ul class="sub">
+        <li>Ela mesma disse que já passou por outros lançadores, agências e mentores caros, sempre com o mesmo resultado. Isso não é atestado da sua incompetência, é a informação que faltava.</li>
+      </ul>
+    </li>
+    <li>Salvar tudo que você construiu (quiz, páginas, criativos, estrutura de lançamento) numa pasta de portfólio. Processo entregue é ativo, mesmo sem venda.</li>
+  </ul>
+
+  <div class="passo-label">Passo 2</div>
+  <h3>Reativar a renda técnica (a fonte mais rápida que você tem)</h3>
+  <ul class="check">
+    <li>Listar em 48h a sua rede de 15 anos: ex-colegas, gestores, empresas de consultoria ambiental e engenharia, coordenações de curso.</li>
+    <li>Ofertar trabalho <strong>pontual e remoto</strong>: laudos, pareceres, relatórios, licenciamento, aula ou banca. Não é voltar atrás, é usar o ativo que você já tem enquanto o digital amadurece.</li>
+    <li>Recusar o que te tira de casa por 90 dias. A vaga do Pará resolve o mês e desmonta exatamente o que você reencontrou no último fim de semana.</li>
+  </ul>
+
+  <div class="passo-label">Passo 3</div>
+  <h3>Blindar o caixa</h3>
+  <ul class="check">
+    <li>Todo dinheiro que entrar nos primeiros 30 dias tem destino definido: contas de casa primeiro, ferramentas depois.</li>
+    <li>Regra inegociável a partir de hoje: <strong>nenhum projeto sem fixo pago na entrada.</strong> Se o cliente não tem caixa para o fixo, ele não tem caixa para o tráfego. Não é cliente, é sócio de risco.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da fase</div>
+    <p><strong>Dia 15:</strong> contrato encerrado por escrito · R$ 4.000 do mês garantidos ou contratados · zero real do seu bolso em projeto de terceiro.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos próximos 90 dias</div>
+</div>
+
+<!-- PÁGINA 5 · FASE 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico v2 · João Mendes</span><span>Página 5</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 2 · Dias 1 a 10</div>
+    <h2>A Oferta de Serviço</h2>
+    <div class="fd">Você para de vender sociedade e passa a vender solução com preço na mesa.</div>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Prioridade máxima</div>
+    <p>Hoje você vende "sociedade", que é a venda mais difícil do mercado: ciclo longo, risco seu e um comprador que precisa acreditar num resultado futuro. <strong>Serviço com escopo e preço definidos se vende em uma conversa</strong>, e o dinheiro entra na assinatura, não daqui a três meses.</p>
+  </div>
+
+  <div class="passo-label">Passo 4</div>
+  <h3>Produtizar os três serviços</h3>
+  <ul class="check">
+    <li>Escrever, para cada um: nome, o que entrega, prazo, o que o cliente precisa fornecer, preço e forma de pagamento. Uma página por serviço, sem enfeite.</li>
+    <li><strong>Diagnóstico Express (R$ 497):</strong> auditoria de perfil, funil, oferta e tráfego, com plano de 30 dias. Entrega em 48h.</li>
+    <li><strong>Setup de Funil de Diagnóstico (R$ 2.500):</strong> quiz, páginas, relatório e automação, em 7 dias.</li>
+    <li><strong>Gestão de Funil e Tráfego (R$ 1.800/mês, mínimo 3 meses):</strong> campanhas, otimização semanal e relatório quinzenal.</li>
+  </ul>
+
+  <div class="passo-label">Passo 5</div>
+  <h3>A regra de preço e o contrato</h3>
+  <ul class="check">
+    <li>Nunca dar desconto no valor. Objeção de preço se resolve na forma de pagamento ou descendo de escopo (do setup para o Diagnóstico Express), jamais cortando o preço.</li>
+    <li>Contrato simples de uma página em todo projeto: escopo, prazo, valor, data de pagamento e o que não está incluso.</li>
+    <li><strong>Participação ou 50/50 só em cima do fixo, nunca no lugar dele.</strong> Essa frase é a diferença entre este ano e os dois anteriores.</li>
+  </ul>
+
+  <div class="passo-label">Passo 6</div>
+  <h3>O material de venda</h3>
+  <ul class="check">
+    <li>PDF de apresentação dos serviços (de 8 a 10 slides): o problema que você resolve, os três serviços com preço, o seu processo, a sua credencial e o próximo passo.</li>
+    <li>Um modelo de proposta pronto para preencher em 5 minutos depois da call. Proposta que demora dois dias perde a venda.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da fase</div>
+    <p><strong>Dia 10:</strong> três serviços escritos com preço · PDF de apresentação pronto · modelos de contrato e de proposta salvos e prontos para usar.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos próximos 90 dias</div>
+</div>
+
+<!-- PÁGINA 6 · FASE 3 PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico v2 · João Mendes</span><span>Página 6</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 3 · Dias 1 a 90 · Parte 1</div>
+    <h2>Aquisição: Quem Você Vai Procurar</h2>
+    <div class="fd">O motor do plano. Sem conversa com comprador, nada mais aqui funciona.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que a aquisição é o motor</div>
+    <p>Nos últimos meses todo o seu esforço foi para vender o produto de outra pessoa, para um público que não era seu, esperando uma comissão que dependia da conversão dela. Agora o volume vai para <strong>a sua própria venda</strong>: ciclo curto, preço na mesa e o dinheiro caindo direto na sua conta. Nenhum funil, marca ou conteúdo substitui isso.</p>
+  </div>
+
+  <div class="passo-label">Passo 7</div>
+  <h3>Mapear os três públicos, nesta ordem de facilidade</h3>
+  <ul class="check">
+    <li><strong>A sua rede técnica (o mais fácil e o mais ignorado):</strong> consultores, engenheiros, empresas de meio ambiente, professores e coordenadores que convivem com você há 15 anos. Quase nenhum tem presença digital, todos precisam, e você fala a língua deles. A concorrência ali é praticamente zero.
+      <ul class="sub">
+        <li>É o único público em que você entra como par, não como fornecedor desconhecido.</li>
+      </ul>
+    </li>
+    <li><strong>Negócios locais com ticket alto:</strong> clínicas, odontologia, advocacia, estética. Compram gestão com fixo, decidem rápido e entendem o valor de agenda cheia.</li>
+    <li><strong>Experts que já faturam:</strong> o filtro que você mesmo definiu na semana passada, e está certo. Já vende sem você, nicho tangível, caixa para setup e fixo. <strong>Nunca mais projeto do zero.</strong></li>
+  </ul>
+
+  <div class="passo-label">Passo 8</div>
+  <h3>Estruturar o controle</h3>
+  <ul class="check">
+    <li>Planilha única de prospecção: nome, público (A, B ou C), origem, data do contato, status, follow-up e resultado.</li>
+    <li>Meta: <strong>150 nomes qualificados mapeados até o dia 10</strong>, sendo pelo menos 50 da sua rede técnica.</li>
+    <li>Sem registro não existe. O que não entra na planilha some no dia seguinte.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos próximos 90 dias</div>
+</div>
+
+<!-- PÁGINA 7 · FASE 3 PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico v2 · João Mendes</span><span>Página 7</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 3 · Dias 1 a 90 · Parte 2</div>
+    <h2>Aquisição: a Rotina Diária</h2>
+    <div class="fd">Volume com método, todo dia útil, no mesmo horário, com registro.</div>
+  </div>
+
+  <div class="passo-label">Passo 9</div>
+  <h3>30 abordagens por dia, das 8h às 10h</h3>
+  <ul class="check">
+    <li>Bloco fixo na agenda, sempre de manhã. Prospecção que sobra para o fim do dia não acontece.</li>
+    <li>Distribuição de partida: 40% rede técnica, 40% negócios locais, 20% experts que já faturam.</li>
+    <li>Mensagem curta, sempre personalizada, com um único convite: um diagnóstico gratuito de 20 minutos (ou o Diagnóstico Express pago, quando o lead já chega quente).</li>
+    <li><strong>Follow-up obrigatório em até 2 dias.</strong> A maior parte das respostas nasce no segundo contato, não no primeiro.</li>
+  </ul>
+
+  <div class="passo-label">Passo 10</div>
+  <h3>Conduzir a call de diagnóstico (é ela que vende)</h3>
+  <ul class="check">
+    <li>Assistir à aula de Call de Vendas 1 a 1 antes da primeira conversa.</li>
+    <li>Estrutura: entender o cenário, mostrar o gargalo, apresentar o serviço que resolve aquele gargalo, colocar o preço na mesa e definir o próximo passo com data.</li>
+    <li>Proposta enviada <strong>no mesmo dia</strong> da call, com o modelo da Fase 2.</li>
+    <li>Gravar as calls com consentimento e levar as três primeiras para revisão na quinzenal.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Metas numéricas desta fase</div>
+    <p><strong>Dia 30:</strong> 10 calls de diagnóstico realizadas · 2 clientes fechados com fixo pago na entrada · piso de R$ 4.000 coberto.</p>
+    <p><strong>Dia 60:</strong> 4 clientes ativos, cerca de R$ 7.200 recorrentes.</p>
+    <p><strong>Dia 90:</strong> 6 clientes ativos, cerca de R$ 10.800 recorrentes, mais os setups de entrada.</p>
+    <p><strong>Alerta vermelho:</strong> 10 calls feitas e nenhum fechamento até o dia 30 significa problema de oferta ou de condução, não de mercado. Pausar, revisar as gravações com o mentor e ajustar antes de aumentar o volume.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos próximos 90 dias</div>
+</div>
+
+<!-- PÁGINA 8 · FASE 4 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico v2 · João Mendes</span><span>Página 8</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 4 · Dias 7 a 90 · Em paralelo</div>
+    <h2>Posicionamento: @ojuaomendes</h2>
+    <div class="fd">O perfil não precisa viralizar. Precisa dar segurança a quem você já abordou.</div>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Prioridade e limite</div>
+    <p>Toda pessoa que você abordar vai abrir o seu perfil antes de responder, e hoje ele está parado. Ao mesmo tempo, <strong>você não é criador de conteúdo, é prestador de serviço</strong>: aqui o conteúdo é prova, não é canal de aquisição. Por isso são 3 publicações por semana, e não 12.</p>
+  </div>
+
+  <div class="passo-label">Passo 11</div>
+  <h3>Reescrever o perfil</h3>
+  <ul class="check">
+    <li>Bio na fórmula [Quem ajudo] + [Resultado] + [Credencial] + [CTA]:
+      <ul class="sub">
+        <li>"Ajudo negócios e especialistas a transformar audiência em agenda cheia · Funis de diagnóstico e tráfego · 15 anos de carreira técnica · Chama no direct" (ajustar na sua voz).</li>
+      </ul>
+    </li>
+    <li>4 destaques: "Comece aqui", "Quem sou", "Como trabalho", "Resultados".</li>
+    <li>Foto profissional atual e 2 posts fixados explicando o que você faz e para quem.</li>
+  </ul>
+
+  <div class="passo-label">Passo 12</div>
+  <h3>Conteúdo de autoridade, 3 por semana</h3>
+  <ul class="check">
+    <li>Três pautas que falam com o seu comprador: o erro que faz o anúncio gastar sem vender, o que é um funil de diagnóstico e por que ele qualifica, e o bastidor do que você entregou na semana.</li>
+    <li>A sua história técnica é diferencial, não passado a esconder: biólogo, 15 anos de campo, professor universitário, hoje montando funis. Poucos estrategistas conseguem falar de dado e de método com essa bagagem.</li>
+    <li>Regra: <strong>conteúdo depois da prospecção do dia, nunca antes.</strong> Se o dia apertar, o conteúdo cai e a prospecção fica.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da fase</div>
+    <p><strong>Dia 14:</strong> perfil reposicionado no ar (bio, destaques, fixados, foto). <strong>Semanal:</strong> 3 publicações, produzidas em um único bloco.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos próximos 90 dias</div>
+</div>
+
+<!-- PÁGINA 9 · FASE 5 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico v2 · João Mendes</span><span>Página 9</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 5 · A partir do dia 15</div>
+    <h2>Entrega e Retenção</h2>
+    <div class="fd">O cliente que fica vale mais que o cliente que chega.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que a retenção decide este plano</div>
+    <p>A diferença entre o seu mês de R$ 4.000 e o seu mês de R$ 10.800 não está em vender mais: está em <strong>os clientes de março ainda estarem pagando em maio</strong>. Cada cliente que cancela obriga você a vender duas vezes o mesmo lugar. E cliente satisfeito é a sua fonte de indicação mais barata, justamente o que faltou nos últimos dois anos.</p>
+  </div>
+
+  <div class="passo-label">Passo 13</div>
+  <h3>Padronizar a entrega</h3>
+  <ul class="check">
+    <li>Onboarding igual para todo cliente novo: reunião de 30 minutos, acessos liberados, expectativa alinhada por escrito e primeira entrega em até 7 dias.</li>
+    <li><strong>Relatório quinzenal simples:</strong> o que foi feito, o número, o que vem agora. Cliente que não vê trabalho acontecendo cancela mesmo quando o resultado está vindo.</li>
+    <li>Bloco de entrega na agenda à tarde. Manhã é prospecção, tarde é entrega. Sem misturar.</li>
+    <li>Teto de capacidade solo: <strong>6 a 8 clientes de gestão.</strong> Passou disso, a conversa é sobre equipe, e isso é assunto do Roadmap 3.</li>
+  </ul>
+
+  <div class="passo-label">Passo 14</div>
+  <h3>Transformar entrega em case e indicação</h3>
+  <ul class="check">
+    <li>Registrar o antes e o depois de cada cliente (números, prints autorizados, evolução das campanhas). É o portfólio que hoje falta e que encurta toda venda futura.</li>
+    <li>Ao fim de cada mês bom, pedir dois nomes: "quem você conhece que também precisa disso?". Indicação de cliente satisfeito fecha em metade do tempo.</li>
+    <li>Depoimento em vídeo do primeiro cliente satisfeito. Um depoimento vale mais que qualquer copy que você escreva sobre si mesmo.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da fase</div>
+    <p><strong>Dia 60:</strong> primeiro depoimento em vídeo gravado · relatórios quinzenais em dia com todos os clientes. <strong>Dia 90:</strong> 2 indicações convertidas em cliente pagante.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos próximos 90 dias</div>
+</div>
+
+<!-- PÁGINA 10 · BÔNUS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico v2 · João Mendes</span><span>Página 10</span></div>
+  <div class="fase-header">
+    <div class="fk">Bônus · A partir do dia 90</div>
+    <h2>Coprodução, Quando Voltar</h2>
+    <div class="fd">O modelo não estava errado. A ordem estava.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que agora não, e por que depois sim</div>
+    <p>Coprodução é o modelo certo para o estrategista que <strong>já tem caixa e pode esperar a curva</strong>. Você entrou nele duas vezes sem colchão, e nas duas quem bancou ferramenta, tráfego e tempo foi você. Com 6 clientes pagando fixo, uma coprodução deixa de ser sobrevivência e vira <strong>upside</strong>: se der certo, muda o patamar; se não der, você não perde a casa. É essa a diferença que este roadmap compra para você.</p>
+  </div>
+
+  <div class="passo-label">Passo 15</div>
+  <h3>Os critérios antes de qualquer novo "sim"</h3>
+  <ul class="check">
+    <li>O expert <strong>já fatura hoje sem você</strong> (referência mínima: R$ 20 mil/mês).</li>
+    <li>Nicho com transformação tangível e prova em número. Nada abstrato, como você mesmo concluiu.</li>
+    <li>Paga <strong>setup na entrada e fixo mensal</strong>, independente do resultado das vendas.</li>
+    <li>Aceita gravar todas as calls de venda, por escrito, no contrato.</li>
+    <li>Tem produto validado e alunos entregues, não uma ideia bonita.</li>
+    <li>A sua participação entra <strong>em cima</strong> do fixo, nunca no lugar dele.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">A regra do bônus</div>
+    <p>Faltou um item da lista, a resposta é não. Seis critérios não é rigor excessivo: é o preço exato de não repetir 2025 e 2026. E se no dia 90 nenhuma coprodução tiver sido fechada, mas os 6 clientes de serviço estiverem de pé, <strong>o plano deu certo</strong>.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos próximos 90 dias</div>
+</div>
+
+<!-- PÁGINA 11 · CHECKPOINTS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico v2 · João Mendes</span><span>Página 11</span></div>
+  <div class="kicker">Checkpoints de Progresso</div>
+  <h1 style="font-size:19pt;">Como Saber Que Você Está no Caminho Certo</h1>
+  <p class="lead">Cada checkpoint marca o final de uma janela. Se algum item não estiver fechado, leve para a próxima call quinzenal. Ajuste de rota imediato, sem esconder.</p>
+
+  <h3 class="navy" style="margin-top:10pt;">CHECKPOINT 1 · DIA 15 (o chão)</h3>
+  <ul class="check">
+    <li>Contrato com a expert encerrado por escrito, sem pendência aberta.</li>
+    <li>R$ 4.000 do mês garantidos ou contratados.</li>
+    <li>Três serviços produtizados com preço, PDF de apresentação e contrato prontos.</li>
+    <li>150 nomes na planilha, sendo pelo menos 50 da rede técnica.</li>
+    <li>Rotina de 30 abordagens por dia rodando das 8h às 10h.</li>
+  </ul>
+
+  <h3 class="navy">CHECKPOINT 2 · DIA 30 (os primeiros clientes)</h3>
+  <ul class="check">
+    <li>10 calls de diagnóstico realizadas e gravadas.</li>
+    <li>2 clientes fechados, com fixo pago na entrada.</li>
+    <li>Perfil @ojuaomendes reposicionado e conteúdo semanal rodando.</li>
+    <li>Zero real do seu bolso em projeto de terceiro.</li>
+  </ul>
+
+  <h3 class="navy">CHECKPOINT 3 · DIA 60 (a máquina)</h3>
+  <ul class="check">
+    <li>4 clientes ativos, cerca de R$ 7.200 recorrentes.</li>
+    <li>Relatórios quinzenais entregues em dia, sem atraso.</li>
+    <li>Primeiro depoimento em vídeo gravado.</li>
+    <li>Agenda respeitada: prospecção de manhã, entrega à tarde, fim de semana livre.</li>
+  </ul>
+
+  <h3 class="navy">CHECKPOINT 4 · DIA 90 (estabilidade)</h3>
+  <ul class="check">
+    <li>6 clientes ativos, cerca de R$ 10.800 recorrentes.</li>
+    <li>2 indicações convertidas em cliente pagante.</li>
+    <li>Reserva de caixa de pelo menos um mês de despesa formada.</li>
+    <li>Pronto para receber o <strong>Roadmap 3: escala com equipe e coprodução com critério</strong>.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos próximos 90 dias</div>
+</div>
+
+<!-- PÁGINA 12 · MATERIAIS DE APOIO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico v2 · João Mendes</span><span>Página 12</span></div>
+  <div class="kicker">Materiais de Apoio</div>
+  <h1 style="font-size:19pt;">Recursos para Executar o Plano</h1>
+  <p class="lead">Todas as aulas e templates abaixo estão disponíveis no portal (área de membros) e no grupo. Se algum link não foi compartilhado, peça no grupo.</p>
+
+  <ul class="check">
+    <li><strong>Social Selling parte 1 e 2</strong>
+      <ul class="sub"><li>A rotina de abordagem que sustenta o Passo 9.</li></ul>
+    </li>
+    <li><strong>Outbound</strong>
+      <ul class="sub"><li>Como abordar a rede técnica e os negócios locais sem queimar contato. Passos 7 e 9.</li></ul>
+    </li>
+    <li><strong>Call de Vendas 1 a 1</strong>
+      <ul class="sub"><li>A condução da call de diagnóstico até o fechamento. Passo 10.</li></ul>
+    </li>
+    <li><strong>Pré-Vendas + planilha de CRM</strong>
+      <ul class="sub"><li>Controle de prospecção, status e follow-up. Passo 8.</li></ul>
+    </li>
+    <li><strong>Consultoria de Social Selling com a Cecília (Inova Selling)</strong>
+      <ul class="sub"><li>Framework e copy de abordagem 1 a 1, com os três públicos. Passos 9 e 10.</li></ul>
+    </li>
+    <li><strong>Método Simple Growth (funil de quiz)</strong>
+      <ul class="sub"><li>A metodologia do serviço que você vende como Setup. Passo 4.</li></ul>
+    </li>
+    <li><strong>Growth Model (métricas e alavancas)</strong>
+      <ul class="sub"><li>A régua do relatório quinzenal que você entrega ao cliente. Passo 13.</li></ul>
+    </li>
+    <li><strong>Modelo de PDF de apresentação</strong>
+      <ul class="sub"><li>Base dos 8 a 10 slides da sua apresentação de serviços. Passo 6.</li></ul>
+    </li>
+    <li><strong>Modelos de contrato e proposta de uma página</strong>
+      <ul class="sub"><li>Peça no grupo. Sustentam a regra do fixo na entrada. Passo 5.</li></ul>
+    </li>
+    <li><strong>Código de parceiro do Meta (Renan)</strong>
+      <ul class="sub"><li>Acesso e leitura das campanhas dos seus clientes de gestão. Passo 13.</li></ul>
+    </li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos próximos 90 dias</div>
+</div>
+
+<!-- PÁGINA 13 · FECHAMENTO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico v2 · João Mendes</span><span>Página 13</span></div>
+  <div style="padding-top:34mm;">
+    <div class="kicker">Lembre-se Sempre Disto</div>
+    <h1 style="font-size:19pt;">Antes de Fechar Este Documento</h1>
+    <p style="margin-top:10pt;">João, você construiu 15 anos de carreira técnica, deu aula em faculdade, largou a estabilidade com filhas pequenas e aprendeu sozinho tráfego, funil, automação e copy em menos de dois anos. E fez tudo isso mantendo a transparência inclusive quando a notícia era ruim, o que é mais raro do que você imagina neste mercado.</p>
+    <p>Não foi falta de esforço: você trabalhou das 6h às 3h da manhã. Não foi falta de fé. Não foi falta de capacidade técnica: o que você montou funciona.</p>
+    <p><strong class="navy">Foi falta de um modelo em que você é pago pelo que entrega, e não pelo resultado que depende de outra pessoa.</strong></p>
+    <p>Este roadmap é o método. A execução é sua. A cada 15 dias o mentor estratégico vai te encontrar na conversa quinzenal, mas o que coloca dinheiro no caixa é o que você faz <strong>entre as calls</strong>.</p>
+    <p>Dúvidas no meio do caminho: mande no grupo. Não espere a próxima call para perguntar, e não carregue sozinho o que dá para dividir.</p>
+    <p style="margin-top:12pt;">Você tem uma carreira técnica que quase nenhum estrategista tem. Você tem execução comprovada. Você tem clareza sobre o erro que não vai repetir. Você tem uma família que é o motivo, não o obstáculo. Você tem o método.</p>
+    <p><strong class="navy">O próximo passo é começar.</strong></p>
+    <div class="footer-note">Roadmap Estratégico Digital · João Mendes · 90 dias · Versão 2.0</div>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos próximos 90 dias</div>
+</div>
+
+</body>
+</html>

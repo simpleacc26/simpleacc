@@ -152,3 +152,22 @@ monitorar de perto** com os gatilhos numéricos.
 - **Fases, passos numerados e checkpoints.** Também do roadmap.
 - **Qualquer número que não bata com o roadmap.** Ticket, meta, conversão,
   verba e esteira são os mesmos nos dois, sempre.
+
+## Adaptação por tipo de funil
+
+| Tipo | O que muda |
+|---|---|
+| Quiz → página de diagnóstico → sessão | Padrão desta estrutura. Ticket considerado, de R$ 2 mil a R$ 10 mil. |
+| Quiz → agendamento direto | Ticket baixo ou nicho de decisão rápida. A seção 3 encolhe para uma página de resultado curto. |
+| Negócio local (B2C) | Qualificação por geografia; a "sessão" vira avaliação; prova antes e depois é o ativo mais forte. |
+| Ticket acima de R$ 15 mil | Mais prova, mais etapas na página de diagnóstico, e qualificação financeira dura na pergunta final. |
+
+## Erros que já custaram retrabalho
+
+- Entregar como Google Doc em vez de PDF.
+- Usar as 8 seções antigas (com "relatório de diagnóstico" separado e "tarefas de
+  onboarding"). São 6 seções: o diagnóstico virou a página de diagnóstico e as tarefas
+  vivem no roadmap.
+- Descrever a copy em vez de escrever a copy.
+- Entregar só os ângulos, sem os 25 criativos escritos.
+- Esquecer a página 2, que é onde o time alinha antes de aprovar.

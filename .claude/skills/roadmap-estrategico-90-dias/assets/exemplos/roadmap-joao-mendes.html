@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Roadmap Estratégico Digital · João Mendes</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    padding: 16mm 18mm 24mm 18mm;
+    position: relative;
+    page-break-after: always;
+    background: #fff;
+  }
+  .page:last-child { page-break-after: auto; }
+  .runhead {
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; color: var(--muted);
+    letter-spacing: .06em; text-transform: uppercase;
+    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt;
+  }
+  .runfoot {
+    position: absolute; bottom: 9mm; left: 18mm; right: 18mm;
+    text-align: center; font-size: 7.5pt; color: var(--muted);
+  }
+  .kicker {
+    color: var(--gold); font-size: 9pt; font-weight: bold;
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt;
+  }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
+  .box-dark {
+    background: var(--navy-dark); color: #f5f3ee;
+    padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt;
+  }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light {
+    background: var(--beige); border-left: 3pt solid var(--gold);
+    padding: 10pt 14pt; margin: 11pt 0;
+  }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .fase-header {
+    background: var(--navy-dark); color: #fff;
+    padding: 10pt 16pt; margin-bottom: 10pt;
+    border-left: 4pt solid var(--gold);
+  }
+  .fase-header .fk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .fase-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .fase-header .fd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 12pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 38pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+  .footer-note { margin-top: 24pt; padding-top: 8pt; border-top: 1pt solid var(--gold); font-size: 8.5pt; color: var(--muted); width: 60%; }
+</style>
+</head>
+<body>
+
+<!-- PÁGINA 1 · CAPA -->
+<div class="page cover">
+  <div class="kicker">Plano de Ação Personalizado</div>
+  <h1>Roadmap<br>Estratégico<br>Digital</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    De 15 anos de ciência à estratégia digital que paga as contas.<br>
+    Os primeiros 90 dias. Passo a passo, fase a fase.<br>
+    Sem atalho, sem improviso, sem ideia solta.
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">João Mendes</div>
+    <div class="lbl">Mentor Estratégico</div>
+    <div class="val">Daniel Souza</div>
+  </div>
+</div>
+
+<!-- PÁGINA 2 · CONTEXTO E DECISÕES FUNDAMENTAIS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · João Mendes</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Começar</div>
+  <h1 style="font-size:19pt;">Contexto e Decisões Fundamentais</h1>
+  <p class="lead">Leia esta página inteira antes de executar qualquer passo. Todas as decisões a seguir partem do que está aqui.</p>
+
+  <div class="box-dark">
+    <div class="bt">A decisão mais importante deste plano</div>
+    <p>Nos últimos meses o projeto testou VSL, low ticket, produto intermediário, disparo em lista fria e lançamento. Foram mais de R$ 2.500 de tráfego sem retorno. O problema não foi esforço: foi dispersão. A partir de hoje, o projeto tem <strong>um público, uma promessa e uma oferta</strong>: a mulher forte por fora e exausta por dentro, que repete os mesmos padrões, e a Mentoria Reset Mental da Luana como o caminho para romper isso.</p>
+    <p><strong>A big idea que sustenta toda a comunicação: o problema nunca é o problema. Relacionamento, dinheiro e autoestima travados são sintomas de uma única causa raiz. Quando a raiz muda, tudo destrava de uma vez, em efeito dominó.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A oferta</div>
+    <p><strong>Carro-chefe: Mentoria Reset Mental, 6 meses em grupo, R$ 4.497</strong> (12x de R$ 374,75 ou à vista no Pix), com ancoragem em R$ 6.000. Encontros semanais ao vivo com a Luana, +24h de aulas na Kiwify, grupo de WhatsApp e o bônus de fechamento: 1 atendimento individual (ref. R$ 1.497).</p>
+    <p><strong>Downsell exclusivo de call: mentoria de 3 meses por R$ 3.498.</strong> Só aparece na sessão diagnóstica, quando a objeção for financeira. Nunca é anunciado.</p>
+    <p>Regra dos 90 dias: <strong>nenhum produto novo</strong>. O VSL de R$ 297 e o intermediário de R$ 600 ficam pausados. Não crie uma quarta oferta antes de a mentoria vender com consistência.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">A matemática dos R$ 45 mil/mês</div>
+    <p><strong>10 vendas × R$ 4.497 = R$ 44.970 por mês</strong> (na divisão 50/50, cerca de R$ 22 mil para a sua operação). A Luana já converteu <strong>70% das sessões 1 a 1</strong>; para trabalhar com folga, esta conta usa 50%: <strong>10 vendas ÷ 50% = 20 sessões diagnósticas por mês, ou seja, 1 por dia útil</strong>. Com comparecimento de 60%, são cerca de 33 agendamentos/mês, sustentados por <strong>60 abordagens por dia</strong> entre base quente, social selling e leads do quiz.</p>
+    <p>Esse número é <strong>operacional, não aspiracional.</strong> É só fazer.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 3 · RITMO + RESPONSABILIDADES + FOCO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · João Mendes</span><span>Página 3</span></div>
+  <div class="box-light">
+    <div class="bt">Ritmo de acompanhamento</div>
+    <p>Calls quinzenais com o mentor estratégico, mais frequentes neste primeiro mês pela urgência do projeto. Dúvidas do dia a dia vão direto no grupo: <strong>Carlos</strong> para entrega e estratégia, <strong>Renan</strong> para tráfego, <strong>Cecília</strong> na consultoria de social selling.</p>
+    <p>A execução acontece <strong>entre as calls.</strong> As calls servem para afinar, não para decidir o que fazer. O que fazer já está aqui dentro.</p>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Divisão de responsabilidades</div>
+    <p><strong>A Simple constrói e opera:</strong> o funil de quiz completo (perguntas, copies e páginas), <strong>implementado e no ar em até 7 dias</strong>, além deste roadmap, das aulas do método, da consultoria de abordagem 1 a 1 com a Cecília e da análise das campanhas no Meta com o Renan.</p>
+    <p><strong>João executa:</strong> a validação do tom do quiz com a Luana, o tráfego (com a régua do Renan), os scripts no dia a dia, o controle de leads, a rotina comercial da Luana e o próprio posicionamento como estrategista.</p>
+    <p><strong>Luana executa:</strong> as abordagens 1 a 1, as sessões diagnósticas (todas gravadas) e os conteúdos de rosto: stories, vídeos dos criativos e encontros da mentoria.</p>
+    <p>O funil coloca lead na porta. <strong>Quem coloca dinheiro no caixa é a rotina comercial.</strong></p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Foco deste roadmap</div>
+    <p>Este documento cobre <strong>apenas os primeiros 90 dias</strong> com uma prioridade clara: fazer a Mentoria Reset Mental vender com consistência, porque é ela que paga as suas contas e as da Luana. Como você está com disposição e o momento pede, a sua marca de estrategista (@ojuaomendes) <strong>começa já no dia 7</strong>, em paralelo e sem nunca passar na frente das abordagens de venda da expert, que seguem como prioridade número 1. Quando a meta dos R$ 45 mil/mês estiver de pé, vem o <strong>Roadmap 2: a escala dos 45 aos 100 mil/mês</strong>, onde a sua meta pessoal de R$ 50 mil se realiza. Não tente queimar etapas.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 4 · FASE 1 CAIXA RÁPIDO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · João Mendes</span><span>Página 4</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 1 · Dias 1 a 10</div>
+    <h2>Caixa Rápido: a Base da Luana</h2>
+    <div class="fd">O dinheiro mais rápido do projeto não está no tráfego. Está nas mulheres que já conhecem a Luana.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que esta fase vem primeiro</div>
+    <p>A Luana já faturou R$ 30 mil num mês vendendo 1 a 1, sem tráfego. Existem ex-alunas que renovaram sem nenhuma copy de venda, grupos antigos de WhatsApp, leads da automação do ManyChat e seguidoras que já consomem o conteúdo. O disparo da pré-venda provou que lista fria não compra ingresso, mas essas mesmas pessoas <strong>aceitam uma conversa</strong>. É daqui que saem as primeiras vendas e o caixa que financia a mídia.</p>
+  </div>
+
+  <div class="passo-label">Passo 1</div>
+  <h3>Mapear todas as oportunidades da base</h3>
+  <ul class="check">
+    <li>Listar em uma planilha única: ex-alunas e alunas ativas, participantes dos grupos antigos de WhatsApp, leads do ManyChat, compradoras do ingresso do evento e seguidoras que interagem com frequência.</li>
+    <li>Classificar cada nome por potencial: upgrade ou renovação, indicação, ou convite para sessão diagnóstica.
+      <ul class="sub">
+        <li>Lista completa até o dia 3. Sem registro, não existe.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="passo-label">Passo 2</div>
+  <h3>Executar as abordagens de caixa rápido</h3>
+  <ul class="check">
+    <li>Alunas e ex-alunas: a Luana oferece o próximo nível (renovação ou upgrade para os 6 meses) e pede <strong>de 3 a 5 indicações qualificadas</strong> com o perfil claro: mulher de 30 a 50, estabelecida, exausta de repetir padrões.</li>
+    <li>Grupos antigos e leads do ManyChat: reativação personalizada, sem vender ingresso. O convite é para a <strong>sessão diagnóstica gratuita</strong>, a mesma que já converteu 70%.</li>
+    <li>Scripts de abordagem alinhados com a Cecília na consultoria de social selling desta semana.</li>
+  </ul>
+
+  <div class="passo-label">Passo 3</div>
+  <h3>Converter vendas em caixa de mídia</h3>
+  <ul class="check">
+    <li>Venda parcelada no cartão: avaliar antecipação de recebíveis na Kiwify.</li>
+    <li>Destino do caixa: <strong>mídia e ferramentas, não retirada</strong>. É esse dinheiro que paga o tráfego do quiz sem sair do seu bolso.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da fase</div>
+    <p><strong>Dia 10:</strong> base 100% mapeada e abordada · pelo menos 6 sessões diagnósticas agendadas · 1 venda ou 1 antecipação realizada (caixa de mídia garantido).</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 5 · FASE 2 POSICIONAMENTO E OFERTA -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · João Mendes</span><span>Página 5</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 2 · Dias 1 a 14</div>
+    <h2>Posicionamento e Oferta</h2>
+    <div class="fd">Quando a mulher certa clicar no perfil da Luana, ela precisa se reconhecer em 5 segundos.</div>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">Prioridade máxima</div>
+    <p>O perfil da Luana esfriou no período do bloqueio. Toda abordagem da Fase 1 e todo lead do quiz vão cair exatamente ali antes de responder. Perfil parado é dinheiro de tráfego jogado fora.</p>
+  </div>
+
+  <div class="passo-label">Passo 4</div>
+  <h3>Reescrever o Instagram da Luana (@lufelisminooficial)</h3>
+  <ul class="check">
+    <li>Bio na fórmula [Quem ajudo] + [Resultado] + [Credencial] + [CTA]:
+      <ul class="sub">
+        <li>"Ajudo mulheres que dão conta de tudo, menos de si, a romper os padrões que se repetem · Método Reset Mental · Agende sua sessão diagnóstica" (ajustar na voz dela).</li>
+      </ul>
+    </li>
+    <li>4 destaques: "Comece aqui", "Quem sou", "O Método", "Resultados".</li>
+    <li>2 a 3 posts fixados de posicionamento e foto profissional atual.</li>
+  </ul>
+
+  <div class="passo-label">Passo 5</div>
+  <h3>Empacotar a prova social</h3>
+  <ul class="check">
+    <li>Gravar depoimentos em vídeo das alunas com resultado: Fabrícia (resultado em 30 dias que anos de terapia não trouxeram), Thalita (relação com marido, filhas e dinheiro em 3 meses), Carol (+80% de faturamento em 28 dias).
+      <ul class="sub">
+        <li>A Simple envia o guia com os tópicos de direcionamento para cada depoimento.</li>
+      </ul>
+    </li>
+    <li>Subir tudo no Drive do projeto: os depoimentos alimentam destaques, criativos e a página do quiz.</li>
+  </ul>
+
+  <div class="passo-label">Passo 6</div>
+  <h3>Fechar o material de venda da mentoria</h3>
+  <ul class="check">
+    <li>PDF de apresentação da Mentoria Reset Mental (10 a 15 slides, modelo nos materiais de apoio): promessa, mecanismo (a sequência ferida, autoestima, autoimagem, crenças, clareza), estrutura dos 6 meses, provas e investimento.</li>
+    <li>Regra de preço: <strong>nunca dar desconto no high ticket</strong>. Objeção de valor se resolve com forma de pagamento ou com o downsell de 3 meses (R$ 3.498), nunca baixando os R$ 4.497.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da fase</div>
+    <p><strong>Dia 14:</strong> perfil reposicionado no ar · 3 depoimentos gravados · PDF de apresentação pronto e validado na call.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 6 · FASE 3 AQUISIÇÃO MANUAL PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · João Mendes</span><span>Página 6</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 3 · Dias 1 a 90 · Parte 1</div>
+    <h2>Aquisição Manual: o Motor Principal</h2>
+    <div class="fd">O 1 a 1 é o único canal deste projeto que já provou converter. Ele volta a rodar agora, todos os dias.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Por que o manual anda na frente do funil</div>
+    <p>Nos testes de VSL e low ticket, o lead nunca conversou com ninguém, e não houve venda. No 1 a 1, a Luana converteu <strong>7 de cada 10 sessões</strong>. A diferença não é o produto, é a conversa. Além disso, cada sessão gravada revela as dores e as palavras exatas do avatar, e são essas palavras que vão otimizar o quiz e os criativos da Fase 5 a cada revisão. Vender e pesquisar viram a mesma atividade.</p>
+  </div>
+
+  <div class="passo-label">Passo 7</div>
+  <h3>Assistir às aulas de aquisição antes de abordar</h3>
+  <ul class="check">
+    <li>Social Selling parte 1 e 2, Outbound, Call de Vendas 1 a 1 e Pré-Vendas, no portal da Simple.
+      <ul class="sub">
+        <li>João e Luana assistem juntos: ele estrutura, ela executa a conversa.</li>
+        <li>Sem isso você está improvisando, e improviso na frente da venda queima lead bom.</li>
+      </ul>
+    </li>
+    <li>Consultoria com a Cecília (Inova Selling): framework de abordagem, copy das mensagens e quebra do bloqueio do "não sei o que escrever" que você trouxe na call de onboarding.</li>
+  </ul>
+
+  <div class="passo-label">Passo 8</div>
+  <h3>Estruturar o pré-vendas do projeto</h3>
+  <ul class="check">
+    <li>João monta a planilha de controle (CRM simples): nome, origem (base, social selling, quiz), data da abordagem, status, follow-up e resultado da sessão.</li>
+    <li>Mapear os alvos de social selling: seguidoras da Luana, engajadas dos grupos, seguidoras das concorrentes mapeadas no canvas (Gabi Arruda, Carol Rache, Eduarda Escobar e as demais) e hashtags do nicho.</li>
+    <li>Meta: <strong>200 perfis qualificados mapeados até o dia 10</strong>, alimentando a rotina diária.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 7 · FASE 3 AQUISIÇÃO MANUAL PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · João Mendes</span><span>Página 7</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 3 · Dias 1 a 90 · Parte 2</div>
+    <h2>Aquisição Manual: a Rotina Diária</h2>
+    <div class="fd">Volume com método. Todos os dias, sem exceção, com registro.</div>
+  </div>
+
+  <div class="passo-label">Passo 9</div>
+  <h3>Executar 60 abordagens por dia</h3>
+  <ul class="check">
+    <li>Distribuição de partida: 40% base quente (Fase 1), 40% social selling nos perfis mapeados, 20% reativação de leads antigos. Quando a base quente esgotar, inverta o peso para o social selling e os leads do quiz.</li>
+    <li>Toda abordagem é personalizada (nada de mensagem em massa) e termina com um convite claro para a sessão diagnóstica gratuita.</li>
+    <li><strong>Follow-up obrigatório em até 2 dias.</strong> A maioria das sessões nasce no follow-up, não na primeira mensagem.</li>
+  </ul>
+
+  <div class="passo-label">Passo 10</div>
+  <h3>Conduzir a sessão diagnóstica como call de vendas</h3>
+  <ul class="check">
+    <li>Aula de Call de Vendas 1 a 1 completa antes da primeira sessão desta nova fase.</li>
+    <li><strong>Toda sessão gravada</strong>, com consentimento. Regra inegociável do projeto: gravação protege a parceria, alimenta a inteligência de avatar e permite revisar o fechamento.
+      <ul class="sub">
+        <li>As 3 primeiras gravações vão para revisão na call com o mentor.</li>
+      </ul>
+    </li>
+    <li>Agenda da Luana: até 2 sessões por dia útil, para manter qualidade e os encontros da mentoria.</li>
+    <li>Nunca recuar no preço. Objeção financeira: forma de pagamento ou downsell de 3 meses. Toda sessão sem fechamento sai com <strong>próximo passo datado</strong>.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Metas numéricas desta fase</div>
+    <p><strong>Dia 30:</strong> 20 sessões realizadas no acumulado · 5 vendas da mentoria (R$ 22 mil no caixa do projeto).</p>
+    <p><strong>Dia 60:</strong> 45 sessões acumuladas · 14 vendas acumuladas · funil de quiz alimentando a agenda.</p>
+    <p><strong>Dia 90:</strong> ritmo estável de 20 sessões/mês · 10 vendas/mês · R$ 45 mil/mês recorrentes.</p>
+    <p><strong>Alerta vermelho:</strong> menos de 3 vendas até o dia 30 significa problema de fechamento ou de qualificação, não de produto. Pausar, revisar as gravações com o mentor e ajustar antes de continuar.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 8 · FASE 4 CONTEÚDO ORGÂNICO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · João Mendes</span><span>Página 8</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 4 · Dias 1 a 90 · Em paralelo</div>
+    <h2>Conteúdo Orgânico</h2>
+    <div class="fd">Roda em paralelo. Não é pré-requisito para venda: é o que aquece quem a abordagem e o anúncio alcançam.</div>
+  </div>
+
+  <div class="passo-label">Passo 11</div>
+  <h3>Produzir pelos níveis de consciência</h3>
+  <ul class="check">
+    <li>Nível 1 (não sabe que o problema é a raiz): "Por que você sempre volta pra estaca zero, mesmo fazendo tudo certo".</li>
+    <li>Nível 2 (sente o sintoma): "Terapia pro casamento, curso pra carreira, dieta pro corpo... e nada muda de verdade. Já se perguntou o que liga tudo isso?"</li>
+    <li>Nível 4 (pronta para a solução): depoimentos das alunas, bastidores dos encontros e a história da própria Luana: do meio milhão em dívidas à reconstrução com o método.</li>
+  </ul>
+
+  <div class="passo-label">Passo 12</div>
+  <h3>Rotina semanal de publicação</h3>
+  <ul class="check">
+    <li>12 publicações por semana entre stories, reels e carrossel, produzidas em lote num único dia de gravação com a Luana.</li>
+    <li>Reaproveitar formatos: 1 reel vira story, corte e legenda de carrossel. O editor de vídeo que você já paga entra aqui.</li>
+    <li>CTA fixo em tudo: sessão diagnóstica (ou o quiz, quando estiver no ar).</li>
+  </ul>
+
+  <div class="passo-label">Passo 13</div>
+  <h3>Gravar os materiais do funil</h3>
+  <ul class="check">
+    <li>Vídeos dos criativos com os roteiros que a Simple orienta: dor reconhecível no gancho, big idea da causa raiz, convite para o quiz.</li>
+    <li>Prioridade para depoimento e história real: neste nicho, identificação vale mais do que promessa.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta da fase</div>
+    <p><strong>Semanal:</strong> 12 publicações no ar · 1 lote de gravação feito · <strong>Dia 6:</strong> 3 criativos de vídeo prontos para as campanhas que sobem no dia 8.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 9 · FASE 5 FUNIL DE QUIZ PARTE 1 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · João Mendes</span><span>Página 9</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 5 · Dias 1 a 30 · Parte 1</div>
+    <h2>Funil de Quiz: a Simple Implementa</h2>
+    <div class="fd">A sessão diagnóstica que converte 70% transformada em máquina. No ar em até 7 dias, implementada pela equipe.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">Como o funil funciona</div>
+    <p>Anúncio com a dor reconhecível → quiz "descubra a causa raiz do padrão que se repete na sua vida" (o diagnóstico gratuito) → resultado personalizado por perfil → convite para a sessão diagnóstica com a Luana → abordagem no WhatsApp em até 24h → sessão → venda da mentoria.</p>
+    <p>O quiz qualifica antes da agenda: quem tem perfil agenda a sessão, quem não tem recebe o conteúdo de aquecimento. A Luana só senta na frente de quem já se reconheceu no diagnóstico. <strong>É o mesmo mecanismo que fez os 70%, sem depender de indicação. E desta vez quem constrói é a Simple: em até 7 dias o funil está no ar.</strong></p>
+  </div>
+
+  <div class="passo-label">Passo 14</div>
+  <h3>Aprovar o quiz que a Simple constrói (dias 1 a 7)</h3>
+  <ul class="check">
+    <li>A Simple escreve as 8 a 12 perguntas, as copies e as páginas com a metodologia dos baldes, nas palavras do avatar tiradas do canvas:
+      <ul class="sub">
+        <li>"Você sente que faz de tudo, mas nada realmente muda?"</li>
+        <li>"Quantas vezes você já recomeçou e voltou pro mesmo lugar?"</li>
+        <li>"Sua autoestima depende da aprovação de quem?"</li>
+      </ul>
+    </li>
+    <li>João e Luana validam o tom nas primeiras entregas (resposta em até 24h, para não travar os 7 dias).</li>
+    <li>Resultado do quiz nomeia a causa raiz do perfil e leva direto ao agendamento da sessão diagnóstica.</li>
+    <li>Todo lead cai na planilha de controle (Passo 8), com origem marcada como "quiz".</li>
+  </ul>
+
+  <div class="passo-label">Passo 15</div>
+  <h3>Liberar a infraestrutura (dias 1 a 7)</h3>
+  <ul class="check">
+    <li>Página do quiz e página de agradecimento no padrão validado da Simple, implementadas pela equipe.</li>
+    <li>João prepara o WhatsApp de atendimento dedicado, com a automação do ManyChat que já domina apontando para o quiz.</li>
+    <li>João aceita o código de parceiro do Meta enviado pelo Renan e libera os acessos (identidade, logo e materiais da Luana no Drive do projeto).</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 10 · FASE 5 FUNIL DE QUIZ PARTE 2 -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · João Mendes</span><span>Página 10</span></div>
+  <div class="fase-header">
+    <div class="fk">Fase 5 · Dias 1 a 30 · Parte 2</div>
+    <h2>Tráfego Pago e o Evento de 27/07</h2>
+    <div class="fd">Tráfego pago aqui não é aposta: é escala de um diagnóstico que já converte.</div>
+  </div>
+
+  <div class="passo-label">Passo 16</div>
+  <h3>Colher o lançamento de 27/07 sem perder o foco</h3>
+  <ul class="check">
+    <li>O evento pago já está em captação e acontece dentro desta janela. Ele não vira um funil paralelo: vira <strong>fornecedor de leads para a esteira única</strong>.</li>
+    <li>Toda compradora de ingresso e toda participante recebe, no pós-evento, o convite para a sessão diagnóstica (ou o quiz). A oferta do palco é a mentoria, a mesma deste roadmap.</li>
+  </ul>
+
+  <div class="passo-label">Passo 17</div>
+  <h3>Subir as campanhas de validação (a partir do dia 8)</h3>
+  <ul class="check">
+    <li>Com o quiz no ar no dia 7, as campanhas sobem na sequência. Orçamento inicial financiado pelo caixa rápido da Fase 1 (na régua de R$ 50 a R$ 70/dia, ajustada na call com o Renan), sem tirar dinheiro novo do seu bolso.</li>
+    <li>Segmentação de partida: mulheres de 30 a 50, interesses em desenvolvimento pessoal, espiritualidade e relacionamentos, mais o lookalike das listas da Luana.</li>
+    <li>3 criativos da Fase 4 no ar, rodando contra o quiz.</li>
+    <li>Revisão de métricas a cada 7 dias com o Renan, com gatilhos claros:
+      <ul class="sub">
+        <li>CPL fora da meta: troca o criativo, não a estratégia.</li>
+        <li>Conclusão do quiz abaixo de 40%: revisa as perguntas.</li>
+        <li>Comparecimento na sessão abaixo de 60%: reforça o follow-up e a confirmação.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Regra de ouro do tráfego high ticket</div>
+    <p>Uma venda de R$ 4.497 paga meses de mídia. O jogo aqui é <strong>lead certo, não lead barato</strong>. Você já pagou o preço de aprender isso com R$ 2.500 em funil errado: este orçamento roda com diagnóstico validado, régua de métricas e revisão semanal. Nada sobe sem passar pela conta.</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 11 · BÔNUS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · João Mendes</span><span>Página 11</span></div>
+  <div class="fase-header">
+    <div class="fk">Bônus · A partir do dia 7</div>
+    <h2>A Marca do Estrategista: @ojuaomendes</h2>
+    <div class="fd">Expert vem e vai. A sua empresa fica. Este bônus planta o próximo contrato sem roubar o foco da prioridade número 1.</div>
+  </div>
+
+  <div class="box-dark">
+    <div class="bt">A regra deste bônus</div>
+    <p>Você foi transparente na call: não pretende renovar com a expert atual depois dos 4 meses, e a sua meta é se consolidar como estrategista com mais 1 ou 2 experts no portfólio. Como você está com disposição e o momento pede, o seu posicionamento <strong>começa já no dia 7</strong>, junto com o funil no ar. A regra é uma só: <strong>as abordagens de venda da Luana vêm primeiro, todos os dias.</strong> O @ojuaomendes é construído no tempo que sobra depois da rotina comercial, nunca no lugar dela. E a prospecção pesada de novos experts ganha força quando o case existir: você prospecta com prova, não com promessa.</p>
+  </div>
+
+  <div class="passo-label">Passo 18</div>
+  <h3>Posicionar o @ojuaomendes (a partir do dia 7)</h3>
+  <ul class="check">
+    <li>Bio na mesma fórmula da Fase 2: "Estrategista digital para experts da saúde · Funis de diagnóstico e vendas high ticket · Vamos conversar?" (o resultado do case da Luana entra assim que existir).</li>
+    <li>2 a 3 conteúdos por semana documentando o processo em construção (sem expor números da parceria sem autorização): bastidores do funil, aprendizados, método.</li>
+  </ul>
+
+  <div class="passo-label">Passo 19</div>
+  <h3>Prospecção estruturada de novos experts</h3>
+  <ul class="check">
+    <li>Manter as 10 a 15 mensagens diárias, agora com o framework da consultoria da Cecília; a partir do dia 60, com o case da Luana como abertura.</li>
+    <li>Foco que você já definiu certo: profissionais da saúde, que têm caixa para setup e fixo.</li>
+    <li>Critério de fechamento aprendido a duras penas: <strong>setup pago na entrada, gravação de calls como cláusula e transparência total</strong>. Sem isso, não fecha.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Meta do bônus</div>
+    <p><strong>Dia 14:</strong> perfil @ojuaomendes reposicionado e com rotina de conteúdo rodando.</p>
+    <p><strong>Dia 90:</strong> case da Luana documentado · de 3 a 5 conversas com experts em andamento (conversa em andamento, não fechamento: o fechamento é meta do mês 4).</p>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 12 · CHECKPOINTS -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · João Mendes</span><span>Página 12</span></div>
+  <div class="kicker">Checkpoints de Progresso</div>
+  <h1 style="font-size:19pt;">Como Saber Que Você Está no Caminho Certo</h1>
+  <p class="lead">Cada checkpoint marca o final de uma janela. Se algum item não estiver fechado, leve para a próxima call quinzenal. Ajuste de rota imediato, sem esconder.</p>
+
+  <h3 class="navy" style="margin-top:10pt;">CHECKPOINT 1 · DIA 10 (caixa rápido)</h3>
+  <ul class="check">
+    <li>Base da Luana 100% mapeada e abordada, com registro na planilha.</li>
+    <li>Pelo menos 6 sessões diagnósticas agendadas.</li>
+    <li>1 venda ou 1 antecipação: caixa de mídia garantido.</li>
+    <li>Consultoria de social selling com a Cecília realizada.</li>
+    <li>Funil de quiz implementado pela Simple e no ar (dia 7), campanhas subindo.</li>
+    <li>Posicionamento do @ojuaomendes iniciado (dia 7).</li>
+  </ul>
+
+  <h3 class="navy">CHECKPOINT 2 · DIA 14 (posicionamento)</h3>
+  <ul class="check">
+    <li>Perfil da Luana reposicionado: bio, destaques, fixados.</li>
+    <li>3 depoimentos de alunas gravados e no Drive.</li>
+    <li>PDF de apresentação da mentoria validado na call.</li>
+    <li>@ojuaomendes reposicionado e com rotina de conteúdo rodando.</li>
+  </ul>
+
+  <h3 class="navy">CHECKPOINT 3 · DIA 30 (primeiras vendas)</h3>
+  <ul class="check">
+    <li>20 sessões diagnósticas realizadas no acumulado, todas gravadas.</li>
+    <li>5 vendas da mentoria (cerca de R$ 22 mil no projeto).</li>
+    <li>Campanhas do quiz com 3 semanas de dados e primeira rodada de otimização feita.</li>
+    <li>Rotina de 60 abordagens/dia consolidada, com follow-up em dia.</li>
+  </ul>
+
+  <h3 class="navy">CHECKPOINT 4 · DIA 60 (máquina rodando)</h3>
+  <ul class="check">
+    <li>14 vendas acumuladas e caixa financiando a mídia sem aporte novo.</li>
+    <li>Quiz com conclusão acima de 40% e sessões nascendo do tráfego.</li>
+    <li>Leads do evento de 27/07 integrados na esteira e trabalhados.</li>
+    <li>Prospecção de experts com o case da Luana como abertura.</li>
+  </ul>
+
+  <h3 class="navy">CHECKPOINT 5 · DIA 90 (meta batida)</h3>
+  <ul class="check">
+    <li>Ritmo estável: 20 sessões/mês, 10 vendas/mês, R$ 45 mil/mês.</li>
+    <li>De 3 a 5 conversas com novos experts em andamento.</li>
+    <li>Pronto para receber o <strong>Roadmap 2: a escala dos 45 aos 100 mil/mês</strong>.</li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 13 · MATERIAIS DE APOIO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · João Mendes</span><span>Página 13</span></div>
+  <div class="kicker">Materiais de Apoio</div>
+  <h1 style="font-size:19pt;">Recursos para Executar o Plano</h1>
+  <p class="lead">Todas as aulas e templates abaixo estão disponíveis no portal (área de membros) e no grupo. Se algum link não foi compartilhado, peça no grupo.</p>
+
+  <ul class="check">
+    <li><strong>Social Selling parte 1 e 2</strong>
+      <ul class="sub"><li>A rotina de abordagem no Instagram. Base dos Passos 7 e 9.</li></ul>
+    </li>
+    <li><strong>Outbound</strong>
+      <ul class="sub"><li>Reativação de listas e leads antigos sem queimar a base. Passos 2 e 9.</li></ul>
+    </li>
+    <li><strong>Call de Vendas 1 a 1</strong>
+      <ul class="sub"><li>A condução da sessão diagnóstica até o fechamento. Passo 10.</li></ul>
+    </li>
+    <li><strong>Pré-Vendas + planilha de CRM</strong>
+      <ul class="sub"><li>Controle de leads, follow-up e status. Passo 8.</li></ul>
+    </li>
+    <li><strong>Consultoria de Social Selling com a Cecília (Inova Selling)</strong>
+      <ul class="sub"><li>Framework e copy de abordagem 1 a 1. Passos 2, 7 e 19.</li></ul>
+    </li>
+    <li><strong>Método Simple Growth (funil de quiz, aulas dos baldes)</strong>
+      <ul class="sub"><li>A metodologia do quiz que a Simple implementa; entenda para validar. Passo 14.</li></ul>
+    </li>
+    <li><strong>Modelo de PDF de apresentação</strong>
+      <ul class="sub"><li>Estrutura dos 10 a 15 slides da mentoria. Passo 6.</li></ul>
+    </li>
+    <li><strong>Guia de captação de depoimentos</strong>
+      <ul class="sub"><li>Tópicos de direcionamento para as alunas gravarem. Passo 5.</li></ul>
+    </li>
+    <li><strong>Growth Model (métricas e alavancas)</strong>
+      <ul class="sub"><li>A régua de leitura das campanhas com o Renan. Passo 17.</li></ul>
+    </li>
+    <li><strong>Código de parceiro do Meta</strong>
+      <ul class="sub"><li>Acesso da equipe às campanhas. Enviado pelo Renan. Passo 15.</li></ul>
+    </li>
+  </ul>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+<!-- PÁGINA 14 · FECHAMENTO -->
+<div class="page">
+  <div class="runhead"><span>Roadmap Estratégico · João Mendes</span><span>Página 14</span></div>
+  <div style="padding-top:40mm;">
+    <div class="kicker">Lembre-se Sempre Disto</div>
+    <h1 style="font-size:19pt;">Antes de Fechar Este Documento</h1>
+    <p style="margin-top:10pt;">João, você construiu 15 anos de carreira na ciência, virou professor universitário e teve coragem de recomeçar do zero num mercado novo, com família, contas e um filho a caminho. Trabalhou das 6h às 3h da manhã tentando fazer dar certo. Ninguém no seu caminho pode dizer que faltou esforço.</p>
+    <p>Não foi falta de esforço. Não foi falta de fé. Não foi falta de ferramenta, você aprendeu VSL, automação, tráfego e lançamento sozinho.</p>
+    <p><strong class="navy">Foi falta de foco com método: um público, uma promessa, um funil e uma rotina de vendas executada todos os dias.</strong></p>
+    <p>Este roadmap é o método. A execução é sua. A cada 15 dias o mentor estratégico vai te encontrar na conversa quinzenal, mas o que coloca dinheiro no caixa é o que você faz <strong>entre as calls</strong>.</p>
+    <p>Dúvidas no meio do caminho: mande no grupo. Não espere a próxima call para perguntar.</p>
+    <p style="margin-top:12pt;">Você tem uma expert com um diagnóstico que converte 7 de cada 10 conversas. Você tem uma capacidade de execução que a maioria não tem. Você tem uma equipe inteira do seu lado pela primeira vez. Você tem o método.</p>
+    <p><strong class="navy">O próximo passo é começar.</strong></p>
+    <div class="footer-note">Roadmap Estratégico Digital · João Mendes · 90 dias · Versão 1.1</div>
+  </div>
+  <div class="runfoot">Mentoria estratégica · execução nos primeiros 90 dias</div>
+</div>
+
+</body>
+</html>

@@ -50,12 +50,27 @@ antes do PDF).
   comentados.
 - **`references/validacao-e-pdf.md`**: validações obrigatórias e geração do
   PDF com fallbacks.
+- **`references/exemplos-entregues.md`**: o padrão destilado dos roadmaps já
+  entregues (o que se repete em todos), com ponteiro para cada exemplo.
+- **`assets/exemplos/`**: roadmaps reais entregues, embutidos como base de
+  calibragem (fonte HTML editável, funcionam em qualquer sessão):
+  `roadmap-lucas-sobreiro.html`, `roadmap-joao-mendes.html`,
+  `roadmap-ayla-rica.html`, `roadmap-felipe-damasceno.html`,
+  `roadmap-lucas-alife.html` e `roadmap-rafael-cobra.html`. **Leia pelo menos
+  um por inteiro antes de redigir** (tom, granularidade, formato dos boxes e
+  do fechamento). Se o cliente executa sozinho ou pediu formato guiado, leia
+  o do Rafael, que é o mais recente.
 
-**Referências vivas** (exemplos completos entregues, em ordem de atualidade):
-André Donha (09/2026, o mais recente e o que trouxe a página de Narrativa),
-Adriana Brunelly (09/2026), Lucas Sobreiro (07/2026) e Rômulo Heleno. Se a
-pessoa enviar os PDFs na conversa, use como calibragem de tom; se não enviar, a
-estrutura embutida aqui basta.
+**Referências vivas.** Os exemplos completos já entregues ficam em
+**`assets/exemplos/`** e acompanham a skill, então servem em qualquer sessão,
+sem depender do repositório. O mais recente, e o que trouxe a página de
+Narrativa, é o roadmap do **André Donha** (09/2026); depois dele vêm Adriana
+Brunelly (09/2026), Lucas Sobreiro (07/2026) e Rafael Cobra. A referência de
+Perfil A (cliente que executa sozinho) é o roadmap do **Rômulo Heleno**. Se a
+pessoa enviar algum desses PDFs na conversa, use como calibragem de tom; se não
+enviar, a estrutura de `references/estrutura-e-conteudo.md` basta. Dentro do
+repositório da Simple, as fontes vivas de cada cliente também estão em
+`clientes/<cliente>/estrategia/`.
 
 **Documento irmão:** a skill `estrategia-completa-clientes` escreve a copy do
 funil que este roadmap manda implementar. Os dois usam o mesmo CSS e **nenhum

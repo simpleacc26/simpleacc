@@ -34,6 +34,8 @@ e **registre aprendizados** depois. Para gerar funil/página/anúncios, use `/pr
 4. **Nunca commitar segredos.** `.env` é ignorado; use `.env.example`.
 5. **Cada projeto tem um `README.md`** explicando o que é, como rodar, onde faz
    deploy e os contatos. Mantenha-o atualizado.
+6. **Nunca usar travessão (—) em textos, documentos e entregas** ("fica com cara
+   de IA"). Use vírgula, dois-pontos, ponto final ou parênteses no lugar.
 
 ## Convenção de nomes
 

@@ -1,30 +1,53 @@
-# Extração estratégica do onboarding
+# Extração estratégica da matéria-prima
 
-O onboarding é dado bruto. Seu trabalho é interpretar, não transcrever. Leia
+A matéria-prima (call de onboarding, call de vendas, canvas, anotações) é dado bruto. Seu trabalho é interpretar, não transcrever. Leia
 tudo e preencha o mapa abaixo. Onde o material não responder, **assuma o padrão
-mais provável para o nicho, escreva a premissa, e siga** — uma premissa
+mais provável para o nicho, escreva a premissa, e siga**. Uma premissa
 sinalizada é melhor que um documento travado.
+
+## Antes de escrever: leia o roadmap
+
+Se o cliente já tem Roadmap de 90 dias, **leia o roadmap antes de escrever a
+estratégia**. Esteira, ticket, meta, conversão, verba e a narrativa (inimigo,
+virada, régua de linguagem) já foram decididos lá. Os dois documentos não podem
+divergir em nenhum número, e quem chega depois se ajusta ao primeiro.
+
+## Antes de tudo: procure a call de vendas
+
+**O documento mais rico de um cliente novo não é a call de onboarding, é a call
+de vendas.** É lá que estão os números reais, o histórico, o que ele já vendeu e
+**o desenho de esteira que a Simple prometeu**. Já aconteceu de uma sessão
+escrever "não há dados de faturamento" com a call de vendas existindo há uma
+semana no repositório, e de reduzir uma esteira de quatro peças a uma só.
+
+- **Antes de declarar lacuna, confirme que leu a call de vendas.**
+- **Antes de escrever "decisão tomada", confirme de quem é a decisão.** Se não
+  está na boca do cliente nem na do estrategista, é premissa sua, e premissa se
+  declara como premissa, com quem decide e quando.
+- **Canvas preenchido com ajuda de IA não é a palavra do cliente.** Preço, nome
+  de método e formato de entrega que só aparecem no canvas são sugestão de
+  agente. **Separe o ticket que ele já vendeu do ticket que é aspiração.**
 
 ## Mapa estratégico (preencha tudo)
 
-### A) ICP — Perfil do Cliente Ideal
+### A) ICP · Perfil do Cliente Ideal
 - **Quem é** (nicho, segmento, B2B ou B2C, faixa de renda/faturamento)
 - **Maturidade** (iniciante / já fatura e quer escalar / avançado)
-- **Dor principal** — o sintoma que a pessoa sente, na linguagem dela
-- **Custo da dor** — o que acontece se não resolver nos próximos 6–12 meses
-- **Tentativas frustradas** — o que já tentou e por que não resolveu
-- **Objeções** — o principal motivo de alguém que precisa NÃO comprar
-- **Linguagem real** — frases que o público fala (puxe citações literais do onboarding)
-- **Quem NÃO serve** — critério de desqualificação
+- **Dor principal**: o sintoma que a pessoa sente, na linguagem dela
+- **Custo da dor**: o que acontece se não resolver nos próximos 6 a 12 meses
+- **Tentativas frustradas**: o que já tentou e por que não resolveu
+- **Objeções**: o principal motivo de alguém que precisa NÃO comprar
+- **Linguagem real**: frases que o público fala (puxe citações literais do onboarding)
+- **Quem NÃO serve**: critério de desqualificação
 
 ### B) Produto, frentes e oferta
 - **O que é entregue** (serviço, produto, consultoria, curso, atendimento…)
-- **Frentes do negócio** — pode haver mais de uma (ex: alto valor + propósito).
+- **Frentes do negócio**: pode haver mais de uma (ex: alto valor + propósito).
   Anote o **split de mídia/esforço** entre elas, se foi definido.
-- **Grande promessa** — o que muda na vida da pessoa
-- **Mecanismo único** — por que funciona aqui e não funcionou no que ela já tentou
-- **Provas disponíveis** — cases, números, depoimentos, antes/depois, prints
-- **Oferta/ticket** — faixa de preço, ciclo de decisão (rápido/dias/semanas),
+- **Grande promessa**: o que muda na vida da pessoa
+- **Mecanismo único**: por que funciona aqui e não funcionou no que ela já tentou
+- **Provas disponíveis**: cases, números, depoimentos, antes/depois, prints
+- **Oferta/ticket**: faixa de preço, ciclo de decisão (rápido/dias/semanas),
   garantia, bônus, recorrência (planos/assinatura/clube de fidelização)
 
 ### C) Contexto do funil (muda a copy e a estrutura)
@@ -32,67 +55,112 @@ sinalizada é melhor que um documento travado.
 - **Nível de consciência** (não sabe do problema / sabe do problema / conhece
   soluções / conhece o cliente)
 - **Posição na jornada** (1º contato / 2º passo / nutrição / reconquista)
-- **Pós-conversão** — o que acontece depois que o lead converte (time liga /
+- **Pós-conversão**: o que acontece depois que o lead converte (time liga /
   sequência automática / página de pagamento / outro funil)
-- **Capacidade de atendimento** — quantos leads/dia o cliente aguenta
-- **Urgência/escassez** real (vagas, turma, prazo) — ou ausência dela
+- **Capacidade de atendimento**: quantos leads/dia o cliente aguenta
+- **Urgência/escassez** real (vagas, turma, prazo), ou ausência dela
 
 ### D) Operação e dados
 - **Destino do lead** (CRM, e-mail, webhook, WhatsApp). Anote a ferramenta
   (ex: GoHighLevel) e se precisa reativar/criar conta.
 - **Dados a coletar** no quiz/formulário
-- **Gargalo operacional** — frequentemente o ponto mais importante. Ex: o negócio
+- **Gargalo operacional**: frequentemente o ponto mais importante. Ex: o negócio
   depende da presença do dono; alguém da equipe não vende; falta processo
   comercial. Isso vira tarefa prioritária e recomendação estratégica.
-- **Geografia** — negócio local? quais cidades/raio? (define segmentação)
-- **Restrições** — rotina, horários de contato, sensibilidades do público
+- **Geografia**: negócio local? quais cidades/raio? (define segmentação)
+- **Restrições**: rotina, horários de contato, sensibilidades do público
 
 ## Como inferir o que faltar
 - Se não houver **nível de consciência**, infira a partir da origem do tráfego e
   da posição na jornada, e explique a inferência.
 - Se não houver **ticket/ciclo**, estime pelo tipo de produto e diga que é estimativa.
 - Se não houver **provas nomeadas**, deixe placeholders `[DEPOIMENTO]` /
-  `[ANTES E DEPOIS]` na seção de prova — nunca invente números ou cases.
+  `[ANTES E DEPOIS]` na seção de prova, nunca invente números ou cases.
 
-## Saída desta etapa
-Um resumo de 8–12 linhas cobrindo: produto/frentes, ICP + dor + nível de
-consciência, contexto do funil, operação/destino do lead, gargalo central,
-e uma lista de **premissas assumidas**. Confirme com a pessoa (se houver) antes
-de gerar o documento.
+## E) Arquitetura: as decisões que vêm antes da copy
 
----
+Estes itens não estão prontos no material: você os **decide** a partir dele, e
+eles sustentam as 6 seções inteiras. Mudar qualquer um depois obriga a
+reescrever metade das páginas. Sem eles definidos, não comece a escrever.
 
-## As quatro decisões que vêm antes da copy
+### 1. O inimigo nomeado e a big idea
+Um nome proprietário para o problema real (ex.: "Ruptura de Valor Percebido",
+"Ruído de Sala", "o orçamento seco"). Deve ser território livre no mercado do
+cliente, explicar o fracasso das tentativas anteriores e caber numa frase. A
+big idea é a virada de chave que reposiciona esse problema: não é o produto, e
+precisa fazer o ICP pensar "é exatamente sobre mim". Formato que funciona:
+*"o problema não está em X, está em Y"*.
 
-Depois de preencher o mapa acima, **decida estas quatro coisas e só então
-escreva**. Elas amarram o documento inteiro, e mudar qualquer uma delas depois
-obriga a reescrever metade das páginas.
+### 2. O método e os pilares
+De 3 a 5 pilares, **em ordem obrigatória**. Eles sustentam o resultado do quiz
+(o pilar dominante) e os blocos 5 e 6 da página de diagnóstico. Se o cliente já
+tem um método com muitos módulos, agrupe em pilares.
 
-### 1. A big idea
-A virada de chave que reposiciona o problema. Não é o produto. Precisa fazer o
-ICP pensar "é exatamente sobre mim". Formato que funciona: *"o problema não está
-em X, está em Y"*.
-
-### 2. A régua de linguagem
+### 3. A régua de linguagem
 As palavras que o projeto **fala** e as que **não fala**, listadas. Vem de três
 lugares: o vocabulário real do nicho, o que a plataforma de anúncio reprova, e
 o que fere o status do comprador. A regra que fecha a régua é sempre a mesma:
 descreva a cena e use a frase que a própria pessoa diz, nunca acuse quem ela é.
 
-### 3. Os padrões do quiz
+### 4. Os padrões do quiz
 De 3 a 5, normalmente 4. O quiz não devolve texto genérico: devolve **o nome do
 padrão da pessoa**. Cada padrão precisa de nome, de onde o problema acontece e
 de uma frase de reconhecimento. **Nomeie o fenômeno, nunca a pessoa.** Defina
 qual pergunta determina o padrão e como o empate resolve.
 
-### 4. A régua de segmentação
-Qualificado, a nutrir e fora por ora, com critério numérico e destino de cada
-um. Inclua as exceções: um lead de faixa baixa com perda alta costuma ser melhor
-que um de faixa alta sem dor.
+### 5. A esteira e a régua de segmentação
+Esteira: carro-chefe (o que este funil vende), portas laterais (só na sessão) e
+produto de entrada (existe ou não, e por quê). Segmentação: qualificado, a
+nutrir e fora por ora, com critério numérico e destino de cada um. Inclua as
+exceções, porque um lead de faixa baixa com perda alta costuma ser melhor que
+um de faixa alta sem dor.
 
-## Antes de tudo: leia o roadmap
+### 6. As premissas numéricas
+Conversão de sessão, comparecimento (padrão da casa: 60%), corte de qualificação
+da pergunta final, verba diária de validação e a régua de **custo por sessão
+qualificada comparecida** (referência: até 5% do ticket).
 
-Se o cliente já tem Roadmap de 90 dias, **leia o roadmap antes de escrever a
-estratégia**. Esteira, ticket, meta, conversão, verba e a narrativa (inimigo,
-virada, régua de linguagem) já foram decididos lá. Os dois documentos não podem
-divergir em nenhum número, e quem chega depois se ajusta ao primeiro.
+## F) Operação do funil (CRÍTICO, alimenta a seção 6)
+
+- **Quem dispara a cadência**: SDR nomeada ou o próprio cliente? Isso muda a voz
+  das 12 mensagens e é o gargalo mais comum do projeto.
+- **Quanto tempo por dia** essa pessoa realmente tem para atender lead.
+- **Onde o lead cai**: CRM, planilha, WhatsApp. Ferramenta e responsável.
+- **Compliance do nicho**: o que a Meta reprova ali e o que ofende aquele
+  público. Sempre existe pelo menos um risco específico além dos dois
+  universais (atributo pessoal do leitor e promessa de ganho).
+
+## G) Régua de tom
+
+- Tratamento ("você" x "tu"), regionalismo, nível de formalidade.
+- Frases que o cliente repetiu nas calls: viram hook e headline.
+- O que o público **não** tolera. Em nichos de vergonha (etiqueta, finanças,
+  saúde), tom professoral ou acusatório mata a conversão.
+
+
+## H) Decisões que o documento não pode deixar em aberto
+
+- **Destino do CTA**, decidido e escrito: WhatsApp com mensagem pronta ou
+  agendamento automático. Não deixe a página de contexto dizer uma coisa e o
+  bloco de CTA dizer outra. Regra prática: **sem SDR e com agenda apertada, o
+  filtro vem antes da agenda**.
+- **Formato de entrega do produto**: fechado ou em aberto? Se a casa vende
+  primeiro e prepara a entrega depois, escrever formato fechado cria promessa
+  que ninguém combinou.
+- **Restrições éticas além da Meta**: profissão regulamentada, conselho de
+  classe, sigilo profissional. Em saúde e psicanálise, nenhum caso vira copy
+  sem autorização escrita, e isso aparece na página de contexto, na seção de
+  anúncios e nas recomendações.
+- **Calendário**: viagem, sazonalidade ou período que trava a agenda dentro
+  dos 90 dias.
+- **Como o cliente consome material**: se ele pediu ordem numerada, blocos
+  curtos ou o porquê de cada passo, isso é requisito de execução, não
+  preferência. Documento excelente em formato errado não é executado.
+
+## Saída desta etapa
+Um resumo de 8 a 12 linhas cobrindo: produto/frentes, ICP + dor + nível de
+consciência, contexto do funil, operação/destino do lead, gargalo central,
+e uma lista de **premissas assumidas**. Confirme com a pessoa (se houver) antes
+de gerar o documento.
+
+---

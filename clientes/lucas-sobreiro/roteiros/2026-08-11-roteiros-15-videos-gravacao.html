@@ -1,0 +1,311 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8">
+<title>Roteiros de Gravação · Lucas Sobreiro</title>
+<style>
+@page { size: A4; margin: 16mm 18mm 16mm 18mm; }
+* { margin:0; padding:0; box-sizing:border-box; }
+:root { --navy:#1b2a4a; --navy-dark:#14213d; --gold:#b8863b; --beige:#f4f1ea;
+        --text:#333a45; --muted:#8a8f98; }
+body { font-family: Arial, Helvetica, sans-serif; color:var(--text); font-size:10pt; line-height:1.5; }
+p { margin-bottom:6pt; }
+.kicker { color:var(--gold); font-size:9pt; font-weight:bold; letter-spacing:.12em;
+          text-transform:uppercase; margin-bottom:8pt; }
+h1 { color:var(--navy); font-size:23pt; line-height:1.15; margin-bottom:10pt; }
+.lead { font-style:italic; color:#5a6070; margin-bottom:14pt; }
+
+/* capa */
+.cover { height:245mm; position:relative; page-break-after:always; padding-top:52mm; }
+.cover h1 { font-size:38pt; line-height:1.1; margin:6pt 0 14pt; }
+.cover .rule { width:34mm; height:2pt; background:var(--gold); margin:10mm 0 8mm 1mm; }
+.cover .sub { font-size:13pt; color:#4a5160; line-height:1.6; }
+.cover .meta { position:absolute; bottom:8mm; left:0; }
+.cover .meta .lbl { color:var(--gold); font-size:8.5pt; font-weight:bold; letter-spacing:.1em;
+                    text-transform:uppercase; margin-top:10pt; }
+.cover .meta .val { font-size:10.5pt; color:var(--text); }
+
+.sec { page-break-before:always; }
+.box-light { background:var(--beige); border-left:3pt solid var(--gold);
+             padding:10pt 14pt; margin:11pt 0; page-break-inside:avoid; }
+.box-light .bt { color:var(--navy); font-weight:bold; font-size:9.5pt; letter-spacing:.04em;
+                 margin-bottom:5pt; text-transform:uppercase; }
+.box-dark { background:var(--navy-dark); color:#f5f3ee; padding:11pt 14pt; margin:11pt 0;
+            page-break-inside:avoid; }
+.box-dark .bt { color:#fff; font-weight:bold; font-size:9.5pt; letter-spacing:.04em;
+                margin-bottom:5pt; text-transform:uppercase; }
+ul.check { list-style:none; margin-bottom:8pt; }
+ul.check > li { padding-left:14pt; position:relative; margin-bottom:4pt; page-break-inside:avoid; }
+ul.check > li::before { content:"\25A0"; color:var(--gold); position:absolute; left:0; font-size:8pt; top:2pt; }
+
+/* cabecalho de angulo */
+.ang { background:var(--navy-dark); color:#fff; padding:10pt 16pt; margin-bottom:12pt;
+       border-left:4pt solid var(--gold); page-break-inside:avoid; page-break-after:avoid; }
+.ang .fk { color:var(--gold); font-size:8.5pt; font-weight:bold; letter-spacing:.12em;
+           text-transform:uppercase; margin-bottom:4pt; }
+.ang h2 { color:#fff; font-size:16pt; margin-bottom:5pt; }
+.ang .fd { font-style:italic; font-size:9.5pt; color:#cfd4de; }
+
+/* roteiro */
+.rot { page-break-inside:avoid; margin-bottom:13pt; padding-bottom:9pt;
+       border-bottom:.4pt solid #ddd8cd; }
+.rot:last-child { border-bottom:none; }
+.rot .hd { display:flex; justify-content:space-between; align-items:baseline; gap:10pt; margin-bottom:3pt; }
+.rot h3 { color:var(--navy); font-size:12.5pt; }
+.rot .num { color:var(--gold); font-weight:bold; font-size:8.5pt; letter-spacing:.12em;
+            text-transform:uppercase; margin-bottom:2pt; }
+.badge { background:var(--navy); color:#fff; font-size:8pt; font-weight:bold; letter-spacing:.04em;
+         padding:2.5pt 7pt; border-radius:2pt; white-space:nowrap; }
+.uso { color:var(--muted); font-size:8.5pt; font-style:italic; margin-bottom:6pt; }
+.fala { background:#fff; border-left:2.5pt solid #dcd6ca; padding-left:11pt; }
+
+/* carrossel */
+.slide { padding-left:16pt; position:relative; margin-bottom:4.5pt; page-break-inside:avoid; }
+.slide .sn { position:absolute; left:0; color:var(--gold); font-weight:bold; font-size:8.5pt; top:1.5pt; }
+.legenda { background:var(--beige); padding:8pt 12pt; margin-top:7pt; page-break-inside:avoid; }
+.legenda .lt { color:var(--navy); font-weight:bold; font-size:8.5pt; letter-spacing:.06em;
+               text-transform:uppercase; margin-bottom:3pt; }
+</style></head><body>
+<div class="cover">
+<div class="kicker">Material de Gravação</div>
+<h1>Roteiros<br>de Vídeo</h1>
+<div class="rule"></div>
+<div class="sub">15 vídeos para gravar em um dia.<br>Três ângulos, durações variadas, prontos para campanha.<br>Mais 5 copies de estático e 5 carrosséis.</div>
+<div class="meta">
+<div class="lbl">Preparado para</div><div class="val">Lucas Sobreiro</div>
+<div class="lbl">Estrategista</div><div class="val">Daniel Souza</div>
+<div class="lbl">Data</div><div class="val">11 de agosto de 2026</div>
+</div></div>
+<div class="sec"><div class="kicker">Antes de Começar</div>
+<h1>Como usar este material</h1>
+<p class="lead">Leia esta página antes de ligar a câmera. Ela evita os dois erros que estragam um dia inteiro de gravação.</p>
+<div class="box-dark"><div class="bt">Quem fala é você</div><p>Todos os roteiros estão escritos na sua voz, em primeira pessoa. Em nenhum momento se fala "o diagnóstico do Lucas" ou "o método do Lucas" na terceira pessoa, porque quem está na frente da câmera é você. É sempre <strong>eu</strong>, <strong>meu método</strong>, <strong>fala comigo</strong>.</p></div>
+<div class="box-light"><div class="bt">Sobre o tratamento</div><p>Todos os roteiros usam <strong>tu</strong>, do jeito que você fala no dia a dia ("tu atende", "tu vê", "tu tem"). O tratamento está consistente do começo ao fim de cada vídeo: em nenhum roteiro se mistura tu e você na mesma fala. Se preferir gravar com "você", troque o vídeo inteiro, nunca meia frase.</p></div>
+<ul class="check">
+<li><strong>Não decore.</strong> Leia o roteiro duas vezes, entenda a linha do raciocínio e fale com as suas palavras. Se sair diferente e ficar melhor, ficou melhor.</li>
+<li><strong>A duração é estimativa</strong>, calculada pelo número de palavras do texto (ritmo de fala normal, 150 palavras por minuto). Falando mais rápido, sai antes.</li>
+<li><strong>Grave 2 tomadas de cada.</strong> Sobra é melhor que falta, e a segunda quase sempre sai mais solta.</li>
+<li>Errou no meio? <strong>Respira e repete a frase</strong>, não recomeça o vídeo. A edição corta.</li>
+<li>Os primeiros 3 segundos são o vídeo inteiro. <strong>A primeira frase entra sem introdução</strong>, sem "oi pessoal", sem "tudo bem".</li>
+<li>Os roteiros já têm o filtro de público embutido ("a partir de trinta mil"). Isso <strong>afasta quem não é cliente</strong> antes de gastar o seu tempo em call.</li>
+</ul>
+<div class="kicker" style="margin-top:14pt">Setup</div>
+<h1 style="font-size:16pt">Antes de gravar</h1>
+<ul class="check">
+<li>Celular na vertical (9:16), apoiado e na altura dos olhos. Nada de câmera de baixo.</li>
+<li>Luz na sua frente, nunca atrás. Janela de frente já resolve.</li>
+<li>Áudio limpo vale mais que imagem bonita. Se o espaço tiver eco, aproxime o microfone ou grave num canto com mais pano.</li>
+<li>Fale olhando na lente, como quem fala com um dentista só, não com uma plateia.</li>
+<li>Roupa lisa, sem estampa miúda (ela treme no vídeo).</li>
+<li>Mesmo enquadramento e mesma roupa no lote inteiro: dá unidade de campanha e economiza edição.</li>
+<li>Envie os arquivos como documento no WhatsApp ou direto no Drive, para não perder qualidade.</li>
+</ul></div>
+<div class="sec">
+<div class="ang"><div class="fk">Ângulo 1 de 3</div><h2>Dor e identificação</h2><div class="fd">Agenda cheia não é lucro. Espelha a rotina real do dono de clínica e nomeia a dor que ele ainda não nomeou.</div></div>
+<div class="rot">
+<div class="num">Vídeo 1 de 15</div>
+<div class="hd"><h3>Agenda cheia não é lucro</h3><span class="badge">30 a 40 segundos</span></div>
+<div class="uso">Anúncio, público frio. É o carro-chefe do ângulo 1, grava esse primeiro. · 81 palavras</div>
+<div class="fala"><p>Agenda cheia não é lucro, e eu vou te provar em trinta segundos. Tu atende o dia inteiro, sai de lá morto, e no fim do mês o que sobra não conversa com o tanto que tu trabalhou. Isso não é falta de esforço, é o modelo. Clínica não cresce por hora de cadeira, cresce por processo. Se a tua já fatura a partir de trinta mil, responde o diagnóstico aqui embaixo. São dois minutos e tu já vê onde travou.</p></div>
+</div>
+<div class="rot">
+<div class="num">Vídeo 2 de 15</div>
+<div class="hd"><h3>O funcionário mais mal pago da própria clínica</h3><span class="badge">50 a 60 segundos</span></div>
+<div class="uso">Anúncio, público frio. Identificação pura, costuma performar bem com dentista. · 122 palavras</div>
+<div class="fala"><p>Tu abriu a clínica pra ter liberdade e acabou virando o funcionário mais mal pago dela. Eu falo isso com respeito, porque é o que eu mais vejo. O dono atende, cobra, resolve fornecedor, apaga incêndio, e ainda é o único que sabe vender ali dentro. Aí não tem faturamento que compense, porque tudo depende de ti. Empresa que depende do dono tem teto, e o teto é a tua saúde. A boa notícia é que isso se resolve com processo, não com mais hora de trabalho. Se tu já fatura acima de trinta mil e cansou de crescer na base do esforço, faz o diagnóstico aqui embaixo. Em dois minutos tu recebe a leitura do teu momento e o próximo passo.</p></div>
+</div>
+<div class="rot">
+<div class="num">Vídeo 3 de 15</div>
+<div class="hd"><h3>O teste das duas semanas</h3><span class="badge">75 a 90 segundos</span></div>
+<div class="uso">Anúncio frio e orgânico. Gera muito comentário e salvamento. · 183 palavras</div>
+<div class="fala"><p>Se tu parar hoje, a tua clínica para junto. Isso não é empresa, é emprego. Eu sei que dói ouvir, mas é o teste mais honesto que existe: tira duas semanas de férias de verdade e olha o que acontece com o faturamento. Na maioria das clínicas em que eu entro, ele cai na hora, porque o negócio inteiro está apoiado numa pessoa só, que é tu. E aí o crescimento vira uma conta cruel: pra faturar mais tu precisa estar mais presente, e tu já não tem de onde tirar hora. O que destrava isso não é contratar gente no susto nem colocar mais dinheiro em anúncio. É montar um processo que roda sem ti, com alguém conduzindo o orçamento, follow-up acontecendo, agenda confirmada, e tu decidindo em vez de apagando incêndio. Se a tua clínica fatura a partir de trinta mil e tu está disposto a executar, e não só a concordar comigo, responde o diagnóstico aqui embaixo. Em dois minutos tu recebe a leitura da tua clínica e o próximo passo, e se fizer sentido tu fala comigo na hora.</p></div>
+</div>
+<div class="rot">
+<div class="num">Vídeo 4 de 15</div>
+<div class="hd"><h3>Quanto sobrou no teu bolso mês passado</h3><span class="badge">65 a 80 segundos</span></div>
+<div class="uso">Anúncio frio. Pergunta desconfortável, segura bem os três primeiros segundos. · 162 palavras</div>
+<div class="fala"><p>Tem uma pergunta que eu faço pro dono de clínica e quase ninguém sabe responder na hora: quanto sobrou no teu bolso mês passado. Não o quanto a clínica faturou, o quanto sobrou pra ti. A maioria sabe de cabeça o faturamento e não sabe a margem, e é exatamente aí que mora o problema. Porque quem só olha faturamento resolve tudo do mesmo jeito, atendendo mais. Aumenta a agenda, aumenta o custo junto, e no fim do mês a conta chega parecida. Clínica não quebra por falta de paciente, ela definha por falta de leitura. Quando tu enxerga a margem, a conversão do orçamento e o custo do teu tempo, tu para de correr atrás de volume e começa a mexer onde de fato muda o resultado. Se tu fatura a partir de trinta mil e nunca parou pra fazer essa leitura, responde o diagnóstico aqui embaixo. São dois minutos, e tu sai com o gargalo da tua clínica na mão.</p></div>
+</div>
+<div class="rot">
+<div class="num">Vídeo 5 de 15</div>
+<div class="hd"><h3>Ninguém te ensinou o negócio, só a técnica</h3><span class="badge">100 a 115 segundos</span></div>
+<div class="uso">Anúncio de retargeting e vídeo de perfil. O mais completo do ângulo 1. · 248 palavras</div>
+<div class="fala"><p>Ninguém te ensinou isso na faculdade: ser excelente na cadeira não faz a tua clínica crescer. Tu estudou anos pra dominar a técnica, se especializou, abriu o teu espaço, encheu a agenda. E descobriu do jeito mais caro que agenda cheia não é lucro. O faturamento travou num patamar, todo mês parecido, e a única saída que parece existir é trabalhar ainda mais. Só que essa saída tem teto, e o teto é a tua saúde e a tua família. A verdade que quase ninguém fala pro profissional da saúde é essa: o problema não é crescer, é o modelo que tu usa pra crescer. Clínica cresce por três alavancas. A primeira é o paciente certo entrando, e não qualquer paciente. A segunda é a conversão no atendimento, que é a clínica aprendendo a vender, seja tu, seja quem está na recepção. A terceira é o dono agindo como estrategista, e não como bombeiro. Quando essas três funcionam juntas, uma clínica de trinta mil dobra sem ninguém trabalhar uma hora a mais por isso. Eu passei vinte e dois anos no comercial de banco olhando empresa por dentro, e hoje faço isso com clínica. Se a tua já fatura a partir de trinta mil, já tentou curso e tráfego e mesmo assim travou, responde o diagnóstico aqui embaixo. São dois minutos, tu recebe a leitura do teu momento com o gargalo apontado, e se fizer sentido pros dois lados tu fala comigo direto pra desenhar o próximo passo.</p></div>
+</div>
+</div>
+<div class="sec">
+<div class="ang"><div class="fk">Ângulo 2 de 3</div><h2>Mecanismo único</h2><div class="fd">Atender não é vender. Mostra o dinheiro parado dentro da clínica e o processo comercial que destrava.</div></div>
+<div class="rot">
+<div class="num">Vídeo 6 de 15</div>
+<div class="hd"><h3>Tem dinheiro parado na tua clínica</h3><span class="badge">35 a 45 segundos</span></div>
+<div class="uso">Anúncio frio. Hook de curiosidade, bom pra teste de CPL. · 82 palavras</div>
+<div class="fala"><p>Tem um dinheiro parado dentro da tua clínica agora, e ele não precisa de nenhum paciente novo pra aparecer. Ele está no orçamento que foi embora sem ninguém dar retorno, no paciente que disse que ia pensar e nunca mais recebeu uma mensagem, no buraco de agenda que ninguém confirmou. Isso não é falta de paciente, é falta de processo. Se a tua clínica fatura a partir de trinta mil, responde o diagnóstico aqui embaixo e descobre quanto está parado na tua.</p></div>
+</div>
+<div class="rot">
+<div class="num">Vídeo 7 de 15</div>
+<div class="hd"><h3>Atender não é vender</h3><span class="badge">45 a 55 segundos</span></div>
+<div class="uso">Anúncio frio. É a frase-síntese do mecanismo, boa pra abrir campanha. · 117 palavras</div>
+<div class="fala"><p>A tua clínica atende muito bem. Só que atender não é vender, e essas duas coisas se confundem o tempo inteiro na saúde. Atender é resolver o problema de quem já decidiu. Vender é conduzir quem ainda está em dúvida até a decisão certa. O teu paciente elogia o teu trabalho, diz que vai pensar, e some. E ninguém ali dentro tem a função de puxar aquele fio de volta. Não é falta de técnica tua, é falta de processo comercial, e processo se instala com quem tu já tem. Se a tua clínica já fatura a partir de trinta mil, faz o diagnóstico aqui embaixo. Em dois minutos tu vê quanto está escapando no teu balcão.</p></div>
+</div>
+<div class="rot">
+<div class="num">Vídeo 8 de 15</div>
+<div class="hd"><h3>O paciente que disse que ia pensar</h3><span class="badge">70 a 85 segundos</span></div>
+<div class="uso">Anúncio frio e orgânico. Cena concreta, gera muita identificação. · 169 palavras</div>
+<div class="fala"><p>O paciente sentou na tua cadeira, gostou de ti, elogiou o teu trabalho, pediu o orçamento e disse que ia pensar. E sumiu. Deixa eu te contar o que aconteceu depois, porque quase sempre é a mesma coisa. Ele não sumiu porque achou caro. Ele sumiu porque a vida dele continuou e ninguém da tua clínica apareceu de novo. Não teve uma mensagem no outro dia, não teve uma ligação na semana seguinte, não teve ninguém pra tirar a dúvida que ele nem sabia formular. Em toda clínica em que eu entro esse é o primeiro lugar onde tem dinheiro, e é o mais barato de resolver, porque não depende de anúncio nem de paciente novo. Depende de alguém com a função clara de conduzir o orçamento até o sim ou até o não. Se a tua clínica fatura a partir de trinta mil e tu quer parar de perder venda depois do elogio, responde o diagnóstico aqui embaixo. São dois minutos e tu já enxerga onde está furando.</p></div>
+</div>
+<div class="rot">
+<div class="num">Vídeo 9 de 15</div>
+<div class="hd"><h3>De trinta pra sessenta sem atender mais</h3><span class="badge">65 a 80 segundos</span></div>
+<div class="uso">Anúncio frio. A conta do mecanismo, sem prometer resultado garantido. · 168 palavras</div>
+<div class="fala"><p>Clínica que fatura trinta mil está a um processo comercial de dobrar, e eu vou te explicar por que eu falo isso com tanta tranquilidade. Não é porque eu vou te mandar atender o dobro. É porque quando eu abro a operação de uma clínica desse tamanho, eu encontro sempre as mesmas quatro coisas: orçamento sem retorno, agenda sem confirmação, preço parado há anos por medo de perder paciente, e o dono sendo o único que consegue conduzir uma conversa de venda ali dentro. Cada uma dessas quatro custa dinheiro todo mês, e nenhuma delas exige um paciente novo pra ser resolvida. É por isso que eu começo por dentro, e não por mais anúncio. Anúncio em cima de uma clínica que não converte só faz tu pagar mais caro pra perder do mesmo jeito. Se tu já fatura a partir de trinta mil e prefere arrumar a casa antes de acelerar, responde o diagnóstico aqui embaixo. Dois minutos e tu sai com a leitura do teu momento.</p></div>
+</div>
+<div class="rot">
+<div class="num">Vídeo 10 de 15</div>
+<div class="hd"><h3>Eu não vou te pedir pra atender mais ninguém</h3><span class="badge">105 a 120 segundos</span></div>
+<div class="uso">Anúncio de retargeting. O mais completo do ângulo 2. · 268 palavras</div>
+<div class="fala"><p>Eu não vou te pedir pra atender mais ninguém. Eu vou te mostrar como faturar mais com exatamente os pacientes que já entram na tua clínica hoje. Deixa eu te explicar por que isso é possível. O profissional da saúde aprende tudo sobre a técnica e quase nada sobre o negócio. Aí acontece uma coisa curiosa: a clínica atende muito bem e vende mal. O paciente é bem cuidado, sai satisfeito, e mesmo assim o orçamento não fecha, a agenda tem buraco e o preço está parado há anos. Nada disso é problema de competência, é ausência de processo. O que eu instalo com dono de clínica tem três camadas. A primeira é vendas: um processo pra clínica conduzir e converter cada orçamento, com a vocação de vendas instalada onde faz sentido no teu negócio, em ti ou em quem está no atendimento, com a equipe que tu já tem. A segunda é produtividade: tu sai do modo bombeiro, delega com critério e volta a decidir com agenda de estrategista. A terceira é autoliderança, que é a cabeça que sustenta cobrar o teu preço e crescer sem culpa. Nessa ordem, porque não adianta processo de venda numa clínica onde o dono não tem tempo de olhar pra ela. Se a tua clínica fatura a partir de trinta mil, já tentou resolver com curso e com tráfego, e tu está disposto a executar com disciplina, responde o diagnóstico aqui embaixo. Em dois minutos tu recebe a leitura da tua clínica com o gargalo apontado, e se fizer sentido pros dois lados tu fala comigo pra desenhar o próximo passo.</p></div>
+</div>
+</div>
+<div class="sec">
+<div class="ang"><div class="fk">Ângulo 3 de 3</div><h2>Prova e autoridade</h2><div class="fd">22 anos vendo empresa por dentro, mais os cases reais. Autoridade sem tom de currículo.</div></div>
+<div class="rot">
+<div class="num">Vídeo 11 de 15</div>
+<div class="hd"><h3>Vinte e dois anos vendo empresa por dentro</h3><span class="badge">30 a 40 segundos</span></div>
+<div class="uso">Anúncio frio. Autoridade em uma frase, direto ao ponto. · 74 palavras</div>
+<div class="fala"><p>Eu passei vinte e dois anos no comercial do Banco do Brasil olhando empresa por dentro. Balanço, faturamento, dívida, a operação inteira. E as que cresciam tinham uma coisa em comum, que não era o produto e nem o dono ser mais inteligente: era processo comercial. Hoje eu instalo isso em clínica. Se a tua já fatura a partir de trinta mil, responde o diagnóstico aqui embaixo e vamos olhar a tua por dentro.</p></div>
+</div>
+<div class="rot">
+<div class="num">Vídeo 12 de 15</div>
+<div class="hd"><h3>O que eu via no banco</h3><span class="badge">45 a 55 segundos</span></div>
+<div class="uso">Anúncio frio. História curta, tom de conversa, sem cara de currículo. · 110 palavras</div>
+<div class="fala"><p>Eu era o cara do banco que olhava o número de empresa o dia inteiro, e vou te contar o que eu via. Negócio bom quebrando por falta de processo, e negócio mediano crescendo tranquilo por ter um. Isso me marcou por vinte e dois anos. Quando eu saí pra mentorar, escolhi o público onde essa diferença é mais gritante, que é a saúde: profissional excelente na técnica, com potencial guardado dentro do próprio negócio, travado no mesmo ponto porque ninguém ensinou a parte comercial. Se a tua clínica funciona bem mas travou num patamar, responde o diagnóstico aqui embaixo. Em dois minutos eu te mostro onde está o teu.</p></div>
+</div>
+<div class="rot">
+<div class="num">Vídeo 13 de 15</div>
+<div class="hd"><h3>Por que eu larguei o banco</h3><span class="badge">70 a 85 segundos</span></div>
+<div class="uso">Anúncio frio e vídeo de perfil. Constrói conexão antes de qualquer oferta. · 180 palavras</div>
+<div class="fala"><p>Eu larguei vinte e dois anos de carteira assinada pra fazer uma coisa só: destravar clínica boa que fatura pouco. Muita gente me perguntou se eu tinha enlouquecido, e eu vou te explicar a conta que eu fiz. Nesses vinte e dois anos eu atendi empresa de todo tipo, e ficou claro pra mim que a diferença entre a que cresce e a que trava quase nunca está na qualidade do que ela entrega. Está em ter ou não ter processo. Aí eu olhei pra área da saúde, que é onde a minha esposa trabalha e onde eu convivo, e vi o caso mais extremo disso: gente que passou dez anos estudando pra ser excelente na cadeira e zero minuto aprendendo a conduzir o próprio negócio. Potencial enorme, parado, do lado de dentro. E potencial parado é o que mais me incomoda. Se a tua clínica fatura a partir de trinta mil e tu sente que ela poderia render muito mais do que rende, responde o diagnóstico aqui embaixo. São dois minutos e tu recebe a leitura do teu momento.</p></div>
+</div>
+<div class="rot">
+<div class="num">Vídeo 14 de 15</div>
+<div class="hd"><h3>A dentista que aumentou a renda em mais de 50%</h3><span class="badge">65 a 80 segundos</span></div>
+<div class="uso">Anúncio frio e retargeting. Prova social do próprio nicho, o que mais converte na saúde. · 166 palavras</div>
+<div class="fala"><p>Uma dentista me mandou mensagem esses tempos dizendo que a renda dela tinha aumentado mais de cinquenta por cento, e que hoje ela trabalha de um jeito muito mais organizado e tranquilo, conseguindo curtir o fim de tarde com a família. Ela já era ótima no que fazia antes de me conhecer, isso eu faço questão de dizer. O que mudou não foi a técnica dela, foi a forma de conduzir o negócio. A gente organizou o comercial da clínica, colocou o preço no lugar, e ela saiu de dentro do operacional pra conseguir olhar pro próprio negócio de fora. É isso que eu faço. Não é milagre e não é fórmula, é um método aplicado com disciplina, e funciona porque o potencial já estava lá dentro. Se a tua clínica fatura a partir de trinta mil e tu quer esse tipo de virada, responde o diagnóstico aqui embaixo. Em dois minutos tu recebe a leitura da tua clínica, e se fizer sentido a gente conversa.</p></div>
+</div>
+<div class="rot">
+<div class="num">Vídeo 15 de 15</div>
+<div class="hd"><h3>A cena que se repete em toda clínica que eu entro</h3><span class="badge">110 a 125 segundos</span></div>
+<div class="uso">Anúncio de retargeting e vídeo de perfil. O mais completo do lote inteiro. · 276 palavras</div>
+<div class="fala"><p>Tem uma cena que se repete em quase toda clínica em que eu entro. O dono é excelente no que faz. Os pacientes elogiam, indicam, voltam. E mesmo assim o faturamento está travado no mesmo patamar há mais de um ano. Quando eu abro a operação pra olhar por dentro, eu encontro sempre as mesmas coisas: orçamento que foi embora sem ninguém dar retorno, atendimento que só agenda em vez de conduzir, agenda sem confirmação, preço defasado por medo de perder paciente, e um dono exausto fazendo tudo sozinho. Foram vinte e dois anos no comercial do Banco do Brasil, atendendo empresa, pra eu aprender o padrão que vale pra tua clínica também: empresa que cresce tem processo, empresa que depende do dom do dono tem teto. Há cinco anos eu aplico isso como mentor, e hoje com foco total na saúde. Uma dentista que passou por esse processo me disse que a renda dela subiu mais de cinquenta por cento, trabalhando de forma mais organizada e tranquila. Um cliente de consultoria mais que dobrou o faturamento depois de reposicionar contrato e ticket. Nenhum dos dois passou a trabalhar mais horas por isso. O método trabalha três pilares: vendas, pra clínica aprender a converter; produtividade, pra tu voltar ao comando do teu tempo; e autoliderança, que é a cabeça que sustenta o crescimento. Se a tua clínica fatura a partir de trinta mil, já tentou sozinho e travou, e tu está disposto a executar de verdade, responde o diagnóstico aqui embaixo. São dois minutos, tu recebe a leitura do teu momento, e se fizer sentido pros dois lados tu fala comigo pra desenhar o próximo passo.</p></div>
+</div>
+</div>
+<div class="sec"><div class="kicker">Criativos</div>
+<h1>5 copies para estático</h1>
+<p class="lead">Formato estilo Twitter, o modelo validado da casa: o texto do card vai na arte, como se fosse um post seu, com foto de perfil e arroba, fundo limpo. A legenda vai no anúncio.</p>
+<div class="rot">
+<div class="num">Estático 1 de 5</div>
+<div class="hd"><h3>Agenda cheia não é lucro</h3></div>
+<div class="fala"><p>Agenda cheia não é lucro. Tu atende o dia inteiro, sai de lá morto, e no fim do mês o que sobra não conversa com o tanto que tu trabalhou. Isso não é falta de esforço. É modelo.</p></div>
+<div class="legenda"><div class="lt">Legenda do anúncio</div><p>Se a tua clínica já fatura a partir de trinta mil, o diagnóstico gratuito mostra onde está o vazamento. Dois minutos, no link.</p></div>
+</div>
+<div class="rot">
+<div class="num">Estático 2 de 5</div>
+<div class="hd"><h3>O dinheiro que já está dentro da tua clínica</h3></div>
+<div class="fala"><p>Tem dinheiro parado na tua clínica agora, e ele não precisa de nenhum paciente novo pra aparecer. Está no orçamento que ninguém respondeu, no paciente que sumiu depois do elogio, no horário que ninguém confirmou.</p></div>
+<div class="legenda"><div class="lt">Legenda do anúncio</div><p>Antes de gastar mais em anúncio, olha pra dentro. Diagnóstico gratuito de dois minutos no link, e tu já vê quanto está escapando na tua.</p></div>
+</div>
+<div class="rot">
+<div class="num">Estático 3 de 5</div>
+<div class="hd"><h3>Empresa que depende do dono tem teto</h3></div>
+<div class="fala"><p>Tira duas semanas de férias de verdade e olha o faturamento. Se ele cai junto contigo, tu não tem uma empresa. Tu tem um emprego que te paga um pouco melhor e te cobra muito mais.</p></div>
+<div class="legenda"><div class="lt">Legenda do anúncio</div><p>Crescer sem depender de ti é método, não sorte. Se a tua clínica fatura a partir de trinta mil, responde o diagnóstico gratuito no link.</p></div>
+</div>
+<div class="rot">
+<div class="num">Estático 4 de 5</div>
+<div class="hd"><h3>Vinte e dois anos vendo empresa por dentro</h3></div>
+<div class="fala"><p>Passei vinte e dois anos no comercial de banco olhando empresa por dentro. As que cresciam tinham processo. As que dependiam do dom do dono tinham teto. A tua clínica tem qual dos dois?</p></div>
+<div class="legenda"><div class="lt">Legenda do anúncio</div><p>Hoje eu instalo processo comercial em clínica. Diagnóstico gratuito de dois minutos no link, e a gente olha a tua por dentro.</p></div>
+</div>
+<div class="rot">
+<div class="num">Estático 5 de 5</div>
+<div class="hd"><h3>Atender não é vender</h3></div>
+<div class="fala"><p>Atender é resolver o problema de quem já decidiu. Vender é conduzir quem ainda está em dúvida. A tua clínica atende muito bem: o paciente elogia, diz que vai pensar, e some.</p></div>
+<div class="legenda"><div class="lt">Legenda do anúncio</div><p>Não é falta de técnica tua, é falta de processo comercial. Se tu fatura a partir de trinta mil, responde o diagnóstico gratuito no link.</p></div>
+</div>
+</div>
+<div class="sec"><div class="kicker">Criativos</div>
+<h1>5 carrosséis</h1>
+<p class="lead">Um bloco por slide, na ordem. A legenda vai no post.</p>
+<div class="rot">
+<div class="num">Carrossel 1 de 5 · 7 slides</div>
+<div class="hd"><h3>As 3 alavancas que fazem clínica crescer</h3></div>
+<div class="slide"><span class="sn">1</span>Clínica não cresce por hora de cadeira. Cresce por 3 alavancas.</div>
+<div class="slide"><span class="sn">2</span>Alavanca 1: paciente certo entrando. Não é qualquer paciente, é o que combina com o que tu quer entregar e cobrar.</div>
+<div class="slide"><span class="sn">3</span>Alavanca 2: conversão no atendimento. A clínica aprendendo a vender, seja tu, seja quem está na recepção.</div>
+<div class="slide"><span class="sn">4</span>Alavanca 3: o dono no estratégico. Se tu passa o dia apagando incêndio, ninguém está olhando pro negócio.</div>
+<div class="slide"><span class="sn">5</span>Se uma das três falha, o crescimento trava. E a conta chega no teu tempo e na tua família.</div>
+<div class="slide"><span class="sn">6</span>Quando as três funcionam juntas, uma clínica de trinta mil dobra sem ninguém trabalhar uma hora a mais.</div>
+<div class="slide"><span class="sn">7</span>Qual das três está travada na tua? Responde o diagnóstico no link da bio e descobre em 2 minutos.</div>
+<div class="legenda"><div class="lt">Legenda do post</div><p>A maioria das clínicas tenta resolver tudo com a alavanca 1, colocando mais anúncio em cima de uma operação que não converte. Aí o custo sobe e o resultado fica igual. Se a tua clínica já fatura a partir de trinta mil e tu prefere arrumar a casa antes de acelerar, responde o diagnóstico gratuito no link da bio. São dois minutos, tu recebe a leitura do teu momento com o gargalo apontado, e se fizer sentido tu fala comigo direto por ali.</p></div>
+</div>
+<div class="rot">
+<div class="num">Carrossel 2 de 5 · 8 slides</div>
+<div class="hd"><h3>5 lugares onde tem dinheiro parado na tua clínica</h3></div>
+<div class="slide"><span class="sn">1</span>Tem dinheiro parado na tua clínica agora. E ele não precisa de nenhum paciente novo pra aparecer.</div>
+<div class="slide"><span class="sn">2</span>O orçamento que foi embora sem ninguém dar retorno.</div>
+<div class="slide"><span class="sn">3</span>O paciente que disse que ia pensar e nunca mais recebeu uma mensagem.</div>
+<div class="slide"><span class="sn">4</span>O horário que abriu na agenda porque ninguém confirmou.</div>
+<div class="slide"><span class="sn">5</span>O preço que está parado há anos por medo de perder paciente.</div>
+<div class="slide"><span class="sn">6</span>O teu tempo dentro do operacional, fazendo o que outra pessoa poderia fazer.</div>
+<div class="slide"><span class="sn">7</span>Nenhum desses cinco se resolve com mais anúncio. Todos se resolvem com processo.</div>
+<div class="slide"><span class="sn">8</span>Quer saber quanto está parado na tua? Diagnóstico gratuito no link da bio, 2 minutos.</div>
+<div class="legenda"><div class="lt">Legenda do post</div><p>Em toda clínica em que eu entro, esses cinco buracos estão abertos em algum grau, e eles custam dinheiro todo mês. A parte boa é que são os mais baratos de fechar, porque não dependem de tráfego nem de paciente novo. Se a tua clínica fatura a partir de trinta mil, responde o diagnóstico gratuito no link da bio e vê quais estão abertos na tua.</p></div>
+</div>
+<div class="rot">
+<div class="num">Carrossel 3 de 5 · 7 slides</div>
+<div class="hd"><h3>O que muda quando a clínica aprende a vender</h3></div>
+<div class="slide"><span class="sn">1</span>Atender não é vender. E confundir as duas coisas custa caro na saúde.</div>
+<div class="slide"><span class="sn">2</span>Atender é resolver o problema de quem já decidiu.</div>
+<div class="slide"><span class="sn">3</span>Vender é conduzir quem ainda está em dúvida até a decisão certa.</div>
+<div class="slide"><span class="sn">4</span>Antes: o paciente elogia, pede o orçamento, diz que vai pensar e some.</div>
+<div class="slide"><span class="sn">5</span>Depois: alguém tem a função clara de conduzir aquele orçamento até o sim ou até o não.</div>
+<div class="slide"><span class="sn">6</span>Não precisa contratar vendedor. A vocação de vendas se instala com quem tu já tem, em ti ou em quem atende.</div>
+<div class="slide"><span class="sn">7</span>A tua clínica já atende bem. Falta ela vender bem. Diagnóstico no link da bio.</div>
+<div class="legenda"><div class="lt">Legenda do post</div><p>Todo mundo acha que precisa de mais paciente. Na maioria das clínicas que eu abro, o que falta é conduzir melhor os que já chegam. Se a tua fatura a partir de trinta mil e tu está cansado de perder venda depois do elogio, responde o diagnóstico gratuito no link da bio. Dois minutos e tu já enxerga onde está furando.</p></div>
+</div>
+<div class="rot">
+<div class="num">Carrossel 4 de 5 · 8 slides</div>
+<div class="hd"><h3>Por que clínica excelente fatura menos do que devia</h3></div>
+<div class="slide"><span class="sn">1</span>Existe clínica excelente faturando muito menos do que deveria. E quase sempre pelo mesmo motivo.</div>
+<div class="slide"><span class="sn">2</span>Tu passou dez anos estudando pra ser excelente na cadeira.</div>
+<div class="slide"><span class="sn">3</span>E zero minuto aprendendo a conduzir um negócio.</div>
+<div class="slide"><span class="sn">4</span>Aí a clínica atende muito bem e vende mal. Não é falta de competência, é ausência de processo.</div>
+<div class="slide"><span class="sn">5</span>O mercado te vendeu a saída errada: trabalhar mais. Mais cadeira, mais plantão, mais hora.</div>
+<div class="slide"><span class="sn">6</span>Essa saída tem teto, e o teto é a tua saúde.</div>
+<div class="slide"><span class="sn">7</span>A outra saída é trocar o modelo. E modelo se troca com método, não com esforço.</div>
+<div class="slide"><span class="sn">8</span>Quer ver qual é o teu gargalo? Diagnóstico gratuito no link da bio, 2 minutos.</div>
+<div class="legenda"><div class="lt">Legenda do post</div><p>Eu passei vinte e dois anos no comercial de banco olhando empresa por dentro, e o padrão é sempre esse: empresa que cresce tem processo, empresa que depende do dom do dono tem teto. Se a tua clínica fatura a partir de trinta mil, já tentou curso e tráfego e mesmo assim travou, responde o diagnóstico gratuito no link da bio.</p></div>
+</div>
+<div class="rot">
+<div class="num">Carrossel 5 de 5 · 8 slides</div>
+<div class="hd"><h3>O teste das duas semanas</h3></div>
+<div class="slide"><span class="sn">1</span>Quer saber se tu tem uma empresa ou um emprego disfarçado? Faz esse teste.</div>
+<div class="slide"><span class="sn">2</span>Tira duas semanas de férias de verdade. Sem atender, sem responder, sem resolver nada.</div>
+<div class="slide"><span class="sn">3</span>Agora olha o faturamento do mês.</div>
+<div class="slide"><span class="sn">4</span>Se ele cai junto contigo, o teu negócio está apoiado numa pessoa só.</div>
+<div class="slide"><span class="sn">5</span>E aí o crescimento vira uma conta cruel: pra faturar mais tu precisa estar mais presente.</div>
+<div class="slide"><span class="sn">6</span>E tu já não tem de onde tirar hora.</div>
+<div class="slide"><span class="sn">7</span>A saída não é contratar no susto. É montar um processo que roda sem ti.</div>
+<div class="slide"><span class="sn">8</span>Começa pelo diagnóstico: link na bio, 2 minutos.</div>
+<div class="legenda"><div class="lt">Legenda do post</div><p>Esse teste incomoda porque ele é honesto. A boa notícia é que sair dessa dependência é mais rápido do que parece quando tu ataca na ordem certa: primeiro o comercial, depois a delegação, depois a rotina de gestão. Se a tua clínica fatura a partir de trinta mil e tu está disposto a executar, responde o diagnóstico gratuito no link da bio.</p></div>
+</div>
+</div>
+<div class="sec"><div class="kicker">Plano do dia</div>
+<h1>Ordem de gravação sugerida</h1>
+<p class="lead">Se o tempo apertar, grave nesta ordem. Os primeiros já destravam a campanha.</p>
+<ul class="check">
+<li><strong>Vídeos 1, 6 e 11</strong> (os curtos de cada ângulo): são os testes iniciais de campanha, os mais baratos de validar.</li>
+<li><strong>Vídeos 5, 10 e 15</strong> (os longos de cada ângulo): entram no retargeting e no perfil, onde a pessoa já te conhece.</li>
+<li><strong>Vídeos 2, 7 e 14</strong>: reforço dos ângulos que costumam performar melhor na saúde (identificação e prova).</li>
+<li><strong>Vídeos 3, 4, 8, 9, 12 e 13</strong>: banco de criativo para trocar quando os primeiros cansarem.</li>
+</ul>
+<div class="box-light"><div class="bt">Meta mínima do dia</div><p>Se sair só os 6 primeiros da lista, o tráfego já tem o que rodar nas três frentes. O resto vira banco de criativo para as próximas semanas, e é isso que evita a campanha cansar no mês seguinte.</p></div>
+</div>
+</body></html>

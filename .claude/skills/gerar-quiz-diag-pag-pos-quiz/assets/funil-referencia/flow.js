@@ -1,60 +1,50 @@
 /* ============================================================
-   FLOW. Toda a copy do quiz e do relatório vive aqui.
-   É O ÚNICO arquivo que muda de cliente pra cliente (junto com a
-   paleta no styles.css e os depoimentos). Preencha com a ESTRATÉGIA
-   aprovada pelo cliente.
-
-   Estrutura (espelhada no funil de quiz validado da casa):
-     hero -> SPIN (situação, problema, tempo, impacto, o que já tentou,
-     objetivo, perfil) -> 2 perguntas-porteira (faturamento + prontidão)
-     -> captura (nome, whatsapp, email).
-   A copy abaixo é NEUTRA (genérica de negócio). Reescreva 100% dela para
-   o nicho do cliente, INCLUSIVE labels e frases de report.
-   Padrão de escrita: NUNCA usar travessões (traço longo).
+   FLOW. Funil de Quiz · Lucas Sobreiro (clínicas / saúde)
+   Toda a copy do quiz e do relatório vive aqui.
+   Estrutura espelhada no funil de quiz validado da Simple Acc.
+   Conteúdo da ESTRATÉGIA aprovada (2026-07-20-estrategia.md).
+   Padrão de escrita: nunca usar travessões (traço longo).
    ============================================================ */
 window.FLOW = {
   config: {
-    storeKey: "funil_quiz",           // troque por algo único do cliente (ex.: "clinica_x_quiz")
-    frente: "Funil",                  // rótulo do projeto (vai pro lead)
+    storeKey: "funil_quiz_cliente",  // troque por algo unico do cliente
+    frente: "Saude",
     diagnosticoUrl: "diagnostico.html",
   },
 
   marca: {
-    nome: "__MARCA__",
-    expert: "__EXPERT__",
-    // WhatsApp do cliente, formato internacional só dígitos (ex.: 5531999999999)
-    whatsapp: "",
-    // {nome} é trocado pelo primeiro nome de quem respondeu
-    whatsappMsg: "Oi! Sou {nome}, acabei de fazer o diagnóstico no site e quero falar sobre o próximo passo.",
+    nome: "Lucas Sobreiro",
+    expert: "Lucas Sobreiro",
+    // WhatsApp do Lucas (formato internacional, só dígitos)
+    whatsapp: "",  // WhatsApp do cliente (formato internacional, so digitos)
+    // O {nome} é trocado pelo primeiro nome de quem respondeu
+    whatsappMsg:
+      "Oi! Sou {nome}, acabei de fazer o diagnóstico da minha clínica no site e quero falar sobre a Sessão Estratégica.",
   },
 
   hero: {
-    selo: "__SELO__",                 // ex: "Especialidade · Cidade e online"
-    titulo: "__TITULO_FORTE__",       // promessa central (no nível do negócio, não de uma sub-persona)
-    subtitulo: "__SUBTITULO__",       // o que a pessoa recebe ao responder
+    selo: "Mentoria de Evolução Empresarial · Saúde",
+    titulo: "Descubra o que está travando o crescimento da sua clínica e o próximo passo mais lucrativo.",
+    subtitulo:
+      "Responda algumas perguntas rápidas e receba um diagnóstico personalizado do momento da sua clínica e do caminho para crescer com lucro, previsibilidade e tempo.",
     tempo: "Leva ~2 minutos · 100% confidencial",
     cta: "Começar meu diagnóstico",
   },
 
-  /* Ordem SPIN: baixa fricção primeiro, qualificação por último.
-     Cada opção pode ter:
-       - report: frase usada no diagnóstico (interpolada em diagnostico.js)
-       - nutrir: true  -> lead de baixa prontidão/porte (CTA mais suave)
-     As 2 últimas perguntas (faturamento + prontidão) são as PORTEIRAS que
-     definem o corte qualificado vs nutrir. As demais alimentam o diagnóstico,
-     não pontuam. O motor (app.js) faz auto-avanço ao escolher e mostra a barra. */
+  /* Ordem SPIN: baixa fricção primeiro, qualificação (perfil + faturamento +
+     prontidão) por último. Cada opção tem 'report' = frase usada no diagnóstico. */
   steps: [
     {
       id: "situacao",
       etapa: "Situação",
-      pergunta: "Como está o momento do seu negócio hoje?",
+      pergunta: "Como está o momento da sua clínica hoje?",
       options: [
-        { value: "cheio_sem_lucro", label: "Cheio de trabalho, mas o lucro não corresponde",
-          report: "ter muito trabalho sem o lucro correspondente" },
-        { value: "travou", label: "Cresceu, mas travou num patamar",
-          report: "ver o crescimento travado num mesmo patamar" },
+        { value: "cheia_sem_lucro", label: "Agenda cheia, mas o lucro não corresponde",
+          report: "ter a agenda cheia sem o lucro correspondente" },
+        { value: "travou", label: "Faturamento cresceu, mas travou num patamar",
+          report: "ver o faturamento travado num mesmo patamar" },
         { value: "sobrecarregado", label: "Funciona, mas depende de mim para tudo",
-          report: "tocar um negócio que depende de você para tudo" },
+          report: "tocar uma clínica que depende de você para tudo" },
         { value: "instavel", label: "Um mês bom, outro fraco, sem previsibilidade",
           report: "conviver com meses bons e fracos, sem previsibilidade" },
       ],
@@ -64,13 +54,13 @@ window.FLOW = {
       etapa: "Problema",
       pergunta: "O que mais trava o crescimento neste momento?",
       options: [
-        { value: "poucos_clientes", label: "Poucos clientes novos entrando",
-          report: "a falta de clientes novos entrando" },
-        { value: "vende_mal", label: "Atende bem, mas vende mal",
-          report: "um negócio que atende bem mas vende mal" },
+        { value: "poucos_pacientes", label: "Poucos pacientes novos entrando",
+          report: "a falta de pacientes novos entrando" },
+        { value: "equipe_nao_vende", label: "A clínica atende bem, mas vende mal",
+          report: "uma clínica que atende bem mas vende mal" },
         { value: "sem_tempo", label: "Falta tempo para pensar no negócio",
           report: "a falta de tempo para pensar no negócio" },
-        { value: "sem_processo", label: "Tudo no improviso, sem processo",
+        { value: "sem_processo", label: "Tudo é no improviso, sem processo",
           report: "tocar tudo no improviso, sem processo" },
       ],
     },
@@ -82,20 +72,20 @@ window.FLOW = {
         { value: "recente", label: "Começou nos últimos meses", report: "alguns meses" },
         { value: "ano", label: "Mais de 1 ano", report: "mais de um ano" },
         { value: "anos", label: "Vários anos, virou o normal", report: "vários anos" },
-        { value: "sempre", label: "Desde que comecei, nunca destravou de verdade", report: "praticamente desde que você começou" },
+        { value: "sempre", label: "Desde que abri, nunca destravou de verdade", report: "praticamente desde que você abriu" },
       ],
     },
     {
       id: "impacto",
       etapa: "Impacto",
-      pergunta: "Se nada mudar, como fica o seu negócio daqui a 12 meses?",
+      pergunta: "Se nada mudar, como fica a sua clínica daqui a 12 meses?",
       options: [
         { value: "igual", label: "Igual: trabalhando muito para o mesmo resultado",
           report: "seguir trabalhando muito para o mesmo resultado" },
         { value: "pior", label: "Pior: eu cada vez mais sobrecarregado(a)",
           report: "ficar cada vez mais sobrecarregado(a)" },
         { value: "incerto", label: "Não sei, e isso me incomoda",
-          report: "a incerteza sobre onde o negócio vai chegar" },
+          report: "a incerteza sobre onde a clínica vai chegar" },
         { value: "custo_pessoal", label: "Vou crescer, mas às custas da minha vida pessoal",
           report: "crescer às custas da sua vida pessoal" },
       ],
@@ -124,30 +114,27 @@ window.FLOW = {
           report: "aumentar o faturamento com mais lucro" },
         { value: "sem_trabalhar_mais", label: "Crescer sem trabalhar ainda mais",
           report: "crescer sem trabalhar ainda mais" },
-        { value: "previsibilidade", label: "Ter previsibilidade de clientes e receita",
-          report: "ter previsibilidade de clientes e receita" },
+        { value: "previsibilidade", label: "Ter previsibilidade de pacientes e receita",
+          report: "ter previsibilidade de pacientes e receita" },
         { value: "equipe", label: "Uma equipe que funciona sem depender de mim",
           report: "uma equipe que funciona sem depender de você" },
       ],
     },
     {
       id: "perfil",
-      etapa: "Seu perfil",
-      pergunta: "Como você toca o seu negócio hoje?",
+      etapa: "Sua área",
+      pergunta: "Qual é a sua área?",
       options: [
-        { value: "operacional", label: "Sou dono(a) e ainda atuo no operacional" },
-        { value: "com_equipe", label: "Sou dono(a) e já tenho equipe" },
-        { value: "autonomo", label: "Sou autônomo(a) / profissional liberal" },
-        { value: "outro", label: "Outro" },
+        { value: "odonto", label: "Odontologia" },
+        { value: "medicina", label: "Medicina" },
+        { value: "fisio_vet", label: "Fisioterapia ou veterinária" },
+        { value: "outra_saude", label: "Outra área da saúde / dono(a) de clínica" },
       ],
     },
-
-    /* ---- PORTEIRA 1: faturamento. Define o corte de porte. Ajuste as faixas
-       ao ticket do cliente. As faixas menores levam nutrir: true. ---- */
     {
       id: "faturamento",
-      etapa: "Momento do negócio",
-      pergunta: "Qual é o faturamento mensal do seu negócio hoje?",
+      etapa: "Momento da clínica",
+      pergunta: "Qual é o faturamento mensal da sua clínica hoje?",
       options: [
         { value: "ate15", label: "Até R$ 15 mil", nutrir: true },
         { value: "15a30", label: "De R$ 15 a 30 mil", nutrir: true },
@@ -155,14 +142,11 @@ window.FLOW = {
         { value: "acima80", label: "Acima de R$ 80 mil" },
       ],
     },
-
-    /* ---- PORTEIRA 2: prontidão. Vendendo high ticket, a opção de nutrir NÃO
-       ancora em "algo mais barato/pontual": enquadra como "ainda não é
-       prioridade investir agora". ---- */
     {
       id: "prontidao",
       etapa: "O próximo passo",
-      pergunta: "Você busca um processo estruturado para destravar o crescimento, mesmo que represente um investimento maior do que um curso avulso?",
+      pergunta:
+        "Você busca um processo estruturado para destravar o crescimento da clínica, mesmo que represente um investimento maior do que um curso avulso?",
       options: [
         { value: "sim", label: "Sim, quero resolver de vez e entendo que é um investimento" },
         { value: "entender", label: "Sim, mas preciso entender melhor como funciona antes" },
@@ -174,10 +158,11 @@ window.FLOW = {
 
   captura: {
     titulo: "Seu diagnóstico personalizado está pronto.",
-    subtitulo: "Pra onde enviamos? Deixe seu WhatsApp que a equipe te manda o diagnóstico e os próximos passos, sem compromisso.",
+    subtitulo:
+      "Pra onde enviamos? Deixe seu WhatsApp que a equipe do Lucas te manda o diagnóstico e o próximo passo, sem compromisso.",
     campos: [
       { id: "nomeResp", label: "Seu nome", type: "text", required: true, autocomplete: "name", placeholder: "Como podemos te chamar?" },
-      { id: "whatsapp", label: "Seu WhatsApp (com DDD)", type: "tel", required: true, autocomplete: "tel", placeholder: "(31) 99999-9999", mask: "phone" },
+      { id: "whatsapp", label: "Seu WhatsApp (com DDD)", type: "tel", required: true, autocomplete: "tel", placeholder: "(11) 99999-9999", mask: "phone" },
       { id: "email", label: "Seu e-mail", type: "email", required: true, autocomplete: "email", placeholder: "voce@email.com" },
     ],
     cta: "Ver meu diagnóstico personalizado",

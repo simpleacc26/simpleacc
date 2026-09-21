@@ -20,9 +20,15 @@ onde o outro parou (o Git é a memória compartilhada).
 3. Salve os entregáveis na pasta certa (acima) e **registre o aprendizado** em `aprendizados.md`.
 4. Trabalhe numa branch `cliente/romulo-heleno/<assunto>` e abra PR.
 
-## Contexto rápido (preencher)
+## Contexto rápido
 
-- **Oferta principal:** _(a preencher)_
-- **Público / ICP:** _(a preencher)_
-- **Links (site, páginas, Make, Figma, Drive):** _(a preencher)_
-- **Contato principal:** _(a preencher)_
+- **Oferta principal:** Mentoria Cabelo de Segunda — formação técnica em mecha para cabeleireiros. R$ 2.997 à vista ou 12x R$ 297. 3 meses, Google Meet, correção de vídeos, suporte WhatsApp.
+- **Público / ICP:** Cabeleireiro(a) iniciante/intermediário que quer dominar técnica de mecha. Brasil inteiro.
+- **Links:** Drive → https://drive.google.com/drive/u/0/folders/1Y2oWXAOGX695gLnoCGEaXFbmGOUWHxJ7 | Plataforma: Kiwify
+- **Contato principal:** Carlos Durães (COO Simple Acc) — acompanha o cliente junto com Daniel Souza (mentor estratégico)
+- **Próxima call:** 29/06/2026
+- **Funil no ar e aprovado:** https://romulo-heleno.vercel.app (Diagnóstico das Mechas)
+- **Deploy é por CLI, nunca pelo MCP:** a pasta tem fotos, e binário se corrompe
+  no transporte base64 do MCP. Passo a passo em `funis/funil-quiz/DEPLOY.md`.
+- **Antes de mandar tráfego:** confirmar o WhatsApp comercial com ele. Os botões
+  apontam para um número que nunca foi confirmado.

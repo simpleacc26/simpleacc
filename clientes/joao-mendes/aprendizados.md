@@ -1,0 +1,36 @@
+# Aprendizados — João Mendes (Reset Mental)
+
+Log do que funciona e do que não funciona com este cliente.
+
+| Data       | Aprendizado / decisão | Origem |
+| ---------- | --------------------- | ------ |
+| 2026-07-01 | Diagnóstico 1-a-1 converte ~70%: a pessoa "se reconhece na hora". O funil deve reproduzir essa sensação de diagnóstico (quiz/diagnóstico antes da oferta). | Onboarding (canvas) |
+| 2026-07-01 | Público compra por emoção e identificação, mas desconfia de promessas grandes — provas (história da Luana, depoimentos, renovações espontâneas) precisam vir cedo na copy. | Onboarding (canvas) |
+| 2026-07-02 | VSL (front R$ 297 + R$ 600), low ticket e disparo em listas frias já foram testados e deram prejuízo (~R$ 2.500 de tráfego sem venda). Não repetir; foco em quiz + diagnóstico + 1-a-1. | Call de onboarding |
+| 2026-07-02 | João foi lesado por expert que não gravava calls — gravação e transparência de reuniões são regra do projeto (também alimentam a inteligência de avatar). | Call de onboarding |
+| 2026-07-02 | Urgência real: seguro-desemprego acaba em julho; ~30 dias para gerar venda ou João volta ao CLT. Roadmap precisa priorizar caixa rápido (1-a-1 + quiz) antes de estrutura. | Call de onboarding |
+| 2026-07-17 | Roadmap 90 dias criado (v1.0, skill roadmap-estrategico-90-dias). Perfil A híbrido: João executa com direcionamento da Simple, mas funil de quiz entra cedo (dias 15 a 60) pela urgência. Meta: 10 vendas/mês × R$ 4.497 = R$ 45k/mês; conversão assumida 50% (declarada: 70%) = 20 sessões/mês; agenda da Luana assumida em até 2 sessões/dia. Bônus dia 60+: marca @ojuaomendes + captação de experts da saúde. Premissas a validar com Daniel na call de roadmap. | Roadmap v1.0 |
+| 2026-07-17 | Ajustes do Daniel (v1.1): handles corretos são @ojuaomendes e @lufelisminooficial; posicionamento do João antecipado para o dia 7 (abordagens de venda da expert seguem prioridade 1); funil de quiz passa a ser implementado pela Simple em até 7 dias (campanhas sobem no dia 8, criativos prontos até o dia 6). | Daniel (sessão) |
+| 2026-07-17 | Estratégia completa criada (8 seções: Big Idea, Quiz, Página, Anúncios, Diagnóstico, Cadência 12 dias, Tarefas, Recomendações) para o João validar as copies antes de implementar o funil. Google Doc formatado na pasta do Drive. Nota: emojis (💛 👀) corromperam na importação HTML→Doc, revisar antes de mandar pro cliente. | Estratégia v1.0 |
+| 2026-07-21 | Sessão fechada: base + roadmap v1.1 + estratégia mergeados na main (PR #49). Nenhuma skill nova criada (usei roadmap-estrategico-90-dias e estrategia-completa-clientes, ambas já na main). | Fechamento de sessão |
+
+| 2026-08-03 | **Virada do projeto.** Áudios do João (24 e 27/07): expert com 2 fixos atrasados (R$ 6.000) e cartão travado, tráfego parou 4 dias antes do lançamento, empresa dele parou as atividades, expert em silêncio. Encerramento provável. Ele revelou piso de sobrevivência de R$ 4.000/mês, recusou vaga CLT no Pará (90 dias fora da família) e pediu orientação de como monetizar rápido. | Áudios WhatsApp |
+| 2026-08-03 | Diagnóstico da Simple: o problema não é nicho nem pessoa, é o **modelo de remuneração** (2ª parceria que quebra igual: ele financia o negócio do outro sem colchão). Regra nova: nunca entrar sem fixo pago na entrada; participação só em cima do fixo. Ativo subestimado dele: 15 anos de rede em consultoria ambiental (renda pontual e remota, sem CLT). | Análise (sessão) |
+| 2026-08-03 | **Roadmap v2 criado**, pivotado do funil da expert para o João como prestador de serviço. Oferta produtizada: Diagnóstico Express R$ 497 · Setup de Funil R$ 2.500 · Gestão R$ 1.800/mês. Meta: piso R$ 4.000 no dia 15, R$ 10.800/mês recorrentes no dia 90 (6 clientes). Coprodução volta só no dia 90+, com 6 critérios duros. O v1.1 fica como histórico (assume a expert, não se aplica mais). | Roadmap v2.0 |
+| 2026-08-03 | **Call de alinhamento (Carlos × João).** Combinado explícito: agosto é mês de SOBREVIVÊNCIA, não de construir estrutura. Três frentes e nada mais: (1) caixa imediato (bicos + consultoria técnica dias 13 a 18, ~R$ 2.000), (2) todo tempo livre na prospecção da nova parceria, (3) saúde. Carlos: "corta tudo que foi te atrapalhando, essas três coisas". | Call 03/08 |
+| 2026-08-03 | **Nova parceria** (2 estrategistas + 1 copywriter + João, via mentoria do Leandro): oferta de setup mínimo R$ 15.000 + fixo R$ 3.000 a 5.000/mês, capacidade para 2 projetos. Desafio de agosto gamificado, em duplas, meta de 2 experts da saúde (pós-graduação). Prospecção: 50 a 60/dia no Instagram, teto de 100 (bloqueio), 6 a 7 follow-ups. Dificuldade declarada dele: script da 1ª abordagem e o desenrolar. | Call 03/08 |
+| 2026-08-03 | Expert Luana: **encerrada de vez** (removeu acessos, trocou senhas, desligou o João da call do pitch). Consenso: não insistir. Vaga CLT em Oriximiná/PA (R$ 7.000, 90 dias) recusada pela esposa gestante de 5 meses e 2 filhas pequenas sem rede de apoio. | Call 03/08 |
+| 2026-08-03 | **Saúde:** suspeita de TDAH descoberta aos 38 anos (via colega Bruna). Sintomas desde a infância, sono de 3 a 4h. Combinado: buscar psiquiatra inclusive pela rede pública, sem esperar o financeiro. Carlos passou a técnica do "estacionamento" (papel para pensamentos intrusivos). Isso entrou no roadmap como frente operacional, não como conselho. | Call 03/08 |
+| 2026-08-03 | **Pagamento da mentoria:** João não tem como pagar a parcela de R$ 3.000 (pagou R$ 1.000). Quer pausar ou reestruturar. Carlos vai adiantar a conversa com o Daniel. **Pendente de decisão do Daniel.** | Call 03/08 |
+| 2026-08-03 | **Roadmap de Agosto criado (v3)**, substituindo o v2. Estrutura personalizada: 30 dias em vez de 90, três frentes em vez de fases, script de abordagem em 2 páginas (a ajuda que ele pediu), checkpoints semanais com datas reais de agosto. Conta do mês: 21 dias úteis, ~970 abordagens, 10 conversas marcadas, 1 a 2 contratos. O v2 (oferta própria de serviço) fica como histórico: a parceria já resolve a oferta. | Roadmap Agosto |
+
+## Pendências (próxima sessão)
+
+- **Daniel decidir sobre a parcela da mentoria** do João (pausar ou reestruturar). Carlos já ia adiantar a conversa. É o item mais sensível em aberto.
+- **Entregar o Roadmap de Agosto** ao João e acompanhar semanalmente (checkpoints da página 10).
+- **Comercial da Simple:** contatar a esposa do casal da hotelaria (contato que o João passou, mentoria do Leandro, cliente de mentoria para donos de hotéis com dificuldade de prospecção). Ele tem mais 3 contatos e vai falar antes de passar.
+- **Revisar o script com ele na semana 3** (17 a 23/08), a partir das conversas reais, não da teoria.
+- **Corrigir emojis** (💛 👀 viraram `ð`) no Google Doc da estratégia antes de enviar ao João. Regerar o Doc ou editar à mão no Drive.
+- **Arquivado com o projeto da Luana**: depoimentos, premissas de conversão e todo o material do funil dela. Projeto encerrado de vez em 03/08.
+- **PDFs dos roadmaps (v1.1, v2 e Agosto)**: estão no repo e foram entregues na sessão; não foram subidos ao Drive (arquivo grande demais para a API a partir da sessão). Subir manualmente na pasta do cliente se quiser centralizar lá.
+- **ClickUp**: tarefa "JOÃO - preparar roadmap (e validar com Daniel)" pode ser fechada; abrir a de acompanhamento semanal do Roadmap de Agosto.
