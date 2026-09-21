@@ -15,8 +15,9 @@
 const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
 
 /* Webhook do Make que grava a linha na planilha de leads no Drive.
-   Preencher antes de publicar. Vazio = nada é enviado. */
-const LEADS_ENDPOINT = "";
+   Cenário: "[Adriana Brunelly] Diagnóstico da Dívida de Valor -> Sheets".
+   Planilha: "Leads", em 3. Estratégia e Tráfego, na pasta do projeto. */
+const LEADS_ENDPOINT = "https://hook.us2.make.com/n3dq7fn1fe5eimxr4dkp4clkolu9jxuw";
 
 function getUTMs() {
   const p = new URLSearchParams(location.search);
@@ -116,36 +117,51 @@ function enviarLead(etapa) {
   const divida = completo ? M.calcularDivida(a) : null;
   const bucket = completo ? M.definirBucket(a) : null;
 
+  /* Payload PLANO, uma chave por coluna da planilha. É o padrão dos
+     cenários da casa: o Make mapeia {{1.campo}} direto, sem navegar
+     objeto aninhado. A ordem aqui espelha a ordem das colunas. */
   const lead = {
-    etapa: etapa,
-    name: a.nomeResp || "",
-    email: a.email || "",
+    timestamp: dataHoraBR(),
+    nome: a.nomeResp || "",
     whatsapp: a.whatsapp || "",
+    email: a.email || "",
     cidade: a.cidade || "",
-    frente: (F.config && F.config.frente) || "Funil",
+    etapa: etapa,
     qualificacao: completo ? M.classificarLead(a, divida) : "parcial",
     padrao: bucket ? bucket.dados.nome : "",
-    divida_mes: divida ? Math.round(divida.mes) : "",
-    divida_ano: divida ? Math.round(divida.ano) : "",
-    answers: F.steps.reduce((acc, s, i) => {
-      acc["q" + (i + 1) + "_" + s.id] = M.label(s.id, a);
-      return acc;
-    }, {}),
-    utms: URL_UTMS,
-    meta: {
-      timestamp: dataHoraBR(),
-      page_url: location.href,
-      referrer: document.referrer || "",
-      user_agent: navigator.userAgent || "",
-    },
+    divida_mes: divida && divida.temNumero ? Math.round(divida.mes) : "",
+    divida_ano: divida && divida.temNumero ? Math.round(divida.ano) : "",
+    segmento: M.label("segmento", a),
+    ticket: M.label("ticket", a),
+    volume: M.label("volume", a),
+    orcamento: M.label("orcamento", a),
+    desconto: M.label("desconto", a),
+    extras: M.label("extras", a),
+    sentimento: M.label("sentimento", a),
+    tentativas: M.label("tentativas", a),
+    objetivo: M.label("objetivo", a),
+    faturamento: M.label("faturamento", a),
+    frente: (F.config && F.config.frente) || "Funil",
+    page_url: location.href,
+    referrer: document.referrer || "",
+    utm_source: URL_UTMS.utm_source || "",
+    utm_medium: URL_UTMS.utm_medium || "",
+    utm_campaign: URL_UTMS.utm_campaign || "",
+    utm_content: URL_UTMS.utm_content || "",
+    utm_term: URL_UTMS.utm_term || "",
+    fbclid: URL_UTMS.fbclid || "",
+    gclid: URL_UTMS.gclid || "",
   };
+  /* Fire and forget de verdade: o .catch e obrigatorio, porque uma
+     promise rejeitada (rede fora, webhook fora do ar) nao e pega pelo
+     try/catch e virava erro nao tratado no console do lead. */
   try {
     fetch(LEADS_ENDPOINT, {
       method: "POST", keepalive: true,
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(lead),
-    });
-  } catch (e) { /* não bloqueia o lead */ }
+    }).catch(function () { /* nunca bloqueia nem polui o console do lead */ });
+  } catch (e) { /* idem */ }
 }
 
 /* ============================================================

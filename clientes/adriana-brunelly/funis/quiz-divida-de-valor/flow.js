@@ -17,7 +17,13 @@ window.FLOW = {
     storeKey: "adriana_divida_de_valor",
     frente: "Diagnóstico da Dívida de Valor",
     diagnosticoUrl: "diagnostico.html",
-    // Preencher quando a agenda existir. Vazio faz o CTA cair no WhatsApp.
+    /* ATENCAO: link de agendamento NAO foi o que se alinhou com ela.
+       Na call de 10/09 o combinado foi: a pagina leva o lead a mandar
+       mensagem, e a Adriana o chama para a reuniao usando os scripts
+       que a Simple entrega. O CTA do qualificado vai para o WhatsApp.
+       Isto aqui fica vazio de proposito. Se um dia o time decidir
+       colocar agenda (Calendly e o padrao da apostila), basta preencher:
+       o CTA passa a abrir a agenda sozinho, sem mexer em mais nada. */
     agendamentoUrl: "",
   },
 

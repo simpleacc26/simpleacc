@@ -118,13 +118,22 @@ onde a outra parou (o Git é a memória compartilhada).
 Contrato fechado em 04/09, **onboarding feito em 10/09**. Roadmap de 90 dias, estratégia
 completa e guia de depoimentos entregues em 11/09, **aguardando aprovação dela desde então**.
 
-**O funil foi construído em 21/09**, em [`funis/quiz-divida-de-valor/`](funis/quiz-divida-de-valor/):
-quiz de 10 perguntas com 3 interseções, 4 buckets, cálculo da Dívida de Valor em reais e
-página de resultado que muda por padrão. Identidade **preto, dourado e cristal**.
+**O funil foi construído e publicado em 21/09**, em
+[`funis/quiz-divida-de-valor/`](funis/quiz-divida-de-valor/): quiz de 10 perguntas com 3
+interseções, 4 buckets, cálculo da Dívida de Valor em reais e página de resultado que muda
+por padrão. Identidade **preto, dourado e cristal**.
+No ar em **[quiz-adriana-brunelly.vercel.app](https://quiz-adriana-brunelly.vercel.app)**, com os leads caindo em
+[planilha no Drive](https://docs.google.com/spreadsheets/d/1BIJ89rw5fLqaeWhzvOzIg6xWOYHmjuEPc1I8yI_YzLU/edit) pelo Make.
 
-⚠️ **Construído não é publicado.** Faltam três coisas que só ela ou o time podem dar: o
-WhatsApp de destino, o webhook da planilha de leads e o link de agendamento. Os 25 criativos
-seguem só escritos: nenhum vídeo gravado, nenhuma arte feita, nenhuma campanha no ar.
+⚠️ **Falta o WhatsApp dela** em `flow.js > marca.whatsapp`. Sem ele os CTAs não abrem
+conversa nenhuma, e o funil no ar não converte. É a única pendência bloqueante.
+
+⚠️ **O destino do lead qualificado é WhatsApp, não agenda.** Foi o que se combinou na call
+de 10/09: a página leva o lead a mandar mensagem e a Adriana o chama para a reunião pelo
+script. Agenda direta é o padrão da apostila, não deste projeto.
+
+Os 25 criativos seguem só escritos: nenhum vídeo gravado, nenhuma arte feita, nenhuma
+campanha no ar.
 
 **Carlos Durães saiu da empresa; Renan Martini assumiu a condução.** O que ficou órfão está
 em [`contexto/2026-09-21-passagem-de-bastao-e-estado-do-projeto.md`](contexto/2026-09-21-passagem-de-bastao-e-estado-do-projeto.md).

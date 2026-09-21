@@ -15,9 +15,12 @@ Status em **21/09/2026**: **estratégia entregue e funil construído, nada publi
 Onboarding feito em 10/09; roadmap, estratégia completa e guia de depoimentos prontos em
 11/09 e **aguardando aprovação dela desde então**. Em 21/09 o quiz e a página de diagnóstico
 foram implementados em [`funis/quiz-divida-de-valor/`](funis/quiz-divida-de-valor/), na
-identidade preto, dourado e cristal. **Falta publicar**: o WhatsApp dela, o webhook da
-planilha de leads e o link de agendamento ainda não existem. Nenhum vídeo foi gravado e
-nenhuma campanha está no ar.
+identidade preto, dourado e cristal, e **publicados** em
+[quiz-adriana-brunelly.vercel.app](https://quiz-adriana-brunelly.vercel.app), com os leads caindo em
+[planilha no Drive](https://docs.google.com/spreadsheets/d/1BIJ89rw5fLqaeWhzvOzIg6xWOYHmjuEPc1I8yI_YzLU/edit) pelo Make.
+
+⚠️ **Falta o WhatsApp dela** (`flow.js > marca.whatsapp`): sem ele os CTAs não abrem
+conversa. Nenhum vídeo foi gravado e nenhuma campanha está no ar.
 
 > **Chegou agora no projeto?** Comece por
 > [`contexto/2026-09-21-passagem-de-bastao-e-estado-do-projeto.md`](contexto/2026-09-21-passagem-de-bastao-e-estado-do-projeto.md).
@@ -32,6 +35,7 @@ nenhuma campanha está no ar.
 - [Roteiro da call de onboarding (v2)](estrategia/2026-09-10-roteiro-call-mapa-estrategico-v2.md)
 - [Funil do Diagnóstico da Dívida de Valor](funis/quiz-divida-de-valor/) (quiz de 10 perguntas
   com 3 interseções, 4 buckets e página de resultado que calcula a perda em reais)
+  **no ar em [quiz-adriana-brunelly.vercel.app](https://quiz-adriana-brunelly.vercel.app)**
 
 ## Contatos
 
@@ -67,12 +71,16 @@ nenhuma campanha está no ar.
   [produtos e materiais](https://drive.google.com/drive/folders/1ppBOYuiGVP8aNRt78S2R2yR3VwI35hKn)
   (**5 documentos entregues** — cópia em `contexto/materiais-cliente/`)
 - Grupo do projeto no WhatsApp: `[Simple Acc] Adriana Brunelly`
+- **Funil no ar:** [quiz-adriana-brunelly.vercel.app](https://quiz-adriana-brunelly.vercel.app) (Vercel, time Simpleacc,
+  projeto `quiz-adriana-brunelly`, sem ligação com o GitHub)
+- **Planilha de leads:** [Leads · Diagnóstico da Dívida de Valor](https://docs.google.com/spreadsheets/d/1BIJ89rw5fLqaeWhzvOzIg6xWOYHmjuEPc1I8yI_YzLU/edit),
+  em `3. Estratégia e Tráfego` (pasta interna, a cliente não acessa)
 
 ## Projetos
 
 | Projeto | Pasta | Status | Deploy |
 | ------- | ----- | ------ | ------ |
-| Funil de quiz (mentoria R$ 30 mil) | [`funis/quiz-divida-de-valor/`](funis/quiz-divida-de-valor/) | **construído, não publicado** — falta WhatsApp, webhook e agenda | pendente |
+| Funil de quiz (mentoria R$ 30 mil) | [`funis/quiz-divida-de-valor/`](funis/quiz-divida-de-valor/) | **no ar**, falta o WhatsApp dela | [quiz-adriana-brunelly.vercel.app](https://quiz-adriana-brunelly.vercel.app) |
 | WhatsApp de Valor (low ticket R$ 47) | produto dela, fora do repo | **no ar**, sem venda | [wppdevalor.lovable.app](https://wppdevalor.lovable.app) |
 
 ## Pendências
@@ -119,9 +127,12 @@ nenhuma campanha está no ar.
       de R$ 3.000 **ou** R$ 12.000 em 6× de R$ 2.000. Ver
       [`contexto/2026-09-07-escopo-vendido-e-condicao-comercial.md`](contexto/2026-09-07-escopo-vendido-e-condicao-comercial.md).
 - [ ] Confirmar a 2ª parcela do setup (R$ 2.500) em **15/10/2026**.
-- [ ] Criar a planilha de leads no Drive **e o webhook do Make** que alimenta o funil
-      (`LEADS_ENDPOINT` em `funis/quiz-divida-de-valor/app.js`).
-- [ ] Pegar com ela o **WhatsApp de destino** e o **link de agendamento** do funil.
+- [x] ~~Criar a planilha de leads no Drive e o webhook do Make~~ (21/09):
+      [planilha](https://docs.google.com/spreadsheets/d/1BIJ89rw5fLqaeWhzvOzIg6xWOYHmjuEPc1I8yI_YzLU/edit) em `3. Estratégia e Tráfego`, cenário
+      "[Adriana Brunelly] Diagnóstico da Dívida de Valor → Sheets", testado ponta a ponta.
+- [ ] ⚠️ **Pegar com ela o WhatsApp de destino do funil.** É a única coisa que separa
+      o funil de estar funcionando. Sem ele os CTAs não abrem nada.
+- [ ] Apagar as 4 linhas de teste da planilha e decidir se ela recebe acesso a ela.
 - [ ] Alinhar no kickoff que **a Simple não executa o comercial** — a reunião de vendas é dela.
 
 ## Observações

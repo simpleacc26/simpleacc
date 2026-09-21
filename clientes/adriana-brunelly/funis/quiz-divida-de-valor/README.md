@@ -7,6 +7,20 @@ mesa por ano** a partir das próprias respostas.
 HTML, CSS e JavaScript puros. Sem build, sem framework, sem dependência externa
 (nem fonte remota). Sobe em qualquer servidor estático.
 
+## No ar
+
+**<https://quiz-adriana-brunelly.vercel.app>** (projeto `quiz-adriana-brunelly`
+na Vercel, time Simpleacc). URL pública, sem proteção de acesso.
+
+Os leads caem na planilha
+[**Leads · Diagnóstico da Dívida de Valor**](https://docs.google.com/spreadsheets/d/1BIJ89rw5fLqaeWhzvOzIg6xWOYHmjuEPc1I8yI_YzLU/edit),
+em `3. Estratégia e Tráfego`, pelo cenário **[Adriana Brunelly] Diagnóstico da
+Dívida de Valor → Sheets** no Make (webhook + Google Sheets, ativo e testado).
+
+O lead é gravado **duas vezes**: `parcial` assim que ele deixa o contato, e
+`completo` no fim, com padrão, conta e respostas. Quem abandona no meio do quiz
+continua no comercial, que é exatamente o motivo de a captura vir antes.
+
 ## De onde vem cada coisa
 
 | Camada | Fonte |
@@ -91,14 +105,22 @@ npx http-server -p 5173 -c-1
 
 Abrir o `index.html` direto pelo arquivo também funciona.
 
-## Antes de publicar (pendências bloqueantes)
+## Pendências
 
-- [ ] **WhatsApp da Adriana** em `flow.js` (`marca.whatsapp`, formato
-      `5543998808803`). Sem isso os CTAs não abrem nada.
-- [ ] **`LEADS_ENDPOINT`** em `app.js`: webhook do Make que grava na planilha de
-      leads no Drive dela. Sem isso nenhum lead é registrado.
-- [ ] **Link de agendamento** em `flow.js` (`config.agendamentoUrl`). Enquanto
-      vazio, o lead qualificado cai no WhatsApp.
+**Trava o funil de verdade:**
+
+- [ ] ⚠️ **WhatsApp da Adriana** em `flow.js` (`marca.whatsapp`, formato
+      `5543998808803`). **Sem isso os CTAs não abrem nada** e o funil, que já
+      está no ar, não converte. É a única coisa que falta para ele funcionar.
+
+**Já resolvido:**
+
+- [x] ~~`LEADS_ENDPOINT`~~: webhook do Make ligado e testado ponta a ponta.
+- [x] ~~Planilha de leads~~: criada, com as 30 colunas mapeadas.
+- [x] ~~Publicação~~: no ar, URL pública.
+
+**Quando existir:**
+
 - [ ] **Logo** no lugar do monograma, nas duas páginas, quando ela enviar.
 - [ ] **Depoimentos** reais em `flow.js` (`depoimentos: []`). Enquanto o array
       estiver vazio a galeria não aparece, e é assim que tem que ser: nunca
@@ -107,15 +129,54 @@ Abrir o `index.html` direto pelo arquivo também funciona.
 - [ ] **VSL** em `flow.js` (`vsl.ativo` e `vsl.embed`) quando o vídeo existir.
 - [ ] Confirmar a **conta que recebe o checkout** do WhatsApp de Valor antes de
       mandar tráfego (as contas dela estão no nome da irmã).
+- [ ] Apagar as **4 linhas de teste** da planilha (marcadas com "TESTE"), que
+      ficaram da validação da integração.
+- [ ] Compartilhar a planilha com ela, se o time quiser que ela acompanhe.
+      Hoje a planilha está na pasta interna, que a cliente não acessa.
+
+**Sobre agendamento:** o link de agenda (`config.agendamentoUrl`) está vazio de
+propósito. Ver a seção "O destino do lead qualificado" abaixo.
+
+## O destino do lead qualificado
+
+Na call de 10/09 o que ficou combinado **não** foi link de agendamento. O Carlos
+descreveu assim: a página pós-quiz "bate mais na dor de forma personalizada e
+leva ele para a reunião contigo", o lead manda mensagem, e a Simple entrega os
+scripts de atendimento para a Adriana chamar essa pessoa para a reunião.
+
+A agenda direta (tipo Calendly) é o padrão da **apostila**, não deste projeto, e
+tem três motivos para não entrar agora: ela é leiga em tecnologia, não tem
+cartão de crédito para assinar ferramenta, e a cadência de 12 dias da estratégia
+é toda escrita para WhatsApp, na voz dela.
+
+Então o CTA do qualificado abre o WhatsApp com a mensagem já preenchida, trazendo
+o padrão e a conta da pessoa, para ela abrir a conversa sabendo com quem fala.
+Se o time decidir adotar agenda depois, basta preencher `config.agendamentoUrl`:
+o CTA passa a abrir a agenda sozinho, sem mexer em mais nada.
 
 ## Deploy
 
-Vercel, publicando **só esta subpasta**, sem build (projeto estático).
-No painel: `Root Directory` = `clientes/adriana-brunelly/funis/quiz-divida-de-valor`,
-`Framework Preset` = Other, `Build Command` vazio, `Output Directory` vazio.
+O projeto **não está ligado ao GitHub** (a conta da Vercel não tem escrita no
+repositório). A publicação foi feita pela API, mandando os arquivos direto:
 
-O time tem *Vercel Authentication* ligada por padrão, então a URL nasce fechada.
-Desligar só depois de conferir o conteúdo no ar.
+```bash
+# precisa de um token da Vercel com acesso ao time Simpleacc
+curl -X POST "https://api.vercel.com/v13/deployments?teamId=<TEAM_ID>&forceNew=1" \
+  -H "Authorization: Bearer $VERCEL_TOKEN" -H "Content-Type: application/json" \
+  -d '{"name":"quiz-adriana-brunelly","target":"production","files":[...]}'
+```
+
+Cada arquivo entra em `files` como `{file, data (base64), encoding:"base64"}`.
+Depois, o alias limpo é atribuído à parte, senão a Vercel gera a URL com o nome
+do time dentro (`...-simpleacc.vercel.app`):
+
+```bash
+curl -X POST "https://api.vercel.com/v2/deployments/<DEPLOY_ID>/aliases?teamId=<TEAM_ID>" \
+  -H "Authorization: Bearer $VERCEL_TOKEN" -H "Content-Type: application/json" \
+  -d '{"alias":"quiz-adriana-brunelly.vercel.app"}'
+```
+
+**Nunca commite o token.** Ele vive só na sessão de quem publica.
 
 ## Contatos
 

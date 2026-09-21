@@ -279,8 +279,10 @@ if (!temRespostas) {
       .replace("{divida}", divida.temNumero ? divida.fmt.mes + " por mês" : "sem número fechado");
     window.open(`https://wa.me/${F.marca.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
   }
-  /* Roteamento da apostila: quanto mais qualificado, menos tempo o lead tem,
-     então ele marca direto na agenda. Sem agenda configurada, cai no WhatsApp. */
+  /* Destino do lead qualificado. O combinado na call de 10/09 é WhatsApp,
+     com a Adriana chamando para a reunião pelo script. A apostila sugere
+     agenda direta para o qualificado; se o time adotar isso um dia, basta
+     preencher config.agendamentoUrl no flow.js. */
   function abrirAgenda() {
     const url = F.config && F.config.agendamentoUrl;
     if (url) window.open(url, "_blank", "noopener");
