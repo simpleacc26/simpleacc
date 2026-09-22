@@ -135,3 +135,94 @@ Produzir dois criativos novos com o gancho ancorado explicitamente em teto de
 capacidade, subir contra o AD01 como controle e ler em 30 dias pela composição de
 faixa de faturamento, e não por CPL. Se a régua estiver certa, os dois novos
 passam de 45% de MQL.
+
+---
+
+# Adendo · a copy literal (22/09)
+
+A copy dos anúncios estava no `[Juliana Godinho] COPY 2026` no Drive, na seção
+ANÚNCIOS, organizada por lote de data. Os lotes que cobrem a janela da V4 são o
+**14/08** (6 peças) e o **14/09** (10 peças).
+
+## O que o AD01 faz, frase por frase
+
+Copy literal, lote 14/08, peça #001:
+
+> Eu tenho clínica desde 2011 e vivi anos em que a única hora que sobrava pra
+> olhar número e pensar no negócio, eram as horas de "descanso". O problema é que
+> o negócio inteiro fica na fila desse intervalo. O preço que precisa ser
+> revisto, a conversa com quem trabalha com você, a conta do que sobrou, a ideia
+> que traria gente nova. Tudo isso espera o seu tempo livre, e o seu tempo livre
+> tem onze minutos. Aí chega sexta, você olha pra trás e a semana inteira foi
+> atendimento. E crescer desse jeito piora, porque mais faturamento é mais gente
+> na agenda, e mais gente na agenda é menos brecha ainda. Se você tem clínica ou
+> consultório de estética avançada, **fatura mais de 20 mil por mês** e já
+> entendeu que somar horário parou de resolver, o seu gargalo tem nome e dá pra
+> ver ele hoje. Clique em Saiba Mais para preencher o diagnóstico de dois
+> minutos, e no fim você recebe por escrito o que está segurando o seu
+> faturamento e o que muda primeiro.
+
+**Toda frase pressupõe uma agenda já cheia.** "A semana inteira foi atendimento",
+"o seu tempo livre tem onze minutos", "o negócio inteiro fica na fila desse
+intervalo". Quem tem agenda vazia lê isso e não se reconhece em lugar nenhum.
+
+E a frase que fecha o filtro é dupla, econômica e comportamental ao mesmo tempo:
+*fatura mais de 20 mil por mês* **e** *já entendeu que somar horário parou de
+resolver*. A segunda metade exclui quem tem o faturamento e ainda acha que a
+saída é trabalhar mais.
+
+O detalhe decisivo está em **"crescer desse jeito piora"**. Essa frase só faz
+sentido para quem já está cheia. Para quem está construindo, crescer é
+exatamente o que ela quer, e a frase soa errada.
+
+## Declarar piso de faturamento não é o que separa
+
+Contei quantas peças de cada lote trazem número de faturamento no corpo:
+
+| Lote | Peças com piso declarado | Piso |
+|---|---|---|
+| 09.01.26 | 4 de 6 | cerca de 10 mil |
+| 24.02 | 5 de 6 | acima de 15k |
+| 31/03 | 2 de 6 | |
+| 12/05 | 0 de 2 | nenhum |
+| 19/05 | 6 de 6 | entre 15 e 40 mil |
+| 26/06 | 2 de 7 | entre 15 e 40 mil |
+| 30/07 | 9 de 10 | acima de 15 mil |
+| **14/08** | **6 de 6** | **mais de 20 mil** |
+| **14/09** | **7 de 10** | **acima de 50 mil** |
+
+**As seis peças do lote 14/08 declaram piso**, inclusive as que não performaram.
+Então declarar número no corpo é condição necessária e não suficiente. O que
+separa é o **estado que a copy pressupõe**, e não o número que ela cita.
+
+Isso refina o aprendizado de 17/08 da conta, que dizia para não levar número de
+faturamento na legenda. A leitura correta agora: o número não funciona como
+**promessa** no topo, e funciona como **filtro** no corpo, junto de um traço
+comportamental.
+
+## Duas lacunas que a leitura da copy revelou
+
+**A copy do AD04 não existe no documento.** Procurei no doc inteiro por "a gente
+sempre acha" e variações, zero ocorrência. O AD04 trouxe 52 leads, 40% do volume
+da V4, e não está registrado em lugar nenhum. Sem ela não dá para fechar a
+comparação frase a frase entre o que qualifica e o que não qualifica, que era o
+coração da task. **Puxar essa copy no gerenciador e registrar no doc.**
+
+**O lote 14/09 não gerou lead nenhum.** São dez peças escritas com piso de 50 mil
+e linguagem inteira de papel e equipe (domingo à noite a equipe te chama, a
+recepção disse que não tinha horário, a segunda unidade nunca ficou igual, alguém
+pediu aumento). É exatamente a direção que a mesa do Estrato 7 concluiu. E de
+14/09 a 19/09 **as 17 leads do período vieram todas de AD01 e AD04**. Ou o lote
+não foi ao ar, ou foi e não está recebendo entrega. Isso precisa ser checado
+antes de qualquer conclusão sobre aquela linha de comunicação.
+
+## A previsão que a régua faz, e que dá para testar
+
+Dentro do mesmo lote 14/08, com o mesmo piso de 20 mil declarado, a peça #002
+abre com *"faz quanto tempo que não aparece ali um nome que você não conhece?"*.
+É estado de **ausência**, não de teto. A régua prevê que ela qualifica pior que a
+#001, na faixa dos 21%.
+
+Se essa peça for ao ar com `utm_content` próprio e vier perto de 45%, a régua
+está errada. Se vier perto de 21%, está certa. **É o teste mais barato disponível
+para validar tudo que está escrito aqui.**
