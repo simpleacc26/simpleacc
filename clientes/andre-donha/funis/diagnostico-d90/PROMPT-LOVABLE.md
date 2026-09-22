@@ -14,7 +14,7 @@ dos dados.
 | Marcador no prompt | O que colocar |
 | --- | --- |
 | `{{PIXEL_ID}}` | O ID do pixel criado no gerenciador (ver `PIXEL-META.md`) |
-| `{{URL_WEBHOOK_PLANILHA}}` | O endpoint que grava na planilha de leads (ver `PLANILHA-DE-LEADS.md`) |
+| `{{URL_WEBHOOK_PLANILHA}}` | A URL do app da Web do Apps Script publicado na planilha (ver `apps-script-planilha.gs`) |
 | `{{FAIXAS_VAZAMENTO}}` | Só se o André mudar os percentuais. Ver a ressalva no fim deste arquivo |
 
 **A referência viva é https://musikalis-diagnostico.vercel.app.** Se houver
@@ -402,8 +402,13 @@ Ao terminar o quiz, execute nesta ordem:
 
 ## 10. Saída dos dados para a planilha
 
-A cada diagnóstico concluído, envie um POST em JSON para
-`{{URL_WEBHOOK_PLANILHA}}`, com uma linha por lead, nesta ordem exata de campos:
+A planilha de leads da Simple é esta:
+https://docs.google.com/spreadsheets/d/1UFHepDQms_exYAOCIX8lGnkBRLvo5B9WuXwnPeJvcHo/edit
+
+Conecte o Lovable nela por integração direta com o Google Sheets, ou envie um
+POST em JSON para `{{URL_WEBHOOK_PLANILHA}}`, que é o app da Web publicado na
+própria planilha. Nos dois casos, uma linha por lead, nesta ordem exata de
+campos, com estes nomes de coluna:
 
 ```json
 {

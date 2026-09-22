@@ -264,6 +264,73 @@
 
   function topo(){ window.scrollTo({top:0, behavior: semMov ? 'auto':'smooth'}); }
 
+  /* ---------- gravação do lead ---------- */
+  /* URL do app da Web do Apps Script publicado na planilha de leads.
+     Ver apps-script-planilha.gs nesta pasta. Vazio = não grava. */
+  var WEBHOOK = '';
+  var FILA = 'd90_fila';
+
+  function utm(k){
+    try { return new URLSearchParams(location.search).get(k) || ''; }
+    catch(e){ return ''; }
+  }
+
+  function montaRegistro(r){
+    var L = estado.lead, R = estado.respostas;
+    function alt(i){ return PERGUNTAS[i].ops[R[i]].t.replace(/<[^>]+>/g,''); }
+    return {
+      data_hora: new Date().toISOString(),
+      nome: L.nome, whatsapp: L.zap, email: L.email, cidade: L.cidade,
+      indice_d90: r.pts, faixa: r.faixa.nome, elo_dominante: r.elo.nome,
+      orcamento_faixa: alt(8), orcamento_referencia: r.orc,
+      vazamento_min: Math.round(r.vazMin), vazamento_max: Math.round(r.vazMax),
+      p1_papel: alt(0), p2_producoes_ano: alt(1), p3_antecedencia: alt(2),
+      p4_onde_escapa: r.elo.nome, p5_custo: alt(4), p6_controle: alt(5),
+      p7_tentativa: alt(6), p8_objetivo: alt(7), p9_orcamento: alt(8),
+      conta_criada: false, origem: 'quiz-vercel',
+      utm_source: utm('utm_source'), utm_campaign: utm('utm_campaign'),
+      utm_content: utm('utm_content')
+    };
+  }
+
+  function leFila(){
+    try { return JSON.parse(localStorage.getItem(FILA) || '[]'); } catch(e){ return []; }
+  }
+  function gravaFila(f){
+    try { localStorage.setItem(FILA, JSON.stringify(f.slice(-20))); } catch(e){}
+  }
+
+  /* text/plain evita preflight, que o Apps Script não responde. */
+  function posta(reg){
+    return fetch(WEBHOOK, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify(reg)
+    });
+  }
+
+  /* Nunca trava a tela: o diagnóstico aparece, o envio acontece por trás.
+     Se falhar, o registro fica na fila e tenta de novo no próximo carregamento. */
+  function enviaLead(r){
+    if(!WEBHOOK){ return; }
+    var reg = montaRegistro(r);
+    posta(reg)['catch'](function(){
+      var f = leFila(); f.push(reg); gravaFila(f);
+    });
+  }
+
+  function reenviaPendentes(){
+    if(!WEBHOOK){ return; }
+    var f = leFila();
+    if(!f.length){ return; }
+    gravaFila([]);
+    f.forEach(function(reg){
+      posta(reg)['catch'](function(){
+        var atual = leFila(); atual.push(reg); gravaFila(atual);
+      });
+    });
+  }
+
   /* ---------- perguntas ---------- */
   var PROMESSA = 'Descubra quanto a sua produção está perdendo antes de o show começar';
   var HERO =
@@ -375,6 +442,7 @@
   /* ---------- diagnóstico ---------- */
   function verDiagnostico(){
     var r = calcula(), nome = estado.lead.nome.split(' ')[0];
+    enviaLead(r);
     desenhaRegua(5);
 
     var segs = '';
@@ -483,6 +551,7 @@
     topo();
   }
 
+  reenviaPendentes();
   verPergunta();
 })();
 </script>
