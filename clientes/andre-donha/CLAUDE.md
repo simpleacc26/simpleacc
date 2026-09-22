@@ -39,10 +39,14 @@ o outro parou (o Git é a memória compartilhada).
   Inimigo nomeado: **o custo do D-0**, a produção que só existe no dia. Virada: **de produtor D-0 a
   produtor D-90**. A frase "Como ganhar R$ 10 mil/mês como músico" continua válida no workshop e na
   conversa, mas **é proibida em anúncio pago** (a Meta lê como promessa de ganho).
-- **Funil decidido (roadmap de 07/09):** anúncio → **Diagnóstico de Margem** (quiz gratuito de 9
-  perguntas, devolve o índice D-90 de 0 a 100 e o elo dominante) → página de diagnóstico → **vaga no
-  workshop** → oferta do GPM no fim da aula. O quiz **substitui o onboarding da plataforma** a partir
-  do dia 45.
+- **Funil vigente (atualizado em 22/09):** anúncio → **Diagnóstico de Margem** (quiz gratuito de 9
+  perguntas, devolve o índice D-90 de 0 a 100 e o elo dominante) → página de diagnóstico → **conta
+  free criada na hora, com o perfil já preenchido pelas respostas** → oferta do GPM dentro da
+  plataforma. **O workshop foi cancelado pelo André em 18/09** e saiu do funil.
+  O quiz **não substitui só o onboarding: ele vira o onboarding**, replicado no Lovable por ele
+  mesmo a partir do nosso prompt (`funis/diagnostico-d90/PROMPT-LOVABLE.md`).
+  **Só desligar o onboarding antigo de 8 telas depois** que a gravação do lead estiver confirmada
+  em produção, senão ele fica cego no painel.
 - **Esteira dos 90 dias:** carro-chefe **GPM, certificação de Gestor de Produção Musikalis, R$ 1.497**
   (12h ao vivo, turma de 10 a 12, certificado + 3 meses de Pro) · porta lateral **Mentoria de Produção,
   R$ 5 mil a R$ 20 mil** (só na conversa) · não ICP **Musikalis Pro, R$ 49,90/mês ou R$ 397/ano**.
@@ -65,14 +69,28 @@ o outro parou (o Git é a memória compartilhada).
   por 60 dias** + **R$ 6 mil** ao final dos 60 dias + **5% de participação nos lucros** da Musikalis.
 - **Restrição real dele:** fluxo de caixa pessoal imprevisível — custo fixo alto e a faculdade de
   medicina da filha em Coimbra (€ 18 mil/ano). O modelo flexível de pagamento existe por causa disso.
-- **Contato principal:** André Donha. Gestor do projeto pela Simple: Carlos Durães.
+- **Contato principal:** André Donha. Gestor do projeto pela Simple: **Renan Martini**
+  (assumiu em 17/09; o Carlos Durães saiu da empresa).
 
 > **Antes de qualquer entrega, leia `contexto/2026-09-01-briefing-andre-donha.md`** — é a
 > síntese com números, decisões e o que ainda está em aberto. As fontes brutas são
 > `contexto/2026-08-26-call-de-vendas-resumo-e-transcricao.md` e
 > `contexto/2026-08-27-canvas-produto-e-cliente-ideal.md`.
 >
+> **Estado em 22/09:** quiz no ar em https://musikalis-diagnostico.vercel.app (aprovado por ele,
+> nas palavras dele: *"o quiz tá bem simplificado, ele tá legal, eu gostei"*). Conta de anúncios
+> conectada à BM01 Simple, cartão cadastrado. Checkout operacional: GPM R$ 1.497 com 3 meses de Pro
+> e migração automática para R$ 9,90 no 4º mês, anual R$ 1.894 com 12 meses, cupons e parcelamento
+> até 12x via Asaas. **Pendências que travam mídia:** o formulário ainda não persiste o lead, e as
+> faixas de vazamento ainda não têm a chancela dele. Painel completo em
+> `estrategia/2026-09-22-entregaveis-da-call-conexao-meta.md`.
+>
 > **Como conduzir o André:** ele fala muito, gosta de conversa longa e detesta atendimento
 > roteirizado/robô — pede explicitamente para ser ouvido. Em compensação, decide rápido e
 > aceita direcionamento forte. Ele tende a **querer resolver o ecossistema inteiro de uma vez**;
 > nosso papel é cortar escopo: uma oferta por vez, funil simples primeiro.
+>
+> **Duas velocidades muito diferentes:** no Lovable ele é rápido e autônomo (*"se mandar o prompt,
+> eu faço isso em 30 segundos"*), então entregar prompt pronto rende muito mais que entregar
+> especificação. No gerenciador da Meta ele se perde e diz isso com todas as letras. Ali, conduzir
+> clique a clique, ao vivo. Nunca mandar tutorial.

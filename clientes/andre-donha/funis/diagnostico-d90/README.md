@@ -70,6 +70,23 @@ npx vercel deploy --prod --yes --token $VERCEL_TOKEN
 O alias limpo `musikalis-diagnostico.vercel.app` está atribuído ao projeto e
 aponta para a produção automaticamente.
 
+## Migração para dentro da plataforma (decidida em 22/09)
+
+O quiz deixa de ser página externa e vira o onboarding da Musikalis. O André
+replica no Lovable a partir de **`PROMPT-LOVABLE.md`**, que é o arquivo
+canônico: traz as 9 perguntas, os pesos, as faixas, os textos do diagnóstico, o
+contrato de dados e os eventos do pixel.
+
+No fim do quiz o lead sai com as duas coisas: o relatório **e** a conta free já
+criada, com o perfil preenchido pelas respostas.
+
+Os outros dois arquivos de apoio:
+
+- **`PIXEL-META.md`** — snippet, mapa de eventos e o passo a passo de criação no
+  gerenciador.
+- **`PLANILHA-DE-LEADS.md`** + `planilha-leads-cabecalho.csv` — o contrato de
+  colunas que a planilha da Simple e a saída do Lovable precisam compartilhar.
+
 ## Pendências antes de rodar tráfego
 
 1. **Gravar o lead.** Hoje o formulário valida e segue, mas não persiste. Falta
@@ -77,6 +94,9 @@ aponta para a produção automaticamente.
 2. **Chancela das faixas de vazamento** com o André.
 3. **CTA final.** Aponta para musikalis.com.br. O workshop foi cancelado em
    18/09, então "Criar conta grátis" e "Falar com produção" são os CTAs do site.
-   Confirmar se fica assim.
+   Dentro da plataforma o botão principal passa a concluir o cadastro, o que
+   resolve metade. Falta decidir o que leva da conta free ao GPM.
 4. **Logotipo em vetor.** O microfone do topo foi redesenhado à mão.
-5. **Pixel da Meta** e domínio próprio, se for o caso.
+5. **Pixel da Meta.** Falta o Renan criar no gerenciador e o André instalar.
+   Ver `PIXEL-META.md`.
+6. **Domínio próprio**, se for o caso.
