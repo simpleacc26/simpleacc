@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>O Quiz e o Diagnostico &middot; Adriana Brunelly</title>
+<style>
+  @page { size: A4; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #1b2a4a;
+    --navy-dark: #14213d;
+    --gold: #b8863b;
+    --beige: #f4f1ea;
+    --text: #333a45;
+    --muted: #8a8f98;
+  }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text);
+    font-size: 10pt;
+    line-height: 1.45;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    overflow: hidden;
+    padding: 16mm 18mm 24mm 18mm;
+    position: relative;
+    page-break-after: always;
+    background: #fff;
+  }
+  .page:last-child { page-break-after: auto; }
+  .runhead {
+    display: flex; justify-content: space-between;
+    font-size: 7.5pt; color: var(--muted);
+    letter-spacing: .06em; text-transform: uppercase;
+    border-bottom: .4pt solid #d9d5cc; padding-bottom: 4pt; margin-bottom: 12pt;
+  }
+  .runfoot {
+    position: absolute; bottom: 9mm; left: 18mm; right: 18mm;
+    text-align: center; font-size: 7.5pt; color: var(--muted);
+  }
+  .kicker {
+    color: var(--gold); font-size: 9pt; font-weight: bold;
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8pt;
+  }
+  h1 { color: var(--navy); font-size: 24pt; line-height: 1.15; margin-bottom: 10pt; }
+  .lead { font-style: italic; color: #5a6070; margin-bottom: 14pt; font-size: 10pt; }
+  .box-dark {
+    background: var(--navy-dark); color: #f5f3ee;
+    padding: 11pt 14pt; margin: 11pt 0; border-radius: 2pt;
+  }
+  .box-dark .bt { color: #fff; font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-dark p { margin-bottom: 5pt; }
+  .box-dark p:last-child { margin-bottom: 0; }
+  .box-light {
+    background: var(--beige); border-left: 3pt solid var(--gold);
+    padding: 10pt 14pt; margin: 11pt 0;
+  }
+  .box-light .bt { color: var(--navy); font-weight: bold; font-size: 9.5pt; letter-spacing: .04em; margin-bottom: 5pt; text-transform: uppercase; }
+  .box-light p { margin-bottom: 5pt; }
+  .box-light p:last-child { margin-bottom: 0; }
+  .fase-header {
+    background: var(--navy-dark); color: #fff;
+    padding: 10pt 16pt; margin-bottom: 10pt;
+    border-left: 4pt solid var(--gold);
+  }
+  .fase-header .fk { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 4pt; }
+  .fase-header h2 { color: #fff; font-size: 16pt; margin-bottom: 5pt; }
+  .fase-header .fd { font-style: italic; font-size: 9.5pt; color: #cfd4de; }
+  .passo-label { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .12em; text-transform: uppercase; margin: 12pt 0 3pt; }
+  h3 { color: var(--navy); font-size: 12.5pt; margin-bottom: 6pt; }
+  ul.check { list-style: none; margin-bottom: 7pt; }
+  ul.check > li { padding-left: 14pt; position: relative; margin-bottom: 3.5pt; }
+  ul.check > li::before { content: "■"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  ul.sub { list-style: none; margin: 3pt 0 4pt 14pt; }
+  ul.sub li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; color: #4a5160; }
+  ul.sub li::before { content: "→"; color: var(--gold); position: absolute; left: 0; }
+  .navy { color: var(--navy); }
+  p { margin-bottom: 6pt; }
+
+  .cover { padding-top: 60mm; }
+  .cover h1 { font-size: 34pt; line-height: 1.1; margin: 6pt 0 14pt; }
+  .cover .rule { width: 34mm; height: 2pt; background: var(--gold); margin: 10mm 0 8mm 2mm; }
+  .cover .sub { font-size: 13pt; color: #4a5160; line-height: 1.6; }
+  .cover .meta { position: absolute; bottom: 30mm; left: 18mm; }
+  .cover .meta .lbl { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin-top: 10pt; }
+  .cover .meta .val { font-size: 10.5pt; color: var(--text); }
+  .footer-note { margin-top: 24pt; padding-top: 8pt; border-top: 1pt solid var(--gold); font-size: 8.5pt; color: var(--muted); width: 60%; }
+</style>
+<style>
+  .secao-lead { font-style: italic; color: #5a6070; margin-bottom: 12pt; font-size: 10pt; }
+  .qlabel { color: var(--gold); font-size: 8.5pt; font-weight: bold; letter-spacing: .1em; text-transform: uppercase; margin: 10pt 0 2pt; }
+  .qtext { color: var(--navy); font-weight: bold; font-size: 11pt; margin-bottom: 4pt; }
+  ul.alt { list-style: none; margin: 0 0 6pt 0; }
+  ul.alt li { padding-left: 14pt; position: relative; margin-bottom: 2.5pt; }
+  ul.alt li::before { content: "▢"; color: var(--gold); position: absolute; left: 0; font-size: 8pt; top: 1.5pt; }
+  .copylabel { color: var(--navy); font-weight: bold; font-size: 9pt; letter-spacing: .06em; text-transform: uppercase; margin: 9pt 0 3pt; border-bottom: .4pt solid #d9d5cc; padding-bottom: 2pt; }
+</style>
+</head>
+<body>
+<div class="page cover">
+  <div class="kicker">Funil de Diagnóstico · Método ACA</div>
+  <h1>O Quiz e<br>o Diagnóstico</h1>
+  <div class="rule"></div>
+  <div class="sub">
+    As 12 perguntas, com todas as alternativas.<br>
+    A leitura que a pessoa recebe no fim, bloco a bloco.<br>
+    <em>Para você conferir palavra por palavra antes de irmos ao ar.</em>
+  </div>
+  <div class="meta">
+    <div class="lbl">Preparado para</div>
+    <div class="val">Adriana Brunelly</div>
+    <div class="lbl">Versão no ar</div>
+    <div class="val">quiz-adriana-brunelly.vercel.app</div>
+  </div>
+</div>
+<div class="page">
+  <div class="runhead"><span>Quiz e Diagnóstico · Adriana Brunelly</span><span>Página 2</span></div>
+  <div class="kicker">Antes de Ler</div>
+  <h3>Como validar este documento</h3>
+  <p class="secao-lead">Leva uns 15 minutos, e é o material inteiro do funil em um lugar só.</p>
+
+  <div class="box-light">
+    <div class="bt">O jeito mais rápido de validar</div>
+    <p><strong>1.</strong> Abra o funil no celular e responda como se você fosse a sua própria
+    cliente: <strong>quiz-adriana-brunelly.vercel.app</strong></p>
+    <p><strong>2.</strong> Depois volte aqui e leia as perguntas com calma. No funil você sente;
+    aqui você confere.</p>
+    <p><strong>3.</strong> Anote ao lado de cada pergunta que soar estranha na sua boca. É esse
+    o feedback que só você pode dar.</p>
+  </div>
+
+  <div class="passo-label">O que você está validando</div>
+  <ul class="check">
+    <li><strong>As 12 perguntas</strong>, com todas as alternativas, na ordem exata em que a
+    pessoa vê.</li>
+    <li><strong>As três telas de intervalo</strong>, que aparecem no meio do quiz com uma
+    conta ou uma história sua.</li>
+    <li><strong>A leitura completa</strong> que a pessoa recebe no fim, bloco a bloco, com o
+    lugar de cada número.</li>
+  </ul>
+
+  <div class="passo-label">O que não está aqui</div>
+  <p>Os anúncios, a cadência de mensagens do atendimento e o plano de 90 dias. Esses vivem nos
+  outros dois documentos que você já recebeu. Este aqui é só o funil.</p>
+
+  <div class="box-dark">
+    <div class="bt">Uma coisa que vale saber antes</div>
+    <p>Onde você vir <strong>algo entre chaves, como o nome da pessoa ou o valor da conta</strong>,
+    é campo que o sistema preenche sozinho com a resposta de quem fez o quiz. Cada pessoa recebe
+    a leitura dela, com os números dela. Ninguém recebe texto igual ao de outra.</p>
+  </div>
+
+  <div class="runfoot">Para validação · versão no ar em 22.09.26</div>
+</div>
+<div class="page">
+  <div class="runhead"><span>Quiz e Diagnóstico · Adriana Brunelly</span><span>Página 3</span></div>
+  <div class="kicker">O Funil em Uma Página</div>
+  <h3>O caminho de quem chega</h3>
+  <p class="secao-lead">Do anúncio até a conversa no seu WhatsApp, sem etapa escondida.</p>
+
+  <div class="box-dark">
+    <div class="bt">Os cinco passos</div>
+    <p><strong>1. O anúncio</strong> leva a pessoa para a primeira pergunta. Sem página de
+    apresentação no meio: ela já cai respondendo.</p>
+    <p><strong>2. O quiz</strong>, 12 perguntas, cerca de 2 minutos, com três telas de intervalo
+    que trazem uma conta ou uma história sua.</p>
+    <p><strong>3. Os dados</strong> vêm só no fim, quando a conta dela já está pronta do outro
+    lado. Nome, WhatsApp, e-mail e cidade.</p>
+    <p><strong>4. A tela de cálculo</strong>, 5 segundos, mostrando que o resultado está sendo
+    montado com as respostas dela.</p>
+    <p><strong>5. A leitura completa</strong>, com o padrão dela nomeado, a conta em reais e o
+    convite para falar com você.</p>
+  </div>
+
+  <div class="passo-label">Por que os dados vêm só no fim</div>
+  <p>Porque pedir contato antes de entregar qualquer coisa é pedágio na porta, e derruba o número
+  de pessoas que terminam. Quando o formulário aparece, ela já investiu dois minutos e quer o
+  resultado. A vontade de ver a própria conta é o que faz ela preencher.</p>
+
+  <div class="passo-label">Para onde cada pessoa vai</div>
+  <ul class="check">
+    <li><strong>Fatura de R$ 40 mil por mês para cima:</strong> vai para a fila de conversa com
+    você, com o padrão e a conta dela já na primeira mensagem.</li>
+    <li><strong>Entre R$ 10 mil e R$ 40 mil:</strong> recebe a leitura completa e fica na base.
+    A exceção que vale ouro: se a perda calculada passar de R$ 3 mil por mês, ela sobe para a
+    fila de conversa do mesmo jeito. Quem deixa R$ 36 mil por ano na mesa tem de onde tirar.</li>
+    <li><strong>Até R$ 10 mil:</strong> recebe a leitura completa e a oferta do WhatsApp de
+    Valor, de R$ 47, no fim da página.</li>
+  </ul>
+
+  <div class="box-light">
+    <div class="bt">Todo lead cai na sua planilha</div>
+    <p>Com nome, WhatsApp, cidade, o padrão dele, a conta em reais e as 12 respostas. Você abre
+    a conversa sabendo com quem está falando, sem precisar perguntar de novo.</p>
+  </div>
+
+  <div class="runfoot">Para validação · versão no ar em 22.09.26</div>
+</div>
+<div class="page">
+  <div class="runhead"><span>Quiz e Diagnóstico · Adriana Brunelly</span><span>Página 4</span></div>
+  <div class="fase-header">
+    <div class="fk">Seção 1</div>
+    <h2>O Quiz, pergunta por pergunta</h2>
+    <div class="fd">12 perguntas, da mais fácil para a que exige mais pensamento.</div>
+  </div>
+  <p class="secao-lead">A ordem não é aleatória. Começa no que se responde sem pensar e só
+  chega no que dói depois que a pessoa já está dentro.</p>
+
+  <div class="qlabel">Pergunta 1 · Seu perfil</div>
+  <div class="qtext">O que você faz hoje no mercado de eventos?</div>
+  <ul class="alt"><li>Tenho um buffet</li><li>Trabalho com decoração de festas</li><li>Sou doceira ou confeiteira</li><li>Sou assessora ou cerimonialista</li></ul>
+  <div class="qlabel">Pergunta 2 · O seu volume</div>
+  <div class="qtext">Quantos eventos ou pedidos você entrega por mês, em média?</div>
+  <ul class="alt"><li>Até 3</li><li>De 4 a 8</li><li>De 9 a 15</li><li>Mais de 15</li></ul>
+  <div class="qlabel">Pergunta 3 · O orçamento</div>
+  <div class="qtext">Quando você manda um orçamento, o que mais acontece?</div>
+  <ul class="alt"><li>A pessoa agradece e some</li><li>Ela responde pedindo desconto</li><li>Ela compara com alguém mais barato e volta pedindo para cobrir</li><li>Fecha, mas eu fico com a sensação de que cobrei pouco</li></ul>
+  <div class="box-dark">
+    <div class="bt">Tela de intervalo · aparece logo depois desta pergunta</div>
+    <p style="font-size:13pt;color:#e8d7ad;margin-bottom:6pt"><strong>13 eventos em 1 semana</strong></p>
+    <p>Foi a semana que mudou o meu negócio. Entreguei os treze, passei 72 horas sem dormir e ficou tudo impecável. Na segunda-feira fui olhar os números e não tinha sobrado quase nada. Volume não é margem.</p>
+    <p style="font-size:8.5pt;color:#b9c0cd;font-style:italic;margin-top:6pt">Adriana Brune'lly, 2017</p>
+  </div>
+  <div class="runfoot">Para validação · versão no ar em 22.09.26</div>
+</div>
+<div class="page">
+  <div class="runhead"><span>Quiz e Diagnóstico · Adriana Brunelly</span><span>Página 5</span></div>
+  <div class="qlabel">Pergunta 4 · A entrega</div>
+  <div class="qtext">E os extras: o cliente pede algo fora do combinado durante o evento?</div>
+  <ul class="alt"><li>Quase nunca, meu contrato é bem fechado</li><li>Às vezes, e eu cobro à parte</li><li>Acontece bastante, e eu acabo absorvendo</li><li>Acontece sempre, e eu nem lanço na conta</li></ul>
+  <div class="qlabel">Pergunta 5 · O seu ticket</div>
+  <div class="qtext">Qual é o valor médio de um evento ou pedido seu?</div>
+  <ul class="alt"><li>Até R$ 3 mil</li><li>De R$ 3 mil a R$ 8 mil</li><li>De R$ 8 mil a R$ 15 mil</li><li>De R$ 15 mil a R$ 30 mil</li><li>De R$ 30 mil a R$ 60 mil</li><li>De R$ 60 mil a R$ 120 mil</li><li>Acima de R$ 120 mil</li></ul><p style="font-size:9pt;color:#5a6070;margin-top:-2pt"><em>Sete faixas de propósito: quem marca a primeira vê, na mesma tela, que existe gente do mesmo mercado entregando evento acima de R$ 120 mil.</em></p>
+  <div class="qlabel">Pergunta 6 · O fechamento</div>
+  <div class="qtext">Na hora de fechar, quanto costuma sair de desconto?</div>
+  <ul class="alt"><li>Não dou desconto</li><li>Até 10%</li><li>De 10% a 20%</li><li>Mais de 20%, ou dou algum brinde que sai do meu bolso</li></ul>
+  <div class="box-dark">
+    <div class="bt">Tela de intervalo · aparece logo depois desta pergunta</div>
+    <p style="font-size:13pt;color:#e8d7ad;margin-bottom:6pt"><strong>R$ 108 mil por ano</strong></p>
+    <p>É o que sai de um negócio que dá 10% de desconto em seis eventos de R$ 15 mil por mês. São R$ 1.500 por evento, R$ 9 mil por mês. Ninguém lança esse número em lugar nenhum.</p>
+    <p style="font-size:8.5pt;color:#b9c0cd;font-style:italic;margin-top:6pt">Conta simples, com os números do próprio mercado</p>
+  </div>
+  <div class="runfoot">Para validação · versão no ar em 22.09.26</div>
+</div>
+<div class="page">
+  <div class="runhead"><span>Quiz e Diagnóstico · Adriana Brunelly</span><span>Página 6</span></div>
+  <div class="box-light">
+    <div class="bt">As duas perguntas que você pediu</div>
+    <p>Das quatro que você mandou, estas duas entraram no quiz: são as que viram número na hora
+    e mudam a leitura da página. As outras duas, funcionários registrados e investimento em
+    estrutura, ficaram para você puxar na sessão, porque rendem conversa e o quiz precisa ser
+    curto para a pessoa terminar.</p>
+  </div>
+  <div class="qlabel">Pergunta 7 · A sua equipe</div>
+  <div class="qtext">Somando equipe fixa e freelancer, quanto a mão de obra come de um evento seu?</div>
+  <ul class="alt"><li>Até 10% do valor do evento</li><li>De 10% a 20%</li><li>De 20% a 30%</li><li>Mais de 30%</li><li>Nunca fiz essa conta</li></ul><p style="font-size:9pt;color:#5a6070;margin-top:-2pt"><em>A alternativa "Nunca fiz essa conta" é a mais valiosa da pergunta: quem marca isso recebe outra leitura, porque o custo que mais cresce sozinho é justamente o que nunca foi medido.</em></p>
+  <div class="qlabel">Pergunta 8 · As indicações</div>
+  <div class="qtext">E quanto você paga para quem te indica festa, seja assessor, agência ou parceiro?</div>
+  <ul class="alt"><li>Não trabalho com indicação de parceiros</li><li>Até 3% do valor da festa</li><li>De 3% a 5%</li><li>De 5% a 8%</li><li>10% ou mais</li></ul><p style="font-size:9pt;color:#5a6070;margin-top:-2pt"><em>Aqui a leitura devolve a conta pronta: com 20% de lucro líquido, pagar 10% de comissão é entregar metade do lucro daquela festa.</em></p>
+  <div class="runfoot">Para validação · versão no ar em 22.09.26</div>
+</div>
+<div class="page">
+  <div class="runhead"><span>Quiz e Diagnóstico · Adriana Brunelly</span><span>Página 7</span></div>
+  <div class="qlabel">Pergunta 9 · O que já tentou</div>
+  <div class="qtext">O que você já tentou para resolver isso?</div>
+  <ul class="alt"><li>Fiz curso técnico para melhorar ainda mais a entrega</li><li>Comecei a postar mais e a cuidar do Instagram</li><li>Procurei planilha de precificação</li><li>Nunca tentei nada específico, fui levando</li></ul>
+  <div class="box-dark">
+    <div class="bt">Tela de intervalo · aparece logo depois desta pergunta</div>
+    <p style="font-size:13pt;color:#e8d7ad;margin-bottom:6pt"><strong>40% menos, 60% mais</strong></p>
+    <p>Eu faturava R$ 2 milhões com 15% de margem. Depois que mudei para quem eu vendia, faturei R$ 1,2 milhão com 40%. Faturei 40% menos e lucrei 60% mais. A diferença não estava na entrega.</p>
+    <p style="font-size:8.5pt;color:#b9c0cd;font-style:italic;margin-top:6pt">Adriana Brune'lly, antes e depois da virada</p>
+  </div>
+  <div class="qlabel">Pergunta 10 · O fim do mês</div>
+  <div class="qtext">No fim do mês, quando você olha a conta, o que você sente?</div>
+  <ul class="alt"><li>Está bom, sobra o que eu planejei</li><li>Entrou muito dinheiro e não sobrou quase nada</li><li>Sobrou menos que no mês passado e eu não sei explicar por quê</li><li>Eu evito olhar</li></ul>
+  <div class="qlabel">Pergunta 11 · O seu objetivo</div>
+  <div class="qtext">Se em 3 meses isso mudasse de vez, o que mudaria primeiro?</div>
+  <ul class="alt"><li>Eu cobraria o que vale sem medo de perder o cliente</li><li>Eu pararia de correr atrás e passaria a ser procurada</li><li>Eu faria menos eventos e ganharia mais em cada um</li><li>Eu seria a referência da minha cidade</li></ul>
+  <div class="runfoot">Para validação · versão no ar em 22.09.26</div>
+</div>
+<div class="page">
+  <div class="runhead"><span>Quiz e Diagnóstico · Adriana Brunelly</span><span>Página 8</span></div>
+  <div class="qlabel">Pergunta 12 · Última pergunta</div>
+  <div class="qtext">Quanto o seu negócio fatura por mês, em média?</div>
+  <ul class="alt"><li>Até R$ 10 mil</li><li>De R$ 10 mil a R$ 25 mil</li><li>De R$ 25 mil a R$ 40 mil</li><li>De R$ 40 mil a R$ 80 mil</li><li>De R$ 80 mil a R$ 150 mil</li><li>De R$ 150 mil a R$ 300 mil</li><li>Acima de R$ 300 mil</li></ul><p style="font-size:9pt;color:#5a6070;margin-top:-2pt"><em>Mesma lógica do contraste do ticket, e sempre por último: pergunta de faturamento no começo derruba o quiz.</em></p>
+  <div class="copylabel">A tela de dados, depois da última pergunta</div>
+  <div class="qtext">A sua conta está pronta.</div>
+  <p>Coloque o seu WhatsApp abaixo e receba agora o seu número e a leitura completa do seu caso.</p>
+  <ul class="alt"><li>Seu nome</li><li>Seu WhatsApp (com DDD)</li><li>Seu e-mail</li><li>Cidade e estado</li></ul>
+  <p style="font-size:9pt;color:#5a6070"><em>Botão: Ver a minha Dívida de Valor</em></p>
+  <p style="font-size:9pt;color:#5a6070"><em>Abaixo do botão: Os seus dados ficam entre você e a nossa equipe. Nada de disparo em massa.</em></p>
+
+  <div class="copylabel">A tela de cálculo, 5 segundos</div>
+  <p><strong>Fechando a sua conta</strong></p>
+  <p>Primeiro: <em>Analisando as suas respostas...</em></p>
+  <p>Depois: <em>Gerando o seu diagnóstico...</em></p>
+  <p style="font-size:9pt;color:#5a6070">O seu resultado é montado com o que você respondeu, não com média de mercado.</p>
+
+  <div class="runfoot">Para validação · versão no ar em 22.09.26</div>
+</div>
+<div class="page">
+  <div class="runhead"><span>Quiz e Diagnóstico · Adriana Brunelly</span><span>Página 9</span></div>
+  <div class="fase-header">
+    <div class="fk">Seção 2</div>
+    <h2>As quatro respostas possíveis</h2>
+    <div class="fd">O quiz não devolve texto genérico: devolve o nome do padrão daquela pessoa.</div>
+  </div>
+  <p class="secao-lead">Repare que o nome é sempre do fenômeno, nunca da pessoa. Ninguém é
+  chamada de desorganizada ou de mal paga: o que tem nome é o lugar por onde o dinheiro sai.</p>
+
+  <div class="passo-label">A Agenda Cheia</div>
+  <p><strong>A perda acontece no volume.</strong> Muitos eventos, todos apertados. Entra muito dinheiro, não sobra quase nada, e o cansaço esconde a conta.</p>
+  <p style="font-size:9pt;color:#5a6070"><em>O que ela ainda não fez: escolheu para quem vende.</em></p>
+  <div class="passo-label">O Extra Invisível</div>
+  <p><strong>A perda acontece na entrega.</strong> O contrato termina e o serviço continua. É margem saindo pela porta dos fundos, e é o padrão que menos se enxerga.</p>
+  <p style="font-size:9pt;color:#5a6070"><em>O que ela ainda não fez: colocou o escopo no papel.</em></p>
+  <div class="passo-label">O Desconto Automático</div>
+  <p><strong>A perda acontece no fechamento.</strong> Você constrói valor a conversa inteira e devolve esse valor na última mensagem, com medo de perder o cliente que já está na mão.</p>
+  <p style="font-size:9pt;color:#5a6070"><em>O que ela ainda não fez: aprendeu a conduzir o fechamento.</em></p>
+  <div class="passo-label">O Orçamento que Some</div>
+  <p><strong>A perda acontece antes do preço.</strong> O orçamento sai caprichado e a pessoa agradece e desaparece. Ela nunca chegou a perceber o que estava comprando.</p>
+  <p style="font-size:9pt;color:#5a6070"><em>O que ela ainda não fez: construiu valor antes de mandar o número.</em></p>
+  <div class="box-light">
+    <div class="bt">Como o padrão é escolhido</div>
+    <p>Cada resposta vale pontos para um ou outro padrão, e vence o que somar mais. Em caso de
+    empate, a pessoa sobe para o padrão de maior perda, nunca desce: é melhor mostrar a conta
+    maior e deixar ela corrigir na conversa do que subestimar o problema dela.</p>
+  </div>
+
+  <div class="runfoot">Para validação · versão no ar em 22.09.26</div>
+</div>
+<div class="page">
+  <div class="runhead"><span>Quiz e Diagnóstico · Adriana Brunelly</span><span>Página 10</span></div>
+  <div class="fase-header">
+    <div class="fk">Seção 3</div>
+    <h2>A leitura que ela recebe</h2>
+    <div class="fd">A página inteira, bloco a bloco, na ordem em que aparece.</div>
+  </div>
+  <p class="secao-lead">Esta é a peça central do funil. Ela não vende: entrega o número e
+  prepara a pessoa para querer conversar com você.</p>
+
+  <div class="copylabel">Bloco 1 · O resultado dela</div>
+  <p style="font-size:9pt;color:#8a8f98">O seu padrão é</p>
+  <p style="font-size:16pt;color:#b8863b"><strong>O Desconto Automático</strong></p>
+  <p style="font-style:italic;color:#5a6070">A perda acontece no fechamento.</p>
+  <p><strong>{nome}</strong>, esse é o seu padrão porque você ainda não
+  <strong>aprendeu a conduzir o fechamento</strong>.</p>
+  <p style="font-size:9pt;color:#5a6070">Isso não é um julgamento sobre o seu trabalho. É o
+  nome do lugar por onde o seu dinheiro está saindo, e é o começo do fim dele.</p>
+
+  <div class="copylabel">Bloco 2 · O que eu li nas suas respostas</div>
+  <p>Eu li tudo com atenção. Vou ser direta com você, porque é disso que você precisa agora, e
+  não de mais uma frase bonita.</p>
+  <p>Você trabalha com <strong>{segmento}</strong>, entrega <strong>{eventos}</strong> eventos
+  por mês e o seu ticket médio fica <strong>{ticket}</strong>. Quando manda um orçamento, o que
+  mais acontece é <strong>{resposta}</strong>. Na hora de fechar sai <strong>{desconto}</strong>
+  de desconto. Sobre os extras: <strong>{extras}</strong>. E no fim do mês, olhando a conta,
+  você sente <strong>{sentimento}</strong>.</p>
+  <p>Essa combinação é a assinatura do <strong>{padrão}</strong>. E ela diz uma coisa
+  importante: <strong>isso não fica parado.</strong> Cada mês que passa, a diferença entre o
+  que você entrega e o que você recebe aumenta um pouco.</p>
+
+  <div class="runfoot">Para validação · versão no ar em 22.09.26</div>
+</div>
+<div class="page">
+  <div class="runhead"><span>Quiz e Diagnóstico · Adriana Brunelly</span><span>Página 11</span></div>
+  <div class="copylabel">Bloco 3 · O espelho</div>
+  <p>Você é boa no que faz. Ninguém precisa te dizer isso: o seu trabalho diz. Te procuram, te
+  indicam, e quando o evento é importante o seu nome aparece.</p>
+  <p>Provavelmente você se reconhece aqui:</p>
+  <ul class="check">
+    <li>Entregou o evento mais bonito da cidade e, no fim do mês, não sobrou para repor o material</li>
+    <li>Mandou o orçamento com capricho e a pessoa agradeceu e sumiu</li>
+    <li>Aceitou o extra de última hora, fez acontecer e nunca lançou na conta</li>
+    <li>Ouviu que fulana faz mais barato, de alguém que nunca viu o seu trabalho de perto</li>
+    <li>Trabalhou o fim de semana inteiro de novo e se perguntou até quando</li>
+    <li>Pensou em subir o preço e travou, com medo de perder o cliente que já tem</li>
+  </ul>
+  <p><strong>Não há nada de errado com você. Há um padrão no seu negócio.</strong> E padrão não
+  se resolve trabalhando mais, nem fazendo mais um curso, nem tentando de novo no próximo
+  orçamento.</p>
+  <p style="font-size:9pt;color:#5a6070"><em>São seis cenas, não seis adjetivos. A régua é a
+  mesma do começo ao fim da página: descreve a cena e usa a frase que a própria pessoa diz,
+  nunca acusa quem ela é.</em></p>
+
+  <div class="copylabel">Bloco 4 · A sua conta</div>
+  <p>Com as suas respostas, ticket de <strong>{ticket}</strong> e <strong>{eventos}</strong>
+  eventos por mês, a conta fica assim:</p>
+  <ul class="alt">
+    <li>Desconto dado no fechamento: <strong>{valor} por mês</strong></li>
+    <li>Extras que você absorve: <strong>{valor} por mês</strong></li>
+  </ul>
+  <div class="box-dark" style="text-align:center">
+    <div class="bt">A sua Dívida de Valor</div>
+    <p style="font-size:22pt;color:#e8d7ad;margin:4pt 0"><strong>{valor} por mês</strong></p>
+    <p style="color:#e8d7ad">{valor} em doze meses</p>
+  </div>
+  <p>{nome}, esse dinheiro não foi roubado e não se perdeu no mercado. <strong>Ele foi entregue
+  por você, de graça, junto com o seu trabalho.</strong></p>
+
+  <div class="copylabel">Bloco 4b · E tem o que a operação come</div>
+  <p>Somando equipe fixa e freelancer, a mão de obra come <strong>{faixa}</strong>, cerca de
+  <strong>{valor} por mês</strong> na sua operação.</p>
+  <p>Repare no cruzamento: a mão de obra já leva {faixa}, e ainda assim você dá
+  <strong>{desconto}</strong> de desconto na hora de fechar. <strong>O desconto sai de uma
+  margem que já estava apertada antes de você abrir a boca.</strong></p>
+  <p>Mão de obra acima de 20% quase nunca é preço de mercado: é equipe sem treino, que precisa
+  de mais gente para entregar o mesmo. Você paga caro por mão de obra barata.</p>
+  <p style="font-size:9pt;color:#5a6070"><em>Quem responde "nunca fiz essa conta" recebe outro
+  texto: que esse é o custo que mais cresce sozinho, e que enquanto ele não tiver número,
+  qualquer preço é chute.</em></p>
+
+  <div class="runfoot">Para validação · versão no ar em 22.09.26</div>
+</div>
+<div class="page">
+  <div class="runhead"><span>Quiz e Diagnóstico · Adriana Brunelly</span><span>Página 12</span></div>
+  <div class="copylabel">Bloco 4c · A conta da comissão</div>
+  <p>Você paga <strong>{faixa}</strong> para quem te indica festa. Essa é a conta que quase
+  ninguém faz.</p>
+  <p>Comissão não sai do faturamento, sai do <strong>lucro</strong>. Num buffet ou numa
+  decoração que fecha o mês com 20% de lucro líquido, pagar 10% significa entregar <strong>cerca
+  de 50% do lucro daquela festa</strong> para alguém que não montou o salão, não atendeu o
+  cliente e não respondeu no domingo.</p>
+  <p><strong>Nessa faixa, o parceiro deixou de ser parceiro e virou sócio.</strong> E sócio
+  majoritário, dependendo do mês. Eu já vi buffet fechar as portas por causa dessa conta.</p>
+  <p>E o motivo de a porcentagem nunca ser renegociada raramente é o dinheiro: <strong>é o medo
+  de perder quem traz festa.</strong> Você aceita a conta do parceiro pelo volume que ele traz,
+  e não pelo trabalho que você entrega. Isso também é Dívida de Valor.</p>
+  <p style="font-size:9pt;color:#5a6070"><em>Quem paga menos de 8% recebe a mesma conta, sem a
+  frase do sócio, e fechando em "não sou contra comissão, sou contra virar sócio de quem só faz
+  a indicação". Quem não trabalha com indicação não vê este bloco.</em></p>
+
+  <div class="copylabel">Bloco 5 · Por que o que você já tentou não resolveu</div>
+  <p>Você marcou que <strong>{tentativa}</strong>. Isso não foi desperdício: hoje você entrega
+  melhor que a maioria por causa disso.</p>
+  <p>Só que curso técnico melhora a entrega, e o seu problema não está na entrega. Planilha de
+  precificação te dá o número certo, e o seu problema não é saber o número: é sustentar o
+  número na frente do cliente. Postar mais traz mais gente perguntando preço, e mais gente
+  perguntando preço sem valor construído antes é mais orçamento sumindo.</p>
+  <p><strong>Nenhuma dessas três coisas mexe no lugar onde o dinheiro está saindo.</strong></p>
+
+  <div class="copylabel">Bloco 6 · O que eu faço diferente</div>
+  <p>A maioria ensina técnica: como fazer o arranjo, como montar o cardápio, como calcular o
+  per capita. Eu vou muito antes disso.</p>
+  <p>Passei 25 anos nesse mercado. Comecei vendendo doce na calçada, virei doceira de festa,
+  assessora, decoradora, e fundei um dos maiores buffets da minha cidade. O que eu aprendi
+  nesse tempo é que dá para entregar o evento mais bonito da cidade e não ganhar dinheiro com
+  ele, e dá para entregar menos eventos, mais tranquilos, e fechar o mês no azul.</p>
+  <p>A diferença não está na entrega. <strong>Está no que o cliente percebe antes de ver o
+  número.</strong> O Método ACA trabalha isso em três camadas, nesta ordem:</p>
+  <ul class="check">
+    <li><strong>Autorreconhecimento:</strong> enxergar o próprio valor e a própria conta.</li>
+    <li><strong>Conexão e Comunicação:</strong> traduzir esse valor antes do orçamento.</li>
+    <li><strong>Autoridade:</strong> sustentar a posição, para o seu nome deixar de ser
+    comparado e passar a ser procurado.</li>
+  </ul>
+  <p style="text-align:center;font-style:italic;color:#b8863b;font-size:12pt">Ninguém cobra
+  acima do valor que acredita ter.</p>
+
+  <div class="copylabel">Bloco 7 · O que precisa acontecer no seu caso</div>
+  <p><em>Este bloco muda por padrão. Para o Desconto Automático:</em></p>
+  <p>Você constrói valor a conversa inteira e devolve tudo na última mensagem. Não é
+  generosidade, é medo de perder o que já está na mão. A primeira mudança é na condução do
+  fechamento.</p>
+  <p>O custo de continuar como está: em três anos, <strong>{valor}</strong>. E não é só
+  dinheiro. É o fim de semana que você não teve, o evento que você aceitou sabendo que não
+  fechava a conta, e a pergunta que volta todo mês.</p>
+
+  <div class="runfoot">Para validação · versão no ar em 22.09.26</div>
+</div>
+<div class="page">
+  <div class="runhead"><span>Quiz e Diagnóstico · Adriana Brunelly</span><span>Página 13</span></div>
+  <div class="copylabel">Bloco 8 · Quem está te dizendo isso</div>
+  <p style="font-size:9pt;color:#5a6070"><em>Aqui entra a sua foto, a do Coco Bambu, com o seu
+  nome em dourado sobre ela.</em></p>
+  <p>Comecei vendendo doce na calçada, de porta em porta. Virei doceira de festa, assessora,
+  decoradora, e fundei um dos maiores buffets da minha cidade. São 25 anos dentro desse mercado.</p>
+  <p>Em 2017 eu entreguei 13 eventos em uma semana e passei 72 horas sem dormir. Entreguei tudo
+  impecável. Na segunda-feira fui olhar os números e não tinha sobrado quase nada. Eu faturava
+  R$ 2 milhões com 15% de margem. Depois de mudar para quem eu vendia, faturei R$ 1,2 milhão
+  com 40%: <strong>faturei 40% menos e lucrei 60% mais.</strong></p>
+  <p>E já em transição de carreira, sem postar decoração, uma cliente me procurou de outro
+  estado e insistiu até fechar: R$ 150 mil de decoração mais R$ 15 mil de projeto.</p>
+
+  <div class="copylabel">O que você deve estar pensando</div>
+  <p style="font-style:italic;color:#1b2a4a"><strong>"Na minha cidade não tem cliente que paga isso."</strong></p>
+  <p>Era o que eu pensava. Até separar meus clientes em A, B e C e descobrir que 30% do meu
+  mercado gastava de R$ 20 mil a R$ 40 mil numa festa. Eram poucos, existiam, e eu não falava
+  com eles.</p>
+  <p style="font-style:italic;color:#1b2a4a"><strong>"Já tentei subir o preço e perdi cliente."</strong></p>
+  <p>Perdeu porque subiu o número sem mudar o que vem antes dele.</p>
+  <p style="font-style:italic;color:#1b2a4a"><strong>"Eu não sou boa de tecnologia."</strong></p>
+  <p>Nem eu. Aqui não tem automação nem sigla em inglês. É gestão e conversa, na linguagem de
+  quem monta salão.</p>
+
+  <div class="box-light">
+    <div class="bt">O espaço que está guardado</div>
+    <p>Abaixo da sua história entram os depoimentos em vídeo, assim que você captar os primeiros.
+    Enquanto não existirem, a galeria simplesmente não aparece: nada de print inventado.</p>
+  </div>
+
+  <div class="runfoot">Para validação · versão no ar em 22.09.26</div>
+</div>
+<div class="page">
+  <div class="runhead"><span>Quiz e Diagnóstico · Adriana Brunelly</span><span>Página 14</span></div>
+  <div class="copylabel">Bloco 9 · O convite</div>
+  <p><strong>{nome}</strong>, eu abro algumas conversas por semana para olhar esse número junto
+  com a pessoa.</p>
+  <p>O que sai dali: onde exatamente está a sua maior perda e o que muda primeiro. O que não é:
+  não é aula e não é apresentação de produto disfarçada.</p>
+  <p style="font-size:9pt;color:#5a6070">São 45 minutos, com a Adriana, sem apresentação de slide.</p>
+  <p style="font-size:9pt;color:#5a6070"><em>Botão: Quero minha sessão de diagnóstico</em></p>
+  <p>Se fizer sentido seguirmos juntas, eu te explico como. Se não fizer, você sai com a sua
+  conta na mão do mesmo jeito.</p>
+  <p style="text-align:center;font-style:italic;color:#b8863b;font-size:12pt">O seu talento já
+  está pago. Falta você receber por ele.</p>
+
+  <div class="copylabel">Para quem está fora da faixa</div>
+  <p>Quem fatura até R$ 10 mil por mês recebe a mesma leitura completa, e no fim, em vez do
+  convite para a conversa, vê a oferta de entrada:</p>
+  <div class="box-dark">
+    <div class="bt">Um primeiro passo do seu tamanho</div>
+    <p><strong>WhatsApp de Valor · R$ 47</strong></p>
+    <p>O primeiro passo, no lugar onde o seu cliente decide: a conversa. São microaulas curtas
+    para você parar de perder o orçamento no WhatsApp.</p>
+  </div>
+  <p>Ninguém sai da página de mãos vazias, e ninguém entra na sua agenda sem poder pagar.</p>
+
+  <div class="runfoot">Para validação · versão no ar em 22.09.26</div>
+</div>
+<div class="page">
+  <div class="runhead"><span>Quiz e Diagnóstico · Adriana Brunelly</span><span>Página 15</span></div>
+  <div class="kicker">Para Fechar</div>
+  <h3>O que eu preciso de você</h3>
+  <p class="secao-lead">Três coisas, e o funil sai do ar de teste para o ar de verdade.</p>
+
+  <div class="box-dark">
+    <div class="bt">1. A sua validação, pergunta por pergunta</div>
+    <p>Principalmente: <strong>alguma pergunta soou estranha na sua boca?</strong> Você conhece
+    o vocabulário desse mercado melhor que qualquer um de nós, e uma palavra fora do lugar na
+    pergunta errada derruba a confiança de quem está respondendo.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">2. A decisão sobre as duas perguntas que ficaram de fora</div>
+    <p>Funcionários registrados e frequência de investimento em estrutura ficaram para a sessão.
+    Se você achar que alguma delas precisa estar no quiz, a gente troca por outra: o teto é 12
+    perguntas, e passar disso faz a pessoa desistir no meio.</p>
+  </div>
+
+  <div class="box-light">
+    <div class="bt">3. As fotos e os primeiros depoimentos</div>
+    <p>A foto do Coco Bambu já está na página. Os depoimentos em vídeo têm lugar guardado e
+    entram assim que os primeiros chegarem. O guia de como pedir está no material que você
+    recebeu.</p>
+  </div>
+
+  <div class="passo-label">Uma observação sobre a comissão</div>
+  <p>Você tinha razão: o assunto gera polêmica, e por isso a página trata ele por aritmética,
+  não por julgamento. O texto não diz que comissão é errada. Diz quanto ela custa do lucro, e
+  deixa a pessoa fazer a conta sozinha. Se você quiser subir o tom no conteúdo do Instagram, o
+  funil aguenta, porque o argumento aqui é número.</p>
+
+  <div class="footer-note">
+    Funil no ar em quiz-adriana-brunelly.vercel.app · Todo lead cai na planilha do projeto,
+    com o padrão, a conta e as 12 respostas.
+  </div>
+
+  <div class="runfoot">Para validação · versão no ar em 22.09.26</div>
+</div>
+</body>
+</html>
