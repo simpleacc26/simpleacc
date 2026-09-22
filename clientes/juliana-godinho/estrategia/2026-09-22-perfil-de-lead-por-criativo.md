@@ -226,3 +226,81 @@ abre com *"faz quanto tempo que não aparece ali um nome que você não conhece?
 Se essa peça for ao ar com `utm_content` próprio e vier perto de 45%, a régua
 está errada. Se vier perto de 21%, está certa. **É o teste mais barato disponível
 para validar tudo que está escrito aqui.**
+
+---
+
+# Fechamento · as duas copies lado a lado (22/09)
+
+A transcrição do AD04 chegou pelo operador. Com as duas em mãos, a análise que a
+task pedia fecha.
+
+## O AD04 declara o mesmo piso do AD01
+
+> "Se você tem um consultório, uma clínica de estética avançada, **fatura mais de
+> R$20.000 por mês**, tem um equipamento, vários cursos que não tá rendendo o que
+> poderia (...)"
+
+Mesmo piso de 20 mil, mesma estrutura de frase de filtro, mesmo CTA de
+diagnóstico. **Isso encerra a hipótese do número:** os dois criativos declaram
+20 mil e um traz 45% de MQL enquanto o outro traz 25%. O piso declarado não
+explica nada.
+
+## O que separa é a cena, e ela contradiz o número no AD04
+
+| | AD01 · 45% MQL | AD04 · 25% MQL |
+|---|---|---|
+| Cena central | agenda cheia, tempo esgotado | equipamento parado na sala |
+| Frase que define | "a semana inteira foi atendimento", "o seu tempo livre tem onze minutos" | "você parcelou em 10 vezes e **atende uma vez ou outra**" |
+| Estado pressuposto | **demanda sobrando, tempo faltando** | **capacidade sobrando, demanda faltando** |
+| Dor econômica | crescer piora o problema | "fica mais uma parcela" |
+| Prova usada | nenhuma numérica | "vendeu R$ 7.000 para um único cliente" |
+| Pronome | "eu tenho clínica desde 2011" e depois "você" | "a gente" do começo ao fim |
+
+**O achado central:** no AD04 o número e a cena discordam. A frase de filtro diz
+*fatura mais de 20 mil*, e a cena descrita é a de um aparelho que **atende uma
+vez ou outra**. Quem fatura 20 mil por mês em estética avançada não tem
+equipamento ocioso, ela está usando tudo que tem.
+
+**Quando o número e a cena discordam, a cena ganha.** O leitor se identifica pela
+situação que reconhece vivendo, não pela faixa que leu. É por isso que o AD04
+declara 20 mil e entrega 60% de leads abaixo de 5 mil.
+
+## Três elementos menores que empurram na mesma direção
+
+**O tamanho da prova calibra o público.** O AD04 prova com *R$ 7.000 numa venda*.
+Para quem fatura 3 mil por mês isso é transformação, para quem fatura 50 mil é
+uma terça-feira. O número da prova diz mais sobre quem o anúncio quer do que a
+faixa declarada. O AD01 não usa prova numérica nenhuma, e a peça #002 do mesmo
+lote usa *50 mil num mês*.
+
+**"A gente" apaga o papel, "eu e você" estabelece um.** O AD04 fala em primeira
+pessoa do plural do início ao fim, o que inclui todo mundo e não reconhece
+posição nenhuma. O AD01 abre cravando a credencial de quem fala ("eu tenho
+clínica desde 2011") e só então se dirige a alguém específico. Pelo documento de
+estratos, o Estrato 7 quer ser reconhecido pelo papel antes de ser diagnosticado,
+e "a gente" não reconhece papel nenhum.
+
+**Arrependimento de compra é dor de quem tem pouco caixa.** "Mais uma parcela"
+só dói em quem sente a parcela. Numa operação de 50 mil, a prestação do aparelho
+não é o assunto.
+
+## A régua, agora fechada
+
+> **O que qualifica não é o piso declarado, é a cena descrita. E a cena precisa
+> pressupor uma operação sem folga.**
+
+Checagem de uma linha antes de subir qualquer criativo: **a cena que eu descrevi
+poderia acontecer numa clínica que já fatura o piso que eu declarei?** Se a
+resposta for não, o anúncio vai trazer quem vive a cena e não quem tem o
+faturamento.
+
+No AD04 a resposta é não, e a planilha mostrou exatamente isso.
+
+## A ressalva que continua de pé
+
+O AD04 traz mais lead de 20k+ que o AD01, 13% contra 8%. A leitura mais provável
+com a copy em mãos: equipamento subutilizado e curso não aplicado também são dor
+real numa clínica de 30 a 50 mil, que compra mais e usa proporcionalmente menos.
+O anúncio é bimodal, pega a ponta de baixo pela parcela e uma parte da ponta de
+cima pelo ativo parado. Com n=52 ainda não dá para cravar, e ele não deve ser
+desligado por engano.
