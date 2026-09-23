@@ -1,6 +1,6 @@
 import { chromium } from 'playwright';
-const SRC='file:///home/user/simpleacc/clientes/adriana-brunelly/estrategia/2026-09-23-quiz-e-diagnostico-v2-para-validacao.html';
-const OUT='/home/user/simpleacc/clientes/adriana-brunelly/estrategia/Quiz e Diagnóstico v2 - Adriana Brunelly - 23.09.26.pdf';
+const SRC='file:///home/user/simpleacc/clientes/adriana-brunelly/estrategia/2026-09-23-quiz-e-diagnostico-v3-para-validacao.html';
+const OUT='/home/user/simpleacc/clientes/adriana-brunelly/estrategia/Quiz e Diagnóstico v3 - Adriana Brunelly - 23.09.26.pdf';
 const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium'});
 const p=await b.newPage();
 await p.goto(SRC,{waitUntil:'networkidle'});

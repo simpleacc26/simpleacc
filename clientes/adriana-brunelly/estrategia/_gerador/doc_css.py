@@ -155,8 +155,8 @@ td.n{color:var(--primary-700);font-weight:600;white-space:nowrap}
 .tag.abre{border-color:rgba(226,199,130,.35);color:#E2C782}
 
 /* ---- fichas de feedback (duas colunas) ---- */
-.fichas{display:grid;grid-template-columns:1fr 1fr;gap:3mm;margin:3mm 0 4mm}
-.ficha{background:var(--surface);border:1px solid var(--border-soft);border-radius:9px;padding:3.2mm 3.6mm}
+.fichas{display:grid;grid-template-columns:1fr 1fr;gap:2.5mm;margin:2.6mm 0 0}
+.ficha{background:var(--surface);border:1px solid var(--border-soft);border-radius:9px;padding:2.8mm 3.2mm}
 .ficha .ft{font-size:9.6pt;font-weight:600;color:var(--primary-700);line-height:1.25;margin:0 0 1.2mm}
 .ficha .fo{font-size:8.2pt;color:#7A7365;line-height:1.35;margin:0 0 1.6mm;
   padding-bottom:1.6mm;border-bottom:1px solid rgba(244,241,234,.08)}

@@ -123,10 +123,8 @@ function enviarLead(etapa) {
     timestamp: dataHoraBR(),
     nome: a.nomeResp || "",
     whatsapp: a.whatsapp || "",
-    email: a.email || "",
     cidade: a.cidade || "",
     instagram: a.instagram || "",
-    anos_mercado: a.anos || "",
     etapa: etapa,
     qualificacao: M.classificarLead(a, divida),
     padrao: bucket.dados.nome,
@@ -138,10 +136,10 @@ function enviarLead(etapa) {
     orcamento: M.label("orcamento", a),
     desconto: M.label("desconto", a),
     extras: M.label("extras", a),
-    equipe: M.label("equipe", a),
     comissao: M.label("comissao", a),
-    sentimento: M.label("sentimento", a),
+    equipe: M.label("equipe", a),
     tentativas: M.label("tentativas", a),
+    sentimento: M.label("sentimento", a),
     objetivo: M.label("objetivo", a),
     faturamento: M.label("faturamento", a),
     frente: (F.config && F.config.frente) || "Funil",
@@ -186,10 +184,9 @@ function renderCaptura() {
     </div>`).join("");
 
   const screen = el(`
-    <section class="card screen">
+    <section class="card screen screen-captura">
       <p class="eyebrow">Última etapa</p>
       <h2>${c.titulo}</h2>
-      <p class="lead" style="margin-bottom:6px">${c.subtitulo}</p>
       <form id="form" novalidate>
         <div class="errors" id="err" role="alert" tabindex="-1"></div>
         ${fields}
@@ -267,6 +264,8 @@ function renderStep(screenIdx, i) {
   /* O hero vive na primeira pergunta: o lead já cai respondendo,
      sem tela de intro no meio, que só gera quebra. */
   const primeira = screenIdx === 0;
+  /* Na primeira tela o hero já diz do que se trata, então o rótulo da
+     etapa sai: são 25px que fazem falta para as alternativas caberem. */
   const intro = primeira ? `
       <span class="selo">${F.hero.selo}</span>
       <h1>${F.hero.titulo}</h1>
@@ -274,9 +273,9 @@ function renderStep(screenIdx, i) {
       <hr class="rule-gold" />` : "";
 
   const screen = el(`
-    <section class="card screen">
+    <section class="card screen${primeira ? " screen-hero" : ""}">
       ${intro}
-      <p class="eyebrow">${step.etapa}</p>
+      ${primeira ? "" : `<p class="eyebrow">${step.etapa}</p>`}
       <h2 id="q-${step.id}">${step.pergunta}</h2>
       <div class="options" role="radiogroup" aria-labelledby="q-${step.id}">${opts}</div>
       ${primeira ? "" : '<div class="actions"><button class="btn btn-ghost" id="back" type="button">&#8592; Voltar</button></div>'}
@@ -343,6 +342,7 @@ function renderInterseccao(screenIdx, id) {
       <p class="eyebrow">Enquanto você pensa nisso</p>
       <p class="num">${it.num}</p>
       <p>${it.texto}</p>
+      ${it.sonho ? `<p class="sonho">${it.sonho}</p>` : ""}
       <p class="fonte">${it.fonte}</p>
       <hr class="rule-gold" />
       <button class="btn btn-primary btn-block" id="segue" type="button">Continuar</button>
@@ -424,9 +424,11 @@ function renderLoading() {
    respondendo não precisa ser reapresentado à marca a cada clique,
    e a Adriana abriu mão dele justamente por causa desse corte. */
 function ajustarCabecalho(idx) {
-  const s = SCREENS[idx];
-  const mostra = idx === 0 || !s || s.kind === "captura";
-  document.body.classList.toggle("sem-topbar", !mostra);
+  /* Só a tela de entrada mostra a marca. Da segunda em diante o cabeçalho
+     sai, inclusive na captura: lá o botão "Ver a minha Dívida de Valor"
+     ficava abaixo da dobra no celular, que é o pior lugar possível para
+     esconder um botão. */
+  document.body.classList.toggle("sem-topbar", idx !== 0);
 }
 
 function goTo(idx) {

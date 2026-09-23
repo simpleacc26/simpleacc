@@ -32,7 +32,13 @@
   }
 
   /* ---- A Dívida de Valor ----
-     ticket médio x eventos por mês x (desconto + extras absorvidos).
+     ticket x eventos por mês x (desconto + extras absorvidos + comissão).
+
+     A COMISSÃO ENTRA AQUI, e isso é decisão da Adriana: para ela, comissão
+     paga sem estratégia, com medo de perder o parceiro, não é custo de
+     operação, é consequência direta da Dívida de Valor. Mão de obra, sim,
+     é custo legítimo, e continua fora da soma, em bloco próprio.
+
      Só sai daqui número que veio das respostas. Nada estimado por fora. */
   function calcularDivida(a) {
     a = a || respostas();
@@ -40,36 +46,48 @@
     var eventos = valor("volume", a);
     var pctDesc = valor("desconto", a);
     var pctExtra = valor("extras", a);
+    var pctCom = valor("comissao", a);
 
     // Base conservadora: nunca acima do faturamento declarado na porteira.
     var bruto = ticket * eventos;
     var oFat = opcaoDe("faturamento", a);
     var teto = oFat && typeof oFat.fatMax === "number" ? oFat.fatMax : Infinity;
     var faturamento = Math.min(bruto, teto);
+    /* Quando o teto morde, a tela de impacto do meio do quiz (que roda antes
+       da pergunta de faturamento, e por isso não tem como aplicar o teto)
+       mostrou um número maior que este. A página assume isso em voz alta:
+       explicar que a conta foi refeita por baixo ganha credibilidade, e
+       esconder a diferença perde. */
+    var teveTeto = bruto > teto;
 
     var vDesconto = faturamento * pctDesc;
     var vExtras = faturamento * pctExtra;
-    var mes = vDesconto + vExtras;
+    var vComissao = faturamento * pctCom;
+    var mes = vDesconto + vExtras + vComissao;
 
     var piso = (F.calculo && F.calculo.pisoParaMostrarNumero) || 500;
     return {
       ticket: ticket, eventos: eventos, faturamento: faturamento, baseBruta: bruto,
-      pctDesconto: pctDesc, pctExtras: pctExtra,
-      valorDesconto: vDesconto, valorExtras: vExtras,
+      teto: teto, teveTeto: teveTeto,
+      pctDesconto: pctDesc, pctExtras: pctExtra, pctComissao: pctCom,
+      valorDesconto: vDesconto, valorExtras: vExtras, valorComissao: vComissao,
       mes: mes, ano: mes * 12, tresAnos: mes * 36,
       temNumero: mes >= piso,
       fmt: {
         mes: brl(mes), ano: brl(mes * 12), tresAnos: brl(mes * 36),
-        desconto: brl(vDesconto), extras: brl(vExtras), ticket: brl(ticket),
+        desconto: brl(vDesconto), extras: brl(vExtras), comissao: brl(vComissao),
+        ticket: brl(ticket), teto: brl(teto === Infinity ? 0 : teto),
+        baseBruta: brl(bruto),
       },
     };
   }
 
-  /* ---- Os dois custos de operação ----
-     Estes NÃO entram na Dívida de Valor. Mão de obra e comissão são
-     custos legítimos do negócio, não dinheiro deixado na mesa, e
-     somar os dois no mesmo número seria inflar a conta. Eles entram
-     na página como leitura própria, ao lado do número. */
+  /* ---- O custo de operação ----
+     Mão de obra NÃO entra na Dívida de Valor: é custo legítimo do negócio,
+     não dinheiro deixado na mesa, e somar tudo no mesmo número inflaria a
+     conta. Entra na página como leitura própria, ao lado do número.
+     A comissão continua sendo lida aqui (a fatia do lucro que ela come),
+     mas o valor dela já está somado na Dívida, em linha própria. */
   function custosDeOperacao(a, divida) {
     a = a || respostas();
     divida = divida || calcularDivida(a);

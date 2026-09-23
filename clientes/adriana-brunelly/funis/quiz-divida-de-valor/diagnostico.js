@@ -45,21 +45,27 @@ if (!temRespostas) {
   const equipe = M.frase("equipe");
   const comissao = M.frase("comissao");
   const objetivo = M.frase("objetivo");
+  const faturamento = M.frase("faturamento");
 
   /* ---- CTA por nível de qualificação ---- */
   let ctaLabel, ctaClasse, ctaNota, fechamento;
   if (nivel === "qualificado") {
-    ctaLabel = "Quero parar de perder esse dinheiro";
+    /* Ela pediu "Quero agendar para ter uma empresa lucrativa" e deixou a
+       regra escrita: se o destino for WhatsApp e não uma agenda, usar
+       "conversar com a Adriana". O destino aqui é o WhatsApp dela, então
+       vale a segunda forma. Se um dia entrar agenda (config.agendamentoUrl),
+       o texto volta para "agendar". */
+    ctaLabel = "Quero conversar com a Adriana para ter uma empresa lucrativa";
     ctaClasse = "cta-sessao";
     ctaNota = "São 45 minutos com a Adriana, olhando a sua conta. Sem apresentação de slide.";
     fechamento = `<p class="clube">Se fizer sentido seguirmos juntas, eu te explico como. Se não fizer, você sai com a sua conta na mão do mesmo jeito.</p>`;
   } else if (nivel === "nutrir") {
-    ctaLabel = "Quero começar a recuperar esse dinheiro";
+    ctaLabel = "Quero conversar com a Adriana para ter uma empresa lucrativa";
     ctaClasse = "cta-wpp";
     ctaNota = "Sem compromisso. A gente olha o seu número e te diz qual é o primeiro passo no seu caso.";
     fechamento = `<p class="clube">Para o seu momento, o primeiro passo costuma ser menor do que você imagina. E começa por onde o dinheiro está saindo.</p>`;
   } else {
-    ctaLabel = "Quero ver por onde o meu dinheiro está saindo";
+    ctaLabel = "Quero conversar com a Adriana sobre o meu negócio";
     ctaClasse = "cta-wpp";
     ctaNota = "Sem compromisso, e sem proposta de mentoria agora.";
     fechamento = "";
@@ -76,10 +82,18 @@ if (!temRespostas) {
     if (divida.valorExtras > 0) {
       linhas.push(`<li><span>Extras que você absorve</span><strong>${divida.fmt.extras} por mês</strong></li>`);
     }
+    /* A comissão entra na soma por decisão dela: pagar sem estratégia, com
+       medo de perder o parceiro, é consequência da Dívida de Valor, não
+       custo de operação. Mão de obra continua fora, em bloco próprio. */
+    if (divida.valorComissao > 0) {
+      linhas.push(`<li><span>A comissão que você paga sem estratégia por causa da Dívida de Valor, com medo de perder o parceiro</span><strong>${divida.fmt.comissao} por mês</strong></li>`);
+    }
     blocoConta = `
       <div class="etapa">
-        <h3>A sua conta</h3>
-        <p>Com as suas respostas, ticket ${ticket} e ${eventos} eventos por mês, a conta fica assim:</p>
+        <h3>O quanto isso está te custando</h3>
+        <p><strong>Esse é um dos cálculos que mostra quanto você está perdendo em dinheiro em seu negócio
+        por ter a Dívida de Valor.</strong></p>
+        <p>Com o que você respondeu, valor ${ticket} por trabalho e ${eventos} eventos por mês, a conta fica assim:</p>
         <ul class="conta">${linhas.join("")}</ul>
         <div class="numerao">
           <span class="rotulo">A sua Dívida de Valor</span>
@@ -88,11 +102,15 @@ if (!temRespostas) {
           <hr class="rule-gold" />
           <span class="ano">${divida.fmt.ano} em doze meses</span>
         </div>
+        ${divida.teveTeto ? `<p class="distincao">Uma observação de honestidade: pelo valor e pelo volume que você
+        marcou, a conta daria bem mais que isso. Só que na última pergunta você disse que o negócio vende
+        <strong>${faturamento}</strong> por mês, e <strong>eu sempre fico com o número menor.</strong>
+        Por isso essa conta está feita por baixo. Se o seu volume for mesmo o que você marcou, a perda é maior.</p>` : ``}
         <p>${nome}, esse dinheiro não foi roubado e não se perdeu no mercado.
         <strong>Ele foi entregue por você, de graça, junto com o seu trabalho.</strong></p>
         <p class="distincao">E é por isso que se chama dívida. <strong>Só que não é dívida de banco:</strong>
         dívida financeira aparece no extrato, tem boleto, tem data e alguém cobra. A Dívida de Valor não
-        aparece em lugar nenhum, ninguém cobra e ninguém devolve. Ela sai do seu caixa como festa fechada,
+        aparece em lugar nenhum, ninguém cobra e ninguém devolve. Ela sai do seu bolso disfarçada de contrato fechado,
         cliente satisfeito e agenda cheia. <strong>É por isso que ela cresce por anos sem ninguém ver.</strong></p>
       </div>`;
   } else {
@@ -148,8 +166,8 @@ if (!temRespostas) {
     <div class="etapa">
       <h3>O que eu li nas suas respostas</h3>
       <p>Eu li tudo com atenção. Vou ser direta com você, porque é disso que você precisa agora, e não de mais uma frase bonita.</p>
-      <p>Você trabalha com <strong>${segmento}</strong>, entrega <strong>${eventos}</strong> eventos por mês e o seu ticket médio
-      fica <strong>${ticket}</strong>. Quando manda um orçamento, o que mais acontece é <strong>${respOrcamento}</strong>.
+      <p>Você trabalha com <strong>${segmento}</strong>, entrega <strong>${eventos}</strong> eventos por mês e cobra
+      <strong>${ticket}</strong> em cada um. Quando manda um orçamento, o que mais acontece é <strong>${respOrcamento}</strong>.
       Na hora de fechar sai <strong>${pctDesconto}</strong> de desconto. Sobre os extras: <strong>${extras}</strong>.
       E no fim do mês, olhando a conta, você sente <strong>${sentimento}</strong>.</p>
       <p>Essa combinação é a assinatura d${B.nome.startsWith("A") ? "a" : "o"} <strong>${B.nome}</strong>.
@@ -180,19 +198,19 @@ if (!temRespostas) {
 
     <!-- Bloco 4b · o que a operação come, ao lado da conta -->
     <div class="etapa">
-      <h3>E tem o que a operação come</h3>
+      <h3>E tem o que a operação absorve</h3>
       ${custos.semConta
-        ? `<p>Você marcou que <strong>nunca fez a conta do que a mão de obra come de um evento</strong>.
+        ? `<p>Você marcou que <strong>nunca fez a conta do que a mão de obra absorve de um evento</strong>.
            Não é descuido: quase ninguém nesse mercado faz. Só que esse é o custo que mais cresce sozinho,
            porque ele sobe a cada evento aceito e nunca aparece numa linha só.</p>
            <p><strong>Enquanto você não souber esse número, qualquer preço que você colocar é chute.</strong>
            É a primeira conta que eu faço com quem senta comigo.</p>`
-        : `<p>Somando equipe fixa e freelancer, a mão de obra come <strong>${equipe}</strong>,
+        : `<p>Somando equipe fixa e freelancer, a mão de obra absorve <strong>${equipe}</strong>,
            cerca de <strong>${custos.fmt.custoEquipeMes} por mês</strong> na sua operação.</p>
            ${custos.equipePesada && divida.pctDesconto > 0
              ? `<p>Repare no cruzamento: a mão de obra já leva ${equipe}, e ainda assim você dá
                 <strong>${pctDesconto}</strong> de desconto na hora de fechar.
-                <strong>O desconto sai de uma margem que já estava apertada antes de você abrir a boca.</strong></p>`
+                <strong>O desconto sai do que já sobrava pouco, antes mesmo de você abrir a boca.</strong></p>`
              : ``}
            ${custos.equipePesada
              ? `<p>Mão de obra acima de 20% quase nunca é preço de mercado: é equipe sem treino, que precisa de
@@ -204,9 +222,9 @@ if (!temRespostas) {
     <!-- Bloco 4c · a conta da comissão -->
     <div class="etapa destaque">
       <h3>A conta da comissão</h3>
-      <p>Você paga <strong>${comissao}</strong> para quem te indica festa. Essa é a conta que quase ninguém faz.</p>
-      <p>Comissão não sai do faturamento, sai do <strong>lucro</strong>. Num buffet ou numa decoração que fecha o mês
-      com ${custos.margemRef}% de lucro líquido, pagar ${comissao} significa entregar
+      <p>Você paga <strong>${comissao}</strong> para quem te traz contrato. Essa é a conta que quase ninguém faz.</p>
+      <p>A comissão não sai do que entra, sai do <strong>que sobra para você</strong>. Num buffet ou numa decoração
+      em que sobram ${custos.margemRef}% no fim do mês, pagar ${comissao} significa entregar
       <strong>cerca de ${custos.fatiaDoLucro}% do lucro daquela festa</strong> para alguém que não montou o salão,
       não atendeu o cliente e não respondeu no domingo.</p>
       ${custos.fatiaDoLucro >= 40
@@ -226,10 +244,11 @@ if (!temRespostas) {
       <p>Você marcou que <strong>${tentativas}</strong>. Isso não foi desperdício: hoje você entrega melhor
       que a maioria por causa disso.</p>
       <p>Só que curso técnico melhora a entrega, e o seu problema não está na entrega.
-      Planilha de precificação te dá o número certo, e o seu problema não é saber o número:
-      é sustentar o número na frente do cliente. Postar mais traz mais gente perguntando preço,
-      e mais gente perguntando preço sem valor construído antes é mais orçamento sumindo.</p>
-      <p><strong>Nenhuma dessas três coisas mexe no lugar onde o dinheiro está saindo.</strong></p>
+      Planilha de gestão te dá o número certo, e o seu problema não é saber o número:
+      é sustentar o número na frente do cliente. Rede social traz mais gente perguntando preço,
+      e mais gente perguntando preço sem valor construído antes é mais orçamento sumindo.
+      E quase toda mentoria deste mercado ensina a entregar melhor, não a cobrar melhor.</p>
+      <p><strong>Nenhuma dessas coisas mexe no lugar onde o dinheiro está saindo.</strong></p>
     </div>
 
     <!-- Bloco 6 · o mecanismo -->
@@ -240,7 +259,7 @@ if (!temRespostas) {
       <p>Passei 25 anos nesse mercado. Comecei vendendo doce na calçada, virei doceira de festa, assessora,
       decoradora, e fundei um dos maiores buffets da minha cidade. O que eu aprendi nesse tempo é que
       dá para entregar o evento mais bonito da cidade e não ganhar dinheiro com ele, e dá para entregar
-      menos eventos, mais tranquilos, e fechar o mês no azul.</p>
+      menos eventos, mais tranquilos, e ainda assim sobrar dinheiro no fim do mês.</p>
       <p>A diferença não está na entrega. <strong>Está no que o cliente percebe antes de ver o número.</strong>
       O Método ACA trabalha isso em três camadas, nesta ordem:</p>
       <ol class="metodo">
@@ -278,10 +297,11 @@ if (!temRespostas) {
       <p><strong>E eu já fui exatamente onde você está.</strong> Em 2017 eu entreguei 13 eventos em uma semana
       e passei 72 horas sem dormir. Ficou tudo impecável, todo mundo elogiou. Na segunda-feira eu fui olhar os
       números e não tinha sobrado quase nada, e o pior: eu não sabia explicar por quê.</p>
-      <p>O que mudou depois disso não foi a minha entrega, foi para quem eu vendia.
+      <p>Naquela época, de cada R$ 2 mil que eu recebia, R$ 1.700 iam embora em custo. Ficavam R$ 300 para mim,
+      e eu não sabia disso.</p>
+      <p>O que mudou depois não foi a minha entrega, foi para quem eu vendia.
       <strong>Eu trabalhava mais e lucrava menos. Hoje eu trabalho menos e lucro mais.</strong>
-      Na conta fria: eu faturava R$ 2 milhões e ficava com 15% disso. Passei a faturar R$ 1,2 milhão e a ficar
-      com 40%. Menos festa, menos faturamento na mão, e muito mais dinheiro no bolso no fim do ano.</p>
+      Hoje eu faço menos eventos, ganho mais em cada um, e ainda tenho tempo para viver.</p>
       <p>E já em transição de carreira, sem postar decoração, uma cliente me procurou de outro estado e insistiu
       até fechar: R$ 150 mil de decoração mais R$ 15 mil de projeto.</p>
       ${galeria}
@@ -308,11 +328,11 @@ if (!temRespostas) {
       <h2>${nivel === "qualificado"
         ? "Eu abro algumas conversas por semana para olhar esse número junto com a pessoa."
         : "Vamos olhar esse número juntas."}</h2>
-      ${nivel === "qualificado"
-        ? `<p>O que sai dali: onde exatamente está a sua maior perda e o que muda primeiro.
-           O que não é: não é aula e não é apresentação de produto disfarçada.</p>`
-        : `<p>Você já tem o nome do seu padrão e a sua conta. O que falta é decidir por onde começar,
-           e isso a gente resolve conversando.</p>`}
+      <p class="fechamento">Você já descobriu o padrão da sua Dívida de Valor e quanto ela está fazendo você perder em seu negócio.
+      O que falta é você decidir converter todas essas perdas em lucro: uma marca desejada, reconhecida por
+      clientes que pagam mais pelo valor da sua entrega, e se transformar em uma marca lucrativa. E isso a gente
+      resolve entendendo o modelo do seu negócio em uma conversa, compreendendo o seu momento e, se fizer
+      sentido, te entregar uma solução. <strong>Te espero na reunião.</strong></p>
       <p class="hint">${ctaNota}</p>
       <div class="actions" style="justify-content:center">
         <button class="btn btn-primary ${ctaClasse}" type="button">${ctaLabel}</button>

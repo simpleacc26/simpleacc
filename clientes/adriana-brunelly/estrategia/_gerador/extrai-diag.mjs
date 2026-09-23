@@ -10,8 +10,8 @@ const srv = http.createServer((q,r)=>{
 });
 await new Promise(res=>srv.listen(4322,res));
 const perfis = {
-  agenda:   {segmento:"buffet",volume:"9a15",orcamento:"desconto",extras:"absorvo",ticket:"15a30",desconto:"10a20",equipe:"20a30",comissao:"5a8",tentativas:"curso",sentimento:"nao_sobra",objetivo:"menos_mais",faturamento:"40a80",nomeResp:"Adriana"},
-  orcamento:{segmento:"decoracao",volume:"ate3",orcamento:"some",extras:"quase_nunca",ticket:"8a15",desconto:"nenhum",equipe:"nunca_fiz",comissao:"nao_trabalho",tentativas:"instagram",sentimento:"sobrou_menos",objetivo:"procurada",faturamento:"25a40",nomeResp:"Adriana"},
+  agenda:   {segmento:"buffet_deco",volume:"4a8",orcamento:"desconto",extras:"absorvo",ticket:"8a15",desconto:"ate10",comissao:"3a5",equipe:"10a20",tentativas:"redes",sentimento:"sem_solucao",objetivo:"cobrar",faturamento:"40a80",nomeResp:"Adriana"},
+  orcamento:{segmento:"decoracao",volume:"ate3",orcamento:"some",extras:"quase_nunca",ticket:"8a15",desconto:"nenhum",equipe:"nunca_fiz",comissao:"nao_trabalho",tentativas:"mentoria",sentimento:"sobrou_menos",objetivo:"procurada",faturamento:"25a40",nomeResp:"Adriana"},
 };
 const b = await chromium.launch({executablePath:'/opt/pw-browsers/chromium'});
 const res = {};

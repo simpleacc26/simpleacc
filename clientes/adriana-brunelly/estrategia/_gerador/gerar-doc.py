@@ -18,7 +18,8 @@ AG = D["agenda"]
 DATA = "23 de setembro de 2026"
 paginas = []
 
-def pg(num, secao, corpo, classe=""):
+def pg(_num, secao, corpo, classe=""):
+    num = len(paginas) + 1
     paginas.append(f"""
 <section class="page {classe}">
   <div class="runhead"><span><b>Adriana Brune&rsquo;lly</b> &middot; Diagnóstico da Dívida de Valor</span><span>{secao}</span></div>
@@ -53,10 +54,11 @@ def copy_bloco(b, rot=None):
 # =====================================================================
 capa(f"""
   <div class="monograma">A</div>
-  <p class="selo">Para a sua validação &middot; versão 2</p>
+  <p class="selo">Para a sua validação &middot; versão 3</p>
   <h1>O quiz e o diagnóstico da <em>Dívida de Valor</em></h1>
   <p class="sub">Todas as perguntas, todas as telas e toda a copy que a sua cliente vai ler,
-  num documento só. Esta versão já traz o que você trouxe nos áudios e nos vídeos.</p>
+  num documento só. Esta versão traz o que você mandou nos áudios, nos vídeos e nos
+  quinze PDFs da análise tela a tela, incluindo o seu Documento de Premissas 2.0.</p>
   <hr class="rule" style="max-width:60mm;margin:0 0 8mm">
   <p class="meta">
     <b>Cliente:</b> Adriana Brune&rsquo;lly &middot; Estrategista em Negócios para Eventos<br>
@@ -69,43 +71,105 @@ capa(f"""
 # 2 · O QUE MUDOU COM OS SEUS ÁUDIOS
 # =====================================================================
 feitos = [
- ("“De onde ele tirou esse número?”",
-  "As telas de intervalo davam uma conta de um evento de R$ 15 mil que não era o da pessoa.",
-  "As três telas passaram a ser montadas <strong>com as respostas da própria pessoa</strong>. O número que ela vê é o dela, e a tela diz de onde saiu."),
- ("Os botões não falam de dinheiro",
-  "“Quero minha sessão de diagnóstico” é a nossa linguagem, não a da sua cliente.",
-  "Agora falam em dinheiro e em perda: <strong>“Quero parar de perder esse dinheiro”</strong> e “Quero começar a recuperar esse dinheiro”."),
- ("No celular, a última faixa sumia",
-  "A pergunta de ticket tem sete faixas e o cabeçalho comia a tela.",
-  "O cabeçalho sai durante as perguntas (você mesma abriu mão dele) e volta na tela do contato. <strong>As sete faixas cabem inteiras.</strong>"),
- ("A sua história estava complicada",
-  "“Faturei 40% menos e lucrei 60% mais” obriga quem lê a fazer conta de cabeça.",
-  "A sua versão entrou literal: <strong>“Eu trabalhava mais e lucrava menos. Hoje eu trabalho menos e lucro mais.”</strong> A conta fria ficou embaixo, em uma linha."),
- ("Faltava empatia antes da autoridade",
-  "O texto contava o seu caso sem dizer que você já esteve no lugar de quem lê.",
-  "O bloco abre com <strong>“E eu já fui exatamente onde você está”</strong>, e só depois vem a prova."),
- ("Dívida de Valor não é dívida de banco",
-  "A distinção é a sua tese e não estava escrita em lugar nenhum da página.",
-  "Entrou logo abaixo do número: dívida financeira tem boleto e alguém cobra, a Dívida de Valor <strong>ninguém cobra e ninguém devolve</strong>."),
- ("Pedir o Instagram da pessoa",
+ ("Vocabulário técnico fora do quiz",
+  "“Faturamento”, “margem”, “ticket médio”, “precificação”: palavras que fazem a leitora confundir o que entra com o que sobra.",
+  "Varridas do quiz e da página. Ficou <strong>“quanto você cobra”</strong>, <strong>“o que sobra para você”</strong>, <strong>“a operação absorve”</strong>. A única exceção é a sua: <strong>“fatura (vende)”</strong> na última pergunta."),
+ ("Zero scroll, em todas as telas",
+  "Nenhuma alternativa e nenhum botão pode ficar escondido. Você autorizou tirar o cabeçalho para isso.",
+  "Cabeçalho fora das perguntas e da tela de contato, espaçamentos apertados. <strong>Conferido tela a tela em quatro tamanhos de celular</strong>, do Android pequeno ao iPhone: nenhuma tela precisa rolar."),
+ ("O número do meio do quiz vinha do nada",
+  "Ele mostrava a conta de um evento de R$ 15 mil que não era o de quem estava respondendo.",
+  "A tela agora é montada com <strong>as respostas da própria pessoa</strong>, e a conta aparece escrita: tantos eventos, de tanto, tanto por cento. Dá para conferir de cabeça."),
+ ("O valor anual, não o por evento",
+  "R$ 1.500 por evento não assusta ninguém. R$ 144 mil por ano assusta.",
+  "A tela de impacto passou a mostrar <strong>o total de 12 meses</strong>, e fecha com a sua pergunta do sonho: o carro, a viagem, os equipamentos, ou simplesmente guardado."),
+ ("A comissão vem antes do cálculo",
+  "Sem ela, o número do impacto sai incompleto.",
+  "A pergunta de comissão subiu e agora vem <strong>antes</strong> da tela de impacto. E ela entrou na soma da Dívida de Valor, com a sua frase: comissão paga sem estratégia, com medo de perder o parceiro."),
+ ("Os botões falam de decisão, não de conta",
+  "“Quero minha conta” e “quero conversar sobre a minha conta” remetem a cadastro.",
+  "Todos os botões do resultado: <strong>“Quero conversar com a Adriana para ter uma empresa lucrativa”</strong>. Você mesma escreveu a regra: se o destino é WhatsApp e não agenda, o verbo é conversar."),
+ ("Perguntas reescritas na sua palavra",
+  "Extras, comissão, o que já tentou, o objetivo e o faturamento.",
+  "As cinco entraram como você escreveu, incluindo a Tela 11 que <strong>planta o nome “Dívida de Valor”</strong> pela primeira vez, sem explicar, só para gerar a curiosidade."),
+ ("O nome só é explicado no fim",
+  "Plantar na Tela 11, reforçar na tela de contato, explicar no resultado.",
+  "O arco está montado exatamente assim. Durante as perguntas de diagnóstico o nome <strong>não aparece nenhuma vez</strong>."),
+ ("A sua história sem números técnicos",
+  "“De cada R$ 2.000 que eu recebia, R$ 1.700 iam embora em custo.”",
+  "Entrou literal, junto de <strong>“eu já fui exatamente onde você está”</strong> e do <strong>“eu trabalhava mais e lucrava menos, hoje eu trabalho menos e lucro mais”</strong>."),
+ ("O seu texto de fechamento",
+  "O parágrafo inteiro que você escreveu para a última página.",
+  "Está na página, palavra por palavra, terminando em <strong>“Te espero na reunião”</strong>."),
+ ("Instagram no formulário",
   "Você olha o perfil antes de qualquer conversa.",
-  "Entrou no formulário de contato, junto de nome, WhatsApp, e-mail e cidade. Não virou pergunta do quiz: é dado de perfil, não de diagnóstico."),
+  "Entrou. E o formulário ficou nos quatro campos que você aprovou: <strong>como eu te chamo, WhatsApp, cidade e Instagram</strong>. O e-mail saiu."),
+ ("O seu perfil na primeira pergunta",
+  "Assessoria e cerimonial não são o foco do Método ACA®.",
+  "Saiu. Entrou <strong>“tenho um buffet e também trabalho com decoração”</strong>, que é fatia grande do seu mercado e não tinha onde se encaixar."),
 ]
 cards = "".join(f'''<div class="ficha"><p class="ft">{t}</p>
 <p class="fo">{o}</p><p class="fr">{r}</p></div>''' for t, o, r in feitos)
 pg(2, "O que mudou", f"""
   <p class="kicker">Antes de tudo</p>
-  <h2>O que os seus áudios mudaram nesta versão</h2>
-  <p class="lead">Nove pontos saíram dos seus áudios e dos seus vídeos. <strong>Sete já estão no ar</strong>,
-  e são estes. Os dois que faltam dependem de você, e estão no fim do documento.</p>
-  <div class="fichas">{cards}</div>
-  <div class="ouro">
-    <h4>O que a gente aprendeu com isso</h4>
-    <p style="margin:0">Tela de implicação com texto fixo é uma bomba-relógio num funil que promete conta feita.
-    A pessoa acabou de responder os próprios números e, na tela seguinte, leva na cara uma conta que não é a dela.
-    <strong>Desconfiar ali é a reação certa</strong>, e foi a sua. Você conhece esse público melhor do que nós, e é
-    por isso que essa rodada existe.</p>
-  </div>""")
+  <h2>As suas premissas, e onde cada uma está no funil</h2>
+  <p class="lead">Os quinze PDFs da sua análise viraram doze mudanças, e todas já estão no ar.
+  <strong>As quatro que você ficou de decidir estão na última página</strong>, com a nossa leitura de cada uma.</p>
+  <div class="fichas">{cards}</div>""")
+
+pg(3, "O que ficou igual", f"""
+  <p class="kicker">Tão importante quanto</p>
+  <h2>O que você aprovou, e que a gente não tocou</h2>
+  <p class="lead">Em documento de revisão quase nunca se escreve o que ficou igual, e isso é um erro:
+  o que já está certo também é decisão.</p>
+
+  <div class="duas">
+    <div>
+      <h3>Design</h3>
+      <ul class="limpa">
+        <li><strong>Identidade visual inteira.</strong> Preto, dourado, cristal, tipografia e cards. “Não mudar nada disso.”</li>
+        <li><strong>Barra de progresso</strong> com “Pergunta N de 12”, que reduz abandono.</li>
+        <li><strong>O selo</strong> “Diagnóstico gratuito · 2 minutos”, que quebra a objeção de tempo logo de cara.</li>
+        <li><strong>O rodapé</strong> “25 anos no mercado · Londrina, PR”. Detalhe pequeno, impacto grande.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Copy</h3>
+      <ul class="limpa">
+        <li><strong>Tela 2, volume.</strong> Aprovada sem uma vírgula. A frase neutra ali é decisão sua, e é a certa.</li>
+        <li><strong>Tela 3, o orçamento.</strong> “O coração emocional do quiz.” Intocada.</li>
+        <li><strong>As 4 respostas da Tela 11.</strong> Quatro identidades, não quatro preferências.</li>
+        <li><strong>O formulário, o botão e a nota de privacidade</strong> da tela de contato.</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="rule">
+  <h3 style="margin-top:0">As quatro premissas que passam a reger tudo</h3>
+  <table>
+    <tr><th>Premissa</th><th>O que ela manda na prática</th></tr>
+    <tr><td style="width:44mm"><strong>O público é operacional, não técnico</strong></td>
+      <td>Nada de faturamento, margem, lucratividade, pró-labore, ponto de equilíbrio, ticket médio ou precificação. Exceção única: “fatura (vende)” na última pergunta.</td></tr>
+    <tr><td><strong>Linguagem de perda, nunca de ganho</strong></td>
+      <td>“Você está perdendo X” ganha de “você pode ganhar X”. Vale para pergunta, cálculo e botão.</td></tr>
+    <tr><td><strong>Zero scroll</strong></td>
+      <td>Nenhuma alternativa e nenhum botão escondido, em nenhum celular. O cabeçalho sai sempre que for preciso.</td></tr>
+    <tr><td><strong>O anual é o número que converte</strong></td>
+      <td>E sempre apresentado como “esse é um dos cálculos”, porque isso diz que existe mais perda além da que está na tela.</td></tr>
+  </table>
+
+  <hr class="rule">
+  <h3 style="margin-top:0">O arco do nome “Dívida de Valor”</h3>
+  <p class="mini">Decisão sua, e está implementada exatamente assim. Durante as perguntas de diagnóstico
+  o nome <strong>não aparece nenhuma vez</strong>: ele é plantado, reforçado e só então explicado.</p>
+  <div class="fluxo" style="margin-bottom:2mm">
+    <div class="et"><b>Pergunta 11</b><span>O nome aparece pela primeira vez, sem explicação. “O que é isso? Eu tenho isso?”</span></div>
+    <div class="seta">&rarr;</div>
+    <div class="et"><b>Tela de contato</b><span>O título repete o nome e promete o número por ano. Preencher vira descoberta, não cadastro.</span></div>
+    <div class="seta">&rarr;</div>
+    <div class="et"><b>Resultado</b><span>O nome é explicado, com a conta dela do lado e a distinção para dívida de banco.</span></div>
+  </div>
+  <p class="mini">É o que transforma o clique no botão em curiosidade resolvida, e não em mais um formulário.</p>""")
 
 # =====================================================================
 # 3 · O FUNIL EM UMA PÁGINA
@@ -141,8 +205,7 @@ pg(3, "O funil em uma página", f"""
       <h3>A tela de contato</h3>
       <p class="mini">Vem <strong>depois</strong> do quiz, nunca antes.</p>
       <div class="copy" style="margin-top:1.5mm">
-        <p style="font-size:11pt;color:var(--primary-700);font-weight:600;margin-bottom:1.4mm">{cp["titulo"]}</p>
-        <p>{cp["subtitulo"]}</p>
+        <p style="font-size:10.4pt;color:var(--primary-700);font-weight:600;margin-bottom:1.4mm">{cp["titulo"]}</p>
         <p class="rot" style="margin-top:2.4mm">Campos</p><p>{campos}</p>
         <p class="rot" style="margin-top:2.4mm">Botão</p><p><strong>{cp["cta"]}</strong></p>
       </div>
@@ -216,31 +279,29 @@ def rep(sid): return _op(sid).get("report") or _op(sid)["label"]
 pg(6, "As telas de intervalo", f"""
   <p class="kicker">Entre as perguntas</p>
   <h2>As três telas que fazem a conta doer antes do resultado</h2>
-  <p class="lead">Elas aparecem depois das perguntas 3, 6 e 9. <strong>Não são propaganda:
-  são consequência.</strong> E, desta versão em diante, cada uma é montada com o que a
-  pessoa acabou de responder.</p>
+  <p class="lead">Aparecem depois das perguntas 3, 7 e 9. <strong>Não são propaganda: são consequência.</strong>
+  E cada uma é montada com o que a pessoa acabou de responder.</p>
 
   <div class="ouro">
-    <h4>O exemplo abaixo é de uma pessoa que respondeu assim</h4>
-    <p class="mini" style="margin:0">As alternativas que ela marcou, na ordem: “{lbl("segmento")}” &middot;
-    “{lbl("volume")}” eventos por mês &middot; ticket “{lbl("ticket")}” &middot; desconto “{lbl("desconto")}” &middot;
-    extras: “{lbl("extras")}” &middot; já tentou: “{lbl("tentativas")}”.
-    Troque qualquer uma delas e <strong>todos os números dessas telas mudam junto</strong>.</p>
+    <h4>O exemplo abaixo é de quem marcou assim</h4>
+    <p class="mini" style="margin:0">“{lbl("segmento")}” &middot; “{lbl("volume")}” eventos por mês &middot;
+    cobra “{lbl("ticket")}” &middot; desconto “{lbl("desconto")}” &middot; extras: “{lbl("extras")}” &middot;
+    comissão “{lbl("comissao")}”. Troque qualquer uma e
+    <strong>todos os números dessas telas mudam junto</strong>.</p>
   </div>
 
   {inter_html("orcamento", "Tela 1 &middot; depois da pergunta 3",
-     "Aqui ainda não existe ticket respondido, então não se fala em dinheiro: a conta é de volume, feita com os eventos por mês que ela marcou.")}
-  {inter_html("desconto", "Tela 2 &middot; depois da pergunta 6",
-     "O primeiro número em reais do funil. É por evento, e nunca o total do ano: o total só ganha o teto do faturamento na última pergunta, e sairia brigando com o resultado final.")}
+     "Aqui ainda não existe valor cobrado respondido, então não se fala em dinheiro: a conta é de volume, com as entregas por mês que ela marcou.")}
+  {inter_html("comissao", "Tela 2 &middot; depois da pergunta 7, a tela de impacto",
+     "Vem depois da comissão de propósito: é o último dado que entra na conta. O número é o de 12 meses, porque o anual é o que a pessoa sente, e a conta aparece escrita para dar para conferir de cabeça.")}
   {inter_html("tentativas", "Tela 3 &middot; depois da pergunta 9",
      "Responde à tentativa que ela marcou, uma a uma, e fecha com a sua virada na frase que você pediu.")}
 
   <div class="cristal">
-    <h4>Quem não dá desconto vê outra tela</h4>
-    <p class="mini" style="margin:0">Se ela marcou que não dá desconto, a tela 2 usa os extras.
-    Se ela não dá desconto <em>e</em> tem contrato fechado, a tela vira um elogio honesto:
-    “os dois furos mais comuns não estão em você, então a sua conta está em outro lugar”.
-    <strong>Em nenhum caso ela vê um número que não é dela.</strong></p>
+    <h4>Quem não perde por nenhum dos três caminhos vê outra tela</h4>
+    <p class="mini" style="margin:0">Se ela não dá desconto, tem contrato fechado e não paga comissão, a tela do
+    impacto vira um elogio honesto: “os três lugares por onde o dinheiro mais escapa não estão em você, então a
+    sua perda está em outro lugar”. <strong>Em nenhum caso ela vê um número que não é dela.</strong></p>
   </div>""")
 
 # =====================================================================
@@ -250,31 +311,36 @@ dv = ex["divida"]; cu = ex["custos"]
 pg(7, "A conta", f"""
   <p class="kicker">O motor</p>
   <h2>Como o número é calculado, e por que ele é defensável</h2>
-  <p class="lead">Este é o ativo mais caro do funil. Se a cliente não reconhecer o número,
+  <p class="lead">Este é o ativo mais caro do funil. Se a sua cliente não reconhecer o número,
   ela não lê o resto da página, e a gente perde o lead e a conversa.</p>
 
   <div class="duas">
     <div>
       <h3>A fórmula</h3>
       <div class="cristal" style="margin-top:1.5mm">
-        <p style="font-size:9.6pt;margin:0">ticket médio <strong>&times;</strong> eventos por mês
-        <strong>&times;</strong> (% de desconto <strong>+</strong> % de extras absorvidos)</p>
+        <p style="font-size:9.4pt;margin:0">valor cobrado <strong>&times;</strong> eventos por mês
+        <strong>&times;</strong> (% de desconto <strong>+</strong> % de extra absorvido
+        <strong>+</strong> % de comissão)</p>
       </div>
-      <p class="mini">Só entram as respostas dela. Nada de média de mercado, nada estimado por fora.</p>
+      <p class="mini">A <strong>comissão entra</strong> por decisão sua: comissão paga sem estratégia,
+      com medo de perder o parceiro, é consequência da Dívida de Valor, não custo de operação.
+      A <strong>mão de obra fica de fora</strong>: essa é custo legítimo, e somar tudo no mesmo número
+      inflaria a conta. Ela aparece em bloco próprio, ao lado.</p>
 
       <h3>As três travas</h3>
       <ul class="limpa">
-        <li><strong>Teto do faturamento.</strong> A conta nunca passa da faixa que ela declarou na última
-        pergunta, mesmo que ticket vezes volume dê mais. Fica sempre do lado conservador.</li>
+        <li><strong>Teto do que ela declara vender.</strong> A conta nunca passa da faixa marcada na última
+        pergunta, mesmo que valor vezes volume dê mais.</li>
         <li><strong>Piso de R$ 500.</strong> Abaixo disso a página troca o número por uma leitura sem número.
         Mostrar R$ 0 derruba a peça inteira.</li>
-        <li><strong>Por evento nas telas de intervalo.</strong> Total do ano só no diagnóstico, depois do teto.</li>
+        <li><strong>A tela do meio conta por baixo.</strong> Ela usa o piso das faixas, não o meio.</li>
       </ul>
 
-      <h3>O que fica de fora da soma</h3>
-      <p class="mini">Mão de obra e comissão <strong>não entram</strong> na Dívida de Valor.
-      São custos legítimos do negócio, não dinheiro deixado na mesa, e somar tudo no mesmo número
-      inflaria a conta. Aparecem como dois blocos próprios, ao lado do número.</p>
+      <h3>Por que a tela do meio conta por baixo</h3>
+      <p class="mini">Ela roda <strong>antes</strong> da pergunta de faturamento, então não tem como aplicar o
+      teto. Contando pelo piso das faixas, o número de lá vira chão e não teto, e o do resultado quase sempre
+      vem maior. <strong>Subir é presente, descer é desmentido.</strong> E quando as respostas não fecham entre
+      si e o teto morde mesmo assim, a página diz isso em voz alta, com o número que ela mesma declarou.</p>
     </div>
     <div>
       <h3>O mesmo exemplo, fechado</h3>
@@ -282,6 +348,7 @@ pg(7, "A conta", f"""
         <tr><th>Item</th><th>Valor</th></tr>
         <tr><td>Desconto no fechamento</td><td class="n">{dv["fmt"]["desconto"]}/mês</td></tr>
         <tr><td>Extras absorvidos</td><td class="n">{dv["fmt"]["extras"]}/mês</td></tr>
+        <tr><td>Comissão ao parceiro</td><td class="n">{dv["fmt"]["comissao"]}/mês</td></tr>
         <tr><td><strong>Dívida de Valor</strong></td><td class="n">{dv["fmt"]["mes"]}/mês</td></tr>
       </table>
       <div class="numerao">
@@ -291,31 +358,21 @@ pg(7, "A conta", f"""
       </div>
       <div class="cristal">
         <h4>Ao lado, sem entrar na soma</h4>
-        <p class="mini" style="margin-bottom:1.2mm">Mão de obra: <strong>{cu["fmt"]["custoEquipeMes"]} por mês</strong>
-        de operação, cruzada com o desconto que ela ainda dá em cima disso.</p>
-        <p class="mini" style="margin:0">Comissão: pagar {rep("comissao")} equivale a
-        <strong>cerca de {cu["fatiaDoLucro"]}% do lucro</strong> daquela festa, com margem de {cu["margemRef"]}%.
-        É aritmética, não julgamento, e é isso que deixa o argumento de pé.</p>
+        <p class="mini" style="margin:0">A mão de obra absorve <strong>{cu["fmt"]["custoEquipeMes"]} por mês</strong>
+        da operação dela, e a página cruza isso com o desconto que ela ainda dá por cima.</p>
       </div>
+
+      <h3>E quando a conta dá quase zero?</h3>
+      <p class="mini">Acontece, e é bom: significa que ela não dá desconto, não absorve extra e não paga
+      comissão. A página <strong>não inventa número nenhum</strong>, e diz outra coisa.</p>
+      <div class="copy" style="margin-top:2mm">
+        <p class="rot">O que ela lê no lugar do número</p>
+        <p>Aqui acontece uma coisa interessante. Você marcou que quase não dá desconto e que quase não
+        absorve extra. <strong>Então a sua perda não está no fechamento nem na entrega: ela está antes.</strong></p>
+      </div>
+      <p class="mini">Ela sabe que não dá desconto. Se a tela disser que dá, acabou a conversa.</p>
     </div>
-  </div>
-
-  <hr class="rule">
-  <h3 style="margin-top:0">E quando a conta dá quase zero?</h3>
-  <p class="mini">Acontece, e é bom que aconteça: significa que a pessoa não dá desconto e não absorve
-  extra. Nesse caso a página <strong>não mostra número nenhum</strong>, e diz outra coisa.</p>
-  <div class="copy" style="margin-top:2mm">
-    <p class="rot">O que ela lê no lugar do número</p>
-    <p>Aqui acontece uma coisa interessante. Você marcou que quase não dá desconto e que quase não
-    absorve extra. <strong>Então a sua perda não está no fechamento nem na entrega: ela está antes.</strong></p>
-    <p>Acontece no orçamento que sai e não volta, e esse é o único tipo de perda que não aparece
-    em lugar nenhum.</p>
-  </div>
-  <p class="mini">Inventar um número aqui seria o jeito mais rápido de perder a pessoa. Ela sabe que
-  não dá desconto: se a tela disser que dá, acabou a conversa.</p>""")
-
-open("parte1.html","w",encoding="utf-8").write("\n".join(paginas))
-print("parte 2 ok:", len(paginas), "páginas")
+  </div>""")
 
 # =====================================================================
 # 8 a 11 · A COPY DO DIAGNÓSTICO
@@ -425,61 +482,72 @@ pg(12, "O fechamento e os padrões", f"""
 # =====================================================================
 # 13 · O QUE FALTA
 # =====================================================================
-pg(13, "O que falta", """
+pg(13, "As decisões que são suas", """
   <p class="kicker">Para fechar</p>
-  <h2>O que eu preciso de você para subir isso</h2>
-  <p class="lead">O funil está pronto e funcionando. O que segura a largada agora não é
-  técnico, é decisão.</p>
+  <h2>Quatro decisões que só você pode tomar</h2>
+  <p class="lead">Estão nos seus próprios PDFs, marcadas por você como “avaliar” ou “somente com a
+  aprovação da Adriana”. Segue a nossa leitura de cada uma, para você decidir com a informação na mão.</p>
 
-  <h3>Três coisas, em ordem</h3>
+  <h3>1 &middot; Reduzir o valor cobrado de 7 para 5 faixas</h3>
+  <div class="duas larga">
+    <div><p class="mini" style="margin:0"><strong>Você propôs</strong> até R$ 3 mil / R$ 3 a 8 mil /
+    R$ 8 a 20 mil / R$ 20 a 60 mil / acima de R$ 60 mil, porque com 7 a tela ficava carregada e a
+    última faixa cortava no celular.</p></div>
+    <div><p class="mini" style="margin:0"><strong>A nossa leitura:</strong> o corte no celular já está
+    resolvido, então a razão principal caiu. E as 7 faixas fazem um trabalho que as 5 não fazem:
+    <strong>quem marca a menor descobre, na mesma tela, que a maior é ocupada por gente do mesmo
+    mercado.</strong> Mantivemos 7. <strong>Se você preferir 5, a troca leva cinco minutos.</strong></p></div>
+  </div>
+
+  <hr class="rule">
+  <h3 style="margin-top:0">2 &middot; Múltipla escolha em “o que você já buscou fazer”</h3>
+  <div class="duas larga">
+    <div><p class="mini" style="margin:0"><strong>Você propôs</strong> deixar marcar mais de uma, porque a
+    pessoa provavelmente já tentou curso <em>e</em> rede social.</p></div>
+    <div><p class="mini" style="margin:0"><strong>A nossa leitura:</strong> faz sentido e aumenta a precisão,
+    mas não é mudança de texto, é de motor. Múltipla escolha tira o avanço automático (a tela passa a
+    precisar de um botão “continuar”) e muda a pontuação dos padrões, que hoje soma por resposta única.
+    <strong>Dá para fazer, e a gente prefere medir com tráfego rodando antes de mexer.</strong></p></div>
+  </div>
+
+  <hr class="rule">
+  <h3 style="margin-top:0">3 &middot; Personalizar o fechamento pela resposta da Tela 11</h3>
+  <div class="duas larga">
+    <div><p class="mini" style="margin:0"><strong>Você observou</strong> que as 4 opções são 4 identidades,
+    e que o texto final podia falar diretamente com a que ela escolheu.</p></div>
+    <div><p class="mini" style="margin:0"><strong>A nossa leitura:</strong> concordamos, e é barato de fazer.
+    Só que hoje a página já muda por padrão de perda, e somar uma segunda variação antes de ter
+    volume de leads é <strong>otimizar no escuro</strong>. Fica na fila, logo depois das primeiras cem
+    respostas.</p></div>
+  </div>
+
+  <hr class="rule">
+  <h3 style="margin-top:0">4 &middot; Há quanto tempo ela está no mercado</h3>
+  <div class="duas larga">
+    <div><p class="mini" style="margin:0"><strong>A sua Parte 04</strong> pede esse dado nas telas de perfil,
+    mas o formulário que você aprovou não tem esse campo, e o quiz está no teto de 12 perguntas.</p></div>
+    <div><p class="mini" style="margin:0"><strong>A nossa leitura:</strong> ficou de fora por ora. Para entrar,
+    ou toma o lugar de outra pergunta, ou vira quinto campo do formulário sabendo que empurra o botão para
+    perto da dobra. <strong>É informação sua para decidir:</strong> ela te ajuda na conversa ou no anúncio?</p></div>
+  </div>
+
+  <hr class="rule">
+  <h3 style="margin-top:0">E o que a gente precisa de você para subir isso</h3>
   <ul class="limpa">
-    <li><strong>A sua validação desta copy.</strong> Pode ser em áudio, do jeito que você já mandou:
-    funcionou muito bem. Marque o que está errado na boca do seu público, que a gente troca.</li>
-    <li><strong>O documento tela a tela dos botões.</strong> Você comentou a posição deles no
-    diagnóstico e disse que ia mandar. Com ele em mãos, a gente mexe no layout uma vez só.</li>
-    <li><strong>O resumo de conversa que você citou.</strong> Ele não chegou aqui. Se reenviar,
-    entra nesta mesma rodada.</li>
+    <li><strong>O seu ok nesta versão.</strong> Pode ser em áudio, do jeito que você já mandou: funcionou
+    muito bem, e esta versão existe por causa deles.</li>
+    <li><strong>Os criativos gravados.</strong> Os roteiros estão prontos e entregues desde 11/09.</li>
+    <li><strong>A conta de anúncio com saldo.</strong> Pré-paga, no Pix, porque é como funciona no seu caso.</li>
   </ul>
 
-  <hr class="rule">
-  <h3>Depois disso, o caminho é curto</h3>
-  <table>
-    <tr><th>Passo</th><th>Quem faz</th><th>Depende de</th></tr>
-    <tr><td>Ajustes finais de copy</td><td>Simple</td><td>Sua validação</td></tr>
-    <tr><td>Gravar os criativos</td><td>Você</td><td>Roteiros prontos, já entregues</td></tr>
-    <tr><td>Subir a campanha</td><td>Simple</td><td>Conta de anúncio com saldo (Pix, pré-paga)</td></tr>
-    <tr><td>Atender os leads</td><td>Você</td><td>Roteiros de WhatsApp, entregues junto</td></tr>
-  </table>
-
   <div class="ouro">
-    <h4>Uma nota sobre como isso foi feito</h4>
-    <p style="margin:0">As perguntas deste documento foram lidas direto do arquivo que roda no ar,
-    e a copy do diagnóstico foi extraída da página de verdade, aberta num navegador.
-    <strong>Não existe versão de documento diferente da versão que a sua cliente vê.</strong>
-    Quando o funil mudar, este documento muda junto.</p>
+    <h4>Uma nota sobre como este documento foi feito</h4>
+    <p style="margin:0">As perguntas foram lidas direto do arquivo que roda no ar, e a copy do diagnóstico
+    foi extraída da página de verdade, aberta num navegador.
+    <strong>Não existe versão de documento diferente da versão que a sua cliente vê.</strong></p>
   </div>
 
-  <hr class="rule">
-  <h3 style="margin-top:0">O que já está de pé, para você não ficar na dúvida</h3>
-  <div class="duas">
-    <div>
-      <ul class="limpa" style="margin-bottom:0">
-        <li><strong>O quiz no ar</strong>, com as 12 perguntas e as três telas de intervalo.</li>
-        <li><strong>A página de diagnóstico</strong>, com os quatro padrões e a sua foto.</li>
-        <li><strong>O cálculo</strong>, com as três travas de credibilidade.</li>
-      </ul>
-    </div>
-    <div>
-      <ul class="limpa" style="margin-bottom:0">
-        <li><strong>A planilha de leads</strong>, que enche sozinha a cada resposta.</li>
-        <li><strong>O botão do WhatsApp</strong>, que já chega com o padrão e a conta na mensagem.</li>
-        <li><strong>A oferta de R$ 47</strong>, para quem fica fora da faixa da sessão.</li>
-      </ul>
-    </div>
-  </div>
-
-  <hr class="rule">
-  <p class="mini" style="text-align:center">Adriana Brune&rsquo;lly &middot; 25 anos no mercado de eventos &middot; Londrina, PR<br>
+  <p class="mini" style="text-align:center;margin-top:3mm">Adriana Brune&rsquo;lly &middot; 25 anos no mercado de eventos &middot; Londrina, PR<br>
   Documento preparado pela Simple &middot; 23 de setembro de 2026</p>""")
 
 # =====================================================================
@@ -516,6 +584,6 @@ doc = f"""<!DOCTYPE html>
 </body>
 </html>"""
 
-dest = "/home/user/simpleacc/clientes/adriana-brunelly/estrategia/2026-09-23-quiz-e-diagnostico-v2-para-validacao.html"
+dest = "/home/user/simpleacc/clientes/adriana-brunelly/estrategia/2026-09-23-quiz-e-diagnostico-v3-para-validacao.html"
 io.open(dest, "w", encoding="utf-8").write(doc)
 print("documento gerado:", len(paginas), "páginas,", len(doc)//1024, "KB ->", dest)

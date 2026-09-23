@@ -13,12 +13,12 @@ HTML, CSS e JavaScript puros. Sem build, sem framework, sem dependência externa
 na Vercel, time Simpleacc). URL pública, sem proteção de acesso.
 
 Os leads caem na planilha
-[**Leads · Diagnóstico da Dívida de Valor**](https://docs.google.com/spreadsheets/d/17k4xyuYYyOS0X4pKePafYUsQ2RA1Am4gfxOermdipfg/edit),
+[**Leads · Diagnóstico da Dívida de Valor**](https://docs.google.com/spreadsheets/d/1CkGhLbXycspD3NZ0QpwU2LlaVZqtS4QPZjA_-9-PQcA/edit),
 em `3. Estratégia e Tráfego`, pelo cenário **[Adriana Brunelly] Diagnóstico da
 Dívida de Valor → Sheets** no Make (webhook + Google Sheets, ativo e testado).
 
 O lead é gravado uma vez, no fim, quando já existem **respostas e contato** na
-mesma linha: padrão, conta em reais, as 12 respostas e as UTMs. São 34 colunas.
+mesma linha: padrão, conta em reais, as 12 respostas e as UTMs. São 32 colunas.
 A primeira linha da planilha é o teste de conferência do mapeamento, e pode ser
 apagada à vontade.
 
@@ -82,12 +82,19 @@ O resto segue a apostila:
    As perguntas de ticket e de faturamento têm **7 faixas** de propósito: quem
    marca a menor descobre, na mesma tela, que a maior é ocupada por gente do
    mesmo mercado.
-3. **3 interseções de implicação**, sempre logo depois da pergunta que elas
-   comentam, e **montadas com as respostas da própria pessoa**. Cada uma tem um
-   `monta(c)` em `flow.js` que recebe só o que já foi respondido até ali: a de
-   depois da P3 fala de volume (ainda não existe ticket), a de depois da P6 dá
-   o primeiro valor em reais (por evento, nunca total do ano) e a de depois da
-   P9 responde à tentativa que a pessoa marcou.
+3. **3 interseções de implicação**, depois das perguntas 3, 7 e 9, e
+   **montadas com as respostas da própria pessoa**. Cada uma tem um `monta(c)`
+   em `flow.js` que recebe só o que já foi respondido até ali: a de depois da P3
+   fala de volume (ainda não existe valor cobrado), a de depois da P7 é a
+   **tela de impacto**, com o total de 12 meses e a pergunta do sonho, e a de
+   depois da P9 responde à tentativa que a pessoa marcou.
+
+   > A tela de impacto conta pelo **piso** das faixas de valor e de volume, não
+   > pelo meio delas. Ela roda antes da pergunta de faturamento, então não tem
+   > como aplicar o teto que o diagnóstico aplica. Contando por baixo, o número
+   > de lá é chão e não teto, e o do resultado quase sempre vem maior, que é a
+   > direção certa: **subir é presente, descer é desmentido.** Quando ainda
+   > assim o teto morde, a página assume a diferença em voz alta.
 
    > ⚠️ **Nunca volte a usar texto fixo aqui.** A primeira versão tinha, com um
    > evento de R$ 15 mil que não era o da pessoa, e a cliente perguntou, com
@@ -103,10 +110,27 @@ O resto segue a apostila:
 6. **Roteamento pós-quiz**: qualificado e a nutrir vão para o WhatsApp dela,
    com a mensagem já trazendo o padrão e a conta; fora da faixa recebe a leitura
    completa e a oferta de entrada de R$ 47.
-7. **O cabeçalho da marca sai durante as perguntas.** Ele aparece na primeira
-   tela e volta na captura, e some no meio do quiz (`body.sem-topbar`, ligada
-   por `ajustarCabecalho()` em `app.js`). São cerca de 100px que, no celular,
-   empurravam a sétima faixa da pergunta de ticket para fora da tela.
+7. **Zero scroll é regra, não preferência.** Nenhuma alternativa e nenhum
+   botão pode ficar escondido atrás de rolagem, em nenhum celular. É a regra
+   mais dura do documento de premissas da Adriana, e ela autoriza tirar o
+   cabeçalho com logo sempre que for preciso para caber.
+
+   O cabeçalho da marca só existe na tela de entrada (`body.sem-topbar`, ligada
+   por `ajustarCabecalho()` em `app.js`), e o modo compacto de `styles.css` tem
+   duas faixas: `max-width:560px ou max-height:820px`, e um segundo aperto em
+   `max-height:700px` para Android pequeno.
+
+   > ⚠️ **Mexeu em pergunta, rode o medidor antes de publicar.** O teste de
+   > ponta a ponta mede a altura de cada tela em quatro tamanhos de celular
+   > (360×640, 390×664, 414×736, 390×844). A pior tela é a de valor cobrado,
+   > com sete faixas: é ela que define os números do CSS compacto.
+8. **Vocabulário do público, não da agência.** Fora do quiz e da página:
+   faturamento, margem, lucratividade, pró-labore, ponto de equilíbrio, ticket
+   médio, precificação e ROI. A única exceção é proposital e é dela:
+   **"fatura (vende)"** na última pergunta, com a tradução entre parênteses.
+9. **O nome "Dívida de Valor" tem um arco.** Ele é plantado na P11 sem
+   explicação, reforçado no título da captura, e só explicado no diagnóstico.
+   Não use o termo nas perguntas de diagnóstico: a curiosidade é o gancho.
 
 ## Os 4 buckets
 

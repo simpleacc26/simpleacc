@@ -1,5 +1,5 @@
 import { chromium } from 'playwright';
-const DOC='file:///home/user/simpleacc/clientes/adriana-brunelly/estrategia/2026-09-23-quiz-e-diagnostico-v2-para-validacao.html';
+const DOC='file:///home/user/simpleacc/clientes/adriana-brunelly/estrategia/2026-09-23-quiz-e-diagnostico-v3-para-validacao.html';
 const b=await chromium.launch({executablePath:'/opt/pw-browsers/chromium'});
 const p=await b.newPage({viewport:{width:900,height:1200}});
 await p.goto(DOC); await p.waitForTimeout(700);
@@ -25,7 +25,7 @@ const r=await p.evaluate(()=>{
 console.log(r.map(x=>`p${String(x.p).padStart(2)} | conteúdo até ${String(x.conteudoAte).padStart(4)}px de ${x.alturaPagina} | ${x.estouro>0?'ESTOURO +'+x.estouro+'px':'ok'} | preenchimento ${x.preenchimento}%`).join('\n'));
 const med = Math.round(r.reduce((a,x)=>a+x.preenchimento,0)/r.length);
 console.log('\npreenchimento médio:', med+'%', '| estouros:', r.filter(x=>x.estouro>0).map(x=>x.p).join(',')||'nenhum');
-for (const n of [2,4,6,9,13]) {
+for (const n of [2,3,7,14]) {
   const el = await p.$$('.page');
   await el[n-1].screenshot({path:`v2-p${n}.png`});
 }
