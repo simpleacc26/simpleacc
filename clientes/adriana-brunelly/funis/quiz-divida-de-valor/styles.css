@@ -270,105 +270,151 @@ strong { color: #FBF7EE; font-weight: 700; }
 }
 
 /* ============================================================
-   MODO COMPACTO · a regra mais dura que a Adriana escreveu:
-   "nenhuma opção e nenhum botão pode ficar escondido atrás de
-   scroll. A taxa de conclusão cai exatamente quando o lead
-   precisa rolar para continuar."
+   O QUIZ OCUPA A TELA INTEIRA (só o index; o diagnóstico rola).
 
-   Vale para celular e para janela baixa. A pior tela é a de
-   valor cobrado, com sete faixas: é ela que define os números
-   aqui. Nada disso muda no computador com tela alta, onde o
-   respiro maior fica melhor.
+   Duas regras convivem aqui, e a segunda foi esquecida na primeira
+   tentativa:
 
-   Se um dia entrar pergunta nova com muitas alternativas,
-   rode o medidor em funis/.../ e confira antes de publicar.
+   1. A Adriana escreveu que nenhuma alternativa e nenhum botão pode
+      ficar escondido atrás de scroll.
+   2. E o contrário também não serve: encolher tudo até o mínimo
+      deixa o cartão grudado no topo com um vazio enorme embaixo.
+
+   A saída é a tela fazer as duas coisas: o corpo vira uma coluna
+   de altura cheia, o cartão cresce para ocupar o que sobra, e as
+   alternativas se distribuem centradas dentro dele. Os tamanhos são
+   fluidos (clamp com vh), então no celular alto o toque fica maior
+   e o texto respira, e no Android pequeno tudo comprime sozinho,
+   sem duas listas de números para manter.
+
+   Vale em qualquer tamanho de tela, e não só no celular: no
+   computador o cartão parado no topo com meia janela vazia embaixo
+   é o mesmo erro. O teto de crescimento das alternativas (--n)
+   segura o exagero na janela alta.
    ============================================================ */
-@media (max-width: 560px), (max-height: 820px) {
-  .progress-wrap { padding: 10px 0 8px; }
-  body.sem-topbar .progress-wrap { padding-top: 12px; }
+@media (min-width: 0px) {
+  html { height: 100%; }
+  body.quiz {
+    min-height: 100vh;
+    min-height: 100dvh;          /* barra do navegador do celular */
+    display: flex; flex-direction: column;
+  }
+  /* O cartão ocupa a altura toda, e o conteúdo se distribui dentro dele:
+     pergunta em cima, alternativas crescendo no meio, botão embaixo. As duas
+     coisas juntas, porque cada uma sozinha erra: cartão do tamanho do texto
+     deixa vazio no fim da tela, e cartão esticado com o conteúdo agrupado no
+     meio abre buraco dos dois lados. */
+  body.quiz main.container,
+  body.quiz #app,
+  body.quiz .card {
+    flex: 1 1 auto; display: flex; flex-direction: column; min-height: 0;
+  }
 
-  .card { padding: 18px 16px; margin: 10px 0 12px; }
-  .card .eyebrow { margin-bottom: 7px; }
-  h1 { font-size: 25px; line-height: 1.16; margin-bottom: 10px; }
-  h2 { font-size: 20px; line-height: 1.22; margin-bottom: 11px; }
-  .lead { font-size: 15.5px; line-height: 1.42; margin-bottom: 8px; }
-  .selo { margin-bottom: 10px; }
-  .card .rule-gold { margin: 12px 0; }
-
-  .options { gap: 6px; margin: 13px 0 4px; }
-  .opt { padding: 11px 13px; gap: 11px; }
-  .opt .txt { font-size: 15px; line-height: 1.32; }
-  .opt .dot { flex-basis: 17px; height: 17px; }
-
-  .actions { margin-top: 13px; }
-  .btn { padding: 13px 20px; }
-
-  .field { margin-bottom: 10px; }
-  .field label { margin-bottom: 4px; }
-  .field input { padding: 11px 13px; }
-
-  .interseccao .num { font-size: 30px; }
-  .interseccao .sonho { margin-top: 10px; padding: 10px 12px; font-size: 14.5px; }
-  .interseccao .fonte { margin-top: 8px; }
-
-  .foot { padding: 6px 20px 12px; font-size: 11.5px; margin: 0; }
-
-  /* --- a marca vira uma linha, e não um bloco --- */
-  .topbar { padding: 12px 0 6px; }
+  /* --- a marca vira uma linha, e só existe na tela de entrada --- */
+  .topbar { padding: clamp(8px, 1.6vh, 22px) 0 clamp(4px, .8vh, 8px); }
   .brand { flex-direction: row; align-items: center; gap: 10px; }
-  .brand .monogram { width: 38px; height: 38px; font-size: 20px; }
-  .brand .brand-name { font-size: 15px; }
+  .brand .monogram { width: clamp(32px, 5.2vh, 44px); height: clamp(32px, 5.2vh, 44px);
+    font-size: clamp(17px, 2.8vh, 24px); }
+  .brand .brand-name { font-size: clamp(14px, 2vh, 17px); }
   .brand .brand-tag { display: none; }
+  .progress-wrap { padding: clamp(8px, 1.4vh, 14px) 0 clamp(6px, 1vh, 10px); }
+  body.sem-topbar .progress-wrap { padding-top: clamp(10px, 1.8vh, 22px); }
 
-  /* --- a tela de entrada, que carrega hero e pergunta juntos --- */
-  .screen-hero .selo { padding: 5px 11px; margin-bottom: 8px; }
-  .screen-hero h1 { margin-bottom: 6px; }
-  .screen-hero .lead { margin-bottom: 4px; }
-  .screen-hero .rule-gold { margin: 7px 0; }
-  .screen-hero .options { margin-top: 8px; }
-  .screen-hero h1 { font-size: 24px; }
+  /* --- o cartão e a tipografia respiram conforme a altura --- */
+  body.quiz .card {
+    padding: clamp(14px, 2.1vh, 28px) clamp(14px, 4vw, 24px);
+    margin: clamp(8px, 1.3vh, 18px) 0 clamp(8px, 1.1vh, 16px);
+  }
+  body.quiz h1 { font-size: clamp(19px, 2.85vh, 28px); line-height: 1.15;
+    margin-bottom: clamp(5px, .85vh, 13px); }
+  body.quiz h2 { font-size: clamp(17.5px, 2.5vh, 24px); line-height: 1.24;
+    margin-bottom: clamp(8px, 1.3vh, 16px); }
+  body.quiz .lead { font-size: clamp(13.5px, 1.75vh, 16.5px); line-height: 1.4;
+    margin-bottom: clamp(4px, .75vh, 10px); }
+  body.quiz .card .eyebrow { margin-bottom: clamp(5px, .9vh, 10px); }
+  body.quiz .selo { padding: clamp(3px, .6vh, 8px) clamp(10px, 2.6vw, 14px);
+    margin-bottom: clamp(5px, .9vh, 12px); font-size: clamp(10.5px, 1.5vh, 11.5px); }
+  body.quiz .card .rule-gold { margin: clamp(6px, 1.05vh, 14px) 0; }
 
-  /* --- as telas de intervalo --- */
-  .interseccao .eyebrow { font-size: 11px; }   /* .interseccao p vencia por especificidade */
-  .interseccao p { font-size: 15px; line-height: 1.42; margin: 10px 0; }
-  .interseccao .sonho { font-size: 14px; padding: 9px 12px; margin-top: 9px; }
-  .interseccao .fonte { font-size: 12px; margin-top: 7px; }
-  .interseccao .rule-gold { margin: 10px 0; }
+  /* --- as alternativas ocupam o que sobra, centradas no espaço --- */
+  /* As alternativas dividem entre si o espaço que sobra: linhas de 1fr, que
+     esticam, com teto para não virarem tarja em celular muito alto. O que
+     passar do teto vira respiro entre elas, porque o item fica centrado na
+     própria linha. Assim a área de toque cresce onde dá e a tela nunca fica
+     com um vazio só, num canto. */
+  body.quiz .options {
+    --gap: clamp(5px, 1vh, 12px);
+    flex: 1 1 auto; min-height: 0;
+    grid-auto-rows: minmax(min-content, 1fr);
+    gap: var(--gap);
+    /* Teto de crescimento do grupo, calculado com o número de alternativas
+       que o app.js informa em --n. Sem isso, cinco alternativas numa tela de
+       932px viram cinco tarjas de 180px. O que passar do teto não vira buraco
+       num canto só: as margens automáticas dividem a sobra em cima e embaixo. */
+    max-height: calc(var(--n, 4) * clamp(52px, 8.4vh, 92px) + (var(--n, 4) - 1) * var(--gap));
+    margin: auto 0;
+  }
+  body.quiz .opt { padding: clamp(8px, 1.4vh, 18px) clamp(12px, 3.5vw, 18px); }
+  body.quiz .opt .txt { font-size: clamp(14px, 1.8vh, 16.5px); line-height: 1.3; }
+  body.quiz .opt .dot { flex-basis: clamp(16px, 2.4vh, 20px); height: clamp(16px, 2.4vh, 20px); }
 
-  /* --- a captura: título longo dela, quatro campos e o botão na tela --- */
-  .screen-captura h2 { font-size: 17px; line-height: 1.24; margin-bottom: 10px; }
-  .screen-captura .field { margin: 8px 0; }
-  .screen-captura .field label { font-size: 12.5px; margin-bottom: 3px; }
-  .screen-captura .field input { padding: 9px 12px; font-size: 15.5px; }
-  .screen-captura .hint { font-size: 12.5px; line-height: 1.35; margin: 9px 0; }
-  .screen-captura .actions { margin-top: 8px; }
-  .screen-captura .btn-ghost { padding: 8px 14px; font-size: 14px; }
+  body.quiz .actions { margin-top: clamp(8px, 1.5vh, 22px); }
+  body.quiz .btn { padding: clamp(11px, 1.75vh, 17px) 20px; }
+
+  /* --- telas de intervalo: o bloco inteiro fica centrado --- */
+  /* Os blocos da tela de intervalo se espalham pela altura em vez de ficarem
+     agrupados no meio: rótulo, número, texto e fonte ganham o mesmo respiro
+     entre si. E o texto cresce com a tela, porque ele é conteúdo, não
+     enchimento: numa tela alta ele fica maior e mais fácil de ler. */
+  body.quiz .interseccao .corpo { flex: 1 1 auto; min-height: 0;
+    display: flex; flex-direction: column; justify-content: space-evenly; }
+  body.quiz .interseccao .num { font-size: clamp(24px, 3.7vh, 36px);
+    margin: clamp(2px, .4vh, 6px) 0 clamp(5px, .9vh, 10px); }
+  /* O texto da tela de impacto é o mais longo do funil e não pode crescer
+     com a altura da tela: em celular alto ele estourava. Teto baixo aqui,
+     e o espaço que sobra vira respiro em volta, por causa do centralizado. */
+  body.quiz .interseccao p { font-size: clamp(13.8px, 1.82vh, 16px); line-height: 1.48;
+    margin: clamp(6px, 1vh, 12px) 0; }
+  body.quiz .interseccao .sonho { font-size: clamp(13px, 1.7vh, 15px); line-height: 1.42;
+    padding: clamp(7px, 1.15vh, 12px) clamp(11px, 3vw, 15px);
+    margin-top: clamp(7px, 1.1vh, 13px); }
+  body.quiz .interseccao .fonte { font-size: clamp(11.5px, 1.55vh, 13.5px);
+    margin-top: clamp(5px, .9vh, 11px); }
+
+  /* --- captura: quatro campos, botão e nota, tudo centrado --- */
+  body.quiz .screen-captura form { flex: 1 1 auto; min-height: 0;
+    display: flex; flex-direction: column; justify-content: center; }
+  body.quiz .screen-captura h2 { font-size: clamp(15px, 2.3vh, 21px); line-height: 1.24;
+    margin-bottom: clamp(7px, 1.2vh, 14px); }
+  body.quiz .screen-captura .field { margin: clamp(5px, .95vh, 13px) 0; }
+  body.quiz .screen-captura .field label { font-size: clamp(12px, 1.7vh, 14px);
+    margin-bottom: clamp(3px, .5vh, 6px); }
+  body.quiz .screen-captura .field input { padding: clamp(8px, 1.35vh, 14px) 12px;
+    font-size: clamp(15px, 2.1vh, 16.5px); }
+  body.quiz .screen-captura .hint { font-size: clamp(11.5px, 1.6vh, 14px); line-height: 1.35;
+    margin: clamp(7px, 1.15vh, 14px) 0; }
+  body.quiz .screen-captura .actions { margin-top: clamp(6px, 1vh, 12px); }
+  body.quiz .screen-captura .btn-ghost { padding: clamp(7px, 1.2vh, 12px) 14px;
+    font-size: clamp(13px, 1.8vh, 15px); }
+
+  /* --- carregamento também preenche --- */
+
+
+  .foot { padding: clamp(4px, .8vh, 10px) 20px clamp(8px, 1.4vh, 16px);
+    font-size: clamp(11px, 1.6vh, 12.5px); margin: 0; }
 }
 
-/* Segundo aperto, para telas baixas de verdade (Android pequeno de
-   640px, ou janela de computador espremida). Mesma regra: nada de
-   alternativa ou botão escondido atrás de scroll. */
-@media (max-height: 700px) {
-  .card { padding: 14px 14px; margin: 8px 0 10px; }
-  h1 { font-size: 22px; } h2 { font-size: 18.5px; margin-bottom: 9px; }
-  .lead { font-size: 14.5px; margin-bottom: 6px; }
-  .options { gap: 5px; margin-top: 10px; }
-  .opt { padding: 9px 12px; }
-  .opt .txt { font-size: 14.5px; line-height: 1.3; }
-  .actions { margin-top: 10px; }
-  .btn { padding: 11px 18px; }
-  .selo { padding: 4px 10px; font-size: 11px; margin-bottom: 6px; }
-  .progress-wrap { padding: 8px 0 6px; }
-  .topbar { padding: 8px 0 4px; }
-  .brand .monogram { width: 32px; height: 32px; font-size: 17px; }
-  .interseccao .num { font-size: 26px; margin-bottom: 8px; }
-  .interseccao p { font-size: 14.5px; margin: 8px 0; }
-  .interseccao .sonho { font-size: 13.5px; padding: 8px 11px; }
-  .screen-hero h1 { font-size: 21px; }
-  .screen-captura h2 { font-size: 16px; }
-  .screen-captura .field { margin: 6px 0; }
-  .screen-captura .field input { padding: 8px 11px; }
-  .foot { padding: 4px 20px 8px; font-size: 11px; }
+/* Último aperto, só para tela muito baixa (Android de 640px). Duas telas
+   ficavam 16px e 8px acima do limite: a de entrada, que carrega hero e
+   pergunta juntos, e a de intervalo mais longa. */
+@media (max-height: 660px) {
+  body.quiz .card { padding: 12px 14px; margin: 6px 0 8px; }
+  body.quiz .screen-hero h1 { font-size: 18px; }
+  body.quiz .screen-hero .lead { font-size: 13px; }
+  body.quiz .screen-hero .rule-gold { margin: 5px 0; }
+  body.quiz .interseccao p { font-size: 13.2px; margin: 6px 0; }
+  body.quiz .interseccao .sonho { font-size: 12.5px; padding: 6px 10px; }
+  .foot { padding: 3px 20px 6px; font-size: 10.5px; }
 }
 
 /* ---------- preferências do usuário ---------- */

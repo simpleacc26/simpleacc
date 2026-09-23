@@ -115,15 +115,31 @@ O resto segue a apostila:
    mais dura do documento de premissas da Adriana, e ela autoriza tirar o
    cabeçalho com logo sempre que for preciso para caber.
 
-   O cabeçalho da marca só existe na tela de entrada (`body.sem-topbar`, ligada
-   por `ajustarCabecalho()` em `app.js`), e o modo compacto de `styles.css` tem
-   duas faixas: `max-width:560px ou max-height:820px`, e um segundo aperto em
-   `max-height:700px` para Android pequeno.
+   **E o contrário também não serve.** Encolher tudo até caber deixa o cartão
+   grudado no topo com meia tela vazia embaixo, que foi a primeira tentativa e
+   voltou como reclamação. O layout resolve as duas coisas de uma vez:
+
+   - `body.quiz` é uma coluna de altura cheia (`100dvh`), e o cartão estica
+     para ocupar o que sobra;
+   - dentro do cartão, a pergunta fica em cima, as alternativas crescem no
+     meio (linhas de `1fr`) e o botão fica embaixo;
+   - as alternativas param de crescer num teto calculado com o número delas,
+     que o `app.js` passa em `--n`: sem isso, cinco alternativas numa tela de
+     932px viram cinco tarjas. O que passa do teto vira respiro dividido em
+     cima e embaixo, por margens automáticas;
+   - todos os tamanhos são fluidos (`clamp` com `vh`), então não existe uma
+     tabela de números por aparelho para manter;
+   - as telas de intervalo espalham os blocos com `space-evenly`.
+
+   O cabeçalho da marca só existe na tela de entrada (`body.sem-topbar`,
+   ligada por `ajustarCabecalho()` em `app.js`).
 
    > ⚠️ **Mexeu em pergunta, rode o medidor antes de publicar.** O teste de
-   > ponta a ponta mede a altura de cada tela em quatro tamanhos de celular
-   > (360×640, 390×664, 414×736, 390×844). A pior tela é a de valor cobrado,
-   > com sete faixas: é ela que define os números do CSS compacto.
+   > ponta a ponta mede, em seis tamanhos de tela, se alguma rola e quanto do
+   > espaço o cartão ocupa. As duas telas que definem os limites são a de
+   > entrada (hero e pergunta juntos) e a de impacto (o texto mais longo do
+   > funil): o que é **fixo** na tela tem que ser modesto, porque quem
+   > preenche a altura são as alternativas, que esticam.
 8. **Vocabulário do público, não da agência.** Fora do quiz e da página:
    faturamento, margem, lucratividade, pró-labore, ponto de equilíbrio, ticket
    médio, precificação e ROI. A única exceção é proposital e é dela:

@@ -277,7 +277,7 @@ function renderStep(screenIdx, i) {
       ${intro}
       ${primeira ? "" : `<p class="eyebrow">${step.etapa}</p>`}
       <h2 id="q-${step.id}">${step.pergunta}</h2>
-      <div class="options" role="radiogroup" aria-labelledby="q-${step.id}">${opts}</div>
+      <div class="options" role="radiogroup" aria-labelledby="q-${step.id}" style="--n:${step.options.length}">${opts}</div>
       ${primeira ? "" : '<div class="actions"><button class="btn btn-ghost" id="back" type="button">&#8592; Voltar</button></div>'}
     </section>`);
   app.replaceChildren(screen);
@@ -339,11 +339,13 @@ function renderInterseccao(screenIdx, id) {
 
   const screen = el(`
     <section class="card screen interseccao">
-      <p class="eyebrow">Enquanto você pensa nisso</p>
-      <p class="num">${it.num}</p>
-      <p>${it.texto}</p>
-      ${it.sonho ? `<p class="sonho">${it.sonho}</p>` : ""}
-      <p class="fonte">${it.fonte}</p>
+      <div class="corpo">
+        <p class="eyebrow">Enquanto você pensa nisso</p>
+        <p class="num">${it.num}</p>
+        <p>${it.texto}</p>
+        ${it.sonho ? `<p class="sonho">${it.sonho}</p>` : ""}
+        <p class="fonte">${it.fonte}</p>
+      </div>
       <hr class="rule-gold" />
       <button class="btn btn-primary btn-block" id="segue" type="button">Continuar</button>
     </section>`);
