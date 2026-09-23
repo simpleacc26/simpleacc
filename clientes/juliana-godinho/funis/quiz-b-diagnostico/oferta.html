@@ -92,6 +92,39 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     position:absolute; inset:0; width:100%; height:100%;
     border:0; display:block;
   }
+  /* Capa própria. A miniatura do YouTube vem 4:3 com tarja preta em cima e
+     embaixo; o cover num quadro 16:9 corta exatamente essas tarjas. */
+  .vsl-capa{
+    position:absolute; inset:0; width:100%; height:100%;
+    display:grid; place-items:center; cursor:pointer;
+    border:0; padding:0; margin:0;
+    background:#0B0908 center/cover no-repeat;
+  }
+  .vsl-capa::before{
+    content:""; position:absolute; inset:0;
+    background:radial-gradient(60% 60% at 50% 50%, rgba(10,8,7,.28), rgba(10,8,7,.62));
+    transition:background .25s ease;
+  }
+  .vsl-capa:hover::before{background:radial-gradient(60% 60% at 50% 50%, rgba(10,8,7,.16), rgba(10,8,7,.52))}
+  .vsl-play{
+    position:relative; width:4.6rem; height:4.6rem; border-radius:50%;
+    display:grid; place-items:center;
+    background:rgba(11,9,8,.52); border:1px solid var(--gold);
+    box-shadow:0 0 0 1px rgba(0,0,0,.25), 0 8px 34px rgba(0,0,0,.45);
+    transition:transform .2s ease, background .2s ease;
+  }
+  .vsl-capa:hover .vsl-play{transform:scale(1.06); background:rgba(11,9,8,.66)}
+  .vsl-capa:focus-visible{outline:3px solid var(--gold); outline-offset:3px}
+  .vsl-play::after{
+    content:""; width:0; height:0; margin-left:.28rem;
+    border-left:1.05rem solid var(--gold);
+    border-top:.66rem solid transparent;
+    border-bottom:.66rem solid transparent;
+  }
+  @media (prefers-reduced-motion:reduce){
+    .vsl-capa::before,.vsl-play{transition:none}
+    .vsl-capa:hover .vsl-play{transform:none}
+  }
   .vsl .promessa-vsl{
     font-family:var(--sans); font-size:.97rem; line-height:1.58;
     color:#CDC4B7; margin:1.15rem 0 0;
@@ -620,6 +653,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
        tipo: 'youtube' | 'vimeo' | 'panda' | 'iframe'
        id:   o identificador do vídeo. Com tipo 'iframe', a URL inteira
              do embed, que é o caso do Panda quando o player é custom.
+       capa: imagem da capa própria. Com ela preenchida a página mostra a
+             capa e só carrega o player no clique.
+
+     Por que a capa existe: o embed do YouTube estampa título e nome do
+     canal por cima do vídeo, e não existe mais parâmetro que desligue
+     isso. O `modestbranding` foi desativado em ago/2023 e o `showinfo`
+     em 2018, e a documentação diz que título e canal sempre aparecem
+     antes de começar, na pausa e no fim. A capa resolve a abertura, que
+     é onde todo mundo vê. Na pausa a tarja volta, e a única saída
+     definitiva para isso é sair do YouTube (Panda ou Vimeo).
+     Bônus: o player só é baixado no clique, então a página abre mais
+     leve e o YouTube não planta cookie em quem não assistiu.
 
      Enquanto id for string vazia o bloco não é renderizado e a página
      se comporta exatamente como antes. Não remover o bloco do HTML:
@@ -627,28 +672,51 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
      O vídeo é horizontal 16:9. Trocar a proporção é mexer em
      .vsl-quadro no CSS, não aqui.
      ───────────────────────────────────────────────────────────── */
-  var VSL = { tipo: 'youtube', id: 'UYOiadvsVEw' };
+  var VSL = { tipo: 'youtube', id: 'UYOiadvsVEw', capa: 'vsl-capa.jpg' };
 
   (function(){
     if(!VSL.id) return;
     var quadro = document.getElementById('vsl-quadro');
     if(!quadro) return;
 
-    var src = '';
-    if(VSL.tipo === 'youtube')      src = 'https://www.youtube.com/embed/' + VSL.id + '?rel=0&modestbranding=1&playsinline=1';
-    else if(VSL.tipo === 'vimeo')   src = 'https://player.vimeo.com/video/' + VSL.id + '?dnt=1';
-    else if(VSL.tipo === 'panda')   src = 'https://player-vz-' + VSL.id + '.tv.pandavideo.com.br/embed/';
-    else                            src = VSL.id;
+    function endereco(auto){
+      /* Sem `modestbranding`: está desativado desde ago/2023 e só polui a URL. */
+      if(VSL.tipo === 'youtube') return 'https://www.youtube-nocookie.com/embed/' + VSL.id +
+        '?rel=0&playsinline=1' + (auto ? '&autoplay=1' : '');
+      if(VSL.tipo === 'vimeo')   return 'https://player.vimeo.com/video/' + VSL.id +
+        '?dnt=1&title=0&byline=0&portrait=0' + (auto ? '&autoplay=1' : '');
+      if(VSL.tipo === 'panda')   return 'https://player-vz-' + VSL.id + '.tv.pandavideo.com.br/embed/' +
+        (auto ? '?autoplay=1' : '');
+      return VSL.id;
+    }
 
-    var f = document.createElement('iframe');
-    f.src = src;
-    f.title = 'Venda Mais na Estética';
-    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';
-    f.setAttribute('allowfullscreen', '');
-    f.setAttribute('loading', 'lazy');
-    quadro.appendChild(f);
+    function tocar(auto){
+      var f = document.createElement('iframe');
+      f.src = endereco(auto);
+      f.title = 'Venda Mais na Estética';
+      f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+      f.setAttribute('allowfullscreen', '');
+      quadro.innerHTML = '';
+      quadro.appendChild(f);
+    }
+
+    if(VSL.capa){
+      var capa = document.createElement('button');
+      capa.type = 'button';
+      capa.className = 'vsl-capa';
+      capa.style.backgroundImage = 'url("' + VSL.capa + '")';
+      capa.setAttribute('aria-label', 'Assistir a apresentação do Venda Mais na Estética');
+      capa.innerHTML = '<span class="vsl-play" aria-hidden="true"></span>';
+      capa.addEventListener('click', function(){
+        tocar(true);
+        dl('vsl_play', { vsl_tipo: VSL.tipo });
+      });
+      quadro.appendChild(capa);
+    } else {
+      tocar(false);
+    }
+
     document.getElementById('vsl').hidden = false;
-
     dl('vsl_exibida', { vsl_tipo: VSL.tipo });
   })();
 

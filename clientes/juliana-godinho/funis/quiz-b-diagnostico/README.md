@@ -336,6 +336,14 @@ var VSL = { tipo: 'youtube', id: 'UYOiadvsVEw' };
 ```
 
 - `tipo` aceita `youtube`, `vimeo`, `panda` ou `iframe` (URL inteira do embed).
+- `capa` aponta para a imagem da capa própria (`vsl-capa.jpg`). **Com ela
+  preenchida o player só é baixado no clique.** Isso existe porque o embed do
+  YouTube estampa título e nome do canal por cima do vídeo e **não há mais
+  parâmetro que desligue isso**: `modestbranding` foi desativado em ago/2023 e
+  `showinfo` em 2018. A capa limpa a abertura, que é onde todo mundo vê. Na
+  pausa a tarja volta, e a saída definitiva é sair do YouTube.
+- Hoje o vídeo está num canal **pessoal do Renan**, não da Ju. Enquanto for
+  assim, quem clicar no logo do YouTube durante a reprodução cai nesse canal.
 - **Com `id` vazio o bloco não é renderizado** e a página fica idêntica à versão
   sem vídeo. É de propósito: permite publicar a página antes do vídeo existir e
   ligar o vídeo depois sem mexer em estrutura.
