@@ -13,19 +13,27 @@ HTML, CSS e JavaScript puros. Sem build, sem framework, sem dependência externa
 na Vercel, time Simpleacc). URL pública, sem proteção de acesso.
 
 Os leads caem na planilha
-[**Leads · Diagnóstico da Dívida de Valor**](https://docs.google.com/spreadsheets/d/1BIJ89rw5fLqaeWhzvOzIg6xWOYHmjuEPc1I8yI_YzLU/edit),
+[**Leads · Diagnóstico da Dívida de Valor**](https://docs.google.com/spreadsheets/d/17k4xyuYYyOS0X4pKePafYUsQ2RA1Am4gfxOermdipfg/edit),
 em `3. Estratégia e Tráfego`, pelo cenário **[Adriana Brunelly] Diagnóstico da
 Dívida de Valor → Sheets** no Make (webhook + Google Sheets, ativo e testado).
 
 O lead é gravado uma vez, no fim, quando já existem **respostas e contato** na
-mesma linha: padrão, conta em reais, as 10 respostas e as UTMs.
+mesma linha: padrão, conta em reais, as 12 respostas e as UTMs. São 34 colunas.
+A primeira linha da planilha é o teste de conferência do mapeamento, e pode ser
+apagada à vontade.
+
+> ⚠️ A API do Drive não edita célula, então **mexer nas perguntas obriga a criar
+> planilha nova** com o conjunto completo de colunas e a repontar o cenário. As
+> versões anteriores ficam na mesma pasta, renomeadas com `[OBSOLETA...]`, e não
+> são apagadas.
 
 ## De onde vem cada coisa
 
 | Camada | Fonte |
 | ------ | ----- |
 | Método e arquitetura | Apostila **Funil de Lead Dinâmico** (Daniel Souza · Simple), no Drive |
-| Copy do quiz e do diagnóstico | `estrategia/2026-09-11-estrategia-completa-funil-quiz.html` (páginas 4 a 11) |
+| Copy do quiz e do diagnóstico | `flow.js` e `diagnostico.js` são a fonte; o documento de validação é gerado a partir deles |
+| Feedback da cliente sobre o funil | [`../../contexto/2026-09-22-feedback-da-adriana-sobre-o-quiz.md`](../../contexto/2026-09-22-feedback-da-adriana-sobre-o-quiz.md) |
 | Narrativa, inimigo e régua de linguagem | `../../CLAUDE.md` |
 | Perguntas que ficaram de fora, para a sessão | [`../../estrategia/2026-09-21-perguntas-da-sessao-de-diagnostico.md`](../../estrategia/2026-09-21-perguntas-da-sessao-de-diagnostico.md) |
 | Identidade visual | Preto, dourado e cristal, definida em 21/09/2026 |
@@ -47,7 +55,7 @@ O resto segue a apostila:
 1. **Quiz do tipo Killer** (Procedimento 4). Promete a causa ("onde o seu
    dinheiro está saindo"), não a solução. É o tipo certo para público frio que
    já tentou curso técnico e planilha e continuou sem margem.
-2. **10 perguntas da mais fácil para a mais reflexiva.** Abre com o que se
+2. **12 perguntas da mais fácil para a mais reflexiva.** Abre com o que se
    responde sem pensar (o que você faz, quantos eventos entrega), passa pelo
    comportamento reconhecível (o que acontece com o orçamento, os extras),
    depois pelos números (ticket, desconto), e só no fim chega no que exige
@@ -75,10 +83,16 @@ O resto segue a apostila:
    marca a menor descobre, na mesma tela, que a maior é ocupada por gente do
    mesmo mercado.
 3. **3 interseções de implicação**, sempre logo depois da pergunta que elas
-   comentam: a dos 13 eventos vem depois do orçamento, a do desconto anual vem
-   depois da pergunta de desconto, e a do "40% menos, 60% mais" vem depois do
-   "o que você já tentou". Todas ancoradas em fato verificável da Adriana ou em
-   aritmética pura.
+   comentam, e **montadas com as respostas da própria pessoa**. Cada uma tem um
+   `monta(c)` em `flow.js` que recebe só o que já foi respondido até ali: a de
+   depois da P3 fala de volume (ainda não existe ticket), a de depois da P6 dá
+   o primeiro valor em reais (por evento, nunca total do ano) e a de depois da
+   P9 responde à tentativa que a pessoa marcou.
+
+   > ⚠️ **Nunca volte a usar texto fixo aqui.** A primeira versão tinha, com um
+   > evento de R$ 15 mil que não era o da pessoa, e a cliente perguntou, com
+   > razão, de onde saiu aquele número. Se a tela existe para gerar implicação,
+   > ela deriva da resposta ou não existe.
 4. **4 buckets** com página de resultado própria (Procedimentos 5 e 6), mais a
    rota de desqualificado que sai da pergunta porteira.
 5. **Cinco segundos de carregamento** entre o quiz e o diagnóstico, com barra e
@@ -89,6 +103,10 @@ O resto segue a apostila:
 6. **Roteamento pós-quiz**: qualificado e a nutrir vão para o WhatsApp dela,
    com a mensagem já trazendo o padrão e a conta; fora da faixa recebe a leitura
    completa e a oferta de entrada de R$ 47.
+7. **O cabeçalho da marca sai durante as perguntas.** Ele aparece na primeira
+   tela e volta na captura, e some no meio do quiz (`body.sem-topbar`, ligada
+   por `ajustarCabecalho()` em `app.js`). São cerca de 100px que, no celular,
+   empurravam a sétima faixa da pergunta de ticket para fora da tela.
 
 ## Os 4 buckets
 
@@ -126,7 +144,7 @@ Duas travas de credibilidade:
 | ------- | ------- |
 | `index.html` | captura + quiz |
 | `diagnostico.html` | página de resultado, com o CSS próprio do relatório |
-| `flow.js` | **toda a copy**: hero, 10 perguntas, interseções, captura, buckets, oferta de entrada |
+| `flow.js` | **toda a copy**: hero, 12 perguntas, interseções (com `monta`), captura, buckets, oferta de entrada |
 | `calculo.js` | motor compartilhado: conta, bucket e classificação do lead |
 | `app.js` | motor do quiz: telas, validação, persistência, tracking, envio do lead |
 | `diagnostico.js` | monta o relatório por bucket e roteia os CTAs |

@@ -49,17 +49,17 @@ if (!temRespostas) {
   /* ---- CTA por nível de qualificação ---- */
   let ctaLabel, ctaClasse, ctaNota, fechamento;
   if (nivel === "qualificado") {
-    ctaLabel = "Quero minha sessão de diagnóstico";
+    ctaLabel = "Quero parar de perder esse dinheiro";
     ctaClasse = "cta-sessao";
-    ctaNota = "São 45 minutos, com a Adriana, sem apresentação de slide.";
+    ctaNota = "São 45 minutos com a Adriana, olhando a sua conta. Sem apresentação de slide.";
     fechamento = `<p class="clube">Se fizer sentido seguirmos juntas, eu te explico como. Se não fizer, você sai com a sua conta na mão do mesmo jeito.</p>`;
   } else if (nivel === "nutrir") {
-    ctaLabel = "Quero conversar sobre a minha conta";
+    ctaLabel = "Quero começar a recuperar esse dinheiro";
     ctaClasse = "cta-wpp";
     ctaNota = "Sem compromisso. A gente olha o seu número e te diz qual é o primeiro passo no seu caso.";
     fechamento = `<p class="clube">Para o seu momento, o primeiro passo costuma ser menor do que você imagina. E começa por onde o dinheiro está saindo.</p>`;
   } else {
-    ctaLabel = "Quero conversar sobre a minha conta";
+    ctaLabel = "Quero ver por onde o meu dinheiro está saindo";
     ctaClasse = "cta-wpp";
     ctaNota = "Sem compromisso, e sem proposta de mentoria agora.";
     fechamento = "";
@@ -79,7 +79,7 @@ if (!temRespostas) {
     blocoConta = `
       <div class="etapa">
         <h3>A sua conta</h3>
-        <p>Com as suas respostas, ticket de ${ticket} e ${eventos} eventos por mês, a conta fica assim:</p>
+        <p>Com as suas respostas, ticket ${ticket} e ${eventos} eventos por mês, a conta fica assim:</p>
         <ul class="conta">${linhas.join("")}</ul>
         <div class="numerao">
           <span class="rotulo">A sua Dívida de Valor</span>
@@ -90,6 +90,10 @@ if (!temRespostas) {
         </div>
         <p>${nome}, esse dinheiro não foi roubado e não se perdeu no mercado.
         <strong>Ele foi entregue por você, de graça, junto com o seu trabalho.</strong></p>
+        <p class="distincao">E é por isso que se chama dívida. <strong>Só que não é dívida de banco:</strong>
+        dívida financeira aparece no extrato, tem boleto, tem data e alguém cobra. A Dívida de Valor não
+        aparece em lugar nenhum, ninguém cobra e ninguém devolve. Ela sai do seu caixa como festa fechada,
+        cliente satisfeito e agenda cheia. <strong>É por isso que ela cresce por anos sem ninguém ver.</strong></p>
       </div>`;
   } else {
     blocoConta = `
@@ -271,10 +275,13 @@ if (!temRespostas) {
       </figure>` : ""}
       <p>Comecei vendendo doce na calçada, de porta em porta. Virei doceira de festa, assessora, decoradora,
       e fundei um dos maiores buffets da minha cidade. São 25 anos dentro desse mercado.</p>
-      <p>Em 2017 eu entreguei 13 eventos em uma semana e passei 72 horas sem dormir. Entreguei tudo impecável.
-      Na segunda-feira fui olhar os números e não tinha sobrado quase nada. Eu faturava R$ 2 milhões com 15% de margem.
-      Depois de mudar para quem eu vendia, faturei R$ 1,2 milhão com 40%:
-      <strong>faturei 40% menos e lucrei 60% mais.</strong></p>
+      <p><strong>E eu já fui exatamente onde você está.</strong> Em 2017 eu entreguei 13 eventos em uma semana
+      e passei 72 horas sem dormir. Ficou tudo impecável, todo mundo elogiou. Na segunda-feira eu fui olhar os
+      números e não tinha sobrado quase nada, e o pior: eu não sabia explicar por quê.</p>
+      <p>O que mudou depois disso não foi a minha entrega, foi para quem eu vendia.
+      <strong>Eu trabalhava mais e lucrava menos. Hoje eu trabalho menos e lucro mais.</strong>
+      Na conta fria: eu faturava R$ 2 milhões e ficava com 15% disso. Passei a faturar R$ 1,2 milhão e a ficar
+      com 40%. Menos festa, menos faturamento na mão, e muito mais dinheiro no bolso no fim do ano.</p>
       <p>E já em transição de carreira, sem postar decoração, uma cliente me procurou de outro estado e insistiu
       até fechar: R$ 150 mil de decoração mais R$ 15 mil de projeto.</p>
       ${galeria}

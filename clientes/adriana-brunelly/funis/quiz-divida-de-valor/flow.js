@@ -75,15 +75,20 @@ window.FLOW = {
   },
 
   captura: {
-    titulo: "A sua conta está pronta.",
-    subtitulo: "Coloque o seu WhatsApp abaixo e receba agora o seu número e a leitura completa do seu caso.",
+    titulo: "O seu resultado está pronto.",
+    subtitulo: "Preencha abaixo e veja agora quanto o seu negócio está perdendo, e por onde.",
     campos: [
       { id: "nomeResp", label: "Seu nome", type: "text", required: true, autocomplete: "name", placeholder: "Como eu te chamo?" },
       { id: "whatsapp", label: "Seu WhatsApp (com DDD)", type: "tel", required: true, autocomplete: "tel", placeholder: "(43) 99999-9999", mask: "phone" },
       { id: "email", label: "Seu e-mail", type: "email", required: true, autocomplete: "email", placeholder: "voce@email.com" },
       { id: "cidade", label: "Cidade e estado", type: "text", required: true, autocomplete: "address-level2", placeholder: "Londrina, PR" },
+      { id: "instagram", label: "Seu Instagram", type: "text", required: true, placeholder: "@seuperfil" },
+      /* Anos de mercado sai daqui e não do quiz de propósito: é dado de
+         perfil, não pergunta de diagnóstico. Chega na Adriana do mesmo
+         jeito, e o quiz fica nas 12 perguntas. */
+      { id: "anos", label: "Há quantos anos você trabalha com eventos", type: "text", required: true, placeholder: "Ex.: 8 anos" },
     ],
-    cta: "Ver a minha Dívida de Valor",
+    cta: "Ver quanto eu estou perdendo",
     privacidade: "Os seus dados ficam entre você e a nossa equipe. Nada de disparo em massa.",
   },
 
@@ -200,7 +205,7 @@ window.FLOW = {
     {
       id: "equipe",
       etapa: "A sua equipe",
-      pergunta: "Somando equipe fixa e freelancer, quanto a mão de obra come de um evento seu?",
+      pergunta: "Somando equipe fixa e freelancer, quanto a mão de obra absorve de um evento seu?",
       options: [
         { value: "ate10",     label: "Até 10% do valor do evento",
           report: "até 10% do valor do evento",                  valor: 0.08 },
@@ -234,7 +239,7 @@ window.FLOW = {
     {
       id: "tentativas",
       etapa: "O que já tentou",
-      pergunta: "O que você já tentou para resolver isso?",
+      pergunta: "O que você já tentou para parar de perder esse dinheiro?",
       options: [
         { value: "curso",     label: "Fiz curso técnico para melhorar ainda mais a entrega",
           report: "fez curso técnico para melhorar ainda mais a entrega" },
@@ -304,24 +309,89 @@ window.FLOW = {
      INTERSEÇÕES (apostila, Parte 2)
      Telas curtas de implicação entre as perguntas. Não são pitch:
      são consequência. Começam a vender dentro do marketing.
-     Todas ancoradas em fato verificável da própria Adriana ou em
-     aritmética pura. Nada inventado.
+
+     REGRA, e ela custou caro para ser aprendida: a interseção é
+     montada COM AS RESPOSTAS DA PRÓPRIA PESSOA. A primeira versão
+     tinha texto fixo, com um evento de R$ 15 mil que não era o
+     dela, e a reação foi a certa: "de onde ele tirou esse
+     número?". Cada tela recebe um `monta(c)` e devolve num, texto
+     e fonte a partir do que já foi respondido até ali.
+
+     Dentro de `monta` só existe o que a pessoa JÁ marcou: a tela
+     do orçamento roda antes do ticket, então ali não se fala em
+     dinheiro. E a tela do desconto usa valor POR EVENTO, nunca
+     total do ano, porque o total só ganha o teto do faturamento
+     na última pergunta e sairia brigando com o número final.
      --------------------------------------------------------- */
   interseccoes: {
+    /* Depois da P3. Sabe-se segmento, volume e orçamento. Sem ticket
+       ainda, então a implicação é de volume, com a conta de eventos
+       que a própria pessoa acabou de marcar. */
     orcamento: {
-      num: "13 eventos em 1 semana",
-      texto: "Foi a semana que mudou o meu negócio. Entreguei os treze, passei 72 horas sem dormir e ficou tudo impecável. Na segunda-feira fui olhar os números e não tinha sobrado quase nada. <strong>Volume não é margem.</strong>",
-      fonte: "Adriana Brune'lly, 2017",
+      monta: function (c) {
+        var porMes = c.valor("volume") || 0;
+        var porAno = porMes * 12;
+        var abre = porAno
+          ? "São cerca de " + porAno + " entregas por ano, no ritmo que você marcou agora. "
+          : "";
+        return {
+          num: porAno ? porAno + " eventos por ano" : "13 eventos em 1 semana",
+          texto: abre + "Em 2017 eu entreguei treze numa única semana. Passei 72 horas sem dormir, ficou tudo impecável, e na segunda-feira fui olhar os números: não tinha sobrado quase nada. <strong>Volume não é margem.</strong>",
+          fonte: "Adriana Brune'lly, 2017",
+        };
+      },
     },
+
+    /* Depois da P6. Ticket e desconto já estão na mão, então aqui
+       aparece o primeiro número em reais do funil. Por evento, e
+       com a faixa que ela marcou dita por extenso, para que dê
+       para conferir a conta de cabeça. */
     desconto: {
-      num: "R$ 108 mil por ano",
-      texto: "É o que sai de um negócio que dá 10% de desconto em seis eventos de R$ 15 mil por mês. São R$ 1.500 por evento, R$ 9 mil por mês. <strong>Ninguém lança esse número em lugar nenhum.</strong>",
-      fonte: "Conta simples, com os números do próprio mercado",
+      monta: function (c) {
+        var ticket = c.valor("ticket") || 0;
+        var pctDesc = c.valor("desconto") || 0;
+        var pctExtra = c.valor("extras") || 0;
+
+        if (ticket && pctDesc) {
+          return {
+            num: c.brl(ticket * pctDesc) + " por evento",
+            texto: "Na hora de fechar você marcou: “" + c.label("desconto") + "”. Num evento de " + c.brl(ticket) + ", isso é " + c.brl(ticket * pctDesc) + " que saem de cada festa sua depois de você já ter feito todo o trabalho de vender. <strong>Esse número não aparece em lugar nenhum:</strong> ele não entra na conta como prejuízo, entra como negócio fechado.",
+            fonte: "A conta é feita com o que você marcou nas duas perguntas anteriores",
+          };
+        }
+        if (ticket && pctExtra) {
+          return {
+            num: c.brl(ticket * pctExtra) + " por evento",
+            texto: "Você não dá desconto, e isso já te coloca à frente da maioria. Só que sobre os extras você marcou: “" + c.label("extras") + "”. Num evento de " + c.brl(ticket) + ", esse pedaço vale " + c.brl(ticket * pctExtra) + " por festa. <strong>É margem saindo pela porta dos fundos</strong>, e é o furo que menos se enxerga.",
+            fonte: "A conta é feita com o que você marcou nas perguntas anteriores",
+          };
+        }
+        return {
+          num: "Dois furos fechados",
+          texto: "Você não dá desconto e o seu contrato segura os extras. São os dois lugares por onde o dinheiro mais escapa neste mercado, e nenhum dos dois está em você. <strong>Então a sua conta está em outro lugar.</strong> As próximas perguntas dizem onde.",
+          fonte: "Leitura das suas respostas até aqui",
+        };
+      },
     },
+
+    /* Depois da P9. Responde à tentativa que a pessoa marcou, uma a
+       uma, e fecha com a virada dela na frase que ela mesma pediu,
+       sem porcentagem de margem no meio. */
     tentativas: {
-      num: "40% menos, 60% mais",
-      texto: "Eu faturava R$ 2 milhões com 15% de margem. Depois que mudei para quem eu vendia, faturei R$ 1,2 milhão com 40%. <strong>Faturei 40% menos e lucrei 60% mais.</strong> A diferença não estava na entrega.",
-      fonte: "Adriana Brune'lly, antes e depois da virada",
+      monta: function (c) {
+        var mapa = {
+          curso:     { num: "Não era a entrega",        linha: "Curso técnico melhora a entrega, e a sua entrega já é boa. O problema nunca esteve ali." },
+          instagram: { num: "Não era o alcance",        linha: "Instagram traz mais gente pedir orçamento. Mais gente pedindo o mesmo orçamento não muda a conta." },
+          planilha:  { num: "Não era a planilha",       linha: "Planilha mostra o preço certo. Ela não te ensina a defender esse preço na hora do sim." },
+          nada:      { num: "Não era falta de esforço", linha: "Você foi levando, que é o que quase todo mundo faz. Trabalhar mais nunca foi o que faltou aqui." },
+        };
+        var m = mapa[c.a.tentativas] || mapa.nada;
+        return {
+          num: m.num,
+          texto: m.linha + " Eu tentei todas elas, uma por uma, antes de entender que o que precisava mudar era para quem eu vendia. <strong>Eu trabalhava mais e lucrava menos. Hoje eu trabalho menos e lucro mais.</strong>",
+          fonte: "Adriana Brune'lly, antes e depois da virada",
+        };
+      },
     },
   },
 

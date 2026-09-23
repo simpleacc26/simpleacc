@@ -125,6 +125,8 @@ function enviarLead(etapa) {
     whatsapp: a.whatsapp || "",
     email: a.email || "",
     cidade: a.cidade || "",
+    instagram: a.instagram || "",
+    anos_mercado: a.anos || "",
     etapa: etapa,
     qualificacao: M.classificarLead(a, divida),
     padrao: bucket.dados.nome,
@@ -318,7 +320,22 @@ function renderStep(screenIdx, i) {
    TELA 3 · INTERSEÇÃO (implicação, não pitch)
    ============================================================ */
 function renderInterseccao(screenIdx, id) {
-  const it = F.interseccoes[id];
+  /* A tela de interseção é montada com as respostas da própria pessoa.
+     Texto fixo aqui já custou caro: o número aparecia do nada e o lead
+     perguntava, com razão, de onde ele tinha saído. O `monta` de cada
+     interseção em flow.js recebe este contexto e só enxerga o que já
+     foi respondido até esta altura do quiz. */
+  const base = F.interseccoes[id];
+  const a = state.answers;
+  const ctx = {
+    a: a,
+    valor: (sid) => M.valor(sid, a),
+    frase: (sid) => M.frase(sid, a),
+    label: (sid) => M.label(sid, a),
+    opcao: (sid) => M.opcaoDe(sid, a),
+    brl: M.brl,
+  };
+  const it = typeof base.monta === "function" ? base.monta(ctx) : base;
   trackEvent("step_view", { step_id: "inter_" + id });
 
   const screen = el(`
@@ -351,6 +368,7 @@ function finalizar() {
 }
 
 function renderLoading() {
+  document.body.classList.add("sem-topbar");
   updateProgress(null);
   trackEvent("step_view", { step_id: "loading" });
   const L = F.loading || {};
@@ -399,9 +417,22 @@ function renderLoading() {
 }
 
 /* ---------- navegação ---------- */
+/* O cabeçalho da marca só existe na porta de entrada e na captura.
+   Da segunda tela em diante ele sai: são 100px de altura que, no
+   celular, empurravam a última alternativa das perguntas longas
+   (ticket, com sete faixas) para fora da tela. Quem já está
+   respondendo não precisa ser reapresentado à marca a cada clique,
+   e a Adriana abriu mão dele justamente por causa desse corte. */
+function ajustarCabecalho(idx) {
+  const s = SCREENS[idx];
+  const mostra = idx === 0 || !s || s.kind === "captura";
+  document.body.classList.toggle("sem-topbar", !mostra);
+}
+
 function goTo(idx) {
   state.view = idx; save();
   const s = SCREENS[idx];
+  ajustarCabecalho(idx);
   if (!s) return renderCaptura();
   if (s.kind === "captura") return renderCaptura();
   if (s.kind === "step") return renderStep(idx, s.i);
