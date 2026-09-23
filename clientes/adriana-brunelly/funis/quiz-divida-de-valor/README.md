@@ -13,19 +13,28 @@ HTML, CSS e JavaScript puros. Sem build, sem framework, sem dependência externa
 na Vercel, time Simpleacc). URL pública, sem proteção de acesso.
 
 Os leads caem na planilha
-[**Leads · Diagnóstico da Dívida de Valor**](https://docs.google.com/spreadsheets/d/1CkGhLbXycspD3NZ0QpwU2LlaVZqtS4QPZjA_-9-PQcA/edit),
-em `3. Estratégia e Tráfego`, pelo cenário **[Adriana Brunelly] Diagnóstico da
-Dívida de Valor → Sheets** no Make (webhook + Google Sheets, ativo e testado).
+[**Leads | Adriana Brunelly**](https://docs.google.com/spreadsheets/d/1ZXftBlzG--uSANKh2VSXU3bCNg_6dBzcYR2QQ0W2un0/edit),
+na pasta **Simple <> Adriana Brunelly** (a pasta compartilhada com a cliente),
+pelo cenário **[Adriana Brunelly] Diagnóstico da Dívida de Valor → Sheets** no
+Make (webhook + Google Sheets, ativo e testado).
 
 O lead é gravado uma vez, no fim, quando já existem **respostas e contato** na
-mesma linha: padrão, conta em reais, as 12 respostas e as UTMs. São 32 colunas.
-A primeira linha da planilha é o teste de conferência do mapeamento, e pode ser
-apagada à vontade.
+mesma linha: padrão, conta em reais, as 12 respostas e as UTMs. São 32 colunas,
+e a aba chama `Página1`. A primeira linha de dados é o teste de conferência do
+mapeamento, e pode ser apagada à vontade.
 
-> ⚠️ A API do Drive não edita célula, então **mexer nas perguntas obriga a criar
-> planilha nova** com o conjunto completo de colunas e a repontar o cenário. As
-> versões anteriores ficam na mesma pasta, renomeadas com `[OBSOLETA...]`, e não
-> são apagadas.
+> ⚠️ **Conferir o nome da aba antes de repontar o cenário.** Planilha criada à
+> mão no Google Sheets tem aba `Página1`; planilha criada pela API do Drive a
+> partir de CSV tem aba `Untitled`. O cenário quebra com
+> `Unable to parse range` quando o nome não bate.
+
+> ⚠️ A API do Drive não edita célula. Para escrever o cabeçalho numa planilha
+> vazia, o caminho é pelo próprio cenário: põe `includesHeaders: false`, manda
+> um disparo no webhook com os **nomes das colunas no lugar dos valores**, e
+> depois volta para `includesHeaders: true`.
+
+As planilhas anteriores ficam renomeadas com `[OBSOLETA...]` em
+`3. Estratégia e Tráfego`, e não são apagadas.
 
 ## De onde vem cada coisa
 
