@@ -69,6 +69,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   }
   .hero .promessa em{color:var(--gold); font-style:normal}
 
+  /* ── VSL ─────────────────────────────────────────
+     Vertical 9:16, que é como o vídeo foi gravado. A largura é travada
+     em 22rem porque 9:16 em tela cheia de desktop empurraria o botão
+     para fora da dobra. */
+  .vsl{margin:0 0 2rem}
+  .vsl-quadro{
+    position:relative; width:min(100%,22rem); aspect-ratio:9/16;
+    background:#000; border:1px solid rgba(201,168,76,.28);
+    border-radius:var(--r); overflow:hidden;
+  }
+  .vsl-quadro iframe,
+  .vsl-quadro video{
+    position:absolute; inset:0; width:100%; height:100%;
+    border:0; display:block; object-fit:cover;
+  }
+  .vsl .promessa-vsl{
+    font-family:var(--sans); font-size:.98rem; line-height:1.55;
+    color:#CDC4B7; margin:1.05rem 0 0; max-width:29rem;
+  }
+  .vsl .promessa-vsl b{color:#F7F3EB; font-weight:600}
+  @media (min-width:56rem){
+    .vsl{display:grid; grid-template-columns:22rem 1fr; gap:1.8rem; align-items:center}
+    .vsl .promessa-vsl{margin:0}
+  }
+
   /* ── botão ───────────────────────────────────── */
   .cta{
     display:inline-block; background:var(--gold-deep); color:#FFF9EA;
@@ -236,8 +261,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       avaliação que fecha.
     </p>
 
-    <!-- VSL: quando o vídeo estiver gravado, colar o embed aqui, acima do botão.
-         O roteiro está em roteiros/2026-09-02-vsl-venda-mais-na-estetica.html -->
+    <!-- VSL · o bloco só aparece quando VSL.id estiver preenchido lá no script
+         do fim da página. Com o campo vazio a página fica idêntica à de hoje,
+         então isso pode ir para produção antes do vídeo estar hospedado. -->
+    <div class="vsl" id="vsl" hidden>
+      <div class="vsl-quadro" id="vsl-quadro"></div>
+      <p class="promessa-vsl">
+        Em pouco mais de uma hora você sai sabendo <b>conduzir uma avaliação que
+        termina em tratamento fechado</b> e <b>montar campanha que traz cliente
+        nova sem baixar preço</b>, usando o que já existe dentro da sua sala. Sem
+        agenda nova, sem equipamento novo.
+      </p>
+    </div>
 
     <a class="cta" href="https://chk.eduzz.com/ovxljxgb" data-cta="hero">Quero começar agora por R$ 197</a>
     <p class="selo-cta"><span>Acesso imediato no seu e-mail</span><span>7 dias de garantia</span></p>
@@ -572,6 +607,44 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         a.href += (a.href.indexOf('?') === -1 ? '?' : '&') + query;
       });
     }
+  })();
+
+  /* ─────────────────────────────────────────────────────────────
+     VSL · o único lugar a mexer quando o vídeo estiver hospedado.
+
+       tipo: 'youtube' | 'vimeo' | 'panda' | 'iframe'
+       id:   o identificador do vídeo. Com tipo 'iframe', a URL inteira
+             do embed, que é o caso do Panda quando o player é custom.
+
+     Enquanto id for string vazia o bloco não é renderizado e a página
+     se comporta exatamente como antes. Não remover o bloco do HTML:
+     é ele que evita um deploy só para ligar o vídeo.
+     O vídeo é vertical 9:16, então qualquer player precisa entrar com
+     proporção vertical, não 16:9.
+     ───────────────────────────────────────────────────────────── */
+  var VSL = { tipo: 'youtube', id: '' };
+
+  (function(){
+    if(!VSL.id) return;
+    var quadro = document.getElementById('vsl-quadro');
+    if(!quadro) return;
+
+    var src = '';
+    if(VSL.tipo === 'youtube')      src = 'https://www.youtube.com/embed/' + VSL.id + '?rel=0&modestbranding=1&playsinline=1';
+    else if(VSL.tipo === 'vimeo')   src = 'https://player.vimeo.com/video/' + VSL.id + '?dnt=1';
+    else if(VSL.tipo === 'panda')   src = 'https://player-vz-' + VSL.id + '.tv.pandavideo.com.br/embed/';
+    else                            src = VSL.id;
+
+    var f = document.createElement('iframe');
+    f.src = src;
+    f.title = 'Venda Mais na Estética';
+    f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+    f.setAttribute('allowfullscreen', '');
+    f.setAttribute('loading', 'lazy');
+    quadro.appendChild(f);
+    document.getElementById('vsl').hidden = false;
+
+    dl('vsl_exibida', { vsl_tipo: VSL.tipo });
   })();
 
   dl('oferta_view', { oferta_produto: 'venda-mais-na-estetica', oferta_valor: 197 });
