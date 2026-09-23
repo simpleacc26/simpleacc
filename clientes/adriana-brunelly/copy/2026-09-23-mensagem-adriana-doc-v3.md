@@ -5,9 +5,8 @@ Para enviar no grupo do WhatsApp, junto do PDF
 
 Substitui a mensagem do v2, que não chegou a ser enviada.
 
-> ⚠️ **A URL de teste ainda está com a versão antiga.** Tudo isto está no código
-> e no documento, mas a publicação na Vercel depende de token novo. Publicar,
-> conferir, e só então mandar o link junto.
+Vai junto a URL de teste, que **já está com tudo isto no ar** e conferida ponta
+a ponta: **<https://quiz-adriana-brunelly.vercel.app>**
 
 ---
 
@@ -40,7 +39,8 @@ de outras três coisas que ficaram com você.
 
 No documento está tudo: as 12 perguntas com as alternativas, as três telas do
 meio com um exemplo real de conta, e a copy inteira do diagnóstico, do jeito que
-a sua cliente vai ler.
+a sua cliente vai ler. E o link acima está no ar com essa mesma versão, se você
+quiser responder de novo no celular.
 
 Última coisa, e é sério: você conhece o seu público muito melhor do que a gente,
 pelo menos por enquanto, porque a gente ainda está aprendendo esse mercado com
