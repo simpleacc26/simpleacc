@@ -322,8 +322,25 @@ Página de vendas do **Venda Mais na Estética**, R$ 197, criada em 08/09/2026.
   de topo. Ler errado quebra a atribuição da venda em silêncio.
 - Eventos de GTM: `oferta_view` no carregamento e `oferta_click` em cada botão,
   com `oferta_posicao` dizendo qual dos três disparou.
-- O bloco da VSL ainda não existe. Quando o vídeo estiver gravado, o embed entra
-  no comentário marcado dentro do `header.hero`, acima do botão.
+### O bloco da VSL
+
+No `header.hero`, acima do botão. **Horizontal 16:9**, moldura com filete de um
+pixel em ouro, raio de 4px e sombra larga, que é a mesma linguagem do quiz.
+Abaixo do vídeo vem a promessa do curso, que foi pedido da Ju no pit stop de
+23/09. Rótulo em caixa alta com fio, igual aos `badge` do laudo.
+
+Para trocar o vídeo, mexer **só** nesta linha, no script do fim da página:
+
+```js
+var VSL = { tipo: 'youtube', id: 'UYOiadvsVEw' };
+```
+
+- `tipo` aceita `youtube`, `vimeo`, `panda` ou `iframe` (URL inteira do embed).
+- **Com `id` vazio o bloco não é renderizado** e a página fica idêntica à versão
+  sem vídeo. É de propósito: permite publicar a página antes do vídeo existir e
+  ligar o vídeo depois sem mexer em estrutura.
+- Dispara `vsl_exibida` no dataLayer quando o vídeo entra.
+- A proporção mora no CSS, em `.vsl-quadro`. Não tentar mudar pelo script.
 
 **A rota do diagnóstico ainda não foi trocada.** Os seis CTAs do
 `diagnostico.html` continuam indo todos para o WhatsApp. A troca para a rota

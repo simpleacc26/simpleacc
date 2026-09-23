@@ -48,9 +48,13 @@ for p in sorted(pathlib.Path(".").iterdir()):
 if not any(a["file"] == "index.html" for a in arquivos):
     sys.exit("erro: index.html não encontrado na pasta.")
 
-print(json.dumps({"name": projeto, "target": target,
-                  "projectSettings": {"framework": None},
-                  "files": arquivos}))
+corpo = {"name": projeto, "projectSettings": {"framework": None},
+         "files": arquivos}
+# A API só aceita production, staging ou um ambiente custom em `target`.
+# Preview é a ausência do campo, não a string "preview".
+if target != "preview":
+    corpo["target"] = target
+print(json.dumps(corpo))
 PY
 
 echo "enviando $(python3 -c 'import json,sys; print(len(json.load(open(sys.argv[1]))["files"]))' "$PAYLOAD") arquivos para $TARGET..."

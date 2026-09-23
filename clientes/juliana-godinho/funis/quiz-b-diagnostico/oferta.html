@@ -70,29 +70,33 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .hero .promessa em{color:var(--gold); font-style:normal}
 
   /* ── VSL ─────────────────────────────────────────
-     Vertical 9:16, que é como o vídeo foi gravado. A largura é travada
-     em 22rem porque 9:16 em tela cheia de desktop empurraria o botão
-     para fora da dobra. */
-  .vsl{margin:0 0 2rem}
+     16:9. A moldura repete a linguagem do quiz: filete de um pixel em
+     ouro, raio de 4px e sombra larga e rasa, nunca borda grossa. */
+  .vsl{margin:0 0 2.1rem}
+  .vsl-rotulo{
+    font-size:.62rem; font-weight:600; letter-spacing:.24em;
+    text-transform:uppercase; color:var(--gold);
+    display:flex; align-items:center; gap:.85rem; margin:0 0 .95rem;
+  }
+  .vsl-rotulo::after{
+    content:""; flex:1; height:1px; background:var(--gold-hair);
+  }
   .vsl-quadro{
-    position:relative; width:min(100%,22rem); aspect-ratio:9/16;
-    background:#000; border:1px solid rgba(201,168,76,.28);
+    position:relative; width:100%; aspect-ratio:16/9;
+    background:#0B0908; border:1px solid var(--gold-hair);
     border-radius:var(--r); overflow:hidden;
+    box-shadow:0 10px 50px rgba(0,0,0,.42);
   }
   .vsl-quadro iframe,
   .vsl-quadro video{
     position:absolute; inset:0; width:100%; height:100%;
-    border:0; display:block; object-fit:cover;
+    border:0; display:block;
   }
   .vsl .promessa-vsl{
-    font-family:var(--sans); font-size:.98rem; line-height:1.55;
-    color:#CDC4B7; margin:1.05rem 0 0; max-width:29rem;
+    font-family:var(--sans); font-size:.97rem; line-height:1.58;
+    color:#CDC4B7; margin:1.15rem 0 0;
   }
   .vsl .promessa-vsl b{color:#F7F3EB; font-weight:600}
-  @media (min-width:56rem){
-    .vsl{display:grid; grid-template-columns:22rem 1fr; gap:1.8rem; align-items:center}
-    .vsl .promessa-vsl{margin:0}
-  }
 
   /* ── botão ───────────────────────────────────── */
   .cta{
@@ -265,6 +269,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
          do fim da página. Com o campo vazio a página fica idêntica à de hoje,
          então isso pode ir para produção antes do vídeo estar hospedado. -->
     <div class="vsl" id="vsl" hidden>
+      <p class="vsl-rotulo">A apresentação</p>
       <div class="vsl-quadro" id="vsl-quadro"></div>
       <p class="promessa-vsl">
         Em pouco mais de uma hora você sai sabendo <b>conduzir uma avaliação que
@@ -618,11 +623,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
      Enquanto id for string vazia o bloco não é renderizado e a página
      se comporta exatamente como antes. Não remover o bloco do HTML:
-     é ele que evita um deploy só para ligar o vídeo.
-     O vídeo é vertical 9:16, então qualquer player precisa entrar com
-     proporção vertical, não 16:9.
+     é ele que evita um deploy só para trocar o vídeo.
+     O vídeo é horizontal 16:9. Trocar a proporção é mexer em
+     .vsl-quadro no CSS, não aqui.
      ───────────────────────────────────────────────────────────── */
-  var VSL = { tipo: 'youtube', id: '' };
+  var VSL = { tipo: 'youtube', id: 'UYOiadvsVEw' };
 
   (function(){
     if(!VSL.id) return;
