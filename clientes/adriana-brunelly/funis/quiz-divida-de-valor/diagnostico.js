@@ -24,7 +24,7 @@ if (!temRespostas) {
   report.innerHTML = `
     <p class="eyebrow">O seu diagnóstico</p>
     <h2>Ainda não tenho as suas respostas</h2>
-    <p class="lead">Parece que você chegou aqui sem responder. São 10 perguntas, leva 2 minutos.</p>
+    <p class="lead">Parece que você chegou aqui sem responder. O diagnóstico é montado com as suas respostas, então ele começa no quiz.</p>
     <div class="actions"><a class="btn btn-primary btn-block" href="index.html">Fazer agora</a></div>`;
 } else {
   const nome = esc((a.nomeResp || "").split(" ")[0]) || "Oi";

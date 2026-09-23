@@ -129,7 +129,8 @@ pg(3, "O que ficou igual", f"""
       <ul class="limpa">
         <li><strong>Identidade visual inteira.</strong> Preto, dourado, cristal, tipografia e cards. “Não mudar nada disso.”</li>
         <li><strong>Barra de progresso</strong> com “Pergunta N de 12”, que reduz abandono.</li>
-        <li><strong>O selo</strong> “Diagnóstico gratuito · 2 minutos”, que quebra a objeção de tempo logo de cara.</li>
+        <li><strong>O selo</strong> de diagnóstico gratuito, que quebra a objeção logo de cara. Ficou só
+        “Diagnóstico gratuito”: o tempo saiu do selo e continua dito na linha logo abaixo do título.</li>
         <li><strong>O rodapé</strong> “25 anos no mercado · Londrina, PR”. Detalhe pequeno, impacto grande.</li>
       </ul>
     </div>

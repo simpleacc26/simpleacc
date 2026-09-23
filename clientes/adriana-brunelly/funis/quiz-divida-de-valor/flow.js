@@ -73,7 +73,7 @@ window.FLOW = {
      não uma peça financeira. A pergunta no espelho funciona melhor: a
      pessoa lê e pensa "já me perguntei isso sim". */
   hero: {
-    selo: "Diagnóstico gratuito · 2 minutos",
+    selo: "Diagnóstico gratuito",
     titulo: "Você já se fez essa pergunta? <em>Quanto de dinheiro estou perdendo</em> em meu negócio?",
     subtitulo: "Em 2 minutos você vai saber por onde está perdendo dinheiro no seu negócio.",
     cta: "Quero ver a minha conta",
