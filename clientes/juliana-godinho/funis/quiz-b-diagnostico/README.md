@@ -368,6 +368,13 @@ o texto ("o material em si tá muito bom", "a página tá clean, tá chique"):
 4. **Gráficos de barra** com dado de mercado, alternando com os blocos de texto
 5. **Fonte nomeada** embaixo de cada gráfico
 
+### Onde está no ar
+
+Publicado em produção em 24/09/2026, junto com `oferta.html`, `quiz-c.html` e
+`vsl-capa.jpg`. **Os quatro são arquivos órfãos: nada aponta para eles**, então
+nenhuma lead chega em nenhum. O `index.html` e o `diagnostico.html` subiram
+byte a byte idênticos ao que já estava, conferido por md5 antes e depois.
+
 ### Como revisar sem preencher o quiz
 
 `diagnostico-b.html?demo=Q1` (ou Q2, Q3, Q4). Em demo **nenhum evento é
