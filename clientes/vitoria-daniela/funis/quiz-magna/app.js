@@ -249,7 +249,7 @@ function renderAnalisando() {
     "Calculando o seu potencial de faturamento…",
     "Montando o seu diagnóstico personalizado…",
   ];
-  const icones = ["🔎", "🧩", "🎯", "📈", "✨"];
+  const icones = ["🔎", "🗂️", "🎯", "📈", "✨"];
 
   const screen = el(`
     <section class="card screen analise">
