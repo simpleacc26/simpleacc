@@ -40,8 +40,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .pdf{background:none;border:1px solid rgba(201,168,76,.4);color:var(--gold);border-radius:var(--r);font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:.6rem 1.1rem;cursor:pointer;transition:background .2s}
   .pdf:hover{background:rgba(201,168,76,.12)}
 
-  section{padding:4.5rem 0}
-  section.tight{padding:3.25rem 0}
+  /* Variante B · respiro entre blocos reduzido em cerca de 30%.
+     O laudo ganhou o medidor e dois blocos de dado, então o mesmo
+     respiro de antes virava buraco entre um cartão e outro. */
+  section{padding:3.1rem 0}
+  section.tight{padding:2.1rem 0}
   .kick{font-size:.64rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:1.2rem}
   h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.1rem,6vw,3.4rem);line-height:1.1;letter-spacing:-.008em;text-wrap:balance;margin-bottom:1.3rem}
   h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.75rem,4.4vw,2.5rem);line-height:1.14;letter-spacing:-.008em;text-wrap:balance;margin-bottom:1.6rem}
@@ -57,7 +60,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .rule{height:1px;background:var(--gold-hair);margin:2.2rem 0}
 
   /* laudo */
-  .head{background:var(--espresso);color:#F2EDE3;padding:4.5rem 0 4rem;position:relative}
+  .head{background:var(--espresso);color:#F2EDE3;padding:4.5rem 0 2.8rem;position:relative}
   .head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,var(--gold-deep),var(--gold),transparent)}
   .head .kick{color:var(--gold)}
   .head h1{color:#FBF7EF;max-width:20ch}
@@ -99,7 +102,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   /* medidor operacional x gestão */
   .medidor{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
-    padding:1.7rem 1.8rem;box-shadow:0 6px 40px rgba(20,18,16,.05);margin-bottom:1.6rem}
+    padding:1.7rem 1.8rem;box-shadow:0 6px 40px rgba(20,18,16,.05)}
   .medidor .topo{display:flex;justify-content:space-between;align-items:baseline;
     gap:1rem;flex-wrap:wrap;margin-bottom:1.15rem}
   .medidor .rot{font-size:.62rem;font-weight:600;letter-spacing:.22em;
@@ -227,9 +230,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   @media(max-width:760px){
     .autor{grid-template-columns:1fr;gap:1.8rem}
     .retrato{max-width:16rem;margin-inline:auto}
-    section{padding:2.8rem 0}
-    section.tight{padding:2.2rem 0}
-    .head{padding:2.8rem 0 2.4rem}
+    section{padding:1.9rem 0}
+    section.tight{padding:1.4rem 0}
+    .head{padding:2.8rem 0 1.7rem}
     .bloco{padding:1.4rem 1.3rem}
     body{font-size:16.5px}
     p{margin-bottom:1rem}
