@@ -350,6 +350,61 @@ var VSL = { tipo: 'youtube', id: 'UYOiadvsVEw' };
 - Dispara `vsl_exibida` no dataLayer quando o vídeo entra.
 - A proporção mora no CSS, em `.vsl-quadro`. Não tentar mudar pelo script.
 
+## diagnostico-b.html · variante com estado de alerta
+
+Criada em 24/09/2026 a partir dos sete pedidos que a Ju fez no pit stop de
+23/09. **É arquivo separado e não interfere no `diagnostico.html` que está no
+ar.** O quiz continua mandando todo mundo para a versão atual.
+
+O que foi acrescentado, e nada do laudo escrito foi tocado, porque ela aprovou
+o texto ("o material em si tá muito bom", "a página tá clean, tá chique"):
+
+1. **Nome do diagnóstico**, um por quadro: Teto Operacional, Carteira Fechada,
+   Dependência de Desconto, Defasagem de Preço
+2. **Selo de estado** com cor, no topo da capa escura: crítico, atenção ou
+   em estruturação
+3. **Índice de Dependência Operacional**, no formato "70% operacional, 30%
+   gestão" que ela pediu
+4. **Gráficos de barra** com dado de mercado, alternando com os blocos de texto
+5. **Fonte nomeada** embaixo de cada gráfico
+
+### Como revisar sem preencher o quiz
+
+`diagnostico-b.html?demo=Q1` (ou Q2, Q3, Q4). Em demo **nenhum evento é
+disparado**, para visita de revisão não virar conversão na planilha nem no GTM.
+Cada quadro do demo usa respostas diferentes de propósito, para aparecerem os
+três estados do semáforo.
+
+### O índice não é estatística, e a página diz isso
+
+O número sai das respostas do próprio quiz, com pesos declarados em
+`indiceOperacional()`, e o laudo abre a conta num detalhe expansível. A Ju citou
+*"você tem 15% de chance de quebrar"* como exemplo do que queria. **Esse número
+não existe em base nenhuma e não foi usado.** No lugar dele entrou a taxa de
+mortalidade por porte do Sebrae, que é pública e diz a mesma coisa.
+
+As respostas são lidas do array `debug` do payload, não de campos novos. Foi
+assim justamente para **não precisar mexer no `index.html` que está no ar**. Se
+o formato mudar, `indiceOperacional()` devolve `null` e o medidor some, em vez
+de mostrar número errado.
+
+### Os dados usados, todos verificáveis
+
+| Dado | Fonte |
+|---|---|
+| 236 mil negócios de beleza abertos em 2025, +18,5%, 646/dia, 27/hora; 94% MEI | Sebrae, levantamento de 12/01/2026, via Agência Sebrae de Notícias |
+| Mortalidade em 5 anos: MEI 29%, ME 21,6%, EPP 17%, serviços 26,6% | Sebrae, Sobrevivência de Empresas, base Receita Federal |
+| 61% pagam despesa da empresa com conta pessoal (serviços 62%); controle: planilha 30%, caderno 25%, app 20%, contador 13%, nenhum 10% | Sebrae, Hábitos Financeiros dos Pequenos Negócios, 2025 |
+| 49% perderam lucratividade por custo; 47% classificam a pressão como alta; 14,7% recuperaram via preço | Serasa Experian, pesquisa com PMEs, 2026 |
+| Setor cresce ~7% ao ano até 2027 | Euromonitor International, citado pela ABIHPEC |
+
+**Dois dados foram descartados na apuração**, e vale registrar para ninguém
+tentar de novo: a alegação de que "apenas 15% dos clientes de beleza trocam de
+profissional por preço" aparece em blog citando o Sebrae, **sem nome de estudo,
+ano ou link**, e não foi possível chegar na fonte primária. E a pesquisa
+CNDL/SPC sobre gastos com beleza **é de 2016** e mede consumo de produto, não
+clínica. Nenhum dos dois entrou.
+
 **A rota do diagnóstico ainda não foi trocada.** Os seis CTAs do
 `diagnostico.html` continuam indo todos para o WhatsApp. A troca para a rota
 `edp` deve ser feita junto com o deploy, e não antes, para nenhuma lead cair
