@@ -5,6 +5,13 @@ tudo e preencha o mapa abaixo. Onde o material não responder, **assuma o padrã
 mais provável para o nicho, escreva a premissa, e siga**. Uma premissa
 sinalizada é melhor que um documento travado.
 
+## Antes de escrever: leia o roadmap
+
+Se o cliente já tem Roadmap de 90 dias, **leia o roadmap antes de escrever a
+estratégia**. Esteira, ticket, meta, conversão, verba e a narrativa (inimigo,
+virada, régua de linguagem) já foram decididos lá. Os dois documentos não podem
+divergir em nenhum número, e quem chega depois se ajusta ao primeiro.
+
 ## Antes de tudo: procure a call de vendas
 
 **O documento mais rico de um cliente novo não é a call de onboarding, é a call
@@ -70,32 +77,48 @@ semana no repositório, e de reduzir uma esteira de quatro peças a uma só.
 - Se não houver **provas nomeadas**, deixe placeholders `[DEPOIMENTO]` /
   `[ANTES E DEPOIS]` na seção de prova, nunca invente números ou cases.
 
-## Saída desta etapa
-Um resumo de 8 a 12 linhas cobrindo: produto/frentes, ICP + dor + nível de
-consciência, contexto do funil, operação/destino do lead, gargalo central,
-e uma lista de **premissas assumidas**. Confirme com a pessoa (se houver) antes
-de gerar o documento.
+## E) Arquitetura: as decisões que vêm antes da copy
 
----
+Estes itens não estão prontos no material: você os **decide** a partir dele, e
+eles sustentam as 6 seções inteiras. Mudar qualquer um depois obriga a
+reescrever metade das páginas. Sem eles definidos, não comece a escrever.
 
-## E) Arquitetura (o que decide o documento inteiro)
+### 1. O inimigo nomeado e a big idea
+Um nome proprietário para o problema real (ex.: "Ruptura de Valor Percebido",
+"Ruído de Sala", "o orçamento seco"). Deve ser território livre no mercado do
+cliente, explicar o fracasso das tentativas anteriores e caber numa frase. A
+big idea é a virada de chave que reposiciona esse problema: não é o produto, e
+precisa fazer o ICP pensar "é exatamente sobre mim". Formato que funciona:
+*"o problema não está em X, está em Y"*.
 
-Estes quatro itens não estão prontos na matéria-prima: você os **decide** a
-partir dela, e eles sustentam todas as 6 seções. Sem eles definidos, não comece
-a escrever.
+### 2. O método e os pilares
+De 3 a 5 pilares, **em ordem obrigatória**. Eles sustentam o resultado do quiz
+(o pilar dominante) e os blocos 5 e 6 da página de diagnóstico. Se o cliente já
+tem um método com muitos módulos, agrupe em pilares.
 
-- **Inimigo nomeado** · um nome proprietário para o problema real
-  (ex.: "Ruptura de Valor Percebido", "Ruído de Sala"). Deve ser território
-  livre no mercado do cliente, explicar o fracasso das tentativas anteriores e
-  caber numa frase.
-- **Método e pilares** · de 3 a 5 pilares, **em ordem obrigatória**. Eles viram
-  o resultado do quiz (o pilar dominante), o bloco 5 e o bloco 6 da página
-  pós-quiz. Se o cliente já tem um método com muitos módulos, agrupe em pilares.
-- **Esteira** · carro-chefe (o que este funil vende), portas laterais (só na
-  sessão) e produto de entrada (existe ou não, e por quê).
-- **Premissas numéricas** · conversão de sessão, comparecimento (padrão da casa: 60%), corte de
-  qualificação da P8, verba diária de validação e a régua de **custo por sessão
-  qualificada comparecida** (referência: até 5% do ticket).
+### 3. A régua de linguagem
+As palavras que o projeto **fala** e as que **não fala**, listadas. Vem de três
+lugares: o vocabulário real do nicho, o que a plataforma de anúncio reprova, e
+o que fere o status do comprador. A regra que fecha a régua é sempre a mesma:
+descreva a cena e use a frase que a própria pessoa diz, nunca acuse quem ela é.
+
+### 4. Os padrões do quiz
+De 3 a 5, normalmente 4. O quiz não devolve texto genérico: devolve **o nome do
+padrão da pessoa**. Cada padrão precisa de nome, de onde o problema acontece e
+de uma frase de reconhecimento. **Nomeie o fenômeno, nunca a pessoa.** Defina
+qual pergunta determina o padrão e como o empate resolve.
+
+### 5. A esteira e a régua de segmentação
+Esteira: carro-chefe (o que este funil vende), portas laterais (só na sessão) e
+produto de entrada (existe ou não, e por quê). Segmentação: qualificado, a
+nutrir e fora por ora, com critério numérico e destino de cada um. Inclua as
+exceções, porque um lead de faixa baixa com perda alta costuma ser melhor que
+um de faixa alta sem dor.
+
+### 6. As premissas numéricas
+Conversão de sessão, comparecimento (padrão da casa: 60%), corte de qualificação
+da pergunta final, verba diária de validação e a régua de **custo por sessão
+qualificada comparecida** (referência: até 5% do ticket).
 
 ## F) Operação do funil (CRÍTICO, alimenta a seção 6)
 
@@ -133,3 +156,11 @@ a escrever.
 - **Como o cliente consome material**: se ele pediu ordem numerada, blocos
   curtos ou o porquê de cada passo, isso é requisito de execução, não
   preferência. Documento excelente em formato errado não é executado.
+
+## Saída desta etapa
+Um resumo de 8 a 12 linhas cobrindo: produto/frentes, ICP + dor + nível de
+consciência, contexto do funil, operação/destino do lead, gargalo central,
+e uma lista de **premissas assumidas**. Confirme com a pessoa (se houver) antes
+de gerar o documento.
+
+---

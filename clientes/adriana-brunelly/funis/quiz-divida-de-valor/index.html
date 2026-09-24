@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Diagnóstico da Dívida de Valor · Adriana Brune'lly</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <meta name="description" content="Descubra por onde o seu negócio de eventos está perdendo dinheiro, e quanto." />
+  <meta name="theme-color" content="#08070A" />
+  <!-- CSS crítico: evita o flash claro antes do styles.css -->
+  <style>
+    :root{--bg:#08070A;--text:#F4F1EA}
+    body{margin:0;background:#08070A;color:#F4F1EA;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="quiz">
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <!-- Quando o logo chegar, troque o bloco abaixo por:
+             <img class="logo-img" src="logo.png" alt="Adriana Brune'lly"> -->
+        <span class="monogram" aria-hidden="true">A</span>
+        <span class="brand-name">Adriana Brune'lly</span>
+        <span class="brand-tag">Estrategista em Negócios para Eventos</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Barra de progresso (só aparece durante as perguntas) -->
+  <div class="progress-wrap" id="progress" hidden>
+    <div class="container">
+      <div class="progress-meta">
+        <span id="progress-label">Começando</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div id="app" aria-live="polite"><!-- as telas são renderizadas aqui --></div>
+  </main>
+
+  <p class="foot">Adriana Brune&rsquo;lly · 25 anos no mercado de eventos · Londrina, PR</p>
+
+  <script src="flow.js" defer></script>
+  <script src="calculo.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

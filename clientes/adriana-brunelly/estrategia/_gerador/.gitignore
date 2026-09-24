@@ -1,0 +1,7 @@
+# saídas intermediárias do gerador: são refeitas a cada rodada
+flow2.json
+diag-extraido.json
+parte1.html
+__pycache__/
+node_modules
+*.png

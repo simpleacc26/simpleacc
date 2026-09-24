@@ -1,0 +1,423 @@
+/* ============================================================
+   FUNIL · DIAGNÓSTICO DA DÍVIDA DE VALOR · Adriana Brunelly
+   Sistema visual: PRETO · DOURADO · CRISTAL.
+
+   A estética é de alto padrão (high ticket no mercado de eventos):
+   fundo preto profundo com vinheta quente, ouro em fio e em
+   gradiente, e superfícies de "cristal" (vidro translúcido com
+   desfoque) no lugar de cartões brancos.
+
+   Zero dependência externa: nenhuma fonte remota, nenhum framework.
+   A serifa vem da pilha do sistema, como no padrão da casa.
+   ============================================================ */
+:root {
+  /* --- base preta --- */
+  --bg:          #08070A;  /* preto profundo levemente quente */
+  --bg-2:        #0E0D11;  /* um tom acima, para o gradiente */
+  --surface:     rgba(255,252,246,.045);   /* cristal: vidro sobre o preto */
+  --surface-2:   rgba(255,252,246,.075);   /* cristal em realce (hover/seleção) */
+  --text:        #F4F1EA;  /* cristal claro (texto) */
+  --muted:       #A79E8D;  /* texto secundário (pedra quente) */
+
+  /* --- ouro da marca --- */
+  --primary:     #C9A24A;  /* ouro */
+  --primary-700: #E2C782;  /* ouro claro, para realce sobre preto */
+  --primary-900: #8C6C26;  /* ouro escuro, para sombras e fios */
+  --accent-soft: rgba(201,162,74,.14);  /* ouro rebaixado (pílulas/seleção) */
+
+  /* --- ação --- */
+  --action:      linear-gradient(100deg, #B8892F 0%, #E4C97F 48%, #B8892F 100%);
+  --action-flat: #D2AC5C;
+  --on-action:   #14110B;  /* texto sobre o ouro (contraste AA) */
+
+  --border:      rgba(201,162,74,.26);  /* fio de ouro rebaixado */
+  --border-soft: rgba(244,241,234,.12); /* fio de cristal */
+  --ring:        #E2C782;               /* foco de teclado */
+  --err:         #E8846B;               /* erros (AA sobre preto) */
+
+  --radius:      16px;
+  --radius-sm:   12px;
+  --shadow:      0 1px 2px rgba(0,0,0,.6), 0 14px 40px rgba(0,0,0,.55);
+  --shadow-gold: 0 10px 30px rgba(184,137,47,.28);
+  --maxw:        620px;
+
+  --font:        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* serifada de sistema (sem dependência externa) p/ títulos e monograma */
+  --font-serif:  "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, "Hoefler Text", Georgia, "Times New Roman", serif;
+}
+
+/* ---------- base ---------- */
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 17px; line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+/* vinheta quente: o brilho de vela do ambiente, sem pesar no carregamento */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(900px 520px at 50% -8%, rgba(201,162,74,.16), transparent 62%),
+    radial-gradient(700px 480px at 90% 8%, rgba(226,199,130,.07), transparent 60%),
+    linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 46%, #050408 100%);
+}
+img { max-width: 100%; display: block; }
+.container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+
+/* ---------- topo / monograma ---------- */
+.topbar { padding: 30px 0 8px; text-align: center; }
+/* Durante as perguntas o cabeçalho sai de cena: ver ajustarCabecalho()
+   em app.js. No celular esses 100px eram a diferença entre ver e não
+   ver a última alternativa das perguntas de sete faixas. */
+body.sem-topbar .topbar { display: none; }
+body.sem-topbar .progress-wrap { padding-top: 22px; }
+.brand { display: inline-flex; flex-direction: column; align-items: center; gap: 7px; }
+.brand .monogram {
+  font-family: var(--font-serif); font-size: 34px; line-height: 1; font-weight: 700;
+  width: 64px; height: 64px; display: grid; place-items: center;
+  border: 1px solid var(--border); border-radius: 50%;
+  background: radial-gradient(circle at 50% 30%, rgba(201,162,74,.16), transparent 70%);
+  background-clip: padding-box;
+  color: var(--primary-700);
+  text-shadow: 0 2px 10px rgba(184,137,47,.35);
+}
+.brand .brand-name {
+  font-family: var(--font-serif); font-size: 19px; font-weight: 700; letter-spacing: .2em;
+  text-transform: uppercase;
+  background: linear-gradient(92deg, #A8801F, #EBD79C 52%, #A8801F);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  padding-left: .2em;
+}
+.brand .brand-tag { font-size: 10px; letter-spacing: .38em; text-transform: uppercase; color: var(--muted); padding-left: .38em; }
+.brand .logo-img { height: 62px; width: auto; }
+
+/* fio de ouro: separador fino que aparece em vários blocos */
+.rule-gold { height: 1px; border: 0; margin: 20px auto; max-width: 180px;
+  background: linear-gradient(90deg, transparent, var(--primary), transparent); opacity: .7; }
+
+/* ---------- progresso ---------- */
+.progress-wrap { position: sticky; top: 0; z-index: 20; padding: 12px 0 10px;
+  background: linear-gradient(180deg, rgba(8,7,10,.96) 62%, rgba(8,7,10,0)); backdrop-filter: blur(6px); }
+.progress-meta { display: flex; justify-content: space-between; font-size: 12px; color: var(--primary-700);
+  font-weight: 600; letter-spacing: .06em; text-transform: uppercase; margin: 0 2px 8px; }
+.progress-track { height: 3px; background: rgba(244,241,234,.1); border-radius: 99px; overflow: hidden; }
+.progress-bar { height: 100%; width: 0; border-radius: 99px; transition: width .5s cubic-bezier(.16,1,.3,1);
+  background: linear-gradient(90deg, var(--primary-900), var(--primary) 45%, #F0DCA8);
+  box-shadow: 0 0 12px rgba(201,162,74,.6); }
+
+/* ---------- cartão de cristal ---------- */
+.card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 34px 28px; margin: 18px 0 30px;
+  backdrop-filter: blur(14px) saturate(120%);
+}
+/* brilho de cristal na borda superior */
+.card::before {
+  content: ""; position: absolute; left: 22px; right: 22px; top: -1px; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(226,199,130,.75), transparent);
+}
+.screen { animation: fade .5s cubic-bezier(.16,1,.3,1) both; }
+@keyframes fade { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+.eyebrow { color: var(--primary); font-weight: 700; font-size: 11px; text-transform: uppercase;
+  letter-spacing: .22em; margin: 0 0 14px; }
+h1, h2 { font-family: var(--font-serif); font-weight: 700; letter-spacing: -.01em; color: var(--text); }
+h1 { font-size: 32px; line-height: 1.18; margin: 0 0 16px; }
+h2 { font-size: 26px; line-height: 1.25; margin: 0 0 18px; }
+h1 em, h2 em { font-style: normal;
+  background: linear-gradient(92deg, #B8892F, #F0DCA8 52%, #B8892F);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.lead { color: var(--muted); font-size: 17px; margin: 0 0 10px; }
+.hint { color: var(--muted); font-size: 14px; }
+strong { color: #FBF7EE; font-weight: 700; }
+
+/* ---------- selo ---------- */
+.selo { display: inline-block; background: var(--accent-soft); color: var(--primary-700);
+  font-size: 11.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  padding: 8px 16px; border-radius: 99px; margin-bottom: 20px; border: 1px solid var(--border); }
+
+/* ---------- opções (auto-avanço) ---------- */
+.options { display: grid; gap: 11px; margin: 26px 0 6px; }
+.opt {
+  display: flex; align-items: center; gap: 15px;
+  border: 1px solid var(--border-soft); border-radius: var(--radius-sm);
+  padding: 17px 17px; cursor: pointer; text-align: left;
+  background: rgba(255,252,246,.035);
+  color: var(--text); -webkit-text-fill-color: var(--text);
+  font-family: inherit;
+  transition: border-color .22s, background .22s, transform .16s, box-shadow .22s;
+}
+@media (hover: hover) and (pointer: fine) {
+  .opt:hover { border-color: var(--border); background: var(--surface-2);
+    transform: translateY(-2px); box-shadow: 0 10px 26px rgba(0,0,0,.45); }
+}
+.opt .dot { flex: 0 0 20px; height: 20px; border: 1.5px solid rgba(201,162,74,.45); border-radius: 50%;
+  display: grid; place-items: center; transition: border-color .2s, box-shadow .2s; }
+.opt .dot::after { content: ""; width: 10px; height: 10px; border-radius: 50%;
+  background: linear-gradient(135deg, #E4C97F, #B8892F);
+  transform: scale(0); transition: transform .2s cubic-bezier(.16,1,.3,1); }
+.opt .txt { font-size: 16px; flex: 1; text-align: left; line-height: 1.45; }
+.opt[aria-checked="true"] { border-color: var(--primary); background: var(--accent-soft);
+  box-shadow: inset 0 0 0 1px rgba(201,162,74,.2), 0 8px 24px rgba(0,0,0,.4); }
+.opt[aria-checked="true"] .dot { border-color: var(--primary); box-shadow: 0 0 10px rgba(201,162,74,.5); }
+.opt[aria-checked="true"] .dot::after { transform: scale(1); }
+.opt:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
+
+/* ---------- interseção (tela de implicação entre perguntas) ---------- */
+.interseccao { text-align: center; }
+.interseccao .num {
+  font-family: var(--font-serif); font-size: 44px; line-height: 1.05; margin: 6px 0 12px;
+  background: linear-gradient(92deg, #B8892F, #F0DCA8 52%, #B8892F);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+/* O texto corrido fica à esquerda: a tela de impacto passou a ter oito
+   linhas de conta, e parágrafo longo centralizado cansa de ler. O número,
+   o rótulo e a fonte continuam centralizados. */
+.interseccao p { color: var(--text); font-size: 17px; text-align: left; }
+.interseccao .eyebrow, .interseccao .num, .interseccao .fonte { text-align: center; }
+.interseccao .fonte { color: var(--muted); font-size: 13px; margin-top: 16px; font-style: italic; }
+/* A linha do sonho, no fim da tela de impacto. A perda em reais é
+   abstrata; carro, viagem e equipamento não são. É aqui que o número
+   vira coisa. */
+.interseccao .sonho { margin-top: 14px; padding: 12px 14px; border-radius: var(--radius-sm);
+  background: var(--accent-soft); border: 1px solid var(--border);
+  color: var(--primary-700); font-size: 15.5px; line-height: 1.5; }
+
+
+/* ---------- formulário ---------- */
+.field { margin: 20px 0; }
+.field label { display: block; font-weight: 600; font-size: 14px; letter-spacing: .04em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 9px; }
+.field .req { color: var(--primary); }
+.field .opt-tag { color: var(--muted); font-weight: 400; text-transform: none; letter-spacing: 0; }
+.field input {
+  width: 100%; font: inherit; padding: 16px 15px; color: var(--text);
+  border: 1px solid var(--border-soft); border-radius: var(--radius-sm);
+  background: rgba(255,252,246,.04);
+  transition: border-color .2s, box-shadow .2s, background .2s;
+}
+.field input::placeholder { color: rgba(167,158,141,.65); }
+.field input:focus { outline: none; border-color: var(--primary); background: rgba(255,252,246,.07);
+  box-shadow: 0 0 0 3px rgba(201,162,74,.18); }
+.field input[aria-invalid="true"] { border-color: var(--err); }
+.field .err-msg { color: var(--err); font-size: 14px; margin-top: 7px; display: none; }
+.field .err-msg.show { display: block; }
+
+/* ---------- erros no topo ---------- */
+.errors { display: none; background: rgba(232,132,107,.1); border: 1px solid rgba(232,132,107,.4);
+  color: var(--err); border-radius: var(--radius-sm); padding: 13px 15px; margin-bottom: 18px; font-size: 15px; }
+.errors.show { display: block; }
+
+/* ---------- botões ---------- */
+.actions { display: flex; gap: 12px; align-items: center; margin-top: 26px; }
+.btn { font: inherit; font-weight: 700; cursor: pointer; border: none; border-radius: 99px;
+  padding: 17px 28px; letter-spacing: .02em; text-align: center; text-decoration: none;
+  display: inline-flex; align-items: center; justify-content: center;
+  transition: filter .2s, transform .14s, box-shadow .2s, opacity .2s; }
+.btn-primary { background: var(--action); color: var(--on-action); box-shadow: var(--shadow-gold); }
+.btn-primary:hover { filter: brightness(1.07); transform: translateY(-1px); }
+.btn-primary:disabled { opacity: .5; cursor: not-allowed; transform: none; box-shadow: none; }
+.btn-ghost { background: transparent; color: var(--muted); padding: 17px 10px; }
+.btn-ghost:hover { color: var(--primary-700); }
+.btn-outline { background: transparent; color: var(--primary-700); border: 1px solid var(--border); }
+.btn-outline:hover { background: var(--accent-soft); }
+.btn-block { width: 100%; display: flex; }
+.btn:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
+.spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid rgba(20,17,11,.35);
+  border-top-color: #14110B; border-radius: 50%; animation: spin .7s linear infinite;
+  vertical-align: -3px; margin-right: 9px; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---------- tela de loading ---------- */
+.loading-card { text-align: center; padding: 48px 26px; }
+.loading-card .eyebrow { display: block; }
+.load-track { height: 3px; background: rgba(244,241,234,.1); border-radius: 99px; overflow: hidden; margin: 28px 0 6px; }
+.load-bar { height: 100%; width: 0; border-radius: 99px;
+  background: linear-gradient(90deg, var(--primary-900), var(--primary) 45%, #F0DCA8);
+  box-shadow: 0 0 12px rgba(201,162,74,.6); }
+#load-msg { min-height: 1.5em; transition: opacity .2s; }
+.load-pct { margin: 10px 0 0; font-family: var(--font-serif); font-size: 26px; letter-spacing: .04em;
+  background: linear-gradient(92deg, #B8892F, #F0DCA8 52%, #B8892F);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+@media (max-width: 520px){ .loading-card { padding: 38px 18px; } }
+
+/* ---------- resume banner ---------- */
+.resume { background: var(--accent-soft); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  padding: 16px 18px; margin: 16px 0; font-size: 15px; }
+.resume button { margin-top: 12px; margin-right: 8px; }
+.link { background: none; border: none; color: var(--primary-700); font: inherit;
+  text-decoration: underline; cursor: pointer; padding: 0; }
+
+.foot { text-align: center; color: rgba(167,158,141,.7); font-size: 12.5px; padding: 10px 20px 40px; }
+
+/* ---------- responsivo ---------- */
+@media (max-width: 520px) {
+  body { font-size: 16px; }
+  h1 { font-size: 26px; } h2 { font-size: 22px; }
+  .card { padding: 26px 19px; }
+  .brand .monogram { width: 56px; height: 56px; font-size: 29px; }
+  .brand .brand-name { font-size: 16px; }
+  .interseccao .num { font-size: 36px; }
+  .btn { padding: 16px 22px; }
+}
+
+/* ============================================================
+   O QUIZ OCUPA A TELA INTEIRA (só o index; o diagnóstico rola).
+
+   Duas regras convivem aqui, e a segunda foi esquecida na primeira
+   tentativa:
+
+   1. A Adriana escreveu que nenhuma alternativa e nenhum botão pode
+      ficar escondido atrás de scroll.
+   2. E o contrário também não serve: encolher tudo até o mínimo
+      deixa o cartão grudado no topo com um vazio enorme embaixo.
+
+   A saída é a tela fazer as duas coisas: o corpo vira uma coluna
+   de altura cheia, o cartão cresce para ocupar o que sobra, e as
+   alternativas se distribuem centradas dentro dele. Os tamanhos são
+   fluidos (clamp com vh), então no celular alto o toque fica maior
+   e o texto respira, e no Android pequeno tudo comprime sozinho,
+   sem duas listas de números para manter.
+
+   Vale em qualquer tamanho de tela, e não só no celular: no
+   computador o cartão parado no topo com meia janela vazia embaixo
+   é o mesmo erro. O teto de crescimento das alternativas (--n)
+   segura o exagero na janela alta.
+   ============================================================ */
+@media (min-width: 0px) {
+  html { height: 100%; }
+  body.quiz {
+    min-height: 100vh;
+    min-height: 100dvh;          /* barra do navegador do celular */
+    display: flex; flex-direction: column;
+  }
+  /* O cartão ocupa a altura toda, e o conteúdo se distribui dentro dele:
+     pergunta em cima, alternativas crescendo no meio, botão embaixo. As duas
+     coisas juntas, porque cada uma sozinha erra: cartão do tamanho do texto
+     deixa vazio no fim da tela, e cartão esticado com o conteúdo agrupado no
+     meio abre buraco dos dois lados. */
+  body.quiz main.container,
+  body.quiz #app,
+  body.quiz .card {
+    flex: 1 1 auto; display: flex; flex-direction: column; min-height: 0;
+  }
+
+  /* --- a marca vira uma linha, e só existe na tela de entrada --- */
+  .topbar { padding: clamp(8px, 1.6vh, 22px) 0 clamp(4px, .8vh, 8px); }
+  .brand { flex-direction: row; align-items: center; gap: 10px; }
+  .brand .monogram { width: clamp(32px, 5.2vh, 44px); height: clamp(32px, 5.2vh, 44px);
+    font-size: clamp(17px, 2.8vh, 24px); }
+  .brand .brand-name { font-size: clamp(14px, 2vh, 17px); }
+  .brand .brand-tag { display: none; }
+  .progress-wrap { padding: clamp(8px, 1.4vh, 14px) 0 clamp(6px, 1vh, 10px); }
+  body.sem-topbar .progress-wrap { padding-top: clamp(10px, 1.8vh, 22px); }
+
+  /* --- o cartão e a tipografia respiram conforme a altura --- */
+  body.quiz .card {
+    padding: clamp(14px, 2.1vh, 28px) clamp(14px, 4vw, 24px);
+    margin: clamp(8px, 1.3vh, 18px) 0 clamp(8px, 1.1vh, 16px);
+  }
+  body.quiz h1 { font-size: clamp(19px, 2.85vh, 28px); line-height: 1.15;
+    margin-bottom: clamp(5px, .85vh, 13px); }
+  body.quiz h2 { font-size: clamp(17.5px, 2.5vh, 24px); line-height: 1.24;
+    margin-bottom: clamp(8px, 1.3vh, 16px); }
+  body.quiz .lead { font-size: clamp(13.5px, 1.75vh, 16.5px); line-height: 1.4;
+    margin-bottom: clamp(4px, .75vh, 10px); }
+  body.quiz .card .eyebrow { margin-bottom: clamp(5px, .9vh, 10px); }
+  body.quiz .selo { padding: clamp(3px, .6vh, 8px) clamp(10px, 2.6vw, 14px);
+    margin-bottom: clamp(5px, .9vh, 12px); font-size: clamp(10.5px, 1.5vh, 11.5px); }
+  body.quiz .card .rule-gold { margin: clamp(6px, 1.05vh, 14px) 0; }
+
+  /* --- as alternativas ocupam o que sobra, centradas no espaço --- */
+  /* As alternativas dividem entre si o espaço que sobra: linhas de 1fr, que
+     esticam, com teto para não virarem tarja em celular muito alto. O que
+     passar do teto vira respiro entre elas, porque o item fica centrado na
+     própria linha. Assim a área de toque cresce onde dá e a tela nunca fica
+     com um vazio só, num canto. */
+  body.quiz .options {
+    --gap: clamp(5px, 1vh, 12px);
+    flex: 1 1 auto; min-height: 0;
+    grid-auto-rows: minmax(min-content, 1fr);
+    gap: var(--gap);
+    /* Teto de crescimento do grupo, calculado com o número de alternativas
+       que o app.js informa em --n. Sem isso, cinco alternativas numa tela de
+       932px viram cinco tarjas de 180px. O que passar do teto não vira buraco
+       num canto só: as margens automáticas dividem a sobra em cima e embaixo. */
+    max-height: calc(var(--n, 4) * clamp(52px, 8.4vh, 92px) + (var(--n, 4) - 1) * var(--gap));
+    margin: auto 0;
+  }
+  body.quiz .opt { padding: clamp(8px, 1.4vh, 18px) clamp(12px, 3.5vw, 18px); }
+  body.quiz .opt .txt { font-size: clamp(14px, 1.8vh, 16.5px); line-height: 1.3; }
+  body.quiz .opt .dot { flex-basis: clamp(16px, 2.4vh, 20px); height: clamp(16px, 2.4vh, 20px); }
+
+  body.quiz .actions { margin-top: clamp(8px, 1.5vh, 22px); }
+  body.quiz .btn { padding: clamp(11px, 1.75vh, 17px) 20px; }
+
+  /* --- telas de intervalo: o bloco inteiro fica centrado --- */
+  /* Os blocos da tela de intervalo se espalham pela altura em vez de ficarem
+     agrupados no meio: rótulo, número, texto e fonte ganham o mesmo respiro
+     entre si. E o texto cresce com a tela, porque ele é conteúdo, não
+     enchimento: numa tela alta ele fica maior e mais fácil de ler. */
+  body.quiz .interseccao .corpo { flex: 1 1 auto; min-height: 0;
+    display: flex; flex-direction: column; justify-content: space-evenly; }
+  body.quiz .interseccao .num { font-size: clamp(24px, 3.7vh, 36px);
+    margin: clamp(2px, .4vh, 6px) 0 clamp(5px, .9vh, 10px); }
+  /* O texto da tela de impacto é o mais longo do funil e não pode crescer
+     com a altura da tela: em celular alto ele estourava. Teto baixo aqui,
+     e o espaço que sobra vira respiro em volta, por causa do centralizado. */
+  body.quiz .interseccao p { font-size: clamp(13.8px, 1.82vh, 16px); line-height: 1.48;
+    margin: clamp(6px, 1vh, 12px) 0; }
+  body.quiz .interseccao .sonho { font-size: clamp(13px, 1.7vh, 15px); line-height: 1.42;
+    padding: clamp(7px, 1.15vh, 12px) clamp(11px, 3vw, 15px);
+    margin-top: clamp(7px, 1.1vh, 13px); }
+  body.quiz .interseccao .fonte { font-size: clamp(11.5px, 1.55vh, 13.5px);
+    margin-top: clamp(5px, .9vh, 11px); }
+
+  /* --- captura: quatro campos, botão e nota, tudo centrado --- */
+  body.quiz .screen-captura form { flex: 1 1 auto; min-height: 0;
+    display: flex; flex-direction: column; justify-content: center; }
+  body.quiz .screen-captura h2 { font-size: clamp(15px, 2.3vh, 21px); line-height: 1.24;
+    margin-bottom: clamp(7px, 1.2vh, 14px); }
+  body.quiz .screen-captura .field { margin: clamp(5px, .95vh, 13px) 0; }
+  body.quiz .screen-captura .field label { font-size: clamp(12px, 1.7vh, 14px);
+    margin-bottom: clamp(3px, .5vh, 6px); }
+  body.quiz .screen-captura .field input { padding: clamp(8px, 1.35vh, 14px) 12px;
+    font-size: clamp(15px, 2.1vh, 16.5px); }
+  body.quiz .screen-captura .hint { font-size: clamp(11.5px, 1.6vh, 14px); line-height: 1.35;
+    margin: clamp(7px, 1.15vh, 14px) 0; }
+  body.quiz .screen-captura .actions { margin-top: clamp(6px, 1vh, 12px); }
+  body.quiz .screen-captura .btn-ghost { padding: clamp(7px, 1.2vh, 12px) 14px;
+    font-size: clamp(13px, 1.8vh, 15px); }
+
+  /* --- carregamento também preenche --- */
+
+
+  .foot { padding: clamp(4px, .8vh, 10px) 20px clamp(8px, 1.4vh, 16px);
+    font-size: clamp(11px, 1.6vh, 12.5px); margin: 0; }
+}
+
+/* Último aperto, só para tela muito baixa (Android de 640px). Duas telas
+   ficavam 16px e 8px acima do limite: a de entrada, que carrega hero e
+   pergunta juntos, e a de intervalo mais longa. */
+@media (max-height: 660px) {
+  body.quiz .card { padding: 12px 14px; margin: 6px 0 8px; }
+  body.quiz .screen-hero h1 { font-size: 18px; }
+  body.quiz .screen-hero .lead { font-size: 13px; }
+  body.quiz .screen-hero .rule-gold { margin: 5px 0; }
+  body.quiz .interseccao p { font-size: 13.2px; margin: 6px 0; }
+  body.quiz .interseccao .sonho { font-size: 12.5px; padding: 6px 10px; }
+  .foot { padding: 3px 20px 6px; font-size: 10.5px; }
+}
+
+/* ---------- preferências do usuário ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::after, *::before { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}

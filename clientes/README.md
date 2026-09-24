@@ -15,7 +15,8 @@ clientes/
 | Cliente                    | Pasta                          | Status |
 | -------------------------- | ------------------------------ | ------ |
 | Interno Simple Acc / Inova | `0-interno-simpleacc-inova/`   | ativo  |
-| Ana Carla Henriques (Blindecell) | `ana-carla-henriques/`        | ativo  |
+| Adriana Brunelly           | `adriana-brunelly/`            | onboarding |
+| Ana Carla Henriques (Blindecell) | `ana-carla-henriques/`   | ativo  |
 | Carol e José               | `carol-e-jose/`                | ativo  |
 | Clínica Vital              | `clinica-vital/`               | ativo  |
 | Daniele Christensen        | `daniele-christensen/`         | ativo  |
@@ -24,6 +25,7 @@ clientes/
 | Gustavo Ono                | `gustavo-ono/`                 | ativo  |
 | Juliana Godinho            | `juliana-godinho/`             | ativo  |
 | Kainã Barreto              | `kaina-barreto/`               | ativo  |
+| Luana Isse                 | `luana-isse/`                  | ativo  |
 | Omar e Greicy              | `omar-e-greicy/`               | ativo  |
 | Rafael Cobra               | `rafael-cobra/`                | ativo  |
 | Rafael Granella            | `rafael-granella/`             | ativo  |
