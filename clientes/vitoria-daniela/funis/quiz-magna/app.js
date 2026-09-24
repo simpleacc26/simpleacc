@@ -45,12 +45,12 @@ function enviarLead() {
     ticket: label("ticket"), urgencia: label("urgencia"), faturamento: label("faturamento"),
     quer_analise: label("quer-analise"),
     balde: F.getBalde(a), camada: F.getCamada(a),
-    frente: "Quiz Magna", origem: document.referrer || location.href,
+    frente: "Quiz Magna", origem: location.href, referrer: document.referrer,
     ...URL_UTMS,
   };
   if (!LEADS_ENDPOINT) return;
   try {
-    fetch(LEADS_ENDPOINT, { method: "POST", mode: "no-cors",
+    fetch(LEADS_ENDPOINT, { method: "POST", mode: "no-cors", keepalive: true,
       headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(lead) });
   } catch (e) { /* não bloqueia o lead */ }
 }
@@ -182,10 +182,13 @@ function renderCaptura() {
   c.campos.filter((f) => f.mask === "phone").forEach((f) => {
     const input = screen.querySelector(`#${f.id}`);
     if (!input) return;
-    input.inputMode = "numeric";
-    input.maxLength = 16;
+    input.inputMode = "tel";
+    input.maxLength = 20;
     const fmt = (v) => {
-      const d = v.replace(/\D/g, "").slice(0, 11);
+      let d = v.replace(/\D/g, "");
+      if (d.length >= 12 && d.startsWith("55")) d = d.slice(2); /* +55 do autofill */
+      if (d.length >= 11 && d.startsWith("0")) d = d.slice(1);
+      d = d.slice(0, 11);
       if (d.length <= 2) return d ? "(" + d : "";
       if (d.length <= 7) return "(" + d.slice(0, 2) + ") " + d.slice(2);
       return "(" + d.slice(0, 2) + ") " + d.slice(2, 7) + "-" + d.slice(7);

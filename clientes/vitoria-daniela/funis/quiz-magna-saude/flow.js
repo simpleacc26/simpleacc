@@ -36,13 +36,13 @@ window.FLOW = {
       pergunta: "Qual dessas opções descreve o tipo de contato que chega até o WhatsApp da sua clínica através da internet?",
       options: [
         { value: "indicacoes", label: "Quase não chegam; dependo 100% de indicações e do boca a boca.",
-          curto: "Quase não chegam, depende de indicações",
+          curto: "Quase não chegam; a agenda depende de indicações",
           report: "Hoje quase nenhum contato chega pela internet: a agenda depende de indicações e do boca a boca." },
         { value: "curiosos", label: "Chegam muitos curiosos sem dinheiro, que somem quando passo o preço.",
           curto: "Chegam muitos curiosos sem dinheiro",
           report: "Pela internet chegam muitos curiosos, que somem assim que você passa o preço." },
         { value: "inconstante", label: "Chegam pessoas qualificadas, mas o fluxo é totalmente inconstante.",
-          curto: "Chegam qualificadas, mas sem constância",
+          curto: "Chegam qualificados, mas sem constância",
           report: "Já chegam pessoas qualificadas pela internet, mas o fluxo é totalmente inconstante." },
       ],
     },
@@ -120,7 +120,7 @@ window.FLOW = {
     },
     {
       id: "quer-analise",
-      etapa: "Último passo",
+      etapa: "Sua análise",
       pergunta: "Você quer que um especialista analise o seu cenário e te mostre o caminho para atrair e converter pacientes premium com previsibilidade?",
       options: [
         { value: "sim", label: "Sim, quero que um especialista na área da saúde me traga o caminho para atrair pacientes com previsibilidade." },
@@ -132,14 +132,14 @@ window.FLOW = {
   captura: {
     titulo: "Seu diagnóstico está pronto para ser gerado.",
     subtitulo:
-      "Para onde enviamos o resultado? Deixe seu WhatsApp e seu e-mail para receber o diagnóstico completo da sua clínica e os próximos passos.",
+      "Deixe seu WhatsApp e seu e-mail para liberar agora o diagnóstico completo da sua clínica e receber o contato da equipe com os próximos passos.",
     campos: [
-      { id: "nomeResp", label: "Seu nome", type: "text", required: true, autocomplete: "name", placeholder: "Como podemos te chamar?" },
-      { id: "whatsapp", label: "Seu WhatsApp (com DDD)", type: "tel", required: true, autocomplete: "tel", placeholder: "(33) 99999-9999", mask: "phone" },
-      { id: "email", label: "Seu e-mail", type: "email", required: true, autocomplete: "email", placeholder: "voce@email.com" },
+      { id: "nomeResp", curto: "nome", label: "Seu nome", type: "text", required: true, autocomplete: "name", placeholder: "Como podemos te chamar?" },
+      { id: "whatsapp", curto: "WhatsApp", label: "Seu WhatsApp (com DDD)", type: "tel", required: true, autocomplete: "tel", placeholder: "(33) 99999-9999", mask: "phone" },
+      { id: "email", curto: "e-mail", label: "Seu e-mail", type: "email", required: true, autocomplete: "email", placeholder: "voce@email.com" },
     ],
     cta: "Gerar meu diagnóstico",
-    privacidade: "Usamos seus dados só para enviar o diagnóstico e para o contato da equipe. Nada de spam.",
+    privacidade: "Usamos seus dados só para liberar o seu diagnóstico e para o contato da equipe. Nada de spam.",
   },
 
   /* ---------- Lógica de balde e camada (Método ASK) ----------
@@ -154,12 +154,19 @@ window.FLOW = {
     return opt ? opt.balde : "Sem Previsibilidade";
   },
 
-  /* "Dra. Camila Souza" → "Dra. Camila" (o público costuma assinar com o título). */
+  /* "dra camila souza" → "Dra. Camila" (o público costuma assinar com o título). */
   primeiroNome(nomeCompleto) {
+    const cap = (w) => w.toLocaleLowerCase("pt-BR").replace(/(^|-)(\p{L})/gu, (m, p, c) => p + c.toLocaleUpperCase("pt-BR"));
     const partes = String(nomeCompleto || "").trim().split(/\s+/).filter(Boolean);
     if (!partes.length) return "";
-    if (partes.length > 1 && /^(dra?|doutora?)\.?$/i.test(partes[0])) return partes[0] + " " + partes[1];
-    return partes[0];
+    const t = partes[0];
+    let titulo = "";
+    if (/^dra\.?$/i.test(t)) titulo = "Dra.";
+    else if (/^dr\.?$/i.test(t)) titulo = "Dr.";
+    else if (/^doutora$/i.test(t)) titulo = "Doutora";
+    else if (/^doutor$/i.test(t)) titulo = "Doutor";
+    if (!titulo) return cap(t);
+    return partes[1] ? titulo + " " + cap(partes[1]) : "";
   },
 
   getCamada(answers) {

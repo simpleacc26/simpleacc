@@ -38,7 +38,8 @@ Cada balde tem um texto de diagnóstico diferente em `diagnostico.js`.
 **Camada** (o quão pronta a pessoa está, cruza faturamento + ticket +
 estrutura + urgência de investimento): A (Implementação Magna, CTA
 assertivo) · B (Mentoria Magnetizze, CTA mais suave) · desqualificado
-(nutrição, sem push de agendamento). Faixas escaladas a partir do
+(nutrição, sem push de agendamento). Quem responde "Não" na última pergunta
+também vai para desqualificado (mesma regra do Quiz Saúde). Faixas escaladas a partir do
 diagnóstico de `estrategia/2026-07-06-diagnostico-leads-desqualificados.md`
 (piso do ICP ~R$20mil, ideal R$40-50mil+ com equipe e ticket R$3k+) —
 **são uma primeira aproximação, ajustar depois de ver dados reais.**
@@ -57,13 +58,11 @@ máscara de WhatsApp, tela de análise, redirecionamento, diagnóstico
 personalizado por balde/camada. Zero erros de console nos dois casos.
 
 ## Pendências
-- [ ] **Deploy na Vercel** — bloqueado: CLI sem login (`vercel whoami` → logged out).
-      Precisa alguém logar com a conta/time da Simple antes de publicar
-      (ver instrução no chat).
+- [x] **Deploy na Vercel**: https://diagnostico-magna.vercel.app (time da Simple).
 - [ ] **Ligar `LEADS_ENDPOINT`** em `app.js` com a URL `/exec` do Apps Script
-      (ver `integracao-planilha.gs`) e testar um lead real caindo na
-      aba "Quiz Magna" da planilha.
-- [ ] Quiz Saúde (mesma lógica, ainda não implementado).
+      (`integracao-planilha.gs`, o mesmo do Quiz Saúde) e testar um lead real
+      caindo na aba "Genérico" da planilha "Leads | New Quizzes - Vitória Daniela".
+- [x] Quiz Saúde: `../quiz-magna-saude` (https://diagnostico-magna-saude.vercel.app).
 - [ ] Depoimentos: reaproveitados os 2 usados no relatório PDF
       (`depoimento-sessao.jpg`, `depoimento-marco.jpg`); dá pra trocar
       por outros/mais quando a Vitória tiver.

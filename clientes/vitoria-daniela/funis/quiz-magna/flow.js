@@ -141,6 +141,7 @@ window.FLOW = {
     const temEquipe = answers.estrutura && answers.estrutura !== "sozinha";
     const pronta = answers.urgencia === "viabilizo";
 
+    if (answers["quer-analise"] === "nao") return "desqualificado";
     if (!pronta) return "desqualificado";
     if (faturamentoIdx <= 1) return "desqualificado"; // até 20 mil, abaixo do piso do ICP
     if (faturamentoIdx === 2) return "B"; // 20-40 mil

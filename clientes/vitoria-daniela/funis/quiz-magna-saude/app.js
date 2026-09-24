@@ -1,9 +1,8 @@
 /* ============================================================
-   APP — motor do funil (render, validação, persistência, tracking,
+   APP — motor do funil (render, validação, persistência, histórico,
    transição de análise, envio de lead). Sem dependências externas.
+   Tracking (Pixel/GA4) fica em tracking.js.
    ============================================================ */
-
-const TRACKING_CONFIG = { ga4_id: "", meta_pixel_id: "", custom_webhook: "" };
 
 /* Planilha de leads (Google Apps Script). Cole aqui a URL /exec da
    implantação e republique. Vazio = não envia (só salva local e segue). */
@@ -18,17 +17,8 @@ function getUTMs() {
   };
 }
 const URL_UTMS = getUTMs();
-
-function trackEvent(name, data = {}) {
-  const payload = { ...data, ts: Date.now() };
-  console.log(`[TRACK] ${name}`, payload);
-  try {
-    if (TRACKING_CONFIG.ga4_id && typeof gtag === "function") gtag("event", name, data);
-    if (TRACKING_CONFIG.meta_pixel_id && typeof fbq === "function") fbq("trackCustom", name, data);
-    if (TRACKING_CONFIG.custom_webhook && navigator.sendBeacon)
-      navigator.sendBeacon(TRACKING_CONFIG.custom_webhook, JSON.stringify({ event: name, ...payload }));
-  } catch (e) { /* tracking nunca quebra o funil */ }
-}
+const URL_ENTRADA = location.href;
+const REFERRER = document.referrer;
 
 function enviarLead() {
   const a = state.answers;
@@ -43,7 +33,7 @@ function enviarLead() {
     ticket: label("ticket"), urgencia: label("urgencia"), faturamento: label("faturamento"),
     quer_analise: label("quer-analise"),
     balde: F.getBalde(a), camada: F.getCamada(a),
-    frente: "Quiz Saúde", origem: document.referrer || location.href,
+    frente: "Quiz Saúde", origem: URL_ENTRADA, referrer: REFERRER,
     ...URL_UTMS,
   };
   if (!LEADS_ENDPOINT) return;
@@ -57,7 +47,6 @@ const STORE_KEY = "magna_quiz_saude";
 const F = window.FLOW;
 const app = document.getElementById("app");
 const progressEl = document.getElementById("progress");
-const toastEl = document.getElementById("toast");
 const REDUCE = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 let state = { view: 0, answers: {}, started: false };
@@ -70,6 +59,10 @@ function clearSaved() { try { sessionStorage.removeItem(STORE_KEY); } catch (e) 
 function el(html) { const t = document.createElement("template"); t.innerHTML = html.trim(); return t.content.firstElementChild; }
 function scrollTop() { window.scrollTo({ top: 0, behavior: REDUCE ? "auto" : "smooth" }); }
 function vibrar(p) { try { if (navigator.vibrate) navigator.vibrate(p); } catch (e) {} }
+function focarTitulo(screen) {
+  const h = screen.querySelector("h2");
+  if (h) { h.tabIndex = -1; h.focus({ preventScroll: true }); }
+}
 
 /* Ícones em traço fino (SVG inline, herdam a cor do texto). */
 const ICON = {
@@ -86,14 +79,50 @@ function icon(name, cls = "ico") {
   return `<svg class="${cls}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[name]}</svg>`;
 }
 
-let toastTimer = null;
-function toast(msg) {
-  if (!msg) return;
-  toastEl.innerHTML = `${icon("check", "ico toast-ico")}<span>${msg}</span>`;
-  toastEl.classList.remove("show"); void toastEl.offsetWidth; toastEl.classList.add("show");
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => toastEl.classList.remove("show"), 2400);
+/* ---------- WhatsApp: normaliza +55 / 0 do autofill e aceita fixo ---------- */
+function digitosTelefone(v) {
+  let d = String(v || "").replace(/\D/g, "");
+  if (d.length >= 12 && d.startsWith("55")) d = d.slice(2);
+  if (d.length >= 11 && d.startsWith("0")) d = d.slice(1);
+  return d.slice(0, 11);
 }
+function formatarTelefone(v) {
+  const d = digitosTelefone(v);
+  if (d.length <= 2) return d ? "(" + d : "";
+  const ddd = "(" + d.slice(0, 2) + ") ";
+  const resto = d.slice(2);
+  const celular = resto[0] >= "6"; /* fixo começa com 2 a 5 */
+  const corte = celular ? 5 : 4;
+  return resto.length <= corte ? ddd + resto : ddd + resto.slice(0, corte) + "-" + resto.slice(corte);
+}
+function problemaTelefone(v) {
+  const d = digitosTelefone(v);
+  if (Number(d.slice(0, 2)) < 11) return "Informe o WhatsApp completo com DDD.";
+  if (d.length === 11 && d[2] === "9") return "";
+  if (d.length === 10 && d[2] >= "2" && d[2] <= "5") return "";
+  if (d.length === 10) return "Parece que faltou o 9 no início do celular.";
+  return "Informe o WhatsApp completo com DDD.";
+}
+
+/* ---------- histórico: o "voltar" do celular volta uma pergunta ---------- */
+function pushView(view) {
+  const d = ((history.state && history.state.d) || 0) + 1;
+  try { history.pushState({ view, d }, ""); } catch (e) {}
+}
+function voltarPara(view) {
+  if (history.state && history.state.d > 0) { history.back(); return; }
+  try { history.replaceState({ view, d: 0 }, ""); } catch (e) {}
+  mostrar(view);
+}
+function mostrar(view) {
+  if (view === "captura") return renderCaptura();
+  state.view = typeof view === "number" ? view : 0; save(); renderStep(state.view);
+}
+window.addEventListener("popstate", (e) => {
+  if (state.answers._completedAt) return;
+  const v = e.state ? e.state.view : 0;
+  mostrar(v);
+});
 
 function updateProgress(stepIdx) {
   const total = F.steps.length;
@@ -107,23 +136,41 @@ function updateProgress(stepIdx) {
   document.getElementById("progress-bar").style.width = `${Math.max(pct, 3)}%`;
 }
 
+/* Depois do avanço automático o cursor fica parado sobre uma opção da
+   próxima pergunta; o hover só volta quando o mouse se mexer de verdade. */
+let ultimoPonteiro = null;
+window.addEventListener("pointermove", (e) => { ultimoPonteiro = { x: e.clientX, y: e.clientY }; }, { passive: true });
+function travarHover(box) {
+  box.classList.add("no-hover");
+  const ref = ultimoPonteiro;
+  const solta = (e) => {
+    if (!ref || Math.abs(e.clientX - ref.x) + Math.abs(e.clientY - ref.y) > 3) {
+      box.classList.remove("no-hover"); window.removeEventListener("pointermove", solta);
+    }
+  };
+  window.addEventListener("pointermove", solta, { passive: true });
+}
+
 /* ============================================================
    TELAS DO QUIZ
    ============================================================ */
-function renderStep(i) {
+function renderStep(i, opts = {}) {
   const step = F.steps[i];
   updateProgress(i);
   stepEnterTime = Date.now();
   trackEvent("step_view", { step_id: step.id, step_number: i + 1 });
 
   const selected = state.answers[step.id];
-  const opts = step.options.map((o, idx) => `
-    <button class="opt" role="radio" tabindex="${idx === 0 ? 0 : -1}"
+  const opcoes = step.options.map((o, idx) => {
+    const foco = selected ? selected === o.value : idx === 0;
+    return `
+    <button class="opt" type="button" role="radio" tabindex="${foco ? 0 : -1}"
             aria-checked="${selected === o.value ? "true" : "false"}" data-value="${o.value}">
       <span class="opt-key" aria-hidden="true">${String.fromCharCode(65 + idx)}</span>
       <span class="txt">${o.label}</span>
       <span class="opt-check" aria-hidden="true">${icon("check", "ico")}</span>
-    </button>`).join("");
+    </button>`;
+  }).join("");
 
   let intro = "";
   if (i === 0) {
@@ -139,21 +186,26 @@ function renderStep(i) {
         <div class="orn" aria-hidden="true"><span></span>${icon("diamante")}<span></span></div>
       </header>`;
   }
+  const anterior = F.steps[i - 1];
+  const recompensa = opts.forward && anterior && anterior.toast
+    ? `<p class="reward">${icon("check", "ico")}<span>${anterior.toast}</span></p>` : "";
 
   const card = `
     <section class="card${i === 0 ? "" : " screen"}">
+      ${recompensa}
       <p class="eyebrow"><span class="step-n">${String(i + 1).padStart(2, "0")}</span>${step.etapa}</p>
       <h2 id="q-${step.id}">${step.pergunta}</h2>
-      <div class="options" role="radiogroup" aria-labelledby="q-${step.id}">${opts}</div>
+      <div class="options" role="radiogroup" aria-labelledby="q-${step.id}">${opcoes}</div>
       <div class="actions">
         ${i > 0
-          ? '<button class="btn btn-ghost" id="back">← Voltar</button>'
-          : '<span class="hint">Toque na opção que mais combina com você. Avança sozinho.</span>'}
+          ? '<button class="btn btn-ghost" id="back" type="button"><span aria-hidden="true">←</span> Voltar</button>'
+          : '<span class="hint">Toque na opção que mais combina com você. O quiz avança automaticamente.</span>'}
       </div>
     </section>`;
   const screen = i === 0 ? el(`<div class="screen-wrap">${intro}${card}</div>`) : el(card);
   app.replaceChildren(screen);
-  if (i > 0) scrollTop();
+  travarHover(screen.querySelector(".options"));
+  if (i > 0) { scrollTop(); focarTitulo(screen); }
 
   const optionEls = [...screen.querySelectorAll(".opt")];
   let advancing = false;
@@ -169,8 +221,8 @@ function renderStep(i) {
     trackEvent("step_complete", { step_id: step.id, time_on_step: Date.now() - stepEnterTime });
     advancing = true;
     setTimeout(() => {
-      if (step.toast) toast(step.toast);
-      (i < F.steps.length - 1) ? goToStep(i + 1) : renderCaptura();
+      if (i < F.steps.length - 1) { pushView(i + 1); state.view = i + 1; save(); renderStep(i + 1, { forward: true }); }
+      else { pushView("captura"); renderCaptura(); }
     }, REDUCE ? 0 : 420);
   }
   optionEls.forEach((node, idx) => {
@@ -184,7 +236,7 @@ function renderStep(i) {
 
   if (i > 0) screen.querySelector("#back").addEventListener("click", () => {
     trackEvent("step_back", { from: step.id });
-    goToStep(i - 1);
+    voltarPara(i - 1);
   });
 }
 
@@ -209,61 +261,64 @@ function renderCaptura() {
       <div class="done-badge">${icon("selo")}<span>${total} de ${total} respostas registradas</span></div>
       <h2>${c.titulo}</h2>
       <p class="lead">${c.subtitulo}</p>
-      <div class="errors" id="err" role="alert" aria-live="assertive" tabindex="-1"></div>
+      <div class="errors" id="err" role="alert"></div>
       <form id="form" novalidate>
         ${fields}
         <button class="btn btn-primary btn-block" id="submit" type="submit"><span>${c.cta}</span>${icon("diamante")}</button>
         <p class="hint privacy">${c.privacidade}</p>
         <div class="actions actions-center">
-          <button class="btn btn-ghost" id="back" type="button">← Voltar</button>
+          <button class="btn btn-ghost" id="back" type="button"><span aria-hidden="true">←</span> Voltar</button>
         </div>
       </form>
     </section>`);
   app.replaceChildren(screen);
-  scrollTop();
+  scrollTop(); focarTitulo(screen);
 
-  c.campos.filter((f) => f.mask === "phone").forEach((f) => {
+  c.campos.forEach((f) => {
     const input = screen.querySelector(`#${f.id}`);
-    if (!input) return;
-    input.inputMode = "numeric";
-    input.maxLength = 16;
-    const fmt = (v) => {
-      const d = v.replace(/\D/g, "").slice(0, 11);
-      if (d.length <= 2) return d ? "(" + d : "";
-      if (d.length <= 7) return "(" + d.slice(0, 2) + ") " + d.slice(2);
-      return "(" + d.slice(0, 2) + ") " + d.slice(2, 7) + "-" + d.slice(7);
-    };
-    if (input.value) input.value = fmt(input.value);
-    input.addEventListener("input", () => { input.value = fmt(input.value); });
+    const msg = screen.querySelector(`#${f.id}-err`);
+    if (f.mask === "phone") {
+      input.inputMode = "tel";
+      input.maxLength = 20;
+      if (input.value) input.value = formatarTelefone(input.value);
+    }
+    input.addEventListener("input", () => {
+      if (f.mask === "phone") input.value = formatarTelefone(input.value);
+      if (input.getAttribute("aria-invalid")) { input.removeAttribute("aria-invalid"); msg.classList.remove("show"); }
+    });
   });
 
-  screen.querySelector("#back").addEventListener("click", () => goToStep(F.steps.length - 1));
+  screen.querySelector("#back").addEventListener("click", () => voltarPara(F.steps.length - 1));
 
   screen.querySelector("#form").addEventListener("submit", (e) => {
     e.preventDefault();
     const errBox = screen.querySelector("#err");
     errBox.classList.remove("show");
     const problems = [];
+    let primeiroInvalido = null;
     c.campos.forEach(f => {
       const input = screen.querySelector(`#${f.id}`);
       const msg = screen.querySelector(`#${f.id}-err`);
       const val = input.value.trim();
       let problem = "";
       if (f.required && !val) problem = "Esse campo é obrigatório.";
-      else if (f.type === "tel" && val && val.replace(/\D/g, "").length < 11) problem = "Informe o WhatsApp completo com DDD.";
+      else if (f.type === "tel" && val) problem = problemaTelefone(val);
       else if (f.type === "email" && val && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) problem = "Informe um e-mail válido.";
       if (problem) {
-        problems.push(f.label);
+        problems.push(f.curto || f.label);
         input.setAttribute("aria-invalid", "true");
         msg.textContent = problem; msg.classList.add("show");
+        primeiroInvalido = primeiroInvalido || input;
       } else {
         input.removeAttribute("aria-invalid"); msg.classList.remove("show");
-        state.answers[f.id] = val;
+        state.answers[f.id] = f.type === "tel" ? formatarTelefone(val) : val;
       }
     });
     if (problems.length) {
-      errBox.textContent = "Confira os campos: " + problems.join(", ") + ".";
-      errBox.classList.add("show"); errBox.focus();
+      const lista = problems.length > 1 ? problems.slice(0, -1).join(", ") + " e " + problems[problems.length - 1] : problems[0];
+      errBox.textContent = "Confira: " + lista + ".";
+      errBox.classList.add("show");
+      primeiroInvalido.focus();
       trackEvent("field_error", { step_id: "captura", fields: problems });
       return;
     }
@@ -276,6 +331,18 @@ function renderCaptura() {
     enviarLead();
     renderAnalisando();
   });
+}
+
+/* Link do diagnóstico com as respostas (só valores das opções e o
+   primeiro nome, nunca WhatsApp/e-mail), para abrir em outra aba ou no
+   navegador fora do Instagram sem perder o relatório. */
+function urlDiagnostico() {
+  const a = state.answers;
+  const p = new URLSearchParams({
+    c: a.contato || "", e: a.estrutura || "", d: a.desafio || "", t: a.ticket || "",
+    u: a.urgencia || "", f: a.faturamento || "", q: a["quer-analise"] || "", n: F.primeiroNome(a.nomeResp),
+  });
+  return "diagnostico.html?" + p.toString();
 }
 
 /* ============================================================
@@ -292,7 +359,7 @@ function renderAnalisando() {
     { frase: "Lendo suas respostas" + (nome ? `, ${nome}` : "") + "…", icone: "lupa" },
     { frase: "Medindo os sinais vitais da sua clínica…", icone: "pulso" },
     { frase: "Identificando o que mais trava a sua agenda…", icone: "agenda" },
-    { frase: "Cruzando com clínicas que já atendemos…", icone: "grafico" },
+    { frase: "Cruzando com os 3 Pilares de Previsibilidade…", icone: "grafico" },
     { frase: "Montando o seu diagnóstico personalizado…", icone: "diamante" },
   ];
   const ECG = "M0 34H40l6-6 6 6H70l5 4 7-30 7 38 5-12H110q10-12 20 0H160l6-6 6 6H190l5 4 7-30 7 38 5-12H230q10-12 20 0H300";
@@ -309,18 +376,18 @@ function renderAnalisando() {
         <path class="ecg-base" d="${ECG}" />
         <path class="ecg-live" d="${ECG}" pathLength="100" />
       </svg>
-      <h2 class="an-frase" id="an-frase">${etapas[0].frase}</h2>
+      <h2 class="an-frase" id="an-frase" aria-hidden="true"></h2>
       <div class="an-pct" aria-hidden="true"><span id="an-pct">0</span><small>%</small></div>
       <div class="progress-track an-track" role="progressbar" aria-label="Gerando diagnóstico" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="an-track">
         <div class="progress-bar" id="an-bar"><span class="progress-tip" aria-hidden="true"></span></div>
       </div>
-      <ul class="an-checklist" id="an-checklist">
+      <ul class="an-checklist" id="an-checklist" aria-hidden="true">
         <li data-at="12"><span class="ck">${icon("check")}</span>Respostas registradas</li>
         <li data-at="38"><span class="ck">${icon("check")}</span>Ponto de maior atenção identificado</li>
-        <li data-at="64"><span class="ck">${icon("check")}</span>Comparação com clínicas de alto padrão</li>
+        <li data-at="64"><span class="ck">${icon("check")}</span>Pilar prioritário definido</li>
         <li data-at="90"><span class="ck">${icon("check")}</span>Diagnóstico personalizado pronto</li>
       </ul>
-      <p class="sr-only" aria-live="polite" id="an-live">Analisando suas respostas.</p>
+      <p class="sr-only" aria-live="polite" id="an-live"></p>
     </section>`);
   app.replaceChildren(screen);
   scrollTop();
@@ -334,6 +401,8 @@ function renderAnalisando() {
   const sparks = screen.querySelector("#an-sparks");
   const live = screen.querySelector("#an-live");
   const items = [...screen.querySelectorAll("#an-checklist li")];
+  fraseEl.textContent = etapas[0].frase;
+  live.textContent = "Analisando suas respostas e gerando o seu diagnóstico.";
   const DURATION = REDUCE ? 400 : 5000;
   const start = performance.now();
   let lastIdx = 0;
@@ -374,37 +443,56 @@ function renderAnalisando() {
     screen.classList.add("is-done");
     if (!REDUCE) {
       sparks.innerHTML = Array.from({ length: 14 }, (_, k) =>
-        `<i style="--a:${Math.round((360 / 14) * k)}deg;--d:${64 + (k % 3) * 16}px;--s:${0.7 + (k % 4) * 0.15}"></i>`).join("");
+        `<i style="--a:${Math.round((360 / 14) * k)}deg;--d:${80 + (k % 3) * 12}px;--s:${0.8 + (k % 4) * 0.15}"></i>`).join("");
     }
     vibrar([12, 40, 18]);
-    setTimeout(() => { window.location.href = "diagnostico.html"; }, REDUCE ? 300 : 1100);
+    setTimeout(() => { window.location.replace(urlDiagnostico()); }, REDUCE ? 300 : 1400);
   }
   requestAnimationFrame(tick);
 }
 
-/* ---------- navegação ---------- */
-function goToStep(i) { state.view = i; save(); renderStep(i); }
-
-function render() {
-  if (state.view === "captura") return renderCaptura();
-  if (typeof state.view === "number") return renderStep(state.view);
-  renderStep(0);
-}
-
+/* ---------- retomar / diagnóstico já feito ---------- */
 function offerResume(saved) {
   const banner = el(`
     <section class="card screen resume">
       <p class="eyebrow">Bem-vinda de volta</p>
       <h2>Você começou o diagnóstico antes. Quer continuar de onde parou?</h2>
       <div class="actions">
-        <button class="btn btn-primary" id="resume-yes">Continuar</button>
-        <button class="btn btn-ghost" id="resume-no">Recomeçar</button>
+        <button class="btn btn-primary" id="resume-yes" type="button">Continuar</button>
+        <button class="btn btn-ghost" id="resume-no" type="button">Recomeçar</button>
       </div>
     </section>`);
   app.replaceChildren(banner);
-  banner.querySelector("#resume-yes").addEventListener("click", () => { state = saved; render(); });
-  banner.querySelector("#resume-no").addEventListener("click", () => { clearSaved(); state = { view: 0, answers: {}, started: false }; render(); });
+  banner.querySelector("#resume-yes").addEventListener("click", () => { state = saved; mostrar(state.view); });
+  banner.querySelector("#resume-no").addEventListener("click", () => { clearSaved(); state = { view: 0, answers: {}, started: false }; mostrar(0); });
 }
+
+function offerDone(saved) {
+  progressEl.hidden = true;
+  state = saved;
+  const nome = F.primeiroNome(saved.answers.nomeResp);
+  const banner = el(`
+    <section class="card screen resume">
+      <p class="eyebrow">Diagnóstico pronto</p>
+      <h2>${nome ? "<span class='nm'></span>, o seu" : "O seu"} diagnóstico já foi gerado.</h2>
+      <p class="lead">Você pode abrir o resultado de novo ou refazer o quiz do começo.</p>
+      <div class="actions">
+        <a class="btn btn-primary" id="done-ver" href="${urlDiagnostico()}">Ver meu diagnóstico</a>
+        <button class="btn btn-ghost" id="done-refazer" type="button">Refazer o diagnóstico</button>
+      </div>
+    </section>`);
+  if (nome) banner.querySelector(".nm").textContent = nome;
+  app.replaceChildren(banner);
+  banner.querySelector("#done-refazer").addEventListener("click", () => {
+    clearSaved(); state = { view: 0, answers: {}, started: false };
+    try { history.replaceState({ view: 0, d: 0 }, ""); } catch (e) {}
+    mostrar(0);
+  });
+}
+
+window.addEventListener("pageshow", (e) => {
+  if (e.persisted && state.answers && state.answers._completedAt) offerDone(state);
+});
 
 window.addEventListener("beforeunload", () => {
   if (state.started && typeof state.view === "number") trackEvent("funnel_abandon", { last_step: state.view });
@@ -412,10 +500,9 @@ window.addEventListener("beforeunload", () => {
 
 (function init() {
   trackEvent("page_view", { funil: "quiz-magna-saude" });
+  try { history.replaceState({ view: 0, d: 0 }, ""); } catch (e) {}
   const saved = loadSaved();
-  if (saved && saved.started && !(saved.answers && saved.answers._completedAt)) {
-    offerResume(saved);
-  } else {
-    render();
-  }
+  if (saved && saved.answers && saved.answers._completedAt) return offerDone(saved);
+  if (saved && saved.started) return offerResume(saved);
+  mostrar(0);
 })();

@@ -26,7 +26,7 @@ var PLANILHA_ID = "1iBvdFUw3hjc-17FUfeKYespZx5pEfT6ucdxUuegbo1o";
 /* [cabeçalho da coluna, campo enviado pelo funil] */
 var BASE_INICIO = [["Data/Hora", "_data"], ["Nome", "nome"], ["WhatsApp", "whatsapp"], ["E-mail", "email"]];
 var BASE_FIM = [
-  ["Balde", "balde"], ["Camada", "camada"], ["Origem", "origem"],
+  ["Balde", "balde"], ["Camada", "camada"], ["Origem (URL de entrada)", "origem"], ["Referrer", "referrer"],
   ["UTM Source", "utm_source"], ["UTM Medium", "utm_medium"], ["UTM Campaign", "utm_campaign"],
   ["UTM Content", "utm_content"], ["UTM Term", "utm_term"]
 ];
@@ -73,8 +73,10 @@ function gravar(d) {
   ensureHeader(sheet, cfg);
   var linha = cfg.colunas.map(function (c) {
     if (c[1] === "_data") return new Date();
-    var v = d[c[1]];
-    return v == null ? "" : String(v);
+    var s = d[c[1]] == null ? "" : String(d[c[1]]);
+    /* texto começando com = + - @ viraria fórmula na planilha */
+    if (/^[=+\-@\t\r]/.test(s)) s = "'" + s;
+    return s.slice(0, 500);
   });
   sheet.appendRow(linha);
   return cfg.aba;

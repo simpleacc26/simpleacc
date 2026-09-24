@@ -2,7 +2,9 @@
 
 Funil **Quiz → Análise → Diagnóstico** para empresárias da saúde (clínicas e
 consultórios de alto padrão). HTML/CSS/JS puro, sem build, sem dependências
-(só as fontes do Google Fonts).
+(fontes auto-hospedadas em `assets/fonts/`, via `fonts.css`).
+
+**No ar:** https://diagnostico-magna-saude.vercel.app
 
 Irmão do Quiz Genérico (`../quiz-magna`), com a mesma arquitetura e uma
 identidade própria para o público da saúde.
@@ -33,8 +35,10 @@ nos botões e nude rosé `#EAD8CB`. Títulos em **Cormorant Garamond**, texto em
 
 - Opção escolhida: letra que vira selo escuro, check que se desenha, onda
   dourada e vibração curta no celular.
-- Barra de progresso com ponto pulsando (batimento) na ponta; micro-mensagens
-  ("Anotado. Essa é a resposta mais importante…", "Falta pouco…").
+- Barra de progresso com ponto pulsando (batimento) na ponta; micro-recompensa
+  dentro do card seguinte ("Anotado. Essa é a resposta mais importante…",
+  "Falta pouco…"). A barra fica oculta só na 1ª tela, para a pergunta 1
+  aparecer na dobra.
 - Captura com selo "7 de 7 respostas registradas".
 - Tela de análise (0→100% em 5s): medalhão com anel girando e ícone que troca
   a cada etapa, linha de "sinais vitais" (eletrocardiograma) correndo, frases
@@ -57,23 +61,43 @@ nos botões e nude rosé `#EAD8CB`. Títulos em **Cormorant Garamond**, texto em
   ajustar com dados reais).
 - "Dra. Camila Souza" vira "Dra. Camila" na personalização.
 
+## Navegação e robustez
+
+- Voltar do navegador/celular volta uma pergunta (history API).
+- Recarregar na análise ou voltar do diagnóstico mostra "Ver meu diagnóstico"
+  / "Refazer".
+- O diagnóstico recebe as respostas pela URL (só valores das opções e o
+  primeiro nome, nunca WhatsApp/e-mail), então o link funciona em outra aba
+  ou fora do navegador do Instagram. No navegador do Instagram/Facebook o
+  "Baixar PDF" vira uma dica para abrir no navegador.
+- WhatsApp: normaliza +55/0 do preenchimento automático e aceita fixo
+  (WhatsApp Business da recepção).
+- `tracking.js`: preencha `meta_pixel_id` / `ga4_id` e o Pixel/GA4 carregam
+  sozinhos (evento padrão Lead / generate_lead na captura).
+
 ## Leads → planilha
 
 `integracao-planilha.gs` é **um script só para os dois quizzes** (o mesmo
 arquivo está em `../quiz-magna`). Grava o Genérico na aba "Genérico" e o Saúde
-na aba "Saúde" da planilha "Leads | New Quizzes - Vitória Daniela". O passo a
+na aba "Saúde" da planilha "Leads | New Quizzes - Vitória Daniela".
+Protege contra texto que viraria fórmula e grava a URL de entrada (com
+fbclid) e o referrer. O passo a
 passo está no topo do arquivo. Depois de implantado, a URL `/exec` vai em
 `LEADS_ENDPOINT` no `app.js` dos dois funis.
 
 ## Deploy
 
 Vercel, time da Simple, projeto `diagnostico-magna-saude`. Publicar só os
-arquivos de runtime (html, css, js, assets), nunca a raiz do repositório.
+arquivos de runtime (html, css, js, fonts.css, assets) a partir de uma pasta
+temporária, nunca a raiz do repositório.
 
 ## Pendências
 
 - [ ] Implantar o Apps Script e ligar o `LEADS_ENDPOINT` (precisa de alguém
       com acesso de edição à planilha; ver topo do `.gs`).
+- [ ] Confirmar se o lead do Saúde também precisa entrar no fluxo Make → GHL
+      do SDR (hoje só a planilha). Se sim, o .gs pode chamar o webhook do Make.
 - [ ] Depoimentos de clientes **da saúde**: hoje usa o print real de
       posicionamento (`depoimento-sessao.jpg`). Um depoimento de dentista,
       dermato ou clínica de estética aumentaria muito a identificação.
+- [ ] IDs do Meta Pixel / GA4 em `tracking.js`.
