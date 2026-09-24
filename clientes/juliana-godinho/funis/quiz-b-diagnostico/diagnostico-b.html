@@ -568,21 +568,21 @@ function estadoDe(pct){
 const DADOS = {
   Q1: {
     chamada: 'A demanda cresce todo ano. <em>As suas horas não.</em>',
-    cifra: ['94%', 'dos negócios de beleza abertos no Brasil em 2025 são de uma pessoa só. Apenas 1% nasce como empresa de pequeno porte.'],
+    cifra: ['94%', 'dos novos negócios do setor no Brasil em 2025 são de uma pessoa só. Apenas 1% nasce como empresa de pequeno porte.'],
     barras: [
       { r:'Negócio de uma pessoa só', v:94, n:'221.585', risco:true },
       { r:'Microempresa', v:5, n:'12.424' },
       { r:'Empresa de pequeno porte', v:1, n:'1.672', forte:true }
     ],
-    escala: 'Dos 236 mil negócios de beleza abertos em 2025, por porte',
+    escala: 'Dos 236 mil negócios do setor abertos em 2025, por porte',
     leitura: 'O modelo padrão do mercado é uma profissional vendendo as próprias horas, e ele funciona muito bem até a agenda encher. <strong>Depois disso, crescer passa a significar trabalhar mais.</strong> O teto não é sinal de que você fez algo errado, é a consequência aritmética desse modelo, e é exatamente o que separa quem fica nele de quem monta estrutura.',
-    fonte: '<b>Sebrae</b>, levantamento divulgado em 12/01/2026: 236 mil novas empresas de beleza abertas em 2025, sendo 221.585 MEI, 12.424 microempresas e 1.672 empresas de pequeno porte. Publicado pela Agência Sebrae de Notícias.'
+    fonte: '<b>Sebrae</b>, levantamento divulgado em 12/01/2026, que agrupa o setor de beleza e estética: 236 mil novas empresas abertas em 2025, sendo 221.585 MEI, 12.424 microempresas e 1.672 empresas de pequeno porte. Publicado pela Agência Sebrae de Notícias.'
   },
   Q2: {
     chamada: 'Abrem <em>646 concorrentes por dia</em>, e a sua base continua do mesmo tamanho.',
-    cifra: ['646', 'novos negócios de beleza abrem por dia no Brasil. São 27 por hora.'],
+    cifra: ['646', 'novos negócios do setor abrem por dia no Brasil. São 27 por hora.'],
     barras: [
-      { r:'Negócios de beleza abertos em 2025, sobre 2024', v:18.5, n:'+18,5%', forte:true, max:20 },
+      { r:'Negócios do setor abertos em 2025, sobre 2024', v:18.5, n:'+18,5%', forte:true, max:20 },
       { r:'Crescimento do setor ao ano, projetado até 2027', v:7, n:'+7%', max:20 }
     ],
     escala: 'Entrada de concorrentes contra crescimento do bolo',
@@ -599,7 +599,7 @@ const DADOS = {
     ],
     escala: 'Pequenas e médias empresas brasileiras, 2026',
     leitura: 'Quando o custo sobe e o preço não acompanha, a margem some sozinha. <strong>Responder a isso com promoção corta dos dois lados no mesmo mês:</strong> o custo continua subindo e o preço desce por decisão sua. E com 646 negócios novos abrindo por dia no setor, sempre vai existir alguém disposto a cobrar menos que você.',
-    fonte: '<b>Serasa Experian</b>, pesquisa com pequenas e médias empresas, 2026. <b>A amostra é de PMEs de todos os setores, não só de estética</b>, e está aqui porque mede pressão de custo e repasse de preço, que é o mecanismo em questão. O dado de 646 aberturas por dia é do <b>Sebrae</b>, 12/01/2026, e esse sim é do setor de beleza.'
+    fonte: '<b>Serasa Experian</b>, pesquisa com pequenas e médias empresas, 2026. <b>A amostra é de PMEs de todos os setores, não só de estética</b>, e está aqui porque mede pressão de custo e repasse de preço, que é o mecanismo em questão. O dado de 646 aberturas por dia é do <b>Sebrae</b>, 12/01/2026, e esse sim é do setor de beleza e estética.'
   },
   Q4: {
     chamada: 'Não dá para cobrar bem <em>o que você não mede.</em>',
@@ -633,7 +633,7 @@ const RISCO = {
     { r:'Negócio de uma pessoa só', v:29, n:'29%', risco:true }
   ],
   escala: 'Fecham as portas em até 5 anos, por porte da empresa',
-  leitura: 'A diferença entre o topo e a base dessa tabela não é sorte, nem talento, nem mercado: <strong>é estrutura</strong>. A empresa de pequeno porte fecha quase metade menos que o negócio tocado por uma pessoa só, e o caminho entre um e outro é o mesmo em todo lugar: processo, número na mão, equipe que entrega sem você e preço que se sustenta. <strong>Esse é o porte que você está construindo.</strong>',
+  leitura: 'A diferença entre o topo e a base dessa tabela não é sorte, nem talento, nem mercado: <strong>é estrutura</strong>. A empresa de pequeno porte fecha quase metade menos que o negócio tocado por uma pessoa só, e o caminho entre um e outro é o mesmo em todo lugar: processo, número na mão, equipe que entrega sem você e preço que se sustenta. <strong>É esse o porte de uma clínica de saúde estética que para de depender das mãos da dona</strong>, e é para lá que você está indo.',
   fonte: '<b>Sebrae</b>, estudo Sobrevivência de Empresas, com base em dados da Receita Federal: taxa de mortalidade em até 5 anos de 17% para empresas de pequeno porte, 21,6% para microempresas e 29% para negócios registrados como MEI. No setor de serviços, onde a clínica ou consultório se enquadra, a taxa é de 26,6%.'
 };
 
@@ -787,7 +787,8 @@ if(!A || !A.quadro){
     <p class="kick">Por que não existe uma resposta igual para todo mundo</p>
     <h2>Duas clínicas com o mesmo gargalo não resolvem do mesmo jeito</h2>
     <p>Este diagnóstico aponta <strong>onde</strong> está o principal gargalo do seu
-    negócio, e isso já é mais do que a maioria consegue enxergar sozinha. Mas o que
+    negócio, e isso já é mais do que a maioria das profissionais de saúde estética
+    consegue enxergar sozinha. Mas o que
     fazer primeiro depende de coisas que seis perguntas não alcançam: os seus
     números, a sua estrutura, o momento em que o negócio está, como o comercial
     funciona hoje, como você é percebida na sua região e como a operação roda quando
