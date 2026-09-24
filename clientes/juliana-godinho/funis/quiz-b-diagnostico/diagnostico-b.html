@@ -77,13 +77,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   /* nome do diagnóstico, na capa escura */
   .dx-topo{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem;margin-bottom:1.5rem}
   .dx-topo .dx-selo,.dx-topo .dx-placa{margin-bottom:0}
-  .dx-placa{display:inline-flex;align-items:baseline;gap:.7rem;flex-wrap:wrap;
-    border:1px solid var(--gold-hair);border-radius:var(--r);
-    padding:.55rem .95rem;margin-bottom:1.4rem;background:rgba(201,168,76,.08)}
-  .dx-placa i{font-style:normal;font-size:.6rem;font-weight:600;letter-spacing:.24em;
-    text-transform:uppercase;color:var(--gold)}
-  .dx-placa b{font-family:var(--serif);font-weight:600;font-size:1.12rem;
-    letter-spacing:-.01em;color:#F7F1E4}
+  /* Placa do quadro · a Ju pediu em 25/09 mais peso visual aqui. Virou
+     chapa sólida em ouro sobre o espresso, que é o maior contraste
+     disponível na paleta, com filete claro no topo e no rodapé para dar
+     cara de etiqueta carimbada em prontuário. */
+  .dx-placa{display:block;border-radius:var(--r);overflow:hidden;
+    margin-bottom:1.4rem;background:linear-gradient(180deg,#D8B85C,#B8942F);
+    box-shadow:0 8px 30px rgba(201,168,76,.22)}
+  .dx-placa i{display:block;font-style:normal;font-size:.58rem;font-weight:700;
+    letter-spacing:.26em;text-transform:uppercase;color:rgba(23,20,18,.62);
+    padding:.5rem .95rem .15rem;border-bottom:1px solid rgba(23,20,18,.12)}
+  .dx-placa b{display:block;font-family:var(--serif);font-weight:600;
+    font-size:clamp(1.24rem,4vw,1.5rem);line-height:1.15;letter-spacing:-.015em;
+    color:#171412;padding:.5rem .95rem .62rem}
 
   /* selo de estado */
   .dx-selo{display:inline-flex;align-items:center;gap:.6rem;
@@ -152,6 +158,42 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     border-top:1px solid var(--line);padding-top:.85rem;margin:0}
   .fonte a{color:var(--ink-3)}
   .fonte b{font-weight:600;color:var(--ink-2)}
+
+  /* ── passo 2 · sinais ──
+     Lista com losango em ouro, o mesmo marcador dos pilares e das
+     credenciais, para o olho reconhecer que é enumeração e não texto. */
+  .sinais{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+    padding:1.7rem 1.8rem;box-shadow:0 6px 40px rgba(20,18,16,.05)}
+  .sinais ul{list-style:none;margin:0;padding:0;display:grid;gap:.95rem}
+  .sinais li{display:flex;gap:.85rem;align-items:flex-start;
+    font-size:1.02rem;line-height:1.5;color:var(--ink)}
+  .sinais li::before{content:"";width:.44rem;height:.44rem;background:var(--gold);
+    transform:rotate(45deg);flex:none;margin-top:.55rem}
+  .sinais .fecho{margin:1.3rem 0 0;padding-top:1.1rem;border-top:1px solid var(--line);
+    font-size:.93rem;color:var(--ink-3)}
+
+  /* ── passo 3 · o que está custando ──
+     Puxa a cor do semáforo para amarrar visualmente com o estado lá em
+     cima: o custo é a consequência daquele estado, não um bloco solto. */
+  .custo{border-radius:var(--r);padding:1.7rem 1.8rem;
+    border:1px solid var(--line);border-left:3px solid var(--ink-3);background:var(--card);
+    box-shadow:0 6px 40px rgba(20,18,16,.05)}
+  .custo.critico{border-left-color:var(--alerta);background:linear-gradient(90deg,rgba(180,50,42,.05),var(--card) 38%)}
+  .custo.atencao{border-left-color:var(--atencao);background:linear-gradient(90deg,rgba(181,130,43,.06),var(--card) 38%)}
+  .custo.estavel{border-left-color:var(--estavel);background:linear-gradient(90deg,rgba(63,107,79,.05),var(--card) 38%)}
+  .custo p{font-family:var(--serif);font-size:clamp(1.14rem,2.9vw,1.34rem);
+    line-height:1.42;color:var(--ink);margin:0}
+  .custo p strong{color:var(--ink)}
+
+  /* ── passo 5 · a ponte ──
+     Faixa escura de propósito. É a virada da leitura: sai do que está
+     acontecendo e entra no que fazer, e o fundo muda junto. */
+  .ponte{background:var(--espresso);color:#F2EDE3}
+  .ponte .kick{color:var(--gold)}
+  .ponte h2{color:#F7F3EB;margin-bottom:1.2rem}
+  .ponte p{color:#CDC4B7;font-size:1.06rem;line-height:1.62}
+  .ponte p strong{color:#F7F3EB}
+  .ponte .arremate{border-top:1px solid var(--gold-hair);margin-top:1.8rem;padding-top:1.6rem}
 
   /* número grande solto, para o dado que dispensa gráfico */
   .cifra{display:flex;align-items:baseline;gap:.9rem;margin:0 0 1rem;flex-wrap:wrap}
@@ -403,6 +445,42 @@ const DX_NOME = {
   Q4: 'Defasagem de Preço'
 };
 
+/* Título do quadro, só nesta variante.
+   O Q3 vem do index.html como "A promoção virou o seu jeito de vender" e a
+   Ju pediu em 25/09 para trocar por "Seu negócio depende de baixar preço
+   para vender". Sobrescrever aqui evita mexer no quiz que está no ar; se a
+   variante for aprovada, o texto sobe para o QUADROS do index.html. */
+const DX_TITULO = {
+  Q3: 'Seu negócio depende de baixar preço para vender'
+};
+
+/* ── Passo 2 da lógica que a Ju desenhou · COMO ISSO APARECE ──
+   Sinais concretos para ela se reconhecer. A régua de cada frase é
+   simples: precisa descrever uma cena que acontece, não um conceito. */
+const SINAIS = {
+  Q1: ['Você termina a semana sem ter olhado um número do negócio',
+       'No mês em que você tira folga, o faturamento cai junto',
+       'Existe uma lista de coisas importantes que só andam quando sobra tempo, e nunca sobra'],
+  Q2: ['Você reconhece quase todos os nomes da agenda do mês',
+       'Quando abre horário novo, quem preenche é quem já vem',
+       'A última cliente nova chegou por indicação, e você não sabe dizer de onde veio a anterior'],
+  Q3: ['A sua base espera a campanha para fechar',
+       'Você já ouviu "vou esperar a próxima promoção"',
+       'O mês bom veio junto com um desconto, e o mês seguinte não veio'],
+  Q4: ['Você olha a sua tabela e sabe que ela está defasada, mas não mexe',
+       'Você já baixou o valor na hora de falar, antes da cliente questionar',
+       'Se alguém te perguntar quanto custa uma hora sua, você não sabe responder']
+};
+
+/* ── Passo 3 · O QUE ISSO ESTÁ CUSTANDO ──
+   Consequência no crescimento, no lucro e na previsibilidade. */
+const CUSTO = {
+  Q1: 'O seu faturamento tem um limite conhecido, que é o número de horas que você aguenta atender. Crescer passa a significar cansar mais, e todo mês em que você precisar parar é um mês que não fecha. <strong>Enquanto for assim, o negócio não funciona sem você dentro dele.</strong>',
+  Q2: 'O seu faturamento tem o tamanho exato da carteira que você já tem, e ele para de crescer no dia em que ela parar de crescer. <strong>Sem entrada de gente nova, toda cliente que sai vira perda que não se repõe</strong>, e a sua fatia do mercado encolhe mesmo com a agenda cheia.',
+  Q3: 'Você fatura mais e sobra menos, no mesmo mês. <strong>O desconto sai inteiro da sua margem, nunca do seu custo</strong>, e a cada campanha a sua base aprende um pouco mais a não comprar pelo preço cheio. O mês seguinte fica mais difícil que o anterior.',
+  Q4: 'Cada atendimento sai com uma parte do seu lucro embutida como desconto invisível. <strong>Você trabalha igual e leva menos</strong>, e como a conta nunca é fechada, o prejuízo não aparece em lugar nenhum até o caixa apertar.'
+};
+
 /* ── 2 · índice de dependência operacional ──
    Três das seis respostas carregam sinal real sobre o quanto o
    negócio depende das mãos dela. Os pesos ficam à vista de
@@ -490,14 +568,14 @@ function estadoDe(pct){
 const DADOS = {
   Q1: {
     chamada: 'A demanda cresce todo ano. <em>As suas horas não.</em>',
-    cifra: ['94%', 'dos negócios de beleza abertos no Brasil em 2025 nasceram como MEI, ou seja, uma pessoa só.'],
+    cifra: ['94%', 'dos negócios de beleza abertos no Brasil em 2025 são de uma pessoa só. Apenas 1% nasce como empresa de pequeno porte.'],
     barras: [
-      { r:'MEI · uma pessoa', v:94, n:'221.585', forte:true },
+      { r:'Negócio de uma pessoa só', v:94, n:'221.585', risco:true },
       { r:'Microempresa', v:5, n:'12.424' },
-      { r:'Empresa de pequeno porte', v:1, n:'1.672' }
+      { r:'Empresa de pequeno porte', v:1, n:'1.672', forte:true }
     ],
     escala: 'Dos 236 mil negócios de beleza abertos em 2025, por porte',
-    leitura: 'O modelo padrão do mercado é uma profissional vendendo as próprias horas, e ele funciona muito bem até a agenda encher. <strong>Depois disso, crescer passa a significar trabalhar mais.</strong> O teto não é sinal de que você fez algo errado, é a consequência aritmética do modelo.',
+    leitura: 'O modelo padrão do mercado é uma profissional vendendo as próprias horas, e ele funciona muito bem até a agenda encher. <strong>Depois disso, crescer passa a significar trabalhar mais.</strong> O teto não é sinal de que você fez algo errado, é a consequência aritmética desse modelo, e é exatamente o que separa quem fica nele de quem monta estrutura.',
     fonte: '<b>Sebrae</b>, levantamento divulgado em 12/01/2026: 236 mil novas empresas de beleza abertas em 2025, sendo 221.585 MEI, 12.424 microempresas e 1.672 empresas de pequeno porte. Publicado pela Agência Sebrae de Notícias.'
   },
   Q2: {
@@ -542,16 +620,21 @@ const DADOS = {
 /* ── bloco de risco, igual para todos os quadros ──
    É a resposta honesta ao "você tem 15% de chance de quebrar" que a
    Ju pediu: número real, público, e que diz a mesma coisa. */
+/* Reescrito em 25/09 a pedido da Ju: a ICP dela não é MEI, e o bloco não
+   pode sugerir que ela seja. A leitura passa a ser a inversa, que é a que
+   interessa de verdade: a empresa de pequeno porte é a que menos fecha, e
+   é para lá que a clínica caminha. O MEI fica onde é honesto que ele
+   fique, como o retrato do mercado ao redor dela. */
 const RISCO = {
-  chamada: 'A conta que quase ninguém do setor faz',
+  chamada: 'Quanto mais estrutura, <em>menos risco.</em> E isso é medido.',
   barras: [
-    { r:'MEI', v:29, n:'29%', risco:true },
+    { r:'Empresa de pequeno porte · estrutura montada', v:17, n:'17%', forte:true },
     { r:'Microempresa', v:21.6, n:'21,6%' },
-    { r:'Empresa de pequeno porte', v:17, n:'17%', forte:true }
+    { r:'Negócio de uma pessoa só', v:29, n:'29%', risco:true }
   ],
   escala: 'Fecham as portas em até 5 anos, por porte da empresa',
-  leitura: '94% dos negócios de beleza abertos em 2025 nasceram MEI, e é justamente o MEI que mais fecha. <strong>A taxa cai conforme o negócio deixa de ser uma pessoa e vira estrutura.</strong> Não é sorte nem talento: é porte. Sair do MEI não é papelada, é parar de ser o próprio negócio.',
-  fonte: '<b>Sebrae</b>, estudo Sobrevivência de Empresas, com base em dados da Receita Federal: taxa de mortalidade em até 5 anos de 29% para MEI, 21,6% para microempresas e 17% para empresas de pequeno porte. No setor de serviços, onde a clínica se enquadra, a taxa é de 26,6%. A composição por porte dos negócios de beleza é do levantamento Sebrae de 12/01/2026.'
+  leitura: 'A diferença entre o topo e a base dessa tabela não é sorte, nem talento, nem mercado: <strong>é estrutura</strong>. A empresa de pequeno porte fecha quase metade menos que o negócio tocado por uma pessoa só, e o caminho entre um e outro é o mesmo em todo lugar: processo, número na mão, equipe que entrega sem você e preço que se sustenta. <strong>Esse é o porte que você está construindo.</strong>',
+  fonte: '<b>Sebrae</b>, estudo Sobrevivência de Empresas, com base em dados da Receita Federal: taxa de mortalidade em até 5 anos de 17% para empresas de pequeno porte, 21,6% para microempresas e 29% para negócios registrados como MEI. No setor de serviços, onde a clínica ou consultório se enquadra, a taxa é de 26,6%.'
 };
 
 function barras(lista){
@@ -596,8 +679,20 @@ if(!A || !A.quadro){
   const dxNome = DX_NOME[A.quadroId] || '';
   const dados  = DADOS[A.quadroId];
 
+  const titulo = DX_TITULO[A.quadroId] || A.quadro;
+
   const placa = dxNome
     ? `<p class="dx-placa"><i>Quadro identificado</i><b>${dxNome}</b></p>` : '';
+
+  /* Passos 2 e 3 da lógica da Ju. */
+  const sinais = (SINAIS[A.quadroId] || []).length ? `
+    <div class="sinais">
+      <ul>${SINAIS[A.quadroId].map(s => `<li>${s}</li>`).join('')}</ul>
+      <p class="fecho">Se você leu isso e reconheceu a sua rotina, o quadro está certo.</p>
+    </div>` : '';
+
+  const custo = CUSTO[A.quadroId] ? `
+    <div class="custo ${est.chave}"><p>${CUSTO[A.quadroId]}</p></div>` : '';
 
   const selo = ind
     ? `<p class="dx-selo ${est.chave}"><span></span>${est.rotulo}</p>` : '';
@@ -634,12 +729,18 @@ if(!A || !A.quadro){
   el.innerHTML = `
   <div class="head"><div class="narrow">
     <p class="kick">${nome ? esc(nome)+', este é o seu diagnóstico' : 'O seu diagnóstico'}</p>
-    ${selo || placa ? `<div class="dx-topo">${selo}${placa}</div>` : ''}
-    <h1>${A.quadro}</h1>
+    ${selo ? `<div class="dx-topo">${selo}</div>` : ''}
+    ${placa}
+    <h1>${titulo}</h1>
     <p class="sub">Não é o único ponto do seu negócio, mas <strong>é o que está segurando o crescimento agora</strong>.</p>
   </div></div>
 
   ${medidor ? `<section class="tight"><div class="narrow">${medidor}</div></section>` : ''}
+
+  ${sinais ? `<section class="tight"><div class="narrow">
+    <p class="kick">Como isso aparece no seu dia a dia</p>
+    ${sinais}
+  </div></section>` : ''}
 
   <section><div class="narrow"><div class="bloco">
     <h3>O que eu vi nas suas respostas</h3>
@@ -653,8 +754,12 @@ if(!A || !A.quadro){
     <p><strong>Existe uma diferença enorme entre ser uma ótima profissional e ser uma empresária que cresce.</strong> E essa diferença não está na técnica.</p>
     <p>O que se repete em quase todas que passam por aqui é o mesmo: muito talento, muita dedicação e nenhuma estrutura. Não porque são incapazes, mas <strong>porque ninguém nunca ensinou essa parte</strong>.</p>
   </div>
-  <div class="cta-wrap"><a class="cta" target="_blank" rel="noopener" href="https://wa.me/5531992744259">Quero destravar isso <span>&rarr;</span></a><p class="aviso">Fale com o time da Juliana no WhatsApp.</p></div>
   </div></section>
+
+  ${custo ? `<section class="tight"><div class="narrow">
+    <p class="kick">O que isso está custando</p>
+    ${custo}
+  </div></section>` : ''}
 
   ${dados ? `<section class="tight"><div class="narrow">
     <p class="kick">Não é só com você</p>
@@ -663,13 +768,13 @@ if(!A || !A.quadro){
 
   <section class="tight"><div class="wrap">
     <div class="narrow center" style="margin-bottom:2.4rem">
-      <p class="kick">O que sustenta a virada</p>
+      <p class="kick">O que precisa mudar</p>
       <h2>Os quatro pilares de um negócio lucrativo e reconhecido</h2>
     </div>
     <div class="grid2">${pilares}</div>
     <div class="narrow" style="margin-top:2rem">
       <p><strong>No seu caso, o ponto de partida é ${A.pilarNome.toLowerCase()}.</strong> ${A.pilarPor}</p>
-      <div class="cta-wrap"><a class="cta" target="_blank" rel="noopener" href="https://wa.me/5531992744259">Quero começar por aqui <span>&rarr;</span></a></div>
+      ${A.caminho ? `<p>${A.caminho}</p>` : ''}
     </div>
   </div></section>
 
@@ -678,9 +783,29 @@ if(!A || !A.quadro){
     ${blocoDado(RISCO)}
   </div></section>
 
+  <section class="ponte"><div class="narrow">
+    <p class="kick">Por que não existe uma resposta igual para todo mundo</p>
+    <h2>Duas clínicas com o mesmo gargalo não resolvem do mesmo jeito</h2>
+    <p>Este diagnóstico aponta <strong>onde</strong> está o principal gargalo do seu
+    negócio, e isso já é mais do que a maioria consegue enxergar sozinha. Mas o que
+    fazer primeiro depende de coisas que seis perguntas não alcançam: os seus
+    números, a sua estrutura, o momento em que o negócio está, como o comercial
+    funciona hoje, como você é percebida na sua região e como a operação roda quando
+    você não está na sala.</p>
+    <p>É a mesma lógica da sua avaliação. <strong>Duas clientes podem chegar com a
+    mesma queixa e sair com protocolos diferentes</strong>, porque o que muda o
+    resultado não é o sintoma, é o que está por trás dele.</p>
+    <div class="arremate">
+      <p><strong>Na Sessão Estratégica a gente olha para o seu negócio de forma
+      individual</strong>, identifica os pontos que estão limitando o crescimento hoje
+      e define quais precisam ser tratados primeiro.</p>
+      <div class="cta-wrap"><a class="cta" target="_blank" rel="noopener" href="https://wa.me/5531992744259">Quero aprofundar meu diagnóstico <span>&rarr;</span></a><p class="aviso">Fale com o time da Juliana no WhatsApp.</p></div>
+    </div>
+  </div></section>
+
   <section class="sessao"><div class="wrap">
     <div class="narrow center" style="margin-bottom:2.4rem">
-      <p class="kick">O próximo passo</p>
+      <p class="kick">Continuando este diagnóstico</p>
       <h2>O que acontece na sua sessão estratégica</h2>
       <p><strong>Não é palestra genérica e não é PDF com dicas.</strong> É sentar e olhar para o seu negócio de verdade, por 30 a 40 minutos, com uma especialista do time da Juliana.</p>
     </div>
@@ -690,7 +815,7 @@ if(!A || !A.quadro){
       <div class="card"><b>Clareza sobre os próximos passos</b><p>Você sai da sessão sabendo exatamente o que fazer para estruturar a sua clínica ou consultório como um negócio lucrativo, organizado e sustentável.</p></div>
     </div>
     <div class="narrow">
-      <div class="cta-wrap"><a class="cta" target="_blank" rel="noopener" href="https://wa.me/5531992744259">Quero agendar minha sessão <span>&rarr;</span></a><p class="aviso"><strong>Toda semana são poucos horários</strong>, porque a análise é personalizada e leva tempo para ser bem feita.</p></div>
+      <div class="cta-wrap"><a class="cta" target="_blank" rel="noopener" href="https://wa.me/5531992744259">Quero aprofundar meu diagnóstico <span>&rarr;</span></a><p class="aviso"><strong>Toda semana são poucos horários</strong>, porque a análise é personalizada e leva tempo para ser bem feita.</p></div>
     </div>
   </div></section>
 
@@ -768,7 +893,7 @@ if(!A || !A.quadro){
       <li>Pare de depender de promoções e indicações.</li>
       <li>Pare de se sentir insegura na hora de falar de preço.</li>
     </ul>
-    <a class="cta" target="_blank" rel="noopener" href="https://wa.me/5531992744259">Quero agendar minha sessão <span>&rarr;</span></a>
+    <a class="cta" target="_blank" rel="noopener" href="https://wa.me/5531992744259">Quero aprofundar meu diagnóstico <span>&rarr;</span></a>
   </div></section>`;
 
   /* O evento de conversão dispara aqui, e não no envio do formulário, porque no
