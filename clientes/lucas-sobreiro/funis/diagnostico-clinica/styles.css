@@ -178,3 +178,43 @@ h2 { font-size: 25px; line-height: 1.25; margin: 0 0 16px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* ============================================================
+   AJUSTES DA REFORMULAÇÃO (set/2026)
+   O teste em navegador móvel mostrou a primeira alternativa começando a
+   561px de uma tela de 664: o visitante via título, subtítulo e uma opção
+   cortada. Tudo abaixo existe para trazer a pergunta acima da dobra.
+   ============================================================ */
+
+/* topo mais enxuto: o wordmark não precisa de 24px de respiro no celular */
+.topbar { padding: 12px 0 2px; }
+.brand .brand-name { font-size: 17px; letter-spacing: .14em; }
+.brand .brand-tag { font-size: 10px; }
+
+/* a tela 1 é a única com hero, e ela trabalha com o orçamento de uma dobra */
+.screen.first { padding-top: 20px; padding-bottom: 20px; }
+.screen.first h1 {
+  font-size: 23px; line-height: 1.22; margin: 0 0 8px;
+  font-family: var(--font-serif); font-weight: 700; letter-spacing: -.01em;
+}
+.screen.first .lead { font-size: 15px; line-height: 1.45; margin: 0 0 16px; }
+.screen.first h2.q1 {
+  font-size: 17px; line-height: 1.3; margin: 0 0 12px;
+  padding-top: 14px; border-top: 1px solid var(--border);
+}
+.screen.first .options { gap: 8px; }
+.screen.first .opt { padding: 13px 14px; }
+.screen.first .actions { margin-top: 14px; }
+
+@media (min-width: 560px) {
+  .screen.first h1 { font-size: 30px; }
+  .screen.first h2.q1 { font-size: 19px; }
+}
+
+/* tela do formulário: o botão principal manda, o voltar acompanha */
+.actions-form { justify-content: space-between; flex-wrap: wrap; }
+.actions-form .btn-primary { flex: 1 1 auto; min-width: 200px; }
+.privacidade { margin-top: 14px; }
+
+/* o toque no celular não pode deixar opção com cara de pré-selecionada */
+.opt { -webkit-tap-highlight-color: transparent; }

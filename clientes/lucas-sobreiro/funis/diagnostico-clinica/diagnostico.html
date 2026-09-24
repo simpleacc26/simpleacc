@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Seu diagnóstico · Método BIO</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1096905346357097');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" alt=""
+    src="https://www.facebook.com/tr?id=1096905346357097&ev=PageView&noscript=1" /></noscript>
+
+  <style>
+    :root{--bg:#F1ECE4;--text:#2A2420}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* ---------- tela de preparação (5 segundos) ----------
+       Não é enfeite. Ela dá valor percebido (algo está sendo calculado),
+       cria expectativa pelo resultado, e dá tempo real do lead chegar na
+       planilha antes da troca de tela. */
+    .loading-card { text-align: center; padding: 44px 24px; }
+    .loading-card h2 { margin: 0 0 10px; }
+    .load-msg { color: var(--muted); min-height: 3em; margin: 0 0 22px; font-size: 16px; }
+    .load-track {
+      height: 6px; border-radius: 999px; background: var(--border);
+      overflow: hidden; max-width: 340px; margin: 0 auto;
+    }
+    .load-bar { height: 100%; width: 0%; border-radius: 999px; background: var(--primary); }
+    @media (prefers-reduced-motion: reduce) { .load-bar { transition: none !important; } }
+
+    /* ---------- relatório ---------- */
+    .selo {
+      display: inline-block; background: var(--accent-soft); color: var(--primary-700);
+      border: 1px solid var(--border); border-radius: 999px;
+      padding: 7px 16px; font-size: 12px; font-weight: 700;
+      letter-spacing: .14em; text-transform: uppercase; margin-bottom: 14px;
+    }
+    .vaza-nome {
+      font-family: var(--font-serif); font-size: 27px; line-height: 1.16;
+      margin: 0 0 6px; color: var(--primary-700);
+    }
+    .conta {
+      background: var(--surface); border: 1px solid var(--border);
+      border-left: 3px solid var(--primary); border-radius: var(--radius-sm);
+      padding: 18px 20px; margin: 22px 0;
+    }
+    .conta .valor {
+      font-family: var(--font-serif); font-size: 30px; font-weight: 700;
+      color: var(--primary-700); display: block; line-height: 1.1; margin-bottom: 6px;
+    }
+    .conta .obs { font-size: 13px; color: var(--muted); margin: 8px 0 0; }
+    .etapa { margin: 30px 0; }
+    .etapa h3 {
+      font-family: var(--font-serif); font-size: 20px; margin: 0 0 8px; color: var(--primary-700);
+    }
+    .caminhos { display: grid; gap: 12px; margin: 16px 0; }
+    @media (min-width: 560px) { .caminhos { grid-template-columns: 1fr 1fr; } }
+    .caminho {
+      border: 1px solid var(--border); border-radius: var(--radius-sm);
+      padding: 16px 18px; background: var(--surface);
+    }
+    .caminho h4 { margin: 0 0 8px; font-size: 14px; letter-spacing: .1em; text-transform: uppercase; }
+    .caminho.hoje h4 { color: var(--muted); }
+    .caminho.novo h4 { color: var(--primary-700); }
+    .caminho p { margin: 0; font-size: 15px; }
+    .depo-gallery { display: grid; gap: 12px; grid-template-columns: 1fr; margin: 14px 0; }
+    @media (min-width: 560px) { .depo-gallery { grid-template-columns: 1fr 1fr; } }
+    .depo-shot { width: 100%; border-radius: var(--radius-sm); border: 1px solid var(--border); }
+    .autoridade {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 22px 20px; margin: 30px 0;
+    }
+    .autoridade .quem {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; gap: 12px; margin-bottom: 18px;
+    }
+    .autoridade .foto {
+      width: 100%; max-width: 200px; height: auto; aspect-ratio: 5 / 6;
+      object-fit: cover; display: block;
+      border-radius: var(--radius-sm); border: 1px solid var(--border);
+      background: var(--bg-2);
+    }
+    .autoridade .nome { font-family: var(--font-serif); font-size: 19px; font-weight: 700; margin: 0; }
+    .autoridade .cargo {
+      font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--muted); margin: 3px 0 0;
+    }
+    .creds { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+    .cred {
+      border: 1px solid var(--border); border-radius: var(--radius-sm);
+      padding: 12px 14px; background: var(--bg);
+    }
+    .cred .n { display: block; font-family: var(--font-serif); font-size: 21px; font-weight: 700; color: var(--primary-700); }
+    .cred .t { display: block; font-size: 13px; color: var(--muted); margin-top: 2px; }
+    .cta-box {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 24px 20px; margin: 30px 0 10px; text-align: center;
+    }
+    /* O CTA é um link de verdade, não um botão com window.open: dentro do
+       navegador do Instagram o window.open costuma ser engolido, e esse é o
+       último toque antes da conversa. */
+    a.cta-wpp {
+      display: inline-block; text-decoration: none; text-align: center;
+      background: var(--action); color: var(--on-action);
+      border-radius: 999px; padding: 15px 26px; font-weight: 700; font-size: 16px;
+      border: 0; cursor: pointer; margin-top: 6px;
+    }
+    a.cta-wpp:hover { background: var(--action-700); }
+    .foot { color: var(--muted); font-size: 13px; text-align: center; padding: 22px 0 40px; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <span class="brand-name">Método BIO</span>
+        <span class="brand-tag">por Lucas Sobreiro</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card screen loading-card" id="preparando">
+      <h2>Preparando o diagnóstico da sua clínica</h2>
+      <p class="load-msg" id="load-msg">Lendo as suas respostas...</p>
+      <div class="load-track"><div class="load-bar" id="load-bar"></div></div>
+    </section>
+
+    <div class="card screen" id="report" hidden><!-- preenchido por diagnostico.js --></div>
+    <p class="foot" hidden>Método BIO · Lucas Sobreiro</p>
+  </main>
+
+  <script src="flow.js" defer></script>
+  <script src="diagnostico.js" defer></script>
+</body>
+</html>

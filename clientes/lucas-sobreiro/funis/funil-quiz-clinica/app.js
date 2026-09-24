@@ -125,11 +125,10 @@ function celularValido(v) {
   return d.length === 11 && d[2] === "9" && Number(d.slice(0, 2)) >= 11;
 }
 
-/* Classifica o lead por faturamento e prontidão (mesma régua do diagnóstico).
+/* Classifica o lead por faturamento (mesma régua do diagnóstico).
    Qualifica por intenção, não por pergunta crua de renda. */
 function classificarLead(a) {
   if (a.faturamento === "ate15" || a.faturamento === "15a30") return "nutrir";
-  if (a.prontidao === "pontual" || a.prontidao === "pesquisando") return "nutrir";
   return "qualificado";
 }
 
@@ -153,7 +152,11 @@ function enviarLead() {
     answers: {
       q1: label("situacao"), q2: label("problema"), q3: label("tempo"),
       q4: label("impacto"), q5: label("necessidade"), q6: label("objetivo"),
-      q7: label("perfil"), q8: label("faturamento"), q9: label("prontidao"),
+      q7: label("perfil"), q8: label("faturamento"),
+      /* A pergunta de prontidão saiu do quiz (o funil termina no faturamento).
+         A chave q9 continua indo vazia de propósito, para a planilha de leads
+         manter as colunas A-T e o cenário do Make não precisar ser mexido. */
+      q9: "",
     },
     utms: URL_UTMS,
     meta: {
@@ -370,7 +373,6 @@ function renderCaptura() {
         content_category: qualificacao,          // qualificado | nutrir
         lead_qualificacao: qualificacao,
         faturamento: state.answers.faturamento || "",
-        prontidao: state.answers.prontidao || "",
         perfil: state.answers.perfil || "",
         frente: (F.config && F.config.frente) || "saude",
         ...URL_UTMS,

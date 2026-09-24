@@ -39,8 +39,7 @@ if (!a._completedAt && !a.problema) {
   const objetivo = frase("objetivo") || "crescer com lucro e previsibilidade";
 
   const fat = valor("faturamento");
-  const prontidaoVal = valor("prontidao");
-  const nutrir = fat === "ate15" || fat === "15a30" || prontidaoVal === "pontual" || prontidaoVal === "pesquisando";
+  const nutrir = fat === "ate15" || fat === "15a30";
 
   // CTA adaptado ao nível de qualificação
   let ctaLabel, ctaExtra, clube;
@@ -200,8 +199,7 @@ function prepararEntao(cb) {
    clique no CTA de WhatsApp. Isso não otimiza a campanha (o objetivo é Leads),
    serve para medir quantos leads leem o diagnóstico e quantos chamam no
    WhatsApp, e para montar público de remarketing de quem leu e não chamou. */
-const QUALIFICACAO = a.faturamento === "ate15" || a.faturamento === "15a30" ||
-  a.prontidao === "pontual" || a.prontidao === "pesquisando" ? "nutrir" : "qualificado";
+const QUALIFICACAO = a.faturamento === "ate15" || a.faturamento === "15a30" ? "nutrir" : "qualificado";
 
 function pixel(nome, dados, opts) {
   try {

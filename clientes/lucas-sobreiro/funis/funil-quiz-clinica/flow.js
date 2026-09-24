@@ -32,7 +32,7 @@ window.FLOW = {
   },
 
   /* Ordem SPIN: baixa fricção primeiro, qualificação (perfil + faturamento +
-     prontidão) por último. Cada opção tem 'report' = frase usada no diagnóstico. */
+     faturamento) por último. Cada opção tem 'report' = frase usada no diagnóstico. */
   steps: [
     {
       id: "situacao",
@@ -140,18 +140,6 @@ window.FLOW = {
         { value: "15a30", label: "De R$ 15 a 30 mil", nutrir: true },
         { value: "30a80", label: "De R$ 30 a 80 mil" },
         { value: "acima80", label: "Acima de R$ 80 mil" },
-      ],
-    },
-    {
-      id: "prontidao",
-      etapa: "O próximo passo",
-      pergunta:
-        "Você busca um processo estruturado para destravar o crescimento da clínica, mesmo que represente um investimento maior do que um curso avulso?",
-      options: [
-        { value: "sim", label: "Sim, quero resolver de vez e entendo que é um investimento" },
-        { value: "entender", label: "Sim, mas preciso entender melhor como funciona antes" },
-        { value: "pontual", label: "No momento, ainda não é prioridade investir para resolver isso", nutrir: true },
-        { value: "pesquisando", label: "Só estou pesquisando por enquanto", nutrir: true },
       ],
     },
   ],
