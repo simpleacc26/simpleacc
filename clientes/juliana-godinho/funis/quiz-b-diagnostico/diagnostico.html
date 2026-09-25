@@ -971,6 +971,12 @@ if(!A || !A.quadro){
   if(!jaContou){
     try{ sessionStorage.setItem(CHAVE_CONV, A.id || '1'); }catch(e){}
     dl('quiz_completo', {
+      /* Chave de gatilho estável. O gatilho do GTM deve casar por AQUI, não
+         pelo nome do evento: nome de evento é copy e já foi renomeado uma vez
+         nesta conta (whatsapp_click virou oferta_encaminhada em 25/09), e
+         gatilho que casa por nome quebra em silêncio quando isso acontece.
+         Este valor não muda. */
+      conversao: 'lead_quiz',
       lead_id: A.id || '',
       event_id: A.id || '',
       quiz_quadro: A.quadroId, quiz_gargalo: A.quadro,

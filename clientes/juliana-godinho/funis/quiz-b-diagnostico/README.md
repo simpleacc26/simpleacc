@@ -233,9 +233,10 @@ chrome, FAQ e CTAs), então o mesmo laudo serve de anexo para a cadência da SDR
   aparece em quase todo título. **Decisão da conta:** trocar a fonte de display
   por uma com acentuação correta (EB Garamond fica no mesmo gênero) ou aceitar.
 - Página pós-quiz completa, PDF do laudo e disparo de WhatsApp.
-- **Tags e gatilhos dentro do GTM.** O container e os eventos estão
-  instalados, mas nenhuma tag foi criada — nada é enviado para Meta ou GA4
-  ainda. Ver "GTM" acima.
+- ~~**Tags e gatilhos dentro do GTM.**~~ **Desatualizado, corrigido em 25/09/2026.**
+  As tags existem: o Gerenciador de Eventos mostra 3,1 mil eventos em 28 dias no
+  pixel `1795488411165466`. Elas foram criadas direto na interface do GTM, que
+  não vive neste repositório. Quem for mexer, olhe no GTM, não aqui.
 - **Domínio próprio.** Está em `quiz-ju-godinho.vercel.app`. Precisa de acesso
   ao DNS de `julianagodinho.com.br` para virar algo como
   `diagnostico.julianagodinho.com.br`.
@@ -414,6 +415,61 @@ tentar de novo: a alegação de que "apenas 15% dos clientes de beleza trocam de
 profissional por preço" aparece em blog citando o Sebrae, **sem nome de estudo,
 ano ou link**. E a pesquisa CNDL/SPC sobre gastos com beleza **é de 2016** e
 mede consumo de produto, não clínica. Nenhum dos dois entrou.
+
+## Restrição da Meta e o evento de otimização
+
+**Desde 17/09/2026 a Meta não conta mais leads desta conta.** O domínio
+`quiz-ju-godinho.vercel.app` foi classificado automaticamente como *Prestador de
+serviços de saúde e bem-estar*, e a restrição bloqueia os eventos padrão de fundo
+de funil, `Lead` incluído. O anúncio continua entregando, a planilha continua
+enchendo, e a coluna de resultado mostra traço.
+
+**O recurso não resolve.** Levantamento sobre mais de 75 contas entre jan/2025 e
+o 1º tri/2026 não encontrou nenhum caso documentado de reversão. O processo é
+automatizado e não aceita evidência. Está pedido, mas não se planeja em cima.
+
+### O que continua passando
+
+`PageView`, `ViewContent`, `LandingPageView` e eventos personalizados de nome
+neutro. É por aí que a conta volta a ter sinal.
+
+### O gatilho de conversão, e por que ele não casa por nome
+
+O `quiz_completo` (`diagnostico.html`) é o sinal de lead. Ele:
+
+- dispara **uma vez por lead**, protegido por `CHAVE_CONV` em sessionStorage;
+- **não dispara em modo demo** (`?demo=Q1..Q4`);
+- cobre **os dois quizzes**, porque o `quiz-c.html` grava na mesma chave de
+  sessionStorage e também termina no `diagnostico.html`;
+- carrega `event_id` para deduplicação com CAPI, quando ela existir.
+
+E carrega **`conversao: 'lead_quiz'`**, que é onde o gatilho do GTM deve casar.
+
+**Não casar pelo nome do evento.** Nome de evento é copy e já foi renomeado uma
+vez nesta conta: `whatsapp_click` virou `oferta_encaminhada` em 25/09. Gatilho que
+casa por nome quebra em silêncio quando isso acontece. O `conversao` não muda.
+
+### Configuração no GTM e no Gerenciador
+
+1. **GTM** → a tag da Meta que hoje dispara `Lead` passa a disparar
+   **`ViewContent`**, no mesmo gatilho.
+2. **Gatilho** → evento personalizado, casando por `conversao` igual a
+   `lead_quiz`.
+3. **Gerenciador de Anúncios** → trocar o evento de conversão da campanha de
+   `Lead` para `ViewContent`.
+4. **Conferir no Testar Eventos** que chega, e que não aparece aviso de evento
+   restrito.
+
+**Cuidado que decide o resultado:** o `ViewContent` precisa disparar **só aqui**.
+Se existir outra tag de `ViewContent` em outra página, o algoritmo passa a
+otimizar para uma mistura e o sinal perde valor. Conferir no GTM antes de subir.
+
+### O número muda de significado
+
+Com `ViewContent` no lugar de `Lead`, a coluna passa a contar **quem completou o
+quiz**, não lead qualificado. Para qualidade, a fonte de verdade é a aba
+`V4 - Quiz` da planilha, que tem `Lead ID`, `gargalo_id`, `rota_id` e o
+`utm_content` de cada lead.
 
 ## A rota do diagnóstico
 
