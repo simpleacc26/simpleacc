@@ -107,7 +107,7 @@ window.FLOW = {
     {
       id: "faturamento",
       etapa: "Faturamento",
-      pergunta: "Meu faturamento mensal é de:",
+      pergunta: "Qual seu faturamento mensal?",
       options: [
         { value: "ate-10mil", label: "Até 10 mil" },
         { value: "10-20mil", label: "Entre 10 e 20 mil" },

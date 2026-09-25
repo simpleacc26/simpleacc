@@ -128,8 +128,8 @@ function updateProgress(stepIdx) {
   const total = F.steps.length;
   const pct = Math.round((stepIdx / total) * 100);
   const label = stepIdx === total - 1 ? "Última pergunta" : `Pergunta ${stepIdx + 1} de ${total}`;
-  /* Na 1ª tela a barra fica oculta (o hero já diz "7 perguntas") para a
-     1ª pergunta subir e aparecer na dobra; ela surge ao responder. */
+  /* Na 1ª tela a barra fica oculta para a 1ª pergunta subir e aparecer
+     na dobra; ela surge ao responder. */
   progressEl.hidden = stepIdx === 0;
   document.getElementById("progress-label").textContent = label;
   document.getElementById("progress-pct").textContent = `${pct}%`;
@@ -166,7 +166,6 @@ function renderStep(i, opts = {}) {
     return `
     <button class="opt" type="button" role="radio" tabindex="${foco ? 0 : -1}"
             aria-checked="${selected === o.value ? "true" : "false"}" data-value="${o.value}">
-      <span class="opt-key" aria-hidden="true">${String.fromCharCode(65 + idx)}</span>
       <span class="txt">${o.label}</span>
       <span class="opt-check" aria-hidden="true">${icon("check", "ico")}</span>
     </button>`;
@@ -182,7 +181,6 @@ function renderStep(i, opts = {}) {
         <span class="selo">${icon("diamante")}${h.selo}</span>
         <h1>${titulo}</h1>
         <p class="lead">${h.subtitulo}</p>
-        <p class="hero-meta">${icon("relogio")}${h.tempo}</p>
         <div class="orn" aria-hidden="true"><span></span>${icon("diamante")}<span></span></div>
       </header>`;
   }
@@ -193,14 +191,9 @@ function renderStep(i, opts = {}) {
   const card = `
     <section class="card${i === 0 ? "" : " screen"}">
       ${recompensa}
-      <p class="eyebrow"><span class="step-n">${String(i + 1).padStart(2, "0")}</span>${step.etapa}</p>
       <h2 id="q-${step.id}">${step.pergunta}</h2>
       <div class="options" role="radiogroup" aria-labelledby="q-${step.id}">${opcoes}</div>
-      <div class="actions">
-        ${i > 0
-          ? '<button class="btn btn-ghost" id="back" type="button"><span aria-hidden="true">←</span> Voltar</button>'
-          : '<span class="hint">Toque na opção que mais combina com você. O quiz avança automaticamente.</span>'}
-      </div>
+      ${i > 0 ? '<div class="actions"><button class="btn btn-ghost" id="back" type="button"><span aria-hidden="true">←</span> Voltar</button></div>' : ""}
     </section>`;
   const screen = i === 0 ? el(`<div class="screen-wrap">${intro}${card}</div>`) : el(card);
   app.replaceChildren(screen);

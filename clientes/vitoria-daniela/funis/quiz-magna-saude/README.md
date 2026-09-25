@@ -14,6 +14,10 @@ identidade própria para o público da saúde.
 - **Texto da headline, da subheadline, das perguntas e das opções: exatamente
   como a Vitória escreveu** no doc "QUIZ" (aba QUIZ SAUDE), inclusive a ordem
   das opções dentro de cada pergunta. Ela pediu para não mudar a redação.
+  Exceção pedida depois (25/09): a pergunta de faturamento virou "Qual seu
+  faturamento mensal?". Também a pedido: sem letras A/B nas opções, sem
+  rótulo de etapa acima das perguntas ("03 Seu maior desafio"), sem "Toque
+  na opção…" e sem "7 perguntas · cerca de 2 minutos".
 - **Ordem das perguntas = Método ASK** (revisão validada em
   `estrategia/2026-09-08-revisao-quiz-metodo-ask.html`):
   1. Tipo de contato que chega no WhatsApp (abertura, não sensível)
@@ -33,8 +37,8 @@ nos botões e nude rosé `#EAD8CB`. Títulos em **Cormorant Garamond**, texto em
 
 ## Elementos dopaminérgicos
 
-- Opção escolhida: letra que vira selo escuro, check que se desenha, onda
-  dourada e vibração curta no celular.
+- Opção escolhida: borda dourada, check que se desenha, onda dourada e
+  vibração curta no celular.
 - Barra de progresso com ponto pulsando (batimento) na ponta; micro-recompensa
   dentro do card seguinte ("Anotado. Essa é a resposta mais importante…",
   "Falta pouco…"). A barra fica oculta só na 1ª tela, para a pergunta 1
