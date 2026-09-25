@@ -75,7 +75,7 @@ function updateProgress(stepIdx) {
   const human = stepIdx + 1;
   const pct = Math.round((stepIdx / total) * 100);
   const label = stepIdx === 0 ? "Começando" : (stepIdx === total - 1 ? "Última pergunta" : `Pergunta ${human} de ${total}`);
-  progressEl.hidden = false;
+  progressEl.hidden = stepIdx === 0; /* 1ª tela sem barra: a pergunta 1 sobe na dobra */
   document.getElementById("progress-label").textContent = label;
   document.getElementById("progress-pct").textContent = `${pct}%`;
   document.getElementById("progress-bar").style.width = `${pct}%`;
@@ -99,7 +99,6 @@ function renderStep(i) {
     </button>`).join("");
 
   const intro = i === 0 ? `
-      <span class="selo">${F.hero.selo}</span>
       <h1>${F.hero.titulo}</h1>
       <p class="lead" style="margin:0 0 22px">${F.hero.subtitulo}</p>
 ` : "";
@@ -111,7 +110,7 @@ function renderStep(i) {
       <div class="actions">
         ${i > 0
           ? '<button class="btn btn-ghost" id="back">← Voltar</button>'
-          : '<span class="hint">Toque na opção que mais combina. Avança sozinho.</span>'}
+          : ''}
       </div>
     </section>`);
   app.replaceChildren(screen);
