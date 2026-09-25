@@ -180,7 +180,7 @@ const PAGINAS = [
         ])}
       </div>
     </div>
-    <a class="btn btn-primary btn-block dg-cta" id="whatsapp-2" href="#" target="_blank" rel="noopener">${icon("chat")}Quero agendar minha análise estratégica</a>
+    <a class="btn btn-primary btn-block dg-cta" id="cta-analise" href="analise.html">${icon("chat")}Quero agendar minha análise estratégica</a>
     <p class="dg-copy">© Vitória Daniela · Grupo Magna</p>
   </section>`,
 ];
@@ -203,5 +203,5 @@ if (!temRespostas) {
   report.innerHTML = PAGINAS.join("");
 }
 
-document.querySelectorAll("#whatsapp, #whatsapp-2").forEach((b) => { b.href = waUrl; });
+document.getElementById("whatsapp")?.setAttribute("href", waUrl);
 document.getElementById("pdf")?.addEventListener("click", () => window.print());

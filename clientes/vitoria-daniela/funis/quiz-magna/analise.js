@@ -12,8 +12,8 @@
    ============================================================ */
 const VSL = {
   vturb: "",                 /* cole aqui o código de incorporação do VTurb */
-  src: "",                   /* ou o caminho do vídeo hospedado (mp4) */
-  poster: "",
+  src: "assets/vsl/vsl-720.mp4",  /* ou o caminho do vídeo hospedado (mp4) */
+  poster: "assets/vsl/poster.jpg",
   atrasoSegundos: 120,
 };
 

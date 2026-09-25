@@ -4,9 +4,12 @@ Funil **Quiz → Análise (5s) → Diagnóstico**, com a **LP da análise estrat
 (VSL)** pronta para entrar depois do diagnóstico. HTML/CSS/JS puro, sem
 dependências, sem build.
 
-**No ar:** https://diagnostico-magna.vercel.app (quiz + diagnóstico).
-A LP (`analise.html`) **ainda não foi publicada**: falta o vídeo (ver
-Pendências).
+**No ar:** https://diagnostico-magna.vercel.app (quiz + diagnóstico) e
+https://diagnostico-magna.vercel.app/analise.html (LP com a VSL).
+
+Fluxo: quiz → análise (5s) → diagnóstico → botão final "Quero agendar minha
+análise estratégica" → LP com a VSL → WhatsApp. O "Falar no WhatsApp" do topo
+do diagnóstico vai direto para a equipe.
 
 ## Copy (atualização da Vitória em 25/09/2026)
 
@@ -43,8 +46,8 @@ não decide do mesmo jeito que quem compra um de R$200.". Na página 7, "quem
 vende um protocolo numa clínica" virou "quem vende um projeto de arquitetura"
 (genérico sem clínica).
 
-CTA final ("Quero agendar minha análise estratégica") abre o WhatsApp da
-equipe. Quando a LP com VSL for ao ar, dá para apontar esse botão para ela.
+CTA final ("Quero agendar minha análise estratégica") leva para a LP com a
+VSL (`analise.html`).
 
 ## LP da análise estratégica + VSL (analise.html / analise.js / analise.css)
 
@@ -61,6 +64,19 @@ negócio" e "pacientes" virou "clientes" (genérico sem clínica).
   WhatsApp: A = "Quero agendar minha análise estratégica.", B = "Assisti o
   vídeo e quero agendar…". Assim a SDR sabe de qual variante veio cada
   conversa. Forçar uma variante para teste: `analise.html?v=a` ou `?v=b`.
+
+### Arquivo da VSL (fora do Git)
+
+Original: `vsl.mp4` no Drive (ID 1xpnXrGs2D3UeUBwg7R5ga1c0jSFZoYBL, 11min37,
+1080p, 166MB). Publicado em `assets/vsl/` (ignorado pelo Git) como versão web
+720p (~70MB, abaixo do limite de 100MB por arquivo da Vercel) + capa:
+
+```
+ffmpeg -ss 1 -i vsl.mp4 -frames:v 1 -vf scale=1280:-2 -q:v 4 assets/vsl/poster.jpg
+ffmpeg -i vsl.mp4 -vf scale=-2:720 -c:v libx264 -preset medium -profile:v high \
+  -b:v 750k -maxrate 1000k -bufsize 1500k -pix_fmt yuv420p -c:a aac -b:a 96k \
+  -movflags +faststart assets/vsl/vsl-720.mp4
+```
 
 ## Lógica de balde e camada (flow.js)
 
@@ -85,11 +101,7 @@ conferida arquivo por arquivo.
 
 ## Pendências
 
-- [ ] **VSL:** o `vsl.mp4` (166MB, conta grupomagnaoficial) é privado no
-      Drive e grande demais para baixar pela integração. Precisa: o código de
-      incorporação do VTurb **ou** o arquivo compartilhado como "qualquer
-      pessoa com o link". Com ele: comprimir, publicar a LP e apontar o CTA
-      do diagnóstico para `analise.html`.
-- [ ] Implantar o Apps Script e ligar `LEADS_ENDPOINT` (republicar `app.js`,
-      que já tem o payload novo com segmento).
+- [ ] Implantar o Apps Script e ligar `LEADS_ENDPOINT`.
 - [ ] Confirmar com a Vitória a frase completada na página 3 do diagnóstico.
+- [ ] VTurb: se ela preferir o player do VTurb, colar o código em `VSL.vturb`
+      no `analise.js` (substitui o vídeo hospedado).
