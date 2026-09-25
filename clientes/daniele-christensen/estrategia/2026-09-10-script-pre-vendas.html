@@ -1,0 +1,1108 @@
+<title>Pré-vendas Grokker</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F7F6F3; --surface:#FFFFFF; --surface-2:#EFEDE7;
+  --ink:#1A1714; --ink-2:#4A443B; --muted:#7A7268;
+  --rule:#E2DED6; --rule-firm:#CBC5B9;
+  --accent:#C4651B; --accent-soft:#F6E6D4;
+  --crit:#A32B22; --crit-soft:#F6DFDC;
+  --good:#2A6B45; --good-soft:#DFEDE4;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#151311; --surface:#1E1B18; --surface-2:#262320;
+    --ink:#F2EEE7; --ink-2:#CEC7BB; --muted:#968D81;
+    --rule:#2E2A26; --rule-firm:#443E37;
+    --accent:#E8934A; --accent-soft:#3A2914;
+    --crit:#E8877C; --crit-soft:#3A1D1A;
+    --good:#6FBF90; --good-soft:#122B1D;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#151311; --surface:#1E1B18; --surface-2:#262320;
+  --ink:#F2EEE7; --ink-2:#CEC7BB; --muted:#968D81;
+  --rule:#2E2A26; --rule-firm:#443E37;
+  --accent:#E8934A; --accent-soft:#3A2914;
+  --crit:#E8877C; --crit-soft:#3A1D1A;
+  --good:#6FBF90; --good-soft:#122B1D;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ground); color:var(--ink); margin:0;
+  font-family:"Source Sans 3",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:16.5px; line-height:1.62; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px 96px;display:grid;grid-template-columns:1fr;gap:0}
+.page{max-width:820px;min-width:0}
+h1,h2,h3,h4{font-family:Newsreader,Georgia,"Times New Roman",serif;text-wrap:balance;font-weight:500}
+.mono,.eyebrow,th,.tag,.when,.lbl{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums}
+.eyebrow{font-size:10.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+
+header{padding:54px 0 34px;border-bottom:1px solid var(--rule-firm)}
+h1{font-size:clamp(34px,6vw,54px);line-height:1.04;letter-spacing:-.015em;margin:0 0 16px}
+.dek{font-size:19px;line-height:1.52;color:var(--ink-2);max-width:58ch;margin:0 0 24px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 24px;font-size:12px;color:var(--muted);font-family:"JetBrains Mono",monospace}
+.meta b{color:var(--ink-2);font-weight:400}
+
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:30px 0 0}
+.tile{background:var(--surface);padding:16px 16px 14px}
+.tile .l{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-family:"JetBrains Mono",monospace;margin:0 0 8px}
+.tile .n{font-size:28px;font-weight:500;line-height:1;letter-spacing:-.02em;margin:0 0 6px;font-family:Newsreader,Georgia,serif;color:var(--accent)}
+.tile .s{font-size:12.5px;color:var(--muted);margin:0;line-height:1.4}
+
+nav.toc{margin:34px 0 0;border:1px solid var(--rule);background:var(--surface);padding:18px 20px}
+nav.toc .l{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-family:"JetBrains Mono",monospace;margin:0 0 12px}
+nav.toc ol{margin:0;padding:0;list-style:none;counter-reset:t;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:2px 26px}
+nav.toc li{counter-increment:t;font-size:14.5px;line-height:1.45;padding:3px 0}
+nav.toc li::before{content:counter(t,decimal-leading-zero);font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--accent);margin-right:9px}
+nav.toc a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid transparent}
+nav.toc a:hover{color:var(--ink);border-bottom-color:var(--rule-firm)}
+
+section{padding:56px 0 0;scroll-margin-top:20px}
+h2{font-size:clamp(23px,3.1vw,31px);line-height:1.16;letter-spacing:-.01em;margin:0 0 14px}
+h3{font-size:19px;margin:34px 0 10px}
+h4{font-size:16px;margin:24px 0 8px;color:var(--ink-2)}
+p{margin:0 0 15px;max-width:70ch}
+.lead{font-size:18px;color:var(--ink-2)}
+strong{font-weight:600}
+ul,ol{max-width:70ch;padding-left:20px}
+li{margin:0 0 8px}
+.hr{height:1px;background:var(--rule);margin:54px 0 0}
+
+.rule-box{border-left:3px solid var(--accent);background:var(--accent-soft);padding:16px 18px;margin:22px 0}
+.rule-box p{margin:0;max-width:64ch}
+.rule-box p+p{margin-top:10px}
+.rule-box .l{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-family:"JetBrains Mono",monospace;color:var(--accent);margin:0 0 8px;display:block}
+.warn{border-left-color:var(--crit);background:var(--crit-soft)}
+.warn .l{color:var(--crit)}
+.ok{border-left-color:var(--good);background:var(--good-soft)}
+.ok .l{color:var(--good)}
+
+table{width:100%;border-collapse:collapse;margin:22px 0;font-size:14.5px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;border-bottom:1px solid var(--rule-firm)}
+td:first-child{color:var(--ink)}
+.tw{overflow-x:auto;max-width:100%}
+.tw table{min-width:520px}
+
+.msg{border:1px solid var(--rule);background:var(--surface);margin:20px 0}
+.msg>header{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:11px 16px;border-bottom:1px solid var(--rule);background:var(--surface-2);border-top:0}
+.lbl{font-size:11px;font-weight:500;letter-spacing:.06em;color:var(--accent);background:var(--surface);border:1px solid var(--rule-firm);padding:2px 7px}
+.when{font-size:11.5px;color:var(--muted)}
+.copy{margin-left:auto;font-family:"JetBrains Mono",monospace;font-size:11px;letter-spacing:.05em;color:var(--ink-2);background:transparent;border:1px solid var(--rule-firm);padding:4px 10px;cursor:pointer}
+.copy:hover{color:var(--ink);border-color:var(--ink-2)}
+.copy.done{color:var(--good);border-color:var(--good)}
+.fala{padding:16px 18px;font-size:16px;line-height:1.66;white-space:pre-wrap}
+.var{color:var(--accent);background:var(--accent-soft);padding:0 2px;margin:0 -1px;border-radius:2px;font-weight:600}
+.porque{padding:12px 18px;border-top:1px dashed var(--rule);font-size:13.5px;color:var(--muted);line-height:1.55}
+.porque b{color:var(--ink-2);font-weight:500}
+.audio .fala{font-style:italic}
+
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule);margin:22px 0}
+.card{background:var(--surface);padding:16px 18px}
+.card h4{margin:0 0 6px;font-size:16.5px;color:var(--ink)}
+.card p{margin:0 0 8px;font-size:14.5px;color:var(--ink-2);max-width:none}
+.card p:last-child{margin:0}
+.card .k{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-family:"JetBrains Mono",monospace;color:var(--muted);display:block;margin:10px 0 3px}
+
+.dos{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;margin:22px 0}
+.dos h4{margin:0 0 10px}
+.dos ul{padding-left:18px;margin:0;font-size:14.5px}
+.no h4{color:var(--crit)}
+.yes h4{color:var(--good)}
+
+footer{margin-top:64px;padding-top:24px;border-top:1px solid var(--rule-firm);font-size:13.5px;color:var(--muted)}
+footer p{max-width:70ch}
+@media(max-width:640px){
+  .fala{font-size:15.4px}
+  nav.toc ol{grid-template-columns:1fr}
+}
+</style>
+
+<div class="wrap"><div class="page">
+
+<header>
+  <p class="eyebrow">Grokker · Dra. Daniele Christensen</p>
+  <h1>Pré-vendas: como transformar um Diagnóstico respondido em uma Sessão Estratégica que acontece</h1>
+  <p class="dek">Material de trabalho do time comercial. Serve para o primeiro contato, para a cadência de dez dias e para a máquina de presença que combate o no-show. Nada aqui é para ser lido em voz alta palavra por palavra.</p>
+  <div class="meta">
+    <span><b>Para:</b> time comercial da Grokker</span>
+    <span><b>Versão:</b> 1.1</span>
+    <span><b>Data:</b> 10/09/2026</span>
+    <span><b>Produzido por:</b> SimpleAcc</span>
+  </div>
+
+  <div class="tiles">
+    <div class="tile"><p class="l">Primeiro contato</p><p class="n">5 min</p><p class="s">do lead entrar até a primeira tentativa</p></div>
+    <div class="tile"><p class="l">Agenda</p><p class="n">72 h</p><p class="s">o horário oferecido nunca passa disso</p></div>
+    <div class="tile"><p class="l">Cadência</p><p class="n">10 dias</p><p class="s">7 toques, depois encerra com dignidade</p></div>
+    <div class="tile"><p class="l">Remarcação</p><p class="n">2</p><p class="s">na terceira ausência, o lead volta para nutrição</p></div>
+  </div>
+
+  <nav class="toc">
+    <p class="l">Neste documento</p>
+    <ol>
+      <li><a href="#principios">Quatro princípios que sustentam tudo</a></li>
+      <li><a href="#mao">O que você já tem na mão antes de falar</a></li>
+      <li><a href="#cenarios">Os quatro cenários e a frase que abre cada um</a></li>
+      <li><a href="#perfis">Cinco jeitos de ler quem está do outro lado</a></li>
+      <li><a href="#abordagem">A abordagem inicial</a></li>
+      <li><a href="#etapa2">Como fazer a segunda parte do Diagnóstico acontecer</a></li>
+      <li><a href="#descobertas">As sete descobertas da conversa</a></li>
+      <li><a href="#vender">Como se vende a reunião</a></li>
+      <li><a href="#objecoes">Objeções da pré-venda</a></li>
+      <li><a href="#followup">Follow-up: a cadência de dez dias</a></li>
+      <li><a href="#noshow">No-show: a máquina de presença</a></li>
+      <li><a href="#nao">Quando dizer não</a></li>
+      <li><a href="#rotina">Registro no CRM e rotina do dia</a></li>
+      <li><a href="#jeito">O jeito de falar</a></li>
+    </ol>
+  </nav>
+</header>
+
+<!-- ============================================================ 1 -->
+<section id="principios">
+  <p class="eyebrow">01</p>
+  <h2>Quatro princípios que sustentam tudo</h2>
+  <p class="lead">Se você esquecer o resto do documento e lembrar só disto, a sua taxa de agendamento já sobe.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>1. Você não vende o Intensity. Você vende a Sessão Estratégica.</h4>
+      <p>Ninguém compra um programa de doze meses por WhatsApp. O seu único produto na pré-venda é a próxima conversa, e ela precisa parecer valiosa por si só, mesmo que nada seja contratado depois.</p>
+    </div>
+    <div class="card">
+      <h4>2. Quem pergunta conduz.</h4>
+      <p>Toda vez que você explica muito, você entrega o controle da conversa. A pessoa que faz a próxima pergunta é a pessoa que decide para onde a conversa vai. Fale o mínimo necessário e devolva com pergunta.</p>
+    </div>
+    <div class="card">
+      <h4>3. Nunca pergunte o que o Diagnóstico já respondeu.</h4>
+      <p>O lead gastou tempo respondendo. Repetir aquilo destrói a percepção de que alguém leu, e é o que separa uma abordagem preparada de mais uma abordagem qualquer.</p>
+    </div>
+    <div class="card">
+      <h4>4. Acolhimento com direção.</h4>
+      <p>Recebemos bem, escutamos de verdade e não empurramos nada. Ao mesmo tempo, cada mensagem tem um destino. Acolher não significa deixar a conversa andar sem rumo, e a urgência que a gente usa é a que já existe na vida do lead.</p>
+    </div>
+  </div>
+
+  <div class="rule-box">
+    <span class="l">A regra que mais muda resultado</span>
+    <p>O no-show quase nunca nasce no dia da reunião. Ele nasce na conversa que marcou a reunião, quando essa conversa não vendeu a importância de estar lá. Se a pessoa sai do agendamento sem saber exatamente o que vai receber, qualquer café de última hora ganha da sua Sessão.</p>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ============================================================ 2 -->
+<section id="mao">
+  <p class="eyebrow">02</p>
+  <h2>O que você já tem na mão antes de falar</h2>
+  <p class="lead">Quem chega até você já respondeu de oito a nove perguntas na Etapa 1. Uma parte menor, hoje, também respondeu as quinze da Etapa 2, e fazer essa segunda parte acontecer é assunto da seção 06. Tudo isso é munição, então abra a planilha antes de digitar a primeira letra.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th>O que o Diagnóstico entrega</th><th>Para que serve na conversa</th></tr></thead>
+    <tbody>
+      <tr><td><b>P0 · Cargo</b><br>Proprietário, Diretor, Gestor, recém promovido</td><td>Define o tom e a régua. Dono decide sozinho, executivo tem aprovação acima. Muda inclusive quem precisa estar na Sessão.</td></tr>
+      <tr><td><b>P1 · Setor</b></td><td>Vocabulário e exemplo. Falar de escala de turno com indústria e de agenda de atendimento com saúde economiza dez minutos de explicação.</td></tr>
+      <tr><td><b>P2 · Cenário</b><br>um dos quatro</td><td>É a sua frase de abertura. A pessoa escreveu o problema com as palavras dela, use as palavras dela.</td></tr>
+      <tr><td><b>P3 · O que já tentou</b></td><td>A ponte mais forte que existe. Ela mostra que a pessoa já se mexeu e não resolveu, e é o que justifica uma abordagem diferente.</td></tr>
+      <tr><td><b>P4 · Decisões sem passar por ele</b></td><td>Mede o quanto a pessoa é o funil de tudo. Quanto mais perto de "tudo passa por mim", maior a dor de tempo.</td></tr>
+      <tr><td><b>P5 · O que incomoda imaginar em 12 meses</b></td><td>A urgência já declarada, na voz do lead. É a frase que você devolve nos follow-ups do dia 3 em diante.</td></tr>
+      <tr><td><b>P8 · Colaboradores</b></td><td>Porte da estrutura e tamanho do problema. Trinta pessoas sem critério de decisão custam muito mais que cinco.</td></tr>
+      <tr><td><b>P6 e P7 · Dinheiro</b><br>faturamento e margem, ou remuneração e autonomia</td><td>A régua de qualificação. Dono acima de R$ 200 mil por mês, executivo com autonomia real de investimento.</td></tr>
+      <tr><td><b>Etapa 2 · TD, bloco dominante e Lead Hot</b></td><td>O nome técnico do que trava. Um TD 5 com o bloco A em 10 vende mais que um TD 6 espalhado por igual. Abra sempre pelo bloco mais alto.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>O que ainda falta, e só a conversa entrega</h3>
+  <p>O Diagnóstico dá o retrato. Ele não dá o motivo de a pessoa ter respondido justamente hoje, nem o número que aquilo custou, nem quem assina. Isso é o seu trabalho, e está detalhado na <a href="#descobertas">seção 07</a>.</p>
+</section>
+
+<div class="hr"></div>
+
+<!-- ============================================================ 3 -->
+<section id="cenarios">
+  <p class="eyebrow">03</p>
+  <h2>Os quatro cenários e a frase que abre cada um</h2>
+  <p class="lead">Cada lead sai da Etapa 1 dentro de um destes quatro cenários. A abertura muda conforme o cenário, e ela sempre começa devolvendo a escolha que a pessoa fez.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th>Cenário</th><th>O que a pessoa marcou</th><th>Sua primeira pergunta</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><b>O Adiador</b><br><span class="when">ausência de critério para decidir sobre pessoas</span></td>
+        <td>"Tem hora que eu deveria manter a exigência e acabo cedendo, para não desgastar a relação."</td>
+        <td>"Me conta uma vez que isso aconteceu nos últimos meses. Quem era e o que você deixou passar?"</td>
+      </tr>
+      <tr>
+        <td><b>O Gargalo</b><br><span class="when">decisão concentrada na Liderança</span></td>
+        <td>"Minha equipe vem me perguntar o que fazemos agora, em vez de agir sobre o que já estava combinado."</td>
+        <td>"Isso acontece mais com qual parte do time? E quantas vezes por semana você é interrompido assim?"</td>
+      </tr>
+      <tr>
+        <td><b>Time que não Assume</b><br><span class="when">falta de responsabilização</span></td>
+        <td>"As pessoas justificam o resultado com o mercado, o cliente ou o preço, em vez de assumir a responsabilidade."</td>
+        <td>"Quando foi a última vez que essa conversa te custou dinheiro de verdade?"</td>
+      </tr>
+      <tr>
+        <td><b>Plano que não Vira Execução</b><br><span class="when">desalinhamento entre meta e prática</span></td>
+        <td>"A gente sai da reunião com tudo combinado e registrado, e os prazos não são cumpridos."</td>
+        <td>"Isso é com todo mundo ou tem um ponto específico onde trava sempre?"</td>
+      </tr>
+    </tbody>
+  </table></div>
+
+  <div class="rule-box">
+    <span class="l">Por que abrir assim funciona</span>
+    <p>A pergunta pede um episódio concreto, com nome e data. Episódio concreto tira a conversa do plano das ideias e coloca a pessoa de volta dentro da cena. É lá dentro que ela sente o problema, e quem sente o problema aparece na reunião.</p>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ============================================================ 4 -->
+<section id="perfis">
+  <p class="eyebrow">04</p>
+  <h2>Cinco jeitos de ler quem está do outro lado</h2>
+  <p class="lead">Isto não é teste de personalidade nem leitura clínica de ninguém. É uma leitura rápida, feita em três mensagens, que serve só para você escolher o ritmo e o vocabulário certos. A maioria das pessoas mistura dois desses jeitos.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>O Analítico</h4>
+      <p>Responde curto, quer entender o mecanismo antes de aceitar qualquer coisa, desconfia de entusiasmo.</p>
+      <span class="k">Como falar</span>
+      <p>Ordem, critério e etapas. Diga o que acontece na Sessão, nessa sequência. Nada de adjetivo.</p>
+      <span class="k">O que evita</span>
+      <p>Ser feito de bobo. Se sentir empurrado, some sem avisar.</p>
+    </div>
+    <div class="card">
+      <h4>O Acolhedor</h4>
+      <p>Conta a história inteira, se alonga, gosta de conversar. Some quando sente que virou número.</p>
+      <span class="k">Como falar</span>
+      <p>Escute, valide uma frase dele e devolva ao ponto com gentileza. "Isso que você falou sobre X é justamente o que eu queria te perguntar."</p>
+      <span class="k">Cuidado</span>
+      <p>Uma ligação com esse perfil come quarenta minutos se você não conduzir. Coloque limite com carinho, sem cortar.</p>
+    </div>
+    <div class="card">
+      <h4>O Comandante</h4>
+      <p>Objetivo, prático, decide rápido, perde o interesse na segunda frase sem objetivo. É o perfil mais comum entre os donos que chegam até nós.</p>
+      <span class="k">Como falar</span>
+      <p>Vá direto ao ponto e mostre controle. Diga o que é, quanto tempo leva e o que ele leva de lá. Ofereça dois horários e cale.</p>
+      <span class="k">Cuidado</span>
+      <p>Rodeio, com esse perfil, lê como despreparo.</p>
+    </div>
+    <div class="card">
+      <h4>O Sustentador</h4>
+      <p>Carrega tudo nas costas, custa a delegar, tem dificuldade em pedir ajuda. Costuma ser o dono que trabalha mais que todo mundo na empresa.</p>
+      <span class="k">Como falar</span>
+      <p>Ofereça dignidade e processo. Reconheça o peso que ele carrega sem transformar isso em pena.</p>
+      <span class="k">Cuidado</span>
+      <p>Qualquer pressão soa como cobrança, e ele já tem cobrança demais.</p>
+    </div>
+    <div class="card">
+      <h4>O Competidor</h4>
+      <p>Fala em número, meta e comparação. Quer saber onde está perdendo e quanto.</p>
+      <span class="k">Como falar</span>
+      <p>Ganho concreto, tempo recuperado, padrão sustentado. Traga o custo do problema em reais, usando o número que ele mesmo te deu.</p>
+      <span class="k">Cuidado</span>
+      <p>Não ofereça acolhimento a quem quer performance. Soa fora de lugar.</p>
+    </div>
+    <div class="card">
+      <h4>E a camada por trás disso</h4>
+      <p>Preste atenção em <b>sobre quem a pessoa fala</b>.</p>
+      <p>Quem fala de si mesmo quer provar capacidade. Não empurre, alimente a autonomia da decisão dela.</p>
+      <p>Quem fala de número quer resultado. Use o custo da inação com os números dele.</p>
+      <p>Quem fala do time, da família ou de quem depende dele quer cumprir bem um papel. Fale de responsabilidade sobre quem está junto, e essa é a chave da maior parte dos nossos leads.</p>
+    </div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ============================================================ 5 -->
+<section id="abordagem">
+  <p class="eyebrow">05</p>
+  <h2>A abordagem inicial</h2>
+  <p class="lead">Os cards abaixo são blocos de construção, não um roteiro fechado. Você escolhe quais usa e em que ordem, conforme a pessoa responde. Troque as palavras para o seu jeito de falar, e mantenha a função de cada bloco.</p>
+
+  <h3>Onde você entra no fluxo</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Porta de entrada</th><th>Quando</th><th>Prioridade</th></tr></thead>
+    <tbody>
+      <tr><td>O lead respondeu qualquer coisa no WhatsApp</td><td>Imediato, em até 5 minutos</td><td>Máxima. A janela de 24 horas está aberta e a conversa é livre.</td></tr>
+      <tr><td>O lead concluiu a Etapa 2 e não agendou</td><td>Em até 1 hora</td><td>Máxima. É a pessoa mais quente do funil e ela está a um clique da agenda.</td></tr>
+      <tr><td>O lead recebeu o Diagnóstico e não respondeu a segunda parte</td><td>No dia seguinte, depois que a automação encerrou</td><td>Alta, e é a maior fatia da base hoje. Vai para a seção 06 e, em paralelo, para a Trilha A da cadência.</td></tr>
+      <tr><td>O lead agendou</td><td>No ato</td><td>Vai direto para a máquina de presença, seção 11.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Os blocos</h3>
+
+  <div class="msg">
+    <header><span class="lbl">M1</span><span class="when">apresentação · primeiro contato</span><button class="copy">Copiar</button></header>
+    <div class="fala">Oi, [primeiro nome], tudo bem? Aqui é a [seu nome], eu faço parte do time da Dra. Daniele Christensen.
+
+Antes de te chamar eu li as suas respostas do Diagnóstico. O seu cenário deu [cenário], e tem uma resposta sua ali que eu queria muito te perguntar. Posso?</div>
+    <div class="porque"><b>Por quê:</b> apresenta o time sem se passar pela Dani, prova em uma frase que alguém leu, e pede permissão. Pedir permissão devolve o controle para a pessoa por um segundo, e é justamente isso que faz ela responder.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">M2</span><span class="when">abertura · use a linha do cenário da seção 03</span><button class="copy">Copiar</button></header>
+    <div class="fala">Você marcou que [frase exata que a pessoa escolheu na P2].
+
+[pergunta do cenário, da tabela da seção 03]</div>
+    <div class="porque"><b>Por quê:</b> devolver a frase exata que a pessoa escolheu cria reconhecimento imediato. Ela não precisa se explicar do zero, e a conversa já começa dentro do problema.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">M3</span><span class="when">impacto prático · depois da primeira resposta longa</span><button class="copy">Copiar</button></header>
+    <div class="fala">Entendi. Deixa eu te fazer uma pergunta mais chata, então: quanto isso já te custou?
+
+Pode ser em dinheiro, em cliente que foi embora, em gente boa que pediu para sair, ou nas suas horas mesmo.</div>
+    <div class="porque"><b>Por quê:</b> número dito pela própria pessoa é o único que ela não contesta depois. É esse número que você vai usar no follow-up do dia 5 e é ele que sustenta a decisão dela mais adiante.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">M4</span><span class="when">espelho · nomear o que ela ainda não nomeou</span><button class="copy">Copiar</button></header>
+    <div class="fala">Posso te dizer o que eu estou enxergando aqui?
+
+Pelo que você me contou, o problema aparece como [comportamento que ela descreveu], mas o que sustenta ele é [causa estrutural: ausência de critério, sobrecarga de decisão, falta de responsabilização, plano sem execução].
+
+E aí o preço disso não é só o resultado. É você ser sempre a última instância de tudo.</div>
+    <div class="porque"><b>Por quê:</b> esta é a mensagem que mais gera resposta em toda a régua. Quando alguém nomeia o problema com precisão, a pessoa sente que finalmente foi entendida, e a partir daí ela quer ouvir o resto. Nomeie e pare. Não emende a solução aqui.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">M5</span><span class="when">contexto · o que ela já tentou</span><button class="copy">Copiar</button></header>
+    <div class="fala">No Diagnóstico você me disse que já [resposta da P3].
+
+O que aconteceu depois? Segurou por quanto tempo?</div>
+    <div class="porque"><b>Por quê:</b> a pessoa esgota as próprias alternativas sozinha e ouve da própria boca que nenhuma segurou. Você não precisa dizer que não funcionou, e é bem melhor que você não diga.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">M6</span><span class="when">a ponte para a Sessão · o coração da pré-venda</span><button class="copy">Copiar</button></header>
+    <div class="fala">[nome], vou ser bem direta com você. Isso que você me contou não se resolve por mensagem, e eu não vou fingir que resolve.
+
+O documento que você recebeu é o retrato da superfície. A leitura inteira da sua Gestão acontece na Sessão Estratégica, que é Gratuita: são [duração] com quem conduz esse Diagnóstico dentro de empresas, com as suas respostas abertas na tela, olhando por que [o problema dele] se instalou aí e o que segura ele de pé até hoje.
+
+Você sai de lá com essa leitura na mão, tendo continuidade com a gente ou não.</div>
+    <div class="porque"><b>Por quê:</b> vende a reunião pelo que ela entrega, e não pelo programa que vem depois. A última frase tira o peso comercial do convite, o que aumenta a aceitação e, principalmente, a presença.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">M7</span><span class="when">oferta de horário · sempre duas portas</span><button class="copy">Copiar</button></header>
+    <div class="fala">Eu tenho [quinta, 9h] ou [sexta, 16h30]. Qual fica melhor pra você?</div>
+    <div class="porque"><b>Por quê:</b> "me diz um dia bom pra você" empurra a decisão para depois e depois nunca chega. Duas opções concretas fecham hoje. Ofereça sempre horários dentro das próximas 72 horas.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">M8</span><span class="when">decisor · antes de confirmar, sempre</span><button class="copy">Copiar</button></header>
+    <div class="fala">Só pra eu preparar direito: essa decisão sobre desenvolvimento da equipe passa só por você, ou tem mais alguém que decide junto?
+
+Se tiver, vale muito mais colocar os dois na mesma conversa do que você ter que recontar tudo depois.</div>
+    <div class="porque"><b>Por quê:</b> reunião sem quem decide é reunião que precisa acontecer duas vezes. Perguntar antes custa dez segundos, descobrir depois custa uma hora da agenda da Dani e do time.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">M9</span><span class="when">confirmação com compromisso · no ato do agendamento</span><button class="copy">Copiar</button></header>
+    <div class="fala">Fechado, [nome]. [Dia] às [hora], por [plataforma]. O link já está indo pro seu e-mail e chega aqui também.
+
+Eu vou preparar a sua leitura antes, com as suas respostas na mão. Então te peço uma coisa só: se por qualquer motivo não der, me avisa aqui e eu remarco sem drama nenhum. O que eu não quero é você perder esse horário depois de eu já ter preparado.
+
+Me confirma com um ok que já está na sua agenda?</div>
+    <div class="porque"><b>Por quê:</b> este é o card mais importante do documento inteiro. Ele nomeia o custo da ausência sem cobrar nada, e pede um micro compromisso verbal. Pessoa que digitou "ok" tem taxa de presença muito maior que pessoa que só recebeu a confirmação.</div>
+  </div>
+
+  <h3>A abertura por telefone</h3>
+  <p>Nossa régua prevê ligação junto com mensagem nos três primeiros dias. Ao telefone, os primeiros trinta segundos decidem o resto.</p>
+
+  <div class="msg">
+    <header><span class="lbl">L1</span><span class="when">ligação · 30 segundos</span><button class="copy">Copiar</button></header>
+    <div class="fala">Oi, [nome]? Aqui é a [seu nome], do time da Dra. Daniele Christensen. Você respondeu o Diagnóstico de Liderança [hoje de manhã / ontem], lembra?
+
+Eu li as suas respostas antes de te ligar, e já vou começar pela que mais me chamou atenção: [pergunta do cenário, da tabela da seção 03]</div>
+    <div class="porque"><b>Por quê:</b> contexto em uma frase, prova de preparo na segunda, e a pergunta entra antes que a pessoa precise decidir se quer ou não conversar. Perguntar se ela tem dois minutos abre uma porta de saída que quase sempre é usada, e a ligação acaba antes de existir.</div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ============================================================ 6 -->
+<section id="etapa2">
+  <p class="eyebrow">06</p>
+  <h2>Como fazer a segunda parte do Diagnóstico acontecer</h2>
+  <p class="lead">Hoje a maior perda do funil está aqui. A pessoa recebe o documento, sente que já ganhou o que veio buscar, e o link fica para depois. Sem a segunda parte não existe leitura completa e não existe agenda, então em quase toda conversa esta é a sua primeira missão, antes de qualquer horário.</p>
+
+  <h3>Por que o link para</h3>
+  <div class="grid2">
+    <div class="card">
+      <h4>O prêmio já chegou</h4>
+      <p>O documento na mão dá a sensação de tarefa cumprida. Quem recebeu o que pediu não tem, sozinho, motivo para continuar. Esse motivo é você que dá.</p>
+    </div>
+    <div class="card">
+      <h4>Parece cadastro</h4>
+      <p>Link mais perguntas soa como formulário, e formulário é exatamente a coisa que um dono de empresa empurra para a semana que vem.</p>
+    </div>
+    <div class="card">
+      <h4>Ninguém disse o que se ganha</h4>
+      <p>O áudio da Dra. Daniele explica, e nem todo mundo ouve áudio. Se a única coisa escrita na tela for um link, o ganho fica invisível.</p>
+    </div>
+  </div>
+
+  <h3>Os três argumentos que funcionam</h3>
+  <ol>
+    <li><b>O que ele tem na mão é o retrato da superfície.</b> Use essa palavra, superfície. Ela cria a pergunta seguinte sozinha.</li>
+    <li><b>É a hora dele que está em jogo.</b> Sem a segunda parte, a conversa inteira vira pergunta, e quem responde é ele. Com ela, a conversa já começa na resposta.</li>
+    <li><b>São as mesmas perguntas que a Dra. Daniele usa dentro das empresas que acompanha.</b> Isso transfere a autoridade da metodologia para aquilo que, de fora, parece só mais um link.</li>
+  </ol>
+
+  <h3>Como nomear isso na conversa</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Não diga</th><th>Diga</th></tr></thead>
+    <tbody>
+      <tr><td>"preencher o formulário"</td><td>"a segunda parte do seu Diagnóstico"</td></tr>
+      <tr><td>"questionário", "cadastro"</td><td>"as perguntas que abrem a leitura completa"</td></tr>
+      <tr><td>"é só mais uma etapa"</td><td>"é o que me deixa chegar na nossa conversa já sabendo onde está o seu gargalo"</td></tr>
+      <tr><td>"quando você tiver um tempo"</td><td>"faz agora, enquanto o que você leu ainda está fresco"</td></tr>
+      <tr><td>"Etapa 2"</td><td>nunca use com o lead. É nome interno nosso.</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="msg">
+    <header><span class="lbl">E1</span><span class="when">a ponte · assim que o lead reage ao documento</span><button class="copy">Copiar</button></header>
+    <div class="fala">Que bom que chegou, [nome].
+
+Me diz uma coisa antes de qualquer outra: o que está nesse documento bateu com o que você vive aí, ou ficou longe?</div>
+    <div class="porque"><b>Por quê:</b> a pessoa precisa reconhecer o retrato antes de aceitar o próximo passo. Sem esse "bateu" dito por ela, qualquer convite vira link solto no meio da conversa.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">E2</span><span class="when">o convite · logo depois do reconhecimento</span><button class="copy">Copiar</button></header>
+    <div class="fala">Então olha só, [nome]: isso aí é o retrato da superfície, e já mostra bastante.
+
+A leitura inteira da sua Gestão sai da segunda parte. São as mesmas perguntas que a Dra. Daniele usa dentro das empresas que ela acompanha, e levam menos de cinco minutos.
+
+É o que me deixa chegar na nossa conversa já sabendo exatamente onde está o seu gargalo, em vez de gastar a conversa inteira te perguntando coisa.
+
+Tá aqui: [link]</div>
+    <div class="porque"><b>Por quê:</b> o motivo do clique é o ganho dele, que é não desperdiçar a própria hora. E a frase da metodologia empresta autoridade para o que, de fora, parece só um formulário.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">E3</span><span class="when">fazer junto · o movimento que mais converte</span><button class="copy">Copiar</button></header>
+    <div class="fala">Se ficar mais fácil, a gente faz junto agora: eu leio as perguntas aqui e você só me responde. Leva os mesmos cinco minutos e você não precisa nem abrir o link.
+
+Prefere assim, ou você faz por conta?</div>
+    <div class="porque"><b>Por quê:</b> remove o único trabalho real que existe, que é parar e se sentar para responder. Boa parte das pessoas escolhe fazer sozinha só para não ocupar o seu tempo, e clica na hora. Quem aceita termina dentro da mesma ligação, e aí você lança as respostas no link para o resultado sair igual ao de todo mundo.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">E4</span><span class="when">quem disse que ia fazer e não fez · fim do dia ou manhã seguinte</span><button class="copy">Copiar</button></header>
+    <div class="fala">[nome], deixei separado aqui do meu lado. Você chegou a conseguir responder?
+
+Se não deu, sem problema nenhum. Me diz um horário hoje e eu te ligo pra gente fazer junto em cinco minutos.</div>
+    <div class="porque"><b>Por quê:</b> não cobra, e repete a oferta de fazer junto, que é a que converte. Perguntar "você chegou a conseguir" tira a culpa da frase e mantém a conversa aberta.</div>
+  </div>
+
+  <div class="msg audio">
+    <header><span class="lbl">E5</span><span class="when">áudio de até 30 segundos · dia seguinte</span><button class="copy">Copiar</button></header>
+    <div class="fala">Oi [nome], aqui é a [seu nome] de novo, do time da Dra. Daniele. Vou te mandar em áudio porque é bem mais rápido.
+
+Aquele documento que chegou pra você é a superfície. O que eu quero mesmo te entregar é a leitura completa, e ela depende daquelas perguntas que eu te mandei. São menos de cinco minutos e é o que me deixa chegar na nossa conversa já sabendo onde está o seu gargalo.
+
+Se preferir, a gente faz junto por telefone, no horário que for melhor pra você. Me diz aí.</div>
+    <div class="porque"><b>Por quê:</b> voz humana no segundo dia muda o patamar da relação e ainda repete o único motivo que interessa a ele, que é economizar a própria hora. Grave em uma tomada, sem ler.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">E6</span><span class="when">objeção · "depois eu faço", "manda que eu vejo à noite"</span><button class="copy">Copiar</button></header>
+    <div class="fala">Combinado. Só te falo uma coisa com carinho: "depois" costuma virar semana que vem, e aí aquilo que te fez parar pra responder hoje já esfriou.
+
+São cinco minutos. Se você quiser, eu fico aqui na conversa enquanto você responde, e a gente já segue daqui.</div>
+    <div class="porque"><b>Por quê:</b> nomeia o padrão sem acusar ninguém, e depois oferece companhia em vez de cobrança. "Eu fico aqui" cria um compromisso leve e imediato, e funciona muito melhor que voltar a insistir amanhã.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">E7</span><span class="when">exceção · lead claramente dentro do perfil que não vai responder</span><button class="copy">Copiar</button></header>
+    <div class="fala">Vou fazer diferente com você, [nome]: eu já seguro o seu horário.
+
+As perguntas da segunda parte a gente vai precisar responder de qualquer jeito, então a gente usa os cinco primeiros minutos da conversa nelas e segue direto para a leitura.
+
+Prefere [terça, 8h] ou [quinta, 17h]?</div>
+    <div class="porque"><b>Por quê:</b> um lead com porte e decisão vale mais na agenda do que perdido na régua. Use com quem já demonstrou os dois, e não como atalho padrão: a conversa rende bem menos quando o resultado não está pronto na mão de quem conduz.</div>
+  </div>
+
+  <div class="rule-box">
+    <span class="l">Três regras desta etapa</span>
+    <p>Nunca chame de formulário, cadastro ou questionário. É a segunda parte do Diagnóstico dele.</p>
+    <p>Nunca prometa a agenda antes. Ela aparece só na tela final, depois de a pessoa ter respondido, e essa ordem foi decidida de propósito: antecipar o agendamento transforma um passo curto em compromisso comercial e derruba o preenchimento.</p>
+    <p>A oferta de fazer junto entra em todo contato desta seção. É a única coisa aqui que remove trabalho de verdade da mesa do lead.</p>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ============================================================ 7 -->
+<section id="descobertas">
+  <p class="eyebrow">07</p>
+  <h2>As sete descobertas da conversa</h2>
+  <p class="lead">Uma conversa de pré-venda está completa quando você tem estas sete respostas anotadas. Não importa a ordem em que elas apareçam. Importa que nenhuma fique em branco antes de você oferecer horário.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th>Descoberta</th><th>O que você precisa sair sabendo</th><th>Como perguntar</th></tr></thead>
+    <tbody>
+      <tr><td><b>1. Motivo</b></td><td>Por que essa pessoa respondeu justamente agora</td><td>"O que te fez parar e responder isso hoje?"</td></tr>
+      <tr><td><b>2. Problema</b></td><td>O problema nas palavras dela, literal</td><td>Vem do cenário e da M2</td></tr>
+      <tr><td><b>3. Consequência</b></td><td>O que já aconteceu por causa disso</td><td>"E o que isso gerou aí dentro?"</td></tr>
+      <tr><td><b>4. Impacto prático</b></td><td>Um número: reais, horas, pessoas, clientes</td><td>M3</td></tr>
+      <tr><td><b>5. Impacto emocional</b></td><td>O que isso pesa nela, e não na empresa</td><td>"E pra você, o que é o mais pesado nisso?"</td></tr>
+      <tr><td><b>6. Meta</b></td><td>Como seria se estivesse resolvido</td><td>"Se daqui a seis meses isso estivesse resolvido, o que estaria diferente na sua semana?"</td></tr>
+      <tr><td><b>7. Urgência</b></td><td>O custo de continuar igual</td><td>"E se nada mudar nos próximos três meses, o que acontece?"</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="dos">
+    <div class="yes">
+      <h4>Faça</h4>
+      <ul>
+        <li>Escute como médico escuta. Colete antes de concluir.</li>
+        <li>Depois de uma resposta curta, espere cinco segundos antes de falar. Quase sempre a pessoa completa sozinha, e o que vem depois do silêncio é a parte que importa.</li>
+        <li>Repita a frase dela antes de fazer a próxima pergunta. "Você falou que sempre volta pra você. Volta como?"</li>
+        <li>Anote as palavras exatas. Elas voltam no follow-up e na Sessão.</li>
+      </ul>
+    </div>
+    <div class="no">
+      <h4>Não faça</h4>
+      <ul>
+        <li>Dar solução no meio do Diagnóstico. Foi o erro mais caro que existe nesta etapa: assim que você resolve de graça, a reunião perde a razão de existir.</li>
+        <li>Explicar o Intensity. Módulo, carga horária e mentoria não são assunto de pré-venda.</li>
+        <li>Perguntar o que já está no formulário.</li>
+        <li>Concordar com tudo. Acolher não é dar razão em tudo, e quem só concorda perde autoridade.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ============================================================ 7 -->
+<section id="vender">
+  <p class="eyebrow">08</p>
+  <h2>Como se vende a reunião</h2>
+  <p class="lead">Depois da segunda parte do Diagnóstico, a maior perda do funil acontece entre o agendamento e a presença. Todo agendamento precisa carregar estes cinco ingredientes, e é isso que separa um horário marcado de um horário que acontece.</p>
+
+  <div class="grid2">
+    <div class="card">
+      <h4>1. O problema já tem nome</h4>
+      <p>A pessoa chega na Sessão sabendo que caiu em [cenário]. Nome de problema cria a pergunta seguinte, que é "e agora?". Essa pergunta é o que faz ela abrir o link.</p>
+    </div>
+    <div class="card">
+      <h4>2. Ela sabe exatamente o que vai receber</h4>
+      <p>A leitura completa da Gestão dela, feita com as respostas dela na tela, por quem faz esse Diagnóstico dentro de empresas. Diga isso com todas as letras, e diga antes de oferecer horário.</p>
+    </div>
+    <div class="card">
+      <h4>3. A personalização precisa ser visível</h4>
+      <p>Cite uma resposta específica em cada confirmação. "Aquilo que você marcou sobre [P5] é o primeiro ponto que eu quero te mostrar." Genérico não segura ninguém.</p>
+    </div>
+    <div class="card">
+      <h4>4. Entrega parcial agora, entrega completa lá</h4>
+      <p>O PDF na mão é a prova de que a próxima entrega vale. A leitura inteira sai na Sessão, e é isso que a pessoa vai buscar. Nunca antecipe por escrito o que a Sessão vai dar.</p>
+    </div>
+    <div class="card">
+      <h4>5. O custo de não ir, nas palavras dela</h4>
+      <p>Use a P5. "Você me disse que o que mais te incomoda é [resposta]. É disso que a gente vai falar quinta." Urgência real vem do calendário do lead, nunca de vaga inventada.</p>
+    </div>
+    <div class="card">
+      <h4>O teste final</h4>
+      <p>Antes de encerrar qualquer agendamento, se pergunte: se aparecer um imprevisto amanhã, essa pessoa cancela ou remarca? Se você não souber responder, falta um dos cinco ingredientes acima. Volte e coloque.</p>
+    </div>
+  </div>
+
+  <div class="rule-box warn">
+    <span class="l">O que derruba a presença</span>
+    <p>Marcar horário sem ter feito nenhuma pergunta. Descrever a Sessão como "uma conversa rápida pra te apresentar o programa". Deixar a data a mais de 72 horas. Confirmar com um "estamos confirmados?" seco. Qualquer uma dessas quatro coisas transforma o horário em algo descartável.</p>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ============================================================ 8 -->
+<section id="objecoes">
+  <p class="eyebrow">09</p>
+  <h2>Objeções da pré-venda</h2>
+  <p class="lead">Objeção é pedido de mais informação, quase nunca é recusa. Quem objeta ainda está na conversa. A resposta certa é curta, sem pedido de desculpas e termina devolvendo uma pergunta.</p>
+
+  <div class="msg">
+    <header><span class="lbl">O1</span><span class="when">"quanto custa?"</span><button class="copy">Copiar</button></header>
+    <div class="fala">Tem valor sim, e eu não vou te enrolar com isso. Só que qualquer número que eu jogasse agora ia ser chute, porque depende do que a leitura da sua Gestão mostrar e de quanta gente entra junto com você.
+
+Quem te dá esse número é a Sessão, com o seu cenário na frente. E se na hora não fizer sentido, é só me dizer, que a leitura fica sua do mesmo jeito.</div>
+    <div class="porque"><b>Por quê:</b> não fugir da pergunta preserva a confiança, e não antecipar o valor preserva a conversa. Preço solto, sem o problema dimensionado antes, sempre parece caro.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">O2</span><span class="when">"me manda por escrito", "manda o material"</span><button class="copy">Copiar</button></header>
+    <div class="fala">Mando o que der, e você já tem o seu documento aí no celular.
+
+Só que isso que você acabou de me contar sobre [problema] não cabe em PDF, porque depende de olhar as suas respostas junto com você. Depois da conversa, se você quiser tudo por escrito, eu te mando o resumo do que a gente ler.
+
+Prefere [terça 8h] ou [quarta 17h]?</div>
+    <div class="porque"><b>Por quê:</b> material genérico é a forma educada de encerrar a conversa. Entregue algo, e devolva o convite no mesmo movimento.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">O3</span><span class="when">"não tenho tempo essa semana"</span><button class="copy">Copiar</button></header>
+    <div class="fala">Imaginei, e é meio isso mesmo que você marcou lá no Diagnóstico quando falou de [resposta da P5].
+
+Eu tenho [terça 8h], antes do dia começar, ou [quinta 18h30], depois que a casa acalma. Qual atrapalha menos?</div>
+    <div class="porque"><b>Por quê:</b> a falta de tempo é o sintoma do problema que a pessoa relatou. Mostrar isso sem ironia, e já oferecer horários de borda, resolve a objeção e reforça o Diagnóstico ao mesmo tempo.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">O4</span><span class="when">"preciso falar com meu sócio", "vou ver com minha esposa"</span><button class="copy">Copiar</button></header>
+    <div class="fala">Faz todo sentido, e melhor ainda: em vez de você ter que recontar tudo depois, coloca ele na mesma conversa com a gente.
+
+Eu ajusto o horário pelos dois. Qual dia funciona pra vocês?</div>
+    <div class="porque"><b>Por quê:</b> transformar a objeção em convite resolve o problema real, que é a conversa acontecer duas vezes e perder força na segunda. Se a outra pessoa não puder mesmo, mantenha o horário e combine o envio de um material curto para quem faltou.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">O5</span><span class="when">"já fiz treinamento de Liderança e não mudou nada"</span><button class="copy">Copiar</button></header>
+    <div class="fala">Você me contou isso no Diagnóstico também, quando marcou [resposta da P3]. E eu te entendo, treinamento que não pega vira só mais uma agenda ocupada.
+
+A Sessão não tem nada de aula. Ela é a leitura do que está travando aí dentro, e no fim dela você vai saber por que o que você já tentou não segurou. Isso vale a hora, com continuidade ou sem.</div>
+    <div class="porque"><b>Por quê:</b> concordar com a frustração antes de responder baixa a guarda. Depois, o compromisso fica com a leitura, que a gente entrega de fato, e não com uma promessa de resultado.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">O6</span><span class="when">"o problema é a minha equipe, não sou eu"</span><button class="copy">Copiar</button></header>
+    <div class="fala">Pode ser mesmo, e às vezes é. Só que na maior parte das vezes a equipe está fazendo exatamente o que o ambiente ensinou que era pra fazer.
+
+Por isso a leitura olha os dois lados, o que chega em você e o que sai de você. Se a conclusão for que o time está errado, você vai sair com isso escrito e com o que fazer a respeito.</div>
+    <div class="porque"><b>Por quê:</b> discordar de frente coloca a pessoa na defensiva. Concordar com a possibilidade e ampliar o campo de análise mantém ela aberta, e ainda antecipa o valor da Sessão.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">O7</span><span class="when">"depois eu vejo", "me chama semana que vem"</span><button class="copy">Copiar</button></header>
+    <div class="fala">Combinado. Só uma coisa: "depois" é mais ou menos o que já aconteceu com [resposta da P3], e é por isso que você está aqui hoje.
+
+Deixa eu segurar um horário no seu nome. Se na véspera não der, você me avisa e eu remarco, sem cobrança nenhuma.</div>
+    <div class="porque"><b>Por quê:</b> devolve com carinho o padrão que a própria pessoa descreveu, e tira o risco da decisão. Marcar com saída fácil converte muito mais que insistir.</div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ============================================================ 9 -->
+<section id="followup">
+  <p class="eyebrow">10</p>
+  <h2>Follow-up: a cadência de dez dias</h2>
+  <p class="lead">Sete toques em dez dias, sempre com ângulo novo. Ninguém recebe a mesma mensagem duas vezes com outras palavras. No dia 10 a gente encerra com dignidade, e encerrar bem é o que faz uma parte dessas pessoas voltar sozinha meses depois.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th>Dia</th><th>Canal</th><th>Função do toque</th></tr></thead>
+    <tbody>
+      <tr><td><b>D0</b></td><td>Mensagem + 1 ligação</td><td>Entrar enquanto a janela está aberta</td></tr>
+      <tr><td><b>D1</b></td><td>Mensagem de manhã + até 3 ligações nos blocos de contato</td><td>Ancorar no resultado do Diagnóstico</td></tr>
+      <tr><td><b>D2</b></td><td>Áudio curto + 2 ligações</td><td>Dar voz e rosto ao time</td></tr>
+      <tr><td><b>D3</b></td><td>Mensagem</td><td>Ângulo novo: o custo que a própria pessoa declarou</td></tr>
+      <tr><td><b>D5</b></td><td>Mensagem</td><td>Prova: um caso real do mesmo porte ou setor</td></tr>
+      <tr><td><b>D7</b></td><td>Mensagem</td><td>Saída digna: fecho ou deixo aberto?</td></tr>
+      <tr><td><b>D10</b></td><td>Mensagem</td><td>Encerramento com porta aberta</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="rule-box">
+    <span class="l">Regras da régua</span>
+    <p>A cadência para no instante em que a pessoa responde qualquer coisa. Um áudio por trilha, no máximo, porque dois viram incômodo. Nunca dois canais na mesma hora. Toda tentativa entra no CRM, inclusive as que não foram atendidas. E nenhuma mensagem começa com "só passando para saber se você viu".</p>
+  </div>
+
+  <h3>Trilha A · recebeu o Diagnóstico e nunca respondeu</h3>
+
+  <div class="msg">
+    <header><span class="lbl">A1</span><span class="when">D0 · cerca de 3 horas depois da entrega</span><button class="copy">Copiar</button></header>
+    <div class="fala">Oi [nome], aqui é a [seu nome], do time da Dra. Daniele.
+
+Chegou aí o seu Diagnóstico? Eu queria saber uma coisa só: bateu com o que você vive na sua empresa, ou ficou longe?</div>
+    <div class="porque"><b>Por quê:</b> uma pergunta fechada, fácil de responder até andando. O objetivo aqui é abrir conversa. O horário vem depois.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">A2</span><span class="when">D1 · manhã</span><button class="copy">Copiar</button></header>
+    <div class="fala">[nome], bom dia.
+
+Voltando aqui porque eu li o seu resultado antes de te escrever: você caiu em [cenário], e a sua resposta sobre [P3] foi a que mais me chamou atenção, sinceramente.
+
+Posso te fazer uma pergunta sobre isso?</div>
+    <div class="porque"><b>Por quê:</b> a prova de leitura vem no meio da mensagem, e não como elogio. Terminar pedindo permissão continua sendo o que mais gera resposta.</div>
+  </div>
+
+  <div class="msg audio">
+    <header><span class="lbl">A3</span><span class="when">D2 · áudio de até 30 segundos, gravado por você</span><button class="copy">Copiar</button></header>
+    <div class="fala">Oi [nome], tudo bem? Aqui é a [seu nome] de novo, do time da Dra. Daniele. Vou te mandar em áudio porque é mais rápido do que digitar.
+
+Eu tenho o seu resultado aberto aqui do meu lado. Você caiu em [cenário], e o que eu queria te perguntar é bem simples: isso aí já te custou alguma coisa concreta nos últimos meses? Cliente, prazo, gente boa que saiu?
+
+Me responde por áudio mesmo se for mais fácil, do jeito que você preferir.</div>
+    <div class="porque"><b>Por quê:</b> áudio no dia 2 muda o patamar da relação, porque prova que tem uma pessoa de verdade do outro lado. Grave em uma tomada, sem ler, e ofereça a resposta por áudio para diminuir o custo de responder.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">A4</span><span class="when">D3 · ângulo novo</span><button class="copy">Copiar</button></header>
+    <div class="fala">[nome], tem uma resposta sua que ficou na minha cabeça.
+
+Você marcou que o que mais te incomoda imaginar daqui a doze meses é [resposta da P5]. Essa frase é sua, não é minha.
+
+É por isso que eu insisto um pouco: o que segura isso de pé tem nome, e o nome está no seu resultado.</div>
+    <div class="porque"><b>Por quê:</b> a urgência mais forte que existe é a que a pessoa escreveu com a própria mão. Você só devolve, sem dramatizar.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">A5</span><span class="when">D5 · prova</span><button class="copy">Copiar</button></header>
+    <div class="fala">[nome], sem cobrança nenhuma, só um caso que eu lembrei por causa do seu.
+
+[Descrição curta e real: porte parecido, mesmo cenário, o que mudou depois da leitura. Sem número inventado e sem nome de empresa que a gente não tenha autorização para citar.]
+
+Se fizer sentido, eu te seguro [quinta 9h].</div>
+    <div class="porque"><b>Por quê:</b> prova entra melhor quando é do mesmo tamanho e do mesmo problema. Caso de empresa muito maior gera distância, e caso muito menor gera desinteresse.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">A6</span><span class="when">D7 · saída digna</span><button class="copy">Copiar</button></header>
+    <div class="fala">[nome], eu não quero virar mais uma notificação chata no seu celular.
+
+Me diz só uma coisa e eu respeito: eu fecho o seu Diagnóstico por aqui, ou você quer que eu segure ele aberto mais uns dias?</div>
+    <div class="porque"><b>Por quê:</b> é a mensagem que mais recupera conversa em toda a régua. Oferecer a saída com naturalidade faz muita gente responder justamente para pedir que você não encerre.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">A7</span><span class="when">D10 · encerramento com porta aberta</span><button class="copy">Copiar</button></header>
+    <div class="fala">Vou encerrar o seu por aqui, [nome], e sem chateação nenhuma da minha parte.
+
+Fica registrado o seu cenário com a gente. Se um dia [resposta da P5] deixar de ser hipótese e virar a sua rotina, me chama nesse mesmo número que eu retomo de onde a gente parou.
+
+Sucesso aí na [nome da empresa].</div>
+    <div class="porque"><b>Por quê:</b> encerramento sem mágoa deixa o canal limpo para o remarketing e para o retorno espontâneo. É uma das poucas mensagens que costuma receber resposta depois de dez dias de silêncio.</div>
+  </div>
+
+  <h3>Trilha B · conversou e sumiu</h3>
+
+  <div class="msg">
+    <header><span class="lbl">B1</span><span class="when">1 dia depois da conversa parar</span><button class="copy">Copiar</button></header>
+    <div class="fala">A gente parou no meio ontem, [nome]. Você tinha começado a me contar sobre [ponto exato onde parou].
+
+Consegue retomar hoje? Fiquei com essa parte na cabeça.</div>
+    <div class="porque"><b>Por quê:</b> retomar pelo ponto exato, e não pelo começo, mostra atenção real e poupa a pessoa de recontar.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">B2</span><span class="when">D3</span><button class="copy">Copiar</button></header>
+    <div class="fala">Sumiu, e tudo bem, eu sei como é a semana de quem tem diversas pessoas para Liderar e dar conta.
+
+Duas opções pra facilitar: eu te ligo [amanhã, 9h], ou você me manda o melhor horário e eu me viro pra estar disponível.</div>
+    <div class="porque"><b>Por quê:</b> reconhece a realidade da pessoa sem cobrar, e coloca duas saídas fáceis. A segunda opção transfere o controle e costuma ser a escolhida por quem tem perfil de comando.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">B3</span><span class="when">D6 · valor novo</span><button class="copy">Copiar</button></header>
+    <div class="fala">[nome], eu revi as suas respostas hoje e tem um detalhe que eu não te falei.
+
+[Uma observação específica e verdadeira sobre o resultado dele: a combinação entre o cenário e a P4, ou o bloco mais alto da Etapa 2.]
+
+Isso muda bastante a conversa. Vale vinte minutos seus?</div>
+    <div class="porque"><b>Por quê:</b> informação nova é a única razão legítima de voltar. Sem ela, o contato vira insistência e queima o lead.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">B4</span><span class="when">D10 · encerramento</span><button class="copy">Copiar</button></header>
+    <div class="fala">Vou parar por aqui pra não te incomodar, [nome].
+
+Se em algum momento [problema dele nas palavras dele] voltar a apertar, me chama direto. Eu já conheço o seu caso e a gente não precisa começar do zero.</div>
+    <div class="porque"><b>Por quê:</b> "não precisa começar do zero" é um ativo real, e é o que faz esse lead voltar em vez de responder o anúncio de outra pessoa.</div>
+  </div>
+
+  <h3>Trilha C · concluiu a Etapa 2 e não agendou</h3>
+  <p>É o lead mais quente do funil inteiro. A régua aqui é mais curta e mais rápida: uma hora, um dia, três dias, e depois ele entra na Trilha B.</p>
+
+  <div class="msg">
+    <header><span class="lbl">C1</span><span class="when">até 1 hora depois de concluir</span><button class="copy">Copiar</button></header>
+    <div class="fala">[nome], vi que você terminou o Diagnóstico completo agora há pouco.
+
+Eu já estou com o seu resultado aqui, e ele mudou o que eu ia te falar: o seu ponto mais alto ficou em [bloco dominante], e isso explica direitinho o [cenário] que tinha dado na primeira parte.
+
+Consegue [amanhã, 9h] ou [quinta, 17h]?</div>
+    <div class="porque"><b>Por quê:</b> a pessoa acabou de investir tempo respondendo quinze perguntas e está com a expectativa alta. Responder dentro da hora, com o conteúdo do resultado na mensagem, é a maior chance de agendamento do funil.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">C3</span><span class="when">D3</span><button class="copy">Copiar</button></header>
+    <div class="fala">[nome], o seu resultado está pronto e parado aqui.
+
+É a única coisa que me incomoda nisso: você respondeu tudo e ainda não recebeu a leitura. Me diz um horário e eu resolvo isso essa semana.</div>
+    <div class="porque"><b>Por quê:</b> aponta uma pendência aberta que é da gente, e não uma cobrança que é dela. Pendência aberta puxa resposta.</div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ============================================================ 10 -->
+<section id="noshow">
+  <p class="eyebrow">11</p>
+  <h2>No-show: a máquina de presença</h2>
+  <p class="lead">Toda mensagem desta seção carrega uma razão nova para a pessoa estar lá. Nenhuma delas é só uma confirmação. É essa diferença que muda a taxa de comparecimento.</p>
+
+  <div class="rule-box">
+    <span class="l">O princípio</span>
+    <p>Se o agendamento foi bem feito, a máquina abaixo só lembra. Se o agendamento foi fraco, nenhuma quantidade de lembrete resolve. Quando alguém falta, revise primeiro o card M9 e a seção 08, e só depois pense em régua de lembrete.</p>
+  </div>
+
+  <h3>Antes da Sessão</h3>
+
+  <div class="msg">
+    <header><span class="lbl">R0</span><span class="when">no ato do agendamento</span><button class="copy">Copiar</button></header>
+    <div class="fala">Ver o card M9, na seção 05. É a confirmação com compromisso, e ela é a peça central desta máquina.</div>
+    <div class="porque"><b>Por quê:</b> sem o "ok" pedido no M9, todo o resto desta seção trabalha no escuro.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">R1</span><span class="when">véspera, de manhã</span><button class="copy">Copiar</button></header>
+    <div class="fala">Bom dia, [nome]. Amanhã às [hora] é a nossa conversa.
+
+Eu já comecei a preparar a sua leitura e tem uma coisa no seu resultado que eu quero te mostrar ao vivo, porque escrito não passa a mesma coisa.
+
+Continua de pé pra você?</div>
+    <div class="porque"><b>Por quê:</b> a curiosidade específica é o que segura o horário. "Tem uma coisa no seu resultado" só funciona se for verdade, então tenha essa coisa escolhida antes de mandar.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">R1.1</span><span class="when">véspera, fim de tarde, só se não confirmou</span><button class="copy">Copiar</button></header>
+    <div class="fala">[nome], preciso de um sim ou um não pra amanhã às [hora].
+
+Se não der, me diz agora que eu remarco e libero o horário. Sem problema nenhum, de verdade.</div>
+    <div class="porque"><b>Por quê:</b> pedir uma resposta binária, com saída aberta e sem culpa, é o que separa quem vai de quem não vai. Melhor descobrir na véspera do que na hora.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">R2</span><span class="when">1 hora antes</span><button class="copy">Copiar</button></header>
+    <div class="fala">Daqui a uma hora, [nome].
+
+Já estudei as suas respostas e chego com o seu cenário na mão, então a gente aproveita o tempo inteiro.
+
+Link: [link]</div>
+    <div class="porque"><b>Por quê:</b> é a mensagem mais forte da régua toda. Ela diz que alguém já trabalhou pela pessoa, e faltar passa a ter um custo social.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">R3</span><span class="when">10 minutos antes</span><button class="copy">Copiar</button></header>
+    <div class="fala">Começando em 10 minutos. É só clicar aqui: [link]
+
+Te espero.</div>
+    <div class="porque"><b>Por quê:</b> curta e operacional. Nesse momento a única barreira que existe é achar o link.</div>
+  </div>
+
+  <h3>Quando a pessoa não entra</h3>
+
+  <div class="msg">
+    <header><span class="lbl">R4</span><span class="when">5 minutos depois do horário · ligue primeiro</span><button class="copy">Copiar</button></header>
+    <div class="fala">Estou na sala te esperando, [nome]. Consegue entrar?
+
+[link]</div>
+    <div class="porque"><b>Por quê:</b> boa parte dos no-shows dos primeiros minutos é esquecimento simples. A ligação resolve mais que a mensagem, então ligue antes de escrever.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">R5</span><span class="when">30 minutos depois</span><button class="copy">Copiar</button></header>
+    <div class="fala">Não deu hoje, acontece e está tudo certo.
+
+Eu guardei a sua leitura preparada aqui. Prefere [amanhã, 9h] ou [quinta, 17h]?</div>
+    <div class="porque"><b>Por quê:</b> tirar o peso da falta evita o sumiço por constrangimento, que é a causa mais comum de um lead nunca mais responder. E a leitura guardada continua sendo a razão para voltar.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">R6</span><span class="when">dia seguinte, de manhã</span><button class="copy">Copiar</button></header>
+    <div class="fala">Bom dia, [nome]. A sua leitura continua pronta aqui esperando um horário.
+
+Me diz qual dos dois funciona e eu confirmo agora: [opção 1] ou [opção 2].</div>
+    <div class="porque"><b>Por quê:</b> mantém a escolha binária e a pendência aberta. Nada de reexplicar o que é a Sessão.</div>
+  </div>
+
+  <div class="msg">
+    <header><span class="lbl">R7</span><span class="when">D3 · último toque desta régua</span><button class="copy">Copiar</button></header>
+    <div class="fala">Vou parar de insistir, [nome], e sem mágoa nenhuma.
+
+Me responde só uma coisa: você quer remarcar, ou prefere que eu encerre?</div>
+    <div class="porque"><b>Por quê:</b> as duas respostas servem. Uma recupera a reunião, a outra libera a sua agenda e limpa o CRM.</div>
+  </div>
+
+  <div class="rule-box warn">
+    <span class="l">Regras de remarcação</span>
+    <p>No máximo duas remarcações por pessoa. Na terceira ausência, encerre com dignidade e devolva o lead para a nutrição, sem drama e sem cobrança.</p>
+    <p>Nunca remarque sem novo compromisso: toda remarcação repete o card M9 por inteiro, com o pedido de "ok".</p>
+    <p>Se a pessoa entrar na Sessão sem quem decide junto, não siga fingindo que está tudo certo. Ou remarca com os dois, ou faz vinte minutos de leitura e combina o envio de um material curto para quem faltou, já com o novo horário marcado.</p>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ============================================================ 11 -->
+<section id="nao">
+  <p class="eyebrow">12</p>
+  <h2>Quando dizer não</h2>
+  <p class="lead">Dizer não protege a agenda da Dra. Daniele, protege a sua autoridade e evita uma hora perdida dos dois lados. Isso não tem nada de rispidez. É clareza, e quem recebe um não bem dado costuma indicar a gente depois.</p>
+
+  <h3>Sinais de que não é agora</h3>
+  <ul>
+    <li>Quem não decide sobre desenvolvimento nem sobre orçamento, e não consegue trazer quem decide.</li>
+    <li>Dono abaixo da nossa régua de faturamento, sem estrutura para sustentar o programa.</li>
+    <li>Quem procura conteúdo Gratuito e diz isso com todas as letras.</li>
+    <li>Quem terceiriza inteiramente a responsabilidade e não admite nenhuma parte do problema.</li>
+    <li>Quem está sem energia para agir. Frustração e raiva movem, desânimo profundo não move, e insistir aí não ajuda ninguém.</li>
+  </ul>
+
+  <div class="msg">
+    <header><span class="lbl">N1</span><span class="when">desqualificação com elegância</span><button class="copy">Copiar</button></header>
+    <div class="fala">[nome], te agradeço demais a franqueza.
+
+Pelo que você me contou, hoje o que a gente faz não é o que vai te ajudar, e eu prefiro te dizer isso agora do que te colocar numa conversa de uma hora pra ouvir a mesma coisa no fim.
+
+Fica com o seu Diagnóstico, e vale muito seguir a Dra. Daniele no Instagram, que ali tem bastante coisa aberta que ajuda no seu momento. Quando [condição que muda o cenário] mudar, me chama.</div>
+    <div class="porque"><b>Por quê:</b> devolve algo de valor, explica o motivo sem julgar e deixa uma condição clara de retorno. Esse lead volta com frequência maior do que a gente imagina.</div>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ============================================================ 12 -->
+<section id="rotina">
+  <p class="eyebrow">13</p>
+  <h2>Registro no CRM e rotina do dia</h2>
+
+  <h3>A nota obrigatória</h3>
+  <p>Toda conversa vira nota no mesmo dia. Sem isso, quem conduz a Sessão chega no escuro e a pessoa precisa recontar tudo, o que joga fora metade do valor que você construiu.</p>
+
+  <div class="msg">
+    <header><span class="lbl">CRM</span><span class="when">modelo de nota</span><button class="copy">Copiar</button></header>
+    <div class="fala">Cenário Etapa 1:
+Etapa 2 (TD e bloco dominante):
+Cargo, porte e faixa:
+Problema, nas palavras dele: "..."
+Custo declarado (número):
+Meta e prazo:
+Quem decide junto:
+Objeção que apareceu:
+Perfil de leitura (analítico, acolhedor, comandante, sustentador, competidor):
+Próximo passo, com data e hora: </div>
+    <div class="porque"><b>Por quê:</b> a frase literal do lead é o campo mais valioso de todos. Ela é a ponte que quem conduz a Sessão usa para abrir a conversa já dentro do problema.</div>
+  </div>
+
+  <h3>A rotina</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Regra</th><th>Detalhe</th></tr></thead>
+    <tbody>
+      <tr><td><b>SLA de 5 minutos</b></td><td>Lead novo é contato imediato. A diferença entre falar em cinco minutos e falar em uma hora é enorme, e ela aparece direto na taxa de agendamento.</td></tr>
+      <tr><td><b>Blocos de contato</b></td><td>Quatro janelas por dia: início da manhã, antes do almoço, meio da tarde e início da noite. Dono de empresa atende melhor nas bordas do dia.</td></tr>
+      <tr><td><b>Agenda em até 72 horas</b></td><td>Horário distante é horário esquecido. Se a pessoa só puder daqui a duas semanas, marque, e reforce a régua da seção 11 com um toque a mais na semana anterior.</td></tr>
+      <tr><td><b>Toda tentativa registrada</b></td><td>Inclusive as não atendidas. É isso que permite saber se o problema está no volume ou na mensagem.</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<div class="hr"></div>
+
+<!-- ============================================================ 13 -->
+<section id="jeito">
+  <p class="eyebrow">14</p>
+  <h2>O jeito de falar</h2>
+
+  <div class="dos">
+    <div class="no">
+      <h4>Frases que a gente não usa</h4>
+      <ul>
+        <li>"Só passando para saber se você viu minha mensagem."</li>
+        <li>"Você tem interesse?"</li>
+        <li>"Podemos marcar um bate-papo rápido?"</li>
+        <li>"São só 30 minutinhos."</li>
+        <li>"Última vaga", "só até hoje", qualquer escassez inventada.</li>
+        <li>"Bom dia!" sozinho, esperando a pessoa responder para só então falar.</li>
+        <li>"Desculpa incomodar."</li>
+      </ul>
+    </div>
+    <div class="yes">
+      <h4>O que entra no lugar</h4>
+      <ul>
+        <li>"Tem uma resposta sua que ficou na minha cabeça."</li>
+        <li>"Posso te fazer uma pergunta sobre isso?"</li>
+        <li>"São [duração] com as suas respostas abertas na tela."</li>
+        <li>O tempo real da Sessão, dito com naturalidade.</li>
+        <li>A urgência que a própria pessoa declarou na P5.</li>
+        <li>Contexto, prova de leitura e pergunta, tudo na primeira mensagem.</li>
+        <li>"Me diz e eu respeito."</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="rule-box">
+    <span class="l">Palavras que vão sempre com inicial maiúscula</span>
+    <p>Diagnóstico, Gratuitamente, Líder, Liderança, Liderar, Gestão, Feedback, Cultura e Sessão Estratégica, junto com as variações: Diagnóstica, Gratuito, Gratuita, Líderes, Lideranças, Liderado, Gestor, Gestores, Feedbacks, Culturas, Sessões Estratégicas. Vale em qualquer posição da frase, inclusive no meio dela, e vale para mensagem de WhatsApp, e-mail, proposta e apresentação.</p>
+  </div>
+
+  <div class="rule-box warn">
+    <span class="l">Dois cuidados que não podem falhar</span>
+    <p>Nunca responda como se fosse a Dra. Daniele. Você é do time dela, e isso se diz na primeira mensagem.</p>
+    <p>Nunca prometa a presença dela na Sessão sem que isso esteja confirmado na agenda. Fale sempre em "quem conduz a sua Sessão".</p>
+  </div>
+</section>
+
+<footer>
+  <p>Produzido pela SimpleAcc para a Grokker. Versão 1.1, 10 de setembro de 2026.</p>
+</footer>
+
+</div></div>
+
+<script>
+/* Destaca as variáveis [assim] sem alterar o texto que o botão Copiar entrega:
+   innerText continua devolvendo os colchetes, que é o que o time precisa ver
+   para lembrar de trocar antes de enviar. */
+document.querySelectorAll('.fala').forEach(function(el){
+  el.innerHTML = el.innerHTML.replace(/\[[^\[\]<>]+\]/g, function(m){
+    return '<span class="var">' + m + '</span>';
+  });
+});
+
+document.querySelectorAll('.msg .copy').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var card = btn.closest('.msg');
+    var fala = card.querySelector('.fala');
+    if(!fala) return;
+    var txt = fala.innerText;
+    var done = function(){
+      var old = btn.textContent;
+      btn.textContent = 'Copiado';
+      btn.classList.add('done');
+      setTimeout(function(){ btn.textContent = old; btn.classList.remove('done'); }, 1600);
+    };
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(txt).then(done, function(){ fallback(txt, done); });
+    } else {
+      fallback(txt, done);
+    }
+  });
+});
+function fallback(txt, done){
+  var ta = document.createElement('textarea');
+  ta.value = txt;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand('copy'); done(); } catch(e) {}
+  document.body.removeChild(ta);
+}
+</script>

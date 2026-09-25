@@ -1,0 +1,395 @@
+<title>Onde os MQLs estão vazando</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --ground:#F7F6F3; --surface:#FFFFFF; --surface-2:#EFEDE7;
+  --ink:#1A1714; --ink-2:#4A443B; --muted:#7A7268;
+  --rule:#E2DED6; --rule-firm:#CBC5B9;
+  --accent:#C4651B; --accent-soft:#F6E6D4;
+  --crit:#A32B22; --crit-soft:#F6DFDC;
+  --good:#2A6B45; --good-soft:#DFEDE4;
+  --warn:#8A6A12; --warn-soft:#F5EBD2;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --ground:#151311; --surface:#1E1B18; --surface-2:#262320;
+    --ink:#F2EEE7; --ink-2:#CEC7BB; --muted:#968D81;
+    --rule:#2E2A26; --rule-firm:#443E37;
+    --accent:#E8934A; --accent-soft:#3A2914;
+    --crit:#E8877C; --crit-soft:#3A1D1A;
+    --good:#6FBF90; --good-soft:#122B1D;
+    --warn:#D9B45C; --warn-soft:#332811;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --ground:#151311; --surface:#1E1B18; --surface-2:#262320;
+  --ink:#F2EEE7; --ink-2:#CEC7BB; --muted:#968D81;
+  --rule:#2E2A26; --rule-firm:#443E37;
+  --accent:#E8934A; --accent-soft:#3A2914;
+  --crit:#E8877C; --crit-soft:#3A1D1A;
+  --good:#6FBF90; --good-soft:#122B1D;
+  --warn:#D9B45C; --warn-soft:#332811;
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--ground); color:var(--ink); margin:0;
+  font-family:"Source Sans 3",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:16.5px; line-height:1.62; -webkit-font-smoothing:antialiased;
+}
+.page{max-width:840px;margin:0 auto;padding-block:0 88px;padding-left:24px;padding-right:24px;min-width:0}
+h1,h2,h3,h4{font-family:Newsreader,Georgia,"Times New Roman",serif;text-wrap:balance;font-weight:500}
+.mono,.eyebrow,th,.tag,.n{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums}
+.eyebrow{font-size:10.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+
+header{padding:54px 0 30px;border-bottom:1px solid var(--rule-firm)}
+h1{font-size:clamp(33px,5.6vw,50px);line-height:1.05;letter-spacing:-.015em;margin:0 0 16px}
+.dek{font-size:19px;line-height:1.52;color:var(--ink-2);max-width:58ch;margin:0 0 22px}
+.meta{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:12px;color:var(--muted);font-family:"JetBrains Mono",monospace}
+.meta b{color:var(--ink-2);font-weight:400}
+
+section{padding:52px 0 0;scroll-margin-top:16px}
+h2{font-size:clamp(23px,3.1vw,31px);line-height:1.16;letter-spacing:-.01em;margin:0 0 14px}
+h3{font-size:18.5px;margin:32px 0 10px}
+p{margin:0 0 15px;max-width:68ch}
+.lead{font-size:18px;color:var(--ink-2)}
+strong{font-weight:600}
+ul,ol{max-width:68ch;padding-left:20px}
+li{margin:0 0 8px}
+.hr{height:1px;background:var(--rule);margin:52px 0 0}
+
+/* ---------- funil ---------- */
+.funil{border:1px solid var(--rule);background:var(--surface);margin:26px 0 8px}
+.etapa{display:grid;grid-template-columns:minmax(150px,1.1fr) minmax(0,2.4fr) auto;gap:14px;align-items:center;
+  padding:13px 18px;border-bottom:1px solid var(--rule)}
+.etapa:last-child{border-bottom:0}
+.etapa .rot{font-size:14.5px;color:var(--ink-2);line-height:1.3}
+.etapa .rot b{display:block;color:var(--ink);font-weight:600;font-size:15px}
+.trilho{height:12px;background:var(--surface-2);position:relative;border-radius:1px}
+.barra{height:100%;background:var(--accent);border-radius:1px;min-width:2px}
+.etapa.leak .barra{background:var(--crit)}
+.etapa.zero .barra{background:var(--crit);width:2px}
+.etapa .n{font-size:21px;font-weight:500;font-family:Newsreader,Georgia,serif;line-height:1;white-space:nowrap}
+.etapa .n small{font-size:12px;color:var(--muted);font-family:"JetBrains Mono",monospace;margin-left:7px}
+.legenda{font-size:12.5px;color:var(--muted);margin:10px 0 0;max-width:68ch}
+
+/* ---------- perguntas ---------- */
+.perg{border-left:3px solid var(--rule-firm);background:var(--surface);padding:16px 18px;margin:0 0 14px}
+.perg.sim{border-left-color:var(--crit);background:var(--crit-soft)}
+.perg.nao{border-left-color:var(--good);background:var(--good-soft)}
+.perg .q{font-family:Newsreader,Georgia,serif;font-size:18px;color:var(--ink);margin:0 0 6px;line-height:1.3}
+.perg .a{font-size:15px;color:var(--ink-2);margin:0;max-width:none}
+.perg .a b{color:var(--ink)}
+.selo{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;padding:2px 7px;margin-bottom:8px;border:1px solid currentColor}
+.perg.sim .selo{color:var(--crit)}
+.perg.nao .selo{color:var(--good)}
+
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14.5px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;border-bottom:1px solid var(--rule-firm)}
+td.num{text-align:right;font-family:"JetBrains Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+.tw{overflow-x:auto;max-width:100%}
+.tw table{min-width:520px}
+tr.destaque td{background:var(--accent-soft)}
+td .sub{display:block;font-size:12.5px;color:var(--muted)}
+
+.box{border-left:3px solid var(--accent);background:var(--accent-soft);padding:16px 18px;margin:22px 0}
+.box p{margin:0;max-width:62ch}
+.box p+p{margin-top:10px}
+.box .l{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-family:"JetBrains Mono",monospace;color:var(--accent);margin:0 0 8px;display:block}
+.box.alerta{border-left-color:var(--crit);background:var(--crit-soft)}
+.box.alerta .l{color:var(--crit)}
+.box.nota{border-left-color:var(--rule-firm);background:var(--surface-2)}
+.box.nota .l{color:var(--muted)}
+
+.pedidos{counter-reset:p;list-style:none;padding:0;margin:22px 0}
+.pedidos li{counter-increment:p;border:1px solid var(--rule);background:var(--surface);padding:16px 18px 16px 54px;
+  position:relative;margin:0 0 10px}
+.pedidos li::before{content:counter(p);position:absolute;left:18px;top:15px;font-family:"JetBrains Mono",monospace;
+  font-size:13px;color:var(--accent);border:1px solid var(--rule-firm);width:24px;height:24px;
+  display:flex;align-items:center;justify-content:center}
+.pedidos b{display:block;font-size:16px;margin-bottom:4px}
+.pedidos span{font-size:14.5px;color:var(--ink-2)}
+
+footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--rule-firm);font-size:13px;color:var(--muted)}
+footer p{max-width:68ch;margin:0 0 8px}
+
+@media(max-width:560px){
+  .etapa{grid-template-columns:1fr auto;gap:6px 12px}
+  .etapa .trilho{grid-column:1 / -1;order:3}
+}
+</style>
+
+<div class="page">
+
+<header>
+  <p class="eyebrow">Grokker · Dra. Daniele Christensen · diagnóstico comercial</p>
+  <h1>Onde os MQLs estão vazando</h1>
+  <p class="dek">O levantamento enviado à Grokker pede quinze blocos de dados. As quatro perguntas centrais dele já têm resposta com o que temos em mãos, e a resposta não aponta para a campanha.</p>
+  <div class="meta">
+    <span><b>Para:</b> Daniel</span>
+    <span><b>Análise:</b> SimpleAcc</span>
+    <span><b>Data:</b> 25/09/2026</span>
+    <span><b>Período:</b> 20/08 a 25/09</span>
+  </div>
+</header>
+
+<section>
+  <p class="eyebrow">O que foi cruzado</p>
+  <h2>As duas planilhas e o documento</h2>
+  <p>A planilha <strong>Grokker · Jornada completa (Etapa 1 + Etapa 2)</strong> tem 138 linhas. Retirei 49 linhas de teste, conferidas uma a uma, e 2 respostas duplicadas do mesmo e-mail. Restaram <strong>87 leads únicos</strong>, sendo 84 deles de setembro. O funil novo começou a receber volume de verdade neste mês.</p>
+  <p>A planilha <strong>Indicadores Comerciais 2026</strong> traz a atividade do time comercial no mês corrente. É preenchida à mão e ainda tem os cabeçalhos de template (<span class="mono">BDR XXX</span>, <span class="mono">CLOSER YYY</span>).</p>
+  <p>O documento cruzado é o <strong>Levantamento para Diagnóstico Comercial</strong>, com quinze partes de pedidos de dados à Grokker.</p>
+</section>
+
+<div class="hr"></div>
+
+<section>
+  <p class="eyebrow">O quadro</p>
+  <h2>O funil inteiro, de ponta a ponta</h2>
+
+  <div class="funil">
+    <div class="etapa">
+      <div class="rot"><b>Responderam a Etapa 1</b>leads únicos, sem testes</div>
+      <div class="trilho"><div class="barra" style="width:100%"></div></div>
+      <div class="n">87</div>
+    </div>
+    <div class="etapa">
+      <div class="rot"><b>Qualificados</b>dentro da régua do ICP</div>
+      <div class="trilho"><div class="barra" style="width:18.4%"></div></div>
+      <div class="n">16<small>18%</small></div>
+    </div>
+    <div class="etapa leak">
+      <div class="rot"><b>Qualificados que fizeram a Etapa 2</b>única porta para a agenda</div>
+      <div class="trilho"><div class="barra" style="width:5.7%"></div></div>
+      <div class="n">5<small>6%</small></div>
+    </div>
+    <div class="etapa leak">
+      <div class="rot"><b>Reuniões agendadas</b>no mês inteiro</div>
+      <div class="trilho"><div class="barra" style="width:1.1%"></div></div>
+      <div class="n">1<small>1%</small></div>
+    </div>
+    <div class="etapa zero">
+      <div class="rot"><b>Propostas apresentadas</b></div>
+      <div class="trilho"><div class="barra"></div></div>
+      <div class="n">0</div>
+    </div>
+    <div class="etapa zero">
+      <div class="rot"><b>Vendas</b></div>
+      <div class="trilho"><div class="barra"></div></div>
+      <div class="n">0</div>
+    </div>
+  </div>
+  <p class="legenda">Barras proporcionais aos 87 leads da Etapa 1. O vermelho marca onde o funil deixa de andar, a partir dos qualificados que não fizeram a Etapa 2. As duas últimas etapas são zero e aparecem só como marca. Agendamento, proposta e venda vêm da planilha comercial; o resto, da planilha do funil.</p>
+</section>
+
+<div class="hr"></div>
+
+<section>
+  <p class="eyebrow">Parte 1 do levantamento</p>
+  <h2>As quatro perguntas, respondidas</h2>
+  <p class="lead">O documento abre com quatro perguntas e diz que o objetivo é eliminar opinião. Com os dados das duas planilhas, três delas já estão respondidas e a quarta não tem como ser avaliada.</p>
+
+  <div class="perg sim">
+    <span class="selo">Sim</span>
+    <p class="q">Estamos gerando MQLs e não conseguindo transformá-los em reuniões?</p>
+    <p class="a">É aqui que está o vazamento. <b>16 leads qualificados no período. 1 agendamento no mês inteiro.</b></p>
+  </div>
+
+  <div class="perg nao">
+    <span class="selo">Não</span>
+    <p class="q">Estamos agendando pessoas que não deveriam estar sendo agendadas?</p>
+    <p class="a">Com 1 agendamento, não existe agenda ocupada por quem não deveria estar nela. A Parte 9 do levantamento investiga um problema que não está acontecendo.</p>
+  </div>
+
+  <div class="perg sim">
+    <span class="selo">Não está</span>
+    <p class="q">A cadência comercial está sendo executada corretamente?</p>
+    <p class="a">Foram <b>551 tentativas por WhatsApp e nenhuma ligação</b> no mês, com minutagem zerada em linha. O manual de pré-vendas prevê 3 mensagens e 9 ligações só entre o primeiro e o terceiro dia.</p>
+  </div>
+
+  <div class="perg nao">
+    <span class="selo">Sem base</span>
+    <p class="q">Quando a reunião acontece, o problema passa a estar na venda?</p>
+    <p class="a">Nenhuma proposta foi apresentada no mês. Não há material para avaliar closing, e as Partes 11, 12 e 13 do levantamento não vão produzir diagnóstico neste momento.</p>
+  </div>
+
+  <h3>A atividade comercial do mês</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Indicador</th><th class="num">Mês</th><th>Leitura</th></tr></thead>
+    <tbody>
+      <tr><td>Leads novos</td><td class="num">179</td><td>diverge do funil novo, ver ressalvas</td></tr>
+      <tr><td>Tentativas por WhatsApp</td><td class="num">551</td><td>média de 18 por dia</td></tr>
+      <tr class="destaque"><td>Tentativas de ligação</td><td class="num">0</td><td>minutagem em linha: 00:00:00</td></tr>
+      <tr><td>Conexões por WhatsApp</td><td class="num">13</td><td>2,4% das tentativas</td></tr>
+      <tr class="destaque"><td>Agendamentos</td><td class="num">1</td><td>1 comparecimento e 1 no-show registrados</td></tr>
+      <tr><td>Propostas</td><td class="num">0</td><td>R$ 0 em propostas</td></tr>
+      <tr><td>Vendas</td><td class="num">0</td><td>R$ 0 em vendas</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<div class="hr"></div>
+
+<section>
+  <p class="eyebrow">A perda que é nossa</p>
+  <h2>Onze qualificados sem caminho até a agenda</h2>
+  <p>Dos 16 qualificados, apenas <strong>5 responderam a Etapa 2</strong>. Como a agenda do Calendly só aparece na tela final da Etapa 2, os outros <strong>11 não tiveram por onde agendar</strong>, independentemente do que o comercial fizesse.</p>
+  <p>Vale notar o contraste: na base inteira, 32 dos 87 leads responderam a Etapa 2, uma taxa de 37%. Entre os qualificados, a taxa cai para 31%. Quem tem empresa maior responde menos, e é justamente quem a gente precisa que responda.</p>
+  <div class="box">
+    <span class="l">O que isso muda</span>
+    <p>Vender a importância da segunda parte do Diagnóstico deixa de ser detalhe de roteiro e passa a ser a maior alavanca isolada do funil. É a seção 06 do script de pré-vendas que já está com a equipe, e agora ela tem número.</p>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<section>
+  <p class="eyebrow">O ponto cego</p>
+  <h2>Não dá para saber quem foi contatado</h2>
+  <p>A coluna <strong>Clicou no WhatsApp está vazia em 87 de 87 leads</strong>. O cenário do Make que alimenta essa coluna falha na busca pelo telefone desde setembro. Na prática, o clique acontece e não é registrado em lugar nenhum.</p>
+  <p>A Parte 8 do levantamento pede exatamente isso, em qual etapa cada MQL morreu, e hoje nem nós nem a Grokker conseguimos responder com evidência. Consertar esse cenário é pré-requisito para qualquer auditoria de cadência que venha depois.</p>
+</section>
+
+<div class="hr"></div>
+
+<section>
+  <p class="eyebrow">Campanha</p>
+  <h2>O que ajustar no tráfego</h2>
+  <p class="lead">A campanha não é o gargalo, e aumentar volume agora só engorda uma fila que ninguém trabalha. Ainda assim, três coisas merecem ajuste.</p>
+
+  <h3>Um criativo carrega a conta de novo</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Criativo</th><th class="num">Leads</th><th class="num">Qualificados</th><th class="num">Taxa</th></tr></thead>
+    <tbody>
+      <tr class="destaque"><td>AD01 · VD · Lidera com critério</td><td class="num">57</td><td class="num">11</td><td class="num">19%</td></tr>
+      <tr><td>Sem UTM <span class="sub">direto e orgânico</span></td><td class="num">18</td><td class="num">3</td><td class="num">17%</td></tr>
+      <tr><td>AD02 · VD · Eu levantei</td><td class="num">2</td><td class="num">1</td><td class="num">50%</td></tr>
+      <tr><td>AD01 · VD · Ano passado</td><td class="num">2</td><td class="num">1</td><td class="num">50%</td></tr>
+      <tr><td>Demais criativos <span class="sub">AD06, AD07, AD09, link na bio</span></td><td class="num">8</td><td class="num">0</td><td class="num">0%</td></tr>
+    </tbody>
+  </table></div>
+  <p>O AD01 responde por 66% dos leads. É a mensagem antiga, sem o piso de faturamento no gancho, e qualifica a 19%. Os criativos v4, que abrem nomeando dono ou sócio acima de R$ 200 mil, praticamente não têm volume para serem julgados.</p>
+
+  <h3>O piso de faturamento não está filtrando</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Faturamento declarado</th><th class="num">Donos e sócios</th><th class="num">%</th></tr></thead>
+    <tbody>
+      <tr class="destaque"><td>Até R$ 100.000</td><td class="num">31</td><td class="num">57%</td></tr>
+      <tr><td>De R$ 100.000 até R$ 200.000</td><td class="num">7</td><td class="num">13%</td></tr>
+      <tr><td>De R$ 200.000 até R$ 300.000</td><td class="num">7</td><td class="num">13%</td></tr>
+      <tr><td>De R$ 300.000 até R$ 500.000</td><td class="num">3</td><td class="num">6%</td></tr>
+      <tr><td>Acima de R$ 500.000</td><td class="num">6</td><td class="num">11%</td></tr>
+    </tbody>
+  </table></div>
+  <p>O filtro de cargo funcionou: <strong>62% dos leads são Proprietário, Dono ou Sócio</strong>, contra 9,8% no histórico antigo. O corte se deslocou para o porte da empresa, e 44% de todas as reprovações agora são por faturamento abaixo de R$ 200 mil.</p>
+
+  <h3>Um ângulo traz lead muito melhor que os outros</h3>
+  <div class="tw"><table>
+    <thead><tr><th>Cenário da Etapa 1</th><th class="num">Peso na base</th><th class="num">Peso entre qualificados</th><th class="num">Índice</th></tr></thead>
+    <tbody>
+      <tr class="destaque"><td>Plano que não Vira Execução</td><td class="num">18%</td><td class="num">44%</td><td class="num">2,4×</td></tr>
+      <tr><td>O Adiador</td><td class="num">33%</td><td class="num">31%</td><td class="num">0,9×</td></tr>
+      <tr><td>Time que não Assume</td><td class="num">31%</td><td class="num">19%</td><td class="num">0,6×</td></tr>
+      <tr><td>O Gargalo</td><td class="num">17%</td><td class="num">6%</td><td class="num">0,4×</td></tr>
+    </tbody>
+  </table></div>
+  <p>Quem marca que sai da reunião com tudo combinado e registrado, e mesmo assim os prazos não são cumpridos, qualifica 2,4 vezes mais que o peso dele na base. Quem marca sobrecarga de decisão qualifica menos da metade. Vale criativo novo no primeiro ângulo e menos verba no segundo.</p>
+</section>
+
+<div class="hr"></div>
+
+<section>
+  <p class="eyebrow">Parte 3 do levantamento</p>
+  <h2>Os 16 qualificados do período</h2>
+  <p>O levantamento pede 10 MQLs de julho, 10 de agosto e 10 de setembro. Julho e agosto não existem neste funil: ele passou a receber volume em setembro. Esta é a amostra real, completa, sem escolher casos que deram certo.</p>
+
+  <div class="tw"><table>
+    <thead><tr><th>Entrou</th><th>Nome</th><th>Setor</th><th>Faturamento</th><th>Colab.</th><th>Etapa 2</th></tr></thead>
+    <tbody>
+      <tr><td class="num">30/08</td><td>Evaldo Freitas Lira</td><td>Indústria</td><td>R$ 200 a 300 mil</td><td class="num">&lt; 20</td><td>não</td></tr>
+      <tr><td class="num">05/09</td><td>Dora Martins de Souza</td><td>Indústria</td><td>Acima de R$ 500 mil</td><td class="num">50 a 100</td><td>não</td></tr>
+      <tr><td class="num">07/09</td><td>Adir M. Nogueira da Fontoura</td><td>Comércio</td><td>R$ 200 a 300 mil</td><td class="num">&lt; 20</td><td>não</td></tr>
+      <tr><td class="num">08/09</td><td>Olivier Borgo Neves</td><td>Indústria</td><td>R$ 300 a 500 mil</td><td class="num">&lt; 20</td><td>não</td></tr>
+      <tr class="destaque"><td class="num">09/09</td><td>Katia Simone Conteiro Castilho</td><td>Indústria</td><td>R$ 300 a 500 mil</td><td class="num">&lt; 20</td><td>sim · TD 8,9</td></tr>
+      <tr><td class="num">09/09</td><td>Ma Luiza</td><td>Saúde</td><td>R$ 200 a 300 mil</td><td class="num">&lt; 20</td><td>não</td></tr>
+      <tr><td class="num">10/09</td><td>Clenia Ramos</td><td>Comércio</td><td>Acima de R$ 500 mil</td><td class="num">&lt; 20</td><td>não</td></tr>
+      <tr><td class="num">12/09</td><td>Cirlete Souza</td><td>Comércio</td><td>R$ 200 a 300 mil</td><td class="num">&lt; 20</td><td>não</td></tr>
+      <tr><td class="num">13/09</td><td>Lucineide Cobe</td><td>Comércio</td><td>R$ 200 a 300 mil</td><td class="num">&lt; 20</td><td>não</td></tr>
+      <tr class="destaque"><td class="num">19/09</td><td>José Astolphi Júnior</td><td>Serviços</td><td>Acima de R$ 500 mil</td><td class="num">20 a 50</td><td>sim · TD 6,0</td></tr>
+      <tr><td class="num">22/09</td><td>Valter Vicentin</td><td>Indústria</td><td>Acima de R$ 500 mil</td><td class="num">50 a 100</td><td>não</td></tr>
+      <tr><td class="num">24/09</td><td>Jucimara Andrade</td><td>Outro</td><td>R$ 200 a 300 mil</td><td class="num">&lt; 20</td><td>não</td></tr>
+      <tr><td class="num">24/09</td><td>Eleandro Bernardi</td><td>Outro</td><td>R$ 200 a 300 mil</td><td class="num">20 a 50</td><td>não</td></tr>
+      <tr class="destaque"><td class="num">24/09</td><td>Renice Maria Wermuth Antunes</td><td>Serviços</td><td>R$ 300 a 500 mil</td><td class="num">20 a 50</td><td>sim · TD 6,2</td></tr>
+      <tr class="destaque"><td class="num">24/09</td><td>Gideão Marinho</td><td>Outro</td><td>Acima de R$ 500 mil</td><td class="num">20 a 50</td><td>sim · TD 6,9</td></tr>
+      <tr class="destaque"><td class="num">25/09</td><td>Adriane Inês Buzanello</td><td>Serviços</td><td>Acima de R$ 500 mil</td><td class="num">50 a 100</td><td>sim · TD 5,2</td></tr>
+    </tbody>
+  </table></div>
+  <p class="legenda">Em destaque, os 5 que completaram a Etapa 2 e chegaram à agenda. TD é o índice de caos de Gestão da Etapa 2, de 0 a 10. Telefone e e-mail de cada um estão na planilha que acompanha este documento.</p>
+
+  <p>Seis dos 16 faturam acima de R$ 500 mil por mês. Esses são o topo do ICP e, pelos registros, cinco deles nunca chegaram à agenda.</p>
+</section>
+
+<div class="hr"></div>
+
+<section>
+  <p class="eyebrow">Recomendação</p>
+  <h2>O que pedir à Grokker</h2>
+  <p class="lead">O levantamento tem quinze partes. Com o que já está respondido, eu reduziria a três, e nenhuma delas é sobre geração de lead. Pedir tudo de uma vez costuma travar a entrega inteira.</p>
+
+  <ol class="pedidos">
+    <li>
+      <b>Evidência de ligação, direto da telefonia</b>
+      <span>Relatório do sistema, não planilha preenchida à mão. Precisamos saber se zero ligações significa que não ligaram ou que não registraram. Tudo o mais depende desta resposta.</span>
+    </li>
+    <li>
+      <b>O que aconteceu com cada um dos 16 qualificados</b>
+      <span>Quem recebeu contato, quando, por qual canal, quantas tentativas e onde parou. A lista nominal com telefone e e-mail vai junto deste documento, então é preencher ao lado.</span>
+    </li>
+    <li>
+      <b>A conversa completa dos 13 que conectaram</b>
+      <span>São treze conversas no mês inteiro. Dá para ler todas e entender abordagem, objeção e onde a conversa morreu.</span>
+    </li>
+  </ol>
+
+  <div class="box">
+    <span class="l">O que deixar para depois</span>
+    <p>Partes 11 a 14 (últimas calls, últimos dez clientes, três melhores clientes, cases) servem para construir oferta e prova, não para achar o vazamento. Com zero propostas no mês, não há o que analisar em closing agora.</p>
+  </div>
+</section>
+
+<div class="hr"></div>
+
+<section>
+  <p class="eyebrow">Ressalvas</p>
+  <h2>O que ainda não está provado</h2>
+
+  <div class="box alerta">
+    <span class="l">A planilha comercial pode estar subnotificada</span>
+    <p>Ela é preenchida à mão e ainda carrega os cabeçalhos de template. Zero ligações pode significar que ninguém ligou ou que ninguém registrou. O próprio levantamento conta que, ao perguntar quantas ligações haviam sido feitas, a resposta precisou ser estimada de memória. Por isso o pedido 1 vem antes dos outros: sem a evidência da telefonia, a conclusão sobre cadência fica plausível e não comprovada.</p>
+  </div>
+
+  <div class="box nota">
+    <span class="l">As duas planilhas discordam no volume</span>
+    <p>A comercial marca 179 leads novos no mês e o funil novo tem 84 em setembro. A hipótese mais provável é que <span class="mono">quiz.grokkeronline.com</span> ainda sirva o funil antigo em paralelo, uma pendência aberta desde agosto. Antes de comparar taxas entre as duas fontes, vale fechar isso.</p>
+  </div>
+
+  <div class="box nota">
+    <span class="l">Agendamento, comparecimento e no-show não fecham</span>
+    <p>A planilha registra 1 agendamento, 1 comparecimento e 1 no-show no mesmo mês. Ou houve uma remarcação não registrada, ou o preenchimento está inconsistente. Com números tão pequenos, cada linha errada muda a leitura.</p>
+  </div>
+</section>
+
+<footer>
+  <p>Base: <span class="mono">Grokker · Jornada completa (Etapa 1 + Etapa 2)</span> e <span class="mono">Indicadores Comerciais Daniele Christensen · 2026</span>, ambas lidas em 25/09/2026. Cruzadas com o <span class="mono">Levantamento para Diagnóstico Comercial · Grokker</span>.</p>
+  <p>Das 138 linhas da planilha do funil, 49 eram teste e 2 eram resposta repetida do mesmo e-mail. Os cortes foram conferidos linha a linha e a lista está disponível se alguém quiser revisar o critério.</p>
+  <p>Produzido pela SimpleAcc.</p>
+</footer>
+
+</div>

@@ -1,0 +1,32 @@
+
+O formulário da Etapa 2 é disparado no instante em que o lead confirma o agendamento da sessão estratégica — ou seja, no momento em que ele escolhe o horário na agenda do Closer e o sistema registra a confirmação.
+É um disparo automático, sem intervenção humana.
+Na prática, o fluxo é:
+1- O lead termina o quiz da Etapa 1 e recebe o diagnóstico do cenário.
+2- Ele clica no CTA para agendar a sessão estratégica.
+3- Ele escolhe o horário e confirma o agendamento.
+4- AQUI — no exato momento da confirmação — o sistema dispara automaticamente o link da Etapa 2 (via WhatsApp).
+5- O lead preenche a Etapa 2 antes da call.
+6- O Closer lê o resultado com ele na sessão.
+Canal: WhasApp
+Por que nesse momento (e não antes):
+Há uma razão estratégica, não técnica, para ser depois do agendamento e não antes: antes do agendamento, o lead ainda está "frio", vindo do tráfego do Instagram. Pedir um formulário longo de 15 minutos nesse ponto derrubaria a conversão do topo do funil. O quiz curto (8 perguntas) existe justamente para não assustar ninguém nessa fase.
+Depois do agendamento, o lead já se comprometeu. Ele reservou um horário com um especialista. O esforço de preencher a Etapa 2 vira um compromisso psicológico — e é isso que aumenta drasticamente o comparecimento (show-up) na call. Quem investiu 15 minutos preenchendo o diagnóstico comparece muito mais do que quem só clicou em um botão.
+Para o Closer, o disparo pós-agendamento garante que ele tenha os dados consolidados no CRM antes da call, podendo estudar o caso e entrar na sessão já sabendo onde está a dor.
+Aqui está o detalhe que a maioria dos funis erra: o disparo precisa ser automático, não manual. Se o SDR tiver que lembrar de enviar o link, voltamos ao problema — "duas etapas = dois trabalhos". A Etapa 2 só funciona como mecanismo de presença se o link chegar ao lead no momento exato da confirmação do agendamento, sem depender de ninguém. E há um segundo ponto: o link precisa vir com a instrução clara de que o preenchimento é pré-requisito da call. O texto de disparo deve dizer algo como: "Para que nossa sessão seja produtiva, preencha este diagnóstico antes da reunião — ele é a base da nossa conversa." Isso eleva o valor percebido da call e filtra leads que não estão dispostos a investir tempo na própria solução.
+E se ele não agendar?
+Se o lead não agendar, a Etapa 2 não é disparada (ela depende do agendamento).
+Mas isso não significa que o lead morre.
+Ele cai em um fluxo de nutrição, e a régua de oferta muda.
+O lead que não agenda não recebe a Etapa 2. Ele fica na base, recebe o diagnóstico da Etapa 1 (que já foi entregue no fim do quiz) e entra em um fluxo de nutrição automática.
+O objetivo desse fluxo é reengajá-lo para a sessão estratégica — não vendê-lo diretamente.
+O que fazer:
+Reforçar o diagnóstico que ele recebeu (o cenário da P2)
+Enviar conteúdo que aprofunde a dor específica dele
+Tentativas de reengajamento via WhatsApp com scripts de valor
+O SDR pode intervir manualmente se o lead demonstrar interesse (respondeu, comentou, abriu)
+Pedir a Etapa 2 para quem não agendou é pedir esforço sem recompensa, e isso derruba a experiência.
+Então se ele não agendar, ele não recebe a Etapa 2. Ele recebe nutrição.
+A Etapa 2 só existe para quem agendou. Ela é a recompensa e o compromisso do agendamento.
+Resumindo:
+Não agendou → não recebe a Etapa 2. Recebe nutrição.
