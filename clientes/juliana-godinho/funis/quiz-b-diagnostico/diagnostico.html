@@ -22,6 +22,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     --serif:"CG",Georgia,"Times New Roman",serif;
     --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     --wrap:min(100% - 2.5rem, 62rem); --narrow:min(100% - 2.5rem, 44rem); --r:4px;
+    /* semáforo de estado */
+    --alerta:#B4322A; --alerta-fundo:rgba(180,50,42,.12); --alerta-fio:rgba(180,50,42,.4);
+    --atencao:#B5822B; --atencao-fundo:rgba(181,130,43,.13); --atencao-fio:rgba(181,130,43,.4);
+    --estavel:#3F6B4F; --estavel-fundo:rgba(63,107,79,.12); --estavel-fio:rgba(63,107,79,.38);
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
   html{background:var(--bg);scroll-behavior:smooth}
@@ -36,8 +40,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .pdf{background:none;border:1px solid rgba(201,168,76,.4);color:var(--gold);border-radius:var(--r);font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:.6rem 1.1rem;cursor:pointer;transition:background .2s}
   .pdf:hover{background:rgba(201,168,76,.12)}
 
-  section{padding:4.5rem 0}
-  section.tight{padding:3.25rem 0}
+  /* Respiro entre blocos reduzido em cerca de 30%.
+     O laudo ganhou o medidor e dois blocos de dado, então o mesmo
+     respiro de antes virava buraco entre um cartão e outro. */
+  section{padding:3.1rem 0}
+  section.tight{padding:2.1rem 0}
   .kick{font-size:.64rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:1.2rem}
   h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.1rem,6vw,3.4rem);line-height:1.1;letter-spacing:-.008em;text-wrap:balance;margin-bottom:1.3rem}
   h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.75rem,4.4vw,2.5rem);line-height:1.14;letter-spacing:-.008em;text-wrap:balance;margin-bottom:1.6rem}
@@ -53,7 +60,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   .rule{height:1px;background:var(--gold-hair);margin:2.2rem 0}
 
   /* laudo */
-  .head{background:var(--espresso);color:#F2EDE3;padding:4.5rem 0 4rem;position:relative}
+  .head{background:var(--espresso);color:#F2EDE3;padding:4.5rem 0 2.8rem;position:relative}
   .head::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,var(--gold-deep),var(--gold),transparent)}
   .head .kick{color:var(--gold)}
   .head h1{color:#FBF7EF;max-width:20ch}
@@ -61,6 +68,142 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   .bloco{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:2.2rem 2.3rem;box-shadow:0 6px 40px rgba(20,18,16,.05)}
   .bloco h3:first-child{margin-top:0}
+
+  /* ══ painel de estado, medidor e blocos de dado ══
+     Entrou em 24/09/2026 a pedido da Ju e foi aprovado por ela em 25/09.
+     O laudo escrito não foi tocado: isto é camada visual por cima. */
+
+  /* nome do diagnóstico, na capa escura */
+  .dx-topo{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem;margin-bottom:1.5rem}
+  .dx-topo .dx-selo,.dx-topo .dx-placa{margin-bottom:0}
+  /* Placa do quadro · a Ju pediu em 25/09 mais peso visual aqui. Virou
+     chapa sólida em ouro sobre o espresso, que é o maior contraste
+     disponível na paleta, com filete claro no topo e no rodapé para dar
+     cara de etiqueta carimbada em prontuário. */
+  .dx-placa{display:block;border-radius:var(--r);overflow:hidden;
+    margin-bottom:1.4rem;background:linear-gradient(180deg,#D8B85C,#B8942F);
+    box-shadow:0 8px 30px rgba(201,168,76,.22)}
+  .dx-placa i{display:block;font-style:normal;font-size:.58rem;font-weight:700;
+    letter-spacing:.26em;text-transform:uppercase;color:rgba(23,20,18,.62);
+    padding:.5rem .95rem .15rem;border-bottom:1px solid rgba(23,20,18,.12)}
+  .dx-placa b{display:block;font-family:var(--serif);font-weight:600;
+    font-size:clamp(1.24rem,4vw,1.5rem);line-height:1.15;letter-spacing:-.015em;
+    color:#171412;padding:.5rem .95rem .62rem}
+
+  /* selo de estado */
+  .dx-selo{display:inline-flex;align-items:center;gap:.6rem;
+    font-size:.64rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+    border-radius:var(--r);padding:.5rem .9rem;margin-bottom:1.5rem}
+  .dx-selo span{width:.44rem;height:.44rem;border-radius:50%;flex:none;
+    box-shadow:0 0 0 3px currentColor;opacity:.9}
+  .dx-selo.critico {color:#F0A59E;background:var(--alerta-fundo);border:1px solid var(--alerta-fio)}
+  .dx-selo.atencao {color:#E8C87E;background:var(--atencao-fundo);border:1px solid var(--atencao-fio)}
+  .dx-selo.estavel {color:#A8CCB4;background:var(--estavel-fundo);border:1px solid var(--estavel-fio)}
+  .dx-selo.critico span,.dx-selo.atencao span,.dx-selo.estavel span{background:currentColor}
+  @media (prefers-reduced-motion:no-preference){
+    .dx-selo span{animation:pulso 2.4s ease-in-out infinite}
+  }
+  @keyframes pulso{0%,100%{opacity:.35}50%{opacity:1}}
+
+  /* medidor operacional x gestão */
+  .medidor{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+    padding:1.7rem 1.8rem;box-shadow:0 6px 40px rgba(20,18,16,.05)}
+  .medidor .topo{display:flex;justify-content:space-between;align-items:baseline;
+    gap:1rem;flex-wrap:wrap;margin-bottom:1.15rem}
+  .medidor .rot{font-size:.62rem;font-weight:600;letter-spacing:.22em;
+    text-transform:uppercase;color:var(--ink-3)}
+  .medidor .num{font-family:var(--serif);font-size:2.5rem;line-height:1;
+    font-weight:600;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+  .medidor.critico .num{color:var(--alerta)}
+  .medidor.atencao .num{color:var(--atencao)}
+  .medidor.estavel .num{color:var(--estavel)}
+  .medidor .num small{font-size:1rem;font-weight:600;margin-left:.12rem}
+  .trilho{height:.7rem;border-radius:99px;background:#EDE8DE;overflow:hidden;display:flex}
+  .trilho i{display:block;height:100%}
+  .medidor.critico .trilho i{background:linear-gradient(90deg,#C4463C,#8F251E)}
+  .medidor.atencao .trilho i{background:linear-gradient(90deg,#C99A3A,#96681C)}
+  .medidor.estavel .trilho i{background:linear-gradient(90deg,#5A8A69,#33563F)}
+  .legenda{display:flex;justify-content:space-between;gap:1rem;margin-top:.7rem;
+    font-size:.76rem;color:var(--ink-3)}
+  .legenda b{color:var(--ink-2);font-weight:600}
+  .conta{margin-top:1.15rem;border-top:1px solid var(--line);padding-top:1rem}
+  .conta summary{cursor:pointer;font-size:.76rem;color:var(--ink-3);
+    list-style:none;display:inline-flex;align-items:center;gap:.45rem}
+  .conta summary::-webkit-details-marker{display:none}
+  .conta summary::before{content:"+";font-weight:600;color:var(--gold-deep)}
+  .conta[open] summary::before{content:"–"}
+  .conta ul{margin:.85rem 0 0;padding-left:1.1rem;font-size:.82rem;color:var(--ink-2)}
+  .conta li{margin-bottom:.35rem}
+  .conta p{font-size:.8rem;color:var(--ink-3);margin:.8rem 0 0}
+
+  /* bloco de dado de mercado */
+  .dado{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+    padding:1.9rem 1.9rem 1.5rem;box-shadow:0 6px 40px rgba(20,18,16,.05)}
+  .dado .chamada{font-family:var(--serif);font-size:clamp(1.24rem,3.1vw,1.55rem);
+    line-height:1.28;letter-spacing:-.01em;color:var(--ink);margin:0 0 1.3rem}
+  .dado .chamada em{font-style:normal;color:var(--gold-deep)}
+  .barras{display:grid;gap:.8rem;margin:0 0 1.2rem}
+  .barra .cab{display:flex;justify-content:space-between;align-items:baseline;
+    gap:.8rem;font-size:.8rem;color:var(--ink-2);margin-bottom:.32rem}
+  .barra .cab b{font-variant-numeric:tabular-nums;font-weight:600;color:var(--ink)}
+  .barra .t{height:.5rem;border-radius:99px;background:#EDE8DE;overflow:hidden}
+  .barra .t i{display:block;height:100%;background:var(--line-2)}
+  .barra.forte .t i{background:linear-gradient(90deg,var(--gold),var(--gold-deep))}
+  .barra.risco .cab b{color:var(--alerta)}
+  .barra.risco .t i{background:linear-gradient(90deg,#C4463C,#8F251E)}
+  .leitura{font-size:.95rem;color:var(--ink-2);margin:0 0 1.15rem}
+  .leitura strong{color:var(--ink)}
+  .fonte{font-size:.72rem;line-height:1.5;color:var(--ink-3);
+    border-top:1px solid var(--line);padding-top:.85rem;margin:0}
+  .fonte a{color:var(--ink-3)}
+  .fonte b{font-weight:600;color:var(--ink-2)}
+
+  /* ── passo 2 · sinais ──
+     Lista com losango em ouro, o mesmo marcador dos pilares e das
+     credenciais, para o olho reconhecer que é enumeração e não texto. */
+  .sinais{background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+    padding:1.7rem 1.8rem;box-shadow:0 6px 40px rgba(20,18,16,.05)}
+  .sinais ul{list-style:none;margin:0;padding:0;display:grid;gap:.95rem}
+  .sinais li{display:flex;gap:.85rem;align-items:flex-start;
+    font-size:1.02rem;line-height:1.5;color:var(--ink)}
+  .sinais li::before{content:"";width:.44rem;height:.44rem;background:var(--gold);
+    transform:rotate(45deg);flex:none;margin-top:.55rem}
+  .sinais .fecho{margin:1.3rem 0 0;padding-top:1.1rem;border-top:1px solid var(--line);
+    font-size:.93rem;color:var(--ink-3)}
+
+  /* ── passo 3 · o que está custando ──
+     Puxa a cor do semáforo para amarrar visualmente com o estado lá em
+     cima: o custo é a consequência daquele estado, não um bloco solto. */
+  .custo{border-radius:var(--r);padding:1.7rem 1.8rem;
+    border:1px solid var(--line);border-left:3px solid var(--ink-3);background:var(--card);
+    box-shadow:0 6px 40px rgba(20,18,16,.05)}
+  .custo.critico{border-left-color:var(--alerta);background:linear-gradient(90deg,rgba(180,50,42,.05),var(--card) 38%)}
+  .custo.atencao{border-left-color:var(--atencao);background:linear-gradient(90deg,rgba(181,130,43,.06),var(--card) 38%)}
+  .custo.estavel{border-left-color:var(--estavel);background:linear-gradient(90deg,rgba(63,107,79,.05),var(--card) 38%)}
+  .custo p{font-family:var(--serif);font-size:clamp(1.14rem,2.9vw,1.34rem);
+    line-height:1.42;color:var(--ink);margin:0}
+  .custo p strong{color:var(--ink)}
+
+  /* ── passo 5 · a ponte ──
+     Faixa escura de propósito. É a virada da leitura: sai do que está
+     acontecendo e entra no que fazer, e o fundo muda junto. */
+  .ponte{background:var(--espresso);color:#F2EDE3}
+  .ponte .kick{color:var(--gold)}
+  .ponte h2{color:#F7F3EB;margin-bottom:1.2rem}
+  .ponte p{color:#CDC4B7;font-size:1.06rem;line-height:1.62}
+  .ponte p strong{color:#F7F3EB}
+  .ponte .arremate{border-top:1px solid var(--gold-hair);margin-top:1.8rem;padding-top:1.6rem}
+
+  /* número grande solto, para o dado que dispensa gráfico */
+  .cifra{display:flex;align-items:baseline;gap:.9rem;margin:0 0 1rem;flex-wrap:wrap}
+  .cifra b{font-family:var(--serif);font-size:clamp(2.6rem,8vw,3.7rem);line-height:.95;
+    font-weight:600;letter-spacing:-.03em;color:var(--gold-deep);font-variant-numeric:tabular-nums}
+  .cifra span{font-size:.95rem;color:var(--ink-2);max-width:20rem}
+
+  @media (max-width:40rem){
+    .medidor,.dado{padding:1.35rem 1.25rem}
+    .medidor .num{font-size:2.1rem}
+  }
 
   /* pilares */
   .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(17rem,1fr));gap:1rem}
@@ -128,9 +271,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   @media(max-width:760px){
     .autor{grid-template-columns:1fr;gap:1.8rem}
     .retrato{max-width:16rem;margin-inline:auto}
-    section{padding:2.8rem 0}
-    section.tight{padding:2.2rem 0}
-    .head{padding:2.8rem 0 2.4rem}
+    section{padding:1.9rem 0}
+    section.tight{padding:1.4rem 0}
+    .head{padding:2.8rem 0 1.7rem}
     .bloco{padding:1.4rem 1.3rem}
     body{font-size:16.5px}
     p{margin-bottom:1rem}
@@ -174,17 +317,351 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <script>
 const STORE = "jugodinho_quizb";
-const A = (() => { try { return JSON.parse(sessionStorage.getItem(STORE)) || null } catch(e){ return null } })();
+
+/* Modo de demonstração · para a Ju e o time verem os quatro laudos sem
+   preencher o quiz quatro vezes: acrescente ?demo=Q1, Q2, Q3 ou Q4 na URL.
+   Lead nenhuma cai aqui por acaso, e quem tem respostas gravadas sempre vê
+   as próprias, porque o payload real ganha do demo.
+   Em demo nenhum evento é disparado, para não sujar o GTM nem a contagem
+   de conversão com visita de revisão. */
+const DEMO = (function(){
+  const q = new URLSearchParams(location.search).get('demo');
+  return /^Q[1-4]$/.test(q || '') ? q : null;
+})();
+
+const A = (function(){
+  let real = null;
+  try { real = JSON.parse(sessionStorage.getItem(STORE)) || null } catch(e){}
+  if(real || !DEMO) return real;
+
+  const cenas = {
+    Q1:{ q:'A agenda virou o seu teto',
+         p:'Você já provou que sabe atender e que sabe faturar. Só que <strong>o seu crescimento está amarrado às suas horas</strong>, e a semana inteira vai para o atendimento.<br><br>Enquanto o faturamento depender de quantas pessoas cabem na sua agenda, <strong>ele tem um teto. E você já encostou nele.</strong>',
+         c:'Separar o tempo de atender do tempo de dirigir o negócio, e decidir <strong>o que sai da sua mão primeiro</strong>.', i:0 },
+    Q2:{ q:'Sempre as mesmas clientes',
+         p:'As suas clientes são fiéis e voltam sempre, e isso é mérito seu. O problema é que <strong>não está entrando cliente nova</strong>.<br><br><strong>Você não tem um problema de fidelização. Tem um problema de entrada.</strong>',
+         c:'Criar <strong>fluxo de cliente nova sem depender de indicação</strong>.', i:1 },
+    Q3:{ q:'A promoção virou o seu jeito de vender',
+         p:'<strong>A promoção resolve o mês e cobra o preço no seguinte.</strong> O movimento aumenta, a margem some junto.<br><br>Faturar mais e sobrar menos não é impressão sua.',
+         c:'<strong>Clareza de números primeiro, preço por valor depois.</strong>', i:3 },
+    Q4:{ q:'Você cobra menos do que entrega',
+         p:'O receio de perder quem já vem faz você segurar o preço, e <strong>o seu trabalho fica ancorado num valor que não corresponde ao que ele vale</strong>.<br><br>Aumentar a tabela sozinho não resolve, porque <strong>o que falta não é preço. É o que sustenta o preço.</strong>',
+         c:'Construir <strong>tratamentos de maior valor</strong> e o posicionamento que sustenta o preço.', i:0 }
+  }[DEMO];
+
+  /* Mesmos quatro pilares que o index.html manda no payload real. */
+  const P = [
+    {n:'Posicionamento profissional', d:'Deixar de ser vista como apenas mais uma e virar referência na sua região, para as clientes te escolherem pelo valor que você entrega e não pelo preço que você cobra.'},
+    {n:'Marketing de diferenciação',  d:'Atrair clientes qualificadas que valorizam o seu trabalho e pagam o que ele vale, sem depender de promoção, desconto ou baixar preço para competir.'},
+    {n:'Experiência do cliente',      d:'Fidelização de verdade: clientes que voltam, indicam e viram fãs do seu trabalho. Atendimento que encanta e gera resultado financeiro consistente.'},
+    {n:'Gestão financeira',           d:'Organização que te permite tirar um salário digno, ter reserva, precificar corretamente e finalmente crescer sem aperto.'}
+  ];
+  const porques = {
+    Q1:'Se o teto é o seu tempo, o caminho não é somar mais horas, é fazer cada hora valer mais.',
+    Q2:'Se a base é fiel e não entra gente nova, o que falta é ser encontrada e escolhida por quem ainda não te conhece.',
+    Q3:'Enquanto o preço for a sua ferramenta de venda, a margem vai continuar indo embora junto com o desconto.',
+    Q4:'Preço não se sustenta sozinho. O que sustenta preço é a forma como o seu trabalho é percebido antes de você falar em valor.'
+  };
+
+  return {
+    demo:true, nome:'Demonstração', quadroId:DEMO, quadro:cenas.q,
+    porque:cenas.p, caminho:cenas.c, rota:'mentoria',
+    cenario:'Você tem uma clínica ou consultório com os tratamentos faciais puxando a maior parte do faturamento. Hoje você atende sozinha, então tudo que acontece ali passa por você. E sobra pouco, sem você conseguir dizer exatamente quanto.',
+    tentativas:['Abrir mais horários resolve um mês. <strong>No seguinte o teto volta, só que com você mais cansada</strong>, porque a conta continua sendo feita em horas suas.'],
+    pilares:P, pilarIdx:cenas.i, pilarNome:P[cenas.i].n, pilarPor:porques[DEMO],
+    /* Respostas diferentes por quadro de propósito, para a revisão ver
+       os três estados do semáforo sem ter que preencher o quiz várias
+       vezes: Q1 crítico, Q3 atenção, Q2 em estruturação. */
+    debug:{
+      Q1:['quem atende: Só eu',
+          'margem: Sobra pouco, e eu não sei dizer exatamente quanto',
+          'já tentou: Abri mais horários e atendi até mais tarde'],
+      Q2:['quem atende: Eu e uma equipe pequena',
+          'margem: Sobra o suficiente para eu me pagar e reinvestir um pouco',
+          'já tentou: Investi em divulgação, tráfego ou equipamento novo'],
+      Q3:['quem atende: Eu e uma equipe pequena',
+          'margem: Sobra pouco, e eu não sei dizer exatamente quanto',
+          'já tentou: Baixei preço ou fiz promoção'],
+      Q4:['quem atende: Eu e mais uma pessoa',
+          'margem: Nunca fechei essa conta, não sei responder',
+          'já tentou: Ainda não fiz nada diferente']
+    }[DEMO]
+  };
+})();
 const esc = s => String(s==null?'':s).replace(/[<>&]/g,c=>({'<':'&lt;','>':'&gt;','&':'&amp;'}[c]));
 const el = document.getElementById('pagina');
 
 /* Camada de dados do GTM. Sem tag configurada no container o evento fica só no
    dataLayer e nada dispara, então empurrar é inofensivo. */
 function dl(evento, extra){
+  /* Visita de demonstração não conta como lead. Sem esta guarda, cada
+     revisão interna viraria conversão na planilha e no GTM. */
+  if(DEMO) return;
   try{
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push(Object.assign({ event: evento }, extra || {}));
   }catch(e){}
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   DIAGNÓSTICO · o que cada número é, e de onde ele vem
+
+   O laudo escrito não foi tocado. A Ju aprovou o texto em 23/09
+   ("o material em si tá muito bom", "a página tá clean, tá chique")
+   e pediu camada visual, não reescrita. Tudo abaixo é acréscimo.
+
+   1. NOME DO DIAGNÓSTICO
+      Pedido literal dela: "um nome pro que ela tem". Um nome por
+      quadro, em cima dos mesmos quatro gargalos que o quiz já
+      diagnostica. Nenhum gargalo novo foi inventado.
+
+   2. ÍNDICE DE DEPENDÊNCIA OPERACIONAL
+      Ela pediu algo no formato "você está 70% no operacional, 30%
+      na gestão". Esse número NÃO é medição da agenda dela e NÃO é
+      estatística de mercado: é um índice calculado a partir das
+      respostas do próprio quiz, e a página diz isso na cara, com a
+      conta aberta num detalhe expansível.
+      Ela também citou "você tem 15% de chance de quebrar" como
+      exemplo. Esse número não existe em base nenhuma. Inventar
+      estatística num laudo entregue a profissional de saúde é
+      risco real, então o caminho foi outro: usar a taxa de
+      mortalidade por porte do Sebrae, que é pública, verificável e
+      diz exatamente o que ela queria dizer.
+
+   3. DADOS DE MERCADO
+      Todos reais, com fonte nomeada e ano visível na página.
+      Prioridade para dado do nicho dela. Onde o dado disponível é
+      de pequenas empresas em geral, a própria fonte na página diz
+      isso, para ninguém ler como se fosse do setor de estética.
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── 1 · nome do diagnóstico, um por quadro ── */
+const DX_NOME = {
+  Q1: 'Teto Operacional',
+  Q2: 'Carteira Fechada',
+  Q3: 'Dependência de Desconto',
+  Q4: 'Defasagem de Preço'
+};
+
+/* Ponto de sobrescrita do título do quadro, hoje vazio de propósito.
+   O nome do Q3 que a Ju pediu em 25/09 já subiu para o QUADROS do
+   index.html, que é onde ele deve morar: de lá ele viaja junto para o
+   laudo, para a planilha e para o GHL, e os três dizem a mesma coisa.
+   Isto aqui fica para testar um título novo sem mexer no quiz. */
+const DX_TITULO = {};
+
+/* ── Passo 2 da lógica que a Ju desenhou · COMO ISSO APARECE ──
+   Sinais concretos para ela se reconhecer. A régua de cada frase é
+   simples: precisa descrever uma cena que acontece, não um conceito. */
+const SINAIS = {
+  Q1: ['Você termina a semana sem ter olhado um número do negócio',
+       'No mês em que você tira folga, o faturamento cai junto',
+       'Existe uma lista de coisas importantes que só andam quando sobra tempo, e nunca sobra'],
+  Q2: ['Você reconhece quase todos os nomes da agenda do mês',
+       'Quando abre horário novo, quem preenche é quem já vem',
+       'A última cliente nova chegou por indicação, e você não sabe dizer de onde veio a anterior'],
+  Q3: ['A sua base espera a campanha para fechar',
+       'Você já ouviu "vou esperar a próxima promoção"',
+       'O mês bom veio junto com um desconto, e o mês seguinte não veio'],
+  Q4: ['Você olha a sua tabela e sabe que ela está defasada, mas não mexe',
+       'Você já baixou o valor na hora de falar, antes da cliente questionar',
+       'Se alguém te perguntar quanto custa uma hora sua, você não sabe responder']
+};
+
+/* ── Passo 3 · O QUE ISSO ESTÁ CUSTANDO ──
+   Consequência no crescimento, no lucro e na previsibilidade. */
+const CUSTO = {
+  Q1: 'O seu faturamento tem um limite conhecido, que é o número de horas que você aguenta atender. Crescer passa a significar cansar mais, e todo mês em que você precisar parar é um mês que não fecha. <strong>Enquanto for assim, o negócio não funciona sem você dentro dele.</strong>',
+  Q2: 'O seu faturamento tem o tamanho exato da carteira que você já tem, e ele para de crescer no dia em que ela parar de crescer. <strong>Sem entrada de gente nova, toda cliente que sai vira perda que não se repõe</strong>, e a sua fatia do mercado encolhe mesmo com a agenda cheia.',
+  Q3: 'Você fatura mais e sobra menos, no mesmo mês. <strong>O desconto sai inteiro da sua margem, nunca do seu custo</strong>, e a cada campanha a sua base aprende um pouco mais a não comprar pelo preço cheio. O mês seguinte fica mais difícil que o anterior.',
+  Q4: 'Cada atendimento sai com uma parte do seu lucro embutida como desconto invisível. <strong>Você trabalha igual e leva menos</strong>, e como a conta nunca é fechada, o prejuízo não aparece em lugar nenhum até o caixa apertar.'
+};
+
+/* ── 2 · índice de dependência operacional ──
+   Três das seis respostas carregam sinal real sobre o quanto o
+   negócio depende das mãos dela. Os pesos ficam à vista de
+   propósito: o número precisa ser auditável por quem o recebe.
+
+   De onde vêm as respostas: o payload do quiz as entrega em
+   `respostas`, que é a origem certa. O array `debug` fica como
+   retaguarda porque era assim que isso funcionava antes, e a lead que
+   preencheu o quiz logo antes de um deploy recarrega o laudo depois
+   dele. Sem a retaguarda, o medidor sumiria justo para essa pessoa.
+
+   Se nenhuma das duas origens responder, a função devolve null e o
+   medidor não aparece, em vez de mostrar número errado. */
+function respostaDe(A, rotulo){
+  const R = A.respostas;
+  if(R){
+    if(rotulo === 'quem atende' && R.equipe) return R.equipe;
+    if(rotulo === 'margem'      && R.margem) return R.margem;
+    if(rotulo === 'já tentou')  return (R.tentou && R.tentou.length) ? R.tentou.join(' + ') : 'nada';
+  }
+  const linha = (A.debug || []).find(function(l){ return l.indexOf(rotulo + ': ') === 0; });
+  return linha ? linha.slice(rotulo.length + 2) : null;
+}
+
+const PESO_EQUIPE = [
+  ['Só eu', 'Você atende sozinha', 50],
+  ['Eu e mais uma pessoa', 'Vocês são duas atendendo', 38],
+  ['Eu e uma equipe pequena', 'Você já tem uma equipe pequena atendendo', 26],
+  ['Tenho equipe atendendo e eu atendo pouco', 'Você tem equipe e já atende pouco', 13],
+  ['Só administro, não atendo', 'Você já saiu do atendimento', 0]
+];
+const PESO_MARGEM = [
+  ['Quase nada, e em alguns meses falta', 'No fim do mês quase não sobra', 35],
+  ['Sobra pouco, e eu não sei dizer exatamente quanto', 'Sobra pouco e você não sabe dizer quanto', 30],
+  ['Nunca fechei essa conta, não sei responder', 'A conta do que sobra nunca foi fechada', 35],
+  ['Sobra o suficiente para eu me pagar e reinvestir um pouco', 'Sobra o suficiente para se pagar e reinvestir', 14],
+  ['Sobra bem, e eu acompanho esse número de perto', 'Sobra bem e você acompanha de perto', 0]
+];
+const PESO_TENTOU = [
+  ['Baixei preço ou fiz promoção', 'Respondeu com desconto', 7],
+  ['Abri mais horários e atendi até mais tarde', 'Respondeu abrindo mais horário', 8],
+  ['Investi em divulgação, tráfego ou equipamento novo', 'Respondeu investindo em divulgação ou equipamento', 4],
+  ['Ainda não fiz nada diferente', 'Ainda não tentou nada estruturado', 0]
+];
+
+function indiceOperacional(A){
+  const linhas = [];
+  let p = 0, achou = 0;
+
+  // Quem atende hoje · peso 50. É o que mais pesa, porque enquanto o
+  // atendimento for dela o crescimento continua contado em horas dela.
+  const rEq = respostaDe(A, 'quem atende');
+  PESO_EQUIPE.forEach(function(o){
+    if(rEq === o[0]){ p += o[2]; achou++; linhas.push(o[1] + ' · +' + o[2]); }
+  });
+
+  // Clareza do número · peso 35. Não saber quanto sobra é o marcador
+  // mais direto de que a gestão ainda não virou rotina.
+  const rMg = respostaDe(A, 'margem');
+  PESO_MARGEM.forEach(function(o){
+    if(rMg === o[0]){ p += o[2]; achou++; linhas.push(o[1] + ' · +' + o[2]); }
+  });
+
+  // O que já tentou · peso 15 no total. Tentativa que consome hora
+  // dela pesa mais que tentativa que consome dinheiro.
+  const rTe = respostaDe(A, 'já tentou');
+  let t = 0;
+  if(rTe && rTe !== 'nada'){
+    rTe.split(' + ').forEach(function(item){
+      PESO_TENTOU.forEach(function(o){
+        if(item === o[0]){ t += o[2]; if(o[2]) linhas.push(o[1] + ' · +' + o[2]); }
+      });
+    });
+  }
+  p += Math.min(t, 15);
+
+  // Sem as duas respostas que sustentam o índice, não há número honesto
+  // a mostrar. Melhor esconder o medidor do que exibir um valor torto.
+  if(achou < 2) return null;
+
+  return { pct: Math.max(0, Math.min(100, Math.round(p))), linhas: linhas };
+}
+
+/* ── estado, pelo índice ── */
+function estadoDe(pct){
+  if(pct >= 70) return { chave:'critico', rotulo:'Estado crítico' };
+  if(pct >= 45) return { chave:'atencao', rotulo:'Estado de atenção' };
+  return { chave:'estavel', rotulo:'Em estruturação' };
+}
+
+/* ── 3 · dados de mercado, um conjunto por gargalo ──
+   Cada bloco traz fonte, instituição e ano. Sem exceção. */
+const DADOS = {
+  Q1: {
+    chamada: 'A demanda cresce todo ano. <em>As suas horas não.</em>',
+    cifra: ['94%', 'dos novos negócios do setor no Brasil em 2025 são de uma pessoa só. Apenas 1% nasce como empresa de pequeno porte.'],
+    barras: [
+      { r:'Negócio de uma pessoa só', v:94, n:'221.585', risco:true },
+      { r:'Microempresa', v:5, n:'12.424' },
+      { r:'Empresa de pequeno porte', v:1, n:'1.672', forte:true }
+    ],
+    escala: 'Dos 236 mil negócios do setor abertos em 2025, por porte',
+    leitura: 'O modelo padrão do mercado é uma profissional vendendo as próprias horas, e ele funciona muito bem até a agenda encher. <strong>Depois disso, crescer passa a significar trabalhar mais.</strong> O teto não é sinal de que você fez algo errado, é a consequência aritmética desse modelo, e é exatamente o que separa quem fica nele de quem monta estrutura.',
+    fonte: '<b>Sebrae</b>, levantamento divulgado em 12/01/2026, que agrupa o setor de beleza e estética: 236 mil novas empresas abertas em 2025, sendo 221.585 MEI, 12.424 microempresas e 1.672 empresas de pequeno porte. Publicado pela Agência Sebrae de Notícias.'
+  },
+  Q2: {
+    chamada: 'Abrem <em>646 concorrentes por dia</em>, e a sua base continua do mesmo tamanho.',
+    cifra: ['646', 'novos negócios do setor abrem por dia no Brasil. São 27 por hora.'],
+    barras: [
+      { r:'Negócios do setor abertos em 2025, sobre 2024', v:18.5, n:'+18,5%', forte:true, max:20 },
+      { r:'Crescimento do setor ao ano, projetado até 2027', v:7, n:'+7%', max:20 }
+    ],
+    escala: 'Entrada de concorrentes contra crescimento do bolo',
+    leitura: 'Entra gente nova quase 3 vezes mais rápido do que o mercado cresce. Uma base fiel protege você da saída de cliente, <strong>mas não protege da entrada de concorrente</strong>. Enquanto a sua carteira for do mesmo tamanho, a sua fatia encolhe sem ninguém te avisar.',
+    fonte: '<b>Sebrae</b>, levantamento de 12/01/2026 (236 mil aberturas em 2025, alta de 18,5% sobre 2024, equivalente a 646 por dia). Crescimento do setor: <b>Euromonitor International</b>, projeção de cerca de 7% ao ano até 2027, citada pela <b>ABIHPEC</b>.'
+  },
+  Q3: {
+    chamada: 'O custo subiu para todo mundo. <em>Quase ninguém conseguiu repassar.</em>',
+    cifra: ['14,7%', 'foi a fatia de pequenas e médias empresas que conseguiu recuperar margem aumentando preço.'],
+    barras: [
+      { r:'Tiveram queda de lucratividade por alta de custo', v:49, n:'49%', risco:true },
+      { r:'Classificam a pressão de custo como alta ou muito alta', v:47, n:'47%' },
+      { r:'Conseguiram recuperar margem via preço', v:14.7, n:'14,7%', forte:true }
+    ],
+    escala: 'Pequenas e médias empresas brasileiras, 2026',
+    leitura: 'Quando o custo sobe e o preço não acompanha, a margem some sozinha. <strong>Responder a isso com promoção corta dos dois lados no mesmo mês:</strong> o custo continua subindo e o preço desce por decisão sua. E com 646 negócios novos abrindo por dia no setor, sempre vai existir alguém disposto a cobrar menos que você.',
+    fonte: '<b>Serasa Experian</b>, pesquisa com pequenas e médias empresas, 2026. <b>A amostra é de PMEs de todos os setores, não só de estética</b>, e está aqui porque mede pressão de custo e repasse de preço, que é o mecanismo em questão. O dado de 646 aberturas por dia é do <b>Sebrae</b>, 12/01/2026, e esse sim é do setor de beleza e estética.'
+  },
+  Q4: {
+    chamada: 'Não dá para cobrar bem <em>o que você não mede.</em>',
+    cifra: ['61%', 'dos pequenos negócios pagam despesa da empresa com a conta pessoal. No setor de serviços, 62%.'],
+    barras: [
+      { r:'Planilha no computador', v:30, n:'30%', forte:true },
+      { r:'Anotação em caderno', v:25, n:'25%' },
+      { r:'Aplicativo ou sistema', v:20, n:'20%' },
+      { r:'Deixa com o contador', v:13, n:'13%' },
+      { r:'Nenhum controle', v:10, n:'10%', risco:true }
+    ],
+    escala: 'Como o pequeno negócio brasileiro controla o próprio dinheiro',
+    leitura: '5 em cada 10 pequenos negócios operam com controle financeiro ainda precário. <strong>Preço não se sustenta em coragem, se sustenta em número.</strong> Quem não sabe quanto custa a própria hora cobra pelo que a concorrente cobra, e a concorrente também não sabe.',
+    fonte: '<b>Sebrae</b>, pesquisa Hábitos Financeiros dos Pequenos Negócios, 2025. Recorte por setor: serviços 62%, indústria e construção 64%, comércio 57%. <b>A pesquisa cobre pequenos negócios de todos os setores</b>, com o recorte de serviços destacado por ser onde a clínica ou consultório se enquadra.'
+  }
+};
+
+/* ── bloco de risco, igual para todos os quadros ──
+   É a resposta honesta ao "você tem 15% de chance de quebrar" que a
+   Ju pediu: número real, público, e que diz a mesma coisa. */
+/* Reescrito em 25/09 a pedido da Ju: a ICP dela não é MEI, e o bloco não
+   pode sugerir que ela seja. A leitura passa a ser a inversa, que é a que
+   interessa de verdade: a empresa de pequeno porte é a que menos fecha, e
+   é para lá que a clínica caminha. O MEI fica onde é honesto que ele
+   fique, como o retrato do mercado ao redor dela. */
+const RISCO = {
+  chamada: 'Quanto mais estrutura, <em>menos risco.</em> E isso é medido.',
+  barras: [
+    { r:'Empresa de pequeno porte · estrutura montada', v:17, n:'17%', forte:true },
+    { r:'Microempresa', v:21.6, n:'21,6%' },
+    { r:'Negócio de uma pessoa só', v:29, n:'29%', risco:true }
+  ],
+  escala: 'Fecham as portas em até 5 anos, por porte da empresa',
+  leitura: 'A diferença entre o topo e a base dessa tabela não é sorte, nem talento, nem mercado: <strong>é estrutura</strong>. A empresa de pequeno porte fecha quase metade menos que o negócio tocado por uma pessoa só, e o caminho entre um e outro é o mesmo em todo lugar: processo, número na mão, equipe que entrega sem você e preço que se sustenta. <strong>É esse o porte de uma clínica de saúde estética que para de depender das mãos da dona</strong>, e é para lá que você está indo.',
+  fonte: '<b>Sebrae</b>, estudo Sobrevivência de Empresas, com base em dados da Receita Federal: taxa de mortalidade em até 5 anos de 17% para empresas de pequeno porte, 21,6% para microempresas e 29% para negócios registrados como MEI. No setor de serviços, onde a clínica ou consultório se enquadra, a taxa é de 26,6%.'
+};
+
+function barras(lista){
+  return lista.map(function(b){
+    const teto = b.max || 100;
+    const larg = Math.max(2, (b.v / teto) * 100);
+    const cls = b.forte ? ' forte' : (b.risco ? ' risco' : '');
+    return '<div class="barra' + cls + '">' +
+             '<div class="cab"><span>' + b.r + '</span><b>' + b.n + '</b></div>' +
+             '<div class="t"><i style="width:' + larg.toFixed(1) + '%"></i></div>' +
+           '</div>';
+  }).join('');
+}
+
+function blocoDado(d){
+  return '<div class="dado">' +
+      '<p class="chamada">' + d.chamada + '</p>' +
+      (d.cifra ? '<p class="cifra"><b>' + d.cifra[0] + '</b><span>' + d.cifra[1] + '</span></p>' : '') +
+      '<p class="rot-escala kick" style="margin-bottom:.9rem">' + d.escala + '</p>' +
+      '<div class="barras">' + barras(d.barras) + '</div>' +
+      '<p class="leitura">' + d.leitura + '</p>' +
+      '<p class="fonte"><b>Fonte.</b> ' + d.fonte + '</p>' +
+    '</div>';
 }
 
 if(!A || !A.quadro){
@@ -200,12 +677,74 @@ if(!A || !A.quadro){
     `<div class="pilar${k===A.pilarIdx?' on':''}"><b>${p.n}</b><p>${p.d}</p></div>`).join('');
   const tentativas = (A.tentativas||[]).map(t=>`<p>${t}</p>`).join('');
 
+  /* ── painel de estado ── */
+  const ind    = indiceOperacional(A);
+  const est    = estadoDe(ind ? ind.pct : 0);
+  const dxNome = DX_NOME[A.quadroId] || '';
+  const dados  = DADOS[A.quadroId];
+
+  const titulo = DX_TITULO[A.quadroId] || A.quadro;
+
+  const placa = dxNome
+    ? `<p class="dx-placa"><i>Quadro identificado</i><b>${dxNome}</b></p>` : '';
+
+  /* Passos 2 e 3 da lógica da Ju. */
+  const sinais = (SINAIS[A.quadroId] || []).length ? `
+    <div class="sinais">
+      <ul>${SINAIS[A.quadroId].map(s => `<li>${s}</li>`).join('')}</ul>
+      <p class="fecho">Se você leu isso e reconheceu a sua rotina, o quadro está certo.</p>
+    </div>` : '';
+
+  const custo = CUSTO[A.quadroId] ? `
+    <div class="custo ${est.chave}"><p>${CUSTO[A.quadroId]}</p></div>` : '';
+
+  const selo = ind
+    ? `<p class="dx-selo ${est.chave}"><span></span>${est.rotulo}</p>` : '';
+
+  /* O medidor abre a conta inteira. Quem recebe o laudo consegue
+     conferir de onde saiu cada ponto, e é isso que separa um índice
+     de uma estatística inventada. */
+  const medidor = ind ? `
+    <div class="medidor ${est.chave}">
+      <div class="topo">
+        <div>
+          <p class="rot">Dependência operacional</p>
+          <p class="num">${ind.pct}<small>%</small></p>
+        </div>
+        <p class="rot" style="text-align:right;max-width:13rem">
+          ${ind.pct >= 70 ? 'O negócio ainda é você' : ind.pct >= 45 ? 'A estrutura começou, e ainda não sustenta sozinha' : 'A estrutura já sustenta boa parte'}
+        </p>
+      </div>
+      <div class="trilho"><i style="width:${ind.pct}%"></i></div>
+      <div class="legenda">
+        <span><b>${ind.pct}%</b> operacional</span>
+        <span><b>${100 - ind.pct}%</b> gestão</span>
+      </div>
+      <details class="conta">
+        <summary>Como este número foi calculado</summary>
+        <ul>${ind.linhas.map(l => `<li>${l}</li>`).join('')}</ul>
+        <p>Índice construído a partir das suas próprias respostas às perguntas
+        sobre quem atende, quanto sobra no fim do mês e o que você já tentou.
+        <strong>Não é medição da sua agenda nem estatística de mercado</strong>,
+        é a leitura do que você respondeu, e por isso a conta está aberta aqui.</p>
+      </details>
+    </div>` : '';
+
   el.innerHTML = `
   <div class="head"><div class="narrow">
     <p class="kick">${nome ? esc(nome)+', este é o seu diagnóstico' : 'O seu diagnóstico'}</p>
-    <h1>${A.quadro}</h1>
+    ${selo ? `<div class="dx-topo">${selo}</div>` : ''}
+    ${placa}
+    <h1>${titulo}</h1>
     <p class="sub">Não é o único ponto do seu negócio, mas <strong>é o que está segurando o crescimento agora</strong>.</p>
   </div></div>
+
+  ${medidor ? `<section class="tight"><div class="narrow">${medidor}</div></section>` : ''}
+
+  ${sinais ? `<section class="tight"><div class="narrow">
+    <p class="kick">Como isso aparece no seu dia a dia</p>
+    ${sinais}
+  </div></section>` : ''}
 
   <section><div class="narrow"><div class="bloco">
     <h3>O que eu vi nas suas respostas</h3>
@@ -219,24 +758,59 @@ if(!A || !A.quadro){
     <p><strong>Existe uma diferença enorme entre ser uma ótima profissional e ser uma empresária que cresce.</strong> E essa diferença não está na técnica.</p>
     <p>O que se repete em quase todas que passam por aqui é o mesmo: muito talento, muita dedicação e nenhuma estrutura. Não porque são incapazes, mas <strong>porque ninguém nunca ensinou essa parte</strong>.</p>
   </div>
-  <div class="cta-wrap"><a class="cta" target="_blank" rel="noopener" href="https://wa.me/5531992744259">Quero destravar isso <span>&rarr;</span></a><p class="aviso">Fale com o time da Juliana no WhatsApp.</p></div>
   </div></section>
+
+  ${custo ? `<section class="tight"><div class="narrow">
+    <p class="kick">O que isso está custando</p>
+    ${custo}
+  </div></section>` : ''}
+
+  ${dados ? `<section class="tight"><div class="narrow">
+    <p class="kick">Não é só com você</p>
+    ${blocoDado(dados)}
+  </div></section>` : ''}
 
   <section class="tight"><div class="wrap">
     <div class="narrow center" style="margin-bottom:2.4rem">
-      <p class="kick">O que sustenta a virada</p>
+      <p class="kick">O que precisa mudar</p>
       <h2>Os quatro pilares de um negócio lucrativo e reconhecido</h2>
     </div>
     <div class="grid2">${pilares}</div>
     <div class="narrow" style="margin-top:2rem">
       <p><strong>No seu caso, o ponto de partida é ${A.pilarNome.toLowerCase()}.</strong> ${A.pilarPor}</p>
-      <div class="cta-wrap"><a class="cta" target="_blank" rel="noopener" href="https://wa.me/5531992744259">Quero começar por aqui <span>&rarr;</span></a></div>
+      ${A.caminho ? `<p>${A.caminho}</p>` : ''}
+    </div>
+  </div></section>
+
+  <section class="tight"><div class="narrow">
+    <p class="kick">O que está em jogo</p>
+    ${blocoDado(RISCO)}
+  </div></section>
+
+  <section class="ponte"><div class="narrow">
+    <p class="kick">Por que não existe uma resposta igual para todo mundo</p>
+    <h2>Duas clínicas com o mesmo gargalo não resolvem do mesmo jeito</h2>
+    <p>Este diagnóstico aponta <strong>onde</strong> está o principal gargalo do seu
+    negócio, e isso já é mais do que a maioria das profissionais de saúde estética
+    consegue enxergar sozinha. Mas o que
+    fazer primeiro depende de coisas que seis perguntas não alcançam: os seus
+    números, a sua estrutura, o momento em que o negócio está, como o comercial
+    funciona hoje, como você é percebida na sua região e como a operação roda quando
+    você não está na sala.</p>
+    <p>É a mesma lógica da sua avaliação. <strong>Duas clientes podem chegar com a
+    mesma queixa e sair com protocolos diferentes</strong>, porque o que muda o
+    resultado não é o sintoma, é o que está por trás dele.</p>
+    <div class="arremate">
+      <p><strong>Na Sessão Estratégica a gente olha para o seu negócio de forma
+      individual</strong>, identifica os pontos que estão limitando o crescimento hoje
+      e define quais precisam ser tratados primeiro.</p>
+      <div class="cta-wrap"><a class="cta" target="_blank" rel="noopener" href="https://wa.me/5531992744259">Quero aprofundar meu diagnóstico <span>&rarr;</span></a><p class="aviso">Fale com o time da Juliana no WhatsApp.</p></div>
     </div>
   </div></section>
 
   <section class="sessao"><div class="wrap">
     <div class="narrow center" style="margin-bottom:2.4rem">
-      <p class="kick">O próximo passo</p>
+      <p class="kick">Continuando este diagnóstico</p>
       <h2>O que acontece na sua sessão estratégica</h2>
       <p><strong>Não é palestra genérica e não é PDF com dicas.</strong> É sentar e olhar para o seu negócio de verdade, por 30 a 40 minutos, com uma especialista do time da Juliana.</p>
     </div>
@@ -246,7 +820,7 @@ if(!A || !A.quadro){
       <div class="card"><b>Clareza sobre os próximos passos</b><p>Você sai da sessão sabendo exatamente o que fazer para estruturar a sua clínica ou consultório como um negócio lucrativo, organizado e sustentável.</p></div>
     </div>
     <div class="narrow">
-      <div class="cta-wrap"><a class="cta" target="_blank" rel="noopener" href="https://wa.me/5531992744259">Quero agendar minha sessão <span>&rarr;</span></a><p class="aviso"><strong>Toda semana são poucos horários</strong>, porque a análise é personalizada e leva tempo para ser bem feita.</p></div>
+      <div class="cta-wrap"><a class="cta" target="_blank" rel="noopener" href="https://wa.me/5531992744259">Quero aprofundar meu diagnóstico <span>&rarr;</span></a><p class="aviso"><strong>Toda semana são poucos horários</strong>, porque a análise é personalizada e leva tempo para ser bem feita.</p></div>
     </div>
   </div></section>
 
@@ -324,7 +898,7 @@ if(!A || !A.quadro){
       <li>Pare de depender de promoções e indicações.</li>
       <li>Pare de se sentir insegura na hora de falar de preço.</li>
     </ul>
-    <a class="cta" target="_blank" rel="noopener" href="https://wa.me/5531992744259">Quero agendar minha sessão <span>&rarr;</span></a>
+    <a class="cta" target="_blank" rel="noopener" href="https://wa.me/5531992744259">Quero aprofundar meu diagnóstico <span>&rarr;</span></a>
   </div></section>`;
 
   /* O evento de conversão dispara aqui, e não no envio do formulário, porque no

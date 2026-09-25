@@ -159,7 +159,11 @@ const QUADROS = {
   Q2:{ nome:"Sempre as mesmas clientes",
     porque:"As suas clientes são fiéis e voltam sempre, e isso é mérito seu. O problema é que <strong>não está entrando cliente nova</strong>, e sem fluxo novo o faturamento fica preso no tamanho da carteira que você já tem.<br><br><strong>Você não tem um problema de fidelização. Tem um problema de entrada.</strong>",
     caminho:"Criar <strong>fluxo de cliente nova sem depender de indicação</strong>, e ao mesmo tempo subir o valor do que já é vendido para a base que você tem hoje." },
-  Q3:{ nome:"A promoção virou o seu jeito de vender",
+  /* Nome trocado em 25/09/2026 pela Ju. Era "A promoção virou o seu jeito de
+     vender". Ela preferiu a frase de dependência, que é mais dura e mais fácil
+     de reconhecer. Isso muda o que vai para a planilha e o GHL no campo
+     gargalo, então a leitura histórica deve usar o gargalo_id, não o nome. */
+  Q3:{ nome:"Seu negócio depende de baixar preço para vender",
     porque:"<strong>A promoção resolve o mês e cobra o preço no seguinte.</strong> O movimento aumenta, a margem some junto, e a sua base aprende a esperar o desconto para comprar.<br><br>Faturar mais e sobrar menos não é impressão sua. É a consequência direta disso.",
     caminho:"<strong>Clareza de números primeiro, preço por valor depois</strong>, até a promoção deixar de ser o que sustenta a sua venda." },
   Q4:{ nome:"Você cobra menos do que entrega",
@@ -468,6 +472,16 @@ function resultado(){
     tentativas: frase('tentou'),
     pilares: PILARES, pilarIdx:P.i, pilarNome:PILARES[P.i].n, pilarPor:P.por,
     utm: UTM,
+    /* Respostas cruas que o diagnóstico usa para calcular o índice de
+       dependência operacional. Estão aqui, num campo de nome honesto, porque
+       antes isso era lido do array `debug` logo abaixo, e alguém ia acabar
+       apagando um array chamado debug sem saber que o laudo dependia dele.
+       NÃO REMOVER sem ajustar o diagnostico.html junto. */
+    respostas: {
+      equipe: PERGUNTAS[2].opts[R.equipe].t,
+      margem: PERGUNTAS[3].opts[R.margem].t,
+      tentou: (R.tentou||[]).map(k=>PERGUNTAS[4].opts[k].t)
+    },
     debug: [
       'carro-chefe: '+PERGUNTAS[0].opts[R.carro].t,
       'quem atende: '+PERGUNTAS[2].opts[R.equipe].t,
@@ -490,6 +504,10 @@ function resultado(){
     q5: (R.tentou||[]).map(k=>PERGUNTAS[4].opts[k].t).join(' + ') || 'nada',
     q6: PERGUNTAS[5].opts[R.faturamento].t,
     gargalo: Q.nome,
+    /* Chave estável do quadro. O nome do gargalo é copy e muda quando a Ju
+       quiser; o id não muda nunca. Toda análise histórica deve agrupar por
+       aqui, senão uma troca de texto vira quadro novo na planilha. */
+    gargalo_id: qKey,
     rota: rota==='mentoria' ? 'Mentoria (R$ 9.999)' : 'EDP (R$ 1.997)',
     pilar: PILARES[P.i].n,
     utm_source: UTM.utm_source || '', utm_medium: UTM.utm_medium || '',

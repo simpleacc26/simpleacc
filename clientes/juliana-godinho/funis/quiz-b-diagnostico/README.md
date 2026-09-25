@@ -350,57 +350,61 @@ var VSL = { tipo: 'youtube', id: 'UYOiadvsVEw' };
 - Dispara `vsl_exibida` no dataLayer quando o vídeo entra.
 - A proporção mora no CSS, em `.vsl-quadro`. Não tentar mudar pelo script.
 
-## diagnostico-b.html · variante com estado de alerta
+## O laudo com estado de alerta
 
-Criada em 24/09/2026 a partir dos sete pedidos que a Ju fez no pit stop de
-23/09. **É arquivo separado e não interfere no `diagnostico.html` que está no
-ar.** O quiz continua mandando todo mundo para a versão atual.
+Aprovado pela Ju em 25/09/2026 e **promovido a `diagnostico.html`**, que é o
+arquivo que o quiz abre. O `diagnostico-b.html` virou só um redirecionamento,
+porque os quatro links de revisão enviados a ela apontam para lá.
 
-O que foi acrescentado, e nada do laudo escrito foi tocado, porque ela aprovou
-o texto ("o material em si tá muito bom", "a página tá clean, tá chique"):
+Tudo é personalizado pelas respostas da lead. Nada é fixo:
 
-1. **Nome do diagnóstico**, um por quadro: Teto Operacional, Carteira Fechada,
+1. **Nome do quadro**, um por gargalo: Teto Operacional, Carteira Fechada,
    Dependência de Desconto, Defasagem de Preço
-2. **Selo de estado** com cor, no topo da capa escura: crítico, atenção ou
-   em estruturação
-3. **Índice de Dependência Operacional**, no formato "70% operacional, 30%
-   gestão" que ela pediu
-4. **Gráficos de barra** com dado de mercado, alternando com os blocos de texto
-5. **Fonte nomeada** embaixo de cada gráfico
+2. **Selo de estado** com cor, calculado: crítico, atenção ou em estruturação
+3. **Índice de Dependência Operacional**, no formato "88% operacional, 12% gestão"
+4. **3 sinais** de reconhecimento, escritos por gargalo
+5. **O que está custando**, por gargalo, com a cor do estado
+6. **Gráfico de mercado** diferente para cada gargalo, com fonte nomeada
+7. **A ponte** e a sessão como continuação, não como oferta solta
 
-### Onde está no ar
+A ordem segue a lógica de 6 passos que a própria Ju desenhou: o que está
+acontecendo, como aparece, o que custa, o que precisa mudar, por que não existe
+resposta igual para todo mundo, e a sessão.
 
-Publicado em produção em 24/09/2026, junto com `oferta.html`, `quiz-c.html` e
-`vsl-capa.jpg`. **Os quatro são arquivos órfãos: nada aponta para eles**, então
-nenhuma lead chega em nenhum. O `index.html` e o `diagnostico.html` subiram
-byte a byte idênticos ao que já estava, conferido por md5 antes e depois.
+### De onde saem as respostas
 
-### Como revisar sem preencher o quiz
+Do campo `respostas` do payload (`equipe`, `margem`, `tentou`), gravado pelo
+`index.html`. **Não remover esse campo sem ajustar o laudo junto.** O array
+`debug` continua sendo lido como retaguarda, para a lead que preencheu o quiz
+logo antes de um deploy e recarrega o laudo depois dele.
 
-`diagnostico-b.html?demo=Q1` (ou Q2, Q3, Q4). Em demo **nenhum evento é
-disparado**, para visita de revisão não virar conversão na planilha nem no GTM.
-Cada quadro do demo usa respostas diferentes de propósito, para aparecerem os
-três estados do semáforo.
+### Revisar sem preencher o quiz
+
+`diagnostico.html?demo=Q1` (ou Q2, Q3, Q4). Em demo **nenhum evento é
+disparado**. Quem tem respostas gravadas sempre vê as próprias: o payload real
+ganha do demo.
 
 ### O índice não é estatística, e a página diz isso
 
-O número sai das respostas do próprio quiz, com pesos declarados em
-`indiceOperacional()`, e o laudo abre a conta num detalhe expansível. A Ju citou
-*"você tem 15% de chance de quebrar"* como exemplo do que queria. **Esse número
-não existe em base nenhuma e não foi usado.** No lugar dele entrou a taxa de
-mortalidade por porte do Sebrae, que é pública e diz a mesma coisa.
+Sai das respostas do quiz, com pesos declarados em `indiceOperacional()`, e o
+laudo abre a conta num detalhe expansível. A Ju citou *"você tem 15% de chance
+de quebrar"* como exemplo do que queria. **Esse número não existe em base
+nenhuma e não foi usado.** No lugar entrou a taxa de mortalidade por porte do
+Sebrae, que é pública e diz a mesma coisa.
 
-As respostas são lidas do array `debug` do payload, não de campos novos. Foi
-assim justamente para **não precisar mexer no `index.html` que está no ar**. Se
-o formato mudar, `indiceOperacional()` devolve `null` e o medidor some, em vez
-de mostrar número errado.
+### Vocabulário dos dados
+
+**"Beleza" não aparece na copy**, só nas linhas de fonte. O levantamento do
+Sebrae agrupa beleza e estética, então chamar 236 mil aberturas de "saúde
+estética" estreitaria um dado que não foi medido assim. Nas chamadas e rótulos
+usa-se "do setor"; "saúde estética" entra onde a Ju fala com a leitora.
 
 ### Os dados usados, todos verificáveis
 
 | Dado | Fonte |
 |---|---|
-| 236 mil negócios de beleza abertos em 2025, +18,5%, 646/dia, 27/hora; 94% MEI | Sebrae, levantamento de 12/01/2026, via Agência Sebrae de Notícias |
-| Mortalidade em 5 anos: MEI 29%, ME 21,6%, EPP 17%, serviços 26,6% | Sebrae, Sobrevivência de Empresas, base Receita Federal |
+| 236 mil negócios do setor abertos em 2025, +18,5%, 646/dia, 27/hora; 94% de uma pessoa só | Sebrae, levantamento de 12/01/2026, via Agência Sebrae de Notícias |
+| Mortalidade em 5 anos: pequeno porte 17%, microempresa 21,6%, MEI 29%, serviços 26,6% | Sebrae, Sobrevivência de Empresas, base Receita Federal |
 | 61% pagam despesa da empresa com conta pessoal (serviços 62%); controle: planilha 30%, caderno 25%, app 20%, contador 13%, nenhum 10% | Sebrae, Hábitos Financeiros dos Pequenos Negócios, 2025 |
 | 49% perderam lucratividade por custo; 47% classificam a pressão como alta; 14,7% recuperaram via preço | Serasa Experian, pesquisa com PMEs, 2026 |
 | Setor cresce ~7% ao ano até 2027 | Euromonitor International, citado pela ABIHPEC |
@@ -408,9 +412,8 @@ de mostrar número errado.
 **Dois dados foram descartados na apuração**, e vale registrar para ninguém
 tentar de novo: a alegação de que "apenas 15% dos clientes de beleza trocam de
 profissional por preço" aparece em blog citando o Sebrae, **sem nome de estudo,
-ano ou link**, e não foi possível chegar na fonte primária. E a pesquisa
-CNDL/SPC sobre gastos com beleza **é de 2016** e mede consumo de produto, não
-clínica. Nenhum dos dois entrou.
+ano ou link**. E a pesquisa CNDL/SPC sobre gastos com beleza **é de 2016** e
+mede consumo de produto, não clínica. Nenhum dos dois entrou.
 
 **A rota do diagnóstico ainda não foi trocada.** Os seis CTAs do
 `diagnostico.html` continuam indo todos para o WhatsApp. A troca para a rota
