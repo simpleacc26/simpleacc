@@ -1,0 +1,77 @@
+/* LP da análise estratégica (analise.html). Usa os tokens do styles.css. */
+html { background: var(--bg); }
+.lp .topbar { padding-bottom: 0; }
+.lp-sec { padding: 44px 0; }
+.lp-alt { background: linear-gradient(180deg, rgba(197,160,89,.05), transparent); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.lp-wrap { width: 100%; max-width: 820px; margin: 0 auto; padding: 0 20px; }
+.lp-center { text-align: center; }
+.lp h1 { font-size: 34px; line-height: 1.2; text-align: center; margin: 8px 0 26px; }
+.lp h2 { font-size: 27px; line-height: 1.25; margin: 0 0 22px; }
+.lp h3 { font-size: 17px; line-height: 1.35; margin: 0 0 6px; color: var(--text); }
+.lp p { color: var(--text); }
+.lp .eyebrow { color: var(--gold) !important; }
+.lp-lead { color: var(--muted) !important; font-size: 17px; line-height: 1.65; text-align: center; max-width: 620px; margin: 22px auto; }
+.lp-cta { display: flex; width: 100%; max-width: 440px; margin: 26px auto 0; justify-content: center; text-align: center; text-decoration: none; }
+.lp-cta-xl { max-width: 520px; font-size: 18px; padding: 20px 28px; }
+
+/* ---------- VSL ---------- */
+.vsl { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; background: #000; border: 1px solid var(--border); box-shadow: var(--shadow-lg); }
+.vsl video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #000; }
+.vsl-som {
+  position: absolute; inset: 0; z-index: 2; border: 0; cursor: pointer; color: var(--text);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  background: rgba(11,10,8,.55); font: inherit;
+}
+.vsl-som strong { font-family: var(--font-serif); font-size: 22px; }
+.vsl-som span:not(.vsl-som-ico) { color: var(--gold-light); font-weight: 700; letter-spacing: .04em; }
+.vsl-som-ico { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; background: var(--gold); color: var(--action-text); box-shadow: 0 0 0 10px rgba(197,160,89,.18); animation: vslPulse 1.6s ease-in-out infinite; }
+.vsl-som-ico svg { width: 30px; height: 30px; }
+@keyframes vslPulse { 50% { box-shadow: 0 0 0 18px rgba(197,160,89,.06); } }
+.vsl-barra { position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: rgba(255,255,255,.12); z-index: 1; }
+.vsl-barra span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--gold-deep), var(--gold-light)); transition: width .3s linear; }
+.vsl-vazio { display: grid; place-items: center; }
+.vsl-vazio p { color: var(--muted) !important; padding: 20px; text-align: center; }
+
+/* ---------- atraso (variante B) ---------- */
+.lp-delay { transition: opacity .8s ease; }
+body:not(.lp-liberado) .lp-delay { display: none; }
+body.lp-liberado .lp-delay { animation: lpIn .8s ease both; }
+@keyframes lpIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+/* ---------- dobras ---------- */
+.lp-nums { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 14px 0 18px; }
+.lp-nums div { text-align: center; padding: 22px 14px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: var(--gold-soft); }
+.lp-nums strong { display: block; font-family: var(--font-serif); font-size: 26px; color: var(--gold-light); margin-bottom: 6px; }
+.lp-nums span { color: var(--muted); font-size: 14.5px; }
+.lp-foco { text-align: center; font-weight: 700; color: var(--gold-light) !important; margin: 0 0 22px; }
+.lp-prints { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; max-width: 620px; margin: 0 auto; }
+.lp-prints .depo-img { margin: 0; }
+.lp-prints img { width: 100%; height: auto; }
+.lp-checks { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.lp-checks li { position: relative; padding-left: 34px; font-size: 16.5px; line-height: 1.55; }
+.lp-checks li::before { content: ""; position: absolute; left: 0; top: 2px; width: 22px; height: 22px; border-radius: 50%; background: var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2317140B' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center / 14px no-repeat; }
+.lp-probs { display: grid; gap: 14px; }
+.lp-probs > div { display: grid; grid-template-columns: 48px 1fr; column-gap: 12px; padding: 18px; border: 1px solid var(--border); border-radius: var(--radius-sm); background: rgba(255,255,255,.015); }
+.lp-probs .lp-n { grid-row: span 2; font-family: var(--font-serif); font-size: 28px; font-weight: 700; color: var(--gold); line-height: 1; }
+.lp-probs p { margin: 0; color: var(--muted) !important; font-size: 15px; line-height: 1.6; }
+.lp-destaque { text-align: center; background: radial-gradient(600px 280px at 50% 0%, rgba(197,160,89,.14), transparent 70%); }
+.lp-passos { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.lp-passos li { padding: 18px; border-left: 2px solid var(--gold); background: rgba(255,255,255,.015); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+.lp-passo { display: inline-block; font-size: 11.5px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+.lp-passos p { margin: 0; color: var(--muted) !important; font-size: 15px; line-height: 1.6; }
+.lp-sobre { display: grid; grid-template-columns: 240px 1fr; gap: 32px; align-items: start; }
+.lp-foto { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 12%; border-radius: var(--radius); border: 1px solid var(--border); }
+.lp-sobre h2 { margin-bottom: 8px; }
+.lp-cargo { color: var(--gold-light) !important; font-weight: 600; }
+.lp-sobre p { line-height: 1.7; }
+
+@media (max-width: 640px) {
+  .lp-sec { padding: 34px 0; }
+  .lp h1 { font-size: 25px; }
+  .lp h2 { font-size: 22px; }
+  .lp-nums { grid-template-columns: 1fr; }
+  .lp-sobre { grid-template-columns: 1fr; }
+  .lp-foto { max-width: 240px; margin: 0 auto; }
+  .lp-wrap { padding: 0 16px; }
+  .vsl { border-radius: 14px; }
+}

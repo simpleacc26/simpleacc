@@ -6,6 +6,10 @@ consultórios de alto padrão). HTML/CSS/JS puro, sem build, sem dependências
 
 **No ar:** https://diagnostico-magna-saude.vercel.app
 
+> **Em standby (25/09/2026):** a Vitória pediu para segurar o funil Saúde até
+> validar a otimização do Genérico (poucos leads, não é hora de pulverizar).
+> A URL segue no ar, mas sem tráfego.
+
 Irmão do Quiz Genérico (`../quiz-magna`), com a mesma arquitetura e uma
 identidade própria para o público da saúde.
 
