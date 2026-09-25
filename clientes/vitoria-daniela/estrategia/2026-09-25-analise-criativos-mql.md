@@ -8,6 +8,18 @@ verba sabendo o que dá certo quando a SDR estiver instalada.
 com Balde e Camada calculados). A aba Quiz 1 parou em 13/07 e não entra.
 **MQL** = lead classificado como **Camada A (Implementação Magna)** ou
 **Camada B (Mentoria Magnetizze)**. "Fora do perfil (nutrição)" não é MQL.
+A coluna Camada é calculada pelo próprio quiz (`funis/quiz/useQuizLogic.v2.ts`,
+regra do diagnóstico de 06/07):
+
+- **Fora do perfil:** faturamento até R$20 mil ("Até R$5 mil" ou "Entre R$5 mil
+  e R$20 mil") **ou** respondeu "Sei que preciso resolver, mas não é prioridade
+  agora" / "Quero resolver, mas não posso investir agora".
+- **Camada A:** faturamento R$50 mil+, tem pelo menos 1 pessoa na equipe,
+  ticket R$3 mil+ **e** "Quero resolver e tenho como viabilizar investimento".
+- **Camada B:** todo o resto (faturamento R$20 mil+ sem nenhum bloqueio acima).
+
+Obs.: a resposta "Quero resolver, mas meu caixa está apertado no momento" não
+bloqueia; com faturamento R$20 mil+ ela vira Camada B.
 
 ## Data de corte
 

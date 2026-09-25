@@ -101,7 +101,7 @@ window.FLOW = {
     {
       id: "quer-analise",
       etapa: "Último passo",
-      pergunta: "Você quer que um especialista analise o seu cenário e te mostre o caminho para atrair e converter pacientes premium com previsibilidade?",
+      pergunta: "Você quer que um especialista analise o seu cenário e te mostre o caminho para atrair e converter clientes premium com previsibilidade?",
       options: [
         { value: "sim", label: "Sim, quero que um especialista em high ticket me traga o caminho para atrair clientes com previsibilidade." },
         { value: "nao", label: "Não, prefiro continuar tentando sozinho e já estou satisfeito com meus resultados." },

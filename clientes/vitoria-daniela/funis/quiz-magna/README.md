@@ -22,9 +22,10 @@ conferido por comparação automática (0 diferenças):
 7. Você quer que um especialista analise o seu cenário…
 
 A pergunta de ticket médio saiu (ela não manteve no doc) e o faturamento
-voltou para antes da urgência. **Atenção:** a pergunta 7 diz "converter
-**pacientes** premium", palavra da área da saúde num quiz genérico. Está como
-ela escreveu; confirmar com ela se deve ser "clientes".
+voltou para antes da urgência. Única mudança de texto no quiz, a pedido do
+Daniel (25/09): na pergunta 7, "pacientes premium" virou "clientes premium"
+(o genérico não fala de clínica nem de pacientes; a única menção a clínica é
+dentro da opção de segmento "Estética, beleza e bem-estar").
 
 A pedido do Daniel (25/09) a 1ª tela não mostra selo, tempo nem rótulos de
 etapa, e a barra de progresso só aparece a partir da 2ª pergunta.
@@ -36,18 +37,19 @@ começar, Recapitulando, Próximo passo, Sobre a Vitória, Prova real, Pra quem
 é, O que fazer agora), texto dela. Na web cada página é um cartão; no **Baixar
 PDF** cada uma vira uma página A4 no mesmo visual escuro/dourado.
 
-Única correção de texto: na página 3, item 02, o doc veio cortado ("Só que quem
+Correções de texto: na página 3, item 02, o doc veio cortado ("Só que quem
 compra um serviço de R200."). Ficou "Só que quem compra um serviço de R$10.000
-não decide do mesmo jeito que quem compra um de R$200.", no espírito da VSL
-dela. Confirmar com ela.
+não decide do mesmo jeito que quem compra um de R$200.". Na página 7, "quem
+vende um protocolo numa clínica" virou "quem vende um projeto de arquitetura"
+(genérico sem clínica).
 
 CTA final ("Quero agendar minha análise estratégica") abre o WhatsApp da
 equipe. Quando a LP com VSL for ao ar, dá para apontar esse botão para ela.
 
 ## LP da análise estratégica + VSL (analise.html / analise.js / analise.css)
 
-Dobras 1 a 6 do doc, texto dela. Na dobra 5 o texto fala em "sua clínica" e
-"pacientes" (herdado da LP Saúde); está como ela escreveu, confirmar.
+Dobras 1 a 6 do doc, texto dela. Na dobra 5, "sua clínica" virou "seu
+negócio" e "pacientes" virou "clientes" (genérico sem clínica).
 
 - **Player:** em `analise.js`, `VSL.vturb` recebe o código de incorporação do
   VTurb (preferência dela) **ou** `VSL.src` recebe o caminho de um mp4
@@ -88,8 +90,6 @@ conferida arquivo por arquivo.
       incorporação do VTurb **ou** o arquivo compartilhado como "qualquer
       pessoa com o link". Com ele: comprimir, publicar a LP e apontar o CTA
       do diagnóstico para `analise.html`.
-- [ ] Token novo da Vercel com acesso ao time Simpleacc (o atual perdeu).
 - [ ] Implantar o Apps Script e ligar `LEADS_ENDPOINT` (republicar `app.js`,
       que já tem o payload novo com segmento).
-- [ ] Confirmar com a Vitória: "pacientes" na pergunta 7 e na dobra 5 da LP,
-      e a frase completada na página 3 do diagnóstico.
+- [ ] Confirmar com a Vitória a frase completada na página 3 do diagnóstico.

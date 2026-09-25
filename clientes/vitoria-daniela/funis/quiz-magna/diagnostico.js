@@ -104,7 +104,7 @@ const PAGINAS = [
   `<section class="dg-page">
     <p class="eyebrow">O próximo passo</p>
     <h2>A SUA ANÁLISE ESTRATÉGICA</h2>
-    <p>Este diagnóstico mostrou os padrões. Mas o plano pro seu negócio precisa ser individual. O caminho de quem vende um contrato de consultoria não é o mesmo de quem vende um protocolo numa clínica.</p>
+    <p>Este diagnóstico mostrou os padrões. Mas o plano pro seu negócio precisa ser individual. O caminho de quem vende um contrato de consultoria não é o mesmo de quem vende um projeto de arquitetura.</p>
     <p>Na análise estratégica, nós vamos:</p>
     ${lista([
       "<strong>Diagnosticar o seu cenário atual.</strong> Olhamos seus dados, sua equipe e sua estrutura comercial pra identificar onde você está perdendo dinheiro e clientes qualificados.",
