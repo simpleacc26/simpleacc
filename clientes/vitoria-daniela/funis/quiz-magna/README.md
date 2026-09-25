@@ -1,15 +1,16 @@
 # Quiz Diagnóstico Genérico · Vitória Daniela / Grupo Magna
 
-Funil **Quiz → Análise (5s) → Diagnóstico**, com a **LP da análise estratégica
-(VSL)** pronta para entrar depois do diagnóstico. HTML/CSS/JS puro, sem
-dependências, sem build.
+Funil **Quiz → Análise (5s) → Diagnóstico com a VSL no topo**. HTML/CSS/JS
+puro, sem dependências, sem build.
 
 **No ar:** https://diagnostico-magna.vercel.app (quiz + diagnóstico) e
-https://diagnostico-magna.vercel.app/analise.html (LP com a VSL).
+https://diagnostico-magna.vercel.app/analise.html (LP com a VSL, fora do fluxo
+por enquanto).
 
-Fluxo: quiz → análise (5s) → diagnóstico → botão final "Quero agendar minha
-análise estratégica" → LP com a VSL → WhatsApp. O "Falar no WhatsApp" do topo
-do diagnóstico vai direto para a equipe.
+Fluxo (25/09, pedido do Daniel): quiz → análise (5s) → diagnóstico, que abre
+com a VSL antes da capa → botão final "Quero agendar minha análise
+estratégica" e "Falar no WhatsApp" do topo → WhatsApp. A LP `analise.html`
+continua publicada (com o teste A/B do atraso), mas nenhum botão leva até ela.
 
 ## Copy (atualização da Vitória em 25/09/2026)
 
@@ -46,8 +47,20 @@ não decide do mesmo jeito que quem compra um de R$200.". Na página 7, "quem
 vende um protocolo numa clínica" virou "quem vende um projeto de arquitetura"
 (genérico sem clínica).
 
-CTA final ("Quero agendar minha análise estratégica") leva para a LP com a
-VSL (`analise.html`).
+A VSL aparece no topo do diagnóstico, antes da capa (some no PDF). O CTA
+final ("Quero agendar minha análise estratégica") vai para o WhatsApp.
+
+## Player da VSL (vsl.js + vsl.css)
+
+Componente único, usado no diagnóstico e na LP. Começa mudo em autoplay com
+"Seu vídeo já começou / Clique para ouvir"; no 1º clique volta ao início, liga
+o som e o aviso some de vez. Depois: clique no vídeo pausa/continua, play
+grande no meio quando pausado, barra com play/pausa, volume (mudo + controle
+deslizante, que no celular fica oculto porque o volume é o do aparelho) e tela
+cheia. Os controles somem sozinhos com o vídeo rodando e o mouse parado.
+Barra de progresso "rápida no começo, lenta no fim", sem permitir pular.
+(Bug corrigido: o aviso tinha `display:flex` no CSS, que anulava o `hidden`,
+então nunca sumia e cada clique recomeçava o vídeo.)
 
 ## LP da análise estratégica + VSL (analise.html / analise.js / analise.css)
 
@@ -56,8 +69,7 @@ negócio" e "pacientes" virou "clientes" (genérico sem clínica).
 
 - **Player:** em `analise.js`, `VSL.vturb` recebe o código de incorporação do
   VTurb (preferência dela) **ou** `VSL.src` recebe o caminho de um mp4
-  hospedado. Player próprio no estilo VTurb: começa mudo com "Seu vídeo já
-  começou / Clique para ouvir", barra de progresso rápida no início.
+  hospedado (tocado pelo `vsl.js`).
 - **Teste A/B do atraso de 2 min** (pedido no doc): variante A mostra a página
   toda; variante B esconde texto, botões e o resto da página até 2 min de
   vídeo assistido. A variante fica salva no navegador e muda a mensagem do

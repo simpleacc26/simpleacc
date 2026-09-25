@@ -96,3 +96,7 @@ a.btn { text-decoration: none; display: inline-flex; align-items: center; justif
   .dg-foto { max-width: 55mm; }
 }
 
+
+/* VSL no topo do diagnóstico */
+.vsl-sec { margin: 8px 0 18px; }
+.vsl-sec[hidden] { display: none; }

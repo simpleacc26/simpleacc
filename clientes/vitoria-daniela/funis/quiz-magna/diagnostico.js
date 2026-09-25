@@ -180,7 +180,7 @@ const PAGINAS = [
         ])}
       </div>
     </div>
-    <a class="btn btn-primary btn-block dg-cta" id="cta-analise" href="analise.html">${icon("chat")}Quero agendar minha análise estratégica</a>
+    <a class="btn btn-primary btn-block dg-cta" id="cta-analise" href="#" target="_blank" rel="noopener">${icon("chat")}Quero agendar minha análise estratégica</a>
     <p class="dg-copy">© Vitória Daniela · Grupo Magna</p>
   </section>`,
 ];
@@ -201,7 +201,16 @@ if (!temRespostas) {
   document.querySelector(".toolbar")?.remove();
 } else {
   report.innerHTML = PAGINAS.join("");
+  /* VSL no topo do diagnóstico (antes da capa) */
+  const vslSec = document.getElementById("vsl-sec");
+  if (vslSec && window.montarVSL) {
+    vslSec.hidden = false;
+    window.montarVSL(document.getElementById("vsl"), {
+      src: "assets/vsl/vsl-720.mp4", poster: "assets/vsl/poster.jpg",
+      onEvento: (nome, dados) => { try { if (typeof fbq === "function") fbq("trackCustom", nome, dados); if (typeof gtag === "function") gtag("event", nome, dados); } catch (e) {} },
+    });
+  }
 }
 
-document.getElementById("whatsapp")?.setAttribute("href", waUrl);
+["whatsapp", "cta-analise"].forEach((id) => document.getElementById(id)?.setAttribute("href", waUrl));
 document.getElementById("pdf")?.addEventListener("click", () => window.print());

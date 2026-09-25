@@ -98,37 +98,10 @@ function montarVTurb(codigo) {
 }
 
 function montarVideo(src) {
-  box.classList.add("vsl-native");
-  box.innerHTML = `
-    <video id="vsl-video" playsinline muted autoplay preload="metadata" ${VSL.poster ? `poster="${VSL.poster}"` : ""}>
-      <source src="${src}" type="video/mp4">
-    </video>
-    <button class="vsl-som" id="vsl-som" type="button">
-      <span class="vsl-som-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5z"/><path d="M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></svg></span>
-      <strong>Seu vídeo já começou</strong><span>Clique para ouvir</span>
-    </button>
-    <div class="vsl-barra" aria-hidden="true"><span id="vsl-prog"></span></div>`;
-  const v = document.getElementById("vsl-video");
-  const som = document.getElementById("vsl-som");
-  const prog = document.getElementById("vsl-prog");
-  const marcos = new Set();
-
-  v.addEventListener("loadedmetadata", () => {
-    if (v.videoWidth && v.videoHeight) box.style.aspectRatio = `${v.videoWidth} / ${v.videoHeight}`;
-  });
-  som.addEventListener("click", () => {
-    v.muted = false; v.currentTime = 0; v.play();
-    som.hidden = true; box.classList.add("vsl-ativo");
-    track("vsl_play", { variante });
-  });
-  v.addEventListener("click", () => { if (!som.hidden) return; v.paused ? v.play() : v.pause(); });
-  v.addEventListener("timeupdate", () => {
-    if (!v.duration) return;
-    const p = v.currentTime / v.duration;
-    /* barra "rápida no começo, lenta no fim", estilo VTurb */
-    prog.style.width = (Math.pow(p, 0.55) * 100).toFixed(2) + "%";
-    if (som.hidden) [25, 50, 75, 95].forEach((m) => { if (p * 100 >= m && !marcos.has(m)) { marcos.add(m); track("vsl_progresso", { variante, marco: m }); } });
-    if (!v.muted && v.currentTime >= VSL.atrasoSegundos) liberar("video");
+  window.montarVSL(box, {
+    src, poster: VSL.poster,
+    onTempo: (seg) => { if (seg >= VSL.atrasoSegundos) liberar("video"); },
+    onEvento: (nome, dados) => track(nome, { variante, ...dados }),
   });
 }
 
