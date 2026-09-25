@@ -100,3 +100,25 @@ a.btn { text-decoration: none; display: inline-flex; align-items: center; justif
 /* VSL no topo do diagnóstico */
 .vsl-sec { margin: 8px 0 18px; }
 .vsl-sec[hidden] { display: none; }
+
+/* Botões de WhatsApp no meio do diagnóstico */
+.dg-cta-meio { margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--border); display: flex; justify-content: center; }
+.dg-cta-meio .btn { width: 100%; max-width: 420px; }
+
+/* Botão flutuante (aparece depois da capa, some quando outro botão está na tela) */
+.wa-flutuante {
+  position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom)); z-index: 50;
+  display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px 12px 14px;
+  border-radius: 999px; background: var(--action); color: var(--action-text); text-decoration: none;
+  font-weight: 700; font-size: 14.5px; box-shadow: 0 10px 30px rgba(0,0,0,.5), 0 0 0 6px rgba(197,160,89,.14);
+  opacity: 0; transform: translateY(16px) scale(.96); pointer-events: none; transition: opacity .3s ease, transform .3s ease;
+}
+.wa-flutuante[hidden] { display: none; }
+.wa-flutuante.on { opacity: 1; transform: none; pointer-events: auto; }
+.wa-flutuante:hover { background: var(--action-700); }
+.wa-flutuante svg { width: 24px; height: 24px; flex: none; }
+@media (max-width: 640px) {
+  .wa-flutuante { right: 14px; bottom: calc(14px + env(safe-area-inset-bottom)); padding: 14px; }
+  .wa-flutuante span { display: none; }
+  .wa-flutuante svg { width: 26px; height: 26px; }
+}

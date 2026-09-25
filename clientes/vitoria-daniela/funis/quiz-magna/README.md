@@ -50,6 +50,13 @@ vende um protocolo numa clínica" virou "quem vende um projeto de arquitetura"
 A VSL aparece no topo do diagnóstico, antes da capa (some no PDF). O CTA
 final ("Quero agendar minha análise estratégica") vai para o WhatsApp.
 
+Botões de WhatsApp (pedido do Daniel em 25/09; o doc da Vitória só tem o botão
+da página 11): além do topo e do final, há um "Agendar minha análise
+estratégica" (texto dos botões da LP dela) no fim das páginas 4 (3 pilares),
+7 (próximo passo) e 9 (prova real), e um botão flutuante que aparece depois da
+capa e some quando outro botão está na tela. Os do meio e o flutuante não
+saem no PDF. Cada clique gera o evento `diag_cta_click` com a posição.
+
 ## Player da VSL (vsl.js + vsl.css)
 
 Componente único, usado no diagnóstico e na LP. Começa mudo em autoplay com

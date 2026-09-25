@@ -24,6 +24,10 @@ function icon(name) {
   return `<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[name]}</svg>`;
 }
 const lista = (itens, ic = "check") => `<ul class="dg-list dg-${ic}">${itens.map(t => `<li>${icon(ic)}<span>${t}</span></li>`).join("")}</ul>`;
+/* Botões extras de WhatsApp ao longo do diagnóstico (pedido do Daniel em
+   25/09; o doc da Vitória só tem o botão da página 11). Texto igual ao dos
+   botões da LP dela. Não aparecem no PDF. */
+const ctaMeio = (pos) => `<div class="dg-cta-meio no-print"><a class="btn btn-primary dg-cta js-wa" data-cta="${pos}" href="#" target="_blank" rel="noopener">${icon("chat")}Agendar minha análise estratégica</a></div>`;
 const itemNum = (n, titulo, texto) => `<div class="dg-item"><span class="dg-n">${n}</span><div><h3>${titulo}</h3><p>${texto}</p></div></div>`;
 
 const PAGINAS = [
@@ -72,6 +76,7 @@ const PAGINAS = [
     ${itemNum("02", "Modelagem do Caminho Comercial", "Desenhamos a jornada do seu cliente até o fechamento, respeitando como quem compra alto ticket decide: pontos de contato, conversa e follow-up. Pra avaliação virar contrato, e não \"vou pensar\".")}
     ${itemNum("03", "Direcionamento e Processos Internos", "Organizamos fluxos e metas e treinamos quem trabalha com você pra conduzir o cliente até a venda. Sem depender de você em cada etapa e sem improviso.")}
     <blockquote class="dg-quote">Quando as três áreas conversam, o seu faturamento deixa de depender de sorte e passa a depender de processo.</blockquote>
+    ${ctaMeio("pilares")}
   </section>`,
 
   /* PÁGINA 5 · POR ONDE COMEÇAR */
@@ -112,6 +117,7 @@ const PAGINAS = [
       "<strong>Entregar um plano claro.</strong> Você sai sabendo o que fazer, em qual ordem, e o impacto disso no seu faturamento nos próximos meses.",
     ])}
     <p class="dg-nota">Trabalhamos com poucos clientes por vez. Por isso a agenda de análises é limitada.</p>
+    ${ctaMeio("proximo-passo")}
   </section>`,
 
   /* PÁGINA 8 · QUEM VAI TE CONDUZIR */
@@ -134,6 +140,7 @@ const PAGINAS = [
       <div class="depo-img"><img src="assets/depoimento-marco.jpg" alt="Mensagem de cliente: entrou em março com um resultado que não existia no ano anterior" decoding="async"></div>
     </div>
     <p>Na sua análise estratégica, você começa a trilhar o mesmo caminho.</p>
+    ${ctaMeio("prova-real")}
   </section>`,
 
   /* PÁGINA 10 · PRA QUEM É */
@@ -180,10 +187,17 @@ const PAGINAS = [
         ])}
       </div>
     </div>
-    <a class="btn btn-primary btn-block dg-cta" id="cta-analise" href="#" target="_blank" rel="noopener">${icon("chat")}Quero agendar minha análise estratégica</a>
+    <a class="btn btn-primary btn-block dg-cta js-wa" id="cta-analise" data-cta="final" href="#" target="_blank" rel="noopener">${icon("chat")}Quero agendar minha análise estratégica</a>
     <p class="dg-copy">© Vitória Daniela · Grupo Magna</p>
   </section>`,
 ];
+
+function track(nome, dados = {}) {
+  try {
+    if (typeof fbq === "function") fbq("trackCustom", nome, dados);
+    if (typeof gtag === "function") gtag("event", nome, dados);
+  } catch (e) {}
+}
 
 const temRespostas = !!a._completedAt;
 const nome = (a.nomeResp || "").trim().split(/\s+/)[0] || "";
@@ -207,10 +221,26 @@ if (!temRespostas) {
     vslSec.hidden = false;
     window.montarVSL(document.getElementById("vsl"), {
       src: "assets/vsl/vsl-720.mp4", poster: "assets/vsl/poster.jpg",
-      onEvento: (nome, dados) => { try { if (typeof fbq === "function") fbq("trackCustom", nome, dados); if (typeof gtag === "function") gtag("event", nome, dados); } catch (e) {} },
+      onEvento: track,
     });
   }
 }
 
-["whatsapp", "cta-analise"].forEach((id) => document.getElementById(id)?.setAttribute("href", waUrl));
+/* todos os botões de WhatsApp: topo, meio do diagnóstico, final e o flutuante */
+const waFlut = document.getElementById("wa-flutuante");
+if (temRespostas && waFlut) waFlut.hidden = false;
+document.querySelectorAll("#whatsapp, .js-wa, #wa-flutuante").forEach((el) => {
+  el.setAttribute("href", waUrl);
+  el.addEventListener("click", () => track("diag_cta_click", { posicao: el.dataset.cta || el.id }));
+});
+/* o flutuante aparece depois da capa e some quando um botão do diagnóstico está na tela */
+if (temRespostas && waFlut && "IntersectionObserver" in window) {
+  const capa = document.querySelector(".dg-capa");
+  const naTela = new Set();
+  let passouCapa = false;
+  const atualizar = () => waFlut.classList.toggle("on", passouCapa && naTela.size === 0);
+  new IntersectionObserver(([e]) => { passouCapa = !e.isIntersecting && e.boundingClientRect.top < 0; atualizar(); }).observe(capa);
+  const obs = new IntersectionObserver((es) => { es.forEach((e) => e.isIntersecting ? naTela.add(e.target) : naTela.delete(e.target)); atualizar(); });
+  document.querySelectorAll(".js-wa").forEach((el) => obs.observe(el));
+}
 document.getElementById("pdf")?.addEventListener("click", () => window.print());
