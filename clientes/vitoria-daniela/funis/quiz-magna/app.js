@@ -101,12 +101,11 @@ function renderStep(i) {
   const intro = i === 0 ? `
       <span class="selo">${F.hero.selo}</span>
       <h1>${F.hero.titulo}</h1>
-      <p class="lead" style="margin:0 0 6px">${F.hero.subtitulo}</p>
-      <p class="hint" style="margin:0 0 22px">${F.hero.tempo}</p>` : "";
+      <p class="lead" style="margin:0 0 22px">${F.hero.subtitulo}</p>
+` : "";
   const screen = el(`
     <section class="card screen">
       ${intro}
-      <p class="eyebrow">${step.etapa}</p>
       <h2 id="q-${step.id}">${step.pergunta}</h2>
       <div class="options" role="radiogroup" aria-labelledby="q-${step.id}">${opts}</div>
       <div class="actions">
