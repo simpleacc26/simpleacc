@@ -677,6 +677,45 @@ if(!A || !A.quadro){
     `<div class="pilar${k===A.pilarIdx?' on':''}"><b>${p.n}</b><p>${p.d}</p></div>`).join('');
   const tentativas = (A.tentativas||[]).map(t=>`<p>${t}</p>`).join('');
 
+  /* ── ROTA · para onde o botão leva ──────────────────────────────────
+     Regra aprovada no conselho de 01/09/2026, com a correção que a Ju fez
+     no mesmo dia: **o laudo é idêntico para todo mundo**. Mandar quem
+     fatura menos direto para a oferta quebraria a promessa do anúncio,
+     que prometeu diagnóstico. O que muda é só o destino do botão.
+
+       ate5     · até R$ 5 mil        → página do Venda Mais, e só
+       cinco10  · de R$ 5 a 10 mil    → página do Venda Mais, e entra na
+                                        fila do comercial em segundo nível
+       mentoria · acima de R$ 10 mil  → WhatsApp, como sempre foi
+
+     A oferta.html lê as UTMs e o lead_id direto do sessionStorage, então
+     um link relativo simples basta: a atribuição da venda chega no
+     checkout da Eduzz sem precisar carregar nada na querystring. */
+  const ROTAS = {
+    ate5:     { href:'oferta.html', alvo:'',        rot:'Quero começar por aqui',
+                aviso:'Acesso imediato, no seu e-mail.' },
+    cinco10:  { href:'oferta.html', alvo:'',        rot:'Quero começar por aqui',
+                aviso:'Acesso imediato, no seu e-mail.' },
+    mentoria: { href:'https://wa.me/5531992744259', alvo:'_blank',
+                rot:'Quero aprofundar meu diagnóstico',
+                aviso:'Fale com o time da Juliana no WhatsApp.' }
+  };
+  const rotaId = ROTAS[A.rota] ? A.rota : 'mentoria';
+  const R0     = ROTAS[rotaId];
+  const lowTicket = rotaId !== 'mentoria';
+
+  /* Um botão só, montado de um lugar só. Antes eram seis âncoras com o
+     endereço escrito na unha, e trocar a rota exigia mexer em seis lugares
+     sem esquecer nenhum. */
+  function botao(posicao, rotulo, aviso){
+    const alvo = R0.alvo ? ' target="' + R0.alvo + '" rel="noopener"' : '';
+    return '<div class="cta-wrap">' +
+      '<a class="cta" href="' + R0.href + '"' + alvo + ' data-rota="' + rotaId + '" data-pos="' + posicao + '">' +
+        (rotulo || R0.rot) + ' <span>&rarr;</span></a>' +
+      (aviso === false ? '' : '<p class="aviso">' + (aviso || R0.aviso) + '</p>') +
+    '</div>';
+  }
+
   /* ── painel de estado ── */
   const ind    = indiceOperacional(A);
   const est    = estadoDe(ind ? ind.pct : 0);
@@ -801,26 +840,41 @@ if(!A || !A.quadro){
     mesma queixa e sair com protocolos diferentes</strong>, porque o que muda o
     resultado não é o sintoma, é o que está por trás dele.</p>
     <div class="arremate">
-      <p><strong>Na Sessão Estratégica a gente olha para o seu negócio de forma
-      individual</strong>, identifica os pontos que estão limitando o crescimento hoje
-      e define quais precisam ser tratados primeiro.</p>
-      <div class="cta-wrap"><a class="cta" target="_blank" rel="noopener" href="https://wa.me/5531992744259">Quero aprofundar meu diagnóstico <span>&rarr;</span></a><p class="aviso">Fale com o time da Juliana no WhatsApp.</p></div>
+      ${lowTicket
+        ? `<p><strong>O primeiro ajuste, no seu caso, é o que você faz dentro da
+           avaliação</strong>, porque é ali que o preço é aceito ou negociado, e é o
+           ponto que mexe no faturamento sem depender de mais cliente na agenda.</p>`
+        : `<p><strong>Na Sessão Estratégica a gente olha para o seu negócio de forma
+           individual</strong>, identifica os pontos que estão limitando o crescimento
+           hoje e define quais precisam ser tratados primeiro.</p>`}
+      ${botao('ponte')}
     </div>
   </div></section>
 
   <section class="sessao"><div class="wrap">
     <div class="narrow center" style="margin-bottom:2.4rem">
       <p class="kick">Continuando este diagnóstico</p>
+      ${lowTicket ? `
+      <h2>Por onde começar essa semana</h2>
+      <p><strong>Não é curso de teoria e não é PDF com dicas.</strong> É o treinamento que a Juliana usa para formar quem trabalha com ela, direto ao que você aplica no próximo atendimento.</p>
+      ` : `
       <h2>O que acontece na sua sessão estratégica</h2>
       <p><strong>Não é palestra genérica e não é PDF com dicas.</strong> É sentar e olhar para o seu negócio de verdade, por 30 a 40 minutos, com uma especialista do time da Juliana.</p>
+      `}
     </div>
     <div class="grid2">
+      ${lowTicket ? `
+      <div class="card"><b>A avaliação que fecha</b><p>Como conduzir a avaliação para que ela termine em tratamento fechado, que é onde a maior parte das vendas se perde sem ninguém perceber.</p></div>
+      <div class="card"><b>Campanha sem desconto</b><p>Como montar campanha que traz cliente nova sem baixar preço e sem prometer promoção que come a sua margem no mês seguinte.</p></div>
+      <div class="card"><b>Com o que você já tem</b><p>Sem agenda nova, sem equipamento novo e sem contratar ninguém. É aplicar dentro da estrutura que já existe na sua sala.</p></div>
+      ` : `
       <div class="card"><b>Diagnóstico do seu negócio</b><p>A análise do momento atual da sua clínica ou consultório, com os gargalos que estão impedindo o crescimento e as oportunidades que você ainda não está aproveitando.</p></div>
       <div class="card"><b>Plano personalizado</b><p>Um caminho claro e prático do que você precisa fazer primeiro, segundo e terceiro para sair de onde está.</p></div>
       <div class="card"><b>Clareza sobre os próximos passos</b><p>Você sai da sessão sabendo exatamente o que fazer para estruturar a sua clínica ou consultório como um negócio lucrativo, organizado e sustentável.</p></div>
+      `}
     </div>
     <div class="narrow">
-      <div class="cta-wrap"><a class="cta" target="_blank" rel="noopener" href="https://wa.me/5531992744259">Quero aprofundar meu diagnóstico <span>&rarr;</span></a><p class="aviso"><strong>Toda semana são poucos horários</strong>, porque a análise é personalizada e leva tempo para ser bem feita.</p></div>
+      ${botao('sessao', null, lowTicket ? false : '<strong>Toda semana são poucos horários</strong>, porque a análise é personalizada e leva tempo para ser bem feita.')}
     </div>
   </div></section>
 
@@ -852,7 +906,7 @@ if(!A || !A.quadro){
       </div>
     </div>
     <p class="nota-prova">Mensagens reais de mentoradas da Ju, publicadas com autorização.</p>
-    <div class="narrow"><div class="cta-wrap"><a class="cta" target="_blank" rel="noopener" href="https://wa.me/5531992744259">Quero o meu resultado <span>&rarr;</span></a></div></div>
+    <div class="narrow"><div class="cta-wrap">${botao('provas', 'Quero o meu resultado', false).replace('<div class="cta-wrap">','').replace('</div>','')}</div></div>
   </div></section>
 
   <section><div class="wrap">
@@ -872,7 +926,7 @@ if(!A || !A.quadro){
           <li>Clínica própria com faturamento acima de R$ 1 milhão por ano</li>
           <li>MBA em Consultoria Empresarial</li>
         </ul>
-        <div class="cta-wrap"><a class="cta" target="_blank" rel="noopener" href="https://wa.me/5531992744259">Quero falar com o time da Ju <span>&rarr;</span></a></div>
+        <div class="cta-wrap">${botao('autora', lowTicket ? 'Quero começar por aqui' : 'Quero falar com o time da Ju', false).replace('<div class="cta-wrap">','').replace('</div>','')}</div>
       </div>
     </div>
   </div></section>
@@ -898,7 +952,7 @@ if(!A || !A.quadro){
       <li>Pare de depender de promoções e indicações.</li>
       <li>Pare de se sentir insegura na hora de falar de preço.</li>
     </ul>
-    <a class="cta" target="_blank" rel="noopener" href="https://wa.me/5531992744259">Quero aprofundar meu diagnóstico <span>&rarr;</span></a>
+    ${botao('fim', null, false).replace('<div class="cta-wrap">','').replace('</div>','')}
   </div></section>`;
 
   /* O evento de conversão dispara aqui, e não no envio do formulário, porque no
@@ -920,17 +974,23 @@ if(!A || !A.quadro){
       lead_id: A.id || '',
       event_id: A.id || '',
       quiz_quadro: A.quadroId, quiz_gargalo: A.quadro,
-      quiz_rota: A.rota === 'mentoria' ? 'mentoria' : 'edp',
+      quiz_rota: rotaId,
       quiz_pilar: A.pilarNome
     });
   }
 
   /* Delegado no documento: os 6 CTAs nascem do innerHTML acima, e delegar evita
-     religar ouvinte a cada um. O evento sobe antes da navegação para o
-     WhatsApp; nenhum preventDefault, o link segue normal. */
+     religar ouvinte a cada um. O evento sobe antes da navegação; nenhum
+     preventDefault, o link segue normal.
+
+     O seletor era a.cta[href*="wa.me"] e deixou de servir quando a rota do low
+     ticket entrou: quem fatura até R$ 10 mil vai para a oferta.html e o clique
+     dela não era contado em lugar nenhum. Agora casa por data-rota, que todo
+     botão carrega, independente de para onde ele aponte. */
   document.addEventListener('click', ev => {
-    const a = ev.target.closest('a.cta[href*="wa.me"]');
+    const a = ev.target.closest('a.cta[data-rota]');
     if(!a) return;
+    const paraOferta = rotaId !== 'mentoria';
     /* event_id próprio, derivado do lead_id. Sem isso a variável event_id do
        GTM continuaria devolvendo o valor deixado pelo quiz_completo — variável
        de camada de dados não se limpa entre pushes — e o clique herdaria o id
@@ -938,12 +998,17 @@ if(!A || !A.quadro){
 
        O id é o mesmo para os 6 CTAs de propósito: quem clica em dois botões é
        uma pessoa só querendo falar, e a Meta deduplica pelo par
-       nome do evento + event_id, contando um Contact. */
-    dl('whatsapp_click', {
+       nome do evento + event_id, contando um Contact.
+
+       Dois nomes de evento porque são duas intenções diferentes: falar com o
+       comercial e ir para a página de venda. Misturar os dois num evento só
+       tornaria impossível ler a conversão de cada rota. */
+    dl(paraOferta ? 'oferta_encaminhada' : 'whatsapp_click', {
       lead_id: A.id || '',
-      event_id: (A.id || '') + '-wa',
+      event_id: (A.id || '') + (paraOferta ? '-of' : '-wa'),
       quiz_cta: a.textContent.replace(/\s+/g,' ').trim(),
-      quiz_rota: A.rota === 'mentoria' ? 'mentoria' : 'edp'
+      quiz_cta_posicao: a.getAttribute('data-pos') || '',
+      quiz_rota: rotaId
     });
   });
 }

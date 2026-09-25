@@ -415,7 +415,47 @@ profissional por preço" aparece em blog citando o Sebrae, **sem nome de estudo,
 ano ou link**. E a pesquisa CNDL/SPC sobre gastos com beleza **é de 2016** e
 mede consumo de produto, não clínica. Nenhum dos dois entrou.
 
-**A rota do diagnóstico ainda não foi trocada.** Os seis CTAs do
-`diagnostico.html` continuam indo todos para o WhatsApp. A troca para a rota
-`edp` deve ser feita junto com o deploy, e não antes, para nenhuma lead cair
-numa página que ainda não está no ar.
+## A rota do diagnóstico
+
+Ligada em 25/09/2026, conforme o conselho de 01/09. **Três faixas**, e o laudo é
+idêntico para todas: a Ju corrigiu isso em 01/09, porque mandar quem fatura menos
+direto para a oferta quebraria a promessa do anúncio. O que muda é o destino do
+botão e o bloco de oferta no fim.
+
+| Faixa na P6 | `rota` | Destino | Fila do comercial |
+|---|---|---|---|
+| Até R$ 5 mil | `ate5` | `oferta.html` | não |
+| De R$ 5 a 10 mil | `cinco10` | `oferta.html` | sim, em segundo nível |
+| Acima de R$ 10 mil | `mentoria` | WhatsApp | sim |
+
+Os seis CTAs saem todos da função `botao()`, que lê a rota uma vez só. Antes eram
+seis âncoras com o endereço escrito na unha e trocar a rota exigia mexer em seis
+lugares sem esquecer nenhum.
+
+Para a rota de low ticket também mudam o arremate da ponte e os três cartões da
+seção de oferta, que passam a falar do Venda Mais em vez da sessão estratégica.
+Oferecer sessão de mentoria de R$ 9.999 para quem fatura R$ 4 mil é exatamente o
+que o low ticket veio resolver.
+
+### Medição
+
+| Evento | Quando | Carrega |
+|---|---|---|
+| `whatsapp_click` | clique na rota mentoria | `lead_id`, `quiz_rota`, posição do CTA |
+| `oferta_encaminhada` | clique na rota low ticket | idem, `event_id` terminado em `-of` |
+| `oferta_view` | chegada na `oferta.html` | `lead_id`, `quiz_rota`, `quiz_quadro` |
+| `oferta_click` | clique para o checkout | idem |
+
+O `lead_id` é o mesmo do quiz até o checkout, então dá para ler encaminhada →
+chegou → comprou sem juntar planilha na mão. O seletor de clique casa por
+`data-rota` e não mais por `href*="wa.me"`, que era o que deixava o clique da
+rota nova sem contagem.
+
+### Dois rótulos que estavam errados e foram corrigidos
+
+O webhook mandava `rota: "EDP (R$ 1.997)"` para quem ia para o low ticket. O
+produto no fim do quiz é o **Venda Mais na Estética, de R$ 197**, não o EDP, que
+saiu da entrada do funil em ago/26. Quem lia a planilha via produto trocado.
+
+E passou a viajar `rota_id` junto, pelo mesmo motivo do `gargalo_id`: rótulo é
+copy e muda, id não.

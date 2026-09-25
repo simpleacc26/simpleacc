@@ -223,8 +223,14 @@ const PERGUNTAS = [
   { id:"faturamento", tipo:"unica",
     texto:"Qual a média de faturamento mensal da sua clínica ou consultório?",
     opts:[
-      {t:"Até R$ 5 mil", rota:"edp"},
-      {t:"De R$ 5 mil a R$ 10 mil", rota:"edp"},
+      /* Três faixas, conforme o conselho de 01/09/2026. A régua antiga tinha
+         só duas e não separava quem vai para a página de vendas e pronto de
+         quem vai para a página E entra na fila do comercial em segundo nível.
+         Todo mundo recebe o laudo completo, inclusive quem fatura menos: a
+         Ju corrigiu isso em 01/09, porque mandar a lead direto para a oferta
+         quebraria a promessa do anúncio. O que muda é só o destino do botão. */
+      {t:"Até R$ 5 mil", rota:"ate5"},
+      {t:"De R$ 5 mil a R$ 10 mil", rota:"cinco10"},
       {t:"De R$ 10 mil a R$ 20 mil", rota:"mentoria"},
       {t:"De R$ 20 mil a R$ 30 mil", rota:"mentoria"},
       {t:"De R$ 30 mil a R$ 50 mil", rota:"mentoria"},
@@ -508,7 +514,14 @@ function resultado(){
        quiser; o id não muda nunca. Toda análise histórica deve agrupar por
        aqui, senão uma troca de texto vira quadro novo na planilha. */
     gargalo_id: qKey,
-    rota: rota==='mentoria' ? 'Mentoria (R$ 9.999)' : 'EDP (R$ 1.997)',
+    /* O rótulo dizia "EDP (R$ 1.997)" e estava errado desde que o low ticket
+       entrou: o produto no fim do quiz é o Venda Mais na Estética, de R$ 197,
+       não o EDP. Quem lia a planilha via o produto trocado. */
+    rota: rota==='mentoria' ? 'Mentoria (R$ 9.999)'
+        : rota==='cinco10'  ? 'Venda Mais R$ 197 + fila do comercial'
+        : 'Venda Mais R$ 197',
+    /* Chave estável, pelo mesmo motivo do gargalo_id: rótulo é copy e muda. */
+    rota_id: rota,
     pilar: PILARES[P.i].n,
     utm_source: UTM.utm_source || '', utm_medium: UTM.utm_medium || '',
     utm_campaign: UTM.utm_campaign || '', utm_term: UTM.utm_term || '',

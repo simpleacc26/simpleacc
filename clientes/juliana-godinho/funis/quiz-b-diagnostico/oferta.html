@@ -720,16 +720,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     dl('vsl_exibida', { vsl_tipo: VSL.tipo });
   })();
 
-  dl('oferta_view', { oferta_produto: 'venda-mais-na-estetica', oferta_valor: 197 });
+  /* Identificação da lead que veio do quiz. Sem isso não dá para casar quem o
+     diagnóstico encaminhou com quem de fato chegou aqui, e a leitura da rota do
+     low ticket fica cega no meio do caminho. Quem cai direto na página, sem ter
+     passado pelo quiz, vem sem lead_id mesmo, e isso é informação útil. */
+  var DO_QUIZ = (function(){
+    try{ return JSON.parse(sessionStorage.getItem('jugodinho_quizb')) || {}; }
+    catch(e){ return {}; }
+  })();
+  function origem(){
+    return { lead_id: DO_QUIZ.id || '', quiz_rota: DO_QUIZ.rota || '',
+             quiz_quadro: DO_QUIZ.quadroId || '' };
+  }
+
+  dl('oferta_view', Object.assign({ oferta_produto: 'venda-mais-na-estetica', oferta_valor: 197 }, origem()));
 
   document.addEventListener('click', function(e){
     var a = e.target.closest && e.target.closest('a.cta');
     if(!a) return;
-    dl('oferta_click', {
+    dl('oferta_click', Object.assign({
       oferta_produto: 'venda-mais-na-estetica',
       oferta_valor: 197,
       oferta_posicao: a.getAttribute('data-cta') || ''
-    });
+    }, origem()));
   });
 </script>
 
