@@ -1,0 +1,134 @@
+{
+  "_nota": "Backup do blueprint do cenario Make 5937136 (V4 - Ju Godinho (Quiz B)) tirado em 25/09/2026, ANTES de acrescentar lead_id, gargalo_id e rota_id. Para reverter: scenarios_update com este blueprint inteiro.",
+  "name": "V4 - Ju Godinho (Quiz B)",
+  "flow": [
+    {
+      "id": 1,
+      "mapper": {},
+      "module": "gateway:CustomWebHook",
+      "version": 1,
+      "metadata": {
+        "restore": { "parameters": { "hook": { "data": { "editable": "true" }, "label": "V4 - Ju Godinho (Quiz B)" } } },
+        "designer": { "x": 0, "y": 0 },
+        "interface": [
+          { "name": "nome", "type": "text" },
+          { "name": "numero", "type": "text" },
+          { "name": "email", "type": "text" },
+          { "name": "q1", "type": "text" },
+          { "name": "q2", "type": "text" },
+          { "name": "q3", "type": "text" },
+          { "name": "q4", "type": "text" },
+          { "name": "q5", "type": "text" },
+          { "name": "q6", "type": "text" },
+          { "name": "gargalo", "type": "text" },
+          { "name": "rota", "type": "text" },
+          { "name": "pilar", "type": "text" },
+          { "name": "utm_source", "type": "text" },
+          { "name": "utm_medium", "type": "text" },
+          { "name": "utm_campaign", "type": "text" },
+          { "name": "utm_term", "type": "text" },
+          { "name": "utm_content", "type": "text" },
+          { "name": "data", "type": "text" }
+        ],
+        "parameters": [
+          { "name": "hook", "type": "hook:gateway-webhook", "label": "Webhook", "required": true },
+          { "name": "maxResults", "type": "number", "label": "Maximum number of results" }
+        ]
+      },
+      "parameters": { "hook": 2688400, "maxResults": 1 }
+    },
+    {
+      "id": 2,
+      "mapper": {
+        "mode": "fromAll",
+        "values": {
+          "0": "{{1.nome}}", "1": "{{1.numero}}", "2": "{{1.email}}",
+          "3": "{{1.q1}}", "4": "{{1.q2}}", "5": "{{1.q3}}", "6": "{{1.q4}}",
+          "7": "{{1.q5}}", "8": "{{1.q6}}", "9": "{{1.gargalo}}",
+          "10": "{{1.rota}}", "11": "{{1.pilar}}",
+          "12": "{{1.utm_source}}", "13": "{{1.utm_medium}}",
+          "14": "{{1.utm_campaign}}", "15": "{{1.utm_term}}",
+          "16": "{{1.utm_content}}", "17": "{{1.data}}"
+        },
+        "sheetId": "V4 - Quiz",
+        "spreadsheetId": "1jJb2HlGL28F6PvKMPZXGgzfzedBMwr2GALRUK6jNROQ",
+        "includesHeaders": true,
+        "insertDataOption": "INSERT_ROWS",
+        "useColumnHeaders": false,
+        "valueInputOption": "USER_ENTERED",
+        "insertUnformatted": false
+      },
+      "module": "google-sheets:addRow",
+      "version": 2,
+      "metadata": {
+        "restore": { "parameters": { "__IMTCONN__": { "data": { "scoped": "true", "connection": "google" }, "label": "My Google connection (ssouzadaniel.ads@gmail.com)" } } },
+        "designer": { "x": 300, "y": 0 },
+        "parameters": [ { "name": "__IMTCONN__", "type": "account:google", "label": "Connection", "required": true } ]
+      },
+      "parameters": { "__IMTCONN__": 5139463 }
+    },
+    {
+      "id": 3,
+      "mapper": {
+        "qs": [],
+        "url": "/contacts/upsert",
+        "body": "{\"locationId\":\"QMyNQVqmEyUtRM62u4Zr\",\"firstName\":\"{{1.nome}}\",\"email\":\"{{1.email}}\",\"phone\":\"{{1.numero}}\",\"source\":\"quiz-b-diagnostico\",\"tags\":[\"quiz-diagnostico\",\"quiz-b-diagnostico\"],\"customFields\":[{\"id\":\"msVXz5C3oLmwNK45INHf\",\"value\":\"{{1.q1}}\"},{\"id\":\"bsao35YrovZJiL9CeuU2\",\"value\":\"{{1.q2}}\"},{\"id\":\"wWK55GDyoRS54uevrqVp\",\"value\":\"{{1.q3}}\"},{\"id\":\"i1u3qRAMXhh9xDjR7BdR\",\"value\":\"{{1.q4}}\"},{\"id\":\"U39AmhsTKnaX8VVkVP40\",\"value\":\"{{1.q5}}\"},{\"id\":\"zWelJAytH8vfjwUj2q0E\",\"value\":\"{{1.q6}}\"},{\"id\":\"6Fe6PjmfvG5i6ghPDRwn\",\"value\":\"{{1.gargalo}}\"},{\"id\":\"CrMhcgYdQBtJivqeuyvq\",\"value\":\"{{1.rota}}\"},{\"id\":\"9KJKo5EyaE1gftTFoGpT\",\"value\":\"{{1.pilar}}\"},{\"id\":\"9erSVuVpTLl6PuU8BRWt\",\"value\":\"{{1.utm_source}}\"},{\"id\":\"2xhmfCcSNmVDHCcgllmK\",\"value\":\"{{1.utm_medium}}\"},{\"id\":\"xcjfmPAmV0h9lLrfcg47\",\"value\":\"{{1.utm_campaign}}\"},{\"id\":\"Ix83gcTqJAc61PSinkJB\",\"value\":\"{{1.utm_term}}\"},{\"id\":\"2nd6ka7NegJzDrNZFzza\",\"value\":\"{{1.utm_content}}\"}]}",
+        "method": "POST",
+        "headers": [
+          { "key": "Version", "value": "2021-07-28" },
+          { "key": "Content-Type", "value": "application/json" }
+        ]
+      },
+      "module": "highlevel:universal",
+      "onerror": [ { "id": 5, "module": "builtin:Ignore", "version": 1, "metadata": { "designer": { "x": 600, "y": 300 } } } ],
+      "version": 1,
+      "metadata": {
+        "restore": { "parameters": { "__IMTCONN__": { "data": { "scoped": "true", "connection": "highlevel3" }, "label": "V3 - Ju Godinho (Location: Juliana l godinho's Account)" } } },
+        "designer": { "x": 600, "y": 0 },
+        "parameters": [ { "name": "__IMTCONN__", "type": "account:highlevel3,highlevel4", "label": "Connection", "required": true } ]
+      },
+      "parameters": { "__IMTCONN__": 9491323 }
+    },
+    {
+      "id": 4,
+      "mapper": {
+        "title": "{{1.nome}}",
+        "select": "existing",
+        "status": "open",
+        "contact": "{{3.body.contact.id}}",
+        "stageId": "e05ad388-ab40-4aff-9e8c-c6a002ba67ea",
+        "pipeline": "VG6EYVEdmgaIr5RreZrA"
+      },
+      "module": "highlevel:createAnOpportunity",
+      "onerror": [ { "id": 6, "module": "builtin:Ignore", "version": 1, "metadata": { "designer": { "x": 900, "y": 300 } } } ],
+      "version": 1,
+      "metadata": {
+        "restore": {
+          "expect": {
+            "select": { "label": "Use an existing contact" },
+            "status": { "mode": "chose", "label": "Open" },
+            "contact": { "mode": "edit" },
+            "stageId": { "mode": "edit" },
+            "pipeline": { "mode": "chose", "label": "Fúnil de Marketing" }
+          },
+          "parameters": { "__IMTCONN__": { "data": { "scoped": "true", "connection": "highlevel3" }, "label": "V3 - Ju Godinho (Location: Juliana l godinho's Account)" } }
+        },
+        "designer": { "x": 900, "y": 0 },
+        "parameters": [ { "name": "__IMTCONN__", "type": "account:highlevel,highlevel3", "label": "Connection", "required": true } ]
+      },
+      "parameters": { "__IMTCONN__": 9491323 }
+    }
+  ],
+  "metadata": {
+    "instant": true,
+    "version": 1,
+    "designer": { "orphans": [] },
+    "scenario": {
+      "dlq": false, "dataloss": false, "maxErrors": 3, "autoCommit": true,
+      "roundtrips": 1, "sequential": false, "confidential": false,
+      "freshVariables": false, "autoCommitTriggerLast": true
+    }
+  },
+  "scheduling": { "type": "immediately" },
+  "interface": { "input": [], "output": [] }
+}
