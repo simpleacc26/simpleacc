@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revisão dos Quizzes · Método ASK</title>
+<style>
+  :root{
+    --bg:#0c0a09; --panel:#17140f; --panel-2:#1d1913;
+    --gold:#C5A059; --gold-soft:rgba(197,160,89,0.12);
+    --text:#f5f1e8; --text-dim:#b8ae9c; --line:rgba(197,160,89,0.25);
+    --green:#7fae7a; --red:#c97a6d;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    line-height:1.6;
+  }
+  .wrap{max-width:820px; margin:0 auto; padding:56px 24px 96px;}
+  header{text-align:center; margin-bottom:48px;}
+  header .eyebrow{
+    color:var(--gold); text-transform:uppercase; letter-spacing:.14em;
+    font-size:12px; font-weight:600; margin-bottom:14px;
+  }
+  h1{
+    font-family:Georgia,"Times New Roman",serif; font-size:32px;
+    margin:0 0 14px; line-height:1.25;
+  }
+  h1 span{color:var(--gold);}
+  header p{color:var(--text-dim); max-width:560px; margin:0 auto; font-size:15px;}
+
+  .intro-box{
+    background:var(--panel); border:1px solid var(--line); border-radius:14px;
+    padding:26px 28px; margin:36px 0; font-size:15px;
+  }
+  .intro-box h2{margin-top:0; font-size:16px; color:var(--gold);}
+  .intro-box ul{margin:10px 0 0; padding-left:20px;}
+  .intro-box li{margin-bottom:8px;}
+
+  .section-title{
+    display:flex; align-items:center; gap:14px; margin:56px 0 8px;
+  }
+  .section-title h2{
+    font-family:Georgia,serif; font-size:24px; margin:0; white-space:nowrap;
+  }
+  .section-title .rule{flex:1; height:1px; background:var(--line);}
+  .section-sub{color:var(--text-dim); font-size:14px; margin:0 0 28px;}
+
+  .qcard{
+    background:var(--panel); border:1px solid var(--line); border-radius:14px;
+    padding:22px 24px; margin-bottom:16px; position:relative;
+  }
+  .qcard.moved{border-color:rgba(197,160,89,0.5);}
+  .qcard.new{border-color:rgba(127,174,122,0.55); background:linear-gradient(180deg, rgba(127,174,122,0.06), var(--panel) 40%);}
+  .qmeta{display:flex; align-items:center; gap:10px; margin-bottom:10px; flex-wrap:wrap;}
+  .qnum{
+    display:inline-flex; align-items:center; justify-content:center;
+    width:28px; height:28px; border-radius:50%; background:var(--gold-soft);
+    color:var(--gold); font-weight:700; font-size:13px; flex-shrink:0;
+  }
+  .tag{
+    font-size:11px; text-transform:uppercase; letter-spacing:.06em; font-weight:700;
+    padding:3px 9px; border-radius:100px;
+  }
+  .tag.moved{background:rgba(197,160,89,0.18); color:var(--gold);}
+  .tag.new{background:rgba(127,174,122,0.2); color:var(--green);}
+  .tag.kept{background:rgba(255,255,255,0.07); color:var(--text-dim);}
+  .tag.gate{background:rgba(255,255,255,0.05); color:var(--text-dim); border:1px dashed var(--line);}
+
+  .qtext{font-size:17px; font-weight:600; margin:4px 0 14px;}
+  .opts{list-style:none; margin:0; padding:0; display:grid; gap:8px;}
+  .opts li{
+    background:var(--panel-2); border:1px solid rgba(255,255,255,0.06);
+    border-radius:9px; padding:10px 14px; font-size:14px; color:var(--text-dim);
+  }
+  .opts li b{color:var(--text); font-weight:500;}
+  .balde{
+    display:inline-block; margin-left:10px; font-size:11px; font-weight:700;
+    color:var(--gold); background:var(--gold-soft); padding:2px 8px; border-radius:100px;
+  }
+  .why{
+    margin-top:14px; padding-top:14px; border-top:1px dashed var(--line);
+    font-size:13px; color:var(--text-dim);
+  }
+  .why b{color:var(--text);}
+
+  .callout{
+    background:var(--gold-soft); border:1px solid var(--line); border-radius:14px;
+    padding:22px 26px; margin:28px 0 40px; font-size:14px;
+  }
+  .callout h3{margin:0 0 8px; color:var(--gold); font-size:15px;}
+
+  .compare{
+    display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:20px 0 40px;
+  }
+  @media (max-width:640px){ .compare{grid-template-columns:1fr;} }
+  .compare .col h4{
+    font-size:12px; text-transform:uppercase; letter-spacing:.08em;
+    color:var(--text-dim); margin:0 0 10px;
+  }
+  .compare .col.before{opacity:.75;}
+  .compare ol{margin:0; padding-left:20px; font-size:13.5px;}
+  .compare ol li{margin-bottom:6px;}
+  .compare .col.after ol li b{color:var(--gold);}
+
+  footer{
+    margin-top:64px; padding-top:24px; border-top:1px solid var(--line);
+    color:var(--text-dim); font-size:12.5px; text-align:center;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="eyebrow">Simple &middot; Revisão técnica</div>
+    <h1>Ajustes nos quizzes pra ficarem <span>redondos com o Método ASK</span></h1>
+    <p>Oi, Vitória! Olhamos os dois quizzes que você montou (Genérico e Saúde) e
+      comparamos com os princípios do Método ASK que já vínhamos aplicando com
+      você. A ideia aqui e é só reorganizar o que você já escreveu, sem jogar
+      fora nada do seu trabalho.</p>
+  </header>
+
+  <div class="intro-box">
+    <h2>O que encontramos, em resumo</h2>
+    <ul>
+      <li><b>Faturamento está no meio do quiz</b> em vez de por último. O Método ASK
+        recomenda deixar a pergunta mais sensível pro final, depois que a pessoa já
+        está engajada &mdash; perguntar dinheiro cedo demais aumenta o abandono.</li>
+      <li><b>Sumiu a pergunta de "ticket médio do serviço"</b>, que você já tinha no
+        quiz anterior e que é um dos melhores filtros de ICP que temos.</li>
+      <li><b>O Quiz Saúde não tem pergunta de estrutura/equipe</b> &mdash; o Genérico
+        tem, mas o de Saúde não. Essa pergunta é o que separa quem quer "terceirizar
+        tudo" de quem quer direção estratégica.</li>
+      <li><b>Nenhuma pergunta virou "balde" oficial de diagnóstico</b> &mdash; a
+        pergunta de "maior desafio" já tem 4 opções ótimas pra isso, só falta
+        nomear os 4 caminhos.</li>
+      <li><b>Um ponto que você acertou:</b> a régua de faturamento ficou bem mais
+        granular que a antiga (7 faixas). Isso resolve um problema real que a gente
+        via nos dados antigos. Mantivemos como estava.</li>
+    </ul>
+  </div>
+
+  <div class="compare">
+    <div class="col before">
+      <h4>Ordem atual</h4>
+      <ol>
+        <li>Maior desafio</li>
+        <li>Momento / maturidade</li>
+        <li>Estrutura da empresa</li>
+        <li>Faturamento mensal</li>
+        <li>Momento de investimento</li>
+        <li>Quer análise de especialista?</li>
+      </ol>
+    </div>
+    <div class="col after">
+      <h4>Ordem sugerida</h4>
+      <ol>
+        <li>Momento / maturidade</li>
+        <li>Estrutura da empresa</li>
+        <li><b>Maior desafio</b> (agora é a pergunta&#8209;chave de balde)</li>
+        <li><b>Ticket médio do serviço</b> (reintroduzida)</li>
+        <li>Momento de investimento</li>
+        <li>Faturamento mensal (movida pro fim)</li>
+        <li>Quer análise de especialista? (fecha como convite, não como pergunta)</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- ============ QUIZ GENÉRICO ============ -->
+  <div class="section-title">
+    <h2>Quiz Genérico &mdash; reestruturado</h2>
+    <div class="rule"></div>
+  </div>
+  <p class="section-sub">Headline e sub mantidos como você escreveu. Só a ordem e 2
+    perguntas mudaram.</p>
+
+  <div class="qcard">
+    <div class="qmeta"><span class="qnum">1</span><span class="tag kept">Igual, só mudou de posição</span></div>
+    <p class="qtext">Qual dessas opções descreve o seu momento?</p>
+    <ul class="opts">
+      <li>Estou começando do absoluto zero (ainda não realizo vendas).</li>
+      <li>Crio conteúdo e/ou invisto em tráfego pago, mas não tenho os resultados que preciso.</li>
+      <li>Já vendo no offline / por indicações, mas não consigo trazer isso para o digital.</li>
+      <li>Já vendo com consistência no digital, mas preciso escalar o negócio.</li>
+    </ul>
+    <div class="why">Abre o quiz com uma pergunta de <b>identidade</b>, não de dinheiro &mdash;
+      engaja antes de pedir algo sensível.</div>
+  </div>
+
+  <div class="qcard">
+    <div class="qmeta"><span class="qnum">2</span><span class="tag kept">Igual, só mudou de posição</span></div>
+    <p class="qtext">Como está desenhada a estrutura da sua empresa hoje?</p>
+    <ul class="opts">
+      <li>Faço tudo sozinha e cuido de todas as áreas (desde o atendimento até o marketing).</li>
+      <li>Tenho funcionários fixos ou sócios, mas nenhum braço voltado para o digital.</li>
+      <li>Tenho uma agência ou profissionais de marketing trabalhando para mim.</li>
+      <li>Tenho uma estrutura completa (equipe de marketing e equipe comercial).</li>
+    </ul>
+  </div>
+
+  <div class="qcard">
+    <div class="qmeta"><span class="qnum">3</span><span class="tag moved">Vira a pergunta&#8209;chave de balde</span></div>
+    <p class="qtext">Qual vem sendo o maior desafio do seu negócio?</p>
+    <ul class="opts">
+      <li>Ter visibilidade e se tornar uma referência no mercado. <span class="balde">Balde: Sem Posicionamento</span></li>
+      <li>Atrair pessoas qualificadas para comprar meu serviço. <span class="balde">Balde: Marketing Sem Sistema</span></li>
+      <li>Falta de tempo e de uma estratégia de escala para o negócio crescer. <span class="balde">Balde: Refém da Operação</span></li>
+      <li>Ter previsibilidade de faturamento e estratégia para crescer. <span class="balde">Balde: Sem Previsibilidade</span></li>
+    </ul>
+    <div class="why">Suas 4 opções já eram ótimas &mdash; só demos nome pra cada uma. Isso é o
+      que permite mandar um <b>PDF/diagnóstico diferente pra cada lead</b>, em vez do
+      mesmo relatório genérico pra todo mundo.</div>
+  </div>
+
+  <div class="qcard new">
+    <div class="qmeta"><span class="qnum">4</span><span class="tag new">Nova (reintroduzida do quiz antigo)</span></div>
+    <p class="qtext">Qual é o ticket médio do serviço que você vende hoje?</p>
+    <ul class="opts">
+      <li>Até R$1.000</li>
+      <li>Entre R$1.000 e R$3.000</li>
+      <li>Entre R$3.000 e R$10.000</li>
+      <li>Acima de R$10.000</li>
+    </ul>
+    <div class="why">Era um dos filtros mais eficazes do quiz anterior (separa quem já
+      vende no patamar certo de quem ainda não chegou lá). Sem ela, dá pra ter
+      faturamento alto vendendo ticket baixo em volume &mdash; perfil bem diferente do
+      que a Implementação Magna atende.</div>
+  </div>
+
+  <div class="qcard">
+    <div class="qmeta"><span class="qnum">5</span><span class="tag kept">Igual, só mudou de posição</span></div>
+    <p class="qtext">Qual seu momento de urgência em resolver isso?</p>
+    <ul class="opts">
+      <li>Eu sei que preciso resolver isso, mas não é uma prioridade pra mim agora.</li>
+      <li>Eu quero resolver mas não posso investir em nada agora.</li>
+      <li>Quero viabilizar o investimento em uma solução definitiva se fizer sentido para o meu crescimento.</li>
+    </ul>
+  </div>
+
+  <div class="qcard moved">
+    <div class="qmeta"><span class="qnum">6</span><span class="tag moved">Movida pro final</span></div>
+    <p class="qtext">Meu faturamento mensal é de:</p>
+    <ul class="opts">
+      <li>Até 10 mil</li>
+      <li>Entre 10 e 20 mil</li>
+      <li>Entre 20 e 40 mil</li>
+      <li>Entre 40 e 70 mil</li>
+      <li>Entre 70 e 150 mil</li>
+      <li>Entre 150 mil e 400 mil</li>
+      <li>Acima de 400 mil</li>
+    </ul>
+    <div class="why">Régua mantida <b>exatamente como você fez</b> &mdash; ficou ótima, mais
+      granular que a versão anterior. Só mudou de lugar, pra fechar o quiz em vez
+      de abrir o miolo.</div>
+  </div>
+
+  <div class="qcard">
+    <div class="qmeta"><span class="qnum">7</span><span class="tag gate">Gate final, não é pergunta de diagnóstico</span></div>
+    <p class="qtext">Você quer que um especialista analise o seu cenário e te mostre o caminho para atrair e converter clientes premium com previsibilidade?</p>
+    <ul class="opts">
+      <li>Sim, quero que um especialista em vender high ticket me traga o caminho para atrair clientes com previsibilidade.</li>
+      <li>Não, prefiro continuar tentando sozinho e já estou satisfeito com meus resultados.</li>
+    </ul>
+  </div>
+
+  <!-- ============ QUIZ SAÚDE ============ -->
+  <div class="section-title">
+    <h2>Quiz Saúde &mdash; reestruturado</h2>
+    <div class="rule"></div>
+  </div>
+  <p class="section-sub">Mesma lógica do Genérico. Esse tinha um gap a mais: nenhuma
+    pergunta de estrutura/equipe.</p>
+
+  <div class="qcard">
+    <div class="qmeta"><span class="qnum">1</span><span class="tag kept">Igual, mantida na abertura</span></div>
+    <p class="qtext">Qual dessas opções descreve o tipo de contato que chega até o WhatsApp da sua clínica através da internet?</p>
+    <ul class="opts">
+      <li>Quase não chegam; dependo 100% de indicações e do boca a boca.</li>
+      <li>Chegam muitos curiosos sem dinheiro, que somem quando passo o preço.</li>
+      <li>Chegam pessoas qualificadas, mas o fluxo é totalmente inconstante.</li>
+    </ul>
+  </div>
+
+  <div class="qcard new">
+    <div class="qmeta"><span class="qnum">2</span><span class="tag new">Nova (o Genérico já tinha, o Saúde não)</span></div>
+    <p class="qtext">Como está desenhada a estrutura da sua clínica/consultório hoje?</p>
+    <ul class="opts">
+      <li>Faço praticamente tudo sozinha, do atendimento ao marketing da clínica.</li>
+      <li>Tenho equipe fixa na clínica (recepção, outros profissionais), mas nada voltado ao digital.</li>
+      <li>Tenho uma agência ou profissional de marketing cuidando da atração, mas nada de comercial estruturado.</li>
+      <li>Tenho estrutura completa (marketing e comercial rodando) na clínica.</li>
+    </ul>
+    <div class="why">Mesmo gap identificado em junho: sem essa pergunta, entra no funil
+      quem quer que a Magna "faça tudo" no operacional &mdash; perfil que não fecha a
+      Implementação Magna.</div>
+  </div>
+
+  <div class="qcard moved">
+    <div class="qmeta"><span class="qnum">3</span><span class="tag moved">Vira a pergunta&#8209;chave de balde</span></div>
+    <p class="qtext">Qual vem sendo o maior desafio da sua clínica/consultório?</p>
+    <ul class="opts">
+      <li>Ter visibilidade e ser referência no meu mercado. <span class="balde">Balde: Sem Posicionamento</span></li>
+      <li>Atrair pessoas para comprar. <span class="balde">Balde: Marketing Sem Sistema</span></li>
+      <li>Falta de tempo e estratégia de escala para o negócio crescer. <span class="balde">Balde: Refém da Operação</span></li>
+      <li>Ter previsibilidade de faturamento e organização. <span class="balde">Balde: Sem Previsibilidade</span></li>
+    </ul>
+  </div>
+
+  <div class="qcard new">
+    <div class="qmeta"><span class="qnum">4</span><span class="tag new">Nova (reintroduzida do quiz antigo)</span></div>
+    <p class="qtext">Qual é o ticket médio do procedimento/tratamento que você vende hoje?</p>
+    <ul class="opts">
+      <li>Até R$1.000</li>
+      <li>Entre R$1.000 e R$3.000</li>
+      <li>Entre R$3.000 e R$10.000</li>
+      <li>Acima de R$10.000</li>
+    </ul>
+  </div>
+
+  <div class="qcard">
+    <div class="qmeta"><span class="qnum">5</span><span class="tag kept">Igual, só mudou de posição</span></div>
+    <p class="qtext">Qual seu momento de urgência em resolver isso?</p>
+    <ul class="opts">
+      <li>Eu sei que preciso resolver isso, mas não é uma prioridade pra mim agora.</li>
+      <li>Eu quero resolver mas não posso investir em nada agora.</li>
+      <li>Quero viabilizar o investimento em uma solução definitiva se fizer sentido para o meu crescimento.</li>
+    </ul>
+  </div>
+
+  <div class="qcard moved">
+    <div class="qmeta"><span class="qnum">6</span><span class="tag moved">Movida pro final</span></div>
+    <p class="qtext">Meu faturamento mensal é de:</p>
+    <ul class="opts">
+      <li>Até 10 mil</li>
+      <li>Entre 10 e 20 mil</li>
+      <li>Entre 20 e 40 mil</li>
+      <li>Entre 40 e 70 mil</li>
+      <li>Entre 70 e 150 mil</li>
+      <li>Entre 150 mil e 400 mil</li>
+      <li>Acima de 400 mil</li>
+    </ul>
+  </div>
+
+  <div class="qcard">
+    <div class="qmeta"><span class="qnum">7</span><span class="tag gate">Gate final, não é pergunta de diagnóstico</span></div>
+    <p class="qtext">Você quer que um especialista analise o seu cenário e te mostre o caminho para atrair e converter pacientes premium com previsibilidade?</p>
+    <ul class="opts">
+      <li>Sim, quero que um especialista na área da saúde me traga o caminho para atrair pacientes com previsibilidade.</li>
+      <li>Não, prefiro continuar tentando sozinho e já estou satisfeito com meus resultados.</li>
+    </ul>
+  </div>
+
+  <div class="callout">
+    <h3>Um passo que ainda falta (pra fechar o Método ASK por completo)</h3>
+    <p>Com a pergunta 3 virando pergunta&#8209;chave de balde, o próximo passo é definir o
+      <b>roteamento</b>: o que cada balde recebe de diferente (PDF, mensagem de
+      WhatsApp, e se algum combo de resposta deve ser <b>repelido</b> &mdash; por
+      exemplo, faturamento muito baixo + "não posso investir agora" indo pra um
+      caminho de nutrição em vez da agenda do comercial). Isso a gente desenha
+      junto quando você validar essa reestruturação.</p>
+  </div>
+
+  <footer>
+    Simple &middot; Revisão baseada no Método ASK (Ryan Levesque), aplicado ao seu
+    funil desde o diagnóstico de julho/2026.
+  </footer>
+
+</div>
+</body>
+</html>

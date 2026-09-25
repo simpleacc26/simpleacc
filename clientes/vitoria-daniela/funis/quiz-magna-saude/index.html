@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Diagnóstico da sua clínica · Vitória Daniela</title>
+  <meta name="description" content="Mapeie os erros que impedem a sua clínica de atrair o público de maior poder aquisitivo. Diagnóstico gratuito e personalizado em cerca de 2 minutos." />
+  <meta name="theme-color" content="#F6F0E8" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Diagnóstico da sua clínica · Grupo Magna" />
+  <meta property="og:description" content="Descubra o que está travando a atração de pacientes qualificados e a previsibilidade de vendas na sua clínica ou consultório." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232B211A'/%3E%3Cpath d='M9.5 9h13l3.5 5-10 10-10-10z' fill='none' stroke='%23D9BE85' stroke-width='1.6' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <link rel="preload" href="assets/fonts/cormorant-600-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="fonts.css" />
+  <!-- CSS crítico mínimo (evita flash antes do styles.css) -->
+  <style>
+    :root{--bg:#F6F0E8;--text:#2B211A}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font-family:Manrope,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Barra de progresso (só aparece durante as perguntas) -->
+  <div class="progress-wrap" id="progress" hidden>
+    <div class="container">
+      <div class="progress-meta">
+        <span id="progress-label">Pergunta 1 de 7</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-bar" id="progress-bar"><span class="progress-tip" aria-hidden="true"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div id="app"><!-- as telas são renderizadas aqui --></div>
+  </main>
+
+  <p class="foot">Grupo Magna · estratégia de vendas para clínicas e consultórios de alto padrão</p>
+
+  <script src="tracking.js" defer></script>
+  <script src="flow.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

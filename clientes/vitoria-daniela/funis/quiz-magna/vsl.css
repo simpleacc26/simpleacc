@@ -1,0 +1,57 @@
+/* Player da VSL (vsl.js). Usa os tokens do styles.css. */
+.vsl { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: var(--radius); overflow: hidden; background: #000; border: 1px solid var(--border); box-shadow: var(--shadow-lg); }
+.vsl video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #000; }
+.vsl-ativo video { cursor: pointer; }
+.vsl:fullscreen { border-radius: 0; border: 0; aspect-ratio: auto !important; }
+
+/* aviso "Seu vídeo já começou" (só antes do 1º clique) */
+.vsl-som {
+  position: absolute; inset: 0; z-index: 3; border: 0; cursor: pointer; color: var(--text);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  background: rgba(11,10,8,.55); font: inherit;
+}
+.vsl-som strong { font-family: var(--font-serif); font-size: 22px; }
+.vsl-som > span:not(.vsl-som-ico) { color: var(--gold-light); font-weight: 700; letter-spacing: .04em; }
+.vsl-som-ico { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; background: var(--gold); color: var(--action-text); box-shadow: 0 0 0 10px rgba(197,160,89,.18); animation: vslPulse 1.6s ease-in-out infinite; }
+.vsl-som-ico svg { width: 30px; height: 30px; }
+@keyframes vslPulse { 50% { box-shadow: 0 0 0 18px rgba(197,160,89,.06); } }
+
+/* play grande no meio quando pausado */
+.vsl-big { position: absolute; left: 50%; top: 50%; z-index: 2; width: 72px; height: 72px; margin: -36px 0 0 -36px; border-radius: 50%; display: grid; place-items: center; background: rgba(197,160,89,.92); color: var(--action-text); box-shadow: 0 8px 30px rgba(0,0,0,.45); opacity: 0; transform: scale(.85); pointer-events: none; transition: opacity .2s ease, transform .2s ease; cursor: pointer; }
+.vsl-big svg { width: 32px; height: 32px; margin-left: 4px; }
+.vsl-pausado .vsl-big { opacity: 1; transform: none; pointer-events: auto; }
+
+/* barra de controles */
+.vsl-ctrl {
+  position: absolute; left: 0; right: 0; bottom: 5px; z-index: 2;
+  display: flex; align-items: center; gap: 4px; padding: 26px 10px 6px;
+  background: linear-gradient(180deg, transparent, rgba(0,0,0,.72));
+  opacity: 0; visibility: hidden; transition: opacity .25s ease, visibility .25s;
+}
+.vsl-ativo .vsl-ctrl { opacity: 1; visibility: visible; }
+.vsl-ativo.vsl-ocioso:not(.vsl-pausado) .vsl-ctrl { opacity: 0; visibility: hidden; }
+.vsl-ativo.vsl-ocioso:not(.vsl-pausado) { cursor: none; }
+.vsl-b { width: 40px; height: 40px; flex: none; display: grid; place-items: center; border: 0; border-radius: 10px; background: transparent; color: #fff; cursor: pointer; }
+.vsl-b:hover, .vsl-b:focus-visible { background: rgba(255,255,255,.12); color: var(--gold-light); }
+.vsl-b svg { width: 22px; height: 22px; }
+.vsl-vol { display: flex; align-items: center; gap: 2px; }
+.vsl-esp { flex: 1; }
+.vsl-range {
+  --vol: 100%;
+  -webkit-appearance: none; appearance: none; width: 92px; height: 4px; border-radius: 4px; cursor: pointer; margin: 0 6px;
+  background: linear-gradient(90deg, var(--gold) var(--vol), rgba(255,255,255,.3) var(--vol));
+}
+.vsl-range::-webkit-slider-thumb { -webkit-appearance: none; width: 14px; height: 14px; border-radius: 50%; background: var(--gold-light); border: 0; }
+.vsl-range::-moz-range-thumb { width: 14px; height: 14px; border-radius: 50%; background: var(--gold-light); border: 0; }
+/* no celular o volume é o botão do aparelho (o iPhone ignora o controle deslizante) */
+@media (pointer: coarse) { .vsl-range { display: none; } }
+
+.vsl-barra { position: absolute; left: 0; right: 0; bottom: 0; height: 5px; background: rgba(255,255,255,.12); z-index: 2; }
+.vsl-barra span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, var(--gold-deep), var(--gold-light)); transition: width .3s linear; }
+
+@media (max-width: 640px) {
+  .vsl { border-radius: 14px; }
+  .vsl-som strong { font-size: 18px; }
+  .vsl-som-ico { width: 54px; height: 54px; }
+}
+@media print { .vsl-sec { display: none !important; } }

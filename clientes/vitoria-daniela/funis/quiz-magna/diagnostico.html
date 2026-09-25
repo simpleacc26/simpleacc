@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seu diagnóstico estratégico · Vitória Daniela</title>
+  <style>
+    :root{--bg:#0B0A08;--text:#F5EFE4}
+    body{margin:0;background:var(--bg);color:var(--text);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif}
+  </style>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="vsl.css" />
+  <link rel="stylesheet" href="diagnostico.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <div class="brand">
+        <span class="brand-name">Vitória Daniela</span>
+        <span class="brand-tag">Grupo Magna</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="toolbar no-print">
+      <a class="btn btn-primary" id="whatsapp" href="#" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      <button class="btn btn-ghost" id="pdf" type="button">Baixar PDF</button>
+    </div>
+    <section class="vsl-sec no-print" id="vsl-sec" hidden>
+      <div id="vsl"><!-- player montado por vsl.js --></div>
+    </section>
+    <div class="dg screen" id="report"><!-- preenchido por diagnostico.js --></div>
+  </main>
+
+  <a class="wa-flutuante no-print" id="wa-flutuante" data-cta="flutuante" href="#" target="_blank" rel="noopener" aria-label="Agendar minha análise estratégica pelo WhatsApp" hidden>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.6a8.4 8.4 0 0 1-12.4 7.4L3.5 20.5l1.5-4.4a8.4 8.4 0 1 1 15.5-4.5z"/><path d="M9 9.2c.2 1.9 2 4 4.1 4.6l1-1 1.6.8-.4 1.3c-2.9.3-6.4-3-6.3-5.9l1.3-.4.8 1.6z" stroke-width="1.3"/></svg>
+    <span>Agendar análise</span>
+  </a>
+
+  <script src="flow.js" defer></script>
+  <script src="vsl.js" defer></script>
+  <script src="diagnostico.js" defer></script>
+</body>
+</html>

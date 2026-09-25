@@ -1,0 +1,124 @@
+/* Diagnóstico v2 (11 páginas da Vitória). Carregado só em diagnostico.html, depois do styles.css. */
+/* ============================================================
+   DIAGNÓSTICO v2 (11 "páginas" da Vitória)
+   ============================================================ */
+.dg { display: grid; gap: 18px; margin: 8px 0 44px; }
+.dg-page {
+  position: relative; padding: 36px 30px 32px; border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--surface), var(--surface-2) 130%);
+  border: 1px solid var(--border); box-shadow: var(--shadow);
+}
+.dg-page::before {
+  content: ""; position: absolute; left: 30px; right: 30px; top: -1px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.dg-page h1 { font-size: 27px; line-height: 1.22; letter-spacing: .01em; margin: 0 0 18px; }
+.dg-page h2 { font-size: 24px; line-height: 1.25; letter-spacing: .01em; margin: 0 0 18px; }
+.dg-page p { margin: 0 0 12px; color: var(--text); }
+.dg-page .eyebrow { margin-bottom: 10px; color: var(--gold); }
+.dg-capa {
+  text-align: center; padding: 56px 28px 48px;
+  background:
+    radial-gradient(520px 260px at 50% 0%, rgba(197,160,89,.16), transparent 70%),
+    linear-gradient(180deg, var(--surface), var(--surface-2) 130%);
+}
+.dg-capa .lead { color: var(--muted); font-size: 17px; line-height: 1.65; max-width: 520px; margin: 0 auto 22px; }
+.dg-selo { display: inline-flex; align-items: center; gap: 8px; letter-spacing: .08em; }
+.dg-selo .ico, .dg-tempo .ico { width: 16px; height: 16px; flex: none; }
+.dg-tempo { display: inline-flex; align-items: center; gap: 8px; margin: 0 !important; font-size: 12px; font-weight: 700; letter-spacing: .16em; color: var(--gold) !important; }
+.dg-carta p { font-size: 16.5px; line-height: 1.75; }
+.dg-ola { font-family: var(--font-serif); font-size: 24px; font-weight: 700; color: var(--gold-light) !important; margin-bottom: 16px !important; }
+.dg-assina { display: flex; flex-direction: column; gap: 2px; margin-top: 22px !important; padding-top: 16px; border-top: 1px solid var(--border); }
+.dg-assina strong { font-family: var(--font-serif); font-size: 18px; color: var(--gold-light); }
+.dg-assina span { font-size: 13.5px; color: var(--muted); }
+.dg-item { display: grid; grid-template-columns: 44px 1fr; gap: 12px; padding: 16px 0; border-top: 1px solid var(--border); }
+.dg-item:first-of-type { margin-top: 8px; }
+.dg-n { font-family: var(--font-serif); font-size: 26px; font-weight: 700; line-height: 1; color: var(--gold); }
+.dg-item h3 { margin: 2px 0 6px; font-size: 16.5px; line-height: 1.35; color: var(--text); }
+.dg-item p { margin: 0; font-size: 15px; line-height: 1.65; color: var(--muted); }
+.dg-quote {
+  margin: 18px 0 0; padding: 14px 0 14px 18px; border-left: 2px solid var(--gold);
+  font-family: var(--font-serif); font-style: italic; font-size: 20px; line-height: 1.4; color: var(--gold-light);
+}
+.dg-list { list-style: none; margin: 6px 0 14px; padding: 0; display: grid; gap: 12px; }
+.dg-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 15.5px; line-height: 1.55; }
+.dg-list .ico { width: 20px; height: 20px; flex: none; margin-top: 2px; padding: 3px; border-radius: 50%; }
+.dg-check .ico { color: var(--action-text); background: var(--gold); stroke-width: 2.4; }
+.dg-x .ico { color: var(--muted); border: 1px solid var(--border); stroke-width: 2; }
+.dg-x li { color: var(--muted); }
+.dg-list strong { color: var(--gold-light); }
+.dg-nao { margin: 24px 0 10px; font-size: 14px; letter-spacing: .1em; color: var(--muted); }
+.dg-nota { margin-top: 16px !important; padding: 12px 14px; border-radius: var(--radius-sm); background: var(--gold-soft); border: 1px solid var(--border); font-size: 14.5px; color: var(--gold-light) !important; }
+.dg-foto { display: block; width: 100%; max-width: 260px; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 12%; margin: 4px auto 18px; border-radius: var(--radius); border: 1px solid var(--border); }
+.dg-prints { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: start; margin: 4px 0 16px; }
+.dg-prints .depo-img { margin: 0; }
+.dg-prints img { width: 100%; height: auto; }
+.dg-opcoes { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 4px 0 20px; }
+.dg-opcoes .col { position: relative; border-radius: var(--radius-sm); padding: 18px 16px 8px; border: 1px solid var(--border); }
+.dg-opcoes .bad { background: rgba(255,255,255,.015); }
+.dg-opcoes .good { background: var(--gold-soft); border-color: rgba(197,160,89,.5); box-shadow: 0 0 0 1px rgba(197,160,89,.25) inset; }
+.dg-opcoes h4 { margin: 0 0 12px; font-size: 15px; line-height: 1.35; }
+.dg-opcoes .bad h4 { color: var(--muted); }
+.dg-opcoes .good h4 { color: var(--gold-light); }
+.dg-opcoes .dg-list li { font-size: 14.5px; }
+.dg-reco { position: absolute; top: -10px; right: 12px; font-size: 10.5px; font-weight: 800; letter-spacing: .14em; color: var(--action-text); background: var(--gold); padding: 3px 10px; border-radius: 99px; }
+.dg-cta { gap: 10px; }
+.dg-cta .ico { width: 18px; height: 18px; }
+.dg-copy { text-align: center; margin: 18px 0 0 !important; font-size: 12.5px; color: var(--muted) !important; }
+a.btn { text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+@media (max-width: 560px) {
+  .dg-page { padding: 28px 20px 24px; }
+  .dg-page::before { left: 20px; right: 20px; }
+  .dg-page h1 { font-size: 22px; }
+  .dg-page h2 { font-size: 20px; }
+  .dg-capa { padding: 42px 20px 36px; }
+  .dg-selo { font-size: 11px; letter-spacing: .03em; padding: 7px 12px; }
+  .dg-capa .lead { font-size: 15.5px; }
+  .dg-opcoes { grid-template-columns: 1fr; gap: 18px; }
+  .dg-item { grid-template-columns: 36px 1fr; }
+  .dg-quote { font-size: 18px; }
+}
+
+/* ---------- impressão (Baixar PDF): mantém o visual escuro, 1 seção por página ---------- */
+@media print {
+  @page { margin: 0; size: A4; }
+  html, body { background: var(--bg) !important; color: var(--text) !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .dg-page h1, .dg-page h2 { color: var(--text) !important; -webkit-text-fill-color: var(--text) !important; }
+  .dg-page .eyebrow { color: var(--gold) !important; -webkit-text-fill-color: var(--gold) !important; }
+  .no-print, .topbar, .foot { display: none !important; }
+  .container { max-width: none; padding: 0; }
+  .dg { display: block; margin: 0; }
+  .dg-page { break-after: page; break-inside: avoid; min-height: 100vh; margin: 0; border-radius: 0; border: none; box-shadow: none; padding: 18mm 16mm; display: flex; flex-direction: column; justify-content: center; }
+  .dg-page:last-child { break-after: auto; }
+  .dg-capa { align-items: center; }
+  .dg-page::before { display: none; }
+  .dg-prints .depo-img { max-width: 62mm; }
+  .dg-foto { max-width: 55mm; }
+}
+
+
+/* VSL no topo do diagnóstico */
+.vsl-sec { margin: 8px 0 18px; }
+.vsl-sec[hidden] { display: none; }
+
+/* Botões de WhatsApp no meio do diagnóstico */
+.dg-cta-meio { margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--border); display: flex; justify-content: center; }
+.dg-cta-meio .btn { width: 100%; max-width: 420px; }
+
+/* Botão flutuante (aparece depois da capa, some quando outro botão está na tela) */
+.wa-flutuante {
+  position: fixed; right: 18px; bottom: calc(18px + env(safe-area-inset-bottom)); z-index: 50;
+  display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px 12px 14px;
+  border-radius: 999px; background: var(--action); color: var(--action-text); text-decoration: none;
+  font-weight: 700; font-size: 14.5px; box-shadow: 0 10px 30px rgba(0,0,0,.5), 0 0 0 6px rgba(197,160,89,.14);
+  opacity: 0; transform: translateY(16px) scale(.96); pointer-events: none; transition: opacity .3s ease, transform .3s ease;
+}
+.wa-flutuante[hidden] { display: none; }
+.wa-flutuante.on { opacity: 1; transform: none; pointer-events: auto; }
+.wa-flutuante:hover { background: var(--action-700); }
+.wa-flutuante svg { width: 24px; height: 24px; flex: none; }
+@media (max-width: 640px) {
+  .wa-flutuante { right: 14px; bottom: calc(14px + env(safe-area-inset-bottom)); padding: 14px; }
+  .wa-flutuante span { display: none; }
+  .wa-flutuante svg { width: 26px; height: 26px; }
+}
