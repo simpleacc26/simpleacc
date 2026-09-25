@@ -41,8 +41,8 @@ function enviarLead() {
   const lead = {
     data: new Date().toISOString(),
     nome: a.nomeResp || "", whatsapp: a.whatsapp || "", email: a.email || "",
-    momento: label("momento"), estrutura: label("estrutura"), desafio: label("desafio"),
-    ticket: label("ticket"), urgencia: label("urgencia"), faturamento: label("faturamento"),
+    segmento: label("segmento"), desafio: label("desafio"), momento: label("momento"),
+    estrutura: label("estrutura"), faturamento: label("faturamento"), urgencia: label("urgencia"),
     quer_analise: label("quer-analise"),
     balde: F.getBalde(a), camada: F.getCamada(a),
     frente: "Quiz Magna", origem: location.href, referrer: document.referrer,

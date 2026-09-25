@@ -35,8 +35,8 @@ var FRENTES = {
   "Quiz Magna": {
     aba: "Genérico",
     colunas: BASE_INICIO.concat([
-      ["Momento", "momento"], ["Estrutura", "estrutura"], ["Maior desafio", "desafio"],
-      ["Ticket médio", "ticket"], ["Urgência", "urgencia"], ["Faturamento", "faturamento"],
+      ["Segmento", "segmento"], ["Maior desafio", "desafio"], ["Momento", "momento"],
+      ["Estrutura", "estrutura"], ["Faturamento", "faturamento"], ["Urgência", "urgencia"],
       ["Quer análise?", "quer_analise"]
     ], BASE_FIM)
   },
@@ -121,10 +121,11 @@ function _teste() {
     faturamento: "Entre 40 e 70 mil", quer_analise: "Sim, quero que um especialista na área da saúde me traga o caminho para atrair pacientes com previsibilidade.",
     balde: "Sem Previsibilidade", camada: "A", origem: "teste", utm_source: "teste" });
   gravar({ frente: "Quiz Magna", nome: "Teste Genérico", whatsapp: "(33) 99999-9999", email: "teste@email.com",
-    momento: "Já vendo com consistência no digital, mas preciso escalar o negócio.",
-    estrutura: "Tenho uma estrutura completa (equipe de marketing e equipe comercial).",
-    desafio: "Ter previsibilidade de faturamento e estratégia para crescer.", ticket: "Entre R$3.000 e R$10.000",
+    segmento: "Consultoria, mentoria ou educação", desafio: "Ter previsibilidade de faturamento e estratégia para crescer.",
+    momento: "Já vendo com consistência no digital, mas preciso escalar meu negócio.",
+    estrutura: "Tenho uma estrutura completa (equipe de marketing e equipe comercial)",
+    faturamento: "Entre 40 e 70 mil",
     urgencia: "Quero viabilizar o investimento em uma solução definitiva se fizer sentido para o meu crescimento.",
-    faturamento: "Entre 40 e 70 mil", quer_analise: "Sim, quero que um especialista em vender high ticket me traga o caminho para atrair clientes com previsibilidade.",
+    quer_analise: "Sim, quero que um especialista em high ticket me traga o caminho para atrair clientes com previsibilidade.",
     balde: "Sem Previsibilidade", camada: "A", origem: "teste", utm_source: "teste" });
 }
