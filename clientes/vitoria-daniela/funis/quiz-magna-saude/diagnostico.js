@@ -218,12 +218,10 @@ if (!temRespostas) {
   secoes.push({ titulo: "O que diz uma cliente da Magna", html: `
     <div class="depo-img"><img src="assets/depoimento-sessao.jpg" width="607" height="879" alt="Mensagens de cliente no WhatsApp: depois da primeira sessão clareou o que a travava e fechou dois contratos de R$5 mil só ajustando o posicionamento; agradece por mostrar um caminho sem se expor ao ridículo nem queimar dinheiro" loading="lazy" decoding="async"></div>` });
 
-  const hoje = new Date().toLocaleDateString("pt-BR");
   report.innerHTML = `
     <div class="report-head">
       <span class="selo">${icon("diamante")}Diagnóstico personalizado da sua clínica</span>
       <h1>${nome ? `${nome}, seu` : "Seu"} diagnóstico está pronto</h1>
-      <p class="hint">Elaborado com base nas suas respostas <span class="nowrap">· ${hoje}</span></p>
       <div class="balde"><span class="balde-k">Ponto de maior atenção</span><span class="balde-tag"><span class="dot" aria-hidden="true"></span>${d.tag}</span></div>
     </div>
     ${secoes.map((s, idx) => `

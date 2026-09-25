@@ -275,7 +275,7 @@ function renderAnalisando() {
   const iconEl = screen.querySelector("#an-icon");
   const items = [...screen.querySelectorAll("#an-checklist li")];
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const DURATION = reduce ? 200 : 5000;
+  const DURATION = 5000; /* 5s sempre, mesmo com "reduzir movimento" ligado */
   const start = performance.now();
   let lastFraseIdx = 0;
 

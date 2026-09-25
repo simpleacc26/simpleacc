@@ -396,7 +396,7 @@ function renderAnalisando() {
   const items = [...screen.querySelectorAll("#an-checklist li")];
   fraseEl.textContent = etapas[0].frase;
   live.textContent = "Analisando suas respostas e gerando o seu diagnóstico.";
-  const DURATION = REDUCE ? 400 : 5000;
+  const DURATION = 5000; /* 5s sempre, mesmo com "reduzir movimento" ligado */
   const start = performance.now();
   let lastIdx = 0;
 
@@ -409,8 +409,7 @@ function renderAnalisando() {
 
   function tick(now) {
     const t = Math.min(1, Math.max(0, (now - start) / DURATION));
-    const eased = 1 - Math.pow(1 - t, 1.35);
-    const pct = Math.min(100, Math.round(eased * 100));
+    const pct = Math.min(100, Math.round(t * 100));
     bar.style.width = pct + "%";
     pctEl.textContent = pct;
     track.setAttribute("aria-valuenow", String(pct));
@@ -439,7 +438,7 @@ function renderAnalisando() {
         `<i style="--a:${Math.round((360 / 14) * k)}deg;--d:${80 + (k % 3) * 12}px;--s:${0.8 + (k % 4) * 0.15}"></i>`).join("");
     }
     vibrar([12, 40, 18]);
-    setTimeout(() => { window.location.replace(urlDiagnostico()); }, REDUCE ? 300 : 1400);
+    setTimeout(() => { window.location.replace(urlDiagnostico()); }, 1400);
   }
   requestAnimationFrame(tick);
 }

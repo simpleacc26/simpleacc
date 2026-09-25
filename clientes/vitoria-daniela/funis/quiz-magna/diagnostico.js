@@ -82,7 +82,6 @@ if (!a._completedAt) {
     <div class="report-head">
       <span class="selo">Diagnóstico personalizado</span>
       <h1>${nome ? nome + ", seu" : "Seu"} diagnóstico está pronto</h1>
-      <p class="hint">Elaborado com base nas suas respostas · ${new Date().toLocaleDateString("pt-BR")}</p>
       <span class="balde-tag">${d.titulo}</span>
     </div>
 
